@@ -10,7 +10,7 @@ module NetWork {
 		private _connectFlag: boolean;
 		private _host: string;
 		private _port: any;
-		private _socket: egret.WebSocket;
+		private _socket: Laya.Socket;
 		private _msg: BaseMsg;
 		private _isConnecting: boolean;
 		public waitSignal: boolean = false;
@@ -27,26 +27,27 @@ module NetWork {
 		 * 添加事件监听
 		 */
 		private addEvents() {
-			this._socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
-			this._socket.addEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
-			this._socket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
-			this._socket.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
+			this._socket.on(Laya.Event.OPEN, this, this.onSocketOpen);
+			this._socket.on(Laya.Event.MESSAGE, this, this.onReceiveMessage);
+			this._socket.on(Laya.Event.CLOSE, this, this.onSocketClose);
+			this._socket.on(Laya.Event.ERROR, this, this.onSocketError);
+			
 		}
 
 		/**
 		 * 移除事件监听
 		 */
 		private removeEvents(): void {
-			this._socket.removeEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
-			this._socket.removeEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
-			this._socket.removeEventListener(egret.Event.CLOSE, this.onSocketClose, this);
-			this._socket.removeEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
+			this._socket.off(Laya.Event.OPEN, this, this.onSocketOpen);
+			this._socket.off(Laya.Event.MESSAGE, this, this.onReceiveMessage);
+			this._socket.off(Laya.Event.CLOSE, this, this.onSocketClose);
+			this._socket.off(Laya.Event.ERROR, this, this.onSocketError);
 		}
 
 		/**
 		 * 服务器连接成功
 		 */
-		private onSocketOpen(): void {
+		private onSocketOpen(e:Object = null): void {
 			this._reconnectCount = 0;
 			this._isConnecting = true;
 
@@ -64,7 +65,7 @@ module NetWork {
 		/**
 		 * 服务器断开连接
 		 */
-		private onSocketClose(): void {
+		private onSocketClose(e:Object = null): void {
 			this._isConnecting = false;
 			App.GameEngine.isLogin = false;
 			if (this._needReconnect) {
@@ -78,7 +79,7 @@ module NetWork {
 		/**
 		 * 服务器连接错误
 		 */
-		private onSocketError(): void {
+		private onSocketError(e:Object = null): void {
 			if (this._needReconnect) {
 				this.reconnect();
 			} else {
@@ -91,7 +92,7 @@ module NetWork {
 		 * 收到服务器消息
 		 * @param e
 		 */
-		private onReceiveMessage(e: egret.Event): void {
+		private onReceiveMessage(e:Object = null): void {
 			this._msg.receive(this._socket);
 		}
 
@@ -136,9 +137,9 @@ module NetWork {
 					return;
 				}
 			}
-			this._socket = new egret.WebSocket();
+			this._socket = new Laya.Socket();
 			if (this._msg instanceof ByteArrayMsg) {
-				this._socket.type = egret.WebSocket.TYPE_BINARY;
+				//this._socket.type = Laya.Socket.prototype;
 			}
 			Log.trace("WebSocket: " + this._host + ":" + this._port);
 			this.addEvents();
@@ -226,7 +227,7 @@ module NetWork {
 			signal.clear();
 			signal = null;
 			this.waitSignal = true;
-			this.waitTime = egret.getTimer() + 5;
+			this.waitTime = new Date().getTime() + 5;
 		}
 	}
 

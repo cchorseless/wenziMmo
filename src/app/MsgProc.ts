@@ -113,7 +113,7 @@ class MsgProc {
         login.setValue("dwZoneid", 1001);
         login.setValue("dwTrueZoneid", 1);
         var crc32: number = FunctionUtils.passwordCrc32("1");
-        //var cyptoPasswd:egret.ByteArray = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
+        //var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
         login.setValue('szPassMd5', 1);
         login.setValue('dwPassCrc32', crc32);
         login.setValue('isSaveEncodePass', false);
@@ -216,10 +216,10 @@ class MsgProc {
 
     public updateToken(data: any): void {
         let msgData = new UpdateToken(data);
-        let tmp: egret.ByteArray = msgData.getValue('logintoken');
+        let tmp: Laya.Byte = msgData.getValue('logintoken');
         App.GameEngine.logintoken.length = tmp.length;
         tmp.readBytes(App.GameEngine.logintoken, 0, tmp.length);
-        App.GameEngine.logintoken.position = 0;
+        App.GameEngine.logintoken.pos = 0;
         App.GameEngine.tokenCheck = msgData.getValue('tokencheck');
 
         msgData.clear();
@@ -656,7 +656,7 @@ class MsgProc {
     }
 
     //0x0301
-    public cretDeleteItem(data: egret.ByteArray) {
+    public cretDeleteItem(data: Laya.Byte) {
         let msg = new CretDeleteItem(data);
 
         let i64Id = msg.getValue('i64Id');
@@ -676,7 +676,7 @@ class MsgProc {
         msg = null;
     }
     //0x0302
-    public cretUpdateItem(data: egret.ByteArray) {
+    public cretUpdateItem(data: Laya.Byte) {
         let msg = new CretUpdateItem(data);
         let typepos = msg.getValue('btPosition');
         if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {

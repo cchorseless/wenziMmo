@@ -4,7 +4,7 @@
 class PlayerChangeMap extends Packet {
     public static msgID: number = 0x0201;
     public location: CretLocation = new CretLocation();
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('location', PacketBase.TYPE_BYTES, this.location.size(), this.location);
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
@@ -36,7 +36,7 @@ class MapCreateCret extends Packet {
     public location: CretLocation = new CretLocation();
     public feature: AnimalFeature = new AnimalFeature();
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('location', PacketBase.TYPE_BYTES, this.location.size(), this.location);
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
@@ -67,7 +67,7 @@ class MapCreateCret extends Packet {
 class MapRemoveCret extends Packet {
     public static msgID: number = 0x0203;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
         this.addProperty('removetype', PacketBase.TYPE_BYTE);
@@ -81,7 +81,7 @@ class MapCreatePlayer extends Packet {
     public static msgID: number = 0x0206;
     public location: CretLocation = new CretLocation();
     public feature: PlayerFeature = new PlayerFeature();
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('location', PacketBase.TYPE_BYTES, this.location.size(), this.location);
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
@@ -121,7 +121,7 @@ class StateReady extends Packet {
 //0x020A
 class ChangeGameSvrCmd extends Packet {
     public static msgID: number = 0x020A;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('ip', PacketBase.TYPE_BYTES, 4);// in_addr ip;
         this.addProperty('port', PacketBase.TYPE_WORD);
@@ -159,7 +159,7 @@ class CretMoveRet extends Packet {
 
     public static msgID: number = 0x021F;
     public location: CretLocation = new CretLocation;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('location', PacketBase.TYPE_BYTES, this.location.size(), this.location);// stCretLocation 8  人物在地图的准确位置  
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);// DWORD  4  人物在游戏服务器唯一的临时ID  
@@ -179,7 +179,7 @@ class CretMoveRet extends Packet {
 
 class CretAfterSpaceMove extends Packet {
     public static msgID: number = 0x0221;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTmpId', PacketBase.TYPE_DWORD);// 玩家ID 
         this.addProperty('spacemovetype', PacketBase.TYPE_BYTE);// 飞的类型 
@@ -192,7 +192,7 @@ class CretAfterSpaceMove extends Packet {
 
 class UpdatePlayerInfo extends Packet {
     public static msgID: number = 0x022a;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
 
         this.addProperty("btGmLv", PacketBase.TYPE_BYTE);
@@ -223,7 +223,7 @@ class CretAttack extends Packet {
 
 class CretAttackRet extends Packet {
     public static msgID: number = 0x0233;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTempId', PacketBase.TYPE_INT);
         this.addProperty('nX', PacketBase.TYPE_WORD);
@@ -241,7 +241,7 @@ class CretAttackRet extends Packet {
 
 class CretHealthChange extends Packet {
     public static msgID: number = 0x0234;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwtempid', PacketBase.TYPE_INT);//  4  临时ID  
         this.addProperty('nNowHP', PacketBase.TYPE_INT);//int  4  当前血  
@@ -258,7 +258,7 @@ class CretHealthChange extends Packet {
 class CretGoldChange extends Packet {
     public static msgID: number = 0x0236;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('nGold', PacketBase.TYPE_INT);
         this.addProperty('nChanged', PacketBase.TYPE_INT);
@@ -269,7 +269,7 @@ class CretGoldChange extends Packet {
 
 class CretExpChange extends Packet {
     public static msgID: number = 0x0237;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('i64Exp', PacketBase.TYPE_INT64);// 8 当前经验 
         this.addProperty('dwAdd', PacketBase.TYPE_INT64);// 8 增加的经验 
@@ -280,7 +280,7 @@ class CretExpChange extends Packet {
 
 class CretLevelUp extends Packet {
     public static msgID: number = 0x0238;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTempId', PacketBase.TYPE_DWORD);//升级对象的临时ID 
         this.addProperty('i64LeftExp', PacketBase.TYPE_INT64);// 升级后剩下的经验 
@@ -295,7 +295,7 @@ class CretLevelUp extends Packet {
 class CretChat extends Packet {
     public static msgID: number = 0x0239;
     public chatMsg: string = "";
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwZoneid', PacketBase.TYPE_DWORD);
         this.addProperty('btChatType', PacketBase.TYPE_BYTE);//btChatType BYTE  1  聊天类型，如下  
@@ -324,9 +324,9 @@ class CretChat extends Packet {
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         if (data) {
-            data.position += super.read(data);
+            data.pos += super.read(data);
             var nSize: number = this.getValue('nSize');
             this.chatMsg = data.readUTFBytes(nSize);
             return data.length
@@ -335,10 +335,10 @@ class CretChat extends Packet {
     }
 
     public setString(s: string): void {
-        // var bytes: egret.ByteArray = new egret.ByteArray();
+        // var bytes: Laya.Byte = new Laya.Byte();
         // bytes.endian = egret.Endian.LITTLE_ENDIAN;
         App.GameEngine.packetBytes.clear();
-        App.GameEngine.packetBytes.position = 0;
+        App.GameEngine.packetBytes.pos = 0;
         App.GameEngine.packetBytes.writeUTFBytes(s);
         this.addProperty('str', Packet.TYPE_STRING, App.GameEngine.packetBytes.length + 1);
         this.setValue('nSize', App.GameEngine.packetBytes.length + 1);
@@ -350,7 +350,7 @@ class CretChat extends Packet {
 class CretAbility extends Packet {
     public static msgID: number = 0x023B;
     public ability: ArpgAbility = new ArpgAbility;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTempId', PacketBase.TYPE_INT);
         this.addProperty('ability', PacketBase.TYPE_BYTES, this.ability.size(), this.ability);
@@ -363,7 +363,7 @@ class CretAbility extends Packet {
 class CretCharBase extends Packet {
     public static msgID: number = 0x0240;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwLevel', PacketBase.TYPE_INT);		//当前等级
         this.addProperty('i64NowExp', PacketBase.TYPE_INT64);	//当前经验
@@ -400,7 +400,7 @@ class CretCharBase extends Packet {
 //0x0246
 class CretLifestateChange extends Packet {
     public static msgID: number = 0x0246;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTempID', PacketBase.TYPE_INT);
         this.addProperty('change_type', PacketBase.TYPE_BYTE);
@@ -425,7 +425,7 @@ class CretGetUseItem extends Packet {
 //0x0315 03-21
 class CretGetUseItemRet extends Packet {
     public static msgID: number = 0x0315;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
         this.addProperty('i64id', PacketBase.TYPE_INT64);
@@ -437,7 +437,7 @@ class CretGetUseItemRet extends Packet {
 class TipMsg extends Packet {
     public static msgID: number = 0x0288;
     public tipmsg: string = "";
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty("posx", PacketBase.TYPE_INT);
         this.addProperty("posy", PacketBase.TYPE_INT);
@@ -445,9 +445,9 @@ class TipMsg extends Packet {
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         if (data) {
-            data.position += super.read(data);
+            data.pos += super.read(data);
             var nSize: number = this.getValue('nSize');
             this.tipmsg = data.readUTFBytes(nSize);
             return data.length
@@ -459,7 +459,7 @@ class TipMsg extends Packet {
 //0x0297
 class CretStruck extends Packet {
     public static msgID: number = 0x0297;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
 
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
@@ -479,7 +479,7 @@ class CretStruck extends Packet {
 //0x029D - 02-157
 class MapItemEventDel extends Packet {
     public static msgID: number = 0x029D;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
         this.addProperty('wX', PacketBase.TYPE_WORD); //坐标
@@ -491,7 +491,7 @@ class MapItemEventDel extends Packet {
 //0x02A0 02-160
 class MapItemEventPick extends Packet {
     public static msgID: number = 0x02A0;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
@@ -509,7 +509,7 @@ class MapItemEventPick extends Packet {
 //0x02B8 - 02-184
 class MapItemEventAdd extends Packet {
     public static msgID: number = 0x02B8;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('wX', PacketBase.TYPE_WORD); //坐标
         this.addProperty('wY', PacketBase.TYPE_WORD);
@@ -528,15 +528,15 @@ class MapItemEventAdd extends Packet {
 class QuestScriptData extends Packet {
     public static msgID: number = 0x0919;
     public str: string;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwDataType', PacketBase.TYPE_DWORD);// NPC临时ID 
         this.addProperty('nCount', PacketBase.TYPE_INT);
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
-        data.position += super.read(data);
+    public read(data: Laya.Byte): number {
+        data.pos += super.read(data);
         let nCount = this.getValue('nCount');
         this.str = data.readUTFBytes(nCount);
         return data.length;
@@ -559,7 +559,7 @@ class QuestClientData extends Packet {
 
     public setString(s: string): void {
         App.GameEngine.packetBytes.clear();
-        App.GameEngine.packetBytes.position = 0;
+        App.GameEngine.packetBytes.pos = 0;
         App.GameEngine.packetBytes.writeUTFBytes(s);
         this.addProperty('str', Packet.TYPE_STRING, App.GameEngine.packetBytes.length + 1);
         this.setValue('nSize', App.GameEngine.packetBytes.length + 1);
@@ -571,7 +571,7 @@ class QuestClientData extends Packet {
 class CretDeleteItem extends Packet {
     public static msgID: number = 0x0301;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btPosition', PacketBase.TYPE_BYTE);
         this.addProperty('i64Id', PacketBase.TYPE_INT64);
@@ -583,7 +583,7 @@ class CretDeleteItem extends Packet {
 class CretUpdateItem extends Packet {
     public static msgID: number = 0x0302;
     public item: ItemBase = new ItemBase(null);
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btPosition', PacketBase.TYPE_BYTE);
         this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
@@ -597,7 +597,7 @@ class CretItems extends Packet {
     public count: number;
     public pos: number;
     public items: Array<ItemBase> = new Array<ItemBase>();
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
 
         this.addProperty('btType', PacketBase.TYPE_BYTE);	//控制前端是否清除包裹重新添加
@@ -609,8 +609,8 @@ class CretItems extends Packet {
         if (data) this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
-        data.position = super.read(data);
+    public read(data: Laya.Byte): number {
+        data.pos = super.read(data);
         this.count = this.getValue('nCount');
         this.pos = this.getValue('btPosition');
 
@@ -636,7 +636,7 @@ class CretProcessingItem extends Packet {
     public static msgID: number = 0x0307;
     public srcitemlocation = new ItemLocation;
     public destitemlocation = new ItemLocation;
-    public constructor(data: egret.ByteArray = null) {
+    public constructor(data: Laya.Byte = null) {
         super();
         this.addProperty('nErrorCode', PacketBase.TYPE_INT);
         this.addProperty('dwtmpid', PacketBase.TYPE_DWORD);		//当前操作昵称ID(=0自己 !=0宠物或则自己)
@@ -674,7 +674,7 @@ class CretProcessingItem extends Packet {
 class CretItemCountChanged extends Packet {
     public static msgID: number = 0x030A;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btPosition', PacketBase.TYPE_BYTE);
         this.addProperty('itemid', PacketBase.TYPE_INT64);
@@ -687,7 +687,7 @@ class CretItemCountChanged extends Packet {
 class CretForsakeItem extends Packet {
     public static msgID: number = 0x033D
 
-    public constructor(data: egret.ByteArray = null) {
+    public constructor(data: Laya.Byte = null) {
         super();
         this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
         this.addProperty('i64id', PacketBase.TYPE_INT64);

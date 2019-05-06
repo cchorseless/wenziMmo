@@ -1,7 +1,7 @@
 
 class GameEngine extends BaseClass {
 
-    public packetBytes: egret.ByteArray;
+    public packetBytes: Laya.Byte;
 
     public mainPlayer: Player;
 
@@ -14,7 +14,7 @@ class GameEngine extends BaseClass {
     public loginsvrIdType: number;
     public gamesvrIdType: number;
     public tokenCheck: number;
-    public logintoken: egret.ByteArray;
+    public logintoken: Laya.Byte;
 
     public trueZoneid: number = 1;
     public zoneid: number = 1001;
@@ -27,10 +27,10 @@ class GameEngine extends BaseClass {
 
     public constructor() {
         super();
-        this.packetBytes = new egret.ByteArray();
-        this.packetBytes.endian = egret.Endian.LITTLE_ENDIAN;
+        this.packetBytes = new Laya.Byte();
+        this.packetBytes.endian = laya.Endian.LITTLE_ENDIAN;
 
-        this.logintoken = new egret.ByteArray();
+        this.logintoken = new Laya.Byte();
         this.logintoken.endian = egret.Endian.LITTLE_ENDIAN;
         this.mainPlayer = new Player();
     }

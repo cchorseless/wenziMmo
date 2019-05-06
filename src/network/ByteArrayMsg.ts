@@ -1,13 +1,12 @@
 /**
  * Created by yangsong on 15-2-11.
  */
-class ByteArrayMsg extends Laya.Byte {
-
+class ByteArrayMsg implements BaseMsg {
+    private _msgBuffer:Laya.Byte;
     /**
      * 构造函数
      */
     public constructor() {
-        super();
     }
 
     /**
@@ -46,7 +45,7 @@ class ByteArrayMsg extends Laya.Byte {
         let msgID = Packet.ReadPackCmd(msg, 'recv')
         let bytes: Laya.Byte = new Laya.Byte();
         bytes.endian = Laya.Byte.LITTLE_ENDIAN;
-        msg.readBytes(bytes, 0, msg.length);
+        msg.writeArrayBuffer(bytes, 0, msg.length);
         var obj: any = {};
         obj.msgID = msgID;
         obj.data = bytes;

@@ -199,10 +199,10 @@ class CfgMonsterDB {
 }
 
 class Int64 {
-    private _bytes: egret.ByteArray;
+    private _bytes: Laya.Byte;
     private _id: string = "";
     public constructor(data: any) {
-        this._bytes = new egret.ByteArray;
+        this._bytes = new Laya.Byte;
         this._bytes.endian = egret.Endian.LITTLE_ENDIAN;
         data.readBytes(this._bytes, 0, 8);
         this._id = this.int64ToStr();
@@ -211,11 +211,11 @@ class Int64 {
     public byteStr(): string {
         let str: string = "";
         str = this._bytes.readUTFBytes(this._bytes.length);
-        this._bytes.position = 0;
+        this._bytes.pos = 0;
         return str;
     }
 
-    public get data(): egret.ByteArray {
+    public get data(): Laya.Byte {
         return this._bytes;
     }
 
@@ -230,7 +230,7 @@ class Int64 {
     public int64ToStr(): string {
         let h = this._bytes.readInt();
         let l = this._bytes.readInt();
-        this._bytes.position = 0;
+        this._bytes.pos = 0;
         return h + '_' + l;
     }
 
@@ -246,7 +246,7 @@ class Int64 {
             num = 18446744073709551616 - num + 1;
             num = -num;
         }
-        this._bytes.position = 0;
+        this._bytes.pos = 0;
         return num;
     }
 }
@@ -276,7 +276,7 @@ class CretFeature extends PacketBase {
         this.addProperty('n_bo_AllFeature', PacketBase.TYPE_DWORD);                  //外观 位状态信息
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         let pos: number = super.read(data);
         this.feature.read(this.getValue('feature'));
         return pos;
@@ -311,7 +311,7 @@ class SelectPlayerInfo extends PacketBase {
 
     public feature: SimpleFeature = new SimpleFeature;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
         this.addProperty('nlevel', PacketBase.TYPE_INT);
@@ -330,12 +330,12 @@ class SelectPlayerInfo extends PacketBase {
         this.addProperty("playerBanTime", PacketBase.TYPE_INT);//封号时间
         this.addProperty('lastloginip', PacketBase.TYPE_BYTES, 4);
         if (data) {
-            data.position += this.read(data);
+            data.pos += this.read(data);
         }
     }
 
-    public read(data: egret.ByteArray) {
-        data.position += super.read(data);
+    public read(data: Laya.Byte) {
+        data.pos += super.read(data);
         return this._bytes.length;
     }
 
@@ -454,15 +454,15 @@ class ItemBase extends PacketBase {
     public dwExpireTime: number;					//4物品到期时间(秒)
     public btNpPropertyCount: number;				//1极品属性条目数--55
     public stNpProperty: Array<Nonpareil>;          //60属性
-    public ExtensionProperty: egret.ByteArray;		//预留10字节，做扩充
+    public ExtensionProperty: Laya.Byte;		//预留10字节，做扩充
 
     public defaultName: string;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
 
         this.location = new ItemLocation;
         this.stNpProperty = new Array<Nonpareil>();
-        this.ExtensionProperty = new egret.ByteArray;
+        this.ExtensionProperty = new Laya.Byte;
         this.ExtensionProperty.endian = egret.Endian.LITTLE_ENDIAN;
 
 
@@ -488,11 +488,11 @@ class ItemBase extends PacketBase {
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         if (data) {
-            data.position += super.read(data);
+            data.pos += super.read(data);
             this.readProperty();
-            return data.position;
+            return data.pos;
         }
         return 0;
     }
@@ -522,7 +522,7 @@ class ItemBase extends PacketBase {
         this.stNpProperty.length = 0;
 
         if (this.btNpPropertyCount > 0) {
-            let npdata: egret.ByteArray = new egret.ByteArray();;
+            let npdata: Laya.Byte = new Laya.Byte();;
             npdata.endian = egret.Endian.LITTLE_ENDIAN;
             npdata = this.getValue('UnionData');
             for (let j = 0; j < this.btNpPropertyCount; ++j) {
