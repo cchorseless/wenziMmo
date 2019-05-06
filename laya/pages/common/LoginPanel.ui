@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":38,
-    "selecteID":38,
+    "selectedBox":21,
+    "selecteID":41,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -31,51 +31,28 @@
             "props":{"top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"ViewStack",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":37,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
-                    "props":{"y":756,"x":125,"var":"box_login","name":"item0"},
+                    "props":{"y":666,"x":126,"var":"box_login","name":"item0"},
                     "nodeParent":37,
                     "label":"Box(box_login)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
-                            "type":"Image",
-                            "props":{"y":227,"x":97,"width":210,"var":"btn_Login","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
-                            "nodeParent":21,
-                            "label":"Image(btn_Login)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":18,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"width":296,"valign":"middle","top":0,"text":"登陆","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
-                                    "nodeParent":18,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":19,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"x":1,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"image/common/stage_map_25.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":0,"x":0,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_account)",
                             "isDirectory":false,
@@ -86,8 +63,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":115,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"image/common/stage_map_25.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":115,"x":0,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_passworld)",
                             "isDirectory":false,
@@ -96,10 +74,24 @@
                             "compId":12,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":235,"x":81,"var":"btn_Login","stateNum":"2","skin":"buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
+                            "nodeParent":21,
+                            "label":"Button(btn_Login)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":41,
+                            "child":[
+                                ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":659,"x":172,"var":"box_start","name":"item1"},
                     "nodeParent":37,
@@ -244,9 +236,10 @@
                                         }]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":808,"x":175,"var":"box_fail","name":"item2"},
                     "nodeParent":37,

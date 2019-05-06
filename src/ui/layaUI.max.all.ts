@@ -22,6 +22,10 @@ module ui.common {
 
 module ui.common {
     export class LoginPanelUI extends View {
+		public box_login:Laya.Box;
+		public input_account:Laya.TextInput;
+		public input_passworld:Laya.TextInput;
+		public btn_Login:Laya.Button;
 		public box_start:Laya.Box;
 		public btn_selectServer:Laya.Image;
 		public lbl_server:Laya.Label;
@@ -31,13 +35,11 @@ module ui.common {
 		public input_random:Laya.TextInput;
 		public btn_randomName:Laya.Image;
 		public btn_startGame:Laya.Image;
-		public box_login:Laya.Box;
-		public btn_Login:Laya.Image;
-		public input_account:Laya.TextInput;
-		public input_passworld:Laya.TextInput;
 		public box_fail:Laya.Box;
+		public lbl_versionInfo:Laya.Label;
+		public btn_notice:Laya.Button;
 
-        public static  uiView:any ={"type":"View","props":{"width":640,"name":"LoginPanel","height":1136},"child":[{"type":"Image","props":{"width":640,"top":0,"skin":"image/card/img_login.png","right":0,"left":0,"height":1145,"bottom":0}},{"type":"Image","props":{"y":87,"x":-45,"width":404,"skin":"image/card/logo.png","height":614}},{"type":"Box","props":{"x":125,"width":452,"height":357,"bottom":153},"child":[{"type":"Box","props":{"y":33,"x":47,"var":"box_start"},"child":[{"type":"Image","props":{"x":302,"width":103,"var":"btn_selectServer","skin":"image/common/skill_icon_48.png","height":102}},{"type":"Image","props":{"y":12,"width":296,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"width":296,"var":"lbl_server","valign":"middle","top":0,"text":"测试1服","right":0,"left":0,"height":92,"fontSize":30,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]},{"type":"Box","props":{"y":115,"x":-27,"width":368,"height":311},"child":[{"type":"Image","props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/avatarDefault.png","height":120}},{"type":"Label","props":{"y":146,"x":0,"width":355,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":43,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"}},{"type":"Box","props":{"y":115,"x":0,"var":"box_randomName"},"child":[{"type":"TextInput","props":{"y":31,"x":0,"width":355,"var":"input_random","type":"text","promptColor":"#060606","prompt":"点击随机名字","height":43,"fontSize":25,"font":"mini","color":"#0b0101","bold":true,"align":"center"}},{"type":"Image","props":{"y":90,"x":302,"var":"btn_randomName","skin":"image/common/skill_icon_54.png","rotation":-90}}]},{"type":"Image","props":{"y":209,"x":77,"width":210,"var":"btn_startGame","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"width":296,"valign":"middle","top":0,"text":"进入游戏","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]}]}]},{"type":"Box","props":{"y":130,"x":0,"var":"box_login"},"child":[{"type":"Image","props":{"y":227,"x":97,"width":210,"var":"btn_Login","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"width":296,"valign":"middle","top":0,"text":"登陆","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]},{"type":"TextInput","props":{"x":1,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"image/common/stage_map_25.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"}},{"type":"TextInput","props":{"y":115,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"image/common/stage_map_25.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"}}]},{"type":"Box","props":{"y":182,"x":50,"var":"box_fail"},"child":[{"type":"Image","props":{"width":334,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"拉取列表失败","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#fd0a06","bottom":28,"bold":true,"align":"center"}}]},{"type":"Image","props":{"y":122,"x":68,"width":216,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"点击退出","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]}]}]}]};
+        public static  uiView:any ={"type":"View","props":{"width":640,"name":"LoginPanel","height":1136},"child":[{"type":"Image","props":{"width":640,"top":0,"skin":"image/login/login_bg.jpg","right":0,"left":0,"height":1145,"bottom":0}},{"type":"ViewStack","props":{"top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},"child":[{"type":"Box","props":{"y":666,"x":126,"var":"box_login","name":"item0"},"child":[{"type":"TextInput","props":{"y":0,"x":0,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"}},{"type":"TextInput","props":{"y":115,"x":0,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"}},{"type":"Button","props":{"y":235,"x":81,"var":"btn_Login","stateNum":2,"skin":"buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"}}]},{"type":"Box","props":{"y":659,"x":172,"var":"box_start","name":"item1"},"child":[{"type":"Image","props":{"x":302,"width":103,"var":"btn_selectServer","skin":"image/common/skill_icon_48.png","height":102}},{"type":"Image","props":{"y":12,"width":296,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"width":296,"var":"lbl_server","valign":"middle","top":0,"text":"测试1服","right":0,"left":0,"height":92,"fontSize":30,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]},{"type":"Box","props":{"y":115,"x":-27,"width":368,"height":311},"child":[{"type":"Image","props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/avatarDefault.png","height":120}},{"type":"Label","props":{"y":146,"x":0,"width":355,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":43,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"}},{"type":"Box","props":{"y":115,"x":0,"var":"box_randomName"},"child":[{"type":"TextInput","props":{"y":31,"x":0,"width":355,"var":"input_random","type":"text","promptColor":"#060606","prompt":"点击随机名字","height":43,"fontSize":25,"font":"mini","color":"#0b0101","bold":true,"align":"center"}},{"type":"Image","props":{"y":90,"x":302,"var":"btn_randomName","skin":"image/common/skill_icon_54.png","rotation":-90}}]},{"type":"Image","props":{"y":209,"x":77,"width":210,"var":"btn_startGame","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"width":296,"valign":"middle","top":0,"text":"进入游戏","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]}]}]},{"type":"Box","props":{"y":808,"x":175,"var":"box_fail","name":"item2"},"child":[{"type":"Image","props":{"width":334,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"拉取列表失败","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#fd0a06","bottom":28,"bold":true,"align":"center"}}]},{"type":"Image","props":{"y":122,"x":68,"width":216,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},"child":[{"type":"Label","props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"点击退出","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"}}]}]}]},{"type":"Label","props":{"y":0,"x":0,"width":261,"var":"lbl_versionInfo","text":"版本:1.0.0","height":52,"fontSize":30,"font":"Microsoft YaHei","color":"#ffffff","bold":true}},{"type":"Button","props":{"y":5,"x":479,"width":159,"var":"btn_notice","labelSize":30,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"[游戏公告]","height":53}}]};
         constructor(){ super()}
         createChildren():void {
         
@@ -113,15 +115,29 @@ module ui.common {
 }
 
 module ui.common {
-    export class ServerListPanelUI extends View {
-		public panel_serverList:Laya.Panel;
+    export class ServerListDialogUI extends Dialog {
 
-        public static  uiView:any ={"type":"View","props":{"width":640,"height":1136},"child":[{"type":"Image","props":{"y":0,"x":0,"top":0,"skin":"image/common/default/img_blackBg.png","right":0,"left":0,"bottom":0,"alpha":0.5}},{"type":"Box","props":{"y":264,"width":640,"right":0,"left":0,"height":505},"child":[{"type":"Image","props":{"top":0,"skin":"image/common/serverBg.png","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":27,"x":220,"width":195,"skin":"image/common/serverTitle.png","sizeGrid":"20,31,21,33","height":45},"child":[{"type":"Label","props":{"width":156,"valign":"top","top":0,"text":"服务器列表","right":0,"left":0,"height":45,"fontSize":30,"font":"Microsoft YaHei","color":"#080808","bottom":0,"bold":true,"align":"center"}}]},{"type":"Panel","props":{"y":86,"x":52,"width":536,"var":"panel_serverList","height":392}}]}]};
+        public static  uiView:any ={"type":"Dialog","props":{"width":640,"height":1136},"child":[{"type":"Box","props":{"y":274,"x":10,"width":640,"right":0,"left":0,"height":505},"child":[{"type":"Image","props":{"top":0,"skin":"image/login/artifact_frame.png","sizeGrid":"32,36,26,32","right":0,"left":0,"bottom":0}},{"type":"Image","props":{"y":27,"x":13,"width":615,"sizeGrid":"20,31,21,33","height":93},"child":[{"type":"Label","props":{"width":156,"valign":"top","top":0,"text":"服务器列表","right":0,"left":0,"height":45,"fontSize":30,"font":"Microsoft YaHei","color":"#080808","bottom":0,"bold":true,"align":"center"}}]},{"type":"Panel","props":{"y":86,"x":52,"width":536,"height":392}}]}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
-            this.createView(ui.common.ServerListPanelUI.uiView);
+            this.createView(ui.common.ServerListDialogUI.uiView);
+
+        }
+
+    }
+}
+
+module ui.common {
+    export class ServerNoticeDialogUI extends Dialog {
+
+        public static  uiView:any ={"type":"Dialog","props":{"width":640,"height":1136},"child":[{"type":"Image","props":{"y":224,"x":34,"skin":"image/login/announcement_bg.png"},"child":[{"type":"TextArea","props":{"y":126,"x":50,"width":478,"type":"text","text":"这是游戏公告","height":508,"fontSize":40,"font":"Microsoft YaHei"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.common.ServerNoticeDialogUI.uiView);
 
         }
 
@@ -133,7 +149,7 @@ module ui.common {
 		public img_bg:Laya.Image;
 		public lbl_progress:Laya.Label;
 
-        public static  uiView:any ={"type":"View","props":{"width":640,"top":0,"right":0,"name":"StartLoadingPanel","left":0,"height":1136,"bottom":0},"child":[{"type":"Image","props":{"var":"img_bg","top":0,"skin":"offline_fight_bg.jpg","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"var":"lbl_progress","text":"label","right":0,"left":-2,"height":60,"fontSize":40,"color":"#0b0606","centerY":-158,"bold":true,"align":"center"}}]};
+        public static  uiView:any ={"type":"View","props":{"width":640,"top":0,"right":0,"name":"StartLoadingPanel","left":0,"height":1136,"bottom":0},"child":[{"type":"Image","props":{"var":"img_bg","top":0,"skin":"image/login/offline_fight_bg.jpg","right":0,"left":0,"bottom":0}},{"type":"Label","props":{"var":"lbl_progress","text":"label","right":0,"left":-2,"height":60,"fontSize":40,"color":"#0b0606","centerY":-158,"bold":true,"align":"center"}}]};
         constructor(){ super()}
         createChildren():void {
         

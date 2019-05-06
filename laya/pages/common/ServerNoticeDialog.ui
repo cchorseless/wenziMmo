@@ -15,15 +15,28 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":189,"x":32,"skin":"image/login/announcement_bg.png"},
+            "props":{"y":224,"x":34,"skin":"image/login/announcement_bg.png"},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":3,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"TextArea",
+                    "props":{"y":126,"x":50,"width":478,"type":"text","text":"这是游戏公告","height":508,"fontSize":40,"font":"Microsoft YaHei"},
+                    "nodeParent":3,
+                    "label":"TextArea",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
