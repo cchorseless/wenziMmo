@@ -21,17 +21,13 @@ class GameEngine extends BaseClass {
     public svrIndex: number = 0;
 
 
-    public playerInfo: fairygui.GRichTextField;
-    public npcInfo: fairygui.GRichTextField;
-    public monsterInfo: fairygui.GRichTextField;
-
     public constructor() {
         super();
         this.packetBytes = new Laya.Byte();
-        this.packetBytes.endian = laya.Endian.LITTLE_ENDIAN;
+        this.packetBytes.endian = Laya.Byte.LITTLE_ENDIAN;
 
         this.logintoken = new Laya.Byte();
-        this.logintoken.endian = egret.Endian.LITTLE_ENDIAN;
+        this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new Player();
     }
 

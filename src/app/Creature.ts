@@ -57,7 +57,7 @@ class Creature {
 
 
         if (this.onlyid == App.GameEngine.mainPlayer.onlyid) {
-            App.MainPanel.bloodBtn.text = '血量:(' + this.ability.nowhp + '/' + this.ability.maxhp + ')';
+            ////App.MainPanel.bloodBtn.text = '血量:(' + this.ability.nowhp + '/' + this.ability.maxhp + ')';
         }
 
     }
@@ -69,7 +69,7 @@ class Creature {
         }
 
         if (this.onlyid == App.GameEngine.mainPlayer.onlyid) {
-            App.MainPanel.expBtn.text = '经验:(' + this.ability.nowexp + '/' + this.ability.maxexp + ')';
+            ////App.MainPanel.expBtn.text = '经验:(' + this.ability.nowexp + '/' + this.ability.maxexp + ')';
         }
     }
 
@@ -77,11 +77,11 @@ class Creature {
         this.ability.minatk = minatk;
         this.ability.maxatk = maxatk;
         if (this.onlyid == App.GameEngine.mainPlayer.onlyid) {
-            //App.MainPanel.atkBtn.text = '战力:' + this.ability.maxatk;
+            ////App.MainPanel.atkBtn.text = '战力:' + this.ability.maxatk;
         }
     }
 
     public changeFight(fight: number) {
-        App.MainPanel.atkBtn.text = '战力:' + fight;
+        ////App.MainPanel.atkBtn.text = '战力:' + fight;
     }
 }

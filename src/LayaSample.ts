@@ -4,6 +4,7 @@ class GameMain{
     constructor()
     {
         Laya.init(600,400, WebGL);
+        App.Init();
     }
 }
 new GameMain();

@@ -16,7 +16,7 @@ class ByteArrayMsg implements BaseMsg {
     public receive(data): void {
         var obj: any = this.decode(data);
         if (obj) {
-            App.MessageCenter.event(obj.msgID, obj.data);
+            App.MessageCenter.dispatch(obj.msgID, obj.data);
         }
         //TODO double bytearray clear
         if (this._msgBuffer.bytesAvailable == 0) {

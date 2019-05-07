@@ -96,6 +96,6 @@ class Player extends Creature {
         }
         this._npcListView = [];
 
-        App.MainPanel.clearListView();
+        ////App.MainPanel.clearListView();
     }
 }

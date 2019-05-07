@@ -203,7 +203,7 @@ class Int64 {
     private _id: string = "";
     public constructor(data: any) {
         this._bytes = new Laya.Byte;
-        this._bytes.endian = egret.Endian.LITTLE_ENDIAN;
+        this._bytes.endian = Laya.Byte.LITTLE_ENDIAN;
         data.readBytes(this._bytes, 0, 8);
         this._id = this.int64ToStr();
     }
@@ -228,8 +228,8 @@ class Int64 {
     }
 
     public int64ToStr(): string {
-        let h = this._bytes.readInt();
-        let l = this._bytes.readInt();
+        let h = this._bytes.getInt32();
+        let l = this._bytes.getInt32();
         this._bytes.pos = 0;
         return h + '_' + l;
     }
@@ -238,7 +238,7 @@ class Int64 {
         let num: number = 0;
         let nk: number = 0;
         for (let i = 0; i < 8; i++) {
-            nk = this._bytes.readUnsignedByte();
+            nk = this._bytes.getUint8();
             num = num + (nk * Math.pow(2, 8 * i));
         }
 
@@ -463,7 +463,7 @@ class ItemBase extends PacketBase {
         this.location = new ItemLocation;
         this.stNpProperty = new Array<Nonpareil>();
         this.ExtensionProperty = new Laya.Byte;
-        this.ExtensionProperty.endian = egret.Endian.LITTLE_ENDIAN;
+        this.ExtensionProperty.endian = Laya.Byte.LITTLE_ENDIAN;
 
 
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
@@ -523,13 +523,13 @@ class ItemBase extends PacketBase {
 
         if (this.btNpPropertyCount > 0) {
             let npdata: Laya.Byte = new Laya.Byte();;
-            npdata.endian = egret.Endian.LITTLE_ENDIAN;
+            npdata.endian = Laya.Byte.LITTLE_ENDIAN;
             npdata = this.getValue('UnionData');
             for (let j = 0; j < this.btNpPropertyCount; ++j) {
                 let np = new Nonpareil();
-                np.btNpFrom = npdata.readUnsignedByte();
-                np.btNpType = npdata.readUnsignedByte();
-                np.dwNpNum = npdata.readUnsignedInt();
+                np.btNpFrom = npdata.getUint8();
+                np.btNpType = npdata.getUint8();
+                np.dwNpNum = npdata.getUint32();
                 this.stNpProperty.push(np);
             }
         }
