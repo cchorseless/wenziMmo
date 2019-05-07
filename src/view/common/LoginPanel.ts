@@ -3,13 +3,11 @@ module view.common {
 	export class LoginPanel extends ui.common.LoginPanelUI {
 		constructor() {
 			super();
-			Laya.Font.defaultFont = 'mini';
-			this.btn_Login.on(Laya.UIEvent.CLICK, this, this.loginGame.bind(this));
-			this.btn_selectServer.on(Laya.UIEvent.CLICK, this, this.openPanel.bind(this));
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame.bind(this));
-			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName.bind(this));
-			// 监听服务器更新列表事件
-			lcp.LListener.getInstance().on(LcpEvent.SERVER_LIST_FINISH, this, this.initUI.bind(this))
+			this.btn_Login.on(Laya.UIEvent.CLICK, this, this.loginGame);
+			this.btn_selectServer.on(Laya.UIEvent.CLICK, this, this.openPanel, [0]);
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
+			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
+			this.btn_notice.on(Laya.UIEvent.CLICK, this, this.openPanel, [1]);
 		}
 
 		public setData(): void {
@@ -26,8 +24,15 @@ module view.common {
 			}
 		}
 
-		private openPanel(): void {
-			PanelManage.openServerListPanel()
+		private openPanel(d): void {
+			// 服务器列表界面
+			if (d === 0) {
+				PanelManage.openServerListPanel()
+			}
+			// 服务器公告界面
+			else if (d === 1) {
+				PanelManage.openServerNoticePanel()
+			}
 		}
 
 		public curServer;//当前选择的服务器

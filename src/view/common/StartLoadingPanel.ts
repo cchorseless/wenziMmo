@@ -1,5 +1,5 @@
 /**Created by the LayaAirIDE*/
-module view.loading {
+module view.common {
 	export class StartLoadingPanel extends ui.common.StartLoadingPanelUI {
 		constructor() {
 			super();

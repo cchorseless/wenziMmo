@@ -1,11 +1,11 @@
 {
     "x":0,
-    "type":"Dialog",
+    "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
-    "label":"Dialog",
+    "label":"View",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -15,25 +15,25 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":224,"x":34,"skin":"image/login/announcement_bg.png"},
+            "props":{"y":234,"x":44,"skin":"image/common/serverNotice/announcement_bg.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":2,
             "child":[
                 {
                     "x":30,
                     "type":"TextArea",
                     "props":{"y":126,"x":50,"width":478,"type":"text","text":"这是游戏公告","height":508,"fontSize":40,"font":"Microsoft YaHei"},
-                    "nodeParent":3,
+                    "nodeParent":2,
                     "label":"TextArea",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":4,
+                    "compId":3,
                     "child":[
                         ]
                 }]

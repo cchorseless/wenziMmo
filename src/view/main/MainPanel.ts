@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.common{
-	export class ServerListPanel extends ui.common.ServerListPanelUI{
+module view.main{
+	export class MainPanel extends ui.main.MainPanelUI{
 		constructor(){
 			super();
 		}
