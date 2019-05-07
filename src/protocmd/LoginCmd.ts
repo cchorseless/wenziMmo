@@ -3,7 +3,7 @@
 //心跳包
 class CheckSignalCmd extends Packet {
     public static msgID: number = 0xFFFE;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('isneedACK', PacketBase.TYPE_BYTE);
         this.addProperty('checknum', PacketBase.TYPE_BYTE);
@@ -34,7 +34,7 @@ class UserPreLogin extends Packet {
 
 class UserRetPreLogin extends Packet {
     public static msgID: number = 0x0102;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('clientver', PacketBase.TYPE_DWORD);
         this.addProperty('passkey', PacketBase.TYPE_BYTES, 8);
@@ -96,7 +96,7 @@ class UserLoginRet extends Packet {
     public static msgID: number = 0x0104;
     public players: Array<any> = new Array();
     public count: number = 0;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('nErrorCode', PacketBase.TYPE_INT);// 4  错误标示，0成功，非0标示出错  
         this.addProperty('loginsvr_id_type', PacketBase.TYPE_INT); //登陆服务器ID  
@@ -110,8 +110,8 @@ class UserLoginRet extends Packet {
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
-        data.position = super.read(data);
+    public read(data: Laya.Byte): number {
+        data.pos = super.read(data);
         this.count = this.getValue('Playercount');
         if (this.count > 0) {
             for (let i: number = 0; i < this.count; ++i) {
@@ -157,7 +157,7 @@ class UserRealLogin extends Packet {
 //0x0106
 class UserRealLoginRet extends Packet {
     public static msgID: number = 0x0106;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('nErrorCode', PacketBase.TYPE_INT);//错误标示，0成功，非0标示出错  
         this.addProperty('fsvrver', PacketBase.TYPE_FLOAT);//服务器版本号，浮点数  
@@ -186,7 +186,7 @@ class SelectPlayer extends Packet {
 //0x0108
 class SelectPlayerRet extends Packet {
     public static msgID: number = 0x0108;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('nErrorCode', PacketBase.TYPE_INT);// int 4  错误标示，0成功，非0标示出错  
         this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN) // 人物的名字  
@@ -204,7 +204,7 @@ class SelectPlayerRet extends Packet {
 //0x0109
 class UpdateToken extends Packet {
     public static msgID: number = 0x0109;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('tokencheck', PacketBase.TYPE_INT);
         this.addProperty('logintoken', PacketBase.TYPE_BYTES, 24);
@@ -228,7 +228,7 @@ class CreatePlayer extends Packet {
 //0x012D
 class CreatePlayerRet extends Packet {
     public static msgID: number = 0x012D;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
         this.addProperty('errorcode', PacketBase.TYPE_BYTE);
         this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);

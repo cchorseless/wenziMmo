@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":3,
+    "selectedBox":20,
+    "selecteID":5,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -43,16 +43,15 @@
                     "props":{"y":666,"x":126,"var":"box_login","name":"item0"},
                     "nodeParent":37,
                     "label":"Box(box_login)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
-                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":0,"x":0,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":0,"x":0,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_account)",
                             "isDirectory":false,
@@ -63,9 +62,8 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":115,"x":0,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":115,"x":0,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_passworld)",
                             "isDirectory":false,
@@ -76,9 +74,8 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
-                            "props":{"y":235,"x":81,"var":"btn_Login","stateNum":"2","skin":"buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
+                            "props":{"y":235,"x":81,"var":"btn_Login","stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
                             "nodeParent":21,
                             "label":"Button(btn_Login)",
                             "isDirectory":false,
@@ -96,13 +93,14 @@
                     "props":{"y":659,"x":172,"var":"box_start","name":"item1"},
                     "nodeParent":37,
                     "label":"Box(box_start)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":20,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"x":302,"width":103,"var":"btn_selectServer","skin":"image/common/skill_icon_48.png","height":102},
                             "nodeParent":20,
@@ -115,6 +113,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":12,"width":296,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
                             "nodeParent":20,
@@ -126,6 +125,7 @@
                             "compId":15,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"width":296,"var":"lbl_server","valign":"middle","top":0,"text":"测试1服","right":0,"left":0,"height":92,"fontSize":30,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
                                     "nodeParent":15,
@@ -139,6 +139,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":115,"x":-27,"width":368,"height":311},
                             "nodeParent":20,
@@ -150,6 +151,7 @@
                             "compId":33,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/avatarDefault.png","height":120},
                                     "nodeParent":33,
@@ -163,6 +165,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":146,"x":0,"width":355,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":43,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"},
                                     "nodeParent":33,
@@ -176,6 +179,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":115,"x":0,"var":"box_randomName"},
                                     "nodeParent":33,
@@ -187,6 +191,7 @@
                                     "compId":36,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":31,"x":0,"width":355,"var":"input_random","type":"text","promptColor":"#060606","prompt":"点击随机名字","height":43,"fontSize":25,"font":"mini","color":"#0b0101","bold":true,"align":"center"},
                                             "nodeParent":36,
@@ -199,6 +204,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":90,"x":302,"var":"btn_randomName","skin":"image/common/skill_icon_54.png","rotation":-90},
                                             "nodeParent":36,
@@ -212,6 +218,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":209,"x":77,"width":210,"var":"btn_startGame","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
                                     "nodeParent":33,
@@ -223,6 +230,7 @@
                                     "compId":23,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"width":296,"valign":"middle","top":0,"text":"进入游戏","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
                                             "nodeParent":23,
@@ -236,7 +244,7 @@
                                         }]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -252,7 +260,7 @@
                     "child":[
                         {
                             "type":"Image",
-                            "props":{"width":334,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
+                            "props":{"width":334,"skin":"image/common/login/task_bg.png","sizeGrid":"14,25,32,15","height":92},
                             "nodeParent":29,
                             "label":"Image",
                             "isOpen":true,
@@ -263,7 +271,7 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"拉取列表失败","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#fd0a06","bottom":28,"bold":true,"align":"center"},
+                                    "props":{"width":334,"valign":"middle","top":12,"text":"拉取列表失败","right":0,"left":0,"height":52,"fontSize":40,"font":"mini","color":"#fd0a06","bottom":28,"bold":true,"align":"center"},
                                     "nodeParent":25,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -276,29 +284,16 @@
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Image",
-                            "props":{"y":122,"x":68,"width":216,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
+                            "type":"Button",
+                            "props":{"y":110,"x":53,"stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"退出"},
                             "nodeParent":29,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":27,
+                            "hasChild":false,
+                            "compId":43,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":0,"x":0,"width":296,"valign":"middle","top":0,"text":"点击退出","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
-                                    "nodeParent":27,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":28,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
+                                ]
                         }],
                     "$HIDDEN":true
                 }]

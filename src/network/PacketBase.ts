@@ -306,7 +306,7 @@ class PacketBase {
         switch (type) {
             case PacketBase.TYPE_CHAR:
                 {
-                    var n: number = this._bytes.readUnsignedByte();
+                    var n: number = this._bytes.getUint8();
                     if (n < 0) n += 256;
                     return n;
                 }
@@ -317,7 +317,7 @@ class PacketBase {
                 }
             case PacketBase.TYPE_BOOL:
                 {
-                    return this._bytes.readBoolean();
+                    return this._bytes.getByte();
                 }
             case PacketBase.TYPE_WORD:
                 {
@@ -366,7 +366,7 @@ class PacketBase {
                     this.returnBytes.clear();
                     this.returnBytes.pos = 0;
 
-                    this._bytes.readBytes(this.returnBytes, 0, len);
+                    this._bytes.writeArrayBuffer(this.returnBytes, 0, len);
                     str = this.returnBytes.readUTFBytes(this.returnBytes.length);
                     this.returnBytes.clear();
                     return str;
@@ -374,7 +374,7 @@ class PacketBase {
             case PacketBase.TYPE_BYTES:
                 {
                     this.returnBytes.clear();
-                    this._bytes.readBytes(this.returnBytes, 0, len);
+                    this._bytes.writeArrayBuffer(this.returnBytes, 0, len);
                     this.returnBytes.pos = 0;
                     return this.returnBytes;
                 }
