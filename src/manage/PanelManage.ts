@@ -75,7 +75,7 @@ module PanelManage {
     }
     // GM工具
     export function openGmPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.GM) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GM) {
             return
         }
         PopUpManager.checkPanel(PanelManage.GM);
@@ -89,7 +89,7 @@ module PanelManage {
     }
     // 登陆界面
     export function openLoginPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.Login) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Login) {
             return
         }
         PopUpManager.checkPanel(PanelManage.Login);
@@ -103,7 +103,7 @@ module PanelManage {
     }
     // 服务器列表界面
     export function openServerListPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.ServerList) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerList) {
             return
         }
         PopUpManager.checkPanel(PanelManage.ServerList);
@@ -117,7 +117,7 @@ module PanelManage {
     }
     // 服务器公告界面
     export function openServerNoticePanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.ServerNotice) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerNotice) {
             return
         }
         PopUpManager.checkPanel(PanelManage.ServerNotice);

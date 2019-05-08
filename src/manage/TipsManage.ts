@@ -20,8 +20,8 @@ module TipsManage {
         txt.text = str;
         // 字体默认属性
         let defaultProps = {
-            x: GameConfig.curWidth() / 2,
-            y: GameConfig.curHeight() / 2,
+            x: Laya.stage.width / 2,
+            y: Laya.stage.height/ 2,
             fontSize: EnumData.FONT_SIZE.DEFAULT,
             bold: true,
         }

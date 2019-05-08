@@ -25,7 +25,7 @@ class GameMain {
         Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
         Laya.stage.frameRate = Laya.Stage.FRAME_MOUSE;
         // 调试面板
-        if (GlobalData.isDebug) {
+        if (App.IsDebug) {
             Laya.Stat.show(0, 0);
         }
 

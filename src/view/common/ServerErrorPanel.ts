@@ -23,8 +23,8 @@ module view.common {
 		// 点击重新连接
 		public reLogin(): void {
 			lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReConnect);
-			GameUtils.resert();
-			GameUtils.getInstance().initGame();
+			// GameUtils.resert();
+			// GameUtils.getInstance().initGame();
 		}
 	}
 }

@@ -17,13 +17,13 @@ class TimerManager extends BaseClass {
         super();
         this._handlers = new Array<TimerHandler>();
         this._delHandlers = new Array<TimerHandler>();
-        this._currTime =  new Date().getTime();
+        this._currTime = new Date().getTime();
         this._currFrame = 0;
         this._count = 0;
         this._timeScale = 1;
 
         //laya.startTick(this.onEnterFrame, this);
-        setInterval(()=>{this.onEnterFrame(new Date().getTime());}, 1000);
+        setInterval(() => { this.onEnterFrame(new Date().getTime()); }, 1000);
     }
 
     /**
@@ -38,7 +38,7 @@ class TimerManager extends BaseClass {
      * 每帧执行函数
      * @param frameTime
      */
-    private onEnterFrame(nowTick:number): boolean {
+    private onEnterFrame(nowTick: number): boolean {
         this._currFrame++;
         this._currTime = nowTick;
         //App.DebugUtils.start("TimerManager:");
@@ -82,7 +82,7 @@ class TimerManager extends BaseClass {
         this.remove(method, methodObj);
 
         //创建
-        var handler: TimerHandler = ObjectPool.pop("TimerHandler");
+        var handler: TimerHandler = Laya.Pool.getItemByClass("TimerHandler", TimerHandler);
         handler.userFrame = useFrame;
         handler.repeat = repeatCount == 0;
         handler.repeatCount = repeatCount;
@@ -146,7 +146,7 @@ class TimerManager extends BaseClass {
             var handler: TimerHandler = this._handlers[i];
             if (handler.method == method && handler.methodObj == methodObj) {
                 this._handlers.splice(i, 1);
-                ObjectPool.push(handler);
+                Laya.Pool.recover("TimerHandler", handler);
                 this._count--;
                 break;
             }
@@ -162,7 +162,7 @@ class TimerManager extends BaseClass {
             var handler: TimerHandler = this._handlers[i];
             if (handler.methodObj == methodObj) {
                 this._handlers.splice(i, 1);
-                ObjectPool.push(handler);
+                Laya.Pool.recover("TimerHandler", handler);
                 this._count--;
                 i--;
             }

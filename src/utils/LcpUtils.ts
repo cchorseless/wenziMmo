@@ -82,10 +82,10 @@ module lcp {
         }
 
         if (data) {
-            KBEngine.Event.fire(evtname, data)
+            // KBEngine.Event.fire(evtname, data)
         }
         else {
-            KBEngine.Event.fire(evtname)
+            // KBEngine.Event.fire(evtname)
         }
 
     }

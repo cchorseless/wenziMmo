@@ -32,7 +32,7 @@ class ByteArrayMsg implements BaseMsg {
         var obj: any = this.encode(msg);
         if (obj && socket) {
             obj.pos = 0;
-            socket.output.writ(obj, 0, obj.bytesAvailable);
+            socket.output.writeArrayBuffer(obj, 0, obj.bytesAvailable);
             socket.flush();
         }
     }

@@ -7,7 +7,7 @@ class FunctionUtils {
 
     public static passwordCrc32(passwd: string): number {
         let crc: Crc32 = new Crc32();
-        let by: egret.ByteArray = new egret.ByteArray();
+        let by: Laya.Byte = new Laya.Byte();
         by.writeUTFBytes(passwd);
         crc.update(by, [0, by.length]);
         by.clear();
@@ -16,26 +16,26 @@ class FunctionUtils {
     }
 
 
-    public static passwdCypto(passwd: string, passkey: egret.ByteArray): egret.ByteArray {
+    public static passwdCypto(passwd: string, passkey: Laya.Byte): Laya.Byte {
         let varmd5: md5 = new md5();
         let md5str: string = varmd5.hex_md5(passwd);
-        let by: egret.ByteArray = new egret.ByteArray();
+        let by: Laya.Byte = new Laya.Byte();
         for (let i: number = 0; i < 16; ++i) {
             let hexstr: string = md5str.substr(i * 2, 2);
             let hex: number = parseInt(hexstr, 16);
             by.writeByte(hex);
         }
 
-        let genPasswd: egret.ByteArray = new egret.ByteArray();
-        genPasswd.writeBytes(passkey);
-        genPasswd.writeBytes(by);
+        let genPasswd: Laya.Byte = new Laya.Byte();
+        genPasswd.writeArrayBuffer(passkey)
+        genPasswd.writeArrayBuffer(by);
         let resultstr: string = varmd5.hex_md5(genPasswd);
         genPasswd.clear();
         genPasswd = null;
         by.clear();
         by = null;
 
-        let resultby: egret.ByteArray = new egret.ByteArray();
+        let resultby: Laya.Byte = new Laya.Byte();
         for (let i: number = 0; i < 16; ++i) {
             let hexstr: string = resultstr.substr(i * 2, 2);
             let hex: number = parseInt(hexstr, 16);
@@ -47,8 +47,8 @@ class FunctionUtils {
         return resultby;
     }
 
-    public static ipbytestoipstr(ipbytes: egret.ByteArray): string {
-        return ipbytes.readUnsignedByte() + '.' + ipbytes.readUnsignedByte() + '.' + ipbytes.readUnsignedByte() + '.' + ipbytes.readUnsignedByte();
+    public static ipbytestoipstr(ipbytes: Laya.Byte): string {
+        return ipbytes.getUint8() + '.' + ipbytes.getUint8() + '.' + ipbytes.getUint8() + '.' + ipbytes.getUint8();
     }
 
     private static PI18: number = Math.PI / 8;

@@ -11,7 +11,7 @@ module view.common {
 			// 加载完成
 			let complete = () => {
 				// 初始化KBE
-				GameUtils.getInstance().initGame();			
+				// GameUtils.getInstance().initGame();			
 			}
 			// 加载进度
 			let progress = (data) => {

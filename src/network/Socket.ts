@@ -4,7 +4,6 @@
 class Socket extends BaseClass {
 	private _needReconnect: boolean = true;
 	private _maxReconnectCount = 10;
-
 	private _reconnectCount: number = 0;
 	private _connectFlag: boolean;
 	private _host: string;
@@ -46,29 +45,25 @@ class Socket extends BaseClass {
 	/**
 	  * 服务器连接成功
 	  */
-	private onSocketOpen(e: Object = null): void {
+	private onSocketOpen(e: Laya.Event): void {
 		this._reconnectCount = 0;
 		this._isConnecting = true;
-
 		// if (this._connectFlag && this._needReconnect) {
 		//     App.MessageCenter.dispatch(SocketConst.SOCKET_RECONNECT);
 		// } else {
 		//     App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
 		// }
-
 		App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
-
 		this._connectFlag = true;
 	}
 
 	/**
 	  * 服务器断开连接
 	  */
-	private onSocketClose(e: Object = null): void {
+	private onSocketClose(e: Laya.Event): void {
 		this._isConnecting = false;
 		App.GameEngine.isLogin = false;
 		if (this._needReconnect) {
-			//App.MessageCenter.dispatch(SocketConst.SOCKET_START_RECONNECT);
 			this.reconnect();
 		} else {
 			App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
@@ -78,7 +73,7 @@ class Socket extends BaseClass {
 	/**
 	  * 服务器连接错误
 	  */
-	private onSocketError(e: Object = null): void {
+	private onSocketError(e: Laya.Event): void {
 		if (this._needReconnect) {
 			this.reconnect();
 		} else {
@@ -105,8 +100,7 @@ class Socket extends BaseClass {
 		this._host = host;
 		this._port = port;
 		this._msg = msg;
-
-		//this.connect();
+		this.connect();
 	}
 
 	public resetSocket(host: string, port: any = 0): void {
@@ -130,14 +124,10 @@ class Socket extends BaseClass {
 	  * 开始Socket连接
 	  */
 	public connect(): void {
-
 		this._socket = new Laya.Socket();
-		if (this._msg instanceof ByteArrayMsg) {
-			//this._socket.type = Laya.Socket.prototype;
-		}
+		this._socket.endian = Laya.Byte.LITTLE_ENDIAN;
 		Log.trace("WebSocket: " + this._host + ":" + this._port);
 		this.addEvents();
-		//this._socket.connect(this._host, this._port);
 		let url = this._host + this._port;
 		this._socket.connectByUrl(url);
 	}

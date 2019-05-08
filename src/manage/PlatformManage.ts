@@ -15,24 +15,24 @@ module PlatformManage {
 
             return new Promise(
                 (resolve, reject) => {
-                    
-                wx.login(
-                    {
-                        success: (res) => {
-                            console.log(res)
-                            if (res.errMsg.indexOf('ok') != -1) {
-                                resolve(res.code)
-                            }
-                            else {
+
+                    wx.login(
+                        {
+                            success: (res) => {
+                                console.log(res)
+                                if (res.errMsg.indexOf('ok') != -1) {
+                                    resolve(res.code)
+                                }
+                                else {
+                                    resolve(null)
+                                }
+                            },
+                            fail: (res) => {
                                 resolve(null)
                             }
-                        },
-                        fail: (res) => {
-                            resolve(null)
                         }
-                    }
-                )
-            })
+                    )
+                })
 
         }
 
@@ -46,8 +46,8 @@ module PlatformManage {
                 style: {
                     left: 0,
                     top: 0,
-                    width: GameConfig.curWidth(),
-                    height: GameConfig.curHeight()
+                    width: Laya.stage.width,
+                    height: Laya.stage.height
                 }
             })
             button.show();

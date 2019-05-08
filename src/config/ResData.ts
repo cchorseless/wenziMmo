@@ -19,9 +19,7 @@ module ResData {
         public static ServerNotice = null;
         // 通用素材
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
-        { url: "fonts/ygyx.ttf", type: Laya.Loader.TTF },
-        { url: "fonts/mini.ttf", type: Laya.Loader.TTF }];
+        { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }, { url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];
     };
