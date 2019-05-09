@@ -1,8 +1,8 @@
 // TypeScript file
 class Packet extends PacketBase {
     public static _MAX_NAME_LEN: number = 48;
-    private static _compressBytes: Laya.Byte = new Laya.Byte();
-    private static _sharedBytes: Laya.Byte = new Laya.Byte();
+    //private static _compressBytes: Laya.Byte = new Laya.Byte();
+    //private static _sharedBytes: Laya.Byte = new Laya.Byte();
 
     public constructor() {
         super();
@@ -39,8 +39,8 @@ class Packet extends PacketBase {
 
     public static ReadPackCmd(data: Laya.Byte, fix:string): number {
         var pos: number = data.pos;
-        var cmd: number = data.readByte();
-        var subcmd: number = data.readByte();
+        var cmd: number = data.getUint8();
+        var subcmd: number = data.getUint8();
         if (cmd < 0) cmd += 256;
         if (subcmd < 0) subcmd += 256;
         var msgID: number = cmd << 8 | subcmd;

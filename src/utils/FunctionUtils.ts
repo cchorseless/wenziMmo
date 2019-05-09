@@ -8,6 +8,7 @@ class FunctionUtils {
     public static passwordCrc32(passwd: string): number {
         let crc: Crc32 = new Crc32();
         let by: Laya.Byte = new Laya.Byte();
+        by.endian = Laya.Byte.LITTLE_ENDIAN;
         by.writeUTFBytes(passwd);
         crc.update(by, [0, by.length]);
         by.clear();

@@ -26846,6 +26846,8 @@ declare module laya.utils {
          * @param	length		从 Arraybuffer 对象写入到 Byte 对象的长度（以字节为单位）
          */
         writeArrayBuffer(arraybuffer: any, offset?: number, length?: number): void;
+
+        readArrayBuffer(length: number): any;
     }
 }
 declare module laya.utils {

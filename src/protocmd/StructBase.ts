@@ -204,7 +204,8 @@ class Int64 {
     public constructor(data: any) {
         this._bytes = new Laya.Byte;
         this._bytes.endian = Laya.Byte.LITTLE_ENDIAN;
-        data.readBytes(this._bytes, 0, 8);
+        this._bytes.writeArrayBuffer(data.buffer, data.pos, 8);
+        this._bytes.pos = 0;
         this._id = this.int64ToStr();
     }
 
@@ -215,7 +216,7 @@ class Int64 {
         return str;
     }
 
-    public get data(): Laya.Byte {
+    public get data(): any {
         return this._bytes;
     }
 
@@ -228,8 +229,8 @@ class Int64 {
     }
 
     public int64ToStr(): string {
-        let h = this._bytes.getInt32();
-        let l = this._bytes.getInt32();
+        let h = this._bytes.getUint32();
+        let l = this._bytes.getUint32();
         this._bytes.pos = 0;
         return h + '_' + l;
     }

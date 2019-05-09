@@ -74,6 +74,8 @@ class MsgProc {
         realLogin.setValue('dwTrueZoneid', App.GameEngine.trueZoneid);
         realLogin.setValue('dwUserOnlyId', App.GameEngine.mainPlayer.userOnlyid);
 
+        //realLogin.setValue('btReloginType', 2);
+
         realLogin.setValue('loginsvr_id_type', App.GameEngine.loginsvrIdType);
         realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
         realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
@@ -114,7 +116,7 @@ class MsgProc {
         login.setValue("dwTrueZoneid", 1);
         var crc32: number = FunctionUtils.passwordCrc32("1");
         //var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
-        login.setValue('szPassMd5', 1);
+        //login.setValue('szPassMd5', new Laya.Byte(1));
         login.setValue('dwPassCrc32', crc32);
         login.setValue('isSaveEncodePass', false);
         login.setValue('szADUrl', "1");
@@ -125,6 +127,7 @@ class MsgProc {
         login = null;
         msgData.clear();
         msgData = null;
+
 
         ////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
     }
@@ -149,10 +152,11 @@ class MsgProc {
                 selector.clear();
 
                 ////App.MainPanel.addSysChat("您选择了昵称:" + msgData.players[0].getValue('szName'))
+                Log.trace("您选择了昵称:" + msgData.players[0].getValue('szName'));
                 App.GameEngine.isLogin = true;
-                if (msgData.getValue('nCountry') > 0) {
-                }
+
             } else {
+
                 if (msgData.getValue('nCountry') == 0) {
 
                 } else {
@@ -175,6 +179,7 @@ class MsgProc {
             }
         } else {
             ////App.MainPanel.addSysChat("请输入正确的账号密码");
+            Log.trace('请输入正确的账号密码 errorcode' + msgData.getValue("nErrorCode"));
         }
 
         msgData.clear();
@@ -210,11 +215,38 @@ class MsgProc {
 
     public updateToken(data: any): void {
         let msgData = new UpdateToken(data);
-        let tmp: Laya.Byte = msgData.getValue('logintoken');
-        App.GameEngine.logintoken.length = tmp.length;
-        tmp.writeArrayBuffer(App.GameEngine.logintoken, 0, tmp.length);
+        let tmp = msgData.getValue('logintoken');
+        // App.GameEngine.logintoken.length = tmp.length;
+        App.GameEngine.logintoken.writeArrayBuffer(tmp.buffer, 0, tmp.length);
         App.GameEngine.logintoken.pos = 0;
         App.GameEngine.tokenCheck = msgData.getValue('tokencheck');
+
+        // int Mem2Hex(char* pin, int nsize, char* pout, int nout)
+        // {
+        //     for(int i = 0; i < nsize; i++)
+        //     {
+        //         sprintf_s(pout, nout - 1, "%.2x", byte(pin[i]));
+        //         pout += 2;
+        //         nout -= 2;
+        //     }
+
+        //     return (nsize * 2);
+        // }
+
+        // 34d4ae761fe9f8762b3c417c863a2a3c4e2a2aba7f303d56
+        // 010901166b56 34d4ae761fe9f8762b3c417c863a2a3c4e2a
+        // 010901166b5634d4ae761fe9f8762b3c417c863a2a3c4e2a
+
+        // 0000 0001
+        // 0000 0100
+
+        let token: string = '';
+        tmp.pos = 0;
+        for (let i = 0; i < tmp.length; ++i) {
+            token += tmp.getUint8().toString(16);
+        }
+
+        Log.trace('------->>token=' + token);
 
         msgData.clear();
     }
@@ -254,7 +286,7 @@ class MsgProc {
                 default:
                     strmsg = '昵称重复';
             }
-           // //App.MainPanel.addSysChat(strmsg);
+            // //App.MainPanel.addSysChat(strmsg);
         }
 
         msg.clear();
@@ -271,7 +303,7 @@ class MsgProc {
         App.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
         App.GameEngine.mainPlayer.dir = msgData.getValue('dir');
 
-       
+
 
         ////App.MainPanel.addSysChat("您已进入:" + msgData.location.getValue('mapid') + '|' + msgData.getValue('dwMapFileID'));
 
@@ -383,7 +415,7 @@ class MsgProc {
                 job = '道士';
             }
 
-           
+
 
 
             // //App.MainPanel.playerBtn.text = player.name + 'lv.' + player.level
@@ -526,7 +558,7 @@ class MsgProc {
         if (onlyid == App.GameEngine.mainPlayer.onlyid) {
             App.GameEngine.mainPlayer.level = level;
             //App.MainPanel.playerBtn.text = App.GameEngine.mainPlayer.name + 'lv.' + App.GameEngine.mainPlayer.level
-                + "[color=#00EE00](" + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ")[/color]";
+            + "[color=#00EE00](" + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ")[/color]";
 
             //App.MainPanel.topLevelcnt.text = App.GameEngine.mainPlayer.level + '';
             App.GameEngine.mainPlayer.changeExp(msg.getValue('i64LeftExp'), msg.getValue('i64MaxExp'));
@@ -976,7 +1008,7 @@ class MsgProc {
                             }
                         }
 
-                       
+
                         break;
                     case 'BossJiZhan':
                         anyData = JSON.parse(strArr[3]);

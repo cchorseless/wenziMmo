@@ -17,10 +17,10 @@ class PacketBase {
     public static VALUE_TYPE_STRING: number = 1;
     public static VALUE_TYPE_STRING2: number = 2;
 
-    protected _list: any = {};
-    protected _posList: any[];
-    protected _bytes: Laya.Byte = null;
-    protected _returnBytes: Laya.Byte = null;
+    public _list: any = {};
+    public _posList: any[];
+    public _bytes: Laya.Byte = null;
+    public _returnBytes: Laya.Byte = null;
 
     public _postion: number = 0;
     public _parentStruct: PacketBase = null;
@@ -35,7 +35,7 @@ class PacketBase {
     public get returnBytes(): Laya.Byte {
         if (!this._returnBytes) {
             this._returnBytes = new Laya.Byte();
-            this._returnBytes.endian =  Laya.Byte.LITTLE_ENDIAN;
+            this._returnBytes.endian = Laya.Byte.LITTLE_ENDIAN;
         }
         return this._returnBytes;
     }
@@ -63,7 +63,7 @@ class PacketBase {
         if (len == 0)
             len = s.length;
 
-        this._bytes.writeArrayBuffer(s, s.pos, len);
+        this._bytes.writeArrayBuffer(s.buffer, s.pos, len);
 
         var sub: PacketBase = this;
         var parent: PacketBase = this._parentStruct;
@@ -72,7 +72,7 @@ class PacketBase {
         while (parent && sub) {
             sub._bytes.pos = 0;
             parent._bytes.pos = offset;
-            parent._bytes.writeArrayBuffer(sub._bytes, sub._bytes.pos, sub._bytes.length);
+            parent._bytes.writeArrayBuffer(sub._bytes.buffer, sub._bytes.pos, sub._bytes.length);
 
             sub = parent;
             offset = parent._offsetinparentStruct;
@@ -196,41 +196,7 @@ class PacketBase {
                     break;
                 case PacketBase.TYPE_INT64:
                     {
-                        // let buf = value as Laya.Byte;
-                        // this._bytes.writeArrayBuffer(value, buf.pos, 8);
-
-                        // if (value != null) {
-                        //     let ba = new Object(value);
-                        //     let ndatalen: number = Math.min(8, ba.si);
-                        //     ba.pos = 0;
-                        //     this._bytes.writeArrayBuffer(value, 0, ndatalen);
-                        //     for (i = ndatalen; i < len; i++) {
-                        //         this._bytes.writeByte(0);
-                        //     }
-                        // }
-
-                        // let l = value & 0x00000000ffffffff;
-                        // let h = (value & 0xffffffff00000000) >> 32;
-                        // this._bytes.writeByte(l & 0xff);
-                        // this._bytes.writeByte((l & 0xff00) >> 8);
-                        // this._bytes.writeByte((l & 0xff0000) >> 16);
-                        // this._bytes.writeByte((l & 0xff000000) >> 24);
-
-                        // this._bytes.writeByte(h & 0xff);
-                        // this._bytes.writeByte((h & 0xff00) >> 8);
-                        // this._bytes.writeByte((h & 0xff0000) >> 16);
-                        // this._bytes.writeByte((h & 0xff000000) >> 24);
-
-                        // this._bytes.writeByte(value & 0xff);
-                        // this._bytes.writeByte((value & 0xff00) >> 8);
-                        // this._bytes.writeByte((value & 0xff0000) >> 16);
-                        // this._bytes.writeByte((value & 0xff000000) >> 24);
-
-                        // this._bytes.writeByte((value & 0xff00000000) >> 32);
-                        // this._bytes.writeByte((value & 0xff0000000000) >> 40);
-                        // this._bytes.writeByte((value & 0xff000000000000) >> 48);
-                        // this._bytes.writeByte((value & 0xff00000000000000) >> 56);
-                        this._bytes.writeArrayBuffer(value.data, 0, 8);
+                        this._bytes.writeArrayBuffer(value.data.buffer, 0, 8);
                     }
                     break;
                 case PacketBase.TYPE_FLOAT:
@@ -261,10 +227,8 @@ class PacketBase {
                 case PacketBase.TYPE_BYTES:
                     {
                         if (value != null) {
-                            var ba: Laya.Byte = value;
-                            var ndatalen: number = Math.min(len, ba.length);
-                            //ba.pos = 0;
-                            this._bytes.writeArrayBuffer(value, 0, ndatalen);
+                            var ndatalen: number = Math.min(len, value.length);
+                            this._bytes.writeArrayBuffer(value.buffer, 0, ndatalen);
                             for (i = ndatalen; i < len; i++) {
                                 this._bytes.writeByte(0);
                             }
@@ -279,7 +243,7 @@ class PacketBase {
             while (parent) {
                 parent._bytes.pos = offset;
                 sub._bytes.pos = 0;
-                parent._bytes.writeArrayBuffer(sub._bytes, 0, sub._bytes.length);
+                parent._bytes.writeArrayBuffer(sub._bytes.buffer, 0, sub._bytes.length);
                 sub = parent;
                 offset = parent._offsetinparentStruct;
                 parent = parent._parentStruct;
@@ -313,11 +277,11 @@ class PacketBase {
             case PacketBase.TYPE_BYTE:
 
                 {
-                    return this._bytes.getByte();
+                    return this._bytes.getUint8();
                 }
             case PacketBase.TYPE_BOOL:
                 {
-                    return this._bytes.getByte();
+                    return this._bytes.getUint8();
                 }
             case PacketBase.TYPE_WORD:
                 {
@@ -341,24 +305,6 @@ class PacketBase {
                 }
             case PacketBase.TYPE_INT64:
                 {
-
-                    // this.returnBytes.clear();
-                    // this.returnBytes.pos = 0;
-
-                    // this._bytes.readBytes(this.returnBytes, 0, 8);
-
-                    // let num: number = 0;
-                    // let nk: number = 0;
-                    // for (let i = 0; i < 8; i++) {
-                    //     nk = this.returnBytes.readUnsignedByte();
-                    //     num = num + (nk * Math.pow(2, 8 * i));
-                    // }
-
-                    // if (nk & 0x80) {  //最高位是1
-                    //     num = 18446744073709551616 - num + 1;
-                    //     num = -num;
-                    // }
-
                     return new Int64(this._bytes);
                 }
             case PacketBase.TYPE_STRING:
@@ -366,15 +312,28 @@ class PacketBase {
                     this.returnBytes.clear();
                     this.returnBytes.pos = 0;
 
-                    this._bytes.writeArrayBuffer(this.returnBytes, 0, len);
+                    this.returnBytes.writeArrayBuffer(this._bytes.buffer, this._bytes.pos, len);
+                    this.returnBytes.pos = 0;
                     str = this.returnBytes.readUTFBytes(this.returnBytes.length);
-                    this.returnBytes.clear();
                     return str;
                 }
             case PacketBase.TYPE_BYTES:
                 {
                     this.returnBytes.clear();
-                    this._bytes.writeArrayBuffer(this.returnBytes, 0, len);
+                    this.returnBytes.pos = 0;
+                    this.returnBytes.writeArrayBuffer(this._bytes.buffer, this._bytes.pos, len);
+                    this.returnBytes.pos = 0;
+
+                    if (len == 24) {
+                        let token: string = '';
+
+                        for (let i = 0; i < this.returnBytes.length; ++i) {
+                            token += this.returnBytes.getUint8().toString(16);
+                        }
+
+                        Log.trace('------->>token=' + token);
+                    }
+
                     this.returnBytes.pos = 0;
                     return this.returnBytes;
                 }
@@ -387,7 +346,7 @@ class PacketBase {
 
         this._bytes.pos = 0;
         this._bytes.length = this._postion;
-        this._bytes.writeArrayBuffer(data, data.pos, Math.min(data.length, this._postion));
+        this._bytes.writeArrayBuffer(data.buffer, data.pos, Math.min(data.length, this._postion));
 
         var sub: PacketBase = this;
         var parent: PacketBase = this._parentStruct;
@@ -395,7 +354,7 @@ class PacketBase {
         while (parent && sub) {
             sub._bytes.pos = 0;
             parent._bytes.pos = offset;
-            parent._bytes.writeArrayBuffer(sub._bytes, sub._bytes.pos, sub._bytes.length);
+            parent._bytes.writeArrayBuffer(sub._bytes.buffer, sub._bytes.pos, sub._bytes.length);
 
             sub = parent;
             offset = parent._offsetinparentStruct;

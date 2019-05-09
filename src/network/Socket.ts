@@ -9,7 +9,7 @@ class Socket extends BaseClass {
 	private _host: string;
 	private _port: any;
 	private _socket: Laya.Socket;
-	private _msg: BaseMsg;
+	private _msg: ByteArrayMsg;
 	private _isConnecting: boolean;
 	public waitSignal: boolean = false;
 	public waitTime: number = 0;
@@ -86,8 +86,8 @@ class Socket extends BaseClass {
 	  * 收到服务器消息
 	  * @param e
 	  */
-	private onReceiveMessage(e: Object = null): void {
-		this._msg.receive(this._socket);
+	private onReceiveMessage(msg): void {
+		this._msg.receive(msg);
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Socket extends BaseClass {
 	  * @param port 端口
 	  * @param msg 消息发送接受处理类
 	  */
-	public initServer(host: string, port: any, msg: BaseMsg): void {
+	public initServer(host: string, port: any, msg: ByteArrayMsg): void {
 		this._host = host;
 		this._port = port;
 		this._msg = msg;
@@ -130,6 +130,7 @@ class Socket extends BaseClass {
 		this.addEvents();
 		let url = this._host + this._port;
 		this._socket.connectByUrl(url);
+		//this._socket.connect(this._host, this._port);
 	}
 
 	/**

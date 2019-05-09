@@ -113,7 +113,7 @@ class UserLoginRet extends Packet {
     public read(data: Laya.Byte): number {
         data.pos = super.read(data);
         this.count = this.getValue('Playercount');
-        if (this.count > 0) {
+         if (this.count > 0) {
             for (let i: number = 0; i < this.count; ++i) {
                 this.players[i] = new SelectPlayerInfo(data);
             }
@@ -138,7 +138,7 @@ class UserRealLogin extends Packet {
         super();
         this.cmd = 0x0105;
         this.addProperty('loginsvr_id_type', PacketBase.TYPE_INT);
-        this.addProperty('tokencheck', PacketBase.TYPE_INT);
+        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);
         this.addProperty('ip_type', PacketBase.TYPE_BYTE);
         this.addProperty('fclientver', PacketBase.TYPE_FLOAT);
         this.addProperty('logintoken', PacketBase.TYPE_BYTES, 24);
@@ -206,7 +206,7 @@ class UpdateToken extends Packet {
     public static msgID: number = 0x0109;
     public constructor(data: Laya.Byte) {
         super();
-        this.addProperty('tokencheck', PacketBase.TYPE_INT);
+        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);
         this.addProperty('logintoken', PacketBase.TYPE_BYTES, 24);
         this.read(data);
     }
