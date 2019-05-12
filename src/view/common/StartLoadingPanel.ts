@@ -10,8 +10,8 @@ module view.common {
 		public gameInit(): void {
 			// 加载完成
 			let complete = () => {
-				// 初始化KBE
-				// GameUtils.getInstance().initGame();			
+				PanelManage.openLoginPanel();			
+
 			}
 			// 加载进度
 			let progress = (data) => {

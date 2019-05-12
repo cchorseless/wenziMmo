@@ -18,7 +18,7 @@ module view.common {
 					break;
 				case 'get':
 					console.log(parseInt(this.input_ID.text), parseInt(this.input_Count.text))
-					lcp.send(Protocol.GetItem, [{ 'itemID': parseInt(this.input_ID.text), 'itemCount': parseInt(this.input_Count.text) }])
+					// lcp.send(Protocol.GetItem, [{ 'itemID': parseInt(this.input_ID.text), 'itemCount': parseInt(this.input_Count.text) }])
 					break;
 			}
 		}

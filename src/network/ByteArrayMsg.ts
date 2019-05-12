@@ -18,7 +18,8 @@ class ByteArrayMsg {
         this._msgBuffer.pos = 0;
         var obj: any = this.decode(this._msgBuffer);
         if (obj) {
-            App.MessageCenter.dispatch(obj.msgID, obj.data);
+            App.LListener.event(Packet.msgIdToEventName(obj.msgID), obj.data);
+            // App.MessageCenter.dispatch(obj.msgID, obj.data);
         }
     }
 

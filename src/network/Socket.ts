@@ -53,7 +53,9 @@ class Socket extends BaseClass {
 		// } else {
 		//     App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
 		// }
-		App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
+		App.LListener.event(SocketConst.SOCKET_CONNECT);
+		// App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
+
 		this._connectFlag = true;
 	}
 
@@ -66,7 +68,8 @@ class Socket extends BaseClass {
 		if (this._needReconnect) {
 			this.reconnect();
 		} else {
-			App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
+			App.LListener.event(SocketConst.SOCKET_CLOSE);
+			// App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
 		}
 	}
 
@@ -77,7 +80,8 @@ class Socket extends BaseClass {
 		if (this._needReconnect) {
 			this.reconnect();
 		} else {
-			App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
+			App.LListener.event(SocketConst.SOCKET_NOCONNECT);
+			// App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
 		}
 		this._isConnecting = false;
 	}
@@ -100,7 +104,6 @@ class Socket extends BaseClass {
 		this._host = host;
 		this._port = port;
 		this._msg = msg;
-		this.connect();
 	}
 
 	public resetSocket(host: string, port: any = 0): void {
@@ -108,7 +111,7 @@ class Socket extends BaseClass {
 			let oldhost = this._host;
 			let oldport = this._port;
 			//this._host = host;
-			this._port = port;
+			//this._port = port;
 			this.close();
 			this.connect();
 			this._host = oldhost;
@@ -130,7 +133,6 @@ class Socket extends BaseClass {
 		this.addEvents();
 		let url = this._host + this._port;
 		this._socket.connectByUrl(url);
-		//this._socket.connect(this._host, this._port);
 	}
 
 	/**
@@ -148,9 +150,11 @@ class Socket extends BaseClass {
 		} else {
 			this._reconnectCount = 0;
 			if (this._connectFlag) {
-				App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
+				App.LListener.event(SocketConst.SOCKET_CLOSE);
+				// App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
 			} else {
-				App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
+				App.LListener.event(SocketConst.SOCKET_NOCONNECT);
+				// App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
 			}
 		}
 	}
@@ -185,6 +189,7 @@ class Socket extends BaseClass {
 	private closeCurrentSocket() {
 		this.removeEvents();
 		this._socket.close();
+		this._socket.cleanSocket();
 		this._socket = null;
 		this._isConnecting = false;
 	}
@@ -202,7 +207,8 @@ class Socket extends BaseClass {
 	  * @param str
 	  */
 	private debugInfo(str: String): void {
-		App.MessageCenter.dispatch(SocketConst.SOCKET_DEBUG_INFO, str);
+		App.LListener.event(SocketConst.SOCKET_DEBUG_INFO, str);
+		// App.MessageCenter.dispatch(SocketConst.SOCKET_DEBUG_INFO, str);
 	}
 
 	public checkSignalCmd() {

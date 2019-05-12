@@ -4,7 +4,9 @@
 module PopUpManager {
     /**界面层级信息 */
     export let ALLPANEL = new Laya.Dictionary();
-    //当前界面
+    /**
+     * 当前的界面
+     */
     export let curPanel: Laya.View;
     /**
      * 检查界面是否存在，若存在则销毁

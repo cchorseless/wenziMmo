@@ -8,10 +8,10 @@ class Log {
      * @constructor
      */
     public static trace(...optionalParams: any[]): void {
-        if (App.IsDebug) {
+        if (App.GameEngine.IsDebug) {
             optionalParams[0] = "[DebugLog]" + optionalParams[0];
             console.log.apply(console, optionalParams);
-            
         }
     }
+    
 }

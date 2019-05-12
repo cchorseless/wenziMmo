@@ -2,7 +2,7 @@
  * Created by yangsong on 2014/11/23.
  * 服务端返回消息处理
  */
-class MessageCenter extends BaseClass {
+class MessageCenter {
     private dict: any;
     private eVec: Array<MessageVo>;
     private lastRunTime: number;
@@ -13,12 +13,12 @@ class MessageCenter extends BaseClass {
      * @param type 0:使用分帧处理 1:及时执行
      */
     public constructor(type: number) {
-        super();
         this.type = type;
         this.dict = {};
         this.eVec = new Array<MessageVo>();
         this.lastRunTime = 0;
         if (this.type == 0) {
+            // Laya.timer.frameLoop(1, this, this.run);
             App.TimerManager.doFrame(1, 0, this.run, this);
         }
     }
@@ -44,7 +44,6 @@ class MessageCenter extends BaseClass {
             arr = new Array<any>();
             this.dict[type] = arr;
         }
-
         //检测是否已经存在
         var i: number = 0;
         var len: number = arr.length;
@@ -53,7 +52,6 @@ class MessageCenter extends BaseClass {
                 return;
             }
         }
-
         arr.push([listener, listenerObj]);
     }
 
@@ -145,7 +143,9 @@ class MessageCenter extends BaseClass {
                 this.dealMsg(this.eVec.shift());
             }
         } else {
+            // 超时检测
             while (this.eVec.length > 0) {
+                // 单个事件处理超过5毫秒，下一帧处理
                 this.dealMsg(this.eVec.shift());
                 if ((new Date().getTime() - currTime) > 5) {
                     break;
@@ -175,6 +175,8 @@ class MessageCenter extends BaseClass {
         msgVo.dispose();
         Laya.Pool.recover('MessageVo', msgVo);
     }
+
+
 }
 
 class MessageVo {

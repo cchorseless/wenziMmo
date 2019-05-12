@@ -1,97 +1,81 @@
 // TypeScript file
 
-class MsgProc {
+class MsgProc extends BaseClass {
 
     public constructor() {
-        App.MessageCenter.addListener(SocketConst.SOCKET_CONNECT, this.onSocketConnect, this);
-        //App.MessageCenter.addListener(SocketConst.SOCKET_RECONNECT, this.onSocketReconnect, this);
+        super();
+    }
+    /**
+     * 添加服务器全局监听事件
+     */
+    public init(): void {
+        // 心跳包检测
+        App.LListener.on(Packet.msgIdToEventName(CheckSignalCmd.msgID), this, this.checkSignalCmd);
+        // socket链接
+        App.LListener.on(SocketConst.SOCKET_CONNECT, this, this.onSocketConnect);
+        //App.LListener.on(SocketConst.SOCKET_RECONNECT, this, this.onSocketReconnect);
+        // 更新本地密匙
+        App.LListener.on(Packet.msgIdToEventName(UpdateToken.msgID), this, this.updateToken);
+        // 0x01--
+        // App.LListener.on(Packet.msgIdToEventName(UserRetPreLogin.msgID), this, this.userRetPreLogin);//0101-0102
+        // 0
+        // App.LListener.on(Packet.msgIdToEventName(UserLoginRet.msgID), this, this.userLoginRet);//0103-0104
 
-        App.MessageCenter.addListener(CheckSignalCmd.msgID, this.checkSignalCmd, this);
-        //0x01--
-        App.MessageCenter.addListener(UserRetPreLogin.msgID, this.userRetPreLogin, this);
-        App.MessageCenter.addListener(UserLoginRet.msgID, this.userLoginRet, this);
-        App.MessageCenter.addListener(SelectPlayerRet.msgID, this.selectPlayerRet, this);
-        App.MessageCenter.addListener(UserRealLoginRet.msgID, this.userRealLoginRet, this);
-        App.MessageCenter.addListener(UpdateToken.msgID, this.updateToken, this);
-        App.MessageCenter.addListener(CreatePlayerRet.msgID, this.createPlayerRet, this);
+        // App.LListener.on(Packet.msgIdToEventName(UserRealLoginRet.msgID), this, this.userRealLoginRet);//0105-0106
 
+        App.LListener.on(Packet.msgIdToEventName(SelectPlayerRet.msgID), this, this.selectPlayerRet);//0107-0108
+
+        App.LListener.on(Packet.msgIdToEventName(CreatePlayerRet.msgID), this, this.createPlayerRet);
         //0x02--
-        App.MessageCenter.addListener(PlayerChangeMap.msgID, this.playerChangeMap, this);
-        App.MessageCenter.addListener(MapCreateCret.msgID, this.mapCreateCret, this);
-        App.MessageCenter.addListener(MapRemoveCret.msgID, this.mapRemoveCret, this);
-        App.MessageCenter.addListener(MapCreatePlayer.msgID, this.mapCreatePlayer, this);
+        App.LListener.on(Packet.msgIdToEventName(PlayerChangeMap.msgID), this, this.playerChangeMap);
+        App.LListener.on(Packet.msgIdToEventName(MapCreateCret.msgID), this, this.mapCreateCret);
+        App.LListener.on(Packet.msgIdToEventName(MapRemoveCret.msgID), this, this.mapRemoveCret);
+        App.LListener.on(Packet.msgIdToEventName(MapCreatePlayer.msgID), this, this.mapCreatePlayer, );
 
-        App.MessageCenter.addListener(StateReady.msgID, this.stateReady, this);
+        App.LListener.on(Packet.msgIdToEventName(StateReady.msgID), this, this.stateReady);
         //0x021F
-        App.MessageCenter.addListener(CretMoveRet.msgID, this.cretMoveRet, this);
+        App.LListener.on(Packet.msgIdToEventName(CretMoveRet.msgID), this, this.cretMoveRet);
         //0x0232
-        App.MessageCenter.addListener(CretAttackRet.msgID, this.cretAttackRet, this);
+        App.LListener.on(Packet.msgIdToEventName(CretAttackRet.msgID), this, this.cretAttackRet);
         //0x0234
-        App.MessageCenter.addListener(CretHealthChange.msgID, this.cretHealthChange, this);
+        App.LListener.on(Packet.msgIdToEventName(CretHealthChange.msgID), this, this.cretHealthChange);
         //0x023-
-        App.MessageCenter.addListener(CretGoldChange.msgID, this.cretGoldChange, this);
-        App.MessageCenter.addListener(CretExpChange.msgID, this.cretExpChange, this);
-        App.MessageCenter.addListener(CretLevelUp.msgID, this.cretLevelUp, this);
-        App.MessageCenter.addListener(CretChat.msgID, this.cretChat, this);
-        App.MessageCenter.addListener(CretAbility.msgID, this.cretAbility, this);
-        App.MessageCenter.addListener(CretCharBase.msgID, this.cretCharBase, this);
-        App.MessageCenter.addListener(CretLifestateChange.msgID, this.cretLifestateChange, this);
-        App.MessageCenter.addListener(TipMsg.msgID, this.tipMsg, this);
-        App.MessageCenter.addListener(CretGetUseItemRet.msgID, this.cretGetUseItemRet, this);
+        App.LListener.on(Packet.msgIdToEventName(CretGoldChange.msgID), this, this.cretGoldChange);
+        App.LListener.on(Packet.msgIdToEventName(CretExpChange.msgID), this, this.cretExpChange);
+        App.LListener.on(Packet.msgIdToEventName(CretLevelUp.msgID), this, this.cretLevelUp);
+        App.LListener.on(Packet.msgIdToEventName(CretChat.msgID), this, this.cretChat);
+        App.LListener.on(Packet.msgIdToEventName(CretAbility.msgID), this, this.cretAbility);
+        App.LListener.on(Packet.msgIdToEventName(CretCharBase.msgID), this, this.cretCharBase);
+        App.LListener.on(Packet.msgIdToEventName(CretLifestateChange.msgID), this, this.cretLifestateChange);
+        App.LListener.on(Packet.msgIdToEventName(TipMsg.msgID), this, this.tipMsg);
+        App.LListener.on(Packet.msgIdToEventName(CretGetUseItemRet.msgID), this, this.cretGetUseItemRet);
         //0x0297
-        App.MessageCenter.addListener(CretStruck.msgID, this.cretStruck, this);
-        App.MessageCenter.addListener(MapItemEventDel.msgID, this.mapItemEventDel, this);
-        App.MessageCenter.addListener(MapItemEventAdd.msgID, this.mapItemEventAdd, this);
-        App.MessageCenter.addListener(MapItemEventPick.msgID, this.mapItemEventPick, this);
-
+        App.LListener.on(Packet.msgIdToEventName(CretStruck.msgID), this, this.cretStruck);
+        App.LListener.on(Packet.msgIdToEventName(MapItemEventDel.msgID), this, this.mapItemEventDel);
+        App.LListener.on(Packet.msgIdToEventName(MapItemEventAdd.msgID), this, this.mapItemEventAdd);
+        App.LListener.on(Packet.msgIdToEventName(MapItemEventPick.msgID), this, this.mapItemEventPick);
         //0x03
-        App.MessageCenter.addListener(CretDeleteItem.msgID, this.cretDeleteItem, this);
-        App.MessageCenter.addListener(CretUpdateItem.msgID, this.cretUpdateItem, this);
-        App.MessageCenter.addListener(CretItems.msgID, this.cretItems, this);
-        App.MessageCenter.addListener(CretItemCountChanged.msgID, this.cretItemCountChanged, this);
-        App.MessageCenter.addListener(CretProcessingItem.msgID, this.cretProcessingItem, this);
-        App.MessageCenter.addListener(CretForsakeItem.msgID, this.cretForsakeItem, this);
+        App.LListener.on(Packet.msgIdToEventName(CretDeleteItem.msgID), this, this.cretDeleteItem);
+        App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
+        App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.cretItems);
+        App.LListener.on(Packet.msgIdToEventName(CretItemCountChanged.msgID), this, this.cretItemCountChanged);
+        App.LListener.on(Packet.msgIdToEventName(CretProcessingItem.msgID), this, this.cretProcessingItem);
+        App.LListener.on(Packet.msgIdToEventName(CretForsakeItem.msgID), this, this.cretForsakeItem);
         //0x0919
-        App.MessageCenter.addListener(QuestScriptData.msgID, this.questScriptData, this);
-
+        App.LListener.on(Packet.msgIdToEventName(QuestScriptData.msgID), this, this.questScriptData);
     }
 
-    public onSocketConnect() {
-        if (App.GameEngine.isLogin == false) {
-            let login: UserPreLogin = new UserPreLogin();
-            login.send();
-            login.clear();
-        }
-        else {
-            this.onSocketReconnect();
-        }
-    }
-
-    public onSocketReconnect() {
-        let realLogin = new UserRealLogin();
-        realLogin.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-        realLogin.setValue('szPlayerName', App.GameEngine.mainPlayer.playerName);
-        realLogin.setValue('dwTrueZoneid', App.GameEngine.trueZoneid);
-        realLogin.setValue('dwUserOnlyId', App.GameEngine.mainPlayer.userOnlyid);
-
-        //realLogin.setValue('btReloginType', 2);
-
-        realLogin.setValue('loginsvr_id_type', App.GameEngine.loginsvrIdType);
-        realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
-        realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
-        realLogin.setValue('logintoken', App.GameEngine.logintoken);
-
-        realLogin.send();
-        realLogin.clear();
-    }
-
+    /**
+    * 心跳包
+    * @param data 
+    */
     public checkSignalCmd(data: any): void {
         let checksignal = new CheckSignalCmd(data);
         if (checksignal.getValue('isneedACK') != 0) {
             let signal = new CheckSignalCmdRet();
             signal.setValue('checknum', checksignal.getValue('checknum'))
             signal.send();
-            signal.clear();
+            // signal.clear();
             signal = null;
         }
 
@@ -101,118 +85,42 @@ class MsgProc {
         }
     }
 
-    public userRetPreLogin(data: any): void {
-        let msgData: UserRetPreLogin = new UserRetPreLogin(data);
-        let login = new NormalUserLogin();
 
-        login.setValue('queryhistory', 0);
-        login.setValue('tokenlogin', 0);
-        login.setValue('force_login', 1);
-        login.setValue('ip_type', 255);
-        login.setValue('fclientver', 0);
-        login.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-        login.setValue('szAccountDis', 1);
-        login.setValue("dwZoneid", 1001);
-        login.setValue("dwTrueZoneid", 1);
-        var crc32: number = FunctionUtils.passwordCrc32("1");
-        //var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
-        //login.setValue('szPassMd5', new Laya.Byte(1));
-        login.setValue('dwPassCrc32', crc32);
-        login.setValue('isSaveEncodePass', false);
-        login.setValue('szADUrl', "1");
-        login.setValue('szMac', "1");
-
-        login.send();
-        login.clear();
-        login = null;
-        msgData.clear();
-        msgData = null;
-
-
-        ////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
-    }
-
-    public userLoginRet(data: any): void {
-        let msgData: UserLoginRet = new UserLoginRet(data);
-
-        if (msgData.getValue("nErrorCode") == 0) {
-
-            ////App.MainPanel.loginPanel.dispose();
-
-            App.GameEngine.zoneid = msgData.getValue('nSvrZoneid');
-            App.GameEngine.svrIndex = msgData.getValue("nSvrIndex");
-            App.GameEngine.loginsvrIdType = msgData.getValue('loginsvr_id_type')
-
-            if (msgData.count > 0) {
-                let selector: SelectPlayer = new SelectPlayer();
-                selector.setValue("nselectidx", 0);
-                selector.setValue("szName", msgData.players[0].getValue('szName'));
-                selector.setValue("btmapsubline", 1);
-                selector.send();
-                selector.clear();
-
-                ////App.MainPanel.addSysChat("您选择了昵称:" + msgData.players[0].getValue('szName'))
-                Log.trace("您选择了昵称:" + msgData.players[0].getValue('szName'));
-                App.GameEngine.isLogin = true;
-
-            } else {
-
-                if (msgData.getValue('nCountry') == 0) {
-
-                } else {
-                    //App.GameEngine.mainPlayer.playerName = App.GameEngine.mainPlayer.playerAccount.substr(0, 7) + RandomUtils.getInstance().limitInteger(1, 100);
-                    App.GameEngine.mainPlayer.job = 2;
-                    App.GameEngine.mainPlayer.sex = 1;
-
-                    let createusr = new CreatePlayer();
-                    createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-                    createusr.playerinfo.setValue('szName', App.GameEngine.mainPlayer.playerName);
-                    createusr.setValue('countryId', 1);
-                    createusr.playerinfo.feature.setValue('sex', App.GameEngine.mainPlayer.sex);
-                    createusr.playerinfo.feature.setValue('job', App.GameEngine.mainPlayer.job);
-
-                    createusr.send();
-                    createusr.clear();
-                    createusr = null;
-                }
-
-            }
-        } else {
-            ////App.MainPanel.addSysChat("请输入正确的账号密码");
-            Log.trace('请输入正确的账号密码 errorcode' + msgData.getValue("nErrorCode"));
+    /**
+     * socket链接
+     */
+    public onSocketConnect() {
+        if (App.GameEngine.isLogin == false) {
+            lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
+            // let login: UserPreLogin = new UserPreLogin();
+            // login.send();
+            // login.clear();
         }
-
-        msgData.clear();
-    }
-
-
-
-    public selectPlayerRet(data: any): void {
-        let msgData: SelectPlayerRet = new SelectPlayerRet(data);
-
-        if (msgData.getValue('nErrorCode') == 0) {
-            App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
-            App.GameEngine.mainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
-            App.GameEngine.mainPlayer.playerName = msgData.getValue('szName');
-            App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
-        } else {
-            ////App.MainPanel.addSysChat("选择昵称失败：" + msgData.getValue('nErrorCode'));
+        else {
+            this.onSocketReconnect();
         }
-
-        msgData.clear();
     }
-
-    public userRealLoginRet(data: any): void {
-        let msgData = new UserRealLoginRet(data);
-
-        if (msgData.getValue('nErrorCode') == 0) {
-
-            ////App.MainPanel.addSysChat("游戏登录成功...")
-        }
-
-        msgData.clear();
+    /**
+     * 断线重连
+     */
+    public onSocketReconnect() {
+        let realLogin = new UserRealLogin();
+        realLogin.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+        realLogin.setValue('szPlayerName', App.GameEngine.mainPlayer.playerName);
+        realLogin.setValue('dwTrueZoneid', App.GameEngine.trueZoneid);
+        realLogin.setValue('dwUserOnlyId', App.GameEngine.mainPlayer.userOnlyid);
+        //realLogin.setValue('btReloginType', 2);
+        realLogin.setValue('loginsvr_id_type', App.GameEngine.loginsvrIdType);
+        realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
+        realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
+        realLogin.setValue('logintoken', App.GameEngine.logintoken);
+        lcp.send(realLogin,this,this.userRealLoginRet)
+        // realLogin.clear();
     }
-
+    /**
+     * 更新本地密匙
+     * @param data 
+     */
     public updateToken(data: any): void {
         let msgData = new UpdateToken(data);
         let tmp = msgData.getValue('logintoken');
@@ -220,7 +128,6 @@ class MsgProc {
         App.GameEngine.logintoken.writeArrayBuffer(tmp.buffer, 0, tmp.length);
         App.GameEngine.logintoken.pos = 0;
         App.GameEngine.tokenCheck = msgData.getValue('tokencheck');
-
         // int Mem2Hex(char* pin, int nsize, char* pout, int nout)
         // {
         //     for(int i = 0; i < nsize; i++)
@@ -239,17 +146,114 @@ class MsgProc {
 
         // 0000 0001
         // 0000 0100
-
         let token: string = '';
         tmp.pos = 0;
         for (let i = 0; i < tmp.length; ++i) {
             token += tmp.getUint8().toString(16);
         }
-
         Log.trace('------->>token=' + token);
+        msgData.clear();
+    }
+
+    /**
+     * 
+     * @param data 请求登陆
+     */
+    public userRetPreLogin(data: any): void {
+        let msgData: UserRetPreLogin = new UserRetPreLogin(data);
+        let login = new NormalUserLogin();
+        login.setValue('queryhistory', 0);
+        login.setValue('tokenlogin', 0);
+        login.setValue('force_login', 1);
+        login.setValue('ip_type', 255);
+        login.setValue('fclientver', 0);
+        login.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+        login.setValue('szAccountDis', 1);
+        login.setValue("dwZoneid", 1001);
+        login.setValue("dwTrueZoneid", 1);
+        var crc32: number = FunctionUtils.passwordCrc32("1");
+        //var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
+        //login.setValue('szPassMd5', new Laya.Byte(1));
+        login.setValue('dwPassCrc32', crc32);
+        login.setValue('isSaveEncodePass', false);
+        login.setValue('szADUrl', "1");
+        login.setValue('szMac', "1");
+        // login.send();
+        lcp.send(login, this, this.userLoginRet)
+        msgData.clear();
+
+        ////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
+    }
+
+    public userLoginRet(data: any): void {
+        let msgData: UserLoginRet = new UserLoginRet(data);
+        if (msgData.getValue("nErrorCode") == 0) {
+            ////App.MainPanel.loginPanel.dispose();
+            App.GameEngine.zoneid = msgData.getValue('nSvrZoneid');
+            App.GameEngine.svrIndex = msgData.getValue("nSvrIndex");
+            App.GameEngine.loginsvrIdType = msgData.getValue('loginsvr_id_type')
+            if (msgData.count > 0) {
+                let selector: SelectPlayer = new SelectPlayer();
+                selector.setValue("nselectidx", 0);
+                selector.setValue("szName", msgData.players[0].getValue('szName'));
+                selector.setValue("btmapsubline", 1);
+                selector.send();
+                // selector.clear();
+                ////App.MainPanel.addSysChat("您选择了昵称:" + msgData.players[0].getValue('szName'))
+                Log.trace("您选择了昵称:" + msgData.players[0].getValue('szName'));
+                App.GameEngine.isLogin = true;
+
+            } else {
+
+                if (msgData.getValue('nCountry') == 0) {
+                } else {
+                    //App.GameEngine.mainPlayer.playerName = App.GameEngine.mainPlayer.playerAccount.substr(0, 7) + RandomUtils.getInstance().limitInteger(1, 100);
+                    App.GameEngine.mainPlayer.job = 2;
+                    App.GameEngine.mainPlayer.sex = 1;
+
+                    let createusr = new CreatePlayer();
+                    createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+                    createusr.playerinfo.setValue('szName', App.GameEngine.mainPlayer.playerName);
+                    createusr.setValue('countryId', 1);
+                    createusr.playerinfo.feature.setValue('sex', App.GameEngine.mainPlayer.sex);
+                    createusr.playerinfo.feature.setValue('job', App.GameEngine.mainPlayer.job);
+                    createusr.send();
+                    createusr.clear();
+                    createusr = null;
+                }
+
+            }
+        } else {
+            ////App.MainPanel.addSysChat("请输入正确的账号密码");
+            Log.trace('请输入正确的账号密码 errorcode' + msgData.getValue("nErrorCode"));
+        }
 
         msgData.clear();
     }
+
+    public selectPlayerRet(data: any): void {
+        let msgData: SelectPlayerRet = new SelectPlayerRet(data);
+
+        if (msgData.getValue('nErrorCode') == 0) {
+            App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
+            App.GameEngine.mainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
+            App.GameEngine.mainPlayer.playerName = msgData.getValue('szName');
+            App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
+        } else {
+            ////App.MainPanel.addSysChat("选择昵称失败：" + msgData.getValue('nErrorCode'));
+        }
+        msgData.clear();
+    }
+
+    public userRealLoginRet(data: any): void {
+        let msgData = new UserRealLoginRet(data);
+        if (msgData.getValue('nErrorCode') == 0) {
+            Log.trace('游戏登陆成功')
+        }
+        msgData.clear();
+    }
+
+
 
     //0x012D
     public createPlayerRet(data: any): void {
@@ -324,11 +328,7 @@ class MsgProc {
     //非玩家进入地图
     public mapCreateCret(data: any): void {
         let msgData = new MapCreateCret(data);
-
         let type = msgData.feature.getValue('btCretType');
-
-
-
         let monster = new Monster();
         monster.id = msgData.feature.getValue('dwCretTypeId');
         monster.onlyid = msgData.getValue('dwTmpId');
@@ -338,7 +338,6 @@ class MsgProc {
         } else {
             monster.name = FunctionUtils.filterName(msgData.getValue('szShowName'));
         }
-
         monster.x = msgData.location.getValue('ncurx');
         monster.y = msgData.location.getValue('ncury');
         monster.level = msgData.getValue('lvl');
@@ -346,7 +345,6 @@ class MsgProc {
         monster.mp = msgData.getValue('nNowMp');
         monster.lifestate = msgData.getValue('lifestate');
         //App.GameEngine.mainPlayer.addViewObj(monster, msgData.feature.getValue('btCretType'));
-
         // let objDB = new ObjItemDB();
         // objDB.distance = Math.abs(App.GameEngine.mainPlayer.x - monster.x) + Math.abs(App.GameEngine.mainPlayer.y - monster.y);
         // objDB.cretType = type;
@@ -365,7 +363,6 @@ class MsgProc {
 
     public mapCreatePlayer(data: any): void {
         let msg = new MapCreatePlayer(data);
-
         let player = new Player();
         player.onlyid = msg.getValue('dwTmpId');
         player.name = msg.getValue('szShowName');

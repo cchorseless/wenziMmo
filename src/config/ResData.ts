@@ -8,13 +8,13 @@ module ResData {
     export class PanelRes {
         //****************************************通用素材******************************** */
         // 开始游戏界面
-        public static StartLoading = [{ url: "res/atlas/image/loading.atlas", type: Laya.Loader.ATLAS },];
+        public static StartLoading = [{ url: "image/mc/loading.atlas", type: Laya.Loader.ATLAS },];
         // GM界面
         public static GM = null;
         // 登陆界面
-        public static Login = null;
+        public static Login = [{ url: "res/atlas/image/common/login.atlas", type: Laya.Loader.ATLAS },];
         // 服务器列表界面
-        public static ServerList = null;
+        public static ServerList = [{ url: "res/atlas/image/common/serverList.atlas", type: Laya.Loader.ATLAS },];
         // 服务器公告界面
         public static ServerNotice = null;
         // 通用素材

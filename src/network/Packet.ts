@@ -1,5 +1,7 @@
 // TypeScript file
 class Packet extends PacketBase {
+    // 返回包的类型
+    public cbPacket = null;
     public static _MAX_NAME_LEN: number = 48;
     //private static _compressBytes: Laya.Byte = new Laya.Byte();
     //private static _sharedBytes: Laya.Byte = new Laya.Byte();
@@ -37,7 +39,7 @@ class Packet extends PacketBase {
         return cmdstr + cmd.toString() + subcmdstr + subcmd.toString();
     }
 
-    public static ReadPackCmd(data: Laya.Byte, fix:string): number {
+    public static ReadPackCmd(data: Laya.Byte, fix: string): number {
         var pos: number = data.pos;
         var cmd: number = data.getUint8();
         var subcmd: number = data.getUint8();
@@ -54,13 +56,29 @@ class Packet extends PacketBase {
         this._bytes.pos = 0;
         if (App.Socket == null)
             return;
+        // 这里没有做分包
         if (false && this._bytes.length >= 64) {
             //_compress
         }
         else {
             Packet.ReadPackCmd(this._bytes, "send");
-
             App.Socket.send(this._bytes);
         }
+        this.clear();
+    }
+    /**
+     * 包号转化成事件字符串
+     */
+    public get eventName(): string {
+        if (this.cbPacket == null) {
+            throw QuickUtil.getObjectClassName(this) + '-cbPacket缺失'
+        }
+        if (this.cbPacket.msgID == null) {
+            throw QuickUtil.getObjectClassName(this) + '-cbPacket无msgID设置'
+        }
+        return Packet.msgIdToEventName(this.cbPacket.msgID)
+    }
+    public static msgIdToEventName(msgID: number): string {
+        return 'CLIENT_MESSAGE_' + msgID
     }
 }

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":20,
-    "selecteID":5,
+    "selectedBox":21,
+    "selecteID":11,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},
+            "props":{"var":"stack_login","top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"ViewStack",
+            "label":"ViewStack(stack_login)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -40,18 +40,19 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":666,"x":126,"var":"box_login","name":"item0"},
+                    "props":{"y":764,"x":148,"var":"box_login","name":"item0"},
                     "nodeParent":37,
                     "label":"Box(box_login)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":0,"x":0,"width":388,"var":"input_account","valign":"middle","type":"text","text":"账号","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":39,"x":0,"width":353,"var":"input_account","valign":"middle","type":"text","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"账号","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_account)",
                             "isDirectory":false,
@@ -62,8 +63,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":115,"x":0,"width":388,"var":"input_passworld","valign":"middle","type":"password","text":"nnnnnnn","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","height":118,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":126,"x":6,"width":344,"var":"input_passworld","valign":"middle","type":"password","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"密码","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_passworld)",
                             "isDirectory":false,
@@ -74,8 +76,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":235,"x":81,"var":"btn_Login","stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
+                            "props":{"y":230,"x":54,"var":"btn_Login","stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
                             "nodeParent":21,
                             "label":"Button(btn_Login)",
                             "isDirectory":false,
@@ -85,49 +88,34 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":659,"x":172,"var":"box_start","name":"item1"},
+                    "props":{"y":659,"x":172,"width":388,"var":"box_start","name":"item1","height":426},
                     "nodeParent":37,
                     "label":"Box(box_start)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":20,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"x":302,"width":103,"var":"btn_selectServer","skin":"image/common/skill_icon_48.png","height":102},
-                            "nodeParent":20,
-                            "label":"Image(btn_selectServer)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":5,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":12,"width":296,"skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
+                            "props":{"y":12,"x":4,"width":296,"skin":"image/common/login/task_bg.png","sizeGrid":"14,25,32,15","height":92},
                             "nodeParent":20,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":15,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"width":296,"var":"lbl_server","valign":"middle","top":0,"text":"测试1服","right":0,"left":0,"height":92,"fontSize":30,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
+                                    "props":{"width":296,"var":"lbl_server","valign":"middle","top":20,"text":"测试1服","right":0,"left":-10,"height":92,"fontSize":30,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
                                     "nodeParent":15,
                                     "label":"Label(lbl_server)",
                                     "isDirectory":false,
@@ -139,7 +127,18 @@
                                 }]
                         },
                         {
-                            "x":45,
+                            "type":"Button",
+                            "props":{"y":20,"x":235,"width":80,"var":"btn_selectServer","stateNum":"2","skin":"image/common/add_res_down_finish.png","height":80},
+                            "nodeParent":20,
+                            "label":"Button(btn_selectServer)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":46,
+                            "child":[
+                                ]
+                        },
+                        {
                             "type":"Box",
                             "props":{"y":115,"x":-27,"width":368,"height":311},
                             "nodeParent":20,
@@ -151,9 +150,8 @@
                             "compId":33,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/avatarDefault.png","height":120},
+                                    "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/hero01.jpg","height":120},
                                     "nodeParent":33,
                                     "label":"Image(img_avatarIcon)",
                                     "isDirectory":false,
@@ -165,9 +163,8 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":146,"x":0,"width":355,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":43,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"},
+                                    "props":{"y":141,"x":41,"width":286,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":34,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"},
                                     "nodeParent":33,
                                     "label":"Label(lbl_avatarDes)",
                                     "isDirectory":false,
@@ -176,80 +173,27 @@
                                     "compId":32,
                                     "child":[
                                         ],
-                                    "$HIDDEN":true
+                                    "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
-                                    "type":"Box",
-                                    "props":{"y":115,"x":0,"var":"box_randomName"},
+                                    "type":"Button",
+                                    "props":{"y":185,"x":49,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/start_game_down_finish.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true},
                                     "nodeParent":33,
-                                    "label":"Box(box_randomName)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
+                                    "label":"Button(btn_startGame)",
+                                    "isDirectory":false,
                                     "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":36,
+                                    "hasChild":false,
+                                    "compId":44,
                                     "child":[
-                                        {
-                                            "x":75,
-                                            "type":"TextInput",
-                                            "props":{"y":31,"x":0,"width":355,"var":"input_random","type":"text","promptColor":"#060606","prompt":"点击随机名字","height":43,"fontSize":25,"font":"mini","color":"#0b0101","bold":true,"align":"center"},
-                                            "nodeParent":36,
-                                            "label":"TextInput(input_random)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":34,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":90,"x":302,"var":"btn_randomName","skin":"image/common/skill_icon_54.png","rotation":-90},
-                                            "nodeParent":36,
-                                            "label":"Image(btn_randomName)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":35,
-                                            "child":[
-                                                ]
-                                        }]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":209,"x":77,"width":210,"var":"btn_startGame","skin":"image/common/stage_map_2.png","sizeGrid":"14,25,32,15","height":92},
-                                    "nodeParent":33,
-                                    "label":"Image(btn_startGame)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":23,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"Label",
-                                            "props":{"width":296,"valign":"middle","top":0,"text":"进入游戏","right":0,"left":0,"height":92,"fontSize":40,"font":"mini","color":"#060606","bottom":28,"bold":true,"align":"center"},
-                                            "nodeParent":23,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":24,
-                                            "child":[
-                                                ]
-                                        }]
+                                        ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":808,"x":175,"var":"box_fail","name":"item2"},
+                    "props":{"y":792,"x":170,"var":"box_fail","name":"item2"},
                     "nodeParent":37,
                     "label":"Box(box_fail)",
                     "isOpen":false,
@@ -285,7 +229,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":110,"x":53,"stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"退出"},
+                            "props":{"y":110,"x":53,"stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"退出"},
                             "nodeParent":29,
                             "label":"Button",
                             "isDirectory":false,

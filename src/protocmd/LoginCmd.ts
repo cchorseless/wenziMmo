@@ -1,6 +1,6 @@
 // TypeScript file
 
-//心跳包
+//***************************************心跳包
 class CheckSignalCmd extends Packet {
     public static msgID: number = 0xFFFE;
     public constructor(data: Laya.Byte) {
@@ -12,16 +12,23 @@ class CheckSignalCmd extends Packet {
 }
 
 class CheckSignalCmdRet extends Packet {
+    //服务器返回的包类型
+    public cbPacket = CheckSignalCmd;
     public constructor() {
         super();
+        this.cmd = 0xFFFE;
         this.addProperty('isneedACK', PacketBase.TYPE_BYTE);
         this.addProperty('checknum', PacketBase.TYPE_BYTE);
-        this.cmd = 0xFFFE;
         this.setValue('isneedACK', 1);
     }
 }
+// ************************************************
+
+// ********************************登陆验证
 
 class UserPreLogin extends Packet {
+    //服务器返回的包类型
+    public cbPacket = UserRetPreLogin;
     public constructor() {
         super();
         this.cmd = 0x0101;
@@ -44,7 +51,12 @@ class UserRetPreLogin extends Packet {
     }
 }
 
+//**************************************************
+
+//********************************登陆 */
 class UserLogin extends Packet {
+    //服务器返回的包类型
+    public cbPacket = UserLoginRet;
     public constructor() {
         super();
         this.cmd = 0x0103;
@@ -73,25 +85,6 @@ class NormalUserLogin extends UserLogin {
     }
 }
 
-class TradeUserLogin extends UserLogin {
-    public constructor() {
-        super();
-        this.addProperty('dwTradeID', PacketBase.TYPE_DWORD);//平台编号,5ding=0,360=1  
-        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);// 校验参数，客户端PHP生成，和平台无关  
-        this.addProperty('checkParam1', PacketBase.TYPE_STRING, 48);// 平台参数1，5ding和360都是时间 t  
-        this.addProperty('szPassMd5Str', PacketBase.TYPE_STRING, 48);//  平台结果校验参数,按照平台提供的KEY和算法最终生成的MD5值 p  
-        this.addProperty('checkParam2', PacketBase.TYPE_STRING, 48);// 平台参数2，5ding没有,360是服务器ID  
-        this.addProperty('paytoken', PacketBase.TYPE_STRING, 256);           //购买token，客户端定时刷新
-        this.addProperty('nplatform', PacketBase.TYPE_INT);                        //weixin：1 qq：2
-        this.addProperty('nZoneId', PacketBase.TYPE_INT);  //当前服务器id（对玩家zoneid）
-        this.addProperty('ClientVersion', PacketBase.TYPE_STRING, 48);//客户端版本  
-        this.addProperty('Txinvkey', PacketBase.TYPE_STRING, 48);
-        this.addProperty('Txitime', PacketBase.TYPE_STRING, 48);
-        this.addProperty('Txiopenid', PacketBase.TYPE_STRING, 48);
-        this.addProperty('szCustomData', PacketBase.TYPE_STRING, 2048);
-    }
-}
-
 class UserLoginRet extends Packet {
     public static msgID: number = 0x0104;
     public players: Array<any> = new Array();
@@ -113,7 +106,7 @@ class UserLoginRet extends Packet {
     public read(data: Laya.Byte): number {
         data.pos = super.read(data);
         this.count = this.getValue('Playercount');
-         if (this.count > 0) {
+        if (this.count > 0) {
             for (let i: number = 0; i < this.count; ++i) {
                 this.players[i] = new SelectPlayerInfo(data);
             }
@@ -131,9 +124,28 @@ class UserLoginRet extends Packet {
         this.players = null;
     }
 }
-
-//0x0105
+//************************************************ */
+class TradeUserLogin extends UserLogin {
+    public constructor() {
+        super();
+        this.addProperty('dwTradeID', PacketBase.TYPE_DWORD);//平台编号,5ding=0,360=1  
+        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);// 校验参数，客户端PHP生成，和平台无关  
+        this.addProperty('checkParam1', PacketBase.TYPE_STRING, 48);// 平台参数1，5ding和360都是时间 t  
+        this.addProperty('szPassMd5Str', PacketBase.TYPE_STRING, 48);//  平台结果校验参数,按照平台提供的KEY和算法最终生成的MD5值 p  
+        this.addProperty('checkParam2', PacketBase.TYPE_STRING, 48);// 平台参数2，5ding没有,360是服务器ID  
+        this.addProperty('paytoken', PacketBase.TYPE_STRING, 256);           //购买token，客户端定时刷新
+        this.addProperty('nplatform', PacketBase.TYPE_INT);                        //weixin：1 qq：2
+        this.addProperty('nZoneId', PacketBase.TYPE_INT);  //当前服务器id（对玩家zoneid）
+        this.addProperty('ClientVersion', PacketBase.TYPE_STRING, 48);//客户端版本  
+        this.addProperty('Txinvkey', PacketBase.TYPE_STRING, 48);
+        this.addProperty('Txitime', PacketBase.TYPE_STRING, 48);
+        this.addProperty('Txiopenid', PacketBase.TYPE_STRING, 48);
+        this.addProperty('szCustomData', PacketBase.TYPE_STRING, 2048);
+    }
+}
+//*********************************验证后登陆 */
 class UserRealLogin extends Packet {
+    public cbPacket = UserRealLoginRet;
     public constructor() {
         super();
         this.cmd = 0x0105;
@@ -154,7 +166,6 @@ class UserRealLogin extends Packet {
         this.addProperty("szLoginChannel", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//平台,用于后端区分
     }
 }
-//0x0106
 class UserRealLoginRet extends Packet {
     public static msgID: number = 0x0106;
     public constructor(data: Laya.Byte) {
@@ -170,16 +181,17 @@ class UserRealLoginRet extends Packet {
         this.read(data);
     }
 }
-
+//*************************************************** */
+//********************************选角创角** */
 //0x0107
 class SelectPlayer extends Packet {
+    public cbPacket = SelectPlayerRet;
     public constructor() {
         super();
         this.cmd = 0x0107;
         this.addProperty('nselectidx', PacketBase.TYPE_INT);
         this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
         this.addProperty('btmapsubline', PacketBase.TYPE_BYTE);
-
     }
 }
 
@@ -200,6 +212,7 @@ class SelectPlayerRet extends Packet {
         this.read(data);
     }
 }
+//****************************************** */
 
 //0x0109
 class UpdateToken extends Packet {
@@ -211,9 +224,10 @@ class UpdateToken extends Packet {
         this.read(data);
     }
 }
-
+//***********************************创建角色* */
 //0x012C
 class CreatePlayer extends Packet {
+    public cbPacket = CreatePlayerRet;
     public static msgID: number = 0x012C;
     public playerinfo: SelectPlayerInfo = new SelectPlayerInfo(null);
     public constructor() {

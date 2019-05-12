@@ -10,7 +10,7 @@ module lcp {
      */
     export class LListener {
         public CLASS_NAME: string = "LListener";
-        private static _instance: LListener ;
+        private static _instance: LListener;
         private _dispatcher: Laya.EventDispatcher;
         private isInit: boolean = false;
         public constructor() {
@@ -51,43 +51,22 @@ module lcp {
             return this._dispatcher.hasListener(type);
         }
         // 触发事件
-        public event(event: LEvent): boolean {
-            return this._dispatcher.event(event.type, event.param);
+        public event(type: string, param?): boolean {
+            return this._dispatcher.event(type, param);
         }
     }
 
     /**
-     * 自定义事件类
-     */
-    export class LEvent {
-        public CLASS_NAME: string = "LEvent";
-        public type: string;
-        public param: Object;
-        public constructor(type: string, obj: Object = null) {
-            this.type = type;
-            this.param = obj;
-        }
-    }
-
-    /**
-     * KBEngine网络发送协议,配合实体，使用本地lcp实现回调
-     * @param evtname 事件标识
-     * @param data 事件数据，用[]包裹，
+     * 网络发送协议,配合实体，使用本地lcp实现回调
+     * @param msgClass 包
+     * @param key 上下文
      * @param cb 回调函数
      */
-    export function send(evtname: string, data?: Array<any>, cb?: Function): void {
-        console.log('lcp')
+    export function send(msgClass: Packet, key?, cb?: Function): void {
+        let eventName = msgClass.eventName;
         if (cb) {
-            lcp.LListener.getInstance().once(evtname, this, cb)
+            lcp.LListener.getInstance().once(eventName, key, cb)
         }
-
-        if (data) {
-            // KBEngine.Event.fire(evtname, data)
-        }
-        else {
-            // KBEngine.Event.fire(evtname)
-        }
-
+        msgClass.send();
     }
-
 }
