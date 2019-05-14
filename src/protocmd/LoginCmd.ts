@@ -25,28 +25,28 @@ class CheckSignalCmdRet extends Packet {
 // ************************************************
 
 // ********************************登陆验证
-
+//登录前验证
 class UserPreLogin extends Packet {
     //服务器返回的包类型
     public cbPacket = UserRetPreLogin;
     public constructor() {
         super();
         this.cmd = 0x0101;
-        this.addProperty('checkcode', PacketBase.TYPE_DWORD);
-        this.addProperty('clientver', PacketBase.TYPE_DWORD);
+        this.addProperty('checkcode', PacketBase.TYPE_DWORD);//验证码
+        this.addProperty('clientver', PacketBase.TYPE_DWORD);//客户端版本号
         this.setValue('checkcode', 0x55884433);
         this.setValue('clientver', 0);
     }
 }
-
+//登录前验证返回
 class UserRetPreLogin extends Packet {
     public static msgID: number = 0x0102;
     public constructor(data: Laya.Byte) {
         super();
-        this.addProperty('clientver', PacketBase.TYPE_DWORD);
-        this.addProperty('passkey', PacketBase.TYPE_BYTES, 8);
-        this.addProperty('encodetype', PacketBase.TYPE_INT);
-        this.addProperty('key', PacketBase.TYPE_BYTES, 16);
+        this.addProperty('clientver', PacketBase.TYPE_DWORD);//客户端版本号
+        this.addProperty('passkey', PacketBase.TYPE_BYTES, 8);//服务器生成的验证key
+        this.addProperty('encodetype', PacketBase.TYPE_INT);//加密类型
+        this.addProperty('key', PacketBase.TYPE_BYTES, 16);//验证key
         this.read(data);
     }
 }
@@ -68,23 +68,23 @@ class UserLogin extends Packet {
         this.addProperty('fclientver', PacketBase.TYPE_FLOAT);//   客户端版本号，浮点数  
         this.addProperty('szMac', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//11.17号
         this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//  账号名  
-        this.addProperty('szAccountDis', PacketBase.TYPE_STRING, 16);
+        this.addProperty('szAccountDis', PacketBase.TYPE_STRING, 16);//账号描述
         this.addProperty('szADUrl', PacketBase.TYPE_STRING, 64);
-        this.addProperty('dwZoneid', PacketBase.TYPE_DWORD);
-        this.addProperty('dwTrueZoneid', PacketBase.TYPE_DWORD);
+        this.addProperty('dwZoneid', PacketBase.TYPE_DWORD);//区ID
+        this.addProperty('dwTrueZoneid', PacketBase.TYPE_DWORD);//真实区ID
 
     }
 }
-
+//登录
 class NormalUserLogin extends UserLogin {
     public constructor() {
         super();
-        this.addProperty('szPassMd5', PacketBase.TYPE_BYTES, 16);
-        this.addProperty('dwPassCrc32', PacketBase.TYPE_INT);
-        this.addProperty('isSaveEncodePass', PacketBase.TYPE_BOOL);
+        this.addProperty('szPassMd5', PacketBase.TYPE_BYTES, 16);//Md5加密的密码
+        this.addProperty('dwPassCrc32', PacketBase.TYPE_INT);//crc32校验密码值
+        this.addProperty('isSaveEncodePass', PacketBase.TYPE_BOOL);//无用
     }
 }
-
+//登录返回
 class UserLoginRet extends Packet {
     public static msgID: number = 0x0104;
     public players: Array<any> = new Array();
@@ -99,7 +99,7 @@ class UserLoginRet extends Packet {
         this.addProperty('nFaction', PacketBase.TYPE_WORD); //2  人数较少的阵营  
         this.addProperty('nCountry', PacketBase.TYPE_WORD); //审核服，区分加载的资源
         this.addProperty('LastPlayer', PacketBase.TYPE_INT); // 4  上次玩家选择几个玩家  
-        this.addProperty('Playercount', PacketBase.TYPE_INT);//4  昵称数  
+        this.addProperty('Playercount', PacketBase.TYPE_INT);//4  角色数  
         this.read(data);
     }
 
@@ -125,6 +125,7 @@ class UserLoginRet extends Packet {
     }
 }
 //************************************************ */
+//暂时用不到
 class TradeUserLogin extends UserLogin {
     public constructor() {
         super();
@@ -149,18 +150,18 @@ class UserRealLogin extends Packet {
     public constructor() {
         super();
         this.cmd = 0x0105;
-        this.addProperty('loginsvr_id_type', PacketBase.TYPE_INT);
-        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);
-        this.addProperty('ip_type', PacketBase.TYPE_BYTE);
+        this.addProperty('loginsvr_id_type', PacketBase.TYPE_INT);//账号服务器ID
+        this.addProperty('tokencheck', PacketBase.TYPE_DWORD);//校验码
+        this.addProperty('ip_type', PacketBase.TYPE_BYTE);//
         this.addProperty('fclientver', PacketBase.TYPE_FLOAT);
-        this.addProperty('logintoken', PacketBase.TYPE_BYTES, 24);
-        this.addProperty('gamesvr_id_type', PacketBase.TYPE_INT);
-        this.addProperty('btReloginType', PacketBase.TYPE_BYTE);
-        this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-        this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-        this.addProperty('szTxSubPlatformName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+        this.addProperty('logintoken', PacketBase.TYPE_BYTES, 24);//校验码
+        this.addProperty('gamesvr_id_type', PacketBase.TYPE_INT);//游戏服务器ID
+        this.addProperty('btReloginType', PacketBase.TYPE_BYTE);//登录类型
+        this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//账号
+        this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//角色名
+        this.addProperty('szTxSubPlatformName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//平台名
         this.addProperty('szMac', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-        this.addProperty('dwUserOnlyId', PacketBase.TYPE_INT64);
+        this.addProperty('dwUserOnlyId', PacketBase.TYPE_INT64);//角色唯一ID
         this.addProperty('btmapsubline', PacketBase.TYPE_BYTE); //游戏分线
         this.addProperty('dwTrueZoneid', PacketBase.TYPE_DWORD); //游戏分线
         this.addProperty("szLoginChannel", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//平台,用于后端区分
@@ -189,8 +190,8 @@ class SelectPlayer extends Packet {
     public constructor() {
         super();
         this.cmd = 0x0107;
-        this.addProperty('nselectidx', PacketBase.TYPE_INT);
-        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+        this.addProperty('nselectidx', PacketBase.TYPE_INT);//选择第几个角色
+        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//选择角色的角色名
         this.addProperty('btmapsubline', PacketBase.TYPE_BYTE);
     }
 }
