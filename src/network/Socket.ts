@@ -14,6 +14,7 @@ class Socket extends BaseClass {
 	public waitSignal: boolean = false;
 	public waitTime: number = 0;
 	public checkInterval: number = 2000;
+	public openHandler: Laya.Handler;//open回调
 	/**
 	  * 构造函数
 	  */
@@ -55,8 +56,10 @@ class Socket extends BaseClass {
 		// }
 		App.LListener.event(SocketConst.SOCKET_CONNECT);
 		// App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
-
 		this._connectFlag = true;
+		if (this.openHandler) {
+			this.openHandler.run();
+		}
 	}
 
 	/**
@@ -104,23 +107,21 @@ class Socket extends BaseClass {
 		this._host = host;
 		this._port = port;
 		this._msg = msg;
+		this.connect();
 	}
 
 	public resetSocket(host: string, port: any = 0): void {
 		if (port != 0) {
-			let oldhost = this._host;
-			let oldport = this._port;
-			//this._host = host;
-			//this._port = port;
-			this.close();
-			this.connect();
-			this._host = oldhost;
-			this._port = oldport;
-		} else {
+			// this._host = host;
+			// 改变一下端口
+			this._port = port;
 			this.close();
 			this.connect();
 		}
-
+		else {
+			this.close();
+			this.connect();
+		}
 	}
 
 	/**
@@ -129,10 +130,10 @@ class Socket extends BaseClass {
 	public connect(): void {
 		this._socket = new Laya.Socket();
 		this._socket.endian = Laya.Byte.LITTLE_ENDIAN;
-		Log.trace("WebSocket: " + this._host + ":" + this._port);
 		this.addEvents();
-		let url = this._host + this._port;
-		this._socket.connectByUrl(url);
+		let url = this._host + ":" + this._port;
+		Log.trace("WebSocket: " + url);
+		this._socket.connectByUrl(this._host + this._port);
 	}
 
 	/**
@@ -188,8 +189,8 @@ class Socket extends BaseClass {
 	  */
 	private closeCurrentSocket() {
 		this.removeEvents();
-		this._socket.close();
 		this._socket.cleanSocket();
+		this._socket.close();
 		this._socket = null;
 		this._isConnecting = false;
 	}

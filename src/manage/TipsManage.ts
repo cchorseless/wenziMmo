@@ -21,7 +21,7 @@ module TipsManage {
         // 字体默认属性
         let defaultProps = {
             x: Laya.stage.width / 2,
-            y: Laya.stage.height/ 2,
+            y: Laya.stage.height / 2,
             fontSize: EnumData.FONT_SIZE.DEFAULT,
             bold: true,
         }
@@ -36,7 +36,7 @@ module TipsManage {
         let offsetX = count * txt.fontSize / 3.5;
         txt.x -= offsetX;
         PanelManage.tipsLayer.addChild(txt);
-        EffectUtils.disposeEffectTips2(txt, 200, () => {
+        EffectUtils.disposeEffectTips2(txt, 400, () => {
             txt.alpha = 1;
             Laya.Pool.recover(TipsTxt, txt.removeSelf())
         })

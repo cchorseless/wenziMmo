@@ -23,9 +23,6 @@ class MsgProc extends BaseClass {
 
         // App.LListener.on(Packet.msgIdToEventName(UserRealLoginRet.msgID), this, this.userRealLoginRet);//0105-0106
 
-        App.LListener.on(Packet.msgIdToEventName(SelectPlayerRet.msgID), this, this.selectPlayerRet);//0107-0108
-
-        App.LListener.on(Packet.msgIdToEventName(CreatePlayerRet.msgID), this, this.createPlayerRet);
         //0x02--
         App.LListener.on(Packet.msgIdToEventName(PlayerChangeMap.msgID), this, this.playerChangeMap);
         App.LListener.on(Packet.msgIdToEventName(MapCreateCret.msgID), this, this.mapCreateCret);
@@ -56,8 +53,8 @@ class MsgProc extends BaseClass {
         App.LListener.on(Packet.msgIdToEventName(MapItemEventPick.msgID), this, this.mapItemEventPick);
         //0x03
         App.LListener.on(Packet.msgIdToEventName(CretDeleteItem.msgID), this, this.cretDeleteItem);
-        App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
-        App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.cretItems);
+        // App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
+        // App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.cretItems);
         App.LListener.on(Packet.msgIdToEventName(CretItemCountChanged.msgID), this, this.cretItemCountChanged);
         App.LListener.on(Packet.msgIdToEventName(CretProcessingItem.msgID), this, this.cretProcessingItem);
         App.LListener.on(Packet.msgIdToEventName(CretForsakeItem.msgID), this, this.cretForsakeItem);
@@ -90,14 +87,13 @@ class MsgProc extends BaseClass {
      * socket链接
      */
     public onSocketConnect() {
-        if (App.GameEngine.isLogin == false) {
-            lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
-            // let login: UserPreLogin = new UserPreLogin();
-            // login.send();
-            // login.clear();
+        // 断线重连
+        if (App.GameEngine.isLogin) {
+            TipsManage.showTxt('正在重连种');
+            this.onSocketReconnect();
         }
         else {
-            this.onSocketReconnect();
+            TipsManage.showTxt('SOCKET 初始化成功,可以登录');
         }
     }
     /**
@@ -114,8 +110,7 @@ class MsgProc extends BaseClass {
         realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
         realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
         realLogin.setValue('logintoken', App.GameEngine.logintoken);
-        lcp.send(realLogin,this,this.userRealLoginRet)
-        // realLogin.clear();
+        lcp.send(realLogin, this, this.userRealLoginRet);
     }
     /**
      * 更新本地密匙
@@ -155,147 +150,24 @@ class MsgProc extends BaseClass {
         msgData.clear();
     }
 
+
+
+
     /**
-     * 
-     * @param data 请求登陆
+     * 正式登陆成功
+     * @param data 
      */
-    public userRetPreLogin(data: any): void {
-        let msgData: UserRetPreLogin = new UserRetPreLogin(data);
-        let login = new NormalUserLogin();
-        login.setValue('queryhistory', 0);
-        login.setValue('tokenlogin', 0);
-        login.setValue('force_login', 1);
-        login.setValue('ip_type', 255);
-        login.setValue('fclientver', 0);
-        login.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-        login.setValue('szAccountDis', 1);
-        login.setValue("dwZoneid", 1001);
-        login.setValue("dwTrueZoneid", 1);
-        var crc32: number = FunctionUtils.passwordCrc32("1");
-        //var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
-        //login.setValue('szPassMd5', new Laya.Byte(1));
-        login.setValue('dwPassCrc32', crc32);
-        login.setValue('isSaveEncodePass', false);
-        login.setValue('szADUrl', "1");
-        login.setValue('szMac', "1");
-        // login.send();
-        lcp.send(login, this, this.userLoginRet)
-        msgData.clear();
-
-        ////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
-    }
-
-    public userLoginRet(data: any): void {
-        let msgData: UserLoginRet = new UserLoginRet(data);
-        if (msgData.getValue("nErrorCode") == 0) {
-            ////App.MainPanel.loginPanel.dispose();
-            App.GameEngine.zoneid = msgData.getValue('nSvrZoneid');
-            App.GameEngine.svrIndex = msgData.getValue("nSvrIndex");
-            App.GameEngine.loginsvrIdType = msgData.getValue('loginsvr_id_type')
-            if (msgData.count > 0) {
-                let selector: SelectPlayer = new SelectPlayer();
-                selector.setValue("nselectidx", 0);
-                selector.setValue("szName", msgData.players[0].getValue('szName'));
-                selector.setValue("btmapsubline", 1);
-                selector.send();
-                // selector.clear();
-                ////App.MainPanel.addSysChat("您选择了昵称:" + msgData.players[0].getValue('szName'))
-                Log.trace("您选择了昵称:" + msgData.players[0].getValue('szName'));
-                App.GameEngine.isLogin = true;
-
-            } else {
-
-                if (msgData.getValue('nCountry') == 0) {
-                } else {
-                    //App.GameEngine.mainPlayer.playerName = App.GameEngine.mainPlayer.playerAccount.substr(0, 7) + RandomUtils.getInstance().limitInteger(1, 100);
-                    App.GameEngine.mainPlayer.job = 2;
-                    App.GameEngine.mainPlayer.sex = 1;
-
-                    let createusr = new CreatePlayer();
-                    createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-                    createusr.playerinfo.setValue('szName', App.GameEngine.mainPlayer.playerName);
-                    createusr.setValue('countryId', 1);
-                    createusr.playerinfo.feature.setValue('sex', App.GameEngine.mainPlayer.sex);
-                    createusr.playerinfo.feature.setValue('job', App.GameEngine.mainPlayer.job);
-                    createusr.send();
-                    createusr.clear();
-                    createusr = null;
-                }
-
-            }
-        } else {
-            ////App.MainPanel.addSysChat("请输入正确的账号密码");
-            Log.trace('请输入正确的账号密码 errorcode' + msgData.getValue("nErrorCode"));
-        }
-
-        msgData.clear();
-    }
-
-    public selectPlayerRet(data: any): void {
-        let msgData: SelectPlayerRet = new SelectPlayerRet(data);
-
-        if (msgData.getValue('nErrorCode') == 0) {
-            App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
-            App.GameEngine.mainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
-            App.GameEngine.mainPlayer.playerName = msgData.getValue('szName');
-            App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
-        } else {
-            ////App.MainPanel.addSysChat("选择昵称失败：" + msgData.getValue('nErrorCode'));
-        }
-        msgData.clear();
-    }
-
     public userRealLoginRet(data: any): void {
         let msgData = new UserRealLoginRet(data);
         if (msgData.getValue('nErrorCode') == 0) {
             Log.trace('游戏登陆成功')
         }
+        else {
+            Log.trace('游戏重连失败')
+        }
         msgData.clear();
     }
 
-
-
-    //0x012D
-    public createPlayerRet(data: any): void {
-        let msg = new CreatePlayerRet(data);
-        let errorcode = msg.getValue('errorcode');
-        if (errorcode == 0) {
-            let selector: SelectPlayer = new SelectPlayer();
-            selector.setValue("nselectidx", 0);
-            selector.setValue("szName", msg.getValue('szPlayerName'));
-            selector.setValue("btmapsubline", 1);
-            selector.send();
-            selector.clear();
-
-            ////App.MainPanel.addSysChat("您选择了昵称:" + msg.getValue('szPlayerName'));
-            App.GameEngine.isLogin = true;
-        } else {
-            let strmsg: string;
-            switch (errorcode) {
-                case -10:
-                    strmsg = '有非法字符';
-                    break;
-                case -14:
-                    strmsg = '昵称名检查没通过';
-                    break;
-                case -15:
-                    strmsg = '昵称名不能超过4个以上的数字';
-                    break;
-                case -16:
-                    strmsg = '当前服务器正在维护';
-                    break;
-                case -70:
-                    strmsg = '昵称重复';
-                    break;
-                default:
-                    strmsg = '昵称重复';
-            }
-            // //App.MainPanel.addSysChat(strmsg);
-        }
-
-        msg.clear();
-        msg = null;
-    }
 
     public playerChangeMap(data: any): void {
         let msgData = new PlayerChangeMap(data);
@@ -687,74 +559,74 @@ class MsgProc extends BaseClass {
         msg = null;
     }
     //0x0302
-    public cretUpdateItem(data: Laya.Byte) {
-        let msg = new CretUpdateItem(data);
-        let typepos = msg.getValue('btPosition');
-        if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+    // public cretUpdateItem(data: Laya.Byte) {
+    //     let msg = new CretUpdateItem(data);
+    //     let typepos = msg.getValue('btPosition');
+    //     if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
 
-        } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            let find: boolean = false;
-            // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
-            //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == msg.item.i64ItemID.id) {
-            //         ////App.MainPanel.bagItemDB.splice(i, 1);
-            //         delete //App.MainPanel.bagItemDB[i];
-            //         //App.MainPanel.bagItemDB[i] = null;
-            //         //App.MainPanel.bagItemDB[i] = msg.item;
-            //         find = true;
-            //         break;
-            //     }
-            // }
+    //     } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+    //         let find: boolean = false;
+    //         // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
+    //         //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == msg.item.i64ItemID.id) {
+    //         //         ////App.MainPanel.bagItemDB.splice(i, 1);
+    //         //         delete //App.MainPanel.bagItemDB[i];
+    //         //         //App.MainPanel.bagItemDB[i] = null;
+    //         //         //App.MainPanel.bagItemDB[i] = msg.item;
+    //         //         find = true;
+    //         //         break;
+    //         //     }
+    //         // }
 
-            // if (!find) {
-            //     let idx = msg.item.location.getValue('btIndex');
-            //     delete //App.MainPanel.bagItemDB[idx];
-            //     //App.MainPanel.bagItemDB[idx] = null;
-            //     //App.MainPanel.bagItemDB[idx] = msg.item;
-            // }
+    //         // if (!find) {
+    //         //     let idx = msg.item.location.getValue('btIndex');
+    //         //     delete //App.MainPanel.bagItemDB[idx];
+    //         //     //App.MainPanel.bagItemDB[idx] = null;
+    //         //     //App.MainPanel.bagItemDB[idx] = msg.item;
+    //         // }
 
-            //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
+    //         //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
 
-            ;
-            //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
-            ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
-        }
+    //         ;
+    //         //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
+    //         ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
+    //     }
 
-        //msg.clear();
-        //msg = null;
+    //     //msg.clear();
+    //     //msg = null;
 
-    }
+    // }
 
-    public cretItems(data: any): void {
-        let msg = new CretItems(data);
+    // public cretItems(data: any): void {
+    //     let msg = new CretItems(data);
 
-        let typepos = msg.getValue('btPosition');
-        if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            //App.MainPanel.initEquip();
-            // for (let i = 0; i < msg.items.length; ++i) {
-            //     let idx = msg.items[i].location.getValue('btIndex');
-            //     delete //App.MainPanel.equipDB[idx];
-            //     //App.MainPanel.equipDB[idx] = null;
-            //     //App.MainPanel.equipDB[idx] = msg.items[i];
-            // }
+    //     let typepos = msg.getValue('btPosition');
+    //     if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+    //         //App.MainPanel.initEquip();
+    //         // for (let i = 0; i < msg.items.length; ++i) {
+    //         //     let idx = msg.items[i].location.getValue('btIndex');
+    //         //     delete //App.MainPanel.equipDB[idx];
+    //         //     //App.MainPanel.equipDB[idx] = null;
+    //         //     //App.MainPanel.equipDB[idx] = msg.items[i];
+    //         // }
 
-            //App.MainPanel.equipList.numItems = //App.MainPanel.equipDB.length;
+    //         //App.MainPanel.equipList.numItems = //App.MainPanel.equipDB.length;
 
-        } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            //App.MainPanel.initBag();
+    //     } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+    //         //App.MainPanel.initBag();
 
-            // for (let i = 0; i < msg.items.length; ++i) {
-            //     let idx = msg.items[i].location.getValue('btIndex');
-            //     delete //App.MainPanel.bagItemDB[idx];
-            //     //App.MainPanel.bagItemDB[idx] = null;
-            //     //App.MainPanel.bagItemDB[idx] = msg.items[i];
-            // }
+    //         // for (let i = 0; i < msg.items.length; ++i) {
+    //         //     let idx = msg.items[i].location.getValue('btIndex');
+    //         //     delete //App.MainPanel.bagItemDB[idx];
+    //         //     //App.MainPanel.bagItemDB[idx] = null;
+    //         //     //App.MainPanel.bagItemDB[idx] = msg.items[i];
+    //         // }
 
-            //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
-        }
+    //         //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
+    //     }
 
-        //msg.clear();
-        //msg = null;
-    }
+    //     //msg.clear();
+    //     //msg = null;
+    // }
 
     public cretItemCountChanged(data: any): void {
         let msg = new CretItemCountChanged(data);

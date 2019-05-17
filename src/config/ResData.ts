@@ -17,6 +17,8 @@ module ResData {
         public static ServerList = [{ url: "res/atlas/image/common/serverList.atlas", type: Laya.Loader.ATLAS },];
         // 服务器公告界面
         public static ServerNotice = null;
+        // 创建角色界面
+        public static CreateAvatar = null;
         // 通用素材
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },];

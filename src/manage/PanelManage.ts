@@ -36,6 +36,7 @@ module PanelManage {
     export let Login: view.common.LoginPanel;                                            //登陆界面
     export let ServerList: view.common.ServerListPanel;                                 //服务器列表界面
     export let ServerNotice: view.common.ServerNoticePanel;                             //服务器公告界面
+    export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
     export let Main: view.main.MainPanel;                                                //主界面                                               //测试界面
     /*****************************游戏界面************************************* */
 
@@ -44,9 +45,9 @@ module PanelManage {
     // 游戏开始的资源加载界面
     export function openStartLoadingPanel(): void {
         PopUpManager.checkPanel(PanelManage.StartLoading);
-        ResManage.loadResource(null, () => {
+        ResManage.loadResource(ResData.PanelRes.StartLoading, () => {
             PanelManage.StartLoading = new view.common.StartLoadingPanel();
-            PanelManage.StartLoading['LCP_skin'] = null;
+            PanelManage.StartLoading['LCP_skin'] = ResData.PanelRes.StartLoading;
             PanelManage.euiLayer.addChild(PanelManage.StartLoading);
             PanelManage.StartLoading.gameInit();
         });
@@ -127,6 +128,20 @@ module PanelManage {
             PanelManage.ServerNotice.setData();
             PanelManage.ServerNotice.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.ServerNotice, 1);
+        })
+    }
+    // 创建角色界面
+    export function openCreateAvatarPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CreateAvatar) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.CreateAvatar);
+        ResManage.loadResource(ResData.PanelRes.CreateAvatar, () => {
+            PanelManage.CreateAvatar = new view.common.CreateAvatarPanel();
+            PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.ServerList;
+            PanelManage.CreateAvatar.setData();
+            PanelManage.CreateAvatar.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.CreateAvatar, 1);
         })
     }
     /**
