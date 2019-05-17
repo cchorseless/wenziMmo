@@ -1,4 +1,45 @@
 // TypeScript file
+<<<<<<< HEAD
+=======
+enum JOB_TYPE {
+    JOB_WARRIOR = 1,//战士
+    JOB_MAGE = 2,//法师
+    JOB_MONK = 3,//道士
+}
+
+enum EQUIP_POS_TYPE {
+    EQUIP_HEADDRESS,			//帽子
+    EQUIP_NECKLACE,				//项链
+    EQUIP_CLOTHES,				//衣服
+    EQUIP_WEAPONS,				//武器
+    EQUIP_BRACELET_LEFT,		//左手镯
+    EQUIP_BRACELET_RIGHT,		//右手镯
+    EQUIP_RING_LEFT,			//左戒指
+    EQUIP_RING_RIGHT,			//右戒指
+    EQUIP_SHOES,				//鞋
+    EQUIP_BELT = 9,				//腰带
+
+    EQUIP_ALL,
+}
+
+enum PACKAGE_TYPE {
+    ITEMCELLTYPE_NONE,				// 不是格子，用于丢弃或捡到物品
+    ITEMCELLTYPE_EQUIP,				// 装备
+    ITEMCELLTYPE_STORE,				// 仓库
+    ITEMCELLTYPE_PACKAGE,			// 包裹的格子
+    ITEMCELLTYPE_SOLDITEM,			//已出售物品
+    ITEMCELLTYPE_LINGSHBAOGUO,		//临时包裹
+
+    //-----
+    ITEMCELLTYPE_PLAYER_EQUIP = 50,		//人物战装(类型区分,不是实际包裹)
+    ITEMCELLTYPE_PLAYER_LEGENDEQUIP,	//人物神装(类型区分,不是实际包裹)
+    ITEMCELLTYPE_PLAYER_RUNEEQUIP,		//符文
+    ITEMCELLTYPE_HERO_EQUIP,			//英雄装备
+    //====================
+    //客户端已使用
+    ITEMCELLTYPE_VIRTUAL = 200,	// 虚拟
+}
+>>>>>>> 9eb202e0930479f680c0bec742ea14167600cfab
 
 
 class CfgItemDB {
@@ -157,12 +198,12 @@ class Int64 {
 class SimpleFeature extends PacketBase {
     public constructor() {
         super();
-        this.addProperty('sex', PacketBase.TYPE_BYTE);
-        this.addProperty('job', PacketBase.TYPE_BYTE);
-        this.addProperty('hair', PacketBase.TYPE_BYTE);
-        this.addProperty('dwFaceId', PacketBase.TYPE_DWORD);
-        this.addProperty('weapon', PacketBase.TYPE_DWORD);
-        this.addProperty('dress', PacketBase.TYPE_DWORD);
+        this.addProperty('sex', PacketBase.TYPE_BYTE);//性别
+        this.addProperty('job', PacketBase.TYPE_BYTE);//职业
+        this.addProperty('hair', PacketBase.TYPE_BYTE);//发型
+        this.addProperty('dwFaceId', PacketBase.TYPE_DWORD);//脸型
+        this.addProperty('weapon', PacketBase.TYPE_DWORD);//武器ID
+        this.addProperty('dress', PacketBase.TYPE_DWORD);//衣服ID
     }
 }
 
@@ -174,7 +215,7 @@ class CretFeature extends PacketBase {
         this.addProperty('btCretType', PacketBase.TYPE_BYTE);//  1  此人物的类型，比如1==玩家，2==NPC，3==怪,4宝宝 ,  5，人形怪，6英雄
         this.addProperty('feature', PacketBase.TYPE_BYTES, this.feature.size());//  昵称外观信息stSimpleFeature结构
         this.addProperty('nTitleId', PacketBase.TYPE_WORD);//称号ID
-        this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);
+        this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);//战场类型
         this.addProperty('dwWingId', PacketBase.TYPE_WORD);//翅膀Id
         this.addProperty('n_bo_AllFeature', PacketBase.TYPE_DWORD);                  //外观 位状态信息
     }
@@ -186,7 +227,7 @@ class CretFeature extends PacketBase {
     }
 }
 
-
+//怪物　NPC　外显
 class AnimalFeature extends CretFeature {
     public constructor() {
         super()
@@ -196,7 +237,7 @@ class AnimalFeature extends CretFeature {
         this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//  4  NPC 怪物基本ID  
     }
 }
-
+//人物外显
 class PlayerFeature extends CretFeature {
     public constructor() {
         super();
@@ -209,29 +250,29 @@ class PlayerFeature extends CretFeature {
         this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
     }
 }
-
+//角色信息
 class SelectPlayerInfo extends PacketBase {
 
     public feature: SimpleFeature = new SimpleFeature;
 
     public constructor(data: Laya.Byte) {
         super();
-        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-        this.addProperty('nlevel', PacketBase.TYPE_INT);
-        this.addProperty('mapid', PacketBase.TYPE_WORD);
-        this.addProperty('cloneid', PacketBase.TYPE_WORD);
-        this.addProperty('homemapid', PacketBase.TYPE_WORD);
+        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名称
+        this.addProperty('nlevel', PacketBase.TYPE_INT);//等级
+        this.addProperty('mapid', PacketBase.TYPE_WORD);//地图ID
+        this.addProperty('cloneid', PacketBase.TYPE_WORD);//副本ID
+        this.addProperty('homemapid', PacketBase.TYPE_WORD);//出生地图ID
         this.addProperty('conid', PacketBase.TYPE_WORD);
         this.addProperty('countryId', PacketBase.TYPE_BYTE);
-        this.addProperty('ngmlvl', PacketBase.TYPE_BYTE);
+        this.addProperty('ngmlvl', PacketBase.TYPE_BYTE);//GM等级
         this.addProperty('Feature', PacketBase.TYPE_BYTES, this.feature.size(), this.feature);
         this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);
-        this.addProperty('btisdel', PacketBase.TYPE_BOOL);
-        this.addProperty('posdeltime', PacketBase.TYPE_INT);
-        this.addProperty('lastlogintime', PacketBase.TYPE_INT);
-        this.addProperty('remaindeltime', PacketBase.TYPE_INT);
+        this.addProperty('btisdel', PacketBase.TYPE_BOOL);//是否删除
+        this.addProperty('posdeltime', PacketBase.TYPE_INT);//删除时间
+        this.addProperty('lastlogintime', PacketBase.TYPE_INT);//最后登录时间
+        this.addProperty('remaindeltime', PacketBase.TYPE_INT);//剩余删除时间
         this.addProperty("playerBanTime", PacketBase.TYPE_INT);//封号时间
-        this.addProperty('lastloginip', PacketBase.TYPE_BYTES, 4);
+        this.addProperty('lastloginip', PacketBase.TYPE_BYTES, 4);//最后登录IP
         if (data) {
             data.pos += this.read(data);
         }
@@ -247,7 +288,7 @@ class SelectPlayerInfo extends PacketBase {
         this.feature = null;
     }
 }
-
+//生物位置
 class CretLocation extends PacketBase {
     public constructor() {
         super();
@@ -257,7 +298,7 @@ class CretLocation extends PacketBase {
         this.addProperty('ncurz', PacketBase.TYPE_WORD);//   所在坐标Z 
     }
 }
-
+//角色属性
 class ArpgAbility extends PacketBase {
     public constructor() {
         super();
@@ -320,16 +361,18 @@ class ArpgAbility extends PacketBase {
     }
 }
 
+//物品位置
 class ItemLocation extends PacketBase {
 
     public constructor() {
         super();
-        this.addProperty('btLocation', PacketBase.TYPE_CHAR);
-        this.addProperty('btTableID', PacketBase.TYPE_CHAR);
-        this.addProperty('btIndex', PacketBase.TYPE_CHAR);
+        this.addProperty('btLocation', PacketBase.TYPE_CHAR);//位置
+        this.addProperty('btTableID', PacketBase.TYPE_CHAR);//页签
+        this.addProperty('btIndex', PacketBase.TYPE_CHAR);//索引
     }
 }
 
+//极品属性
 class Nonpareil {
     public btNpFrom: number;
     public btNpType: number;
@@ -338,6 +381,7 @@ class Nonpareil {
     }
 }
 
+//物品结构
 class ItemBase extends PacketBase {
     public i64ItemID: Int64;					//8物品id
     public dwBaseID: number;					//4物品基本id
