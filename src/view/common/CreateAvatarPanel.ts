@@ -4,6 +4,7 @@ module view.common {
 		constructor() {
 			super();
 			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 		}
 		public setData(): void {
 

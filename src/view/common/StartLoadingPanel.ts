@@ -4,7 +4,6 @@ module view.common {
 		constructor() {
 			super();
 			this.mouseEnabled = true;
-			lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReady)
 		}
 
 		public gameInit(): void {
@@ -24,16 +23,6 @@ module view.common {
 			// 加载通用的界面素材
 			ResManage.loadResource(ResData.PanelRes.Common, complete, progress, errorFunc)
 
-		}
-		private gameReady(msg): void {
-			if (msg) {
-				// 打开主界面
-				PanelManage.loadMainPanel();
-			}
-			else {
-				console.log('登陆失败')
-				TipsManage.showTips('游戏登陆失败，请重新登录')
-			}
 		}
 
 	}

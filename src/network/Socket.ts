@@ -49,11 +49,6 @@ class Socket extends BaseClass {
 	private onSocketOpen(e: Laya.Event): void {
 		this._reconnectCount = 0;
 		this._isConnecting = true;
-		// if (this._connectFlag && this._needReconnect) {
-		//     App.MessageCenter.dispatch(SocketConst.SOCKET_RECONNECT);
-		// } else {
-		//     App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
-		// }
 		App.LListener.event(SocketConst.SOCKET_CONNECT);
 		// App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
 		this._connectFlag = true;

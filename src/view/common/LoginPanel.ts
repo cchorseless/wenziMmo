@@ -7,6 +7,8 @@ module view.common {
 			// this.btn_selectServer.on(Laya.UIEvent.CLICK, this, this.openPanel, [0]);
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, this.openPanel, [1]);
+			// 监听正式进入游戏
+			App.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
 		}
 
 		public setData(): void {
@@ -46,6 +48,7 @@ module view.common {
 			App.GameEngine.mainPlayer.playerAccount = this.input_account.text + '@1001';
 			// 密码
 			App.GameEngine.mainPlayer.playerPassword = this.input_passworld.text;
+			
 			// 登陆前验证
 			if (App.Socket.isConnecting) {
 				lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
@@ -140,10 +143,15 @@ module view.common {
 				// 这里重置一下socket,启用重连协议进入服务器
 				App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
 			} else {
-				////App.MainPanel.addSysChat("选择昵称失败：" + msgData.getValue('nErrorCode'));
+				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
 			msgData.clear();
 		}
-
+		/**
+		 * 正式进入游戏
+		 */
+		public realLoginGame(): void {
+			PanelManage.openMainPanel();
+		}
 	}
 }

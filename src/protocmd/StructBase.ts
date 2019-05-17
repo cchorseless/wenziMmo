@@ -1,6 +1,5 @@
 // TypeScript file
-<<<<<<< HEAD
-=======
+
 enum JOB_TYPE {
     JOB_WARRIOR = 1,//战士
     JOB_MAGE = 2,//法师
@@ -39,7 +38,6 @@ enum PACKAGE_TYPE {
     //客户端已使用
     ITEMCELLTYPE_VIRTUAL = 200,	// 虚拟
 }
->>>>>>> 9eb202e0930479f680c0bec742ea14167600cfab
 
 
 class CfgItemDB {

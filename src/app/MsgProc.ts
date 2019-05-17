@@ -16,12 +16,6 @@ class MsgProc extends BaseClass {
         //App.LListener.on(SocketConst.SOCKET_RECONNECT, this, this.onSocketReconnect);
         // 更新本地密匙
         App.LListener.on(Packet.msgIdToEventName(UpdateToken.msgID), this, this.updateToken);
-        // 0x01--
-        // App.LListener.on(Packet.msgIdToEventName(UserRetPreLogin.msgID), this, this.userRetPreLogin);//0101-0102
-        // 0
-        // App.LListener.on(Packet.msgIdToEventName(UserLoginRet.msgID), this, this.userLoginRet);//0103-0104
-
-        // App.LListener.on(Packet.msgIdToEventName(UserRealLoginRet.msgID), this, this.userRealLoginRet);//0105-0106
 
         //0x02--
         App.LListener.on(Packet.msgIdToEventName(PlayerChangeMap.msgID), this, this.playerChangeMap);
@@ -89,7 +83,7 @@ class MsgProc extends BaseClass {
     public onSocketConnect() {
         // 断线重连
         if (App.GameEngine.isLogin) {
-            TipsManage.showTxt('正在重连种');
+            TipsManage.showTxt('正在重连');
             this.onSocketReconnect();
         }
         else {
@@ -110,7 +104,8 @@ class MsgProc extends BaseClass {
         realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
         realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
         realLogin.setValue('logintoken', App.GameEngine.logintoken);
-        lcp.send(realLogin, this, this.userRealLoginRet);
+        // 正式进入游戏
+        lcp.send(realLogin, this, this.userRealLogin);
     }
     /**
      * 更新本地密匙
@@ -150,20 +145,19 @@ class MsgProc extends BaseClass {
         msgData.clear();
     }
 
-
-
-
     /**
      * 正式登陆成功
      * @param data 
      */
-    public userRealLoginRet(data: any): void {
+    public userRealLogin(data: any): void {
         let msgData = new UserRealLoginRet(data);
         if (msgData.getValue('nErrorCode') == 0) {
-            Log.trace('游戏登陆成功')
+            Log.trace('游戏登陆成功');
+            // 抛出事件
+            App.LListener.event(LcpEvent.GAME_INIT_FINISH);
         }
         else {
-            Log.trace('游戏重连失败')
+            Log.trace('游戏重连失败');
         }
         msgData.clear();
     }
