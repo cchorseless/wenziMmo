@@ -3,18 +3,16 @@
  * 基类
  */
 class BaseClass {
-    public constructor() {
 
-    }
-
+    public _instance;
     /**
      * 获取一个单例
      * @returns {any}
      */
-    public static getInstance(...args:any[]):any {
-        var Class:any = this;
+    public static getInstance(...args: any[]): any {
+        var Class: any = this;
         if (!Class._instance) {
-            var argsLen:number = args.length;
+            var argsLen: number = args.length;
             if (argsLen == 0) {
                 Class._instance = new Class();
             } else if (argsLen == 1) {

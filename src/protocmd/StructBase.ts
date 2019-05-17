@@ -1,8 +1,9 @@
 // TypeScript file
+
 enum JOB_TYPE {
-    JOB_WARRIOR = 1,
-    JOB_MAGE = 2,
-    JOB_MONK = 3,
+    JOB_WARRIOR = 1,//战士
+    JOB_MAGE = 2,//法师
+    JOB_MONK = 3,//道士
 }
 
 enum EQUIP_POS_TYPE {
@@ -38,66 +39,6 @@ enum PACKAGE_TYPE {
     ITEMCELLTYPE_VIRTUAL = 200,	// 虚拟
 }
 
-enum emNonpareilType {
-    NONPAREIL_TYPE_NULL,			//没有极品
-
-    NONPAREIL_TYPE_MaxHP,                   //最大血量
-    NONPAREIL_TYPE_MaxMP,                   //最大蓝量
-    NONPAREIL_TYPE_MaxAtk,                  //物理/魔法/道术攻击上限全部
-    NONPAREIL_TYPE_MinAtk,                  //物理/魔法/道术攻击下限全部
-    NONPAREIL_TYPE_MaxDC,                   //物理攻击上限值,攻击力上限，影响所有职业普通攻击和战士技能的最大伤害。
-    NONPAREIL_TYPE_MinDC,                   //物理攻击下限值,攻击力下限，影响所有职业普通攻击和战士技能的最小伤害。
-    NONPAREIL_TYPE_MaxMC,                   //自然魔法攻击上限值,魔法攻击上限，影响法师技能的最大伤害。
-    NONPAREIL_TYPE_MinMC,                   //自然魔法攻击下限值,魔法攻击下限，影响法师技能的最小伤害。
-    NONPAREIL_TYPE_MaxSC,                   //灵魂魔法攻击上限值,道士攻击上限，影响法师技能的最大伤害。
-    NONPAREIL_TYPE_MinSC,                   //灵魂魔法攻击下限值,道术攻击下限，影响法师技能的最小伤害。
-    NONPAREIL_TYPE_MaxAC,                   //物理防御上限值,防御上限，影响受到物理攻击时可以降低的伤害。
-    NONPAREIL_TYPE_MinAC,                   //物理防御下限值,防御下限，影响受到物理攻击时可以降低的伤害。
-    NONPAREIL_TYPE_MaxMAC,                  //全系法术防御上限值,魔法防御上限，影响受到魔法和道术攻击时可以降低的伤害。
-    NONPAREIL_TYPE_MinMAC,                  //全系法术防御下限值,魔法防御下限，影响受到魔法和道术攻击时可以降低的伤害。
-    NONPAREIL_TYPE_Hit,                     //命中(准确),在攻击时，增加命中目标的几率。当自身准确大于目标闪避时，目标不能闪避攻击
-    NONPAREIL_TYPE_HitRate,                 //命中的概率，准确值折算成命中率
-    NONPAREIL_TYPE_Juck,                    //闪避,影响受到所有攻击可以闪避的概率
-    NONPAREIL_TYPE_JuckRate,                //闪避的概率，闪避值折算成闪避率
-    NONPAREIL_TYPE_Crit,                    //暴击,在攻击时，增加暴击的几率。每160点暴击增加1%的暴击率
-    NONPAREIL_TYPE_CritRate,                //暴击率, 暴击的概率
-    NONPAREIL_TYPE_Toughness,               //韧性(暴抗),受攻击时，减少被暴击的几率。每160点韧性抵消对方1%的暴击率
-    NONPAREIL_TYPE_ToughnessRate,           //(韧性率)抗暴率, 抵抗暴击的概率
-    NONPAREIL_TYPE_AtkCrit,                 //暴击伤害,暴击时，暴伤越高，可以造成更多的额外伤害
-    NONPAREIL_TYPE_Lucky,                   //幸运,幸运值越高，出现攻击（所有）上限的几率越大，为9时必出
-    NONPAREIL_TYPE_RestoreHp,               //每次恢复血量，正负,每N秒自动回复生命//生命恢复是英雄抗怪能力最重要的指标。
-    NONPAREIL_TYPE_RestoreMp,               //每次恢复蓝量，正负,每N秒自动回复法力
-    NONPAREIL_TYPE_MoveSpeed,               //增加人物行走时的移动速度
-    NONPAREIL_TYPE_PalsyRate,               //麻痹概率
-    NONPAREIL_TYPE_PalsyResi,               //抗麻痹概率
-    NONPAREIL_TYPE_UnionAtkRate,            //合击威力
-    NONPAREIL_TYPE_IncAtkWarrior,           //对战士伤害增加
-    NONPAREIL_TYPE_DecAtkWarrior,           //受战士伤害减少
-    NONPAREIL_TYPE_IncAtkMage,              //对法师伤害增加
-    NONPAREIL_TYPE_DecAtkMage,              //受法师伤害减少
-    NONPAREIL_TYPE_IncAtkMonk,              //对道士伤害增加
-    NONPAREIL_TYPE_DecAtkMonk,              //受道士伤害减少
-    NONPAREIL_TYPE_IncAtkMonster,           //对怪物伤害增加
-    NONPAREIL_TYPE_DecAtkMonster,           //受怪物伤害减少
-    NONPAREIL_TYPE_IncAtkBoss,              //对BOSS伤害增加
-    NONPAREIL_TYPE_DecAtkBoss,              //受BOSS伤害减少
-    NONPAREIL_TYPE_IncAtkHero,              //增加对英雄伤害
-    NONPAREIL_TYPE_DecAtkHero,              //减少受英雄伤害
-    NONPAREIL_TYPE_Energy,                  //内功值(能量)，护盾能量最大值
-    NONPAREIL_TYPE_RestoreEnergy,           //恢复内功值
-    NONPAREIL_TYPE_EnergyResi,              //内功抵消伤害比例
-    NONPAREIL_TYPE_IncDamage,               //增伤,提高攻击时可以造成的伤害（百分比）
-    NONPAREIL_TYPE_DecDamage,               //减伤,降低受到的所有伤害（百分比）
-    NONPAREIL_TYPE_IncBossCrit,				//增加对BOSS的暴击
-    NONPAREIL_TYPE_IncBossAtkCrit,			//增加对BOSS的暴伤
-    NONPAREIL_TYPE_DecUnionAtkDamage,		//受合击伤害减少
-    NONPAREIL_TYPE_DecAtkCritDamage,		//受暴击伤害减少
-    NONPAREIL_TYPE_RestoreAnger,			//怒气恢复率
-    NONPAREIL_TYPE_UAToMonster,				//合击对怪增伤率
-    NONPAREIL_TYPE_UAToPlayer,				//合击对人增伤率
-
-    NONPAREIL_TYPE_MAXCOUNT,				//最大
-};
 
 class CfgItemDB {
     public baseID: number;
@@ -199,23 +140,24 @@ class CfgMonsterDB {
 }
 
 class Int64 {
-    private _bytes: egret.ByteArray;
+    private _bytes: Laya.Byte;
     private _id: string = "";
     public constructor(data: any) {
-        this._bytes = new egret.ByteArray;
-        this._bytes.endian = egret.Endian.LITTLE_ENDIAN;
-        data.readBytes(this._bytes, 0, 8);
+        this._bytes = new Laya.Byte;
+        this._bytes.endian = Laya.Byte.LITTLE_ENDIAN;
+        this._bytes.writeArrayBuffer(data.buffer, data.pos, 8);
+        this._bytes.pos = 0;
         this._id = this.int64ToStr();
     }
 
     public byteStr(): string {
         let str: string = "";
         str = this._bytes.readUTFBytes(this._bytes.length);
-        this._bytes.position = 0;
+        this._bytes.pos = 0;
         return str;
     }
 
-    public get data(): egret.ByteArray {
+    public get data(): any {
         return this._bytes;
     }
 
@@ -228,9 +170,9 @@ class Int64 {
     }
 
     public int64ToStr(): string {
-        let h = this._bytes.readInt();
-        let l = this._bytes.readInt();
-        this._bytes.position = 0;
+        let h = this._bytes.getUint32();
+        let l = this._bytes.getUint32();
+        this._bytes.pos = 0;
         return h + '_' + l;
     }
 
@@ -238,7 +180,7 @@ class Int64 {
         let num: number = 0;
         let nk: number = 0;
         for (let i = 0; i < 8; i++) {
-            nk = this._bytes.readUnsignedByte();
+            nk = this._bytes.getUint8();
             num = num + (nk * Math.pow(2, 8 * i));
         }
 
@@ -246,7 +188,7 @@ class Int64 {
             num = 18446744073709551616 - num + 1;
             num = -num;
         }
-        this._bytes.position = 0;
+        this._bytes.pos = 0;
         return num;
     }
 }
@@ -254,12 +196,12 @@ class Int64 {
 class SimpleFeature extends PacketBase {
     public constructor() {
         super();
-        this.addProperty('sex', PacketBase.TYPE_BYTE);
-        this.addProperty('job', PacketBase.TYPE_BYTE);
-        this.addProperty('hair', PacketBase.TYPE_BYTE);
-        this.addProperty('dwFaceId', PacketBase.TYPE_DWORD);
-        this.addProperty('weapon', PacketBase.TYPE_DWORD);
-        this.addProperty('dress', PacketBase.TYPE_DWORD);
+        this.addProperty('sex', PacketBase.TYPE_BYTE);//性别
+        this.addProperty('job', PacketBase.TYPE_BYTE);//职业
+        this.addProperty('hair', PacketBase.TYPE_BYTE);//发型
+        this.addProperty('dwFaceId', PacketBase.TYPE_DWORD);//脸型
+        this.addProperty('weapon', PacketBase.TYPE_DWORD);//武器ID
+        this.addProperty('dress', PacketBase.TYPE_DWORD);//衣服ID
     }
 }
 
@@ -271,19 +213,19 @@ class CretFeature extends PacketBase {
         this.addProperty('btCretType', PacketBase.TYPE_BYTE);//  1  此人物的类型，比如1==玩家，2==NPC，3==怪,4宝宝 ,  5，人形怪，6英雄
         this.addProperty('feature', PacketBase.TYPE_BYTES, this.feature.size());//  昵称外观信息stSimpleFeature结构
         this.addProperty('nTitleId', PacketBase.TYPE_WORD);//称号ID
-        this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);
+        this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);//战场类型
         this.addProperty('dwWingId', PacketBase.TYPE_WORD);//翅膀Id
         this.addProperty('n_bo_AllFeature', PacketBase.TYPE_DWORD);                  //外观 位状态信息
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         let pos: number = super.read(data);
         this.feature.read(this.getValue('feature'));
         return pos;
     }
 }
 
-
+//怪物　NPC　外显
 class AnimalFeature extends CretFeature {
     public constructor() {
         super()
@@ -293,7 +235,7 @@ class AnimalFeature extends CretFeature {
         this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//  4  NPC 怪物基本ID  
     }
 }
-
+//人物外显
 class PlayerFeature extends CretFeature {
     public constructor() {
         super();
@@ -306,36 +248,36 @@ class PlayerFeature extends CretFeature {
         this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
     }
 }
-
+//角色信息
 class SelectPlayerInfo extends PacketBase {
 
     public feature: SimpleFeature = new SimpleFeature;
 
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
-        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-        this.addProperty('nlevel', PacketBase.TYPE_INT);
-        this.addProperty('mapid', PacketBase.TYPE_WORD);
-        this.addProperty('cloneid', PacketBase.TYPE_WORD);
-        this.addProperty('homemapid', PacketBase.TYPE_WORD);
+        this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名称
+        this.addProperty('nlevel', PacketBase.TYPE_INT);//等级
+        this.addProperty('mapid', PacketBase.TYPE_WORD);//地图ID
+        this.addProperty('cloneid', PacketBase.TYPE_WORD);//副本ID
+        this.addProperty('homemapid', PacketBase.TYPE_WORD);//出生地图ID
         this.addProperty('conid', PacketBase.TYPE_WORD);
         this.addProperty('countryId', PacketBase.TYPE_BYTE);
-        this.addProperty('ngmlvl', PacketBase.TYPE_BYTE);
+        this.addProperty('ngmlvl', PacketBase.TYPE_BYTE);//GM等级
         this.addProperty('Feature', PacketBase.TYPE_BYTES, this.feature.size(), this.feature);
         this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);
-        this.addProperty('btisdel', PacketBase.TYPE_BOOL);
-        this.addProperty('posdeltime', PacketBase.TYPE_INT);
-        this.addProperty('lastlogintime', PacketBase.TYPE_INT);
-        this.addProperty('remaindeltime', PacketBase.TYPE_INT);
+        this.addProperty('btisdel', PacketBase.TYPE_BOOL);//是否删除
+        this.addProperty('posdeltime', PacketBase.TYPE_INT);//删除时间
+        this.addProperty('lastlogintime', PacketBase.TYPE_INT);//最后登录时间
+        this.addProperty('remaindeltime', PacketBase.TYPE_INT);//剩余删除时间
         this.addProperty("playerBanTime", PacketBase.TYPE_INT);//封号时间
-        this.addProperty('lastloginip', PacketBase.TYPE_BYTES, 4);
+        this.addProperty('lastloginip', PacketBase.TYPE_BYTES, 4);//最后登录IP
         if (data) {
-            data.position += this.read(data);
+            data.pos += this.read(data);
         }
     }
 
-    public read(data: egret.ByteArray) {
-        data.position += super.read(data);
+    public read(data: Laya.Byte) {
+        data.pos += super.read(data);
         return this._bytes.length;
     }
 
@@ -344,7 +286,7 @@ class SelectPlayerInfo extends PacketBase {
         this.feature = null;
     }
 }
-
+//生物位置
 class CretLocation extends PacketBase {
     public constructor() {
         super();
@@ -354,7 +296,7 @@ class CretLocation extends PacketBase {
         this.addProperty('ncurz', PacketBase.TYPE_WORD);//   所在坐标Z 
     }
 }
-
+//角色属性
 class ArpgAbility extends PacketBase {
     public constructor() {
         super();
@@ -417,16 +359,18 @@ class ArpgAbility extends PacketBase {
     }
 }
 
+//物品位置
 class ItemLocation extends PacketBase {
 
     public constructor() {
         super();
-        this.addProperty('btLocation', PacketBase.TYPE_CHAR);
-        this.addProperty('btTableID', PacketBase.TYPE_CHAR);
-        this.addProperty('btIndex', PacketBase.TYPE_CHAR);
+        this.addProperty('btLocation', PacketBase.TYPE_CHAR);//位置
+        this.addProperty('btTableID', PacketBase.TYPE_CHAR);//页签
+        this.addProperty('btIndex', PacketBase.TYPE_CHAR);//索引
     }
 }
 
+//极品属性
 class Nonpareil {
     public btNpFrom: number;
     public btNpType: number;
@@ -435,6 +379,7 @@ class Nonpareil {
     }
 }
 
+//物品结构
 class ItemBase extends PacketBase {
     public i64ItemID: Int64;					//8物品id
     public dwBaseID: number;					//4物品基本id
@@ -454,16 +399,16 @@ class ItemBase extends PacketBase {
     public dwExpireTime: number;					//4物品到期时间(秒)
     public btNpPropertyCount: number;				//1极品属性条目数--55
     public stNpProperty: Array<Nonpareil>;          //60属性
-    public ExtensionProperty: egret.ByteArray;		//预留10字节，做扩充
+    public ExtensionProperty: Laya.Byte;		//预留10字节，做扩充
 
     public defaultName: string;
-    public constructor(data: egret.ByteArray) {
+    public constructor(data: Laya.Byte) {
         super();
 
         this.location = new ItemLocation;
         this.stNpProperty = new Array<Nonpareil>();
-        this.ExtensionProperty = new egret.ByteArray;
-        this.ExtensionProperty.endian = egret.Endian.LITTLE_ENDIAN;
+        this.ExtensionProperty = new Laya.Byte;
+        this.ExtensionProperty.endian = Laya.Byte.LITTLE_ENDIAN;
 
 
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
@@ -488,11 +433,11 @@ class ItemBase extends PacketBase {
         this.read(data);
     }
 
-    public read(data: egret.ByteArray): number {
+    public read(data: Laya.Byte): number {
         if (data) {
-            data.position += super.read(data);
+            data.pos += super.read(data);
             this.readProperty();
-            return data.position;
+            return data.pos;
         }
         return 0;
     }
@@ -522,14 +467,14 @@ class ItemBase extends PacketBase {
         this.stNpProperty.length = 0;
 
         if (this.btNpPropertyCount > 0) {
-            let npdata: egret.ByteArray = new egret.ByteArray();;
-            npdata.endian = egret.Endian.LITTLE_ENDIAN;
+            let npdata: Laya.Byte = new Laya.Byte();;
+            npdata.endian = Laya.Byte.LITTLE_ENDIAN;
             npdata = this.getValue('UnionData');
             for (let j = 0; j < this.btNpPropertyCount; ++j) {
                 let np = new Nonpareil();
-                np.btNpFrom = npdata.readUnsignedByte();
-                np.btNpType = npdata.readUnsignedByte();
-                np.dwNpNum = npdata.readUnsignedInt();
+                np.btNpFrom = npdata.getUint8();
+                np.btNpType = npdata.getUint8();
+                np.dwNpNum = npdata.getUint32();
                 this.stNpProperty.push(np);
             }
         }

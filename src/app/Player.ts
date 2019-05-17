@@ -7,7 +7,7 @@ class Player extends Creature {
     public playerPassword:string;
     public userOnlyid: Int64;
 
-    public job:number = 2;
+    public job:number;
     public sex:number;
 
     private _playerListView: any = [];
@@ -21,7 +21,6 @@ class Player extends Creature {
     public init() {
 
     }
-
 
     public addViewObj(obj: any, type: number): void {
         switch (type) {
@@ -96,6 +95,6 @@ class Player extends Creature {
         }
         this._npcListView = [];
 
-        App.MainPanel.clearListView();
+        ////App.MainPanel.clearListView();
     }
 }

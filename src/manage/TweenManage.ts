@@ -24,7 +24,7 @@ module TweenManage {
             let completeFunc = tweenList[i]['_complete']['method'] || (() => { })
             tweenList[i]['_complete'].method = () => {
                 completeFunc();
-                lcp.LListener.getInstance().event(new lcp.LEvent(eventName));
+                lcp.LListener.getInstance().event(eventName);
             }
             group.count += 1;
             lcp.LListener.getInstance().once(eventName, this, onceFunc.bind(this, group))

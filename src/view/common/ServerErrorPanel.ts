@@ -4,7 +4,7 @@ module view.common {
 		constructor() {
 			super();
 			this.mouseEnabled = true;
-			lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReConnect)
+			// lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReConnect)
 			this.lbl_reLogin.once(Laya.UIEvent.CLICK, this, this.reLogin)
 		}
 		public setData(): void {
@@ -22,9 +22,9 @@ module view.common {
 		}
 		// 点击重新连接
 		public reLogin(): void {
-			lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReConnect);
-			GameUtils.resert();
-			GameUtils.getInstance().initGame();
+			// lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReConnect);
+			// GameUtils.resert();
+			// GameUtils.getInstance().initGame();
 		}
 	}
 }

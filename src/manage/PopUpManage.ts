@@ -4,7 +4,10 @@
 module PopUpManager {
     /**界面层级信息 */
     export let ALLPANEL = new Laya.Dictionary();
-
+    /**
+     * 当前的界面
+     */
+    export let curPanel: Laya.View;
     /**
      * 检查界面是否存在，若存在则销毁
      * @param panel 
@@ -28,8 +31,8 @@ module PopUpManager {
      */
     export function addPanel(panel: Laya.View, isAlway: number, effectType: number = 0, showType: number = 0): void {
         // 当前界面 打开当前界面的情况
-        if (GameConfig.curPanel == panel) {
-            GameConfig.curPanel.visible = true;
+        if (PopUpManager.curPanel == panel) {
+            PopUpManager.curPanel.visible = true;
             return
         }
         // 全屏适配
@@ -84,7 +87,7 @@ module PopUpManager {
                         break;
                 }
                 // 同步数据
-                GameConfig.curPanel = nextPanel;
+                PopUpManager.curPanel = nextPanel;
             }
         });
         // 界面层级管理
@@ -136,7 +139,7 @@ module PopUpManager {
         // 数据同步
         ALLPANEL.set(isAlway, panel);
         // 更新游戏配置
-        GameConfig.curPanel = panel;
+        PopUpManager.curPanel = panel;
         // 避免闪屏
         panel.alpha = 0;
         // 将界面放到显示列表中
@@ -190,8 +193,8 @@ module PopUpManager {
      */
     export function showPanel(panel: Laya.View): void {
         // 当前界面 打开当前界面的情况
-        if (GameConfig.curPanel == panel) {
-            GameConfig.curPanel.visible = true;
+        if (PopUpManager.curPanel == panel) {
+            PopUpManager.curPanel.visible = true;
             return
         }
         if (panel == undefined || panel.destroyed) {
@@ -227,7 +230,7 @@ module PopUpManager {
             }
         }
         // 更新游戏配置
-        GameConfig.curPanel = panel;
+        PopUpManager.curPanel = panel;
     }
 
 

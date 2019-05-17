@@ -3,19 +3,17 @@ module view.common {
 	export class LoginPanel extends ui.common.LoginPanelUI {
 		constructor() {
 			super();
-			Laya.Font.defaultFont = 'mini';
-			this.btn_Login.on(Laya.UIEvent.CLICK, this, this.loginGame.bind(this));
-			this.btn_selectServer.on(Laya.UIEvent.CLICK, this, this.openPanel.bind(this));
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame.bind(this));
-			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName.bind(this));
-			// 监听服务器更新列表事件
-			lcp.LListener.getInstance().on(LcpEvent.SERVER_LIST_FINISH, this, this.initUI.bind(this))
+			this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
+			// this.btn_selectServer.on(Laya.UIEvent.CLICK, this, this.openPanel, [0]);
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
+			this.btn_notice.on(Laya.UIEvent.CLICK, this, this.openPanel, [1]);
+			// 监听正式进入游戏
+			App.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
 		}
 
 		public setData(): void {
 			// 登陆组隐藏
-			this.box_start.visible = false;
-			this.box_fail.visible = false;
+			this.stack_login.selectedIndex = 0;
 			let oldAccountName = Laya.LocalStorage.getItem('account');
 			let oldPassworld = Laya.LocalStorage.getItem('passworld');
 			if (oldAccountName) {
@@ -26,128 +24,134 @@ module view.common {
 			}
 		}
 
-		private openPanel(): void {
-			PanelManage.openServerListPanel()
+		private openPanel(d): void {
+			// 服务器列表界面
+			if (d === 0) {
+				PanelManage.openServerListPanel()
+			}
+			// 服务器公告界面
+			else if (d === 1) {
+				PanelManage.openServerNoticePanel()
+			}
 		}
 
-		public curServer;//当前选择的服务器
-		public curAvatar;//当前选择的角色
-		// 更新服务器列表
-		private initUI(data): void {
-			// 更新成功
-			if (data) {
-				this.box_login.visible = false;
-				this.box_start.visible = true;
-				// 将账号密码存到本地缓存
-				Laya.LocalStorage.setItem('account', this.input_account.text);
-				Laya.LocalStorage.setItem('passworld', this.input_passworld.text);
-				// 选角创角，默认为上一次选择的角色
-				let _avatarInfo = GlobalData.AppServerInfo.avatarInfo;
-				let _serverInfo = GlobalData.AppServerInfo.serverInfo;
-				if (GlobalData.account.lastSelAvatar) {
-					console.log(GlobalData.account.lastSelAvatar);
-					this.curAvatar = _avatarInfo.filter((item) => { return item.avatarDbid == GlobalData.account.lastSelAvatar })[0];
-					this.curServer = _serverInfo.filter((item) => { return item.appServerDbid == this.curAvatar.appServerDbid })[0];
+		public loginGame(): void {
+			if (!this.input_account.text) {
+				TipsManage.showTips('账号不能为空');
+				return
+			}
+			if (!this.input_passworld.text) {
+				TipsManage.showTips('密码不能为空');
+				return
+			}
+			// 账号
+			App.GameEngine.mainPlayer.playerAccount = this.input_account.text + '@1001';
+			// 密码
+			App.GameEngine.mainPlayer.playerPassword = this.input_passworld.text;
+			
+			// 登陆前验证
+			if (App.Socket.isConnecting) {
+				lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
+			}
+			else {
+				App.Socket.connect();
+				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
+			}
+		}
+
+		/**
+		* 
+		* @param data 登陆验证成功
+		*/
+		public userRetPreLogin(data: any): void {
+			let msgData: UserRetPreLogin = new UserRetPreLogin(data);
+			// 成功连接至服务器
+			let login = new NormalUserLogin();
+			login.setValue('queryhistory', 0);
+			login.setValue('tokenlogin', 0);
+			login.setValue('force_login', 1);
+			login.setValue('ip_type', 255);
+			login.setValue('fclientver', 0);
+			login.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+			login.setValue('szAccountDis', 1);
+			login.setValue("dwZoneid", 1001);
+			login.setValue("dwTrueZoneid", 1);
+			let crc32: number = FunctionUtils.passwordCrc32(App.GameEngine.mainPlayer.playerPassword);
+			//var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
+			//login.setValue('szPassMd5', new Laya.Byte(1));
+			login.setValue('dwPassCrc32', crc32);
+			login.setValue('isSaveEncodePass', false);
+			login.setValue('szADUrl', "1");
+			login.setValue('szMac', "1");
+			lcp.send(login, this, this.userRetPreLoginRet)
+			msgData.clear();
+			////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
+		}
+		private userLoginInfo: UserLoginRet;//角色信息
+		/**
+		 * 登陆回调
+		 * @param data 
+		 */
+		public userRetPreLoginRet(data: any): void {
+			this.userLoginInfo = new UserLoginRet(data);
+			if (this.userLoginInfo.getValue("nErrorCode") == 0) {
+				App.GameEngine.zoneid = this.userLoginInfo.getValue('nSvrZoneid');
+				App.GameEngine.svrIndex = this.userLoginInfo.getValue("nSvrIndex");
+				App.GameEngine.loginsvrIdType = this.userLoginInfo.getValue('loginsvr_id_type');
+				// 判断是否有角色
+				if (this.userLoginInfo.count > 0) {
+					this.lbl_avatarDes.text = this.userLoginInfo.players[0].getValue('szName');
+					this.stack_login.selectedIndex = 1;
 				}
 				else {
-					this.curServer = _serverInfo[_serverInfo.length - 1];
+					this.userLoginInfo.clear();
+					// 创建角色
+					PanelManage.openCreateAvatarPanel();
 				}
-				// 显示数据
-				this.UpdateUI();
-			}
-			// 更新失败
-			else {
-				this.box_login.visible = false;
-				this.box_fail.visible = true;
-			}
-		}
-		// 刷新界面
-		private UpdateUI(): void {
-			this.lbl_server.text = '' + this.curServer.appServerDbid + '-' + this.curServer.appServerName;
-			if (this.curAvatar) {
-				this.box_randomName.visible = false;
-				this.lbl_avatarDes.visible = true;
-				this.lbl_avatarDes.text = 'LV.' + this.curAvatar.avatarLevel + '-' + this.curAvatar.avatarName;
 			}
 			else {
-				this.lbl_avatarDes.visible = false;
-				this.box_randomName.visible = true;
-			}
-		}
-		// 更新当前选择的服务器
-		public updateCurServer(Dbid): void {
-			this.curServer = GlobalData.AppServerInfo.serverInfo.filter((item) => { return item.appServerDbid == Dbid })[0];
-			this.curAvatar = GlobalData.AppServerInfo.avatarInfo.filter((item) => { return item.appServerDbid == Dbid })[0];
-			// 刷新界面
-			this.UpdateUI();
-
-		}
-		// 随机角色姓名
-		private randomName(): void {
-			this.input_random.text = RandomUtils.randomName(8);
-		}
-		// 输入的账号登陆游戏
-		private loginGame(): void {
-			console.log(this.input_account.text, this.input_passworld.text);
-			if (this.input_account.text != '账号' && this.input_passworld.text != 'nnnnnnn') {
-				// 登陆时附带平台数据
-				let data = { platform: GlobalData.platform }
-				lcp.send(Protocol.ReqLogin, [this.input_account.text, this.input_passworld.text, JSON.stringify(data)])
-				console.log('正在登陆');
-			}
-			else {
-				TipsManage.showTips('请输入账号密码')
+				this.userLoginInfo.clear();
+				TipsManage.showTips('账号密码错误');
+				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
+				Log.trace('请输入正确的账号密码 errorcode' + this.userLoginInfo.getValue("nErrorCode"));
 			}
 
-		}
-		// 登陆成功后进入游戏
-		private startGame(): void {
-			// 登陆appServer
-			let _appServerDbid = this.curServer.appServerDbid;
-			let _avatarName;
-			let _avatarDbid;
-			let _roleType;
-			if (this.curAvatar) {
-				_avatarName = this.curAvatar.avatarName;
-				_avatarDbid = this.curAvatar.avatarDbid;
-				_roleType = this.curAvatar.avatarRoleType;
-			}
-			else {
-				_avatarName = this.input_random.text;
-				_avatarDbid = 1;
-				_roleType = 1;
-			}
-			console.log(this.curAvatar, '11111111111111111111111')
-			// let _avatarDbid;单服多角色备用
-			// let _roleType;多职业备用
-			if (!_appServerDbid) {
-				TipsManage.showTips('未选择服务器')
-				return
-			}
-			if (!_avatarName) {
-				TipsManage.showTips('请输入角色名称')
-				return
-			}
-			console.log('正在初始化角色--------------------')
-			lcp.send(Protocol.LoginAppServer,
-				[{ appServerDbid: _appServerDbid, avatarName: _avatarName, roleType: _roleType, avatarDbid: _avatarDbid }],
-				this.LoginAppServerCB.bind(this));
 		}
 		/**
- 		* 登陆到小游戏服务器回调
- 		* @param msg 
- 		*/
-		private LoginAppServerCB(msg): void {
-			// 创建角色完成，开始更新avatar属性
-			let code = msg.code;
-			let data = JSON.parse(msg.data);
-			if (code == 0) {
-				console.log('创建角色成功，更新角色属性');
+		 * 开始游戏
+		 */
+		public startGame(): void {
+			let selector: SelectPlayer = new SelectPlayer();
+			selector.setValue("nselectidx", 0);
+			selector.setValue("szName", this.userLoginInfo.players[0].getValue('szName'));
+			selector.setValue("btmapsubline", 1);
+			lcp.send(selector, this, this.selectPlayerRet);
+			Log.trace("您选择了昵称:" + this.userLoginInfo.players[0].getValue('szName'));
+			App.GameEngine.isLogin = true;
+			this.userLoginInfo.clear();
+		}
+		/**
+		 * 选择角色回调，返回服务器分配的端口，需要重联
+		 * @param data 
+		 */
+		public selectPlayerRet(data: any): void {
+			let msgData: SelectPlayerRet = new SelectPlayerRet(data);
+			if (msgData.getValue('nErrorCode') == 0) {
+				App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
+				App.GameEngine.mainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
+				App.GameEngine.mainPlayer.playerName = msgData.getValue('szName');
+				// 这里重置一下socket,启用重连协议进入服务器
+				App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
+			} else {
+				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
-			else {
-				console.log('创建角色失败，无法进入游戏');
-				lcp.LListener.getInstance().event(new lcp.LEvent(LcpEvent.GAME_INIT_FINISH, false));
-			}
+			msgData.clear();
+		}
+		/**
+		 * 正式进入游戏
+		 */
+		public realLoginGame(): void {
+			PanelManage.openMainPanel();
 		}
 	}
 }

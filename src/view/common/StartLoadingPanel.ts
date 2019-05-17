@@ -1,17 +1,16 @@
 /**Created by the LayaAirIDE*/
-module view.loading {
+module view.common {
 	export class StartLoadingPanel extends ui.common.StartLoadingPanelUI {
 		constructor() {
 			super();
 			this.mouseEnabled = true;
-			lcp.LListener.getInstance().once(LcpEvent.GAME_INIT_FINISH, this, this.gameReady)
 		}
 
 		public gameInit(): void {
 			// 加载完成
 			let complete = () => {
-				// 初始化KBE
-				GameUtils.getInstance().initGame();			
+				PanelManage.openLoginPanel();			
+
 			}
 			// 加载进度
 			let progress = (data) => {
@@ -24,16 +23,6 @@ module view.loading {
 			// 加载通用的界面素材
 			ResManage.loadResource(ResData.PanelRes.Common, complete, progress, errorFunc)
 
-		}
-		private gameReady(msg): void {
-			if (msg) {
-				// 打开主界面
-				PanelManage.loadMainPanel();
-			}
-			else {
-				console.log('登陆失败')
-				TipsManage.showTips('游戏登陆失败，请重新登录')
-			}
 		}
 
 	}

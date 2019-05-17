@@ -28,25 +28,26 @@ module PanelManage {
     /**********************************界面层************************************ */
     export let tipsLayer: Laya.Box;                                                      //文字气泡提示
     export let euiLayer: Laya.Box;                                                       //界面弹窗提示
-    export let StartLoading: view.loading.StartLoadingPanel                              //开始游戏加载界面
+    export let StartLoading: view.common.StartLoadingPanel                               //开始游戏加载界面
     export var netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
     export let resloading: view.common.ResLoadingPanel;                                  //游戏中加载资源切换场景界面
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
     export let GM: view.common.GmPanel;                                                  //GM界面
-    export let Login: view.common.LoginPanel;                                             //登陆界面
-    export let ServerList: view.common.ServerListPanel;                                   //服务器列表界面
+    export let Login: view.common.LoginPanel;                                            //登陆界面
+    export let ServerList: view.common.ServerListPanel;                                 //服务器列表界面
+    export let ServerNotice: view.common.ServerNoticePanel;                             //服务器公告界面
+    export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
     export let Main: view.main.MainPanel;                                                //主界面                                               //测试界面
     /*****************************游戏界面************************************* */
- 
-    // export let Make:
+
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
     export function openStartLoadingPanel(): void {
         PopUpManager.checkPanel(PanelManage.StartLoading);
-        ResManage.loadResource(null, () => {
-            PanelManage.StartLoading = new view.loading.StartLoadingPanel();
-            PanelManage.StartLoading['LCP_skin'] = null;
+        ResManage.loadResource(ResData.PanelRes.StartLoading, () => {
+            PanelManage.StartLoading = new view.common.StartLoadingPanel();
+            PanelManage.StartLoading['LCP_skin'] = ResData.PanelRes.StartLoading;
             PanelManage.euiLayer.addChild(PanelManage.StartLoading);
             PanelManage.StartLoading.gameInit();
         });
@@ -75,7 +76,7 @@ module PanelManage {
     }
     // GM工具
     export function openGmPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.GM) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GM) {
             return
         }
         PopUpManager.checkPanel(PanelManage.GM);
@@ -89,7 +90,7 @@ module PanelManage {
     }
     // 登陆界面
     export function openLoginPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.Login) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Login) {
             return
         }
         PopUpManager.checkPanel(PanelManage.Login);
@@ -103,7 +104,7 @@ module PanelManage {
     }
     // 服务器列表界面
     export function openServerListPanel(): void {
-        if (GameConfig.curPanel && GameConfig.curPanel == PanelManage.ServerList) {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerList) {
             return
         }
         PopUpManager.checkPanel(PanelManage.ServerList);
@@ -113,6 +114,34 @@ module PanelManage {
             PanelManage.ServerList.setData();
             PanelManage.ServerList.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.ServerList, 1);
+        })
+    }
+    // 服务器公告界面
+    export function openServerNoticePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerNotice) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.ServerNotice);
+        ResManage.loadResource(ResData.PanelRes.ServerNotice, () => {
+            PanelManage.ServerNotice = new view.common.ServerNoticePanel();
+            PanelManage.ServerNotice['LCP_skin'] = ResData.PanelRes.ServerList;
+            PanelManage.ServerNotice.setData();
+            PanelManage.ServerNotice.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ServerNotice, 1);
+        })
+    }
+    // 创建角色界面
+    export function openCreateAvatarPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CreateAvatar) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.CreateAvatar);
+        ResManage.loadResource(ResData.PanelRes.CreateAvatar, () => {
+            PanelManage.CreateAvatar = new view.common.CreateAvatarPanel();
+            PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.ServerList;
+            PanelManage.CreateAvatar.setData();
+            PanelManage.CreateAvatar.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.CreateAvatar, 1);
         })
     }
     /**
@@ -127,7 +156,7 @@ module PanelManage {
         }
     }
     /******************************游戏界面************************************* */
-   
+
 
 
 }
