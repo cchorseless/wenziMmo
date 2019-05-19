@@ -78,7 +78,6 @@ class GameEngine extends BaseClass {
         this.logintoken = new Laya.Byte();
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new Player();
-        // this.mainPlayer.playerAccount = '1@1001';
     }
 
 

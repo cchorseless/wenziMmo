@@ -45,10 +45,10 @@ module view.common {
 				return
 			}
 			// 账号
-			App.GameEngine.mainPlayer.playerAccount = this.input_account.text + '@1001';
+			App.MainPlayer.playerAccount = this.input_account.text + '@1001';
 			// 密码
-			App.GameEngine.mainPlayer.playerPassword = this.input_passworld.text;
-			
+			App.MainPlayer.playerPassword = this.input_passworld.text;
+
 			// 登陆前验证
 			if (App.Socket.isConnecting) {
 				lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
@@ -72,11 +72,11 @@ module view.common {
 			login.setValue('force_login', 1);
 			login.setValue('ip_type', 255);
 			login.setValue('fclientver', 0);
-			login.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+			login.setValue('szAccount', App.MainPlayer.playerAccount);
 			login.setValue('szAccountDis', 1);
 			login.setValue("dwZoneid", 1001);
 			login.setValue("dwTrueZoneid", 1);
-			let crc32: number = FunctionUtils.passwordCrc32(App.GameEngine.mainPlayer.playerPassword);
+			let crc32: number = FunctionUtils.passwordCrc32(App.MainPlayer.playerPassword);
 			//var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
 			//login.setValue('szPassMd5', new Laya.Byte(1));
 			login.setValue('dwPassCrc32', crc32);
@@ -85,7 +85,7 @@ module view.common {
 			login.setValue('szMac', "1");
 			lcp.send(login, this, this.userRetPreLoginRet)
 			msgData.clear();
-			////App.MainPanel.addSysChat("您正在用账号:" + App.GameEngine.mainPlayer.playerAccount + '登录1区')
+			////App.MainPanel.addSysChat("您正在用账号:" + App.MainPlayer.playerAccount + '登录1区')
 		}
 		private userLoginInfo: UserLoginRet;//角色信息
 		/**
@@ -100,7 +100,25 @@ module view.common {
 				App.GameEngine.loginsvrIdType = this.userLoginInfo.getValue('loginsvr_id_type');
 				// 判断是否有角色
 				if (this.userLoginInfo.count > 0) {
-					this.lbl_avatarDes.text = this.userLoginInfo.players[0].getValue('szName');
+					let playerInfo = this.userLoginInfo.players[0];
+					let sex = this.userLoginInfo.players[0].feature.getValue('sex');
+					let job = this.userLoginInfo.players[0].feature.getValue('job');
+					let szName = playerInfo.getValue('szName');
+					let nlevel = playerInfo.getValue('nlevel');
+					let path;
+					if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+						path = 'image/common/icon_nan';
+					}
+					else {
+						path = 'image/common/icon_nv';
+					}
+					App.MainPlayer.sex = sex;
+					App.MainPlayer.job = job;
+					App.MainPlayer.playerName = szName;
+					App.MainPlayer.avatarIcon = path + '0' + job + '.png';
+					App.MainPlayer.level = nlevel;
+					this.img_avatarIcon.skin = App.MainPlayer.avatarIcon;
+					this.lbl_avatarDes.text = nlevel + '-' + App.MainPlayer.realName;
 					this.stack_login.selectedIndex = 1;
 				}
 				else {
@@ -138,8 +156,8 @@ module view.common {
 			let msgData: SelectPlayerRet = new SelectPlayerRet(data);
 			if (msgData.getValue('nErrorCode') == 0) {
 				App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
-				App.GameEngine.mainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
-				App.GameEngine.mainPlayer.playerName = msgData.getValue('szName');
+				App.MainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
+				App.MainPlayer.playerName = msgData.getValue('szName');
 				// 这里重置一下socket,启用重连协议进入服务器
 				App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
 			} else {

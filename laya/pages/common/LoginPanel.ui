@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":37,
-    "selecteID":21,
+    "selectedBox":33,
+    "selecteID":32,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -93,7 +93,7 @@
                     "props":{"y":659,"x":172,"width":388,"var":"box_start","name":"item1","height":426},
                     "nodeParent":37,
                     "label":"Box(box_start)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -143,15 +143,16 @@
                             "props":{"y":115,"x":-27,"width":368,"height":311},
                             "nodeParent":20,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":33,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/hero01.jpg","height":120},
+                                    "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/icon_nan01.png","height":120},
                                     "nodeParent":33,
                                     "label":"Image(img_avatarIcon)",
                                     "isDirectory":false,
@@ -163,8 +164,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":141,"x":41,"width":286,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":34,"fontSize":25,"font":"mini","color":"#0b0000","bold":true,"align":"center"},
+                                    "props":{"y":139,"x":41,"width":286,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":34,"fontSize":30,"font":"Microsoft YaHei","color":"#fbf8f8","bold":true,"align":"center"},
                                     "nodeParent":33,
                                     "label":"Label(lbl_avatarDes)",
                                     "isDirectory":false,
@@ -176,6 +178,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":185,"x":49,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/start_game_down_finish.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true},
                                     "nodeParent":33,

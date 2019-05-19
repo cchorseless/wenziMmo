@@ -87,7 +87,7 @@ class NormalUserLogin extends UserLogin {
 //登录返回
 class UserLoginRet extends Packet {
     public static msgID: number = 0x0104;
-    public players: Array<any> = new Array();
+    public players: Array<SelectPlayerInfo> = new Array();
     public count: number = 0;
     public constructor(data: Laya.Byte) {
         super();

@@ -2,14 +2,15 @@
 
 class Player extends Creature {
 
-    public playerName: string;
+
     public playerAccount: string;
     public playerPassword: string;
     public userOnlyid: Int64;
-
+    public avatarIcon: string;
+    public playerName: string;
     public job: EnumData.JOB_TYPE;
     public sex: EnumData.SEX_TYPE;
-
+    public level: number;
     private _playerListView: any = [];
     private _monsterListView: any = [];
     private _npcListView: any = [];
@@ -19,9 +20,18 @@ class Player extends Creature {
     }
 
     public init() {
-
     }
 
+    /**
+     * 获取玩家真实名称
+     */
+    get realName(): string {
+        if (this.playerName != null) {
+            return this.playerName.split('@')[0];
+        }
+        return '';
+
+    }
     public addViewObj(obj: any, type: number): void {
         switch (type) {
             case CRET_TYPE.CRET_PLAYER:

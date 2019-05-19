@@ -63,8 +63,8 @@ module lcp {
      * @param cb 回调函数
      */
     export function send(msgClass: Packet, key?, cb?: Function): void {
-        let eventName = msgClass.eventName;
         if (cb) {
+            let eventName = msgClass.eventName;
             lcp.LListener.getInstance().once(eventName, key, cb)
         }
         msgClass.send();

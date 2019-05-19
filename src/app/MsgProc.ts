@@ -173,22 +173,14 @@ class MsgProc extends BaseClass {
         App.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
         App.GameEngine.mainPlayer.dir = msgData.getValue('dir');
 
-
-
         ////App.MainPanel.addSysChat("您已进入:" + msgData.location.getValue('mapid') + '|' + msgData.getValue('dwMapFileID'));
-
         // //App.MainPanel.addSysChat("您已进入:" + msgData.getValue('szMapFileName')
         //     + ' 坐标(' + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ')');
-
         ////App.MainPanel.addSysChat('切换地图成功');
-
         App.GameEngine.mainPlayer.clearViewObj();
-
         msgData.clear();
-
         let ready = new StateReady();
-        ready.send();
-        ready.clear();
+        lcp.send(ready);
     }
 
     //非玩家进入地图

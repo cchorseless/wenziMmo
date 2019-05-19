@@ -24,6 +24,13 @@ class App {
     }
 
     /**
+     * 玩家对象
+     */
+    public static get MainPlayer(): Player {
+        return App.GameEngine.mainPlayer;
+    }
+
+    /**
      * MsgProc 服务器全局监听器
      */
     public static get MsgProc(): MsgProc {

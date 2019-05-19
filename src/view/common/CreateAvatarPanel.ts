@@ -28,12 +28,20 @@ module view.common {
 				return
 			}
 			// 角色名称
-			App.GameEngine.mainPlayer.playerName = this.input_random.text;
+			App.GameEngine.mainPlayer.playerName = this.input_random.text + '@1001';
 			// 性别
 			App.GameEngine.mainPlayer.sex = this.rad_sex.selectedIndex + 1;
 			// 职业
 			App.GameEngine.mainPlayer.job = this.rad_job.selectedIndex + 1;
-
+			// 玩家头像
+			let path;
+			if (App.GameEngine.mainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+				path = 'image/common/icon_nan';
+			}
+			else {
+				path = 'image/common/icon_nv';
+			}
+			App.GameEngine.mainPlayer.avatarIcon = path + '0' + App.GameEngine.mainPlayer.job + '.png';
 			let createusr = new CreatePlayer();
 			createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);
@@ -52,6 +60,7 @@ module view.common {
 			let msg = new CreatePlayerRet(data);
 			let errorcode = msg.getValue('errorcode');
 			if (errorcode == 0) {
+				// 单服单角色，这里可以扩展
 				let selector: SelectPlayer = new SelectPlayer();
 				selector.setValue("nselectidx", 0);
 				selector.setValue("szName", msg.getValue('szPlayerName'));

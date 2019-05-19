@@ -5,6 +5,7 @@ module view.main {
 			super();
 		}
 		public setData(): void {
+			this.ui_mainPlayer.lbl_name.text = App.MainPlayer.realName;
 
 		}
 		//界面切换时控制那些部分不变
