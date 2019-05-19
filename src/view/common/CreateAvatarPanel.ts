@@ -3,11 +3,19 @@ module view.common {
 	export class CreateAvatarPanel extends ui.common.CreateAvatarPanelUI {
 		constructor() {
 			super();
-			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
+
 		}
 		public setData(): void {
-
+			this.addEvent();
+			this.rad_job.selectHandler = this.rad_sex.selectHandler = Laya.Handler.create(this, () => {
+				let path = this.rad_sex.selectedIndex == 0 ? 'image/common/nan' : 'image/common/nv';
+				this.img_hero.skin = path + '0' + (this.rad_job.selectedIndex + 1) + '.png'
+			}, null, false);
+			this.rad_job.selectHandler.run();
+		}
+		addEvent(): void {
+			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 		}
 		// 随机角色姓名
 		private randomName(): void {
@@ -22,9 +30,9 @@ module view.common {
 			// 角色名称
 			App.GameEngine.mainPlayer.playerName = this.input_random.text;
 			// 性别
-			App.GameEngine.mainPlayer.sex = 1;
+			App.GameEngine.mainPlayer.sex = this.rad_sex.selectedIndex + 1;
 			// 职业
-			App.GameEngine.mainPlayer.job = 1;
+			App.GameEngine.mainPlayer.job = this.rad_job.selectedIndex + 1;
 
 			let createusr = new CreatePlayer();
 			createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);

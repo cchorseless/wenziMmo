@@ -4,11 +4,11 @@ class Player extends Creature {
 
     public playerName: string;
     public playerAccount: string;
-    public playerPassword:string;
+    public playerPassword: string;
     public userOnlyid: Int64;
 
-    public job:number;
-    public sex:number;
+    public job: EnumData.JOB_TYPE;
+    public sex: EnumData.SEX_TYPE;
 
     private _playerListView: any = [];
     private _monsterListView: any = [];

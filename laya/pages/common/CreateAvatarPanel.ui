@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":14,
+    "selecteID":23,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -38,7 +38,6 @@
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":-4,"x":11,"width":355,"var":"input_random","type":"text","skin":"image/common/login/task_bg.png","promptColor":"#060606","prompt":"点击随机名字","height":85,"fontSize":25,"font":"mini","color":"#000000","bold":true,"align":"center"},
                     "nodeParent":3,
@@ -51,7 +50,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":-11,"x":287,"width":88,"var":"btn_randomName","stateNum":"2","skin":"image/common/login/dice_norm_finish.png","label":"label","height":92},
                     "nodeParent":3,
@@ -81,9 +79,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":171,"x":26,"width":333,"skin":"image/common/nv03.png","height":525},
+            "props":{"y":135,"x":26,"width":333,"var":"img_hero","skin":"image/common/nv03.png","height":525},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_hero)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -95,7 +93,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":157,"x":360},
+            "props":{"y":121,"x":360},
             "nodeParent":1,
             "label":"Box",
             "isOpen":null,
@@ -128,6 +126,32 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"RadioGroup",
+            "props":{"y":813,"x":156,"var":"rad_sex","space":100,"skin":"image/common/comp/check_circle.png","selectedIndex":0,"labels":"男,女","labelSize":50,"labelFont":"Microsoft YaHei","labelBold":true,"labelAlign":"center"},
+            "nodeParent":1,
+            "label":"RadioGroup(rad_sex)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":22,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"RadioGroup",
+            "props":{"y":702,"x":34,"var":"rad_job","space":40,"skin":"image/common/comp/check_circle.png","selectedIndex":0,"labels":"道士,法师,战士","labelSize":50,"labelFont":"Microsoft YaHei","labelBold":true,"labelAlign":"center"},
+            "nodeParent":1,
+            "label":"RadioGroup(rad_job)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":23,
+            "child":[
+                ]
         }],
     "animations":[
         {

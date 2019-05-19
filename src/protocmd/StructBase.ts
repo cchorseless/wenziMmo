@@ -1,43 +1,6 @@
 // TypeScript file
 
-enum JOB_TYPE {
-    JOB_WARRIOR = 1,//战士
-    JOB_MAGE = 2,//法师
-    JOB_MONK = 3,//道士
-}
 
-enum EQUIP_POS_TYPE {
-    EQUIP_HEADDRESS,			//帽子
-    EQUIP_NECKLACE,				//项链
-    EQUIP_CLOTHES,				//衣服
-    EQUIP_WEAPONS,				//武器
-    EQUIP_BRACELET_LEFT,		//左手镯
-    EQUIP_BRACELET_RIGHT,		//右手镯
-    EQUIP_RING_LEFT,			//左戒指
-    EQUIP_RING_RIGHT,			//右戒指
-    EQUIP_SHOES,				//鞋
-    EQUIP_BELT = 9,				//腰带
-
-    EQUIP_ALL,
-}
-
-enum PACKAGE_TYPE {
-    ITEMCELLTYPE_NONE,				// 不是格子，用于丢弃或捡到物品
-    ITEMCELLTYPE_EQUIP,				// 装备
-    ITEMCELLTYPE_STORE,				// 仓库
-    ITEMCELLTYPE_PACKAGE,			// 包裹的格子
-    ITEMCELLTYPE_SOLDITEM,			//已出售物品
-    ITEMCELLTYPE_LINGSHBAOGUO,		//临时包裹
-
-    //-----
-    ITEMCELLTYPE_PLAYER_EQUIP = 50,		//人物战装(类型区分,不是实际包裹)
-    ITEMCELLTYPE_PLAYER_LEGENDEQUIP,	//人物神装(类型区分,不是实际包裹)
-    ITEMCELLTYPE_PLAYER_RUNEEQUIP,		//符文
-    ITEMCELLTYPE_HERO_EQUIP,			//英雄装备
-    //====================
-    //客户端已使用
-    ITEMCELLTYPE_VIRTUAL = 200,	// 虚拟
-}
 
 
 class CfgItemDB {

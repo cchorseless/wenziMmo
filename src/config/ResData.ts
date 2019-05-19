@@ -21,6 +21,7 @@ module ResData {
         public static CreateAvatar = null;
         // 通用素材
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/comp.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
