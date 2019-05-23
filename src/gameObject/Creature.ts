@@ -1,13 +1,6 @@
-enum CRET_TYPE {
-    CRET_NONE = 0,
-    CRET_PLAYER = 1,
-    CRET_NPC = 2,
-    CRET_MONSTER = 3,
-    CRET_PET,
-    CRET_COPYHUMAN,
-    CRET_HERO,
-    CRET_ALL = 100,
-};
+/**
+ * 基本游戏类型
+ */
 
 class Ability {
     public nowhp: number = 0;
@@ -20,11 +13,11 @@ class Ability {
     public maxatk: number = 0;
     public mindef: number = 0;
     public maxdef: number = 0;
-
     public constructor() {
 
     }
 }
+
 
 class Creature {
     public name: string;
@@ -38,11 +31,10 @@ class Creature {
     public x: number;
     public y: number;
     public dir: number;
-
     public ability: Ability;
 
     public constructor() {
-        this.ability = new Ability;
+        this.ability = new Ability();
     }
 
     public changeHp(nowhp: number, maxhp: number = 0) {

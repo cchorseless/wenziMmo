@@ -1,4 +1,6 @@
-// TypeScript file
+/**
+ * 服务器协议监听
+ */
 
 class MsgProc extends BaseClass {
 
@@ -13,17 +15,15 @@ class MsgProc extends BaseClass {
         App.LListener.on(Packet.msgIdToEventName(CheckSignalCmd.msgID), this, this.checkSignalCmd);
         // socket链接
         App.LListener.on(SocketConst.SOCKET_CONNECT, this, this.onSocketConnect);
-        //App.LListener.on(SocketConst.SOCKET_RECONNECT, this, this.onSocketReconnect);
         // 更新本地密匙
         App.LListener.on(Packet.msgIdToEventName(UpdateToken.msgID), this, this.updateToken);
 
-        //0x02--
+        //*****************************同步视野内对象
         App.LListener.on(Packet.msgIdToEventName(PlayerChangeMap.msgID), this, this.playerChangeMap);
         App.LListener.on(Packet.msgIdToEventName(MapCreateCret.msgID), this, this.mapCreateCret);
         App.LListener.on(Packet.msgIdToEventName(MapRemoveCret.msgID), this, this.mapRemoveCret);
-        App.LListener.on(Packet.msgIdToEventName(MapCreatePlayer.msgID), this, this.mapCreatePlayer, );
+        App.LListener.on(Packet.msgIdToEventName(MapCreatePlayer.msgID), this, this.mapCreatePlayer);
 
-        App.LListener.on(Packet.msgIdToEventName(StateReady.msgID), this, this.stateReady);
         //0x021F
         App.LListener.on(Packet.msgIdToEventName(CretMoveRet.msgID), this, this.cretMoveRet);
         //0x0232
@@ -45,10 +45,15 @@ class MsgProc extends BaseClass {
         App.LListener.on(Packet.msgIdToEventName(MapItemEventDel.msgID), this, this.mapItemEventDel);
         App.LListener.on(Packet.msgIdToEventName(MapItemEventAdd.msgID), this, this.mapItemEventAdd);
         App.LListener.on(Packet.msgIdToEventName(MapItemEventPick.msgID), this, this.mapItemEventPick);
-        //0x03
+
+        //0x03 背包相关
+        // 删除背包道具
         App.LListener.on(Packet.msgIdToEventName(CretDeleteItem.msgID), this, this.cretDeleteItem);
-        // App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
-        // App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.cretItems);
+        // 更新背包道具
+        App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
+        // 初始化背包信息
+        App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.initBag);
+
         App.LListener.on(Packet.msgIdToEventName(CretItemCountChanged.msgID), this, this.cretItemCountChanged);
         App.LListener.on(Packet.msgIdToEventName(CretProcessingItem.msgID), this, this.cretProcessingItem);
         App.LListener.on(Packet.msgIdToEventName(CretForsakeItem.msgID), this, this.cretForsakeItem);
@@ -66,7 +71,6 @@ class MsgProc extends BaseClass {
             let signal = new CheckSignalCmdRet();
             signal.setValue('checknum', checksignal.getValue('checknum'))
             signal.send();
-            // signal.clear();
             signal = null;
         }
 
@@ -75,7 +79,6 @@ class MsgProc extends BaseClass {
             App.Socket.waitTime = 0;
         }
     }
-
 
     /**
      * socket链接
@@ -90,6 +93,7 @@ class MsgProc extends BaseClass {
             TipsManage.showTxt('SOCKET 初始化成功,可以登录');
         }
     }
+
     /**
      * 断线重连
      */
@@ -107,6 +111,7 @@ class MsgProc extends BaseClass {
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
     }
+
     /**
      * 更新本地密匙
      * @param data 
@@ -118,24 +123,6 @@ class MsgProc extends BaseClass {
         App.GameEngine.logintoken.writeArrayBuffer(tmp.buffer, 0, tmp.length);
         App.GameEngine.logintoken.pos = 0;
         App.GameEngine.tokenCheck = msgData.getValue('tokencheck');
-        // int Mem2Hex(char* pin, int nsize, char* pout, int nout)
-        // {
-        //     for(int i = 0; i < nsize; i++)
-        //     {
-        //         sprintf_s(pout, nout - 1, "%.2x", byte(pin[i]));
-        //         pout += 2;
-        //         nout -= 2;
-        //     }
-
-        //     return (nsize * 2);
-        // }
-
-        // 34d4ae761fe9f8762b3c417c863a2a3c4e2a2aba7f303d56
-        // 010901166b56 34d4ae761fe9f8762b3c417c863a2a3c4e2a
-        // 010901166b5634d4ae761fe9f8762b3c417c863a2a3c4e2a
-
-        // 0000 0001
-        // 0000 0100
         let token: string = '';
         tmp.pos = 0;
         for (let i = 0; i < tmp.length; ++i) {
@@ -162,63 +149,62 @@ class MsgProc extends BaseClass {
         msgData.clear();
     }
 
-
+    /**
+     * 玩家地图信息
+     * @param data 
+     */
     public playerChangeMap(data: any): void {
         let msgData = new PlayerChangeMap(data);
-
         App.GameEngine.mainPlayer.mapid = msgData.location.getValue('mapid');
         App.GameEngine.mainPlayer.x = msgData.location.getValue('ncurx');
         App.GameEngine.mainPlayer.y = msgData.location.getValue('ncury');
         App.GameEngine.mainPlayer.mapname = msgData.getValue('szMapFileName');
         App.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
         App.GameEngine.mainPlayer.dir = msgData.getValue('dir');
-
-        ////App.MainPanel.addSysChat("您已进入:" + msgData.location.getValue('mapid') + '|' + msgData.getValue('dwMapFileID'));
-        // //App.MainPanel.addSysChat("您已进入:" + msgData.getValue('szMapFileName')
-        //     + ' 坐标(' + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ')');
-        ////App.MainPanel.addSysChat('切换地图成功');
+        TipsManage.showTips('切换地图成功');
         App.GameEngine.mainPlayer.clearViewObj();
-        msgData.clear();
         let ready = new StateReady();
-        lcp.send(ready);
+        lcp.send(ready, this, () => {
+            App.GameEngine.isReady = true;
+        });
+        msgData.clear();
     }
 
-    //非玩家进入地图
+    /**
+     * 非玩家进入地图，包括NPC和怪物
+     * @param data 
+     */
     public mapCreateCret(data: any): void {
         let msgData = new MapCreateCret(data);
         let type = msgData.feature.getValue('btCretType');
-        let monster = new Monster();
-        monster.id = msgData.feature.getValue('dwCretTypeId');
-        monster.onlyid = msgData.getValue('dwTmpId');
-        monster.mapid = msgData.location.getValue('mapid');
-        if (type == CRET_TYPE.CRET_NPC && monster.mapid != 1003) {
-            monster.name = FunctionUtils.filterName(msgData.getValue('szShowName')) + '(复活中)';
+        let mapid = msgData.location.getValue('mapid')
+        let obj;
+        if (type == EnumData.CRET_TYPE.CRET_NPC) {
+            obj = new Npc();
+            obj.name = FunctionUtils.filterName(msgData.getValue('szShowName')) + '(复活中)';
         } else {
-            monster.name = FunctionUtils.filterName(msgData.getValue('szShowName'));
+            obj = new Monster();
+            obj.name = FunctionUtils.filterName(msgData.getValue('szShowName'));
         }
-        monster.x = msgData.location.getValue('ncurx');
-        monster.y = msgData.location.getValue('ncury');
-        monster.level = msgData.getValue('lvl');
-        monster.hp = msgData.getValue('nNowHp');
-        monster.mp = msgData.getValue('nNowMp');
-        monster.lifestate = msgData.getValue('lifestate');
-        //App.GameEngine.mainPlayer.addViewObj(monster, msgData.feature.getValue('btCretType'));
-        // let objDB = new ObjItemDB();
-        // objDB.distance = Math.abs(App.GameEngine.mainPlayer.x - monster.x) + Math.abs(App.GameEngine.mainPlayer.y - monster.y);
-        // objDB.cretType = type;
-        // objDB.name = monster.name;
-        // objDB.onlyid = monster.onlyid;
-        // objDB.x = monster.x;
-        // objDB.y = monster.y;
-        // objDB.level = monster.level;
-        // objDB.nowhp = msgData.getValue('nNowHp');
-        // objDB.maxhp = msgData.getValue('nMaxHp');
-        // //App.MainPanel.addListView(objDB)
-
+        obj.id = msgData.feature.getValue('dwCretTypeId');
+        obj.onlyid = msgData.getValue('dwTmpId');
+        obj.mapid = msgData.location.getValue('mapid');
+        obj.x = msgData.location.getValue('ncurx');
+        obj.y = msgData.location.getValue('ncury');
+        obj.level = msgData.getValue('lvl');
+        obj.hp = msgData.getValue('nNowHp');
+        obj.mp = msgData.getValue('nNowMp');
+        obj.lifestate = msgData.getValue('lifestate');
+        // 将对象添加到视野列表中
+        App.GameEngine.mainPlayer.addViewObj(obj, type);
         msgData.clear();
         msgData = null;
     }
 
+    /**
+     * 玩家进入地图
+     * @param data 
+     */
     public mapCreatePlayer(data: any): void {
         let msg = new MapCreatePlayer(data);
         let player = new Player();
@@ -232,73 +218,31 @@ class MsgProc extends BaseClass {
         player.hp = msg.getValue('nNowHp');
         player.mp = msg.getValue('nNowMp');
         player.lifestate = msg.getValue('lifestate');
-        //App.GameEngine.mainPlayer.addViewObj(player, msg.feature.getValue('btCretType'));
-
-        // let objDB = new ObjItemDB();
-        // objDB.distance = Math.abs(App.GameEngine.mainPlayer.x - player.x) + Math.abs(App.GameEngine.mainPlayer.y - player.y);
-        // objDB.cretType = msg.feature.getValue('btCretType');
-        // objDB.name = player.name;
-        // objDB.onlyid = player.onlyid;
-        // objDB.x = player.x;
-        // objDB.y = player.y;
-        // objDB.level = player.level;
-        // objDB.nowhp = msg.getValue('nNowHp');
-        // objDB.maxhp = msg.getValue('nMaxHp');
-        // if (!Main.auditVer) {
-        //     //App.MainPanel.addListView(objDB)
-        // }
-
-
 
         if (player.onlyid == App.GameEngine.mainPlayer.onlyid) {
-
             App.GameEngine.mainPlayer.level = player.level;
             App.GameEngine.mainPlayer.hp = player.hp;
             App.GameEngine.mainPlayer.mp = player.mp;
             App.GameEngine.mainPlayer.lifestate = player.lifestate;
             App.GameEngine.mainPlayer.job = msg.feature.feature.getValue('job');
             App.GameEngine.mainPlayer.sex = msg.feature.feature.getValue('sex');
-
-            let sex = '男';
-            let job = '战士';
-            if (App.GameEngine.mainPlayer.sex == 2) {
-                sex = '女';
-            }
-            if (App.GameEngine.mainPlayer.job == 2) {
-                job = '法师';
-            } else if (App.GameEngine.mainPlayer.job == 3) {
-                job = '道士';
-            }
-
-
-
-
-            // //App.MainPanel.playerBtn.text = player.name + 'lv.' + player.level
-            //     + "[color=#00EE00](" + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ")[/color]";
-
-            ////App.MainPanel.bloodBtn.text = '血量:(' + msg.getValue('nNowHp') + '/' + msg.getValue('nMaxHp') + ')';
             App.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
         }
-
-
+        App.GameEngine.mainPlayer.addViewObj(player, msg.feature.getValue('btCretType'));
         msg.clear();
         msg = null;
     }
 
+    /**
+     * 去除地图内对象
+     * @param data 
+     */
     public mapRemoveCret(data: any): void {
         let msgData = new MapRemoveCret(data);
-
         App.GameEngine.mainPlayer.removeViewObj(msgData.getValue('dwTmpId'), msgData.getValue('btCretType'));
-
         msgData.clear();
     }
 
-
-    public stateReady(): void {
-        App.GameEngine.isReady = true;
-
-        //setInterval(() => { //App.MainPanel.doAttack(); }, 1500);
-    }
 
     //0x021F
     public cretMoveRet(data: any): void {
@@ -337,6 +281,7 @@ class MsgProc extends BaseClass {
         msgData = null;
     }
 
+
     //0x0234
     public cretHealthChange(data: any): void {
         let msgData = new CretHealthChange(data);
@@ -373,6 +318,7 @@ class MsgProc extends BaseClass {
         msgData = null;
     }
 
+
     //0x0236
     public cretGoldChange(data: any): void {
         let msg = new CretGoldChange(data);
@@ -382,6 +328,7 @@ class MsgProc extends BaseClass {
         msg.clear();
         msg = null;
     }
+
 
     //0x0237
     public cretExpChange(data: any): void {
@@ -405,6 +352,7 @@ class MsgProc extends BaseClass {
         msg.clear();
         msg = null;
     }
+
 
     public cretLevelUp(data: any): void {
         let msg = new CretLevelUp(data);
@@ -440,6 +388,8 @@ class MsgProc extends BaseClass {
         msg.clear();
         msg = null;
     }
+
+
     public cretChat(data: any): void {
         let msg = new CretChat(data);
         let userOnlyid = msg.getValue('dwSrcOnlyId');
@@ -458,6 +408,7 @@ class MsgProc extends BaseClass {
         msg = null;
     }
 
+
     public cretAbility(data: any): void {
         let msg = new CretAbility(data);
         if (msg.getValue('dwType') == 0) {
@@ -470,9 +421,9 @@ class MsgProc extends BaseClass {
         msg = null;
     }
 
+
     public cretCharBase(data: any): void {
         let msg = new CretCharBase(data);
-
         App.GameEngine.mainPlayer.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));
         App.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'));
         //App.MainPanel.topGoldcnt.text = msg.getValue('dwGold');
@@ -481,6 +432,7 @@ class MsgProc extends BaseClass {
         msg.clear();
         msg = null;
     }
+
 
     public cretLifestateChange(data: any): void {
         let msg = new CretLifestateChange(data);
@@ -505,6 +457,7 @@ class MsgProc extends BaseClass {
         msg = null;
     }
 
+
     public tipMsg(data: any): void {
         let msg = new TipMsg(data);
 
@@ -516,103 +469,96 @@ class MsgProc extends BaseClass {
         msg = null;
     }
 
+
     public cretGetUseItemRet(data: any): void {
         let msg = new CretGetUseItemRet(data);
+        msg.clear();
+        msg = null;
+    }
 
-
+    /**
+     * 初始化背包数据
+     * @param data 
+     */
+    public initBag(data: any): void {
+        let msg = new CretItems(data);
+        let typepos = msg.getValue('btPosition');
+        let itemsInfo: Array<ItemBase> = msg.items;
+        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+            for (let i = 0; i < itemsInfo.length; i++) {
+                // 装备索引
+                let idx = itemsInfo[i].location.getValue('btIndex');
+                App.GameEngine.equipDB[idx] = null;
+                App.GameEngine.equipDB[idx] = itemsInfo[i];
+            }
+        }
+        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+            for (let i = 0; i < itemsInfo.length; i++) {
+                // 包裹索引
+                let idx = itemsInfo[i].location.getValue('btIndex');
+                App.GameEngine.bagItemDB[idx] = null;
+                App.GameEngine.bagItemDB[idx] = itemsInfo[i];
+            }
+        }
         msg.clear();
         msg = null;
     }
 
     //0x0301
+    /**
+     * 删除背包数据
+     * @param data 
+     */
     public cretDeleteItem(data: Laya.Byte) {
         let msg = new CretDeleteItem(data);
+        let i64Id: Int64 = msg.getValue('i64Id');
+        let typepos = msg.getValue('btPosition');
+        let bag;
+        // 装备
+        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+            bag = App.GameEngine.equipDB;
+        }
+        // 包裹
+        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+            bag = App.GameEngine.bagItemDB;
+        }
 
-        let i64Id = msg.getValue('i64Id');
-
-        // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
-        //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == i64Id.id) {
-        //         ////App.MainPanel.bagItemDB.splice(i, 1);
-        //         delete //App.MainPanel.bagItemDB[i];
-        //         //App.MainPanel.bagItemDB[i] = null;
-        //         //App.MainPanel.bagItemDB[i] = new ItemBase(null);
-        //         break;
-        //     }
-        // }
-        //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
+        for (let i in bag) {
+            if (bag[i].i64ItemID.int64ToStr() == i64Id.int64ToStr()) {
+                delete bag[i];
+                break
+            }
+        }
 
         msg.clear();
         msg = null;
     }
+
     //0x0302
-    // public cretUpdateItem(data: Laya.Byte) {
-    //     let msg = new CretUpdateItem(data);
-    //     let typepos = msg.getValue('btPosition');
-    //     if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-
-    //     } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-    //         let find: boolean = false;
-    //         // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
-    //         //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == msg.item.i64ItemID.id) {
-    //         //         ////App.MainPanel.bagItemDB.splice(i, 1);
-    //         //         delete //App.MainPanel.bagItemDB[i];
-    //         //         //App.MainPanel.bagItemDB[i] = null;
-    //         //         //App.MainPanel.bagItemDB[i] = msg.item;
-    //         //         find = true;
-    //         //         break;
-    //         //     }
-    //         // }
-
-    //         // if (!find) {
-    //         //     let idx = msg.item.location.getValue('btIndex');
-    //         //     delete //App.MainPanel.bagItemDB[idx];
-    //         //     //App.MainPanel.bagItemDB[idx] = null;
-    //         //     //App.MainPanel.bagItemDB[idx] = msg.item;
-    //         // }
-
-    //         //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
-
-    //         ;
-    //         //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
-    //         ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
-    //     }
-
-    //     //msg.clear();
-    //     //msg = null;
-
-    // }
-
-    // public cretItems(data: any): void {
-    //     let msg = new CretItems(data);
-
-    //     let typepos = msg.getValue('btPosition');
-    //     if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-    //         //App.MainPanel.initEquip();
-    //         // for (let i = 0; i < msg.items.length; ++i) {
-    //         //     let idx = msg.items[i].location.getValue('btIndex');
-    //         //     delete //App.MainPanel.equipDB[idx];
-    //         //     //App.MainPanel.equipDB[idx] = null;
-    //         //     //App.MainPanel.equipDB[idx] = msg.items[i];
-    //         // }
-
-    //         //App.MainPanel.equipList.numItems = //App.MainPanel.equipDB.length;
-
-    //     } else if (typepos == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-    //         //App.MainPanel.initBag();
-
-    //         // for (let i = 0; i < msg.items.length; ++i) {
-    //         //     let idx = msg.items[i].location.getValue('btIndex');
-    //         //     delete //App.MainPanel.bagItemDB[idx];
-    //         //     //App.MainPanel.bagItemDB[idx] = null;
-    //         //     //App.MainPanel.bagItemDB[idx] = msg.items[i];
-    //         // }
-
-    //         //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
-    //     }
-
-    //     //msg.clear();
-    //     //msg = null;
-    // }
+    /**
+     * 更新背包数据
+     * @param data 
+     */
+    public cretUpdateItem(data: Laya.Byte) {
+        let msg = new CretUpdateItem(data);
+        let typepos = msg.getValue('btPosition');
+        let idx = msg.item.location.getValue('btIndex');
+        // 装备
+        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+            App.GameEngine.equipDB[idx] = null;
+            App.GameEngine.equipDB[idx] = msg.item;
+        }
+        // 包裹
+        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+            App.GameEngine.bagItemDB[idx] = null;
+            App.GameEngine.bagItemDB[idx] = msg.item;
+            // let find: boolean = false;
+            //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
+            ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
+        }
+        msg.clear();
+        msg = null;
+    }
 
     public cretItemCountChanged(data: any): void {
         let msg = new CretItemCountChanged(data);

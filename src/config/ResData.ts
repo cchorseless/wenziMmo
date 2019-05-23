@@ -25,6 +25,8 @@ module ResData {
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
+        // 角色界面
+        public static JueSe = null;
     };
     /**
      * 游戏音效资源

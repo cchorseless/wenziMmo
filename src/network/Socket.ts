@@ -207,13 +207,4 @@ class Socket extends BaseClass {
 		// App.MessageCenter.dispatch(SocketConst.SOCKET_DEBUG_INFO, str);
 	}
 
-	public checkSignalCmd() {
-		let signal = new CheckSignalCmdRet();
-		signal.setValue('checknum', 66)
-		signal.send();
-		signal.clear();
-		signal = null;
-		this.waitSignal = true;
-		this.waitTime = new Date().getTime() + 5;
-	}
 }

@@ -1,5 +1,5 @@
 /**
- * 自定义事件
+ * 本地自定义事件
  * by pipixia
  */
 module LcpEvent {

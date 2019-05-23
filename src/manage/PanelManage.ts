@@ -39,7 +39,7 @@ module PanelManage {
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
     export let Main: view.main.MainPanel;                                                //主界面                                               //测试界面
     /*****************************游戏界面************************************* */
-
+    export let JueSe: view.juese.JueSePanel;//角色界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -138,7 +138,7 @@ module PanelManage {
         PopUpManager.checkPanel(PanelManage.CreateAvatar);
         ResManage.loadResource(ResData.PanelRes.CreateAvatar, () => {
             PanelManage.CreateAvatar = new view.common.CreateAvatarPanel();
-            PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.ServerList;
+            PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.CreateAvatar.setData();
             PanelManage.CreateAvatar.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.CreateAvatar, 1);
@@ -157,6 +157,21 @@ module PanelManage {
     }
     /******************************游戏界面************************************* */
 
+    export function openJueSePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JueSe) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.JueSe);
+        ResManage.loadResource(ResData.PanelRes.JueSe, () => {
+            PanelManage.JueSe = new view.juese.JueSePanel();
+            PanelManage.JueSe['LCP_skin'] = ResData.PanelRes.JueSe;
+            PanelManage.JueSe.setData();
+            PanelManage.JueSe.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.JueSe, 1, 2, 1);
+        })
 
+
+
+    }
 
 }

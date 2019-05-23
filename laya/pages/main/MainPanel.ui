@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":16,
+    "selectedBox":12,
+    "selecteID":11,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -31,14 +31,13 @@
             "props":{"var":"box_mainTop","top":0,"right":0,"left":0},
             "nodeParent":1,
             "label":"Box(box_mainTop)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"top":0,"skin":"image/main/bg_top.png","right":0,"left":0},
                     "nodeParent":2,
@@ -51,9 +50,8 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"top":0,"skin":"card_top_bg.png","right":0,"left":0},
+                    "props":{"width":640,"top":0,"skin":"card_top_bg.png","right":0,"left":0,"height":117},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -67,7 +65,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":863,"x":127,"width":388,"text":"这是游戏主界面","height":80,"fontSize":40,"font":"Microsoft YaHei","bold":true},
+            "props":{"y":505,"x":126,"width":388,"text":"这是游戏主界面","height":80,"fontSize":40,"font":"Microsoft YaHei","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -83,13 +81,14 @@
             "props":{"var":"box_mainBottom","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_mainBottom)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"skin":"image/main/bg_bottom.png","right":0,"left":0,"bottom":0},
                     "nodeParent":12,
@@ -102,10 +101,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":1,"stateNum":"2","skin":"image/main/role_norm_finish.png","left":1,"label":"label","bottom":0},
+                    "props":{"x":1,"var":"btn_role","stateNum":"2","skin":"image/main/role_norm_finish.png","left":1,"label":"label","bottom":0},
                     "nodeParent":12,
-                    "label":"Button",
+                    "label":"Button(btn_role)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -115,10 +115,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":131,"stateNum":"2","skin":"image/main/state_up_finish.png","label":"label","bottom":0},
+                    "props":{"x":131,"var":"btn_yangCheng","stateNum":"2","skin":"image/main/state_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
-                    "label":"Button",
+                    "label":"Button(btn_yangCheng)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -127,10 +128,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":260,"stateNum":"2","skin":"image/main/skill_up_finish.png","label":"label","bottom":0},
+                    "props":{"x":260,"var":"btn_fuBen","stateNum":"2","skin":"image/main/skill_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
-                    "label":"Button",
+                    "label":"Button(btn_fuBen)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -140,10 +142,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":519,"stateNum":"2","skin":"image/main/map_norm_finish.png","right":1,"label":"label","bottom":0},
+                    "props":{"x":519,"var":"btn_sheJiao","stateNum":"2","skin":"image/main/map_norm_finish.png","right":1,"label":"label","bottom":0},
                     "nodeParent":12,
-                    "label":"Button",
+                    "label":"Button(btn_sheJiao)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -152,10 +155,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":390,"stateNum":"2","skin":"image/main/shop_up_finish.png","label":"label","bottom":0},
+                    "props":{"x":390,"var":"btn_beiBao","stateNum":"2","skin":"image/main/shop_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
-                    "label":"Button",
+                    "label":"Button(btn_beiBao)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -181,13 +185,26 @@
             "x":15,
             "type":"UIView",
             "source":"compart/BodyItem.ui",
-            "props":{"y":706,"x":158,"var":"ui_mainPlayer","scaleY":1.5,"scaleX":1.5},
+            "props":{"y":706,"x":191,"var":"ui_mainPlayer","scaleY":1.2,"scaleX":1.2},
             "nodeParent":1,
             "label":"UIView(ui_mainPlayer)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":16,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":724,"x":494,"width":125,"stateNum":"2","skin":"image/main/all_mode_down_finish.png","height":58},
+            "nodeParent":1,
+            "label":"Button",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
             "child":[
                 ]
         }],

@@ -30,7 +30,6 @@ class GameEngine extends BaseClass {
     public isOnInitCallPropertysSetMethods: boolean = true;                             // 在Entity初始化时是否触发属性的set_*事件(callPropertysSetMethods)
 
     // game配置
-
     public platform: string = 'Web';                                                    // 小游戏客户端运行平台
     public isGuest: boolean = false;                                                    // 来宾模式，随机一个账号进行服务器登陆
     public reConnectUpper: number = 5;                                                  // 断线连接次数上限
@@ -53,8 +52,9 @@ class GameEngine extends BaseClass {
 
     /******************************************************** */
     public packetBytes: Laya.Byte;
-    public mainPlayer: Player;
-
+    public mainPlayer: Player;//玩家
+    public equipDB;//装备背包
+    public bagItemDB;//物品背包
     private mapId: number;
     private mapGroupKey: string;
 
@@ -78,10 +78,9 @@ class GameEngine extends BaseClass {
         this.logintoken = new Laya.Byte();
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new Player();
+        this.equipDB = {};
+        this.bagItemDB = {};
     }
-
-
-
 
     public outputCretInfo(name: string, type: number, num: number): void {
         // switch (type) {
@@ -108,9 +107,6 @@ class GameEngine extends BaseClass {
      */
     private onResourceLoadComplete(): void {
         this.initModule();
-
-
-
     }
 
     /**
@@ -123,10 +119,10 @@ class GameEngine extends BaseClass {
      * 初始化所有模块
      */
     private initModule(): void {
-
-
     }
-
+    /**
+     * 初始化socket,并添加网络监听
+     */
     public init() {
         console.log("当前引擎版本: ", Laya.version);
         //App.Socket.initServer("192.168.199.240", "8001", new ByteArrayMsg());
@@ -135,6 +131,20 @@ class GameEngine extends BaseClass {
         //App.Socket.initServer("47.97.159.179", "8001", new ByteArrayMsg());
         App.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
         App.MsgProc.init();
+
+    }
+
+    /**
+     * 添加背包物品
+     */
+    public addItemToBag(): void {
+
+    }
+
+    /**
+     * 删除背包物品
+     */
+    public deleteItemBag(): void {
 
     }
 }

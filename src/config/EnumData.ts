@@ -68,18 +68,17 @@ module EnumData {
      * 背包类型
      */
     export enum PACKAGE_TYPE {
-        ITEMCELLTYPE_NONE,				// 不是格子，用于丢弃或捡到物品
-        ITEMCELLTYPE_EQUIP,				// 装备
-        ITEMCELLTYPE_STORE,				// 仓库
-        ITEMCELLTYPE_PACKAGE,			// 包裹的格子
-        ITEMCELLTYPE_SOLDITEM,			//已出售物品
-        ITEMCELLTYPE_LINGSHBAOGUO,		//临时包裹
-
+        ITEMCELLTYPE_NONE = 0,				// 不是格子，用于丢弃或捡到物品
+        ITEMCELLTYPE_EQUIP = 1,				// 装备
+        ITEMCELLTYPE_STORE = 2,				// 仓库
+        ITEMCELLTYPE_PACKAGE = 3,			// 包裹的格子
+        ITEMCELLTYPE_SOLDITEM = 4,			// 已出售物品
+        ITEMCELLTYPE_LINGSHBAOGUO = 5,		// 临时包裹
         //-----
-        ITEMCELLTYPE_PLAYER_EQUIP = 50,		//人物战装(类型区分,不是实际包裹)
-        ITEMCELLTYPE_PLAYER_LEGENDEQUIP,	//人物神装(类型区分,不是实际包裹)
-        ITEMCELLTYPE_PLAYER_RUNEEQUIP,		//符文
-        ITEMCELLTYPE_HERO_EQUIP,			//英雄装备
+        ITEMCELLTYPE_PLAYER_EQUIP = 50,		    //人物战装(类型区分,不是实际包裹)
+        ITEMCELLTYPE_PLAYER_LEGENDEQUIP = 51,	//人物神装(类型区分,不是实际包裹)
+        ITEMCELLTYPE_PLAYER_RUNEEQUIP = 52,		//符文
+        ITEMCELLTYPE_HERO_EQUIP = 53,			//英雄装备
         //====================
         //客户端已使用
         ITEMCELLTYPE_VIRTUAL = 200,	// 虚拟
@@ -146,5 +145,19 @@ module EnumData {
         NONPAREIL_TYPE_UAToPlayer,				//合击对人增伤率
 
         NONPAREIL_TYPE_MAXCOUNT,				//最大
+    };
+
+    /**
+     * 游戏对象类型
+     */
+    export enum CRET_TYPE {
+        CRET_NONE = 0,
+        CRET_PLAYER = 1,
+        CRET_NPC = 2,
+        CRET_MONSTER = 3,
+        CRET_PET,
+        CRET_COPYHUMAN,
+        CRET_HERO,
+        CRET_ALL,
     };
 }

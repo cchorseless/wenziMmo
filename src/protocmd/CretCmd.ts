@@ -69,7 +69,6 @@ class MapCreateCret extends Packet {
 //删除地图上的生物
 class MapRemoveCret extends Packet {
     public static msgID: number = 0x0203;
-
     public constructor(data: Laya.Byte) {
         super();
         this.addProperty('dwTmpId', PacketBase.TYPE_INT);
@@ -117,6 +116,7 @@ class MapCreatePlayer extends Packet {
 //客户端与服务器状态
 class StateReady extends Packet {
     public static msgID: number = 0x0209;
+    public cbPacket = StateReady;
     public constructor() {
         super();
         this.cmd = 0x0209;
@@ -148,24 +148,23 @@ class ChangeGameSvrCmd extends Packet {
 //移动
 class CretMove extends Packet {
     public static msgID: number = 0x021E;
+    public cbPacket = CretMoveRet;
     public constructor() {
         super();
-
         this.addProperty('dir', PacketBase.TYPE_BYTE);// 1 255 方向，用255就是服务器判断方向，也可以自己判断  
         this.addProperty('btsetp', PacketBase.TYPE_BYTE);//  1 1 步幅用1，表示一次走一步  
         this.addProperty('ncurx', PacketBase.TYPE_WORD);//  2  目标位置坐标X  
         this.addProperty('ncury', PacketBase.TYPE_WORD);// 2  目标位置坐标Y  
         this.addProperty('ncurz', PacketBase.TYPE_WORD);//  2  目标位置坐标Z  
-        this.addProperty('ncura', PacketBase.TYPE_DWORD);
+        this.addProperty('ncura', PacketBase.TYPE_DWORD);// 校验值
         this.addProperty('movetype', PacketBase.TYPE_BYTE); //移动类型 0 跑 1 野蛮 2 倒退 3走
         this.cmd = 0x021E;
     }
 }
 //移动返回
 class CretMoveRet extends Packet {
-
     public static msgID: number = 0x021F;
-    public location: CretLocation = new CretLocation;
+    public location: CretLocation = new CretLocation();
     public constructor(data: Laya.Byte) {
         super();
         this.addProperty('location', PacketBase.TYPE_BYTES, this.location.size(), this.location);// stCretLocation 8  人物在地图的准确位置  
@@ -215,6 +214,7 @@ class UpdatePlayerInfo extends Packet {
 //攻击
 class CretAttack extends Packet {
     public static msgID: number = 0x0232;
+    public cbPacket = CretAttackRet;
     public constructor() {
         super();
         this.addProperty('dwTempId', PacketBase.TYPE_INT);//临时唯一ID
@@ -262,7 +262,7 @@ class CretHealthChange extends Packet {
         this.read(data);
     }
 }
-//金币改变通知
+//金币 改变通知
 class CretGoldChange extends Packet {
     public static msgID: number = 0x0236;
 
@@ -274,7 +274,7 @@ class CretGoldChange extends Packet {
         this.read(data);
     }
 }
-//经验改变通知
+//经验 改变通知
 class CretExpChange extends Packet {
     public static msgID: number = 0x0237;
     public constructor(data: Laya.Byte) {
@@ -285,7 +285,7 @@ class CretExpChange extends Packet {
         this.read(data);
     }
 }
-//等级改变通知
+//等级 改变通知
 class CretLevelUp extends Packet {
     public static msgID: number = 0x0238;
     public constructor(data: Laya.Byte) {
@@ -354,7 +354,7 @@ class CretChat extends Packet {
     }
 
 }
-//角色属性通知
+//角色 属性通知
 class CretAbility extends Packet {
     public static msgID: number = 0x023B;
     public ability: ArpgAbility = new ArpgAbility;
@@ -367,7 +367,7 @@ class CretAbility extends Packet {
         this.read(data);
     }
 }
-
+// 玩家基本信息
 class CretCharBase extends Packet {
     public static msgID: number = 0x0240;
 
@@ -419,10 +419,13 @@ class CretLifestateChange extends Packet {
     }
 }
 
+
+/**************************************************物品相关 */
 //0x026C  --02-108
 //使用物品
 class CretGetUseItem extends Packet {
     public static msgID: number = 0x026C;
+    public cbPacket = CretGetUseItemRet;
     public constructor() {
         super();
         this.addProperty('i64id', PacketBase.TYPE_INT64);//物品唯一ID
@@ -488,7 +491,7 @@ class CretStruck extends Packet {
 }
 
 //0x029C - 02-156
-
+// *************************************地图物品***************************
 //0x029D - 02-157
 //删除地图上的物品
 class MapItemEventDel extends Packet {
@@ -506,7 +509,8 @@ class MapItemEventDel extends Packet {
 //拾取地图上的物品
 class MapItemEventPick extends Packet {
     public static msgID: number = 0x02A0;
-    public constructor(data: Laya.Byte) {
+    public cbPacket = MapItemEventPick;
+    public constructor(data: Laya.Byte = null) {
         super();
         this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
@@ -516,7 +520,6 @@ class MapItemEventPick extends Packet {
         if (data) {
             this.read(data);
         }
-
         this.cmd = MapItemEventPick.msgID;
     }
 }
@@ -540,76 +543,7 @@ class MapItemEventAdd extends Packet {
     }
 }
 
-//0x0919 09-25
-
-class QuestScriptData extends Packet {
-    public static msgID: number = 0x0919;
-    public str: string;
-    public constructor(data: Laya.Byte) {
-        super();
-        this.addProperty('dwDataType', PacketBase.TYPE_DWORD);//类型类型
-        this.addProperty('nCount', PacketBase.TYPE_INT);
-        this.read(data);
-    }
-
-    public read(data: Laya.Byte): number {
-        data.pos += super.read(data);
-        let nCount = this.getValue('nCount');
-        this.str = data.readUTFBytes(nCount);
-        return data.length;
-    }
-}
-
-
-//0x091A 09-26
-//前端调用后端脚本函数
-class QuestClientData extends Packet {
-    public static msgID: number = 0x091A;
-
-    public constructor() {
-        super();
-        this.addProperty('dwClientType', PacketBase.TYPE_DWORD);//无用
-        this.addProperty("posx", PacketBase.TYPE_INT);//点击坐标
-        this.addProperty("posy", PacketBase.TYPE_INT);
-        this.addProperty('nSize', PacketBase.TYPE_INT);
-        this.cmd = QuestClientData.msgID;
-    }
-
-    public setString(s: string): void {
-        App.GameEngine.packetBytes.clear();
-        App.GameEngine.packetBytes.pos = 0;
-        App.GameEngine.packetBytes.writeUTFBytes(s);
-        this.addProperty('str', Packet.TYPE_STRING, App.GameEngine.packetBytes.length + 1);
-        this.setValue('nSize', App.GameEngine.packetBytes.length + 1);
-        this.setValue('str', s);
-    }
-}
-
-//0x0301
-//删除包裹物品
-class CretDeleteItem extends Packet {
-    public static msgID: number = 0x0301;
-
-    public constructor(data: Laya.Byte) {
-        super();
-        this.addProperty('btPosition', PacketBase.TYPE_BYTE);//包裹类型
-        this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品唯一ID
-        this.read(data);
-    }
-}
-
-//0x0302
-//更新包裹物品
-class CretUpdateItem extends Packet {
-    public static msgID: number = 0x0302;
-    public item: ItemBase = new ItemBase(null);
-    public constructor(data: Laya.Byte) {
-        super();
-        this.addProperty('btPosition', PacketBase.TYPE_BYTE);
-        this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
-        this.read(data);
-    }
-}
+// ************************************包裹物品*******************************
 
 //0x0303
 //上线获取包裹所有物品
@@ -618,9 +552,8 @@ class CretItems extends Packet {
     public count: number;
     public pos: number;
     public items: Array<ItemBase> = new Array<ItemBase>();
-    public constructor(data: Laya.Byte) {
+    public constructor(data: Laya.Byte = null) {
         super();
-
         this.addProperty('btType', PacketBase.TYPE_BYTE);	//控制前端是否清除包裹重新添加
         this.addProperty('btPosition', PacketBase.TYPE_CHAR);//包裹类型
         this.addProperty('btOpenCount', PacketBase.TYPE_BYTE);//开启的包裹数量
@@ -641,6 +574,31 @@ class CretItems extends Packet {
             }
         }
         return 0;
+    }
+}
+
+//0x0301
+//删除包裹物品
+class CretDeleteItem extends Packet {
+    public static msgID: number = 0x0301;
+    public constructor(data: Laya.Byte) {
+        super();
+        this.addProperty('btPosition', PacketBase.TYPE_BYTE);//包裹类型
+        this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品唯一ID
+        this.read(data);
+    }
+}
+
+//0x0302
+//更新包裹物品
+class CretUpdateItem extends Packet {
+    public static msgID: number = 0x0302;
+    public item: ItemBase = new ItemBase(null);
+    public constructor(data: Laya.Byte) {
+        super();
+        this.addProperty('btPosition', PacketBase.TYPE_BYTE);
+        this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
+        this.read(data);
     }
 }
 
@@ -697,7 +655,6 @@ class CretProcessingItem extends Packet {
 //包裹物品数量改变
 class CretItemCountChanged extends Packet {
     public static msgID: number = 0x030A;
-
     public constructor(data: Laya.Byte) {
         super();
         this.addProperty('btPosition', PacketBase.TYPE_BYTE);//包裹类型
@@ -719,5 +676,48 @@ class CretForsakeItem extends Packet {
         this.addProperty('nGoldNum', PacketBase.TYPE_INT);//无用
         this.read(data);
         this.cmd = CretForsakeItem.msgID;
+    }
+}
+
+// **************************************服务器扩展
+//0x0919 09-25
+class QuestScriptData extends Packet {
+    public static msgID: number = 0x0919;
+    public str: string;
+    public constructor(data: Laya.Byte) {
+        super();
+        this.addProperty('dwDataType', PacketBase.TYPE_DWORD);//类型类型
+        this.addProperty('nCount', PacketBase.TYPE_INT);
+        this.read(data);
+    }
+
+    public read(data: Laya.Byte): number {
+        data.pos += super.read(data);
+        let nCount = this.getValue('nCount');
+        this.str = data.readUTFBytes(nCount);
+        return data.length;
+    }
+}
+
+//0x091A 09-26
+//前端调用后端脚本函数
+class QuestClientData extends Packet {
+    public static msgID: number = 0x091A;
+    public constructor() {
+        super();
+        this.addProperty('dwClientType', PacketBase.TYPE_DWORD);//无用
+        this.addProperty("posx", PacketBase.TYPE_INT);//点击坐标
+        this.addProperty("posy", PacketBase.TYPE_INT);
+        this.addProperty('nSize', PacketBase.TYPE_INT);
+        this.cmd = QuestClientData.msgID;
+    }
+
+    public setString(s: string): void {
+        App.GameEngine.packetBytes.clear();
+        App.GameEngine.packetBytes.pos = 0;
+        App.GameEngine.packetBytes.writeUTFBytes(s);
+        this.addProperty('str', Packet.TYPE_STRING, App.GameEngine.packetBytes.length + 1);
+        this.setValue('nSize', App.GameEngine.packetBytes.length + 1);
+        this.setValue('str', s);
     }
 }

@@ -215,6 +215,7 @@ class SelectPlayerRet extends Packet {
 }
 //****************************************** */
 
+//********************************更新本地token */
 //0x0109
 class UpdateToken extends Packet {
     public static msgID: number = 0x0109;
