@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":12,
-    "selecteID":11,
+    "selectedBox":28,
+    "selecteID":58,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -18,12 +18,38 @@
             "props":{"y":0,"x":0,"top":0,"skin":"image/common/bg.jpg","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":4,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":892,"x":0,"skin":"image/main/bg_bottom.png","right":0,"left":0,"bottom":0},
+                    "nodeParent":4,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":0,"width":640,"top":0,"skin":"image/main/bg_top.png","right":0,"left":0,"height":152},
+                    "nodeParent":4,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -39,19 +65,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"top":0,"skin":"image/main/bg_top.png","right":0,"left":0},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"width":640,"top":0,"skin":"card_top_bg.png","right":0,"left":0,"height":117},
+                    "props":{"width":640,"top":0,"skin":"card_top_bg.png","right":0,"left":0,"height":137},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -60,6 +74,322 @@
                     "compId":14,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":1,"x":15},
+                    "nodeParent":2,
+                    "label":"Box",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":56,
+                    "child":[
+                        {
+                            "type":"Box",
+                            "props":{"y":2},
+                            "nodeParent":56,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":34,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":1,"width":108,"skin":"image/common/img_zjm_pattern_003.png","sizeGrid":"0,17,0,15","height":44},
+                                    "nodeParent":34,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":32,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":1,"x":-12,"width":45,"skin":"image/common/img_common_icon_001.png","height":46},
+                                            "nodeParent":32,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":31,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":9,"x":35,"width":60,"text":"111","height":32,"fontSize":25,"bold":true,"align":"right"},
+                                            "nodeParent":32,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":33,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"x":94,"stateNum":"2","skin":"image/common/add_res_down_finish.png"},
+                                    "nodeParent":34,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":30,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":2,"x":151},
+                            "nodeParent":56,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":35,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":1,"width":108,"skin":"image/common/img_zjm_pattern_003.png","sizeGrid":"0,17,0,15","height":44},
+                                    "nodeParent":35,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":36,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":1,"x":-12,"width":45,"skin":"image/common/img_common_icon_001.png","height":46},
+                                            "nodeParent":36,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":37,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":9,"x":35,"width":60,"text":"111","height":32,"fontSize":25,"bold":true,"align":"right"},
+                                            "nodeParent":36,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":38,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"x":94,"stateNum":"2","skin":"image/common/add_res_down_finish.png"},
+                                    "nodeParent":35,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":39,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"x":304},
+                            "nodeParent":56,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":40,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":1,"width":108,"skin":"image/common/img_zjm_pattern_003.png","sizeGrid":"0,17,0,15","height":44},
+                                    "nodeParent":40,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":41,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":1,"x":-12,"width":45,"skin":"image/common/img_common_icon_001.png","height":46},
+                                            "nodeParent":41,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":42,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":9,"x":35,"width":60,"text":"111","height":32,"fontSize":25,"bold":true,"align":"right"},
+                                            "nodeParent":41,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":43,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"x":94,"stateNum":"2","skin":"image/common/add_res_down_finish.png"},
+                                    "nodeParent":40,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":44,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"x":464},
+                            "nodeParent":56,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":45,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":1,"width":108,"skin":"image/common/img_zjm_pattern_003.png","sizeGrid":"0,17,0,15","height":44},
+                                    "nodeParent":45,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":46,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":1,"x":-12,"width":45,"skin":"image/common/img_common_icon_001.png","height":46},
+                                            "nodeParent":46,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":47,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":9,"x":35,"width":60,"text":"111","height":32,"fontSize":25,"bold":true,"align":"right"},
+                                            "nodeParent":46,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":48,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"x":94,"stateNum":"2","skin":"image/common/add_res_down_finish.png"},
+                                    "nodeParent":45,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":49,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":53,"x":17},
+                    "nodeParent":2,
+                    "label":"Box",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":57,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"width":173,"text":"玩家姓名拉拉","height":41,"fontSize":30,"font":"Microsoft YaHei","color":"#f9f8f8","bold":true},
+                            "nodeParent":57,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":50,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"x":296,"width":121,"text":"1转89级","height":41,"fontSize":30,"font":"Microsoft YaHei","color":"#f9f8f8","bold":true},
+                            "nodeParent":57,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":53,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"x":427,"width":173,"text":"战力:666666","height":41,"fontSize":30,"font":"Microsoft YaHei","color":"#f9f8f8","bold":true},
+                            "nodeParent":57,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":54,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"x":192,"width":98,"text":"VIP15","height":41,"fontSize":30,"font":"Microsoft YaHei","color":"#f9f8f8","bold":true},
+                            "nodeParent":57,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":55,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {
@@ -81,27 +411,13 @@
             "props":{"var":"box_mainBottom","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_mainBottom)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"skin":"image/main/bg_bottom.png","right":0,"left":0,"bottom":0},
-                    "nodeParent":12,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":1,"var":"btn_role","stateNum":"2","skin":"image/main/role_norm_finish.png","left":1,"label":"label","bottom":0},
                     "nodeParent":12,
@@ -115,7 +431,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":131,"var":"btn_yangCheng","stateNum":"2","skin":"image/main/state_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
@@ -128,7 +443,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":260,"var":"btn_fuBen","stateNum":"2","skin":"image/main/skill_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
@@ -142,7 +456,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":519,"var":"btn_sheJiao","stateNum":"2","skin":"image/main/map_norm_finish.png","right":1,"label":"label","bottom":0},
                     "nodeParent":12,
@@ -155,7 +468,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":390,"var":"btn_beiBao","stateNum":"2","skin":"image/main/shop_up_finish.png","label":"label","bottom":0},
                     "nodeParent":12,
@@ -207,6 +519,118 @@
             "compId":20,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":784,"x":13},
+            "nodeParent":1,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":28,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":1,"x":-4,"width":542,"skin":"image/main/battle_card_bg.png","sizeGrid":"9,23,7,20","height":221},
+                    "nodeParent":28,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":58,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"TextArea",
+                            "props":{"y":2,"x":0,"width":542,"text":"HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHJJJJJJJJJJJJJJ","padding":"10,10,10,10","height":221,"hScrollBarSkin":"image/common/comp/hscroll.png","fontSize":28,"font":"Microsoft YaHei","bold":true},
+                            "nodeParent":58,
+                            "label":"TextArea",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":21,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":4,"x":543},
+                    "nodeParent":28,
+                    "label":"Box",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":27,
+                    "child":[
+                        {
+                            "type":"CheckBox",
+                            "props":{"width":100,"skin":"image/common/comp/checkbox.png","scaleY":0.5,"scaleX":0.5,"labelStrokeColor":"#43f809","labelSize":50,"labelFont":"Microsoft YaHei","labelColors":"#43f809","labelBold":true,"label":"系统","height":64},
+                            "nodeParent":27,
+                            "label":"CheckBox",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"CheckBox",
+                            "props":{"y":46,"width":100,"skin":"image/common/comp/checkbox.png","scaleY":0.5,"scaleX":0.5,"labelStrokeColor":"#43f809","labelSize":50,"labelFont":"Microsoft YaHei","labelColors":"#43f809","labelBold":true,"label":"世界","height":64},
+                            "nodeParent":27,
+                            "label":"CheckBox",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"CheckBox",
+                            "props":{"y":92,"width":100,"skin":"image/common/comp/checkbox.png","scaleY":0.5,"scaleX":0.5,"labelStrokeColor":"#43f809","labelSize":50,"labelFont":"Microsoft YaHei","labelColors":"#43f809","labelBold":true,"label":"帮派","height":64},
+                            "nodeParent":27,
+                            "label":"CheckBox",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":24,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"CheckBox",
+                            "props":{"y":137,"width":100,"skin":"image/common/comp/checkbox.png","scaleY":0.5,"scaleX":0.5,"labelStrokeColor":"#43f809","labelSize":50,"labelFont":"Microsoft YaHei","labelColors":"#43f809","labelBold":true,"label":"好友","height":64},
+                            "nodeParent":27,
+                            "label":"CheckBox",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"CheckBox",
+                            "props":{"y":183,"width":100,"skin":"image/common/comp/checkbox.png","scaleY":0.5,"scaleX":0.5,"labelStrokeColor":"#43f809","labelSize":50,"labelFont":"Microsoft YaHei","labelColors":"#43f809","labelBold":true,"label":"当前","height":64},
+                            "nodeParent":27,
+                            "label":"CheckBox",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        }]
+                }]
         }],
     "animations":[
         {
