@@ -128,7 +128,8 @@ class Socket extends BaseClass {
 		this.addEvents();
 		let url = this._host + ":" + this._port;
 		Log.trace("WebSocket: " + url);
-		this._socket.connectByUrl(this._host + this._port);
+		// this._socket.connectByUrl(this._host + this._port);
+		this._socket.connect(this._host, this._port);
 	}
 
 	/**

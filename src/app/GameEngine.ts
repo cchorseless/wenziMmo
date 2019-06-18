@@ -126,10 +126,10 @@ class GameEngine extends BaseClass {
     public init() {
         console.log("当前引擎版本: ", Laya.version);
         //App.Socket.initServer("192.168.199.240", "8001", new ByteArrayMsg());
-        //App.Socket.initServer("192.168.10.109", "8001", new ByteArrayMsg());
-        //App.Socket.initServer("192.168.110.107", "8001", new ByteArrayMsg());
+        // App.Socket.initServer("wss://192.168.10.187:", "8001", new ByteArrayMsg());
+        App.Socket.initServer("192.168.10.187", "8001", new ByteArrayMsg());
         //App.Socket.initServer("47.97.159.179", "8001", new ByteArrayMsg());
-        App.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
+        // App.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
         App.MsgProc.init();
 
     }
