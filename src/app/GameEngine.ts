@@ -2,7 +2,7 @@
 
 class GameEngine extends BaseClass {
 
-    public IsDebug = true;
+    public IsDebug = false;
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
@@ -123,12 +123,12 @@ class GameEngine extends BaseClass {
     /**
      * 初始化socket,并添加网络监听
      */
-    public init() {
+    public init(initHandle?: Laya.Handler) {
         console.log("当前引擎版本: ", Laya.version);
         //内网连接
         // App.Socket.initServer("192.168.10.187", "8001", new ByteArrayMsg());
         //外网连接
-        App.Socket.initServer("47.111.178.154", "8001", new ByteArrayMsg());
+        App.Socket.initServer("47.111.178.154", "8001", new ByteArrayMsg(), initHandle);
         // App.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
         App.MsgProc.init();
 

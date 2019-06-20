@@ -6,8 +6,7 @@ class GameMain {
     constructor() {
         //初始化微信小游戏
         Laya.MiniAdpter.init();
-        // 初始化客户端
-        App.GameEngine.init()
+
         this.initGame();
         this.createGameScene();
         PanelManage.openStartLoadingPanel();

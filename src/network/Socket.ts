@@ -50,7 +50,6 @@ class Socket extends BaseClass {
 		this._reconnectCount = 0;
 		this._isConnecting = true;
 		App.LListener.event(SocketConst.SOCKET_CONNECT);
-		// App.MessageCenter.dispatch(SocketConst.SOCKET_CONNECT);
 		this._connectFlag = true;
 		if (this.openHandler) {
 			this.openHandler.run();
@@ -98,10 +97,11 @@ class Socket extends BaseClass {
 	  * @param port 端口
 	  * @param msg 消息发送接受处理类
 	  */
-	public initServer(host: string, port: any, msg: ByteArrayMsg): void {
+	public initServer(host: string, port: any, msg: ByteArrayMsg, openHandler?: Laya.Handler): void {
 		this._host = host;
 		this._port = port;
 		this._msg = msg;
+		this.openHandler = openHandler;
 		this.connect();
 	}
 

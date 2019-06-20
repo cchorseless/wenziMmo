@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":33,
-    "selecteID":32,
+    "selectedBox":21,
+    "selecteID":41,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -43,15 +43,16 @@
                     "props":{"y":764,"x":148,"var":"box_login","name":"item0"},
                     "nodeParent":37,
                     "label":"Box(box_login)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":39,"x":0,"width":353,"var":"input_account","valign":"middle","type":"text","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"账号","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":9,"x":8,"width":353,"var":"input_account","valign":"middle","type":"text","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"账号","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_account)",
                             "isDirectory":false,
@@ -62,8 +63,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":126,"x":6,"width":344,"var":"input_passworld","valign":"middle","type":"password","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"密码","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
+                            "props":{"y":96,"x":8,"width":344,"var":"input_passworld","valign":"middle","type":"password","skin":"image/common/login/task_bg.png","sizeGrid":"46,71,50,64","promptColor":"#000000","prompt":"密码","height":79,"fontSize":40,"font":"mini","bold":true,"align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_passworld)",
                             "isDirectory":false,
@@ -74,8 +76,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":230,"x":54,"var":"btn_Login","stateNum":"2","skin":"image/common/buttonCom.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true,"label":"登陆"},
+                            "props":{"y":166,"x":72,"var":"btn_Login","stateNum":"2","skin":"image/common/login/start_game_down_finish.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true},
                             "nodeParent":21,
                             "label":"Button(btn_Login)",
                             "isDirectory":false,
@@ -85,7 +88,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -93,14 +96,13 @@
                     "props":{"y":659,"x":172,"width":388,"var":"box_start","name":"item1","height":426},
                     "nodeParent":37,
                     "label":"Box(box_start)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":20,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":12,"x":4,"width":296,"skin":"image/common/login/task_bg.png","sizeGrid":"14,25,32,15","height":92},
                             "nodeParent":20,
@@ -125,7 +127,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":235,"width":80,"var":"btn_selectServer","stateNum":"2","skin":"image/common/add_res_down_finish.png","height":80},
                             "nodeParent":20,
@@ -138,7 +139,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":115,"x":-27,"width":368,"height":311},
                             "nodeParent":20,
@@ -150,7 +150,6 @@
                             "compId":33,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":119,"width":120,"var":"img_avatarIcon","skin":"image/common/icon_nan01.png","height":120},
                                     "nodeParent":33,
@@ -164,7 +163,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":139,"x":41,"width":286,"var":"lbl_avatarDes","text":"89级-超级玛丽亚","height":34,"fontSize":30,"font":"Microsoft YaHei","color":"#fbf8f8","bold":true,"align":"center"},
                                     "nodeParent":33,
@@ -178,7 +176,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":185,"x":49,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/start_game_down_finish.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","labelBold":true},
                                     "nodeParent":33,
@@ -191,7 +188,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

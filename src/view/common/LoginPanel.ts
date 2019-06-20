@@ -44,19 +44,24 @@ module view.common {
 				TipsManage.showTips('密码不能为空');
 				return
 			}
-			// 账号
-			App.MainPlayer.playerAccount = this.input_account.text + '@1001';
-			// 密码
-			App.MainPlayer.playerPassword = this.input_passworld.text;
+			// 初始化客户端
+			App.GameEngine.init(Laya.Handler.create(this, () => {
+				// 账号
+				App.MainPlayer.playerAccount = this.input_account.text + '@1001';
+				// 密码
+				App.MainPlayer.playerPassword = this.input_passworld.text;
 
-			// 登陆前验证
-			if (App.Socket.isConnecting) {
-				lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
-			}
-			else {
-				App.Socket.connect();
-				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
-			}
+				// 登陆前验证
+				if (App.Socket.isConnecting) {
+					lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
+				}
+				else {
+					App.Socket.connect();
+					this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
+				}
+			}))
+
+
 		}
 
 		/**
