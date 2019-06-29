@@ -7,8 +7,19 @@ module view.main {
 		public setData(): void {
 			this.ui_mainPlayer.lbl_name.text = GameApp.MainPlayer.realName;
 			this.lbl_playerName.text = GameApp.MainPlayer.realName;
+			this.ui_chatSendDialog.visible = false;
+			// 任务0 闲聊1 位置2
 			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_task.selectedIndex = index;
+				if (index == 1) {
+					this.tab_task.labels = '任务,输入,位置';
+					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
+						this.ui_chatSendDialog.visible = true;
+					})
+				}
+				else {
+					this.tab_task.labels = '任务,闲聊,位置';
+				}
 			}, null, false)
 			this.addEvent();
 		}
@@ -54,8 +65,9 @@ module view.main {
 		 * @param data 
 		 */
 		public updateChatView(data: ProtoCmd.CretChat): void {
-			let btChatType = data.getValue('btChatType');
 
+			let btChatType = data.getValue('btChatType');
+			console.log(btChatType);
 			if (btChatType == null) {
 				return
 			}
@@ -66,7 +78,6 @@ module view.main {
 
 			GameApp.GameEngine.chatData[btChatType].push(data.chatMsg);
 
-			// let label= Laya.
 			this.hbox_chat.addChild(new Laya.Label(data.chatMsg))
 
 			switch (btChatType) {
@@ -74,7 +85,6 @@ module view.main {
 				case EnumData.ChatType.CHAT_TYPE_PRIVATE:
 					// this.hbox_chat.addChild(new Laya.Label(data.chatMsg))
 					break;
-
 				// 当前屏幕聊天
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
 					break;

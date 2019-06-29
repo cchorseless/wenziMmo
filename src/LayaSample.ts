@@ -23,7 +23,7 @@ class GameMain {
         Laya.stage.frameRate = Laya.Stage.FRAME_MOUSE;
         // 调试面板
         if (GameApp.GameEngine.IsDebug) {
-            Laya.Stat.show(0, 0);
+            Laya.Stat.show(0, 300);
         }
 
     }

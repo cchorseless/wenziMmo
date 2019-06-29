@@ -38,6 +38,7 @@ module GameObject {
          * @param yuanBao 
          */
         public changeYuanBao(yuanBao: number) {
+            Log.trace('元宝：' + yuanBao);
             this.wealth.yuanBao = yuanBao;
         }
 

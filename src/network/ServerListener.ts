@@ -3,7 +3,7 @@
  */
 
 class ServerListener extends SingletonClass {
-
+    public hasInit = false;
     public constructor() {
         super();
     }
@@ -11,57 +11,80 @@ class ServerListener extends SingletonClass {
      * 添加服务器全局监听事件
      */
     public init(): void {
-        // 心跳包检测
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
+        if (this.hasInit) return;
         // socket链接
         GameApp.LListener.on(LcpEvent.SOCKET_CONNECT, this, this.onSocketConnect);
-        // 更新本地密匙
+        // 心跳包检测 fffe
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
+        // 更新本地密匙 109
         GameApp.LListener.on(Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
-
-        //*****************************同步视野内对象
+        // 玩家进入地图 201
         GameApp.LListener.on(Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
+        // 地图创建怪物 202
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
+        // 地图删除怪物 203
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
+        // 创建地图其他玩家 206
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
-        //0x021F
+        // 移动 0x021F
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
-        //0x0232
+        // 攻击 0x0232
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
-        //0x0234
+        // 血条/蓝条变化 0x0234
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
-        //0x023-
+        // 金币 236
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
+        // 绑定金币 2b6
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGoldLockChange), this, this.cretGoldLockChange);
+        // 元宝 258
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretYuanBaoChange), this, this.CretYuanBaoChange);
+        // 绑定元宝 259
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretYuanBaoLockChange), this, this.CretYuanBaoLockChange);
+        // 经验 237
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretExpChange), this, this.cretExpChange);
+        // 等级 238
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
-        // 聊天相关
+        // 聊天相关 239
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
-        // 玩家战斗属性包
+        // 场景内角色战斗属性包 23b
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
-        // 玩家经济属性包
+        // 玩家战斗属性包 249
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretPlayerAbility), this, this.cretPlayerAbility);
+        // 玩家经济属性包 240
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
-
+        // 玩家复活死亡通知 246
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+        // 服务器提示tips 288
         GameApp.LListener.on(Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
+        // 使用物品返回 315
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGetUseItemRet), this, this.cretGetUseItemRet);
-        //0x0297
+        // 怪物掉血 0x0297
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
+        // 删除地图上的物品 29D
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
+        // 拾取地图上的物品 288
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
+        // 地图上添加物品 2a0
         GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
-        //0x03 背包相关
-        // 删除背包道具
+        /***********************************背包相关 *********************************/
+        // 删除背包道具 301
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretDeleteItem), this, this.cretDeleteItem);
-        // 更新背包道具
+        // 更新背包道具 302
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretUpdateItem), this, this.cretUpdateItem);
-        // 初始化背包信息
+        // 初始化背包信息 303
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
-
+        // 背包内物品数量改变 30a
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
+        // 背包内物品操作 307
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretProcessingItem), this, this.cretProcessingItem);
+        // 丢弃背包物品 33d
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretForsakeItem), this, this.cretForsakeItem);
-        //0x0919
+        // 服务器扩展脚本 0x0919
         GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
-
+        // 客户端本地设置 2aa
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
+        // 初始化标记
+        this.hasInit = true;
     }
 
     /**
@@ -76,7 +99,6 @@ class ServerListener extends SingletonClass {
             signal.send();
             signal = null;
         }
-
         if (checksignal.getValue('checknum') == 66) {
             GameApp.Socket.waitSignal = false;
             GameApp.Socket.waitTime = 0;
@@ -157,15 +179,16 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public playerChangeMap(data: any): void {
+        Log.trace('========>玩家进入地图');
         let msgData = new ProtoCmd.PlayerChangeMap(data);
-        GameApp.GameEngine.mainPlayer.mapid = msgData.location.getValue('mapid');
-        GameApp.GameEngine.mainPlayer.x = msgData.location.getValue('ncurx');
-        GameApp.GameEngine.mainPlayer.y = msgData.location.getValue('ncury');
-        GameApp.GameEngine.mainPlayer.mapname = msgData.getValue('szMapFileName');
-        GameApp.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
-        GameApp.GameEngine.mainPlayer.dir = msgData.getValue('dir');
-        TipsManage.showTips('切换地图成功');
-        GameApp.GameEngine.mainPlayer.clearViewObj();
+        let player = GameApp.MainPlayer;
+        player.mapid = msgData.location.getValue('mapid');
+        player.x = msgData.location.getValue('ncurx');
+        player.y = msgData.location.getValue('ncury');
+        player.mapname = msgData.getValue('szMapFileName');
+        player.onlyid = msgData.getValue('dwTmpId');
+        player.dir = msgData.getValue('dir');
+        player.clearViewObj();
         let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
             GameApp.GameEngine.isReady = true;
@@ -257,15 +280,12 @@ class ServerListener extends SingletonClass {
             ////App.MainPanel.addSysChat('move fail');
             return;
         }
-
         // //App.MainPanel.modifListViewObjPos(msg.getValue('dwTmpId'), msg.location.getValue('ncurx'), msg.location.getValue('ncury'));
         // if (msg.getValue('dwTmpId') ==GameApp.GameEngine.mainPlayer.onlyid) {
         //     //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.playerName + 'lv.' +GameApp.GameEngine.mainPlayer.level
         //         + "[color=#00EE00](" +GameApp.GameEngine.mainPlayer.x + ',' +GameApp.GameEngine.mainPlayer.y + ")[/color]";
         //     //App.MainPanel.playerBtn.grayed = //App.MainPanel.playerBtn.grayed ? false : true;
         // }
-
-
         msg.clear();
         msg = null;
     }
@@ -279,7 +299,6 @@ class ServerListener extends SingletonClass {
         } else {
             ////App.MainPanel.addSysChat('攻击失败 errorcode:' + msgData.getValue('btErrorCode') + 'magicid:' + msgData.getValue('nMagicId'));
         }
-
         msgData.clear();
         msgData = null;
     }
@@ -300,11 +319,8 @@ class ServerListener extends SingletonClass {
             }
             // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
             //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
-
             GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
         }
-
-
         // for (let v = 0; v < //App.MainPanel.objItemDB.length; ++v) {
         //     if (//App.MainPanel.objItemDB[v].onlyid == onlyid) {
         //         let db = //App.MainPanel.objItemDB[v];
@@ -322,18 +338,56 @@ class ServerListener extends SingletonClass {
     }
 
 
-    //0x0236
+
+    /**
+     * 金币 0x0236
+     * @param data 
+     */
     public cretGoldChange(data: any): void {
         let msg = new ProtoCmd.CretGoldChange(data);
         //App.MainPanel.topGoldcnt.text = msg.getValue('nGold');
         //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('nChanged') + '金币</font>');
+        msg.clear();
+        msg = null;
+    }
+
+    /**
+     * 绑定金币 02b6
+     * @param data 
+     */
+    public cretGoldLockChange(data): void {
+        let msg = new ProtoCmd.CretGoldLockChange(data);
 
         msg.clear();
         msg = null;
     }
 
+    /**
+     * 元宝 0x0258
+     * @param data 
+     */
+    public CretYuanBaoChange(data): void {
+        let msg = new ProtoCmd.CretYuanBaoChange(data);
+        let player = GameApp.MainPlayer;
+        player.changeYuanBao(msg.getValue('dwRmbGold'));
+        TipsManage.showTips('元宝变化' + msg.getValue('nChanged'));
+        msg.clear();
+        msg = null;
 
-    //0x0237
+    }
+
+    /**
+     * 绑定元宝 0x0259
+     * @param data 
+     */
+    public CretYuanBaoLockChange(data): void {
+
+    }
+
+    /**
+     * 经验 0x0237
+     * @param data 
+     */
     public cretExpChange(data: any): void {
         let msg = new ProtoCmd.CretExpChange(data);
         let type = msg.getValue('nType');
@@ -355,7 +409,10 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-
+    /**
+     * 等级改变
+     * @param data 
+     */
     public cretLevelUp(data: any): void {
         let msg = new ProtoCmd.CretLevelUp(data);
         let onlyid = msg.getValue('dwTempId');
@@ -392,8 +449,11 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public cretChat(data: any): void {
-        let msg: ProtoCmd.CretChat = Laya.Pool.getItemByCreateFun('ProtoCmd.CretChat', () => { return new ProtoCmd.CretChat(data) });
-        console.log(msg.chatMsg);
+        // let msg: ProtoCmd.CretChat = Laya.Pool.getItemByCreateFun('ProtoCmd.CretChat', () => {
+        //     return new ProtoCmd.CretChat(data)
+        // });
+        let msg = new ProtoCmd.CretChat(data);
+        console.log('聊天：' + msg.chatMsg);
         if (msg.chatMsg != "") {
             PanelManage.Main.updateChatView(msg);
         }
@@ -402,7 +462,7 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 更新玩家战斗属性
+     * 更新场景内所有角色的战斗属性
      * @param data 
      */
     public cretAbility(data: any): void {
@@ -414,13 +474,20 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
+    /**
+     * 更新玩家自己的战斗属性
+     * @param data 
+     */
+    public cretPlayerAbility(data: any): void {
+
+    }
 
     /**
      * 初始化玩家基本属性
      * @param data 
      */
     public cretCharBase(data: any): void {
-        console.log('===========cretCharBase')
+        Log.trace('===========cretCharBase')
         let msg = new ProtoCmd.CretCharBase(data);
         let player = GameApp.MainPlayer;
         player.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));//经验
@@ -869,6 +936,14 @@ class ServerListener extends SingletonClass {
 
         msg.clear();
         msg = null;
+    }
+
+    /**
+     * 客户端设置
+     * @param data 
+     */
+    public clientSetData(data: any): void {
+
     }
 }
 

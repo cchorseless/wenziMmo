@@ -274,9 +274,47 @@ module ProtoCmd {
         public static msgID: number = 0x0236;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('nGold', PacketBase.TYPE_INT);//当前金币
+            this.addProperty('nGold', PacketBase.TYPE_DWORD);//当前金币
             this.addProperty('nChanged', PacketBase.TYPE_INT);//改变的金币
             this.addProperty('boMax', PacketBase.TYPE_BOOL);//是否上限
+            this.read(data);
+        }
+    }
+
+    //绑定金币 改变通知
+    export class CretGoldLockChange extends Packet {
+        public static msgID: number = 0x02b6;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwBindGold', PacketBase.TYPE_DWORD);//当前金币
+            this.addProperty('nChanged', PacketBase.TYPE_INT);//改变的金币
+            this.addProperty('boMax', PacketBase.TYPE_BOOL);//是否上限
+            this.read(data);
+        }
+    }
+
+    /**
+     * 元宝改变
+     */
+    export class CretYuanBaoChange extends Packet {
+        public static msgID: number = 0x0258;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwRmbGold', PacketBase.TYPE_DWORD);//当前元宝
+            this.addProperty('nChanged', PacketBase.TYPE_INT);//改变的元宝
+            this.read(data);
+        }
+    }
+
+    /**
+     * 绑定元宝
+     */
+    export class CretYuanBaoLockChange extends Packet {
+        public static msgID: number = 0x0259;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwGiftRmbGold', PacketBase.TYPE_DWORD);//当前绑定元宝
+            this.addProperty('nChanged', PacketBase.TYPE_INT);//改变的元宝
             this.read(data);
         }
     }
@@ -312,7 +350,7 @@ module ProtoCmd {
     export class CretChat extends Packet {
         public static msgID: number = 0x0239;
         public chatMsg: string = "";
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwZoneid', PacketBase.TYPE_DWORD);
             this.addProperty('btChatType', PacketBase.TYPE_BYTE);//btChatType BYTE  1  聊天类型
@@ -337,7 +375,9 @@ module ProtoCmd {
             this.addProperty('btTxQQVipLevel', PacketBase.TYPE_BYTE);//QQ会员等级
             this.addProperty('nSize', PacketBase.TYPE_INT);
             this.cmd = CretChat.msgID;
-            this.read(data);
+            if (data != null) {
+                this.read(data);
+            }
         }
 
         public read(data: Laya.Byte): number {
@@ -350,20 +390,19 @@ module ProtoCmd {
             return 0;
         }
 
-        public setString(s: string): void {
-            // var bytes: Laya.Byte = new Laya.Byte();
-            // bytes.endian = egret.Endian.LITTLE_ENDIAN;
+        public setString(s: string): CretChat {
             GameApp.GameEngine.packetBytes.clear();
             GameApp.GameEngine.packetBytes.pos = 0;
             GameApp.GameEngine.packetBytes.writeUTFBytes(s);
             this.addProperty('str', Packet.TYPE_STRING, GameApp.GameEngine.packetBytes.length + 1);
             this.setValue('nSize', GameApp.GameEngine.packetBytes.length + 1);
             this.setValue('str', s);
+            return this;
         }
 
     }
 
-    //角色 属性通知
+    //场景内角色 属性通知
     export class CretAbility extends Packet {
         public static msgID: number = 0x023B;
         public ability: ArpgAbility = new ArpgAbility();
@@ -373,6 +412,18 @@ module ProtoCmd {
             this.addProperty('ability', PacketBase.TYPE_BYTES, this.ability.size(), this.ability);
             this.addProperty("dwType", PacketBase.TYPE_BYTE);//0主角,1英雄战士,2英雄法师,3英雄道士
             this.addProperty("fightPower", PacketBase.TYPE_DWORD);//战力
+            this.read(data);
+        }
+    }
+
+    //玩家 属性通知
+    export class CretPlayerAbility extends Packet {
+        public static msgID: number = 0x0249;
+        public ability: ArpgAbility = new ArpgAbility();
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwTempId', PacketBase.TYPE_INT);
+            this.addProperty('ability', PacketBase.TYPE_BYTES, this.ability.size(), this.ability);
             this.read(data);
         }
     }
@@ -478,7 +529,6 @@ module ProtoCmd {
             this.addProperty('nSize', PacketBase.TYPE_DWORD);
             this.read(data);
         }
-
         public read(data: Laya.Byte): number {
             if (data) {
                 data.pos += super.read(data);
@@ -496,7 +546,6 @@ module ProtoCmd {
         public static msgID: number = 0x0297;
         public constructor(data: Laya.Byte) {
             super();
-
             this.addProperty('dwTmpId', PacketBase.TYPE_INT);//
             this.addProperty('dwAcTmpID', PacketBase.TYPE_INT);//攻击者ID
             this.addProperty('npower', PacketBase.TYPE_INT);//掉了多少血
@@ -687,7 +736,6 @@ module ProtoCmd {
     //丢弃物品
     export class CretForsakeItem extends Packet {
         public static msgID: number = 0x033D
-
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
@@ -731,13 +779,59 @@ module ProtoCmd {
             this.cmd = QuestClientData.msgID;
         }
 
-        public setString(s: string): void {
+        public setString(s: string): QuestClientData {
             GameApp.GameEngine.packetBytes.clear();
             GameApp.GameEngine.packetBytes.pos = 0;
             GameApp.GameEngine.packetBytes.writeUTFBytes(s);
             this.addProperty('str', Packet.TYPE_STRING, GameApp.GameEngine.packetBytes.length + 1);
             this.setValue('nSize', GameApp.GameEngine.packetBytes.length + 1);
             this.setValue('str', s);
+            return this
         }
     }
+
+
+    /*******************************************设置**************************************** */
+
+    /**
+     * 客户端设置
+     */
+    export class ClientSetData extends Packet {
+        public static msgID: number = 0x02aa;
+        public setData: string = "";
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('boNewHuman', PacketBase.TYPE_BOOL);
+            this.addProperty('nSize', PacketBase.TYPE_INT);
+            this.cmd = ClientSetData.msgID;
+            if (data != null) {
+                this.read(data);
+            }
+        }
+        public read(data: Laya.Byte): number {
+            if (data) {
+                data.pos += super.read(data);
+                var nSize: number = this.getValue('nSize');
+                this.setData = data.readUTFBytes(nSize);
+                return data.length
+            }
+            return 0;
+        }
+
+        public setString(s: string): ClientSetData {
+            GameApp.GameEngine.packetBytes.clear();
+            GameApp.GameEngine.packetBytes.pos = 0;
+            GameApp.GameEngine.packetBytes.writeUTFBytes(s);
+            this.addProperty('str', Packet.TYPE_STRING, GameApp.GameEngine.packetBytes.length + 1);
+            this.setValue('nSize', GameApp.GameEngine.packetBytes.length + 1);
+            this.setValue('str', s);
+            return this
+        }
+    }
+
+    /******************************************技能**************************************** */
+
+    /******************************************新手引导************************************ */
+
+
 }

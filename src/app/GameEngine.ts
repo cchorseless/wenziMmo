@@ -47,7 +47,7 @@ class GameEngine extends SingletonClass {
     public chatData = {};//聊天缓存信息
 
     /******************************************************** */
-    public packetBytes: Laya.Byte;
+    public packetBytes: Laya.Byte;//全局消息包
     public mainPlayer: GameObject.Player;//玩家
     public equipDB;//装备背包
     public bagItemDB;//物品背包

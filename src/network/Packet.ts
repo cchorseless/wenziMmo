@@ -839,14 +839,15 @@ class Packet extends PacketBase {
         if (subcmd < 0) subcmd += 256;
         var msgID: number = cmd << 8 | subcmd;
         data.pos = pos;
-        Log.trace(fix + "：" + msgID + "[" + this.printcmd(msgID) + " ]");
+        Log.trace(fix + "：" + msgID.toString(16) + "[" + this.printcmd(msgID) + " ]");
         return msgID;
     }
 
     public send(): void {
         this._bytes.pos = 0;
-        if (GameApp.Socket == null)
-            return;
+        if (GameApp.Socket == null) {
+            throw new Error('socket == null')
+        }
         // 这里没有做分包
         if (false && this._bytes.length >= 64) {
             //_compress
