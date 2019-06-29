@@ -1,4 +1,4 @@
-class App {
+class GameApp {
 
     /**
      * Socket请求
@@ -26,15 +26,15 @@ class App {
     /**
      * 玩家对象
      */
-    public static get MainPlayer(): Player {
-        return App.GameEngine.mainPlayer;
+    public static get MainPlayer(): GameObject.Player {
+        return GameApp.GameEngine.mainPlayer;
     }
 
     /**
-     * MsgProc 服务器全局监听器
+     * ServerListener 服务器全局监听器
      */
-    public static get MsgProc(): MsgProc {
-        return MsgProc.getInstance();
+    public static get ServerListener(): ServerListener {
+        return ServerListener.getInstance();
     }
     // /**
     //  * 服务器返回的消息处理中心

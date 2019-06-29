@@ -1,8 +1,7 @@
 
+class GameEngine extends SingletonClass {
 
-class GameEngine extends BaseClass {
-
-    public IsDebug = false;
+    public IsDebug = true;
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
@@ -16,13 +15,9 @@ class GameEngine extends BaseClass {
     public version: string = "";//版本号
 
     public serverInfo;                                                            //服务器信息
-    public huancun: any = null;
-    public hasLogin: boolean = false;                                                 //是否已经登录过，
-
-    public isWss: Boolean = false;                                                    // 通讯协议，true:wss://  false:ws://
-    public remoteServer: Boolean = true;                                              // 服务器调试环境，true :云服务器；false :本地服务器
-    public connectIP: string = (this.remoteServer) ? '101.132.174.5' : '192.168.200.64';
-    public connectPort: number = 20013;
+    public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
+    public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
+    public connectPort: string = '8001';
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
     public updateHZ: number = 100;                                                      // 客户端玩家跟新更新坐标频率
@@ -49,10 +44,11 @@ class GameEngine extends BaseClass {
 
     /*************************用户本地数据******************** */
 
+    public chatData = {};//聊天缓存信息
 
     /******************************************************** */
     public packetBytes: Laya.Byte;
-    public mainPlayer: Player;//玩家
+    public mainPlayer: GameObject.Player;//玩家
     public equipDB;//装备背包
     public bagItemDB;//物品背包
     private mapId: number;
@@ -77,7 +73,7 @@ class GameEngine extends BaseClass {
         this.packetBytes.endian = Laya.Byte.LITTLE_ENDIAN;
         this.logintoken = new Laya.Byte();
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
-        this.mainPlayer = new Player();
+        this.mainPlayer = new GameObject.Player();
         this.equipDB = {};
         this.bagItemDB = {};
     }
@@ -125,12 +121,10 @@ class GameEngine extends BaseClass {
      */
     public init(initHandle?: Laya.Handler) {
         console.log("当前引擎版本: ", Laya.version);
-        //内网连接
-        // App.Socket.initServer("192.168.10.187", "8001", new ByteArrayMsg());
+        GameApp.Socket.initServer(this.connectIP, this.connectPort, new ByteArrayMsg(), initHandle);
         //外网连接
-        App.Socket.initServer("47.111.178.154", "8001", new ByteArrayMsg(), initHandle);
-        // App.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
-        App.MsgProc.init();
+        // GameApp.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
+        GameApp.ServerListener.init();
 
     }
 

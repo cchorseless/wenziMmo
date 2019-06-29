@@ -19,7 +19,7 @@ class MessageCenter {
         this.lastRunTime = 0;
         if (this.type == 0) {
             // Laya.timer.frameLoop(1, this, this.run);
-            App.TimerManager.doFrame(1, 0, this.run, this);
+            GameApp.TimerManager.doFrame(1, 0, this.run, this);
         }
     }
 

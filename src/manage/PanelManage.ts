@@ -169,9 +169,6 @@ module PanelManage {
             PanelManage.JueSe.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.JueSe, 1, 2, 1);
         })
-
-
-
     }
 
 }

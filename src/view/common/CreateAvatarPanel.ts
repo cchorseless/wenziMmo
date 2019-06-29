@@ -13,7 +13,7 @@ module view.common {
 			}, null, false);
 			this.rad_job.selectHandler.run();
 		}
-		addEvent(): void {
+		public addEvent(): void {
 			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 		}
@@ -28,26 +28,26 @@ module view.common {
 				return
 			}
 			// 角色名称
-			App.GameEngine.mainPlayer.playerName = this.input_random.text + '@1001';
+			GameApp.GameEngine.mainPlayer.playerName = this.input_random.text + '@1001';
 			// 性别
-			App.GameEngine.mainPlayer.sex = this.rad_sex.selectedIndex + 1;
+			GameApp.GameEngine.mainPlayer.sex = this.rad_sex.selectedIndex + 1;
 			// 职业
-			App.GameEngine.mainPlayer.job = this.rad_job.selectedIndex + 1;
+			GameApp.GameEngine.mainPlayer.job = this.rad_job.selectedIndex + 1;
 			// 玩家头像
 			let path;
-			if (App.GameEngine.mainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+			if (GameApp.GameEngine.mainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
 				path = 'image/common/icon_nan';
 			}
 			else {
 				path = 'image/common/icon_nv';
 			}
-			App.GameEngine.mainPlayer.avatarIcon = path + '0' + App.GameEngine.mainPlayer.job + '.png';
-			let createusr = new CreatePlayer();
-			createusr.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
+			GameApp.GameEngine.mainPlayer.avatarIcon = path + '0' + GameApp.GameEngine.mainPlayer.job + '.png';
+			let createusr = new ProtoCmd.CreatePlayer();
+			createusr.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);
-			createusr.playerinfo.setValue('szName', App.GameEngine.mainPlayer.playerName);
-			createusr.playerinfo.feature.setValue('sex', App.GameEngine.mainPlayer.sex);
-			createusr.playerinfo.feature.setValue('job', App.GameEngine.mainPlayer.job);
+			createusr.playerinfo.setValue('szName', GameApp.GameEngine.mainPlayer.playerName);
+			createusr.playerinfo.feature.setValue('sex', GameApp.GameEngine.mainPlayer.sex);
+			createusr.playerinfo.feature.setValue('job', GameApp.GameEngine.mainPlayer.job);
 			// 创角协议
 			lcp.send(createusr, this, this.createPlayerRet);
 		}
@@ -57,16 +57,16 @@ module view.common {
   		* @param data 
   		*/
 		public createPlayerRet(data: any): void {
-			let msg = new CreatePlayerRet(data);
+			let msg = new ProtoCmd.CreatePlayerRet(data);
 			let errorcode = msg.getValue('errorcode');
 			if (errorcode == 0) {
 				// 单服单角色，这里可以扩展
-				let selector: SelectPlayer = new SelectPlayer();
+				let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
 				selector.setValue("nselectidx", 0);
 				selector.setValue("szName", msg.getValue('szPlayerName'));
 				selector.setValue("btmapsubline", 1);
 				lcp.send(selector, this, PanelManage.Login.selectPlayerRet)
-				App.GameEngine.isLogin = true;
+				GameApp.GameEngine.isLogin = true;
 			}
 			else {
 				let strmsg: string;

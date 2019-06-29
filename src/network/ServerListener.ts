@@ -2,7 +2,7 @@
  * 服务器协议监听
  */
 
-class MsgProc extends BaseClass {
+class ServerListener extends SingletonClass {
 
     public constructor() {
         super();
@@ -12,53 +12,56 @@ class MsgProc extends BaseClass {
      */
     public init(): void {
         // 心跳包检测
-        App.LListener.on(Packet.msgIdToEventName(CheckSignalCmd.msgID), this, this.checkSignalCmd);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // socket链接
-        App.LListener.on(SocketConst.SOCKET_CONNECT, this, this.onSocketConnect);
+        GameApp.LListener.on(LcpEvent.SOCKET_CONNECT, this, this.onSocketConnect);
         // 更新本地密匙
-        App.LListener.on(Packet.msgIdToEventName(UpdateToken.msgID), this, this.updateToken);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
 
         //*****************************同步视野内对象
-        App.LListener.on(Packet.msgIdToEventName(PlayerChangeMap.msgID), this, this.playerChangeMap);
-        App.LListener.on(Packet.msgIdToEventName(MapCreateCret.msgID), this, this.mapCreateCret);
-        App.LListener.on(Packet.msgIdToEventName(MapRemoveCret.msgID), this, this.mapRemoveCret);
-        App.LListener.on(Packet.msgIdToEventName(MapCreatePlayer.msgID), this, this.mapCreatePlayer);
-
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
         //0x021F
-        App.LListener.on(Packet.msgIdToEventName(CretMoveRet.msgID), this, this.cretMoveRet);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
         //0x0232
-        App.LListener.on(Packet.msgIdToEventName(CretAttackRet.msgID), this, this.cretAttackRet);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
         //0x0234
-        App.LListener.on(Packet.msgIdToEventName(CretHealthChange.msgID), this, this.cretHealthChange);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
         //0x023-
-        App.LListener.on(Packet.msgIdToEventName(CretGoldChange.msgID), this, this.cretGoldChange);
-        App.LListener.on(Packet.msgIdToEventName(CretExpChange.msgID), this, this.cretExpChange);
-        App.LListener.on(Packet.msgIdToEventName(CretLevelUp.msgID), this, this.cretLevelUp);
-        App.LListener.on(Packet.msgIdToEventName(CretChat.msgID), this, this.cretChat);
-        App.LListener.on(Packet.msgIdToEventName(CretAbility.msgID), this, this.cretAbility);
-        App.LListener.on(Packet.msgIdToEventName(CretCharBase.msgID), this, this.cretCharBase);
-        App.LListener.on(Packet.msgIdToEventName(CretLifestateChange.msgID), this, this.cretLifestateChange);
-        App.LListener.on(Packet.msgIdToEventName(TipMsg.msgID), this, this.tipMsg);
-        App.LListener.on(Packet.msgIdToEventName(CretGetUseItemRet.msgID), this, this.cretGetUseItemRet);
-        //0x0297
-        App.LListener.on(Packet.msgIdToEventName(CretStruck.msgID), this, this.cretStruck);
-        App.LListener.on(Packet.msgIdToEventName(MapItemEventDel.msgID), this, this.mapItemEventDel);
-        App.LListener.on(Packet.msgIdToEventName(MapItemEventAdd.msgID), this, this.mapItemEventAdd);
-        App.LListener.on(Packet.msgIdToEventName(MapItemEventPick.msgID), this, this.mapItemEventPick);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretExpChange), this, this.cretExpChange);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
+        // 聊天相关
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
+        // 玩家战斗属性包
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
+        // 玩家经济属性包
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
 
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGetUseItemRet), this, this.cretGetUseItemRet);
+        //0x0297
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
         //0x03 背包相关
         // 删除背包道具
-        App.LListener.on(Packet.msgIdToEventName(CretDeleteItem.msgID), this, this.cretDeleteItem);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretDeleteItem), this, this.cretDeleteItem);
         // 更新背包道具
-        App.LListener.on(Packet.msgIdToEventName(CretUpdateItem.msgID), this, this.cretUpdateItem);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretUpdateItem), this, this.cretUpdateItem);
         // 初始化背包信息
-        App.LListener.on(Packet.msgIdToEventName(CretItems.msgID), this, this.initBag);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
 
-        App.LListener.on(Packet.msgIdToEventName(CretItemCountChanged.msgID), this, this.cretItemCountChanged);
-        App.LListener.on(Packet.msgIdToEventName(CretProcessingItem.msgID), this, this.cretProcessingItem);
-        App.LListener.on(Packet.msgIdToEventName(CretForsakeItem.msgID), this, this.cretForsakeItem);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretProcessingItem), this, this.cretProcessingItem);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretForsakeItem), this, this.cretForsakeItem);
         //0x0919
-        App.LListener.on(Packet.msgIdToEventName(QuestScriptData.msgID), this, this.questScriptData);
+        GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
+
     }
 
     /**
@@ -66,17 +69,17 @@ class MsgProc extends BaseClass {
     * @param data 
     */
     public checkSignalCmd(data: any): void {
-        let checksignal = new CheckSignalCmd(data);
+        let checksignal = new ProtoCmd.CheckSignalCmd(data);
         if (checksignal.getValue('isneedACK') != 0) {
-            let signal = new CheckSignalCmdRet();
+            let signal = new ProtoCmd.CheckSignalCmdRet();
             signal.setValue('checknum', checksignal.getValue('checknum'))
             signal.send();
             signal = null;
         }
 
         if (checksignal.getValue('checknum') == 66) {
-            App.Socket.waitSignal = false;
-            App.Socket.waitTime = 0;
+            GameApp.Socket.waitSignal = false;
+            GameApp.Socket.waitTime = 0;
         }
     }
 
@@ -85,7 +88,7 @@ class MsgProc extends BaseClass {
      */
     public onSocketConnect() {
         // 断线重连
-        if (App.GameEngine.isLogin) {
+        if (GameApp.GameEngine.isLogin) {
             TipsManage.showTxt('正在重连');
             this.onSocketReconnect();
         }
@@ -98,16 +101,16 @@ class MsgProc extends BaseClass {
      * 断线重连
      */
     public onSocketReconnect() {
-        let realLogin = new UserRealLogin();
-        realLogin.setValue('szAccount', App.GameEngine.mainPlayer.playerAccount);
-        realLogin.setValue('szPlayerName', App.GameEngine.mainPlayer.playerName);
-        realLogin.setValue('dwTrueZoneid', App.GameEngine.trueZoneid);
-        realLogin.setValue('dwUserOnlyId', App.GameEngine.mainPlayer.userOnlyid);
+        let realLogin = new ProtoCmd.UserRealLogin();
+        realLogin.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
+        realLogin.setValue('szPlayerName', GameApp.GameEngine.mainPlayer.playerName);
+        realLogin.setValue('dwTrueZoneid', GameApp.GameEngine.trueZoneid);
+        realLogin.setValue('dwUserOnlyId', GameApp.GameEngine.mainPlayer.userOnlyid);
         //realLogin.setValue('btReloginType', 2);
-        realLogin.setValue('loginsvr_id_type', App.GameEngine.loginsvrIdType);
-        realLogin.setValue('tokencheck', App.GameEngine.tokenCheck);
-        realLogin.setValue('gamesvr_id_type', App.GameEngine.gamesvrIdType);
-        realLogin.setValue('logintoken', App.GameEngine.logintoken);
+        realLogin.setValue('loginsvr_id_type', GameApp.GameEngine.loginsvrIdType);
+        realLogin.setValue('tokencheck', GameApp.GameEngine.tokenCheck);
+        realLogin.setValue('gamesvr_id_type', GameApp.GameEngine.gamesvrIdType);
+        realLogin.setValue('logintoken', GameApp.GameEngine.logintoken);
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
     }
@@ -117,12 +120,12 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public updateToken(data: any): void {
-        let msgData = new UpdateToken(data);
+        let msgData = new ProtoCmd.UpdateToken(data);
         let tmp = msgData.getValue('logintoken');
-        // App.GameEngine.logintoken.length = tmp.length;
-        App.GameEngine.logintoken.writeArrayBuffer(tmp.buffer, 0, tmp.length);
-        App.GameEngine.logintoken.pos = 0;
-        App.GameEngine.tokenCheck = msgData.getValue('tokencheck');
+        //GameApp.GameEngine.logintoken.length = tmp.length;
+        GameApp.GameEngine.logintoken.writeArrayBuffer(tmp.buffer, 0, tmp.length);
+        GameApp.GameEngine.logintoken.pos = 0;
+        GameApp.GameEngine.tokenCheck = msgData.getValue('tokencheck');
         let token: string = '';
         tmp.pos = 0;
         for (let i = 0; i < tmp.length; ++i) {
@@ -137,11 +140,11 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public userRealLogin(data: any): void {
-        let msgData = new UserRealLoginRet(data);
+        let msgData = new ProtoCmd.UserRealLoginRet(data);
         if (msgData.getValue('nErrorCode') == 0) {
             Log.trace('游戏登陆成功');
             // 抛出事件
-            App.LListener.event(LcpEvent.GAME_INIT_FINISH);
+            GameApp.LListener.event(LcpEvent.GAME_INIT_FINISH);
         }
         else {
             Log.trace('游戏重连失败');
@@ -154,18 +157,18 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public playerChangeMap(data: any): void {
-        let msgData = new PlayerChangeMap(data);
-        App.GameEngine.mainPlayer.mapid = msgData.location.getValue('mapid');
-        App.GameEngine.mainPlayer.x = msgData.location.getValue('ncurx');
-        App.GameEngine.mainPlayer.y = msgData.location.getValue('ncury');
-        App.GameEngine.mainPlayer.mapname = msgData.getValue('szMapFileName');
-        App.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
-        App.GameEngine.mainPlayer.dir = msgData.getValue('dir');
+        let msgData = new ProtoCmd.PlayerChangeMap(data);
+        GameApp.GameEngine.mainPlayer.mapid = msgData.location.getValue('mapid');
+        GameApp.GameEngine.mainPlayer.x = msgData.location.getValue('ncurx');
+        GameApp.GameEngine.mainPlayer.y = msgData.location.getValue('ncury');
+        GameApp.GameEngine.mainPlayer.mapname = msgData.getValue('szMapFileName');
+        GameApp.GameEngine.mainPlayer.onlyid = msgData.getValue('dwTmpId');
+        GameApp.GameEngine.mainPlayer.dir = msgData.getValue('dir');
         TipsManage.showTips('切换地图成功');
-        App.GameEngine.mainPlayer.clearViewObj();
-        let ready = new StateReady();
+        GameApp.GameEngine.mainPlayer.clearViewObj();
+        let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
-            App.GameEngine.isReady = true;
+            GameApp.GameEngine.isReady = true;
         });
         msgData.clear();
     }
@@ -175,15 +178,15 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public mapCreateCret(data: any): void {
-        let msgData = new MapCreateCret(data);
+        let msgData = new ProtoCmd.MapCreateCret(data);
         let type = msgData.feature.getValue('btCretType');
         let mapid = msgData.location.getValue('mapid')
         let obj;
         if (type == EnumData.CRET_TYPE.CRET_NPC) {
-            obj = new Npc();
+            obj = new GameObject.Npc();
             obj.name = FunctionUtils.filterName(msgData.getValue('szShowName')) + '(复活中)';
         } else {
-            obj = new Monster();
+            obj = new GameObject.Monster();
             obj.name = FunctionUtils.filterName(msgData.getValue('szShowName'));
         }
         obj.id = msgData.feature.getValue('dwCretTypeId');
@@ -196,7 +199,7 @@ class MsgProc extends BaseClass {
         obj.mp = msgData.getValue('nNowMp');
         obj.lifestate = msgData.getValue('lifestate');
         // 将对象添加到视野列表中
-        App.GameEngine.mainPlayer.addViewObj(obj, type);
+        GameApp.GameEngine.mainPlayer.addViewObj(obj, type);
         msgData.clear();
         msgData = null;
     }
@@ -206,8 +209,8 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public mapCreatePlayer(data: any): void {
-        let msg = new MapCreatePlayer(data);
-        let player = new Player();
+        let msg = new ProtoCmd.MapCreatePlayer(data);
+        let player = new GameObject.Player();
         player.onlyid = msg.getValue('dwTmpId');
         player.name = msg.getValue('szShowName');
         player.playerName = player.name;
@@ -219,16 +222,16 @@ class MsgProc extends BaseClass {
         player.mp = msg.getValue('nNowMp');
         player.lifestate = msg.getValue('lifestate');
 
-        if (player.onlyid == App.GameEngine.mainPlayer.onlyid) {
-            App.GameEngine.mainPlayer.level = player.level;
-            App.GameEngine.mainPlayer.hp = player.hp;
-            App.GameEngine.mainPlayer.mp = player.mp;
-            App.GameEngine.mainPlayer.lifestate = player.lifestate;
-            App.GameEngine.mainPlayer.job = msg.feature.feature.getValue('job');
-            App.GameEngine.mainPlayer.sex = msg.feature.feature.getValue('sex');
-            App.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
+        if (player.onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
+            GameApp.GameEngine.mainPlayer.level = player.level;
+            GameApp.GameEngine.mainPlayer.hp = player.hp;
+            GameApp.GameEngine.mainPlayer.mp = player.mp;
+            GameApp.GameEngine.mainPlayer.lifestate = player.lifestate;
+            GameApp.GameEngine.mainPlayer.job = msg.feature.feature.getValue('job');
+            GameApp.GameEngine.mainPlayer.sex = msg.feature.feature.getValue('sex');
+            GameApp.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
         }
-        App.GameEngine.mainPlayer.addViewObj(player, msg.feature.getValue('btCretType'));
+        GameApp.GameEngine.mainPlayer.addViewObj(player, msg.feature.getValue('btCretType'));
         msg.clear();
         msg = null;
     }
@@ -238,27 +241,27 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public mapRemoveCret(data: any): void {
-        let msgData = new MapRemoveCret(data);
-        App.GameEngine.mainPlayer.removeViewObj(msgData.getValue('dwTmpId'), msgData.getValue('btCretType'));
+        let msgData = new ProtoCmd.MapRemoveCret(data);
+        GameApp.GameEngine.mainPlayer.removeViewObj(msgData.getValue('dwTmpId'), msgData.getValue('btCretType'));
         msgData.clear();
     }
 
 
     //0x021F
     public cretMoveRet(data: any): void {
-        let msg = new CretMoveRet(data);
+        let msg = new ProtoCmd.CretMoveRet(data);
         if (msg.getValue('moveerrorcode') != 0) {
-            App.GameEngine.mainPlayer.dir = msg.getValue('dir');
-            App.GameEngine.mainPlayer.x = msg.location.getValue('ncurx');
-            App.GameEngine.mainPlayer.y = msg.location.getValue('ncury');
+            GameApp.GameEngine.mainPlayer.dir = msg.getValue('dir');
+            GameApp.GameEngine.mainPlayer.x = msg.location.getValue('ncurx');
+            GameApp.GameEngine.mainPlayer.y = msg.location.getValue('ncury');
             ////App.MainPanel.addSysChat('move fail');
             return;
         }
 
         // //App.MainPanel.modifListViewObjPos(msg.getValue('dwTmpId'), msg.location.getValue('ncurx'), msg.location.getValue('ncury'));
-        // if (msg.getValue('dwTmpId') == App.GameEngine.mainPlayer.onlyid) {
-        //     //App.MainPanel.playerBtn.text = App.GameEngine.mainPlayer.playerName + 'lv.' + App.GameEngine.mainPlayer.level
-        //         + "[color=#00EE00](" + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ")[/color]";
+        // if (msg.getValue('dwTmpId') ==GameApp.GameEngine.mainPlayer.onlyid) {
+        //     //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.playerName + 'lv.' +GameApp.GameEngine.mainPlayer.level
+        //         + "[color=#00EE00](" +GameApp.GameEngine.mainPlayer.x + ',' +GameApp.GameEngine.mainPlayer.y + ")[/color]";
         //     //App.MainPanel.playerBtn.grayed = //App.MainPanel.playerBtn.grayed ? false : true;
         // }
 
@@ -269,7 +272,7 @@ class MsgProc extends BaseClass {
 
     //0x0232
     public cretAttackRet(data: any): void {
-        let msgData = new CretAttackRet(data);
+        let msgData = new ProtoCmd.CretAttackRet(data);
 
         if (msgData.getValue('btErrorCode') == 0) {
             ////App.MainPanel.addSysChat('怪物:'+msgData.getValue('dwTempId'));
@@ -284,11 +287,11 @@ class MsgProc extends BaseClass {
 
     //0x0234
     public cretHealthChange(data: any): void {
-        let msgData = new CretHealthChange(data);
+        let msgData = new ProtoCmd.CretHealthChange(data);
         let nowhp = msgData.getValue('nNowHP');
         let maxhp = msgData.getValue('nMaxHP');
         let onlyid = msgData.getValue('dwtempid');
-        if (onlyid == App.GameEngine.mainPlayer.onlyid) {
+        if (onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
             let hp = msgData.getValue('nChangeHP');
             if (hp < 0) {
                 ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
@@ -298,7 +301,7 @@ class MsgProc extends BaseClass {
             // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
             //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
 
-            App.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
+            GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
         }
 
 
@@ -321,7 +324,7 @@ class MsgProc extends BaseClass {
 
     //0x0236
     public cretGoldChange(data: any): void {
-        let msg = new CretGoldChange(data);
+        let msg = new ProtoCmd.CretGoldChange(data);
         //App.MainPanel.topGoldcnt.text = msg.getValue('nGold');
         //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('nChanged') + '金币</font>');
 
@@ -332,13 +335,12 @@ class MsgProc extends BaseClass {
 
     //0x0237
     public cretExpChange(data: any): void {
-        let msg = new CretExpChange(data);
-
+        let msg = new ProtoCmd.CretExpChange(data);
         let type = msg.getValue('nType');
         switch (type) {
             case 0:
                 //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('dwAdd') + '点经验</font>');
-                App.GameEngine.mainPlayer.changeExp(msg.getValue('i64Exp'));
+                GameApp.GameEngine.mainPlayer.changeExp(msg.getValue('i64Exp'));
                 break;
             case 1:
                 break;
@@ -355,19 +357,16 @@ class MsgProc extends BaseClass {
 
 
     public cretLevelUp(data: any): void {
-        let msg = new CretLevelUp(data);
+        let msg = new ProtoCmd.CretLevelUp(data);
         let onlyid = msg.getValue('dwTempId');
         let level = msg.getValue('dwLevel');
-        if (onlyid == App.GameEngine.mainPlayer.onlyid) {
-            App.GameEngine.mainPlayer.level = level;
-            //App.MainPanel.playerBtn.text = App.GameEngine.mainPlayer.name + 'lv.' + App.GameEngine.mainPlayer.level
-            + "[color=#00EE00](" + App.GameEngine.mainPlayer.x + ',' + App.GameEngine.mainPlayer.y + ")[/color]";
-
-            //App.MainPanel.topLevelcnt.text = App.GameEngine.mainPlayer.level + '';
-            App.GameEngine.mainPlayer.changeExp(msg.getValue('i64LeftExp'), msg.getValue('i64MaxExp'));
-
+        if (onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
+            GameApp.GameEngine.mainPlayer.level = level;
+            //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.name + 'lv.' +GameApp.GameEngine.mainPlayer.level
+            + "[color=#00EE00](" + GameApp.GameEngine.mainPlayer.x + ',' + GameApp.GameEngine.mainPlayer.y + ")[/color]";
+            //App.MainPanel.topLevelcnt.text =GameApp.GameEngine.mainPlayer.level + '';
+            GameApp.GameEngine.mainPlayer.changeExp(msg.getValue('i64LeftExp'), msg.getValue('i64MaxExp'));
         }
-
         // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
         //     if (//App.MainPanel.objItemDB[i].onlyid == onlyid) {
         //         let item = //App.MainPanel.listView.getChildAt(i) as ObjItem;
@@ -381,7 +380,6 @@ class MsgProc extends BaseClass {
         //             item.objName.text = db.name + 'lv.' + db.level;
         //         }
         //         //App.MainPanel.objItemDB[i].level = level;
-
         //         break;
         //     }
         // }
@@ -389,53 +387,64 @@ class MsgProc extends BaseClass {
         msg = null;
     }
 
-
+    /**
+     * 聊天频道相关
+     * @param data 
+     */
     public cretChat(data: any): void {
-        let msg = new CretChat(data);
-        let userOnlyid = msg.getValue('dwSrcOnlyId');
-        let player: Player = null;
-        if (userOnlyid.id == App.GameEngine.mainPlayer.userOnlyid.id) {
-            player = App.GameEngine.mainPlayer;
-        } else {
-
-        }
-
+        let msg: ProtoCmd.CretChat = Laya.Pool.getItemByCreateFun('ProtoCmd.CretChat', () => { return new ProtoCmd.CretChat(data) });
+        console.log(msg.chatMsg);
         if (msg.chatMsg != "") {
-            //App.MainPanel.addPlayerChat(msg.getValue('szName'), msg.chatMsg);
+            PanelManage.Main.updateChatView(msg);
         }
-
         msg.clear();
-        msg = null;
+        Laya.Pool.recover("ProtoCmd.CretChat", msg);
     }
 
-
+    /**
+     * 更新玩家战斗属性
+     * @param data 
+     */
     public cretAbility(data: any): void {
-        let msg = new CretAbility(data);
+        let msg = new ProtoCmd.CretAbility(data);
         if (msg.getValue('dwType') == 0) {
-            App.GameEngine.mainPlayer.changeHp(0, msg.ability.getValue('nMaxHP'));
-            App.GameEngine.mainPlayer.changeFight(msg.getValue('fightPower'));
+            GameApp.GameEngine.mainPlayer.changeHp(0, msg.ability.getValue('nMaxHP'));
+            GameApp.GameEngine.mainPlayer.changeFight(msg.getValue('fightPower'));
         }
-        //App.GameEngine.mainPlayer.changeAtk(msg.ability.getValue('nMinDC'), msg.ability.getValue('nMaxDC'));
-
         msg.clear();
         msg = null;
     }
 
-
+    /**
+     * 初始化玩家基本属性
+     * @param data 
+     */
     public cretCharBase(data: any): void {
-        let msg = new CretCharBase(data);
-        App.GameEngine.mainPlayer.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));
-        App.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'));
-        //App.MainPanel.topGoldcnt.text = msg.getValue('dwGold');
-        //App.MainPanel.topRmbcnt.text = msg.getValue('dwZhuGold');
-
+        console.log('===========cretCharBase')
+        let msg = new ProtoCmd.CretCharBase(data);
+        let player = GameApp.MainPlayer;
+        player.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));//经验
+        player.changeHp(msg.getValue('nNowHp'));//气血
+        player.changeMp(msg.getValue('nNowMp'));//蓝量
+        player.changeGold(msg.getValue('dwGold'));//金币
+        player.changeGold_lock(msg.getValue('dwBindGold'));//绑定金币
+        player.changeYuanBao(msg.getValue('dwZhuGold'));//元宝
+        player.changeYuanBao_lock(msg.getValue('dwGiftsGold'));//绑定元宝
+        player.changeLevel(msg.getValue('dwLevel'));//等级
+        player.changePkModel(msg.getValue('btPkModel'));//PK模式
+        player.changeHonorNum(msg.getValue('dwHonorNum'));//荣誉积分
+        player.changeGuildDedication(msg.getValue('dwGuildDedication'));//行会贡献值
+        player.changeNowFame(msg.getValue('i64Fame'));//当前声望
+        player.changeMaxTotalFame(msg.getValue('i64TotalFame'));//累计声望
+        player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
+        player.changeFight(msg.getValue('nFight'));//战斗力
         msg.clear();
         msg = null;
     }
 
 
     public cretLifestateChange(data: any): void {
-        let msg = new CretLifestateChange(data);
+        let msg = new ProtoCmd.CretLifestateChange(data);
         let onlyid = msg.getValue('dwTempID');
         let lifestate = msg.getValue('curLifeState');
         // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
@@ -451,15 +460,13 @@ class MsgProc extends BaseClass {
         //         break;
         //     }
         // }
-
-
         msg.clear();
         msg = null;
     }
 
 
     public tipMsg(data: any): void {
-        let msg = new TipMsg(data);
+        let msg = new ProtoCmd.TipMsg(data);
 
         //App.MainPanel.tipsInfo.text = msg.tipmsg;
         // Main.main.getTransition('tipsinfo').play(() => {
@@ -471,7 +478,7 @@ class MsgProc extends BaseClass {
 
 
     public cretGetUseItemRet(data: any): void {
-        let msg = new CretGetUseItemRet(data);
+        let msg = new ProtoCmd.CretGetUseItemRet(data);
         msg.clear();
         msg = null;
     }
@@ -481,23 +488,23 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public initBag(data: any): void {
-        let msg = new CretItems(data);
+        let msg = new ProtoCmd.CretItems(data);
         let typepos = msg.getValue('btPosition');
         let itemsInfo: Array<ItemBase> = msg.items;
         if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
             for (let i = 0; i < itemsInfo.length; i++) {
                 // 装备索引
                 let idx = itemsInfo[i].location.getValue('btIndex');
-                App.GameEngine.equipDB[idx] = null;
-                App.GameEngine.equipDB[idx] = itemsInfo[i];
+                GameApp.GameEngine.equipDB[idx] = null;
+                GameApp.GameEngine.equipDB[idx] = itemsInfo[i];
             }
         }
         else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
             for (let i = 0; i < itemsInfo.length; i++) {
                 // 包裹索引
                 let idx = itemsInfo[i].location.getValue('btIndex');
-                App.GameEngine.bagItemDB[idx] = null;
-                App.GameEngine.bagItemDB[idx] = itemsInfo[i];
+                GameApp.GameEngine.bagItemDB[idx] = null;
+                GameApp.GameEngine.bagItemDB[idx] = itemsInfo[i];
             }
         }
         msg.clear();
@@ -510,17 +517,17 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public cretDeleteItem(data: Laya.Byte) {
-        let msg = new CretDeleteItem(data);
+        let msg = new ProtoCmd.CretDeleteItem(data);
         let i64Id: Int64 = msg.getValue('i64Id');
         let typepos = msg.getValue('btPosition');
         let bag;
         // 装备
         if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            bag = App.GameEngine.equipDB;
+            bag = GameApp.GameEngine.equipDB;
         }
         // 包裹
         else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            bag = App.GameEngine.bagItemDB;
+            bag = GameApp.GameEngine.bagItemDB;
         }
 
         for (let i in bag) {
@@ -540,18 +547,18 @@ class MsgProc extends BaseClass {
      * @param data 
      */
     public cretUpdateItem(data: Laya.Byte) {
-        let msg = new CretUpdateItem(data);
+        let msg = new ProtoCmd.CretUpdateItem(data);
         let typepos = msg.getValue('btPosition');
         let idx = msg.item.location.getValue('btIndex');
         // 装备
         if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            App.GameEngine.equipDB[idx] = null;
-            App.GameEngine.equipDB[idx] = msg.item;
+            GameApp.GameEngine.equipDB[idx] = null;
+            GameApp.GameEngine.equipDB[idx] = msg.item;
         }
         // 包裹
         else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            App.GameEngine.bagItemDB[idx] = null;
-            App.GameEngine.bagItemDB[idx] = msg.item;
+            GameApp.GameEngine.bagItemDB[idx] = null;
+            GameApp.GameEngine.bagItemDB[idx] = msg.item;
             // let find: boolean = false;
             //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
             ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
@@ -561,7 +568,7 @@ class MsgProc extends BaseClass {
     }
 
     public cretItemCountChanged(data: any): void {
-        let msg = new CretItemCountChanged(data);
+        let msg = new ProtoCmd.CretItemCountChanged(data);
         let i64id = msg.getValue('itemid');
         // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
         //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == i64id.id) {
@@ -585,7 +592,7 @@ class MsgProc extends BaseClass {
     }
 
     public cretProcessingItem(data: any): void {
-        let msg = new CretProcessingItem(data);
+        let msg = new ProtoCmd.CretProcessingItem(data);
         let errorcode = msg.getValue('nErrorCode');
         if (errorcode != 0) {
             //App.MainPanel.addSysChat('穿戴装备失败：errorcode:' + errorcode);
@@ -625,14 +632,12 @@ class MsgProc extends BaseClass {
             //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
             //App.MainPanel.equipList.numItems = //App.MainPanel.equipDB.length;
         }
-
-
         msg.clear();
         msg = null;
     }
 
     public cretForsakeItem(data: any): void {
-        let msg = new CretForsakeItem(data);
+        let msg = new ProtoCmd.CretForsakeItem(data);
         let errorcode = msg.getValue('btErrorCode');
         if (errorcode != 0) {
             if (errorcode == 33) {
@@ -649,7 +654,7 @@ class MsgProc extends BaseClass {
 
     //0x0297
     public cretStruck(data: any): void {
-        let msg = new CretStruck(data);
+        let msg = new ProtoCmd.CretStruck(data);
         let nowhp = msg.getValue('nHp');
         let maxhp = msg.getValue('nMaxHp');
         let actmpid = msg.getValue('dwAcTmpID');
@@ -659,7 +664,7 @@ class MsgProc extends BaseClass {
         let msgstr = ''
         //App.MainPanel.onStruck(tartmpid, nowhp, maxhp, (nowhp > 0 ? false : true));
 
-        // if (actmpid == App.GameEngine.mainPlayer.onlyid) {
+        // if (actmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
         //     srcName = "您";
 
         // }
@@ -676,11 +681,11 @@ class MsgProc extends BaseClass {
         //     }
         // }
 
-        // if (tartmpid == App.GameEngine.mainPlayer.onlyid) {
+        // if (tartmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
         //     dstName = "您";
         //     msgstr = '<font color="#00EE00"><u>10秒后自动复活！</u></font>'
         //     ////App.MainPanel.bloodBtn.text = '血量:(' + msg.getValue('nHp') + '/' + msg.getValue('nMaxHp') + ')';
-        //     App.GameEngine.mainPlayer.changeHp(nowhp);
+        //    GameApp.GameEngine.mainPlayer.changeHp(nowhp);
         // } else {
         //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
         //         if (//App.MainPanel.objItemDB[k].onlyid == tartmpid) {
@@ -716,7 +721,7 @@ class MsgProc extends BaseClass {
     }
 
     public mapItemEventDel(data: any): void {
-        let msg = new MapItemEventDel(data);
+        let msg = new ProtoCmd.MapItemEventDel(data);
         let i64ItemID = msg.getValue('i64ItemID');
         // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
         //     let obj = //App.MainPanel.objItemDB[i] as ObjItemDB;
@@ -735,7 +740,7 @@ class MsgProc extends BaseClass {
 
     public mapItemEventAdd(data: any): void {
 
-        let msg = new MapItemEventAdd(data);
+        let msg = new ProtoCmd.MapItemEventAdd(data);
 
         // let objDB = new ObjItemDB;
         // objDB.x = msg.getValue('wX');
@@ -748,7 +753,7 @@ class MsgProc extends BaseClass {
         // if (Main.auditVer) {
         //     let basedb = Main.itemDBMap.get(objDB.dwBaseID)
         //     if (basedb) {
-        //         if (basedb.job != App.GameEngine.mainPlayer.job) {
+        //         if (basedb.job !=GameApp.GameEngine.mainPlayer.job) {
         //             return;
         //         }
         //     }
@@ -763,7 +768,7 @@ class MsgProc extends BaseClass {
     }
 
     public mapItemEventPick(data: any): void {
-        let msg = new MapItemEventPick(data);
+        let msg = new ProtoCmd.MapItemEventPick(data);
 
         if (msg.getValue('btErrorCode') == 0) {
 
@@ -775,7 +780,7 @@ class MsgProc extends BaseClass {
                 //App.MainPanel.addSysChat('背包空间不足');
             } else {
                 ////App.MainPanel.addSysChat('拾取物品失败 errorcode:' + errorcode);
-                //App.MainPanel.moveTo(255, App.GameEngine.mainPlayer.x, App.GameEngine.mainPlayer.y + 1);
+                //App.MainPanel.moveTo(255,GameApp.GameEngine.mainPlayer.x,GameApp.GameEngine.mainPlayer.y + 1);
             }
 
         }
@@ -785,7 +790,7 @@ class MsgProc extends BaseClass {
     }
 
     public questScriptData(data: any): void {
-        let msg = new QuestScriptData(data);
+        let msg = new ProtoCmd.QuestScriptData(data);
 
         ////App.MainPanel.addPlayerChat(null, '502 ' + msg.str);
 

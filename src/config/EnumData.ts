@@ -160,4 +160,75 @@ module EnumData {
         CRET_HERO,
         CRET_ALL,
     };
+
+    /**
+     * 聊天类型
+     */
+    export enum ChatType {
+
+        CHAT_TYPE_PRIVATE = 1,			// 私聊频道
+
+        CHAT_TYPE_REFMSG = 2,			// 当前屏幕聊天
+
+        CHAT_TYPE_SYSTEM = 3,			// 系统消息	 //单人
+
+        CHAT_TYPE_GROUP = 4,			// 队伍消息  
+
+        CHAT_TYPE_CLAN = 5,				// 帮会消息  
+
+        CHAT_TYPE_PRINCES = 6,			// 诸侯消息  
+
+        CHAT_TYPE_BOHOU = 7,			// 伯侯消息  
+
+        CHAT_TYPE_WORLD = 8,			// 世界消息  
+
+        CHAT_TYPE_SPEAKER = 9,			// 喇叭消息
+
+        CHAT_TYPE_DEAL = 10,			// 交易消息  
+
+        CHAT_TYPE_RUMORS = 11,			// 传言消息 
+
+        CHAT_TYPE_SYSTEMNOTICE = 12,	//系统公告消息
+
+        CHAT_TYPE_GM = 13,				//GM发布的及时消息
+
+        CHAT_TYPE_CENTER = 14,          //屏幕中间淡入淡出的消息
+
+        CHAT_TYPE_QQ = 15,				//QQ聊天
+
+        CHAT_TYPE_NOTICE = 16,			//公告消息
+
+        CHAT_TYPE_CLASS = 17,			//班级消息
+
+        CHAT_TYPE_SIMPLE = 18,			//简单消息
+
+        CHAT_TYPE_OPERATOR = 20,		//平台消息
+
+        CHAT_TYPE_SIMPLE2 = 30,			//左下角提示
+
+        CHAT_TYPE_WORLD_TEAM = 99,		//世界队伍聊天
+
+        CHAT_TYPE_MONSTER = 198,		//客户端提醒
+
+        CHAT_TYPE_CLIENT = 199,			//客户端提醒
+
+        CHAT_TYPE_GMCMD = 200,			//Gm命令
+
+        CHAT_TYPE_ADFILTER = 201,		//Gm命令
+
+    };
+    /**
+     * PK类型
+     */
+    export enum PkModel {
+        PKMODEL_PEACEMODE,			//和平模式：只对怪物进行攻击起效
+        PKMODEL_TEAMMODE,			//队伍模式：对怪物以及非本队伍的玩家进行攻击起效
+        PKMODEL_GUILDMODE,			//行会模式：对怪物以及非本行会的玩家进行攻击起效
+        PKMODEL_GUILDWARMODE,		//行会战模式：对怪物以及非本行会的行会战玩家进行攻击起效
+        PKMODEL_NULL,
+        PKMODEL_GOODANDEVILMODE,	//善恶模式：对怪物以及无保护状态的玩家进行攻击起效（灰名，黄名，红名玩家）
+        PKMODEL_ALLTHEMODE,			//全体模式：对所有怪物和玩家进行攻击起效
+        PKMODEL_SAFEMODE,			//安全模式
+    };
+
 }

@@ -2,7 +2,7 @@
  * Created by yangsong on 2014/11/23.
  * Timer管理器
  */
-class TimerManager extends BaseClass {
+class TimerManager extends SingletonClass {
     private _handlers: Array<TimerHandler>;
     private _delHandlers: Array<TimerHandler>;
     private _currTime: number;

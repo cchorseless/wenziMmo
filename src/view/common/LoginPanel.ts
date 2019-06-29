@@ -8,19 +8,19 @@ module view.common {
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, this.openPanel, [1]);
 			// 监听正式进入游戏
-			App.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
+			GameApp.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
 		}
 
 		public setData(): void {
 			// 登陆组隐藏
 			this.stack_login.selectedIndex = 0;
 			let oldAccountName = Laya.LocalStorage.getItem('account');
-			let oldPassworld = Laya.LocalStorage.getItem('passworld');
+			let oldPassworld = Laya.LocalStorage.getItem('password');
 			if (oldAccountName) {
 				this.input_account.text = oldAccountName;
 			}
 			if (oldPassworld) {
-				this.input_passworld.text = oldPassworld;
+				this.input_password.text = oldPassworld;
 			}
 		}
 
@@ -40,28 +40,25 @@ module view.common {
 				TipsManage.showTips('账号不能为空');
 				return
 			}
-			if (!this.input_passworld.text) {
+			if (!this.input_password.text) {
 				TipsManage.showTips('密码不能为空');
 				return
 			}
 			// 初始化客户端
-			App.GameEngine.init(Laya.Handler.create(this, () => {
+			GameApp.GameEngine.init(Laya.Handler.create(this, () => {
 				// 账号
-				App.MainPlayer.playerAccount = this.input_account.text + '@1001';
+				GameApp.MainPlayer.playerAccount = this.input_account.text + '@1001';
 				// 密码
-				App.MainPlayer.playerPassword = this.input_passworld.text;
-
+				GameApp.MainPlayer.playerPassword = this.input_password.text;
 				// 登陆前验证
-				if (App.Socket.isConnecting) {
-					lcp.send(new UserPreLogin(), this, this.userRetPreLogin);
+				if (GameApp.Socket.isConnecting) {
+					lcp.send(new ProtoCmd.UserPreLogin(), this, this.userRetPreLogin);
 				}
 				else {
-					App.Socket.connect();
+					GameApp.Socket.connect();
 					this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				}
 			}))
-
-
 		}
 
 		/**
@@ -69,19 +66,19 @@ module view.common {
 		* @param data 登陆验证成功
 		*/
 		public userRetPreLogin(data: any): void {
-			let msgData: UserRetPreLogin = new UserRetPreLogin(data);
+			let msgData: ProtoCmd.UserRetPreLogin = new ProtoCmd.UserRetPreLogin(data);
 			// 成功连接至服务器
-			let login = new NormalUserLogin();
+			let login = new ProtoCmd.NormalUserLogin();
 			login.setValue('queryhistory', 0);
 			login.setValue('tokenlogin', 0);
 			login.setValue('force_login', 1);
 			login.setValue('ip_type', 255);
 			login.setValue('fclientver', 0);
-			login.setValue('szAccount', App.MainPlayer.playerAccount);
+			login.setValue('szAccount', GameApp.MainPlayer.playerAccount);
 			login.setValue('szAccountDis', 1);
 			login.setValue("dwZoneid", 1001);
 			login.setValue("dwTrueZoneid", 1);
-			let crc32: number = FunctionUtils.passwordCrc32(App.MainPlayer.playerPassword);
+			let crc32: number = FunctionUtils.passwordCrc32(GameApp.MainPlayer.playerPassword);
 			//var cyptoPasswd:Laya.Byte = FunctionUtils.passwdCypto("1", msgData.getValue('passkey'));
 			//login.setValue('szPassMd5', new Laya.Byte(1));
 			login.setValue('dwPassCrc32', crc32);
@@ -90,19 +87,19 @@ module view.common {
 			login.setValue('szMac', "1");
 			lcp.send(login, this, this.userRetPreLoginRet)
 			msgData.clear();
-			////App.MainPanel.addSysChat("您正在用账号:" + App.MainPlayer.playerAccount + '登录1区')
+			////GameApp.MainPanel.addSysChat("您正在用账号:" + GameApp.MainPlayer.playerAccount + '登录1区')
 		}
-		private userLoginInfo: UserLoginRet;//角色信息
+		private userLoginInfo: ProtoCmd.UserLoginRet;//角色信息
 		/**
 		 * 登陆回调
 		 * @param data 
 		 */
 		public userRetPreLoginRet(data: any): void {
-			this.userLoginInfo = new UserLoginRet(data);
+			this.userLoginInfo = new ProtoCmd.UserLoginRet(data);
 			if (this.userLoginInfo.getValue("nErrorCode") == 0) {
-				App.GameEngine.zoneid = this.userLoginInfo.getValue('nSvrZoneid');
-				App.GameEngine.svrIndex = this.userLoginInfo.getValue("nSvrIndex");
-				App.GameEngine.loginsvrIdType = this.userLoginInfo.getValue('loginsvr_id_type');
+				GameApp.GameEngine.zoneid = this.userLoginInfo.getValue('nSvrZoneid');
+				GameApp.GameEngine.svrIndex = this.userLoginInfo.getValue("nSvrIndex");
+				GameApp.GameEngine.loginsvrIdType = this.userLoginInfo.getValue('loginsvr_id_type');
 				// 判断是否有角色
 				if (this.userLoginInfo.count > 0) {
 					let playerInfo = this.userLoginInfo.players[0];
@@ -117,13 +114,13 @@ module view.common {
 					else {
 						path = 'image/common/icon_nv';
 					}
-					App.MainPlayer.sex = sex;
-					App.MainPlayer.job = job;
-					App.MainPlayer.playerName = szName;
-					App.MainPlayer.avatarIcon = path + '0' + job + '.png';
-					App.MainPlayer.level = nlevel;
-					this.img_avatarIcon.skin = App.MainPlayer.avatarIcon;
-					this.lbl_avatarDes.text = nlevel + '-' + App.MainPlayer.realName;
+					GameApp.MainPlayer.sex = sex;
+					GameApp.MainPlayer.job = job;
+					GameApp.MainPlayer.playerName = szName;
+					GameApp.MainPlayer.avatarIcon = path + '0' + job + '.png';
+					GameApp.MainPlayer.level = nlevel;
+					this.img_avatarIcon.skin = GameApp.MainPlayer.avatarIcon;
+					this.lbl_avatarDes.text = nlevel + '-' + GameApp.MainPlayer.realName;
 					this.stack_login.selectedIndex = 1;
 				}
 				else {
@@ -138,19 +135,18 @@ module view.common {
 				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				Log.trace('请输入正确的账号密码 errorcode' + this.userLoginInfo.getValue("nErrorCode"));
 			}
-
 		}
 		/**
 		 * 开始游戏
 		 */
 		public startGame(): void {
-			let selector: SelectPlayer = new SelectPlayer();
+			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
 			selector.setValue("nselectidx", 0);
 			selector.setValue("szName", this.userLoginInfo.players[0].getValue('szName'));
 			selector.setValue("btmapsubline", 1);
 			lcp.send(selector, this, this.selectPlayerRet);
 			Log.trace("您选择了昵称:" + this.userLoginInfo.players[0].getValue('szName'));
-			App.GameEngine.isLogin = true;
+			GameApp.GameEngine.isLogin = true;
 			this.userLoginInfo.clear();
 		}
 		/**
@@ -158,13 +154,13 @@ module view.common {
 		 * @param data 
 		 */
 		public selectPlayerRet(data: any): void {
-			let msgData: SelectPlayerRet = new SelectPlayerRet(data);
+			let msgData: ProtoCmd.SelectPlayerRet = new ProtoCmd.SelectPlayerRet(data);
 			if (msgData.getValue('nErrorCode') == 0) {
-				App.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
-				App.MainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
-				App.MainPlayer.playerName = msgData.getValue('szName');
+				GameApp.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
+				GameApp.MainPlayer.userOnlyid = msgData.getValue('dwUserOnlyId');
+				GameApp.MainPlayer.playerName = msgData.getValue('szName');
 				// 这里重置一下socket,启用重连协议进入服务器
-				App.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
+				GameApp.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
 			} else {
 				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
@@ -174,6 +170,8 @@ module view.common {
 		 * 正式进入游戏
 		 */
 		public realLoginGame(): void {
+			Laya.LocalStorage.setItem('account', this.input_account.text);
+			Laya.LocalStorage.setItem('password', this.input_password.text);
 			PanelManage.openMainPanel();
 		}
 	}

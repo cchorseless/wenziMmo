@@ -6,7 +6,6 @@ class GameMain {
     constructor() {
         //初始化微信小游戏
         Laya.MiniAdpter.init();
-
         this.initGame();
         this.createGameScene();
         PanelManage.openStartLoadingPanel();
@@ -23,7 +22,7 @@ class GameMain {
         Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
         Laya.stage.frameRate = Laya.Stage.FRAME_MOUSE;
         // 调试面板
-        if (App.GameEngine.IsDebug) {
+        if (GameApp.GameEngine.IsDebug) {
             Laya.Stat.show(0, 0);
         }
 

@@ -1,7 +1,7 @@
 /**
 * name 
 */
-class Socket extends BaseClass {
+class Socket extends SingletonClass {
 	private _needReconnect: boolean = true;
 	private _maxReconnectCount = 10;
 	private _reconnectCount: number = 0;
@@ -30,7 +30,6 @@ class Socket extends BaseClass {
 		this._socket.on(Laya.Event.MESSAGE, this, this.onReceiveMessage);
 		this._socket.on(Laya.Event.CLOSE, this, this.onSocketClose);
 		this._socket.on(Laya.Event.ERROR, this, this.onSocketError);
-
 	}
 
 	/**
@@ -49,7 +48,7 @@ class Socket extends BaseClass {
 	private onSocketOpen(e: Laya.Event): void {
 		this._reconnectCount = 0;
 		this._isConnecting = true;
-		App.LListener.event(SocketConst.SOCKET_CONNECT);
+		GameApp.LListener.event(LcpEvent.SOCKET_CONNECT);
 		this._connectFlag = true;
 		if (this.openHandler) {
 			this.openHandler.run();
@@ -61,12 +60,12 @@ class Socket extends BaseClass {
 	  */
 	private onSocketClose(e: Laya.Event): void {
 		this._isConnecting = false;
-		App.GameEngine.isLogin = false;
+		GameApp.GameEngine.isLogin = false;
 		if (this._needReconnect) {
 			this.reconnect();
 		} else {
-			App.LListener.event(SocketConst.SOCKET_CLOSE);
-			// App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
+			GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
+			// App.MessageCenter.dispatch(LcpEvent.SOCKET_CLOSE);
 		}
 	}
 
@@ -76,9 +75,9 @@ class Socket extends BaseClass {
 	private onSocketError(e: Laya.Event): void {
 		if (this._needReconnect) {
 			this.reconnect();
-		} else {
-			App.LListener.event(SocketConst.SOCKET_NOCONNECT);
-			// App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
+		} 
+		else {
+			GameApp.LListener.event(LcpEvent.SOCKET_NOCONNECT);
 		}
 		this._isConnecting = false;
 	}
@@ -136,22 +135,22 @@ class Socket extends BaseClass {
 	  * 重新连接
 	  */
 	private reconnect(): void {
-		if (App.GameEngine.isReady == false) {
+		if (GameApp.GameEngine.isReady == false) {
 			return;
 		}
 		this.closeCurrentSocket();
-		App.GameEngine.isLogin = false;
+		GameApp.GameEngine.isLogin = false;
 		this._reconnectCount++;
 		if (this._reconnectCount < this._maxReconnectCount) {
 			this.connect();
-		} else {
+		}
+		else {
 			this._reconnectCount = 0;
 			if (this._connectFlag) {
-				App.LListener.event(SocketConst.SOCKET_CLOSE);
-				// App.MessageCenter.dispatch(SocketConst.SOCKET_CLOSE);
+				GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
+
 			} else {
-				App.LListener.event(SocketConst.SOCKET_NOCONNECT);
-				// App.MessageCenter.dispatch(SocketConst.SOCKET_NOCONNECT);
+				GameApp.LListener.event(LcpEvent.SOCKET_NOCONNECT);
 			}
 		}
 	}
@@ -204,8 +203,7 @@ class Socket extends BaseClass {
 	  * @param str
 	  */
 	private debugInfo(str: String): void {
-		App.LListener.event(SocketConst.SOCKET_DEBUG_INFO, str);
-		// App.MessageCenter.dispatch(SocketConst.SOCKET_DEBUG_INFO, str);
+		GameApp.LListener.event(LcpEvent.SOCKET_DEBUG_INFO, str);
 	}
 
 }
