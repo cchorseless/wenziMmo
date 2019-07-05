@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":5,
+    "selecteID":2,
     "props":{"width":400,"sceneColor":"#000000","name":"TipsShowPanel","height":50},
     "nodeParent":-1,
     "label":"View(TipsShowPanel)",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"top":0,"skin":"image/common/default/img_tipsbg.png","sizeGrid":"18,19,17,20","right":0,"left":0,"bottom":0},
+                    "props":{"top":0,"skin":"image/common/default/img_tipsbg.png","sizeGrid":"18,67,17,78","right":0,"left":0,"bottom":0},
                     "nodeParent":5,
                     "label":"Image",
                     "isDirectory":false,
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"var":"lbl_des","valign":"top","top":0,"text":"label","right":0,"left":0,"fontSize":30,"font":"mini","color":"#f3ecec","bottom":0,"bold":true,"align":"center"},
+                    "props":{"var":"lbl_des","valign":"middle","top":0,"text":"label","right":0,"left":0,"fontSize":30,"font":"FZXK","color":"#ffffff","bottom":0,"bold":true,"align":"center"},
                     "nodeParent":5,
                     "label":"Label(lbl_des)",
                     "isDirectory":false,

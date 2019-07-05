@@ -9,7 +9,6 @@ module view.juese {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
 		}
 	}
 }

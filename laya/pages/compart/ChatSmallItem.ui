@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":550,"sceneColor":"#000000","height":220},
+    "selecteID":1,
+    "props":{"x":0,"width":550,"sceneColor":"#fbf6f6","height":220},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":10,"x":10,"top":0,"skin":"image/common/comp/img_bg.png","sizeGrid":"58,30,30,30","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"top":0,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,16,13,10","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,21 +28,20 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"var":"panel_0","top":0,"right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"var":"panel_small","top":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
-            "label":"Panel(panel_0)",
-            "isOpen":true,
+            "label":"Panel(panel_small)",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":3,
             "child":[
                 {
-                    "x":30,
                     "type":"VBox",
-                    "props":{"var":"vbox_0","top":10,"space":5,"right":10,"left":10,"align":"left"},
+                    "props":{"var":"vbox_small","top":20,"space":5,"right":10,"left":10,"align":"left"},
                     "nodeParent":3,
-                    "label":"VBox(vbox_0)",
+                    "label":"VBox(vbox_small)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -50,6 +49,19 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":34,"x":532,"width":35,"var":"btn_up","stateNum":"1","skin":"image/main/btn_common_01.png","rotation":180,"height":30},
+            "nodeParent":1,
+            "label":"Button(btn_up)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
         }],
     "animations":[
         {

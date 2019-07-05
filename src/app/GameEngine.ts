@@ -16,7 +16,7 @@ class GameEngine extends SingletonClass {
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
-    public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
+    public connectIP: string = (true) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
@@ -45,7 +45,9 @@ class GameEngine extends SingletonClass {
     /*************************用户本地数据******************** */
 
     public chatData = {};//聊天缓存信息
-
+    public chatDataSingleMax = 100;//单个频道聊天缓存信息最大条数
+    public chatDataAllMax = 500;//全部频道缓存的信息最大条数目
+    public chatDataSmallMax = 50;//小窗缓存的信息最大条目数
     /******************************************************** */
     public packetBytes: Laya.Byte;//全局消息包
     public mainPlayer: GameObject.Player;//玩家
@@ -57,14 +59,14 @@ class GameEngine extends SingletonClass {
     public isReady: boolean = false;
     public isLogin: boolean = false;
 
-    public loginsvrIdType: number;
+    public loginsvrIdType: number;//登陆服务器ID
     public gamesvrIdType: number;
     public tokenCheck: number;
     public logintoken: Laya.Byte;
 
     public trueZoneid: number = 1;
-    public zoneid: number = 1001;
-    public svrIndex: number = 0;
+    public zoneid: number = 1001;//区号
+    public svrIndex: number = 0;//服号
 
 
     public constructor() {
@@ -78,21 +80,7 @@ class GameEngine extends SingletonClass {
         this.bagItemDB = {};
     }
 
-    public outputCretInfo(name: string, type: number, num: number): void {
-        // switch (type) {
-        //     case CRET_TYPE.CRET_PLAYER:
-        //         this.playerInfo.text = name + ': ' + num;
-        //         break;
-        //     case CRET_TYPE.CRET_MONSTER:
-        //         this.monsterInfo.text = name + ': ' + num;
-        //         break;
-        //     case CRET_TYPE.CRET_NPC:
-        //         this.npcInfo.text = name + ': ' + num;
-        //         break;
-        //     default:
-        //         break;
-        // }
-    }
+
 
     private initMapResource(): void {
 

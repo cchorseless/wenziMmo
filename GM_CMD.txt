@@ -1,0 +1,47 @@
+GM CMD
+!@setversion ver="2014-09-11 01:36:45" // GS版本号设置
+@shutdown time=停机时间 || after=多长时间后停机 dis=描述 		//停机
+!@shutdown time="2014-06-07 11:00:00" dis=""临时维护""
+@wd			//无敌
+@ms			//秒杀
+@dolua		//刷新脚本
+@makeitem baseid=物品ID || name=物品名字 count=数量
+@gold name=角色名 || gold=数量 || type=0金币 1积分 2元宝 3礼金 4绑定金币
+@spirit name=角色名 || spirit=数量 ||type=0灵力
+@skill name=角色名 || id=技能ID || lv=等级 || job=职业 all=0单个技能1所有技能
+@makemon name=怪物名 || id=怪物ID count=数量
+@level user=角色名 lvl=等级
+@move destuser=被移动角色名|| user=GM移动到玩家 || x=* y=* mapid=* 
+@calluser user=需要拉倒当前位置的玩家（召唤玩家）
+@clearitem	//清理包裹
+@clearquest //清理任务
+@abiadd name=角色名 idx=属性idx || all=0加指定属性1全部加  num=数值  add=0是直接赋值1是叠加
+!@reloaddb load=effectbase
+mon|mongen|hidemon|mondropitem|notice|npcgen|gm|quest|randomdrop|rank|drugbuff|effectbase|itembase|mapgate|magicbuff|npctrade|magic|gm|rank
+!@reloaddb load=drugbuff
+!@reloaddb load=mallitem -商城
+!@reloaddb load=rank  --刷新排行榜
+怪物数据库|刷怪数据库|怪物掉落装备数据库|刷NPC数据库|GM数据库|任务|排行榜|NpcTrade.Xml
+@who 服务器在线人数
+@ys 隐身
+@setgm name=[153区]肖冬菱 gmlvl=1 time=20
+!@banplayer name=[1080区]烟花易冷人亦冷 ban=1 time=88888
+!@banchat name=[185区]纳兰天雷 ban=1 time=259200 //禁言（秒计）
+!@setleader name=风云传奇 leaderlvl=1 time=99999
+@clearmon mapid=清怪地图ID
+@退出行会
+@reloadstrres //服务器字符串资源刷新成功  (StrRes.xml,LuaScriptRes.xml)
+
+!@move mapid=1005 zoneid=65001
+!@move mapid=1105 zoneid=65535
+
+@dolua call="GM_JCHD_CZ([18区]＋①分钟d永远,20141217,5000)"  --时代精彩活动积分
+
+
+249配置数据库\looklook\look4rfv3edclook
+win srv2008 密钥：FHPQ8-WJ9Y3-KQ8QK-DMB4C-KX34C
+
+VS2010
+激活码：YCFHQ-9DWCY-DKV88-T2TMH-G7BHP
+
+NKJFK-GPHP7-G8C3J-P6JXR-HQRJR

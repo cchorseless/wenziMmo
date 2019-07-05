@@ -556,11 +556,13 @@ class SelectPlayerInfo extends PacketBase {
         this.addProperty('mapid', PacketBase.TYPE_WORD);//地图ID
         this.addProperty('cloneid', PacketBase.TYPE_WORD);//副本ID
         this.addProperty('homemapid', PacketBase.TYPE_WORD);//出生地图ID
-        this.addProperty('conid', PacketBase.TYPE_WORD);
-        this.addProperty('countryId', PacketBase.TYPE_BYTE);
+        this.addProperty('conid', PacketBase.TYPE_WORD);//弃用
+        this.addProperty('countryId', PacketBase.TYPE_BYTE);//国家ID
         this.addProperty('ngmlvl', PacketBase.TYPE_BYTE);//GM等级
         this.addProperty('Feature', PacketBase.TYPE_BYTES, this.feature.size(), this.feature);
-        this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);
+        this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);//唯一识别ID
+        this.addProperty('zslevel', PacketBase.TYPE_INT);//转生等级
+        this.addProperty('viplvl', PacketBase.TYPE_BYTE);//VIP等级
         this.addProperty('btisdel', PacketBase.TYPE_BOOL);//是否删除
         this.addProperty('posdeltime', PacketBase.TYPE_INT);//删除时间
         this.addProperty('lastlogintime', PacketBase.TYPE_INT);//最后登录时间

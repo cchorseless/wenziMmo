@@ -15,12 +15,12 @@ module ProtoCmd {
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//角色名
             this.addProperty('szMapFileName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//地图文件名
             this.addProperty('dir', PacketBase.TYPE_BYTE);//方向
-            this.addProperty('light', PacketBase.TYPE_BYTE);
-            this.addProperty('country', PacketBase.TYPE_BYTE);
-            this.addProperty('factionid', PacketBase.TYPE_BYTE);
+            this.addProperty('light', PacketBase.TYPE_BYTE);//弃用
+            this.addProperty('country', PacketBase.TYPE_BYTE);//弃用
+            this.addProperty('factionid', PacketBase.TYPE_BYTE);//弃用
             this.addProperty('minimapidx', PacketBase.TYPE_INT);//小地图ID
             this.addProperty('szMapName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//地图名
-            this.addProperty('mapsublineid', PacketBase.TYPE_BYTE);
+            this.addProperty('mapsublineid', PacketBase.TYPE_BYTE);//弃用
             this.addProperty('lifestate', PacketBase.TYPE_BYTE);//人物状态　生或死
             this.addProperty('dwPlayerCreateTime', PacketBase.TYPE_DWORD);//角色创建时间
             this.read(data);
@@ -353,22 +353,22 @@ module ProtoCmd {
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwZoneid', PacketBase.TYPE_DWORD);
-            this.addProperty('btChatType', PacketBase.TYPE_BYTE);//btChatType BYTE  1  聊天类型
-            this.addProperty('btCountryInfoId', PacketBase.TYPE_BYTE);//  1  国家类型   
+            this.addProperty('btChatType', PacketBase.TYPE_BYTE);       //btChatType BYTE  1  聊天类型
+            this.addProperty('btCountryInfoId', PacketBase.TYPE_BYTE);  //  1  国家类型   
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//  发起人名称  
-            this.addProperty('dwSrcOnlyId', PacketBase.TYPE_INT64);//  目标名称  
+            this.addProperty('dwSrcOnlyId', PacketBase.TYPE_INT64);     //  目标名称  
             this.addProperty('szTargetName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//  目标名称  
-            this.addProperty('dwDestOnlyId', PacketBase.TYPE_INT64);//  目标名称  
+            this.addProperty('dwDestOnlyId', PacketBase.TYPE_INT64);    //  目标名称  
 
-            this.addProperty('dwSendTime', PacketBase.TYPE_INT);//发送时间
-            this.addProperty('boBanner', PacketBase.TYPE_BOOL);//是否横幅
-            this.addProperty('dwVip', PacketBase.TYPE_DWORD);//发送时间
+            this.addProperty('dwSendTime', PacketBase.TYPE_INT);    //发送时间
+            this.addProperty('boBanner', PacketBase.TYPE_BOOL);     //是否横幅
+            this.addProperty('dwVip', PacketBase.TYPE_DWORD);       //VIP等级
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
 
-            this.addProperty('btPlatForm', PacketBase.TYPE_BYTE);//平台类型
-            this.addProperty('btTxYellowType', PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
-            this.addProperty('btTxYellowLevel', PacketBase.TYPE_BYTE);//黄钻等级.
-            this.addProperty('btLevel3366', PacketBase.TYPE_BYTE);//3366等级
+            this.addProperty('btPlatForm', PacketBase.TYPE_BYTE);       //平台类型
+            this.addProperty('btTxYellowType', PacketBase.TYPE_BYTE);   //黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+            this.addProperty('btTxYellowLevel', PacketBase.TYPE_BYTE);  //黄钻等级.
+            this.addProperty('btLevel3366', PacketBase.TYPE_BYTE);      //3366等级
             this.addProperty('btTxBlueType', PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
             this.addProperty('btTxBlueLevel', PacketBase.TYPE_BYTE);//蓝钻等级
             this.addProperty('btTxQQVipType', PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员

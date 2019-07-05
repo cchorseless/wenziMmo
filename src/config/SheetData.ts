@@ -93,7 +93,6 @@ class CfgEffectDB {
 class CfgMonsterDB {
     public ID: number;
     public name: string;
-
     public constructor() {
 
     }

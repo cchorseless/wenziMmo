@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
-    "props":{"width":500,"sceneColor":"#000000","height":300},
+    "selecteID":3,
+    "props":{"width":520,"sceneColor":"#000000","height":250},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/comp/img_bg.png","sizeGrid":"58,30,30,30","right":0,"left":0,"bottom":0},
+            "props":{"top":0,"skin":"image/common/fram_common_20.png","sizeGrid":"58,30,30,30","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":450,"width":50,"var":"btn_close","skin":"image/common/comp/btn_close.png","height":50},
+            "props":{"y":0,"x":471,"width":50,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","height":50},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":75,"x":30,"width":340,"var":"txtInput_0","type":"text","skin":"image/common/input_frame.png","prompt":"请输入：","maxChars":50,"height":61,"fontSize":30,"font":"Microsoft YaHei","bold":true},
+            "props":{"y":33,"x":12,"width":400,"var":"txtInput_0","type":"text","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"点击输入文本:","maxChars":50,"height":94,"fontSize":30,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"TextInput(txtInput_0)",
             "isDirectory":false,
@@ -53,14 +53,40 @@
         },
         {
             "x":15,
+            "type":"RadioGroup",
+            "props":{"y":158,"x":27,"width":434,"var":"rad_type","space":5,"skin":"image/common/comp/check_circle.png","selectedIndex":0,"labels":"当前,世界,组队,帮会","labelSize":25,"labelPadding":"15,0,0,0","labelFont":"Microsoft YaHei","labelBold":true,"height":65},
+            "nodeParent":1,
+            "label":"RadioGroup(rad_type)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Button",
-            "props":{"y":74,"x":387,"width":100,"var":"btn_send","stateNum":"2","skin":"image/common/btn01.png","labelSize":30,"labelFont":"Microsoft YaHei","labelBold":true,"label":"发送","height":70},
+            "props":{"y":71,"x":401,"width":100,"var":"btn_send","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":19,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"发送","height":57},
             "nodeParent":1,
             "label":"Button(btn_send)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":5,
+            "compId":8,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":55,"x":337,"width":60,"var":"btn_biaoQing","stateNum":"2","skin":"image/main/icon_common_biaoqing01up_finish.png","height":60},
+            "nodeParent":1,
+            "label":"Button(btn_biaoQing)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
             "child":[
                 ]
         }],

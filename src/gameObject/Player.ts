@@ -3,16 +3,16 @@ module GameObject {
     export class Player extends Creature {
         public playerAccount: string;
         public playerPassword: string;
-        public userOnlyid: Int64;
         public avatarIcon: string;
-        public playerName: string;
         public job: EnumData.JOB_TYPE;
         public sex: EnumData.SEX_TYPE;
+        public zslevel: number;//转生等级
+        public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         public wealth: Wealth;//财富
-        private _playerListView: any = [];
-        private _monsterListView: any = [];
-        private _npcListView: any = [];
+        private _playerListView: any = [];//所有的玩家
+        private _monsterListView: any = [];//所有的怪物
+        private _npcListView: any = [];//所有的NPC
 
         constructor() {
             super();
@@ -94,8 +94,8 @@ module GameObject {
          * 获取玩家真实名称
          */
         public get realName(): string {
-            if (this.playerName != null) {
-                return this.playerName.split('@')[0];
+            if (this.objName != null) {
+                return this.objName.split('@')[0];
             }
             return '';
 
@@ -105,27 +105,24 @@ module GameObject {
          * @param obj 
          * @param type 
          */
-        public addViewObj(obj: any, type: number): void {
+        public addViewObj(obj: Creature, type: EnumData.CRET_TYPE): void {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._playerListView.push(obj);
-                    GameApp.GameEngine.outputCretInfo('玩家', type, this._playerListView.length);
                     //GameApp.GameEngine.outputSystemInfo('玩家：' + (obj as Player).name + '(' + (obj as Player).onlyid + ')' + '进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this._monsterListView.push(obj);
-                    GameApp.GameEngine.outputCretInfo('怪物', type, this._monsterListView.length);
                     //GameApp.GameEngine.outputSystemInfo('怪物 lv' + monster.level + '：' + monster.name + '(' + monster.onlyid + ')[' + monster.x + ',' + monster.y + '] 进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
                     this._npcListView.push(obj);
-                    GameApp.GameEngine.outputCretInfo('NPC', type, this._npcListView.length);
                     //GameApp.GameEngine.outputSystemInfo('<font color="#00CD00">NPC：' + npc.name + '(' + npc.onlyid + ')[' + npc.x + ',' + npc.y + '] 进入你的视野</font>');
                     break;
                 default:
                     break;
             }
-            console.log(obj.name + '进入地图');
+            console.log(obj.objName + '进入地图');
         }
         /**
          * 将游戏对象移除视野
@@ -159,7 +156,6 @@ module GameObject {
                     break;
                 }
             }
-            GameApp.GameEngine.outputCretInfo(name, type, list.length);
         }
         /**
          * 清除视野内所有的对象

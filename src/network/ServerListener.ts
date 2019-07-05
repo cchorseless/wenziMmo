@@ -125,9 +125,9 @@ class ServerListener extends SingletonClass {
     public onSocketReconnect() {
         let realLogin = new ProtoCmd.UserRealLogin();
         realLogin.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
-        realLogin.setValue('szPlayerName', GameApp.GameEngine.mainPlayer.playerName);
+        realLogin.setValue('szPlayerName', GameApp.GameEngine.mainPlayer.objName);
         realLogin.setValue('dwTrueZoneid', GameApp.GameEngine.trueZoneid);
-        realLogin.setValue('dwUserOnlyId', GameApp.GameEngine.mainPlayer.userOnlyid);
+        realLogin.setValue('dwUserOnlyId', GameApp.GameEngine.mainPlayer.onlyId);
         //realLogin.setValue('btReloginType', 2);
         realLogin.setValue('loginsvr_id_type', GameApp.GameEngine.loginsvrIdType);
         realLogin.setValue('tokencheck', GameApp.GameEngine.tokenCheck);
@@ -186,7 +186,7 @@ class ServerListener extends SingletonClass {
         player.x = msgData.location.getValue('ncurx');
         player.y = msgData.location.getValue('ncury');
         player.mapname = msgData.getValue('szMapFileName');
-        player.onlyid = msgData.getValue('dwTmpId');
+        player.tempId = msgData.getValue('dwTmpId');
         player.dir = msgData.getValue('dir');
         player.clearViewObj();
         let ready = new ProtoCmd.StateReady();
@@ -203,17 +203,21 @@ class ServerListener extends SingletonClass {
     public mapCreateCret(data: any): void {
         let msgData = new ProtoCmd.MapCreateCret(data);
         let type = msgData.feature.getValue('btCretType');
-        let mapid = msgData.location.getValue('mapid')
-        let obj;
-        if (type == EnumData.CRET_TYPE.CRET_NPC) {
-            obj = new GameObject.Npc();
-            obj.name = FunctionUtils.filterName(msgData.getValue('szShowName')) + '(复活中)';
-        } else {
-            obj = new GameObject.Monster();
-            obj.name = FunctionUtils.filterName(msgData.getValue('szShowName'));
+        let mapid = msgData.location.getValue('mapid');
+        let szShowName = msgData.getValue('szShowName');
+        let obj: GameObject.Creature;
+        switch (type) {
+            case EnumData.CRET_TYPE.CRET_NPC:
+                obj = new GameObject.Npc();
+                obj.objName = obj.filterName(szShowName);
+                break;
+            case EnumData.CRET_TYPE.CRET_MONSTER:
+                obj = new GameObject.Monster();
+                obj.objName = obj.filterName(szShowName);
+                break;
         }
-        obj.id = msgData.feature.getValue('dwCretTypeId');
-        obj.onlyid = msgData.getValue('dwTmpId');
+        obj.configId = msgData.feature.getValue('dwCretTypeId');
+        obj.tempId = msgData.getValue('dwTmpId');
         obj.mapid = msgData.location.getValue('mapid');
         obj.x = msgData.location.getValue('ncurx');
         obj.y = msgData.location.getValue('ncury');
@@ -222,7 +226,7 @@ class ServerListener extends SingletonClass {
         obj.mp = msgData.getValue('nNowMp');
         obj.lifestate = msgData.getValue('lifestate');
         // 将对象添加到视野列表中
-        GameApp.GameEngine.mainPlayer.addViewObj(obj, type);
+        GameApp.MainPlayer.addViewObj(obj, type);
         msgData.clear();
         msgData = null;
     }
@@ -234,9 +238,8 @@ class ServerListener extends SingletonClass {
     public mapCreatePlayer(data: any): void {
         let msg = new ProtoCmd.MapCreatePlayer(data);
         let player = new GameObject.Player();
-        player.onlyid = msg.getValue('dwTmpId');
-        player.name = msg.getValue('szShowName');
-        player.playerName = player.name;
+        player.tempId = msg.getValue('dwTmpId');
+        player.objName = msg.getValue('szShowName');
         player.mapid = msg.location.getValue('mapid');
         player.x = msg.location.getValue('ncurx');
         player.y = msg.location.getValue('ncury');
@@ -245,7 +248,7 @@ class ServerListener extends SingletonClass {
         player.mp = msg.getValue('nNowMp');
         player.lifestate = msg.getValue('lifestate');
 
-        if (player.onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
+        if (player.onlyId == GameApp.GameEngine.mainPlayer.onlyId) {
             GameApp.GameEngine.mainPlayer.level = player.level;
             GameApp.GameEngine.mainPlayer.hp = player.hp;
             GameApp.GameEngine.mainPlayer.mp = player.mp;
@@ -310,7 +313,7 @@ class ServerListener extends SingletonClass {
         let nowhp = msgData.getValue('nNowHP');
         let maxhp = msgData.getValue('nMaxHP');
         let onlyid = msgData.getValue('dwtempid');
-        if (onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
+        if (onlyid == GameApp.GameEngine.mainPlayer.onlyId) {
             let hp = msgData.getValue('nChangeHP');
             if (hp < 0) {
                 ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
@@ -332,7 +335,6 @@ class ServerListener extends SingletonClass {
         //         break;
         //     }
         // }
-
         msgData.clear();
         msgData = null;
     }
@@ -345,8 +347,13 @@ class ServerListener extends SingletonClass {
      */
     public cretGoldChange(data: any): void {
         let msg = new ProtoCmd.CretGoldChange(data);
-        //App.MainPanel.topGoldcnt.text = msg.getValue('nGold');
-        //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('nChanged') + '金币</font>');
+        let player = GameApp.MainPlayer;
+        player.changeGold(msg.getValue('nGold'));
+        TipsManage.showTxt('金币改变了' + msg.getValue('nChanged'));
+        GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLD);
+        if (msg.getValue('boMax')) {
+            TipsManage.showTips('金币达到上限');
+        }
         msg.clear();
         msg = null;
     }
@@ -357,7 +364,13 @@ class ServerListener extends SingletonClass {
      */
     public cretGoldLockChange(data): void {
         let msg = new ProtoCmd.CretGoldLockChange(data);
-
+        let player = GameApp.MainPlayer;
+        player.changeGold_lock(msg.getValue('dwBindGold'));
+        TipsManage.showTxt('绑定金币改变了' + msg.getValue('nChanged'));
+        GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLDLOCK);
+        if (msg.getValue('boMax')) {
+            TipsManage.showTips('绑定金币达到上限');
+        }
         msg.clear();
         msg = null;
     }
@@ -370,10 +383,10 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretYuanBaoChange(data);
         let player = GameApp.MainPlayer;
         player.changeYuanBao(msg.getValue('dwRmbGold'));
-        TipsManage.showTips('元宝变化' + msg.getValue('nChanged'));
+        TipsManage.showTxt('元宝改变了' + msg.getValue('nChanged'));
+        GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAO);
         msg.clear();
         msg = null;
-
     }
 
     /**
@@ -381,7 +394,13 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public CretYuanBaoLockChange(data): void {
-
+        let msg = new ProtoCmd.CretYuanBaoLockChange(data);
+        let player = GameApp.MainPlayer;
+        player.changeYuanBao_lock(msg.getValue('dwGiftRmbGold'));
+        TipsManage.showTxt('绑定元宝改变了' + msg.getValue('nChanged'));
+        GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAOLOCK);
+        msg.clear();
+        msg = null;
     }
 
     /**
@@ -391,20 +410,26 @@ class ServerListener extends SingletonClass {
     public cretExpChange(data: any): void {
         let msg = new ProtoCmd.CretExpChange(data);
         let type = msg.getValue('nType');
+        let nowExp = msg.getValue('i64Exp');
+        let addExp = msg.getValue('dwAdd');
         switch (type) {
+            // 更新角色
             case 0:
                 //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('dwAdd') + '点经验</font>');
-                GameApp.GameEngine.mainPlayer.changeExp(msg.getValue('i64Exp'));
+                GameApp.MainPlayer.changeExp(nowExp);
+                TipsManage.showTxt('主角经验改变了' + addExp);
+                GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
                 break;
+            // 更新英雄
             case 1:
+                TipsManage.showTxt('英雄经验改变了' + addExp);
+                GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_EXP);
                 break;
+            // 更新BOSS积分
             case 2:
                 break;
-            default:
-                //App.MainPanel.addSysChat('CretExpChange 未定义类型');
-                break;
-        }
 
+        }
         msg.clear();
         msg = null;
     }
@@ -415,14 +440,20 @@ class ServerListener extends SingletonClass {
      */
     public cretLevelUp(data: any): void {
         let msg = new ProtoCmd.CretLevelUp(data);
-        let onlyid = msg.getValue('dwTempId');
+        let dwTempId = msg.getValue('dwTempId');
         let level = msg.getValue('dwLevel');
-        if (onlyid == GameApp.GameEngine.mainPlayer.onlyid) {
-            GameApp.GameEngine.mainPlayer.level = level;
+        let i64LeftExp = msg.getValue('i64LeftExp');
+        let i64MaxExp = msg.getValue('i64MaxExp');
+
+        let player = GameApp.MainPlayer;
+        if (dwTempId == player.tempId) {
+            player.changeLevel(level);
+            player.changeExp(i64LeftExp, i64MaxExp);
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_LEVEL);
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
             //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.name + 'lv.' +GameApp.GameEngine.mainPlayer.level
-            + "[color=#00EE00](" + GameApp.GameEngine.mainPlayer.x + ',' + GameApp.GameEngine.mainPlayer.y + ")[/color]";
+            // + "[color=#00EE00](" + GameApp.GameEngine.mainPlayer.x + ',' + GameApp.GameEngine.mainPlayer.y + ")[/color]";
             //App.MainPanel.topLevelcnt.text =GameApp.GameEngine.mainPlayer.level + '';
-            GameApp.GameEngine.mainPlayer.changeExp(msg.getValue('i64LeftExp'), msg.getValue('i64MaxExp'));
         }
         // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
         //     if (//App.MainPanel.objItemDB[i].onlyid == onlyid) {
@@ -453,12 +484,11 @@ class ServerListener extends SingletonClass {
         //     return new ProtoCmd.CretChat(data)
         // });
         let msg = new ProtoCmd.CretChat(data);
-        console.log('聊天：' + msg.chatMsg);
         if (msg.chatMsg != "") {
             PanelManage.Main.updateChatView(msg);
         }
         msg.clear();
-        Laya.Pool.recover("ProtoCmd.CretChat", msg);
+        // Laya.Pool.recover("ProtoCmd.CretChat", msg);
     }
 
     /**
@@ -467,9 +497,35 @@ class ServerListener extends SingletonClass {
      */
     public cretAbility(data: any): void {
         let msg = new ProtoCmd.CretAbility(data);
-        if (msg.getValue('dwType') == 0) {
-            GameApp.GameEngine.mainPlayer.changeHp(0, msg.ability.getValue('nMaxHP'));
-            GameApp.GameEngine.mainPlayer.changeFight(msg.getValue('fightPower'));
+        let dwTempId = msg.getValue('dwTempId');
+        let ability = msg.ability;
+        let dwType = msg.getValue('dwType');
+        let fightPower = msg.getValue('fightPower');
+
+        let player = GameApp.MainPlayer;
+        if (dwTempId == player.tempId) {
+            switch (dwType) {
+                // 玩家
+                case 0:
+                    player.changeAbility(ability);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
+                    player.changeFight(fightPower);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_POWER);
+                    break;
+                // 英雄战士
+                case 1:
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
+                    break;
+                // 英雄法师
+                case 2:
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
+                    break;
+                // 英雄道士
+                case 3:
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
+                    break;
+
+            }
         }
         msg.clear();
         msg = null;
@@ -487,7 +543,6 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public cretCharBase(data: any): void {
-        Log.trace('===========cretCharBase')
         let msg = new ProtoCmd.CretCharBase(data);
         let player = GameApp.MainPlayer;
         player.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));//经验
@@ -534,7 +589,6 @@ class ServerListener extends SingletonClass {
 
     public tipMsg(data: any): void {
         let msg = new ProtoCmd.TipMsg(data);
-
         //App.MainPanel.tipsInfo.text = msg.tipmsg;
         // Main.main.getTransition('tipsinfo').play(() => {
         //     //App.MainPanel.tipsInfo.text = "";

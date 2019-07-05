@@ -14,19 +14,36 @@ module ResData {
         // 登陆界面
         public static Login = [{ url: "res/atlas/image/common/login.atlas", type: Laya.Loader.ATLAS },];
         // 服务器列表界面
-        public static ServerList = [{ url: "res/atlas/image/common/serverList.atlas", type: Laya.Loader.ATLAS },];
+        public static ServerList = null
         // 服务器公告界面
         public static ServerNotice = null;
         // 创建角色界面
         public static CreateAvatar = null;
+        // 选择角色界面
+        public static ChooseAvatar = null;
         // 通用素材
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/comp.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },];
+        { url: "res/atlas/image/common/number.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/npc.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
+
+        { url: "fonts/FZXK.ttf", type: Laya.Loader.TTF },
+        ];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
         // 角色界面
         public static JueSe = null;
+        // 养成界面
+        public static YangCheng = null;
+        // 背包界面
+        public static BeiBao = null;
+        // 社交界面
+        public static SheJiao = null;
+        // 副本界面
+        public static FuBen = null;
+
     };
     /**
      * 游戏音效资源

@@ -4,5 +4,8 @@ module view.yangCheng{
 		constructor(){
 			super();
 		}
+		public setData():void{
+			
+		}
 	}
 }

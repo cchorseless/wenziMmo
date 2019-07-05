@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":20,"x":20,"top":0,"skin":"image/common/bg.jpg","right":0,"left":0,"bottom":0},
+            "props":{"y":20,"x":20,"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,52 +28,13 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":525,"x":146,"width":388,"text":"这是角色界面","height":80,"fontSize":40,"font":"Microsoft YaHei","bold":true,"align":"center"},
+            "props":{"y":525,"x":126,"width":388,"text":"这是社交界面","height":80,"fontSize":40,"font":"Microsoft YaHei","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":757,"x":20,"skin":"image/main/bg_line.png","right":0,"pivotY":-2,"pivotX":2,"left":0,"height":27},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":734,"x":504,"width":125,"stateNum":"2","skin":"image/main/all_mode_down_finish.png","height":58},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":801,"x":32,"width":89,"stateNum":"2","skin":"image/common/btn02.png","height":101},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
             "child":[
                 ]
         }],

@@ -91,11 +91,5 @@ class FunctionUtils {
         return nDir;
     }
 
-    public static filterName(name: string): string {
-        if (name != undefined) {
-            let arr = name.split('_');
-            return arr[0];
-        }
-        return name;
-    }
+
 }

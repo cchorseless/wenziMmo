@@ -178,7 +178,7 @@ module EnumData {
 
         CHAT_TYPE_PRINCES = 6,			// 诸侯消息  
 
-        CHAT_TYPE_BOHOU = 7,			// 伯侯消息  
+        CHAT_TYPE_BOHOU = 7,			// 伯侯消息   
 
         CHAT_TYPE_WORLD = 8,			// 世界消息  
 
