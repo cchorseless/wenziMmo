@@ -29,7 +29,13 @@ module EnumData {
         DEFAULT = 30,
 
     }
-
+    /**
+     * Handle行为类型
+     */
+    export enum HANDLE_TYPE {
+        ADD,//增加
+        REMOVE,//去除
+    }
     /**
      * 职业
      */
