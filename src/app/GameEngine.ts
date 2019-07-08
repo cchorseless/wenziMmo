@@ -97,6 +97,7 @@ class GameEngine extends SingletonClass {
      * 资源组加载进度
      */
     private onResourceLoadProgress(itemsLoaded: number, itemsTotal: number): void {
+        
     }
 
     /**
