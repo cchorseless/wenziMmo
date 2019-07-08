@@ -19,12 +19,12 @@ module view.main {
 				if (this.cek_showNpc.selected) {
 					Laya.Tween.to(this.cek_showNpc, { x: 0 }, 500, Laya.Ease.bounceOut);
 					Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut);
-					Laya.Tween.to(this.img_sceneBg, { left: 0 }, 500, Laya.Ease.bounceOut);
+					this.ui_scene.changeToBig();
 				}
 				else {
 					Laya.Tween.to(this.cek_showNpc, { x: 110 }, 500, Laya.Ease.bounceOut);
 					Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
-					Laya.Tween.to(this.img_sceneBg, { left: 115 }, 500, Laya.Ease.bounceOut);
+					this.ui_scene.changeToSmall();
 				}
 			}, null, false);
 			let _player = GameApp.MainPlayer;
@@ -207,6 +207,7 @@ module view.main {
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: ui.compart.NpcIconItemUI = new ui.compart.NpcIconItemUI();
 					npcIcon.lbl_npcName.text = obj.objName;
+					npcIcon.on(Laya.UIEvent.CLICK, this, () => { this.ui_npcInfoDialog.visible = true });
 					this.vbox_npc.addChild(npcIcon);
 					break;
 
@@ -230,6 +231,15 @@ module view.main {
 		 * @param obj 
 		 */
 		public updateMonstorView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+			switch (handleType) {
+				case EnumData.HANDLE_TYPE.ADD:
+					this.ui_scene.addMonster(obj);
+					break;
+
+				case EnumData.HANDLE_TYPE.REMOVE:
+
+					break;
+			}
 
 		}
 	}
