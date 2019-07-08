@@ -10,9 +10,9 @@ module GameObject {
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         public wealth: Wealth;//财富
-        private _playerListView: any = [];//所有的玩家
-        private _monsterListView: any = [];//所有的怪物
-        private _npcListView: any = [];//所有的NPC
+        private _allPlayer = {};//所有的玩家
+        private _allMonster = {};//所有的怪物
+        private _allNpc = {};//所有的NPC
 
         constructor() {
             super();
@@ -108,15 +108,18 @@ module GameObject {
         public addViewObj(obj: Creature, type: EnumData.CRET_TYPE): void {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    this._playerListView.push(obj);
+                    this._allPlayer[obj.tempId] = obj;
+                    PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('玩家：' + (obj as Player).name + '(' + (obj as Player).onlyid + ')' + '进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    this._monsterListView.push(obj);
+                    this._allMonster[obj.tempId] = obj;
+                    PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('怪物 lv' + monster.level + '：' + monster.name + '(' + monster.onlyid + ')[' + monster.x + ',' + monster.y + '] 进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    this._npcListView.push(obj);
+                    this._allNpc[obj.tempId] = obj;
+                    PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('<font color="#00CD00">NPC：' + npc.name + '(' + npc.onlyid + ')[' + npc.x + ',' + npc.y + '] 进入你的视野</font>');
                     break;
                 default:
@@ -134,15 +137,15 @@ module GameObject {
             let name: string = '';
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    list = this._playerListView;
+                    list = this._allPlayer;
                     name = '玩家';
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    list = this._monsterListView;
+                    list = this._allMonster;
                     name = '怪物';
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    list = this._npcListView;
+                    list = this._allNpc;
                     name = 'NPC';
                     break;
                 default:
@@ -161,20 +164,20 @@ module GameObject {
          * 清除视野内所有的对象
          */
         public clearViewObj() {
-            for (let obj in this._playerListView) {
-                obj = null;
+            for (let tempId in this._allPlayer) {
+                this._allPlayer[tempId] = null;
             }
-            this._playerListView = [];
+            this._allPlayer = {};
 
-            for (let obj in this._monsterListView) {
-                obj = null;
+            for (let tempId in this._allMonster) {
+                this._allMonster[tempId] = null;
             }
-            this._monsterListView = [];
+            this._allMonster = {};
 
-            for (let obj in this._npcListView) {
-                obj = null;
+            for (let tempId in this._allNpc) {
+                this._allNpc[tempId] = null;
             }
-            this._npcListView = [];
+            this._allNpc = {};
         }
     }
 }

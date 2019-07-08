@@ -75,7 +75,7 @@ class Socket extends SingletonClass {
 	private onSocketError(e: Laya.Event): void {
 		if (this._needReconnect) {
 			this.reconnect();
-		} 
+		}
 		else {
 			GameApp.LListener.event(LcpEvent.SOCKET_NOCONNECT);
 		}

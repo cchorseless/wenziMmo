@@ -96,6 +96,7 @@ module GameObject {
     export class Creature {
         public objName: string;//名字
         public level: number;//等级
+        public objType: EnumData.CRET_TYPE;//对象类型
         public hp: number;
         public mp: number;
         public lifestate: number;

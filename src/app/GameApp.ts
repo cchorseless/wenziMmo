@@ -48,13 +48,13 @@ class GameApp {
     //     return App._NetMessageCenter;
     // }
 
-    /**
-     * 统一的计时器和帧刷管理类
-     * @type {TimerManager}
-     */
-    public static get TimerManager(): TimerManager {
-        return TimerManager.getInstance();
-    }
+    // /**
+    //  * 统一的计时器和帧刷管理类
+    //  * @type {TimerManager}
+    //  */
+    // public static get TimerManager(): TimerManager {
+    //     return TimerManager.getInstance();
+    // }
     // /**
     //  * 本地消息通知中心
     //  */

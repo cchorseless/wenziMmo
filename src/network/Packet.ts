@@ -1,5 +1,4 @@
 
-
 /**
  * 字段类
  */
@@ -485,6 +484,7 @@ class Int64 {
         return num;
     }
 }
+
 
 class SimpleFeature extends PacketBase {
     public constructor() {

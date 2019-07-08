@@ -216,6 +216,7 @@ class ServerListener extends SingletonClass {
                 obj.objName = obj.filterName(szShowName);
                 break;
         }
+        obj.objType = type;
         obj.configId = msgData.feature.getValue('dwCretTypeId');
         obj.tempId = msgData.getValue('dwTmpId');
         obj.mapid = msgData.location.getValue('mapid');
@@ -237,27 +238,29 @@ class ServerListener extends SingletonClass {
      */
     public mapCreatePlayer(data: any): void {
         let msg = new ProtoCmd.MapCreatePlayer(data);
-        let player = new GameObject.Player();
-        player.tempId = msg.getValue('dwTmpId');
-        player.objName = msg.getValue('szShowName');
-        player.mapid = msg.location.getValue('mapid');
-        player.x = msg.location.getValue('ncurx');
-        player.y = msg.location.getValue('ncury');
-        player.level = msg.getValue('lvl');
-        player.hp = msg.getValue('nNowHp');
-        player.mp = msg.getValue('nNowMp');
-        player.lifestate = msg.getValue('lifestate');
+        let newPlayer = new GameObject.Player();
+        let type = msg.feature.getValue('btCretType');
+        newPlayer.tempId = msg.getValue('dwTmpId');
+        newPlayer.objName = msg.getValue('szShowName');
+        newPlayer.objType = type;
+        newPlayer.mapid = msg.location.getValue('mapid');
+        newPlayer.x = msg.location.getValue('ncurx');
+        newPlayer.y = msg.location.getValue('ncury');
+        newPlayer.level = msg.getValue('lvl');
+        newPlayer.hp = msg.getValue('nNowHp');
+        newPlayer.mp = msg.getValue('nNowMp');
+        newPlayer.lifestate = msg.getValue('lifestate');
 
-        if (player.onlyId == GameApp.GameEngine.mainPlayer.onlyId) {
-            GameApp.GameEngine.mainPlayer.level = player.level;
-            GameApp.GameEngine.mainPlayer.hp = player.hp;
-            GameApp.GameEngine.mainPlayer.mp = player.mp;
-            GameApp.GameEngine.mainPlayer.lifestate = player.lifestate;
-            GameApp.GameEngine.mainPlayer.job = msg.feature.feature.getValue('job');
-            GameApp.GameEngine.mainPlayer.sex = msg.feature.feature.getValue('sex');
-            GameApp.GameEngine.mainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
+        let player = GameApp.MainPlayer;
+        if (player.tempId == newPlayer.tempId) {
+            player.level = newPlayer.level;
+            player.hp = newPlayer.hp;
+            player.mp = newPlayer.mp;
+            player.lifestate = newPlayer.lifestate;
+            player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
+            newPlayer = player;
         }
-        GameApp.GameEngine.mainPlayer.addViewObj(player, msg.feature.getValue('btCretType'));
+        GameApp.MainPlayer.addViewObj(newPlayer, type);
         msg.clear();
         msg = null;
     }

@@ -11,6 +11,9 @@ module view.main {
 			this.ui_sceneInfoDialog.visible = false;
 			//  todo
 			this.vstack_task.selectedIndex = 1;
+			// NPC列表
+			this.panel_npc.vScrollBarSkin = '';
+			this.vbox_npc['sortItem'] = (items) => { };
 			// NPC竖条 展开缩放的动画
 			this.cek_showNpc.clickHandler = Laya.Handler.create(this, () => {
 				if (this.cek_showNpc.selected) {
@@ -194,8 +197,39 @@ module view.main {
 			this.ui_chatSmallItem.addLabel(btChatType, _chatMsg);
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
+		/**
+		 * 更新NPC
+		 * @param handleType 
+		 * @param obj 
+		 */
+		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+			switch (handleType) {
+				case EnumData.HANDLE_TYPE.ADD:
+					let npcIcon: ui.compart.NpcIconItemUI = new ui.compart.NpcIconItemUI();
+					npcIcon.lbl_npcName.text = obj.objName;
+					this.vbox_npc.addChild(npcIcon);
+					break;
 
-		public updateNpcView(data): void {
+				case EnumData.HANDLE_TYPE.REMOVE:
+
+					break;
+			}
+
+		}
+		/**
+		 * 更新玩家
+		 * @param handleType 
+		 * @param obj 
+		 */
+		public updatePlayerView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+
+		}
+		/**
+		 * 更新怪物
+		 * @param handleType 
+		 * @param obj 
+		 */
+		public updateMonstorView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
 
 		}
 	}
