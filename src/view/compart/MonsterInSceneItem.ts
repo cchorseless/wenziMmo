@@ -3,10 +3,15 @@ module view.compart {
 	export class MonsterInSceneItem extends ui.compart.MonsterInSceneItemUI {
 		constructor() {
 			super();
+			this.setData();
 		}
-
+		public _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
 		public setData(): void {
-
+			this._skeGroup.loadRes(['sk/01/daocaoren.sk'], () => {
+				this.addChild(this._skeGroup);
+				this._skeGroup.pos(this.width / 2, this.height * 0.8);
+				this._skeGroup.play(0, true);
+			});
 		}
 
 		public addEvent(): void {
