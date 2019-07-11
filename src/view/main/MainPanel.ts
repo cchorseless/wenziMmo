@@ -9,8 +9,6 @@ module view.main {
 			this.ui_chatBigDialog.visible = false;
 			this.ui_npcInfoDialog.visible = false;
 			this.ui_sceneInfoDialog.visible = false;
-			//  todo
-			this.vstack_task.selectedIndex = 1;
 			// NPC列表
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
@@ -27,6 +25,25 @@ module view.main {
 					this.ui_scene.changeToSmall();
 				}
 			}, null, false);
+			//  聊天小窗
+			this.panel_sceneMsg.vScrollBarSkin = '';
+			this.panel_chatMsg.vScrollBarSkin = '';
+			this.vbox_chatMsg['sortItem'] = (items) => { };
+			this.vbox_sceneMsg['sortItem'] = (items) => { };
+			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
+				this.vstack_task.selectedIndex = index;
+				if (index == 1) {
+					this.tab_task.labels = '场\n景,发\n送';
+					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
+						this.ui_chatSendDialog.visible = true;
+					})
+				}
+				else {
+					this.tab_task.labels = '场\n景,聊\n天';
+				}
+			}, null, false);
+			this.tab_task.selectedIndex = 1;
+			// 界面赋值
 			let _player = GameApp.MainPlayer;
 			// 名字
 			this.lbl_playerName.text = _player.realName;
@@ -52,11 +69,8 @@ module view.main {
 			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
 			this.box_jiangHu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jiangHu']);
 			this.box_yangCheng.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_yangCheng']);
-			// 任务 聊天 位置
-			this.img_chat.on(Laya.UIEvent.CLICK, this, () => {
-				this.ui_chatSendDialog.visible = true;
-			});
-			this.ui_chatSmallItem.btn_up.on(Laya.UIEvent.CLICK, this, () => {
+			// 聊天大窗
+			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_chatBigDialog.visible = true;
 			});
 			this.btn_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
@@ -161,8 +175,9 @@ module view.main {
 			if (_chatArray.length > GameApp.GameEngine.chatDataSingleMax) {
 				_chatArray.shift()
 			}
-
 			let _chatMsg = '';
+			let panel_small = this.panel_chatMsg; // 
+			let vbox_small = this.vbox_chatMsg;  //  
 			switch (btChatType) {
 				// 私聊
 				case EnumData.ChatType.CHAT_TYPE_PRIVATE:
@@ -194,7 +209,22 @@ module view.main {
 					break;
 			}
 			_chatArray.push(_chatMsg);
-			this.ui_chatSmallItem.addLabel(btChatType, _chatMsg);
+			// 更新到小窗
+			let small_txt: Laya.Label;
+			if (vbox_small.numChildren > GameApp.GameEngine.chatDataSmallMax) {
+				small_txt = vbox_small.getChildAt(0) as Laya.Label;
+			}
+			else {
+				small_txt = new Laya.Label();
+			}
+			small_txt.text = _chatMsg;
+			small_txt.fontSize = 16;//字号
+			small_txt.bold = true;
+			small_txt.width = 340;
+			small_txt.wordWrap = true;
+			vbox_small.addChild(small_txt);
+			panel_small.scrollTo(null, panel_small.contentHeight);
+			// 更新到大窗
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
 		/**
@@ -237,7 +267,6 @@ module view.main {
 					break;
 
 				case EnumData.HANDLE_TYPE.REMOVE:
-
 					break;
 			}
 

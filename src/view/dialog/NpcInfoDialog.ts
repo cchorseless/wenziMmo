@@ -11,7 +11,7 @@ module view.dialog {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => { this.visible = false })
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => { this.visible = false });
 		}
 	}
 }

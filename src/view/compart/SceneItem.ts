@@ -61,7 +61,7 @@ module view.compart {
 		 * @param obj 
 		 */
 		public addMonster(obj): void {
-			let monster: ui.compart.MonsterInSceneItemUI = new ui.compart.MonsterInSceneItemUI();
+			let monster: view.compart.MonsterInSceneItem = new view.compart.MonsterInSceneItem();
 			let childNum = this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren;
 			while (childNum >= 4) {
 				childNum = childNum % 4;
