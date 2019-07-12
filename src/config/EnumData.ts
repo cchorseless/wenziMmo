@@ -75,9 +75,9 @@ module EnumData {
      */
     export enum PACKAGE_TYPE {
         ITEMCELLTYPE_NONE = 0,				// 不是格子，用于丢弃或捡到物品
-        ITEMCELLTYPE_EQUIP = 1,				// 装备
+        ITEMCELLTYPE_EQUIP = 1,				// 身上穿戴的装备
         ITEMCELLTYPE_STORE = 2,				// 仓库
-        ITEMCELLTYPE_PACKAGE = 3,			// 包裹的格子
+        ITEMCELLTYPE_PACKAGE = 3,			// 包裹
         ITEMCELLTYPE_SOLDITEM = 4,			// 已出售物品
         ITEMCELLTYPE_LINGSHBAOGUO = 5,		// 临时包裹
         //-----

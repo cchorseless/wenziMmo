@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":7,
     "props":{"width":520,"sceneColor":"#000000","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":33,"x":12,"width":400,"var":"txtInput_0","type":"text","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"点击输入文本:","maxChars":50,"height":94,"fontSize":30,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
+            "props":{"y":38,"x":12,"width":400,"var":"txtInput_0","type":"text","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"点击输入文本:","maxChars":50,"height":94,"fontSize":30,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"TextInput(txtInput_0)",
             "isDirectory":false,
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"RadioGroup",
-            "props":{"y":158,"x":27,"width":434,"var":"rad_type","space":5,"skin":"image/common/comp/check_circle.png","selectedIndex":0,"labels":"当前,世界,组队,帮会","labelSize":25,"labelPadding":"15,0,0,0","labelFont":"Microsoft YaHei","labelBold":true,"height":65},
+            "props":{"y":165,"x":36,"width":644,"var":"rad_type","stateNum":3,"space":20,"skin":"image/main/btn_common_08up_finish.png","selectedIndex":0,"scaleY":0.7,"scaleX":0.7,"labels":"当前,世界,组队,帮会","labelSize":35,"labelPadding":"15,0,0,0","labelFont":"FZXK","labelColors":"#000000,#000000,#000000","height":69},
             "nodeParent":1,
             "label":"RadioGroup(rad_type)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":71,"x":401,"width":100,"var":"btn_send","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":19,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"发送","height":57},
+            "props":{"y":61,"width":100,"var":"btn_send","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":13,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"发送","height":57},
             "nodeParent":1,
             "label":"Button(btn_send)",
             "isDirectory":false,

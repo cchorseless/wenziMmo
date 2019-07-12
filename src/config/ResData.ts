@@ -27,6 +27,7 @@ module ResData {
         { url: "res/atlas/image/common/number.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/npc.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
 
         { url: "fonts/FZXK.ttf", type: Laya.Loader.TTF },
@@ -34,7 +35,7 @@ module ResData {
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
         // 角色界面
-        public static JueSe = null;
+        public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 养成界面
         public static YangCheng = null;
         // 背包界面

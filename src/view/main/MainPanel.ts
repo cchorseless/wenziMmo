@@ -48,7 +48,12 @@ module view.main {
 			// 名字
 			this.lbl_playerName.text = _player.realName;
 			// 等级
-			this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
+			if (_player.zslevel == null || _player.zslevel == 0) {
+				this.lbl_level.text = '' + _player.level + '级';
+			}
+			else {
+				this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
+			}
 			// 金币
 			this.lbl_gold.text = '' + _player.wealth.gold;
 			// 绑定金币

@@ -1,7 +1,7 @@
 
 class GameEngine extends SingletonClass {
 
-    public IsDebug = false;
+    public IsDebug = true;
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
@@ -51,8 +51,10 @@ class GameEngine extends SingletonClass {
     /******************************************************** */
     public packetBytes: Laya.Byte;//全局消息包
     public mainPlayer: GameObject.Player;//玩家
-    public equipDB;//装备背包
-    public bagItemDB;//物品背包
+    // ****************道具存储*****************
+    public equipDB = {};//装备背包
+    public bagItemDB = {};//物品背包
+    public cangKuDB = {};//仓库背包
     private mapId: number;
     private mapGroupKey: string;
 
@@ -76,8 +78,6 @@ class GameEngine extends SingletonClass {
         this.logintoken = new Laya.Byte();
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new GameObject.Player();
-        this.equipDB = {};
-        this.bagItemDB = {};
     }
 
 
@@ -97,7 +97,7 @@ class GameEngine extends SingletonClass {
      * 资源组加载进度
      */
     private onResourceLoadProgress(itemsLoaded: number, itemsTotal: number): void {
-        
+
     }
 
     /**

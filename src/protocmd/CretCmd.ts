@@ -622,8 +622,8 @@ module ProtoCmd {
         public items: Array<ItemBase> = new Array<ItemBase>();
         public constructor(data: Laya.Byte = null) {
             super();
-            this.addProperty('btType', PacketBase.TYPE_BYTE);	//控制前端是否清除包裹重新添加
-            this.addProperty('btPosition', PacketBase.TYPE_CHAR);//包裹类型
+            this.addProperty('btType', PacketBase.TYPE_BYTE);	//控制前端是否清除包裹重新添加(0:开始发并清除 1:添加 2:发完 3:第一次就发完(清除))
+            this.addProperty('bagType', PacketBase.TYPE_CHAR);//包裹类型
             this.addProperty('btOpenCount', PacketBase.TYPE_BYTE);//开启的包裹数量
             this.addProperty('dwSortCD', PacketBase.TYPE_INT);//排序CD
             this.addProperty('nCount', PacketBase.TYPE_INT);//物品个数
@@ -634,8 +634,7 @@ module ProtoCmd {
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             this.count = this.getValue('nCount');
-            this.pos = this.getValue('btPosition');
-
+            this.pos = this.getValue('bagType');
             if (this.count > 0) {
                 for (let i = 0; i < this.count; i++) {
                     this.items[i] = new ItemBase(data);
@@ -651,7 +650,7 @@ module ProtoCmd {
         public static msgID: number = 0x0301;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('btPosition', PacketBase.TYPE_BYTE);//包裹类型
+            this.addProperty('bagType', PacketBase.TYPE_BYTE);//包裹类型
             this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品唯一ID
             this.read(data);
         }
@@ -664,7 +663,7 @@ module ProtoCmd {
         public item: ItemBase = new ItemBase(null);
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('btPosition', PacketBase.TYPE_BYTE);
+            this.addProperty('bagType', PacketBase.TYPE_BYTE);
             this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
             this.read(data);
         }
@@ -725,8 +724,8 @@ module ProtoCmd {
         public static msgID: number = 0x030A;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('btPosition', PacketBase.TYPE_BYTE);//包裹类型
-            this.addProperty('itemid', PacketBase.TYPE_INT64);//物品唯一ID
+            this.addProperty('bagType', PacketBase.TYPE_BYTE);//包裹类型
+            this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品唯一ID
             this.addProperty('dwCount', PacketBase.TYPE_DWORD);//物品数量
             this.read(data);
         }

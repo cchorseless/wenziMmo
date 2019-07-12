@@ -56,7 +56,7 @@ module view.common {
 			// 英雄形象
 			let path = (this.curSex == 1) ? 'image/common/nan' : 'image/common/nv';
 			this.img_hero.skin = path + '0' + this.curMenPai + '.png';
-			this.img_heroSmall.skin = path + '0' + this.curMenPai + '_half.png';
+			// this.img_heroSmall.skin = path + '0' + this.curMenPai + '_half.png';
 		}
 		// 随机角色姓名
 		private randomName(): void {

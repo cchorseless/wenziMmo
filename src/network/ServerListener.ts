@@ -601,11 +601,7 @@ class ServerListener extends SingletonClass {
     }
 
 
-    public cretGetUseItemRet(data: any): void {
-        let msg = new ProtoCmd.CretGetUseItemRet(data);
-        msg.clear();
-        msg = null;
-    }
+    // *********************************************背包相关***************************************
 
     /**
      * 初始化背包数据
@@ -613,108 +609,136 @@ class ServerListener extends SingletonClass {
      */
     public initBag(data: any): void {
         let msg = new ProtoCmd.CretItems(data);
-        let typepos = msg.getValue('btPosition');
+        let bagType: EnumData.PACKAGE_TYPE = msg.getValue('bagType');
         let itemsInfo: Array<ItemBase> = msg.items;
-        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            for (let i = 0; i < itemsInfo.length; i++) {
-                // 装备索引
-                let idx = itemsInfo[i].location.getValue('btIndex');
-                GameApp.GameEngine.equipDB[idx] = null;
-                GameApp.GameEngine.equipDB[idx] = itemsInfo[i];
-            }
+        let _bag;
+        Log.trace('开始初始化背包', bagType);
+        switch (bagType) {
+            // 身上穿戴的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                _bag = GameApp.GameEngine.equipDB;
+                break;
+            // 背包里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                _bag = GameApp.GameEngine.bagItemDB;
+                break;
+            // 仓库里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                _bag = GameApp.GameEngine.cangKuDB;
+                break;
         }
-        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+        if (_bag != null) {
             for (let i = 0; i < itemsInfo.length; i++) {
-                // 包裹索引
-                let idx = itemsInfo[i].location.getValue('btIndex');
-                GameApp.GameEngine.bagItemDB[idx] = null;
-                GameApp.GameEngine.bagItemDB[idx] = itemsInfo[i];
+                let idx = itemsInfo[i].i64ItemID.toString();
+                _bag[idx] = null;
+                _bag[idx] = itemsInfo[i];
+                Log.trace('获得物品' + idx);
             }
         }
         msg.clear();
         msg = null;
     }
 
-    //0x0301
+
     /**
-     * 删除背包数据
+     * 删除背包数据 //0x0301
      * @param data 
      */
     public cretDeleteItem(data: Laya.Byte) {
         let msg = new ProtoCmd.CretDeleteItem(data);
-        let i64Id: Int64 = msg.getValue('i64Id');
-        let typepos = msg.getValue('btPosition');
-        let bag;
-        // 装备
-        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            bag = GameApp.GameEngine.equipDB;
+        let i64Id: Int64 = msg.getValue('i64Id').toString();
+        let bagType = msg.getValue('bagType');
+        let _bag;
+        switch (bagType) {
+            // 身上穿戴的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                _bag = GameApp.GameEngine.equipDB;
+                break;
+            // 背包里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                _bag = GameApp.GameEngine.bagItemDB;
+                break;
+            // 仓库里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                _bag = GameApp.GameEngine.cangKuDB;
+                break;
         }
-        // 包裹
-        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            bag = GameApp.GameEngine.bagItemDB;
-        }
-
-        for (let i in bag) {
-            if (bag[i].i64ItemID.int64ToStr() == i64Id.int64ToStr()) {
-                delete bag[i];
+        for (let i in _bag) {
+            if (_bag[i].i64ItemID.toString() == i64Id) {
+                delete _bag[i];
+                Log.trace('删除背包物品' + i64Id)
                 break
             }
         }
-
         msg.clear();
         msg = null;
     }
 
-    //0x0302
+
     /**
-     * 更新背包数据
+     * 更新背包数据 //0x0302
      * @param data 
      */
     public cretUpdateItem(data: Laya.Byte) {
         let msg = new ProtoCmd.CretUpdateItem(data);
-        let typepos = msg.getValue('btPosition');
-        let idx = msg.item.location.getValue('btIndex');
-        // 装备
-        if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            GameApp.GameEngine.equipDB[idx] = null;
-            GameApp.GameEngine.equipDB[idx] = msg.item;
+        let bagType = msg.getValue('bagType');
+        let idx = msg.item.i64ItemID.toString();
+        let _bag;
+        switch (bagType) {
+            // 身上穿戴的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                _bag = GameApp.GameEngine.equipDB;
+                break;
+            // 背包里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                _bag = GameApp.GameEngine.bagItemDB;
+                break;
+            // 仓库里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                _bag = GameApp.GameEngine.cangKuDB;
+                break;
         }
-        // 包裹
-        else if (typepos == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            GameApp.GameEngine.bagItemDB[idx] = null;
-            GameApp.GameEngine.bagItemDB[idx] = msg.item;
-            // let find: boolean = false;
-            //App.MainPanel.addSysChat('你获得了' + //App.MainPanel.changeItemColor(Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount, Main.itemDBMap.get(msg.item.dwBaseID).color));
-            ////App.MainPanel.addSysChat('你获得了' + "<font color='#00EE00'>[" + Main.itemDBMap.get(msg.item.dwBaseID).name + '*' + msg.item.dwCount + "]</color>");
-        }
+        _bag[idx] = null;
+        _bag[idx] = msg.item;
+        Log.trace('获得了道具' + idx);
         msg.clear();
         msg = null;
     }
 
+    /**
+     * 背包内物品数量改变 0x030A
+     * @param data 
+     */
     public cretItemCountChanged(data: any): void {
         let msg = new ProtoCmd.CretItemCountChanged(data);
-        let i64id = msg.getValue('itemid');
-        // for (let i = 0; i < //App.MainPanel.bagItemDB.length; ++i) {
-        //     if (//App.MainPanel.bagItemDB[i].i64ItemID && //App.MainPanel.bagItemDB[i].i64ItemID.id == i64id.id) {
-        //         let oldcnt = //App.MainPanel.bagItemDB[i].dwCount;
-        //         //App.MainPanel.bagItemDB[i].dwCount = msg.getValue('dwCount');
-        //         (//App.MainPanel.bagList._children[i] as BagItem).itemCount.text = //App.MainPanel.bagItemDB[i].dwCount.toString();
-
-        //         let num = //App.MainPanel.bagItemDB[i].dwCount - oldcnt;
-        //         if (num > 0) {
-        //             //App.MainPanel.addSysChat('你获得了' + (//App.MainPanel.bagList._children[i] as BagItem).itemName.text + '*' + (num));
-        //         } else {
-        //             //App.MainPanel.addSysChat('你使用了' + (//App.MainPanel.bagList._children[i] as BagItem).itemName.text + '*' + (-num));
-        //         }
-
-        //         break;
-        //     }
-        // }
-
+        let bagType = msg.getValue('bagType');
+        let i64id = msg.getValue('i64Id').toString();
+        let dwCount = msg.getValue('dwCount');//数量
+        let _bag;
+        switch (bagType) {
+            // 身上穿戴的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                _bag = GameApp.GameEngine.equipDB;
+                break;
+            // 背包里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                _bag = GameApp.GameEngine.bagItemDB;
+                break;
+            // 仓库里面的
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                _bag = GameApp.GameEngine.cangKuDB;
+                break;
+        }
+        _bag[i64id].dwCount = dwCount;
+        Log.trace('物品数量改变', _bag[i64id].dwBaseID, dwCount);
         msg.clear();
         msg = null;
     }
 
+    /**
+     * 背包内物品操作
+     * @param data 
+     */
     public cretProcessingItem(data: any): void {
         let msg = new ProtoCmd.CretProcessingItem(data);
         let errorcode = msg.getValue('nErrorCode');
@@ -759,19 +783,33 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-
+    /**
+     * 使用物品
+     * @param data 
+     */
+    public cretGetUseItemRet(data: any): void {
+        let msg = new ProtoCmd.CretGetUseItemRet(data);
+        msg.clear();
+        msg = null;
+    }
+    /**
+     * 丢弃物品 0x033D
+     * @param data 
+     */
     public cretForsakeItem(data: any): void {
         let msg = new ProtoCmd.CretForsakeItem(data);
         let errorcode = msg.getValue('btErrorCode');
-        if (errorcode != 0) {
-            if (errorcode == 33) {
-                //App.MainPanel.addSysChat('该物品不允许丢弃');
-            } else {
-                //App.MainPanel.addSysChat('丢弃物品失败:' + errorcode);
-            }
-
+        switch (errorcode) {
+            case 0:
+                TipsManage.showTips('丢弃物品成功');
+                break;
+            case 33:
+                TipsManage.showTips('绑定物品不允许丢弃');
+                break;
+            default:
+                TipsManage.showTips('该物品不允许丢弃');
+                break;
         }
-
         msg.clear();
         msg = null;
     }

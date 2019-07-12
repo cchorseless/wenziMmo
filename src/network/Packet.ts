@@ -458,7 +458,7 @@ class Int64 {
     }
 
     public toString(): string {
-        return this.int64ToNumber() + '';
+        return this.int64ToStr();
     }
 
     public int64ToStr(): string {
@@ -691,31 +691,28 @@ class ItemBase extends PacketBase {
     public dwBaseID: number;					//4物品基本id
     public location: ItemLocation;              //3存储位置
     public dwLevel: number;						//4当前等级
-    public nValue: number;							//4当前经验
-    public nMaxValue: number;						//4下次升级需要经验
+    public nValue: number;						//4当前经验
+    public nMaxValue: number;					//4下次升级需要经验
     public boIdent: number;						//1是否鉴定
-    public nDura: number;							//4当前耐久度
-    public nMaxDura: number;						//4最大耐久度
-    public dwCount: number;                       //4物品数量  0..100
-    public dwBinding: number;                     //4是否绑定
+    public nDura: number;						//4当前耐久度
+    public nMaxDura: number;					//4最大耐久度
+    public dwCount: number;                     //4物品数量  0..100
+    public dwBinding: number;                   //4是否绑定
     public btBornFrom: number;					//1物品来源
     public dwEffId: number;						//4当前效果ID
-    public btQuality: number;                     //1品质
-    public btStrengCount: number;					//1强化1
-    public dwExpireTime: number;					//4物品到期时间(秒)
-    public btNpPropertyCount: number;				//1极品属性条目数--55
-    public stNpProperty: Array<Nonpareil>;          //60属性
+    public btQuality: number;                   //1品质
+    public btStrengCount: number;				//1强化1
+    public dwExpireTime: number;				//4物品到期时间(秒)
+    public btNpPropertyCount: number;			//1极品属性条目数--55
+    public stNpProperty: Array<Nonpareil>;      //60属性
     public ExtensionProperty: Laya.Byte;		//预留10字节，做扩充
     public defaultName: string;
     public constructor(data: Laya.Byte) {
         super();
-
-        this.location = new ItemLocation;
+        this.location = new ItemLocation();
         this.stNpProperty = new Array<Nonpareil>();
-        this.ExtensionProperty = new Laya.Byte;
+        this.ExtensionProperty = new Laya.Byte();
         this.ExtensionProperty.endian = Laya.Byte.LITTLE_ENDIAN;
-
-
         this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
         this.addProperty('dwBaseID', PacketBase.TYPE_INT);	//物品基本id
         this.addProperty('Location', PacketBase.TYPE_BYTES, this.location.size(), this.location);	//存储位置
@@ -750,7 +747,6 @@ class ItemBase extends PacketBase {
     public readProperty() {
         this.i64ItemID = this.getValue('i64ItemID');
         this.dwBaseID = this.getValue('dwBaseID');
-        //this.location = this.getValue('Location');
         this.dwLevel = this.getValue('dwLevel');
         this.nValue = this.getValue('nValue');
         this.nMaxValue = this.getValue('nMaxValue');
@@ -770,7 +766,6 @@ class ItemBase extends PacketBase {
             this.stNpProperty[i] = null
         }
         this.stNpProperty.length = 0;
-
         if (this.btNpPropertyCount > 0) {
             let npdata: Laya.Byte = new Laya.Byte();;
             npdata.endian = Laya.Byte.LITTLE_ENDIAN;
@@ -783,7 +778,6 @@ class ItemBase extends PacketBase {
                 this.stNpProperty.push(np);
             }
         }
-
         //this.stNpProperty[_MAX_NP_ALL_COUNT] = this.getValue('stNpProperty[_MAX_NP_ALL_COUNT]')
     }
 }
