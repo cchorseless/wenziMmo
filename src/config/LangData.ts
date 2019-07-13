@@ -5,3 +5,5 @@
 module Lang {
     export const login = '登陆';
 }
+
+

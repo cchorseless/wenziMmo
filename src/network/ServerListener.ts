@@ -639,7 +639,6 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-
     /**
      * 删除背包数据 //0x0301
      * @param data 
@@ -663,17 +662,18 @@ class ServerListener extends SingletonClass {
                 _bag = GameApp.GameEngine.cangKuDB;
                 break;
         }
-        for (let i in _bag) {
-            if (_bag[i].i64ItemID.toString() == i64Id) {
-                delete _bag[i];
-                Log.trace('删除背包物品' + i64Id)
-                break
+        if (_bag != null) {
+            for (let i in _bag) {
+                if (_bag[i].i64ItemID.toString() == i64Id) {
+                    delete _bag[i];
+                    Log.trace('删除背包物品' + i64Id)
+                    break
+                }
             }
         }
         msg.clear();
         msg = null;
     }
-
 
     /**
      * 更新背包数据 //0x0302
@@ -697,6 +697,8 @@ class ServerListener extends SingletonClass {
             case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
                 _bag = GameApp.GameEngine.cangKuDB;
                 break;
+            default:
+                throw new Error('背包类型不对');
         }
         _bag[idx] = null;
         _bag[idx] = msg.item;
@@ -882,6 +884,10 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
+    /**
+     * 删除地图物品 0x029D
+     * @param data 
+     */
     public mapItemEventDel(data: any): void {
         let msg = new ProtoCmd.MapItemEventDel(data);
         let i64ItemID = msg.getValue('i64ItemID');
@@ -895,13 +901,15 @@ class ServerListener extends SingletonClass {
         //     }
         // }
         //App.MainPanel.listView.numItems = //App.MainPanel.objItemDB.length;
-
         msg.clear();
         msg = null;
     }
 
+    /**
+     * 地图上添加物品 0x02B8
+     * @param data 
+     */
     public mapItemEventAdd(data: any): void {
-
         let msg = new ProtoCmd.MapItemEventAdd(data);
 
         // let objDB = new ObjItemDB;
@@ -929,22 +937,28 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
+    /**
+     * 拾取地图上物品 0x02A0
+     * @param data 
+     */
     public mapItemEventPick(data: any): void {
         let msg = new ProtoCmd.MapItemEventPick(data);
 
         if (msg.getValue('btErrorCode') == 0) {
 
-        } else {
+        }
+        else {
             let errorcode = msg.getValue('btErrorCode');
             if (errorcode == 1) {
                 //App.MainPanel.addSysChat('该物品不属于你');
-            } else if (errorcode == 3) {
+            }
+            else if (errorcode == 3) {
                 //App.MainPanel.addSysChat('背包空间不足');
-            } else {
+            }
+            else {
                 ////App.MainPanel.addSysChat('拾取物品失败 errorcode:' + errorcode);
                 //App.MainPanel.moveTo(255,GameApp.GameEngine.mainPlayer.x,GameApp.GameEngine.mainPlayer.y + 1);
             }
-
         }
 
         msg.clear();
