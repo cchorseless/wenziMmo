@@ -28,12 +28,14 @@ module view.common {
 
 
 		public loginGame(): void {
-			if (!this.input_account.text) {
+			if (this.input_account.text == '') {
 				TipsManage.showTips('账号不能为空');
+				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				return
 			}
-			if (!this.input_password.text) {
+			if (this.input_password.text == '') {
 				TipsManage.showTips('密码不能为空');
+				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				return
 			}
 			// 初始化客户端
