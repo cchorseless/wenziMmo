@@ -109,17 +109,17 @@ module GameObject {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._allPlayer[obj.tempId] = obj;
-                    PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.ADD, obj);
+                    PanelManage.Main && PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('玩家：' + (obj as Player).name + '(' + (obj as Player).onlyid + ')' + '进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this._allMonster[obj.tempId] = obj;
-                    PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.ADD, obj);
+                    PanelManage.Main && PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('怪物 lv' + monster.level + '：' + monster.name + '(' + monster.onlyid + ')[' + monster.x + ',' + monster.y + '] 进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
                     this._allNpc[obj.tempId] = obj;
-                    PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.ADD, obj);
+                    PanelManage.Main && PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('<font color="#00CD00">NPC：' + npc.name + '(' + npc.onlyid + ')[' + npc.x + ',' + npc.y + '] 进入你的视野</font>');
                     break;
                 default:
