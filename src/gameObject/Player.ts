@@ -101,7 +101,7 @@ module GameObject {
 
         }
         /**
-         * 将游戏对象添加到视野中
+         * 将游戏对象添加到视野
          * @param obj 
          * @param type 
          */
@@ -125,39 +125,32 @@ module GameObject {
                 default:
                     break;
             }
-            console.log(obj.objName + '进入地图');
+            console.log(obj.objName + obj.tempId + '进入地图');
         }
         /**
          * 将游戏对象移除视野
-         * @param onlyid 
+         * @param tempId 
          * @param type 
          */
-        public removeViewObj(onlyid: number, type: number): void {
-            let list: any = [];
-            let name: string = '';
+        public removeViewObj(tempId: number, type: EnumData.CRET_TYPE): void {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    list = this._allPlayer;
-                    name = '玩家';
+                    PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.REMOVE, this._allPlayer[tempId]);
+                    console.log(this._allPlayer[tempId].objName + this._allPlayer[tempId].tempId + '离开地图');
+                    delete this._allPlayer[tempId]
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    list = this._allMonster;
-                    name = '怪物';
+                    PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.REMOVE, this._allMonster[tempId]);
+                    console.log(this._allMonster[tempId].objName + this._allMonster[tempId].tempId + '离开地图');
+                    delete this._allMonster[tempId]
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    list = this._allNpc;
-                    name = 'NPC';
+                    PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.REMOVE, this._allNpc[tempId]);
+                    console.log(this._allNpc[tempId].objName + this._allNpc[tempId].tempId + '离开地图');
+                    delete this._allNpc[tempId]
                     break;
                 default:
                     break;
-            }
-
-            for (let i = 0; i < list.length; ++i) {
-                if (list[i].onlyid == onlyid) {
-                    list[i] = null;
-                    list.splice(i, 1);
-                    break;
-                }
             }
         }
         /**

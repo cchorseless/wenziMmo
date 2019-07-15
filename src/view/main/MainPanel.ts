@@ -272,6 +272,7 @@ module view.main {
 					break;
 
 				case EnumData.HANDLE_TYPE.REMOVE:
+					this.ui_scene.removeMonster(obj);
 					break;
 			}
 

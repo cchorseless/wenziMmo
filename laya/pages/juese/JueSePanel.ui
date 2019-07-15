@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":140,
+    "selectedBox":150,
+    "selecteID":151,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -639,48 +639,52 @@
             "props":{"y":905,"x":58},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":92,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":15,"width":100,"skin":"image/common/img_common_03.png","height":105},
                     "nodeParent":92,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":88,
                     "child":[
                         {
-                            "type":"Radio",
-                            "props":{"y":17,"x":13,"stateNum":"2","skin":"image/common/login/icon_huashan01up_finish.png"},
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":13,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengpinglvli_finish.png"},
                             "nodeParent":88,
-                            "label":"Radio",
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":89,
+                            "compId":141,
                             "child":[
                                 ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":80,"width":130,"skin":"image/common/fram_common_04.png"},
                     "nodeParent":92,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":90,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":7,"width":115,"text":"生辰八字","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":90,
@@ -700,37 +704,40 @@
             "props":{"y":905,"x":228},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":103,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":15,"width":100,"skin":"image/common/img_common_03.png","height":105},
                     "nodeParent":103,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":104,
                     "child":[
                         {
-                            "type":"Radio",
-                            "props":{"y":17,"x":13,"stateNum":"2","skin":"image/common/login/icon_huashan01up_finish.png"},
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":13,"x":11,"stateNum":"2","skin":"image/juese/icon_role_xingmingjiuyan_finish.png"},
                             "nodeParent":104,
-                            "label":"Radio",
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":105,
+                            "compId":142,
                             "child":[
                                 ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":80,"width":130,"skin":"image/common/fram_common_04.png"},
                     "nodeParent":103,
@@ -742,6 +749,7 @@
                     "compId":106,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":7,"width":115,"text":"姓名九宫","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":106,
@@ -761,13 +769,14 @@
             "props":{"y":905,"x":398},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":108,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":15,"width":100,"skin":"image/common/img_common_03.png","height":105},
                     "nodeParent":108,
@@ -779,19 +788,21 @@
                     "compId":109,
                     "child":[
                         {
-                            "type":"Radio",
-                            "props":{"y":17,"x":13,"stateNum":"2","skin":"image/common/login/icon_huashan01up_finish.png"},
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":13,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
                             "nodeParent":109,
-                            "label":"Radio",
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":110,
+                            "compId":143,
                             "child":[
                                 ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":80,"width":130,"skin":"image/common/fram_common_04.png"},
                     "nodeParent":108,
@@ -803,6 +814,7 @@
                     "compId":111,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":7,"width":115,"text":"生平履历","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":111,
@@ -861,13 +873,14 @@
             "props":{"y":280,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":116,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":116,
@@ -886,15 +899,16 @@
             "props":{"y":516,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":128,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
+                    "props":{"text":"帮派:正气帮","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":128,
                     "label":"Label",
                     "isDirectory":false,
@@ -911,15 +925,16 @@
             "props":{"y":327,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":130,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
+                    "props":{"text":"心情:100","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":130,
                     "label":"Label",
                     "isDirectory":false,
@@ -936,15 +951,16 @@
             "props":{"y":374,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":132,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
+                    "props":{"text":"职业:华山派","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":132,
                     "label":"Label",
                     "isDirectory":false,
@@ -961,15 +977,16 @@
             "props":{"y":422,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":134,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
+                    "props":{"text":"年龄:21","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":134,
                     "label":"Label",
                     "isDirectory":false,
@@ -986,15 +1003,16 @@
             "props":{"y":469,"x":162,"width":200,"skin":"image/common/fram_common_09.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":136,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"text":"体质:99999","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
+                    "props":{"text":"名气；江湖虾米","right":0,"left":0,"height":33,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bottom":0,"align":"center"},
                     "nodeParent":136,
                     "label":"Label",
                     "isDirectory":false,
@@ -1007,30 +1025,197 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":572,"x":212,"width":389,"skin":"image/main/fram_common_02.png","height":19},
+            "type":"Box",
+            "props":{"y":564,"x":149},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Box",
             "isOpen":false,
-            "isDirectory":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":139,
+            "hasChild":true,
+            "compId":146,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "props":{"y":8,"x":63,"width":389,"skin":"image/main/fram_common_02.png","height":19},
+                    "nodeParent":146,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":139,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":10,"x":61,"width":390,"skin":"image/main/fram_common_exp.png","sizeGrid":"5,0,5,10","height":17},
+                    "nodeParent":146,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":140,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"width":114,"skin":"image/common/fram_common_vipdi.png","height":39},
+                    "nodeParent":146,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":144,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":2,"x":31,"width":55,"valign":"middle","text":"健康","height":29,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":144,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":145,
+                            "child":[
+                                ]
+                        }]
+                }]
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":574,"x":210,"skin":"image/main/fram_common_exp.png","sizeGrid":"5,0,5,10"},
+            "type":"Box",
+            "props":{"y":595,"x":151},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":140,
+            "hasChild":true,
+            "compId":147,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":8,"x":63,"width":389,"skin":"image/main/fram_common_02.png","height":19},
+                    "nodeParent":147,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":148,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":10,"x":61,"width":390,"skin":"image/main/fram_common_11.png","sizeGrid":"5,0,5,10"},
+                    "nodeParent":147,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":149,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"width":114,"skin":"image/common/fram_common_vipdi.png","height":39},
+                    "nodeParent":147,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":150,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":2,"x":31,"width":55,"valign":"middle","text":"体力","height":29,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":150,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":151,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":626,"x":150},
+            "nodeParent":1,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":152,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":8,"x":63,"width":389,"skin":"image/main/fram_common_02.png","height":19},
+                    "nodeParent":152,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":153,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":10,"x":61,"width":390,"skin":"image/main/fram_common_100.png","sizeGrid":"5,0,5,10"},
+                    "nodeParent":152,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":154,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"width":114,"skin":"image/common/fram_common_vipdi.png","height":39},
+                    "nodeParent":152,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":155,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":2,"x":31,"width":55,"valign":"middle","text":"精神力","height":29,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":155,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":156,
+                            "child":[
+                                ]
+                        }]
+                }]
         }],
     "animations":[
         {

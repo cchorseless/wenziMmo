@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":32,
-    "selecteID":303,
+    "selectedBox":324,
+    "selecteID":325,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -149,9 +149,9 @@
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":12,"x":63,"wordWrap":true,"width":377,"text":"洛阳故城XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","height":71,"fontSize":22,"color":"#ffffff","align":"left"},
+                            "props":{"y":12,"x":63,"wordWrap":true,"width":377,"var":"lbl_bagInfo","text":"背包是XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","height":71,"fontSize":22,"color":"#ffffff","align":"left"},
                             "nodeParent":10,
-                            "label":"Label",
+                            "label":"Label(lbl_bagInfo)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -161,9 +161,9 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":57,"x":400,"width":32,"stateNum":"1","skin":"image/main/btn_common_01.png","height":32},
+                            "props":{"y":57,"x":400,"width":32,"var":"btn_bagMore","stateNum":"1","skin":"image/main/btn_common_01.png","height":32},
                             "nodeParent":10,
-                            "label":"Button",
+                            "label":"Button(btn_bagMore)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -173,20 +173,20 @@
                         }]
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":11,"x":13,"width":117,"skin":"image/main/img_main_luoyang.png","height":117},
+                    "type":"Button",
+                    "props":{"y":11,"x":13,"width":117,"var":"btn_close","stateNum":"2","skin":"image/main/icon_common_beibao01up_finish.png","height":117},
                     "nodeParent":4,
-                    "label":"Image",
-                    "isOpen":false,
+                    "label":"Button(btn_close)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":13,
+                    "compId":304,
                     "child":[
                         {
                             "type":"Image",
-                            "props":{"y":79,"x":-17,"width":148,"skin":"image/common/title_common_01.png","height":46},
-                            "nodeParent":13,
+                            "props":{"y":79,"x":-17,"width":148,"skin":"image/common/title_common_01.png","mouseThrough":true,"height":46},
+                            "nodeParent":304,
                             "label":"Image",
                             "isOpen":true,
                             "isDirectory":true,
@@ -196,7 +196,7 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":7,"x":14,"width":119,"text":"洛阳洛阳","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                                    "props":{"y":7,"x":14,"width":119,"text":"背包","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
                                     "nodeParent":14,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -225,9 +225,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":256,"x":539,"width":100,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":1,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"整理","height":57},
+            "props":{"y":256,"x":539,"width":100,"var":"btn_zhengli","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":1,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"整理","height":57},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_zhengli)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -251,9 +251,9 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":262,"width":511,"stateNum":2,"space":-5,"skin":"image/common/btn_common_02up_finish.png","selectedIndex":0,"scaleY":0.85,"scaleX":0.82,"left":122,"labels":"装备,材料,消耗,任务","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelAlign":"left","height":60,"direction":"horizontal"},
+            "props":{"y":262,"width":511,"var":"tab_bag","stateNum":2,"space":-5,"skin":"image/common/btn_common_02up_finish.png","selectedIndex":0,"scaleY":0.85,"scaleX":0.82,"left":122,"labels":"装备,材料,消耗,任务","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelAlign":"left","height":60,"direction":"horizontal"},
             "nodeParent":1,
-            "label":"Tab",
+            "label":"Tab(tab_bag)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -276,9 +276,9 @@
                 {
                     "x":30,
                     "type":"ViewStack",
-                    "props":{"y":0,"x":0,"width":516,"selectedIndex":0,"height":346},
+                    "props":{"y":0,"x":0,"width":516,"var":"viw_bag","selectedIndex":0,"height":346},
                     "nodeParent":39,
-                    "label":"ViewStack",
+                    "label":"ViewStack(viw_bag)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -287,372 +287,90 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"Box",
-                            "props":{"y":10,"x":4,"name":"item0"},
+                            "type":"Panel",
+                            "props":{"y":0,"x":0,"width":509,"var":"panel_bag0","name":"item0","height":330},
                             "nodeParent":32,
-                            "label":"Box(item0)",
-                            "isOpen":false,
+                            "label":"Panel(panel_bag0)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":124,
+                            "compId":301,
                             "child":[
                                 {
-                                    "type":"Box",
-                                    "props":{},
-                                    "nodeParent":124,
-                                    "label":"Box",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":125,
-                                    "child":[
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":126,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":85},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":127,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":170},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":128,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":254},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":129,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":339},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":130,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":424},
-                                            "nodeParent":125,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":131,
-                                            "child":[
-                                                ]
-                                        }]
-                                },
-                                {
-                                    "type":"Box",
-                                    "props":{"y":81},
-                                    "nodeParent":124,
-                                    "label":"Box",
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_bag0","right":0,"left":0,"align":"left"},
+                                    "nodeParent":301,
+                                    "label":"VBox(vbox_bag0)",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":132,
+                                    "compId":302,
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{},
-                                            "nodeParent":132,
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":10,"x":5},
+                                            "nodeParent":302,
                                             "label":"UIView",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":133,
+                                            "compId":305,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":85},
-                                            "nodeParent":132,
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":20,"x":15},
+                                            "nodeParent":302,
                                             "label":"UIView",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":134,
+                                            "compId":306,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":170},
-                                            "nodeParent":132,
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":30,"x":25},
+                                            "nodeParent":302,
                                             "label":"UIView",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":135,
+                                            "compId":307,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":254},
-                                            "nodeParent":132,
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":40,"x":35},
+                                            "nodeParent":302,
                                             "label":"UIView",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":136,
+                                            "compId":308,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":339},
-                                            "nodeParent":132,
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":50,"x":45},
+                                            "nodeParent":302,
                                             "label":"UIView",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":137,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":424},
-                                            "nodeParent":132,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":138,
-                                            "child":[
-                                                ]
-                                        }]
-                                },
-                                {
-                                    "type":"Box",
-                                    "props":{"y":161},
-                                    "nodeParent":124,
-                                    "label":"Box",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":139,
-                                    "child":[
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":140,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":85},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":141,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":170},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":142,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":254},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":143,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":339},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":144,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":424},
-                                            "nodeParent":139,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":145,
-                                            "child":[
-                                                ]
-                                        }]
-                                },
-                                {
-                                    "type":"Box",
-                                    "props":{"y":242},
-                                    "nodeParent":124,
-                                    "label":"Box",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":146,
-                                    "child":[
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":147,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":85},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":148,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":170},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":149,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":254},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":150,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":339},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":151,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"compart/DaoJuBgItem.ui",
-                                            "props":{"x":424},
-                                            "nodeParent":146,
-                                            "label":"UIView",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":152,
+                                            "compId":309,
                                             "child":[
                                                 ]
                                         }]
@@ -661,422 +379,381 @@
                         {
                             "x":45,
                             "type":"Panel",
-                            "props":{"y":0,"x":0,"width":509,"height":330},
+                            "props":{"y":0,"x":0,"width":509,"var":"panel_bag1","name":"item1","height":330},
                             "nodeParent":32,
-                            "label":"Panel",
-                            "isOpen":false,
+                            "label":"Panel(panel_bag1)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":301,
+                            "compId":310,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
-                                    "props":{"right":0,"left":0},
-                                    "nodeParent":301,
-                                    "label":"VBox",
-                                    "isDirectory":false,
+                                    "props":{"var":"vbox_bag1","right":0,"left":0,"align":"left"},
+                                    "nodeParent":310,
+                                    "label":"VBox(vbox_bag1)",
+                                    "isOpen":false,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":302,
+                                    "hasChild":true,
+                                    "compId":311,
                                     "child":[
-                                        ]
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":10,"x":5},
+                                            "nodeParent":311,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":312,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":20,"x":15},
+                                            "nodeParent":311,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":313,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":30,"x":25},
+                                            "nodeParent":311,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":314,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":40,"x":35},
+                                            "nodeParent":311,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":315,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":50,"x":45},
+                                            "nodeParent":311,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":316,
+                                            "child":[
+                                                ]
+                                        }]
                                 }]
                         },
                         {
                             "x":45,
-                            "type":"List",
-                            "props":{"y":0,"x":-1,"width":773,"height":342},
+                            "type":"Panel",
+                            "props":{"y":0,"x":0,"width":509,"var":"panel_bag2","name":"item2","height":330},
                             "nodeParent":32,
-                            "label":"List",
-                            "isDirectory":false,
+                            "label":"Panel(panel_bag2)",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":303,
+                            "hasChild":true,
+                            "compId":317,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_bag2","right":0,"left":0,"align":"left"},
+                                    "nodeParent":317,
+                                    "label":"VBox(vbox_bag2)",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":318,
+                                    "child":[
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":10,"x":5},
+                                            "nodeParent":318,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":319,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":20,"x":15},
+                                            "nodeParent":318,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":320,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":30,"x":25},
+                                            "nodeParent":318,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":321,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":40,"x":35},
+                                            "nodeParent":318,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":322,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":50,"x":45},
+                                            "nodeParent":318,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":323,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"y":0,"x":0,"width":509,"var":"panel_bag3","name":"item3","height":330},
+                            "nodeParent":32,
+                            "label":"Panel(panel_bag3)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":324,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_bag3","right":0,"left":0,"align":"left"},
+                                    "nodeParent":324,
+                                    "label":"VBox(vbox_bag3)",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":325,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":10,"x":5},
+                                            "nodeParent":325,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":326,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":20,"x":15},
+                                            "nodeParent":325,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":327,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":30,"x":25},
+                                            "nodeParent":325,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":328,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":40,"x":35},
+                                            "nodeParent":325,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":329,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"UIView",
+                                            "source":"compart/DaoJuGroupItem.ui",
+                                            "props":{"y":50,"x":45},
+                                            "nodeParent":325,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":330,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
                         }]
                 }]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":708,"x":120,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
+            "props":{"y":710,"x":120,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":153,
             "child":[
                 {
-                    "type":"Box",
-                    "props":{"y":10,"x":4},
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":0,"x":0,"width":509,"name":"item3","height":330},
                     "nodeParent":153,
-                    "label":"Box",
-                    "isOpen":null,
+                    "label":"Panel(item3)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":154,
+                    "compId":331,
                     "child":[
                         {
-                            "type":"Box",
-                            "props":{},
-                            "nodeParent":154,
-                            "label":"Box",
-                            "isOpen":null,
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"right":0,"left":0,"align":"left"},
+                            "nodeParent":331,
+                            "label":"VBox",
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":155,
+                            "compId":332,
                             "child":[
                                 {
                                     "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{},
-                                    "nodeParent":155,
+                                    "source":"compart/DaoJuGroupItem.ui",
+                                    "props":{"y":10,"x":5},
+                                    "nodeParent":332,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":156,
+                                    "compId":333,
                                     "child":[
                                         ]
                                 },
                                 {
                                     "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":85},
-                                    "nodeParent":155,
+                                    "source":"compart/DaoJuGroupItem.ui",
+                                    "props":{"y":20,"x":15},
+                                    "nodeParent":332,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":157,
+                                    "compId":334,
                                     "child":[
                                         ]
                                 },
                                 {
                                     "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":170},
-                                    "nodeParent":155,
+                                    "source":"compart/DaoJuGroupItem.ui",
+                                    "props":{"y":30,"x":25},
+                                    "nodeParent":332,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":158,
+                                    "compId":335,
                                     "child":[
                                         ]
                                 },
                                 {
                                     "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":254},
-                                    "nodeParent":155,
+                                    "source":"compart/DaoJuGroupItem.ui",
+                                    "props":{"y":40,"x":35},
+                                    "nodeParent":332,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":159,
+                                    "compId":336,
                                     "child":[
                                         ]
                                 },
                                 {
                                     "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":339},
-                                    "nodeParent":155,
+                                    "source":"compart/DaoJuGroupItem.ui",
+                                    "props":{"y":50,"x":45},
+                                    "nodeParent":332,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":160,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":424},
-                                    "nodeParent":155,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":161,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Box",
-                            "props":{"y":81},
-                            "nodeParent":154,
-                            "label":"Box",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":162,
-                            "child":[
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":163,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":85},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":164,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":170},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":165,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":254},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":166,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":339},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":167,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":424},
-                                    "nodeParent":162,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":168,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Box",
-                            "props":{"y":161},
-                            "nodeParent":154,
-                            "label":"Box",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":169,
-                            "child":[
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":170,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":85},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":171,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":170},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":172,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":254},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":173,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":339},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":174,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":424},
-                                    "nodeParent":169,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":175,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Box",
-                            "props":{"y":242},
-                            "nodeParent":154,
-                            "label":"Box",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":176,
-                            "child":[
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":177,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":85},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":178,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":170},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":179,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":254},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":180,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":339},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":181,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuBgItem.ui",
-                                    "props":{"x":424},
-                                    "nodeParent":176,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":182,
+                                    "compId":337,
                                     "child":[
                                         ]
                                 }]
@@ -1212,7 +889,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":664,"x":129,"width":213,"skin":"image/common/fram_common_09.png","height":48},
+            "props":{"y":661,"x":129,"width":213,"skin":"image/common/fram_common_09.png","height":48},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,

@@ -61,6 +61,8 @@ module ResData {
      */
     export class JsonRes {
         // 策划配置表
-        public static AllClientData = 'json/AllClientData.json';
+        public static AllClientData = [
+            { url: 'json/mydb_item_base_tbl.json', type: Laya.Loader.JSON },
+        ];
     }
 }

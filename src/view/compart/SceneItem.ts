@@ -60,13 +60,12 @@ module view.compart {
 		 * 添加怪物
 		 * @param obj 
 		 */
-		public addMonster(obj): void {
+		public addMonster(obj: GameObject.Creature): void {
 			let monster: view.compart.MonsterInSceneItem = new view.compart.MonsterInSceneItem();
+			monster.tempId = obj.tempId;
 			let childNum = this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren;
-			while (childNum >= 4) {
-				childNum = childNum % 4;
-			}
-			switch (childNum) {
+			let mod = childNum % 12;
+			switch (Math.floor(mod / 4)) {
 				case 0:
 				case 3:
 					this.hbox_monster01.addChild(monster);
@@ -80,14 +79,46 @@ module view.compart {
 				default:
 					this.hbox_monster01.addChild(monster);
 			}
+			console.log('addMonster==>当前场景内怪物数据' + (childNum + 1))
 		}
+		
 		/**
 		 * 移除怪物
 		 * @param obj 
 		 */
-		public removeMonster(obj): void {
-
+		public removeMonster(obj: GameObject.Creature): void {
+			let find = false;
+			for (let child of this.hbox_monster01._childs) {
+				if (child.tempId == obj.tempId) {
+					(child as view.compart.MonsterInSceneItem).removeSelf();
+					find = true;
+					break
+				}
+			}
+			if (!find) {
+				for (let child of this.hbox_monster02._childs) {
+					if (child.tempId == obj.tempId) {
+						(child as view.compart.MonsterInSceneItem).removeSelf();
+						find = true;
+						break
+					}
+				}
+			}
+			if (!find) {
+				for (let child of this.hbox_monster03._childs) {
+					if (child.tempId == obj.tempId) {
+						(child as view.compart.MonsterInSceneItem).removeSelf();
+						find = true;
+						break
+					}
+				}
+			}
+			if (!find) {
+				throw new Error('没有在视野中发现' + obj.tempId);
+			}
+			console.log('removeMonster==>当前场景内怪物数据' + (this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren))
 		}
+
 		/**
 		 * 添加玩家
 		 * @param obj 

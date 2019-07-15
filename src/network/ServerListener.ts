@@ -271,7 +271,9 @@ class ServerListener extends SingletonClass {
      */
     public mapRemoveCret(data: any): void {
         let msgData = new ProtoCmd.MapRemoveCret(data);
-        GameApp.GameEngine.mainPlayer.removeViewObj(msgData.getValue('dwTmpId'), msgData.getValue('btCretType'));
+        let dwTmpId = msgData.getValue('dwTmpId');
+        let btCretType = msgData.getValue('btCretType');
+        GameApp.MainPlayer.removeViewObj(dwTmpId, btCretType);
         msgData.clear();
     }
 
@@ -527,7 +529,6 @@ class ServerListener extends SingletonClass {
                 case 3:
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
                     break;
-
             }
         }
         msg.clear();
