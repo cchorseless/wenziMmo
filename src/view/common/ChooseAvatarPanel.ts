@@ -61,7 +61,6 @@ module view.common {
 			selector.setValue("btmapsubline", 1);
 			lcp.send(selector, this, PanelManage.Login.selectPlayerRet);
 			GameApp.GameEngine.isLogin = true;
-			this.userLoginInfo.clear();
 		}
 	}
 }

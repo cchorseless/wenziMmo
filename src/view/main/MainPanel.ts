@@ -161,7 +161,6 @@ module view.main {
 						break;
 				}
 			}
-
 		}
 
 		/**
@@ -250,7 +249,6 @@ module view.main {
 
 					break;
 			}
-
 		}
 		/**
 		 * 更新玩家

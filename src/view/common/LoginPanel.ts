@@ -94,13 +94,11 @@ module view.common {
 					PanelManage.openChooseAvatarPanel(userLoginInfo);
 				}
 				else {
-					userLoginInfo.clear();
 					// 创建角色
 					PanelManage.openCreateAvatarPanel();
 				}
 			}
 			else {
-				userLoginInfo.clear();
 				TipsManage.showTips('账号密码错误');
 				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				Log.trace('请输入正确的账号密码 errorcode' + userLoginInfo.getValue("nErrorCode"));
