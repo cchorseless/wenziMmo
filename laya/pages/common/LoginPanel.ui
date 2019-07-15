@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":29,
+    "selectedBox":21,
+    "selecteID":12,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -107,15 +107,16 @@
                     "props":{"var":"box_login","name":"item0","centerX":0,"bottom":80},
                     "nodeParent":37,
                     "label":"Box(box_login)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":9,"x":75,"width":353,"var":"input_account","valign":"middle","type":"text","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"账号","height":79,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":9,"x":75,"width":353,"var":"input_account","type":"text","skin":"image/common/input_bg.png","restrict":"30","promptColor":"#ffffff","prompt":"请输入账号","height":79,"fontSize":30,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_account)",
                             "isDirectory":false,
@@ -126,8 +127,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
-                            "props":{"y":85,"x":79,"width":344,"var":"input_password","valign":"middle","type":"password","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"密码","height":79,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":85,"x":79,"width":344,"var":"input_password","type":"password","skin":"image/common/input_bg.png","restrict":"30","promptColor":"#ffffff","prompt":"请输入密码","height":79,"fontSize":30,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":21,
                             "label":"TextInput(input_password)",
                             "isDirectory":false,
@@ -138,6 +140,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":243,"x":-24,"width":551,"skin":"image/common/login/img_common_02.png","height":17},
                             "nodeParent":21,
@@ -150,6 +153,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":209,"x":82,"width":310,"var":"btn_Login","stateNum":"2","skin":"image/common/login/btn_tarujianghu01_finish.png","labelSize":40,"labelPadding":"0,0,10,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","height":70},
                             "nodeParent":21,
@@ -162,6 +166,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":149,"x":414,"width":111,"skin":"image/common/login/img_common_01.png","height":113},
                             "nodeParent":21,
