@@ -302,12 +302,9 @@ class PacketBase {
         switch (type) {
             case PacketBase.TYPE_CHAR:
                 {
-                    var n: number = this._bytes.getUint8();
-                    if (n < 0) n += 256;
-                    return n;
+                    return this._bytes.getByte();
                 }
             case PacketBase.TYPE_BYTE:
-
                 {
                     return this._bytes.getUint8();
                 }

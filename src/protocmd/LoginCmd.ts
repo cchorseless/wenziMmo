@@ -252,7 +252,7 @@ module ProtoCmd {
         public static msgID: number = 0x012D;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('errorcode', PacketBase.TYPE_BYTE);
+            this.addProperty('errorcode', PacketBase.TYPE_CHAR);
             this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);
