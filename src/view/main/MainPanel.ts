@@ -81,6 +81,8 @@ module view.main {
 			this.btn_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_sceneInfoDialog.visible = true;
 			});
+
+			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => { console.log(1111111) });
 		}
 
 		public updateUI(): void {
@@ -256,7 +258,6 @@ module view.main {
 		 * @param obj 
 		 */
 		public updatePlayerView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
-
 		}
 		/**
 		 * 更新怪物

@@ -29,8 +29,6 @@ module ResData {
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
-
-        { url: "fonts/FZXK.ttf", type: Laya.Loader.TTF },
         ];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
@@ -39,11 +37,11 @@ module ResData {
         // 养成界面
         public static YangCheng = null;
         // 背包界面
-        public static BeiBao = null;
+        public static BeiBao = [{ url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];;
         // 社交界面
         public static SheJiao = null;
         // 副本界面
-        public static FuBen = null;
+        public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }] ;
 
     };
     /**
@@ -62,7 +60,16 @@ module ResData {
     export class JsonRes {
         // 策划配置表
         public static AllClientData = [
-            { url: 'json/mydb_item_base_tbl.json', type: Laya.Loader.JSON },
+            { url: 'json/mydb_item_base_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_item_base_tbl },
         ];
+    }
+
+    /**
+     * 游戏字体文件
+     */
+    export class TTFRes {
+        public static AllTTFData = [
+            { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
+        ]
     }
 }

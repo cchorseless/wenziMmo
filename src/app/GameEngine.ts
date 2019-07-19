@@ -108,8 +108,8 @@ class GameEngine extends SingletonClass {
     /**
      * 初始化socket,并添加网络监听
      */
-    public init(initHandle?: Laya.Handler) {
-        console.log("当前引擎版本: ", Laya.version);
+    public init(initHandle: Laya.Handler = null) {
+        Log.trace("当前引擎版本: ", Laya.version);
         GameApp.Socket.initServer(this.connectIP, this.connectPort, new ByteArrayMsg(), initHandle);
         //外网连接
         // GameApp.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
