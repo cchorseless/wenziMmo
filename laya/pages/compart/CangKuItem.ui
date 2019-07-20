@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":13,
+    "selectedBox":5,
+    "selecteID":6,
     "props":{"width":520,"sceneColor":"#f4e6e6","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -57,17 +57,18 @@
             "props":{"y":50,"x":10,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":0,"width":509,"name":"item3","height":330},
+                    "props":{"y":0,"x":0,"width":509,"var":"panel_0","height":330},
                     "nodeParent":5,
-                    "label":"Panel(item3)",
+                    "label":"Panel(panel_0)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -75,17 +76,19 @@
                     "compId":6,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"left"},
+                            "props":{"var":"vbox_0","right":0,"left":0,"align":"left"},
                             "nodeParent":6,
-                            "label":"VBox",
-                            "isOpen":false,
+                            "label":"VBox(vbox_0)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":7,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuGroupItem.ui",
                                     "props":{"y":10,"x":5},
@@ -99,6 +102,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuGroupItem.ui",
                                     "props":{"y":20,"x":15},
@@ -112,6 +116,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuGroupItem.ui",
                                     "props":{"y":30,"x":25},
@@ -125,6 +130,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuGroupItem.ui",
                                     "props":{"y":40,"x":35},
@@ -138,6 +144,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuGroupItem.ui",
                                     "props":{"y":50,"x":45},
@@ -156,9 +163,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1,"width":100,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":2,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"整理","height":50},
+            "props":{"y":1,"width":100,"var":"btn_zhengLi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":2,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"整理","height":50},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_zhengLi)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

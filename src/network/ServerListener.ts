@@ -433,7 +433,6 @@ class ServerListener extends SingletonClass {
             // 更新BOSS积分
             case 2:
                 break;
-
         }
         msg.clear();
         msg = null;
@@ -633,6 +632,7 @@ class ServerListener extends SingletonClass {
                 let idx = itemsInfo[i].i64ItemID.toString();
                 _bag[idx] = null;
                 _bag[idx] = itemsInfo[i];
+                PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, itemsInfo[i]);
                 Log.trace('获得物品' + idx);
             }
         }

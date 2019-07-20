@@ -64,6 +64,10 @@ module view.main {
 			this.lbl_yuanBaolock.text = '' + _player.wealth.yuanBao_lock;
 			// 战斗力
 			this.clip_power.value = '' + _player.ability.nFight;
+			// 节气
+			this.btn_jieQi.label = '【' + this.getJieQi() + '】';
+			// 时辰
+			this.btn_shiChen.label = '【' + this.getShiChen() + '】';
 			this.addEvent();
 			this.updateUI();
 		}
@@ -81,8 +85,10 @@ module view.main {
 			this.btn_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_sceneInfoDialog.visible = true;
 			});
-
+			// 菜单界面
 			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => { console.log(1111111) });
+			// 世界地图界面
+			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 		}
 
 		public updateUI(): void {
@@ -163,6 +169,21 @@ module view.main {
 						break;
 				}
 			}
+		}
+		/**
+		 * 获取时辰
+		 */
+		public getShiChen(): string {
+			return ['夜半', '鸡鸣', '平旦', '日出', '食时', '隅中', '日中', '日昳', '晡时', '日入', '黄昏', '人定'][parseInt('' + new Date().getHours() / 2)]
+		}
+		/**
+		 * 获取节气
+		 */
+		public getJieQi(): string {
+			let date = new Date();
+			let dayCount = date.getDate() + date.getMonth() * 30;
+			return ['立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑', '立秋'
+				, '处暑', '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至', '小寒', '大寒'][parseInt('' + dayCount % 24)]
 		}
 
 		/**

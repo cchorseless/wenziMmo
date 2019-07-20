@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":5,
+    "selecteID":9,
     "props":{"width":100,"sceneColor":"#f6f4f4","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -14,14 +14,15 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":1,"x":0,"width":100,"skin":"image/common/fram_common_npc.png","height":100},
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":13,"x":14},
             "nodeParent":1,
-            "label":"Image",
+            "label":"UIView",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":9,
             "child":[
                 ]
         },
@@ -35,19 +36,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":16,"x":15,"width":70,"var":"img_itemicon","skin":"image/common/daoju/item_02.png","height":70},
-            "nodeParent":1,
-            "label":"Image(img_itemicon)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
             "child":[
                 ]
         },

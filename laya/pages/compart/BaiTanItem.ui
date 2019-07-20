@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":11,
-    "selecteID":8,
+    "selectedBox":5,
+    "selecteID":9,
     "props":{"width":520,"sceneColor":"#f4efef","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -30,15 +30,16 @@
                     "props":{"y":1,"x":7,"width":213,"skin":"image/common/fram_common_09.png","height":48},
                     "nodeParent":11,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":5,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":8,"x":24,"width":69,"text":"回收","strokeColor":"#000000","stroke":4,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":8,"x":24,"width":69,"text":"摊位","strokeColor":"#000000","stroke":4,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":5,
                             "label":"Label",
                             "isOpen":true,
@@ -50,6 +51,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":110,"width":69,"text":"0/80","strokeColor":"#000000","stroke":4,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":5,

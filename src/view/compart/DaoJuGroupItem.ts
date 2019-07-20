@@ -4,5 +4,23 @@ module view.compart {
 		constructor() {
 			super();
 		}
+
+		public checkIsFull(): boolean {
+			for (let child of this.box_all._childs) {
+				if (!child.checkIsFull()) {
+					return false
+				}
+			}
+			return true
+		}
+
+		public addItem(item): void {
+			for (let child of this.box_all._childs) {
+				if (!child.checkIsFull()) {
+					child.addItem(item);
+					break
+				}
+			}
+		}
 	}
 }
