@@ -632,7 +632,6 @@ class ServerListener extends SingletonClass {
                 let idx = itemsInfo[i].i64ItemID.toString();
                 _bag[idx] = null;
                 _bag[idx] = itemsInfo[i];
-                PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, itemsInfo[i]);
                 Log.trace('获得物品' + idx);
             }
         }
@@ -704,6 +703,9 @@ class ServerListener extends SingletonClass {
         _bag[idx] = null;
         _bag[idx] = msg.item;
         Log.trace('获得了道具' + idx);
+        if (PopUpManager.curPanel == PanelManage.BeiBao) {
+            PanelManage.BeiBao.addItem(bagType, msg.item);
+        }
         msg.clear();
         msg = null;
     }

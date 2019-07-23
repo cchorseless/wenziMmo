@@ -27,9 +27,12 @@ module view.beiBao {
 			this.btn_itemAll.selected = false;
 			this.img_tabBg.visible = false;
 			this.img_tabBg.scaleY = this.img_tabBg.scaleX = 0;
+			this.btn_bagLogo.selected = true;
 			this.tab_changeView.selectHandler = Laya.Handler.create(this, (index) => {
 				this.btn_itemAll.selected = false;
 				this.showSmallTab(false);
+				this.btn_bagLogo.skin = 'image/bag/icon_itemfunc' + index + '.png';
+				this.btn_bagLogo.selected = true;
 				switch (index) {
 					// 仓库界面
 					case 0:
@@ -48,7 +51,17 @@ module view.beiBao {
 						break;
 				}
 			}, null, false);
+			// 初始化背包
+			this.initBag();
+			// 添加事件
 			this.addEvent();
+		}
+
+		public initBag(): void {
+			let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
+			for (let key of allKey) {
+				this.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, GameApp.GameEngine.bagItemDB[key]);
+			}
 		}
 
 		public addEvent(): void {
@@ -72,18 +85,57 @@ module view.beiBao {
 			}
 		}
 
+
 		/**
 		 * 添加物品
 		 * @param obj 
 		 */
 		public addItem(type: EnumData.PACKAGE_TYPE, obj: ItemBase): void {
-			for (let child of this.vbox_bag0._childs) {
-				if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
-					let item = new view.compart.DaoJuItem()
-					item.setDate(obj);
-					child.addItem(item);
+			// 配置表ID
+			let dwBaseID = '' + obj.dwBaseID;
+			// 物品数量
+			let dwCount = obj.dwCount;
+			// 物品类型
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
+
+			switch (type) {
+				// 背包
+				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+					let vbox_bag;
+					switch (itemType) {
+						// 材料
+						case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
+							vbox_bag = this.vbox_bag1;
+							break;
+						// 装备
+						case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
+							vbox_bag = this.vbox_bag0;
+							break;
+						// 消耗品
+						case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
+						case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
+						case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
+						case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
+							vbox_bag = this.vbox_bag2;
+							break;
+						// 任务物品
+						case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
+							vbox_bag = this.vbox_bag3;
+							break;
+					}
+					for (let child of vbox_bag._childs) {
+						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
+							let item = new view.compart.DaoJuItem()
+							item.setData(obj);
+							child.addItem(item);
+							break;
+						}
+					}
 					break;
-				}
+				// 仓库
+				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+					this.ui_cangKu.addItem(obj);
+					break;
 			}
 		}
 	}

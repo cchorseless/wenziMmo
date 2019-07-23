@@ -1,7 +1,7 @@
 
 class GameEngine extends SingletonClass {
 
-    public IsDebug = false;
+    public IsDebug = true;
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
