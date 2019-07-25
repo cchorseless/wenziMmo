@@ -36,16 +36,42 @@ module ResManage {
 
 
     /**
-     * 同步加载策划配置
+     * 加载策划配置
      * @param jsonRes 策划配置资源路径
      */
-    export function loadJSON(jsonRes): Promise<any> {
-        return new Promise((resolve, reject) => {
-            Laya.loader.load(jsonRes, Laya.Handler.create(this, (data) => {
-                if (data) { resolve(data) }
-                else { reject(data) };
-            }));
-        })
+    export function loadJSON(jsonRes: Array<any>, comFunc: Function = () => { }, proFunc: Function = () => { }, errFunc: Function = () => { }): void {
+        ResManage.loadResource(jsonRes, () => {
+            for (let _json of jsonRes) {
+                _json.CLASSTYPE.getInstance(Laya.Loader.getRes(_json.url));
+            }
+            comFunc();
+        }, proFunc, errFunc)
+
+        return
+    }
+
+    /**
+     * 加载TTF字体
+     * @param ttfRes 
+     */
+    export function loadTTF(ttfRes: Array<any>, comFunc: Function = () => { }): void {
+        // 原生环境
+        if (Laya.Browser.window.conch) {
+            for (let ttfinfo of ttfRes) {
+                ttfinfo.type = Laya.Loader.BUFFER;
+            }
+            Laya.loader.load(ttfRes, Laya.Handler.create(this, (data) => {
+                for (let ttfinfo of ttfRes) {
+                    let arr: ArrayBuffer = Laya.loader.getRes(ttfinfo.url);
+                    Laya.Browser.window.conch.setFontFaceFromBuffer(ttfinfo.TTFNAME, arr);
+                }
+                comFunc();
+            }), null, Laya.Loader.BUFFER);
+        }
+        // 网页环境
+        else {
+            ResManage.loadResource(ttfRes, comFunc);
+        }
 
 
     }

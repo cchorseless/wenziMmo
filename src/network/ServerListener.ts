@@ -433,7 +433,6 @@ class ServerListener extends SingletonClass {
             // 更新BOSS积分
             case 2:
                 break;
-
         }
         msg.clear();
         msg = null;
@@ -704,6 +703,9 @@ class ServerListener extends SingletonClass {
         _bag[idx] = null;
         _bag[idx] = msg.item;
         Log.trace('获得了道具' + idx);
+        if (PopUpManager.curPanel == PanelManage.BeiBao) {
+            PanelManage.BeiBao.addItem(bagType, msg.item);
+        }
         msg.clear();
         msg = null;
     }

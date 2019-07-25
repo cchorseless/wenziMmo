@@ -91,6 +91,134 @@ module EnumData {
     }
 
     /**
+     * 物品类型
+     */
+    export enum ItemTypeDef {
+        ITEM_TYPE_GOLD = 0,		//游戏币
+        ITEM_TYPE_NORMAL,		//普通物品
+        ITEM_TYPE_EQUIP,		//点使用后装备到人物身上 装备
+        ITEM_TYPE_DRUG,			//药品，会响应“使用”按钮，点使用后吃掉并增加药效 消耗品
+        ITEM_TYPE_SKILL,		//心法书，会响应“使用”按钮，点使用后吃掉并学会心法 消耗品
+        ITEM_TYPE_MAZE,			//阵法书，会响应“使用”按钮，点使用后吃掉并学会队伍阵法 消耗品
+        ITEM_TYPE_SCROLL,		//卷轴，会响应“使用”按钮，点使用后触发脚本ID 消耗品 
+        ITEM_TYPE_TASK,         //多为任务品
+    };
+
+
+    /**
+     * 装备品质
+     */
+    export enum emRareType {
+        RARE_TYPE_NORMAL,		//普通装备
+        RARE_TYPE_GOD,			//神装
+        RARE_TYPE_HOLY,			//圣装
+        RARE_TYPE_LEGEND,		//传说装备
+        RARE_TYPE_MOON,			//蓝月装备
+        RARE_TYPE_RUNE,			//符文装备
+        RARE_TYPE_MYSTIC,		//神秘品质
+        RARE_TYPE_SPECIALRING = 8,//品质,麻痹戒指，护身戒指， 复活戒指
+    };
+
+    /**
+     * 药品类型
+     */
+    export enum emDrugType {
+        DRUG_TYPE_HP,		//红药
+        DRUG_TYPE_MP,		//蓝药
+        DRUG_TYPE_HPANDMP,	//红蓝同时加的药
+        DRUG_TYPE_ABI,		//加状态和属性的药
+    };
+
+    /**
+     * 绑定类型
+     */
+    export enum emBindType {					//绑定的各种属性
+        BIND_TYPE_NULL = 0,				//无绑定
+        BIND_TYPE_NOTTRADE = 0x1,		//不能交易,包含交易,寄售,邮件
+        BIND_TYPE_NOTSELL = 0x2,		//不能卖给npc
+        BIND_TYPE_NOTSTRENG = 0x4,		//装备用,不能强化
+        BIND_TYPE_NOTTAKEDOWN = 0x8,	//传世装备激活,不能取下
+
+    };
+
+    /**
+     * 极品属性
+     */
+    export enum emItemNpFrom {
+        NP_ALL = 0,				//无来源
+        NP_MONSTERDROP = 1,		//掉落生成
+        NP_GMCREATE = 2,			//GM生成
+        NP_STRENGPROPERTY = 3,	//武器强化
+        NP_QUESTREWARD = 4,		//任务奖励
+        NP_SCRIPTCREATE = 5,      //脚本生成
+
+        NP_QUENCHING_POS_ONE = 6,	//第一条淬炼
+        NP_QUENCHING_POS_TWO = 7,	//第二条淬炼
+        NP_QUENCHING_POS_THREE = 8,	//第三条淬炼
+
+        NP_POS_0_1 = 10,		//
+        NP_POS_1_1,
+        NP_POS_2_1,
+        NP_POS_3_1,
+        NP_POS_4_1,
+        NP_POS_5_1,
+        NP_POS_6_1,
+        NP_POS_7_1,
+        NP_POS_8_1,
+        NP_POS_9_1,
+        NP_POS_10_1,
+
+        NP_POS_0_2 = 30,	//
+        NP_POS_1_2,
+        NP_POS_2_2,
+        NP_POS_3_2,
+        NP_POS_4_2,
+        NP_POS_5_2,
+        NP_POS_6_2,
+        NP_POS_7_2,
+        NP_POS_8_2,
+        NP_POS_9_2,
+        NP_POS_10_2,
+
+        NP_POS_0_3 = 50,	//
+        NP_POS_1_3,
+        NP_POS_2_3,
+        NP_POS_3_3,
+        NP_POS_4_3,
+        NP_POS_5_3,
+        NP_POS_6_3,
+        NP_POS_7_3,
+        NP_POS_8_3,
+        NP_POS_9_3,
+        NP_POS_10_3,
+
+        NP_POS_0_4 = 70,	//
+        NP_POS_1_4,
+        NP_POS_2_4,
+        NP_POS_3_4,
+        NP_POS_4_4,
+        NP_POS_5_4,
+        NP_POS_6_4,
+        NP_POS_7_4,
+        NP_POS_8_4,
+        NP_POS_9_4,
+        NP_POS_10_4,
+
+        NP_POS_0_5 = 90,	//
+        NP_POS_1_5,
+        NP_POS_2_5,
+        NP_POS_3_5,
+        NP_POS_4_5,
+        NP_POS_5_5,
+        NP_POS_6_5,
+        NP_POS_7_5,
+        NP_POS_8_5,
+        NP_POS_9_5,
+        NP_POS_10_5,
+    };
+
+
+    /**
      * 属性类型
      */
     export enum emNonpareilType {

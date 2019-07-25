@@ -29,7 +29,7 @@ module PanelManage {
     export let tipsLayer: Laya.Box;                                                      //文字气泡提示
     export let euiLayer: Laya.Box;                                                       //界面弹窗提示
     export let StartLoading: view.common.StartLoadingPanel                               //开始游戏加载界面
-    export var netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
+    export let netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
     export let resloading: view.common.ResLoadingPanel;                                  //游戏中加载资源切换场景界面
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
     export let GM: view.common.GmPanel;                                                  //GM界面
@@ -37,7 +37,7 @@ module PanelManage {
     export let ServerList: view.common.ServerListPanel;                                  //服务器列表界面
     export let ServerNotice: view.common.ServerNoticePanel;                              //服务器公告界面
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
-    export let ChooseAvatar: view.common.ChooseAvatarPanel;                               //选角界面
+    export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
     export let Main: view.main.MainPanel;                                                //主界面                                              
     /*****************************游戏界面************************************* */
     export let JueSe: view.juese.JueSePanel;//角色界面
@@ -45,6 +45,7 @@ module PanelManage {
     export let SheJiao: view.sheJiao.SheJiaoPanel;//社交界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
+    export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -254,6 +255,20 @@ module PanelManage {
             PanelManage.FuBen.setData();
             PanelManage.FuBen.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.FuBen, 1, 6, 1);
+        })
+    }
+
+    export function openWorldMapPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.WorldMap) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.WorldMap);
+        ResManage.loadResource(ResData.PanelRes.WorldMap, () => {
+            PanelManage.WorldMap = new view.map.WorldMapPanel();
+            PanelManage.WorldMap['LCP_skin'] = ResData.PanelRes.WorldMap;
+            PanelManage.WorldMap.setData();
+            PanelManage.WorldMap.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.WorldMap, 2);
         })
     }
 
