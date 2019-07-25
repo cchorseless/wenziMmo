@@ -73,11 +73,48 @@ module view.main {
 		}
 
 		public addEvent(): void {
+			// 模式切换
+			this.box_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				if ((this.box_modeChange.getChildAt(0) as Laya.Radio).selected) {
+					this.box_mode0.visible = true;
+					this.box_mode1.visible = false;
+					for (let tempBtn of this.box_mode0._childs) {
+						for (let _radio of tempBtn._childs) {
+							_radio.selected = false;
+						}
+					}
+					for (let tempBtn of this.box_modeChange._childs) {
+						tempBtn.selected = false;
+					}
+					this.lbl_modeName.text = '小说模式';
+					PanelManage.openMainPanel();
+				}
+				else {
+					this.box_mode1.visible = true;
+					this.box_mode0.visible = false;
+					for (let tempBtn of this.box_mode1._childs) {
+						for (let _radio of tempBtn._childs) {
+							_radio.selected = false;
+						}
+					}
+					for (let tempBtn of this.box_modeChange._childs) {
+						tempBtn.selected = true;
+					}
+					this.lbl_modeName.text = '场景模式';
+					PanelManage.openFuBenPanel();
+				}
+			});
+
 			this.box_beiBao.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_beiBao']);
 			this.box_jueSe.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jueSe']);
-			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
 			this.box_jiangHu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jiangHu']);
 			this.box_yangCheng.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_yangCheng']);
+
+			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
+			this.box_FuBenInJuQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_FuBenInJuQing']);
+			this.box_tuJian.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_tuJian']);
+			this.box_task.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_task']);
+
 			// 聊天大窗
 			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_chatBigDialog.visible = true;
@@ -126,9 +163,59 @@ module view.main {
 		}
 
 		public openPanel(msg): void {
+			let _box;
 			let _btn: Laya.Box = this[msg];
+			// BOX状态
 			let isOpen = (_btn.getChildAt(0) as Laya.Radio).selected;
-			for (let tempBtn of this.box_mainBottom._childs) {
+			// 剧情副本模式
+			let isMode = (this.box_modeChange.getChildAt(0) as Laya.Radio).selected;
+
+			if (isMode) {
+				_box = this.box_mode1;
+			}
+			else {
+				_box = this.box_mode0;
+			};
+
+			if (isOpen) {
+				if (isMode) {
+					PanelManage.openFuBenPanel();
+				}
+				else {
+					PanelManage.openMainPanel()
+				}
+			}
+			else {
+				switch (msg) {
+					case "box_jueSe":
+						PanelManage.openJueSePanel()
+						break;
+					case "box_beiBao":
+						PanelManage.openBeiBaoPanel();
+						break;
+					case "box_jiangHu":
+						PanelManage.openSheJiaoPanel();
+						break;
+					case "box_yangCheng":
+						PanelManage.openYangChengPanel();
+						break;
+
+					case "box_juQing":
+						// PanelManage.openFuBenPanel();
+						break;
+					case "box_FuBenInJuQing":
+						// PanelManage.openFuBenPanel();
+						break;
+					case "box_tuJian":
+						// PanelManage.openFuBenPanel();
+						break;
+					case "box_task":
+						// PanelManage.openFuBenPanel();
+						break;
+				}
+			};
+
+			for (let tempBtn of _box._childs) {
 				if (tempBtn == _btn) {
 					for (let _radio of tempBtn._childs) {
 						_radio.selected = !isOpen;
@@ -139,37 +226,14 @@ module view.main {
 						_radio.selected = false;
 					}
 				}
-
 			}
-
 
 			for (let _radio of _btn._childs) {
 				_radio.selected = !isOpen;
 			}
-
-			if (isOpen) {
-				PanelManage.openMainPanel()
-			}
-			else {
-				switch (msg) {
-					case "box_jueSe":
-						PanelManage.openJueSePanel()
-						break;
-					case "box_beiBao":
-						PanelManage.openBeiBaoPanel();
-						break;
-					case "box_juQing":
-						PanelManage.openFuBenPanel();
-						break;
-					case "box_jiangHu":
-						PanelManage.openSheJiaoPanel();
-						break;
-					case "box_yangCheng":
-						PanelManage.openYangChengPanel();
-						break;
-				}
-			}
 		}
+
+
 		/**
 		 * 获取时辰
 		 */

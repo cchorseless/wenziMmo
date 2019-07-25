@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":13,
+    "selectedBox":22,
+    "selecteID":31,
     "props":{"width":640,"sceneColor":"#665c5c","height":800},
     "nodeParent":-1,
     "label":"View",
@@ -12,6 +12,20 @@
     "hasChild":true,
     "compId":1,
     "child":[
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":38,"x":12,"width":621,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"31,19,22,21","height":677},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
+            "child":[
+                ],
+            "$LOCKED":true
+        },
         {
             "x":15,
             "type":"Image",
@@ -26,7 +40,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":5,"x":34,"width":94,"text":"物品名称","height":37,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"x":103,"width":94,"text":"物品名称","height":37,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","bottom":0},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -38,7 +52,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":5,"x":167,"width":69,"text":"等级","height":37,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"x":234,"width":69,"text":"等级","height":37,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","bottom":0},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -50,7 +64,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":5,"x":301,"width":69,"text":"价格","height":37,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"x":318,"width":69,"text":"价格","height":37,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","bottom":0},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -62,7 +76,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":5,"x":434,"width":69,"text":"剩余时间","height":37,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"x":406,"width":106,"text":"剩余时间","height":37,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","bottom":0},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -76,9 +90,9 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":52,"x":9,"width":621,"height":650},
+            "props":{"y":52,"x":9,"width":621,"var":"panel_0","height":664},
             "nodeParent":1,
-            "label":"Panel",
+            "label":"Panel(panel_0)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -87,24 +101,136 @@
             "child":[
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"right":0,"left":0},
+                    "type":"VBox",
+                    "props":{"var":"vbox_0","space":3,"right":0,"left":0,"align":"center"},
                     "nodeParent":3,
-                    "label":"HBox",
-                    "isDirectory":false,
+                    "label":"VBox(vbox_0)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
+                    "hasChild":true,
+                    "compId":22,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":24,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":10,"x":10},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":20,"x":20},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":30,"x":30},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":40,"x":40},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":28,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":50,"x":50},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":29,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":60,"x":60},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":30,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/BaiTanBuyItem.ui",
+                            "props":{"y":70,"x":70},
+                            "nodeParent":22,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":31,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":469,"x":29,"width":185,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":240},
+            "props":{"y":709,"x":29,"width":185,"var":"img_typeShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":665,"anchorY":1},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_typeShow)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -114,9 +240,9 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":0,"width":183,"stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"仓库,回收,摆摊,交易行","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
+                    "props":{"y":0,"x":0,"width":183,"var":"tab_type","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部类型,武器,衣服,头盔,项链,腰带,手镯,戒指,鞋子,药剂,强化道具,其他物品","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":552,"direction":"vertical"},
                     "nodeParent":11,
-                    "label":"Tab",
+                    "label":"Tab(tab_type)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -124,14 +250,14 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":468,"x":229,"width":185,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":240},
+            "props":{"y":708,"x":229,"width":185,"var":"img_jobShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":233,"anchorY":1},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_jobShow)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -141,9 +267,9 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":0,"width":183,"stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"仓库,回收,摆摊,交易行","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
+                    "props":{"y":0,"x":0,"width":183,"var":"tab_job","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部职业,战士,法师,道士","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
                     "nodeParent":13,
-                    "label":"Tab",
+                    "label":"Tab(tab_job)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -151,14 +277,14 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":472,"x":429,"width":185,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":240},
+            "props":{"y":712,"x":429,"width":185,"var":"img_levelShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":445,"anchorY":1},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_levelShow)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -168,9 +294,9 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":0,"width":183,"stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"仓库,回收,摆摊,交易行","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
+                    "props":{"y":0,"x":1,"width":183,"var":"tab_level","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部等级,1-60级,70级,80级,1-2转,3-4转,5-6转,7-8转","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":370,"direction":"vertical"},
                     "nodeParent":15,
-                    "label":"Tab",
+                    "label":"Tab(tab_level)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -178,7 +304,46 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":718,"x":34,"width":169,"var":"btn_type","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"全部类型","height":58},
+            "nodeParent":1,
+            "label":"Button(btn_type)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":718,"x":236,"width":169,"var":"btn_job","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"全部职业","height":58},
+            "nodeParent":1,
+            "label":"Button(btn_job)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":718,"x":438,"width":169,"var":"btn_level","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"全部等级","height":58},
+            "nodeParent":1,
+            "label":"Button(btn_level)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
+            "child":[
+                ]
         }],
     "animations":[
         {

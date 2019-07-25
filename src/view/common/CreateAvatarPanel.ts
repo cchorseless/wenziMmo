@@ -15,11 +15,15 @@ module view.common {
 			this.btn_randomName.on(Laya.UIEvent.CLICK, this, this.randomName);
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
 			// 职业选择
-			this.rad_menPai1.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [1]);
-			this.rad_menPai2.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [2]);
-			this.rad_menPai3.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [3]);
-			this.rad_menPai4.on(Laya.UIEvent.CLICK, this, () => { TipsManage.showTips('敬请期待') });
-			this.rad_menPai5.on(Laya.UIEvent.CLICK, this, () => { TipsManage.showTips('敬请期待') });
+			this.btn_menPaiBg1.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [1]);
+			this.btn_menPaiBg2.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [2]);
+			this.btn_menPaiBg3.on(Laya.UIEvent.CLICK, this, this.chooseMenPai, [3]);
+			this.btn_menPaiBg4.on(Laya.UIEvent.CLICK, this, () => {
+				TipsManage.showTips('敬请期待')
+			});
+			this.btn_menPaiBg5.on(Laya.UIEvent.CLICK, this, () => {
+				TipsManage.showTips('敬请期待')
+			});
 			// 性别选择
 			this.lbl_nan.on(Laya.UIEvent.CLICK, this, this.chooseSex, [1]);
 			this.lbl_nv.on(Laya.UIEvent.CLICK, this, this.chooseSex, [2]);
@@ -29,7 +33,7 @@ module view.common {
 		public chooseMenPai(menPai): void {
 			this.curMenPai = menPai;
 			for (let i = 1; i < 4; i++) {
-				this['rad_menPai' + i].selected = (menPai == i);
+				this['btn_menPaiBg' + i].selected = this['btn_menPai' + i].selected = (menPai == i);
 			}
 			// 门派名字
 			this.lbl_menPai.text = ['华山派', '武当派', '魔 教'][menPai - 1];
