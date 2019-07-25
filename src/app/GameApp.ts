@@ -36,6 +36,14 @@ class GameApp {
     public static get ServerListener(): ServerListener {
         return ServerListener.getInstance();
     }
+
+    /**
+     * HttpManager
+     */
+    public static get HttpManager():HttpManager{
+        return HttpManager.getInstance();
+    }
+
     // /**
     //  * 服务器返回的消息处理中心
     //  * @type {MessageCenter}

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":358,
+    "selectedBox":355,
+    "selecteID":356,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -177,7 +177,7 @@
                     "props":{"y":11,"x":13,"width":110,"var":"btn_bagLogo","stateNum":"2","skin":"image/bag/icon_itemfunc0.png","height":117},
                     "nodeParent":4,
                     "label":"Button(btn_bagLogo)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -228,18 +228,19 @@
             "props":{"y":256,"x":0,"width":640,"var":"viw_BagViewChange","selectedIndex":0,"right":0,"left":0,"height":800},
             "nodeParent":1,
             "label":"ViewStack(viw_BagViewChange)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":355,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":0,"name":"item0"},
                     "nodeParent":355,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -519,7 +520,7 @@
                             "props":{"y":402,"x":110,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
                             "nodeParent":354,
                             "label":"ViewStack(viw_bagBottom)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -573,17 +574,19 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/JiaoYiHangItem.ui",
-                    "props":{"top":0,"name":"item1","left":0},
+                    "props":{"var":"ui_jiaoyihang","top":0,"runtime":"view.compart.JiaoYiHangItem","name":"item1","left":0},
                     "nodeParent":355,
-                    "label":"UIView(item1)",
+                    "label":"UIView(ui_jiaoyihang)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":356,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 }]
         },
         {

@@ -43,11 +43,10 @@ module PanelManage {
     export let JueSe: view.juese.JueSePanel;//角色界面
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let SheJiao: view.sheJiao.SheJiaoPanel;//社交界面
-    export let Task: view.task.TaskPanel;//任务界面
-    export let GuildSelect: view.guild.GuildSelectPanel;//工会界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
+    export let JuQingTalk: view.juQing.JuQingTalkPanel;//剧情对白界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -208,7 +207,7 @@ module PanelManage {
             PanelManage.YangCheng['LCP_skin'] = ResData.PanelRes.YangCheng;
             PanelManage.YangCheng.setData();
             PanelManage.YangCheng.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.YangCheng, 1, 2, 1);
+            PopUpManager.addPanel(PanelManage.YangCheng, 1, 5, 1);
         })
     }
     /**
@@ -224,59 +223,27 @@ module PanelManage {
             PanelManage.BeiBao['LCP_skin'] = ResData.PanelRes.BeiBao;
             PanelManage.BeiBao.setData();
             PanelManage.BeiBao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.BeiBao, 1, 4, 1);
+            PopUpManager.addPanel(PanelManage.BeiBao, 1, 6, 1);
         })
     }
     /**
      * 社交界面
      */
-    // export function openSheJiaoPanel(): void {
-    //     if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.SheJiao) {
-    //         return
-    //     }
-    //     PopUpManager.checkPanel(PanelManage.SheJiao);
-    //     ResManage.loadResource(ResData.PanelRes.SheJiao, () => {
-    //         PanelManage.SheJiao = new view.sheJiao.SheJiaoPanel();
-    //         PanelManage.SheJiao['LCP_skin'] = ResData.PanelRes.SheJiao;
-    //         PanelManage.SheJiao.setData();
-    //         PanelManage.SheJiao.mouseEnabled = true;
-    //         PopUpManager.addPanel(PanelManage.SheJiao, 1, 5, 1);
-    //     })
-    // }
-      /**
-     * 任务界面
-     */
-    export function openTaskPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task) {
+    export function openSheJiaoPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.SheJiao) {
             return
         }
-        PopUpManager.checkPanel(PanelManage.Task);
-        ResManage.loadResource(ResData.PanelRes.Task, () => {
-            PanelManage.Task = new view.task.TaskPanel();
-            PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
-            PanelManage.Task.setData();
-            PanelManage.Task.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task, 1, 5, 1);
-        })
-    }
-       /**
-     * 工会界面
-     */
-    export function openGuildSelectPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildSelect) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildSelect);
-        ResManage.loadResource(ResData.PanelRes.GuildSelect, () => {
-            PanelManage.GuildSelect = new view.guild.GuildSelectPanel();
-            PanelManage.GuildSelect['LCP_skin'] = ResData.PanelRes.GuildSelect;
-            PanelManage.GuildSelect.setData();
-            PanelManage.GuildSelect.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildSelect, 1, 5, 1);
+        PopUpManager.checkPanel(PanelManage.SheJiao);
+        ResManage.loadResource(ResData.PanelRes.SheJiao, () => {
+            PanelManage.SheJiao = new view.sheJiao.SheJiaoPanel();
+            PanelManage.SheJiao['LCP_skin'] = ResData.PanelRes.SheJiao;
+            PanelManage.SheJiao.setData();
+            PanelManage.SheJiao.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.SheJiao, 1, 2, 1);
         })
     }
     /**
-     * 副本界面
+     * 剧情副本界面
      */
     export function openFuBenPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBen) {
@@ -288,10 +255,13 @@ module PanelManage {
             PanelManage.FuBen['LCP_skin'] = ResData.PanelRes.FuBen;
             PanelManage.FuBen.setData();
             PanelManage.FuBen.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBen, 1, 6, 1);
+            PopUpManager.addPanel(PanelManage.FuBen, 1, 4, 1);
         })
     }
 
+    /**
+     * 世界地图界面
+     */
     export function openWorldMapPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.WorldMap) {
             return
@@ -305,5 +275,20 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.WorldMap, 2);
         })
     }
-
+    /**
+     * 剧情对白界面
+     */
+    export function openJuQingTalkPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingTalk) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.JuQingTalk);
+        ResManage.loadResource(ResData.PanelRes.JuQingTalk, () => {
+            PanelManage.JuQingTalk = new view.juQing.JuQingTalkPanel();
+            PanelManage.JuQingTalk['LCP_skin'] = ResData.PanelRes.JuQingTalk;
+            PanelManage.JuQingTalk.setData();
+            PanelManage.JuQingTalk.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
+        })
+    }
 }

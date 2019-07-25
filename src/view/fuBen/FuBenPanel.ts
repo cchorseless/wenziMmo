@@ -6,6 +6,13 @@ module view.fuBen {
 		}
 		public setData(): void {
 
+			this.addEvent();
+		}
+
+		public addEvent(): void {
+			this.btn_goJuQing.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingTalkPanel();
+			})
 		}
 	}
 }
