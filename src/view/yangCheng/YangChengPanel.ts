@@ -5,7 +5,7 @@ module view.yangCheng{
 			super();
 		}
 		public setData():void{
-			
+			this.panel_yangCheng.hScrollBarSkin = '';
 		}
 	}
 }

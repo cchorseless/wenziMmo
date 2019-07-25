@@ -35,11 +35,15 @@ module ResData {
         // 角色界面
         public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 养成界面
-        public static YangCheng = null;
+        public static YangCheng =  [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
         public static BeiBao = [{ url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];;
         // 社交界面
         public static SheJiao = null;
+        // 任务界面
+         public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
+          // 工会界面
+         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];
         // 世界地图界面
