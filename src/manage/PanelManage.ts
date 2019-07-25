@@ -257,7 +257,7 @@ module PanelManage {
             PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
             PanelManage.Task.setData();
             PanelManage.Task.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task, 1, 5, 1);
+            PopUpManager.addPanel(PanelManage.Task, 2, 5, 1);
         })
     }
     /**
