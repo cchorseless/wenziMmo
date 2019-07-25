@@ -194,7 +194,7 @@ module view.main {
 						PanelManage.openBeiBaoPanel();
 						break;
 					case "box_jiangHu":
-						PanelManage.openSheJiaoPanel();
+						PanelManage.openGuildSelectPanel();
 						break;
 					case "box_yangCheng":
 						PanelManage.openYangChengPanel();
@@ -210,7 +210,7 @@ module view.main {
 						// PanelManage.openFuBenPanel();
 						break;
 					case "box_task":
-						// PanelManage.openFuBenPanel();
+						PanelManage.openTaskPanel();
 						break;
 				}
 			};

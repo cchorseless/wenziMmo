@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":107,
-    "selecteID":109,
+    "selectedBox":4,
+    "selecteID":202,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,16 +15,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
+            "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":3,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"skin":"image/main/fram_common_23.png","right":0,"left":0,"height":92,"bottom":0},
                     "nodeParent":4,
@@ -34,9 +35,11 @@
                     "hasChild":false,
                     "compId":202,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1030,"x":0,"skin":"image/main/fram_common_21.png"},
                     "nodeParent":4,
@@ -46,9 +49,11 @@
                     "hasChild":false,
                     "compId":209,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1030,"x":639,"skin":"image/main/fram_common_21.png","scaleX":-1},
                     "nodeParent":4,
@@ -58,8 +63,10 @@
                     "hasChild":false,
                     "compId":210,
                     "child":[
-                        ]
-                }]
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -307,13 +314,14 @@
             "props":{"y":130,"x":-5,"width":656,"var":"box_contextTitle","height":134},
             "nodeParent":1,
             "label":"Box(box_contextTitle)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":163,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"skin":"image/main/fram_common_22.png","right":10,"left":10,"height":121},
                     "nodeParent":163,
@@ -327,6 +335,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":27,"skin":"image/main/fram_common_05.png"},
                     "nodeParent":163,
@@ -339,6 +348,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-14,"x":648,"skin":"image/main/fram_common_21.png","scaleX":-1},
                     "nodeParent":163,
@@ -351,6 +361,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"skin":"image/main/fram_common_06.png"},
                     "nodeParent":163,
@@ -365,6 +376,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":115,"x":44,"skin":"image/main/fram_common_05.png"},
                     "nodeParent":163,
@@ -377,17 +389,19 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":87,"width":485,"skin":"image/main/fram_common_08.png","sizeGrid":"0,41,0,40","height":96},
                     "nodeParent":163,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":155,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":63,"wordWrap":true,"width":377,"var":"lbl_sceneInfo","text":"洛阳故城XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","height":71,"fontSize":22,"color":"#ffffff","align":"left"},
                             "nodeParent":155,
@@ -400,6 +414,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":57,"x":400,"width":32,"var":"btn_sceneMore","stateNum":"1","skin":"image/main/btn_common_01.png","height":32},
                             "nodeParent":155,
@@ -413,6 +428,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":11,"x":13,"width":117,"var":"img_mapPic","skin":"image/main/img_main_luoyang.png","height":117},
                     "nodeParent":163,
@@ -449,6 +465,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":14,"x":536,"width":112,"var":"btn_worldMap","stateNum":"2","skin":"image/main/icon_main_ditu_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"地图","height":107},
                     "nodeParent":163,
@@ -1107,14 +1124,13 @@
                     "props":{"y":0,"x":0,"width":506,"var":"box_mode0","height":84},
                     "nodeParent":12,
                     "label":"Box(box_mode0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":257,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"x":0,"width":130,"var":"box_jueSe","height":88,"bottom":0},
                             "nodeParent":257,
@@ -1163,7 +1179,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"x":124,"var":"box_yangCheng","height":88,"bottom":0},
                             "nodeParent":257,
@@ -1212,7 +1227,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":26,"x":252,"var":"box_jiangHu","bottom":0},
                             "nodeParent":257,
@@ -1261,7 +1275,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"x":376,"var":"box_beiBao","bottom":0},
                             "nodeParent":257,
@@ -1273,7 +1286,6 @@
                             "compId":107,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Radio",
                                     "props":{"y":-17,"x":0,"width":130,"stateNum":"2","skin":"image/main/fram_common_mainbg.png","height":105},
                                     "nodeParent":107,
@@ -1286,7 +1298,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Radio",
                                     "props":{"y":-10,"x":16,"stateNum":"2","skin":"image/main/icon_common_beibao01up_finish.png","scaleY":1.2,"scaleX":1.2},
                                     "nodeParent":107,
@@ -1298,7 +1309,6 @@
                                     "compId":109,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":53,"x":-9,"width":98,"text":"物品","strokeColor":"#000000","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
                                             "nodeParent":109,
