@@ -179,10 +179,10 @@ module view.main {
 
 			if (isOpen) {
 				if (isMode) {
-					PanelManage.openFuBenPanel();
+					PopUpManager.showPanel(PanelManage.FuBen);
 				}
 				else {
-					PanelManage.openMainPanel()
+					PanelManage.openMainPanel();
 				}
 			}
 			else {
