@@ -48,7 +48,8 @@ module PanelManage {
     export let Task: view.task.TaskPanel;//任务界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingTalk: view.juQing.JuQingTalkPanel;//剧情对白界面
-    export let GuildSelect: view.guild.GuildSelectPanel;//养成界面
+    export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
+    export let GuildTeam: view.guild.GuildTeamPanel;//公会界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -228,6 +229,22 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.GuildSelect, 1, 5, 1);
         })
     }
+     /**
+     * 帮会界面
+     */
+    export function openGuildTeamPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildTeam) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildTeam);
+        ResManage.loadResource(ResData.PanelRes.GuildTeam, () => {
+            PanelManage.GuildTeam = new view.guild.GuildTeamPanel();
+            PanelManage.GuildTeam['LCP_skin'] = ResData.PanelRes.GuildTeam;
+            PanelManage.GuildTeam.setData();
+            PanelManage.GuildTeam.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
+        })
+    }
     /**
      * 背包界面
      */
@@ -257,7 +274,7 @@ module PanelManage {
             PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
             PanelManage.Task.setData();
             PanelManage.Task.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task, 1, 5, 1);
+            PopUpManager.addPanel(PanelManage.Task, 2, 5, 1);
         })
     }
     /**

@@ -202,6 +202,7 @@ module view.main {
 
 					case "box_juQing":
 						// PanelManage.openFuBenPanel();
+						PanelManage.openGuildTeamPanel();
 						break;
 					case "box_FuBenInJuQing":
 						// PanelManage.openFuBenPanel();

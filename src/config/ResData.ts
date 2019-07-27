@@ -42,8 +42,10 @@ module ResData {
         public static SheJiao = null;
         // 任务界面
          public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
-          // 工会界面
+          // 公会界面
          public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+          // 帮会界面
+         public static GuildTeam = [{ url: "res/atlas/image/guild/team.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];
         // 世界地图界面

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":47,
+    "selectedBox":5,
+    "selecteID":50,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -18,36 +18,26 @@
             "props":{"var":"panel_yangCheng","top":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Panel(panel_yangCheng)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"top":0,"skin":"image/yangCheng/img_yangChengBJ.png","bottom":0},
                     "nodeParent":4,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":5,
                     "child":[
                         {
-                            "type":"Image",
-                            "props":{"y":874,"x":473,"skin":"image/yangCheng/img_table.png"},
-                            "nodeParent":5,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":9,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":585,"x":1149,"skin":"image/yangCheng/img_stool.png"},
                             "nodeParent":5,
@@ -58,9 +48,10 @@
                             "compId":12,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":496,"x":1250,"skin":"image/yangCheng/img_chuTou.png"},
                             "nodeParent":5,
@@ -73,6 +64,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":302,"x":1594,"skin":"image/yangCheng/img_door.png"},
                             "nodeParent":5,
@@ -82,20 +74,23 @@
                             "hasChild":false,
                             "compId":16,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":388,"x":157},
                             "nodeParent":5,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":21,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/yangCheng/img_danLu.png"},
                                     "nodeParent":21,
@@ -109,6 +104,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":42,"x":268,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":21,
@@ -134,6 +130,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":715,"x":-2},
                             "nodeParent":5,
@@ -182,54 +179,7 @@
                                 }]
                         },
                         {
-                            "type":"Box",
-                            "props":{"y":796,"x":719},
-                            "nodeParent":5,
-                            "label":"Box",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":39,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":34,"skin":"image/yangCheng/img_housekeeper.png"},
-                                    "nodeParent":39,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":10,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "props":{"x":117,"skin":"image/yangCheng/img_common_24.png"},
-                                    "nodeParent":39,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":31,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":29,"x":8,"text":"管\\n家","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                            "nodeParent":31,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":32,
-                                            "child":[
-                                                ]
-                                        }]
-                                }]
-                        },
-                        {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":617,"x":1443},
                             "nodeParent":5,
@@ -241,6 +191,7 @@
                             "compId":40,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/yangCheng/img_tieJiangPu.png"},
                                     "nodeParent":40,
@@ -253,6 +204,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":23,"x":119,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":40,
@@ -278,6 +230,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":789,"x":1350},
                             "nodeParent":5,
@@ -326,6 +279,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":522,"x":1171},
                             "nodeParent":5,
@@ -374,6 +328,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":159,"x":546,"width":648,"height":424},
                             "nodeParent":5,
@@ -421,10 +376,113 @@
                                         }]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":508,"x":599},
+                            "nodeParent":5,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":39,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":34,"skin":"image/yangCheng/img_housekeeper.png"},
+                                    "nodeParent":39,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":10,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"x":117,"skin":"image/yangCheng/img_common_24.png"},
+                                    "nodeParent":39,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":31,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":29,"x":8,"text":"管\\n家","fontSize":40,"font":"FZXK","color":"#ffffff"},
+                                            "nodeParent":31,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":32,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":782,"x":473},
+                            "nodeParent":5,
+                            "label":"Box",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":50,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":92,"skin":"image/yangCheng/img_table.png"},
+                                    "nodeParent":50,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":9,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":0,"x":152,"skin":"image/yangCheng/img_common_24.png"},
+                                    "nodeParent":50,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":48,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":29,"x":8,"text":"下\\n棋","fontSize":40,"font":"FZXK","color":"#ffffff"},
+                                            "nodeParent":48,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":49,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":922,"x":-1,"skin":"image/yangCheng/img_qj.png"},
                     "nodeParent":4,
@@ -485,5 +543,6 @@
             "id":1,
             "frameRate":24,
             "action":0
-        }]
+        }],
+    "$HIDDEN":false
 }
