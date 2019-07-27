@@ -5,6 +5,7 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
+			this.panel_left.vScrollBarSkin = '';
 
 			this.addEvent();
 		}
