@@ -41,6 +41,7 @@ module PanelManage {
     export let Main: view.main.MainPanel;                                                //主界面                                              
     /*****************************游戏界面************************************* */
     export let JueSe: view.juese.JueSePanel;//角色界面
+    export let Clothe: view.juese.ClothePanel;//时装界面
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let SheJiao: view.sheJiao.SheJiaoPanel;//社交界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
@@ -49,7 +50,8 @@ module PanelManage {
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingTalk: view.juQing.JuQingTalkPanel;//剧情对白界面
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
-    export let GuildTeam: view.guild.GuildTeamPanel;//公会界面
+    export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
+    export let Menu: view.menu.MenuPanel;//菜单界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -197,6 +199,22 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JueSe, 1, 3, 1);
         })
     }
+     /**
+     * 时装界面
+     */
+    export function openClothePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Clothe) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Clothe);
+        ResManage.loadResource(ResData.PanelRes.Clothe, () => {
+            PanelManage.Clothe = new view.juese.ClothePanel();
+            PanelManage.Clothe['LCP_skin'] = ResData.PanelRes.Clothe;
+            PanelManage.Clothe.setData();
+            PanelManage.Clothe.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Clothe, 2,3,1);
+        })
+    }
     /**
      * 养成界面
      */
@@ -243,6 +261,22 @@ module PanelManage {
             PanelManage.GuildTeam.setData();
             PanelManage.GuildTeam.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
+        })
+    }
+     /**
+     * 菜单界面
+     */
+    export function openMenuPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Menu) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Menu);
+        ResManage.loadResource(ResData.PanelRes.Menu, () => {
+            PanelManage.Menu = new view.menu.MenuPanel();
+            PanelManage.Menu['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.Menu.setData();
+            PanelManage.Menu.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Menu, 99, 5, 2);
         })
     }
     /**
@@ -342,4 +376,5 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
         })
     }
+ 
 }

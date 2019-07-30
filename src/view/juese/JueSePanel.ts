@@ -13,6 +13,8 @@ module view.juese {
 			this.addEvent();
 		}
 		public addEvent(): void {
+		
+		
 		}
 	}
 }

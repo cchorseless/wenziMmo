@@ -123,7 +123,7 @@ module view.main {
 				this.ui_sceneInfoDialog.visible = true;
 			});
 			// 菜单界面
-			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => { console.log(1111111) });
+			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {PanelManage.openMenuPanel()});
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 		}
@@ -202,7 +202,6 @@ module view.main {
 
 					case "box_juQing":
 						// PanelManage.openFuBenPanel();
-						PanelManage.openGuildTeamPanel();
 						break;
 					case "box_FuBenInJuQing":
 						// PanelManage.openFuBenPanel();

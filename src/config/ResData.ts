@@ -34,6 +34,8 @@ module ResData {
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
         // 角色界面
         public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        // 时装界面
+        public static Clothe = [{ url: "res/atlas/image/juese/clothe.atlas", type: Laya.Loader.ATLAS }];;
         // 养成界面
         public static YangCheng =  [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
@@ -52,6 +54,8 @@ module ResData {
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];
         // 剧情对白界面
         public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
+         // 菜单界面
+         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
 
     };
     /**

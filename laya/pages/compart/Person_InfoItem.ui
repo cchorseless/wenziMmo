@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":72,
-    "selecteID":74,
+    "selectedBox":37,
+    "selecteID":70,
     "props":{"width":490,"sceneColor":"#f8eeee","height":780},
     "nodeParent":-1,
     "label":"View",
@@ -333,15 +333,16 @@
             "props":{"y":-30,"x":232},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":37,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":274,"x":77,"skin":"image/juese/img_common_08.png"},
+                    "props":{"y":274,"x":77,"skin":"image/common/img_common_08.png"},
                     "nodeParent":37,
                     "label":"Image",
                     "isDirectory":false,
@@ -352,6 +353,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":55,"width":192,"skin":"image/common/nan01.png","height":319},
                     "nodeParent":37,
@@ -364,10 +366,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":30,"x":52,"width":113,"skin":"image/common/img_common_06.png","rotation":90,"height":52},
+                    "props":{"y":30,"x":52,"width":113,"var":"img_zhuangBan","skin":"image/common/img_common_06.png","rotation":90,"height":52},
                     "nodeParent":37,
-                    "label":"Image",
+                    "label":"Image(img_zhuangBan)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -375,6 +378,7 @@
                     "compId":70,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":42,"x":17,"wordWrap":true,"width":31,"text":"装扮","rotation":-90,"height":60,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":70,
