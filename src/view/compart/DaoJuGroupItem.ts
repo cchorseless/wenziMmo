@@ -16,7 +16,7 @@ module view.compart {
 
 		public addItem(item): void {
 			for (let child of this.box_all._childs) {
-				if (!child.checkIsFull()) {
+				if (!(child as view.compart.DaoJuBgItem).checkIsFull()) {
 					child.addItem(item);
 					break
 				}

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":5,
-    "selecteID":50,
+    "selectedBox":39,
+    "selecteID":51,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -383,25 +383,27 @@
                             "props":{"y":508,"x":599},
                             "nodeParent":5,
                             "label":"Box",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":39,
                             "child":[
                                 {
-                                    "type":"Image",
-                                    "props":{"y":34,"skin":"image/yangCheng/img_housekeeper.png"},
+                                    "x":60,
+                                    "type":"Sprite",
+                                    "props":{"y":150,"x":45,"var":"spr_guanJia"},
                                     "nodeParent":39,
-                                    "label":"Image",
+                                    "label":"Sprite(spr_guanJia)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":10,
+                                    "compId":51,
                                     "child":[
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":117,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":39,

@@ -6,7 +6,6 @@ module view.compart {
 			this.setData();
 		}
 		public setData(): void {
-			this.vbox_all['sortItem'] = (items) => { };
 			this.panel_monster.hScrollBarSkin = '';
 			this.panel_player.hScrollBarSkin = '';
 			this.hbox_monster01['sortItem'] = (items) => { };
@@ -21,6 +20,9 @@ module view.compart {
 			this.hbox_monster03.space = 1;
 			this.hbox_player01.space = 1;
 			this.hbox_player02.space = 1;
+
+			this.initSelfPlayer();
+			this.addPlayer(null);
 			this.addEvent();
 		}
 
@@ -57,6 +59,13 @@ module view.compart {
 		}
 
 		/**
+		 * 初始化自己的角色
+		 */
+		public initSelfPlayer(): void {
+			this.box_self.addChild(new view.compart.SelfPlayerInSceneItem());
+		}
+
+		/**
 		 * 添加怪物
 		 * @param obj 
 		 */
@@ -81,7 +90,7 @@ module view.compart {
 			}
 			console.log('addMonster==>当前场景内怪物数据' + (childNum + 1))
 		}
-		
+
 		/**
 		 * 移除怪物
 		 * @param obj 
@@ -124,6 +133,10 @@ module view.compart {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
+			for (let i = 0; i < 4; i++) {
+				this.hbox_player01.addChild(new view.compart.OtherPlayerInSceneItem())
+				this.hbox_player02.addChild(new view.compart.OtherPlayerInSceneItem())
+			}
 
 		}
 

@@ -5,7 +5,7 @@ module view.compart {
 			super();
 		}
 		public checkIsFull(): boolean {
-			return this.img_bg.numChildren === 1;
+			return this.numChildren === 2;
 		}
 
 		public addItem(item) {
