@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":15,
-    "selecteID":17,
+    "selectedBox":100,
+    "selecteID":112,
     "referenceLines":[
         {
             "value":149,
@@ -182,13 +182,14 @@
                     "props":{"y":14,"x":34,"width":99,"stateNum":"2","skin":"image/common/icon_gonghui01_finish.png","height":107},
                     "nodeParent":100,
                     "label":"Button",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":112,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":71,"x":-22,"width":156,"skin":"image/common/title_common_01.png","height":49},
                             "nodeParent":112,
@@ -202,6 +203,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":-11,"width":130,"text":"江湖小帮","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":33,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":112,
@@ -211,8 +213,10 @@
                             "hasChild":false,
                             "compId":114,
                             "child":[
-                                ]
-                        }]
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -255,32 +259,6 @@
             "compId":89,
             "child":[
                 ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":220,"x":-9,"width":148,"skin":"image/common/title_common_01.png","height":46},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":70,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":9,"x":13,"width":119,"text":"江湖小帮","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":70,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":71,
-                    "child":[
-                        ]
-                }],
             "$HIDDEN":false
         },
         {
