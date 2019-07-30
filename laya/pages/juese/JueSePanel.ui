@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":168,
-    "selecteID":169,
+    "selecteID":184,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -302,15 +302,16 @@
                     "props":{"y":6,"width":134,"var":"panel_player","height":649},
                     "nodeParent":178,
                     "label":"Panel(panel_player)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":160,
                     "child":[
                         {
+                            "x":45,
                             "type":"Tab",
-                            "props":{"y":0,"x":0,"width":191,"var":"tab_player","stateNum":2,"space":-2,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleX":0.9,"labels":"人物简介,战斗属性,行头装备,资质天赋,内息经络,罡气护体,武学四法,外功招式,内功心法,生活技能,江湖声望,江湖履历","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelPadding":"5,10","labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","height":642,"direction":"vertical"},
+                            "props":{"y":0,"x":0,"width":191,"var":"tab_player","stateNum":2,"space":-2,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleX":0.9,"labels":"人物简介,战斗属性,行头装备,资质天赋,内息经络,罡气护体,武学四法,散功修心,外功招式,内功心法,生活技能,江湖声望","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelPadding":"5,10","labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","height":642,"direction":"vertical"},
                             "nodeParent":160,
                             "label":"Tab(tab_player)",
                             "isDirectory":false,
@@ -347,7 +348,7 @@
                             "compId":169,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
                             "x":45,
@@ -392,7 +393,63 @@
                             "compId":177,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/Person_JingluoItem.ui",
+                            "props":{"y":0,"x":0,"name":"item4"},
+                            "nodeParent":168,
+                            "label":"UIView(item4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":185,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/Person_GangQiItem.ui",
+                            "props":{"name":"item5"},
+                            "nodeParent":168,
+                            "label":"UIView(item5)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":182,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/Person_FourFaItem.ui",
+                            "props":{"name":"item6"},
+                            "nodeParent":168,
+                            "label":"UIView(item6)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":183,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"compart/Person_SanGongItem.ui",
+                            "props":{"name":"item7"},
+                            "nodeParent":168,
+                            "label":"UIView(item7)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":184,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":false
                 }]

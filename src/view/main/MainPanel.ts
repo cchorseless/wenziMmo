@@ -123,7 +123,18 @@ module view.main {
 				this.ui_sceneInfoDialog.visible = true;
 			});
 			// 菜单界面
-			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {PanelManage.openMenuPanel()});
+			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_menu.selected = !this.btn_menu.selected;
+				if (this.btn_menu.selected) {
+					PanelManage.openMenuPanel()
+				}
+				else {
+					PopUpManager.Dispose(PanelManage.Menu);
+				}
+
+			}
+
+			);
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 		}
