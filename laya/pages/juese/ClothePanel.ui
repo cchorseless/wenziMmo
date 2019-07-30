@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":36,
+    "selectedBox":3,
+    "selecteID":19,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -84,13 +84,14 @@
             "props":{"y":130,"x":0,"width":636,"height":134},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":3,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"skin":"image/main/fram_common_22.png","right":10,"left":0,"height":121},
                     "nodeParent":3,
@@ -104,6 +105,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":27,"skin":"image/main/fram_common_05.png"},
                     "nodeParent":3,
@@ -116,6 +118,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":115,"x":9,"width":637,"skin":"image/main/fram_common_05.png","height":19},
                     "nodeParent":3,
@@ -128,6 +131,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":87,"width":485,"skin":"image/main/fram_common_08.png","sizeGrid":"0,41,0,40","height":96},
                     "nodeParent":3,
@@ -164,8 +168,9 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":16,"x":42,"width":95,"stateNum":"2","skin":"image/juese/icon_role_xiadianlu01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":90},
+                    "props":{"y":16,"x":23,"width":98,"stateNum":"2","skin":"image/juese/icon_role_xiadianlu01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":93},
                     "nodeParent":3,
                     "label":"Button",
                     "isDirectory":false,
@@ -176,17 +181,19 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":79,"x":16,"width":148,"skin":"image/common/title_common_01.png","height":46},
+                    "props":{"y":80,"x":5,"width":148,"skin":"image/common/title_common_01.png","height":46},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":33,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":9,"x":14,"width":119,"text":"侠典录","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":33,
