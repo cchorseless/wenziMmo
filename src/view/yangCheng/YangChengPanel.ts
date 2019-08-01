@@ -19,13 +19,13 @@ module view.yangCheng {
 				birdSke.play(0, true);
 			});
 
-			let guanJia = new SkeletonUtil.SkeletonGroup();
-			guanJia.loadRes(['sk/zhaiyuan_laoguanjia/NPC_LGJ_1.sk'], () => {
-				this.spr_guanJia.removeChildren();
-				this.spr_guanJia.addChild(guanJia);
-				// this._skeGroup.scale(0.5, 0.5)
-				guanJia.play(0, true);
-			});
+			// let guanJia = new SkeletonUtil.SkeletonGroup();
+			// guanJia.loadRes(['sk/zhaiyuan_laoguanjia/NPC_LGJ_1.sk'], () => {
+			// 	this.spr_guanJia.removeChildren();
+			// 	this.spr_guanJia.addChild(guanJia);
+			// 	// this._skeGroup.scale(0.5, 0.5)
+			// 	guanJia.play(0, true);
+			// });
 		}
 	}
 }

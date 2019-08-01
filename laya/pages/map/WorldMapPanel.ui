@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":640,"sceneColor":"#000000","height":1136},
+    "selectedBox":32,
+    "selecteID":30,
+    "props":{"y":0,"x":0,"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,58 +15,72 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"var":"panel_0","top":0,"right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":641,"var":"panel_worldMap","height":1136},
             "nodeParent":1,
-            "label":"Panel(panel_0)",
+            "label":"Panel(panel_worldMap)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":2,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":1113,"skin":"image/map/map.jpg","height":1500},
-                    "nodeParent":3,
-                    "label":"Image",
+                    "props":{"y":0,"x":0,"var":"img_northMapBig","skin":"image/map/img_bgMap.png","group":"img_north"},
+                    "nodeParent":2,
+                    "label":"Image(img_northMapBig)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":2,
+                    "compId":4,
                     "child":[
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":745,"x":182,"width":150,"skin":"image/map/icon_map_01.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":63,"x":187,"var":"img_northMap","skin":"image/map/img_northMap.png"},
+                            "nodeParent":4,
+                            "label":"Image(img_northMap)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":3,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":308,"x":23,"skin":"image/map/img_westMap.png"},
+                            "nodeParent":4,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":6,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"skin":"image/map/img_cloud.png"},
+                            "nodeParent":4,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":5,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":911,"x":79,"width":150,"skin":"image/map/icon_map_02.png","height":150},
-                            "nodeParent":2,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":570,"x":183,"width":150,"skin":"image/map/icon_map_03.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":417,"x":505,"skin":"image/map/img_eastMap.png"},
+                            "nodeParent":4,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -77,35 +91,62 @@
                         },
                         {
                             "x":45,
+                            "type":"Button",
+                            "props":{"y":-7,"x":1220,"var":"btn_worldMapR","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                            "nodeParent":4,
+                            "label":"Button(btn_worldMapR)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":31,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":0,"visible":false,"var":"box_north"},
+                    "nodeParent":2,
+                    "label":"Box(box_north)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":32,
+                    "child":[
+                        {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":476,"x":368,"width":150,"skin":"image/map/icon_map_04.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":0,"x":0,"skin":"image/map/img_bgNorthMap.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":9,
+                            "compId":33,
                             "child":[
                                 ]
                         },
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":656,"x":490,"width":150,"skin":"image/map/icon_map_05.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":7,"skin":"image/map/img_northCloud.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":10,
+                            "compId":28,
                             "child":[
                                 ]
                         },
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":217,"x":456,"width":150,"skin":"image/map/icon_map_06.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":248,"x":280,"skin":"image/map/img_northHuaShan.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -117,8 +158,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":323,"x":595,"width":150,"skin":"image/map/icon_map_07.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":379,"x":273,"skin":"image/map/img_northMoJiao.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -130,8 +171,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":451,"x":695,"width":150,"skin":"image/map/icon_map_08.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":427,"x":202,"skin":"image/map/img_northLuoCha.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -143,8 +184,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":640,"x":808,"width":150,"skin":"image/map/icon_map_09.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":532,"x":395,"skin":"image/map/img_northLiangRen.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -156,8 +197,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":826,"x":427,"width":150,"skin":"image/map/icon_map_10.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":350,"x":421,"skin":"image/map/img_northLuoYang.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -169,8 +210,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":776,"x":654,"width":150,"skin":"image/map/icon_map_11.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":235,"x":451,"skin":"image/map/img_northYuHu.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -182,8 +223,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":1031,"x":561,"width":150,"skin":"image/map/icon_map_12.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":297,"x":568,"skin":"image/map/img_northSongShan.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -195,8 +236,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":985,"x":784,"width":150,"skin":"image/map/icon_map_13.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":211,"x":617,"skin":"image/map/img_northHengShan.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -208,8 +249,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":194,"x":292,"width":150,"skin":"image/map/icon_map_14.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":441,"x":634,"skin":"image/map/img_HengShanNorth.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -221,8 +262,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":1082,"x":219,"width":150,"skin":"image/map/icon_map_15.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":613,"x":391,"skin":"image/map/img_northQingCheng.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -234,8 +275,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":401,"x":80,"width":150,"skin":"image/map/icon_map_16.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":590,"x":516,"skin":"image/map/img_northYaoWang.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -247,8 +288,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":186,"x":722,"width":150,"skin":"image/map/icon_map_17.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":747,"x":673,"skin":"image/map/img_northTaoHuaDao.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -260,8 +301,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":281,"x":844,"width":150,"skin":"image/map/icon_map_18.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":387,"x":735,"skin":"image/map/img_northHuiShan.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -273,8 +314,8 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":221,"x":135,"width":150,"skin":"image/map/icon_map_19.png","height":150},
-                            "nodeParent":2,
+                            "props":{"y":530,"x":782,"skin":"image/map/img_northFuZhou.png"},
+                            "nodeParent":32,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -282,21 +323,62 @@
                             "compId":24,
                             "child":[
                                 ]
-                        }]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":25,"x":531,"width":96,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","height":111},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":275,"x":821,"skin":"image/map/img_northTaLou.png"},
+                            "nodeParent":32,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":329,"x":874,"skin":"image/map/img_northTaiShan.png"},
+                            "nodeParent":32,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":235,"x":959,"skin":"image/map/img_northYuBi.png"},
+                            "nodeParent":32,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"x":1220,"var":"btn_northMapR","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                            "nodeParent":32,
+                            "label":"Button(btn_northMapR)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":30,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":true
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

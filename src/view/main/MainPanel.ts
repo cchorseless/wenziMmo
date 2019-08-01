@@ -109,7 +109,6 @@ module view.main {
 			this.box_jueSe.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jueSe']);
 			this.box_jiangHu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jiangHu']);
 			this.box_yangCheng.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_yangCheng']);
-
 			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
 			this.box_FuBenInJuQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_FuBenInJuQing']);
 			this.box_tuJian.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_tuJian']);
