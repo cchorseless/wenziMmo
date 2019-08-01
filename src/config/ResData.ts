@@ -33,29 +33,31 @@ module ResData {
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
         // 角色界面
-        public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];
+        // 弟子界面
+        public static DiZi = null;
         // 时装界面
         public static Clothe = [{ url: "res/atlas/image/juese/clothe.atlas", type: Laya.Loader.ATLAS }];;
         // 养成界面
-        public static YangCheng =  [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
+        public static YangCheng = [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
         public static BeiBao = [{ url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];;
         // 社交界面
         public static SheJiao = null;
         // 任务界面
-         public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
-          // 公会界面
-         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-          // 帮会界面
-         public static GuildTeam = [{ url: "res/atlas/image/guild/team.atlas", type: Laya.Loader.ATLAS }];;
+        public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
+        // 公会界面
+        public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        // 帮会界面
+        public static GuildTeam = [{ url: "res/atlas/image/guild/team.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];
         // 世界地图界面
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];
         // 剧情对白界面
         public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
-         // 菜单界面
-         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
+        // 菜单界面
+        public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
 
     };
     /**

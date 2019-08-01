@@ -266,6 +266,7 @@ module PopUpManager {
         //播放消失动画
         switch (effectType) {
             case 0:
+                panel.visible = false;
                 comFunc();
                 break;
             case 1:

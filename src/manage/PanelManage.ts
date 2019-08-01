@@ -52,6 +52,7 @@ module PanelManage {
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let DiZi: view.hero.HeroPanel;//弟子界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -199,9 +200,27 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JueSe, 1, 3, 1);
         })
     }
-     /**
-     * 时装界面
-     */
+
+    /**
+    * 弟子界面
+    */
+    export function openDiZiPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.DiZi) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.DiZi);
+        ResManage.loadResource(ResData.PanelRes.DiZi, () => {
+            PanelManage.DiZi = new view.hero.HeroPanel();
+            PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.JueSe;
+            PanelManage.DiZi.setData();
+            PanelManage.DiZi.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.DiZi, 2, 0, 1);
+        })
+    }
+
+    /**
+    * 时装界面
+    */
     export function openClothePanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Clothe) {
             return
@@ -212,7 +231,7 @@ module PanelManage {
             PanelManage.Clothe['LCP_skin'] = ResData.PanelRes.Clothe;
             PanelManage.Clothe.setData();
             PanelManage.Clothe.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Clothe, 2,3,1);
+            PopUpManager.addPanel(PanelManage.Clothe, 2, 3, 1);
         })
     }
     /**
@@ -231,9 +250,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.YangCheng, 1, 5, 1);
         })
     }
-     /**
-     * 江湖界面
-     */
+    /**
+    * 江湖界面
+    */
     export function openGuildSelectPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildSelect) {
             return
@@ -247,9 +266,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.GuildSelect, 1, 5, 1);
         })
     }
-     /**
-     * 帮会界面
-     */
+    /**
+    * 帮会界面
+    */
     export function openGuildTeamPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildTeam) {
             return
@@ -263,9 +282,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
         })
     }
-     /**
-     * 菜单界面
-     */
+    /**
+    * 菜单界面
+    */
     export function openMenuPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Menu) {
             return
@@ -295,9 +314,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.BeiBao, 1, 6, 1);
         })
     }
-      /**
-     * 任务界面
-     */
+    /**
+   * 任务界面
+   */
     export function openTaskPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task) {
             return
@@ -376,5 +395,5 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
         })
     }
- 
+
 }

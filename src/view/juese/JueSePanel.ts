@@ -13,8 +13,10 @@ module view.juese {
 			this.addEvent();
 		}
 		public addEvent(): void {
-		
-		
+			this.box_change.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openDiZiPanel();
+			})
+
 		}
 	}
 }
