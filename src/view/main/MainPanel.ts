@@ -33,13 +33,13 @@ module view.main {
 			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_task.selectedIndex = index;
 				if (index == 1) {
-					this.tab_task.labels = '场景,发送';
+					this.tab_task.labels = '场\n景,发\n送';
 					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
 						this.ui_chatSendDialog.visible = true;
 					})
 				}
 				else {
-					this.tab_task.labels = '聊天,场景';
+					this.tab_task.labels = '场\n景,聊\n天';
 				}
 			}, null, false);
 			this.tab_task.selectedIndex = 1;
@@ -48,7 +48,7 @@ module view.main {
 			// 名字
 			this.lbl_playerName.text = _player.realName;
 			// 等级
-			if (_player.zslevel == null || _player.zslevel == 0) {
+			if (_player.zslevel == null || _player.zslevel == 0) { 
 				this.lbl_level.text = '' + _player.level + '级';
 			}
 			else {
