@@ -18,12 +18,12 @@ module view.map {
 			this.addEvent();
 		}
 		public addEvent(): void {
+
 			this.img_northMap.on(Laya.UIEvent.CLICK, this, () => {
 				this.panel_0.visible = true;
 				this.popState = 1;
 				Laya.Tween.to(this.panel_0, { scaleX: 1, scaleY: 1 }, 500);
 			});
-
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				switch (this.popState) {
 					case 0:
@@ -37,7 +37,6 @@ module view.map {
 						break;
 					case 2:
 						break;
-
 				}
 			});
 		}
