@@ -31,16 +31,23 @@ module view.compart {
 			// 物理防御
 			this.lbl_phyDef.text = '' + ability.nMinAC + '-' + ability.nMaxAC;
 			// 魔法防御
-			// this.lbl_migDef.text='' + ability.
+			this.lbl_migDef.text = '' + ability.nMinMAC + '-' + ability.nMaxMAC;
 			// 准确
+			this.lbl_zhunQue.text = '' + ability.nHit;
 			// 闪避
-			// 速度
-			// 幸运
+			this.lbl_shanbi.text = '' + ability.nJuck;
 			// 暴击
+			this.lbl_baoJi.text = '' + ability.nCrit;
 			// 爆伤
+			this.lbl_baoShang.text = '' + ability.nAtkCrit;
+			// 幸运
+			this.lbl_xingYun.text = '' + ability.nLucky;
 			// 韧性
+			this.lbl_renxing.text = '' + ability.nCritResi;
+			console.log(GameApp.MainPlayer);
 			// PK值
-
+			console.log('==========>>>',player.feature.getValue('wNowKilling'))
+			this.lbl_pk.text = '' + player.feature.getValue('wNowKilling');
 
 			this.addEvent();
 		}

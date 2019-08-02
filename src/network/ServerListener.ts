@@ -250,15 +250,11 @@ class ServerListener extends SingletonClass {
         newPlayer.hp = msg.getValue('nNowHp');
         newPlayer.mp = msg.getValue('nNowMp');
         newPlayer.lifestate = msg.getValue('lifestate');
-
-        let player = GameApp.MainPlayer;
-        if (player.tempId == newPlayer.tempId) {
-            player.level = newPlayer.level;
-            player.hp = newPlayer.hp;
-            player.mp = newPlayer.mp;
-            player.lifestate = newPlayer.lifestate;
-            player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
-            newPlayer = player;
+        newPlayer.feature.clear();
+        msg.feature.clone(newPlayer.feature.data);
+        if (GameApp.MainPlayer.tempId == newPlayer.tempId) {
+            GameApp.GameEngine.mainPlayer = newPlayer;
+            GameApp.MainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
         }
         GameApp.MainPlayer.addViewObj(newPlayer, type);
         msg.clear();

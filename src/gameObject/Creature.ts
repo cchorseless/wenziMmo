@@ -47,8 +47,8 @@ module GameObject {
         public nCrit = 0; //暴击
         public nCritRatio = 0;//暴击率
 
-        public nCritResi = 0; //暴抗
-        public nCritResiRatio = 0;//暴抗率
+        public nCritResi = 0; //韧性
+        public nCritResiRatio = 0;//韧性抵抗率
 
         public nAtkCrit = 0; //暴击伤害,每次暴击额外增加的伤害
         public nLucky = 0; //幸运

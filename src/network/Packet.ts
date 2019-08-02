@@ -105,7 +105,6 @@ class PacketBase {
             sub._bytes.pos = 0;
             parent._bytes.pos = offset;
             parent._bytes.writeArrayBuffer(sub._bytes.buffer, sub._bytes.pos, sub._bytes.length);
-
             sub = parent;
             offset = parent._offsetinparentStruct;
             parent = parent._parentStruct;

@@ -10,6 +10,7 @@ module GameObject {
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         public wealth: Wealth;//财富
+        public feature: PlayerFeature;//外显
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物
         private _allNpc = {};//所有的NPC
@@ -17,6 +18,7 @@ module GameObject {
         constructor() {
             super();
             this.wealth = new Wealth();
+            this.feature = new PlayerFeature();
         }
         /**
          * 修改金币
