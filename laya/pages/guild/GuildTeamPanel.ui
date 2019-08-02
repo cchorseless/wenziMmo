@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":23,
+    "selectedBox":24,
+    "selecteID":96,
     "referenceLines":[
         {
             "value":301,
@@ -337,7 +337,7 @@
                     "child":[
                         {
                             "type":"Tab",
-                            "props":{"y":4,"x":22,"stateNum":2,"space":35,"skin":"image/guild/team/btn_common_12_finish(2).png","labels":"每日\\n必做,组队\\n副本,组队\\n副本,组队\\n副本,组队\\n副本","labelStroke":5,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff"},
+                            "props":{"y":4,"x":22,"stateNum":2,"space":35,"skin":"image/guild//btn_common_12_finish(2).png","labels":"每日\\n必做,组队\\n副本,组队\\n副本,组队\\n副本,组队\\n副本","labelStroke":5,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff"},
                             "nodeParent":95,
                             "label":"Tab",
                             "isDirectory":false,
@@ -511,7 +511,7 @@
                                     "$HIDDEN":true
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -530,7 +530,7 @@
                             "props":{"y":0,"x":14},
                             "nodeParent":92,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -720,10 +720,10 @@
                                     "child":[
                                         {
                                             "type":"Button",
-                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/guild/team/img_common_21_finish(1).png","height":129},
+                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/common/img_common_21_finish(1).png","height":129},
                                             "nodeParent":142,
                                             "label":"Button",
-                                            "isOpen":null,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -731,7 +731,7 @@
                                             "child":[
                                                 {
                                                     "type":"Image",
-                                                    "props":{"y":9,"x":20,"skin":"image/guild/team/icon_bangpai.png"},
+                                                    "props":{"y":9,"x":20,"skin":"image/guild/icon_bangpai.png"},
                                                     "nodeParent":30,
                                                     "label":"Image",
                                                     "isDirectory":false,
@@ -747,7 +747,7 @@
                                             "props":{"y":103.00000000000013,"x":106.99999624871431,"width":74,"height":46},
                                             "nodeParent":142,
                                             "label":"Box",
-                                            "isOpen":true,
+                                            "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -767,7 +767,7 @@
                                                 },
                                                 {
                                                     "type":"Button",
-                                                    "props":{"y":13.999999999999943,"x":15.000002250771374,"stateNum":"2","skin":"image/guild/team/zi_buff_finish.png"},
+                                                    "props":{"y":13.999999999999943,"x":15.000002250771374,"stateNum":"2","skin":"image/guild/zi_buff_finish.png"},
                                                     "nodeParent":52,
                                                     "label":"Button",
                                                     "isDirectory":false,
@@ -958,7 +958,7 @@
                                     "props":{"y":42,"x":0,"scaleX":1.1},
                                     "nodeParent":66,
                                     "label":"Box",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -966,7 +966,7 @@
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"skin":"image/guild/team/img_common_25.png"},
+                                            "props":{"skin":"image/common/img_common_25.png"},
                                             "nodeParent":81,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -979,7 +979,7 @@
                                         },
                                         {
                                             "type":"Image",
-                                            "props":{"skin":"image/guild/team/img_common_25down.png"},
+                                            "props":{"skin":"image/common/img_common_25down.png"},
                                             "nodeParent":81,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -1152,7 +1152,7 @@
                             "child":[
                                 {
                                     "type":"Image",
-                                    "props":{"x":296,"skin":"image/guild/team/icon_team_cangku.png"},
+                                    "props":{"x":296,"skin":"image/guild/icon_team_cangku.png"},
                                     "nodeParent":88,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1164,7 +1164,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"skin":"image/guild/team/icon_team_shangdian.png"},
+                                    "props":{"skin":"image/guild/icon_team_shangdian.png"},
                                     "nodeParent":88,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1176,7 +1176,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":155,"skin":"image/guild/team/icon_team_fuli.png"},
+                                    "props":{"y":155,"skin":"image/guild/icon_team_fuli.png"},
                                     "nodeParent":88,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1188,7 +1188,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":155,"x":296,"skin":"image/guild/team/icon_team_xiezhu.png"},
+                                    "props":{"y":155,"x":296,"skin":"image/guild/icon_team_xiezhu.png"},
                                     "nodeParent":88,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1213,7 +1213,7 @@
                             "child":[
                                 {
                                     "type":"Button",
-                                    "props":{"y":2,"x":485,"stateNum":"2","skin":"image/guild/team/icon_jiangli_finish.png","labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff"},
+                                    "props":{"y":2,"x":485,"stateNum":"2","skin":"image/guild/icon_jiangli_finish.png","labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff"},
                                     "nodeParent":161,
                                     "label":"Button",
                                     "isOpen":false,
@@ -1244,13 +1244,14 @@
                     "props":{"y":0,"var":"box_teamManage","right":0,"name":"item2","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamManage)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":96,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":1,"x":14},
                             "nodeParent":96,
@@ -1262,6 +1263,7 @@
                             "compId":101,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":101,
@@ -1431,11 +1433,12 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-3.000000000000128,"x":-12.99999624871431},
                                     "nodeParent":101,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -1443,10 +1446,10 @@
                                     "child":[
                                         {
                                             "type":"Button",
-                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/guild/team/img_common_21_finish(1).png","height":129},
+                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/common/img_common_21_finish(1).png","height":129},
                                             "nodeParent":141,
                                             "label":"Button",
-                                            "isOpen":null,
+                                            "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -1454,7 +1457,7 @@
                                             "child":[
                                                 {
                                                     "type":"Image",
-                                                    "props":{"y":9,"x":20,"skin":"image/guild/team/icon_bangpai.png"},
+                                                    "props":{"y":9,"x":20,"skin":"image/guild/icon_bangpai.png"},
                                                     "nodeParent":104,
                                                     "label":"Image",
                                                     "isDirectory":false,
@@ -1463,7 +1466,8 @@
                                                     "compId":105,
                                                     "child":[
                                                         ]
-                                                }]
+                                                }],
+                                            "$HIDDEN":false
                                         },
                                         {
                                             "type":"Box",
@@ -1490,7 +1494,7 @@
                                                 },
                                                 {
                                                     "type":"Button",
-                                                    "props":{"y":13.999999999999943,"x":15.000002250771374,"stateNum":"2","skin":"image/guild/team/zi_buff_finish.png"},
+                                                    "props":{"y":13.999999999999943,"x":15.000002250771374,"stateNum":"2","skin":"image/guild/zi_buff_finish.png"},
                                                     "nodeParent":106,
                                                     "label":"Button",
                                                     "isDirectory":false,
@@ -1566,11 +1570,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":166,"x":13,"width":614,"height":156},
                             "nodeParent":96,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -1616,6 +1621,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":266,"x":-5,"width":650,"height":61},
                             "nodeParent":96,
@@ -1665,11 +1671,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":318,"x":38},
                             "nodeParent":96,
                             "label":"Box",
-                            "isOpen":null,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -1677,7 +1684,7 @@
                             "child":[
                                 {
                                     "type":"Image",
-                                    "props":{"y":251,"x":297,"skin":"image/guild/team/icon_team_bangpai.png"},
+                                    "props":{"y":251,"x":297,"skin":"image/guild/icon_team_bangpai.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1690,7 +1697,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":126,"x":297,"skin":"image/guild/team/icon_team_chengyuan.png"},
+                                    "props":{"y":126,"x":297,"skin":"image/guild/icon_team_chengyuan.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1703,7 +1710,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"x":297,"skin":"image/guild/team/icon_team_shezhi.png"},
+                                    "props":{"x":297,"skin":"image/guild/icon_team_shezhi.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1716,7 +1723,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"skin":"image/guild/team/icon_team_waijiao.png"},
+                                    "props":{"skin":"image/guild/icon_team_waijiao.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1729,7 +1736,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":125,"skin":"image/guild/team/icon_team_rizhi.png"},
+                                    "props":{"y":125,"skin":"image/guild/icon_team_rizhi.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1741,7 +1748,7 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":251,"skin":"image/guild/team/icon_team_shenqing.png"},
+                                    "props":{"y":251,"skin":"image/guild/icon_team_shenqing.png"},
                                     "nodeParent":143,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -1752,7 +1759,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {
@@ -1771,7 +1778,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":964,"x":22,"var":"tab_team","stateNum":2,"space":10,"skin":"image/guild/team/btn_common_11_finish.png","selectedIndex":1,"labels":"帮派活动,帮派信息,帮派管理","labelStrokeColor":"#000000","labelStroke":5,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","direction":"horizontal"},
+            "props":{"y":964,"x":22,"var":"tab_team","stateNum":2,"space":10,"skin":"image/common/btn_common_11_finish.png","selectedIndex":1,"labels":"帮派活动,帮派信息,帮派管理","labelStrokeColor":"#000000","labelStroke":5,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","direction":"horizontal"},
             "nodeParent":1,
             "label":"Tab(tab_team)",
             "isDirectory":false,

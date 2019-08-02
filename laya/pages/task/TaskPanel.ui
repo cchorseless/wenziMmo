@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":182,
+    "selecteID":89,
     "referenceLines":[
         {
             "value":1019,
@@ -197,7 +197,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":154,"x":24,"width":99,"stateNum":"2","skin":"image/main/icon_main_renwu.png","height":93},
+            "props":{"y":154,"x":24,"width":99,"stateNum":"2","skin":"image/main/icon_main_renwu_finish.png","height":93},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -636,15 +636,16 @@
             "props":{"y":296,"width":127,"var":"panel_left","left":27,"height":592},
             "nodeParent":1,
             "label":"Panel(panel_left)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":182,
             "child":[
                 {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":4,"width":119,"stateNum":1,"space":6,"skin":"image/task/btn_common_09.png","labels":"主线任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务","labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#000000","labelBold":false,"height":610,"direction":"vertical"},
+                    "props":{"y":0,"x":4,"width":119,"stateNum":1,"space":6,"skin":"image/common/btn_common_09.png","labels":"主线任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务,日常任务","labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#000000","labelBold":false,"height":610,"direction":"vertical"},
                     "nodeParent":182,
                     "label":"Tab",
                     "isDirectory":false,
