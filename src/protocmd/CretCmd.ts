@@ -735,6 +735,7 @@ module ProtoCmd {
     //丢弃物品
     export class CretForsakeItem extends Packet {
         public static msgID: number = 0x033D
+        public cbPacket = CretForsakeItem;
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);

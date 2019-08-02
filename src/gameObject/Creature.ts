@@ -322,8 +322,5 @@ module GameObject {
         public changeLevel(level: number) {
             this.level = level;
         }
-
-
-
     }
 }

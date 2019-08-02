@@ -77,8 +77,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
         // 背包内物品操作 307
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretProcessingItem), this, this.cretProcessingItem);
-        // 丢弃背包物品 33d
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretForsakeItem), this, this.cretForsakeItem);
         // 服务器扩展脚本 0x0919
         GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
         // 客户端本地设置 2aa
@@ -250,7 +248,6 @@ class ServerListener extends SingletonClass {
         newPlayer.hp = msg.getValue('nNowHp');
         newPlayer.mp = msg.getValue('nNowMp');
         newPlayer.lifestate = msg.getValue('lifestate');
-        newPlayer.feature.clear();
         msg.feature.clone(newPlayer.feature.data);
         if (GameApp.MainPlayer.tempId == newPlayer.tempId) {
             GameApp.GameEngine.mainPlayer = newPlayer;
@@ -641,7 +638,7 @@ class ServerListener extends SingletonClass {
      */
     public cretDeleteItem(data: Laya.Byte) {
         let msg = new ProtoCmd.CretDeleteItem(data);
-        let i64Id: Int64 = msg.getValue('i64Id').toString();
+        let i64Id: string = msg.getValue('i64Id').toString();
         let bagType = msg.getValue('bagType');
         let _bag;
         switch (bagType) {
@@ -663,6 +660,7 @@ class ServerListener extends SingletonClass {
                 if (_bag[i].i64ItemID.toString() == i64Id) {
                     delete _bag[i];
                     Log.trace('删除背包物品' + i64Id)
+                    PanelManage.BeiBao && PanelManage.BeiBao.removeItem(bagType, i64Id);
                     break
                 }
             }
@@ -793,27 +791,7 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-    /**
-     * 丢弃物品 0x033D
-     * @param data 
-     */
-    public cretForsakeItem(data: any): void {
-        let msg = new ProtoCmd.CretForsakeItem(data);
-        let errorcode = msg.getValue('btErrorCode');
-        switch (errorcode) {
-            case 0:
-                TipsManage.showTips('丢弃物品成功');
-                break;
-            case 33:
-                TipsManage.showTips('绑定物品不允许丢弃');
-                break;
-            default:
-                TipsManage.showTips('该物品不允许丢弃');
-                break;
-        }
-        msg.clear();
-        msg = null;
-    }
+
 
     //0x0297
     public cretStruck(data: any): void {

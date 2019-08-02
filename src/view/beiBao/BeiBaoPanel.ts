@@ -97,7 +97,6 @@ module view.beiBao {
 			let dwCount = obj.dwCount;
 			// 物品类型
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
-
 			switch (type) {
 				// 背包
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
@@ -137,6 +136,15 @@ module view.beiBao {
 					this.ui_cangKu.addItem(obj);
 					break;
 			}
+		}
+
+		/**
+		 * 丢弃物品
+		 * @param type 物品位置
+		 * @param itemi64id 物品唯一ID 
+		 */
+		public removeItem(type: EnumData.PACKAGE_TYPE, itemi64id: string): void {
+
 		}
 	}
 }
