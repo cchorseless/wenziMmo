@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":100,
-    "selecteID":112,
+    "selectedBox":1,
+    "selecteID":26,
     "referenceLines":[
         {
             "value":149,
@@ -368,14 +368,13 @@
                     "props":{"y":0,"x":0,"width":640,"var":"box_createGuild","name":"item1","height":686},
                     "nodeParent":10,
                     "label":"Box(box_createGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":567,"x":627,"width":631,"skin":"image/main/fram_common_05.png","rotation":180,"height":23},
                             "nodeParent":11,
@@ -389,19 +388,17 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":-12,"x":4,"width":631,"height":570},
                             "nodeParent":11,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":15,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":629,"skin":"image/guild/bg_guild_01.png","height":569},
                                     "nodeParent":15,
@@ -415,7 +412,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":50,"x":169,"width":293,"skin":"image/common/img_common_16.png","height":305,"alpha":0.7},
                                     "nodeParent":15,
@@ -429,7 +425,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":114,"x":258,"width":115,"skin":"image/guild/icon_gonghui02.png","height":165},
                                     "nodeParent":15,
@@ -442,7 +437,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":369,"x":122},
                                     "nodeParent":15,
@@ -454,9 +448,8 @@
                                     "compId":19,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":0,"x":-8,"skin":"image/guild/fram_common_34.png"},
+                                            "props":{"y":0,"x":-8,"skin":"image/common/fram_common_34.png"},
                                             "nodeParent":19,
                                             "label":"Image",
                                             "isOpen":true,
@@ -466,7 +459,6 @@
                                             "compId":20,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":9,"x":29,"width":107,"text":"帮派名称：","strokeColor":"#000000","stroke":2,"height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
                                                     "nodeParent":20,
@@ -480,9 +472,8 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":55,"x":-9,"skin":"image/guild/fram_common_34.png"},
+                                            "props":{"y":55,"x":-9,"skin":"image/common/fram_common_34.png"},
                                             "nodeParent":19,
                                             "label":"Image",
                                             "isOpen":true,
@@ -492,7 +483,6 @@
                                             "compId":22,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":8,"x":30,"width":57,"text":"口号：","strokeColor":"#000000","stroke":2,"height":28,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
                                                     "nodeParent":22,
@@ -507,7 +497,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":485,"x":249,"var":"btn_create","stateNum":"2","skin":"image/common/fram_common_09_finish.png","scaleY":0.8,"scaleX":1.1,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":26,"labelFont":"Microsoft YaHei","labelColors":"#ffffff"},
                                     "nodeParent":15,
@@ -519,7 +508,6 @@
                                     "compId":92,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":22,"x":40,"width":52,"text":"创建","strokeColor":"#000000","stroke":2,"height":35,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
                                             "nodeParent":92,
@@ -532,10 +520,9 @@
                                                 ]
                                         }]
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":46,"x":30,"skin":"image/common/img_common_23.png"},
                             "nodeParent":11,
@@ -561,7 +548,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":46,"x":478,"skin":"image/common/img_common_23.png"},
                             "nodeParent":11,
@@ -587,7 +573,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":567,"x":26,"width":588,"skin":"image/guild/fram_common_35.png","sizeGrid":"22,27,28,25","height":114},
                             "nodeParent":11,
@@ -637,7 +622,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":525,"x":-10,"skin":"image/main/fram_common_24.png"},
                             "nodeParent":11,
@@ -651,7 +635,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":526,"x":631,"skin":"image/main/fram_common_24.png","scaleX":-1},
                             "nodeParent":11,
@@ -664,7 +647,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -672,14 +655,13 @@
                     "props":{"y":0,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":686},
                     "nodeParent":10,
                     "label":"Box(box_searchGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":35,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-10,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":695},
                             "nodeParent":35,
@@ -693,7 +675,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":1,"x":500,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"搜索"},
                             "nodeParent":35,
@@ -707,7 +688,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/GuildItem.ui",
                             "props":{"y":58,"x":26},
@@ -722,7 +702,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":339,"x":124,"width":392,"skin":"image/common/input_bg.png","height":67,"alpha":0.75},
                             "nodeParent":35,
@@ -747,7 +726,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":4,"x":18},
                             "nodeParent":35,
@@ -759,7 +737,6 @@
                             "compId":98,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"TextInput",
                                     "props":{"width":471,"skin":"image/common/fram_common_36.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","height":57,"fontSize":30,"font":"Microsoft YaHei","align":"center"},
                                     "nodeParent":98,
