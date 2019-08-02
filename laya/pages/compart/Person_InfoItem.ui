@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":18,
+    "selectedBox":115,
+    "selecteID":116,
     "props":{"width":490,"sceneColor":"#f8eeee","height":780},
     "nodeParent":-1,
     "label":"View",
@@ -823,7 +823,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":11,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                    "props":{"y":4,"x":11,"width":108,"text":"姓名九宫","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                                     "nodeParent":105,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -841,13 +841,14 @@
                     "props":{"y":7,"x":348},
                     "nodeParent":101,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":107,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_03.png","height":110},
                             "nodeParent":107,
@@ -859,6 +860,7 @@
                             "compId":108,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
                                     "nodeParent":108,
@@ -872,6 +874,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":80,"x":-2,"width":130,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":37},
                             "nodeParent":107,
@@ -883,8 +886,9 @@
                             "compId":110,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":11,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                    "props":{"y":4,"x":11,"width":108,"text":"生平履历","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                                     "nodeParent":110,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -902,13 +906,14 @@
                     "props":{"y":7,"x":2},
                     "nodeParent":101,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":112,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_03.png","height":110},
                             "nodeParent":112,
@@ -920,6 +925,7 @@
                             "compId":113,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
                                     "nodeParent":113,
@@ -933,6 +939,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":80,"x":-2,"width":130,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":37},
                             "nodeParent":112,
@@ -944,8 +951,9 @@
                             "compId":115,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":11,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                    "props":{"y":4,"x":11,"width":108,"text":"生辰八字","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                                     "nodeParent":115,
                                     "label":"Label",
                                     "isDirectory":false,

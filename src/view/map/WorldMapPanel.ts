@@ -9,8 +9,10 @@ module view.map {
 		public popState = 0;
 		public setData(): void {
 			this.panel_worldMap.hScrollBarSkin = '';
+			this.panel_worldMap.vScrollBarSkin = '';
 			this.panel_worldMap.scrollTo(100);
 			this.panel_0.hScrollBarSkin = '';
+			this.panel_0.vScrollBarSkin = '';
 			this.panel_0.scrollTo(100);
 			this.panel_0.visible = false;
 			this.panel_0.scale(0, 0);

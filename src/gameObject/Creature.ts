@@ -22,24 +22,34 @@ module GameObject {
         public nowInnerValue = 0;//内功当前值
 
         public nFight = 0;// 战斗力
+        
         public nMaxDC = 0; //物理攻击上限值
         public nMinDC = 0; //物理攻击下限值
+
         public nMaxMC = 0; //自然魔法攻击上限值
         public nMinMC = 0; //自然魔法攻击下限值
+
         public nMaxSC = 0; //灵魂魔法攻击上限值
         public nMinSC = 0; //灵魂魔法攻击下限值
+
         public nMaxAC = 0; //物理防御上限值
         public nMinAC = 0; //物理防御下限值
+
         public nMaxMAC = 0; //全系法术防御上限值
         public nMinMAC = 0; //全系法术防御下限值
+
         public nHit = 0; //命中
         public nHitRatio = 0;//命中率
+
         public nJuck = 0; //闪避
         public nJuckRatio = 0;//闪避率
+
         public nCrit = 0; //暴击
         public nCritRatio = 0;//暴击率
+
         public nCritResi = 0; //暴抗
         public nCritResiRatio = 0;//暴抗率
+
         public nAtkCrit = 0; //暴击伤害,每次暴击额外增加的伤害
         public nLucky = 0; //幸运
         public nRestoreHp = 0; //每次恢复血量，正负
@@ -95,7 +105,7 @@ module GameObject {
 
     export class Creature {
         public objName: string;//名字
-        public level: number;//等级
+        public level: number = 1;//等级
         public objType: EnumData.CRET_TYPE;//对象类型
         public hp: number;
         public mp: number;

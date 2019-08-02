@@ -40,9 +40,9 @@ module EnumData {
      * 职业
      */
     export enum JOB_TYPE {
-        JOB_WARRIOR = 1,
-        JOB_MAGE = 2,
-        JOB_MONK = 3,
+        JOB_WARRIOR = 1,// 战士
+        JOB_MAGE = 2,// 法师
+        JOB_MONK = 3,// 道士
     }
 
     /**

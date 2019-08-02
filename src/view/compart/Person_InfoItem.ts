@@ -6,6 +6,7 @@ module view.compart {
 			this.setData();
 		}
 		public setData(): void {
+
 			this.addEvent();
 		}
 		public addEvent(): void {
