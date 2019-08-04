@@ -36,6 +36,26 @@ module EnumData {
         ADD,//增加
         REMOVE,//去除
     }
+
+    /**
+     * 确认界面场景模式
+     */
+    export enum SureCanelModel {
+        DELET_ITEM = 0,//背包内删除道具
+
+    }
+
+    /**
+     * 道具信息界面模式
+     */
+    export enum ItemInfoModel {
+        SHOW_NONE = 0,//不显示
+        SHOW_IN_BAG = 1,//背包中显示
+        SHOW_IN_CANGKU = 2,//仓库中显示
+        SHOW_IN_PLAYER = 3,//角色弟子身上中显示
+        SHOW_IN_SHOP = 4,//商店中显示
+    }
+
     /**
      * 职业
      */

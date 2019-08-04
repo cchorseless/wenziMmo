@@ -23,7 +23,7 @@ module view.compart {
 			for (let child of this.vbox_0._childs) {
 				if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
 					let item = new view.compart.DaoJuItem()
-					item.setData(obj);
+					item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_CANGKU);
 					child.addItem(item);
 					break;
 				}

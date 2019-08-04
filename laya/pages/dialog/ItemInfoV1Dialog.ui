@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":31,
-    "selecteID":35,
+    "selectedBox":41,
+    "selecteID":40,
     "props":{"width":500,"sceneColor":"#000000","height":600},
     "nodeParent":-1,
     "label":"Dialog",
@@ -42,7 +42,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/DaoJuItem.ui",
-            "props":{"y":72,"x":42,"var":"ui_item","scaleY":1.2,"scaleX":1.2},
+            "props":{"y":72,"x":42,"var":"ui_item","scaleY":1.2,"scaleX":1.2,"runtime":"view.compart.DaoJuItem"},
             "nodeParent":1,
             "label":"UIView(ui_item)",
             "isDirectory":false,
@@ -71,14 +71,13 @@
             "props":{"y":174,"x":32,"width":259,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":10,"x":10,"width":237,"var":"div_itemDes","innerHTML":"htmlText","height":128},
                     "nodeParent":6,
@@ -110,14 +109,13 @@
             "props":{"y":336,"x":31,"width":450,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":163},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":22,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"wordWrap":true,"var":"lbl_props","top":10,"text":"label","right":10,"left":10,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bottom":10},
                     "nodeParent":22,
@@ -136,14 +134,13 @@
             "props":{"y":156,"x":159,"width":133,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":30},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"width":130,"text":"装备描述","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","centerX":0,"align":"center"},
                     "nodeParent":24,
@@ -162,14 +159,13 @@
             "props":{"y":323,"x":348,"width":133,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":30},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":26,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"width":130,"text":"装备属性","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","centerX":0,"align":"center"},
                     "nodeParent":26,
@@ -188,13 +184,14 @@
             "props":{"y":84,"x":144},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":28,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"width":52,"text":"类型:","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
@@ -207,30 +204,7 @@
                         ]
                 },
                 {
-                    "type":"Label",
-                    "props":{"y":36,"x":1,"width":52,"text":"等级:","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":28,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":4,"x":154,"width":52,"text":"职业:","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":28,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":38,"x":153,"width":52,"text":"性别:","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
@@ -243,6 +217,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":57,"width":52,"var":"lbl_type","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
@@ -255,8 +230,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":36,"x":58,"width":52,"var":"lbl_level","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":36,"x":4,"width":106,"var":"lbl_level","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
                     "label":"Label(lbl_level)",
                     "isDirectory":false,
@@ -267,8 +243,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":213,"width":52,"var":"lbl_job","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":4,"x":149,"width":116,"var":"lbl_job","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
                     "label":"Label(lbl_job)",
                     "isDirectory":false,
@@ -279,6 +256,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":38,"x":213,"width":52,"var":"lbl_sex","text":"头盔","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":28,
@@ -297,14 +275,13 @@
             "props":{"y":172,"x":294,"width":189,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":31,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":16,"x":77,"wordWrap":true,"width":113,"var":"lbl_playerRecover","valign":"middle","text":"label","height":60,"fontSize":20,"font":"Microsoft YaHei"},
                     "nodeParent":31,
@@ -317,7 +294,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":77,"x":73,"wordWrap":true,"width":115,"var":"lbl_guildRecover","valign":"middle","text":"label","height":60,"fontSize":20,"font":"Microsoft YaHei"},
                     "nodeParent":31,
@@ -330,7 +306,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":15,"x":10,"wordWrap":true,"width":55,"text":"角色\\n经验","height":54,"fontSize":20,"font":"Microsoft YaHei"},
                     "nodeParent":31,
@@ -343,7 +318,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":86,"x":9,"wordWrap":true,"width":55,"text":"帮会\\n贡献","height":54,"fontSize":20,"font":"Microsoft YaHei"},
                     "nodeParent":31,
@@ -356,7 +330,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":68,"x":5,"width":146,"skin":"image/common/img_common_05.png","height":24},
                     "nodeParent":31,
@@ -369,7 +342,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":67,"x":148,"wordWrap":true,"width":45,"text":"或者","height":30,"fontSize":20,"font":"Microsoft YaHei"},
                     "nodeParent":31,
@@ -388,14 +360,13 @@
             "props":{"y":155,"x":368,"width":133,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":30},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"width":130,"text":"回收奖励","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","centerX":0,"align":"center"},
                     "nodeParent":33,
@@ -411,16 +382,17 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":515,"x":30,"var":"viw_button","selectedIndex":0},
+            "props":{"y":515,"x":30,"width":451,"var":"viw_model","selectedIndex":0,"height":52},
             "nodeParent":1,
-            "label":"ViewStack(viw_button)",
-            "isOpen":false,
+            "label":"ViewStack(viw_model)",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":41,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"name":"item0"},
                     "nodeParent":41,
@@ -433,9 +405,9 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"width":133,"var":"btn_use","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"主角穿戴","height":50},
+                            "props":{"width":133,"var":"btn_playerUse","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"主角穿戴","height":50},
                             "nodeParent":37,
-                            "label":"Button(btn_use)",
+                            "label":"Button(btn_playerUse)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -466,29 +438,75 @@
                             "compId":21,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":50},
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
                     "nodeParent":41,
-                    "label":"Button(item1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":39,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item2","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
-                    "nodeParent":41,
-                    "label":"Button(item2)",
+                    "label":"Button(btn_putToCangKu)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":40,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item2","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
+                    "nodeParent":41,
+                    "label":"Button(btn_goSell)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":45,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item3","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":50},
+                    "nodeParent":41,
+                    "label":"Button(btn_putBackCangKu)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":48,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_noLongerUse","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item4","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":50},
+                    "nodeParent":41,
+                    "label":"Button(btn_noLongerUse)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":49,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "props":{"y":0,"x":0,"var":"spr_none","name":"item5"},
+                    "nodeParent":41,
+                    "label":"Sprite(spr_none)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":47,
                     "child":[
                         ]
                 }]

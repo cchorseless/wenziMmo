@@ -28,6 +28,7 @@ module view.beiBao {
 			this.img_tabBg.visible = false;
 			this.img_tabBg.scaleY = this.img_tabBg.scaleX = 0;
 			this.btn_bagLogo.selected = true;
+			this.lbl_bagLogolbl.text = '背包|回收';
 			this.tab_changeView.selectHandler = Laya.Handler.create(this, (index) => {
 				this.btn_itemAll.selected = false;
 				this.showSmallTab(false);
@@ -40,7 +41,7 @@ module view.beiBao {
 					case 1:
 					// 摆摊界面
 					case 2:
-						this.lbl_bagLogolbl.text = ['背包|仓库', '背包|回收', '背包|摆摊'][index];
+						this.lbl_bagLogolbl.text = ['背包|回收', '背包|仓库', '背包|摆摊'][index];
 						this.viw_BagViewChange.selectedIndex = 0;
 						this.viw_bagBottom.selectedIndex = index;
 						break;
@@ -84,8 +85,8 @@ module view.beiBao {
 				Laya.Tween.to(this.img_tabBg, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_tabBg.visible = false }))
 			}
 		}
-
-
+		// 背包内所有物品
+		public allItemInBeiBao = {};
 		/**
 		 * 添加物品
 		 * @param obj 
@@ -124,9 +125,11 @@ module view.beiBao {
 					}
 					for (let child of vbox_bag._childs) {
 						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
-							let item = new view.compart.DaoJuItem()
-							item.setData(obj);
+							let item = new view.compart.DaoJuItem();
+							item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
 							child.addItem(item);
+							// 添加到本地
+							this.allItemInBeiBao[obj.i64ItemID.toString()] = item;
 							break;
 						}
 					}
@@ -144,7 +147,14 @@ module view.beiBao {
 		 * @param itemi64id 物品唯一ID 
 		 */
 		public removeItem(type: EnumData.PACKAGE_TYPE, itemi64id: string): void {
-
+			switch (type) {
+				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+					if (this.allItemInBeiBao[itemi64id]) {
+						this.allItemInBeiBao[itemi64id].removeSelf();
+					}
+					break;
+				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE: break;
+			}
 		}
 	}
 }
