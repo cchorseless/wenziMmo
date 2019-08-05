@@ -4,5 +4,11 @@ module view.compart{
 		constructor(){
 			super();
 		}
+		public setData(): void {
+	// this.on(Laya.UIEvent.CLICK, this, () => {
+	// 			new view.dialog.HeroNeiXinInfoDialog().show(true);
+
+	// 		})
+		}
 	}
 }
