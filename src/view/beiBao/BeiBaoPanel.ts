@@ -85,8 +85,7 @@ module view.beiBao {
 				Laya.Tween.to(this.img_tabBg, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_tabBg.visible = false }))
 			}
 		}
-		// 背包内所有物品
-		public allItemInBeiBao = {};
+
 		/**
 		 * 添加物品
 		 * @param obj 
@@ -98,9 +97,15 @@ module view.beiBao {
 			let dwCount = obj.dwCount;
 			// 物品类型
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
+			// 物品位置
+			let local_index = obj.location.getValue('btLocation');
 			switch (type) {
 				// 背包
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+					// 判断位置是否是背包
+					if (local_index != EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+						return;
+					}
 					let vbox_bag;
 					switch (itemType) {
 						// 材料
@@ -128,34 +133,21 @@ module view.beiBao {
 							let item = new view.compart.DaoJuItem();
 							item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
 							child.addItem(item);
-							// 添加到本地
-							this.allItemInBeiBao[obj.i64ItemID.toString()] = item;
 							break;
 						}
 					}
 					break;
 				// 仓库
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+					// 判断位置是否是背包
+					if (local_index != EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE) {
+						return;
+					}
 					this.ui_cangKu.addItem(obj);
 					break;
 			}
 		}
 
-		/**
-		 * 移除物品
-		 * @param type 物品位置
-		 * @param itemi64id 物品唯一ID 
-		 */
-		public removeItem(type: EnumData.PACKAGE_TYPE, itemi64id: string): void {
-			switch (type) {
-				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
-					if (this.allItemInBeiBao[itemi64id]) {
-						this.allItemInBeiBao[itemi64id].removeSelf();
-						delete this.allItemInBeiBao[itemi64id]
-					}
-					break;
-				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE: break;
-			}
-		}
+
 	}
 }
