@@ -87,6 +87,11 @@ class PacketBase {
         return this._bytes;
     }
 
+    /**
+     * 克隆数据，将源头数据考入this
+     * @param s 数据源
+     * @param len 
+     */
     public clone(s: Laya.Byte, len: number = 0): void {
         if (!s) {
             return;

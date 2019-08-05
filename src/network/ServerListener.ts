@@ -249,7 +249,7 @@ class ServerListener extends SingletonClass {
             mainPlayer.hp = msg.getValue('nNowHp');
             mainPlayer.mp = msg.getValue('nNowMp');
             mainPlayer.lifestate = msg.getValue('lifestate');
-            msg.feature.clone(mainPlayer.feature.data);
+            mainPlayer.feature.clone(msg.feature.data);
             GameApp.MainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
         }
         // 其他玩家
@@ -265,7 +265,7 @@ class ServerListener extends SingletonClass {
             newPlayer.hp = msg.getValue('nNowHp');
             newPlayer.mp = msg.getValue('nNowMp');
             newPlayer.lifestate = msg.getValue('lifestate');
-            msg.feature.clone(newPlayer.feature.data);
+            newPlayer.feature.clone(msg.feature.data);
             // 添加到玩家视野中
             GameApp.MainPlayer.addViewObj(newPlayer, type);
         }

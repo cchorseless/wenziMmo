@@ -63,9 +63,11 @@ module view.dialog {
 				new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
 			});
 			// 角色穿戴
-			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['player'])
+			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['player']);
 			// 英雄穿戴
-			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero'])
+			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
+			// 装备卸下
+			this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip)
 		}
 
 		/**
@@ -110,7 +112,7 @@ module view.dialog {
 					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
 						console.log('=========>', msg.destLocation.getValue('btLocation'))
-						msg.destLocation.clone(_itemBase.location.data);
+						_itemBase.location.clone(msg.destLocation.data);
 						console.log('=========>', _itemBase.location.getValue('btLocation'))
 						GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.bagItemDB[i64ItemId];
@@ -128,5 +130,12 @@ module view.dialog {
 
 		}
 
+		/**
+		 * 脱下装备
+		 * @param data 
+		 */
+		public takeOffEquip(data): void {
+
+		}
 	}
 }
