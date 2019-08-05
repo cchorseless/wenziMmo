@@ -75,8 +75,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
-        // 背包内物品操作 307
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretProcessingItem), this, this.cretProcessingItem);
+
         // 服务器扩展脚本 0x0919
         GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
         // 客户端本地设置 2aa
@@ -236,24 +235,40 @@ class ServerListener extends SingletonClass {
      */
     public mapCreatePlayer(data: any): void {
         let msg = new ProtoCmd.MapCreatePlayer(data);
-        let newPlayer = new GameObject.Player();
+        let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
-        newPlayer.tempId = msg.getValue('dwTmpId');
-        newPlayer.objName = msg.getValue('szShowName');
-        newPlayer.objType = type;
-        newPlayer.mapid = msg.location.getValue('mapid');
-        newPlayer.x = msg.location.getValue('ncurx');
-        newPlayer.y = msg.location.getValue('ncury');
-        newPlayer.level = msg.getValue('lvl');
-        newPlayer.hp = msg.getValue('nNowHp');
-        newPlayer.mp = msg.getValue('nNowMp');
-        newPlayer.lifestate = msg.getValue('lifestate');
-        msg.feature.clone(newPlayer.feature.data);
-        if (GameApp.MainPlayer.tempId == newPlayer.tempId) {
-            GameApp.GameEngine.mainPlayer = newPlayer;
+        let mainPlayer = GameApp.MainPlayer;
+        // 玩家自己
+        if (mainPlayer.tempId == tempId) {
+            mainPlayer.objName = msg.getValue('szShowName');
+            mainPlayer.objType = type;
+            mainPlayer.mapid = msg.location.getValue('mapid');
+            mainPlayer.x = msg.location.getValue('ncurx');
+            mainPlayer.y = msg.location.getValue('ncury');
+            mainPlayer.level = msg.getValue('lvl');
+            mainPlayer.hp = msg.getValue('nNowHp');
+            mainPlayer.mp = msg.getValue('nNowMp');
+            mainPlayer.lifestate = msg.getValue('lifestate');
+            msg.feature.clone(mainPlayer.feature.data);
             GameApp.MainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
         }
-        GameApp.MainPlayer.addViewObj(newPlayer, type);
+        // 其他玩家
+        else {
+            let newPlayer = new GameObject.Player();
+            newPlayer.tempId = msg.getValue('dwTmpId');
+            newPlayer.objName = msg.getValue('szShowName');
+            newPlayer.objType = type;
+            newPlayer.mapid = msg.location.getValue('mapid');
+            newPlayer.x = msg.location.getValue('ncurx');
+            newPlayer.y = msg.location.getValue('ncury');
+            newPlayer.level = msg.getValue('lvl');
+            newPlayer.hp = msg.getValue('nNowHp');
+            newPlayer.mp = msg.getValue('nNowMp');
+            newPlayer.lifestate = msg.getValue('lifestate');
+            msg.feature.clone(newPlayer.feature.data);
+            // 添加到玩家视野中
+            GameApp.MainPlayer.addViewObj(newPlayer, type);
+        }
         msg.clear();
         msg = null;
     }
@@ -734,54 +749,7 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-    /**
-     * 背包内物品操作
-     * @param data 
-     */
-    public cretProcessingItem(data: any): void {
-        let msg = new ProtoCmd.CretProcessingItem(data);
-        let errorcode = msg.getValue('nErrorCode');
-        if (errorcode != 0) {
-            //App.MainPanel.addSysChat('穿戴装备失败：errorcode:' + errorcode);
-        } else {
-            let srctype = msg.srcLocation.getValue('btLocation');
-            let dsttype = msg.destLocation.getValue('btLocation');
-            let srcidx = msg.srcLocation.getValue('btIndex');
-            let dstidx = msg.destLocation.getValue('btIndex');
-            // if (srctype == PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-            //     let srcItem = //App.MainPanel.bagItemDB[srcidx];
-            //     let dstItem = //App.MainPanel.equipDB[dstidx];
-            //     if (srcItem.dwBaseID) {
-            //         srcItem.location.setValue('btLocation', dsttype);
-            //         srcItem.location.setValue('btIndex', dstidx);
-            //     }
-            //     if (dstItem.dwBaseID) {
-            //         dstItem.location.setValue('btLocation', srctype);
-            //         dstItem.location.setValue('btIndex', srcidx);
-            //     }
-            //     //App.MainPanel.equipDB[dstidx] = srcItem;
-            //     //App.MainPanel.bagItemDB[srcidx] = dstItem;
-            // } else if (srctype == PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
-            //     let srcItem = //App.MainPanel.equipDB[srcidx];
-            //     let dstItem = //App.MainPanel.bagItemDB[dstidx];
-            //     if (srcItem.dwBaseID) {
-            //         srcItem.location.setValue('btLocation', dsttype);
-            //         srcItem.location.setValue('btIndex', dstidx);
-            //     }
-            //     if (dstItem.dwBaseID) {
-            //         dstItem.location.setValue('btLocation', srctype);
-            //         dstItem.location.setValue('btIndex', srcidx);
-            //     }
-            //     //App.MainPanel.bagItemDB[dstidx] = srcItem;
-            //     //App.MainPanel.equipDB[srcidx] = dstItem;
-            // }
 
-            //App.MainPanel.bagList.numItems = //App.MainPanel.bagItemDB.length;
-            //App.MainPanel.equipList.numItems = //App.MainPanel.equipDB.length;
-        }
-        msg.clear();
-        msg = null;
-    }
     /**
      * 使用物品
      * @param data 

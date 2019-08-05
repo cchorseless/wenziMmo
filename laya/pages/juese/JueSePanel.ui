@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":168,
-    "selecteID":189,
+    "selecteID":171,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -368,7 +368,7 @@
                             "x":45,
                             "type":"UIView",
                             "source":"compart/Person_EquipInfoItem.ui",
-                            "props":{"top":0,"name":"item2","left":0},
+                            "props":{"top":0,"runtime":"view.compart.Person_EquipInfoItem","name":"item2","left":0},
                             "nodeParent":168,
                             "label":"UIView(item2)",
                             "isDirectory":false,
@@ -377,7 +377,7 @@
                             "compId":171,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -512,7 +512,7 @@
                             "compId":189,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":false
                 }]
