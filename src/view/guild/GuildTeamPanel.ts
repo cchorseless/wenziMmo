@@ -3,6 +3,7 @@ module view.guild{
 	export class GuildTeamPanel extends ui.guild.GuildTeamPanelUI{
 		constructor(){
 			super();
+			this.addEvent();
 		}
 			public setData(): void {
 			this.panel_get.vScrollBarSkin = '';
@@ -15,6 +16,15 @@ module view.guild{
 				this.box_actGet.addChild;
 			}
 
+		}
+		public addEvent():void{
+			this.img_guildIntoSet.on(Laya.UIEvent.CLICK,this,() =>{
+                PanelManage.openGuildIntoConditionPanel();
+			
+		}) 
+			this.img_guildOut.on(Laya.UIEvent.CLICK,this,() =>{
+               new view.dialog.GuildOutDialog().popup(true);
+		})
 		}
 	}
 }

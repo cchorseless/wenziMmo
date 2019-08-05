@@ -4,5 +4,8 @@ module view.guild{
 		constructor(){
 			super();
 		}
+		public setData(): void {
+
+		}
 	}
 }

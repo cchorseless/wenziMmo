@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":24,
-    "selecteID":96,
+    "selectedBox":143,
+    "selecteID":135,
     "referenceLines":[
         {
             "value":301,
@@ -891,7 +891,7 @@
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
                             "type":"Box",
@@ -1676,17 +1676,18 @@
                             "props":{"y":318,"x":38},
                             "nodeParent":96,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":143,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":251,"x":297,"skin":"image/guild/icon_team_bangpai.png"},
+                                    "props":{"y":251,"x":297,"var":"img_guildOut","skin":"image/guild/icon_team_bangpai.png"},
                                     "nodeParent":143,
-                                    "label":"Image",
+                                    "label":"Image(img_guildOut)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1696,6 +1697,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":126,"x":297,"skin":"image/guild/icon_team_chengyuan.png"},
                                     "nodeParent":143,
@@ -1709,10 +1711,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":297,"skin":"image/guild/icon_team_shezhi.png"},
+                                    "props":{"x":297,"var":"img_guildIntoSet","skin":"image/guild/icon_team_shezhi.png"},
                                     "nodeParent":143,
-                                    "label":"Image",
+                                    "label":"Image(img_guildIntoSet)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1722,6 +1725,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/guild/icon_team_waijiao.png"},
                                     "nodeParent":143,
@@ -1735,6 +1739,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":125,"skin":"image/guild/icon_team_rizhi.png"},
                                     "nodeParent":143,
@@ -1747,6 +1752,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":251,"skin":"image/guild/icon_team_shenqing.png"},
                                     "nodeParent":143,
