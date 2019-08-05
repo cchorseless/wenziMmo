@@ -142,7 +142,7 @@ module view.beiBao {
 		}
 
 		/**
-		 * 丢弃物品
+		 * 移除物品
 		 * @param type 物品位置
 		 * @param itemi64id 物品唯一ID 
 		 */
@@ -151,6 +151,7 @@ module view.beiBao {
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
 					if (this.allItemInBeiBao[itemi64id]) {
 						this.allItemInBeiBao[itemi64id].removeSelf();
+						delete this.allItemInBeiBao[itemi64id]
 					}
 					break;
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE: break;

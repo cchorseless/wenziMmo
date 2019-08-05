@@ -76,8 +76,9 @@ module EnumData {
     /**
      * 装备部位
      */
-    export enum EQUIP_POS_TYPE {
-        EQUIP_HEADDRESS,			//帽子
+    export enum emEquipPosition {
+        //战装
+        EQUIP_HEADDRESS = 0,			//帽子
         EQUIP_NECKLACE,				//项链
         EQUIP_CLOTHES,				//衣服
         EQUIP_WEAPONS,				//武器
@@ -87,8 +88,85 @@ module EnumData {
         EQUIP_RING_RIGHT,			//右戒指
         EQUIP_SHOES,				//鞋
         EQUIP_BELT = 9,				//腰带
-        EQUIP_ALL,
-    }
+
+        //神装
+        EQUIP_LEGEND_HEADDRESS = 10,			//传说帽子
+        EQUIP_LEGEND_NECKLACE,				//传说项链
+        EQUIP_LEGEND_CLOTHES,				//传说衣服
+        EQUIP_LEGEND_WEAPONS,				//传说武器
+        EQUIP_LEGEND_BRACELET_LEFT,			//传说左手镯
+        EQUIP_LEGEND_BRACELET_RIGHT,		//传说右手镯
+        EQUIP_LEGEND_RING_LEFT,				//传说左戒指
+        EQUIP_LEGEND_RING_RIGHT,			//传说右戒指
+        EQUIP_LEGEND_SHOES,					//传说鞋
+        EQUIP_LEGEND_BELT = 19,				//传说腰带
+
+        //符文八卦
+        EQUIP_RUNE_UP = 20,
+        EQUIP_RUNE_UPRIGHT,
+        EQUIP_RUNE_RIGHT,
+        EQUIP_RUNE_DOWNRIGHT,
+        EQUIP_RUNE_DOWN,
+        EQUIP_RUNE_DOWNLEFT,
+        EQUIP_RUNE_LEFT,
+        EQUIP_RUNE_UPLEFT = 27,
+
+        //英雄战士
+        EQUIP_HERO_WARRIOR_HEADDRESS = 28,			//英雄战士帽子
+        EQUIP_HERO_WARRIOR_NECKLACE,				//英雄战士项链
+        EQUIP_HERO_WARRIOR_CLOTHES,					//英雄战士衣服
+        EQUIP_HERO_WARRIOR_WEAPONS,					//英雄战士武器
+        EQUIP_HERO_WARRIOR_BRACELET_LEFT,			//英雄战士左手镯
+        EQUIP_HERO_WARRIOR_BRACELET_RIGHT,			//英雄战士右手镯
+        EQUIP_HERO_WARRIOR_RING_LEFT,				//英雄战士左戒指
+        EQUIP_HERO_WARRIOR_RING_RIGHT,				//英雄战士右戒指
+        EQUIP_HERO_WARRIOR_SHOES,					//英雄战士鞋
+        EQUIP_HERO_WARRIOR_BELT = 37,				//英雄战士腰带
+
+        //英雄法师
+        EQUIP_HERO_MAGE_HEADDRESS = 38,			//英雄法师帽子
+        EQUIP_HERO_MAGE_NECKLACE,				//英雄法师项链
+        EQUIP_HERO_MAGE_CLOTHES,				//英雄法师衣服
+        EQUIP_HERO_MAGE_WEAPONS,				//英雄法师武器
+        EQUIP_HERO_MAGE_BRACELET_LEFT,			//英雄法师左手镯
+        EQUIP_HERO_MAGE_BRACELET_RIGHT,			//英雄法师右手镯
+        EQUIP_HERO_MAGE_RING_LEFT,				//英雄法师左戒指
+        EQUIP_HERO_MAGE_RING_RIGHT,				//英雄法师右戒指
+        EQUIP_HERO_MAGE_SHOES,					//英雄法师鞋
+        EQUIP_HERO_MAGE_BELT = 47,				//英雄法师腰带
+
+        //英雄道士
+        EQUIP_HERO_MONK_HEADDRESS = 48,				//英雄道士帽子
+        EQUIP_HERO_MONK_NECKLACE,				//英雄道士项链
+        EQUIP_HERO_MONK_CLOTHES,				//英雄道士衣服
+        EQUIP_HERO_MONK_WEAPONS,				//英雄道士武器
+        EQUIP_HERO_MONK_BRACELET_LEFT,			//英雄道士左手镯
+        EQUIP_HERO_MONK_BRACELET_RIGHT,			//英雄道士右手镯
+        EQUIP_HERO_MONK_RING_LEFT,				//英雄道士左戒指
+        EQUIP_HERO_MONK_RING_RIGHT,				//英雄道士右戒指
+        EQUIP_HERO_MONK_SHOES,					//英雄道士鞋
+        EQUIP_HERO_MONK_BELT = 57,				//英雄道士腰带
+
+        //资源线
+        EQUIP_MEDAL,					//勋章
+        EQUIP_DRAGONSOUL,				//龙魂
+        EQUIP_BLOODJADE,				//血玉
+        EQUIP_WING,						//光翼
+        EQUIP_SHIELD,					//神盾
+        EQUIP_OFFICIALSEAL = 63,		//官印
+
+        EQUIP_HERO_DRAGONHEART,			//英雄共享装备-火龙之心
+        EQUIP_HERO_WING,				//英雄共享装备-翅膀
+
+        EQUIP_SHOULDER,					//肩
+        EQUIP_KNEE,						//膝
+        EQUIP_PENDANT,					//吊坠
+        EQUIP_FACE = 69,				//脸
+        EQUIP_MAX_COUNT,				//总数
+    };
+
+
+
 
     /**
      * 背包类型

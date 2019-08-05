@@ -29,6 +29,7 @@ module ResData {
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
+        { url: "music/bg.mp3", type: Laya.Loader.SOUND },
         ];
         // 主界面
         public static Main = [{ url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS }];
@@ -65,9 +66,9 @@ module ResData {
      */
     export class SoundRes {
         // 背景音效
-        public static bg = 'sound/bg.mp3';
+        public static bg = 'music/bg.mp3';
         // 爆炸音效
-        public static boom = 'sound/boom.mp3';
+        // public static boom = 'sound/boom.mp3';
 
     }
     /**

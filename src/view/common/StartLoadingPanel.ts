@@ -11,6 +11,7 @@ module view.common {
 			let errorFunc = () => { };
 			// 先加载通用的界面素材
 			ResManage.loadResource(ResData.PanelRes.Common, () => {
+				Laya.SoundManager.playMusic('music/bg.mp3', 0)
 				// 加载字体文件
 				ResManage.loadTTF(ResData.TTFRes.AllTTFData, () => {
 					// 加载配置表文件

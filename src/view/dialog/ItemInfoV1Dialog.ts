@@ -30,7 +30,7 @@ module view.dialog {
 					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
-			this.lbl_isLock.visible = !obj.dwBinding;
+			this.lbl_isLock.visible = Boolean(obj.dwBinding);
 			// 物品名称
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
 			// 物品描述
@@ -63,15 +63,79 @@ module view.dialog {
 				new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
 			});
 			// 角色穿戴
-			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, () => {
-
-			})
+			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['player']);
 			// 英雄穿戴
-			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, () => {
-
-			})
+			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
+			// 装备卸下
+			this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip)
 		}
 
+		/**
+		 * 穿戴装备
+		 * @param data 
+		 */
+		public dressEquip(data): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation = this.itemObj.location;
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP);
+			// 给英雄穿戴装备需要加上位置偏移
+			let offset = 0;
+			if (data === 'hero') {
+				let jobType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.itemObj.dwBaseID);
+				switch (jobType) {
+					// 法师
+					case EnumData.JOB_TYPE.JOB_MAGE:
+						offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
+						break;
+					// 道士
+					case EnumData.JOB_TYPE.JOB_MONK:
+						offset = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
+						break;
+					// 战士
+					case EnumData.JOB_TYPE.JOB_WARRIOR:
+						offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
+						break;
+				}
+			}
+			packet.destLocation.setValue('btIndex', offset + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.itemObj.dwBaseID));
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 背包界面將道具移除
+					PanelManage.BeiBao && PanelManage.BeiBao.removeItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, i64ItemId);
+					// 全局数据更新
+					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+					if (_itemBase) {
+						console.log('=========>', msg.destLocation.getValue('btLocation'))
+						_itemBase.location.clone(msg.destLocation.data);
+						console.log('=========>', _itemBase.location.getValue('btLocation'))
+						GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
+						delete GameApp.GameEngine.bagItemDB[i64ItemId];
+						TipsManage.showTips('装备穿戴成功');
+					} else {
+						TipsManage.showTips('穿戴失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('穿戴失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
 
+		}
+
+		/**
+		 * 脱下装备
+		 * @param data 
+		 */
+		public takeOffEquip(data): void {
+
+		}
 	}
 }

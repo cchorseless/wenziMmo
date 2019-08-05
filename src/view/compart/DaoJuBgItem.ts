@@ -9,6 +9,9 @@ module view.compart {
 		}
 
 		public addItem(item) {
+			if (this.checkIsFull()) {
+				this.removeChildAt(1);
+			}
 			this.addChild(item);
 			item.centerX = item.centerY = 0;
 		}

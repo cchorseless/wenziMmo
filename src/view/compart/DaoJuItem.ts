@@ -15,7 +15,7 @@ module view.compart {
 			this.item = item;
 			this.model = model;
 			// 是否绑定
-			this.img_lock.visible = !this.item.dwBinding;
+			this.img_lock.visible = Boolean(this.item.dwBinding);
 			// 物品ICON
 			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + this.item.dwBaseID) + '.png';
 			// 底图
