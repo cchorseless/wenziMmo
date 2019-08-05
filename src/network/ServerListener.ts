@@ -670,15 +670,10 @@ class ServerListener extends SingletonClass {
                 _bag = GameApp.GameEngine.cangKuDB;
                 break;
         }
-        if (_bag != null) {
-            for (let i in _bag) {
-                if (_bag[i].i64ItemID.toString() == i64Id) {
-                    delete _bag[i];
-                    Log.trace('删除背包物品' + i64Id)
-                    PanelManage.BeiBao && PanelManage.BeiBao.removeItem(bagType, i64Id);
-                    break
-                }
-            }
+        if (_bag != null && _bag[i64Id]) {
+            _bag[i64Id].clear();
+            delete _bag[i64Id];
+            Log.trace('删除背包物品' + i64Id);
         }
         msg.clear();
         msg = null;

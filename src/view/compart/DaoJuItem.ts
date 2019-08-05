@@ -12,7 +12,10 @@ module view.compart {
 		 * @param mode 响应事件模式,默认不显示
 		 */
 		public setData(item: ItemBase, model: EnumData.ItemInfoModel = 0): void {
+			// 双向绑定
 			this.item = item;
+			item.recoverUI();
+			item.ui_item = this;
 			this.model = model;
 			// 是否绑定
 			this.img_lock.visible = Boolean(this.item.dwBinding);

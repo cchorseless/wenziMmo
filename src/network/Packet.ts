@@ -708,6 +708,8 @@ class ItemBase extends PacketBase {
     public stNpProperty: Array<Nonpareil>;      //60属性
     public ExtensionProperty: Laya.Byte;		//预留10字节，做扩充
     public defaultName: string;
+    // 绑定的UI组件
+    public ui_item;
     public constructor(data: Laya.Byte) {
         super();
         this.location = new ItemLocation();
@@ -779,7 +781,22 @@ class ItemBase extends PacketBase {
                 this.stNpProperty.push(np);
             }
         }
-        //this.stNpProperty[_MAX_NP_ALL_COUNT] = this.getValue('stNpProperty[_MAX_NP_ALL_COUNT]')
+    }
+    /**
+     * 清理数据，删除UI组件
+     */
+    public clear(): void {
+        this.recoverUI();
+        super.clear();
+    }
+    /**
+     * 清除绑定的UI
+     */
+    public recoverUI(): void {
+        if (this.ui_item) {
+            this.ui_item.destroy(true);
+        }
+        this.ui_item = null;
     }
 }
 

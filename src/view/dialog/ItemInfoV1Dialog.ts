@@ -106,14 +106,12 @@ module view.dialog {
 				let errorcode = msg.getValue('nErrorCode');
 				let i64ItemId = msg.getValue('i64ItemId').toString();
 				if (errorcode == 0) {
-					// 背包界面將道具移除
-					PanelManage.BeiBao && PanelManage.BeiBao.removeItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, i64ItemId);
 					// 全局数据更新
 					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
-						console.log('=========>', msg.destLocation.getValue('btLocation'))
 						_itemBase.location.clone(msg.destLocation.data);
-						console.log('=========>', _itemBase.location.getValue('btLocation'))
+						// 清除绑定的UI
+						_itemBase.recoverUI();
 						GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.bagItemDB[i64ItemId];
 						TipsManage.showTips('装备穿戴成功');
@@ -134,7 +132,35 @@ module view.dialog {
 		 * 脱下装备
 		 * @param data 
 		 */
-		public takeOffEquip(data): void {
+		public takeOffEquip(): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation = this.itemObj.location;
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 全局数据更新
+					let _itemBase: ItemBase = GameApp.GameEngine.equipDB[i64ItemId];
+					if (_itemBase) {
+						_itemBase.clear();
+						delete GameApp.GameEngine.equipDB[i64ItemId];
+						TipsManage.showTips('装备卸下成功');
+					} else {
+						TipsManage.showTips('卸下失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('卸下失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
+
 
 		}
 	}
