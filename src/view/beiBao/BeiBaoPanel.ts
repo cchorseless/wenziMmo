@@ -93,6 +93,7 @@ module view.beiBao {
 		public addItem(type: EnumData.PACKAGE_TYPE, obj: ItemBase): void {
 			// 配置表ID
 			let dwBaseID = '' + obj.dwBaseID;
+			console.log('===========>addItem',dwBaseID)
 			// 物品数量
 			let dwCount = obj.dwCount;
 			// 物品类型
@@ -102,6 +103,7 @@ module view.beiBao {
 			switch (type) {
 				// 背包
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+					console.log('=======>', local_index);
 					// 判断位置是否是背包
 					if (local_index != EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
 						return;

@@ -20,6 +20,7 @@ module view.compart {
 				let _itemBase: ItemBase = GameApp.GameEngine.equipDB[key];
 				let btLocation = _itemBase.location.getValue('btLocation');
 				let btIndex = _itemBase.location.getValue('btIndex');
+				console.log('====>', btLocation, btIndex);
 				// 筛选合适的装备
 				if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= EnumData.emEquipPosition.EQUIP_BELT && btIndex >= EnumData.emEquipPosition.EQUIP_HEADDRESS) {
 					let itemUI = new view.compart.DaoJuItem();

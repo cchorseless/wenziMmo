@@ -114,13 +114,14 @@ class PacketBase {
             offset = parent._offsetinparentStruct;
             parent = parent._parentStruct;
         }
-
         for (let element in this._list) {
             if (this._list[element]._obj) {
                 this._bytes.pos = this._list[element]._pos;
                 this._list[element]._obj.clone(this._bytes, this._list[element]._len);
             }
         }
+        // 对象属性赋值
+        this.read(this.data);
     }
 
     public addProperty(name: string, type: number, len: number = 0, obj: any = null): void {
@@ -764,7 +765,6 @@ class ItemBase extends PacketBase {
         this.btStrengCount = this.getValue('btStrengCount');
         this.dwExpireTime = this.getValue('dwExpireTime');
         this.btNpPropertyCount = this.getValue('btNpPropertyCount');
-
         for (let i = 0; i < this.stNpProperty.length; ++i) {
             this.stNpProperty[i] = null
         }

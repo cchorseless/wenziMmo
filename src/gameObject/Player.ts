@@ -26,6 +26,8 @@ module GameObject {
          */
         public changeGold(gold: number) {
             this.wealth.gold = gold;
+            Log.trace('金币：' + gold);
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLD);
         }
         /**
          * 修改绑定金币
@@ -33,6 +35,8 @@ module GameObject {
          */
         public changeGold_lock(gold_lock: number) {
             this.wealth.gold_lock = gold_lock;
+            Log.trace('绑定金币：' + gold_lock);
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLDLOCK);
         }
 
         /**
@@ -42,6 +46,7 @@ module GameObject {
         public changeYuanBao(yuanBao: number) {
             Log.trace('元宝：' + yuanBao);
             this.wealth.yuanBao = yuanBao;
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAO);
         }
 
         /**
@@ -50,6 +55,7 @@ module GameObject {
          */
         public changeYuanBao_lock(yuanBao_lock: number) {
             this.wealth.yuanBao_lock = yuanBao_lock;
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAOLOCK);
         }
 
         /**

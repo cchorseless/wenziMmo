@@ -48,12 +48,13 @@ module view.main {
 			// 名字
 			this.lbl_playerName.text = _player.realName;
 			// 等级
-			if (_player.zslevel == null || _player.zslevel == 0) { 
+			if (_player.zslevel == null || _player.zslevel == 0) {
 				this.lbl_level.text = '' + _player.level + '级';
 			}
 			else {
 				this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
 			}
+			console.log('========>', this.lbl_level.text);
 			// 金币
 			this.lbl_gold.text = '' + _player.wealth.gold;
 			// 绑定金币
@@ -151,7 +152,14 @@ module view.main {
 			// 战力
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.clip_power.value = '' + _player.ability.nFight; });
 			// 等级
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => { this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级'; });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => {
+				if (_player.zslevel == null || _player.zslevel == 0) {
+					this.lbl_level.text = '' + _player.level + '级';
+				}
+				else {
+					this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
+				}
+			});
 			// vip等级 todo
 			// GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.font_vipLevel.value = '' + _player.viplvl; });
 			// 经验

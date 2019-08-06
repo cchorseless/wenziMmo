@@ -43,8 +43,7 @@ module view.dialog {
 			this.lbl_type.text = ['头盔', '项链', '衣服', '武器', '手镯', '手镯', '戒指', '戒指', '鞋字', '腰带'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
 			// 道具职业
 			this.lbl_job.text = '职业：' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
-			// 道具等级
-			// 使用等级
+			// 道具等级，使用等级
 			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
 			this.lbl_level.text = '等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).LVNEED(dwBaseID) + '级';
 			// 道具性别
@@ -79,7 +78,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation = this.itemObj.location;
+			packet.srcLocation.clone(this.itemObj.location.data);
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP);
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
@@ -100,16 +99,45 @@ module view.dialog {
 						break;
 				}
 			}
-			packet.destLocation.setValue('btIndex', offset + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.itemObj.dwBaseID));
+			// 双手镯双戒指可以通用位置需要特殊处理
+			let itemPosition = offset + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.itemObj.dwBaseID);
+			switch (itemPosition) {
+				// 左边
+				case EnumData.emEquipPosition.EQUIP_BRACELET_LEFT:
+				case EnumData.emEquipPosition.EQUIP_RING_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BRACELET_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_RING_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MAGE_BRACELET_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MAGE_RING_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MONK_BRACELET_LEFT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MONK_RING_LEFT:
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition + 1]) {
+						itemPosition += 1;
+					}
+					break;
+				// 右边
+				case EnumData.emEquipPosition.EQUIP_BRACELET_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_RING_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BRACELET_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_RING_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MAGE_BRACELET_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MAGE_RING_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MONK_BRACELET_RIGHT:
+				case EnumData.emEquipPosition.EQUIP_HERO_MONK_RING_RIGHT:
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition - 1]) {
+						itemPosition -= 1;
+					}
+					break;
+			}
+			packet.destLocation.setValue('btIndex', itemPosition);
 			lcp.send(packet, this, (data) => {
 				let msg = new ProtoCmd.CretProcessingItem(data);
 				let errorcode = msg.getValue('nErrorCode');
 				let i64ItemId = msg.getValue('i64ItemId').toString();
 				let src_btIndex = msg.srcLocation.getValue('btIndex');
 				let src_btLocation = msg.srcLocation.getValue('btLocation');
-				let des_btIndex = msg.srcLocation.getValue('btIndex');
-				let des_btLocation = msg.srcLocation.getValue('btLocation');
-
+				let des_btIndex = msg.destLocation.getValue('btIndex');
+				let des_btLocation = msg.destLocation.getValue('btLocation');
 				if (errorcode == 0) {
 					// 全局数据更新
 					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
@@ -137,7 +165,8 @@ module view.dialog {
 						GameApp.GameEngine.equipDBIndex[des_btIndex] = i64ItemId;
 						delete GameApp.GameEngine.bagItemDB[i64ItemId];
 						TipsManage.showTips('装备穿戴成功');
-					} else {
+					}
+					else {
 						TipsManage.showTips('穿戴失败(client 01)');
 					}
 				}
@@ -158,7 +187,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation = this.itemObj.location;
+			packet.srcLocation.clone(this.itemObj.location.data);
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
 			packet.destLocation.setValue('btIndex', 0);
 			lcp.send(packet, this, (data) => {
@@ -169,6 +198,10 @@ module view.dialog {
 					// 全局数据更新
 					let _itemBase: ItemBase = GameApp.GameEngine.equipDB[i64ItemId];
 					if (_itemBase) {
+						// 清楚装备位置索引
+						let btIndex = _itemBase.location.getValue('btIndex');
+						delete GameApp.GameEngine.equipDBIndex[btIndex];
+						// 重置位置属性
 						_itemBase.location.clone(msg.destLocation.data);
 						// 清除绑定的UI
 						_itemBase.recoverUI();
@@ -185,8 +218,6 @@ module view.dialog {
 				msg.clear();
 				msg = null;
 			});
-
-
 		}
 	}
 }
