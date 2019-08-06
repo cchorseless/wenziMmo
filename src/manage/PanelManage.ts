@@ -52,6 +52,8 @@ module PanelManage {
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
+    export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
+    export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     /*****************************通用方法************************************* */
@@ -283,6 +285,54 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
         })
     }
+     /**
+     * 入帮设置界面
+     */
+    export function openGuildIntoConditionPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildIntoCondition);
+        ResManage.loadResource(ResData.PanelRes.GuildIntoCondition, () => {
+            PanelManage.GuildIntoCondition = new view.guild.GuildIntoConditionPanel();
+            PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
+            PanelManage.GuildIntoCondition.setData();
+            PanelManage.GuildIntoCondition.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildIntoCondition,3, 5, 1);
+        })
+    }
+     /**
+     * 帮派福利界面
+     */
+    export function openGuildFuliPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildFuli) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildFuli);
+        ResManage.loadResource(ResData.PanelRes.GuildFuli, () => {
+            PanelManage.GuildFuli = new view.guild.GuildFuliPanel();
+            PanelManage.GuildFuli['LCP_skin'] = ResData.PanelRes.GuildFuli;
+            PanelManage.GuildFuli.setData();
+            PanelManage.GuildFuli.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildFuli,3, 5, 1);
+        })
+    }
+ /**
+     * 帮派支援界面
+     */
+    export function openGuildHelpPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildHelp) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildHelp);
+        ResManage.loadResource(ResData.PanelRes.GuildHelp, () => {
+            PanelManage.GuildHelp = new view.guild.GuildHelpPanel();
+            PanelManage.GuildHelp['LCP_skin'] = ResData.PanelRes.GuildHelp;
+            PanelManage.GuildHelp.setData();
+            PanelManage.GuildHelp.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildHelp,3, 5, 1);
+        })
+    }
     /**
     * 菜单界面
     */
@@ -396,21 +446,5 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
         })
     }
-      /**
-     * 入帮设置界面
-     */
-    export function openGuildIntoConditionPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildIntoCondition);
-        ResManage.loadResource(ResData.PanelRes.GuildIntoCondition, () => {
-            PanelManage.GuildIntoCondition = new view.guild.GuildIntoConditionPanel();
-            PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.YangCheng;
-            PanelManage.GuildIntoCondition.setData();
-            PanelManage.GuildIntoCondition.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildIntoCondition, 1, 5, 1);
-        })
-    }
-
+     
 }

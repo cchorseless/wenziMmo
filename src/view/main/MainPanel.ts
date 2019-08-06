@@ -3,7 +3,8 @@ module view.main {
 	export class MainPanel extends ui.main.MainPanelUI {
 		constructor() {
 			super();
-		}
+			this.mainHeadFoot();
+				}
 		public setData(): void {
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
@@ -370,6 +371,28 @@ module view.main {
 					break;
 			}
 
+		}
+		public mainHeadFoot():void{
+				this.ui_timeDialog.visible = false;
+				this.ui_seasonDialog.visible = false;
+			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.TimeDialog().popup(true);
+			})
+			this.btn_jieQi.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.SeasonDialog().popup(true);
+			})
+				this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_mapBig.selected = !this.btn_mapBig.selected;
+				if (this.btn_mapBig.selected) {
+					this.ui_mainDownMapItem.visible=true
+				}
+				else {
+					PopUpManager.Dispose(this.ui_mainDownMapItem);
+				}
+
+			}
+
+			);
 		}
 	}
 }

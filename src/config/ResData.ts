@@ -49,16 +49,20 @@ module ResData {
         public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
         // 公会界面
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-        // 帮会界面
-        public static GuildTeam = [{ url: "res/atlas/image/guild/team.atlas", type: Laya.Loader.ATLAS }];;
-        // 帮会界面
-        public static GuildIntoCondition = [{ url: "res/atlas/image/guild/team.atlas", type: Laya.Loader.ATLAS }];;
+        // 帮派界面
+        public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        // 入帮设置界面
+        public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 帮派福利
+        public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 帮派支援
+        public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
-        public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];
+        public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
-        public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];
+        public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 剧情对白界面
-        public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
+        public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
 

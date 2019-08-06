@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":65,
-    "selecteID":80,
+    "selectedBox":1,
+    "selecteID":27,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -312,9 +312,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":260,"x":14,"stateNum":"1","skin":"image/guild/btn_back_1.png"},
+            "props":{"y":260,"x":14,"var":"btn_guildIntoReturn","stateNum":"1","skin":"image/guild/btn_back_1.png"},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_guildIntoReturn)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

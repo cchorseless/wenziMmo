@@ -24,6 +24,7 @@ module view.compart {
 			this.initSelfPlayer();
 			this.addPlayer(null);
 			this.addEvent();
+			// this.killStatus();
 		}
 
 		public addEvent(): void {
@@ -146,6 +147,19 @@ module view.compart {
 		 */
 		public removePlayer(obj): void {
 
+		}
+		/**
+		 * 攻击状态缓动
+		 */
+		public killStatus():void{
+		// 	this.cek_mainKill.clickHandler = Laya.Handler.create(this, () => {
+		// 		if (this.cek_mainKill.selected) {
+		// 			Laya.Tween.to(this.box_killOpen, { scaleY: 0 }, 500, Laya.Ease.bounceOut);
+		// 		}
+		// 		else {
+		// 			Laya.Tween.to(this.box_killOpen, { scaleY: 1 }, 500, Laya.Ease.bounceOut);
+		// 		}
+		// 	}, null, false);
 		}
 
 
