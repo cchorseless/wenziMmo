@@ -22,7 +22,7 @@ module GameObject {
         public nowInnerValue = 0;//内功当前值
 
         public nFight = 0;// 战斗力
-        
+
         public nMaxDC = 0; //物理攻击上限值
         public nMinDC = 0; //物理攻击下限值
 
@@ -257,8 +257,9 @@ module GameObject {
                 this.ability.maxexp = maxexp;
             }
             if (this.isMainPlayer) {
-                ////GameApp.MainPanel.expBtn.text = '经验:(' + this.ability.nowexp + '/' + this.ability.maxexp + ')';
+                GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
             }
+
         }
 
         /**
@@ -321,6 +322,7 @@ module GameObject {
          */
         public changeLevel(level: number) {
             this.level = level;
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_LEVEL);
         }
     }
 }

@@ -688,7 +688,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('nErrorCode', PacketBase.TYPE_INT);
-            this.addProperty('dwtmpid', PacketBase.TYPE_DWORD);	
+            this.addProperty('dwtmpid', PacketBase.TYPE_DWORD);
             this.addProperty('i64ItemId', PacketBase.TYPE_INT64); //佩戴的装备的ID
             this.addProperty('srcLocation', PacketBase.TYPE_BYTES, this.srcitemlocation.size(), this.srcitemlocation); //物品原来的位置
             this.addProperty('destLocation', PacketBase.TYPE_BYTES, this.destitemlocation.size(), this.destitemlocation); //物品要去的位置

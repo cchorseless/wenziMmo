@@ -9,7 +9,6 @@ module view.compart {
 		public setData(): void {
 			let player = GameApp.MainPlayer;
 			let ability = player.ability;
-
 			// 生命值
 			this.lbl_Hp.text = '' + ability.nowHP + '/' + ability.nMaxHP;
 			// 魔法值
@@ -45,7 +44,6 @@ module view.compart {
 			// 韧性
 			this.lbl_renxing.text = '' + ability.nCritResi;
 			// PK值
-			console.log('==========>>>',player.feature.getValue('wNowKilling'))
 			this.lbl_pk.text = '' + player.feature.getValue('wNowKilling');
 
 			this.addEvent();

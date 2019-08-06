@@ -75,7 +75,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
-
         // 服务器扩展脚本 0x0919
         GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
         // 客户端本地设置 2aa
@@ -309,7 +308,6 @@ class ServerListener extends SingletonClass {
     //0x0232
     public cretAttackRet(data: any): void {
         let msgData = new ProtoCmd.CretAttackRet(data);
-
         if (msgData.getValue('btErrorCode') == 0) {
             ////App.MainPanel.addSysChat('怪物:'+msgData.getValue('dwTempId'));
         } else {
@@ -363,7 +361,6 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         player.changeGold(msg.getValue('nGold'));
         TipsManage.showTxt('金币改变了' + msg.getValue('nChanged'));
-        GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLD);
         if (msg.getValue('boMax')) {
             TipsManage.showTips('金币达到上限');
         }
@@ -380,7 +377,6 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         player.changeGold_lock(msg.getValue('dwBindGold'));
         TipsManage.showTxt('绑定金币改变了' + msg.getValue('nChanged'));
-        GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLDLOCK);
         if (msg.getValue('boMax')) {
             TipsManage.showTips('绑定金币达到上限');
         }
@@ -397,7 +393,6 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         player.changeYuanBao(msg.getValue('dwRmbGold'));
         TipsManage.showTxt('元宝改变了' + msg.getValue('nChanged'));
-        GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAO);
         msg.clear();
         msg = null;
     }
@@ -411,7 +406,6 @@ class ServerListener extends SingletonClass {
         let player = GameApp.MainPlayer;
         player.changeYuanBao_lock(msg.getValue('dwGiftRmbGold'));
         TipsManage.showTxt('绑定元宝改变了' + msg.getValue('nChanged'));
-        GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAOLOCK);
         msg.clear();
         msg = null;
     }
@@ -428,15 +422,13 @@ class ServerListener extends SingletonClass {
         switch (type) {
             // 更新角色
             case 0:
-                //App.MainPanel.addSysChat('您获得</font color="#00EE00">' + msg.getValue('dwAdd') + '点经验</font>');
                 GameApp.MainPlayer.changeExp(nowExp);
                 TipsManage.showTxt('主角经验改变了' + addExp);
-                GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
                 break;
             // 更新英雄
             case 1:
+                // todo
                 TipsManage.showTxt('英雄经验改变了' + addExp);
-                GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_EXP);
                 break;
             // 更新BOSS积分
             case 2:
@@ -457,32 +449,8 @@ class ServerListener extends SingletonClass {
         let i64LeftExp = msg.getValue('i64LeftExp');
         let i64MaxExp = msg.getValue('i64MaxExp');
 
-        let player = GameApp.MainPlayer;
-        if (dwTempId == player.tempId) {
-            player.changeLevel(level);
-            player.changeExp(i64LeftExp, i64MaxExp);
-            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_LEVEL);
-            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
-            //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.name + 'lv.' +GameApp.GameEngine.mainPlayer.level
-            // + "[color=#00EE00](" + GameApp.GameEngine.mainPlayer.x + ',' + GameApp.GameEngine.mainPlayer.y + ")[/color]";
-            //App.MainPanel.topLevelcnt.text =GameApp.GameEngine.mainPlayer.level + '';
-        }
-        // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
-        //     if (//App.MainPanel.objItemDB[i].onlyid == onlyid) {
-        //         let item = //App.MainPanel.listView.getChildAt(i) as ObjItem;
-        //         item.level = level;
-        //         let db = //App.MainPanel.objItemDB[i] as ObjItemDB;
-        //         if (db.cretType == CRET_TYPE.CRET_NPC) {
-        //             item.objName.text = "[color=#FF7F50]" + db.name + "[/color]";
-        //         } else if (db.cretType == CRET_TYPE.CRET_PLAYER) {
-        //             item.objName.text = "[color=#EE82EE]" + db.name + 'lv.' + db.level + "[/color]";
-        //         } else {
-        //             item.objName.text = db.name + 'lv.' + db.level;
-        //         }
-        //         //App.MainPanel.objItemDB[i].level = level;
-        //         break;
-        //     }
-        // }
+        // player.changeLevel(level);
+        // player.changeExp(i64LeftExp, i64MaxExp);
         msg.clear();
         msg = null;
     }
@@ -638,9 +606,15 @@ class ServerListener extends SingletonClass {
         if (_bag != null) {
             for (let i = 0; i < itemsInfo.length; i++) {
                 let idx = itemsInfo[i].i64ItemID.toString();
-                _bag[idx] = null;
-                _bag[idx] = itemsInfo[i];
+                let newItem = new ItemBase(null);
+                newItem.clone(itemsInfo[i].data);
+                _bag[idx] = newItem;
                 Log.trace('获得物品' + idx);
+                // 身上装备索引
+                if (bagType == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+                    let btIndex = newItem.location.getValue('btIndex');
+                    GameApp.GameEngine.equipDBIndex[btIndex] = idx;
+                }
             }
         }
         msg.clear();
@@ -704,12 +678,17 @@ class ServerListener extends SingletonClass {
             default:
                 throw new Error('背包类型不对');
         }
-        _bag[idx] = null;
-        _bag[idx] = msg.item;
-        Log.trace('获得了道具' + idx);
-        if (PopUpManager.curPanel == PanelManage.BeiBao) {
-            PanelManage.BeiBao.addItem(bagType, msg.item);
+        if (_bag[idx]) {
+            _bag[idx].recoverUI();
+            _bag[idx].clone(msg.item.data);
         }
+        else {
+            let item = new ItemBase(null);
+            item.clone(msg.item.data);
+            _bag[idx] = item;
+        }
+        Log.trace('===>获得了道具' + idx);
+        PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, _bag[idx]);
         msg.clear();
         msg = null;
     }

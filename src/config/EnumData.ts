@@ -78,7 +78,7 @@ module EnumData {
      */
     export enum emEquipPosition {
         //战装
-        EQUIP_HEADDRESS = 0,			//帽子
+        EQUIP_HEADDRESS = 0,		//帽子
         EQUIP_NECKLACE,				//项链
         EQUIP_CLOTHES,				//衣服
         EQUIP_WEAPONS,				//武器
@@ -90,7 +90,7 @@ module EnumData {
         EQUIP_BELT = 9,				//腰带
 
         //神装
-        EQUIP_LEGEND_HEADDRESS = 10,			//传说帽子
+        EQUIP_LEGEND_HEADDRESS = 10,		//传说帽子
         EQUIP_LEGEND_NECKLACE,				//传说项链
         EQUIP_LEGEND_CLOTHES,				//传说衣服
         EQUIP_LEGEND_WEAPONS,				//传说武器
@@ -136,7 +136,7 @@ module EnumData {
         EQUIP_HERO_MAGE_BELT = 47,				//英雄法师腰带
 
         //英雄道士
-        EQUIP_HERO_MONK_HEADDRESS = 48,				//英雄道士帽子
+        EQUIP_HERO_MONK_HEADDRESS = 48,			//英雄道士帽子
         EQUIP_HERO_MONK_NECKLACE,				//英雄道士项链
         EQUIP_HERO_MONK_CLOTHES,				//英雄道士衣服
         EQUIP_HERO_MONK_WEAPONS,				//英雄道士武器

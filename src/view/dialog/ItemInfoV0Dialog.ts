@@ -20,7 +20,7 @@ module view.dialog {
 			// 使用职业
 			this.lbl_jobNeed.text = '职业要求:' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
 			// 道具ICON信息赋值
-			this.ui_item.setData(obj);
+			this.ui_item.initUI(obj);
 			return this;
 		}
 		public addEvent(): void {

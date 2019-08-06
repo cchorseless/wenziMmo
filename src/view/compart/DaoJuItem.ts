@@ -7,27 +7,17 @@ module view.compart {
 			super();
 		}
 		/**
-		 * 
+		 *  每个itemBase 绑定一个this,此方法通过绑定的形式初始化UI
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ItemBase, model: EnumData.ItemInfoModel = 0): void {
+		public setData(item: ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			// 双向绑定
 			this.item = item;
 			item.recoverUI();
 			item.ui_item = this;
-			this.model = model;
-			// 是否绑定
-			this.img_lock.visible = Boolean(this.item.dwBinding);
-			// 物品ICON
-			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + this.item.dwBaseID) + '.png';
-			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + this.item.btQuality + '.png';
-			// 物品数量
-			this.lbl_count.text = '' + ((this.item.dwCount === 0 || this.item.dwCount === 1) ? '' : this.item.dwCount);
-
+			this.initUI(this.item, model);
 			this.addEvent();
-
 		}
 
 		public addEvent(): void {
@@ -78,8 +68,24 @@ module view.compart {
 						itemInfoDialog.setData(this.item, 5).show(true);
 						break;
 				}
-
 			});
+		}
+
+		/**
+		 * 通过不更新绑定UI的情况下初始化UI
+		 * @param item 
+		 * @param model 
+		 */
+		public initUI(item: ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+			this.model = model;
+			// 是否绑定
+			this.img_lock.visible = Boolean(item.dwBinding);
+			// 物品ICON
+			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.dwBaseID) + '.png';
+			// 底图
+			this.img_bg.skin = 'image/common/daoju/quality_' + item.btQuality + '.png';
+			// 物品数量
+			this.lbl_count.text = '' + ((item.dwCount === 0 || item.dwCount === 1) ? '' : item.dwCount);
 		}
 	}
 }
