@@ -75,7 +75,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
-
         // 服务器扩展脚本 0x0919
         GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
         // 客户端本地设置 2aa
@@ -641,6 +640,11 @@ class ServerListener extends SingletonClass {
                 _bag[idx] = null;
                 _bag[idx] = itemsInfo[i];
                 Log.trace('获得物品' + idx);
+                // 身上装备索引
+                if (bagType == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP) {
+                    let btIndex = itemsInfo[i].location.getValue('btIndex');
+                    GameApp.GameEngine.equipDBIndex[btIndex] = idx;
+                }
             }
         }
         msg.clear();
@@ -704,12 +708,10 @@ class ServerListener extends SingletonClass {
             default:
                 throw new Error('背包类型不对');
         }
-        _bag[idx] = null;
+        _bag[idx] && _bag[idx].clear();
         _bag[idx] = msg.item;
         Log.trace('获得了道具' + idx);
-        if (PopUpManager.curPanel == PanelManage.BeiBao) {
-            PanelManage.BeiBao.addItem(bagType, msg.item);
-        }
+        PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, msg.item);
         msg.clear();
         msg = null;
     }

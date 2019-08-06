@@ -50,7 +50,7 @@ module view.dialog {
 			// 道具性别
 			this.lbl_sex.text = ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
 			// 道具ICON信息赋值
-			this.ui_item.setData(obj);
+			this.ui_item.initUI(obj);
 			return this;
 		}
 		public addEvent(): void {
@@ -63,7 +63,7 @@ module view.dialog {
 				new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
 			});
 			// 角色穿戴
-			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['player']);
+			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip);
 			// 英雄穿戴
 			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
 			// 装备卸下
@@ -105,14 +105,36 @@ module view.dialog {
 				let msg = new ProtoCmd.CretProcessingItem(data);
 				let errorcode = msg.getValue('nErrorCode');
 				let i64ItemId = msg.getValue('i64ItemId').toString();
+				let src_btIndex = msg.srcLocation.getValue('btIndex');
+				let src_btLocation = msg.srcLocation.getValue('btLocation');
+				let des_btIndex = msg.srcLocation.getValue('btIndex');
+				let des_btLocation = msg.srcLocation.getValue('btLocation');
+
 				if (errorcode == 0) {
 					// 全局数据更新
 					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
-						_itemBase.location.clone(msg.destLocation.data);
-						// 清除绑定的UI
 						_itemBase.recoverUI();
+						_itemBase.location.setValue('btIndex', des_btIndex);
+						_itemBase.location.setValue('btLocation', des_btLocation);
+						// 是否替换判断
+						let old_i64ItemId = GameApp.GameEngine.equipDBIndex[des_btIndex];
+						if (old_i64ItemId) {
+							let old_itemBase = GameApp.GameEngine.equipDB[old_i64ItemId];
+							if (old_itemBase) {
+								old_itemBase.recoverUI();
+								old_itemBase.location.setValue('btIndex', src_btIndex);
+								old_itemBase.location.setValue('btLocation', src_btLocation);
+								GameApp.GameEngine.bagItemDB[old_i64ItemId] = old_itemBase;
+								delete GameApp.GameEngine.equipDB[old_i64ItemId];
+								delete GameApp.GameEngine.equipDBIndex[des_btIndex];
+								// 向背包中添加物品
+								PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, old_itemBase);
+							}
+						}
+						// 清除绑定的UI
 						GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
+						GameApp.GameEngine.equipDBIndex[des_btIndex] = i64ItemId;
 						delete GameApp.GameEngine.bagItemDB[i64ItemId];
 						TipsManage.showTips('装备穿戴成功');
 					} else {
@@ -125,7 +147,6 @@ module view.dialog {
 				msg.clear();
 				msg = null;
 			});
-
 		}
 
 		/**
@@ -139,6 +160,7 @@ module view.dialog {
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
 			packet.srcLocation = this.itemObj.location;
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
+			packet.destLocation.setValue('btIndex', 0);
 			lcp.send(packet, this, (data) => {
 				let msg = new ProtoCmd.CretProcessingItem(data);
 				let errorcode = msg.getValue('nErrorCode');
@@ -147,7 +169,10 @@ module view.dialog {
 					// 全局数据更新
 					let _itemBase: ItemBase = GameApp.GameEngine.equipDB[i64ItemId];
 					if (_itemBase) {
-						_itemBase.clear();
+						_itemBase.location.clone(msg.destLocation.data);
+						// 清除绑定的UI
+						_itemBase.recoverUI();
+						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.equipDB[i64ItemId];
 						TipsManage.showTips('装备卸下成功');
 					} else {
