@@ -492,7 +492,7 @@ module ProtoCmd {
 
     /**************************************************物品相关 */
     //0x026C  --02-108
-    //使用物品
+    //单个使用物品
     export class CretGetUseItem extends Packet {
         public static msgID: number = 0x026C;
         public cbPacket = CretGetUseItemRet;
@@ -501,7 +501,7 @@ module ProtoCmd {
             this.addProperty('i64id', PacketBase.TYPE_INT64);//物品唯一ID
             this.addProperty('dwCretOwnerTempId', PacketBase.TYPE_DWORD);//使用者
             this.addProperty('dwCretTmpId', PacketBase.TYPE_DWORD);//对谁使用
-            this.cmd = CretGetUseItem.msgID = 0x026C;
+            this.cmd = CretGetUseItem.msgID;
         }
     }
 
@@ -746,51 +746,6 @@ module ProtoCmd {
             this.cmd = CretForsakeItem.msgID;
         }
     }
-
-    // **************************************服务器扩展
-    //0x0919 09-25
-    export class QuestScriptData extends Packet {
-        public static msgID: number = 0x0919;
-        public str: string;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('dwDataType', PacketBase.TYPE_DWORD);//类型类型
-            this.addProperty('nCount', PacketBase.TYPE_INT);
-            this.read(data);
-        }
-
-        public read(data: Laya.Byte): number {
-            data.pos += super.read(data);
-            let nCount = this.getValue('nCount');
-            this.str = data.readUTFBytes(nCount);
-            return data.length;
-        }
-    }
-
-    //0x091A 09-26
-    //前端调用后端脚本函数
-    export class QuestClientData extends Packet {
-        public static msgID: number = 0x091A;
-        public constructor() {
-            super();
-            this.addProperty('dwClientType', PacketBase.TYPE_DWORD);//无用
-            this.addProperty("posx", PacketBase.TYPE_INT);//点击坐标
-            this.addProperty("posy", PacketBase.TYPE_INT);
-            this.addProperty('nSize', PacketBase.TYPE_INT);
-            this.cmd = QuestClientData.msgID;
-        }
-
-        public setString(s: string): QuestClientData {
-            GameApp.GameEngine.packetBytes.clear();
-            GameApp.GameEngine.packetBytes.pos = 0;
-            GameApp.GameEngine.packetBytes.writeUTFBytes(s);
-            this.addProperty('str', Packet.TYPE_STRING, GameApp.GameEngine.packetBytes.length + 1);
-            this.setValue('nSize', GameApp.GameEngine.packetBytes.length + 1);
-            this.setValue('str', s);
-            return this
-        }
-    }
-
 
     /*******************************************设置**************************************** */
 

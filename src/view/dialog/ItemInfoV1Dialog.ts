@@ -3,7 +3,6 @@ module view.dialog {
 	export class ItemInfoV1Dialog extends ui.dialog.ItemInfoV1DialogUI {
 		constructor() {
 			super();
-			this.addEvent();
 		}
 		public model = 0;
 		public itemObj: ItemBase;
@@ -50,6 +49,8 @@ module view.dialog {
 			this.lbl_sex.text = ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
 			// 道具ICON信息赋值
 			this.ui_item.initUI(obj);
+			// 添加监听
+			this.addEvent();
 			return this;
 		}
 		public addEvent(): void {
@@ -57,16 +58,43 @@ module view.dialog {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			});
-			// 丢弃\销毁物品
-			this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
-			});
-			// 角色穿戴
-			this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip);
-			// 英雄穿戴
-			this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
-			// 装备卸下
-			this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip)
+
+			switch (this.model) {
+				// 背包-回收
+				case 0:
+					// 丢弃\销毁物品
+					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
+						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
+					});
+					// 角色穿戴
+					this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip);
+					// 英雄穿戴
+					this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
+					break;
+				// 背包-仓库
+				case 1:
+					// 放入仓库
+					this.btn_putToCangKu.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
+					break;
+				// 背包-摆摊
+				case 2:
+					// 上架物品
+					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
+					break;
+				// 仓库内
+				case 3:
+					// 取出道具
+					this.btn_putBackCangKu.on(Laya.UIEvent.CLICK, this, this.putBackCangKu);
+					break;
+				// 角色身上
+				case 4:
+					// 装备卸下
+					this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip);
+					break;
+				// 商店内,无操作按钮，所以需要缩短界面高度
+				case 5:
+					break;
+			}
 		}
 
 		/**
@@ -219,5 +247,88 @@ module view.dialog {
 				msg = null;
 			});
 		}
+		/**
+		 * 放入仓库
+		 */
+		public putToCangKu(): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE);
+			packet.destLocation.setValue('btIndex', 0);
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 全局数据更新
+					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+					if (_itemBase) {
+						// 重置位置属性
+						_itemBase.location.clone(msg.destLocation.data);
+						// 清除绑定的UI
+						_itemBase.recoverUI();
+						GameApp.GameEngine.cangKuDB[i64ItemId] = _itemBase;
+						delete GameApp.GameEngine.bagItemDB[i64ItemId];
+						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE, _itemBase);
+						TipsManage.showTips('放入仓库成功');
+					} else {
+						TipsManage.showTips('放入仓库失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('放入仓库失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
+
+		}
+
+		/**
+		 * 从仓库取出道具
+		 */
+		public putBackCangKu(): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
+			packet.destLocation.setValue('btIndex', 0);
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 全局数据更新
+					let _itemBase: ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
+					if (_itemBase) {
+						// 重置位置属性
+						_itemBase.location.clone(msg.destLocation.data);
+						// 清除绑定的UI
+						_itemBase.recoverUI();
+						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
+						delete GameApp.GameEngine.cangKuDB[i64ItemId];
+						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
+						TipsManage.showTips('放入仓库成功');
+					} else {
+						TipsManage.showTips('放入仓库失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('放入仓库失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
+
+
+
+		}
+
+		public 
 	}
 }

@@ -20,15 +20,24 @@ module view.compart {
 			this.hbox_monster03.space = 1;
 			this.hbox_player01.space = 1;
 			this.hbox_player02.space = 1;
-
+			this.img_battleMode.visible = false;
+			this.img_battleMode.scaleY = this.img_battleMode.scaleX = 0;
 			this.initSelfPlayer();
 			this.addPlayer(null);
 			this.addEvent();
-			// this.killStatus();
 		}
 
 		public addEvent(): void {
-
+			this.box_mainMode.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
+				this.showBattleModel(this.btn_modeIcon.selected);
+			});
+			for (let i = 0; i < 5; i++) {
+				this['box_mode' + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.showBattleModel(false);
+					this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
+				});
+			}
 		}
 
 		/**
@@ -151,15 +160,14 @@ module view.compart {
 		/**
 		 * 攻击状态缓动
 		 */
-		public killStatus():void{
-		// 	this.cek_mainKill.clickHandler = Laya.Handler.create(this, () => {
-		// 		if (this.cek_mainKill.selected) {
-		// 			Laya.Tween.to(this.box_killOpen, { scaleY: 0 }, 500, Laya.Ease.bounceOut);
-		// 		}
-		// 		else {
-		// 			Laya.Tween.to(this.box_killOpen, { scaleY: 1 }, 500, Laya.Ease.bounceOut);
-		// 		}
-		// 	}, null, false);
+		public showBattleModel(isShow): void {
+			if (isShow) {
+				this.img_battleMode.visible = true;
+				Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
+			}
+			else {
+				Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
+			}
 		}
 
 
