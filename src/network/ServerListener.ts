@@ -56,8 +56,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
         // 服务器提示tips 288
         GameApp.LListener.on(Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
-        // 使用物品返回 315
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGetUseItemRet), this, this.cretGetUseItemRet);
         // 怪物掉血 0x0297
         GameApp.LListener.on(Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
         // 删除地图上的物品 29D
@@ -717,22 +715,18 @@ class ServerListener extends SingletonClass {
                 _bag = GameApp.GameEngine.cangKuDB;
                 break;
         }
-        _bag[i64id].dwCount = dwCount;
+        if (_bag && _bag[i64id]) {
+            let _itemBase: ItemBase = _bag[i64id];
+            _itemBase.setValue('dwCount', dwCount);
+            _itemBase.dwCount = dwCount;
+            // 更新UI
+            _itemBase.ui_item && _itemBase.ui_item.updateDwCount();
+        }
         Log.trace('物品数量改变', _bag[i64id].dwBaseID, dwCount);
         msg.clear();
         msg = null;
     }
 
-
-    /**
-     * 使用物品
-     * @param data 
-     */
-    public cretGetUseItemRet(data: any): void {
-        let msg = new ProtoCmd.CretGetUseItemRet(data);
-        msg.clear();
-        msg = null;
-    }
 
 
     //0x0297

@@ -9,13 +9,13 @@ module view.compart {
 		public setData(): void {
 			let player = GameApp.MainPlayer;
 			let ability = player.ability;
-			// 生命值
+			// 血-生命值
 			this.lbl_Hp.text = '' + ability.nowHP + '/' + ability.nMaxHP;
-			// 魔法值
+			// 气-魔法值
 			this.lbl_Mp.text = '' + ability.nowMP + '/' + ability.nMaxMP;
-			// 内功值
+			// 耐-内功值
 			this.lbl_neiGong.text = '' + ability.nowInnerValue + '/' + ability.nInnerValue;
-			// 攻击
+			// 攻-攻击
 			switch (player.job) {
 				case EnumData.JOB_TYPE.JOB_WARRIOR:
 					this.lbl_atk.text = '' + ability.nMinDC + '-' + ability.nMaxDC;
@@ -27,23 +27,23 @@ module view.compart {
 					this.lbl_atk.text = '' + ability.nMinSC + '-' + ability.nMaxSC;
 					break;
 			}
-			// 物理防御
+			// 抗-物理防御
 			this.lbl_phyDef.text = '' + ability.nMinAC + '-' + ability.nMaxAC;
-			// 魔法防御
+			// 化-魔法防御
 			this.lbl_migDef.text = '' + ability.nMinMAC + '-' + ability.nMaxMAC;
-			// 准确
+			// 准-准确
 			this.lbl_zhunQue.text = '' + ability.nHit;
-			// 闪避
+			// 躲-闪避
 			this.lbl_shanbi.text = '' + ability.nJuck;
-			// 暴击
+			// 巧-暴击
 			this.lbl_baoJi.text = '' + ability.nCrit;
-			// 爆伤
+			// 暴-爆伤
 			this.lbl_baoShang.text = '' + ability.nAtkCrit;
-			// 幸运
+			// 幸-幸运
 			this.lbl_xingYun.text = '' + ability.nLucky;
-			// 韧性
+			// 韧-韧性
 			this.lbl_renxing.text = '' + ability.nCritResi;
-			// PK值
+			// 侠义值-PK值
 			this.lbl_pk.text = '' + player.feature.getValue('wNowKilling');
 
 			this.addEvent();

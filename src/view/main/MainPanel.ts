@@ -54,7 +54,6 @@ module view.main {
 			else {
 				this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
 			}
-			console.log('========>', this.lbl_level.text);
 			// 金币
 			this.lbl_gold.text = '' + _player.wealth.gold;
 			// 绑定金币

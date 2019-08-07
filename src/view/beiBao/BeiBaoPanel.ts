@@ -35,13 +35,14 @@ module view.beiBao {
 				this.btn_bagLogo.skin = 'image/bag/icon_itemfunc' + index + '.png';
 				this.btn_bagLogo.selected = true;
 				switch (index) {
-					// 仓库界面
-					case 0:
 					// 回收界面
+					case 0:
+					// 仓库界面
 					case 1:
 					// 摆摊界面
 					case 2:
 						this.lbl_bagLogolbl.text = ['背包|回收', '背包|仓库', '背包|摆摊'][index];
+						[this.ui_huiShou, this.ui_cangKu, this.ui_tanWei][index].setData()
 						this.viw_BagViewChange.selectedIndex = 0;
 						this.viw_bagBottom.selectedIndex = index;
 						break;
@@ -53,16 +54,19 @@ module view.beiBao {
 				}
 			}, null, false);
 			// 初始化背包
-			this.initBag();
+			this.initUI();
 			// 添加事件
 			this.addEvent();
 		}
 
-		public initBag(): void {
-			let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
-			for (let key of allKey) {
+		public initUI(): void {
+			// 初始化背包内界面
+			let allKey_bag = Object.keys(GameApp.GameEngine.bagItemDB);
+			for (let key of allKey_bag) {
 				this.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, GameApp.GameEngine.bagItemDB[key]);
 			}
+			// 初始化回收界面
+			this.ui_huiShou.setData();
 		}
 
 		public addEvent(): void {
@@ -91,9 +95,9 @@ module view.beiBao {
 		 * @param obj 
 		 */
 		public addItem(type: EnumData.PACKAGE_TYPE, obj: ItemBase): void {
+			if (this.destroyed) return;
 			// 配置表ID
 			let dwBaseID = '' + obj.dwBaseID;
-			console.log('===========>addItem',dwBaseID)
 			// 物品数量
 			let dwCount = obj.dwCount;
 			// 物品类型
@@ -103,20 +107,19 @@ module view.beiBao {
 			switch (type) {
 				// 背包
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
-					console.log('=======>', local_index);
 					// 判断位置是否是背包
 					if (local_index != EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
 						return;
 					}
 					let vbox_bag;
 					switch (itemType) {
-						// 材料
-						case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
-							vbox_bag = this.vbox_bag1;
-							break;
 						// 装备
 						case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
 							vbox_bag = this.vbox_bag0;
+							break;
+						// 材料
+						case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
+							vbox_bag = this.vbox_bag1;
 							break;
 						// 消耗品
 						case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
@@ -130,14 +133,17 @@ module view.beiBao {
 							vbox_bag = this.vbox_bag3;
 							break;
 					}
-					for (let child of vbox_bag._childs) {
-						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
-							let item = new view.compart.DaoJuItem();
-							item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
-							child.addItem(item);
-							break;
+					if (vbox_bag) {
+						for (let child of vbox_bag._childs) {
+							if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
+								let item = new view.compart.DaoJuItem();
+								item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
+								child.addItem(item);
+								break;
+							}
 						}
 					}
+
 					break;
 				// 仓库
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:

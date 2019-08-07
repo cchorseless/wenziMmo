@@ -501,7 +501,7 @@ module ProtoCmd {
             this.addProperty('i64id', PacketBase.TYPE_INT64);//物品唯一ID
             this.addProperty('dwCretOwnerTempId', PacketBase.TYPE_DWORD);//使用者
             this.addProperty('dwCretTmpId', PacketBase.TYPE_DWORD);//对谁使用
-            this.cmd = CretGetUseItem.msgID = 0x026C;
+            this.cmd = CretGetUseItem.msgID;
         }
     }
 

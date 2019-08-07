@@ -2,9 +2,9 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":23,
+    "selecteID":33,
     "referenceLines":null,
-    "props":{"width":500,"sceneColor":"#89504f","height":400},
+    "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -81,6 +81,19 @@
         },
         {
             "x":15,
+            "type":"Label",
+            "props":{"y":110,"x":203,"width":162,"var":"lbl_jobNeed","text":"使用等级：888级","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+            "nodeParent":1,
+            "label":"Label(lbl_jobNeed)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Image",
             "props":{"y":184,"x":41,"width":438,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":136},
             "nodeParent":1,
@@ -106,31 +119,17 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":110,"x":203,"width":162,"var":"lbl_jobNeed","text":"使用等级：888级","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label(lbl_jobNeed)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":17,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"ViewStack",
-            "props":{"y":327,"x":24,"width":451,"var":"viw_model","selectedIndex":0,"height":52},
+            "props":{"x":24,"width":451,"var":"viw_model","selectedIndex":0,"height":52,"bottom":30},
             "nodeParent":1,
             "label":"ViewStack(viw_model)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":18,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"name":"item0"},
                     "nodeParent":18,
@@ -142,7 +141,6 @@
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":14,"width":101,"var":"btn_use","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"使用","height":50},
                             "nodeParent":19,
@@ -155,7 +153,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":338,"width":105,"var":"btn_destroy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"销毁","height":50},
                             "nodeParent":19,
@@ -170,11 +167,10 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
                     "nodeParent":18,
-                    "label":"Button(item1)",
+                    "label":"Button(btn_putToCangKu)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -184,11 +180,10 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item2","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item2","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
                     "nodeParent":18,
-                    "label":"Button(item2)",
+                    "label":"Button(btn_goSell)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -198,21 +193,19 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item3","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":50},
+                    "props":{"y":2,"x":153,"width":133,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item3","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":50},
                     "nodeParent":18,
-                    "label":"Button(item3)",
+                    "label":"Button(btn_putBackCangKu)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":25,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item4","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":50},
                     "nodeParent":18,
@@ -223,10 +216,9 @@
                     "compId":26,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "props":{"y":0,"x":0,"name":"item5"},
                     "nodeParent":18,
@@ -238,6 +230,66 @@
                     "child":[
                         ],
                     "$HIDDEN":true
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":338,"x":52},
+            "nodeParent":1,
+            "label":"Box",
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":33,
+            "child":[
+                {
+                    "type":"Button",
+                    "props":{"y":3,"x":359,"stateNum":"1","skin":"image/bag/btn_common_06.png"},
+                    "nodeParent":33,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Button",
+                    "props":{"stateNum":"1","skin":"image/bag/btn_common_07.png"},
+                    "nodeParent":33,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"HScrollBar",
+                    "props":{"y":4,"x":50,"width":200,"skin":"image/bag/bag_hscroll.png","scaleY":2,"scaleX":1.5},
+                    "nodeParent":33,
+                    "label":"HScrollBar",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":7,"x":121,"width":162,"text":"使用等级：888级","height":28,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":33,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":32,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[

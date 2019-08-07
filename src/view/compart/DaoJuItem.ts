@@ -87,5 +87,12 @@ module view.compart {
 			// 物品数量
 			this.lbl_count.text = '' + ((item.dwCount === 0 || item.dwCount === 1) ? '' : item.dwCount);
 		}
+		/**
+		 * 更新道具数量
+		 */
+		public updateDwCount(): void {
+			// 物品数量
+			this.lbl_count.text = '' + ((this.item.dwCount === 0 || this.item.dwCount === 1) ? '' : this.item.dwCount);
+		}
 	}
 }
