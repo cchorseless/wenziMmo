@@ -3,7 +3,7 @@ module view.compart {
 	export class Person_EquipInfoItem extends ui.compart.Person_EquipInfoItemUI {
 		constructor() {
 			super();
-			this.setData();
+			this.setData();	
 		}
 
 		public setData(): void {
@@ -11,7 +11,7 @@ module view.compart {
 			this.addEvent();
 		}
 		public addEvent(): void {
-
+        
 		}
 
 		public initUI(): void {

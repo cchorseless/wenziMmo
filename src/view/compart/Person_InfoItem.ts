@@ -4,15 +4,21 @@ module view.compart {
 		constructor() {
 			super();
 			this.setData();
+			this.addEvent();
 		}
 		public setData(): void {
 
-			this.addEvent();
+			
 		}
 		public addEvent(): void {
 			this.img_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openClothePanel();
-
+			})
+			 this.box_birthEnter.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.PersonBirthDialog().popup(true);
+			})
+			 this.box_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.PersonNameDialog().popup(true);
 			})
 		}
 	}

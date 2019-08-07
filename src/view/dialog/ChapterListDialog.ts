@@ -6,7 +6,8 @@ module view.dialog{
 			this.setData();
 		}
 			public setData(): void {
-				
+				this.panel_chapterList.vScrollBarSkin="";
+				this.vbox_chapterList['sortItem']=(items)=>{};
 			this.btn_chapterListClose.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 		})

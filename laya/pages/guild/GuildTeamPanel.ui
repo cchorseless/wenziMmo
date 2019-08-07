@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":88,
-    "selecteID":85,
+    "selectedBox":95,
+    "selecteID":181,
     "referenceLines":[
         {
             "value":301,
@@ -329,25 +329,14 @@
                     "props":{"y":0,"x":0,"var":"box_teamAct","right":0,"name":"item0","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamAct)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":95,
                     "child":[
                         {
-                            "type":"Tab",
-                            "props":{"y":4,"x":22,"stateNum":2,"space":35,"skin":"image/guild//btn_common_12_finish(2).png","labels":"每日\\n必做,组队\\n副本,组队\\n副本,组队\\n副本,组队\\n副本","labelStroke":5,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff"},
-                            "nodeParent":95,
-                            "label":"Tab",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":97,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":80,"x":0,"width":640,"skin":"image/main/fram_common_05.png","scaleY":0.4},
                             "nodeParent":95,
@@ -361,6 +350,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":88,"x":14,"width":612,"var":"panel_get","height":602},
                             "nodeParent":95,
@@ -510,8 +500,34 @@
                                         }],
                                     "$HIDDEN":true
                                 }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Tab",
+                            "props":{"y":14,"x":32,"width":591,"stateNum":2,"space":34,"skin":"image/guild/btn_common_12_finish(2).png","labels":"每日\\n必做,组队\\n副本,组队\\n副本,组队\\n副本,组队\\n副本","labelStroke":5,"labelSize":22,"labelPadding":"-5","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","height":89},
+                            "nodeParent":95,
+                            "label":"Tab",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":181,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Tab",
+                            "props":{"labels":"label1,label2"},
+                            "nodeParent":95,
+                            "label":"Tab",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":182,
+                            "child":[
+                                ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -519,14 +535,13 @@
                     "props":{"y":0,"var":"box_teamDetail","right":0,"name":"item1","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamDetail)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":92,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":14},
                             "nodeParent":92,
@@ -844,7 +859,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":166,"x":13,"width":614,"height":117},
                             "nodeParent":92,
@@ -893,10 +907,9 @@
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":341,"x":-5,"width":650,"height":61},
                             "nodeParent":92,
@@ -946,7 +959,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":278,"x":11},
                             "nodeParent":92,
@@ -1144,7 +1156,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":386,"x":39},
                             "nodeParent":92,
@@ -1156,7 +1167,6 @@
                             "compId":88,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":296,"skin":"image/guild/icon_team_cangku.png"},
                                     "nodeParent":88,
@@ -1169,7 +1179,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/guild/icon_team_shangdian.png"},
                                     "nodeParent":88,
@@ -1182,7 +1191,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":155,"var":"img_guildFuliEnter","skin":"image/guild/icon_team_fuli.png"},
                                     "nodeParent":88,
@@ -1195,7 +1203,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":155,"x":296,"var":"img_guildHelpEnter","skin":"image/guild/icon_team_xiezhu.png"},
                                     "nodeParent":88,
@@ -1210,7 +1217,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":278,"x":35},
                             "nodeParent":92,
@@ -1222,7 +1228,6 @@
                             "compId":161,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":2,"x":485,"stateNum":"2","skin":"image/guild/icon_jiangli_finish.png","labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff"},
                                     "nodeParent":161,
@@ -1247,7 +1252,7 @@
                                         }]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

@@ -381,8 +381,6 @@ module view.main {
 
 		}
 		public mainHeadFoot():void{
-				this.ui_timeDialog.visible = false;
-				this.ui_seasonDialog.visible = false;
 			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
 					new view.dialog.TimeDialog().popup(true);
 			})
@@ -394,7 +392,7 @@ module view.main {
 				if (this.btn_mapBig.selected) {
 					this.ui_mainDownMapItem.visible=true
 				}
-				else {
+				else {    
 					PopUpManager.Dispose(this.ui_mainDownMapItem);
 				}
 

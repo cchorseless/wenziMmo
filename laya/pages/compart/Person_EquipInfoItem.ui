@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":41,
-    "selecteID":40,
+    "selectedBox":106,
+    "selecteID":101,
     "props":{"width":490,"sceneColor":"#f4dedd","height":780},
     "nodeParent":-1,
     "label":"View",
@@ -373,13 +373,14 @@
             "props":{"centerX":0,"bottom":10},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":106,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":7,"x":175},
                     "nodeParent":106,
@@ -440,6 +441,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":7,"x":348},
                     "nodeParent":106,
@@ -500,6 +502,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":7,"x":2},
                     "nodeParent":106,
@@ -515,7 +518,7 @@
                             "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_03.png","height":110},
                             "nodeParent":101,
                             "label":"Button",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -531,8 +534,10 @@
                                     "hasChild":false,
                                     "compId":103,
                                     "child":[
-                                        ]
-                                }]
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":false
                         },
                         {
                             "type":"Image",
@@ -557,7 +562,8 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 }]
         },
         {

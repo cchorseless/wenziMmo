@@ -17,7 +17,6 @@ module view.fuBen {
 		}
 
 		public addEvent(): void {
-				this.ui_chapterListDialog.visible = false;
 			this.btn_goJuQing.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingTalkPanel();
 			})

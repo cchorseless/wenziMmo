@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":125,
+    "selectedBox":2,
+    "selecteID":131,
     "referenceLines":[
         {
             "value":-85,
@@ -1056,16 +1056,17 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0},
+                    "props":{"y":0,"x":0,"var":"box_MainHead"},
                     "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":false,
+                    "label":"Box(box_MainHead)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":131,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":4,"x":17,"var":"img_avatarIcon","skin":"image/common/icon_nv01.png"},
                             "nodeParent":131,
@@ -1078,6 +1079,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"x":3,"width":130,"skin":"image/main/fram_common_01.png","height":130},
                             "nodeParent":131,
@@ -1090,6 +1092,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":115,"skin":"image/common/fram_common_04.png"},
                             "nodeParent":131,
@@ -1114,6 +1117,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-12,"x":-22,"skin":"image/common/fram_common_vipdi.png","scaleY":0.8,"scaleX":0.8,"alpha":0.8},
                             "nodeParent":131,
@@ -1127,6 +1131,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-3,"x":-1,"width":25,"skin":"image/common/zi_vip_01.png","height":30},
                             "nodeParent":131,
@@ -1139,6 +1144,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "props":{"y":9,"x":10,"var":"font_vipLevel","value":"1","spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789"},
                             "nodeParent":131,
@@ -1868,7 +1874,7 @@
             "compId":199,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -1943,36 +1949,6 @@
             "child":[
                 ],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"dialog/TimeDialog.ui",
-            "props":{"y":328,"x":108,"var":"ui_timeDialog","runtime":"view.dialog.TimeDialog"},
-            "nodeParent":1,
-            "label":"UIView(ui_timeDialog)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":301,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"dialog/SeasonDialog.ui",
-            "props":{"y":334,"x":110,"var":"ui_seasonDialog","runtime":"view.dialog.SeasonDialog"},
-            "nodeParent":1,
-            "label":"UIView(ui_seasonDialog)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":302,
-            "child":[
-                ],
-            "$HIDDEN":true
         }],
     "animations":[
         {
