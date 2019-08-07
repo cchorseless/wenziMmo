@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":143,
-    "selecteID":135,
+    "selectedBox":88,
+    "selecteID":85,
     "referenceLines":[
         {
             "value":301,
@@ -395,7 +395,7 @@
                                             "child":[
                                                 {
                                                     "type":"Image",
-                                                    "props":{"width":596,"skin":"image/guild/team/fram_common_26.png","sizeGrid":"0,20,0,19","height":165},
+                                                    "props":{"width":596,"skin":"image/common/fram_common_26.png","sizeGrid":"0,20,0,19","height":165},
                                                     "nodeParent":171,
                                                     "label":"Image",
                                                     "isOpen":true,
@@ -448,7 +448,7 @@
                                                 },
                                                 {
                                                     "type":"Image",
-                                                    "props":{"y":30,"x":64,"skin":"image/guild/team/icon_longchengzhenba.png"},
+                                                    "props":{"y":30,"x":64,"skin":"image/guild/icon_longchengzhenba.png"},
                                                     "nodeParent":171,
                                                     "label":"Image",
                                                     "isDirectory":false,
@@ -519,13 +519,14 @@
                     "props":{"y":0,"var":"box_teamDetail","right":0,"name":"item1","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamDetail)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":92,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":14},
                             "nodeParent":92,
@@ -843,6 +844,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":166,"x":13,"width":614,"height":117},
                             "nodeParent":92,
@@ -894,6 +896,7 @@
                             "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":341,"x":-5,"width":650,"height":61},
                             "nodeParent":92,
@@ -943,6 +946,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":278,"x":11},
                             "nodeParent":92,
@@ -1140,17 +1144,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":386,"x":39},
                             "nodeParent":92,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":88,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":296,"skin":"image/guild/icon_team_cangku.png"},
                                     "nodeParent":88,
@@ -1163,6 +1169,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/guild/icon_team_shangdian.png"},
                                     "nodeParent":88,
@@ -1175,10 +1182,11 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":155,"skin":"image/guild/icon_team_fuli.png"},
+                                    "props":{"y":155,"var":"img_guildFuliEnter","skin":"image/guild/icon_team_fuli.png"},
                                     "nodeParent":88,
-                                    "label":"Image",
+                                    "label":"Image(img_guildFuliEnter)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1187,10 +1195,11 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":155,"x":296,"skin":"image/guild/icon_team_xiezhu.png"},
+                                    "props":{"y":155,"x":296,"var":"img_guildHelpEnter","skin":"image/guild/icon_team_xiezhu.png"},
                                     "nodeParent":88,
-                                    "label":"Image",
+                                    "label":"Image(img_guildHelpEnter)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1201,6 +1210,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":278,"x":35},
                             "nodeParent":92,
@@ -1212,6 +1222,7 @@
                             "compId":161,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":2,"x":485,"stateNum":"2","skin":"image/guild/icon_jiangli_finish.png","labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff"},
                                     "nodeParent":161,
@@ -1236,7 +1247,7 @@
                                         }]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1765,7 +1776,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         },
         {

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":176,
+    "selectedBox":181,
+    "selecteID":182,
     "props":{"y":0,"x":0,"width":560,"sceneColor":"#000000","height":560},
     "nodeParent":-1,
     "label":"View",
@@ -49,7 +49,8 @@
                     "hasChild":false,
                     "compId":9,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -78,7 +79,8 @@
                     "compId":157,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -137,9 +139,9 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":457,"x":0},
+            "props":{"y":457,"x":0,"var":"box_mainKill"},
             "nodeParent":1,
-            "label":"Box",
+            "label":"Box(box_mainKill)",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
@@ -147,7 +149,6 @@
             "compId":176,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":179,"width":179,"skin":"image/common/img_common_07.png","scaleX":-1,"height":91,"alpha":0.7},
                     "nodeParent":176,
@@ -157,10 +158,10 @@
                     "hasChild":false,
                     "compId":177,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":97,"x":110,"width":40,"stateNum":"1","skin":"image/main/btn_common_01.png","scaleY":-1,"height":38},
                     "nodeParent":176,
@@ -173,7 +174,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":29,"x":37,"width":47,"stateNum":"2","skin":"image/main/icon_main_zhandou_finish.png","labelSize":15,"labelPadding":"10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","height":43},
                     "nodeParent":176,
@@ -185,7 +185,6 @@
                     "compId":179,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":43,"x":-14,"text":"攻击状态","strokeColor":"#000000","stroke":5,"fontSize":20,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":179,
@@ -198,6 +197,85 @@
                                 ]
                         }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":555,"x":-2,"width":169,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"57,23,64,16","scaleY":1,"height":152},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":181,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":48,"x":4,"width":160,"skin":"image/common/fram_common_09.png","height":4},
+                    "nodeParent":181,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":182,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":94,"x":4,"width":160,"skin":"image/common/fram_common_09.png","height":4},
+                    "nodeParent":181,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":183,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":8,"x":7,"width":154,"var":"label_all","text":"全部","height":39,"fontSize":30,"font":"FZXK","color":"#000000","align":"center"},
+                    "nodeParent":181,
+                    "label":"Label(label_all)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":184,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":59,"x":7,"width":154,"var":"label_monster","text":"野怪","height":39,"fontSize":30,"font":"FZXK","color":"#000000","align":"center"},
+                    "nodeParent":181,
+                    "label":"Label(label_monster)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":185,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":106,"x":7,"width":154,"var":"label_player","text":"玩家","height":39,"fontSize":30,"font":"FZXK","color":"#000000","align":"center"},
+                    "nodeParent":181,
+                    "label":"Label(label_player)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":186,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

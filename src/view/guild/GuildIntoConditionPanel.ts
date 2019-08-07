@@ -5,7 +5,9 @@ module view.guild{
 			super();
 		}
 		public setData(): void {
-
+                 this.btn_guildIntoReturn.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this, true, 4);
+			})
 		}
 	}
 }
