@@ -464,8 +464,8 @@ class Int64 {
     }
 
     public int64ToStr(): string {
-        let h = this._bytes.getUint32();
-        let l = this._bytes.getUint32();
+        let h = this._bytes.getUint32().toString(16);
+        let l = this._bytes.getUint32().toString(16);
         this._bytes.pos = 0;
         return h + '_' + l;
     }

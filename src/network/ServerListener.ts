@@ -374,6 +374,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretGoldLockChange(data);
         let player = GameApp.MainPlayer;
         player.changeGold_lock(msg.getValue('dwBindGold'));
+        console.log('========>绑定金币', msg.getValue('dwBindGold'));
         TipsManage.showTxt('绑定金币改变了' + msg.getValue('nChanged'));
         if (msg.getValue('boMax')) {
             TipsManage.showTips('绑定金币达到上限');
