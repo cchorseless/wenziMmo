@@ -1,6 +1,6 @@
 
 module ProtoCmd {
-    //***************************************心跳包
+    //***************************************心跳包*******************************************
     export class CheckSignalCmd extends Packet {
         public static msgID: number = 0xFFFE;
         public constructor(data: Laya.Byte) {
@@ -52,7 +52,6 @@ module ProtoCmd {
         }
     }
 
-    //**************************************************
 
     //********************************登陆 */
     export class UserLogin extends Packet {
@@ -172,7 +171,7 @@ module ProtoCmd {
             this.addProperty("szLoginChannel", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//平台,用于后端区分
         }
     }
-    
+
     export class UserRealLoginRet extends Packet {
         public static msgID: number = 0x0106;
         public constructor(data: Laya.Byte) {
@@ -188,7 +187,6 @@ module ProtoCmd {
             this.read(data);
         }
     }
-    //*************************************************** */
     //********************************选角创角** */
     //0x0107
     export class SelectPlayer extends Packet {
@@ -256,6 +254,38 @@ module ProtoCmd {
             this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_BYTES, 8);
+            this.read(data);
+        }
+    }
+    //0x0209
+    //客户端与服务器状态
+    export class StateReady extends Packet {
+        public static msgID: number = 0x0209;
+        public cbPacket = StateReady;
+        public constructor() {
+            super();
+            this.cmd = 0x0209;
+        }
+    }
+
+    //0x020A
+    //切换服务器
+    export class ChangeGameSvrCmd extends Packet {
+        public static msgID: number = 0x020A;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('ip', PacketBase.TYPE_BYTES, 4);// in_addr ip;
+            this.addProperty('port', PacketBase.TYPE_WORD);
+            this.addProperty('mapid', PacketBase.TYPE_DWORD);
+            this.addProperty('gamesvr_id_type', PacketBase.TYPE_DWORD);
+            this.addProperty('changesvr_type', PacketBase.TYPE_BYTE);		//换服务器原因
+            this.addProperty('btmapsubline', PacketBase.TYPE_BYTE);
+            this.addProperty('dwTrueZoneid', PacketBase.TYPE_DWORD);
+            this.addProperty('szTGWip', PacketBase.TYPE_STRING, 260) // 人物的名字  
+            this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+
+            this.cmd = 0x020A;
             this.read(data);
         }
     }
