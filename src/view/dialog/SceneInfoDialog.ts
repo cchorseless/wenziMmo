@@ -3,15 +3,15 @@ module view.dialog {
 	export class SceneInfoDialog extends ui.dialog.SceneInfoDialogUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 
-		public setData(): void {
+		public setData(data): SceneInfoDialog {
 			this.addEvent();
+			return this;
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.visible = false;
+				this.close();
 			})
 		}
 

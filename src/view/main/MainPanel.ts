@@ -3,13 +3,10 @@ module view.main {
 	export class MainPanel extends ui.main.MainPanelUI {
 		constructor() {
 			super();
-			this.mainHeadFoot();
-				}
+		}
 		public setData(): void {
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
-			this.ui_npcInfoDialog.visible = false;
-			this.ui_sceneInfoDialog.visible = false;
 			// NPC列表
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
@@ -119,8 +116,9 @@ module view.main {
 			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_chatBigDialog.visible = true;
 			});
+			// 场景信息界面
 			this.btn_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
-				this.ui_sceneInfoDialog.visible = true;
+				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
 			// 菜单界面
 			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {
@@ -132,11 +130,28 @@ module view.main {
 					PopUpManager.Dispose(PanelManage.Menu);
 				}
 
-			}
-
-			);
+			});
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
+			// 时辰界面
+			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.TimeDialog().setData(null).popup(true);
+			});
+			// 节气界面
+			this.btn_jieQi.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.SeasonDialog().setData(null).popup(true);
+			});
+			// 地图展开界面
+			this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_mapBig.selected = !this.btn_mapBig.selected;
+				this.btn_mapBig.scaleY = -this.btn_mapBig.scaleY;
+				if (this.btn_mapBig.selected) {
+					this.ui_mainDownMapItem.showSelf(true);
+				}
+				else {
+					this.ui_mainDownMapItem.showSelf(false);
+				}
+			})
 		}
 
 		public updateUI(): void {
@@ -346,12 +361,11 @@ module view.main {
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: ui.compart.NpcIconItemUI = new ui.compart.NpcIconItemUI();
 					npcIcon.lbl_npcName.text = obj.objName;
-					npcIcon.on(Laya.UIEvent.CLICK, this, () => { this.ui_npcInfoDialog.visible = true });
+					npcIcon.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.NpcInfoDialog().popup(true); });
 					this.vbox_npc.addChild(npcIcon);
 					break;
 
 				case EnumData.HANDLE_TYPE.REMOVE:
-
 					break;
 			}
 		}
@@ -379,27 +393,6 @@ module view.main {
 			}
 
 		}
-		public mainHeadFoot():void{
-				this.ui_timeDialog.visible = false;
-				this.ui_seasonDialog.visible = false;
-			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
-					new view.dialog.TimeDialog().popup(true);
-			})
-			this.btn_jieQi.on(Laya.UIEvent.CLICK, this, () => {
-					new view.dialog.SeasonDialog().popup(true);
-			})
-				this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_mapBig.selected = !this.btn_mapBig.selected;
-				if (this.btn_mapBig.selected) {
-					this.ui_mainDownMapItem.visible=true
-				}
-				else {
-					PopUpManager.Dispose(this.ui_mainDownMapItem);
-				}
 
-			}
-
-			);
-		}
 	}
 }
