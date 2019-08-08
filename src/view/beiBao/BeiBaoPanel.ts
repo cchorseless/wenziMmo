@@ -94,7 +94,7 @@ module view.beiBao {
 		 * 添加物品
 		 * @param obj 
 		 */
-		public addItem(type: EnumData.PACKAGE_TYPE, obj: ItemBase): void {
+		public addItem(type: EnumData.PACKAGE_TYPE, obj: ProtoCmd.ItemBase): void {
 			if (this.destroyed) return;
 			// 配置表ID
 			let dwBaseID = '' + obj.dwBaseID;

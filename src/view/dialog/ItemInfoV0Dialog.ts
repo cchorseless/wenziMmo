@@ -4,9 +4,9 @@ module view.dialog {
 		constructor() {
 			super();
 		}
-		public itemObj: ItemBase;
+		public itemObj:ProtoCmd. ItemBase;
 		public model = 0;
-		public setData(obj: ItemBase, model = 0): ItemInfoV0Dialog {
+		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV0Dialog {
 			this.itemObj = obj;
 			this.model = model
 			switch (this.model) {

@@ -18,7 +18,7 @@ class ByteArrayMsg {
         this._msgBuffer.pos = 0;
         var obj: any = this.decode(this._msgBuffer);
         if (obj) {
-            GameApp.LListener.event(Packet.eventName(obj), obj.data);
+            GameApp.LListener.event(ProtoCmd.Packet.eventName(obj), obj.data);
         }
     }
 
@@ -38,7 +38,7 @@ class ByteArrayMsg {
      * @param msg
      */
     public decode(msg: Laya.Byte): any {
-        let msgID = Packet.ReadPackCmd(msg, 'recv')
+        let msgID = ProtoCmd.Packet.ReadPackCmd(msg, 'recv')
         let bytes: Laya.Byte = new Laya.Byte();
         bytes.endian = Laya.Byte.LITTLE_ENDIAN;
         bytes.writeArrayBuffer(msg.buffer, 0, msg.length);

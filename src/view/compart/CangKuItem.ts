@@ -31,7 +31,7 @@ module view.compart {
 			}
 		}
 
-		public addItem(obj: ItemBase): void {
+		public addItem(obj: ProtoCmd.ItemBase): void {
 			if (!this.hasInit) return;
 			for (let child of this.vbox_0._childs) {
 				if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {

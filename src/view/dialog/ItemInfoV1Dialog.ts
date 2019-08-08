@@ -5,8 +5,8 @@ module view.dialog {
 			super();
 		}
 		public model = 0;
-		public itemObj: ItemBase;
-		public setData(obj: ItemBase, model = 0): ItemInfoV1Dialog {
+		public itemObj: ProtoCmd.ItemBase;
+		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV1Dialog {
 			this.itemObj = obj;
 			this.model = model;
 			switch (this.model) {
@@ -168,7 +168,7 @@ module view.dialog {
 				let des_btLocation = msg.destLocation.getValue('btLocation');
 				if (errorcode == 0) {
 					// 全局数据更新
-					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
 						_itemBase.recoverUI();
 						_itemBase.location.setValue('btIndex', des_btIndex);
@@ -224,7 +224,7 @@ module view.dialog {
 				let i64ItemId = msg.getValue('i64ItemId').toString();
 				if (errorcode == 0) {
 					// 全局数据更新
-					let _itemBase: ItemBase = GameApp.GameEngine.equipDB[i64ItemId];
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[i64ItemId];
 					if (_itemBase) {
 						// 清楚装备位置索引
 						let btIndex = _itemBase.location.getValue('btIndex');
@@ -264,7 +264,7 @@ module view.dialog {
 				let i64ItemId = msg.getValue('i64ItemId').toString();
 				if (errorcode == 0) {
 					// 全局数据更新
-					let _itemBase: ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
 						// 重置位置属性
 						_itemBase.location.clone(msg.destLocation.data);
@@ -304,7 +304,7 @@ module view.dialog {
 				let i64ItemId = msg.getValue('i64ItemId').toString();
 				if (errorcode == 0) {
 					// 全局数据更新
-					let _itemBase: ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
 					if (_itemBase) {
 						// 重置位置属性
 						_itemBase.location.clone(msg.destLocation.data);
@@ -329,6 +329,6 @@ module view.dialog {
 
 		}
 
-		public 
+		public
 	}
 }

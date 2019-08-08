@@ -111,7 +111,7 @@ module GameObject {
         public mp: number;
         public lifestate: number;
         public tempId: number;// 临时ID
-        public onlyId: Int64;// 唯一ID
+        public onlyId: ProtoCmd.Int64;// 唯一ID
         public configId: number;//配置表ID
         public mapid: number;//地图ID
         public mapname: string;
@@ -146,7 +146,7 @@ module GameObject {
          * 修改战斗属性
          * @param ArpgAbility 
          */
-        public changeAbility(ArpgAbility: ArpgAbility): void {
+        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility): void {
             this.ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
             this.ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量
             this.ability.nMaxAttack = ArpgAbility.getValue('nMaxAttack');//攻击上限

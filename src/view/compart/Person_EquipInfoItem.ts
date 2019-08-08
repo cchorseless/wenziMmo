@@ -17,7 +17,7 @@ module view.compart {
 		public initUI(): void {
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
 			for (let key of allKey) {
-				let _itemBase: ItemBase = GameApp.GameEngine.equipDB[key];
+				let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
 				let btLocation = _itemBase.location.getValue('btLocation');
 				let btIndex = _itemBase.location.getValue('btIndex');
 				console.log('====>', btLocation, btIndex);

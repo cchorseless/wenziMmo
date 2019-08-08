@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.compart {
 	export class DaoJuItem extends ui.compart.DaoJuItemUI {
-		public item: ItemBase;
+		public item: ProtoCmd.ItemBase;
 		public model: EnumData.ItemInfoModel = 0;
 		constructor() {
 			super();
@@ -11,7 +11,7 @@ module view.compart {
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			// 双向绑定
 			this.item = item;
 			item.recoverUI();
@@ -76,7 +76,7 @@ module view.compart {
 		 * @param item 
 		 * @param model 
 		 */
-		public initUI(item: ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public initUI(item:ProtoCmd. ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			this.model = model;
 			// 是否绑定
 			this.img_lock.visible = Boolean(item.dwBinding);

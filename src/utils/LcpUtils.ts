@@ -62,7 +62,7 @@ module lcp {
      * @param key 上下文
      * @param cb 回调函数
      */
-    export function send(msgClass: Packet, key?, cb?: Function): void {
+    export function send(msgClass: ProtoCmd.Packet, key?, cb?: Function): void {
         if (cb) {
             let eventName = msgClass.eventName;
             lcp.LListener.getInstance().once(eventName, key, cb)
