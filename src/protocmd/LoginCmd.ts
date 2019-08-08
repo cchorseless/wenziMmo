@@ -232,6 +232,7 @@ module ProtoCmd {
     }
     //***********************************创建角色* */
     //0x012C
+    // 创建角色
     export class CreatePlayer extends Packet {
         public cbPacket = CreatePlayerRet;
         public static msgID: number = 0x012C;

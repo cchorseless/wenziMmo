@@ -15,68 +15,68 @@ class ServerListener extends SingletonClass {
         // socket链接
         GameApp.LListener.on(LcpEvent.SOCKET_CONNECT, this, this.onSocketConnect);
         // 心跳包检测 fffe
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // 更新本地密匙 109
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
         // 玩家进入地图 201
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
         // 地图创建怪物 202
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
         // 地图删除怪物 203
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
         // 创建地图其他玩家 206
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
         // 移动 0x021F
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
         // 攻击 0x0232
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
         // 血条/蓝条变化 0x0234
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
         // 金币 236
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
         // 绑定金币 2b6
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretGoldLockChange), this, this.cretGoldLockChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldLockChange), this, this.cretGoldLockChange);
         // 元宝 258
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretYuanBaoChange), this, this.CretYuanBaoChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretYuanBaoChange), this, this.CretYuanBaoChange);
         // 绑定元宝 259
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretYuanBaoLockChange), this, this.CretYuanBaoLockChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretYuanBaoLockChange), this, this.CretYuanBaoLockChange);
         // 经验 237
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretExpChange), this, this.cretExpChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretExpChange), this, this.cretExpChange);
         // 等级 238
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
         // 聊天相关 239
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
         // 场景内角色战斗属性包 23b
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
         // 玩家战斗属性包 249
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretPlayerAbility), this, this.cretPlayerAbility);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPlayerAbility), this, this.cretPlayerAbility);
         // 玩家经济属性包 240
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
         // 玩家复活死亡通知 246
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
         // 服务器提示tips 288
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
         // 怪物掉血 0x0297
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
         // 删除地图上的物品 29D
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
         // 拾取地图上的物品 288
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
         // 地图上添加物品 2a0
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
         /***********************************背包相关 *********************************/
         // 删除背包道具 301
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretDeleteItem), this, this.cretDeleteItem);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretDeleteItem), this, this.cretDeleteItem);
         // 更新背包道具 302
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretUpdateItem), this, this.cretUpdateItem);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretUpdateItem), this, this.cretUpdateItem);
         // 初始化背包信息 303
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
         // 服务器扩展脚本 0x0919
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
         // 客户端本地设置 2aa
-        GameApp.LListener.on(Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
         // 初始化标记
         this.hasInit = true;
     }
@@ -585,7 +585,7 @@ class ServerListener extends SingletonClass {
     public initBag(data: any): void {
         let msg = new ProtoCmd.CretItems(data);
         let bagType: EnumData.PACKAGE_TYPE = msg.getValue('bagType');
-        let itemsInfo: Array<ItemBase> = msg.items;
+        let itemsInfo: Array<ProtoCmd.ItemBase> = msg.items;
         let _bag;
         Log.trace('开始初始化背包', bagType);
         switch (bagType) {
@@ -605,7 +605,7 @@ class ServerListener extends SingletonClass {
         if (_bag != null) {
             for (let i = 0; i < itemsInfo.length; i++) {
                 let idx = itemsInfo[i].i64ItemID.toString();
-                let newItem = new ItemBase(null);
+                let newItem = new ProtoCmd.ItemBase(null);
                 newItem.clone(itemsInfo[i].data);
                 _bag[idx] = newItem;
                 Log.trace('获得物品' + idx);
@@ -682,7 +682,7 @@ class ServerListener extends SingletonClass {
             _bag[idx].clone(msg.item.data);
         }
         else {
-            let item = new ItemBase(null);
+            let item = new ProtoCmd.ItemBase(null);
             item.clone(msg.item.data);
             _bag[idx] = item;
         }
@@ -717,7 +717,7 @@ class ServerListener extends SingletonClass {
                 break;
         }
         if (_bag && _bag[i64id]) {
-            let _itemBase: ItemBase = _bag[i64id];
+            let _itemBase: ProtoCmd.ItemBase = _bag[i64id];
             _itemBase.setValue('dwCount', dwCount);
             _itemBase.dwCount = dwCount;
             // 更新UI

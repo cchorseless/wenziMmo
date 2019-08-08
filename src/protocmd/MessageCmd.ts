@@ -1,6 +1,6 @@
 module ProtoCmd {
-
-    //聊天
+    // 0x0239
+    // 聊天消息
     export class CretChat extends Packet {
         public static msgID: number = 0x0239;
         public chatMsg: string = "";
