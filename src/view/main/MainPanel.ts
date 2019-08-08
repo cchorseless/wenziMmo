@@ -131,6 +131,8 @@ module view.main {
 				}
 
 			});
+
+			
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 			// 时辰界面
@@ -140,6 +142,10 @@ module view.main {
 			// 节气界面
 			this.btn_jieQi.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SeasonDialog().setData(null).popup(true);
+			});
+			// 换头像界面
+			this.box_head.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.HeadDialog().popup(true);
 			});
 			// 地图展开界面
 			this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
@@ -152,6 +158,7 @@ module view.main {
 					this.ui_mainDownMapItem.showSelf(false);
 				}
 			})
+			
 		}
 
 		public updateUI(): void {

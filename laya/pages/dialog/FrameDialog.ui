@@ -1,11 +1,11 @@
 {
     "x":0,
-    "type":"View",
+    "type":"Dialog",
     "selectedBox":1,
-    "selecteID":9,
+    "selecteID":42,
     "props":{"width":457,"sceneColor":"#000000","height":500},
     "nodeParent":-1,
-    "label":"View",
+    "label":"Dialog",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":0,"width":457,"skin":"image/main/box_other.png","height":480,"bottom":0},
+            "props":{"y":10,"x":0,"width":457,"skin":"image/main/box_other.png","height":480,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -33,17 +33,17 @@
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":5,
+                    "compId":9,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":5,"x":78,"width":102,"valign":"bottom","text":"选择头像","height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":5,
+                            "props":{"y":5,"x":78,"width":102,"valign":"bottom","text":"选择边框","height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                            "nodeParent":9,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":6,
+                            "compId":10,
                             "child":[
                                 ]
                         }],
@@ -57,7 +57,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":11,
                     "child":[
                         ]
                 },
@@ -69,7 +69,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":4,
+                    "compId":12,
                     "child":[
                         ]
                 }]
@@ -84,7 +84,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":7,
+            "compId":3,
             "child":[
                 ]
         },
@@ -97,34 +97,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":131,"x":253,"width":170,"skin":"image/common/fram_common_09.png","height":56,"alpha":0.5},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":147,"x":290,"text":"更换边框","strokeColor":"#000000","stroke":5,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
+            "compId":4,
             "child":[
                 ]
         },
@@ -138,23 +111,23 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":12,
+            "compId":7,
             "child":[
                 {
                     "type":"Box",
                     "props":{"y":22,"x":35},
-                    "nodeParent":12,
+                    "nodeParent":7,
                     "label":"Box",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":28,
+                    "compId":13,
                     "child":[
                         {
                             "type":"Image",
                             "props":{"y":4,"x":14,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -166,7 +139,7 @@
                         {
                             "type":"Image",
                             "props":{"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -178,32 +151,32 @@
                         {
                             "type":"Image",
                             "props":{"y":-9,"x":92,"skin":"image/common/fram_common_vipdi.png","scaleY":0.5,"scaleX":0.5,"rotation":90,"alpha":0.7},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":48,
+                            "compId":16,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
                             "props":{"y":2,"x":63,"skin":"image/common/img_common_04.png","scaleY":0.5,"scaleX":0.5},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":49,
+                            "compId":17,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Image",
                             "props":{"y":4,"x":112,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -215,7 +188,7 @@
                         {
                             "type":"Image",
                             "props":{"x":98,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -227,7 +200,7 @@
                         {
                             "type":"Image",
                             "props":{"y":4,"x":210,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -239,7 +212,7 @@
                         {
                             "type":"Image",
                             "props":{"x":196,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -251,7 +224,7 @@
                         {
                             "type":"Image",
                             "props":{"y":4,"x":308,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -263,7 +236,7 @@
                         {
                             "type":"Image",
                             "props":{"x":294,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":28,
+                            "nodeParent":13,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -276,18 +249,78 @@
                 {
                     "type":"Box",
                     "props":{"y":105,"x":35},
-                    "nodeParent":12,
+                    "nodeParent":7,
                     "label":"Box",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":29,
+                    "compId":24,
                     "child":[
                         {
                             "type":"Image",
                             "props":{"y":4,"x":14,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":29,
+                            "nodeParent":24,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":24,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":4,"x":112,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":24,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"x":98,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":24,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":28,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":4,"x":210,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":24,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":29,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"x":196,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":24,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -298,8 +331,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":29,
+                            "props":{"y":4,"x":308,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":24,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -310,8 +343,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":4,"x":112,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":29,
+                            "props":{"x":294,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":24,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -319,23 +352,23 @@
                             "compId":32,
                             "child":[
                                 ]
-                        },
+                        }]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":188,"x":35},
+                    "nodeParent":7,
+                    "label":"Box",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":33,
+                    "child":[
                         {
                             "type":"Image",
-                            "props":{"x":98,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":29,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":33,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":4,"x":210,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":29,
+                            "props":{"y":4,"x":14,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -346,8 +379,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"x":196,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":29,
+                            "props":{"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -358,8 +391,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":4,"x":308,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":29,
+                            "props":{"y":4,"x":112,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -370,8 +403,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"x":294,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":29,
+                            "props":{"x":98,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -379,23 +412,23 @@
                             "compId":37,
                             "child":[
                                 ]
-                        }]
-                },
-                {
-                    "type":"Box",
-                    "props":{"y":188,"x":35},
-                    "nodeParent":12,
-                    "label":"Box",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":38,
-                    "child":[
+                        },
                         {
                             "type":"Image",
-                            "props":{"y":4,"x":14,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":38,
+                            "props":{"y":4,"x":210,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":33,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"x":196,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -406,8 +439,8 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":38,
+                            "props":{"y":4,"x":308,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -418,73 +451,13 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":4,"x":112,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":38,
+                            "props":{"x":294,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
+                            "nodeParent":33,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":41,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":98,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":42,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":4,"x":210,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":43,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":196,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":44,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":4,"x":308,"skin":"image/common/icon_nv01.png","scaleY":0.6,"scaleX":0.6},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":45,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":294,"width":130,"skin":"image/main/fram_common_01.png","scaleY":0.6,"scaleX":0.6,"height":130},
-                            "nodeParent":38,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":46,
                             "child":[
                                 ]
                         }]
@@ -493,15 +466,53 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":391,"var":"btn_headClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":0,"x":391,"var":"btn_frameClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
-            "label":"Button(btn_headClose)",
+            "label":"Button(btn_frameClose)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":50,
+            "compId":8,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":131,"x":253,"var":"img_changeHead"},
+            "nodeParent":1,
+            "label":"Box(img_changeHead)",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":42,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"width":170,"skin":"image/common/fram_common_09.png","height":56,"alpha":0.5},
+                    "nodeParent":42,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":16,"x":37,"text":"更换头像","strokeColor":"#000000","stroke":5,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                    "nodeParent":42,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
