@@ -53,9 +53,9 @@ module ResData {
         public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 入帮设置界面
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派福利
+        // 帮派福利
         public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派支援
+        // 帮派支援
         public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
@@ -91,6 +91,8 @@ module ResData {
             { url: 'json/mydb_playerability_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_playerability_tbl },
             // 基础效果表
             { url: 'json/mydb_effect_base_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_effect_base_tbl },
+            // 参数表
+            { url: 'json/canshuSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.canshuSheet },
         ];
     }
 

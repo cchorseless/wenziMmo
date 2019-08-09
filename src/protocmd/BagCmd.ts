@@ -212,15 +212,18 @@ module ProtoCmd {
     }
     // 0x1F02
     /**
-     * 初始化自己摊位信息，拍卖行页签翻页
+     * 初始化自己摊位信息(包括 日志 物品 和 未领取的元宝数），拍卖行页签翻页
      */
     export class stAuctionChangePage extends Packet {
         public static msgID: number = 0x1F02;
-        public cbPacket = stAuctionItemsRet;
+        // btType=3 返回 stAuctionItemsRet；
+        // btType=7 返回 stConsignSellLogRet
+        // btType=4 返回 stAuctionProfitRet
+        public cbPacket: any = stAuctionItemsRet;
         public constructor() {
             super();
             this.addProperty('nPage', PacketBase.TYPE_INT); //页面数量 每页20件
-            this.addProperty('btType', PacketBase.TYPE_BYTE);	//0搜索换页3自己的摊位物品4卖了未领取7日志
+            this.addProperty('btType', PacketBase.TYPE_BYTE);	//0搜索换页 3自己的摊位物品 4卖了未领取 7日志
             this.cmd = 0x1F02;
         }
     }
@@ -230,6 +233,7 @@ module ProtoCmd {
      */
     export class stAuctionGetProfit extends Packet {
         public static msgID: number = 0x1F09;
+        public cbPacket = stAuctionProfitRet;
         public constructor() {
             super();
             this.cmd = 0x1F09;
@@ -237,7 +241,7 @@ module ProtoCmd {
     }
     // 0x1F03
     /**
-     * 返回摊位信息结果
+     * 返回摊位道具信息结果
      */
     export class stAuctionItemsRet extends Packet {
         public static msgID: number = 0x1F03;
@@ -297,11 +301,10 @@ module ProtoCmd {
     }
     // 0x1F08
     /**
-     * 获取总收益数值
+     * 获取总收益数值返回
      */
-    export class stAuctionProfit extends Packet {
+    export class stAuctionProfitRet extends Packet {
         public static msgID: number = 0x1F08;
-        public cbPacket = stAuctionProfit;
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("myMoney", PacketBase.TYPE_DWORD);
@@ -410,12 +413,28 @@ module ProtoCmd {
             this.cmd = 0x1F0A;
         }
     }
+    // 0x1F05
+    // 上下架返回包
+    export class stStallRet extends Packet {
+        public static msgID: number = 0x1F05;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwResult', PacketBase.TYPE_BYTE);//类型
+            this.read(data);
+            this.cmd = 0x1F05;
+        }
+
+        /**0物品上架成功  1 下架成功*/
+        public get result(): number {
+            return this.getValue("dwResult");
+        }
+    }
     // 0x1F07
-    // 交易记录
-    export class stConsignSellLog extends Packet {
+    // 交易记录返回包
+    export class stConsignSellLogRet extends Packet {
         public static msgID: number = 0x1F07;
         public logs: Array<stConsignLogBase> = [];
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('nCount', PacketBase.TYPE_INT);
             this.read(data);
@@ -423,7 +442,6 @@ module ProtoCmd {
 
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
-
             for (var i: number = 0; i < this.nCount; i++) {
                 this.logs[i] = new stConsignLogBase(data);
                 data.pos += this.logs[i].size();
@@ -445,24 +463,4 @@ module ProtoCmd {
             this.logs = null;
         }
     }
-
-
-
-    // 0x1F05
-    // 上下架返回包
-    export class stStallRet extends Packet {
-        public static msgID: number = 0x1F05;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('dwResult', PacketBase.TYPE_BYTE);//类型
-            this.read(data);
-            this.cmd = 0x1F05;
-        }
-
-        /**0物品上架成功  1 下架成功*/
-        public get result(): number {
-            return this.getValue("dwResult");
-        }
-    }
-
 }

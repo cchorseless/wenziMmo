@@ -180,5 +180,12 @@ module view.beiBao {
 				this.ui_tanWei.updateTanWeiUI();
 			}
 		}
+		public checkTanWeiIsFull(): boolean {
+			if (this.ui_tanWei && this.ui_tanWei.vbox_sell.numChildren >= SheetConfig.canshuSheet.getInstance(null).DATA('JYH_MAXIMUM_SALES')[0]) {
+				return false
+			}
+			return true
+
+		}
 	}
 }

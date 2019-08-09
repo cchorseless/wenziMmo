@@ -18,15 +18,29 @@ module view.compart {
 			// 售价
 			this.lbl_price.text = '' + item.dwConsignPrice;
 			// 剩余时间
-			this.lbl_timeLeft.text = '' + item.tLeftTime;
+			this.lbl_timeLeft.text = '' + TimeUtils.getFormatBySecond(item.overTime - new Date().getTime() / 1000, 6);
 			// 物品ICON
 			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_SHOP);
 		}
 		public addEvent(): void {
 			// 道具下架
 			this.btn_off.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt=new ProtoCmd.stAuctionTakeMyItem();
-				// pkt.setValue()
+				let pkt = new ProtoCmd.stAuctionTakeMyItem();
+				pkt.setValue('dwIndex', this.item.dwIndex);
+				pkt.setValue('btType', 3);
+				lcp.send(pkt, this, (data) => {
+					let cbpkt = new ProtoCmd.stStallRet(data);
+					if (cbpkt.result === 1) {
+						// TipsManage.showTips('下架成功');
+						PanelManage.BeiBao && PanelManage.BeiBao.updateTanWei();
+					}
+					else {
+						TipsManage.showTips('下架失败');
+					}
+					cbpkt.clear();
+					cbpkt = null;
+				})
+
 			})
 		}
 	}
