@@ -167,7 +167,6 @@ module EnumData {
 
 
 
-
     /**
      * 背包类型
      */
@@ -462,5 +461,8 @@ module EnumData {
         PKMODEL_ALLTHEMODE,			//全体模式：对所有怪物和玩家进行攻击起效
         PKMODEL_SAFEMODE,			//安全模式
     };
+
+
+    
 
 }

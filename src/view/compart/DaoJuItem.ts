@@ -25,6 +25,11 @@ module view.compart {
 				return
 			}
 			this.on(Laya.UIEvent.CLICK, this, () => {
+				// 是否可以上架
+				if (this.isNotCanSell) {
+					TipsManage.showTips('绑定物品不能上架');
+					return
+				}
 				let itemInfoDialog;
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
 				// 根据物品类型显示不同界面
@@ -76,7 +81,7 @@ module view.compart {
 		 * @param item 
 		 * @param model 
 		 */
-		public initUI(item:ProtoCmd. ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public initUI(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			this.model = model;
 			// 是否绑定
 			this.img_lock.visible = Boolean(item.dwBinding);
@@ -91,8 +96,27 @@ module view.compart {
 		 * 更新道具数量
 		 */
 		public updateDwCount(): void {
+			if (this.destroyed) {
+				return
+			}
 			// 物品数量
 			this.lbl_count.text = '' + ((this.item.dwCount === 0 || this.item.dwCount === 1) ? '' : this.item.dwCount);
+		}
+
+		public isNotCanSell = false;
+		/**
+		 * 是否能够上架
+		 * @param isSell 
+		 */
+		public canGoToSell(isNotCanSell: boolean): void {
+			this.isNotCanSell = isNotCanSell && Boolean(this.item.dwBinding);
+			// 不能上架
+			if (this.isNotCanSell) {
+				this.alpha = 0.5;
+			}
+			else {
+				this.alpha = 1;
+			}
 		}
 	}
 }

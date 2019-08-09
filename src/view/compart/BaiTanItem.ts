@@ -16,6 +16,32 @@ module view.compart {
 			this.panel_sell.vScrollBarSkin = this.panel_sellRecord.vScrollBarSkin = '';
 			this.vbox_sell['sortItem'] = (items) => { };
 			this.vbox_sellRecord['sortItem'] = (items) => { };
+			this.vbox_sell.removeChildren();
+			this.vbox_sellRecord.removeChildren();
+			// 自己的获取摊位信息
+			let pkt1 = new ProtoCmd.stAuctionChangePage();
+			pkt1.setValue('btType', 3);
+			pkt1.setValue('nPage', 0);
+			lcp.send(pkt1, this, (data) => {
+				let cbPkt1 = new ProtoCmd.stAuctionItemsRet(data);
+				let allItem = cbPkt1.items;
+				for (let _item of allItem) {
+					let tanWeiItem = new view.compart.BaiTanSellItem();
+					let new_stAuctionItemBase = new ProtoCmd.stAuctionItemBase();
+					new_stAuctionItemBase.clone(_item.data);
+					tanWeiItem.setData(new_stAuctionItemBase);
+				}
+				cbPkt1.clear();
+				cbPkt1 = null;
+			})
+			// 元宝总收入
+			let pkt = new ProtoCmd.stAuctionProfit();
+			lcp.send(pkt, this, (data) => {
+				let cbPkt = new ProtoCmd.stAuctionProfit(data);
+				this.lbl_shouRu.text = '' + cbPkt.profit;
+				cbPkt.clear();
+				cbPkt = null;
+			})
 
 		}
 		public addEvent(): void {

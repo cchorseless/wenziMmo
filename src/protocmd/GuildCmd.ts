@@ -14,7 +14,7 @@ module ProtoCmd {
 
 
     /** 0x2B02
-	 * 捐献回复的包
+	 * 捐献回
 	 * **/
     export class stBeginDonateEquipRet extends Packet {
         public static msgID: number = 0x2B02;
