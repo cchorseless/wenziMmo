@@ -172,6 +172,13 @@ module view.beiBao {
 			}
 		}
 
-
+		/**
+		 * 更新摊位信息
+		 */
+		public updateTanWei(): void {
+			if (!this.destroyed && this.ui_tanWei.visible) {
+				this.ui_tanWei.updateTanWeiUI();
+			}
+		}
 	}
 }

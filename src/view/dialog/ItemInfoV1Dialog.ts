@@ -359,6 +359,10 @@ module view.dialog {
 				let cbpkt = new ProtoCmd.stStallRet(data);
 				if (cbpkt.result === 0) {
 					TipsManage.showTips('上架成功');
+					PanelManage.BeiBao && PanelManage.BeiBao.updateTanWei();
+				}
+				else {
+					TipsManage.showTips('上架失败');
 				}
 			})
 		}
