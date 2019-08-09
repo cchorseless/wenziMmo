@@ -939,6 +939,78 @@ module ProtoCmd {
 
     }
 
+    /**
+     * 摊位信息
+     */
+    export class stAuctionItemBase extends ItemBase {
+        public dwIndex: number;//寄售条目索引
+        public btConsignType: number;//寄售类型(0 金币 1 元宝)
+        public szName: string;//物品名字
+        public wType: number;//物品类型
+        public dwWearLevel: number;//佩戴等级
+        public dwZSLevel: number;//转生等级
+        public btRare: number;//物品品质 稀世等
+        public dwConsignPrice: number;//售价
+        public dwSellOnlyId: number;
+        public dwBuyOnlyId: number;
+        public tLeftTime: number;// 剩余时间
+        public szSeller: string;// 出售人名称
+        public tSellTime: number;// 售出时间
+        public szBuyerer: string;// 购买人名字
+        public btState: number;/**0卖了未领取<br>1卖了领取<br>2超时下架*/
+        public szSellTip: string
+        public boShowSellName: boolean;
 
-    
+        public constructor(data: Laya.Byte = null) {
+            super(data);
+            this.addProperty('dwIndex', PacketBase.TYPE_DWORD);
+            this.addProperty('btConsignType', PacketBase.TYPE_BYTE);
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('wType', PacketBase.TYPE_WORD);//物品类型
+            this.addProperty('dwWearLevel', PacketBase.TYPE_DWORD);//穿戴等级
+            this.addProperty("dwZSLevel", PacketBase.TYPE_DWORD);//转生等级
+            this.addProperty('btRare', PacketBase.TYPE_BYTE);
+            this.addProperty('dwConsignPrice', PacketBase.TYPE_DWORD);//售价
+            this.addProperty('dwSellOnlyId', PacketBase.TYPE_DOUBLE);
+            this.addProperty('dwBuyOnlyId', PacketBase.TYPE_DOUBLE);
+            this.addProperty('tLeftTime', PacketBase.TYPE_DWORD);
+            this.addProperty('szSeller', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('tSellTime', PacketBase.TYPE_DWORD);
+            this.addProperty('szBuyerer', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('btState', PacketBase.TYPE_BYTE);
+            this.addProperty('szSellTip', PacketBase.TYPE_STRING, 256);
+            this.addProperty('boShowSellName', PacketBase.TYPE_BOOL);
+            if (data) { data.pos += this.read(data); }
+        }
+
+
+        public readProperty(): void {
+            this.dwIndex = this.getValue('dwIndex');
+            this.btConsignType = this.getValue('btConsignType');
+            this.szName = this.getValue('szName');
+            this.wType = this.getValue('wType');
+            this.dwWearLevel = this.getValue('dwWearLevel');
+            this.dwZSLevel = this.getValue('dwZSLevel');
+            this.btRare = this.getValue('btRare');
+            this.dwConsignPrice = this.getValue('dwConsignPrice');
+            this.dwSellOnlyId = this.getValue('dwSellOnlyId');
+            this.dwBuyOnlyId = this.getValue('dwBuyOnlyId');
+            this.tLeftTime = this.getValue('tLeftTime');
+            this.szSeller = this.getValue('szSeller');
+            this.tSellTime = this.getValue('tSellTime');
+            this.szBuyerer = this.getValue('szBuyerer');
+            this.btState = this.getValue('btState');
+            this.szSellTip = this.getValue('szSellTip');
+            this.boShowSellName = this.getValue('boShowSellName');
+        }
+
+        public read(data: Laya.Byte): number {
+            this.readProperty();
+            return super.read(data);
+        }
+
+    }
+
+
+
 }

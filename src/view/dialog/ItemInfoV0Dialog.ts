@@ -4,31 +4,43 @@ module view.dialog {
 		constructor() {
 			super();
 		}
-		public itemObj:ProtoCmd. ItemBase;
+		public itemObj: ProtoCmd.ItemBase;
 		public model = 0;
 		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV0Dialog {
 			this.itemObj = obj;
-			this.model = model
+			this.model = model;
+			this.viw_model.selectedIndex = model;
 			switch (this.model) {
 				// 背包-回收
 				case 0:
-				// 背包-仓库
+					break;
+				// 背包-仓库,道具不能拆分放入仓库，所以隐藏
 				case 1:
+					break;
 				// 背包-摆摊
 				case 2:
-				// 仓库内
+					// 参考价格
+					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * this.itemObj.dwCount;
+					// 输入完成事件
+					this.input_price.on(Laya.UIEvent.BLUR, this, () => {
+						let price = parseInt(this.input_price.text);
+						let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID) * this.hsbar_count.value;
+						this.input_price.text = '' + Math.max(Math.min(999999999, price), minPrice);
+					})
+					break;
+				// 仓库内，道具不能拆分取出仓库，所以隐藏
 				case 3:
 					// 角色身上
 					// case 4:
-					this.viw_model.selectedIndex = model;
 					break;
 				// 商店内,无操作按钮，所以需要缩短界面高度
 				case 5:
-					this.viw_model.selectedIndex = model;
 					this.height -= this.viw_model.height;
 					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
+			// 是否绑定
+			this.lbl_isLock.visible = Boolean(obj.dwBinding);
 			// 物品名称
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
 			// 物品描述
@@ -38,8 +50,8 @@ module view.dialog {
 			this.lbl_useLevel.text = '使用等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).LVNEED(dwBaseID) + '级';
 			// 使用职业
 			this.lbl_jobNeed.text = '职业要求:' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
-			// 物品数量,数量小于1应该
-			if (this.itemObj.dwCount === 1) {
+			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏
+			if (this.itemObj.dwCount === 1 || this.model === 1 || this.model === 3) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
 				this.hsbar_count.value = 1;
@@ -74,13 +86,20 @@ module view.dialog {
 					break;
 				// 背包-仓库
 				case 1:
+					// 放入仓库
+					this.btn_putToCangKu.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
+					break;
 				// 背包-摆摊
 				case 2:
+					// 上架物品
+					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.goToSell);
+					break;
 				// 仓库内
 				case 3:
+					// 取出道具
+					this.btn_putBackCangKu.on(Laya.UIEvent.CLICK, this, this.putBackCangKu);
 					// 角色身上
 					// case 4:
-
 					break;
 				// 商店内,无操作按钮，所以需要缩短界面高度
 				case 5:
@@ -119,5 +138,113 @@ module view.dialog {
 
 
 		}
+
+		/**
+		 * 放入仓库
+		 */
+		public putToCangKu(): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE);
+			packet.destLocation.setValue('btIndex', 0);
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 全局数据更新
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+					if (_itemBase) {
+						// 重置位置属性
+						_itemBase.location.clone(msg.destLocation.data);
+						// 清除绑定的UI
+						_itemBase.recoverUI();
+						GameApp.GameEngine.cangKuDB[i64ItemId] = _itemBase;
+						delete GameApp.GameEngine.bagItemDB[i64ItemId];
+						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE, _itemBase);
+						TipsManage.showTips('放入仓库成功');
+					} else {
+						TipsManage.showTips('放入仓库失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('放入仓库失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
+
+		}
+
+		/**
+		 * 从仓库取出道具
+		 */
+		public putBackCangKu(): void {
+			this.close();
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
+			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
+			packet.destLocation.setValue('btIndex', 0);
+			lcp.send(packet, this, (data) => {
+				let msg = new ProtoCmd.CretProcessingItem(data);
+				let errorcode = msg.getValue('nErrorCode');
+				let i64ItemId = msg.getValue('i64ItemId').toString();
+				if (errorcode == 0) {
+					// 全局数据更新
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
+					if (_itemBase) {
+						// 重置位置属性
+						_itemBase.location.clone(msg.destLocation.data);
+						// 清除绑定的UI
+						_itemBase.recoverUI();
+						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
+						delete GameApp.GameEngine.cangKuDB[i64ItemId];
+						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
+						TipsManage.showTips('取出仓库成功');
+					} else {
+						TipsManage.showTips('取出仓库失败(client 01)');
+					}
+				}
+				else {
+					TipsManage.showTips('取出仓库失败(server ' + errorcode + ')');
+				}
+				msg.clear();
+				msg = null;
+			});
+
+
+
+		}
+
+		/**
+		 * 上架道具
+		 */
+		public goToSell(): void {
+			this.close();
+			if (this.ui_item.isNotCanSell) {
+				TipsManage.showTips('绑定物品不能交易');
+				return
+			}
+			let pkt = new ProtoCmd.stAuctionSellItem();
+			pkt.setValue('i64Id', this.itemObj.i64ItemID);
+			pkt.setValue('dwCount', 1);
+			pkt.setValue('dwPrice', parseInt(this.input_price.text));
+			pkt.setValue('btDays', 1);
+			pkt.setValue('boShowName', false);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stStallRet(data);
+				if (cbpkt.result === 0) {
+					TipsManage.showTips('上架成功');
+				}
+			})
+
+
+		}
+
 	}
 }

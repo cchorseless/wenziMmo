@@ -189,6 +189,9 @@ module ProtoCmd {
 
     // **********************************交易行*************************
     // 0x1F06
+    /**
+     * 拍卖行购买物品
+     */
     export class stAuctionBuyItem extends Packet {
         public static msgID: number = 0x1F06;
         public constructor() {
@@ -208,8 +211,12 @@ module ProtoCmd {
         }
     }
     // 0x1F02
+    /**
+     * 初始化自己摊位信息，拍卖行页签翻页
+     */
     export class stAuctionChangePage extends Packet {
         public static msgID: number = 0x1F02;
+        public cbPacket = stAuctionItemsRet;
         public constructor() {
             super();
             this.addProperty('nPage', PacketBase.TYPE_INT); //页面数量 每页20件
@@ -218,6 +225,9 @@ module ProtoCmd {
         }
     }
     // 0x1F09
+    /**
+     * 领取摊位总收益
+     */
     export class stAuctionGetProfit extends Packet {
         public static msgID: number = 0x1F09;
         public constructor() {
@@ -226,23 +236,30 @@ module ProtoCmd {
         }
     }
     // 0x1F03
-    export class stAuctionItems extends Packet {
+    /**
+     * 返回摊位信息结果
+     */
+    export class stAuctionItemsRet extends Packet {
         public static msgID: number = 0x1F03;
-        public items: Array<ItemBase> = [];
-        public constructor(data: Laya.Byte) {
+        public items: Array<stAuctionItemBase> = [];
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('nTotalSize', PacketBase.TYPE_INT); //总条目数
             this.addProperty('nCurPage', PacketBase.TYPE_INT); //当前页数
             this.addProperty('nType', PacketBase.TYPE_BYTE);//0查询1卖出2领取
             this.addProperty('nCount', PacketBase.TYPE_INT);//总数
             this.read(data);
+            this.cmd = 0x1F03;
         }
 
         public read(data: Laya.Byte): number {
+            if (data == null) {
+                return 0
+            }
             data.pos = super.read(data);
             let count = this.count;
             for (var i: number = 0; i < count; i++) {
-                this.items[i] = new ItemBase(data);
+                this.items[i] = new stAuctionItemBase(data);
             }
             return data.pos;
         }
@@ -250,6 +267,10 @@ module ProtoCmd {
         /**0当前搜索的物品列表<br>1买了未领取的列表<br>2买了领取的列表<br>3我的摊位<br>4卖了未领取<br>5卖了领取<br>6超时下架<br>7摊位日志最大50条<br>8当前搜索页的物品列表*/
         public get searchType(): number {
             return this.getValue("nType");
+        }
+
+        public set searchType(value: number) {
+            this.setValue('nType', value);
         }
 
         public get curPage(): number {
@@ -275,8 +296,12 @@ module ProtoCmd {
         }
     }
     // 0x1F08
+    /**
+     * 获取总收益数值
+     */
     export class stAuctionProfit extends Packet {
         public static msgID: number = 0x1F08;
+        public cbPacket = stAuctionProfit;
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("myMoney", PacketBase.TYPE_DWORD);
@@ -289,8 +314,10 @@ module ProtoCmd {
         }
     }
     // 0x1F01
+    // 筛选摊位
     export class stAuctionSearch extends Packet {
-        public static msgID: number = 0x1F01
+        public static msgID: number = 0x1F01;
+        public cbPacket = stAuctionItemsRet;
         public constructor() {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//物品名称
@@ -354,8 +381,10 @@ module ProtoCmd {
         }
     }
     // 0x1F04
+    // 上架物品
     export class stAuctionSellItem extends Packet {
         public static msgID: number = 0x1F04;
+        public cbPacket = stStallRet;
         public constructor() {
             super();
             this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品编号
@@ -364,14 +393,16 @@ module ProtoCmd {
             this.addProperty('dwPrice', PacketBase.TYPE_DWORD); //售价
             this.addProperty('dwCost', PacketBase.TYPE_DWORD);	//手续费,客户端不用管
             this.addProperty('szSellTip', PacketBase.TYPE_STRING, 256);
-            this.addProperty('btConsignType', PacketBase.TYPE_BYTE);
-            this.addProperty('boShowName', PacketBase.TYPE_BOOL);
+            this.addProperty('btConsignType', PacketBase.TYPE_BYTE);// 货币类型
+            this.addProperty('boShowName', PacketBase.TYPE_BOOL);//是否显示卖家名字
             this.cmd = 0x1F04;
         }
     }
     // 0x1F0A
+    // 下架物品
     export class stAuctionTakeMyItem extends Packet {
         public static msgID: number = 0x1F0A;
+        public cbPacket = stStallRet;
         public constructor() {
             super();
             this.addProperty('dwIndex', PacketBase.TYPE_DWORD);
@@ -380,6 +411,7 @@ module ProtoCmd {
         }
     }
     // 0x1F07
+    // 交易记录
     export class stConsignSellLog extends Packet {
         public static msgID: number = 0x1F07;
         public logs: Array<stConsignLogBase> = [];
@@ -414,45 +446,22 @@ module ProtoCmd {
         }
     }
 
-    // 0x1F05
-    export class stStallError extends Packet {
-        public static msgID: number = 0x1F05;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwError", PacketBase.TYPE_DWORD); //错误类型
-            this.read(data);
-        }
-        /**0上架成功<br>1下架成功*/
-        public get erroType(): number {
-            return this.getValue("dwError");
-        }
-    }
+
 
     // 0x1F05
+    // 上下架返回包
     export class stStallRet extends Packet {
         public static msgID: number = 0x1F05;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwResult', PacketBase.TYPE_BYTE);//类型
             this.read(data);
+            this.cmd = 0x1F05;
         }
 
-        /**1物品上架成功*/
+        /**0物品上架成功  1 下架成功*/
         public get result(): number {
             return this.getValue("dwResult");
-        }
-    }
-
-    // 0x210B
-    // 根据玩家唯一ID 获得摊位列表(最多九个物品)
-    export class stStallViewFromPlayerId extends Packet {
-        public static msgID: number = 0x210B;
-        public constructor() {
-            super();
-            this.addProperty('dwSellerOnlyId', PacketBase.TYPE_DOUBLE);//出售人ID
-            this.addProperty('szSellerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//出售人名字
-            this.addProperty('nStallIndex', PacketBase.TYPE_INT);//摊位索引	
-            this.cmd = 0x210B;
         }
     }
 

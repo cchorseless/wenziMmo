@@ -18,6 +18,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // 更新本地密匙 109
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
+        // 服务器tips提示
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
         // 玩家进入地图 201
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
         // 地图创建怪物 202
@@ -149,6 +151,16 @@ class ServerListener extends SingletonClass {
         }
         Log.trace('------->>token=' + token);
         msgData.clear();
+    }
+    /**
+     * 服务器提示的tips
+     * @param data 
+     */
+    public showTips(data): void {
+        let cbpkt = new ProtoCmd.TipMsg(data);
+        TipsManage.showTips(cbpkt.tipmsg);
+        cbpkt.clear();
+        cbpkt = null;
     }
 
     /**
@@ -447,9 +459,13 @@ class ServerListener extends SingletonClass {
         let level = msg.getValue('dwLevel');
         let i64LeftExp = msg.getValue('i64LeftExp');
         let i64MaxExp = msg.getValue('i64MaxExp');
-
-        // player.changeLevel(level);
-        // player.changeExp(i64LeftExp, i64MaxExp);
+        let player: GameObject.Player;
+        // 玩家等级改变
+        if (GameApp.MainPlayer.tempId == dwTempId) {
+            player = GameApp.MainPlayer;
+        }
+        player.changeLevel(level);
+        player.changeExp(i64LeftExp, i64MaxExp);
         msg.clear();
         msg = null;
     }

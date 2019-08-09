@@ -34,15 +34,31 @@ module view.beiBao {
 				this.showSmallTab(false);
 				this.btn_bagLogo.skin = 'image/bag/icon_itemfunc' + index + '.png';
 				this.btn_bagLogo.selected = true;
+				// 绑定物品不能交易
+				let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
+				for (let key of allKey) {
+					let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
+					ui_item && ui_item.canGoToSell(index === 2);
+				}
 				switch (index) {
 					// 回收界面
 					case 0:
+						this.lbl_bagLogolbl.text = '背包|回收';
+						this.ui_huiShou.setData()
+						this.viw_BagViewChange.selectedIndex = 0;
+						this.viw_bagBottom.selectedIndex = index;
+						break;
 					// 仓库界面
 					case 1:
+						this.lbl_bagLogolbl.text = '背包|仓库';
+						this.ui_cangKu.setData()
+						this.viw_BagViewChange.selectedIndex = 0;
+						this.viw_bagBottom.selectedIndex = index;
+						break;
 					// 摆摊界面
 					case 2:
-						this.lbl_bagLogolbl.text = ['背包|回收', '背包|仓库', '背包|摆摊'][index];
-						[this.ui_huiShou, this.ui_cangKu, this.ui_tanWei][index].setData()
+						this.lbl_bagLogolbl.text = '背包|摆摊';
+						this.ui_tanWei.setData()
 						this.viw_BagViewChange.selectedIndex = 0;
 						this.viw_bagBottom.selectedIndex = index;
 						break;

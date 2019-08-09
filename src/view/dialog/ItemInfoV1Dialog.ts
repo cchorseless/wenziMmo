@@ -12,23 +12,35 @@ module view.dialog {
 			switch (this.model) {
 				// 背包-回收
 				case 0:
+					break;
 				// 背包-仓库
 				case 1:
+					break;
 				// 背包-摆摊
 				case 2:
+					// 参考价格
+					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID);
+					// 输入完成事件
+					this.input_price.on(Laya.UIEvent.BLUR, this, () => {
+						let price = parseInt(this.input_price.text);
+						let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID);
+						this.input_price.text = '' + Math.max(Math.min(99999999, price), minPrice);
+					})
+					break;
 				// 仓库内
 				case 3:
+					break;
 				// 角色身上
 				case 4:
-					this.viw_model.selectedIndex = model;
 					break;
 				// 商店内,无操作按钮，所以需要缩短界面高度
 				case 5:
-					this.viw_model.selectedIndex = model;
 					this.height -= this.viw_model.height;
 					break;
 			}
+			this.viw_model.selectedIndex = model;
 			let dwBaseID = '' + obj.dwBaseID;
+			// 是否绑定
 			this.lbl_isLock.visible = Boolean(obj.dwBinding);
 			// 物品名称
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
@@ -79,7 +91,7 @@ module view.dialog {
 				// 背包-摆摊
 				case 2:
 					// 上架物品
-					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
+					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.goToSell);
 					break;
 				// 仓库内
 				case 3:
@@ -313,13 +325,13 @@ module view.dialog {
 						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.cangKuDB[i64ItemId];
 						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
-						TipsManage.showTips('放入仓库成功');
+						TipsManage.showTips('取出仓库成功');
 					} else {
-						TipsManage.showTips('放入仓库失败(client 01)');
+						TipsManage.showTips('取出仓库失败(client 01)');
 					}
 				}
 				else {
-					TipsManage.showTips('放入仓库失败(server ' + errorcode + ')');
+					TipsManage.showTips('取出仓库失败(server ' + errorcode + ')');
 				}
 				msg.clear();
 				msg = null;
@@ -328,7 +340,28 @@ module view.dialog {
 
 
 		}
+		/**
+		 * 上架道具
+		 */
+		public goToSell(): void {
+			this.close();
+			if (this.ui_item.isNotCanSell) {
+				TipsManage.showTips('绑定物品不能交易');
+				return
+			}
+			let pkt = new ProtoCmd.stAuctionSellItem();
+			pkt.setValue('i64Id', this.itemObj.i64ItemID);
+			pkt.setValue('dwCount', 1);
+			pkt.setValue('dwPrice', parseInt(this.input_price.text));
+			pkt.setValue('btDays', 1);
+			pkt.setValue('boShowName', false);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stStallRet(data);
+				if (cbpkt.result === 0) {
+					TipsManage.showTips('上架成功');
+				}
+			})
+		}
 
-		public
 	}
 }

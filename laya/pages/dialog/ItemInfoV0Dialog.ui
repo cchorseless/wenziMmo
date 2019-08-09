@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":30,
+    "selectedBox":40,
+    "selecteID":39,
     "referenceLines":null,
     "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
@@ -123,13 +123,14 @@
             "props":{"x":24,"width":451,"var":"viw_model","selectedIndex":0,"height":52,"bottom":30},
             "nodeParent":1,
             "label":"ViewStack(viw_model)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":18,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"name":"item0"},
                     "nodeParent":18,
@@ -167,6 +168,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":2,"x":153,"width":133,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
                     "nodeParent":18,
@@ -177,22 +179,90 @@
                     "compId":23,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
-                    "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item2","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":0,"name":"item2"},
                     "nodeParent":18,
-                    "label":"Button(btn_goSell)",
-                    "isDirectory":false,
+                    "label":"Box(item2)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":24,
+                    "hasChild":true,
+                    "compId":42,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":12,"width":107,"text":"出售总价:","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
+                            "nodeParent":42,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":36,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":7,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
+                            "nodeParent":42,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":40,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-1,"x":-1,"skin":"image/main/icon_common_yuanbao01.png"},
+                                    "nodeParent":40,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":37,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"TextInput",
+                                    "props":{"y":0,"x":31,"width":143,"var":"input_price","type":"number","text":"666666","restrict":"0123456789","maxChars":20,"height":39,"fontSize":25,"align":"center"},
+                                    "nodeParent":40,
+                                    "label":"TextInput(input_price)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":39,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"x":316,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
+                            "nodeParent":42,
+                            "label":"Button(btn_goSell)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":24,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":2,"x":153,"width":133,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item3","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":50},
                     "nodeParent":18,
@@ -203,9 +273,10 @@
                     "compId":25,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item4","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":50},
                     "nodeParent":18,
@@ -216,9 +287,10 @@
                     "compId":26,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "props":{"y":0,"x":0,"name":"item5"},
                     "nodeParent":18,
@@ -270,6 +342,19 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":42,"x":283,"width":75,"var":"lbl_isLock","text":"已绑定","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#03f847"},
+            "nodeParent":1,
+            "label":"Label(lbl_isLock)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":34,
+            "child":[
+                ]
         }],
     "animations":[
         {
