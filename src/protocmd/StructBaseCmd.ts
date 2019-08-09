@@ -939,6 +939,483 @@ module ProtoCmd {
 
     }
 
+
+ export class stDonateLogBase extends PacketBase {
+        public item: ItemBase = new ItemBase(null);
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名字
+            this.addProperty("btAction", PacketBase.TYPE_BYTE);//0捐献 1兑换 2摧毁
+            this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);//物品
+            this.addProperty("dwTime", PacketBase.TYPE_DWORD);//时间
+            if (data) {
+                data.pos += this.read(data);
+            }
+        }
+
+        public clear(): void {
+            super.clear();
+            this.item.clear();
+            this.item = null;
+        }
+    }
+
+    export class stGSGuildInfoBase extends PacketBase {
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
+            this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);
+            this.addProperty('dwPowerLeve', PacketBase.TYPE_DWORD);
+            this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('dwCurExp', PacketBase.TYPE_DWORD);
+            this.addProperty('dwLevelUpExp', PacketBase.TYPE_DWORD);
+            this.addProperty('i64StoreExp', PacketBase.TYPE_INT64);
+            if (data) data.pos += this.read(data);
+        }
+    }
+
+	export class stSingleGuildinfoBase extends PacketBase
+	{
+	public constructor(data: Laya.Byte) {
+            super();
+			//super(data);
+			 this.addProperty("dwCurGuildPlayerCount",PacketBase.TYPE_DWORD);
+			 this.addProperty("dwCurGuildOnlineCount",PacketBase.TYPE_DWORD);
+			 this.addProperty("dwGuildPlayerTotalLvl",PacketBase.TYPE_DWORD);
+			 this.addProperty("szAllMasters",PacketBase.TYPE_STRING,288); 
+			 this.addProperty("dwRank",PacketBase.TYPE_DWORD);
+			 this.addProperty("btMasterSex",PacketBase. TYPE_BYTE);
+			 this.addProperty("btMasterJob",PacketBase. TYPE_BYTE);
+			 this.addProperty("btRelation",PacketBase.TYPE_BYTE);//本帮与此帮会的关系0：正常  1：宣战
+			if(data)
+			{
+				data.pos +=this.read(data);
+			}
+		}
+	}
+export class stGuildEventBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			 this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
+			 this.addProperty("dwEventTime",PacketBase.TYPE_DWORD);
+			 this.addProperty('szEventText',PacketBase.TYPE_STRING,256);
+			 this.addProperty("dwEventType",PacketBase.TYPE_DWORD);
+			if (data) data.pos+= this.read(data);
+		}
+	}
+
+    export class stClassEventBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("CampClassId",PacketBase.TYPE_DWORD);//key为 营队*100+班级	营队最大99	班级最大99
+			this.addProperty("dwTime",PacketBase.TYPE_DWORD);
+			this.addProperty("szEvents",PacketBase.TYPE_STRING,512);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+
+
+    /**
+	 * 班级信息
+	 * */
+	export class stClassInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwCampId",PacketBase.TYPE_DWORD);
+			this.addProperty("dwClassId",PacketBase.TYPE_DWORD);
+			this.addProperty("dwOnlineNum",PacketBase.TYPE_DWORD);
+			this.addProperty("dwTotalNum",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos +=this.read(data);
+			}
+		}
+	}
+
+    /**
+	 * 用户信息
+	 * */
+	export class szAskJoinUserInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("btSex",PacketBase.TYPE_BYTE);
+			this.addProperty("btJob",PacketBase.TYPE_BYTE);
+			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("boOnline",PacketBase.TYPE_BOOL);
+			this.addProperty("dwLastLoginOutTime",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos +=this.read(data);
+			}
+		}
+	}
+    export class stGSALLGuild extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
+			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("dwGuildLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("dwCurGuildPlayerCount",PacketBase.TYPE_DWORD);
+			if(data){
+				data.pos += this.read(data);
+			}
+		}
+
+
+		public  get dwGuildId():number{
+			return this.getValue('dwGuildId');
+		}
+
+		public  get szGuildName():string{
+			return this.getValue('szGuildName');
+		}
+
+		public  get dwGuildLevel():number{
+			return this.getValue('dwGuildLevel');
+		}
+		
+		public  get dwCurGuildPlayerCount():number{
+			return this.getValue('dwCurGuildPlayerCount');
+		}
+		
+	}
+
+
+    export class AliaMemberInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("btJob",PacketBase.TYPE_BYTE);
+			this.addProperty("btSex",PacketBase.TYPE_BYTE);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	export class DiplomacyGuildBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
+			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("dwOnlinePlayerCount",PacketBase.TYPE_DWORD);
+			this.addProperty("dwGuildPlayerCount",PacketBase.TYPE_DWORD);
+			this.addProperty("szMasterNamep",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("dwGuildLevel",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
+export class stGuildMemberBase extends PacketBase
+	{
+    public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty('dwUserOnlyId',PacketBase.TYPE_DOUBLE);				//角色唯一ID
+			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);							//名称
+			this.addProperty('szAliaName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);						//别名
+			this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);					//行会id	
+			this.addProperty('tInTime',PacketBase.TYPE_DWORD);						//加入氏族时间
+			this.addProperty("dwGuildPowerLvl",PacketBase.TYPE_DWORD);		//职位等级
+			if (data) data.pos += this.read(data);				
+		}
+	}
+
+
+export class stSingleGuildMemberInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+				this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+				this.addProperty("btJob",PacketBase.TYPE_BYTE);
+				this.addProperty("btSex",PacketBase.TYPE_BYTE);
+				this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+				this.addProperty("dwGuildPowerLvl",PacketBase.TYPE_DWORD);
+				this.addProperty("szAliaName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+				this.addProperty("dwDayGuildDedication",PacketBase.TYPE_DWORD);
+				this.addProperty("dwGuildDedication",PacketBase.TYPE_DWORD);//贡献度
+				this.addProperty("dwFightNum",PacketBase.TYPE_DWORD);//战斗力
+				this.addProperty("dwRank",PacketBase.TYPE_DWORD);//个人信息
+				this.addProperty("boOnline",PacketBase.TYPE_BOOL);
+				
+				this.addProperty("btPlatForm",PacketBase.TYPE_BYTE);//平台类型
+				this.addProperty("btTxYellowType",PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+				this.addProperty("btTxYellowLevel",PacketBase.TYPE_BYTE);//黄钻等级
+				this.addProperty("btLevel3366",PacketBase.TYPE_BYTE);//3366等级
+				this.addProperty("btTxBlueType",PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+				this.addProperty("btTxBlueLevel",PacketBase.TYPE_BYTE);//蓝钻等级
+				this.addProperty("btTxQQVipType",PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+				this.addProperty("btTxQQVipLevel",PacketBase.TYPE_BYTE);//QQ会员等级
+				if(data)
+				{
+					data.pos += this.read(data);
+				}
+		}
+	}
+
+
+    export class stGuildMemberExtenBase extends PacketBase
+	{
+		public  constructor(data: Laya.Byte) {
+            super();
+			this.addProperty('dwUserOnlyId',PacketBase.TYPE_DOUBLE);				//角色唯一ID
+			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);							//名称
+			this.addProperty('szAliaName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);						//别名
+			this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);					//行会id	
+			this.addProperty('tInTime',PacketBase.TYPE_DWORD);						//加入氏族时间
+			this.addProperty("dwGuildPowerLvl",PacketBase.TYPE_DWORD );		//职位等级
+			this.addProperty("dwRank",PacketBase.TYPE_DWORD);                    //会内排名
+			this.addProperty("btJob",PacketBase.TYPE_BYTE);
+			this.addProperty("btSex",PacketBase.TYPE_BYTE);
+			if (data) data.pos += this.read(data);	
+		}
+	}
+
+    export class stVoterBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("btVote",PacketBase.TYPE_BYTE);
+			if(data){
+				data.pos +=this.read(data);
+			}
+		}
+	}
+
+    /**
+	 * 班级成员信息
+	 * */
+	export class stStudentInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwOnlyId",PacketBase.TYPE_DOUBLE);
+			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("boOnline",PacketBase.TYPE_BOOL);
+			this.addProperty("btSex",PacketBase.TYPE_BYTE);
+			this.addProperty("btJob",PacketBase.TYPE_BYTE);
+			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    export class stGreenGuildJobJoinConfig extends PacketBase
+	{
+		public  btJob:number = 0;
+		public  dwAllowPlayerLvl:number=0;
+		public  dwAllowJoinCount:number=0;
+		public  dwPlayerCount:number=0;
+		public  btAllowType:number=0;
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("btJob",PacketBase.TYPE_BYTE);//职业
+			this.addProperty("dwAllowPlayerLvl",PacketBase.TYPE_DWORD);//要求等级
+			this.addProperty("dwAllowJoinCount",PacketBase.TYPE_DWORD);//允许加入数量
+			this.addProperty("dwPlayerCount",PacketBase.TYPE_DWORD);//已招收当前职业人数
+			this.addProperty("btAllowType",PacketBase.TYPE_BYTE);//审批模式
+			if(data)data.pos += this.read(data);
+		}
+
+		 public  read(data:Laya.Byte):number{
+			var npos:number=super.read(data);
+			this.btJob = this.getValue("btJob");
+			this.dwAllowPlayerLvl= this.getValue("dwAllowPlayerLvl");
+
+			this.dwAllowJoinCount= this.getValue("dwAllowJoinCount");
+			this.dwPlayerCount= this.getValue("dwPlayerCount");
+			this.btAllowType= this.getValue("btAllowType");
+			return npos;
+		}
+	}
+
+    export class stGuildEventDB extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty('dwGuildID',PacketBase.TYPE_DWORD);
+			this.addProperty('dwTime',PacketBase.TYPE_DWORD);
+			this.addProperty('szEvents',PacketBase.TYPE_STRING,512);
+			if (data) data.pos+= this.read(data);
+		}
+	}
+
+    export class stMemberLvlConfigBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty('szLvvName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//
+			this.addProperty('dwAuthority',PacketBase.TYPE_INT);//
+			if (data) data.pos += this.read(data);
+		}
+	}
+
+    export class stWarGuildBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwWarGuildId",PacketBase.TYPE_DWORD);
+			this.addProperty("szWarGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("tWarOverTime",PacketBase.TYPE_DWORD);
+			this.addProperty("tWarRemainTime",PacketBase.TYPE_DWORD);
+			this.addProperty("dwKillNum",PacketBase.TYPE_DWORD);
+			this.addProperty("dwDieNum",PacketBase.TYPE_DWORD);
+			if (data) data.pos += this.read(data);
+
+		}
+	}
+    export class stClientGuildInfo  extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty('szName', PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty('dwLevel' ,PacketBase.TYPE_DWORD); 
+			this.addProperty('szGuildMasterName', PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty('dwGuildMasterOnlyId' ,PacketBase.TYPE_DOUBLE);
+			this.addProperty('dwOnlinePlayerCount', PacketBase.TYPE_DWORD);
+			this.addProperty('dwPlayerCount' ,PacketBase.TYPE_DWORD);
+			this.addProperty('dwOnlinMasterOnlyid',PacketBase.TYPE_DOUBLE);
+
+			this.addProperty('nPlayerLevelSum',PacketBase.TYPE_DWORD);
+			this.addProperty('nOnlinePlayerLevelSum',PacketBase.TYPE_DWORD);
+			this.addProperty('nMaxMemberCount',PacketBase.TYPE_DWORD);
+			if (data) data.pos += this.read(data);
+		}
+	}
+
+    export class stClassDB extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("szClassNotice",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("CampId",PacketBase.TYPE_DWORD);
+			this.addProperty("ClassId",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+
+    export class stGuildDB extends PacketBase
+	{
+		public  constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwID",PacketBase.TYPE_DWORD);
+			this.addProperty("szName",PacketBase.TYPE_STRING,48);
+			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("dwCurExp",PacketBase.TYPE_DWORD);
+			this.addProperty("dwLevelUpExp",PacketBase.TYPE_DWORD);
+			this.addProperty("i64StoreExp",PacketBase.TYPE_INT64);
+			this.addProperty("dwShenTaLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("dwShenTaCurExp",PacketBase.TYPE_DWORD);
+			this.addProperty("dwShenTaMaxExp",PacketBase.TYPE_DWORD);
+			this.addProperty("dwMaxPlayerCount",PacketBase.TYPE_DWORD );
+			this.addProperty("szNotice",PacketBase.TYPE_STRING,512);
+			this.addProperty("dwMasterOnlyId",PacketBase.TYPE_DOUBLE);
+			this.addProperty("dwCreateTime",PacketBase.TYPE_DWORD);
+			this.addProperty("dwWeekFieldBoss",PacketBase.TYPE_DWORD);
+			this.addProperty("dwWeekGuildBoss",PacketBase.TYPE_DWORD);
+			this.addProperty("dwJoinNeedLvl",PacketBase.TYPE_DWORD);
+			this.addProperty("szJoinNotice",PacketBase.TYPE_STRING,512);
+			this.addProperty("szAliaNames",PacketBase.TYPE_STRING,1024);
+			if(data)
+			{
+				data.pos +=this.read(data);
+			}
+		}
+	}
+
+    // export class stGuildMemberDB extends PacketBase
+	// {
+	// 	public constructor(data: Laya.Byte) {
+    //         super();
+	// 		this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);			//名称
+	// 		this.addProperty('szAliaName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);	//别名
+	// 		this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);						//行会id
+	// 		this.addProperty('dwUserOnlyId',PacketBase.TYPE_DOUBLE);							//角色唯一ID
+	// 		this.addProperty('tInTime',PacketBase.TYPE_DWORD);			//加入氏族时间
+	// 		this.addProperty('tLoginOutTime',PacketBase.TYPE_DWORD);	//上次下线时间
+	// 		this.addProperty('dwPositionLvl',PacketBase.TYPE_DWORD);				//职位等级
+	// 		if (data) data.pos += this.read(data);
+	// 	}
+	// }
+    // 	export class stGuildNameMsg  extends PacketBase
+	// {
+	// 	public  m_nGuildID:number = 0;
+	// 	public  m_szGuildName:String = '';
+	// 	public  m_cTitleNameArray:Array = [new Array];
+	// 	public  stGuildNameMsg()
+	// 	{
+
+	// 	}
+		
+	// 	public  getTitleName(n:number):String{
+	// 		return this.m_cTitleNameArray[n] as String;
+	// 	}
+	// }
+
+
+    	export class stGuildPower extends PacketBase
+	{
+		public  szPowerName:String = '';
+		public  nPower:number = 0;
+		public  constructor() {
+            super();
+		}
+		
+		public  change(szpname:String,np:number):void{
+			this.szPowerName = szpname;
+			this.nPower = np;
+		}
+
+	}
+
+    export class stGuildRelation extends PacketBase
+	{
+		public  constructor() {
+            super();
+			this.addProperty("szInterestGuild",PacketBase.TYPE_CHAR,1024 * 8);
+			this.addProperty("szAllianceGuild",PacketBase.TYPE_CHAR,1024 * 8);
+			this.addProperty("szHostilityGuild",PacketBase.TYPE_CHAR,1024 * 8);
+			this.addProperty("szFightGuild",PacketBase.TYPE_CHAR,1024 * 8);
+		}
+	}
+
+    export class stStudentDB extends PacketBase
+	{
+		public  constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("StudentOnlyId",PacketBase.TYPE_DOUBLE);
+			this.addProperty("CampId",PacketBase.TYPE_DWORD);
+			this.addProperty("ClassId",PacketBase.TYPE_DWORD);
+			this.addProperty("BoLeader",PacketBase.TYPE_BOOL);
+			this.addProperty("ClassNumber",PacketBase.TYPE_DWORD);
+			if(data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
     /**
      * 摊位信息
      */
