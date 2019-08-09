@@ -838,7 +838,7 @@ module ProtoCmd {
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
             this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60);
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
-            this.read(data);
+             if (data) { data.pos += this.read(data); }
         }
 
         public read(data: Laya.Byte): number {
@@ -1404,7 +1404,7 @@ module ProtoCmd {
         public boShowSellName: boolean;
 
         public constructor(data: Laya.Byte = null) {
-            super(data);
+            super(null);
             this.addProperty('dwIndex', PacketBase.TYPE_DWORD);
             this.addProperty('btConsignType', PacketBase.TYPE_BYTE);
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -1447,8 +1447,12 @@ module ProtoCmd {
         }
 
         public read(data: Laya.Byte): number {
-            this.readProperty();
-            return super.read(data);
+           if (data) {
+                data.pos += super.read(data);
+                this.readProperty();
+                return this._bytes.length;
+            }
+            return 0;
         }
 
     }
