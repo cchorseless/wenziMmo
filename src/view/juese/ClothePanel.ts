@@ -4,6 +4,7 @@ module view.juese {
 		constructor() {
 			super();
 			this.setData();
+
 		}
 		public setData(): void {
 			this.btn_clotheReturn.on(Laya.UIEvent.CLICK, this, () => {
