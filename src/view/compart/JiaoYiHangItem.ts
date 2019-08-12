@@ -3,8 +3,6 @@ module view.compart {
 	export class JiaoYiHangItem extends ui.compart.JiaoYiHangItemUI {
 		constructor() {
 			super();
-			this.setData();
-			this.addEvent();
 		}
 
 		public setData(): void {
@@ -25,6 +23,7 @@ module view.compart {
 				this.btn_type.label = this.tab_type.labels.split(',')[index];
 			}, null, false);
 			this.initUI();
+			this.addEvent();
 		}
 
 		public addEvent(): void {

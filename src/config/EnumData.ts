@@ -73,7 +73,7 @@ module EnumData {
         SEX_MAN = 1,
         SEX_WOMEN = 2
     }
-// 
+    // 
     /**
      * 装备部位
      */
@@ -473,5 +473,33 @@ module EnumData {
 
 
 
+
+
+    // *************************************工会***************************************
+    /**
+     * 行会捐献错误码
+     */
+    export enum emGuildDonateErrorCode {
+        _GUILD_RET_SUCCESS,								//无操作
+        _GUILD_RET_FAIL_AUTHORITY,						//权限不够
+        _GUILD_RET_FAIL_NOTFOUND_USER,					//用户无法查找
+        _GUILD_RET_ADDMEMBER_FAIL_MEMBERMAX,			//行会人满
+        _GUILD_RET_ADDMEMBER_FAIL_ISHAVEGUILD,			//对方已经有行会
+        _GUILD_RET_ADDMEMBER_FAIL_WAITASK,				//等待对方应答
+        _GUILD_RET_QUITCLAN_FAIL_MASTERANDTWO,			//行会必须有2个人以上才能删除成员
+        _GUILD_RET_CREATE_FAIL,							//行会创建失败
+        _GUILD_RET_CREATE_FAIL_HAVENAME,				//行会名检查重复
+        _GUILD_RET_MAXLEVEL,							//行会达到最大等级
+        _GUILD_RET_FAIL_NOTFOUND,						//行会没有找到
+        _GUILD_RET_FAIL_ASKJOIN_MINLVL,					//加入行会等级不够
+        _GUILD_RET_FAIL_ASKJOIN_ISHAVEGUILD,			//加入行会已经有行会
+        _GUILD_RET_FAIL_HAVECLASS,						//有班级无法加入行会
+        _GUILD_RET_FAIL_NOTICE,							//行会公告错误
+        _GUILD_RET_FAIL_OFFLINE,						//不在线
+        _GUILD_RET_FAIL_RELATION,						//添加关系失败
+        _GUILD_RET_ADDRElATION_WAIT,					//等待添加关系
+        _GUILD_RET_FAIL_HASRELATION,					//关系已经存在
+        _GUILD_RET_FAIL_ALREADHAS_GUILD,				//已经有行会了
+    };
 
 }

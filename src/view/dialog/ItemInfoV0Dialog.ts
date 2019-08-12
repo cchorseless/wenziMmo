@@ -206,6 +206,7 @@ module view.dialog {
 						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.cangKuDB[i64ItemId];
 						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
+						PanelManage.BeiBao && PanelManage.BeiBao.updateCangKuInfo();
 						TipsManage.showTips('取出仓库成功');
 					} else {
 						TipsManage.showTips('取出仓库失败(client 01)');

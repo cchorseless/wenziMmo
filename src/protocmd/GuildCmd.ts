@@ -34,53 +34,23 @@ module ProtoCmd {
 	}
 
 	// 0x2A54
-	// export class stClientGetSingleGuildInfo extends Packet {
-
-	// 	private static  _singletonMsg:stClientGetSingleGuildInfo;
-	// 	private static function get singletonMsg():stClientGetSingleGuildInfo{
-	// 		if(!_singletonMsg){
-	// 			_singletonMsg = new stClientGetSingleGuildInfo;
-	// 		}
-	// 		return _singletonMsg;
-	// 	}
-
-	// 	public constructor() {
-	// 		super();
-	// 		this.cmd = 0x2A54;
-	// 		this.addProperty("guildId", PacketBase.TYPE_DWORD);
-	// 	}
-
-	// 	public static hasRequestIds: Dictionary = new Dictionary;
-	// 	public static playerIds: Dictionary = new Dictionary;
-	// 	public static requestGuildName(guildId: int, playerId: String): number {
-	// 		var dict: Dictionary = playerIds[guildId];
-	// 		if (!dict) {
-	// 			dict = new Dictionary;
-	// 		}
-	// 		this.playerIds[guildId] = dict;
-	// 		dict[playerId] = playerId;
-	// 		if (hasRequestIds.hasOwnProperty(guildId)) {
-	// 			this.playerIds[guildId] = playerId;
-	// 			return;
-	// 		}
-	// 		singletonMsg.SetValue("guildId", guildId);
-	// 		singletonMsg.send();
-	// 	}
-	// }
+	//前端获取行会信息
+	export class stClientGetSingleGuildInfo extends Packet {
+		public static msgID: number = 0x2A54;
+		public cbPacket = stClientGetSingleGuildInfoRet;
+		public constructor() {
+			super();
+			this.cmd = 0x2A54;
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);
+		}
+	}
 
 
 
 	// 0x2A55
+	//前端获取行会信息返回
 	export class stClientGetSingleGuildInfoRet extends Packet {
 		public static msgID: number = 0x2A55;
-		private static _singletonMsg: stClientGetSingleGuildInfoRet;
-		public static get singletonMsg(): stClientGetSingleGuildInfoRet {
-			if (!this._singletonMsg) {
-				this._singletonMsg = new stClientGetSingleGuildInfoRet;
-			}
-			return this._singletonMsg;
-		}
-
 		public constructor() {
 			super();
 			this.addProperty("guildId", PacketBase.TYPE_DWORD);
@@ -159,7 +129,7 @@ module ProtoCmd {
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
 			for (var i: number = 0; i < this.getValue('nCount'); i++) {
-				this.stGuildeveArray[i] = (new stGuildEventBase(data));
+				this.stGuildeveArray[i] = new stGuildEventBase(data);
 			}
 			return data.pos;
 		}
@@ -174,9 +144,11 @@ module ProtoCmd {
 	}
 
     /**0x2907
-     * 申请加入班级
+     * 申请加入行会
      * */
 	export class stGlobalAskJoinClass extends Packet {
+		public static msgID: number = 0x2907;
+		public cbPacket = stGlobalAskJoinClassRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
@@ -189,7 +161,7 @@ module ProtoCmd {
 	}
 
     /**0x2908
-     * 申请加入班级返回
+     * 申请加入行会返回
      * */
 	export class stGlobalAskJoinClassRet extends Packet {
 		public static msgID: number = 0x2908;
@@ -205,9 +177,11 @@ module ProtoCmd {
 	}
 
     /**0x2901
-     * 系统自动加入班级
+     * 系统自动加入刚回
      * */
 	export class stGlobalAutoJoinClass extends Packet {
+		public static msgID: number = 0x2901;
+		public cbPacket = stGlobalAutoJoinClassRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2901;
@@ -238,6 +212,8 @@ module ProtoCmd {
      * 系统自动退出班级
      * */
 	export class stGlobalAutoLeaveClass extends Packet {
+		public static msgID: number = 0x2903;
+		public cbPacket = stGlobalAutoLeaveClassRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);

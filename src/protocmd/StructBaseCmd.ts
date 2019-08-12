@@ -1302,7 +1302,9 @@ module ProtoCmd {
 
     }
 
-
+    /**
+     * 行会捐献日志
+     */
     export class stDonateLogBase extends PacketBase {
         public item: ItemBase = new ItemBase(null);
         public constructor(data: Laya.Byte) {
@@ -1353,6 +1355,9 @@ module ProtoCmd {
             }
         }
     }
+    /**
+     * 行会事件
+     */
     export class stGuildEventBase extends PacketBase {
         public constructor(data: Laya.Byte) {
             super();

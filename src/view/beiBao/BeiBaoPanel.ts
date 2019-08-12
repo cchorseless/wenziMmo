@@ -65,6 +65,7 @@ module view.beiBao {
 					// 交易行界面
 					case 3:
 						this.lbl_bagLogolbl.text = '交易行';
+						this.ui_jiaoyihang.setData()
 						this.viw_BagViewChange.selectedIndex = 1;
 						break;
 				}
@@ -180,8 +181,16 @@ module view.beiBao {
 		 * 更新摊位信息
 		 */
 		public updateTanWei(): void {
-			if (!this.destroyed && this.ui_tanWei.visible) {
+			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 2) {
 				this.ui_tanWei.updateTanWeiUI();
+			}
+		}
+		/**
+		 * 更新仓库
+		 */
+		public updateCangKuInfo(): void {
+			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 1) {
+				this.ui_cangKu.updateCangKuUI()
 			}
 		}
 
@@ -195,5 +204,6 @@ module view.beiBao {
 			return true
 
 		}
+
 	}
 }

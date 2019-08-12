@@ -36,6 +36,7 @@ module view.compart {
 				this['box_mode' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.showBattleModel(false);
 					this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
+					this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
 				});
 			}
 		}
@@ -135,7 +136,6 @@ module view.compart {
 			if (!find) {
 				throw new Error('没有在视野中发现' + obj.tempId);
 			}
-			console.log('removeMonster==>当前场景内怪物数据' + (this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren))
 		}
 
 		/**

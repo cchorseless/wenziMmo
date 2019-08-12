@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":11,
-    "selecteID":12,
+    "selectedBox":1,
+    "selecteID":13,
     "props":{"width":640,"sceneColor":"#665c5c","height":800},
     "nodeParent":-1,
     "label":"View",
@@ -121,7 +121,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":69,"x":108,"width":185,"var":"img_typeShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":665,"anchorX":0.5},
+            "props":{"y":69,"x":90,"width":170,"var":"img_typeShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":665,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_typeShow)",
             "isOpen":true,
@@ -133,7 +133,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":-1,"width":183,"var":"tab_type","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部类型,头盔,项链,衣服,武器,手镯,戒指,鞋子,腰带,药剂,强化道具,其他物品","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":552,"direction":"vertical"},
+                    "props":{"y":0,"x":-7,"width":183,"var":"tab_type","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部类型,头盔,项链,衣服,武器,手镯,戒指,鞋子,腰带,药剂,强化道具,其他物品","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":552,"direction":"vertical"},
                     "nodeParent":11,
                     "label":"Tab(tab_type)",
                     "isDirectory":false,
@@ -141,14 +141,15 @@
                     "hasChild":false,
                     "compId":12,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":70,"x":320,"width":185,"var":"img_jobShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":233,"anchorX":0.5},
+            "props":{"y":69,"x":270,"width":170,"var":"img_jobShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":233,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_jobShow)",
             "isOpen":true,
@@ -160,7 +161,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":0,"width":183,"var":"tab_job","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部职业,战士,法师,道士","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
+                    "props":{"y":0,"x":-7,"width":183,"var":"tab_job","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部职业,战士,法师,道士","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":190,"direction":"vertical"},
                     "nodeParent":13,
                     "label":"Tab(tab_job)",
                     "isDirectory":false,
@@ -170,12 +171,12 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":70,"x":528,"width":185,"var":"img_levelShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":445,"anchorX":0.5},
+            "props":{"y":70,"x":450,"width":170,"var":"img_levelShow","skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,41,68,40","height":445,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(img_levelShow)",
             "isOpen":true,
@@ -187,7 +188,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":1,"width":183,"var":"tab_level","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部等级,1-60级,70级,80级,1-2转,3-4转,5-6转,7-8转","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":370,"direction":"vertical"},
+                    "props":{"y":0,"x":-7,"width":183,"var":"tab_level","stateNum":2,"space":-10,"skin":"image/main/fram_common_27_finish.png","selectedIndex":0,"scaleY":1.2,"scaleX":1,"labels":"全部等级,1-60级,70级,80级,1-2转,3-4转,5-6转,7-8转","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelPadding":"5,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF","height":370,"direction":"vertical"},
                     "nodeParent":15,
                     "label":"Tab(tab_level)",
                     "isDirectory":false,
@@ -197,7 +198,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
