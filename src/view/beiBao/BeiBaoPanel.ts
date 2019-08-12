@@ -172,20 +172,6 @@ module view.beiBao {
 			}
 		}
 
-		/**
-		 * 更新摊位信息
-		 */
-		public updateTanWei(): void {
-			if (!this.destroyed && this.ui_tanWei.visible) {
-				this.ui_tanWei.updateTanWeiUI();
-			}
-		}
-		public checkTanWeiIsFull(): boolean {
-			if (this.ui_tanWei && this.ui_tanWei.vbox_sell.numChildren >= SheetConfig.canshuSheet.getInstance(null).DATA('JYH_MAXIMUM_SALES')[0]) {
-				return false
-			}
-			return true
 
-		}
 	}
 }

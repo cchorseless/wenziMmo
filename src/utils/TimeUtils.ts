@@ -6,7 +6,7 @@ module TimeUtils {
     /**
      * 根据秒数格式化字符串
      * @param second 秒数
-     * @param type 1:hh:mm:ss;2:yyyy-mm-dd h:m:s;3:mm:ss;4:xx天前,xx小时前，xx分钟前;5:XX天XX小时XX分钟XX秒;6:dd:hh:mm
+     * @param type 1:hh:mm:ss;2:yyyy-mm-dd h:m:s;3:mm:ss;4:xx天前,xx小时前，xx分钟前;5:XX天XX小时XX分钟XX秒
      * @return {string}
      *
      */
@@ -109,7 +109,7 @@ module TimeUtils {
         }
         return hours + ":" + mins + ":" + sens;
     }
-
+    function add0(m) { return m < 10 ? '0' + m : m }
     // 2:yyyy-mm-dd h:m:s
     function getFormatBySecond2(time: number): string {
         var date: Date = new Date(time);
@@ -120,6 +120,7 @@ module TimeUtils {
         var minute: number = date.getMinutes();
         var second: number = date.getSeconds();
         return year + "-" + month + "-" + day + " " + hours + ":" + minute + ":" + second;
+        //return year + '-' + add0(month) + '-' + add0(date) + ' ' + add0(hours) + ':' + add0(minute) + ':' + add0(second);
     }
     // 3: mm:ss
     function getFormatBySecond3(t: number = 0): string {
