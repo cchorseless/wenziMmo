@@ -480,7 +480,7 @@ class ServerListener extends SingletonClass {
         // });
         let msg = new ProtoCmd.CretChat(data);
         if (msg.chatMsg != "") {
-            PanelManage.Main.updateChatView(msg);
+            PanelManage.Main && PanelManage.Main.updateChatView(msg);
         }
         msg.clear();
         // Laya.Pool.recover("ProtoCmd.CretChat", msg);

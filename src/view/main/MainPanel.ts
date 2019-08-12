@@ -247,7 +247,7 @@ module view.main {
 						// PanelManage.openFuBenPanel();
 						break;
 					case "box_tuJian":
-						PanelManage.openTuJianJiangHuPanel();
+						// PanelManage.openFuBenPanel();
 						break;
 					case "box_task":
 						PanelManage.openTaskPanel();

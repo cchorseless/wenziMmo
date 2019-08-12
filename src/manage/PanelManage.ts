@@ -56,9 +56,6 @@ module PanelManage {
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
-    export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//江湖图鉴界面
-    export let TuJianJuese: view.tujian.TuJianJuesePanel;//角色图鉴界面
-    export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//物品图鉴界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -450,53 +447,4 @@ module PanelManage {
         })
     }
      
-      /**
-     * 江湖图鉴界面
-     */
-    export function openTuJianJiangHuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJiangHu) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianJiangHu);
-        ResManage.loadResource(ResData.PanelRes.TuJianJiangHu, () => {
-            PanelManage.TuJianJiangHu = new view.tujian.TuJianJiangHuPanel();
-            PanelManage.TuJianJiangHu['LCP_skin'] = ResData.PanelRes.TuJianJiangHu;
-            PanelManage.TuJianJiangHu.setData();
-            PanelManage.TuJianJiangHu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 3);
-        })
-    }
-    /**
-     * 角色图鉴界面
-     */
-    export function openTuJianJuesePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJuese) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianJuese);
-        ResManage.loadResource(ResData.PanelRes.TuJianJuese, () => {
-            PanelManage.TuJianJuese = new view.tujian.TuJianJuesePanel();
-            PanelManage.TuJianJuese['LCP_skin'] = ResData.PanelRes.TuJianJuese;
-            PanelManage.TuJianJuese.setData();
-            PanelManage.TuJianJuese.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJuese, 3, 3, 3);
-        })
-    }
-
-    /**
-     * 物品图鉴界面
-     */
-    export function openTuJianDaojuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianDaoju) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianDaoju);
-        ResManage.loadResource(ResData.PanelRes.TuJianDaoju, () => {
-            PanelManage.TuJianDaoju = new view.tujian.TuJianDaojuPanel();
-            PanelManage.TuJianDaoju['LCP_skin'] = ResData.PanelRes.TuJianDaoju;
-            PanelManage.TuJianDaoju.setData();
-            PanelManage.TuJianDaoju.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianDaoju, 3, 3, 3);
-        })
-    }
 }

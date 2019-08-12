@@ -14,9 +14,6 @@ module view.compart {
 		}
 
 		public addEvent(): void {
-			this.btn_zhengLi.on(Laya.UIEvent.CLICK, this, () => {
-
-			})
 		}
 
 		public initUI(): void {
