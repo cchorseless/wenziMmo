@@ -58,7 +58,8 @@ module PanelManage {
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//江湖图鉴界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//角色图鉴界面
-    export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//物品图鉴界面
+    export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//物品图鉴界面 
+    export let TuJianBoss: view.tujian.TuJianBossPanel;//怪物图鉴界面 
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -497,6 +498,22 @@ module PanelManage {
             PanelManage.TuJianDaoju.setData();
             PanelManage.TuJianDaoju.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.TuJianDaoju, 3, 3, 3);
+        })
+    }
+      /**
+     * 怪物图鉴界面
+     */
+    export function openTuJianBossPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianBoss) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.TuJianBoss);
+        ResManage.loadResource(ResData.PanelRes.TuJianBoss, () => {
+            PanelManage.TuJianBoss = new view.tujian.TuJianBossPanel();
+            PanelManage.TuJianBoss['LCP_skin'] = ResData.PanelRes.TuJianBoss;
+            PanelManage.TuJianBoss.setData();
+            PanelManage.TuJianBoss.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.TuJianBoss, 3, 3, 3);
         })
     }
 }

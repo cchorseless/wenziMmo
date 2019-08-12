@@ -71,6 +71,8 @@ module ResData {
         public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
          // 物品图鉴界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+         // 怪物图鉴界面
+        public static TuJianBoss = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
     };
     /**
      * 游戏音效资源

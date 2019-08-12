@@ -13,6 +13,9 @@ module view.tujian{
 			this.img_tujianDaoju.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianDaojuPanel();
 			});
+			this.img_tujianBoss.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTuJianBossPanel();
+			});
 		}
 	}
 }
