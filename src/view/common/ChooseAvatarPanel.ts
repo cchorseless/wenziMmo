@@ -55,12 +55,14 @@ module view.common {
   		* 开始游戏
   		*/
 		public startGame(): void {
-			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
-			selector.setValue("nselectidx", 0);
-			selector.setValue("szName", GameApp.MainPlayer.realName);
-			selector.setValue("btmapsubline", 1);
-			lcp.send(selector, this, PanelManage.Login.selectPlayerRet);
-			GameApp.GameEngine.isLogin = true;
+			// let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
+			// selector.setValue("nselectidx", 0);
+			// selector.setValue("szName", GameApp.MainPlayer.realName);
+			// selector.setValue("btmapsubline", 1);
+			// lcp.send(selector, this, PanelManage.Login.selectPlayerRet);
+			// GameApp.GameEngine.isLogin = true;
+
+			PanelManage.Login.startGame();
 		}
 	}
 }
