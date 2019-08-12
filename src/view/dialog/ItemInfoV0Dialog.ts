@@ -50,8 +50,8 @@ module view.dialog {
 			this.lbl_useLevel.text = '使用等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).LVNEED(dwBaseID) + '级';
 			// 使用职业
 			this.lbl_jobNeed.text = '职业要求:' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
-			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
-			if (this.itemObj.dwCount === 1 || this.model === 1 || this.model === 3 || this.model === 5) {
+			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏
+			if (this.itemObj.dwCount === 1 || this.model === 1 || this.model === 3) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
 				this.hsbar_count.max = this.hsbar_count.min = this.hsbar_count.value = 1;

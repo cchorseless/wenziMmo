@@ -210,14 +210,13 @@ module ProtoCmd {
             return this.getValue('dwIndex');
         }
     }
-
     // 0x1F02
     /**
      * 初始化自己摊位信息(包括 日志 物品 和 未领取的元宝数），拍卖行页签翻页
      */
     export class stAuctionChangePage extends Packet {
         public static msgID: number = 0x1F02;
-        // btType=0 3 返回 stAuctionItemsRet；
+        // btType=3 返回 stAuctionItemsRet；
         // btType=7 返回 stConsignSellLogRet
         // btType=4 返回 stAuctionProfitRet
         public cbPacket: any = stAuctionItemsRet;
@@ -228,7 +227,6 @@ module ProtoCmd {
             this.cmd = 0x1F02;
         }
     }
-
     // 0x1F09
     /**
      * 领取摊位总收益
@@ -241,7 +239,6 @@ module ProtoCmd {
             this.cmd = 0x1F09;
         }
     }
-
     // 0x1F03
     /**
      * 返回摊位道具信息结果
@@ -302,7 +299,6 @@ module ProtoCmd {
             this.items = null;
         }
     }
-
     // 0x1F08
     /**
      * 获取总收益数值返回
@@ -320,7 +316,6 @@ module ProtoCmd {
             return this.getValue("myMoney");
         }
     }
-
     // 0x1F01
     // 筛选摊位
     export class stAuctionSearch extends Packet {
@@ -329,13 +324,13 @@ module ProtoCmd {
         public constructor() {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//物品名称
-            this.addProperty('wSubType', PacketBase.TYPE_WORD);//交易子类型 装备：100*职业 其他 读配表
-            this.addProperty('wType', PacketBase.TYPE_WORD);//交易主类型 装备：1+穿戴位置 其他 读配表
-            this.addProperty('btFuzzyQuery', PacketBase.TYPE_BYTE);//模糊查询(发0)
+            this.addProperty('wSubType', PacketBase.TYPE_WORD);//交易子类型
+            this.addProperty('wType', PacketBase.TYPE_WORD);//交易主类型
+            this.addProperty('btFuzzyQuery', PacketBase.TYPE_BYTE);//模糊查询
             this.addProperty('btSortType', PacketBase.TYPE_BYTE);//升降序
             this.addProperty('szSeller', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("dwLowLv", PacketBase.TYPE_DWORD);//等级小 转生等级*1000+lv
-            this.addProperty("dwHighLv", PacketBase.TYPE_DWORD)//等级大 转生等级*1000+lv
+            this.addProperty("dwLowLv", PacketBase.TYPE_DWORD);//等级小
+            this.addProperty("dwHighLv", PacketBase.TYPE_DWORD)//等级大
             this.cmd = 0x1F01;
         }
 
@@ -363,7 +358,6 @@ module ProtoCmd {
                 this.setValue('btFuzzyQuery', 0);
             }
         }
-
         /**强化等级*/
         public set strenLevel(value: number) {
             this.setValue('btLevel', value);
@@ -389,7 +383,6 @@ module ProtoCmd {
             this.setValue('dwHighLv', value);
         }
     }
-
     // 0x1F04
     // 上架物品
     export class stAuctionSellItem extends Packet {
@@ -408,7 +401,6 @@ module ProtoCmd {
             this.cmd = 0x1F04;
         }
     }
-
     // 0x1F0A
     // 下架物品
     export class stAuctionTakeMyItem extends Packet {
@@ -421,7 +413,6 @@ module ProtoCmd {
             this.cmd = 0x1F0A;
         }
     }
-
     // 0x1F05
     // 上下架返回包
     export class stStallRet extends Packet {
@@ -438,7 +429,6 @@ module ProtoCmd {
             return this.getValue("dwResult");
         }
     }
-
     // 0x1F07
     // 交易记录返回包
     export class stConsignSellLogRet extends Packet {

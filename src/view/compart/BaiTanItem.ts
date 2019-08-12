@@ -73,14 +73,11 @@ module view.compart {
 			pkt1.setValue('btType', 7);
 			pkt1.setValue('nPage', 0);
 			lcp.send(pkt1, this, (data) => {
-				this.vbox_sellRecord.removeChildren();
 				let cbPkt1 = new ProtoCmd.stConsignSellLogRet(data);
 				let alllog = cbPkt1.logs;
 				for (let _log of alllog) {
 					let logItem = new view.compart.BaITan_LogItem();
-					console.log(_log.optime);
-					logItem.lbl_des.text = '' + TimeUtils.getFormatBySecond(_log.optime * 1000, 2) + '  ' + _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
-					this.vbox_sellRecord.addChild(logItem);
+					logItem.lbl_des.text = '' + _log.optime + '  ' + _log.buyerName + '购买了' + _log.itemName + ',获得了元宝' + _log.money;
 				}
 				cbPkt1.clear();
 				cbPkt1 = null;

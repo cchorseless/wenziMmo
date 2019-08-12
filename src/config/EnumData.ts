@@ -42,7 +42,6 @@ module EnumData {
      */
     export enum SureCanelModel {
         DELET_ITEM = 0,//背包内删除道具
-        JYH_BUY_ITEM = 1,//交易行购买物品
 
     }
 
@@ -73,7 +72,7 @@ module EnumData {
         SEX_MAN = 1,
         SEX_WOMEN = 2
     }
-// 
+
     /**
      * 装备部位
      */
@@ -201,14 +200,6 @@ module EnumData {
         ITEM_TYPE_SCROLL,		//卷轴，会响应“使用”按钮，点使用后触发脚本ID 消耗品 
         ITEM_TYPE_TASK,         //多为任务品
     };
-
-    /**
-     * 
-     */
-    export enum JYH_ITEMTYPE {
-        JYH_YAOPIN = 2,//药品
-        JYH_QITA = 3,//其他道具
-    }
 
 
     /**
@@ -472,6 +463,6 @@ module EnumData {
     };
 
 
-
+    
 
 }

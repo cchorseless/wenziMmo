@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":5,
-    "selecteID":44,
+    "selectedBox":39,
+    "selecteID":31,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -83,13 +83,14 @@
                             "props":{"y":715,"x":-2},
                             "nodeParent":5,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":38,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/yangCheng/img_pool.png"},
                                     "nodeParent":38,
@@ -102,6 +103,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-3,"x":352,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":38,
@@ -129,65 +131,17 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":522,"x":1171},
-                            "nodeParent":5,
-                            "label":"Box",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":42,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"skin":"image/yangCheng/img_farmland.png"},
-                                    "nodeParent":42,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":11,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Image",
-                                    "props":{"x":100,"skin":"image/yangCheng/img_common_24.png"},
-                                    "nodeParent":42,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":25,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":29,"x":8,"text":"种\\n地","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                            "nodeParent":25,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":26,
-                                            "child":[
-                                                ]
-                                        }]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
                             "props":{"right":0,"bottom":0},
                             "nodeParent":5,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":40,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/yangCheng/img_tieJiangPu.png"},
                                     "nodeParent":40,
@@ -200,6 +154,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":23,"x":119,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":40,
@@ -276,6 +231,55 @@
                         {
                             "x":45,
                             "type":"Box",
+                            "props":{"y":522,"x":1171},
+                            "nodeParent":5,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":42,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"skin":"image/yangCheng/img_farmland.png"},
+                                    "nodeParent":42,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":11,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"x":100,"skin":"image/yangCheng/img_common_24.png"},
+                                    "nodeParent":42,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":25,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":29,"x":8,"text":"种\\n地","fontSize":40,"font":"FZXK","color":"#ffffff"},
+                                            "nodeParent":25,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":26,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
                             "props":{"y":-5,"x":451,"width":648,"height":424},
                             "nodeParent":5,
                             "label":"Box",
@@ -301,7 +305,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":301,"x":757,"skin":"image/yangCheng/img_common_24.png"},
+                                    "props":{"y":69,"x":640,"skin":"image/yangCheng/img_common_24.png"},
                                     "nodeParent":44,
                                     "label":"Image",
                                     "isOpen":true,
@@ -416,6 +420,7 @@
                                     "compId":31,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":29,"x":8,"text":"管\\n家","fontSize":40,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":31,

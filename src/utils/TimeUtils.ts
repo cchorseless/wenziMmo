@@ -3,11 +3,10 @@
  */
 module TimeUtils {
 
-
     /**
      * 根据秒数格式化字符串
      * @param second 秒数
-     * @param type 1:hh:mm:ss;2:yyyy-mm-dd h:m:s;3:mm:ss;4:xx天前,xx小时前，xx分钟前;5:XX天XX小时XX分钟XX秒;6:dd:hh:mm;7:hh:mm
+     * @param type 1:hh:mm:ss;2:yyyy-mm-dd h:m:s;3:mm:ss;4:xx天前,xx小时前，xx分钟前;5:XX天XX小时XX分钟XX秒;6:dd:hh:mm
      * @return {string}
      *
      */
@@ -31,9 +30,6 @@ module TimeUtils {
                 break;
             case 6:
                 str = getFormatBySecond6(second);
-                break;
-            case 7:
-                str = getFormatBySecond7(second);
                 break;
         }
         return str;
@@ -342,28 +338,4 @@ module TimeUtils {
         return str;
     }
 
-    function getFormatBySecond7(time: number): string {
-        if (time <= 0) {
-            return "";
-        }
-        let str = "";
-        var oneHourst: number = 3600;
-        var oneMinst: number = 60;
-        var hourst: number = Math.floor((time) / oneHourst)
-        var minst: number = Math.floor((time - hourst * oneHourst) / oneMinst)
-        if (hourst > 0 && hourst < 10) {
-            str += hourst + "小时";
-        }
-        else if (hourst >= 10) {
-            str += hourst + "小时";
-        }
-        if (minst > 0 && minst < 10) {
-
-            str += "0" + minst + "分";
-        }
-        else if (minst >= 10) {
-            str += minst + "分";
-        }
-        return str;
-    }
 }
