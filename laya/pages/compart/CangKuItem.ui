@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":6,
-    "selecteID":7,
+    "selectedBox":1,
+    "selecteID":13,
     "props":{"width":520,"sceneColor":"#f4e6e6","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -57,14 +57,13 @@
             "props":{"y":50,"x":10,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"x":0,"width":509,"var":"panel_0","height":330},
                     "nodeParent":5,
@@ -76,7 +75,6 @@
                     "compId":6,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","right":0,"left":0,"align":"left"},
                             "nodeParent":6,
@@ -90,19 +88,6 @@
                                 ]
                         }]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":1,"width":100,"var":"btn_zhengLi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":2,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"整理","height":50},
-            "nodeParent":1,
-            "label":"Button(btn_zhengLi)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":13,
-            "child":[
-                ]
         }],
     "animations":[
         {

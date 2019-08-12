@@ -52,6 +52,12 @@ module view.dialog {
 							msg = null;
 						});
 						break;
+					// 交易行购买道具
+					case EnumData.SureCanelModel.JYH_BUY_ITEM:
+						let pkt = new ProtoCmd.stAuctionBuyItem();
+						pkt.dwIndex = this.extData.dwIndex;
+						lcp.send(pkt);
+						break;
 				}
 
 			}
