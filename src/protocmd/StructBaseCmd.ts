@@ -1751,6 +1751,98 @@ module ProtoCmd {
     }
 
 
+    // ******************************************邮件*****************************
+    // 	
+    //邮件详细信息
+    export class stMailDetail extends PacketBase {
+		/*
+		   DWORD dwMailID;
+		   DWORD dwSenderID;
+		   DWORD dwReceiverID;
+		   char szSenderName[_MAX_NAME_LEN_];
+		   char szReceiverName[_MAX_NAME_LEN_];
+		   time_t tSendTime;
+		   char szTitle[_MAX_MAIL_TITLE_LEN];
+		   char szNotice[_MAX_MAILNOTICE_LEN];
+		   bool boRead;
+		   DWORD dwGold;
+		   WORD wReveivedItem;
+		   bool boSystem;
+		   bool boPaid;
+		   stZeroArray<stItem> ItemArr;
+		 */
+        public items: Array<ItemBase> = [];
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('dwMailID', PacketBase.TYPE_DWORD);
+            this.addProperty('dwSenderID', PacketBase.TYPE_DOUBLE);
+            this.addProperty('dwReceiverID', PacketBase.TYPE_DOUBLE);
+            this.addProperty('szSenderName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('szReceiverName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('tSendTime', PacketBase.TYPE_DWORD);
+            this.addProperty('szTitle', PacketBase.TYPE_STRING, 64);
+            this.addProperty('szNotice', PacketBase.TYPE_STRING, 512);
+            this.addProperty('boRead', PacketBase.TYPE_BOOL);
+            this.addProperty('btGoldType', PacketBase.TYPE_BYTE);
+            this.addProperty('dwGold', PacketBase.TYPE_DWORD);
+            this.addProperty('wReveivedItem', PacketBase.TYPE_WORD);
+            this.addProperty('boSystem', PacketBase.TYPE_BOOL);
+            this.addProperty('boPaid', PacketBase.TYPE_BOOL);
+            this.addProperty('boReturn', PacketBase.TYPE_BOOL);
+            this.addProperty('nCount', PacketBase.TYPE_INT);
+            if (data) this.read(data);
+        }
 
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            for (var i: number = 0; i < this.getValue('nCount'); i++) {
+                this.items[i] = new ItemBase(data);
+            }
+            return data.pos;
+        }
+
+        public clear(): void {
+            super.clear();
+            for (var i: number = 0; i < this.items.length; i++) {
+                this.items[i].clear();
+                this.items[i] = null;
+            }
+            this.items.length = 0;
+        }
+    }
+
+    //邮件摘要 
+    export class stMailSummary extends PacketBase {
+
+		/*
+		   DWORD dwMailID;        //不需显示,客户端操作时候需填写的
+		   char szSenderName[_MAX_NAME_LEN_];//发件人
+		   char szTitle[_MAX_MAIL_TITLE_LEN];//发件人
+		   bool boRead; //是否已读取
+		   bool boAccessory; //是否有附件
+		   time_t tSendTime; //发送时间
+		   bool boSystem;
+		 */
+
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('dwMailID', PacketBase.TYPE_DWORD);
+            this.addProperty('szSenderName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('szTitle', PacketBase.TYPE_STRING, 64);
+            this.addProperty('boRead', PacketBase.TYPE_BOOL);
+            this.addProperty('boAccessory', PacketBase.TYPE_BOOL);
+            this.addProperty('boPaid', PacketBase.TYPE_BOOL);
+            this.addProperty('tSendTime', PacketBase.TYPE_DWORD);
+            this.addProperty('boSystem', PacketBase.TYPE_BOOL);
+            if (data) data.pos += this.read(data);
+        }
+
+        public get boRead(): number {
+            return this.getValue("boRead");
+        }
+        public get sendTime(): number {
+            return this.getValue("tSendTime");
+        }
+    }
 
 }
