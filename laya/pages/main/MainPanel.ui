@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":131,
+    "selectedBox":4,
+    "selecteID":202,
     "referenceLines":[
         {
             "value":-85,
@@ -89,13 +89,14 @@
             "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":3,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"skin":"image/main/fram_common_23.png","right":0,"left":0,"height":92,"bottom":0},
                     "nodeParent":4,
@@ -109,6 +110,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1030,"x":0,"skin":"image/main/fram_common_21.png"},
                     "nodeParent":4,
@@ -122,6 +124,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1030,"x":639,"skin":"image/main/fram_common_21.png","scaleX":-1},
                     "nodeParent":4,
@@ -1802,7 +1805,7 @@
             "compId":300,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

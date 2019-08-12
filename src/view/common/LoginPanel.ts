@@ -54,10 +54,13 @@ module view.common {
 			}
 			// 初始化客户端
 			GameApp.GameEngine.init(Laya.Handler.create(this, () => {
-				// 账号
-				GameApp.MainPlayer.playerAccount = this.input_account.text + '@1001';
-				// 密码
-				GameApp.MainPlayer.playerPassword = this.input_password.text;
+				if (GameApp.GameEngine.isReady != true) {
+					// 账号
+					GameApp.MainPlayer.playerAccount = this.input_account.text + '@1001';
+					// 密码
+					GameApp.MainPlayer.playerPassword = this.input_password.text;
+				}
+
 				// 登陆前验证
 				if (GameApp.Socket.isConnecting) {
 					lcp.send(new ProtoCmd.UserPreLogin(), this, this.userRetPreLogin);
@@ -66,7 +69,7 @@ module view.common {
 					GameApp.Socket.connect();
 					this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				}
-			}))
+			}, null, false))
 		}
 
 		/**
@@ -104,14 +107,20 @@ module view.common {
 				GameApp.GameEngine.zoneid = userLoginInfo.getValue('nSvrZoneid');
 				GameApp.GameEngine.svrIndex = userLoginInfo.getValue("nSvrIndex");
 				GameApp.GameEngine.loginsvrIdType = userLoginInfo.getValue('loginsvr_id_type');
-				// 判断是否有角色
-				if (userLoginInfo.count > 0) {
-					// 选择角色
-					PanelManage.openChooseAvatarPanel(userLoginInfo);
-				}
-				else {
-					// 创建角色
-					PanelManage.openCreateAvatarPanel();
+
+				// 是否是重连进来的
+				if (GameApp.GameEngine.isReady == true) {
+					this.startGame();
+				} else {
+					// 判断是否有角色
+					if (userLoginInfo.count > 0) {
+						// 选择角色
+						PanelManage.openChooseAvatarPanel(userLoginInfo);
+					}
+					else {
+						// 创建角色
+						PanelManage.openCreateAvatarPanel();
+					}
 				}
 			}
 			else {
@@ -134,7 +143,8 @@ module view.common {
 				// 这里重置一下socket,启用重连协议进入服务器
 				GameApp.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
 			} else {
-				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
+				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'));
+				GameApp.Socket.close();
 			}
 			msgData.clear();
 		}
@@ -142,9 +152,21 @@ module view.common {
 		 * 正式进入游戏
 		 */
 		public realLoginGame(): void {
-			Laya.LocalStorage.setItem('account', this.input_account.text);
-			Laya.LocalStorage.setItem('password', this.input_password.text);
+			if (GameApp.GameEngine.isReady != true) {
+				Laya.LocalStorage.setItem('account', this.input_account.text);
+				Laya.LocalStorage.setItem('password', this.input_password.text);
+			}
+
 			PanelManage.openMainPanel();
+		}
+
+		public startGame(): void {
+			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
+			selector.setValue("nselectidx", 0);
+			selector.setValue("szName", GameApp.MainPlayer.realName);
+			selector.setValue("btmapsubline", 1);
+			lcp.send(selector, this, this.selectPlayerRet);
+			GameApp.GameEngine.isLogin = true;
 		}
 	}
 }
