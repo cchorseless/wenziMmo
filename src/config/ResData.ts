@@ -53,14 +53,10 @@ module ResData {
         public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 入帮设置界面
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派福利界面
+        // 帮派福利
         public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-        // 帮派日志界面
-        public static GuildRecord = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派支援界面
+        // 帮派支援
         public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 入帮申请界面
-        public static GuildApply = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
@@ -69,14 +65,7 @@ module ResData {
         public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
-        // 江湖图鉴界面
-        public static TuJianJiangHu = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
-         // 角色图鉴界面
-        public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
-         // 物品图鉴界面
-        public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
-         // 怪物图鉴界面
-        public static TuJianBoss = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+
     };
     /**
      * 游戏音效资源
@@ -102,6 +91,8 @@ module ResData {
             { url: 'json/mydb_playerability_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_playerability_tbl },
             // 基础效果表
             { url: 'json/mydb_effect_base_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_effect_base_tbl },
+            // 参数表
+            { url: 'json/canshuSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.canshuSheet },
         ];
     }
 

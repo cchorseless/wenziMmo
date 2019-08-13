@@ -53,15 +53,9 @@ module PanelManage {
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
-    export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
-    export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
-    export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//江湖图鉴界面
-    export let TuJianJuese: view.tujian.TuJianJuesePanel;//角色图鉴界面
-    export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//物品图鉴界面 
-    export let TuJianBoss: view.tujian.TuJianBossPanel;//怪物图鉴界面 
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -308,22 +302,6 @@ module PanelManage {
         })
     }
      /**
-     * 帮派日志界面
-     */
-    export function openGuildRecordPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildRecord) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildRecord);
-        ResManage.loadResource(ResData.PanelRes.GuildRecord, () => {
-            PanelManage.GuildRecord = new view.guild.GuildRecordPanel();
-            PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
-            PanelManage.GuildRecord.setData();
-            PanelManage.GuildRecord.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildRecord,3, 5, 1);
-        })
-    }
-     /**
      * 帮派福利界面
      */
     export function openGuildFuliPanel(): void {
@@ -353,22 +331,6 @@ module PanelManage {
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildHelp,3, 5, 1);
-        })
-    }
-    /**
-     *入帮申请界面
-     */
-    export function openGuildApplyPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildApply) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildApply);
-        ResManage.loadResource(ResData.PanelRes.GuildApply, () => {
-            PanelManage.GuildApply = new view.guild.GuildApplyPanel();
-            PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
-            PanelManage.GuildApply.setData();
-            PanelManage.GuildApply.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildApply,3, 5, 1);
         })
     }
     /**
@@ -485,69 +447,4 @@ module PanelManage {
         })
     }
      
-      /**
-     * 江湖图鉴界面
-     */
-    export function openTuJianJiangHuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJiangHu) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianJiangHu);
-        ResManage.loadResource(ResData.PanelRes.TuJianJiangHu, () => {
-            PanelManage.TuJianJiangHu = new view.tujian.TuJianJiangHuPanel();
-            PanelManage.TuJianJiangHu['LCP_skin'] = ResData.PanelRes.TuJianJiangHu;
-            PanelManage.TuJianJiangHu.setData();
-            PanelManage.TuJianJiangHu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 3);
-        })
-    }
-    /**
-     * 角色图鉴界面
-     */
-    export function openTuJianJuesePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJuese) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianJuese);
-        ResManage.loadResource(ResData.PanelRes.TuJianJuese, () => {
-            PanelManage.TuJianJuese = new view.tujian.TuJianJuesePanel();
-            PanelManage.TuJianJuese['LCP_skin'] = ResData.PanelRes.TuJianJuese;
-            PanelManage.TuJianJuese.setData();
-            PanelManage.TuJianJuese.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJuese, 3, 3, 3);
-        })
-    }
-
-    /**
-     * 物品图鉴界面
-     */
-    export function openTuJianDaojuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianDaoju) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianDaoju);
-        ResManage.loadResource(ResData.PanelRes.TuJianDaoju, () => {
-            PanelManage.TuJianDaoju = new view.tujian.TuJianDaojuPanel();
-            PanelManage.TuJianDaoju['LCP_skin'] = ResData.PanelRes.TuJianDaoju;
-            PanelManage.TuJianDaoju.setData();
-            PanelManage.TuJianDaoju.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianDaoju, 3, 3, 3);
-        })
-    }
-      /**
-     * 怪物图鉴界面
-     */
-    export function openTuJianBossPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianBoss) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianBoss);
-        ResManage.loadResource(ResData.PanelRes.TuJianBoss, () => {
-            PanelManage.TuJianBoss = new view.tujian.TuJianBossPanel();
-            PanelManage.TuJianBoss['LCP_skin'] = ResData.PanelRes.TuJianBoss;
-            PanelManage.TuJianBoss.setData();
-            PanelManage.TuJianBoss.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianBoss, 3, 3, 3);
-        })
-    }
 }

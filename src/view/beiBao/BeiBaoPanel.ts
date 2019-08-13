@@ -65,6 +65,7 @@ module view.beiBao {
 					// 交易行界面
 					case 3:
 						this.lbl_bagLogolbl.text = '交易行';
+						this.ui_jiaoyihang.setData()
 						this.viw_BagViewChange.selectedIndex = 1;
 						break;
 				}
@@ -132,10 +133,12 @@ module view.beiBao {
 						// 装备
 						case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
 							vbox_bag = this.vbox_bag0;
+							this.tab_bag.selectedIndex = this.viw_bag.selectedIndex = 0;
 							break;
 						// 材料
 						case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
 							vbox_bag = this.vbox_bag1;
+							this.tab_bag.selectedIndex = this.viw_bag.selectedIndex = 1;
 							break;
 						// 消耗品
 						case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
@@ -143,10 +146,12 @@ module view.beiBao {
 						case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
 						case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
 							vbox_bag = this.vbox_bag2;
+							this.tab_bag.selectedIndex = this.viw_bag.selectedIndex = 2;
 							break;
 						// 任务物品
 						case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
 							vbox_bag = this.vbox_bag3;
+							this.tab_bag.selectedIndex = this.viw_bag.selectedIndex = 3;
 							break;
 					}
 					if (vbox_bag) {
@@ -172,6 +177,33 @@ module view.beiBao {
 			}
 		}
 
+		/**
+		 * 更新摊位信息
+		 */
+		public updateTanWei(): void {
+			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 2) {
+				this.ui_tanWei.updateTanWeiUI();
+			}
+		}
+		/**
+		 * 更新仓库
+		 */
+		public updateCangKuInfo(): void {
+			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 1) {
+				this.ui_cangKu.updateCangKuUI()
+			}
+		}
+
+		/**
+		 * 检查摊位是否满了
+		 */
+		public checkTanWeiIsFull(): boolean {
+			if (this.ui_tanWei && this.ui_tanWei.vbox_sell.numChildren >= SheetConfig.canshuSheet.getInstance(null).DATA('JYH_MAXIMUM_SALES')[0]) {
+				return false
+			}
+			return true
+
+		}
 
 	}
 }

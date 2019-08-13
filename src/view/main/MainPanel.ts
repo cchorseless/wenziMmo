@@ -14,10 +14,13 @@ module view.main {
 			this.cek_showNpc.clickHandler = Laya.Handler.create(this, () => {
 				if (this.cek_showNpc.selected) {
 					Laya.Tween.to(this.cek_showNpc, { x: 0 }, 500, Laya.Ease.bounceOut);
-					Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut);
+					Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut, Laya.Handler.create(this, () => {
+						this.img_npc.visible = false;
+					}));
 					this.ui_scene.changeToBig();
 				}
 				else {
+					this.img_npc.visible = true;
 					Laya.Tween.to(this.cek_showNpc, { x: 110 }, 500, Laya.Ease.bounceOut);
 					Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
 					this.ui_scene.changeToSmall();
@@ -132,7 +135,7 @@ module view.main {
 
 			});
 
-			
+
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 			// 时辰界面
@@ -158,7 +161,7 @@ module view.main {
 					this.ui_mainDownMapItem.showSelf(false);
 				}
 			})
-			
+
 		}
 
 		public updateUI(): void {
@@ -247,7 +250,7 @@ module view.main {
 						// PanelManage.openFuBenPanel();
 						break;
 					case "box_tuJian":
-						PanelManage.openTuJianJiangHuPanel();
+						// PanelManage.openFuBenPanel();
 						break;
 					case "box_task":
 						PanelManage.openTaskPanel();

@@ -1,749 +1,709 @@
 module ProtoCmd {
 
-    // 0x2B01
-    // 点捐献
-    export class stBeginDonateEquip extends Packet {
-        public static msgID: number = 0x2B01;
-        public constructor() {
-            super();
-            this.addProperty("i64ItemId", PacketBase.TYPE_INT64);//要捐献的装备ID
-            this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
-            this.cmd = 0x2B01;
-        }
-    }
-
+	// 0x2B01
+	// 点捐献
+	export class stBeginDonateEquip extends Packet {
+		public static msgID: number = 0x2B01;
+		public cbPacket = stBeginDonateEquipRet;
+		public constructor() {
+			super();
+			this.addProperty("i64ItemId", PacketBase.TYPE_INT64);//要捐献的装备ID
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
+			this.cmd = 0x2B01;
+		}
+	}
 
     /** 0x2B02
 	 * 捐献回
 	 * **/
-    export class stBeginDonateEquipRet extends Packet {
-        public static msgID: number = 0x2B02;
-        public item: ItemBase = new ItemBase(null);
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btError", PacketBase.TYPE_BYTE);//0成功,1物品不存在,2此物品不允许捐献,3物品删除失败,4放入行会仓库失败，5您当前没有行会
-            this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
-            this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
-            this.read(data);
-        }
+	export class stBeginDonateEquipRet extends Packet {
+		public static msgID: number = 0x2B02;
+		public item: ItemBase = new ItemBase(null);
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0成功,1物品不存在,2此物品不允许捐献,3物品删除失败,4放入行会仓库失败，5您当前没有行会
+			this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
+			this.read(data);
+		}
+		public clear(): void {
+			super.clear();
+			this.item.clear();
+			this.item = null;
+		}
+	}
 
-        public clear(): void {
-            super.clear();
-            this.item.clear();
-            this.item = null;
-        }
-    }
-
-    //     export class stClientGetSingleGuildInfo extends Packet {
-
-    //         // private static var _singletonMsg:stClientGetSingleGuildInfo;
-    //         // private static function get singletonMsg():stClientGetSingleGuildInfo{
-    //         // 	if(!_singletonMsg){
-    //         // 		_singletonMsg = new stClientGetSingleGuildInfo;
-    //         // 	}
-    //         // 	return _singletonMsg;
-    //         // }
-
-    //         public constructor() {
-    //             super();
-    //             this.cmd = 0x2A54;
-    //             this.addProperty("guildId", PacketBase.TYPE_DWORD);
-    //         }
-
-    //         public static  hasRequestIds:Dictionary = new Dictionary;
-    //         public static  playerIds:Dictionary = new Dictionary;
-    //         public static  requestGuildName(guildId:int, playerId:String):number{
-    //             var dict:Dictionary = playerIds[guildId];
-    //             if(!dict){
-    //         dict = new Dictionary;
-    //     }
-    //     this.playerIds[guildId] = dict;
-    //     dict[playerId] = playerId;
-    //     if (hasRequestIds.hasOwnProperty(guildId)) {
-    //         this.playerIds[guildId] = playerId;
-    //         return;
-    //     }
-    //     singletonMsg.SetValue("guildId", guildId);
-    //     singletonMsg.send();
-    // }
-    // 	}
+	// 0x2A54
+	//前端获取行会信息
+	export class stClientGetSingleGuildInfo extends Packet {
+		public static msgID: number = 0x2A54;
+		public cbPacket = stClientGetSingleGuildInfoRet;
+		public constructor() {
+			super();
+			this.cmd = 0x2A54;
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);
+		}
+	}
 
 
 
+	// 0x2A55
+	//前端获取行会信息返回
+	export class stClientGetSingleGuildInfoRet extends Packet {
+		public static msgID: number = 0x2A55;
+		public constructor() {
+			super();
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);
+			this.addProperty("guildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.cmd = 0x2A55;
+		}
 
-    export class stClientGetSingleGuildInfoRet extends Packet {
-        public static msgID: number = 0x2A55;
-        private static  _singletonMsg:stClientGetSingleGuildInfoRet;
-        public static  get singletonMsg(): stClientGetSingleGuildInfoRet {
-            if (!this._singletonMsg) {
-               this. _singletonMsg = new stClientGetSingleGuildInfoRet;
-            }
-            return this._singletonMsg;
-        }
-
-        public constructor() {
-            super();
-            this.addProperty("guildId", PacketBase.TYPE_DWORD);
-            this.addProperty("guildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.cmd = 0x2A55;
-        }
-
-    }
+	}
     /**0x2A01
-         *   创建
-         * */
-    export class stCreatGlobalGuild extends Packet
-    {
-    public	static msgID: number  = 0x2A01;
-    	public  constructor(data: Laya.Byte) 
-    	{
-            super();
-    		  this.addProperty("btOPType",PacketBase.TYPE_BYTE)		//0 增加  1 解散 3 检测名字
-    		  this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//要创建的氏族名
-    		  this.addProperty("szGuildNotice",PacketBase.TYPE_STRING,512);
-    		this.cmd = 0x2A01;
-    		if(data)
-    		{
-    			data.pos +=this.read(data);
-    		}
-    	}
-    }
-
-    /**0x2A02
-         * 创建工会的返回
-         * */
-    export class stCreatGlobalGuildRet extends Packet {
-        public static msgID: number = 0x2A02;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btOPType", PacketBase.TYPE_BYTE);
-            this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
-            this.addProperty("errorcode", PacketBase.TYPE_BYTE);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2A4B
-	 * 行会事件
+	 *   创建
+     * 
 	 * */
-    export class stGloalClientGuildEvent extends Packet {
-
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);
-            this.addProperty("i64OnlyId", PacketBase.TYPE_INT64);
-            this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
-            if (data) {
-                data.pos += this.read(data);
-            }
-            this.cmd = 0x2A4B;
-        }
-    }
-
-    /**0x2A4C
-         * 行会事件返回
-         * */
-    export class stGloalClientGuildEventRet extends Packet
-    {
-    	public  stGuildeveArray:Array<stGuildEventBase> = [];
-   public 	static   msgID:number = 0x2A4C;
-    	public constructor(data: Laya.Byte) {
-            super();
-    		this.addProperty('nCount',PacketBase.TYPE_INT);
-    		if(data)
-    		{
-    			this.read(data);
-    		}
-    	}
-    	 public  read(data:Laya.Byte):number
-    	{
-    		data.pos = super.read(data);
-    		for(var i:number = 0;i<this.getValue('nCount');i++)
-    		{
-    			this.stGuildeveArray[i] = (new stGuildEventBase(data));
-    		}
-    		return data.pos;
-    	}
-    	 public  clear():void
-    	{
-    		super.clear();
-    		for (var i:number = 0;i<this.stGuildeveArray.length;i++)
-    		{
-    			this.stGuildeveArray[i].clear();
-    			this.stGuildeveArray[i] = null;
-    		}	
-    		this.stGuildeveArray.length = 0;
-    	}
-    }
-
-    /**0x2907
-         * 申请加入班级
-         * */
-    export class stGlobalAskJoinClass extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
-            this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
-            this.cmd = 0x2907;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2908
-         * 申请加入班级返回
-         * */
-    export class stGlobalAskJoinClassRet extends Packet {
-        public static msgID: number = 0x2908;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-            this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
-            this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
-            if (data) {
-                this.read(data);
-            }
-        }
-    }
-
-    /**0x2901
-         * 系统自动加入班级
-         * */
-    export class stGlobalAutoJoinClass extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.cmd = 0x2901;
-            this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-            if (data) {
-                this.read(data);
-            }
-        }
-    }
-
-    /**0x2902
-     * 	系统自动加入返回
-     * */
-    export class stGlobalAutoJoinClassRet extends Packet {
-        public static msgID: number = 0x2902;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-            this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
-            this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2903
-         * 系统自动退出班级
-         * */
-    export class stGlobalAutoLeaveClass extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-            this.cmd = 0x2903;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2904
-         * 系统自动退出班级返回
-         * */
-    export class stGlobalAutoLeaveClassRet extends Packet {
-        public static msgID: number = 0x2904;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-            this.addProperty("dwLeaderId", PacketBase.TYPE_DWORD);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x290B
-         * 班级改变班长
-         * */
-    export class stGlobalClassChangeLeader extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szNewLeaderonly", PacketBase.TYPE_DWORD);
-            this.cmd = 0x290B;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x290C
-         * 班级改变班长返回
-         * */
-    export class stGlobalClassChangeLeaderRet extends Packet {
-        public static msgID: number = 0x290C;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwOldLeaderOnlyid", PacketBase.TYPE_DOUBLE);
-            this.addProperty("dwNewLeaderOnlyid", PacketBase.TYPE_DOUBLE);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-    /**0x290F
-             * 班长编辑公告
-             * */
-    export class stGlobalClassEditNotice extends Packet {
-
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szNotice", PacketBase.TYPE_STRING, 512);
-            this.cmd = 0x290F;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2910
-         * 班级获取日志
-         * */
-    export class stGlobalClassGetEvent extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.cmd = 0x2910;
-        }
-    }
-
-    /**0x2911
-         * //班级获取日志返回
-         * */
-    export class stGlobalClassGetEventRet extends Packet
-    {
-    public	static  msgID: number  = 0x2911;
-    	public  stZeroArray:Array<stClassEventBase> = [];
-    	public constructor(data: Laya.Byte) {
-            super();
-    		 this.addProperty("nCount",PacketBase.TYPE_INT);
-    		if(data)
-    		{
-    			data.pos += this.read(data);
-    		}
-    	}
-    	 public  read(data:Laya.Byte):number
-    	{
-    		data.pos = super.read(data);
-    		for(var i:number = 0; i < this.getValue('nCount');i++)
-    		{
-    			this.stZeroArray[i] = new stClassEventBase(data);
-    		}
-    		return data.pos;
-    	}
-
-    	 public  clear():void{
-    		super.clear();
-    		for(var i:number = 0; i < this.stZeroArray.length;i++)
-    		{
-    			this.stZeroArray[i].clear();
-    			this.stZeroArray[i] = null;
-    		}
-
-    		this.stZeroArray.length = 0;
-    		this.stZeroArray = null;
-    	}
-    }
-
-	/**0x2A4D
-	 * 行会搜索
-	 * */
-    export class stGlobalClientSearchGuild extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            if (data) {
-                data.pos += this.read(data);
-            }
-            this.cmd = 0x2A4D;
-        }
-    }
-
-    // /**0x2A4E
-    //      * 行会搜索返回
-    //      * */
-    // export class stGlobalClientSearchGuildRet extends Packet
-    // {
-    // 	public  guildinfo:stSingleGuildinfoBase = new stSingleGuildinfoBase();
-    // public	static msgID: number = 0x2A4E;
-    // 	public constructor(data: Laya.Byte)
-    // 	{
-    //         super();
-    // 		this.addProperty("guildinfo",PacketBase.TYPE_BYTES,this.guildinfo.size(),this.guildinfo);
-    // 		if(data)
-    // 		{
-    // 			data.pos += this.read(data);
-    // 		}
-    // 	}
-    // }
-
-    /**0x2905
-         * 获取班级列表
-         * */
-    export class stGlobalGetClassList extends Packet {
-        public static msgID: number = 0x2905;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwPageNumber", PacketBase.TYPE_DWORD);
-            this.cmd = 0x2905;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**
-         * client获取行会列表返回
-         * */
-    export class stGlobalGetClassListRet extends Packet
-    {
-    	public  stVector:Array<stClassInfoBase> = [];
-    public	static   msgID:number = 0x2906;
-    	public constructor(data: Laya.Byte) {
-            super();
-    		this.addProperty('nCount',PacketBase.TYPE_INT);
-    		if(data)this.read(data);
-    	}
-    	 public  read(data: Laya.Byte):number
-    	{
-    		data.pos = super.read(data);
-    		for(var i:number = 0;i<this.getValue('nCount');i++)
-    		{
-    			this.stVector[i] = new stClassInfoBase(data);
-    		}
-    		return data.pos;
-    	}
-    }
-    /**0x2A1B
-     * 添加外交关系
-     * */
-    export class stGlobalGuildAddToDiplomacy extends Packet {
-        public static msgID: number = 0x2A1B;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
-            this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.cmd = 0x2A1B;
-            if (data) data.pos += this.read(data);
-        }
-    }
-    0x2A1C
-	/**
-	 * //添加外交关系返回
-	 * */
-    export class stGlobalGuildAddToDiplomacyRet extends Packet {
-        public static msgID: number = 0x2A1C;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('btType', PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
-            this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
-            this.cmd = 0x2A1C;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2A06
-         * 申请加入行会
-         * */
-    export class stGlobalGuildAskJoinGuild extends Packet {
-        public static msgID: number = 0x2A06;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("btSex", PacketBase.TYPE_CHAR);
-            this.addProperty("btJob", PacketBase.TYPE_CHAR);
-            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
-            this.addProperty("boOnline", PacketBase.TYPE_BOOL);
-            this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.cmd = 0x2A06;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-	/**0x2A07
-	 * 申请加入工会的返回
-	 * */
-    export class stGlobalGuildAskJoinGuildRet extends Packet {
-        public static msgID: number = 0x2A07;
-        public stZeroArray = new Array<stSingleGuildinfoBase>();
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
-            this.addProperty('nCount', PacketBase.TYPE_INT);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-        		 public  read(data: Laya.Byte):number
-        		{
-        			data.pos = super.read(data);
-        			for(var i:number = 0; i<this.getValue('nCount');i++)
-        			{
-        				this.stZeroArray[i] = new stSingleGuildinfoBase(data);
-        			}
-        			return data.pos;
-        		}
-    }
-
-    /**0x2A22
-	 * 	//会长获取申请列表
-	 * */
-    export class stGlobalGuildAskJoinGuildUser extends Packet {
-        public static msgID: number = 0x2A22;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.cmd = 0x2A22;
-            this.addProperty("nPage", PacketBase.TYPE_INT);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-
-	/**0x2A23
-	 * 	//会长获取申请列表返回
-	 * */
-    export class stGlobalGuildAskJoinGuildUserRet extends Packet
-    {
-    public	static  msgID:number = 0x2A23;
-    	public  stZeroArray:Array<szAskJoinUserInfoBase> = [];
-    	public constructor(data: Laya.Byte)
-    	{
-            super();
-    		this.cmd=  0x2A23;
-    		this.addProperty("nPage",PacketBase.TYPE_INT);				//当前页
-    		this.addProperty("nMaxPage",PacketBase.TYPE_INT);			//当前的最大页数
-    		this.addProperty("nMaxCount",PacketBase.TYPE_INT);			//当前人数
-    		this.addProperty('nCount',PacketBase.TYPE_INT);
-    		if(data)
-    		{
-    			data.pos +=this.read(data);
-    		}	
-    	}
-
-    	 public  read(data:Laya.Byte):number
-    	{
-    		data.pos = super.read(data);
-    		for(var i:number = 0;i<this.getValue("nCount");i++)
-    		{
-    			this.stZeroArray[i] = new szAskJoinUserInfoBase(data);
-    		}
-    		return data.pos;
-    	}
-    	 public  clear():void{
-    		super.clear();
-    		for (var i:number =0;i<this.stZeroArray.length;i++){
-    			this.stZeroArray[i].clear();
-    			this.stZeroArray[i] = null;
-    		}
-    		this.stZeroArray.length = 0;
-    		this.stZeroArray = null;
-
-    	}
-    }
-
-    /** 0x2A33
-        //发起废除会长
-        * */
-    export class stGlobalGuildBeginBanMaster extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);//0弹劾会长，1取消弹劾
-            this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);
-            this.cmd = 0x2A33;
-        }
-    }
-    /**0x2A34
-    //发起废除会长返回
-       * */
-    export class stGlobalGuildBeginBanMasterRet extends Packet {
-        public static msgID: number = 0x2A34;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);
-            this.addProperty("btType", PacketBase.TYPE_BYTE);//0弹劾会长，1取消弹劾
-            this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);//原因描述
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2A11
-         * 取消申请
-         * */
-    export class stGlobalGuildCancelAskJoin extends Packet {
-        public static msgID: number = 0x2A11;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.cmd = 0x2A11;
-            if (data) data.pos += this.read(data);
-        }
-    }
-
-    /**0x2A0D
-         * 改变行会称号
-         * */
-    export class stGlobalGuildChangeAliaName extends Packet {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.cmd = 0x2A0D;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-	/**0x2A0E
-	 * 改变行会称号返回
-	 * */
-    export class stGlobalGuildChangeAliaNameRet extends Packet {
-        public static msgID: number = 0x2A0E;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
-            this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("boChanged", PacketBase.TYPE_BOOL);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-    /**0x2A03
-         * 发送行会信息到gamesvr
-         * */
-    // export class stGlobalGuildChangeGuild extends Packet {
-    //     public static msgID: number = 0x2A03;
-    //     public guildSinfo: stGSGuildInfoBase = new stGSGuildInfoBase();
-    //     public constructor(data: Laya.Byte) {
-    //         super();
-    //         this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-    //         this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildSinfo.size(), this.guildSinfo);
-    //         this.cmd = 0x2A03;
-    //         if (data) {
-    //             data.pos += this.read(data);
-    //         }
-    //     }
-
-    //     public clear(): void {
-    //         super.clear();
-    //         this.guildSinfo.clear();
-    //         this.guildSinfo = null;
-    //     }
-    // }
-
-    /**0x2A14
-         * 修改公告
-         * */
-    export class stGlobalGuildChangeNotice extends Packet {
-
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("btType", PacketBase.TYPE_BYTE);	//0是行会公告1是招贤公告
-            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);	//招贤等级
-            this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);
-            this.cmd = 0x2A14;
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
-
-/**0x2A15
-	 * 修改公告返回
-	 * */
-	export class stGlobalGuildChangeNoticeRet extends Packet
-	{
-	public	static  msgID:number = 0x2A15;
-		public  constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);
-			this.addProperty("btErrorCode",PacketBase.TYPE_BYTE);
-			if(data)data.pos +=this.read(data);
-		}
-	}
-
-/**0x2A0F
-	 * 改变行会权限
-	 * */
-	export class stGlobalGuildChangePowerLvl extends Packet
-	{
+	export class stCreatGlobalGuild extends Packet {
+		public static msgID: number = 0x2A01;
+		public cbPacket = stCreatGlobalGuildRet;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("dwPowerLvl",PacketBase.TYPE_DWORD);
-			this.cmd = 0x2A0F;
-			if(data)data.pos +=this.read(data);
-		}
-	}
-/**0x2A10
-	 * 	改变行会权限返回
-	 * */
-	export class stGlobalGuildChangePowerLvlRet extends Packet
-	{
-	public	static  msgID:number = 0x2A10;
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szMasterName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("dwPowerLvl",PacketBase.TYPE_DWORD);
-			this.addProperty("boChanged",PacketBase.TYPE_BOOL);
-			if(data)data.pos +=this.read(data);
-		}
-	}
-    /**0x2A09
-	 * 本行会信息
-	 * */
-	export class stGlobalGuildCurGuildInfo extends Packet
-	{
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);//0本行会信息1关系行会信息
-			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
-			this.cmd = 0x2A09;
-			if(data)
-			{
+			super();
+			this.addProperty("btOPType", PacketBase.TYPE_BYTE)		//0 增加  1 解散 3 检测名字
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//要创建的氏族名
+			this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);
+			this.cmd = 0x2A01;
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
 	}
 
-/**0x2A0A
-	 * 本行会信息返回
+    /**0x2A02
+     * 创建工会的返回
+     * */
+	export class stCreatGlobalGuildRet extends Packet {
+		public static msgID: number = 0x2A02;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btOPType", PacketBase.TYPE_BYTE);
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
+			this.addProperty("errorcode", PacketBase.TYPE_BYTE);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2A4B
+	 * 行会事件
 	 * */
+	export class stGloalClientGuildEvent extends Packet {
+		public static msgID: number = 0x2A4B;
+		public cbPacket = stGloalClientGuildEventRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("i64OnlyId", PacketBase.TYPE_INT64);
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A4B;
+			if (data) {
+				data.pos += this.read(data);
+			}
+
+		}
+	}
+
+    /**0x2A4C
+     * 行会事件返回
+     * */
+	export class stGloalClientGuildEventRet extends Packet {
+		public stGuildeveArray: Array<stGuildEventBase> = [];
+		public static msgID: number = 0x2A4C;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
+				this.read(data);
+			}
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stGuildeveArray[i] = new stGuildEventBase(data);
+			}
+			return data.pos;
+		}
+		public clear(): void {
+			super.clear();
+			for (var i: number = 0; i < this.stGuildeveArray.length; i++) {
+				this.stGuildeveArray[i].clear();
+				this.stGuildeveArray[i] = null;
+			}
+			this.stGuildeveArray.length = 0;
+		}
+	}
+
+    /**0x2907
+     * 申请加入行会
+     * */
+	export class stGlobalAskJoinClass extends Packet {
+		public static msgID: number = 0x2907;
+		public cbPacket = stGlobalAskJoinClassRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
+			this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2907;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2908
+     * 申请加入行会返回
+     * */
+	export class stGlobalAskJoinClassRet extends Packet {
+		public static msgID: number = 0x2908;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
+			this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
+			if (data) {
+				this.read(data);
+			}
+		}
+	}
+
+    /**0x2901
+     * 系统自动加入刚回
+     * */
+	export class stGlobalAutoJoinClass extends Packet {
+		public static msgID: number = 0x2901;
+		public cbPacket = stGlobalAutoJoinClassRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2901;
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			if (data) {
+				this.read(data);
+			}
+		}
+	}
+
+    /**0x2902
+     * 	系统自动加入返回
+     * */
+	export class stGlobalAutoJoinClassRet extends Packet {
+		public static msgID: number = 0x2902;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
+			this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2903
+     * 系统自动退出班级
+     * */
+	export class stGlobalAutoLeaveClass extends Packet {
+		public static msgID: number = 0x2903;
+		public cbPacket = stGlobalAutoLeaveClassRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			this.cmd = 0x2903;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2904
+     * 系统自动退出班级返回
+     * */
+	export class stGlobalAutoLeaveClassRet extends Packet {
+		public static msgID: number = 0x2904;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			this.addProperty("dwLeaderId", PacketBase.TYPE_DWORD);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x290B
+     * 班级改变班长
+     * */
+	export class stGlobalClassChangeLeader extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szNewLeaderonly", PacketBase.TYPE_DWORD);
+			this.cmd = 0x290B;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x290C
+     * 班级改变班长返回
+     * */
+	export class stGlobalClassChangeLeaderRet extends Packet {
+		public static msgID: number = 0x290C;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOldLeaderOnlyid", PacketBase.TYPE_DOUBLE);
+			this.addProperty("dwNewLeaderOnlyid", PacketBase.TYPE_DOUBLE);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+    /**0x290F
+     * 班长编辑公告
+     * */
+	export class stGlobalClassEditNotice extends Packet {
+
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szNotice", PacketBase.TYPE_STRING, 512);
+			this.cmd = 0x290F;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2910
+     * 班级获取日志
+     * */
+	export class stGlobalClassGetEvent extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2910;
+		}
+	}
+
+    /**0x2911
+     * 班级获取日志返回
+     * */
+	export class stGlobalClassGetEventRet extends Packet {
+		public static msgID: number = 0x2911;
+		public stZeroArray: Array<stClassEventBase> = [];
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("nCount", PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stZeroArray[i] = new stClassEventBase(data);
+			}
+			return data.pos;
+		}
+
+		public clear(): void {
+			super.clear();
+			for (var i: number = 0; i < this.stZeroArray.length; i++) {
+				this.stZeroArray[i].clear();
+				this.stZeroArray[i] = null;
+			}
+
+			this.stZeroArray.length = 0;
+			this.stZeroArray = null;
+		}
+	}
+
+	/**0x2A4D
+	 * 行会搜索
+	 * */
+	export class stGlobalClientSearchGuild extends Packet {
+		public static msgID: number = 0x2A4D;
+		public cbPacket = stGlobalClientSearchGuildRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			if (data) {
+				data.pos += this.read(data);
+			}
+			this.cmd = 0x2A4D;
+		}
+	}
+
+	/**0x2A4E
+	 * 行会搜索返回
+	 * */
+	export class stGlobalClientSearchGuildRet extends Packet {
+		public guildinfo: stSingleGuildinfoBase = new stSingleGuildinfoBase();
+		public static msgID: number = 0x2A4E;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildinfo.size(), this.guildinfo);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2905
+     * 获取班级列表
+     * */
+	export class stGlobalGetClassList extends Packet {
+		public static msgID: number = 0x2905;
+		public cbPacket = stGlobalGetClassListRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwPageNumber", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2905;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /** 0x2906
+     * 获取行会列表返回
+     * */
+	export class stGlobalGetClassListRet extends Packet {
+		public stVector: Array<stClassInfoBase> = [];
+		public static msgID: number = 0x2906;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) this.read(data);
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stVector[i] = new stClassInfoBase(data);
+			}
+			return data.pos;
+		}
+	}
+
+    /**0x2A1B
+     * 添加外交关系
+     * */
+	export class stGlobalGuildAddToDiplomacy extends Packet {
+		public static msgID: number = 0x2A1B;
+		public cbPacket = stGlobalGuildAddToDiplomacyRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.cmd = 0x2A1B;
+			if (data) data.pos += this.read(data);
+		}
+	}
+
+	/** 0x2A1C
+	 * 添加外交关系返回
+	 * */
+	export class stGlobalGuildAddToDiplomacyRet extends Packet {
+		public static msgID: number = 0x2A1C;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('btType', PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
+			this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
+			this.cmd = 0x2A1C;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2A06
+     * 申请加入行会
+     * */
+	export class stGlobalGuildAskJoinGuild extends Packet {
+		public static msgID: number = 0x2A06;
+		public cbPacket = stGlobalGuildAskJoinGuildRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("btSex", PacketBase.TYPE_CHAR);
+			this.addProperty("btJob", PacketBase.TYPE_CHAR);
+			this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
+			this.addProperty("boOnline", PacketBase.TYPE_BOOL);
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.cmd = 0x2A06;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	/**0x2A07
+	 * 申请加入工会的返回
+	 * */
+	export class stGlobalGuildAskJoinGuildRet extends Packet {
+		public static msgID: number = 0x2A07;
+		public stZeroArray = new Array<stSingleGuildinfoBase>();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stZeroArray[i] = new stSingleGuildinfoBase(data);
+			}
+			return data.pos;
+		}
+	}
+
+    /**0x2A22
+	 * 	会长获取申请列表
+	 * */
+	export class stGlobalGuildAskJoinGuildUser extends Packet {
+		public static msgID: number = 0x2A22;
+		public cbPacket = stGlobalGuildAskJoinGuildUserRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2A22;
+			this.addProperty("nPage", PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+
+	/**0x2A23
+	 * 	会长获取申请列表返回
+	 * */
+	export class stGlobalGuildAskJoinGuildUserRet extends Packet {
+		public static msgID: number = 0x2A23;
+		public stZeroArray: Array<szAskJoinUserInfoBase> = [];
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2A23;
+			this.addProperty("nPage", PacketBase.TYPE_INT);				//当前页
+			this.addProperty("nMaxPage", PacketBase.TYPE_INT);			//当前的最大页数
+			this.addProperty("nMaxCount", PacketBase.TYPE_INT);			//当前人数
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue("nCount"); i++) {
+				this.stZeroArray[i] = new szAskJoinUserInfoBase(data);
+			}
+			return data.pos;
+		}
+		public clear(): void {
+			super.clear();
+			for (var i: number = 0; i < this.stZeroArray.length; i++) {
+				this.stZeroArray[i].clear();
+				this.stZeroArray[i] = null;
+			}
+			this.stZeroArray.length = 0;
+			this.stZeroArray = null;
+
+		}
+	}
+
+    /** 0x2A33
+     *发起废除会长
+     * */
+	export class stGlobalGuildBeginBanMaster extends Packet {
+		public static msgID: number = 0x2A33;
+		public cbPacket = stGlobalGuildBeginBanMasterRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0弹劾会长，1取消弹劾
+			this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);
+			this.cmd = 0x2A33;
+		}
+	}
+    /**0x2A34
+     *发起废除会长返回
+     * */
+	export class stGlobalGuildBeginBanMasterRet extends Packet {
+		public static msgID: number = 0x2A34;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0弹劾会长，1取消弹劾
+			this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);//原因描述
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2A11
+     * 取消申请
+     * */
+	export class stGlobalGuildCancelAskJoin extends Packet {
+		public static msgID: number = 0x2A11;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.cmd = 0x2A11;
+			if (data) data.pos += this.read(data);
+		}
+	}
+
+    /**0x2A0D
+     * 改变行会称号
+     * */
+	export class stGlobalGuildChangeAliaName extends Packet {
+		public static msgID: number = 0x2A0D;
+		public cbPacket = stGlobalGuildChangeAliaNameRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.cmd = 0x2A0D;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	/**0x2A0E
+	 * 改变行会称号返回
+	 * */
+	export class stGlobalGuildChangeAliaNameRet extends Packet {
+		public static msgID: number = 0x2A0E;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
+			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("boChanged", PacketBase.TYPE_BOOL);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+    /**0x2A03
+         * 发送行会信息到gamesvr
+         * */
+	// export class stGlobalGuildChangeGuild extends Packet {
+	//     public static msgID: number = 0x2A03;
+	//     public guildSinfo: stGSGuildInfoBase = new stGSGuildInfoBase();
+	//     public constructor(data: Laya.Byte) {
+	//         super();
+	//         this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+	//         this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildSinfo.size(), this.guildSinfo);
+	//         this.cmd = 0x2A03;
+	//         if (data) {
+	//             data.pos += this.read(data);
+	//         }
+	//     }
+
+	//     public clear(): void {
+	//         super.clear();
+	//         this.guildSinfo.clear();
+	//         this.guildSinfo = null;
+	//     }
+	// }
+
+    /**0x2A14
+     * 修改公告
+     * */
+	export class stGlobalGuildChangeNotice extends Packet {
+		public static msgID: number = 0x2A14;
+		public cbPacket = stGlobalGuildChangeNoticeRet;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);	//0是行会公告1是招贤公告
+			this.addProperty("dwLevel", PacketBase.TYPE_DWORD);	//招贤等级
+			this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);
+			this.cmd = 0x2A14;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	/**0x2A15
+	 * 修改公告返回
+	 * */
+	export class stGlobalGuildChangeNoticeRet extends Packet {
+		public static msgID: number = 0x2A15;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);
+			if (data) data.pos += this.read(data);
+		}
+	}
+
+	/**0x2A0F
+		 * 改变行会权限
+		 * */
+	export class stGlobalGuildChangePowerLvl extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("dwPowerLvl", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A0F;
+			if (data) data.pos += this.read(data);
+		}
+	}
+	/**0x2A10
+		 * 	改变行会权限返回
+		 * */
+	export class stGlobalGuildChangePowerLvlRet extends Packet {
+		public static msgID: number = 0x2A10;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("dwPowerLvl", PacketBase.TYPE_DWORD);
+			this.addProperty("boChanged", PacketBase.TYPE_BOOL);
+			if (data) data.pos += this.read(data);
+		}
+	}
+    /**0x2A09
+	 * 本行会信息
+	 * */
+	export class stGlobalGuildCurGuildInfo extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0本行会信息1关系行会信息
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A09;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	/**0x2A0A
+		 * 本行会信息返回
+		 * */
 	// export class stGlobalGuildCurGuildInfoRet extends Packet
 	// {
 	// public	static  msgID:number = 0x2A0A;
 	// 	public  guildinfo:stSingleGuildinfoBase = new stSingleGuildinfoBase();
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 			this.addProperty("btType",PacketBase.TYPE_BYTE);
 	// 			this.addProperty("guildinfo",PacketBase.TYPE_BYTES,this.guildinfo.size(),this.guildinfo);
 	// 			if(data)
@@ -753,54 +713,48 @@ module ProtoCmd {
 	// 	}
 	// }
 
-/**0x2A1F
-	 * //删除外交关系
-	 * */
-	export class stGlobalGuildDelToDiplomacy extends Packet
-	{
+	/**0x2A1F
+		 * //删除外交关系
+		 * */
+	export class stGlobalGuildDelToDiplomacy extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
-			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A1F;
-			if(data)
-			{
-				data.pos +=this.read(data);
+			if (data) {
+				data.pos += this.read(data);
 			}
 		}
 	}
 
-export class stGlobalGuildDelToDiplomacyRet extends Packet
-	{
-	public	static   msgID:number = 0x2A20;
+	export class stGlobalGuildDelToDiplomacyRet extends Packet {
+		public static msgID: number = 0x2A20;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
-			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("btErrorCode",PacketBase.TYPE_BYTE);
-			if(data)
-			{
-				data.pos +=this.read(data);
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);
+			if (data) {
+				data.pos += this.read(data);
 			}
 		}
 	}
 
-// 0x2A2B
-export class stGlobalGuildGameSvrGetGuildRet extends Packet
-	{
-	public	static   msgID:number = 0x2A2B;
-		public  guilds:Array<stGSALLGuild> = [];
+	// 0x2A2B
+	export class stGlobalGuildGameSvrGetGuildRet extends Packet {
+		public static msgID: number = 0x2A2B;
+		public guilds: Array<stGSALLGuild> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nCount',PacketBase.TYPE_INT);
+			super();
+			this.addProperty('nCount', PacketBase.TYPE_INT);
 			this.read(data);
 		}
 
-		 public  read(data: Laya.Byte):number{
-			if(data){
+		public read(data: Laya.Byte): number {
+			if (data) {
 				data.pos = super.read(data);
-				for (var i:number =0;i< this.getValue("nCount");i++)
-				{
+				for (var i: number = 0; i < this.getValue("nCount"); i++) {
 					this.guilds.push(new stGSALLGuild(data));
 				}
 				return data.pos;
@@ -808,13 +762,12 @@ export class stGlobalGuildGameSvrGetGuildRet extends Packet
 			return 0;
 		}
 
-		 public  clear():void{
+		public clear(): void {
 			super.clear();
-			for (var i:number = 0;i<this.guilds.length;i++)
-			{
+			for (var i: number = 0; i < this.guilds.length; i++) {
 				this.guilds[i].clear();
 				this.guilds[i] = null;
-			}	
+			}
 			this.guilds.length = 0;
 		}
 	}
@@ -822,314 +775,278 @@ export class stGlobalGuildGameSvrGetGuildRet extends Packet
 	/**0x2A17
 	 * 获取称号列表和人数
 	 * */
-	export class stGlobalGuildGetAlia extends Packet
-	{
+	export class stGlobalGuildGetAlia extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x2A17;
-			if(data)this.read(data);
+			if (data) this.read(data);
 		}
 	}
 
-/**
-	 * 获取称号成员
-	 * */
-	export class stGlobalGuildGetAliaMember extends Packet
-	{
+	/**
+		 * 获取称号成员
+		 * */
+	export class stGlobalGuildGetAliaMember extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szAliaName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			super();
+			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A19;
-			if(data)
-			{
-				data.pos +=this.read(data);
-			}
-		}
-	}
-
-/**0x2A1A
-	 * 获取称号成员返回
-	 * */
-	export class stGlobalGuildGetAliaMemberRet extends Packet
-	{
-	public	static   msgID:number = 0x2A1A;
-		public   stZeroArray:Array<AliaMemberInfoBase> = [];
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szAliaName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("nCount",PacketBase.TYPE_INT);
-			if(data)
-			{
-				 this.read(data);//data.position +=
-			}
-		}
-		 public  read(data:Laya.Byte):number
-		{
-			data.pos = super.read(data);
-			for(var i:number = 0; i<this.getValue('nCount');i++)
-			{
-				this.stZeroArray[i] =new AliaMemberInfoBase(data);
-			}
-			return data.pos;
-		}
-	}
-
-/**0x2A18
-	 * 获取称号列表和人数返回
-	 * */
-	export class stGlobalGuildGetAliaRet extends Packet
-	{
-	public	static   msgID:number = 0x2A18;
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szAliaNames",PacketBase.TYPE_STRING,1280);//称号:人数/称号:人数
-			if(data)data.pos +=this.read(data);
-		}
-	}
-/**0x2A12
-	 * 获取已申请行会列表
-	 * */
-	export class stGlobalGuildGetAskJoinList extends Packet
-	{
-		public constructor(data: Laya.Byte) {
-            super();
-			this.cmd = 0x2A12;
-		}
-	}
-
-  /**0x2A13
-	 * 获取已申请行会列表返回
-	 * */
-	export class stGlobalGuildGetAskJoinListRet extends Packet
-	{
-	public	static    msgID:number = 0x2A13;
-		public   stZeroArray:Array<stSingleGuildinfoBase> =  []; 
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nCount',PacketBase.TYPE_INT);
-			if(data)
-			{
-				this.read(data);
-			}
-		}
-		 public  read(data:Laya.Byte):number
-		{
-			data.pos = super.read(data);
-			for(var i:number = 0;i<this.getValue('nCount');i++)
-			{
-				this.stZeroArray[i] = new stSingleGuildinfoBase(data);	
-			}
-			return data.pos;
-		}
-	}  
-
-/**
-	 * //获取外交列表
-	 * */
-	export class stGlobalGuildGetDiplomacyList extends Packet
-	{
-		public constructor(data: Laya.Byte) {
-            super();
-			
-			this.addProperty("btType",PacketBase.TYPE_BYTE);	
-			this.cmd = 0x2A1D;
-			if(data)
-			{
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
 	}
 
-/**
-	 * 获取外交列表返回
-	 * */
-	export class stGlobalGuildGetDiplomacyListRet extends Packet
-	{
-	public	static   msgID:number = 0x2A1E;
-		public   stZeroArray:Array<DiplomacyGuildBase> = [];
+	/**0x2A1A
+		 * 获取称号成员返回
+		 * */
+	export class stGlobalGuildGetAliaMemberRet extends Packet {
+		public static msgID: number = 0x2A1A;
+		public stZeroArray: Array<AliaMemberInfoBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			
-			this.addProperty("btType",PacketBase.TYPE_BYTE);
-			this.addProperty("nCount",PacketBase.TYPE_INT);
-			if(data)
-			{
-				data.pos +=this.read(data);
-			}	
+			super();
+			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("nCount", PacketBase.TYPE_INT);
+			if (data) {
+				this.read(data);//data.position +=
+			}
 		}
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number = 0;i<this.getValue("nCount");i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stZeroArray[i] = new AliaMemberInfoBase(data);
+			}
+			return data.pos;
+		}
+	}
+
+	/**0x2A18
+		 * 获取称号列表和人数返回
+		 * */
+	export class stGlobalGuildGetAliaRet extends Packet {
+		public static msgID: number = 0x2A18;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1280);//称号:人数/称号:人数
+			if (data) data.pos += this.read(data);
+		}
+	}
+	/**0x2A12
+		 * 获取已申请行会列表
+		 * */
+	export class stGlobalGuildGetAskJoinList extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2A12;
+		}
+	}
+
+	/**0x2A13
+	   * 获取已申请行会列表返回
+	   * */
+	export class stGlobalGuildGetAskJoinListRet extends Packet {
+		public static msgID: number = 0x2A13;
+		public stZeroArray: Array<stSingleGuildinfoBase> = [];
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
+				this.read(data);
+			}
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stZeroArray[i] = new stSingleGuildinfoBase(data);
+			}
+			return data.pos;
+		}
+	}
+
+	/**
+		 * //获取外交列表
+		 * */
+	export class stGlobalGuildGetDiplomacyList extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.cmd = 0x2A1D;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
+
+	/**
+		 * 获取外交列表返回
+		 * */
+	export class stGlobalGuildGetDiplomacyListRet extends Packet {
+		public static msgID: number = 0x2A1E;
+		public stZeroArray: Array<DiplomacyGuildBase> = [];
+		public constructor(data: Laya.Byte) {
+			super();
+
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("nCount", PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue("nCount"); i++) {
 				this.stZeroArray[i] = new DiplomacyGuildBase(data);
 			}
 			return data.pos;
 		}
 	}
 
-/**0x2A24
-		 * //获取外交关系行会数
-		 * */
-export class stGlobalGuildGetDiplomacyTypeNum extends Packet
-	{
-		
+	/**0x2A24
+			 * //获取外交关系行会数
+			 * */
+	export class stGlobalGuildGetDiplomacyTypeNum extends Packet {
+
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x2A24;
-			if(data)data.pos += this.read(data);
+			if (data) data.pos += this.read(data);
 		}
 	}
 
     /**0x2A25
 	 * //获取外交关系行会数返回
 	 * */
-	export class stGlobalGuildGetDiplomacyTypeNumRet extends Packet
-	{
-	public	static   msgID:number =  0x2A25;
+	export class stGlobalGuildGetDiplomacyTypeNumRet extends Packet {
+		public static msgID: number = 0x2A25;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('dwInterestGuildCount',PacketBase.TYPE_DWORD);//关注行会
-			this.addProperty('dwAllianceGuildCount',PacketBase.TYPE_DWORD);//联盟行会
-			this.addProperty('dwHostilityGuildCount',PacketBase.TYPE_DWORD);//敌对行会
-			this.addProperty('dwFightGuildCount',PacketBase.TYPE_DWORD);//宣战行会
-			this.addProperty('dwGuildCount',PacketBase.TYPE_DWORD);//行会列表数
-			if(data)
-			{
+			super();
+			this.addProperty('dwInterestGuildCount', PacketBase.TYPE_DWORD);//关注行会
+			this.addProperty('dwAllianceGuildCount', PacketBase.TYPE_DWORD);//联盟行会
+			this.addProperty('dwHostilityGuildCount', PacketBase.TYPE_DWORD);//敌对行会
+			this.addProperty('dwFightGuildCount', PacketBase.TYPE_DWORD);//宣战行会
+			this.addProperty('dwGuildCount', PacketBase.TYPE_DWORD);//行会列表数
+			if (data) {
 				data.pos += this.read(data);
 			}
 
 		}
 	}
 
-/**0x2A04
-	 * client获取行会列表
-	 * */
-	export class stGlobalGuildGetList extends Packet
-	{
-		
+	/**0x2A04
+		 * client获取行会列表
+		 * */
+	export class stGlobalGuildGetList extends Packet {
+
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);		//0新人查看 1外交界面列表
-			this.addProperty("dwPageNum",PacketBase.TYPE_DWORD);
-			if(data)
-			{
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0新人查看 1外交界面列表
+			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
 	}
-/**0x2A05
-	 * client获取行会列表返回
-	 * */
-	export class stGlobalGuildGetListRet extends Packet
-	{
-	public	static   nMaxPage:number = 0x2A05;
-		public  stZeroArray:Array<stSingleGuildinfoBase> = [];
+	/**0x2A05
+		 * client获取行会列表返回
+		 * */
+	export class stGlobalGuildGetListRet extends Packet {
+		public static nMaxPage: number = 0x2A05;
+		public stZeroArray: Array<stSingleGuildinfoBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);
-			this.addProperty('dwMaxPage',PacketBase.TYPE_DWORD);
-			this.addProperty('nCount',PacketBase.TYPE_INT);
-			if(data)
-			{
-				 this.read(data);
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty('dwMaxPage', PacketBase.TYPE_DWORD);
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
+				this.read(data);
 			}
 		}
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number = 0;i<this.getValue('nCount');i++)
-			{
-				this.stZeroArray[i] = new stSingleGuildinfoBase(data);	
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
+				this.stZeroArray[i] = new stSingleGuildinfoBase(data);
 			}
 			return data.pos;
 		}
 	}
 
-/**0x2A40
-	 *帮会邀请
-	 */	
-	export class stGlobalGuildInviteInter extends Packet
-	{
-	public	static   msgID:number =  0x2A40;
+	/**0x2A40
+		 *帮会邀请
+		 */
+	export class stGlobalGuildInviteInter extends Packet {
+		public static msgID: number = 0x2A40;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nError',PacketBase.TYPE_INT);//错误吗
-			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//名字
+			super();
+			this.addProperty('nError', PacketBase.TYPE_INT);//错误吗
+			this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名字
 			this.cmd = 0x2A40;
 			if (data) data.pos += this.read(data);
 		}
 	}
 
-    	export class stGlobalGuildInviteInterRet extends Packet
-	{
-	public	static   msgID:number =  0x2A41;
+	export class stGlobalGuildInviteInterRet extends Packet {
+		public static msgID: number = 0x2A41;
 		public constructor(data: Laya.Byte) {
-            super();
-			
-			this.addProperty('btAgree',PacketBase.TYPE_BYTE);//1同意
-			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//邀请者名字
-			this.addProperty('szGuildName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//行会名称
-			this.addProperty('dwGuildLevel',PacketBase.TYPE_DWORD);//行会等级
-			this.addProperty('dwPowerLevel',PacketBase.TYPE_DWORD);//
+			super();
+
+			this.addProperty('btAgree', PacketBase.TYPE_BYTE);//1同意
+			this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//邀请者名字
+			this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//行会名称
+			this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);//行会等级
+			this.addProperty('dwPowerLevel', PacketBase.TYPE_DWORD);//
 			this.cmd = 0x2A41;
 			if (data) data.pos += this.read(data);
 		}
 	}
-    	export class stGlobalGuildMasterInfo extends Packet
-	{
-	public	static   msgID:number =  0x2A31;
-		public  members:Array<stGuildMemberBase> = [];
+	export class stGlobalGuildMasterInfo extends Packet {
+		public static msgID: number = 0x2A31;
+		public members: Array<stGuildMemberBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD); //行会编号
-			this.addProperty('nCount',PacketBase.TYPE_INT);
+			super();
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD); //行会编号
+			this.addProperty('nCount', PacketBase.TYPE_INT);
 			this.cmd = 0x2A31;
-			if(data)
-			{
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number=0;i< this.getValue('nCount');i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.members[i] = new stGuildMemberBase(data);
 			}
-			
+
 			return data.pos;
 		}
-		 public  clear():void{
+		public clear(): void {
 			super.clear();
-			for (var i:number =0;i<this.members.length;i++){
+			for (var i: number = 0; i < this.members.length; i++) {
 				this.members[i].clear();
 				this.members[i] = null;
 			}
 			this.members.length = 0;
 			this.members = null;
-			
+
 		}
 	}
 
-/**
-	 * 会长返回申请
-	 * */
-	export class stGlobalGuildMasterRetAskJoin extends Packet
-	{
-	public	static   msgID:number = 0x2A08;
+	/**
+		 * 会长返回申请
+		 * */
+	export class stGlobalGuildMasterRetAskJoin extends Packet {
+		public static msgID: number = 0x2A08;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szJoinName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("szMasterName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
-			this.addProperty("boAllow",PacketBase.TYPE_BOOL);
-			this.addProperty("btErrorCode",PacketBase.TYPE_BYTE);
+			super();
+			this.addProperty("szJoinName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
+			this.addProperty("boAllow", PacketBase.TYPE_BOOL);
+			this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);
 			this.cmd = 0x2A08;
-			if(data)
-			{
-				data.pos += this.read(data); 
+			if (data) {
+				data.pos += this.read(data);
 			}
 		}
 	}
@@ -1137,213 +1054,191 @@ export class stGlobalGuildGetDiplomacyTypeNum extends Packet
     /**
 	 * 玩家离开行会
 	 * */
-	export class stGlobalGuildMemberLeave extends Packet
-	{
-        public  static   msgID:number =  0x2A16;
+	export class stGlobalGuildMemberLeave extends Packet {
+		public static msgID: number = 0x2A16;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btType",PacketBase.TYPE_BYTE);		//0主动退出行会1会长踢出
-			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("szMasterName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0主动退出行会1会长踢出
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A16;
-			if(data)data.pos +=this.read(data);
+			if (data) data.pos += this.read(data);
 		}
 	}
 
     /**
 	 * 获取行会成员
 	 * */
-	export class stGlobalGuildMemberList extends Packet
-	{
-		public  constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwPageNum",PacketBase.TYPE_DWORD);
-			this.addProperty("btType",PacketBase.TYPE_BYTE);//成员列表排序类型 0权利1等级2日贡献3战斗力
-			this.addProperty("boShowOffLine",PacketBase.TYPE_BOOL);//是否显示不在线玩家
+	export class stGlobalGuildMemberList extends Packet {
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//成员列表排序类型 0权利1等级2日贡献3战斗力
+			this.addProperty("boShowOffLine", PacketBase.TYPE_BOOL);//是否显示不在线玩家
 			this.cmd = 0x2A0B;
-			if(data)data.pos +=this.read(data);
+			if (data) data.pos += this.read(data);
 		}
 	}
 
-/**0x2A0C
-	 * 获取行会成员返回
-	 * */
-	export class stGlobalGuildMemberListRet extends Packet
-	{
-	public	static   msgID:number = 0x2A0C;
-		public   stZeroArray:Array<stSingleGuildMemberInfoBase> = [];
+	/**0x2A0C
+		 * 获取行会成员返回
+		 * */
+	export class stGlobalGuildMemberListRet extends Packet {
+		public static msgID: number = 0x2A0C;
+		public stZeroArray: Array<stSingleGuildMemberInfoBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-				this.addProperty("dwMaxPage",PacketBase.TYPE_DWORD);
-				this.addProperty("dwAskJoinNum",PacketBase.TYPE_DWORD);
-				this.addProperty("nCount",PacketBase.TYPE_INT);
-				if(data)
-				{
-					data.pos +=this.read(data);
-				}
+			super();
+			this.addProperty("dwMaxPage", PacketBase.TYPE_DWORD);
+			this.addProperty("dwAskJoinNum", PacketBase.TYPE_DWORD);
+			this.addProperty("nCount", PacketBase.TYPE_INT);
+			if (data) {
+				data.pos += this.read(data);
+			}
 		}
-		 public  read(data:Laya.Byte):number
-		{
-			data.pos =super.read(data);
-			for(var i:number = 0; i<this.getValue('nCount'); i++)
-			{
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.stZeroArray[i] = new stSingleGuildMemberInfoBase(data);
 			}
 			return data.pos;
 		}
-		
+
 	}
 
-// 0x2A39
+	// 0x2A39
 
-export class stGlobalGuildSabacOverView extends Packet
-	{
-	public	static   msgID:number =  0x2A39;
-		public  members:Array<stGuildMemberExtenBase> = [];
+	export class stGlobalGuildSabacOverView extends Packet {
+		public static msgID: number = 0x2A39;
+		public members: Array<stGuildMemberExtenBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD); //行会编号
-			this.addProperty("szGuildName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN)
-			this.addProperty('nCount',PacketBase.TYPE_INT);
+			super();
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD); //行会编号
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN)
+			this.addProperty('nCount', PacketBase.TYPE_INT);
 			this.cmd = 0x2A39;
-			if(data)
-			{
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
-		
-		 public  read(data:Laya.Byte):number
-		{
+
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number=0;i< this.getValue('nCount');i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.members[i] = new stGuildMemberExtenBase(data);
 			}
-			
+
 			return data.pos;
 		}
-		
-		 public  clear():void{
+
+		public clear(): void {
 			super.clear();
-			for (var i:number =0;i<this.members.length;i++){
+			for (var i: number = 0; i < this.members.length; i++) {
 				this.members[i].clear();
 				this.members[i] = null;
 			}
 			this.members.length = 0;
 			this.members = null;
-			
+
 		}
 	}
 
 
-// 0x2A2E
+	// 0x2A2E
 	/**行会中自己的信息*/
-	export class stGlobalGuildSelfInfo extends Packet
-	{
-	public	static   msgID:number = 0x2A2E;
+	export class stGlobalGuildSelfInfo extends Packet {
+		public static msgID: number = 0x2A2E;
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x2A2E;
 		}
 	}
 
 
-// 0x2A2F
-/**行会中自己的信息返回*/
+	// 0x2A2F
+	/**行会中自己的信息返回*/
 
-export class stGlobalGuildSelfInfoRet extends Packet
-	{
-	public	static   msgID:number = 0x2A2F;
-		public   stZeroArray:Array<stSingleGuildMemberInfoBase> = [];
-		public  constructor(data: Laya.Byte) {
-            super();
-			if(data)
-			{
-				data.pos +=this.read(data);
+	export class stGlobalGuildSelfInfoRet extends Packet {
+		public static msgID: number = 0x2A2F;
+		public stZeroArray: Array<stSingleGuildMemberInfoBase> = [];
+		public constructor(data: Laya.Byte) {
+			super();
+			if (data) {
+				data.pos += this.read(data);
 			}
 		}
-		 public  read(data:Laya.Byte):number
-		{
-			data.pos=super.read(data);
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
 			this.stZeroArray.push(new stSingleGuildMemberInfoBase(data));
 			return data.pos;
 		}
 	}
 
 
-//发起投票
-	export class stGlobalGuildVoteBanMaster extends Packet
-	{
+	//发起投票
+	export class stGlobalGuildVoteBanMaster extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btVote",PacketBase.TYPE_BYTE);	//投票，1同意，0不同意
+			super();
+			this.addProperty("btVote", PacketBase.TYPE_BYTE);	//投票，1同意，0不同意
 			this.cmd = 0x2A35;
 		}
 	}
 
-    // 0x2A37
+	// 0x2A37
 	//通知会员已经发起了废除会长
-	export class stGlobalGuildVoteBanMasterNotice extends Packet
-	{
-	public	static   msg:number = 0x2A37;
-		public  stZeroArray:Array<stVoterBase> = [];
+	export class stGlobalGuildVoteBanMasterNotice extends Packet {
+		public static msg: number = 0x2A37;
+		public stZeroArray: Array<stVoterBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btErrorCode",PacketBase.TYPE_BYTE);//0是正确，其他是出错
-			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//发起人姓名
-			this.addProperty("szDesc",PacketBase.TYPE_STRING,512);//理由
-			this.addProperty("dwBeginTime",PacketBase.TYPE_DWORD);//发起时间
-			this.addProperty("nAgree",PacketBase.TYPE_INT);//同意人数
-			this.addProperty("nDisagree",PacketBase.TYPE_INT);//不同意人数
-			this.addProperty("nNotVoted",PacketBase.TYPE_INT);//未同意人数
-			this.addProperty("btVoted",PacketBase.TYPE_BYTE);//本人投的票，1同意，2不同意,0没有投票
-			this.addProperty('nCount',PacketBase.TYPE_INT);
-			if(data){
+			super();
+			this.addProperty("btErrorCode", PacketBase.TYPE_BYTE);//0是正确，其他是出错
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//发起人姓名
+			this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);//理由
+			this.addProperty("dwBeginTime", PacketBase.TYPE_DWORD);//发起时间
+			this.addProperty("nAgree", PacketBase.TYPE_INT);//同意人数
+			this.addProperty("nDisagree", PacketBase.TYPE_INT);//不同意人数
+			this.addProperty("nNotVoted", PacketBase.TYPE_INT);//未同意人数
+			this.addProperty("btVoted", PacketBase.TYPE_BYTE);//本人投的票，1同意，2不同意,0没有投票
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
-		
-		 public  read(data:Laya.Byte):number
-		{
+
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number = 0;i<this.getValue("nCount");i++)
-			{
+			for (var i: number = 0; i < this.getValue("nCount"); i++) {
 				this.stZeroArray.push(new stVoterBase(data));
 			}
 			return data.pos;
 		}
-		
-		 public  clear():void{
+
+		public clear(): void {
 			super.clear();
-			for (var i:number = 0;i<this.stZeroArray.length;i++)
-			{
+			for (var i: number = 0; i < this.stZeroArray.length; i++) {
 				this.stZeroArray[i].clear();
 				this.stZeroArray[i] = null;
-			}	
+			}
 			this.stZeroArray.length = 0;
 		}
-		
+
 	}
 
-// 0x2A36
-    export class stGlobalGuildVoteBanMasterRet extends Packet
-	{
-	public	static   msgID:number = 0x2A36;
+	// 0x2A36
+	export class stGlobalGuildVoteBanMasterRet extends Packet {
+		public static msgID: number = 0x2A36;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btError",PacketBase.TYPE_BYTE);//0已经成功投票
-			if(data)
-			{
-				data.pos +=this.read(data);
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0已经成功投票
+			if (data) {
+				data.pos += this.read(data);
 			}
 		}
 	}
-    // 0x2A38
-    //投票情况查看
-	export class stGlobalGuildVoteBanMasterView extends Packet
-	{
+	// 0x2A38
+	//投票情况查看
+	export class stGlobalGuildVoteBanMasterView extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x2A38;
 		}
 	}
@@ -1351,14 +1246,12 @@ export class stGlobalGuildSelfInfoRet extends Packet
     /**0x290E
 	 * 班长踢出成员
 	 * */
-	export class stGlobalKickOutClass extends Packet
-	{
+	export class stGlobalKickOutClass extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x290E
-			this.addProperty("dwOnlyId",PacketBase.TYPE_DOUBLE);
-			if(data)
-			{
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
@@ -1366,153 +1259,142 @@ export class stGlobalGuildSelfInfoRet extends Packet
     /**0x2909
 	 * 获取班级成员信息
 	 * */
-	export class stGlobalOneClassMemberInfo extends Packet
-	{
+	export class stGlobalOneClassMemberInfo extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x2909;
 		}
 	}
     /**
 	 * 获取班级成员信息返回
 	 * */
-	export class stGlobalOneClassMemberInfoRet extends Packet
-	{
-		public  stZeroAarray:Array<stStudentInfoBase> = [];
-	public	static   msgID:number = 0x290A;
+	export class stGlobalOneClassMemberInfoRet extends Packet {
+		public stZeroAarray: Array<stStudentInfoBase> = [];
+		public static msgID: number = 0x290A;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwCampId",PacketBase.TYPE_DWORD);
-			this.addProperty("dwClassId",PacketBase.TYPE_DWORD);
-			this.addProperty("dwLeaderOnlyId",PacketBase.TYPE_DOUBLE);
-			this.addProperty("szNotice",PacketBase.TYPE_STRING,512);
-			this.addProperty('nCount',PacketBase.TYPE_INT);
-			if(data)this.read(data);
+			super();
+			this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
+			this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
+			this.addProperty("dwLeaderOnlyId", PacketBase.TYPE_DOUBLE);
+			this.addProperty("szNotice", PacketBase.TYPE_STRING, 512);
+			this.addProperty('nCount', PacketBase.TYPE_INT);
+			if (data) this.read(data);
 		}
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number = 0; i<this.getValue('nCount');i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.stZeroAarray[i] = new stStudentInfoBase(data);
 			}
 			return data.pos;
 		}
 	}
 
-	
-// 0x1049
-export class stGreenGetGuildJoinConfig extends Packet
-	{
-	public static msgID:number =0x1049;
+
+	// 0x1049
+	export class stGreenGetGuildJoinConfig extends Packet {
+		public static msgID: number = 0x1049;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwGuildId",PacketBase.TYPE_DWORD);
-			this.cmd=0x1049;
-			if(data)this.read(data);
+			super();
+			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x1049;
+			if (data) this.read(data);
 		}
 	}
 
-// 0x104A
-	export class stGreenGetGuildJoinConfigRet extends Packet
-	{
-		
-	public	static   msgID:number =0x104A;
-		public  m_cStAddpersonArrWarror:Array<stGreenGuildJobJoinConfig>=[];
-		public  m_cWarriorJoinConfig:stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
-		public  m_cMageJoinConfig:stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
-		public  m_cMonkJoinConfig:stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
-		
-		
-		public  constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("szGuildName",PacketBase.TYPE_STRING,48);//行会名称
-			this.addProperty("dwGuildLvl",PacketBase.TYPE_DWORD);//行会等级
-			this.addProperty("dwMaxPlayerCount",PacketBase.TYPE_DWORD);//最大行会人数上限
-			this.addProperty("szGuildJoinNotice",PacketBase.TYPE_STRING,512);//行会招募公告
+	// 0x104A
+	export class stGreenGetGuildJoinConfigRet extends Packet {
 
-			this.addProperty("WarriorJoinConfig",PacketBase.TYPE_BYTES,this.m_cWarriorJoinConfig.size(),this.m_cWarriorJoinConfig);
-			this.addProperty("MageJoinConfig",PacketBase.TYPE_BYTES,this.m_cMageJoinConfig.size(),this.m_cMageJoinConfig);
-			this.addProperty("MonkJoinConfig",PacketBase.TYPE_BYTES,this.m_cMonkJoinConfig.size(),this.m_cMonkJoinConfig);
-			if(data){
+		public static msgID: number = 0x104A;
+		public m_cStAddpersonArrWarror: Array<stGreenGuildJobJoinConfig> = [];
+		public m_cWarriorJoinConfig: stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
+		public m_cMageJoinConfig: stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
+		public m_cMonkJoinConfig: stGreenGuildJobJoinConfig = new stGreenGuildJobJoinConfig(null);
+
+
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szGuildName", PacketBase.TYPE_STRING, 48);//行会名称
+			this.addProperty("dwGuildLvl", PacketBase.TYPE_DWORD);//行会等级
+			this.addProperty("dwMaxPlayerCount", PacketBase.TYPE_DWORD);//最大行会人数上限
+			this.addProperty("szGuildJoinNotice", PacketBase.TYPE_STRING, 512);//行会招募公告
+
+			this.addProperty("WarriorJoinConfig", PacketBase.TYPE_BYTES, this.m_cWarriorJoinConfig.size(), this.m_cWarriorJoinConfig);
+			this.addProperty("MageJoinConfig", PacketBase.TYPE_BYTES, this.m_cMageJoinConfig.size(), this.m_cMageJoinConfig);
+			this.addProperty("MonkJoinConfig", PacketBase.TYPE_BYTES, this.m_cMonkJoinConfig.size(), this.m_cMonkJoinConfig);
+			if (data) {
 				this.read(data);
 				this.m_cStAddpersonArrWarror[0] = this.m_cWarriorJoinConfig;
 				this.m_cStAddpersonArrWarror[1] = this.m_cMageJoinConfig;
-				this.m_cStAddpersonArrWarror[2] = this.m_cMonkJoinConfig;	
+				this.m_cStAddpersonArrWarror[2] = this.m_cMonkJoinConfig;
 			}
-			this.cmd=0x104A;
+			this.cmd = 0x104A;
 		}
 	}
 
-// 0x1050
-	export class stGreenGuildSaveJoinConfigRet extends Packet
-	{
-	public	static   msgID:number = 0x1050;
+	// 0x1050
+	export class stGreenGuildSaveJoinConfigRet extends Packet {
+		public static msgID: number = 0x1050;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("ErrorCode",PacketBase.TYPE_INT);
-			
+			super();
+			this.addProperty("ErrorCode", PacketBase.TYPE_INT);
+
 		}
 	}
 
 	/**0x2B0E
 	 *   行会仓库物品回收
 	 * */
-	export class stGuidMasterRecoverItem extends Packet
-	{
-	public	static   msgID:number = 0x2B0E;
+	export class stGuidMasterRecoverItem extends Packet {
+		public static msgID: number = 0x2B0E;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("i64ItemId",PacketBase.TYPE_INT64);
-			this.addProperty("itemlv",PacketBase.TYPE_INT);
-			this.addProperty("islast",PacketBase.TYPE_BOOL);
+			super();
+			this.addProperty("i64ItemId", PacketBase.TYPE_INT64);
+			this.addProperty("itemlv", PacketBase.TYPE_INT);
+			this.addProperty("islast", PacketBase.TYPE_BOOL);
 			this.cmd = 0x2B0E;
-			if(data)
-			{
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
 	}
-// 0x2B0F
+	// 0x2B0F
 	// export class stGuidMasterRecoverItemRet extends Packet
 	// {
 	// public	static   msgID:number = 0x2B0F;
 	// 	public  item:stItem = new stItem;
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("btError",PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
 	// 		this.read(data);
 	// 	}
 	// }
 
-// 0x1013
-		export class stGuildAlmsDecoder extends Packet
-	{
-		
-	public	static   msgID:number=0x1013;
+	// 0x1013
+	export class stGuildAlmsDecoder extends Packet {
+
+		public static msgID: number = 0x1013;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('i64GemAlms',PacketBase.TYPE_INT64);
-			this.addProperty('i64MineralAlms',PacketBase.TYPE_INT64);
-			this.addProperty('i64SpiritAlms',PacketBase.TYPE_INT64);
-			this.addProperty('i64GoldAlms',PacketBase.TYPE_INT64);
+			super();
+			this.addProperty('i64GemAlms', PacketBase.TYPE_INT64);
+			this.addProperty('i64MineralAlms', PacketBase.TYPE_INT64);
+			this.addProperty('i64SpiritAlms', PacketBase.TYPE_INT64);
+			this.addProperty('i64GoldAlms', PacketBase.TYPE_INT64);
 			this.read(data);
-			
+
 		}
 	}
 
-// 0x1017
-	export class stGuildAnimalLevelUpEncoderDecoder extends Packet
-	{
-		
-	public	static   msgID:number = 0x1017;
+	// 0x1017
+	export class stGuildAnimalLevelUpEncoderDecoder extends Packet {
+
+		public static msgID: number = 0x1017;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nErrorCode',PacketBase.TYPE_INT);
-			this.addProperty('dwCurAnimalLv',PacketBase.TYPE_DWORD);
-			this.cmd=0x1017;
+			super();
+			this.addProperty('nErrorCode', PacketBase.TYPE_INT);
+			this.addProperty('dwCurAnimalLv', PacketBase.TYPE_DWORD);
+			this.cmd = 0x1017;
 			this.read(data);
-			
+
 		}
 	}
 
@@ -1524,10 +1406,10 @@ export class stGreenGetGuildJoinConfig extends Packet
 	// {
 	// 	public static  msgID:number = 0x2A4F;
 	// 	public  constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("btState",PacketBase.TYPE_BYTE); //0不显示，1显示
 	// 		this.cmd = value;
-			
+
 	// 		if(data)
 	// 		{
 	// 			data.pos += this.read(data);
@@ -1536,15 +1418,14 @@ export class stGreenGetGuildJoinConfig extends Packet
 	// }
 
 
-// 0x1003
-	export class stGuildChangeMember extends Packet
-	{
+	// 0x1003
+	export class stGuildChangeMember extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btOPType',PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
-			this.addProperty('btDstLvl',PacketBase.TYPE_BYTE);//目标等级
-			this.addProperty('dwUserOnluId',PacketBase.TYPE_DWORD);////用户唯一ID
-			this.addProperty('szMemberName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);		//要创建的氏族名
+			super();
+			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
+			this.addProperty('btDstLvl', PacketBase.TYPE_BYTE);//目标等级
+			this.addProperty('dwUserOnluId', PacketBase.TYPE_DWORD);////用户唯一ID
+			this.addProperty('szMemberName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);		//要创建的氏族名
 			this.cmd = 0x1003;
 		}
 	}
@@ -1554,7 +1435,7 @@ export class stGreenGetGuildJoinConfig extends Packet
 	// public	static   msgID:number = 0x1004;
 	// 	public  member:stGuildMemberBase = new stGuildMemberBase;
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty('btOPType',PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
 	// 		this.addProperty('errorcode',PacketBase.TYPE_BYTE);
 	// 		this.addProperty('member',PacketBase.TYPE_BYTES,this.member.size(),this.member);
@@ -1563,108 +1444,94 @@ export class stGreenGetGuildJoinConfig extends Packet
 	// }
 
 	// 0x2B0A
-		export class stGuildDonateItemLog extends Packet
-	{
+	export class stGuildDonateItemLog extends Packet {
 		public constructor() {
-            super();
+			super();
 			this.cmd = 0x2B0A;
 		}
 	}
 
-// 0x2B0B
-	export class stGuildDonateItemLogRet extends Packet
-	{
-	public	static   msgID:number = 0x2B0B;
-		public  stZeroArray:Array<stDonateLogBase> = [];
+	// 0x2B0B
+	export class stGuildDonateItemLogRet extends Packet {
+		public static msgID: number = 0x2B0B;
+		public stZeroArray: Array<stDonateLogBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btError",PacketBase.TYPE_BYTE);//0 成功 
-			this.addProperty('nCount',PacketBase.TYPE_DWORD);
-			if(data)
-			{
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0 成功 
+			this.addProperty('nCount', PacketBase.TYPE_DWORD);
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
-		
-		 public  read(data:Laya.Byte):number
-		{
+
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			var co:number=this.getValue('nCount');
-			for(var i:number = 0; i < this.getValue('nCount');i++)
-			{
+			var co: number = this.getValue('nCount');
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.stZeroArray[i] = new stDonateLogBase(data);
 			}
 			return data.pos;
 		}
-		
-		 public  clear():void{
+
+		public clear(): void {
 			super.clear();
-			for(var i:number = 0; i < this.stZeroArray.length;i++)
-			{
+			for (var i: number = 0; i < this.stZeroArray.length; i++) {
 				this.stZeroArray[i].clear();
 				this.stZeroArray[i] = null;
 			}
-			
+
 			this.stZeroArray.length = 0;
 			this.stZeroArray = null;
 		}
-		
+
 	}
 
 	// 0x100F
 
-	export class stGuildGetEvents extends Packet
-	{
+	export class stGuildGetEvents extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x100F;
 		}
 	}
-// 0x1010
-		export class stGuildGetEventsRet extends Packet
-	{
-	public	static   msgID:number =  0x1010;
-		public  events:Array<stGuildEventDB> = [];
+	// 0x1010
+	export class stGuildGetEventsRet extends Packet {
+		public static msgID: number = 0x1010;
+		public events: Array<stGuildEventDB> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nCount',PacketBase.TYPE_INT);
+			super();
+			this.addProperty('nCount', PacketBase.TYPE_INT);
 			this.read(data);
 		}
 
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for (var i:number=0;i< this.getValue('nCount');i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.events[i] = new stGuildEventDB(data);
 			}
-			
+
 			return data.pos;
 		}
 	}
-// 0x100B
-export class stGuildGetLvlConfigs extends Packet
-	{
+	// 0x100B
+	export class stGuildGetLvlConfigs extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 			this.cmd = 0x100B;
 		}
 	}
-// 0x100C
-export class stGuildGetLvlConfigsRet extends Packet
-	{
-	public	static   msgID:number = 0x100C;
-		public  LvlInfos:Array<stMemberLvlConfigBase> = [];
+	// 0x100C
+	export class stGuildGetLvlConfigsRet extends Packet {
+		public static msgID: number = 0x100C;
+		public LvlInfos: Array<stMemberLvlConfigBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.read(data);	
+			super();
+			this.read(data);
 		}
 
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number=0;i<10;i++)
-			{
+			for (var i: number = 0; i < 10; i++) {
 				this.LvlInfos[i] = new stMemberLvlConfigBase(data);
 			}
 
@@ -1673,29 +1540,27 @@ export class stGuildGetLvlConfigsRet extends Packet
 	}
 
 
-// 0x1009
-	export class stGuildGetMembers extends Packet
-	{
+	// 0x1009
+	export class stGuildGetMembers extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.cmd= 0x1009;
+			super();
+			this.cmd = 0x1009;
 		}
 	}
 
-// 0x100A
-export class stGuildGetMembersRet extends Packet
-	{
-	public	static   msgID:number = 0x100A;
-		public  members:Array<stGuildMemberBase> = [];
+	// 0x100A
+	export class stGuildGetMembersRet extends Packet {
+		public static msgID: number = 0x100A;
+		public members: Array<stGuildMemberBase> = [];
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('guildname',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty('szNotice',PacketBase.TYPE_STRING,512);//目标等级
-			this.addProperty('nCount',PacketBase.TYPE_INT);
+			super();
+			this.addProperty('guildname', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty('szNotice', PacketBase.TYPE_STRING, 512);//目标等级
+			this.addProperty('nCount', PacketBase.TYPE_INT);
 			this.read(data);
 
 		}
-		
+
 		/*
 		struct GuildGetMemberRet{
 		char guildname[_max_name_len];
@@ -1704,102 +1569,93 @@ export class stGuildGetMembersRet extends Packet
 		}
 		*/
 
-		 public  read(data:Laya.Byte):number
-		{
+		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for(var i:number=0;i< this.getValue('nCount');i++)
-			{
+			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.members[i] = new stGuildMemberBase(data);
 			}
 
 			return data.pos;
 		}
 	}
-// 0x100D
-	export class stGuildGetNotice extends Packet
-	{
+	// 0x100D
+	export class stGuildGetNotice extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btOPType',PacketBase.TYPE_BYTE);//0 今日公告  1 行会公
+			super();
+			this.addProperty('btOPType', PacketBase.TYPE_BYTE);//0 今日公告  1 行会公
 			this.cmd = 0x100D;
 		}
 	}
 
-// 0x1014
-	export class stGuildLevelUpEncoderDecoder extends Packet
-	{
-		
-	public	static   msgID:number=0x1014;
-		
-		public  constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('nErrorCode',PacketBase.TYPE_INT);
-			this.addProperty('dwCurLv',PacketBase.TYPE_DWORD);
-			
-			this.cmd=0x1014;
-			if(data) this.read(data);
-			
-			
+	// 0x1014
+	export class stGuildLevelUpEncoderDecoder extends Packet {
+
+		public static msgID: number = 0x1014;
+
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('nErrorCode', PacketBase.TYPE_INT);
+			this.addProperty('dwCurLv', PacketBase.TYPE_DWORD);
+
+			this.cmd = 0x1014;
+			if (data) this.read(data);
+
+
 		}
 	}
 
-// 0x1007
-		export class stGuildSetLvlInfo extends Packet
-	{
+	// 0x1007
+	export class stGuildSetLvlInfo extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btLvl',PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
-			this.addProperty('szLvlName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//目标等级
-			this.addProperty('dwAuthoritys',PacketBase.TYPE_DWORD);////新权限
-			this.cmd= 0x1007;
+			super();
+			this.addProperty('btLvl', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
+			this.addProperty('szLvlName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//目标等级
+			this.addProperty('dwAuthoritys', PacketBase.TYPE_DWORD);////新权限
+			this.cmd = 0x1007;
 		}
 	}
 
 	// 0x1008
-	export class stGuildSetLvlInfoRet extends Packet
-	{
-	public	static   msgID:number = 0x1008;
+	export class stGuildSetLvlInfoRet extends Packet {
+		public static msgID: number = 0x1008;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btLvl',PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
-			this.addProperty('szLvlName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//目标等级
-			this.addProperty('dwAuthoritys',PacketBase.TYPE_DWORD);////新权限
+			super();
+			this.addProperty('btLvl', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
+			this.addProperty('szLvlName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//目标等级
+			this.addProperty('dwAuthoritys', PacketBase.TYPE_DWORD);////新权限
 			this.read(data);
 		}
 	}
 
 	// 0x1005
-	export class stGuildSetNotice extends Packet
-	{
+	export class stGuildSetNotice extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btOPType',PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
-			this.addProperty('szNotice',PacketBase.TYPE_STRING,512);//目标等级
-			this.cmd= 0x1005;
+			super();
+			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
+			this.addProperty('szNotice', PacketBase.TYPE_STRING, 512);//目标等级
+			this.cmd = 0x1005;
 		}
 	}
 
 	// 0x1006
-	export class stGuildSetNoticeRet extends Packet
-	{
-	public	static   msgID:number = 0x1006; 
+	export class stGuildSetNoticeRet extends Packet {
+		public static msgID: number = 0x1006;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('btOPType',PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
-			this.addProperty('szNotice',PacketBase.TYPE_STRING,512);//目标等级
+			super();
+			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
+			this.addProperty('szNotice', PacketBase.TYPE_STRING, 512);//目标等级
 			this.read(data);
 		}
 	}
 
 	// 0x1015
-	export class stGuildWarEncoder   extends  Packet
-	{
+	export class stGuildWarEncoder extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 
-			this.addProperty('szToWarGuildId',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty('szToWarGuildId', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 
-			this.cmd=0x1015;
+			this.cmd = 0x1015;
 		}
 	}
 
@@ -1809,24 +1665,24 @@ export class stGuildGetMembersRet extends Packet
 	// public	static   msgID:number =0x1016;
 	//     public  stCurWarGuild:stWarGuildBase=new stWarGuildBase();
 	// 	public  WarGuilds:Array<stWarGuildBase> = [];
-		
+
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("stCurWarGuild",PacketBase.TYPE_BYTES,this.stCurWarGuild.size(),this.stCurWarGuild);
 	// 		this.addProperty("FightIngGuildArr",PacketBase.TYPE_INT);
 	// 		this.cmd=0x1016;
 	// 		if(data) this.read(data);
 	// 	}
-		
+
 	// 	 public  read(data:Laya.Byte):number
 	// 	{
 	// 		data.pos=super.read(data);
-			
+
 	// 		for (var i:number=0;i< this.getValue('FightIngGuildArr');i++)
 	// 		{
 	// 			this.WarGuilds[i] = new stWarGuildBase(data);
 	// 		}
-			
+
 	// 		return data.pos;
 	// 	}
 	// }
@@ -1837,46 +1693,44 @@ export class stGuildGetMembersRet extends Packet
 	// public	static    msgID:number=0x1018;
 	// 	public   TipWarGuild:stWarGuildBase=new stWarGuildBase();
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
-			
+	//         super();
+
 	// 		this.addProperty('nErrorCode',PacketBase.TYPE_INT);
 	// 		this.addProperty('nType',PacketBase.TYPE_INT);
 	// 		this.addProperty("TipWarGuild",PacketBase.TYPE_BYTES,this.TipWarGuild.size(),this.TipWarGuild);
 	// 		this.read(data);
-			
+
 	// 	}
 	// }
 
 	// 0x1011
-	export class stQueryGuildInfoEncoder  extends Packet
-	{
+	export class stQueryGuildInfoEncoder extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty('dwGuildID',PacketBase.TYPE_DWORD);
-			this.addProperty('dwPowerLvl',PacketBase.TYPE_BYTE);
+			super();
+			this.addProperty('dwGuildID', PacketBase.TYPE_DWORD);
+			this.addProperty('dwPowerLvl', PacketBase.TYPE_BYTE);
 			this.cmd = 0x1011;
 		}
 	}
 
 
 	// 0x1012
-	export class stQueryGuildInfoRetDecoder  extends Packet
-	{
-	public	static   msgID:number = 0x1012;
+	export class stQueryGuildInfoRetDecoder extends Packet {
+		public static msgID: number = 0x1012;
 		public constructor(data: Laya.Byte) {
-            super();
+			super();
 
-			this.addProperty('dwGuildID',PacketBase.TYPE_DWORD);
-			this.addProperty('btPowerLvl',PacketBase.TYPE_BYTE);
-			this.addProperty('szGuildName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty('szLvlName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty('dwmaxplayercount',PacketBase.TYPE_DWORD);
-			this.addProperty('dwGuildLevel',PacketBase.TYPE_DWORD);
-			this.addProperty('i64GemNum',PacketBase.TYPE_INT64);
-			this.addProperty('i64MineralNum',PacketBase.TYPE_INT64);
-			this.addProperty('i64SpiritNum',PacketBase.TYPE_INT64);
-			this.addProperty('i64GoldNum',PacketBase.TYPE_INT64);
-			this.addProperty('wGuildAnimalLv',PacketBase.TYPE_WORD);
+			this.addProperty('dwGuildID', PacketBase.TYPE_DWORD);
+			this.addProperty('btPowerLvl', PacketBase.TYPE_BYTE);
+			this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty('szLvlName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+			this.addProperty('dwmaxplayercount', PacketBase.TYPE_DWORD);
+			this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);
+			this.addProperty('i64GemNum', PacketBase.TYPE_INT64);
+			this.addProperty('i64MineralNum', PacketBase.TYPE_INT64);
+			this.addProperty('i64SpiritNum', PacketBase.TYPE_INT64);
+			this.addProperty('i64GoldNum', PacketBase.TYPE_INT64);
+			this.addProperty('wGuildAnimalLv', PacketBase.TYPE_WORD);
 			this.read(data);
 		}
 	}
@@ -1887,7 +1741,7 @@ export class stGuildGetMembersRet extends Packet
 	// public	static   msgID:number = 0x2A2C;
 	// 	public  guilds:Array<number> =[];
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("nsize",PacketBase.TYPE_INT)
 	// 		if(data){
 	// 			data.pos +=this.read(data);
@@ -1904,13 +1758,13 @@ export class stGuildGetMembersRet extends Packet
 	// 	}
 	// }
 
-// 0x2a21
+	// 0x2a21
 	// export class strGlobalGuildSendFightList extends Packet
 	// {
 	// 	public  guilds:Array<int> = [];
 	// public	static   msgID:number = 0x2a21;
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty('nCount',PacketBase.TYPE_INT);
 	// 		this.read(data);
 	// 	}
@@ -1929,29 +1783,27 @@ export class stGuildGetMembersRet extends Packet
 	/**
 	 * 星巴克禁言
 	 * */
-	export class stSabacMasterBlanUser extends Packet
-	{
-		public static  msgID:number = 0x2A2D;
+	export class stSabacMasterBlanUser extends Packet {
+		public static msgID: number = 0x2A2D;
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("btChatType",PacketBase.TYPE_BYTE);
-			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			super();
+			this.addProperty("btChatType", PacketBase.TYPE_BYTE);
+			this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A2D;
-			if(data)
-			{
+			if (data) {
 				data.pos += this.read(data);
 			}
 		}
 	}
 
 
-// 0x2B07
+	// 0x2B07
 	// export class stSucessGetGuildPackageItem extends Packet
 	// {
 	// public	static   msgID:number = 0x2B07;
 	// 	public  item:stItem = new stItem;
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("btError",PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
 	// 		this.addProperty("dwJiFen",PacketBase.TYPE_DWORD);
 	// 		this.addProperty('item',PacketBase.TYPE_BYTES,this.item.size(),this.item);
@@ -1963,28 +1815,27 @@ export class stGuildGetMembersRet extends Packet
 	// 	}
 	// }
 
-/**0x2B03
-	 * 查看公会仓库
-	 * */
-	export class stViewGuildPackage extends Packet
-	{
+	/**0x2B03
+		 * 查看公会仓库
+		 * */
+	export class stViewGuildPackage extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwStoreId",PacketBase.TYPE_DWORD);//仓库编号
+			super();
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
 			this.cmd = 0x2B03;
 		}
 	}
 
-		/**0x2B04
-	 * 查看仓库的返回
-	 * */
+	/**0x2B04
+  * 查看仓库的返回
+  * */
 	// export class stViewGuildPackageRet extends Packet
 	// {
 	// public	static   msgID:number = 0x2B04;
 	// 	public  items:Array = new Array();
 	// 	public  ncount:number=0;
 	// 	public constructor(data: Laya.Byte) {
-    //         super();
+	//         super();
 	// 		this.addProperty("dwStoretype",PacketBase.TYPE_BYTE);//0表示清空1表示附加
 	// 		this.addProperty("dwStoreId",PacketBase.TYPE_DWORD);//仓库编号
 	// 		this.addProperty("nCount",PacketBase.TYPE_INT);//
@@ -1993,7 +1844,7 @@ export class stGuildGetMembersRet extends Packet
 	// 			data.pos +=this.read(data);
 	// 		}	
 	// 	}
-		
+
 	// 	 public  read(data: Laya.Byte):number
 	// 	{
 	// 		data.pos =super.read(data);
@@ -2006,7 +1857,7 @@ export class stGuildGetMembersRet extends Packet
 	// 		}
 	// 		return 0;
 	// 	}
-		
+
 	// 	 public  clear():void{
 	// 		for(var i:number =0;i<this.items.length;i++)
 	// 		{
@@ -2020,14 +1871,13 @@ export class stGuildGetMembersRet extends Packet
 	// }
 
 	// 0x2B05
-		export class stWantGetGuildPackageItem extends Packet
-	{
+	export class stWantGetGuildPackageItem extends Packet {
 		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("i64ItemId",PacketBase.TYPE_INT64);//要捐献的装备ID
+			super();
+			this.addProperty("i64ItemId", PacketBase.TYPE_INT64);//要捐献的装备ID
 			this.cmd = 0x2B05;
 		}
 	}
-	}
+}
 
 

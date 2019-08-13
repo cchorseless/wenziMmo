@@ -118,7 +118,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.srcLocation = this.itemObj.location;
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP);
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
@@ -227,7 +227,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.srcLocation = this.itemObj.location;
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
 			packet.destLocation.setValue('btIndex', 0);
 			lcp.send(packet, this, (data) => {
@@ -242,7 +242,7 @@ module view.dialog {
 						let btIndex = _itemBase.location.getValue('btIndex');
 						delete GameApp.GameEngine.equipDBIndex[btIndex];
 						// 重置位置属性
-						_itemBase.location.clone(msg.destLocation.data);
+						_itemBase.location = msg.destLocation;
 						// 清除绑定的UI
 						_itemBase.recoverUI();
 						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
@@ -267,7 +267,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.srcLocation = this.itemObj.location;
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE);
 			packet.destLocation.setValue('btIndex', 0);
 			lcp.send(packet, this, (data) => {
@@ -279,7 +279,7 @@ module view.dialog {
 					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
 					if (_itemBase) {
 						// 重置位置属性
-						_itemBase.location.clone(msg.destLocation.data);
+						_itemBase.location = msg.destLocation;
 						// 清除绑定的UI
 						_itemBase.recoverUI();
 						GameApp.GameEngine.cangKuDB[i64ItemId] = _itemBase;
@@ -307,7 +307,7 @@ module view.dialog {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
-			packet.srcLocation.clone(this.itemObj.location.data);
+			packet.srcLocation = this.itemObj.location;
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
 			packet.destLocation.setValue('btIndex', 0);
 			lcp.send(packet, this, (data) => {
@@ -319,12 +319,13 @@ module view.dialog {
 					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
 					if (_itemBase) {
 						// 重置位置属性
-						_itemBase.location.clone(msg.destLocation.data);
+						_itemBase.location = msg.destLocation;
 						// 清除绑定的UI
 						_itemBase.recoverUI();
 						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.cangKuDB[i64ItemId];
 						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
+						PanelManage.BeiBao && PanelManage.BeiBao.updateCangKuInfo();
 						TipsManage.showTips('取出仓库成功');
 					} else {
 						TipsManage.showTips('取出仓库失败(client 01)');
@@ -349,19 +350,32 @@ module view.dialog {
 				TipsManage.showTips('绑定物品不能交易');
 				return
 			}
-			let pkt = new ProtoCmd.stAuctionSellItem();
-			pkt.setValue('i64Id', this.itemObj.i64ItemID);
-			pkt.setValue('dwCount', 1);
-			pkt.setValue('dwPrice', parseInt(this.input_price.text));
-			pkt.setValue('btDays', 1);
-			pkt.setValue('boShowName', false);
-			lcp.send(pkt, this, (data) => {
-				let cbpkt = new ProtoCmd.stStallRet(data);
-				if (cbpkt.result === 0) {
-					TipsManage.showTips('上架成功');
-				}
-			})
+			if (PanelManage.BeiBao && PanelManage.BeiBao.checkTanWeiIsFull()) {
+				let pkt = new ProtoCmd.stAuctionSellItem();
+				pkt.setValue('i64Id', this.itemObj.i64ItemID);
+				pkt.setValue('dwCount', 1);
+				pkt.setValue('dwPrice', parseInt(this.input_price.text));
+				pkt.setValue('btDays', 1);
+				pkt.setValue('boShowName', false);
+				lcp.send(pkt, this, (data) => {
+					let cbpkt = new ProtoCmd.stStallRet(data);
+					if (cbpkt.result === 0) {
+						TipsManage.showTips('上架成功');
+						PanelManage.BeiBao && PanelManage.BeiBao.updateTanWei();
+					}
+					else {
+						TipsManage.showTips('上架失败');
+					};
+					cbpkt.clear();
+					cbpkt = null;
+				});
+
+			}
+			else {
+				TipsManage.showTips('摊位已满无法上架');
+			}
 		}
+
 
 	}
 }

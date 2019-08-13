@@ -14,9 +14,6 @@ module view.compart {
 		}
 
 		public addEvent(): void {
-			this.btn_zhengLi.on(Laya.UIEvent.CLICK, this, () => {
-
-			})
 		}
 
 		public initUI(): void {
@@ -29,6 +26,9 @@ module view.compart {
 			for (let key of allKey) {
 				this.addItem(GameApp.GameEngine.cangKuDB[key]);
 			}
+			// 仓库上限，暂时写死
+			this.lbl_maxCount.text = '80';
+			this.lbl_itemCount.text = '' + allKey.length;
 		}
 
 		public addItem(obj: ProtoCmd.ItemBase): void {
@@ -41,7 +41,13 @@ module view.compart {
 					break;
 				}
 			}
+			// 保存的道具数量
+			this.lbl_itemCount.text = '' + Object.keys(GameApp.GameEngine.cangKuDB).length;
 		}
 
+		public updateCangKuUI(): void {
+			// 保存的道具数量
+			this.lbl_itemCount.text = '' + Object.keys(GameApp.GameEngine.cangKuDB).length;
+		}
 	}
 }
