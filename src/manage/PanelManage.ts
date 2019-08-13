@@ -53,7 +53,9 @@ module PanelManage {
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
+    export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
+    export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//江湖图鉴界面
@@ -306,6 +308,22 @@ module PanelManage {
         })
     }
      /**
+     * 帮派日志界面
+     */
+    export function openGuildRecordPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildRecord) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildRecord);
+        ResManage.loadResource(ResData.PanelRes.GuildRecord, () => {
+            PanelManage.GuildRecord = new view.guild.GuildRecordPanel();
+            PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
+            PanelManage.GuildRecord.setData();
+            PanelManage.GuildRecord.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildRecord,3, 5, 1);
+        })
+    }
+     /**
      * 帮派福利界面
      */
     export function openGuildFuliPanel(): void {
@@ -335,6 +353,22 @@ module PanelManage {
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildHelp,3, 5, 1);
+        })
+    }
+    /**
+     *入帮申请界面
+     */
+    export function openGuildApplyPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildApply) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildApply);
+        ResManage.loadResource(ResData.PanelRes.GuildApply, () => {
+            PanelManage.GuildApply = new view.guild.GuildApplyPanel();
+            PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
+            PanelManage.GuildApply.setData();
+            PanelManage.GuildApply.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildApply,3, 5, 1);
         })
     }
     /**

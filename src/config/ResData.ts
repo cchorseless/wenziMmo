@@ -53,10 +53,14 @@ module ResData {
         public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 入帮设置界面
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派福利
+         // 帮派福利界面
         public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
-         // 帮派支援
+        // 帮派日志界面
+        public static GuildRecord = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 帮派支援界面
         public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 入帮申请界面
+        public static GuildApply = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
