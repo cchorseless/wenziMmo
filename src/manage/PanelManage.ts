@@ -498,7 +498,7 @@ module PanelManage {
             PanelManage.TuJianJiangHu['LCP_skin'] = ResData.PanelRes.TuJianJiangHu;
             PanelManage.TuJianJiangHu.setData();
             PanelManage.TuJianJiangHu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 3);
+            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 1);
         })
     }
        /**
@@ -514,7 +514,7 @@ module PanelManage {
             PanelManage.TuJianDaoju['LCP_skin'] = ResData.PanelRes.TuJianDaoju;
             PanelManage.TuJianDaoju.setData();
             PanelManage.TuJianDaoju.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianDaoju, 2, 3, 3);
+            PopUpManager.addPanel(PanelManage.TuJianDaoju, 2, 3, 1);
         })
     }
      /**
@@ -530,7 +530,7 @@ module PanelManage {
             PanelManage.TuJianJuese['LCP_skin'] = ResData.PanelRes.TuJianJuese;
             PanelManage.TuJianJuese.setData();
             PanelManage.TuJianJuese.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJuese, 2, 3, 3);
+            PopUpManager.addPanel(PanelManage.TuJianJuese, 2, 3, 1);
         })
     }
     /**
@@ -546,7 +546,7 @@ module PanelManage {
             PanelManage.TuJianBoss['LCP_skin'] = ResData.PanelRes.TuJianBoss;
             PanelManage.TuJianBoss.setData();
             PanelManage.TuJianBoss.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianBoss, 2, 3, 3);
+            PopUpManager.addPanel(PanelManage.TuJianBoss, 2, 3, 1);
         })
     }
 }

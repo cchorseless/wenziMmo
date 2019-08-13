@@ -13,7 +13,7 @@ module view.dialog{
 				this.close();
 			})
 			this.img_changeHead.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.FrameDialog().popup(true);
+				new view.dialog.HeadDialog().popup(true);
 			});
 		}
 	}

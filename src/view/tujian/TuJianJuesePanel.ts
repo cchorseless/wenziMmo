@@ -13,6 +13,9 @@ module view.tujian{
 			 this.box_juese.on(Laya.UIEvent.CLICK, this, () => {
 					new view.dialog.TuJianRewardDialog().popup(true);
 			})
+			  this.box_jueseReturn.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this, true, 4);
+			});
 		}
 	}
 }

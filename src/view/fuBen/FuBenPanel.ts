@@ -29,6 +29,9 @@ module view.fuBen {
 		this.btn_pinglun.on(Laya.UIEvent.CLICK, this, () => {
 					new view.dialog.FuBenPingLunDialog().popup(true);
 			})
+			this.btn_share.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.FuBenShareDialog().popup(true);
+			})
 		}
 	}
 }
