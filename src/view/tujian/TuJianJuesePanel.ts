@@ -7,6 +7,12 @@ module view.tujian{
 		public setData():void{
 			this.panel_TuJianJuese.vScrollBarSkin ="";
 			this.vbox_TuJianJuese['sortItem']=(items)=>{};
+			this.addEvent();
+		}
+			public addEvent(): void {
+			 this.box_juese.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.TuJianRewardDialog().popup(true);
+			})
 		}
 	}
 }

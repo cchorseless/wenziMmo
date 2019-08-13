@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":11,
+    "selecteID":32,
     "props":{"width":455,"sceneColor":"#000000","height":490},
     "nodeParent":-1,
     "label":"Dialog",
@@ -61,20 +61,8 @@
                             "compId":20,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":23,"x":170,"text":"2019.02.12","fontSize":22},
-                            "nodeParent":9,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":28,
-                            "child":[
-                                ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -110,13 +98,14 @@
                     "props":{"y":36,"x":30,"scaleY":0.9,"scaleX":0.9},
                     "nodeParent":5,
                     "label":"Box",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":22,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong.png"},
                             "nodeParent":22,
@@ -130,6 +119,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
                             "nodeParent":22,
@@ -154,6 +144,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
                             "nodeParent":22,
@@ -167,6 +158,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":158,"x":114,"skin":"image/tujian/attitude_juesetujian_kind.png"},
                             "nodeParent":22,
@@ -177,9 +169,23 @@
                             "compId":27,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":286,"x":196,"text":"2019.02.12","fontSize":22},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":28,
+            "child":[
+                ]
         },
         {
             "x":15,
@@ -187,14 +193,13 @@
             "props":{"y":279,"x":42,"skin":"image/common/Text_zan.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":32,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":7,"x":33,"underline":true,"text":"木槿花未…","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
                     "nodeParent":32,
@@ -207,7 +212,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
                     "nodeParent":32,
@@ -219,7 +223,6 @@
                     "compId":34,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
                             "nodeParent":34,
@@ -232,7 +235,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
                             "nodeParent":34,
@@ -244,7 +246,8 @@
                             "child":[
                                 ]
                         }]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,

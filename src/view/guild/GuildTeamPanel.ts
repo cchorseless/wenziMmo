@@ -25,6 +25,14 @@ module view.guild{
 			this.img_guildOut.on(Laya.UIEvent.CLICK,this,() =>{
                new view.dialog.GuildOutDialog().popup(true);
 		})
+		this.img_guildRecord.on(Laya.UIEvent.CLICK,this,() =>{
+                PanelManage.openGuildRecordPanel();
+			
+		}) 
+		this.img_guildApply.on(Laya.UIEvent.CLICK,this,() =>{
+                PanelManage.openGuildApplyPanel();
+			
+		}) 
 		this.img_guildFuliEnter.on(Laya.UIEvent.CLICK,this,() =>{
                 PanelManage.openGuildFuliPanel();
 			
