@@ -66,7 +66,7 @@ module ProtoCmd {
 	export class stCreatGlobalGuild extends Packet {
 		public static msgID: number = 0x2A01;
 		public cbPacket = stCreatGlobalGuildRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("btOPType", PacketBase.TYPE_BYTE)		//0 增加  1 解散 3 检测名字
 			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//要创建的氏族名
@@ -243,6 +243,8 @@ module ProtoCmd {
      * 班级改变班长
      * */
 	export class stGlobalClassChangeLeader extends Packet {
+		public static msgID: number = 0x290B;
+		public cbPacket = stGlobalClassChangeLeaderRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("szNewLeaderonly", PacketBase.TYPE_DWORD);
@@ -271,7 +273,7 @@ module ProtoCmd {
      * 班长编辑公告
      * */
 	export class stGlobalClassEditNotice extends Packet {
-
+		public static msgID: number = 0x290F;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("szNotice", PacketBase.TYPE_STRING, 512);
@@ -286,6 +288,8 @@ module ProtoCmd {
      * 班级获取日志
      * */
 	export class stGlobalClassGetEvent extends Packet {
+		public static msgID: number = 0x2910;
+		public cbPacket = stGlobalClassGetEventRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2910;
@@ -658,6 +662,8 @@ module ProtoCmd {
 		 * 改变行会权限
 		 * */
 	export class stGlobalGuildChangePowerLvl extends Packet {
+		public static msgID: number = 0x2A0F;
+		public cbPacket = stGlobalGuildChangePowerLvlRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -684,6 +690,8 @@ module ProtoCmd {
 	 * 本行会信息
 	 * */
 	export class stGlobalGuildCurGuildInfo extends Packet {
+		public static msgID: number = 0x2A09;
+		public cbPacket = stGlobalGuildCurGuildInfoRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);//0本行会信息1关系行会信息
@@ -698,25 +706,25 @@ module ProtoCmd {
 	/**0x2A0A
 		 * 本行会信息返回
 		 * */
-	// export class stGlobalGuildCurGuildInfoRet extends Packet
-	// {
-	// public	static  msgID:number = 0x2A0A;
-	// 	public  guildinfo:stSingleGuildinfoBase = new stSingleGuildinfoBase();
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 			this.addProperty("btType",PacketBase.TYPE_BYTE);
-	// 			this.addProperty("guildinfo",PacketBase.TYPE_BYTES,this.guildinfo.size(),this.guildinfo);
-	// 			if(data)
-	// 			{
-	// 				data.pos += this.read(data);
-	// 			}
-	// 	}
-	// }
+	export class stGlobalGuildCurGuildInfoRet extends Packet {
+		public static msgID: number = 0x2A0A;
+		public guildinfo: stSingleGuildinfoBase = new stSingleGuildinfoBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildinfo.size(), this.guildinfo);
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
 
 	/**0x2A1F
 		 * //删除外交关系
 		 * */
 	export class stGlobalGuildDelToDiplomacy extends Packet {
+		public static msgID: number = 0x2A1F;
+		public cbPacket = stGlobalGuildDelToDiplomacyRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
@@ -776,10 +784,23 @@ module ProtoCmd {
 	 * 获取称号列表和人数
 	 * */
 	export class stGlobalGuildGetAlia extends Packet {
+		public static msgID: number = 0x2A17;
+		public cbPacket = stGlobalGuildGetAliaRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2A17;
 			if (data) this.read(data);
+		}
+	}
+	/**0x2A18
+	  * 获取称号列表和人数返回
+	  * */
+	export class stGlobalGuildGetAliaRet extends Packet {
+		public static msgID: number = 0x2A18;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1280);//称号:人数/称号:人数
+			if (data) data.pos += this.read(data);
 		}
 	}
 
@@ -787,6 +808,8 @@ module ProtoCmd {
 		 * 获取称号成员
 		 * */
 	export class stGlobalGuildGetAliaMember extends Packet {
+		public static msgID: number = 0x2A19;
+		public cbPacket = stGlobalGuildGetAliaMemberRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -820,21 +843,13 @@ module ProtoCmd {
 		}
 	}
 
-	/**0x2A18
-		 * 获取称号列表和人数返回
-		 * */
-	export class stGlobalGuildGetAliaRet extends Packet {
-		public static msgID: number = 0x2A18;
-		public constructor(data: Laya.Byte) {
-			super();
-			this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1280);//称号:人数/称号:人数
-			if (data) data.pos += this.read(data);
-		}
-	}
+
 	/**0x2A12
 		 * 获取已申请行会列表
 		 * */
 	export class stGlobalGuildGetAskJoinList extends Packet {
+		public static msgID: number = 0x2A12;
+		public cbPacket = stGlobalGuildGetAskJoinListRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2A12;
@@ -867,6 +882,8 @@ module ProtoCmd {
 		 * //获取外交列表
 		 * */
 	export class stGlobalGuildGetDiplomacyList extends Packet {
+		public static msgID: number = 0x2A1D;
+		public cbPacket = stGlobalGuildGetDiplomacyListRet;
 		public constructor(data: Laya.Byte) {
 			super();
 
@@ -906,7 +923,8 @@ module ProtoCmd {
 			 * //获取外交关系行会数
 			 * */
 	export class stGlobalGuildGetDiplomacyTypeNum extends Packet {
-
+		public static msgID: number = 0x2A24;
+		public cbPacket = stGlobalGuildGetDiplomacyTypeNumRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2A24;
@@ -937,7 +955,8 @@ module ProtoCmd {
 		 * client获取行会列表
 		 * */
 	export class stGlobalGuildGetList extends Packet {
-
+		public static msgID: number = 0x2A04;
+		public cbPacket = stGlobalGuildGetListRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0新人查看 1外交界面列表
@@ -975,6 +994,7 @@ module ProtoCmd {
 		 *帮会邀请
 		 */
 	export class stGlobalGuildInviteInter extends Packet {
+		public cbPacket = stGlobalGuildInviteInterRet;
 		public static msgID: number = 0x2A40;
 		public constructor(data: Laya.Byte) {
 			super();
@@ -984,7 +1004,9 @@ module ProtoCmd {
 			if (data) data.pos += this.read(data);
 		}
 	}
-
+	/**0x2A41
+		 *帮会邀请返回
+		 */
 	export class stGlobalGuildInviteInterRet extends Packet {
 		public static msgID: number = 0x2A41;
 		public constructor(data: Laya.Byte) {
@@ -1070,6 +1092,8 @@ module ProtoCmd {
 	 * 获取行会成员
 	 * */
 	export class stGlobalGuildMemberList extends Packet {
+		public static msgID: number = 0x2A0B;
+		public cbPacket = stGlobalGuildMemberListRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);
@@ -1147,6 +1171,7 @@ module ProtoCmd {
 	/**行会中自己的信息*/
 	export class stGlobalGuildSelfInfo extends Packet {
 		public static msgID: number = 0x2A2E;
+		public cbPacket = stGlobalGuildSelfInfoRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2A2E;
@@ -1176,10 +1201,23 @@ module ProtoCmd {
 
 	//发起投票
 	export class stGlobalGuildVoteBanMaster extends Packet {
+		public static msgID: number = 0x2A35;
+		public cbPacket = stGlobalGuildVoteBanMasterRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btVote", PacketBase.TYPE_BYTE);	//投票，1同意，0不同意
 			this.cmd = 0x2A35;
+		}
+	}
+	// 0x2A36
+	export class stGlobalGuildVoteBanMasterRet extends Packet {
+		public static msgID: number = 0x2A36;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0已经成功投票
+			if (data) {
+				data.pos += this.read(data);
+			}
 		}
 	}
 
@@ -1223,20 +1261,11 @@ module ProtoCmd {
 
 	}
 
-	// 0x2A36
-	export class stGlobalGuildVoteBanMasterRet extends Packet {
-		public static msgID: number = 0x2A36;
-		public constructor(data: Laya.Byte) {
-			super();
-			this.addProperty("btError", PacketBase.TYPE_BYTE);//0已经成功投票
-			if (data) {
-				data.pos += this.read(data);
-			}
-		}
-	}
+
 	// 0x2A38
 	//投票情况查看
 	export class stGlobalGuildVoteBanMasterView extends Packet {
+		public static msgID: number = 0x2A38;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2A38;
@@ -1247,6 +1276,7 @@ module ProtoCmd {
 	 * 班长踢出成员
 	 * */
 	export class stGlobalKickOutClass extends Packet {
+		public static msgID: number = 0x290E;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x290E
@@ -1260,6 +1290,8 @@ module ProtoCmd {
 	 * 获取班级成员信息
 	 * */
 	export class stGlobalOneClassMemberInfo extends Packet {
+		public static msgID: number = 0x2909;
+		public cbPacket = stGlobalOneClassMemberInfoRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x2909;
@@ -1293,6 +1325,7 @@ module ProtoCmd {
 	// 0x1049
 	export class stGreenGetGuildJoinConfig extends Packet {
 		public static msgID: number = 0x1049;
+		public cbPacket = stGreenGetGuildJoinConfigRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
@@ -1420,6 +1453,8 @@ module ProtoCmd {
 
 	// 0x1003
 	export class stGuildChangeMember extends Packet {
+		public static msgID: number = 0x1003;
+		// public cbPacket = stGuildChangeMemberRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
@@ -1445,6 +1480,8 @@ module ProtoCmd {
 
 	// 0x2B0A
 	export class stGuildDonateItemLog extends Packet {
+		public static msgID: number = 0x2B0A;
+		public cbPacket = stGuildDonateItemLogRet;
 		public constructor() {
 			super();
 			this.cmd = 0x2B0A;
@@ -1489,6 +1526,8 @@ module ProtoCmd {
 	// 0x100F
 
 	export class stGuildGetEvents extends Packet {
+		public static msgID: number = 0x100F;
+		public cbPacket = stGuildGetEventsRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x100F;
@@ -1515,6 +1554,8 @@ module ProtoCmd {
 	}
 	// 0x100B
 	export class stGuildGetLvlConfigs extends Packet {
+		public static msgID: number = 0x100B;
+		public cbPacket = stGuildGetLvlConfigsRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x100B;
@@ -1542,6 +1583,8 @@ module ProtoCmd {
 
 	// 0x1009
 	export class stGuildGetMembers extends Packet {
+		public static msgID: number = 0x1009;
+		public cbPacket = stGuildGetMembersRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.cmd = 0x1009;
@@ -1580,6 +1623,7 @@ module ProtoCmd {
 	}
 	// 0x100D
 	export class stGuildGetNotice extends Packet {
+		public static msgID: number = 0x100D;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('btOPType', PacketBase.TYPE_BYTE);//0 今日公告  1 行会公
@@ -1606,6 +1650,8 @@ module ProtoCmd {
 
 	// 0x1007
 	export class stGuildSetLvlInfo extends Packet {
+		public static msgID: number = 0x1007;
+		public cbPacket = stGuildSetLvlInfoRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('btLvl', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
@@ -1629,6 +1675,8 @@ module ProtoCmd {
 
 	// 0x1005
 	export class stGuildSetNotice extends Packet {
+		public static msgID: number = 0x1005;
+		public cbPacket = stGuildSetNoticeRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 今日公告  1 行会公告
@@ -1650,6 +1698,7 @@ module ProtoCmd {
 
 	// 0x1015
 	export class stGuildWarEncoder extends Packet {
+		public static msgID: number = 0x1015;
 		public constructor(data: Laya.Byte) {
 			super();
 
@@ -1705,6 +1754,7 @@ module ProtoCmd {
 
 	// 0x1011
 	export class stQueryGuildInfoEncoder extends Packet {
+		public static msgID: number = 0x1011;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('dwGuildID', PacketBase.TYPE_DWORD);
@@ -1819,6 +1869,8 @@ module ProtoCmd {
 		 * 查看公会仓库
 		 * */
 	export class stViewGuildPackage extends Packet {
+		public static msgID: number = 0x2B03;
+		// public cbPacket = stViewGuildPackageRet;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
@@ -1872,6 +1924,7 @@ module ProtoCmd {
 
 	// 0x2B05
 	export class stWantGetGuildPackageItem extends Packet {
+		public static msgID: number = 0x2B05;
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("i64ItemId", PacketBase.TYPE_INT64);//要捐献的装备ID

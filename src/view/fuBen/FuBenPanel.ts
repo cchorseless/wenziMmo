@@ -23,6 +23,12 @@ module view.fuBen {
 			this.btn_chapterListCenter.on(Laya.UIEvent.CLICK, this, () => {
 					new view.dialog.ChapterListDialog().popup(true);
 			})
+				this.btn_paiming.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.FuBenPaiMingDialog().popup(true);
+			})
+		this.btn_pinglun.on(Laya.UIEvent.CLICK, this, () => {
+					new view.dialog.FuBenPingLunDialog().popup(true);
+			})
 		}
 	}
 }

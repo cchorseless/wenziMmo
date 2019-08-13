@@ -55,6 +55,10 @@ module ResData {
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派福利
         public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 帮派日志
+        public static GuildRecord = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+         // 入帮申请
+        public static GuildApply = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派支援
         public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 副本界面
@@ -65,6 +69,14 @@ module ResData {
         public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
+          // 图鉴江湖界面
+        public static TuJianJiangHu = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+         // 图鉴道具界面
+        public static TuJianDaoju= [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+         // 图鉴角色界面
+        public static TuJianJuese= [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+         // 图鉴怪物界面
+        public static TuJianBoss= [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
 
     };
     /**

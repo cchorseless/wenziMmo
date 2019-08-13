@@ -1,11 +1,11 @@
 {
     "x":0,
-    "type":"View",
-    "selectedBox":173,
-    "selecteID":74,
+    "type":"Dialog",
+    "selectedBox":15,
+    "selecteID":16,
     "props":{"width":490,"sceneColor":"#000000","height":750},
     "nodeParent":-1,
-    "label":"View",
+    "label":"Dialog",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":-2,"width":477,"top":0,"skin":"image/common/fram_common_20.png","height":768},
+            "props":{"x":3,"width":477,"top":-3,"skin":"image/common/fram_common_20.png","height":768},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -29,37 +29,37 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":27,"x":-3,"width":477,"skin":"image/common/fram_common_17.png","sizeGrid":"47,51,52,51","height":730},
+            "props":{"y":23,"x":2,"width":477,"skin":"image/common/fram_common_17.png","sizeGrid":"47,51,52,51","height":730},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":4,
+            "compId":3,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
                     "props":{"y":-27,"x":87,"skin":"image/common/title_common_01.png"},
-                    "nodeParent":4,
+                    "nodeParent":3,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":7,
+                    "compId":10,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
                             "props":{"y":21,"x":108,"text":"评论","padding":"-1","fontSize":40,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                            "nodeParent":7,
+                            "nodeParent":10,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":8,
+                            "compId":11,
                             "child":[
                                 ]
                         }]
@@ -69,36 +69,36 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":677,"x":279,"width":174,"skin":"image/guild/img_Resource support_di11.png","height":39},
+            "props":{"y":673,"x":284,"width":174,"skin":"image/guild/img_Resource support_di11.png","height":39},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":169,
+            "compId":4,
             "child":[
                 {
                     "type":"Label",
                     "props":{"y":8,"x":24,"text":"最多人推荐 ","padding":"-1","fontSize":18,"font":"Microsoft YaHei"},
-                    "nodeParent":169,
+                    "nodeParent":4,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":170,
+                    "compId":12,
                     "child":[
                         ]
                 },
                 {
                     "type":"Button",
                     "props":{"y":2,"x":122,"stateNum":"1","skin":"image/main/btn_common_01.png"},
-                    "nodeParent":169,
+                    "nodeParent":4,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":171,
+                    "compId":13,
                     "child":[
                         ]
                 }]
@@ -106,157 +106,144 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":686,"x":40,"text":"123456条意见","fontSize":18,"color":"#000000"},
+            "props":{"y":682,"x":45,"text":"123456条意见","fontSize":18,"color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":172,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":6,"x":427,"stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
+            "compId":5,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":136,"x":25},
+            "props":{"y":132,"x":30},
             "nodeParent":1,
             "label":"Box",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":173,
+            "compId":6,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
                     "props":{"y":14,"x":0,"width":421,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":510},
-                    "nodeParent":173,
+                    "nodeParent":6,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":14,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":20,"x":3,"width":418,"height":503},
-                    "nodeParent":173,
-                    "label":"Panel",
+                    "props":{"y":20,"x":3,"width":418,"var":"panel_pinglun","height":503},
+                    "nodeParent":6,
+                    "label":"Panel(panel_pinglun)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":74,
+                    "compId":15,
                     "child":[
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":1,"space":20,"right":0,"left":0},
-                            "nodeParent":74,
-                            "label":"VBox",
+                            "props":{"y":1,"var":"vbox_pinglun","space":20,"right":0,"left":0},
+                            "nodeParent":15,
+                            "label":"VBox(vbox_pinglun)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":82,
+                            "compId":16,
                             "child":[
                                 {
                                     "x":60,
                                     "type":"Box",
                                     "props":{"y":0,"x":30},
-                                    "nodeParent":82,
+                                    "nodeParent":16,
                                     "label":"Box",
                                     "isOpen":null,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":73,
+                                    "compId":17,
                                     "child":[
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":73,
+                                            "nodeParent":17,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":75,
+                                            "compId":18,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/common/Text_zan.png"},
-                                            "nodeParent":73,
+                                            "nodeParent":17,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":76,
+                                            "compId":19,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":33,"underline":true,"text":"木槿花未…","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                                    "nodeParent":76,
+                                                    "nodeParent":19,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":77,
+                                                    "compId":20,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
                                                     "type":"Image",
                                                     "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                                    "nodeParent":76,
+                                                    "nodeParent":19,
                                                     "label":"Image",
                                                     "isOpen":false,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
-                                                    "compId":78,
+                                                    "compId":21,
                                                     "child":[
                                                         {
                                                             "type":"Label",
                                                             "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                            "nodeParent":78,
+                                                            "nodeParent":21,
                                                             "label":"Label",
                                                             "isDirectory":false,
                                                             "isAniNode":true,
                                                             "hasChild":false,
-                                                            "compId":79,
+                                                            "compId":22,
                                                             "child":[
                                                                 ]
                                                         },
                                                         {
                                                             "type":"Image",
                                                             "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                            "nodeParent":78,
+                                                            "nodeParent":21,
                                                             "label":"Image",
                                                             "isDirectory":false,
                                                             "isAniNode":true,
                                                             "hasChild":false,
-                                                            "compId":80,
+                                                            "compId":23,
                                                             "child":[
                                                                 ]
                                                         }]
@@ -266,12 +253,12 @@
                                         {
                                             "type":"Label",
                                             "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":73,
+                                            "nodeParent":17,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":81,
+                                            "compId":24,
                                             "child":[
                                                 ]
                                         }]
@@ -280,169 +267,84 @@
                                     "x":60,
                                     "type":"Box",
                                     "props":{"y":67,"x":30},
-                                    "nodeParent":82,
+                                    "nodeParent":16,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":119,
+                                    "compId":25,
                                     "child":[
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":119,
+                                            "nodeParent":25,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":120,
+                                            "compId":26,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/common/Text_zan.png"},
-                                            "nodeParent":119,
+                                            "nodeParent":25,
                                             "label":"Image",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":121,
+                                            "compId":27,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":33,"underline":true,"text":"木槿花未…","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                                    "nodeParent":121,
+                                                    "nodeParent":27,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":122,
+                                                    "compId":28,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
                                                     "type":"Image",
                                                     "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                                    "nodeParent":121,
+                                                    "nodeParent":27,
                                                     "label":"Image",
-                                                    "isOpen":false,
+                                                    "isOpen":true,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
-                                                    "compId":123,
+                                                    "compId":29,
                                                     "child":[
                                                         {
                                                             "type":"Label",
                                                             "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                            "nodeParent":123,
+                                                            "nodeParent":29,
                                                             "label":"Label",
                                                             "isDirectory":false,
                                                             "isAniNode":true,
                                                             "hasChild":false,
-                                                            "compId":124,
+                                                            "compId":30,
                                                             "child":[
                                                                 ]
                                                         },
                                                         {
-                                                            "type":"Image",
-                                                            "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                            "nodeParent":123,
-                                                            "label":"Image",
+                                                            "type":"Button",
+                                                            "props":{"y":7,"x":11,"stateNum":"2","skin":"image/common/icon_zan_Unselected_finish.png"},
+                                                            "nodeParent":29,
+                                                            "label":"Button",
                                                             "isDirectory":false,
                                                             "isAniNode":true,
                                                             "hasChild":false,
-                                                            "compId":125,
+                                                            "compId":31,
                                                             "child":[
-                                                                ]
-                                                        }]
-                                                }],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":119,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":126,
-                                            "child":[
-                                                ]
-                                        }]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Box",
-                                    "props":{"y":134,"x":30},
-                                    "nodeParent":82,
-                                    "label":"Box",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":127,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":127,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":128,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"skin":"image/common/Text_zan.png"},
-                                            "nodeParent":127,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":129,
-                                            "child":[
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                                    "nodeParent":129,
-                                                    "label":"Image",
-                                                    "isOpen":false,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":131,
-                                                    "child":[
-                                                        {
-                                                            "type":"Label",
-                                                            "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                            "nodeParent":131,
-                                                            "label":"Label",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":132,
-                                                            "child":[
-                                                                ]
-                                                        },
-                                                        {
-                                                            "type":"Image",
-                                                            "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                            "nodeParent":131,
-                                                            "label":"Image",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":133,
-                                                            "child":[
-                                                                ]
+                                                                ],
+                                                            "$HIDDEN":false
                                                         }],
                                                     "$HIDDEN":false
                                                 }],
@@ -451,24 +353,112 @@
                                         {
                                             "type":"Label",
                                             "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":127,
+                                            "nodeParent":25,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":134,
+                                            "compId":32,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Box",
+                                    "props":{"y":134,"x":30},
+                                    "nodeParent":16,
+                                    "label":"Box",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":33,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
+                                            "nodeParent":33,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":34,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"skin":"image/common/Text_zan.png"},
+                                            "nodeParent":33,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":true,
+                                            "isAniNode":true,
+                                            "hasChild":true,
+                                            "compId":35,
+                                            "child":[
+                                                {
+                                                    "type":"Image",
+                                                    "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
+                                                    "nodeParent":35,
+                                                    "label":"Image",
+                                                    "isOpen":true,
+                                                    "isDirectory":true,
+                                                    "isAniNode":true,
+                                                    "hasChild":true,
+                                                    "compId":36,
+                                                    "child":[
+                                                        {
+                                                            "type":"Label",
+                                                            "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
+                                                            "nodeParent":36,
+                                                            "label":"Label",
+                                                            "isDirectory":false,
+                                                            "isAniNode":true,
+                                                            "hasChild":false,
+                                                            "compId":37,
+                                                            "child":[
+                                                                ]
+                                                        },
+                                                        {
+                                                            "type":"Button",
+                                                            "props":{"y":7,"x":11,"stateNum":"2","skin":"image/common/icon_zan_Unselected_finish.png"},
+                                                            "nodeParent":36,
+                                                            "label":"Button",
+                                                            "isDirectory":false,
+                                                            "isAniNode":true,
+                                                            "hasChild":false,
+                                                            "compId":38,
+                                                            "child":[
+                                                                ],
+                                                            "$HIDDEN":false
+                                                        }],
+                                                    "$HIDDEN":false
+                                                }],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
+                                            "nodeParent":33,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":39,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":33,"underline":true,"text":"神眉姐","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                            "nodeParent":127,
+                                            "nodeParent":33,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":130,
+                                            "compId":40,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -478,23 +468,23 @@
                                     "x":60,
                                     "type":"Box",
                                     "props":{"y":201,"x":30},
-                                    "nodeParent":82,
+                                    "nodeParent":16,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":135,
+                                    "compId":41,
                                     "child":[
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":135,
+                                            "nodeParent":41,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":136,
+                                            "compId":42,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -502,24 +492,24 @@
                                         {
                                             "type":"Label",
                                             "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":135,
+                                            "nodeParent":41,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":142,
+                                            "compId":43,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":33,"underline":true,"text":"阿yong","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                            "nodeParent":135,
+                                            "nodeParent":41,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":138,
+                                            "compId":44,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -527,37 +517,38 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                            "nodeParent":135,
+                                            "nodeParent":41,
                                             "label":"Image",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":139,
+                                            "compId":45,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                    "nodeParent":139,
+                                                    "nodeParent":45,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":140,
+                                                    "compId":46,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
-                                                    "type":"Image",
-                                                    "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                    "nodeParent":139,
-                                                    "label":"Image",
+                                                    "type":"Button",
+                                                    "props":{"y":7,"x":11,"stateNum":"2","skin":"image/common/icon_zan_Unselected_finish.png"},
+                                                    "nodeParent":45,
+                                                    "label":"Button",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":141,
+                                                    "compId":47,
                                                     "child":[
-                                                        ]
+                                                        ],
+                                                    "$HIDDEN":false
                                                 }]
                                         }]
                                 },
@@ -565,88 +556,85 @@
                                     "x":60,
                                     "type":"Box",
                                     "props":{"y":268,"x":30},
-                                    "nodeParent":82,
+                                    "nodeParent":16,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":143,
+                                    "compId":48,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":143,
+                                            "nodeParent":48,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":144,
+                                            "compId":49,
                                             "child":[
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":143,
+                                            "nodeParent":48,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":150,
+                                            "compId":50,
                                             "child":[
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":33,"underline":true,"text":"阿yong","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                            "nodeParent":143,
+                                            "nodeParent":48,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":146,
+                                            "compId":51,
                                             "child":[
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                            "nodeParent":143,
+                                            "nodeParent":48,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":147,
+                                            "compId":52,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                    "nodeParent":147,
+                                                    "nodeParent":52,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":148,
+                                                    "compId":53,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
-                                                    "type":"Image",
-                                                    "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                    "nodeParent":147,
-                                                    "label":"Image",
+                                                    "type":"Button",
+                                                    "props":{"y":7,"x":11,"stateNum":"2","skin":"image/common/icon_zan_Unselected_finish.png"},
+                                                    "nodeParent":52,
+                                                    "label":"Button",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":149,
+                                                    "compId":54,
                                                     "child":[
-                                                        ]
+                                                        ],
+                                                    "$HIDDEN":false
                                                 }]
                                         }]
                                 },
@@ -654,84 +642,85 @@
                                     "x":60,
                                     "type":"Box",
                                     "props":{"y":385,"x":30},
-                                    "nodeParent":82,
+                                    "nodeParent":16,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":159,
+                                    "compId":55,
                                     "child":[
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":154,"text":"2019.02.12","fontSize":22},
-                                            "nodeParent":159,
+                                            "nodeParent":55,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":160,
+                                            "compId":56,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Label",
                                             "props":{"y":43,"x":32,"wordWrap":true,"width":326,"text":"我是最棒的！我是最棒的！最棒的！","height":24,"fontSize":20,"color":"#000000"},
-                                            "nodeParent":159,
+                                            "nodeParent":55,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":166,
+                                            "compId":57,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Label",
                                             "props":{"y":7,"x":33,"underline":true,"text":"木槿花未…","fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
-                                            "nodeParent":159,
+                                            "nodeParent":55,
                                             "label":"Label",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":162,
+                                            "compId":58,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Image",
                                             "props":{"y":2,"x":275,"skin":"image/common/base_zan.png"},
-                                            "nodeParent":159,
+                                            "nodeParent":55,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":163,
+                                            "compId":59,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":8,"x":44,"text":"999","fontSize":18,"color":"#000000"},
-                                                    "nodeParent":163,
+                                                    "nodeParent":59,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":164,
+                                                    "compId":60,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
-                                                    "type":"Image",
-                                                    "props":{"y":7,"x":11,"skin":"image/common/icon_zan_Selected.png"},
-                                                    "nodeParent":163,
-                                                    "label":"Image",
+                                                    "type":"Button",
+                                                    "props":{"y":7,"x":11,"stateNum":"2","skin":"image/common/icon_zan_Unselected_finish.png"},
+                                                    "nodeParent":59,
+                                                    "label":"Button",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":165,
+                                                    "compId":61,
                                                     "child":[
-                                                        ]
+                                                        ],
+                                                    "$HIDDEN":false
                                                 }]
                                         }]
                                 }]
@@ -741,13 +730,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":98,"x":336,"width":109,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":20,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"评论","height":38,"alpha":0.8},
+            "props":{"y":94,"x":341,"width":109,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":20,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"评论","height":38,"alpha":0.8},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":174,
+            "compId":7,
             "child":[
                 ],
             "$HIDDEN":false
@@ -755,29 +744,42 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":376,"x":-8},
+            "props":{"y":372,"x":-3},
             "nodeParent":1,
             "label":"Box",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":175,
+            "compId":8,
             "child":[
                 {
                     "x":30,
                     "type":"TextInput",
                     "props":{"y":-279,"x":30,"width":310,"skin":"image/common/fram_common_36.png","sizeGrid":"5,6,10,7","promptColor":"#000000","prompt":"点击输入","height":44,"fontSize":18,"font":"Microsoft YaHei","align":"left"},
-                    "nodeParent":175,
+                    "nodeParent":8,
                     "label":"TextInput",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":176,
+                    "compId":62,
                     "child":[
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":2,"x":432,"var":"btn_pinglunClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "nodeParent":1,
+            "label":"Button(btn_pinglunClose)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
         }],
     "animations":[
         {

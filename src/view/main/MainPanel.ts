@@ -237,6 +237,7 @@ module view.main {
 						PanelManage.openBeiBaoPanel();
 						break;
 					case "box_jiangHu":
+						// 判定 有无公会
 						PanelManage.openGuildSelectPanel();
 						break;
 					case "box_yangCheng":
@@ -250,7 +251,7 @@ module view.main {
 						// PanelManage.openFuBenPanel();
 						break;
 					case "box_tuJian":
-						// PanelManage.openFuBenPanel();
+						PanelManage.openTuJianJiangHuPanel();
 						break;
 					case "box_task":
 						PanelManage.openTaskPanel();
