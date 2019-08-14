@@ -587,6 +587,65 @@ module ProtoCmd {
             this.addProperty('weapon', PacketBase.TYPE_DWORD);//武器ID
             this.addProperty('dress', PacketBase.TYPE_DWORD);//衣服ID
         }
+
+        /**
+         * 性别
+         */
+        public get sex(): number {
+            return this.getValue('sex');
+        }
+        public set sex(v: number) {
+            this.setValue('sex', v);
+        }
+        /**
+         * 职业
+         */
+        public get job(): number {
+            return this.getValue('job');
+        }
+        public set job(v: number) {
+            this.setValue('job', v);
+        }
+        /**
+         * 发型
+         */
+        public get hair(): number {
+            return this.getValue('hair');
+        }
+        public set hair(v: number) {
+            this.setValue('hair', v);
+        }
+        /**
+         * 脸型
+         */
+        public get dwFaceId(): number {
+            return this.getValue('dwFaceId');
+        }
+        public set dwFaceId(v: number) {
+            this.setValue('dwFaceId', v);
+        }
+        /**
+         * 武器
+         */
+        public get weapon(): number {
+            return this.getValue('weapon');
+        }
+        public set weapon(v: number) {
+            this.setValue('weapon', v);
+        }
+        /**
+         * 衣服ID
+         */
+        public get dress(): number {
+            return this.getValue('dress');
+        }
+        public set dress(v: number) {
+            this.setValue('dress', v);
+        }
+
+
+
+
     }
 
     export class CretFeature extends PacketBase {
@@ -606,6 +665,52 @@ module ProtoCmd {
             this.feature.read(this.getValue('feature'));
             return pos;
         }
+        /**
+         * 人物类型
+         */
+        public get btCretType(): number {
+            return this.getValue('btCretType');
+        }
+        public set btCretType(v: number) {
+            this.setValue('btCretType', v);
+        }
+        /**
+         * 称号ID
+         */
+        public get nTitleId(): number {
+            return this.getValue('nTitleId');
+        }
+        public set nTitleId(v: number) {
+            this.setValue('nTitleId', v);
+        }
+        /**
+         * 战场类型
+         */
+        public get btBattleCamp(): number {
+            return this.getValue('btBattleCamp');
+        }
+        public set btBattleCamp(v: number) {
+            this.setValue('btBattleCamp', v);
+        }
+        /**
+         * 翅膀ID
+         */
+        public get dwWingId(): number {
+            return this.getValue('dwWingId');
+        }
+        public set dwWingId(v: number) {
+            this.setValue('dwWingId', v);
+        }
+        /**
+         * 外观 位状态信息
+         */
+        public get n_bo_AllFeature(): number {
+            return this.getValue('n_bo_AllFeature');
+        }
+        public set n_bo_AllFeature(v: number) {
+            this.setValue('n_bo_AllFeature', v);
+        }
+
     }
     /**
      * 怪物　NPC　外显
@@ -618,6 +723,43 @@ module ProtoCmd {
             this.addProperty('dwMasterTmpID', PacketBase.TYPE_DWORD);//主人ID;
             this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//NPC 怪物基本ID  
         }
+        /**
+         * 怪物声音类型
+         */
+        public get dwMonsterAudioId(): number {
+            return this.getValue('dwMonsterAudioId');
+        }
+        public set dwMonsterAudioId(v: number) {
+            this.setValue('dwMonsterAudioId', v);
+        }
+        /**
+         * BOSS刷新时间
+         */
+        public get dwRefreshTime(): number {
+            return this.getValue('dwRefreshTime');
+        }
+        public set dwRefreshTime(v: number) {
+            this.setValue('dwRefreshTime', v);
+        }
+        /**
+         * 主人ID
+         */
+        public get dwMasterTmpID(): number {
+            return this.getValue('dwMasterTmpID');
+        }
+        public set dwMasterTmpID(v: number) {
+            this.setValue('dwMasterTmpID', v);
+        }
+        /**
+         * NPC 怪物基本ID  
+         */
+        public get dwCretTypeId(): number {
+            return this.getValue('dwCretTypeId');
+        }
+        public set dwCretTypeId(v: number) {
+            this.setValue('dwCretTypeId', v);
+        }
+
     }
 
     /**
@@ -633,6 +775,69 @@ module ProtoCmd {
             this.addProperty('dwVip', PacketBase.TYPE_DWORD); //vip类型
             this.addProperty("btNameColor", PacketBase.TYPE_BYTE);//名字颜色 0是正常的，1灰，2黄，3红
             this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
+        }
+        /**
+         * 队伍ID
+         */
+        public get btGroupId(): number {
+            return this.getValue('btGroupId');
+        }
+        public set btGroupId(v: number) {
+            this.setValue('btGroupId', v);
+        }
+        /**
+         * 是否是队长
+         */
+        public get btGroupMaster(): number {
+            return this.getValue('btGroupMaster');
+        }
+        public set btGroupMaster(v: number) {
+            this.setValue('btGroupMaster', v);
+        }
+        /**
+         * 氏族ID  公会ID
+         */
+        public get dwClanId(): number {
+            return this.getValue('dwClanId');
+        }
+        public set dwClanId(v: number) {
+            this.setValue('dwClanId', v);
+        }
+        /**
+         * 是否族长  
+         */
+        public get btClanMaster(): number {
+            return this.getValue('btClanMaster');
+        }
+        public set btClanMaster(v: number) {
+            this.setValue('btClanMaster', v);
+        }
+        /**
+         * vip类型
+         */
+        public get dwVip(): number {
+            return this.getValue('dwVip');
+        }
+        public set dwVip(v: number) {
+            this.setValue('dwVip', v);
+        }
+        /**
+         * 名字颜色 0是正常的，1灰，2黄，3红 
+         */
+        public get btNameColor(): number {
+            return this.getValue('btNameColor');
+        }
+        public set btNameColor(v: number) {
+            this.setValue('btNameColor', v);
+        }
+        /**
+         * pk值
+         */
+        public get wNowKilling(): number {
+            return this.getValue('wNowKilling');
+        }
+        public set wNowKilling(v: number) {
+            this.setValue('wNowKilling', v);
         }
     }
 
@@ -1339,6 +1544,9 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 单条行会信息
+     */
     export class stSingleGuildinfoBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();

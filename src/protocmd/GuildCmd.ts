@@ -361,12 +361,12 @@ module ProtoCmd {
 	}
 
     /**0x2905
-     * 获取班级列表
+     * 获取行会列表
      * */
 	export class stGlobalGetClassList extends Packet {
 		public static msgID: number = 0x2905;
 		public cbPacket = stGlobalGetClassListRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("dwPageNumber", PacketBase.TYPE_DWORD);
 			this.cmd = 0x2905;

@@ -238,7 +238,15 @@ module view.main {
 						break;
 					case "box_jiangHu":
 						// 判定 有无公会
-						PanelManage.openGuildSelectPanel();
+						let dwClanId = GameApp.MainPlayer.feature.dwClanId;
+						// 有工会
+						if (dwClanId) {
+							PanelManage.openGuildTeamPanel();
+						}
+						// 无工会
+						else {
+							PanelManage.openGuildSelectPanel();
+						}
 						break;
 					case "box_yangCheng":
 						PanelManage.openYangChengPanel();
