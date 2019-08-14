@@ -61,7 +61,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('btType', PacketBase.TYPE_INT);//
-            this.addProperty("friendInfo", PacketBase.TYPE_BYTES, this.friendInfo.size(), friendInfo);
+            this.addProperty("friendInfo", PacketBase.TYPE_BYTES, this.friendInfo.size(), this.friendInfo);
             if (data) {
                 data.pos += this.read(data);
             }
@@ -154,54 +154,54 @@ module ProtoCmd {
         }
     }
 
-    // export class stRelationGetListRet extends Packet
-    // {
-    // public	static   msgID:number = 0x0A02;
-    // 	public  friendlist:Array<stRelationInfoBase> = [];
-    // 	public constructor(data: Laya.Byte) {
-    // 		super();
-    // 		this.addProperty('btType',PacketBase.TYPE_INT);//
-    // 		this.addProperty('nCount',PacketBase.TYPE_DWORD);
-    // 		if(data) this.read(data);
-    // 	}
-    // 	 public  read(data: Laya.Byte):number
-    // 	{
-    // 		data.pos = super.read(data);
-    // 		for (var i:number=0;i< this.getValue('nCount');i++)
-    // 		{
-    // 			this.friendlist.push(new stRelationInfoBase(data));
-    // 		}
-    // 		return data.pos;
-    // 	}
+    export class stRelationGetListRet extends Packet
+    {
+    public	static   msgID:number = 0x0A02;
+    	public  friendlist:Array<stRelationInfoBase> = [];
+    	public constructor(data: Laya.Byte) {
+    		super();
+    		this.addProperty('btType',PacketBase.TYPE_INT);//
+    		this.addProperty('nCount',PacketBase.TYPE_DWORD);
+    		if(data) this.read(data);
+    	}
+    	 public  read(data: Laya.Byte):number
+    	{
+    		data.pos = super.read(data);
+    		for (var i:number=0;i< this.getValue('nCount');i++)
+    		{
+    			this.friendlist.push(new stRelationInfoBase(data));
+    		}
+    		return data.pos;
+    	}
 
-    // 	 public  clear():void{
-    // 		super.clear();
-    // 		for(var i:number= 0; i < this.friendlist.length; i ++){
-    // 			this.friendlist[i].clear();
-    // 		}
-    // 		this.friendlist.length = 0;
-    // 	}
+    	 public  clear():void{
+    		super.clear();
+    		for(var i:number= 0; i < this.friendlist.length; i ++){
+    			this.friendlist[i].clear();
+    		}
+    		this.friendlist.length = 0;
+    	}
 
-    // 	public  sortPlayers():void{
-    // 		this.friendlist.sort(sortFunc);
-    // 	}
+    	public  sortPlayers():void{
+    		this.friendlist.sort(this.sortFunc);
+    	}
 
-    // 	private  sortFunc(infoA:stRelationInfoBase,infoB:stRelationInfoBase):number{
-    // 		if(infoA.state > infoB.state){
-    // 			return -1;
-    // 		}
-    // 		if(infoA.state < infoB.state){
-    // 			return 1;
-    // 		}
-    // 		if(infoA.level > infoB.level){
-    // 			return -1;
-    // 		}
-    // 		if(infoA.level < infoB.level){
-    // 			return 1;
-    // 		}
-    // 		return 0;
-    // 	}
-    // }
+    	private  sortFunc(infoA:stRelationInfoBase,infoB:stRelationInfoBase):number{
+    		if(infoA.state > infoB.state){
+    			return -1;
+    		}
+    		if(infoA.state < infoB.state){
+    			return 1;
+    		}
+    		if(infoA.level > infoB.level){
+    			return -1;
+    		}
+    		if(infoA.level < infoB.level){
+    			return 1;
+    		}
+    		return 0;
+    	}
+    }
 
 
     export class stRelationListDelete extends Packet {
