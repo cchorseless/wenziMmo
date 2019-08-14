@@ -61,7 +61,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('btType', PacketBase.TYPE_INT);//
-            this.addProperty("friendInfo", PacketBase.TYPE_BYTES, this.friendInfo.size(), friendInfo);
+            this.addProperty("friendInfo", PacketBase.TYPE_BYTES, this.friendInfo.size(), this.friendInfo);
             if (data) {
                 data.pos += this.read(data);
             }

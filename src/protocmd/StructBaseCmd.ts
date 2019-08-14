@@ -962,6 +962,7 @@ module ProtoCmd {
         }
     }
 
+    /*****************************************背包相关******************************* */
     /**
      * 物品位置
      */
@@ -1507,6 +1508,8 @@ module ProtoCmd {
 
     }
 
+    // **********************************行会***********************************
+
     /**
      * 行会捐献日志
      */
@@ -1588,8 +1591,6 @@ module ProtoCmd {
             }
         }
     }
-
-
 
     /**
 	 * 班级信息
@@ -1890,34 +1891,32 @@ module ProtoCmd {
         }
     }
 
-    // export class stGuildMemberDB extends PacketBase
-    // {
-    // 	public constructor(data: Laya.Byte) {
-    //         super();
-    // 		this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);			//名称
-    // 		this.addProperty('szAliaName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);	//别名
-    // 		this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);						//行会id
-    // 		this.addProperty('dwUserOnlyId',PacketBase.TYPE_DOUBLE);							//角色唯一ID
-    // 		this.addProperty('tInTime',PacketBase.TYPE_DWORD);			//加入氏族时间
-    // 		this.addProperty('tLoginOutTime',PacketBase.TYPE_DWORD);	//上次下线时间
-    // 		this.addProperty('dwPositionLvl',PacketBase.TYPE_DWORD);				//职位等级
-    // 		if (data) data.pos += this.read(data);
-    // 	}
-    // }
-    // 	export class stGuildNameMsg  extends PacketBase
-    // {
-    // 	public  m_nGuildID:number = 0;
-    // 	public  m_szGuildName:String = '';
-    // 	public  m_cTitleNameArray:Array = [new Array];
-    // 	public  stGuildNameMsg()
-    // 	{
+    export class stGuildMemberDB extends PacketBase {
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);			//名称
+            this.addProperty('szAliaName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);	//别名
+            this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);						//行会id
+            this.addProperty('dwUserOnlyId', PacketBase.TYPE_DOUBLE);							//角色唯一ID
+            this.addProperty('tInTime', PacketBase.TYPE_DWORD);			//加入氏族时间
+            this.addProperty('tLoginOutTime', PacketBase.TYPE_DWORD);	//上次下线时间
+            this.addProperty('dwPositionLvl', PacketBase.TYPE_DWORD);				//职位等级
+            if (data) data.pos += this.read(data);
+        }
+    }
 
-    // 	}
+    export class stGuildNameMsg extends PacketBase {
+        public m_nGuildID: number = 0;
+        public m_szGuildName: string = '';
+        public m_cTitleNameArray = [];
+        public stGuildNameMsg() {
 
-    // 	public  getTitleName(n:number):String{
-    // 		return this.m_cTitleNameArray[n] as String;
-    // 	}
-    // }
+        }
+
+        public getTitleName(n: number): string {
+            return this.m_cTitleNameArray[n];
+        }
+    }
 
 
     export class stGuildPower extends PacketBase {
