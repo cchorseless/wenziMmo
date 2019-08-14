@@ -177,7 +177,7 @@ module ProtoCmd {
 	}
 
     /**0x2901
-     * 系统自动加入刚回
+     * 系统自动加入工会
      * */
 	export class stGlobalAutoJoinClass extends Packet {
 		public static msgID: number = 0x2901;
@@ -209,7 +209,7 @@ module ProtoCmd {
 	}
 
     /**0x2903
-     * 系统自动退出班级
+     * 系统自动退出工会
      * */
 	export class stGlobalAutoLeaveClass extends Packet {
 		public static msgID: number = 0x2903;
@@ -605,27 +605,27 @@ module ProtoCmd {
 	}
 
     /**0x2A03
-         * 发送行会信息到gamesvr
-         * */
-	// export class stGlobalGuildChangeGuild extends Packet {
-	//     public static msgID: number = 0x2A03;
-	//     public guildSinfo: stGSGuildInfoBase = new stGSGuildInfoBase();
-	//     public constructor(data: Laya.Byte) {
-	//         super();
-	//         this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
-	//         this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildSinfo.size(), this.guildSinfo);
-	//         this.cmd = 0x2A03;
-	//         if (data) {
-	//             data.pos += this.read(data);
-	//         }
-	//     }
+     * 发送行会信息到gamesvr
+     * */
+	export class stGlobalGuildChangeGuild extends Packet {
+		public static msgID: number = 0x2A03;
+		public guildSinfo: stGSGuildInfoBase = new stGSGuildInfoBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwOnlyId", PacketBase.TYPE_DOUBLE);
+			this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildSinfo.size(), this.guildSinfo);
+			this.cmd = 0x2A03;
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
 
-	//     public clear(): void {
-	//         super.clear();
-	//         this.guildSinfo.clear();
-	//         this.guildSinfo = null;
-	//     }
-	// }
+		public clear(): void {
+			super.clear();
+			this.guildSinfo.clear();
+			this.guildSinfo = null;
+		}
+	}
 
     /**0x2A14
      * 修改公告
@@ -879,7 +879,7 @@ module ProtoCmd {
 	}
 
 	/**
-		 * //获取外交列表
+		 * 获取外交列表
 		 * */
 	export class stGlobalGuildGetDiplomacyList extends Packet {
 		public static msgID: number = 0x2A1D;
@@ -1198,7 +1198,7 @@ module ProtoCmd {
 		}
 	}
 
-
+	// 0x2A35
 	//发起投票
 	export class stGlobalGuildVoteBanMaster extends Packet {
 		public static msgID: number = 0x2A35;
@@ -1210,6 +1210,7 @@ module ProtoCmd {
 		}
 	}
 	// 0x2A36
+	// 发起投票返回
 	export class stGlobalGuildVoteBanMasterRet extends Packet {
 		public static msgID: number = 0x2A36;
 		public constructor(data: Laya.Byte) {
@@ -1391,16 +1392,15 @@ module ProtoCmd {
 		}
 	}
 	// 0x2B0F
-	// export class stGuidMasterRecoverItemRet extends Packet
-	// {
-	// public	static   msgID:number = 0x2B0F;
-	// 	public  item:stItem = new stItem;
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("btError",PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
-	// 		this.read(data);
-	// 	}
-	// }
+	export class stGuidMasterRecoverItemRet extends Packet {
+		public static msgID: number = 0x2B0F;
+		public item: ItemBase = new ItemBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
+			this.read(data);
+		}
+	}
 
 	// 0x1013
 	export class stGuildAlmsDecoder extends Packet {
@@ -1434,21 +1434,18 @@ module ProtoCmd {
 	/**
 	 *行会申请提示
 	 **/
+	export class stGuildApply extends Packet {
+		public static msgID: number = 0x2A4F;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btState", PacketBase.TYPE_BYTE); //0不显示，1显示
+			this.cmd = 0x2A4F;
 
-	// export class stGuildApply extends Packet
-	// {
-	// 	public static  msgID:number = 0x2A4F;
-	// 	public  constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("btState",PacketBase.TYPE_BYTE); //0不显示，1显示
-	// 		this.cmd = value;
-
-	// 		if(data)
-	// 		{
-	// 			data.pos += this.read(data);
-	// 		}
-	// 	}
-	// }
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
+	}
 
 
 	// 0x1003
@@ -1465,18 +1462,17 @@ module ProtoCmd {
 		}
 	}
 
-	// export class stGuildChangeMemberRet extends Packet
-	// {
-	// public	static   msgID:number = 0x1004;
-	// 	public  member:stGuildMemberBase = new stGuildMemberBase;
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty('btOPType',PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
-	// 		this.addProperty('errorcode',PacketBase.TYPE_BYTE);
-	// 		this.addProperty('member',PacketBase.TYPE_BYTES,this.member.size(),this.member);
-	// 		this.read(data);
-	// 	}
-	// }
+	export class stGuildChangeMemberRet extends Packet {
+		public static msgID: number = 0x1004;
+		public member: stGuildMemberBase = new stGuildMemberBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('btOPType', PacketBase.TYPE_BYTE);		//0 增加 1 删除 2 修改
+			this.addProperty('errorcode', PacketBase.TYPE_BYTE);
+			this.addProperty('member', PacketBase.TYPE_BYTES, this.member.size(), this.member);
+			this.read(data);
+		}
+	}
 
 	// 0x2B0A
 	export class stGuildDonateItemLog extends Packet {
@@ -1633,18 +1629,13 @@ module ProtoCmd {
 
 	// 0x1014
 	export class stGuildLevelUpEncoderDecoder extends Packet {
-
 		public static msgID: number = 0x1014;
-
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty('nErrorCode', PacketBase.TYPE_INT);
 			this.addProperty('dwCurLv', PacketBase.TYPE_DWORD);
-
 			this.cmd = 0x1014;
 			if (data) this.read(data);
-
-
 		}
 	}
 
@@ -1709,48 +1700,43 @@ module ProtoCmd {
 	}
 
 	// 0x1016
-	// export class stGuildWarInfoEncoderDecoder extends Packet
-	// {
-	// public	static   msgID:number =0x1016;
-	//     public  stCurWarGuild:stWarGuildBase=new stWarGuildBase();
-	// 	public  WarGuilds:Array<stWarGuildBase> = [];
+	export class stGuildWarInfoEncoderDecoder extends Packet {
+		public static msgID: number = 0x1016;
+		public stCurWarGuild: stWarGuildBase = new stWarGuildBase();
+		public WarGuilds: Array<stWarGuildBase> = [];
 
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("stCurWarGuild",PacketBase.TYPE_BYTES,this.stCurWarGuild.size(),this.stCurWarGuild);
-	// 		this.addProperty("FightIngGuildArr",PacketBase.TYPE_INT);
-	// 		this.cmd=0x1016;
-	// 		if(data) this.read(data);
-	// 	}
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("stCurWarGuild", PacketBase.TYPE_BYTES, this.stCurWarGuild.size(), this.stCurWarGuild);
+			this.addProperty("FightIngGuildArr", PacketBase.TYPE_INT);
+			this.cmd = 0x1016;
+			if (data) this.read(data);
+		}
 
-	// 	 public  read(data:Laya.Byte):number
-	// 	{
-	// 		data.pos=super.read(data);
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
 
-	// 		for (var i:number=0;i< this.getValue('FightIngGuildArr');i++)
-	// 		{
-	// 			this.WarGuilds[i] = new stWarGuildBase(data);
-	// 		}
+			for (var i: number = 0; i < this.getValue('FightIngGuildArr'); i++) {
+				this.WarGuilds[i] = new stWarGuildBase(data);
+			}
 
-	// 		return data.pos;
-	// 	}
-	// }
+			return data.pos;
+		}
+	}
 
 	// 0x1018
-	// export class stGuildWarTipDecoder extends  Packet
-	// {
-	// public	static    msgID:number=0x1018;
-	// 	public   TipWarGuild:stWarGuildBase=new stWarGuildBase();
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
+	export class stGuildWarTipDecoder extends Packet {
+		public static msgID: number = 0x1018;
+		public TipWarGuild: stWarGuildBase = new stWarGuildBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty('nErrorCode', PacketBase.TYPE_INT);
+			this.addProperty('nType', PacketBase.TYPE_INT);
+			this.addProperty("TipWarGuild", PacketBase.TYPE_BYTES, this.TipWarGuild.size(), this.TipWarGuild);
+			this.read(data);
 
-	// 		this.addProperty('nErrorCode',PacketBase.TYPE_INT);
-	// 		this.addProperty('nType',PacketBase.TYPE_INT);
-	// 		this.addProperty("TipWarGuild",PacketBase.TYPE_BYTES,this.TipWarGuild.size(),this.TipWarGuild);
-	// 		this.read(data);
-
-	// 	}
-	// }
+		}
+	}
 
 	// 0x1011
 	export class stQueryGuildInfoEncoder extends Packet {
@@ -1785,44 +1771,40 @@ module ProtoCmd {
 		}
 	}
 
-	// 0x2A2C
-	// export class strGlobalGuildSendAllianceList extends Packet
-	// {
-	// public	static   msgID:number = 0x2A2C;
-	// 	public  guilds:Array<number> =[];
+	// // 0x2A2C
+	// export class strGlobalGuildSendAllianceList extends Packet {
+	// 	public static msgID: number = 0x2A2C;
+	// 	public guilds: Array<number> = [];
 	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("nsize",PacketBase.TYPE_INT)
-	// 		if(data){
-	// 			data.pos +=this.read(data);
+	// 		super();
+	// 		this.addProperty("nsize", PacketBase.TYPE_INT)
+	// 		if (data) {
+	// 			data.pos += this.read(data);
 	// 		}
 	// 	}
-	// 	 public  read(data:Laya.Byte):number
-	// 	{
-	// 		data.pos =super.read(data);
-	// 		for(var i:number = 0; i<this.getValue('nsize'); i++)
-	// 		{
-	// 			this.guilds.push(BaseFunctions.ReadInt(data,true));
+	// 	public read(data: Laya.Byte): number {
+	// 		data.pos = super.read(data);
+	// 		for (var i: number = 0; i < this.getValue('nsize'); i++) {
+	// 			this.guilds.push(BaseFunctions.ReadInt(data, true));
 	// 		}
 	// 		return data.pos;
 	// 	}
 	// }
 
-	// 0x2a21
-	// export class strGlobalGuildSendFightList extends Packet
-	// {
-	// 	public  guilds:Array<int> = [];
-	// public	static   msgID:number = 0x2a21;
+	// // 0x2a21
+	// export class strGlobalGuildSendFightList extends Packet {
+	// 	public guilds: Array<number> = [];
+	// 	public static msgID: number = 0x2a21;
 	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty('nCount',PacketBase.TYPE_INT);
+	// 		super();
+	// 		this.addProperty('nCount', PacketBase.TYPE_INT);
 	// 		this.read(data);
 	// 	}
 
-	// 	 public  read(data:Laya.Byte):number{
+	// 	public read(data: Laya.Byte): number {
 	// 		data.pos += super.read(data);
-	// 		for (var i:number =0;i< this.getValue('nCount');i++){
-	// 			this.guilds.push(BaseFunctions.ReadInt(data,true));
+	// 		for (var i: number = 0; i < this.getValue('nCount'); i++) {
+	// 			this.guilds.push(BaseFunctions.ReadInt(data, true));
 	// 		}
 	// 		return data.pos;
 	// 	}
@@ -1848,22 +1830,21 @@ module ProtoCmd {
 
 
 	// 0x2B07
-	// export class stSucessGetGuildPackageItem extends Packet
-	// {
-	// public	static   msgID:number = 0x2B07;
-	// 	public  item:stItem = new stItem;
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("btError",PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
-	// 		this.addProperty("dwJiFen",PacketBase.TYPE_DWORD);
-	// 		this.addProperty('item',PacketBase.TYPE_BYTES,this.item.size(),this.item);
-	// 		this.read(data);
-	// 	}
-	// 	 public  clear():void{
-	// 		super.clear();
-	// 		this.item = null;
-	// 	}
-	// }
+	export class stSucessGetGuildPackageItem extends Packet {
+		public static msgID: number = 0x2B07;
+		public item: ItemBase = new ItemBase();
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("btError", PacketBase.TYPE_BYTE);//0 成功 ,1兑换值不够
+			this.addProperty("dwJiFen", PacketBase.TYPE_DWORD);
+			this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);
+			this.read(data);
+		}
+		public clear(): void {
+			super.clear();
+			this.item = null;
+		}
+	}
 
 	/**0x2B03
 		 * 查看公会仓库
@@ -1881,46 +1862,44 @@ module ProtoCmd {
 	/**0x2B04
   * 查看仓库的返回
   * */
-	// export class stViewGuildPackageRet extends Packet
-	// {
-	// public	static   msgID:number = 0x2B04;
-	// 	public  items:Array = new Array();
-	// 	public  ncount:number=0;
-	// 	public constructor(data: Laya.Byte) {
-	//         super();
-	// 		this.addProperty("dwStoretype",PacketBase.TYPE_BYTE);//0表示清空1表示附加
-	// 		this.addProperty("dwStoreId",PacketBase.TYPE_DWORD);//仓库编号
-	// 		this.addProperty("nCount",PacketBase.TYPE_INT);//
-	// 		if(data)
-	// 		{
-	// 			data.pos +=this.read(data);
-	// 		}	
-	// 	}
+	export class stViewGuildPackageRet extends Packet {
+		public static msgID: number = 0x2B04;
+		public items: Array<ItemBase> = [];
+		public ncount: number = 0;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwStoretype", PacketBase.TYPE_BYTE);//0表示清空1表示附加
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
+			this.addProperty("nCount", PacketBase.TYPE_INT);//
+			if (data) {
+				data.pos += this.read(data);
+			}
+		}
 
-	// 	 public  read(data: Laya.Byte):number
-	// 	{
-	// 		data.pos =super.read(data);
-	// 		this.ncount = this.getValue('nCount');
-	// 		if (this.ncount > 0){
-	// 			for (var i:number=0;i<this.ncount;i++){
-	// 				this.items[i] = new stItem(data);
-	// 			}
+		public read(data: Laya.Byte): number {
+			data.pos = super.read(data);
+			this.ncount = this.getValue('nCount');
+			if (this.ncount > 0) {
+				for (var i: number = 0; i < this.ncount; i++) {
+					this.items[i] = new ItemBase(data);
+				}
 
-	// 		}
-	// 		return 0;
-	// 	}
+			}
+			return 0;
+		}
 
-	// 	 public  clear():void{
-	// 		for(var i:number =0;i<this.items.length;i++)
-	// 		{
-	// 			if((this.items[i] as stItem))(this.items[i] as stItem).clear();
-	// 			items[i] = null;
-	// 		}
-	// 		this.items.length = 0;
-	// 		this.ncount=0;
-	// 		super.clear();
-	// 	}
-	// }
+		public clear(): void {
+			for (var i: number = 0; i < this.items.length; i++) {
+				if (this.items[i]) {
+					this.items[i].clear();
+					this.items[i] = null;
+				}
+			}
+			this.items.length = 0;
+			this.ncount = 0;
+			super.clear();
+		}
+	}
 
 	// 0x2B05
 	export class stWantGetGuildPackageItem extends Packet {
