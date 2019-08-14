@@ -1326,7 +1326,7 @@ module ProtoCmd {
     }
 
     export class stGSGuildInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
             this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);
@@ -1476,7 +1476,7 @@ module ProtoCmd {
         }
     }
     export class stGuildMemberBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_DOUBLE);				//角色唯一ID
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);							//名称
@@ -1612,7 +1612,7 @@ module ProtoCmd {
     }
 
     export class stWarGuildBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("dwWarGuildId", PacketBase.TYPE_DWORD);
             this.addProperty("szWarGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
