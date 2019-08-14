@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":35,
-    "selecteID":39,
+    "selectedBox":125,
+    "selecteID":128,
     "referenceLines":[
         {
             "value":149,
@@ -252,7 +252,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":264,"x":0,"width":640,"var":"vstack_guild","selectedIndex":1,"height":701},
+            "props":{"y":254,"x":0,"width":640,"var":"vstack_guild","selectedIndex":1,"height":711},
             "nodeParent":1,
             "label":"ViewStack(vstack_guild)",
             "isOpen":true,
@@ -264,18 +264,19 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"width":640,"var":"box_guildList","name":"item0","height":686},
+                    "props":{"y":12,"x":0,"width":640,"var":"box_guildList","name":"item0","height":686},
                     "nodeParent":10,
                     "label":"Box(box_guildList)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":42,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":-10,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":695},
+                            "props":{"y":0,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":695},
                             "nodeParent":42,
                             "label":"Image",
                             "isDirectory":false,
@@ -287,11 +288,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":44,"x":25,"width":589,"var":"panel_guild","height":642},
                             "nodeParent":42,
                             "label":"Panel(panel_guild)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -312,8 +314,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":-1,"width":156,"skin":"image/main/fram_common_02.png","right":20,"height":40},
+                            "props":{"y":-1,"width":161,"skin":"image/main/fram_common_02.png","right":407,"height":43},
                             "nodeParent":42,
                             "label":"Image",
                             "isOpen":false,
@@ -324,7 +327,7 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":8,"x":19,"text":"只看符合条件","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                    "props":{"y":8,"x":19,"width":120,"text":"只看符合条件","height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                                     "nodeParent":46,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -337,49 +340,113 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"CheckBox",
-                            "props":{"y":-2,"width":38,"stateNum":"2","skin":"image/guild/fram_common_38_finish.png","right":180,"height":38},
+                            "props":{"y":-3,"width":38,"var":"check_01","stateNum":"2","skin":"image/guild/fram_common_38_finish.png","right":573,"height":38},
                             "nodeParent":42,
-                            "label":"CheckBox",
+                            "label":"CheckBox(check_01)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":48,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":-1,"x":397},
+                            "nodeParent":42,
+                            "label":"Box",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":125,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":4,"x":44,"width":54,"var":"lbl_curPage","text":"6","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
+                                    "nodeParent":125,
+                                    "label":"Label(lbl_curPage)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":126,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"x":164,"var":"btn_addPage","stateNum":"2","skin":"image/bag/btn_common_06_finish.png"},
+                                    "nodeParent":125,
+                                    "label":"Button(btn_addPage)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":127,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":1,"var":"btn_reducePage","stateNum":"2","skin":"image/bag/btn_common_07_finish.png"},
+                                    "nodeParent":125,
+                                    "label":"Button(btn_reducePage)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":128,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":3,"x":73,"width":54,"text":"/","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
+                                    "nodeParent":125,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":129,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":4,"x":105,"width":54,"var":"lbl_allPage","text":"10","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
+                                    "nodeParent":125,
+                                    "label":"Label(lbl_allPage)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":130,
+                                    "child":[
+                                        ]
+                                }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"width":640,"var":"box_createGuild","name":"item1","height":686},
+                    "props":{"y":12,"x":0,"width":640,"var":"box_createGuild","name":"item1","height":686},
                     "nodeParent":10,
                     "label":"Box(box_createGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":567,"x":627,"width":631,"skin":"image/main/fram_common_05.png","rotation":180,"height":23},
-                            "nodeParent":11,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Box",
-                            "props":{"y":-12,"x":4,"width":631,"height":570},
+                            "props":{"y":0,"x":4,"width":631,"height":559},
                             "nodeParent":11,
                             "label":"Box",
                             "isOpen":false,
@@ -416,9 +483,9 @@
                                 },
                                 {
                                     "type":"Image",
-                                    "props":{"y":114,"x":258,"width":115,"skin":"image/guild/icon_gonghui02.png","height":165},
+                                    "props":{"y":114,"x":258,"width":115,"var":"img_createItem","skin":"image/guild/icon_gonghui02.png","height":165},
                                     "nodeParent":15,
-                                    "label":"Image",
+                                    "label":"Image(img_createItem)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -431,7 +498,7 @@
                                     "props":{"y":369,"x":122},
                                     "nodeParent":15,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -459,6 +526,18 @@
                                                     "compId":21,
                                                     "child":[
                                                         ]
+                                                },
+                                                {
+                                                    "type":"TextInput",
+                                                    "props":{"y":8,"x":144,"width":236,"var":"input_bangPaiName","type":"text","promptColor":"#ffffff","prompt":"点击输入帮派名称","multiline":true,"maxChars":6,"height":35,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                                                    "nodeParent":20,
+                                                    "label":"TextInput(input_bangPaiName)",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":119,
+                                                    "child":[
+                                                        ]
                                                 }]
                                         },
                                         {
@@ -483,37 +562,50 @@
                                                     "compId":23,
                                                     "child":[
                                                         ]
+                                                },
+                                                {
+                                                    "type":"TextInput",
+                                                    "props":{"y":8,"x":147,"width":226,"var":"input_bangPaiSlogan","type":"text","promptColor":"#ffffff","prompt":"点击输入帮派口号","maxChars":20,"height":35,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                                                    "nodeParent":22,
+                                                    "label":"TextInput(input_bangPaiSlogan)",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":120,
+                                                    "child":[
+                                                        ]
                                                 }]
                                         }]
                                 },
                                 {
                                     "type":"Button",
-                                    "props":{"y":485,"x":249,"var":"btn_create","stateNum":"2","skin":"image/common/fram_common_09_finish.png","scaleY":0.8,"scaleX":1.1,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":26,"labelFont":"Microsoft YaHei","labelColors":"#ffffff"},
+                                    "props":{"y":485,"x":249,"width":133,"var":"btn_create","stateNum":"2","skin":"image/common/fram_common_09_finish.png","scaleY":0.8,"scaleX":1.1,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":26,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"创建","height":74},
                                     "nodeParent":15,
                                     "label":"Button(btn_create)",
                                     "isOpen":true,
-                                    "isDirectory":true,
+                                    "isDirectory":false,
                                     "isAniNode":true,
-                                    "hasChild":true,
+                                    "hasChild":false,
                                     "compId":92,
                                     "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":22,"x":40,"width":52,"text":"创建","strokeColor":"#000000","stroke":2,"height":35,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":92,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":25,
-                                            "child":[
-                                                ]
-                                        }]
+                                        ]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"y":289,"x":229,"width":157,"var":"btn_createItemBuy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","scaleY":0.8,"scaleX":1.1,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":20,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"1000元宝 \\n购买","height":69},
+                                    "nodeParent":15,
+                                    "label":"Button(btn_createItemBuy)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":124,
+                                    "child":[
+                                        ]
                                 }],
                             "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":46,"x":30,"skin":"image/common/img_common_23.png"},
                             "nodeParent":11,
@@ -539,7 +631,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":46,"x":478,"skin":"image/common/img_common_23.png"},
                             "nodeParent":11,
@@ -565,9 +656,8 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":567,"x":26,"width":588,"skin":"image/common/fram_common_35.png","sizeGrid":"22,27,28,25","height":114},
+                            "props":{"y":555,"x":26,"width":588,"skin":"image/common/fram_common_35.png","sizeGrid":"22,27,28,25","height":129},
                             "nodeParent":11,
                             "label":"Image",
                             "isOpen":false,
@@ -578,7 +668,7 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":17,"x":23,"text":"说明：","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
+                                    "props":{"y":5,"x":23,"text":"说明：","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":31,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -590,7 +680,7 @@
                                 },
                                 {
                                     "type":"Label",
-                                    "props":{"y":49,"x":39,"text":"1.加入门派可以获得XXXXXXXXXX","fontSize":20,"font":"Microsoft YaHei"},
+                                    "props":{"y":37,"x":39,"text":"1.加入门派可以获得XXXXXXXXXX","fontSize":20,"font":"Microsoft YaHei"},
                                     "nodeParent":31,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -602,7 +692,7 @@
                                 },
                                 {
                                     "type":"Label",
-                                    "props":{"y":81,"x":39,"text":"2.加入门派可以XXXXXXXXXX","fontSize":20,"font":"Microsoft YaHei"},
+                                    "props":{"y":67,"x":39,"text":"2.加入门派可以XXXXXXXXXX","fontSize":20,"font":"Microsoft YaHei"},
                                     "nodeParent":31,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -611,35 +701,19 @@
                                     "compId":34,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":98,"x":40,"text":"3.加入门派可以XXXXXXXXXX","fontSize":20,"font":"Microsoft YaHei"},
+                                    "nodeParent":31,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":122,
+                                    "child":[
+                                        ]
                                 }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":525,"x":-10,"skin":"image/main/fram_common_24.png"},
-                            "nodeParent":11,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":526,"x":631,"skin":"image/main/fram_common_24.png","scaleX":-1},
-                            "nodeParent":11,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":14,
-                            "child":[
-                                ],
                             "$HIDDEN":false
                         }],
                     "$HIDDEN":true
@@ -647,17 +721,16 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":686},
+                    "props":{"y":12,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":686},
                     "nodeParent":10,
                     "label":"Box(box_searchGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":35,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-10,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":695},
                             "nodeParent":35,
@@ -671,11 +744,10 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
-                            "props":{"y":1,"x":500,"stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
+                            "props":{"y":1,"x":500,"var":"btn_search","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
                             "nodeParent":35,
-                            "label":"Button",
+                            "label":"Button(btn_search)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -685,72 +757,31 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"compart/GuildItem.ui",
-                            "props":{"y":58,"x":26},
+                            "type":"TextInput",
+                            "props":{"y":4,"x":18,"width":471,"var":"input_search","skin":"image/common/fram_common_36.png","sizeGrid":"5,6,10,7","promptColor":"#121111","prompt":"请输入帮派名称","height":57,"fontSize":30,"font":"Microsoft YaHei","align":"center"},
                             "nodeParent":35,
-                            "label":"UIView",
+                            "label":"TextInput(input_search)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":41,
+                            "compId":96,
                             "child":[
-                                ],
-                            "$HIDDEN":true
+                                ]
                         },
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":339,"x":124,"width":392,"skin":"image/common/input_bg.png","height":67,"alpha":0.75},
+                            "type":"VBox",
+                            "props":{"y":64,"x":20,"width":600,"var":"vbox_searchResult","align":"center"},
                             "nodeParent":35,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":94,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":18,"x":46,"text":"找不到这个江湖小帮！","strokeColor":"#000000","stroke":5,"fontSize":30,"color":"#ffffff","alpha":0.75},
-                                    "nodeParent":94,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":95,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":4,"x":18},
-                            "nodeParent":35,
-                            "label":"Box",
+                            "label":"VBox(vbox_searchResult)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":98,
+                            "hasChild":false,
+                            "compId":123,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"TextInput",
-                                    "props":{"width":471,"skin":"image/common/fram_common_36.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","height":57,"fontSize":30,"font":"Microsoft YaHei","align":"center"},
-                                    "nodeParent":98,
-                                    "label":"TextInput",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":96,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

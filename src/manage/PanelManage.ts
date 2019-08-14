@@ -288,7 +288,7 @@ module PanelManage {
             PanelManage.GuildTeam['LCP_skin'] = ResData.PanelRes.GuildTeam;
             PanelManage.GuildTeam.setData();
             PanelManage.GuildTeam.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildTeam, 1, 5, 1);
         })
     }
      /**
@@ -304,7 +304,7 @@ module PanelManage {
             PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
             PanelManage.GuildIntoCondition.setData();
             PanelManage.GuildIntoCondition.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildIntoCondition,3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildIntoCondition,2, 5, 1);
         })
     }
      /**
@@ -320,7 +320,7 @@ module PanelManage {
             PanelManage.GuildFuli['LCP_skin'] = ResData.PanelRes.GuildFuli;
             PanelManage.GuildFuli.setData();
             PanelManage.GuildFuli.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildFuli,3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildFuli,2, 5, 1);
         })
     }
     /**
@@ -336,7 +336,7 @@ module PanelManage {
             PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
             PanelManage.GuildRecord.setData();
             PanelManage.GuildRecord.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildRecord,3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildRecord,2, 5, 1);
         })
     }
      /**
@@ -352,7 +352,7 @@ module PanelManage {
             PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
             PanelManage.GuildApply.setData();
             PanelManage.GuildApply.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildApply,3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildApply,2, 5, 1);
         })
     }
  /**
@@ -368,7 +368,7 @@ module PanelManage {
             PanelManage.GuildHelp['LCP_skin'] = ResData.PanelRes.GuildHelp;
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildHelp,3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildHelp,2, 5, 1);
         })
     }
     /**
