@@ -19,7 +19,7 @@ module view.dialog {
 			let pkt = new ProtoCmd.stMailQueryEncoder();
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
-				console.log(cbpkt.mails);
+				
 				for (let item of cbpkt.mails) {
 
 
