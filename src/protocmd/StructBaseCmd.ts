@@ -1534,7 +1534,7 @@ module ProtoCmd {
     }
 
     export class stGSGuildInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte = null) {
+        public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
             this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);
@@ -1685,7 +1685,7 @@ module ProtoCmd {
         }
     }
     export class stGuildMemberBase extends PacketBase {
-        public constructor(data: Laya.Byte = null) {
+        public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_DOUBLE);				//角色唯一ID
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);							//名称
@@ -1821,7 +1821,7 @@ module ProtoCmd {
     }
 
     export class stWarGuildBase extends PacketBase {
-        public constructor(data: Laya.Byte = null) {
+        public constructor(data: Laya.Byte) {
             super();
             this.addProperty("dwWarGuildId", PacketBase.TYPE_DWORD);
             this.addProperty("szWarGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -2051,5 +2051,118 @@ module ProtoCmd {
             return this.getValue("tSendTime");
         }
     }
+	export class stToClientItemAndCountBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte = null) {
+            super();
+			this.addProperty('szItemName',PacketBase.TYPE_STRING,24);
+			this.addProperty('nCount',PacketBase.TYPE_INT);
+			if (data)
+			{
+				data.pos += this.read(data);
+			}
+		}
+	}
 
+
+    export class stFindYiJianResultBase  extends PacketBase
+	{
+		public constructor(data: Laya.Byte = null) {
+            super();
+			this.addProperty('_int64',PacketBase.TYPE_INT64) ;
+			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//名字
+			this.addProperty('dwLevel',PacketBase.TYPE_DWORD);  //等级
+			this.addProperty('btSex',PacketBase.TYPE_BYTE); //性别
+			this.addProperty('btJob',PacketBase.TYPE_BYTE);	//职业
+			if(data)
+			{
+				data.pos+= this.read(data);
+			}
+		}
+	}
+
+
+    export class stRelationInfoBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte = null) {
+            super();
+			this.addProperty('dwOnlyId',PacketBase.TYPE_INT64);					//唯一ID
+			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);	//名字
+			this.addProperty('fuchou',PacketBase.TYPE_INT);   //复仇
+			this.addProperty('Killed',PacketBase.TYPE_INT);   //被杀
+			this.addProperty('tAddTime',PacketBase.TYPE_DWORD);    
+			this.addProperty('nRelationDegree',PacketBase.TYPE_INT);//关系度，正数为友好值，负数为仇恨值
+			this.addProperty('dwLevel',PacketBase.TYPE_DWORD);					//等级
+			this.addProperty('btSex',PacketBase.TYPE_BYTE);//							//性别
+			this.addProperty('btJob',PacketBase.TYPE_BYTE);//职业
+			this.addProperty('btState',PacketBase.TYPE_BYTE);//					//状态 1 在线 0 离线
+			this.addProperty('tOfflineTime',PacketBase.TYPE_DWORD);		//离线时间
+			this.addProperty('btLocationState',PacketBase.TYPE_BYTE);     //是否显示位置
+			this.addProperty('mapname',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//所在地图
+			
+			this.addProperty("btPlatForm",PacketBase.TYPE_BYTE);//平台类型
+			this.addProperty("btTxYellowType",PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+			this.addProperty("btTxYellowLevel",PacketBase.TYPE_BYTE);//黄钻等级
+			this.addProperty("btLevel3366",PacketBase.TYPE_BYTE);//3366等级
+			this.addProperty("btTxBlueType",PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+			this.addProperty("btTxBlueLevel",PacketBase.TYPE_BYTE);//蓝钻等级
+			this.addProperty("btTxQQVipType",PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+			this.addProperty("btTxQQVipLevel",PacketBase.TYPE_BYTE);//QQ会员等级
+			this.addProperty('guildname',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//行会名
+			if(data) 
+			{
+				data.pos+=	this.read(data);	
+			}
+		}
+		public  get state():number{
+			return this.getValue("btState");
+		}
+		public  get level():number{
+			return this.getValue("dwLevel");
+		}
+		
+		public  get playerName():String{
+			return this.getValue("szName");
+		}
+		
+		public  get guildName():String{
+			return this.getValue("guildname");
+		}
+		
+		public  get job():number{
+			return this.getValue("btJob");
+		}
+		
+		public  get sex():number{
+			return this.getValue("btSex");
+		}
+		
+		public  get onlyId():Number{
+			return this.getValue("dwOnlyId");
+		}
+	}
+
+    export class stFindResultBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte = null) {
+            super();
+			this.addProperty('dwOnlyId',PacketBase.TYPE_DOUBLE) ;
+			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);//名字
+			this.addProperty('dwLevel',PacketBase.TYPE_DWORD);  //等级
+			this.addProperty('btSex',PacketBase.TYPE_BYTE); //性别
+			this.addProperty('btJob',PacketBase.TYPE_BYTE);	//职业
+			this.addProperty("btPlatForm",PacketBase.TYPE_BYTE);//平台类型
+			this.addProperty("btTxYellowType",PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+			this.addProperty("btTxYellowLevel",PacketBase.TYPE_BYTE);//黄钻等级
+			this.addProperty("btLevel3366",PacketBase.TYPE_BYTE);//3366等级
+			this.addProperty("btTxBlueType",PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+			this.addProperty("btTxBlueLevel",PacketBase.TYPE_BYTE);//蓝钻等级
+			this.addProperty("btTxQQVipType",PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+			this.addProperty("btTxQQVipLevel",PacketBase.TYPE_BYTE);//QQ会员等级
+			if(data)
+			{
+				data.pos+= this.read(data);
+			}
+		}
+	}
 }
