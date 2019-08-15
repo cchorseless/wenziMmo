@@ -1,8 +1,4 @@
 module ProtoCmd {
-
-
-
-
     // 0x0808
     // 删除邮件
     export class stMailDeleteMailEncoder extends Packet {
@@ -11,6 +7,7 @@ module ProtoCmd {
 		DWORD dwMailIDs[_MAX_MAIL_DELETE_COUNT];  //或者 最大支持删除10封信
 		*/
         public static msgID: number = 0x0808;
+        public cbPacket = stMailQueryRetDecoder;
         public constructor() {
             super();
             this.addProperty('bodeleteAll', PacketBase.TYPE_BOOL);
@@ -29,7 +26,7 @@ module ProtoCmd {
         public constructor() {
             super();
             this.addProperty('dwMailID', PacketBase.TYPE_DWORD);
-            this.addProperty('i64itemid', PacketBase.TYPE_INT64);
+            this.addProperty('i64itemid', PacketBase.TYPE_INT64);	//要取得的附件物品编号,为-1表示全部收取,为0表示收取金钱
             this.cmd = 0x0807;
         }
     }
@@ -106,7 +103,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('bterrorcode', PacketBase.TYPE_BYTE);
-            this.addProperty('MailDetail', PacketBase.TYPE_BYTES, this.data.length - 8 - 1, this.MailDetail);
+            this.addProperty('MailDetail', PacketBase.TYPE_BYTES, data.length - 8 - 1, this.MailDetail);
             this.read(data);
         }
     }

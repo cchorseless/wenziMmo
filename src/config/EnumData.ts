@@ -55,6 +55,7 @@ module EnumData {
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
         SHOW_IN_SHOP = 4,//商店中显示
+        SHOW_IN_MAIL = 5//邮件中显示
     }
 
     /**

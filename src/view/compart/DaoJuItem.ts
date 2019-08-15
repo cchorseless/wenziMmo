@@ -72,6 +72,11 @@ module view.compart {
 					case EnumData.ItemInfoModel.SHOW_IN_SHOP:
 						itemInfoDialog.setData(this.item, 5).show(true);
 						break;
+					// 邮件场景
+					case EnumData.ItemInfoModel.SHOW_IN_SHOP:
+						itemInfoDialog.setData(this.item, 6).show(true);
+						break;
+
 				}
 			});
 		}
