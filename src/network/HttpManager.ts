@@ -1,8 +1,9 @@
 
 
-const HTTP_URL = 'http://192.168.10.199:3000/';
+const HTTP_URL = 'http://192.168.10.199:3000/'; 
 const HTTP_SUCCESS = 200;
 
+//name=zoneList 请求区服列表
 class HttpManager extends SingletonClass {
     constructor() {
         super();
@@ -34,11 +35,12 @@ class HttpManager extends SingletonClass {
 
     /**
      * POST数据到HTTP服务器
+     * @param param 格式 name=zoneList&xx=oo
      * @param data 需要发送的数据
      * @param cb 收到数据回调
      * @param isJosn true：json格式 返回也是json格式， 默认是text格式,返回也是text格式
      */
-    public post(data, cb = this.defaultCB, isJosn = false, ) {
+    public post(param, data, cb = this.defaultCB, isJosn = false, ) {
         let xhr = new XMLHttpRequest();
         let fixed = 'text';
         if (isJosn) {
@@ -65,9 +67,8 @@ class HttpManager extends SingletonClass {
         }
     }
 
-    public postJson(data, cb = this.defaultCB) {
-        this.post(data, cb, true);
+    postJson(param, data, cb = this.defaultCB) {
+        this.post(param, data, cb, true);
     }
-
 
 }

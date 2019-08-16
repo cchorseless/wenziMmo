@@ -2296,6 +2296,18 @@ module ProtoCmd {
             this.addProperty('nCount', PacketBase.TYPE_INT);
             if (data) this.read(data);
         }
+         public get tSendTime(): number {
+            return this.getValue("tSendTime");
+        }
+          public get szTitle(): number {
+            return this.getValue("szTitle");
+        }
+         public get szNotice(): number {
+            return this.getValue("szNotice");
+        }
+          public get nCount(): number {
+            return this.getValue("nCount");
+        }
 
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
@@ -2347,6 +2359,11 @@ module ProtoCmd {
         public get sendTime(): number {
             return this.getValue("tSendTime");
         }
+        public get szTitle(): string {
+            return this.getValue("szTitle");
+        }
+
+
     }
     export class stToClientItemAndCountBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
