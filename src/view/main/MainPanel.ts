@@ -394,6 +394,7 @@ module view.main {
 		 * @param obj 
 		 */
 		public updatePlayerView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+
 		}
 		/**
 		 * 更新怪物

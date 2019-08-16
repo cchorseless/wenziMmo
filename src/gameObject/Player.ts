@@ -6,6 +6,7 @@ module GameObject {
         public avatarIcon: string;
         public job: EnumData.JOB_TYPE;
         public sex: EnumData.SEX_TYPE;
+        public createTime;// 角色创建时间
         public zslevel: number;//转生等级
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
@@ -163,6 +164,23 @@ module GameObject {
                     break;
             }
         }
+
+        /**
+         * 查找视野内的游戏对象
+         * @param tempId 
+         * @param type 
+         */
+        public findViewObj(tempId: number, type: EnumData.CRET_TYPE): Creature {
+            switch (type) {
+                case EnumData.CRET_TYPE.CRET_PLAYER:
+                    return this._allPlayer[tempId]
+                case EnumData.CRET_TYPE.CRET_MONSTER:
+                    return this._allMonster[tempId]
+                case EnumData.CRET_TYPE.CRET_NPC:
+                    return this._allNpc[tempId]
+            }
+        }
+
         /**
          * 清除视野内所有的对象
          */

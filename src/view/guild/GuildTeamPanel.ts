@@ -70,7 +70,6 @@ module view.guild {
 				this.lbl_playerCount.text = '' + nowCount + '/' + countRoof;
 				// 公会公告
 				this.lbl_bpNotice.text = '' + singleGuildinfo.szNotice;
-
 				cbpkt.clear();
 				cbpkt = null;
 			});

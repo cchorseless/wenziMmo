@@ -106,23 +106,21 @@ module GameObject {
     export class Creature {
         public objName: string;//名字
         public level: number = 1;//等级
-        public objType: EnumData.CRET_TYPE;//对象类型
-        public hp: number;
-        public mp: number;
-        public lifestate: number;
+        public lifestate: number;// 生命状态
         public tempId: number;// 临时ID
         public onlyId: ProtoCmd.Int64;// 唯一ID
-        public configId: number;//配置表ID
-        public mapid: number;//地图ID
-        public mapname: string;
-        public x: number;
-        public y: number;
-        public dir: number;
-        public ability: Ability;
+        public mapName: string;// 地图名字
+        public dir: number;//8方向朝向
 
+        public ability: Ability;//能力信息
+        public feature;//外观特征
+        public location: ProtoCmd.CretLocation;//位置信息
         public constructor() {
             this.ability = new Ability();
+            this.location = new ProtoCmd.CretLocation();
         }
+
+
 
         /**
          * 获取名字

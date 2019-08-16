@@ -576,7 +576,6 @@ module ProtoCmd {
         }
     }
 
-
     export class SimpleFeature extends PacketBase {
         public constructor() {
             super();
@@ -627,10 +626,10 @@ module ProtoCmd {
         /**
          * 武器
          */
-        public get weapon(): number {
+        public get weaponId(): number {
             return this.getValue('weapon');
         }
-        public set weapon(v: number) {
+        public set weaponId(v: number) {
             this.setValue('weapon', v);
         }
         /**
@@ -649,11 +648,11 @@ module ProtoCmd {
     }
 
     export class CretFeature extends PacketBase {
-        public feature: SimpleFeature = new SimpleFeature();
+        public simpleFeature: SimpleFeature = new SimpleFeature();
         public constructor() {
             super();
             this.addProperty('btCretType', PacketBase.TYPE_BYTE);//1此人物的类型，比如1==玩家，2==NPC，3==怪,4宝宝,5，人形怪，6英雄
-            this.addProperty('feature', PacketBase.TYPE_BYTES, this.feature.size());//昵称外观信息stSimpleFeature结构
+            this.addProperty('simpleFeature', PacketBase.TYPE_BYTES, this.simpleFeature.size());//昵称外观信息stSimpleFeature结构
             this.addProperty('nTitleId', PacketBase.TYPE_WORD);//称号ID
             this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);//战场类型
             this.addProperty('dwWingId', PacketBase.TYPE_WORD);//翅膀Id
@@ -662,11 +661,11 @@ module ProtoCmd {
 
         public read(data: Laya.Byte): number {
             let pos: number = super.read(data);
-            this.feature.read(this.getValue('feature'));
+            this.simpleFeature.read(this.getValue('simpleFeature'));
             return pos;
         }
         /**
-         * 人物类型
+         * 类型
          */
         public get btCretType(): number {
             return this.getValue('btCretType');
@@ -1749,7 +1748,7 @@ module ProtoCmd {
          * 当前帮派人员数量
          */
         public get curPlayerCount(): number {
-            return this.getValue("dwCurGuildPlayerCount");
+            return this.getValue("curPlayerCount");
         }
         /**
          * 当前在线帮派人员数量

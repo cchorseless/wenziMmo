@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":125,
-    "selecteID":128,
+    "selecteID":126,
     "referenceLines":[
         {
             "value":149,
@@ -367,7 +367,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":44,"width":54,"var":"lbl_curPage","text":"6","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
+                                    "props":{"y":4,"x":44,"width":54,"var":"lbl_curPage","text":"1","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
                                     "nodeParent":125,
                                     "label":"Label(lbl_curPage)",
                                     "isDirectory":false,
@@ -380,7 +380,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"x":164,"var":"btn_addPage","stateNum":"2","skin":"image/bag/btn_common_06_finish.png"},
+                                    "props":{"x":164,"var":"btn_addPage","stateNum":"2","skin":"image/common/btn_common_06_finish.png"},
                                     "nodeParent":125,
                                     "label":"Button(btn_addPage)",
                                     "isDirectory":false,
@@ -393,7 +393,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":1,"var":"btn_reducePage","stateNum":"2","skin":"image/bag/btn_common_07_finish.png"},
+                                    "props":{"y":1,"var":"btn_reducePage","stateNum":"2","skin":"image/common/btn_common_07_finish.png"},
                                     "nodeParent":125,
                                     "label":"Button(btn_reducePage)",
                                     "isDirectory":false,
@@ -419,7 +419,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":105,"width":54,"var":"lbl_allPage","text":"10","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
+                                    "props":{"y":4,"x":105,"width":54,"var":"lbl_allPage","text":"1","height":39,"fontSize":30,"font":"Microsoft YaHei","bold":true,"align":"center"},
                                     "nodeParent":125,
                                     "label":"Label(lbl_allPage)",
                                     "isDirectory":false,
@@ -603,7 +603,7 @@
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
                             "type":"Image",

@@ -28,6 +28,12 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
         // 创建地图其他玩家 206
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
+
+        // 同步怪物feature
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvaterIconDecoder), this, this.syncNotPlayerFeature);
+        // 同步玩家feature
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerIconDecoder), this, this.syncPlayerFeature);
+
         // 移动 0x021F
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
         // 攻击 0x0232
@@ -191,12 +197,15 @@ class ServerListener extends SingletonClass {
         Log.trace('========>玩家进入地图');
         let msgData = new ProtoCmd.PlayerChangeMap(data);
         let player = GameApp.MainPlayer;
-        player.mapid = msgData.location.getValue('mapid');
-        player.x = msgData.location.getValue('ncurx');
-        player.y = msgData.location.getValue('ncury');
-        player.mapname = msgData.getValue('szMapFileName');
+        // 更新位置信息
+        player.location.clone(msgData.location.data);
+        // 更新其他信息
+        player.objName = player.filterName(msgData.getValue('szName'))
+        player.mapName = msgData.getValue('szMapName');
         player.tempId = msgData.getValue('dwTmpId');
         player.dir = msgData.getValue('dir');
+        player.lifestate = msgData.getValue('lifestate');
+        player.createTime = msgData.getValue('dwPlayerCreateTime');
         player.clearViewObj();
         let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
@@ -205,6 +214,7 @@ class ServerListener extends SingletonClass {
         msgData.clear();
     }
 
+
     /**
      * 非玩家进入地图，包括NPC和怪物
      * @param data 
@@ -212,7 +222,6 @@ class ServerListener extends SingletonClass {
     public mapCreateCret(data: any): void {
         let msgData = new ProtoCmd.MapCreateCret(data);
         let type = msgData.feature.getValue('btCretType');
-        let mapid = msgData.location.getValue('mapid');
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
         switch (type) {
@@ -225,20 +234,31 @@ class ServerListener extends SingletonClass {
                 obj.objName = obj.filterName(szShowName);
                 break;
         }
-        obj.objType = type;
-        obj.configId = msgData.feature.getValue('dwCretTypeId');
+        // feature 信息
+        obj.feature.clone(msgData.feature.data);
+        // 位置  信息
+        obj.location.clone(msgData.location.data);
+        // 战斗信息
+        obj.changeHp(msgData.getValue('nNowHp'), msgData.getValue('nMaxHp'));
+        obj.changeMp(msgData.getValue('nNowMp'), msgData.getValue('nMaxMp'));
+        // 其他信息
         obj.tempId = msgData.getValue('dwTmpId');
-        obj.mapid = msgData.location.getValue('mapid');
-        obj.x = msgData.location.getValue('ncurx');
-        obj.y = msgData.location.getValue('ncury');
         obj.level = msgData.getValue('lvl');
-        obj.hp = msgData.getValue('nNowHp');
-        obj.mp = msgData.getValue('nNowMp');
         obj.lifestate = msgData.getValue('lifestate');
+        obj.dir = msgData.getValue('btDir');
         // 将对象添加到视野列表中
         GameApp.MainPlayer.addViewObj(obj, type);
         msgData.clear();
         msgData = null;
+    }
+
+    /**
+     * 同步怪物和NPC的信息
+     * @param data 
+     */
+    public syncNotPlayerFeature(data: any): void {
+        let cbPkt = ProtoCmd.AvaterIconDecoder.getInstance();
+        cbPkt.read(data);
     }
 
     /**
@@ -249,40 +269,43 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.MapCreatePlayer(data);
         let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
-        let mainPlayer = GameApp.MainPlayer;
+
+        let player: GameObject.Player;
         // 玩家自己
-        if (mainPlayer.tempId == tempId) {
-            mainPlayer.objName = msg.getValue('szShowName');
-            mainPlayer.objType = type;
-            mainPlayer.mapid = msg.location.getValue('mapid');
-            mainPlayer.x = msg.location.getValue('ncurx');
-            mainPlayer.y = msg.location.getValue('ncury');
-            mainPlayer.level = msg.getValue('lvl');
-            mainPlayer.hp = msg.getValue('nNowHp');
-            mainPlayer.mp = msg.getValue('nNowMp');
-            mainPlayer.lifestate = msg.getValue('lifestate');
-            mainPlayer.feature.clone(msg.feature.data);
-            GameApp.MainPlayer.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));
+        if (GameApp.MainPlayer.tempId == tempId) {
+            player = GameApp.MainPlayer;
         }
         // 其他玩家
         else {
-            let newPlayer = new GameObject.Player();
-            newPlayer.tempId = msg.getValue('dwTmpId');
-            newPlayer.objName = msg.getValue('szShowName');
-            newPlayer.objType = type;
-            newPlayer.mapid = msg.location.getValue('mapid');
-            newPlayer.x = msg.location.getValue('ncurx');
-            newPlayer.y = msg.location.getValue('ncury');
-            newPlayer.level = msg.getValue('lvl');
-            newPlayer.hp = msg.getValue('nNowHp');
-            newPlayer.mp = msg.getValue('nNowMp');
-            newPlayer.lifestate = msg.getValue('lifestate');
-            newPlayer.feature.clone(msg.feature.data);
-            // 添加到玩家视野中
-            GameApp.MainPlayer.addViewObj(newPlayer, type);
+            player = new GameObject.Player();
         }
+        // 更新其他信息
+        player.tempId = tempId;
+        player.objName = msg.getValue('szShowName');
+        player.level = msg.getValue('lvl');
+        player.lifestate = msg.getValue('lifestate');
+        player.dir = msg.getValue('btDir');
+        // 更新位置信息
+        player.location.clone(msg.location.data);
+        // 更新外观信息
+        player.feature.clone(msg.feature.data);
+        // 更新能力信息
+        player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));//血
+        player.changeMp(msg.getValue('nNowMp'), msg.getValue('nMaxMp'));//蓝
+        player.changeNeigong(msg.getValue('nMaxNG') - msg.getValue('nHasUseNG'), msg.getValue('nMaxNG'));//内功
+        // 添加到玩家视野中
+        GameApp.MainPlayer.addViewObj(player, type);
         msg.clear();
         msg = null;
+    }
+
+    /**
+     * 同步玩家feature
+     * @param data 
+     */
+    public syncPlayerFeature(data): void {
+        let cbpkt = ProtoCmd.PlayerIconDecoder.getInstance();
+        cbpkt.read(data);
     }
 
     /**
@@ -302,9 +325,7 @@ class ServerListener extends SingletonClass {
     public cretMoveRet(data: any): void {
         let msg = new ProtoCmd.CretMoveRet(data);
         if (msg.getValue('moveerrorcode') != 0) {
-            GameApp.GameEngine.mainPlayer.dir = msg.getValue('dir');
-            GameApp.GameEngine.mainPlayer.x = msg.location.getValue('ncurx');
-            GameApp.GameEngine.mainPlayer.y = msg.location.getValue('ncury');
+            GameApp.MainPlayer.location.clone(msg.location.data);
             ////App.MainPanel.addSysChat('move fail');
             return;
         }
@@ -911,7 +932,7 @@ class ServerListener extends SingletonClass {
         GameApp.MainPlayer.guildInfo.dwCurExp = guildInfo.dwCurExp;//更新行会当前经验
         GameApp.MainPlayer.guildInfo.dwLevelUpExp = guildInfo.dwLevelUpExp;//更新行会升级经验上限
         GameApp.MainPlayer.guildInfo.dwLevel = guildInfo.dwGuildLevel;//更新行会等级
-        
+
         cbpkt.clear();
         cbpkt = null
     }

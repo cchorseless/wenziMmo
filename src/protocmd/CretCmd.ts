@@ -33,6 +33,7 @@ module ProtoCmd {
         }
     }
 
+
     //0x0202
     //地图创建怪物，NPC
     export class MapCreateCret extends Packet {
@@ -67,6 +68,7 @@ module ProtoCmd {
         }
     }
 
+
     //0x0203
     //删除地图上的生物
     export class MapRemoveCret extends Packet {
@@ -79,6 +81,7 @@ module ProtoCmd {
             this.read(data);
         }
     }
+
 
     //0x0206
     //地图上创建人物
@@ -98,7 +101,7 @@ module ProtoCmd {
             this.addProperty('nNowMp', PacketBase.TYPE_INT);
             this.addProperty('nMaxMp', PacketBase.TYPE_INT);
             this.addProperty('nMaxNG', PacketBase.TYPE_INT);
-            this.addProperty('nNowNG', PacketBase.TYPE_INT);
+            this.addProperty('nHasUseNG', PacketBase.TYPE_INT);
             this.addProperty("btDir", PacketBase.TYPE_BYTE);
             this.addProperty('feature', PacketBase.TYPE_BYTES, this.feature.size(), this.feature);
             this.read(data);
@@ -113,6 +116,7 @@ module ProtoCmd {
             this.location = null;
         }
     }
+
 
     //移动
     export class CretMove extends Packet {
@@ -130,6 +134,7 @@ module ProtoCmd {
             this.cmd = 0x021E;
         }
     }
+
 
     //移动返回
     export class CretMoveRet extends Packet {
@@ -153,6 +158,7 @@ module ProtoCmd {
         }
     }
 
+
     //生物移动后
     export class CretAfterSpaceMove extends Packet {
         public static msgID: number = 0x0221;
@@ -166,6 +172,7 @@ module ProtoCmd {
             this.addProperty('ncurz', PacketBase.TYPE_WORD);// 移动后坐标Z 
         }
     }
+
 
     //更新角色信息
     export class UpdatePlayerInfo extends Packet {
@@ -183,6 +190,7 @@ module ProtoCmd {
         }
     }
 
+
     //攻击
     export class CretAttack extends Packet {
         public static msgID: number = 0x0232;
@@ -199,6 +207,7 @@ module ProtoCmd {
             this.cmd = CretAttack.msgID;
         }
     }
+
 
     //攻击返回
     export class CretAttackRet extends Packet {
@@ -219,6 +228,7 @@ module ProtoCmd {
         }
     }
 
+
     //血　蓝改变通知
     export class CretHealthChange extends Packet {
         public static msgID: number = 0x0234;
@@ -236,6 +246,7 @@ module ProtoCmd {
         }
     }
 
+
     //金币 改变通知
     export class CretGoldChange extends Packet {
         public static msgID: number = 0x0236;
@@ -247,6 +258,7 @@ module ProtoCmd {
             this.read(data);
         }
     }
+
 
     //绑定金币 改变通知
     export class CretGoldLockChange extends Packet {
@@ -418,7 +430,252 @@ module ProtoCmd {
             this.read(data);
         }
     }
-   
+    // 0x0228
+    // 更新怪物NPC 的feature
+    export class AvaterIconDecoder extends Packet {
+        public static msgID: number = 0x0228;
+        public _instance: AvaterIconDecoder;
+        // 对应怪物feature 10个属性
+        private propLength = {
+            "1": 1,
+            "2": 15,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 4,
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4
+        }
+        public constructor() {
+            super();
+            this.addProperty('dwTmpId', PacketBase.TYPE_INT);//
+            this.addProperty('crettype', PacketBase.TYPE_BYTE);//
+            this.addProperty("dwCount", PacketBase.TYPE_INT);
+        }
+        /**
+         * 获得单例
+         */
+        public static getInstance(): AvaterIconDecoder {
+            let Class: any = this;
+            if (!Class._instance) {
+                Class._instance = new AvaterIconDecoder();
+            }
+            return Class._instance;
+        }
+
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            data.endian = Laya.Byte.LITTLE_ENDIAN;
+            let cret: GameObject.Creature = GameApp.MainPlayer.findViewObj(this.getValue("dwTmpId"), this.getValue('crettype'));
+            if (cret == null) {
+                return 0;
+            }
+            let spos: number = data.pos;
+            let bcount: number = this.getValue("dwCount");
+            let index: number;
+            while (data.pos < data.length && (data.pos - spos <= bcount)) {
+                index = data.getUint8();
+                switch (index) {
+                    case 1:// 1此人物的类型，比如1==玩家，2==NPC，3==怪,4宝宝,5，人形怪，6英雄
+                        {
+                            cret.feature.btCretType = data.getByte();
+                            break;
+                        }
+                    case 2://昵称外观信息stSimpleFeature结构
+                        {
+                            cret.feature.simpleFeature.sex = data.getByte();
+                            cret.feature.simpleFeature.job = data.getByte();
+                            data.getByte();
+                            data.getInt32();
+                            cret.feature.simpleFeature.weaponId = data.getInt32();
+                            cret.feature.simpleFeature.dress = data.getInt32();
+                            break;
+                        }
+                    case 3://称号
+                        {
+                            cret.feature.nTitleId = data.getInt16();
+                            break;
+                        }
+                    case 4://战场类型
+                        {
+                            cret.feature.btBattleCamp = data.getByte();
+                            break;
+                        }
+                    case 5:// 翅膀Id
+                        {
+                            cret.feature.dwWingId = data.getInt16();
+                            break;
+                        }
+                    case 6://外观 位状态信息
+                        {
+                            cret.feature.n_bo_AllFeature = data.getInt32();
+                            break;
+                        }
+                    case 7:// 怪物声音类型
+                        {
+                            (cret.feature as ProtoCmd.AnimalFeature).dwMonsterAudioId = data.getInt32();
+                            break;
+                        }
+                    case 8://BOSS刷新时间
+                        {
+                            (cret.feature as ProtoCmd.AnimalFeature).dwRefreshTime = data.getInt32();
+                            break;
+                        }
+                    case 9://主人ID;
+                        {
+                            (cret.feature as ProtoCmd.AnimalFeature).dwMasterTmpID = data.getInt32();
+                            break;
+                        }
+                    case 10://NPC 怪物基本ID  
+                        {
+                            (cret.feature as ProtoCmd.AnimalFeature).dwCretTypeId = data.getInt32();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            return 0;
+        }
+    }
+
+    // 0x0229
+    // 更新玩家的feature
+    export class PlayerIconDecoder extends Packet {
+        public static msgID: number = 0x0229;
+         public _instance: PlayerIconDecoder;
+        private propLength = {
+            "1": 1,
+            "2": 15,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 4,
+            "7": 4,
+            "8": 1,
+            "9": 4,
+            "10": 1,
+            "11": 4,
+            "12": 1,
+            "13": 4
+        }
+        public constructor() {
+            super();
+            this.addProperty('dwTmpId', PacketBase.TYPE_INT);//
+            this.addProperty('crettype', PacketBase.TYPE_BYTE);//
+            this.addProperty("dwCount", PacketBase.TYPE_INT);
+        }
+        /**
+         * 获得单例
+         */
+        public static getInstance(): PlayerIconDecoder {
+            let Class: any = this;
+            if (!Class._instance) {
+                Class._instance = new PlayerIconDecoder();
+            }
+            return Class._instance;
+        }
+        
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            data.endian = Laya.Byte.LITTLE_ENDIAN;
+            let index: number;
+            let cret: GameObject.Player = GameApp.MainPlayer.findViewObj(this.getValue("dwTmpId"), this.getValue('crettype')) as GameObject.Player;
+            if (cret == null) {
+                return 0;
+            }
+            let spos: number = data.pos;
+            let bcount: number = this.getValue("dwCount");
+            while (data.pos < data.length && (data.pos - spos < bcount)) {
+                index = data.getUint8();
+                if (data.pos + this.propLength[index] > data.length) {
+                    return 0;
+                }
+                switch (index) {
+                    case 1://类型
+                        {
+                            cret.feature.btCretType = data.getByte();
+                            break;
+                        }
+                    case 2://
+                        {
+                            cret.feature.simpleFeature.sex = data.getByte();
+                            cret.feature.simpleFeature.job = data.getByte();
+                            data.getByte();
+                            data.getInt32();
+                            cret.feature.simpleFeature.weaponId = data.getInt32();
+                            cret.feature.simpleFeature.dress = data.getInt32();
+                            break;
+                        }
+                    case 3://称号
+                        {
+                            cret.feature.nTitleId = data.getInt16();
+                            break;
+                        }
+                    case 4://战场类型
+                        {
+                            cret.feature.btBattleCamp = data.getByte();
+                            break;
+                        }
+                    case 5:// 翅膀Id
+                        {
+                            cret.feature.dwWingId = data.getInt16();
+                            break;
+                        }
+                    case 6://外观 位状态信息
+                        {
+                            cret.feature.n_bo_AllFeature = data.getInt32();
+                            break;
+                        }
+                    case 7://队伍ID
+                        {
+                            cret.feature.btGroupId = data.getUint32();
+                            break;
+                        }
+                    case 8://是否是队长	
+                        {
+                            cret.feature.btGroupMaster = data.getByte();
+                            break;
+                        }
+                    case 9: 4  // 氏族ID  公会ID
+                        {
+                            cret.feature.dwClanId = data.getUint32();
+                            break;
+                        }
+                    case 10:// 1  行会职位  
+                        {
+                            cret.feature.btClanMaster = data.readByte();
+                            break;
+                        }
+                    case 11://vip类型
+                        {
+                            cret.feature.dwVip = data.getUint32();
+                            break;
+                        }
+                    case 12://名字颜色 0是正常的，1灰，2黄，3红
+                        {
+                            cret.feature.btNameColor = data.getUint8();
+                            break;
+                        }
+                    case 13://pk值
+                        {
+                            cret.feature.wNowKilling = data.getInt32();
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
+            return 0;
+        }
+    }
+
     // *************************************地图物品***************************
     //0x029D - 02-157
     //删除地图上的物品
@@ -470,5 +727,5 @@ module ProtoCmd {
             this.read(data);
         }
     }
-    
+
 }
