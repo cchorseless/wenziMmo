@@ -129,7 +129,7 @@ module ProtoCmd {
 
     }
 
-
+    //列表增加了一个成员
     export class stRelationAddFriend extends Packet {
         public static msgID: number = 0x0A08;
         //		public var friendlist:Vector.<stRelationInfo> = new Vector.<stRelationInfo>;
@@ -146,34 +146,7 @@ module ProtoCmd {
     }
 
 
-
-
-
-    export class stRelationDelete extends Packet {
-        public static msgID: number = 0x0A0A;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('btType', PacketBase.TYPE_INT);//0好友1黑名单2仇人
-            this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);//
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
-            this.cmd = 0x0A0A;
-        }
-    }
-
-    export class stRelationDeleteRet extends Packet {
-        public static msgID: number = 0x0A0B;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);//
-            this.addProperty('btType', PacketBase.TYPE_INT);//
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
-            this.read(data);
-        }
-
-
-    }
-
-
+    //从现有的列表中删除指定的信息
     export class stRelationListDelete extends Packet {
         public static msgID: number = 0x0A09;
         public constructor(data: Laya.Byte) {
@@ -184,43 +157,39 @@ module ProtoCmd {
         }
     }
 
-    export class stRelationLocationRet extends Packet {
-        public static msgID: number = 0x0A19;
+    //删除 好友
+    export class stRelationDelete extends Packet {
+        public static msgID: number = 0x0A0A;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);// 17,没有这好友 18 没有这敌人 19 探查令不够  1不在线
-            this.addProperty('btType', PacketBase.TYPE_INT);//类型
-            this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);//id号
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //被查询者名字
-            this.addProperty('szMapName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //被查询者地图名字
-            this.addProperty('mapid', PacketBase.TYPE_INT);//所在地图编号
-            this.addProperty('nX', PacketBase.TYPE_INT);//坐标x
-            this.addProperty('nY', PacketBase.TYPE_INT);//坐标y		
+            this.addProperty('btType', PacketBase.TYPE_INT);//0好友1黑名单2仇人
+            this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);//
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
+            this.cmd = 0x0A0A;
+        }
+    }
+    //删除好友返回  /成功后直接删除该成员
+    export class stRelationDeleteRet extends Packet {
+        public static msgID: number = 0x0A0B;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);//
+            this.addProperty('btType', PacketBase.TYPE_INT);//
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.read(data);
         }
     }
-    // export class stRelationRecordQuestRet extends Packet
-    // {
-    // public	static   msgID:number = 0x0A17;
-    // 	public  killedlist:String;
-    // 	public constructor(data: Laya.Byte) {
-    // 		super();
-    // 		this.addProperty('nSize',PacketBase.TYPE_INT);
-    // 		this.read(data);
-    // 	}
-    // 	 public  read(data:Laya.Byte):number
-    // 	{
-    // 		if(data)
-    // 		{
-    // 		data.pos += super.read(data);
-    // 		var nSize:number =  this.getValue('nSize');
-    // 		this.killedlist = data.readMultiByte(nSize,'utf-8');
-    // 		}
-    // 		return 0;
-    // 	}
-    // }
 
+    //搜索好友
+    export class stRelationSearchFriend extends Packet {
+        constructor() {
+            super();
+            this.cmd = 0x0A0C;
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//按名字like搜索
+        }
+    }
 
+    //搜索好友返回
     export class stRelationSearchFriendRet extends Packet {
         public static msgID: number = 0x0A0D
         public results: Array<stFindResultBase> = [];
@@ -240,11 +209,19 @@ module ProtoCmd {
 
     }
 
+    //验证设置
+    export class stRelationSetAddFriendType extends Packet {
+        public constructor() {
+            super();
+            this.addProperty('nType', PacketBase.TYPE_INT);//emFriendType
+        }
+    }
+
     export class stRelationSetAddFriendTypeRet extends Packet {
         public static msgID: number = 0x0A1E;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('btError', PacketBase.TYPE_BYTE); //0允许所有人加我为好友  1需要验证 2拒绝所有
+            this.addProperty('btError', PacketBase.TYPE_BYTE);
             this.addProperty('nType', PacketBase.TYPE_INT);
         }
     }

@@ -2296,16 +2296,16 @@ module ProtoCmd {
             this.addProperty('nCount', PacketBase.TYPE_INT);
             if (data) this.read(data);
         }
-         public get tSendTime(): number {
+        public get tSendTime(): number {
             return this.getValue("tSendTime");
         }
-          public get szTitle(): number {
+        public get szTitle(): number {
             return this.getValue("szTitle");
         }
-         public get szNotice(): number {
+        public get szNotice(): number {
             return this.getValue("szNotice");
         }
-          public get nCount(): number {
+        public get nCount(): number {
             return this.getValue("nCount");
         }
 
@@ -2471,4 +2471,156 @@ module ProtoCmd {
             }
         }
     }
+
+
+    export class stRankInfo extends PacketBase {
+        constructor(data) {
+            super()
+
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);	//角色名字
+            this.addProperty('dwLevel', PacketBase.TYPE_INT);//等级
+            this.addProperty('btJob', PacketBase.TYPE_BYTE);//职业
+            this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);//唯一ID
+            this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//行会名字
+            this.addProperty('szGuildPositionLvl', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//行会职位等级
+            this.addProperty('nEquipScore', PacketBase.TYPE_INT); //总战力
+            this.addProperty('dwGold', PacketBase.TYPE_DWORD);//金币
+            this.addProperty('nCountryid', PacketBase.TYPE_INT); //国家id
+            this.addProperty("nNowRankNum", PacketBase.TYPE_INT); //现在排名
+            this.addProperty("nLastRankNum", PacketBase.TYPE_INT); //上次排名
+            this.addProperty('i64Exp', PacketBase.TYPE_INT64);//经验
+            this.addProperty("dwLvlUpTime", PacketBase.TYPE_DWORD);//升级时间
+            this.addProperty('btIsOnline', PacketBase.TYPE_BYTE);		//是否在线
+            this.addProperty("btPlatForm", PacketBase.TYPE_BYTE);//平台类型
+            this.addProperty("btTxYellowType", PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+            this.addProperty("btTxYellowLevel", PacketBase.TYPE_BYTE);//黄钻等级
+            this.addProperty("btLevel3366", PacketBase.TYPE_BYTE);//3366等级
+            this.addProperty("btTxBlueType", PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+            this.addProperty("btTxBlueLevel", PacketBase.TYPE_BYTE);//蓝钻等级
+            this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+            this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
+            this.addProperty("heroPower1", PacketBase.TYPE_INT);//英雄-战士战力
+            this.addProperty("heroPower2", PacketBase.TYPE_INT);//英雄-法师战力
+            this.addProperty("heroPower3", PacketBase.TYPE_INT);//英雄-道士战力
+            this.addProperty("herolevel", PacketBase.TYPE_INT);//英雄等级
+            this.addProperty("heroJob", PacketBase.TYPE_BYTE);//英雄职业
+            this.addProperty("wingPower", PacketBase.TYPE_INT);//翅膀战力
+            this.addProperty("wingLvlTime", PacketBase.TYPE_INT);//翅膀升级时间
+            this.addProperty("wingExp", PacketBase.TYPE_INT);//翅膀经验
+            this.addProperty("fameScore", PacketBase.TYPE_INT);//威名积分
+
+            //新加
+            this.addProperty("dwRmbHistory", PacketBase.TYPE_INT);//历史充值
+            this.addProperty("dwRmbHistoryTime", PacketBase.TYPE_INT);//历史充值时间
+            this.addProperty("dwLvAddZSlv", PacketBase.TYPE_INT);//等级和转生等级综合排名
+            this.addProperty("dwHeroLvAddZSlv", PacketBase.TYPE_INT);//等级和转生等级综合排名时间
+            this.addProperty("dwLvAddZSlvTime", PacketBase.TYPE_INT);//英雄等级和转生等级综合排名
+            this.addProperty("dwHeroLvAddZSlvTime", PacketBase.TYPE_INT);//英雄等级和转生等级综合排名时间
+            this.addProperty("dwLongHunlv", PacketBase.TYPE_INT);//龙魂等级
+            this.addProperty("dwLongHunlvTime", PacketBase.TYPE_INT);//龙魂等级升级时间
+            this.addProperty("dwGuanZhilv", PacketBase.TYPE_INT);//官职等级
+            this.addProperty("dwGuanZhilvTime", PacketBase.TYPE_INT);//官职等级升级时间
+            this.addProperty("dwHunShilv", PacketBase.TYPE_INT);//魂石等级
+            this.addProperty("dwHunShilvTime", PacketBase.TYPE_INT);//魂石等级升级时间
+            this.addProperty("dwFame", PacketBase.TYPE_INT);//跨服战场胜点
+            this.addProperty("dwFameTime", PacketBase.TYPE_INT);//跨服战场胜点改变时间
+            this.addProperty("dwHeQuJiFen", PacketBase.TYPE_INT);//合区积分
+            this.addProperty("dwHeQuJiFenTime", PacketBase.TYPE_INT);//合区积分改变时间
+            //			//消费排行
+            this.addProperty("dwConsume", PacketBase.TYPE_INT);
+            this.addProperty("dwConsumeTime", PacketBase.TYPE_INT);
+            this.addProperty("dwCharge", PacketBase.TYPE_INT);
+            this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
+            this.addProperty("btChargeSex", PacketBase.TYPE_BYTE);//
+            //充值排行
+            for (var i: number = 1; i <= 30; i++) {
+                this.addProperty("dwChuMoScore" + i.toString(), PacketBase.TYPE_DWORD);//除魔积分
+            }
+            this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//
+            this.addProperty("dwChuMoJiFen", PacketBase.TYPE_DWORD);//
+            this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);
+            this.addProperty("dwMedalTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwStrenTotalLvl", PacketBase.TYPE_DWORD);
+            this.addProperty("dwStrenTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwVipLvl", PacketBase.TYPE_DWORD);
+            this.addProperty("dwXinFuConsume", PacketBase.TYPE_DWORD);//新服消费
+            this.addProperty("dwXinFuConsumeTime", PacketBase.TYPE_DWORD);//新服消费时间
+            this.addProperty("dwChop", PacketBase.TYPE_DWORD);//精彩官印
+            this.addProperty("dwChopTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwDragonSoul", PacketBase.TYPE_DWORD);//精彩龙魂
+            this.addProperty("dwDragonSoulTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwMedal2", PacketBase.TYPE_DWORD);//精彩勋章
+            this.addProperty("dwMedal2Time", PacketBase.TYPE_DWORD);
+            this.addProperty("dwWingNum", PacketBase.TYPE_DWORD);//精彩光翼
+            this.addProperty("dwWingNumTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwRelive", PacketBase.TYPE_DWORD);//精彩转生
+            this.addProperty("dwReliveTime", PacketBase.TYPE_DWORD);
+
+            if (data) data.position += this.read(data);
+        }
+
+        public get strenLvl(): number {
+            return this.getValue("dwStrenTotalLvl");
+        }
+
+        public get fightPower(): number {
+            return this.getValue("nEquipScore");
+        }
+
+        public get heroFightPower(): number {
+            if (this.heroJob <= 0) {
+                return 0;
+            }
+            return this.getValue("heroPower" + this.heroJob);
+        }
+
+        public get fameScore(): number {
+            return this.getValue("fameScore");
+        }
+
+        public get vip(): number {
+            return this.getValue("dwVipLvl");
+        }
+
+        public get name(): String {
+            return this.getValue("szName");
+        }
+
+        public get rebirthAndLvl(): number {
+            return this.getValue("dwLvAddZSlv");
+        }
+
+        public get level(): number {
+            return this.getValue("dwLevel");
+        }
+
+        public get medalLvl(): number {
+            return this.getValue("dwMedalRank");
+        }
+
+        public get sealLvl(): number {
+            return this.getValue("dwGuanZhilv");
+        }
+
+        public get dragonSoulLvl(): number {
+            return this.getValue("dwLongHunlv");
+        }
+
+        public get job(): number {
+            return this.getValue("btJob");
+        }
+
+        public get guildName(): String {
+            return this.getValue("szGuildName");
+        }
+
+        public get heroJob(): number {
+            return this.getValue("heroJob");
+        }
+
+        public get heroLevel(): number {
+            return this.getValue("herolevel");
+        }
+    }
+
 }
