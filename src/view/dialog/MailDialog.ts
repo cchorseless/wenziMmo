@@ -10,6 +10,7 @@ module view.dialog {
 			this.vbox_mail['sortItem'] = (items) => { };
 			this.initUI();
 			this.addEvent();
+			this.group = 'MailDialog';
 
 		}
 		public addEvent(): void {
@@ -17,23 +18,22 @@ module view.dialog {
 		}
 		public initUI(): void {
 			let pkt = new ProtoCmd.stMailQueryEncoder();
-			lcp.send(pkt, this, (data) => {
-				let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
-				
-				for (let item of cbpkt.mails) {
+			lcp.send(pkt, this, this.updateUI);
+		}
 
-
-					let mail_UI = new view.compart.MailItem();
-					let mailItem = new ProtoCmd.stMailSummary();
-					mailItem.clone(item.data);
-					mail_UI.setData(mailItem);
-
-					this.vbox_mail.addChild(mail_UI);
-				}
-				cbpkt.clear(); 
-				cbpkt = null;
-
-			})
+		public updateUI(data): void {
+			this.vbox_mail.removeChildren();
+			let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
+			this.lbl_mailCount.text = '' + cbpkt.mails.length;
+			for (let item of cbpkt.mails) {
+				let mail_UI = new view.compart.MailItem();
+				let mailItem = new ProtoCmd.stMailSummary();
+				mailItem.clone(item.data);
+				mail_UI.setData(mailItem);
+				this.vbox_mail.addChild(mail_UI);
+			}
+			cbpkt.clear();
+			cbpkt = null;
 
 		}
 	}

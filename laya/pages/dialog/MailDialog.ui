@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":72,
+    "selectedBox":72,
+    "selecteID":73,
     "props":{"width":490,"sceneColor":"#000000","height":750},
     "nodeParent":-1,
     "label":"Dialog",
@@ -162,9 +162,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":702,"x":43,"text":"10/200","fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
+            "props":{"y":702,"x":43,"var":"lbl_mailCount","text":"10/200","fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_mailCount)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -187,7 +187,7 @@
                 {
                     "x":30,
                     "type":"VBox",
-                    "props":{"y":1,"var":"vbox_mail","right":0,"left":0},
+                    "props":{"y":1,"var":"vbox_mail","space":5,"right":0,"left":0},
                     "nodeParent":72,
                     "label":"VBox(vbox_mail)",
                     "isOpen":true,
