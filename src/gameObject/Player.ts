@@ -9,16 +9,18 @@ module GameObject {
         public zslevel: number;//转生等级
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
-        public wealth: Wealth;//财富
-        public feature: ProtoCmd.PlayerFeature;//外显
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物
         private _allNpc = {};//所有的NPC
-
+        public wealth: Wealth;//财富
+        public feature: ProtoCmd.PlayerFeature;//外显
+        // ****************行会********************
+        public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
         constructor() {
             super();
             this.wealth = new Wealth();
             this.feature = new ProtoCmd.PlayerFeature();
+            this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
         }
         /**
          * 修改金币

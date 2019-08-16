@@ -5,14 +5,17 @@ module view.compart {
 			super();
 			this.setData();
 		}
+
 		public setData(): void {
 			this.visible = false;
 			this.scaleX = this.scaleY = 0;
 			this.addEvent();
 		}
+
 		public addEvent(): void {
 
 		}
+		
 		public showSelf(isShow: boolean): void {
 			if (isShow) {
 				this.visible = true;
@@ -23,6 +26,11 @@ module view.compart {
 					this.visible = false;
 				}))
 			}
+		}
+
+		public initUI(): void {
+
+
 		}
 	}
 }

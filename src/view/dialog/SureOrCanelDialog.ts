@@ -29,12 +29,13 @@ module view.dialog {
 		}
 		public onClosed(type?: string): void {
 			if (type === 'sure') {
+				let pkt;
 				switch (this.model) {
 					// 背包内删除道具
 					case EnumData.SureCanelModel.DELET_ITEM:
-						let packect = new ProtoCmd.CretForsakeItem()
-						packect.setValue('i64id', this.extData)
-						lcp.send(packect, this, (data) => {
+						pkt = new ProtoCmd.CretForsakeItem()
+						pkt.setValue('i64id', this.extData)
+						lcp.send(pkt, this, (data) => {
 							let msg = new ProtoCmd.CretForsakeItem(data);
 							let errorcode = msg.getValue('btErrorCode');
 							switch (errorcode) {
@@ -54,8 +55,16 @@ module view.dialog {
 						break;
 					// 交易行购买道具
 					case EnumData.SureCanelModel.JYH_BUY_ITEM:
-						let pkt = new ProtoCmd.stAuctionBuyItem();
+						pkt = new ProtoCmd.stAuctionBuyItem();
 						pkt.dwIndex = this.extData.dwIndex;
+						lcp.send(pkt);
+						break;
+					// 公会界面购买沃玛号角
+					case EnumData.SureCanelModel.BP_BUY_CREATEITEM:
+						pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.BP_GouMaiCreateItem, null, this, (msgid, data: { tips: string }) => {
+							TipsManage.showTips(data.tips);
+							PanelManage.GuildSelect && PanelManage.GuildSelect.updateCreateUI();
+						});
 						lcp.send(pkt);
 						break;
 				}

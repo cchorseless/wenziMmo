@@ -2,7 +2,7 @@ module ProtoCmd {
 
     // **************************************服务器扩展
     //0x0919 09-25
-    export class QuestScriptData extends Packet {
+    export class QuestServerDataRet extends Packet {
         public static msgID: number = 0x0919;
         public str: string;
         public constructor(data: Laya.Byte) {
@@ -33,7 +33,27 @@ module ProtoCmd {
             this.cmd = QuestClientData.msgID;
         }
 
-        public setString(s: string): QuestClientData {
+        /**
+         * 发送协议包
+         * @param funcName 调用函数名称
+         * @param data 携带数据
+         * @param key 回调函数上下文
+         * @param cbfunc 回调函数
+         */
+        public setString(funcName: string, data: Array<any> = [], key = null, cbfunc: Function = null): QuestClientData {
+            let s = funcName;
+            // 有参数
+            if (data && data.length != 0) {
+                s += '(';
+                for (let _data of data) {
+                    s += ('' + _data) + ',';
+                }
+                s = s.substr(0, s.length - 1) + ')';
+            }
+            // 有回调
+            if (key && cbfunc) {
+                GameApp.LListener.once(funcName, key, cbfunc);
+            }
             GameApp.GameEngine.packetBytes.clear();
             GameApp.GameEngine.packetBytes.writeUTFBytes(s);
             this.addProperty('str', Packet.TYPE_STRING, GameApp.GameEngine.packetBytes.length + 1);
@@ -41,6 +61,7 @@ module ProtoCmd {
             this.setValue('str', s);
             return this
         }
+
     }
 
     /*******************************************设置**************************************** */

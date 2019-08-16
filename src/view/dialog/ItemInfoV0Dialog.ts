@@ -132,8 +132,8 @@ module view.dialog {
 			}
 			// 批量使用
 			else {
-				let str = 'LoopUseItem(' + this.itemObj.dwBaseID + ',' + itemCount + ',' + this.itemObj.i64ItemID.toString() + ')';
-				let pkt = new ProtoCmd.QuestClientData().setString(str);
+				let data = [this.itemObj.dwBaseID, itemCount, this.itemObj.i64ItemID.toString()];
+				let pkt = new ProtoCmd.QuestClientData().setString('LoopUseItem', data);
 				lcp.send(pkt);
 			}
 

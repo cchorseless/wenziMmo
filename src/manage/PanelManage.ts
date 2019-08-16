@@ -260,7 +260,7 @@ module PanelManage {
         })
     }
     /**
-    * 江湖界面
+    * 帮会创建界面
     */
     export function openGuildSelectPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildSelect) {
@@ -278,7 +278,7 @@ module PanelManage {
     /**
     * 帮会界面
     */
-    export function openGuildTeamPanel(): void {
+    export function openGuildTeamPanel(data): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildTeam) {
             return
         }
@@ -286,14 +286,14 @@ module PanelManage {
         ResManage.loadResource(ResData.PanelRes.GuildTeam, () => {
             PanelManage.GuildTeam = new view.guild.GuildTeamPanel();
             PanelManage.GuildTeam['LCP_skin'] = ResData.PanelRes.GuildTeam;
-            PanelManage.GuildTeam.setData();
+            PanelManage.GuildTeam.setData(data);
             PanelManage.GuildTeam.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildTeam, 1, 5, 1);
         })
     }
-     /**
-     * 入帮设置界面
-     */
+    /**
+    * 入帮设置界面
+    */
     export function openGuildIntoConditionPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
             return
@@ -304,12 +304,12 @@ module PanelManage {
             PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
             PanelManage.GuildIntoCondition.setData();
             PanelManage.GuildIntoCondition.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildIntoCondition,2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildIntoCondition, 2, 5, 1);
         })
     }
-     /**
-     * 帮派福利界面
-     */
+    /**
+    * 帮派福利界面
+    */
     export function openGuildFuliPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildFuli) {
             return
@@ -320,7 +320,7 @@ module PanelManage {
             PanelManage.GuildFuli['LCP_skin'] = ResData.PanelRes.GuildFuli;
             PanelManage.GuildFuli.setData();
             PanelManage.GuildFuli.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildFuli,2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildFuli, 2, 5, 1);
         })
     }
     /**
@@ -336,12 +336,12 @@ module PanelManage {
             PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
             PanelManage.GuildRecord.setData();
             PanelManage.GuildRecord.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildRecord,2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildRecord, 2, 5, 1);
         })
     }
-     /**
-     * 入帮申请界面
-     */
+    /**
+    * 入帮申请界面
+    */
     export function openGuildApplyPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildApply) {
             return
@@ -352,12 +352,12 @@ module PanelManage {
             PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
             PanelManage.GuildApply.setData();
             PanelManage.GuildApply.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildApply,2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildApply, 2, 5, 1);
         })
     }
- /**
-     * 帮派支援界面
-     */
+    /**
+        * 帮派支援界面
+        */
     export function openGuildHelpPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildHelp) {
             return
@@ -368,7 +368,7 @@ module PanelManage {
             PanelManage.GuildHelp['LCP_skin'] = ResData.PanelRes.GuildHelp;
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildHelp,2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildHelp, 2, 5, 1);
         })
     }
     /**
@@ -484,10 +484,10 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
         })
     }
-     
-      /**
-     * 图鉴江湖界面
-     */
+
+    /**
+   * 图鉴江湖界面
+   */
     export function openTuJianJiangHuPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJiangHu) {
             return
@@ -501,9 +501,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 1);
         })
     }
-       /**
-     * 图鉴道具界面
-     */
+    /**
+  * 图鉴道具界面
+  */
     export function openTuJianDaojuPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianDaoju) {
             return
@@ -517,9 +517,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.TuJianDaoju, 2, 3, 1);
         })
     }
-     /**
-     * 图鉴角色界面
-     */
+    /**
+    * 图鉴角色界面
+    */
     export function openTuJianJuesePanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJuese) {
             return

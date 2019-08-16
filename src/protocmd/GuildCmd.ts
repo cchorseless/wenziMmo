@@ -34,7 +34,7 @@ module ProtoCmd {
 	}
 
 	// 0x2A54
-	//前端获取行会信息
+	//前端获取行会名字
 	export class stClientGetSingleGuildInfo extends Packet {
 		public static msgID: number = 0x2A54;
 		public cbPacket = stClientGetSingleGuildInfoRet;
@@ -48,7 +48,7 @@ module ProtoCmd {
 
 
 	// 0x2A55
-	//前端获取行会信息返回
+	//前端获取行会名字返回
 	export class stClientGetSingleGuildInfoRet extends Packet {
 		public static msgID: number = 0x2A55;
 		public constructor() {
@@ -70,7 +70,7 @@ module ProtoCmd {
 			super();
 			this.addProperty("btOPType", PacketBase.TYPE_BYTE)		//0 增加  1 解散 3 检测名字
 			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//要创建的氏族名
-			this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);
+			this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);//帮派公告
 			this.cmd = 0x2A01;
 			if (data) {
 				data.pos += this.read(data);
@@ -605,9 +605,9 @@ module ProtoCmd {
 	}
 
     /**0x2A03
-     * 发送行会信息到gamesvr
+     * 服务器同步行会信息
      * */
-	export class stGlobalGuildChangeGuild extends Packet {
+	export class stGlobalGuildChangeGuildRet extends Packet {
 		public static msgID: number = 0x2A03;
 		public guildSinfo: stGSGuildInfoBase = new stGSGuildInfoBase();
 		public constructor(data: Laya.Byte) {
@@ -659,8 +659,8 @@ module ProtoCmd {
 	}
 
 	/**0x2A0F
-		 * 改变行会权限
-		 * */
+	 * 改变行会权限
+	 * */
 	export class stGlobalGuildChangePowerLvl extends Packet {
 		public static msgID: number = 0x2A0F;
 		public cbPacket = stGlobalGuildChangePowerLvlRet;
@@ -673,8 +673,8 @@ module ProtoCmd {
 		}
 	}
 	/**0x2A10
-		 * 	改变行会权限返回
-		 * */
+	  * 改变行会权限返回
+	  * */
 	export class stGlobalGuildChangePowerLvlRet extends Packet {
 		public static msgID: number = 0x2A10;
 		public constructor(data: Laya.Byte) {
@@ -687,14 +687,14 @@ module ProtoCmd {
 		}
 	}
     /**0x2A09
-	 * 本行会信息
+	 * 请求单条行会信息
 	 * */
 	export class stGlobalGuildCurGuildInfo extends Packet {
 		public static msgID: number = 0x2A09;
 		public cbPacket = stGlobalGuildCurGuildInfoRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);//0本行会信息1关系行会信息
+			this.addProperty("btType", PacketBase.TYPE_BYTE);  //0本行会信息1关系行会信息
 			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
 			this.cmd = 0x2A09;
 			if (data) {
@@ -704,15 +704,15 @@ module ProtoCmd {
 	}
 
 	/**0x2A0A
-		 * 本行会信息返回
-		 * */
+	  * 本行会信息返回
+	  * */
 	export class stGlobalGuildCurGuildInfoRet extends Packet {
 		public static msgID: number = 0x2A0A;
-		public guildinfo: stSingleGuildinfoBase = new stSingleGuildinfoBase();
+	public singleGuildinfo: stSingleGuildinfoBase = new stSingleGuildinfoBase();
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);
-			this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.guildinfo.size(), this.guildinfo);
+			this.addProperty("guildinfo", PacketBase.TYPE_BYTES, this.singleGuildinfo.size(), this.singleGuildinfo);
 			if (data) {
 				data.pos += this.read(data);
 			}
@@ -720,8 +720,8 @@ module ProtoCmd {
 	}
 
 	/**0x2A1F
-		 * //删除外交关系
-		 * */
+	 * 删除外交关系
+	 * */
 	export class stGlobalGuildDelToDiplomacy extends Packet {
 		public static msgID: number = 0x2A1F;
 		public cbPacket = stGlobalGuildDelToDiplomacyRet;
@@ -920,7 +920,7 @@ module ProtoCmd {
 	}
 
 	/**0x2A24
-			 * //获取外交关系行会数
+			 * 获取外交关系行会数
 			 * */
 	export class stGlobalGuildGetDiplomacyTypeNum extends Packet {
 		public static msgID: number = 0x2A24;
@@ -952,8 +952,8 @@ module ProtoCmd {
 	}
 
 	/**0x2A04
-		 * client获取行会列表
-		 * */
+	  * client获取行会列表
+	  * */
 	export class stGlobalGuildGetList extends Packet {
 		public static msgID: number = 0x2A04;
 		public cbPacket = stGlobalGuildGetListRet;
@@ -967,8 +967,8 @@ module ProtoCmd {
 		}
 	}
 	/**0x2A05
-		 * client获取行会列表返回
-		 * */
+	  * client获取行会列表返回
+	  * */
 	export class stGlobalGuildGetListRet extends Packet {
 		public static nMaxPage: number = 0x2A05;
 		public stZeroArray: Array<stSingleGuildinfoBase> = [];
@@ -1054,8 +1054,8 @@ module ProtoCmd {
 	}
 
 	/**
-		 * 会长返回申请
-		 * */
+	 * 会长返回申请
+	 * */
 	export class stGlobalGuildMasterRetAskJoin extends Packet {
 		public static msgID: number = 0x2A08;
 		public constructor(data: Laya.Byte) {
@@ -1172,7 +1172,7 @@ module ProtoCmd {
 	export class stGlobalGuildSelfInfo extends Packet {
 		public static msgID: number = 0x2A2E;
 		public cbPacket = stGlobalGuildSelfInfoRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.cmd = 0x2A2E;
 		}
@@ -1184,7 +1184,7 @@ module ProtoCmd {
 
 	export class stGlobalGuildSelfInfoRet extends Packet {
 		public static msgID: number = 0x2A2F;
-		public stZeroArray: Array<stSingleGuildMemberInfoBase> = [];
+		public stPlayerInfo: stSingleGuildMemberInfoBase;
 		public constructor(data: Laya.Byte) {
 			super();
 			if (data) {
@@ -1193,7 +1193,7 @@ module ProtoCmd {
 		}
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			this.stZeroArray.push(new stSingleGuildMemberInfoBase(data));
+			this.stPlayerInfo = new stSingleGuildMemberInfoBase(data);
 			return data.pos;
 		}
 	}
@@ -1860,8 +1860,8 @@ module ProtoCmd {
 	}
 
 	/**0x2B04
-  * 查看仓库的返回
-  * */
+	  * 查看仓库的返回
+	  * */
 	export class stViewGuildPackageRet extends Packet {
 		public static msgID: number = 0x2B04;
 		public items: Array<ItemBase> = [];

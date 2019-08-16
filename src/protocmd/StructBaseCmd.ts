@@ -771,7 +771,7 @@ module ProtoCmd {
             this.addProperty('btGroupId', PacketBase.TYPE_DWORD);//队伍ID
             this.addProperty('btGroupMaster', PacketBase.TYPE_BYTE);//是否是队长			
             this.addProperty('dwClanId', PacketBase.TYPE_INT);//  4  氏族ID  公会ID
-            this.addProperty('btClanMaster', PacketBase.TYPE_BYTE);// 1  是否族长  
+            this.addProperty('btClanMaster', PacketBase.TYPE_BYTE);// 1  行会职位  
             this.addProperty('dwVip', PacketBase.TYPE_DWORD); //vip类型
             this.addProperty("btNameColor", PacketBase.TYPE_BYTE);//名字颜色 0是正常的，1灰，2黄，3红
             this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
@@ -804,7 +804,7 @@ module ProtoCmd {
             this.setValue('dwClanId', v);
         }
         /**
-         * 是否族长  
+         * 行会职位  
          */
         public get btClanMaster(): number {
             return this.getValue('btClanMaster');
@@ -1533,38 +1533,363 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 单条行会简略信息
+     */
     export class stGSGuildInfoBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
             this.addProperty('dwGuildLevel', PacketBase.TYPE_DWORD);
-            this.addProperty('dwPowerLeve', PacketBase.TYPE_DWORD);
+            this.addProperty('dwPowerLevel', PacketBase.TYPE_DWORD);
             this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('dwCurExp', PacketBase.TYPE_DWORD);
             this.addProperty('dwLevelUpExp', PacketBase.TYPE_DWORD);
             this.addProperty('i64StoreExp', PacketBase.TYPE_INT64);
+
+            this.addProperty('dwFalgNum', PacketBase.TYPE_DWORD);
+            this.addProperty('dwShenTaLevel', PacketBase.TYPE_DWORD);
+            this.addProperty('dwShenTaCurExp', PacketBase.TYPE_DWORD);
+            this.addProperty('dwShenTaMaxExp', PacketBase.TYPE_DWORD);
+            this.addProperty('dwExpandCount', PacketBase.TYPE_DWORD);
             if (data) data.pos += this.read(data);
+        }
+        /**
+         * 行会ID
+         */
+        public get dwGuildId(): number {
+            return this.getValue("dwGuildId");
+        }
+        /**
+         * 行会等级
+         */
+        public get dwGuildLevel(): number {
+            return this.getValue("dwGuildLevel");
+        }
+        /**
+         * 行会职位
+         */
+        public get dwPowerLevel(): number {
+            return this.getValue("dwPowerLevel");
+        }
+        /**
+         * 行会名称
+         */
+        public get szGuildName(): string {
+            return this.getValue("szGuildName");
+        }
+        /**
+         * 当前经验
+         */
+        public get dwCurExp(): number {
+            return this.getValue("dwCurExp");
+        }
+        /**
+         * 行会升级经验
+         */
+        public get dwLevelUpExp(): number {
+            return this.getValue("dwLevelUpExp");
         }
     }
 
     /**
      * 单条行会信息
      */
-    export class stSingleGuildinfoBase extends PacketBase {
+    export class stGuildDBBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();
-            this.addProperty("dwCurGuildPlayerCount", PacketBase.TYPE_DWORD);
-            this.addProperty("dwCurGuildOnlineCount", PacketBase.TYPE_DWORD);
-            this.addProperty("dwGuildPlayerTotalLvl", PacketBase.TYPE_DWORD);
-            this.addProperty("szAllMasters", PacketBase.TYPE_STRING, 288);
-            this.addProperty("dwRank", PacketBase.TYPE_DWORD);
-            this.addProperty("btMasterSex", PacketBase.TYPE_BYTE);
-            this.addProperty("btMasterJob", PacketBase.TYPE_BYTE);
-            this.addProperty("btRelation", PacketBase.TYPE_BYTE);//本帮与此帮会的关系0：正常  1：宣战
+            this.addProperty("dwID", PacketBase.TYPE_DWORD);
+            this.addProperty("szName", PacketBase.TYPE_STRING, 48);
+            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("dwCurExp", PacketBase.TYPE_DWORD);
+            this.addProperty("dwLevelUpExp", PacketBase.TYPE_DWORD);
+            this.addProperty("i64StoreExp", PacketBase.TYPE_INT64);
+            this.addProperty("dwShenTaLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("dwShenTaCurExp", PacketBase.TYPE_DWORD);
+            this.addProperty("dwShenTaMaxExp", PacketBase.TYPE_DWORD);
+            this.addProperty("dwMaxPlayerCount", PacketBase.TYPE_DWORD);
+            this.addProperty("szNotice", PacketBase.TYPE_STRING, 512);
+            this.addProperty("dwMasterOnlyId", PacketBase.TYPE_DOUBLE);
+            this.addProperty("dwCreateTime", PacketBase.TYPE_DWORD);
+            this.addProperty("dwWeekFieldBoss", PacketBase.TYPE_DWORD);
+            this.addProperty("dwWeekGuildBoss", PacketBase.TYPE_DWORD);
+            this.addProperty("dwJoinNeedLvl", PacketBase.TYPE_DWORD);
+            this.addProperty("szJoinNotice", PacketBase.TYPE_STRING, 512);
+            this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1024);
             if (data) {
                 data.pos += this.read(data);
             }
         }
+        /**
+         * 行会ID
+         */
+        public get dwID(): number {
+            return this.getValue("dwID");
+        }
+        public set dwID(v: number) {
+            this.setValue("dwID", v);
+        }
+        /**
+         * 行会名字
+         */
+        public get szName(): string {
+            return this.getValue("szName");
+        }
+        public set szName(v: string) {
+            this.setValue("szName", v);
+        }
+        /**
+         * 行会等级
+         */
+        public get dwLevel(): number {
+            return this.getValue("dwLevel");
+        }
+        public set dwLevel(v: number) {
+            this.setValue("dwLevel", v);
+        }
+        /**
+         * 行会当前经验
+         */
+        public get dwCurExp(): number {
+            return this.getValue("dwCurExp");
+        }
+        public set dwCurExp(v: number) {
+            this.setValue("dwCurExp", v);
+        }
+        /**
+         * 行会经验上限
+         */
+        public get dwLevelUpExp(): number {
+            return this.getValue("dwLevelUpExp");
+        }
+        public set dwLevelUpExp(v: number) {
+            this.setValue("dwLevelUpExp", v);
+        }
+        /**
+         * 玩家人数上限
+         */
+        public get dwMaxPlayerCount(): number {
+            return this.getValue("dwMaxPlayerCount");
+        }
+        /**
+         * 行会公告
+         */
+        public get szNotice(): number {
+            return this.getValue("szNotice");
+        }
+        /**
+         * 会长ID
+         */
+        public get dwMasterOnlyId(): number {
+            return this.getValue("dwMasterOnlyId");
+        }
+        /**
+         * 创建时间
+         */
+        public get dwCreateTime(): number {
+            return this.getValue("dwCreateTime");
+        }
+        /**
+         * 行会BOSS数量
+         */
+        public get dwWeekFieldBoss(): number {
+            return this.getValue("dwWeekFieldBoss");
+        }
+        /**
+         * 行会ID
+         */
+        public get dwWeekGuildBoss(): number {
+            return this.getValue("dwWeekGuildBoss");
+        }
+        /**
+         * 加入需求等级
+         */
+        public get dwJoinNeedLvl(): number {
+            return this.getValue("dwJoinNeedLvl");
+        }
+        /**
+         * 加入欢迎语
+         */
+        public get szJoinNotice(): number {
+            return this.getValue("szJoinNotice");
+        }
+        /**
+         * 行会内别名
+         */
+        public get szAliaNames(): number {
+            return this.getValue("szAliaNames");
+        }
+    }
+
+    /**
+     * 单条行会补充信息
+     */
+    export class stSingleGuildinfoBase extends stGuildDBBase {
+        public playerGuildPowerLvl;//行会职位
+        public playerszAliaName;// 行会别名
+        public playerDayGuildDedication;//行会每日贡献
+        public playerGuildDedication;//行会贡献
+        public playerRank;//个人行会排名
+
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty("curPlayerCount", PacketBase.TYPE_DWORD);
+            this.addProperty("curOnlineCount", PacketBase.TYPE_DWORD);
+            this.addProperty("playerTotalLvl", PacketBase.TYPE_DWORD);//玩家等级总和
+            this.addProperty("szAllMasters", PacketBase.TYPE_STRING, 288);
+            this.addProperty("dwRank", PacketBase.TYPE_DWORD);
+            this.addProperty("btMasterSex", PacketBase.TYPE_BYTE);// 会长性别
+            this.addProperty("btMasterJob", PacketBase.TYPE_BYTE);// 会长职业
+            this.addProperty("btRelation", PacketBase.TYPE_BYTE);// 本帮与此帮会的关系0：正常  1：宣战
+            if (data) {
+                data.pos += this.read(data);
+            }
+        }
+        /**
+         * 当前帮派人员数量
+         */
+        public get curPlayerCount(): number {
+            return this.getValue("dwCurGuildPlayerCount");
+        }
+        /**
+         * 当前在线帮派人员数量
+         */
+        public get curOnlineCount(): number {
+            return this.getValue("curOnlineCount");
+        }
+
+        /**
+         * 所有的有职位的人员姓名
+         */
+        public get szAllMasters(): string {
+            return this.getValue("szAllMasters");
+        }
+        /**
+         * 公会排名
+         */
+        public get dwRank(): number {
+            return this.getValue("dwRank");
+        }
+        /**
+         * 帮主性别
+         */
+        public get btMasterSex(): number {
+            return this.getValue("btMasterSex");
+        }
+        /**
+         * 帮主职业
+         */
+        public get btMasterJob(): number {
+            return this.getValue("btMasterJob");
+        }
+        /**
+         * 与本帮的关系
+         */
+        public get btRelation(): number {
+            return this.getValue("btRelation");
+        }
+
+    }
+
+    /**
+     * 行会内成员信息
+     */
+    export class stSingleGuildMemberInfoBase extends PacketBase {
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty("btJob", PacketBase.TYPE_BYTE);
+            this.addProperty("btSex", PacketBase.TYPE_BYTE);
+            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("dwGuildPowerLvl", PacketBase.TYPE_DWORD);//行会职位
+            this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);// 行会内名字
+            this.addProperty("dwDayGuildDedication", PacketBase.TYPE_DWORD);//每日贡献
+            this.addProperty("dwGuildDedication", PacketBase.TYPE_DWORD);//贡献度
+            this.addProperty("dwFightNum", PacketBase.TYPE_DWORD);//战斗力
+            this.addProperty("dwRank", PacketBase.TYPE_DWORD);//个人排名
+            this.addProperty("boOnline", PacketBase.TYPE_BOOL);//是否在线
+
+            this.addProperty("btPlatForm", PacketBase.TYPE_BYTE);//平台类型
+            this.addProperty("btTxYellowType", PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+            this.addProperty("btTxYellowLevel", PacketBase.TYPE_BYTE);//黄钻等级
+            this.addProperty("btLevel3366", PacketBase.TYPE_BYTE);//3366等级
+            this.addProperty("btTxBlueType", PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+            this.addProperty("btTxBlueLevel", PacketBase.TYPE_BYTE);//蓝钻等级
+            this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+            this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
+            if (data) {
+                data.pos += this.read(data);
+            }
+        }
+        /**
+         * 名字
+         */
+        public get szName(): number {
+            return this.getValue('szName');
+        }
+
+        /**
+         * 职业
+         */
+        public get btJob(): number {
+            return this.getValue('btJob');
+        }
+        /**
+         * 性别
+         */
+        public get btSex(): number {
+            return this.getValue('btSex');
+        }
+        /**
+         * 等级
+         */
+        public get dwLevel(): number {
+            return this.getValue('dwLevel');
+        }
+        /**
+         * 职位
+         */
+        public get dwGuildPowerLvl(): number {
+            return this.getValue('dwGuildPowerLvl');
+        }
+        /**
+         * 别称
+         */
+        public get szAliaName(): number {
+            return this.getValue('szAliaName');
+        }
+        /**
+         * 每日贡献
+         */
+        public get dwDayGuildDedication(): number {
+            return this.getValue('dwDayGuildDedication');
+        }
+        /**
+         * 贡献
+         */
+        public get dwGuildDedication(): number {
+            return this.getValue('dwGuildDedication');
+        }
+        /**
+         * 战力
+         */
+        public get dwFightNum(): number {
+            return this.getValue('dwFightNum');
+        }
+        /**
+         * 排名
+         */
+        public get dwRank(): number {
+            return this.getValue('dwRank');
+        }
+        /**
+         * 是否在线
+         */
+        public get boOnline(): number {
+            return this.getValue('boOnline');
+        }
+
+
     }
     /**
      * 行会事件
@@ -1698,34 +2023,6 @@ module ProtoCmd {
     }
 
 
-    export class stSingleGuildMemberInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("btJob", PacketBase.TYPE_BYTE);
-            this.addProperty("btSex", PacketBase.TYPE_BYTE);
-            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
-            this.addProperty("dwGuildPowerLvl", PacketBase.TYPE_DWORD);
-            this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty("dwDayGuildDedication", PacketBase.TYPE_DWORD);
-            this.addProperty("dwGuildDedication", PacketBase.TYPE_DWORD);//贡献度
-            this.addProperty("dwFightNum", PacketBase.TYPE_DWORD);//战斗力
-            this.addProperty("dwRank", PacketBase.TYPE_DWORD);//个人信息
-            this.addProperty("boOnline", PacketBase.TYPE_BOOL);
-
-            this.addProperty("btPlatForm", PacketBase.TYPE_BYTE);//平台类型
-            this.addProperty("btTxYellowType", PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
-            this.addProperty("btTxYellowLevel", PacketBase.TYPE_BYTE);//黄钻等级
-            this.addProperty("btLevel3366", PacketBase.TYPE_BYTE);//3366等级
-            this.addProperty("btTxBlueType", PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
-            this.addProperty("btTxBlueLevel", PacketBase.TYPE_BYTE);//蓝钻等级
-            this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
-            this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
 
 
     export class stGuildMemberExtenBase extends PacketBase {
@@ -1933,7 +2230,7 @@ module ProtoCmd {
 
     }
 
-    export class stGuildRelation extends PacketBase {
+    export class stGuildRelationBase extends PacketBase {
         public constructor() {
             super();
             this.addProperty("szInterestGuild", PacketBase.TYPE_CHAR, 1024 * 8);

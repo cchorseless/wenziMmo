@@ -43,6 +43,7 @@ module EnumData {
     export enum SureCanelModel {
         DELET_ITEM = 0,//背包内删除道具
         JYH_BUY_ITEM = 1,//交易行购买物品
+        BP_BUY_CREATEITEM = 2,//帮派购买物品
 
     }
 
@@ -501,5 +502,15 @@ module EnumData {
         _GUILD_RET_FAIL_HASRELATION,					//关系已经存在
         _GUILD_RET_FAIL_ALREADHAS_GUILD,				//已经有行会了
     };
-
+    /**
+     * 行会职位枚举
+     */
+    export enum emGuildMemberPowerLvl {
+        _GUILDMEMBER_POWERLVL_NULL,				//帮会成员
+        _GUILDMEMBER_POWERLVL_ELDERS,			//长老
+        _GUILDMEMBER_POWERLVL_FITMASTER,		//副帮主
+        _GUILDMEMBER_POWERLVL_MASTER,			//帮主
+        _GUILDMEMBER_POWERLVL_ELITISM,			//精英
+        _GUILDMEMBER_POWERLVL_ADMIRAL,			//大将
+    };
 }

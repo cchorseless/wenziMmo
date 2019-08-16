@@ -241,7 +241,7 @@ module view.main {
 						let dwClanId = GameApp.MainPlayer.feature.dwClanId;
 						// 有工会
 						if (dwClanId) {
-							PanelManage.openGuildTeamPanel();
+							PanelManage.openGuildTeamPanel(dwClanId);
 						}
 						// 无工会
 						else {
