@@ -516,33 +516,96 @@ module EnumData {
     };
 
 
+    // *************************************好友***************************************
     /**
-     * 邮件
+     * 好友验证设置
      */
-    enum emMailErrorCode {
-        MAIL_SUCCESS,            //成功
-        MAIL_FAIL_NORECEIVER,    //没找到接收者
-        MAIL_FAIL_IDERROR,       //邮件编号错误
-        MAIL_FAIL_NOT_VALIDCHAR, //非法字符
-        MAIL_FAIL_SERVER_ERROR,  //内部错误
-        MAIL_FAIL_FULLBAG,       //包裹已满 无法收取
-        MAIL_FAIL_FULLGOLD,      //金币已满 无法收取
-        MAIL_FAIL_NOTENOUTHGOLD, //发送的金币不足
-        MAIL_FAIL_NOTENOUTHITEM, //发送的物品不足
-        MAIL_FAIL_ITEMBINDING,   //绑定的物品
-        MAIL_FAIL_NOTITLE,       //空标题
-        MAIL_FAIL_NOTEXT,        //空内容
-        MAIL_FAIL_GOLD,          //费用不足
-        MAIL_FAIL_TOSELF,        //发给自己的
-        MAIL_FAIL_SERVER_FULL,   //
-        MAIL_FAIL_NOMAIL,        //没有任何邮件
-        MAIL_FAIL_INBLOCK,
-        MAIL_FAIL_COUNTRY,		//国家不同
-        MAIL_FAIL_PET_BOX_FULL, //
-        MAIL_FAIL_FULLZHUGOLD,	//身上铸比已满
-        MAIL_FAIL_ITEMERROR,	//物品出错
-        MAIL_FAIL_PAIDGOLD,		//付费金钱错误
-        MAIL_FAIL_RETURNED,		//已经被退过
+    export enum emFriendType {
+        emFriendType_AllowAll = 0x1,                //允许所有人加我为好友
+        emFriendType_NeedVerify = 0x2,	            //需要验证
+        emFriendType_Refuse = 0x4,		            //拒绝所有
+        emFriendType_HideLocation = 0x8,	        //对好友隐藏位置
+        emFriendType_HideRelationTip = 0x10,        //不显示好友仇人提示
+        emFriendType_GuildMemberDieHide = 0x20,     //不显示行会成员死亡提示
+        emFriendType_GuildDonateHide = 0x40,        //不显示行会捐献
+        emFriendType_GuildMemberJoinHide = 0x80,    //不显示行会新成员加入
+        emFriendType_GuildMemberLeaveHide = 0x100,  //不显示行会成员离开
+    };
+
+
+ // *************************************排行榜***************************************
+    enum emRankType {
+        Cret_Level_Rank,					//角色等级排行榜
+        Cret_Warrior_Level_Rank,			//战士等级排行榜
+        Cret_Mage_Level_Rank,				//法师等级排行榜
+        Cret_Monk_Level_Rank,				//道士等级排行榜
+        Cret_EquipScore_Rank,				//总战斗力排行榜
+        Cret_Warrior_EquipScore_Rank,		//战士战斗力排行榜
+        Cret_Mage_EquipScore_Rank,			//法师战斗力排行榜
+        Cret_Monk_EquipScore_Rank,			//道士战斗力排行榜
+        Cret_Hero_Score_Rank,				//英雄战斗力排行榜---(由三英雄职业统计而出)
+        Cret_Hero_Warrior_Score_Rank,		//英雄战士战斗力排行榜
+        Cret_Hero_Mage_Score_Rank,			//英雄法师战斗力排行榜
+        Cret_Hero_Monk_Score_Rank,			//英雄道士战斗力排行榜
+        Cret_Wing_Level_Rank,				//翅膀排行榜
+        Cret_PrestigeScore_Rank,			//威名排行榜
+        Cret_RmbHistory_Rank,			    //充值排行榜
+        Cret_LvAddZSLv_Rank,				//等级转生等级综合排行榜
+        Cret_HeroLvAddZSLv_Rank,			//英雄等级转生等级综合排行榜
+        Cret_LongHunLv_Rank,				//龙魂排行榜
+        Cret_GuanZhiLv_Rank,				//官职排行榜
+        Cret_HunShiLv_Rank,					//魂石排行榜
+        Cret_Fame_Rank,						//声望排行榜
+        Cret_HeQuJiFen_Rank,                //合区积分排行榜
+        Cret_Consume_Rank,                  //精彩活动消费排行榜
+        Cret_Recharge_Rank,                 //精彩活动充值排行榜
+
+
+        Cret_ChuMoCeng1_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng2_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng3_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng4_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng5_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng6_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng7_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng8_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng9_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng10_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng11_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng12_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng13_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng14_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng15_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng16_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng17_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng18_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng19_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng20_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng21_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng22_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng23_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng24_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng25_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng26_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng27_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng28_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng29_Rank,               //除魔层排行榜
+        Cret_ChuMoCeng30_Rank,               //除魔层排行榜
+        Cret_ChuMoEndJiFen_Rank,             //除魔通关积分
+        Cret_ChuMoTotalJiFen_Rank,           //除魔总排行榜
+        Cret_Medal_Rank,                     //勋章总排行榜
+        Cret_Intensify_Rank,                 //强化总排行榜
+
+        Cret_XinFuConsume_Rank,              //精彩活动消费排行榜
+        Cret_Chop_Rank,						 //精彩活动官印总排行榜
+        Cret_DragonSoul_Rank,				 //精彩活动龙魂总排行榜
+        Cret_Medal2_Rank,					 //精彩活动勋章总排行榜
+        Cret_WingNum_Rank,					 //精彩活动光翼总排行榜
+        Cret_Relive_Rank,					 //精彩活动转生总排行榜
+        /*Cret_FightConsume_Rank,				 //新服消费夺宝排行榜*/
+
+        Rank_Max_Count,						//最大排行类型
+
     };
 
 }
