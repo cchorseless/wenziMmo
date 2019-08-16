@@ -7,13 +7,13 @@ module view.compart {
 		public mailItem: ProtoCmd.stMailSummary;
 		public setData(item: ProtoCmd.stMailSummary): void {
 			this.mailItem = item;
-			
 			this.lbl_mailTitle.text = '' + this.mailItem.szTitle;
-			this.lbl_timeLeft.text = '' + this.mailItem.sendTime;
+			this.lbl_timeLeft.text = '' + TimeUtils.getFormatBySecond(this.mailItem.sendTime- new Date().getTime() / 1000, 4);;
 			this.addEvent()
-
-		}
 	
+			console.log(this.mailItem.sendTime)
+		}
+
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
 

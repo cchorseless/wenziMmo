@@ -42,7 +42,7 @@ module view.dialog {
 
 			}
 			else {
-
+				// 领取附件
 				this.img_getDaoju.on(Laya.UIEvent.CLICK, this, () => {
 					let pkt = new ProtoCmd.stMailGetItemEncoder();
 					pkt.setValue('dwMailID', this.mailDetail.getValue('dwMailID'));
@@ -58,7 +58,7 @@ module view.dialog {
 						this.img_delete.visible = true;
 						this.img_geted.visible = true;
 						this.img_geted.disabled = true;
-						
+
 						// 删除邮件
 						this.img_delete.on(Laya.UIEvent.CLICK, this, () => {
 							let pkt = new ProtoCmd.stMailDeleteMailEncoder();
@@ -74,9 +74,6 @@ module view.dialog {
 
 				})
 			}
-			// 领取邮件
-
-
 
 		}
 		public getMail(mailItem: ProtoCmd.stMailDetail): void {
