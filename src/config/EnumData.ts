@@ -514,4 +514,35 @@ module EnumData {
         _GUILDMEMBER_POWERLVL_ELITISM,			//精英
         _GUILDMEMBER_POWERLVL_ADMIRAL,			//大将
     };
+
+
+    /**
+     * 邮件
+     */
+    enum emMailErrorCode {
+        MAIL_SUCCESS,            //成功
+        MAIL_FAIL_NORECEIVER,    //没找到接收者
+        MAIL_FAIL_IDERROR,       //邮件编号错误
+        MAIL_FAIL_NOT_VALIDCHAR, //非法字符
+        MAIL_FAIL_SERVER_ERROR,  //内部错误
+        MAIL_FAIL_FULLBAG,       //包裹已满 无法收取
+        MAIL_FAIL_FULLGOLD,      //金币已满 无法收取
+        MAIL_FAIL_NOTENOUTHGOLD, //发送的金币不足
+        MAIL_FAIL_NOTENOUTHITEM, //发送的物品不足
+        MAIL_FAIL_ITEMBINDING,   //绑定的物品
+        MAIL_FAIL_NOTITLE,       //空标题
+        MAIL_FAIL_NOTEXT,        //空内容
+        MAIL_FAIL_GOLD,          //费用不足
+        MAIL_FAIL_TOSELF,        //发给自己的
+        MAIL_FAIL_SERVER_FULL,   //
+        MAIL_FAIL_NOMAIL,        //没有任何邮件
+        MAIL_FAIL_INBLOCK,
+        MAIL_FAIL_COUNTRY,		//国家不同
+        MAIL_FAIL_PET_BOX_FULL, //
+        MAIL_FAIL_FULLZHUGOLD,	//身上铸比已满
+        MAIL_FAIL_ITEMERROR,	//物品出错
+        MAIL_FAIL_PAIDGOLD,		//付费金钱错误
+        MAIL_FAIL_RETURNED,		//已经被退过
+    };
+
 }

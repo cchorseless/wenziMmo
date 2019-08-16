@@ -36,6 +36,7 @@ module view.dialog {
 						this.close();
 						let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
 						MailDialog && MailDialog.updateUI(data);
+						console.log('-------------->', 33)
 					})
 
 				})
