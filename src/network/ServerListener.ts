@@ -75,8 +75,11 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
+        /***********************************行会信息********************************* */
+        // 同步行会信息
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
         // 服务器扩展脚本 0x0919
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestScriptData), this, this.questScriptData);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
         // 初始化标记
@@ -895,84 +898,42 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-    public questScriptData(data: any): void {
-        let msg = new ProtoCmd.QuestScriptData(data);
 
-        ////App.MainPanel.addPlayerChat(null, '502 ' + msg.str);
+    /*******************************************************行会信息******************************************* */
+    /**
+     * 同步行会信息
+     */
+    public syncBangPaiInfo(data): void {
+        let cbpkt = new ProtoCmd.stGlobalGuildChangeGuildRet(data);
+        let guildInfo = cbpkt.guildSinfo;
+        GameApp.MainPlayer.guildInfo.dwID = guildInfo.dwGuildId;//更新行会ID
+        GameApp.MainPlayer.guildInfo.szName = guildInfo.szGuildName;//更新行会名字
+        GameApp.MainPlayer.guildInfo.dwCurExp = guildInfo.dwCurExp;//更新行会当前经验
+        GameApp.MainPlayer.guildInfo.dwLevelUpExp = guildInfo.dwLevelUpExp;//更新行会升级经验上限
+        GameApp.MainPlayer.guildInfo.dwLevel = guildInfo.dwGuildLevel;//更新行会等级
+        
+        cbpkt.clear();
+        cbpkt = null
+    }
 
+
+    /**
+     * 服务器返回的lua脚本数据
+     * @param data 
+     */
+    public questServerDataRet(data: any): void {
+        let msg = new ProtoCmd.QuestServerDataRet(data);
         let strArr = msg.str.split('`');
-
-        let anyData: any;
-        switch (strArr[0]) {
-            case 'opendialog':
-                switch (strArr[1]) {
-                    case 'TransfermMapDialog':
-                        anyData = JSON.parse(strArr[3]);
-                        for (let i = 1; anyData[i] != undefined; ++i) {
-                            for (let j = 1; anyData[i][j] != undefined; ++j) {
-                                // let mapdb = new MapItemDB;
-                                // mapdb.mapName = anyData[i][j].name;
-                                // mapdb.mapid = anyData[i][j].id;
-                                // mapdb.state = anyData[i][j].state;
-                                // mapdb.key = i;
-                                // mapdb.index = j;
-                                //App.MainPanel.mapDB.push(mapdb)
-                            }
-                        }
-
-
-                        break;
-                    case 'BossJiZhan':
-                        anyData = JSON.parse(strArr[3]);
-
-                        for (let i = 1; anyData[i] != undefined; ++i) {
-                            if (anyData[i].minlv) {
-                                // let db = new BossInfoDB;
-                                // db.monid = anyData[i].monsterid;
-                                // db.minlvl = anyData[i].minlv;
-                                // db.maxlvl = anyData[i].maxlv;
-                                // db.nowcnt = anyData[i].flag;
-                                // db.maxcnt = anyData[i].maxcnt;
-                                //App.MainPanel.bossInfoDB.push(db);
-                            }
-                        }
-                        //App.MainPanel.bossList.numItems = //App.MainPanel.bossInfoDB.length;
-
-                        break;
-                    case 'malldialog':
-                        anyData = JSON.parse(strArr[3]);
-                        ////App.MainPanel.addPlayerChat(null, anyData);
-                        if (strArr[2] == '1') {
-                            for (let i = 1; anyData.itemtab[i] != undefined && anyData.statusatab[i] != undefined; ++i) {
-                                // let basedb = Main.itemDBMap.get(anyData.itemtab[i].itemid);
-                                // if (basedb) {
-                                //     let db = new ShopItemDB;
-                                //     db.idx = i;
-                                //     db.itemName = basedb.name;
-                                //     db.itemID = anyData.itemtab[i].itemid;
-                                //     db.limitcnt = anyData.itemtab[i].limitcnt;
-                                //     db.num = anyData.itemtab[i].num;
-                                //     db.price = anyData.itemtab[i].price;
-                                //     db.buycnt = anyData.statusatab[i];
-                                //     //App.MainPanel.shopDB.push(db);
-                                // }
-                            }
-                            //App.MainPanel.shopList.numItems = //App.MainPanel.shopDB.length;
-                        }
-
-                        break;
-                    default:
-                        break;
-                }
-
-                break;
-            default:
-                ////App.MainPanel.addPlayerChat(null, '没有处理: ' + msg.str);
-                break;
+        if (strArr.length != 4) {
+            console.log('=====>', strArr)
+            throw new Error("questServerDataRet" + '长度错误');
         }
-
-        //JSON.parse(msg.str);
-
+        let infoType = strArr[0];// 大类标识
+        let funcName = strArr[1];// 调用的函数名称
+        let msgID = strArr[2];// 函数内小协议包
+        let jsonData = JSON.parse(strArr[3]);// json数据
+        // 抛出事件
+        GameApp.LListener.event(funcName, [msgID, jsonData]);
         msg.clear();
         msg = null;
     }

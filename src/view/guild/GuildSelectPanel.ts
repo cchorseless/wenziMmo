@@ -14,7 +14,8 @@ module view.guild {
 
 			for (let i = 0; i < 10; i++) {
 				this.vbox_guild.addChild(new view.compart.GuildItem());
-			}
+			};
+
 			this.updateAllBpUI();
 			this.updateCreateUI();
 			this.addEvent();
@@ -31,93 +32,83 @@ module view.guild {
 		 */
 		public updateCreateUI(): void {
 			// 检查背包内 沃玛号角
-			let needItemID = SheetConfig.canshuSheet.getInstance(null).DATA('BP_CREATEITEMID')[0];
-			let needCount = GameUtil.findItemInBag(needItemID, GameApp.GameEngine.bagItemDB);
-			if (needCount == 0) {
-				this.img_createItem.disabled = true;
-				this.btn_createItemBuy.disabled = false;
-			}
-			else {
-				this.img_createItem.disabled = false;
-				this.btn_createItemBuy.disabled = true;
-				this.btn_createItemBuy.label = '已拥有';
-			}
-
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.BP_getHaoJaoInfo, null, this, (msgid, data: { binding: number, index: number, num: number, yuanbao: number }) => {
+				let needItemID = data.index;
+				let needCount = GameUtil.findItemInBag(needItemID, GameApp.GameEngine.bagItemDB);
+				if (needCount < data.num) {
+					this.img_createItem.disabled = true;
+					this.btn_createItemBuy.disabled = false;
+				}
+				else {
+					this.img_createItem.disabled = false;
+					this.btn_createItemBuy.disabled = true;
+					this.btn_createItemBuy.label = '已拥有';
+				}
+			})
+			lcp.send(pkt);
 		}
+
 		/**
 		 * 更新所有公会UI
 		 */
 		public updateAllBpUI(): void {
 			let pkt = new ProtoCmd.stGlobalGetClassList();
 		}
-		// todo
+
+		/**
+		 * 购买号角
+		 */
 		public buyCreateItem(): void {
+			if (GameApp.MainPlayer.wealth.yuanBao < 1000) {
+				TipsManage.showTips('元宝不足');
+				return
+			}
+			new view.dialog.SureOrCanelDialog().setData('确花费1000元宝购买沃玛号角吗？', EnumData.SureCanelModel.BP_BUY_CREATEITEM).popup(true);
 		}
 
 		/**
 		 * 创建帮会
 		 */
 		public createBangPai(): void {
+			// 防止重复点击
+			this.btn_createItemBuy.disabled = true;
 			let bangPaiName = this.input_bangPaiName.text;
 			let bangPaiKouHao = this.input_bangPaiSlogan.text;
 
 			if (!bangPaiKouHao) {
 				TipsManage.showTips('请输入帮派名称');
+				this.btn_createItemBuy.disabled = false;
 				return
 			}
 			if (!bangPaiKouHao) {
 				TipsManage.showTips('请输入帮派口号');
+				this.btn_createItemBuy.disabled = false;
 				return
 			}
-			// 检查沃玛号角
-			let needItemID = SheetConfig.canshuSheet.getInstance(null).DATA('BP_CREATEITEMID')[0];
-			let needCount = GameUtil.findItemInBag(needItemID, GameApp.GameEngine.bagItemDB);
-			if (needCount == 0) {
-				TipsManage.showTips('道具不足，无法创建');
-				return
-			}
-			// 先检测名字
+			console.log(11111111111111)
+			// 创建行会
 			let pkt = new ProtoCmd.stCreatGlobalGuild();
-			pkt.setValue('btOPType', 3);
+			pkt.setValue('btOPType', 0);
 			pkt.setValue('szGuildName', this.input_bangPaiName.text);
+			pkt.setValue('szGuildNotice', this.input_bangPaiSlogan.text);
 			lcp.send(pkt, this, (data) => {
-				let cbpkt = new ProtoCmd.stCreatGlobalGuildRet(data);
-				let errorcode = cbpkt.getValue('errorcode');
-				// 名字可用
+				let cbpkt1 = new ProtoCmd.stCreatGlobalGuildRet(data);
+				console.log('创建帮会返回');
+				let dwGuildId = cbpkt1.getValue('dwGuildId');// 行会ID
+				let errorcode = cbpkt1.getValue('errorcode');
+				// 创建成功
 				if (errorcode == 0) {
-					let pkt1 = new ProtoCmd.stCreatGlobalGuild();
-					pkt1.setValue('btOPType', 0);
-					pkt1.setValue('szGuildName', this.input_bangPaiName.text);
-					pkt1.setValue('szGuildNotice', this.input_bangPaiSlogan.text);
-					lcp.send(pkt1, this, (data) => {
-						let cbpkt1 = new ProtoCmd.stCreatGlobalGuildRet(data);
-						let errorcode1 = cbpkt1.getValue('errorcode');
-						// 创建成功
-						if (errorcode1 == 0) {
-
-
-
-						}
-						// 创建失败
-						else {
-
-
-						}
-						cbpkt1.clear();
-						cbpkt1 = null;
-					})
-
+					PanelManage.openGuildTeamPanel(dwGuildId);
 				}
+				// 创建失败
 				else {
-					TipsManage.showTips('该名字不可用');
-					this.input_bangPaiName.text = '';
+					TipsManage.showTips('帮派名称重复');
+					this.btn_createItemBuy.disabled = false;
 				}
-				cbpkt.clear();
-				cbpkt = null;
+				cbpkt1.clear();
+				cbpkt1 = null;
 			})
 		}
-
-
-
 	}
 }
