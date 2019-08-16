@@ -1,30 +1,62 @@
 module ProtoCmd {
 
-    export class stAdvertiseFriendRet extends Packet {
-        public static msgID: number = 0x0A2A;
-        public results: Array<stFindYiJianResultBase> = [];
+    //请求关系列表
+    export class stRelationGetList extends Packet {
+        public static msgID: number = 0x0A01;
+        public constructor() {
+            super();
+            this.addProperty('btType', PacketBase.TYPE_INT);//0好1黑2仇3所有
+            this.cmd = 0x0A01;
+        }
+    }
+    //请求关系列表返回
+    export class stRelationGetListRet extends Packet {
+        public static msgID: number = 0x0A02;
+        public friendlist: Array<stRelationInfoBase> = [];
         public constructor(data: Laya.Byte) {
             super();
+            this.addProperty('btType', PacketBase.TYPE_INT);//
             this.addProperty('nCount', PacketBase.TYPE_DWORD);
             if (data) this.read(data);
         }
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {
-                this.results.push(new stFindYiJianResultBase(data));
+                this.friendlist.push(new stRelationInfoBase(data));
             }
             return data.pos;
         }
+
         public clear(): void {
             super.clear();
-            for (var i: number = 0; i < this.results.length; i++) {
-                this.results[i].clear();
-                this.results[i] = null;
+            for (var i: number = 0; i < this.friendlist.length; i++) {
+                this.friendlist[i].clear();
             }
-            this.results.length = 0;
+            this.friendlist.length = 0;
+        }
+
+        public sortPlayers(): void {
+            this.friendlist.sort(this.sortFunc);
+        }
+
+        private sortFunc(infoA: stRelationInfoBase, infoB: stRelationInfoBase): number {
+            if (infoA.state > infoB.state) {
+                return -1;
+            }
+            if (infoA.state < infoB.state) {
+                return 1;
+            }
+            if (infoA.level > infoB.level) {
+                return -1;
+            }
+            if (infoA.level < infoB.level) {
+                return 1;
+            }
+            return 0;
         }
     }
 
+    //添加好友
     export class stRelationAdd extends Packet {
         public static msgID: number = 0x0A03;
         public static TYPE_FRIEND: number = 0;
@@ -33,11 +65,55 @@ module ProtoCmd {
 
         public constructor() {
             super();
-            this.addProperty('btType', PacketBase.TYPE_INT);//
+            this.addProperty('btType', PacketBase.TYPE_INT);// //添加的类型 emListType
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.cmd = 0x0A03;
         }
     }
+
+    //添加好友返回
+    export class stRelationAddRet extends Packet {
+        public static msgID: number = 0x0A04;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);//emFRIENDErrorCode
+            this.addProperty('btType', PacketBase.TYPE_INT);//
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
+            this.read(data);
+        }
+    }
+
+
+    //向被添加人发送询问(only 好友)
+    export class stRelationAddQuery extends Packet {
+        public static msgID: number = 0x0A05;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
+            this.addProperty('szVerify', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //验证信息
+            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("btJob", PacketBase.TYPE_BYTE);
+            this.addProperty("btSex", PacketBase.TYPE_BYTE);
+            this.read(data);
+        }
+
+        public get playerName(): String {
+            return this.getValue("szName");
+        }
+
+        public get job(): number {
+            return this.getValue("btJob");
+        }
+
+        public get sex(): number {
+            return this.getValue("btSex");
+        }
+
+        public get level(): number {
+            return this.getValue("dwLevel");
+        }
+    }
+
 
 
     //c-s 回答关系添加结果(only 好友)
@@ -70,56 +146,8 @@ module ProtoCmd {
     }
 
 
-    //s-c 向被添加人发送询问(only 好友)
-    export class stRelationAddQuery extends Packet {
-        public static msgID: number = 0x0A05;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
-            this.addProperty('szVerify', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //验证信息
-            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
-            this.addProperty("btJob", PacketBase.TYPE_BYTE);
-            this.addProperty("btSex", PacketBase.TYPE_BYTE);
-            this.read(data);
-        }
-
-        public get playerName(): String {
-            return this.getValue("szName");
-        }
-
-        public get job(): number {
-            return this.getValue("btJob");
-        }
-
-        public get sex(): number {
-            return this.getValue("btSex");
-        }
-
-        public get level(): number {
-            return this.getValue("dwLevel");
-        }
-    }
-
-    export class stRelationAddRet extends Packet {
-        public static msgID: number = 0x0A04;
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);//
-            this.addProperty('btType', PacketBase.TYPE_INT);//
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
-            this.read(data);
-        }
 
 
-    }
-
-    export class stRelationAdvertiseFriend extends Packet {
-        public static msgID: number = 0x0A27;
-        public constructor() {
-            super();
-            this.cmd = 0x0A27;
-        }
-    }
 
     export class stRelationDelete extends Packet {
         public static msgID: number = 0x0A0A;
@@ -143,64 +171,6 @@ module ProtoCmd {
         }
 
 
-    }
-
-    export class stRelationGetList extends Packet {
-        public	static   msgID:number = 0x0A01;
-        public constructor() {
-            super();
-            this.addProperty('btType', PacketBase.TYPE_INT);//0好1黑2仇3所有
-            this.cmd = 0x0A01;
-        }
-    }
-
-    export class stRelationGetListRet extends Packet
-    {
-    public	static   msgID:number = 0x0A02;
-    	public  friendlist:Array<stRelationInfoBase> = [];
-    	public constructor(data: Laya.Byte) {
-    		super();
-    		this.addProperty('btType',PacketBase.TYPE_INT);//
-    		this.addProperty('nCount',PacketBase.TYPE_DWORD);
-    		if(data) this.read(data);
-    	}
-    	 public  read(data: Laya.Byte):number
-    	{
-    		data.pos = super.read(data);
-    		for (var i:number=0;i< this.getValue('nCount');i++)
-    		{
-    			this.friendlist.push(new stRelationInfoBase(data));
-    		}
-    		return data.pos;
-    	}
-
-    	 public  clear():void{
-    		super.clear();
-    		for(var i:number= 0; i < this.friendlist.length; i ++){
-    			this.friendlist[i].clear();
-    		}
-    		this.friendlist.length = 0;
-    	}
-
-    	public  sortPlayers():void{
-    		this.friendlist.sort(this.sortFunc);
-    	}
-
-    	private  sortFunc(infoA:stRelationInfoBase,infoB:stRelationInfoBase):number{
-    		if(infoA.state > infoB.state){
-    			return -1;
-    		}
-    		if(infoA.state < infoB.state){
-    			return 1;
-    		}
-    		if(infoA.level > infoB.level){
-    			return -1;
-    		}
-    		if(infoA.level < infoB.level){
-    			return 1;
-    		}
-    		return 0;
-    	}
     }
 
 
@@ -278,4 +248,39 @@ module ProtoCmd {
             this.addProperty('nType', PacketBase.TYPE_INT);
         }
     }
+
+    //一键添加好友
+    export class stRelationAdvertiseFriend extends Packet {
+        public static msgID: number = 0x0A27;
+        public constructor() {
+            super();
+            this.cmd = 0x0A27;
+        }
+    }
+    //一键添加好友返回
+    export class stAdvertiseFriendRet extends Packet {
+        public static msgID: number = 0x0A2A;
+        public results: Array<stFindYiJianResultBase> = [];
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('nCount', PacketBase.TYPE_DWORD);
+            if (data) this.read(data);
+        }
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            for (var i: number = 0; i < this.getValue('nCount'); i++) {
+                this.results.push(new stFindYiJianResultBase(data));
+            }
+            return data.pos;
+        }
+        public clear(): void {
+            super.clear();
+            for (var i: number = 0; i < this.results.length; i++) {
+                this.results[i].clear();
+                this.results[i] = null;
+            }
+            this.results.length = 0;
+        }
+    }
+
 }

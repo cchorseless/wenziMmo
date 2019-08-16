@@ -503,4 +503,42 @@ module EnumData {
         _GUILD_RET_FAIL_ALREADHAS_GUILD,				//已经有行会了
     };
 
+
+
+    /**
+     * 好友
+     */
+    enum emFRIENDErrorCode {
+        RELATION_SUCCESS,            //成功
+        RELATION_FAIL_NOT_ONLINE,    //不在线
+        RELATION_FAIL_IN_FRIEND,     //是好友
+        RELATION_FAIL_IN_BLOCK,      //在黑名单中
+        RELATION_FAIL_ALLREADY_FRIEND,      //已经在好友了
+        RELATION_FAIL_ALLREADY_BLOCK,      //已经在黑名单了
+        RELATION_FAIL_REFUSE,       //拒绝操作
+        RELATION_FAIL_FRIENDLIST_FULL, //好友名单满了
+        RELATION_FAIL_BLOCKLIST_FULL, //黑名单满了
+        RELATION_FAIL_ERRORNAME,  //名字错误
+        RELATION_FAIL_NO_USER,  //没有这个用户
+        RELATION_FAIL_WAIT_TO_ANSWER,//
+        RELATION_FAIL_CLOSE_INVITE,//关闭邀请
+        RELATION_FAIL_NOSELF,	//不能添加自己
+        RELATION_FAIL_ENEMYLIST_FULL,	//仇人名单满了
+        RELATION_FAIL_ALLREADY_ENEMY,	//已经在仇人了
+        RELATION_FAIL_SERVERERROR,		//系统错误
+        RELATION_FAIL_NOT_FRIEND,//没有这好友
+        RELATION_FAIL_NOT_ENEMY,//没有这敌人
+        RELATION_FAIL_LOCATION_QUERY, //探查令不够
+        RELATION_FAIL_ENEMY_CANT_BE_FRIEND,//仇人不是
+        RELATION_FAIL_NEED_VERIFY,		//需要验证
+        RELATION_FAIL_REFUSEALL,		//设置了拒绝加好友
+    };
+
+    enum emListType {
+        LIST_FRIEND,//好友列表
+        LIST_BLOCK,	//黑名单
+        LIST_ENEMY,	//仇人列表
+        LIST_ALL,	//所有列表
+    };
+
 }
