@@ -62,7 +62,9 @@ class Socket extends SingletonClass {
 		this._isConnecting = false;
 		GameApp.GameEngine.isLogin = false;
 		if (this._needReconnect) {
-			this.reconnect();
+			setTimeout(() => {
+				this.reconnect();
+			}, 5000);
 		} else {
 			GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
 			// App.MessageCenter.dispatch(LcpEvent.SOCKET_CLOSE);
@@ -74,7 +76,9 @@ class Socket extends SingletonClass {
 	  */
 	private onSocketError(e: Laya.Event): void {
 		if (this._needReconnect) {
-			this.reconnect();
+			setTimeout(() => {
+				this.reconnect();
+			}, 5000);
 		}
 		else {
 			GameApp.LListener.event(LcpEvent.SOCKET_NOCONNECT);
@@ -106,11 +110,11 @@ class Socket extends SingletonClass {
 
 	public resetSocket(host: string, port: any = 0): void {
 		if (port != 0) {
-			// this._host = host;
-			// 改变一下端口
+			let oldPort = this._port;
 			this._port = port;
 			this.close();
 			this.connect();
+			this._port = oldPort;
 		}
 		else {
 			this.close();
@@ -145,7 +149,6 @@ class Socket extends SingletonClass {
 			this.connect();
 		}
 		else {
-			this._reconnectCount = 0;
 			if (this._connectFlag) {
 				GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
 
