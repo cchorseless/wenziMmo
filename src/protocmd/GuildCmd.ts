@@ -103,7 +103,7 @@ module ProtoCmd {
 	export class stGlobalGuildAskJoinGuild extends Packet {
 		public static msgID: number = 0x2A06;
 		public cbPacket = stGlobalGuildAskJoinGuildRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.addProperty("btSex", PacketBase.TYPE_CHAR);
@@ -275,8 +275,6 @@ module ProtoCmd {
 		}
 	}
 
-
-
     /**0x2A1B
      * 添加外交关系
      * */
@@ -317,7 +315,7 @@ module ProtoCmd {
 	export class stGlobalGuildAskJoinGuildUser extends Packet {
 		public static msgID: number = 0x2A22;
 		public cbPacket = stGlobalGuildAskJoinGuildUserRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.cmd = 0x2A22;
 			this.addProperty("nPage", PacketBase.TYPE_INT);
@@ -490,6 +488,7 @@ module ProtoCmd {
 			if (data) data.pos += this.read(data);
 		}
 	}
+
 	/**0x2A10
 	  * 改变行会权限返回
 	  * */
@@ -504,7 +503,6 @@ module ProtoCmd {
 			if (data) data.pos += this.read(data);
 		}
 	}
-
 
 	/**0x2A1F
 	 * 删除外交关系
@@ -592,8 +590,8 @@ module ProtoCmd {
 	}
 
 	/**
-		 * 获取称号成员
-		 * */
+	 * 获取称号成员
+	 * */
 	export class stGlobalGuildGetAliaMember extends Packet {
 		public static msgID: number = 0x2A19;
 		public cbPacket = stGlobalGuildGetAliaMemberRet;
@@ -819,6 +817,7 @@ module ProtoCmd {
 		}
 	}
 
+
     /**
 	 * 获取行会成员
 	 * */
@@ -835,9 +834,10 @@ module ProtoCmd {
 		}
 	}
 
+
 	/**0x2A0C
-		 * 获取行会成员返回
-		 * */
+	 * 获取行会成员返回
+	 * */
 	export class stGlobalGuildMemberListRet extends Packet {
 		public static msgID: number = 0x2A0C;
 		public stZeroArray: Array<stSingleGuildMemberInfoBase> = [];
@@ -1375,9 +1375,7 @@ module ProtoCmd {
 		public static msgID: number = 0x1015;
 		public constructor(data: Laya.Byte) {
 			super();
-
 			this.addProperty('szToWarGuildId', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-
 			this.cmd = 0x1015;
 		}
 	}
@@ -1398,11 +1396,9 @@ module ProtoCmd {
 
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-
 			for (var i: number = 0; i < this.getValue('FightIngGuildArr'); i++) {
 				this.WarGuilds[i] = new stWarGuildBase(data);
 			}
-
 			return data.pos;
 		}
 	}
@@ -1417,7 +1413,6 @@ module ProtoCmd {
 			this.addProperty('nType', PacketBase.TYPE_INT);
 			this.addProperty("TipWarGuild", PacketBase.TYPE_BYTES, this.TipWarGuild.size(), this.TipWarGuild);
 			this.read(data);
-
 		}
 	}
 
@@ -1438,7 +1433,6 @@ module ProtoCmd {
 		public static msgID: number = 0x1012;
 		public constructor(data: Laya.Byte) {
 			super();
-
 			this.addProperty('dwGuildID', PacketBase.TYPE_DWORD);
 			this.addProperty('btPowerLvl', PacketBase.TYPE_BYTE);
 			this.addProperty('szGuildName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -1496,7 +1490,7 @@ module ProtoCmd {
 
 	// 0x2A2D
 	/**
-	 * 星巴克禁言
+	 * 行会聊天频道禁言
 	 * */
 	export class stSabacMasterBlanUser extends Packet {
 		public static msgID: number = 0x2A2D;

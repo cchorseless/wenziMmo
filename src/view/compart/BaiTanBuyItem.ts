@@ -20,7 +20,7 @@ module view.compart {
 			// 价格
 			this.lbl_price.text = '' + item.dwConsignPrice;
 			// ui
-			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_SHOP)
+			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 			this.addEvent();
 		}
 		public addEvent(): void {

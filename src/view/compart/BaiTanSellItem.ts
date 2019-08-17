@@ -20,7 +20,7 @@ module view.compart {
 			// 剩余时间
 			this.lbl_timeLeft.text = '' + TimeUtils.getFormatBySecond(item.overTime - new Date().getTime() / 1000, 6);
 			// 物品ICON
-			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_SHOP);
+			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 		}
 		public addEvent(): void {
 			// 道具下架

@@ -55,8 +55,9 @@ module EnumData {
         SHOW_IN_BAG = 1,//背包中显示
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
-        SHOW_IN_SHOP = 4,//商店中显示
-        SHOW_IN_MAIL = 5//邮件中显示
+        SHOW_IN_MAIL = 4,//邮件中显示
+        SHOW_IN_SHOP = 5,//商店中显示
+
     }
 
     /**
@@ -607,7 +608,7 @@ module EnumData {
         Rank_Max_Count,						//最大排行类型
 
     };
-      // ************************************邮件***************************************
+    // ************************************邮件***************************************
     enum emMailErrorCode {
         MAIL_SUCCESS,            //成功
         MAIL_FAIL_NORECEIVER,    //没找到接收者

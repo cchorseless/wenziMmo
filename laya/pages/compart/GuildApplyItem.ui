@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":14,
+    "selecteID":15,
     "props":{"width":590,"sceneColor":"#000000","height":91},
     "nodeParent":-1,
     "label":"View",
@@ -42,9 +42,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":24,"skin":"image/common/img_NPC_Zhangjingchao.png"},
+            "props":{"y":6,"x":24,"var":"img_playerIcon","skin":"image/common/img_NPC_Zhangjingchao.png"},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_playerIcon)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -55,9 +55,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":34,"x":101,"text":"名字超多六字","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
+            "props":{"y":34,"x":101,"var":"lbl_playerName","text":"名字超多六字","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_playerName)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -68,22 +68,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":34,"x":252,"text":"华山派","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+            "props":{"y":33,"x":248,"var":"lbl_lv","text":"1转99级","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
             "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":34,"x":337,"text":"1转99级","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_lv)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -94,9 +81,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":17,"x":446,"stateNum":"2","skin":"image/guild/btn_agree_finish.png"},
+            "props":{"y":17,"x":446,"var":"btn_agree","stateNum":"2","skin":"image/guild/btn_agree_finish.png"},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_agree)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -107,13 +94,26 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":17,"x":520,"stateNum":"2","skin":"image/guild/btn_refuse_finish.png"},
+            "props":{"y":17,"x":520,"var":"btn_refuse","stateNum":"2","skin":"image/guild/btn_refuse_finish.png"},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_refuse)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":14,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":33,"x":350,"var":"lbl_lastOnLineTime","text":"1转99级","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+            "nodeParent":1,
+            "label":"Label(lbl_lastOnLineTime)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":15,
             "child":[
                 ]
         }],

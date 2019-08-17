@@ -30,12 +30,15 @@ module view.dialog {
 					break;
 				// 仓库内，道具不能拆分取出仓库，所以隐藏
 				case 3:
-					// 角色身上
-					// case 4:
 					break;
-				// 商店内,无操作按钮，所以需要缩短界面高度
+				// 角色身上
+				case 4:
+					break;
+				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case 5:
 					this.height -= this.viw_model.height;
+					break;
+				case 6:
 					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
@@ -102,8 +105,11 @@ module view.dialog {
 					// 角色身上
 					// case 4:
 					break;
-				// 商店内,无操作按钮，所以需要缩短界面高度
+				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case 5:
+					break;
+				// 商店
+				case 6:
 					break;
 			}
 		}

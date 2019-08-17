@@ -99,7 +99,7 @@ module ProtoCmd {
     // 0x0809
     export class stMailQueryDetailRetDecoder extends Packet {
         public static msgID: number = 0x0809;
-        public MailDetail: stMailDetail = new stMailDetail();
+        public MailDetail: stMailDetailBase = new stMailDetailBase();
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('bterrorcode', PacketBase.TYPE_BYTE);
@@ -119,10 +119,10 @@ module ProtoCmd {
         }
     }
 
-    //获得邮件列表返回
+    // 获得邮件列表返回
     // 0x0802
     export class stMailQueryRetDecoder extends Packet {
-        public mails: Array<stMailSummary> = []
+        public mails: Array<stMailSummaryBase> = []
         public static msgID: number = 0x0802;
         public constructor(data: Laya.Byte) {
             super();
@@ -136,7 +136,7 @@ module ProtoCmd {
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {
-                this.mails[i] = new stMailSummary(data);
+                this.mails[i] = new stMailSummaryBase(data);
             }
             return data.pos;
         }
@@ -148,7 +148,6 @@ module ProtoCmd {
         public static msgID: number = 0x080A;
         public cbPacket = stMailQueryUserRetDecoder;
         public constructor() {
-
             super();
             this.addProperty('szReceiverName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.cmd = 0x080A;

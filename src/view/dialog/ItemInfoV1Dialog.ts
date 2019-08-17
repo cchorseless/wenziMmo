@@ -33,9 +33,12 @@ module view.dialog {
 				// 角色身上
 				case 4:
 					break;
-				// 商店内,无操作按钮，所以需要缩短界面高度
+				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case 5:
 					this.height -= this.viw_model.height;
+					break;
+				// 商店内
+				case 6:
 					break;
 			}
 			this.viw_model.selectedIndex = model;
@@ -103,8 +106,11 @@ module view.dialog {
 					// 装备卸下
 					this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip);
 					break;
-				// 商店内,无操作按钮，所以需要缩短界面高度
+				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case 5:
+					break;
+				// 商店内
+				case 6:
 					break;
 			}
 		}

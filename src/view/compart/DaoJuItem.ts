@@ -56,7 +56,7 @@ module view.compart {
 				}
 				// 根据model显示界面不同的状态
 				switch (this.model) {
-					// 背包场景
+					// 背包场景 0背包-回收 1背包仓库 2背包摆摊
 					case EnumData.ItemInfoModel.SHOW_IN_BAG:
 						itemInfoDialog.setData(this.item, PanelManage.BeiBao.tab_changeView.selectedIndex).show(true);
 						break;
@@ -68,15 +68,14 @@ module view.compart {
 					case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
 						itemInfoDialog.setData(this.item, 4).show(true);
 						break;
-					// 商店场景
-					case EnumData.ItemInfoModel.SHOW_IN_SHOP:
+					// 邮件场景
+					case EnumData.ItemInfoModel.SHOW_IN_MAIL:
 						itemInfoDialog.setData(this.item, 5).show(true);
 						break;
-					// 邮件场景
+					// 商店场景
 					case EnumData.ItemInfoModel.SHOW_IN_SHOP:
 						itemInfoDialog.setData(this.item, 6).show(true);
 						break;
-
 				}
 			});
 		}

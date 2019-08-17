@@ -21,18 +21,32 @@ module view.compart {
 			this.btn_getInfo.on(Laya.UIEvent.CLICK, this, this.getGuildInfo);
 
 
-			
+
 		}
 
+		/**
+		 * 申请加入行会
+		 */
 		public applyJoinGuild(): void {
 			// if()
-
-
-
-
+			let pkt = new ProtoCmd.stGlobalGuildAskJoinGuild();
+			pkt.setValue("szGuildName", this.item.szName);
+			pkt.setValue('szName', GameApp.MainPlayer.objName);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stGlobalGuildAskJoinGuildRet(data);
+				let errorcode = cbpkt.getValue('btErrorCode');
+				if (errorcode == 0) {
+					TipsManage.showTips('申请公会成功');
+				}
+				else{
+					
+				}
+			})
 		}
 
-
+		/**
+		 * 查看行会信息
+		 */
 		public getGuildInfo(): void {
 
 		}

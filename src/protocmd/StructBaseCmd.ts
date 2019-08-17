@@ -176,6 +176,8 @@ module ProtoCmd {
                     this._list[element]._obj.clone(this._bytes, this._list[element]._len);
                 }
             }
+            // 读取数据
+            if (this.data) { this.read(this.data) };
         }
 
         public addProperty(name: string, type: number, len: number = 0, obj: any = null): void {
@@ -1933,10 +1935,10 @@ module ProtoCmd {
     }
 
     /**
-	 * 用户信息
+	 * 帮会申请玩家信息
 	 * */
     export class szAskJoinUserInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("btSex", PacketBase.TYPE_BYTE);
@@ -1947,6 +1949,26 @@ module ProtoCmd {
             if (data) {
                 data.pos += this.read(data);
             }
+        }
+
+        public get szName(): number {
+            return this.getValue('szName');
+        }
+
+        public get btSex(): number {
+            return this.getValue('btSex');
+        }
+        public get btJob(): number {
+            return this.getValue('btJob');
+        }
+        public get dwLevel(): number {
+            return this.getValue('dwLevel');
+        }
+        public get boOnline(): number {
+            return this.getValue('boOnline');
+        }
+        public get dwLastLoginOutTime(): number {
+            return this.getValue('dwLastLoginOutTime');
         }
     }
     export class stGSALLGuild extends PacketBase {
@@ -2052,8 +2074,8 @@ module ProtoCmd {
     }
 
     /**
-	 * 班级成员信息
-	 * */
+      * 班级成员信息
+      * */
     export class stStudentInfoBase extends PacketBase {
         public constructor(data: Laya.Byte) {
             super();
@@ -2257,23 +2279,23 @@ module ProtoCmd {
     // ******************************************邮件*****************************
     // 	
     //邮件详细信息
-    export class stMailDetail extends PacketBase {
-		/*
-		   DWORD dwMailID;
-		   DWORD dwSenderID;
-		   DWORD dwReceiverID;
-		   char szSenderName[_MAX_NAME_LEN_];
-		   char szReceiverName[_MAX_NAME_LEN_];
-		   time_t tSendTime;
-		   char szTitle[_MAX_MAIL_TITLE_LEN];
-		   char szNotice[_MAX_MAILNOTICE_LEN];
-		   bool boRead;
-		   DWORD dwGold;
-		   WORD wReveivedItem;
-		   bool boSystem;
-		   bool boPaid;
-		   stZeroArray<stItem> ItemArr;
-		 */
+    export class stMailDetailBase extends PacketBase {
+        /*
+           DWORD dwMailID;
+           DWORD dwSenderID;
+           DWORD dwReceiverID;
+           char szSenderName[_MAX_NAME_LEN_];
+           char szReceiverName[_MAX_NAME_LEN_];
+           time_t tSendTime;
+           char szTitle[_MAX_MAIL_TITLE_LEN];
+           char szNotice[_MAX_MAILNOTICE_LEN];
+           bool boRead;
+           DWORD dwGold;
+           WORD wReveivedItem;
+           bool boSystem;
+           bool boPaid;
+           stZeroArray<stItem> ItemArr;
+         */
         public items: Array<ItemBase> = [];
         public constructor(data: Laya.Byte = null) {
             super();
@@ -2307,7 +2329,9 @@ module ProtoCmd {
         public get nCount(): number {
             return this.getValue("nCount");
         }
-
+        public get wReveivedItem(): number {
+            return this.getValue("wReveivedItem");
+        }
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {
@@ -2327,17 +2351,17 @@ module ProtoCmd {
     }
 
     //邮件摘要 
-    export class stMailSummary extends PacketBase {
+    export class stMailSummaryBase extends PacketBase {
 
-		/*
-		   DWORD dwMailID;        //不需显示,客户端操作时候需填写的
-		   char szSenderName[_MAX_NAME_LEN_];//发件人
-		   char szTitle[_MAX_MAIL_TITLE_LEN];//发件人
-		   bool boRead; //是否已读取
-		   bool boAccessory; //是否有附件
-		   time_t tSendTime; //发送时间
-		   bool boSystem;
-		 */
+        /*
+           DWORD dwMailID;        //不需显示,客户端操作时候需填写的
+           char szSenderName[_MAX_NAME_LEN_];//发件人
+           char szTitle[_MAX_MAIL_TITLE_LEN];//发件人
+           bool boRead; //是否已读取
+           bool boAccessory; //是否有附件
+           time_t tSendTime; //发送时间
+           bool boSystem;
+         */
 
         public constructor(data: Laya.Byte = null) {
             super();
@@ -2351,9 +2375,14 @@ module ProtoCmd {
             this.addProperty('boSystem', PacketBase.TYPE_BOOL);
             if (data) data.pos += this.read(data);
         }
-
+        public get szSenderName(): string {
+            return this.getValue("szSenderName");
+        }
         public get boRead(): number {
             return this.getValue("boRead");
+        }
+        public get boAccessory(): number {
+            return this.getValue("boAccessory");
         }
         public get sendTime(): number {
             return this.getValue("tSendTime");

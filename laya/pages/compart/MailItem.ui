@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":4,
+    "selectedBox":2,
+    "selecteID":3,
     "referenceLines":[
         {
             "value":50,
@@ -33,7 +33,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":26,"x":100,"width":130,"var":"lbl_mailTitle","text":"热更新邮件","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":27,"x":155,"width":130,"var":"lbl_mailTitle","text":"热更新邮件","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":2,
                     "label":"Label(lbl_mailTitle)",
                     "isDirectory":false,
@@ -46,7 +46,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":30,"x":301,"width":92,"var":"lbl_timeLeft","text":"51分钟前","height":25,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                    "props":{"y":31,"x":305,"width":92,"var":"lbl_timeLeft","text":"51分钟前","height":25,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
                     "nodeParent":2,
                     "label":"Label(lbl_timeLeft)",
                     "isDirectory":false,
@@ -58,14 +58,27 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":14,"x":15,"skin":"image/menu/icon_mail1.png"},
+                    "type":"Label",
+                    "props":{"y":27,"x":90,"width":56,"var":"lbl_from","text":"系统","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":2,
-                    "label":"Image",
+                    "label":"Label(lbl_from)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
+                    "compId":6,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":15,"x":17,"var":"btn_mailIcon","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png"},
+                    "nodeParent":2,
+                    "label":"Button(btn_mailIcon)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
                     "child":[
                         ]
                 }]
