@@ -14,7 +14,7 @@ module view.compart {
 		public initUI(): void {
 			this.lbl_playerName.text = '' + this.item.szName;
 			this.lbl_lv.text = '' + this.item.dwLevel;
-			this.lbl_lastOnLineTime.text = '' + this.item.dwLastLoginOutTime;
+			this.lbl_lastOnLineTime.text = '' + TimeUtils.getFormatBySecond(new Date().getTime() - this.item.dwLastLoginOutTime, 5);
 		}
 
 		public addEvent(): void {
@@ -23,12 +23,25 @@ module view.compart {
 		}
 
 		public updateUI(isAgree): void {
-			if (isAgree) {
+			let pkt = new ProtoCmd.stGlobalGuildMasterRetAskJoin()
+			pkt.setValue('boAllow', isAgree);
+			pkt.setValue("szJoinName", this.item.szName);
+			pkt.setValue("dwGuildId", GameApp.MainPlayer.guildInfo.dwID);
+			pkt.setValue("szGuildName", GameApp.MainPlayer.guildInfo.szName);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stGlobalGuildMasterRetAskJoin(data);
+				let btErrorCode = cbpkt.getValue('btErrorCode');
+				console.log('===============>')
+				if (btErrorCode == 0) {
+					TipsManage.showTips('操作成功');
+					this.removeSelf();
 
-			}
-			else {
-
-			}
+				} else {
+					TipsManage.showTips('操作失败');
+				}
+				cbpkt.clear();
+				cbpkt = null;
+			})
 
 		}
 
