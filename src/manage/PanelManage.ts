@@ -43,7 +43,6 @@ module PanelManage {
     export let JueSe: view.juese.JueSePanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
-    export let SheJiao: view.sheJiao.SheJiaoPanel;//社交界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
     export let Task: view.task.TaskPanel;//任务界面
@@ -419,22 +418,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Task, 2, 5, 1);
         })
     }
-    /**
-     * 社交界面
-     */
-    export function openSheJiaoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.SheJiao) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.SheJiao);
-        ResManage.loadResource(ResData.PanelRes.SheJiao, () => {
-            PanelManage.SheJiao = new view.sheJiao.SheJiaoPanel();
-            PanelManage.SheJiao['LCP_skin'] = ResData.PanelRes.SheJiao;
-            PanelManage.SheJiao.setData();
-            PanelManage.SheJiao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.SheJiao, 1, 2, 1);
-        })
-    }
+   
     /**
      * 剧情副本界面
      */

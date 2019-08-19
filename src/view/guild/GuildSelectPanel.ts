@@ -10,7 +10,18 @@ module view.guild {
 			this.tab_guild.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_guild.selectedIndex = index;
 			}, null, false);
-
+			// 筛选合适的公会
+			this.check_01.clickHandler = Laya.Handler.create(this, () => {
+				for (let _child of this.vbox_guild._childs) {
+					if (this.check_01.selected) {
+						(_child as view.compart.GuildItem).checkIsShow();
+					}
+					else {
+						(_child as view.compart.GuildItem).scaleY = 1;
+						(_child as view.compart.GuildItem).visible = true;
+					}
+				}
+			}, null, false);
 			this.updateBpListUI();
 			this.updateCreateUI();
 			this.addEvent();
@@ -49,29 +60,46 @@ module view.guild {
 			lcp.send(pkt);
 		}
 
+		public hasApplyed = [];//已申请的公会ID
 		/**
 		 * 更新公会列表UI
 		 */
 		public updateBpListUI(curpage = 1): void {
-			let pkt = new ProtoCmd.stGlobalGuildGetList();
-			pkt.setValue('btType', 0);
-			pkt.setValue('dwPageNum', curpage);
-			lcp.send(pkt, this, (data) => {
-				console.log('更新公会列表UI')
-				this.vbox_guild.removeChildren();
-				let cbpkt = new ProtoCmd.stGlobalGuildGetListRet(data);
-				this.lbl_allPage.text = '' + cbpkt.getValue('dwMaxPage');
-				this.lbl_curPage.text = '' + curpage;
-				for (let guildinfo of cbpkt.stZeroArray) {
-					let ui = new view.compart.GuildItem()
-					let item = new ProtoCmd.stSingleGuildinfoBase();
-					item.clone(guildinfo.data);
-					ui.setData(item);
-					this.vbox_guild.addChild(ui);
+			// 拉取已申请公会列表
+			let pkt1 = new ProtoCmd.stGlobalGuildGetAskJoinList();
+			lcp.send(pkt1, this, (data) => {
+				let cbpkt1 = new ProtoCmd.stGlobalGuildGetAskJoinListRet(data);
+				this.hasApplyed.length = 0;
+				for (let _guildInfo of cbpkt1.stZeroArray) {
+					this.hasApplyed.push(_guildInfo.dwID);
 				}
-				cbpkt.clear();
-				cbpkt = null;
+				cbpkt1.clear();
+				cbpkt1 = null;
+				// 拉取公会列表
+				let pkt = new ProtoCmd.stGlobalGuildGetList();
+				pkt.setValue('btType', 0);
+				pkt.setValue('dwPageNum', curpage);
+				lcp.send(pkt, this, (data) => {
+					this.vbox_guild.removeChildren();
+					let cbpkt = new ProtoCmd.stGlobalGuildGetListRet(data);
+					this.lbl_allPage.text = '' + cbpkt.getValue('dwMaxPage');
+					this.lbl_curPage.text = '' + curpage;
+					for (let guildinfo of cbpkt.stZeroArray) {
+						let ui = new view.compart.GuildItem()
+						let item = new ProtoCmd.stSingleGuildinfoBase();
+						item.clone(guildinfo.data);
+						// 已申请
+						ui.updateHasApply(this.hasApplyed.indexOf(item.dwID) != -1);
+						ui.setData(item);
+						this.vbox_guild.addChild(ui);
+					}
+					cbpkt.clear();
+					cbpkt = null;
+				})
+
 			})
+
+
 
 		}
 

@@ -1519,7 +1519,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名字
-            this.addProperty("btAction", PacketBase.TYPE_BYTE);//0捐献 1兑换 2摧毁
+            this.addProperty("btAction", PacketBase.TYPE_BYTE);//0捐献,1兑换,2摧毁,3回收
             this.addProperty('item', PacketBase.TYPE_BYTES, this.item.size(), this.item);//物品
             this.addProperty("dwTime", PacketBase.TYPE_DWORD);//时间
             if (data) {
