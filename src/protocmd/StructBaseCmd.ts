@@ -2281,20 +2281,20 @@ module ProtoCmd {
     //邮件详细信息
     export class stMailDetailBase extends PacketBase {
         /*
-           DWORD dwMailID;
-           DWORD dwSenderID;
-           DWORD dwReceiverID;
-           char szSenderName[_MAX_NAME_LEN_];
-           char szReceiverName[_MAX_NAME_LEN_];
-           time_t tSendTime;
-           char szTitle[_MAX_MAIL_TITLE_LEN];
-           char szNotice[_MAX_MAILNOTICE_LEN];
-           bool boRead;
-           DWORD dwGold;
-           WORD wReveivedItem;
-           bool boSystem;
-           bool boPaid;
-           stZeroArray<stItem> ItemArr;
+           DWORD dwMailID;                      //邮件ID
+           DWORD dwSenderID;                    //发送者ID
+           DWORD dwReceiverID;                  //接收者ID
+           char szSenderName[_MAX_NAME_LEN_];   //发送者昵称
+           char szReceiverName[_MAX_NAME_LEN_]; //接收者昵称
+           time_t tSendTime;                    // 发送时间
+           char szTitle[_MAX_MAIL_TITLE_LEN];   // 邮件标题
+           char szNotice[_MAX_MAILNOTICE_LEN];  //邮件内容
+           bool boRead;                         //是否已读
+           DWORD dwGold;                        //金币 
+           WORD wReveivedItem;                  //是否可收取附件
+           bool boSystem;                       //是否来自系统
+           bool boPaid;                         //邮件是否付费
+           stZeroArray<stItem> ItemArr;         //附件
          */
         public items: Array<ItemBase> = [];
         public constructor(data: Laya.Byte = null) {
@@ -2360,7 +2360,8 @@ module ProtoCmd {
            bool boRead; //是否已读取
            bool boAccessory; //是否有附件
            time_t tSendTime; //发送时间
-           bool boSystem;
+           bool boPaid; //邮件是否付费
+           bool boSystem;//是否来自系统
          */
 
         public constructor(data: Laya.Byte = null) {
