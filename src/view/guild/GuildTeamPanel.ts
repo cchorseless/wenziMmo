@@ -40,6 +40,10 @@ module view.guild {
 				PanelManage.openGuildHelpPanel();
 
 			})
+			this.img_guildShopEnter.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildShopPanel();
+
+			})
 		}
 
 		public initUI(): void {

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":186,
-    "selecteID":203,
+    "selectedBox":88,
+    "selecteID":83,
     "referenceLines":[
         {
             "value":301,
@@ -545,13 +545,14 @@
                     "props":{"y":0,"var":"box_teamDetail","right":0,"name":"item1","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamDetail)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":92,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":14},
                             "nodeParent":92,
@@ -563,6 +564,7 @@
                             "compId":58,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":58,
@@ -760,6 +762,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-3.000000000000128,"x":-12.99999624871431},
                                     "nodeParent":58,
@@ -895,6 +898,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":166,"x":13,"width":614,"height":117},
                             "nodeParent":92,
@@ -946,6 +950,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":341,"x":-5,"width":650,"height":61},
                             "nodeParent":92,
@@ -995,6 +1000,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":280,"x":11},
                             "nodeParent":92,
@@ -1192,17 +1198,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":386,"x":39},
                             "nodeParent":92,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":88,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":296,"skin":"image/guild/icon_team_cangku.png"},
                                     "nodeParent":88,
@@ -1215,10 +1223,11 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"skin":"image/guild/icon_team_shangdian.png"},
+                                    "props":{"var":"img_guildShopEnter","skin":"image/guild/icon_team_shangdian.png"},
                                     "nodeParent":88,
-                                    "label":"Image",
+                                    "label":"Image(img_guildShopEnter)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1227,6 +1236,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":155,"var":"img_guildFuliEnter","skin":"image/guild/icon_team_fuli.png"},
                                     "nodeParent":88,
@@ -1239,6 +1249,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":155,"x":296,"var":"img_guildHelpEnter","skin":"image/guild/icon_team_xiezhu.png"},
                                     "nodeParent":88,
@@ -1253,6 +1264,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":275,"x":513,"width":100,"var":"btn_donate","stateNum":"2","skin":"image/common/icon_jiangli_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"30,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"捐赠","height":100},
                             "nodeParent":92,
@@ -1264,7 +1276,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1782,7 +1794,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         },
         {
