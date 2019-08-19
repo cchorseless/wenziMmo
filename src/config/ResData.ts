@@ -47,24 +47,26 @@ module ResData {
         public static SheJiao = null;
         // 任务界面
         public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
-        // 公会界面
+        // 帮派选择界面
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派界面
         public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 队伍界面
         public static Team = [{ url: "res/atlas/image/team.atlas", type: Laya.Loader.ATLAS }];
-         // 好友界面
+        // 好友界面
         public static Friend = [{ url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS }];
         // 入帮设置界面
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派福利
-        public static GuildFuli = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        public static GuildFuli = null;;
         // 帮派日志
-        public static GuildRecord = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        public static GuildRecord = null;;
         // 入帮申请
-        public static GuildApply = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        public static GuildApply = null;;
         // 帮派支援
-        public static GuildHelp = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        public static GuildHelp = null;;
+        // 帮会成员界面
+        public static GuildMember = null;;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面

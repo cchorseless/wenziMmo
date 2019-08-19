@@ -40,6 +40,9 @@ module view.guild {
 				PanelManage.openGuildHelpPanel();
 
 			})
+			this.btn_guildMember.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildMemberPanel();
+			})
 		}
 
 		public initUI(): void {

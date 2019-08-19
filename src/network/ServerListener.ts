@@ -84,6 +84,8 @@ class ServerListener extends SingletonClass {
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
+        // 有人申请公会通知，红点提示
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGuildApply), this, this.RED_NOTICE_applyBangPai);
         // 服务器扩展脚本 0x0919
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
@@ -937,7 +939,22 @@ class ServerListener extends SingletonClass {
         cbpkt = null
     }
 
+    /**
+     * 有人申请帮派红点提示
+     * @param data 
+     */
+    public RED_NOTICE_applyBangPai(data): void {
+        let cbpkt = new ProtoCmd.stGuildApply(data);
+        let btState = cbpkt.getValue('btState');
+        if(btState>0){
+            // 有红点提示
+        }
+        else[
+            // 去除红点提示
+        ]
 
+
+    }
     /**
      * 服务器返回的lua脚本数据
      * @param data 

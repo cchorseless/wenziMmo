@@ -171,7 +171,6 @@ module ProtoCmd {
 			super();
 			this.addProperty("btState", PacketBase.TYPE_BYTE); //0不显示，1显示
 			this.cmd = 0x2A4F;
-
 			if (data) {
 				data.pos += this.read(data);
 			}
@@ -815,10 +814,10 @@ module ProtoCmd {
 	export class stGlobalGuildMemberList extends Packet {
 		public static msgID: number = 0x2A0B;
 		public cbPacket = stGlobalGuildMemberListRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);
-			this.addProperty("btType", PacketBase.TYPE_BYTE);//成员列表排序类型 0权利1等级2日贡献3战斗力
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//成员列表 排序类型 0权利1等级2日贡献3战斗力
 			this.addProperty("boShowOffLine", PacketBase.TYPE_BOOL);//是否显示不在线玩家
 			this.cmd = 0x2A0B;
 			if (data) data.pos += this.read(data);
