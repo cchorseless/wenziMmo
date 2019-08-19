@@ -58,6 +58,7 @@ module PanelManage {
     export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
     export let GuildMember: view.guild.GuildMemberPanel;//帮派成员界面
+    export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//图鉴江湖界面
@@ -425,6 +426,22 @@ module PanelManage {
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildHelp, 3, 5, 1);
+        })
+    }
+    /**
+        * 帮派商店界面
+        */
+    export function openGuildShopPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildShop) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildShop);
+        ResManage.loadResource(ResData.PanelRes.GuildShop, () => {
+            PanelManage.GuildShop = new view.guild.GuildShopPanel();
+            PanelManage.GuildShop['LCP_skin'] = ResData.PanelRes.GuildShop;
+            PanelManage.GuildShop.setData();
+            PanelManage.GuildShop.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildShop, 3, 5, 1);
         })
     }
     /**
