@@ -51,6 +51,8 @@ module PanelManage {
     export let JuQingTalk: view.juQing.JuQingTalkPanel;//剧情对白界面
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
+    export let Team: view.team.TeamPanel;//队伍界面
+    export let Friend: view.friend.FriendPanel;//好友界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
     export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
@@ -288,7 +290,39 @@ module PanelManage {
             PanelManage.GuildTeam['LCP_skin'] = ResData.PanelRes.GuildTeam;
             PanelManage.GuildTeam.setData(data);
             PanelManage.GuildTeam.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildTeam, 1, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
+        })
+    }
+    /**
+   * 队伍界面
+   */
+    export function openTeamPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Team) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Team);
+        ResManage.loadResource(ResData.PanelRes.Team, () => {
+            PanelManage.Team = new view.team.TeamPanel();
+            PanelManage.Team['LCP_skin'] = ResData.PanelRes.Team;
+            PanelManage.Team.setData();
+            PanelManage.Team.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Team, 2, 5, 1);
+        })
+    }
+    /**
+   * 好友界面
+   */
+    export function openFriendPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Friend) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Friend);
+        ResManage.loadResource(ResData.PanelRes.Friend, () => {
+            PanelManage.Friend = new view.friend.FriendPanel();
+            PanelManage.Friend['LCP_skin'] = ResData.PanelRes.Friend;
+            PanelManage.Friend.setData();
+            PanelManage.Friend.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Friend, 2, 5, 1);
         })
     }
     /**
@@ -304,7 +338,7 @@ module PanelManage {
             PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
             PanelManage.GuildIntoCondition.setData();
             PanelManage.GuildIntoCondition.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildIntoCondition, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildIntoCondition, 3, 5, 1);
         })
     }
     /**
@@ -320,7 +354,7 @@ module PanelManage {
             PanelManage.GuildFuli['LCP_skin'] = ResData.PanelRes.GuildFuli;
             PanelManage.GuildFuli.setData();
             PanelManage.GuildFuli.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildFuli, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildFuli, 3, 5, 1);
         })
     }
     /**
@@ -336,7 +370,7 @@ module PanelManage {
             PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
             PanelManage.GuildRecord.setData();
             PanelManage.GuildRecord.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildRecord, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildRecord, 3, 5, 1);
         })
     }
     /**
@@ -352,7 +386,7 @@ module PanelManage {
             PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
             PanelManage.GuildApply.setData();
             PanelManage.GuildApply.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildApply, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildApply, 3, 5, 1);
         })
     }
     /**
@@ -368,7 +402,7 @@ module PanelManage {
             PanelManage.GuildHelp['LCP_skin'] = ResData.PanelRes.GuildHelp;
             PanelManage.GuildHelp.setData();
             PanelManage.GuildHelp.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildHelp, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildHelp, 3, 5, 1);
         })
     }
     /**

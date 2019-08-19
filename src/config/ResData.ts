@@ -51,6 +51,10 @@ module ResData {
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派界面
         public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        // 队伍界面
+        public static Team = [{ url: "res/atlas/image/team.atlas", type: Laya.Loader.ATLAS }];
+         // 好友界面
+        public static Friend = [{ url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS }];
         // 入帮设置界面
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派福利

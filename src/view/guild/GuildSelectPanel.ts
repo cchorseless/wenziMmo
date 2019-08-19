@@ -14,6 +14,7 @@ module view.guild {
 			this.updateBpListUI();
 			this.updateCreateUI();
 			this.addEvent();
+			this.showTFGP(this.img_teamEnter.selected);
 		}
 		public addEvent(): void {
 			// 创建行会
@@ -25,6 +26,33 @@ module view.guild {
 			this.btn_reducePage.on(Laya.UIEvent.CLICK, this, this.changePage, [false]);
 			// 搜索帮会
 			this.btn_search.on(Laya.UIEvent.CLICK, this, this.searchGuild);
+			// 队伍
+			this.box_guildT.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTeamPanel();
+			})
+			// 好友
+			this.box_guildF.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openFriendPanel();
+			})
+			// this.img_teamEnter.clickHandler = Laya.Handler.create(this, () => {
+			// 	if (this.img_teamEnter.selected){
+			// 		Laya.Tween.to(this.img_guildTFGP, {scaleY: 0 }, 500, Laya.Ease.bounceOut);
+					
+			// 	}
+			// 	else {
+			// 		Laya.Tween.to(this.img_guildTFGP, {scaleY: 1}, 500, Laya .Ease.bounceOut);
+			// 	}
+			// }, null, false);
+		}
+
+	public showTFGP(isShow: boolean): void {
+			if (isShow){
+				this.img_guildTFGP.visible = false;
+				Laya.Tween.to(this.img_guildTFGP, {scaleY: 0 }, 500);
+			}
+			else {
+				Laya.Tween.to(this.img_guildTFGP, {scaleY: 1 }, 500, null, Laya.Handler.create(this, () => { this.img_guildTFGP.visible = true }))
+			}
 		}
 
 		/**

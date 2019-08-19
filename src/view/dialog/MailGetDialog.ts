@@ -68,14 +68,14 @@ module view.dialog {
 		public initUI(): void {
 			// 是否有道具
 			this.box_hasGeted.visible = (this.mailDetail.nCount > 0);
-			// 是否领取
+			// 附件是否领取
 			this.img_geted.visible = this.img_delete.visible = Boolean(this.mailDetail.wReveivedItem);
 			this.img_getDaoju.visible = !this.mailDetail.wReveivedItem;
-			// 时间
+			//邮件发送时间
 			this.lbl_mailDeatilTime.text = '' + this.mailDetail.tSendTime;
-			// 标题
+			// 邮件标题
 			this.lbl_mailDetailTitle.text = '' + this.mailDetail.szTitle;
-			// 文本信息
+			// 邮件文本内容
 			this.lbl_mailDetail.text = '' + this.mailDetail.szNotice;
 			// 道具
 			this.hbox_mailGet.removeChildren()
