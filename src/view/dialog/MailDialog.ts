@@ -29,14 +29,17 @@ module view.dialog {
 				})
 			})
 		}
+		//获得邮件列表
 		public initUI(): void {
 			let pkt = new ProtoCmd.stMailQueryEncoder();
 			lcp.send(pkt, this, this.updateUI);
 		}
-
+		//获得邮件列表返回
 		public updateUI(data): void {
+			//更新邮件列表，已领取附件的邮件移除
 			this.vbox_mail.removeChildren();
 			let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
+			//邮件数量
 			this.lbl_mailCount.text = '' + cbpkt.mails.length;
 			for (let item of cbpkt.mails) {
 				let mail_UI = new view.compart.MailItem();

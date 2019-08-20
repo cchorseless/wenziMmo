@@ -43,9 +43,13 @@ module view.dialog {
 				pkt.setValue('i64itemid', i64id);
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.stMailGetItemRetDecoder(data);
+					//邮件附件列表被领取后变灰
 					this.hbox_mailGet.disabled = true;
+					//邮件附件被领取后，显示删除按钮
 					this.img_delete.visible = true;
+					//邮件附件被领取后，显示已领取
 					this.img_geted.visible = true;
+					//邮件附件被领取后，已领取变灰
 					this.img_geted.disabled = true;
 
 					// 删除邮件
