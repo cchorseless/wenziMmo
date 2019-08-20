@@ -125,7 +125,7 @@ module GameObject {
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this._allMonster[obj.tempId] = obj;
-                    PanelManage.Main && PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.ADD, obj);
+                    PanelManage.Main && PanelManage.Main.updateMonsterView(EnumData.HANDLE_TYPE.ADD, obj);
                     //GameApp.GameEngine.outputSystemInfo('怪物 lv' + monster.level + '：' + monster.name + '(' + monster.onlyid + ')[' + monster.x + ',' + monster.y + '] 进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
@@ -151,7 +151,7 @@ module GameObject {
                     delete this._allPlayer[tempId]
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    PanelManage.Main.updateMonstorView(EnumData.HANDLE_TYPE.REMOVE, this._allMonster[tempId]);
+                    PanelManage.Main.updateMonsterView(EnumData.HANDLE_TYPE.REMOVE, this._allMonster[tempId]);
                     console.log(this._allMonster[tempId].objName + this._allMonster[tempId].tempId + '离开地图');
                     delete this._allMonster[tempId]
                     break;

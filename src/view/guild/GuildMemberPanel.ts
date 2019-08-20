@@ -35,6 +35,7 @@ module view.guild {
 				let memberInfo = { '帮主': 0, '副帮主': 1, '长老': 2, '大将': 3, '精英': 4, '帮会成员': 5 };
 				for (let _data of _strList) {
 					let _dataList = _data.split(':');
+					console.log(_dataList);
 					if (_dataList[0]) { this['lbl_' + memberInfo[_dataList[0]]].text = '' + _dataList[1] }
 				}
 				cbpkt1.clear();

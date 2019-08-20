@@ -139,6 +139,15 @@ module view.compart {
 		}
 
 		/**
+		 * 清除所有怪物
+		 */
+		public clearMonster(): void {
+			this.hbox_monster01.removeChildren();
+			this.hbox_monster02.removeChildren();
+			this.hbox_monster03.removeChildren();
+		}
+
+		/**
 		 * 添加玩家
 		 * @param obj 
 		 */
@@ -157,6 +166,14 @@ module view.compart {
 		public removePlayer(obj): void {
 
 		}
+		/**
+		 * 清除所有玩家
+		 */
+		public clearPlayer(): void {
+			this.hbox_player01.removeChildren();
+			this.hbox_player02.removeChildren();
+		}
+
 		/**
 		 * 攻击状态缓动
 		 */

@@ -401,7 +401,7 @@ module view.main {
 		 * @param handleType 
 		 * @param obj 
 		 */
-		public updateMonstorView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+		public updateMonsterView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
 			switch (handleType) {
 				case EnumData.HANDLE_TYPE.ADD:
 					this.ui_scene.addMonster(obj);
@@ -414,5 +414,14 @@ module view.main {
 
 		}
 
+		public clearNpcView(): void {
+			this.vbox_npc.removeChildren();
+		}
+		public clearPlayerView(): void {
+			this.ui_scene.clearPlayer();
+		}
+		public clearMonsterView(): void {
+			this.ui_scene.clearMonster();
+		}
 	}
 }

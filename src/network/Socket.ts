@@ -4,6 +4,7 @@
 class Socket extends SingletonClass {
 	private _needReconnect: boolean = true;
 	private _maxReconnectCount = 10;
+	public checkInterval: number = 2000;//重连时间间隔
 	private _reconnectCount: number = 0;
 	private _connectFlag: boolean;
 	private _host: string;
@@ -13,7 +14,6 @@ class Socket extends SingletonClass {
 	private _isConnecting: boolean;
 	public waitSignal: boolean = false;
 	public waitTime: number = 0;
-	public checkInterval: number = 2000;
 	public openHandler: Laya.Handler;//open回调
 	/**
 	  * 构造函数
@@ -61,13 +61,9 @@ class Socket extends SingletonClass {
 	private onSocketClose(e: Laya.Event): void {
 		this._isConnecting = false;
 		GameApp.GameEngine.isLogin = false;
+		GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
 		if (this._needReconnect) {
-			setTimeout(() => {
-				this.reconnect();
-			}, 5000);
-		} else {
-			GameApp.LListener.event(LcpEvent.SOCKET_CLOSE);
-			// App.MessageCenter.dispatch(LcpEvent.SOCKET_CLOSE);
+			Laya.timer.once(this.checkInterval, this, this.reconnect);
 		}
 	}
 
@@ -76,9 +72,7 @@ class Socket extends SingletonClass {
 	  */
 	private onSocketError(e: Laya.Event): void {
 		if (this._needReconnect) {
-			setTimeout(() => {
-				this.reconnect();
-			}, 5000);
+			Laya.timer.once(this.checkInterval, this, this.reconnect);
 		}
 		else {
 			GameApp.LListener.event(LcpEvent.SOCKET_NOCONNECT);
