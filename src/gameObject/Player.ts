@@ -182,6 +182,26 @@ module GameObject {
         }
 
         /**
+         * 视野内所有玩家
+         */
+        public get allPlayer() {
+            return this._allPlayer;
+        }
+        /**
+         * 视野内所有怪物
+         */
+        public get allMonster() {
+            return this._allMonster;
+        }
+        /**
+         * 视野内所有NPC
+         */
+        public get allNpc() {
+            return this._allNpc;
+        }
+
+
+        /**
          * 清除视野内所有的对象
          */
         public clearViewObj() {

@@ -3,6 +3,7 @@ module ProtoCmd {
     //请求关系列表
     export class stRelationGetList extends Packet {
         public static msgID: number = 0x0A01;
+        public cbPacket = stRelationGetListRet
         public constructor() {
             super();
             this.addProperty('btType', PacketBase.TYPE_INT);//0好1黑2仇3所有
