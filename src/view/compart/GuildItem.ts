@@ -12,7 +12,6 @@ module view.compart {
 			this.lbl_guildName.text = '' + item.szName;
 			this.lbl_lvNeed.text = '' + item.dwJoinNeedLvl;
 			this.lbl_playerCount.text = '' + item.curPlayerCount + '/' + item.dwMaxPlayerCount;
-
 			this.addEvent();
 		}
 		/**
@@ -38,7 +37,10 @@ module view.compart {
 
 			});
 			// 查看详细信息
-			this.btn_getInfo.on(Laya.UIEvent.CLICK, this, this.getGuildInfo);
+			this.btn_getInfo.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.GuildDetailDialog().popup(true);
+
+			})
 		}
 
 		/**

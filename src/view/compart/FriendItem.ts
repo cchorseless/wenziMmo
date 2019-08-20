@@ -3,14 +3,16 @@ module view.compart {
 	export class FriendItem extends ui.compart.FriendItemUI {
 		constructor() {
 			super();
+			this.addEvent();
 		}
 		public friendItem: ProtoCmd.stRelationInfoBase;
 		public setData(item: ProtoCmd.stRelationInfoBase): FriendItem {
 			return this;	
+			
 		}
 		public addEvent():void{
-			// 	this.box_fujinPerson.clickHandler = Laya.Handler.create(this, () => {
-			// 	if (this.box_fujinPerson.mouseEnabled) {
+			// 	this.img_fujinPerson.clickHandler = Laya.Handler.create(this, () => {
+			// 	if (this.img_fujinPerson.mouseEnabled) {
 			// 		Laya.Tween.to(this.img_tween, { x: 0 }, 500, Laya.Ease.bounceOut);		
 			// 	}
 			// 	else {
