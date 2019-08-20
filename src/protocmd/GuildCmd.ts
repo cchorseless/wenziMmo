@@ -816,7 +816,7 @@ module ProtoCmd {
 		public cbPacket = stGlobalGuildMemberListRet;
 		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);
+			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);// 请求页数
 			this.addProperty("btType", PacketBase.TYPE_BYTE);//成员列表 排序类型 0权利1等级2日贡献3战斗力
 			this.addProperty("boShowOffLine", PacketBase.TYPE_BOOL);//是否显示不在线玩家
 			this.cmd = 0x2A0B;
@@ -833,8 +833,8 @@ module ProtoCmd {
 		public stZeroArray: Array<stSingleGuildMemberInfoBase> = [];
 		public constructor(data: Laya.Byte) {
 			super();
-			this.addProperty("dwMaxPage", PacketBase.TYPE_DWORD);
-			this.addProperty("dwAskJoinNum", PacketBase.TYPE_DWORD);
+			this.addProperty("dwMaxPage", PacketBase.TYPE_DWORD);//最大页数
+			this.addProperty("dwAskJoinNum", PacketBase.TYPE_DWORD);//当前申请人数
 			this.addProperty("nCount", PacketBase.TYPE_INT);
 			if (data) {
 				data.pos += this.read(data);

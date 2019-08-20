@@ -21,8 +21,8 @@ module view.guild {
 				PanelManage.openGuildIntoConditionPanel();
 
 			})
-			this.img_guildOut.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.GuildOutDialog().popup(true);
+			this.img_guildRank.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildRankPanel();
 			})
 			this.img_guildRecord.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildRecordPanel();

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":148,
-    "selecteID":23,
+    "selectedBox":143,
+    "selecteID":135,
     "referenceLines":[
         {
             "value":301,
@@ -1285,13 +1285,14 @@
                     "props":{"y":0,"var":"box_teamManage","right":0,"name":"item2","left":0,"height":686},
                     "nodeParent":24,
                     "label":"Box(box_teamManage)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":96,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":166,"x":13,"width":614,"height":129},
                             "nodeParent":96,
@@ -1342,6 +1343,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":266,"x":-5,"width":650,"height":61},
                             "nodeParent":96,
@@ -1391,6 +1393,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":318,"x":38},
                             "nodeParent":96,
@@ -1402,19 +1405,34 @@
                             "compId":143,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":251,"x":297,"var":"img_guildOut","skin":"image/guild/icon_team_bangpai.png"},
+                                    "props":{"y":251,"x":297,"var":"img_guildRank","skin":"image/guild/icon_team_bangpai.png"},
                                     "nodeParent":143,
-                                    "label":"Image(img_guildOut)",
-                                    "isDirectory":false,
+                                    "label":"Image(img_guildRank)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
+                                    "hasChild":true,
                                     "compId":135,
                                     "child":[
-                                        ],
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":35,"x":10,"width":128,"text":"实力排名","height":43,"fontSize":30,"font":"Microsoft YaHei","bold":true},
+                                            "nodeParent":135,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":214,
+                                            "child":[
+                                                ]
+                                        }],
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":126,"x":297,"var":"btn_guildMember","skin":"image/guild/icon_team_chengyuan.png"},
                                     "nodeParent":143,
@@ -1428,6 +1446,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":297,"var":"img_guildIntoSet","skin":"image/guild/icon_team_shezhi.png"},
                                     "nodeParent":143,
@@ -1441,6 +1460,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"var":"btn_relationManage","skin":"image/guild/icon_team_waijiao.png"},
                                     "nodeParent":143,
@@ -1454,6 +1474,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":125,"var":"img_guildRecord","skin":"image/guild/icon_team_rizhi.png"},
                                     "nodeParent":143,
@@ -1466,6 +1487,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":251,"var":"img_guildApply","skin":"image/guild/icon_team_shenqing.png"},
                                     "nodeParent":143,
@@ -1479,6 +1501,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":14},
                             "nodeParent":96,

@@ -59,6 +59,7 @@ module PanelManage {
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
     export let GuildMember: view.guild.GuildMemberPanel;//帮派成员界面
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
+    export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianJiangHu: view.tujian.TuJianJiangHuPanel;//图鉴江湖界面
@@ -411,6 +412,22 @@ module PanelManage {
         })
     }
 
+    /**
+     * 帮会实力排行界面
+     */
+    export function openGuildRankPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildRank) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildRank);
+        ResManage.loadResource(ResData.PanelRes.GuildRank, () => {
+            PanelManage.GuildRank = new view.guild.GuildRankPanel();
+            PanelManage.GuildRank['LCP_skin'] = ResData.PanelRes.GuildRank;
+            PanelManage.GuildRank.setData();
+            PanelManage.GuildRank.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildRank, 3, 5, 1);
+        })
+    }
 
     /**
         * 帮派支援界面

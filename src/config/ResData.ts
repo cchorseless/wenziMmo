@@ -67,8 +67,10 @@ module ResData {
         public static GuildHelp = null;;
         // 帮会成员界面
         public static GuildMember = null;;
-         // 帮派商店
+        // 帮派商店
         public static GuildShop = null;
+        // 帮派实力排行界面
+        public static GuildRank = null;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
