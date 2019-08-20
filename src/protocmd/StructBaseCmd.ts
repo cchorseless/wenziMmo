@@ -643,10 +643,6 @@ module ProtoCmd {
         public set dress(v: number) {
             this.setValue('dress', v);
         }
-
-
-
-
     }
 
     export class CretFeature extends PacketBase {
@@ -1918,6 +1914,7 @@ module ProtoCmd {
         }
     }
 
+
     /**
 	 * 班级信息
 	 * */
@@ -2002,9 +1999,11 @@ module ProtoCmd {
 
     }
 
-
+    /**
+     * 单条行会成员信息
+     */
     export class AliaMemberInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
@@ -2013,6 +2012,18 @@ module ProtoCmd {
             if (data) {
                 data.pos += this.read(data);
             }
+        }
+        public get szName(): string {
+            return this.getValue('szName');
+        }
+        public get dwLevel(): number {
+            return this.getValue('dwLevel');
+        }
+        public get btJob(): number {
+            return this.getValue('btJob');
+        }
+        public get btSex(): number {
+            return this.getValue('btSex');
         }
     }
 
@@ -2653,133 +2664,129 @@ module ProtoCmd {
     }
 
 
-	export class stMallItem  extends PacketBase	
-	{
-		public  limitIndex:number;
-		public  purchaseNum:number;
-		public constructor(data: Laya.Byte) {
+    export class stMallItem extends PacketBase {
+        public limitIndex: number;
+        public purchaseNum: number;
+        public constructor(data: Laya.Byte) {
             super();
-			if (data) data.pos += this.read(data);	
-		}
-	}
+            if (data) data.pos += this.read(data);
+        }
+    }
 
 
-    export class stMallItemBase extends PacketBase
-	{
-		public  constructor() {
+    export class stMallItemBase extends PacketBase {
+        public constructor() {
             super();
 
-			this.addProperty("dwItemid",PacketBase.TYPE_DWORD);//物品id
-			this.addProperty('boBind',PacketBase.TYPE_BOOL);//是否绑定
-			this.addProperty("dwPrices",PacketBase.TYPE_DWORD);//价格
-			this.addProperty("dwDiscPrices",PacketBase.TYPE_DWORD);//折扣价
-			this.addProperty("btSRPCType",PacketBase.TYPE_BYTE);	//限购类型	1是数量限购折扣物品 2是时间内数量限购
-			this.addProperty("dwSRPCNum",PacketBase.TYPE_DWORD);	//限购数量
-			this.addProperty("dwKeepTime",PacketBase.TYPE_DWORD); //持续时间
+            this.addProperty("dwItemid", PacketBase.TYPE_DWORD);//物品id
+            this.addProperty('boBind', PacketBase.TYPE_BOOL);//是否绑定
+            this.addProperty("dwPrices", PacketBase.TYPE_DWORD);//价格
+            this.addProperty("dwDiscPrices", PacketBase.TYPE_DWORD);//折扣价
+            this.addProperty("btSRPCType", PacketBase.TYPE_BYTE);	//限购类型	1是数量限购折扣物品 2是时间内数量限购
+            this.addProperty("dwSRPCNum", PacketBase.TYPE_DWORD);	//限购数量
+            this.addProperty("dwKeepTime", PacketBase.TYPE_DWORD); //持续时间
 
-			this.addProperty("btType",PacketBase.TYPE_BYTE);//分类   1   2   3   4  
-			this.addProperty("btCostType",PacketBase.TYPE_BYTE);//允许货币类型
-			this.addProperty("nMinBuyCount",PacketBase.TYPE_INT);//最小数量
-			this.addProperty("szRecommand",PacketBase.TYPE_STRING,253);//推荐理由
-			this.addProperty("btHot",PacketBase.TYPE_BYTE);//是否热销
-			this.addProperty("btLight",PacketBase.TYPE_BYTE);//光效
-			this.addProperty("boShow",PacketBase.TYPE_BOOL);//是否展示
-		}
-		
-		public  set itemId(value:number){
-			this.setValue("dwItemid",value);
-		}
-		
-		public  set limitNum(value:number){
-			this.setValue("dwSRPCNum",value);
-		}
-		
-		public  get limitNum():number{
-			return this.getValue("dwSRPCNum");
-		}
-		
-		public  get count():number{
-			return this.getValue("nMinBuyCount");	
-		}
-		
-		public  set count(value:number){
-			this.setValue("nMinBuyCount",value);
-		}
-		
-		
-		public  get itemId():number{
-			return this.getValue("dwItemid");
-		}
-		
-		public  get isBind():Boolean{
-			return this.getValue("boBind");
-		}
-		
-		public  get price():number{
-			return this.getValue("dwPrices");
-		}
-		
-		public  get isShow():Boolean{
-			return this.getValue("boShow");
-		}
-		
-		public  set isShow(value:Boolean){
-			this.setValue("boShow",value);
-		}
-		
-		public  set price(value:number){
-			this.setValue("dwPrices",value);
-		}
-		
-		public  get disPrice():number{
-			return this.getValue("dwDiscPrices");
-		}
-		
-		/**<br>1热销<br>2药水<br>3技能<br>4礼券<br>5限购*/
-		public  get type():number{
-			return this.getValue("btType");
-		}
-		
-		public  set type(value:number){
-			this.setValue("btType",value);
-		}
-		
-		/**<br>1金币<br>2元宝<br>3绑元<br>4绑金*/
-		public  get costType():number{
-			return this.getValue("btCostType");
-		}
-		
-		public  set costType(value:number){
-			this.setValue("btCostType",value);
-		}
-		
-		public  get light():number{
-			return this.getValue("btLight");
-		}
-	}
-  
-  
-	export class stMysticMallItem extends PacketBase
-	{
-		public constructor(data: Laya.Byte) {
-            super();
-			this.addProperty("dwBoughtNum",PacketBase.TYPE_DWORD);//已购买数量
-			if (data) data.pos += this.read(data);
-		}
-	}
+            this.addProperty("btType", PacketBase.TYPE_BYTE);//分类   1   2   3   4  
+            this.addProperty("btCostType", PacketBase.TYPE_BYTE);//允许货币类型
+            this.addProperty("nMinBuyCount", PacketBase.TYPE_INT);//最小数量
+            this.addProperty("szRecommand", PacketBase.TYPE_STRING, 253);//推荐理由
+            this.addProperty("btHot", PacketBase.TYPE_BYTE);//是否热销
+            this.addProperty("btLight", PacketBase.TYPE_BYTE);//光效
+            this.addProperty("boShow", PacketBase.TYPE_BOOL);//是否展示
+        }
 
-    export class stMysticMallItemBase extends PacketBase
-	{
-		public  constructor() {
+        public set itemId(value: number) {
+            this.setValue("dwItemid", value);
+        }
+
+        public set limitNum(value: number) {
+            this.setValue("dwSRPCNum", value);
+        }
+
+        public get limitNum(): number {
+            return this.getValue("dwSRPCNum");
+        }
+
+        public get count(): number {
+            return this.getValue("nMinBuyCount");
+        }
+
+        public set count(value: number) {
+            this.setValue("nMinBuyCount", value);
+        }
+
+
+        public get itemId(): number {
+            return this.getValue("dwItemid");
+        }
+
+        public get isBind(): Boolean {
+            return this.getValue("boBind");
+        }
+
+        public get price(): number {
+            return this.getValue("dwPrices");
+        }
+
+        public get isShow(): Boolean {
+            return this.getValue("boShow");
+        }
+
+        public set isShow(value: Boolean) {
+            this.setValue("boShow", value);
+        }
+
+        public set price(value: number) {
+            this.setValue("dwPrices", value);
+        }
+
+        public get disPrice(): number {
+            return this.getValue("dwDiscPrices");
+        }
+
+        /**<br>1热销<br>2药水<br>3技能<br>4礼券<br>5限购*/
+        public get type(): number {
+            return this.getValue("btType");
+        }
+
+        public set type(value: number) {
+            this.setValue("btType", value);
+        }
+
+        /**<br>1金币<br>2元宝<br>3绑元<br>4绑金*/
+        public get costType(): number {
+            return this.getValue("btCostType");
+        }
+
+        public set costType(value: number) {
+            this.setValue("btCostType", value);
+        }
+
+        public get light(): number {
+            return this.getValue("btLight");
+        }
+    }
+
+
+    export class stMysticMallItem extends PacketBase {
+        public constructor(data: Laya.Byte) {
             super();
-			this.addProperty("dwItemid",PacketBase.TYPE_DWORD);//物品id
-			this.addProperty('boBind',PacketBase.TYPE_BOOL);//是否绑定
-			this.addProperty("dwPrices",PacketBase.TYPE_DWORD);//价格
-			this.addProperty("dwDiscPrices",PacketBase.TYPE_DWORD);//折扣价
-			this.addProperty("dwCostNum",PacketBase.TYPE_DWORD);	//允许数量
-			this.addProperty("btCostType",PacketBase.TYPE_BYTE);	//允许货币类型
-			this.addProperty("btRecommand",PacketBase.TYPE_BYTE); //推荐
-			this.addProperty("szRecommand",PacketBase.TYPE_STRING,256);//推荐理由
-		}
-	}
+            this.addProperty("dwBoughtNum", PacketBase.TYPE_DWORD);//已购买数量
+            if (data) data.pos += this.read(data);
+        }
+    }
+
+    export class stMysticMallItemBase extends PacketBase {
+        public constructor() {
+            super();
+            this.addProperty("dwItemid", PacketBase.TYPE_DWORD);//物品id
+            this.addProperty('boBind', PacketBase.TYPE_BOOL);//是否绑定
+            this.addProperty("dwPrices", PacketBase.TYPE_DWORD);//价格
+            this.addProperty("dwDiscPrices", PacketBase.TYPE_DWORD);//折扣价
+            this.addProperty("dwCostNum", PacketBase.TYPE_DWORD);	//允许数量
+            this.addProperty("btCostType", PacketBase.TYPE_BYTE);	//允许货币类型
+            this.addProperty("btRecommand", PacketBase.TYPE_BYTE); //推荐
+            this.addProperty("szRecommand", PacketBase.TYPE_STRING, 256);//推荐理由
+        }
+    }
 }

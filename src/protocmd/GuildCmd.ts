@@ -340,7 +340,6 @@ module ProtoCmd {
 		}
 	}
 
-
 	/**0x2A23
 	 * 	会长获取申请列表返回
 	 * */
@@ -457,8 +456,6 @@ module ProtoCmd {
 		}
 	}
 
-
-
     /**0x2A14
      * 修改公告
      * */
@@ -496,7 +493,7 @@ module ProtoCmd {
 	export class stGlobalGuildChangePowerLvl extends Packet {
 		public static msgID: number = 0x2A0F;
 		public cbPacket = stGlobalGuildChangePowerLvlRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.addProperty("dwPowerLvl", PacketBase.TYPE_DWORD);
@@ -558,12 +555,13 @@ module ProtoCmd {
 	export class stGlobalGuildGetAlia extends Packet {
 		public static msgID: number = 0x2A17;
 		public cbPacket = stGlobalGuildGetAliaRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.cmd = 0x2A17;
 			if (data) this.read(data);
 		}
 	}
+
 	/**0x2A18
 	  * 获取称号列表和人数返回
 	  * */
@@ -571,7 +569,7 @@ module ProtoCmd {
 		public static msgID: number = 0x2A18;
 		public constructor(data: Laya.Byte) {
 			super();
-			this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1280);//称号:人数/称号:人数
+			this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1280);//格式：称号:人数/称号:人数
 			if (data) data.pos += this.read(data);
 		}
 	}
@@ -582,7 +580,7 @@ module ProtoCmd {
 	export class stGlobalGuildGetAliaMember extends Packet {
 		public static msgID: number = 0x2A19;
 		public cbPacket = stGlobalGuildGetAliaMemberRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A19;
@@ -651,8 +649,8 @@ module ProtoCmd {
 	}
 
 	/**
-		 * 获取外交列表
-		 * */
+	 * 获取外交列表
+	 * */
 	export class stGlobalGuildGetDiplomacyList extends Packet {
 		public static msgID: number = 0x2A1D;
 		public cbPacket = stGlobalGuildGetDiplomacyListRet;
@@ -668,8 +666,8 @@ module ProtoCmd {
 	}
 
 	/**
-		 * 获取外交列表返回
-		 * */
+	 * 获取外交列表返回
+	 * */
 	export class stGlobalGuildGetDiplomacyListRet extends Packet {
 		public static msgID: number = 0x2A1E;
 		public stZeroArray: Array<DiplomacyGuildBase> = [];
@@ -705,7 +703,7 @@ module ProtoCmd {
 	}
 
     /**0x2A25
-	 * //获取外交关系行会数返回
+	 * 获取外交关系行会数返回
 	 * */
 	export class stGlobalGuildGetDiplomacyTypeNumRet extends Packet {
 		public static msgID: number = 0x2A25;
@@ -756,7 +754,7 @@ module ProtoCmd {
 		}
 	}
 	// 0x2A31
-	// 行会会长信息
+	// 行会非成员信息
 	export class stGlobalGuildMasterInfo extends Packet {
 		public static msgID: number = 0x2A31;
 		public members: Array<stGuildMemberBase> = [];
@@ -794,12 +792,14 @@ module ProtoCmd {
 
     /**
 	 * 玩家离开行会
+	 * 
 	 * */
 	export class stGlobalGuildMemberLeave extends Packet {
 		public static msgID: number = 0x2A16;
-		public constructor(data: Laya.Byte) {
+		// 踢人 又返回包，主动离开无返回包
+		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0主动退出行会1会长踢出
+			this.addProperty("btType", PacketBase.TYPE_BYTE);		// 0主动退出行会 1会长踢出
 			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A16;
@@ -849,6 +849,7 @@ module ProtoCmd {
 		}
 
 	}
+
 
 	// 0x2A39
 	// 查看沙巴克行会
@@ -903,7 +904,6 @@ module ProtoCmd {
 
 	// 0x2A2F
 	/**行会中自己的信息返回*/
-
 	export class stGlobalGuildSelfInfoRet extends Packet {
 		public static msgID: number = 0x2A2F;
 		public stPlayerInfo: stSingleGuildMemberInfoBase;
@@ -997,7 +997,7 @@ module ProtoCmd {
 
 
 	/**0x2B0E
-	 *   行会仓库物品回收
+	 * 行会仓库物品回收
 	 * */
 	export class stGuidMasterRecoverItem extends Packet {
 		public static msgID: number = 0x2B0E;

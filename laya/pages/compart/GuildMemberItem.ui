@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":11,
+    "selecteID":19,
     "props":{"width":600,"sceneColor":"#000000","height":100},
     "nodeParent":-1,
     "label":"View",
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":8,"x":511,"width":83,"stateNum":"2","skin":"image/common/img_common_21_finish.png","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"管理","height":84},
+            "props":{"y":8,"x":505,"width":83,"var":"btn_manage","stateNum":"2","skin":"image/common/img_common_21_finish.png","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"管理","height":84},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_manage)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -42,9 +42,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":16,"x":100,"text":"门派名称XX","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":61,"x":106,"var":"lbl_playerName","text":"门派名称XX","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_playerName)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -56,9 +56,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":17,"x":237,"text":"礼物等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":61,"x":258,"var":"lbl_lvl","text":"礼物等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_lvl)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -69,9 +69,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":16,"x":352,"text":"Lv需求","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":61,"x":385,"var":"lbl_zhiWei","text":"Lv需求","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_zhiWei)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -81,50 +81,11 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":53,"x":112,"text":"人数：XX","fontSize":20,"color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":51,"x":276,"text":"21","fontSize":20,"color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":13,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":51,"x":364,"text":"XXXX","fontSize":20,"color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":14,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
             "props":{"y":11,"x":12,"width":81,"skin":"image/common/daoju/fram_common_npc.png","height":79},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -132,9 +93,9 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":1,"x":16,"skin":"image/common/img_NPC_Zhangjingchao.png"},
+                    "props":{"y":1,"x":16,"var":"img_playerIcon","skin":"image/common/img_NPC_Zhangjingchao.png"},
                     "nodeParent":15,
-                    "label":"Image",
+                    "label":"Image(img_playerIcon)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -142,6 +103,48 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":27,"x":142,"text":"名字","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":27,"x":274,"text":"等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":18,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":27,"x":396,"text":"职位","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -67,6 +67,11 @@ module view.dialog {
 						});
 						lcp.send(pkt);
 						break;
+					// 公会界面驱逐成员
+					case EnumData.SureCanelModel.BP_QUIT_MEMBER:
+						let _dialog: view.dialog.GuildManageMemberDialog = Laya.Dialog.getDialogsByGroup('GuildManageMemberDialog')[0]
+						_dialog.quitMemberCB();
+						break;
 				}
 
 			}
