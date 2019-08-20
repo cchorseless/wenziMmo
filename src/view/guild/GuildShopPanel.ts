@@ -5,7 +5,11 @@ module view.guild{
 			super();
 		}
 		public setData():void{
-			
+				this.panel_guildShop.vScrollBarSkin = '';
+				this.vbox_guildShop['sortItem'] = (items) => { };
+				for (let j = 0; j < 5; j++) {
+					this.vbox_guildShop.addChild(new view.compart.ShopDaojuBuyItem());
+				}
+			}
 		}
 	}
-}

@@ -47,6 +47,9 @@ module view.guild {
 			this.img_guildShopEnter.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildShopPanel();
 			})
+			this.btn_donate.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.GuildDonateDialog().popup(true);
+			})
 		}
 
 		public initUI(): void {
