@@ -78,9 +78,21 @@ class GameEngine extends SingletonClass {
         this.logintoken = new Laya.Byte();
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new GameObject.Player();
+        this.initSelf();
     }
 
 
+    public initSelf(): void {
+        this.equipDB = {};
+        this.equipDBIndex = {};
+        this.bagItemDB = {};
+        this.cangKuDB = {};
+        if (PanelManage.Main) {
+            PanelManage.Main.clearPlayerView();
+            PanelManage.Main.clearNpcView();
+            PanelManage.Main.clearMonsterView();
+        }
+    }
 
     private initMapResource(): void {
 
@@ -114,7 +126,6 @@ class GameEngine extends SingletonClass {
         //外网连接
         // GameApp.Socket.initServer("wss://textmmo.joyleafs.com/S", "8001", new ByteArrayMsg());
         GameApp.ServerListener.init();
-
     }
 
     /**

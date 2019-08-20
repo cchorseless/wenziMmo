@@ -14,6 +14,8 @@ class ServerListener extends SingletonClass {
         if (this.hasInit) return;
         // socket链接
         GameApp.LListener.on(LcpEvent.SOCKET_CONNECT, this, this.onSocketConnect);
+        // socket断线
+        GameApp.LListener.on(LcpEvent.SOCKET_CLOSE, this, this.onSocketClose);
         // 心跳包检测 fffe
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // 更新本地密匙 109
@@ -122,7 +124,7 @@ class ServerListener extends SingletonClass {
             this.onSocketReconnect();
         }
         else {
-            TipsManage.showTxt('SOCKET 初始化成功,可以登录');
+            // TipsManage.showTxt('SOCKET 初始化成功,可以登录');
         }
     }
 
@@ -130,6 +132,7 @@ class ServerListener extends SingletonClass {
      * 断线重连
      */
     public onSocketReconnect() {
+        GameApp.GameEngine.initSelf();
         let realLogin = new ProtoCmd.UserRealLogin();
         realLogin.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
         realLogin.setValue('szPlayerName', GameApp.GameEngine.mainPlayer.objName);
@@ -142,6 +145,13 @@ class ServerListener extends SingletonClass {
         realLogin.setValue('logintoken', GameApp.GameEngine.logintoken);
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
+    }
+
+    /**
+     * 断线界面
+     */
+    public onSocketClose() {
+        PanelManage.openServerErrorPanel()
     }
 
     /**
@@ -946,7 +956,7 @@ class ServerListener extends SingletonClass {
     public RED_NOTICE_applyBangPai(data): void {
         let cbpkt = new ProtoCmd.stGuildApply(data);
         let btState = cbpkt.getValue('btState');
-        if(btState>0){
+        if (btState > 0) {
             // 有红点提示
         }
         else[
