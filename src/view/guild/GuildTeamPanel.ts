@@ -86,7 +86,7 @@ module view.guild {
 				// 行会经验/资金
 				this.lbl_guildExp.text = '' + singleGuildinfo.dwCurExp + '/' + singleGuildinfo.dwLevelUpExp;
 				// 帮主名字
-				this.lbl_masterName.text = '' + singleGuildinfo.szAllMasters.split(',')[0];
+				this.lbl_masterName.text = '' + singleGuildinfo.masterName;
 				// 帮主职业
 				this.lbl_masterJob.text = ['战士', '法师', '道士'][singleGuildinfo.btMasterJob]
 				// 行会人数上限
@@ -96,6 +96,8 @@ module view.guild {
 				this.lbl_playerCount.text = '' + nowCount + '/' + countRoof;
 				// 公会公告
 				this.lbl_bpNotice.text = '' + singleGuildinfo.szNotice;
+				// 招賢公告
+				this.lbl_wantedNotice.text = '' + singleGuildinfo.szJoinNotice;
 				cbpkt.clear();
 				cbpkt = null;
 			});

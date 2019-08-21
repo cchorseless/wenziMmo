@@ -1613,6 +1613,7 @@ module ProtoCmd {
             this.addProperty("dwJoinNeedLvl", PacketBase.TYPE_DWORD);
             this.addProperty("szJoinNotice", PacketBase.TYPE_STRING, 512);
             this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1024);
+            this.addProperty("zsLevel", PacketBase.TYPE_DWORD);
             if (data) {
                 data.pos += this.read(data);
             }
@@ -1671,7 +1672,7 @@ module ProtoCmd {
         /**
          * 行会公告
          */
-        public get szNotice(): number {
+        public get szNotice(): string {
             return this.getValue("szNotice");
         }
         /**
@@ -1705,16 +1706,22 @@ module ProtoCmd {
             return this.getValue("dwJoinNeedLvl");
         }
         /**
-         * 加入欢迎语
+         * 加入招聘公告
          */
-        public get szJoinNotice(): number {
+        public get szJoinNotice(): string {
             return this.getValue("szJoinNotice");
         }
         /**
          * 行会内别名
          */
-        public get szAliaNames(): number {
+        public get szAliaNames(): string {
             return this.getValue("szAliaNames");
+        }
+        /**
+         * 加入轉生等級
+         */
+        public get zsLevel(): number {
+            return this.getValue("zsLevel");
         }
     }
 
@@ -1761,6 +1768,14 @@ module ProtoCmd {
         public get szAllMasters(): string {
             return this.getValue("szAllMasters");
         }
+
+        /**
+         * 幫主名字
+         */
+        public get masterName():string{
+            return this.szAllMasters.split(',')[0]
+        }
+
         /**
          * 公会排名
          */

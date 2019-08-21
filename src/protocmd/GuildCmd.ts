@@ -421,52 +421,21 @@ module ProtoCmd {
 		}
 	}
 
-    /**0x2A0D
-     * 改变行会称号
-     * */
-	export class stGlobalGuildChangeAliaName extends Packet {
-		public static msgID: number = 0x2A0D;
-		public cbPacket = stGlobalGuildChangeAliaNameRet;
-		public constructor(data: Laya.Byte) {
-			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
-			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-			this.addProperty("szAliaName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-			this.cmd = 0x2A0D;
-			if (data) {
-				data.pos += this.read(data);
-			}
-		}
-	}
-
-	/**0x2A0E
-	 * 改变行会称号返回
-	 * */
-	export class stGlobalGuildChangeAliaNameRet extends Packet {
-		public static msgID: number = 0x2A0E;
-		public constructor(data: Laya.Byte) {
-			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);//0新建标签1删除标签2修改标签3修改成员称号
-			this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-			this.addProperty("boChanged", PacketBase.TYPE_BOOL);
-			if (data) {
-				data.pos += this.read(data);
-			}
-		}
-	}
 
     /**0x2A14
-     * 修改公告
+     * 修改工會設置
      * */
 	export class stGlobalGuildChangeNotice extends Packet {
 		public static msgID: number = 0x2A14;
 		public cbPacket = stGlobalGuildChangeNoticeRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);	//0是行会公告1是招贤公告
 			this.addProperty("dwLevel", PacketBase.TYPE_DWORD);	//招贤等级
 			this.addProperty("szGuildNotice", PacketBase.TYPE_STRING, 512);
+			this.addProperty("zsLevel", PacketBase.TYPE_DWORD);
+
+
 			this.cmd = 0x2A14;
 			if (data) {
 				data.pos += this.read(data);
@@ -475,7 +444,7 @@ module ProtoCmd {
 	}
 
 	/**0x2A15
-	 * 修改公告返回
+	 * 修改工會設置返回
 	 * */
 	export class stGlobalGuildChangeNoticeRet extends Packet {
 		public static msgID: number = 0x2A15;
@@ -826,7 +795,7 @@ module ProtoCmd {
 
 
 	/**0x2A0C
-	 * 获取行会成员列表返回
+	 * 获取行会成员列表返回，每页10个
 	 * */
 	export class stGlobalGuildMemberListRet extends Packet {
 		public static msgID: number = 0x2A0C;
@@ -834,16 +803,19 @@ module ProtoCmd {
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("dwMaxPage", PacketBase.TYPE_DWORD);//最大页数
-			this.addProperty("dwAskJoinNum", PacketBase.TYPE_DWORD);//当前申请人数
+			this.addProperty("curPage", PacketBase.TYPE_DWORD);//当前页数 
 			this.addProperty("nCount", PacketBase.TYPE_INT);
 			if (data) {
 				data.pos += this.read(data);
 			}
+			console.log('=========stGlobalGuildMemberListRet==========', this.getValue('curPage'));
 		}
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
 			for (var i: number = 0; i < this.getValue('nCount'); i++) {
 				this.stZeroArray[i] = new stSingleGuildMemberInfoBase(data);
+				// 服务器没有排序，需要自己排,每頁10個
+				this.stZeroArray[i].setValue('dwRank', (this.getValue('curPage') - 1) * 10 + i + 1);
 			}
 			return data.pos;
 		}
