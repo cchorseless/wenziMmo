@@ -59,6 +59,8 @@ module ResData {
         public static GuildIntoCondition = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派福利
         public static GuildFuli = null;;
+        // 帮派仓库
+        public static GuildStore = null;;
         // 帮派日志
         public static GuildRecord = null;;
         // 入帮申请

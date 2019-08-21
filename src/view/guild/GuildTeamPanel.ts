@@ -29,22 +29,22 @@ module view.guild {
 			//帮会日志
 			this.img_guildRecord.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildRecordPanel();
-
 			})
 			//入帮申请
 			this.img_guildApply.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildApplyPanel();
-
 			})
 			//帮会福利
 			this.img_guildFuliEnter.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildFuliPanel();
-
+			})
+			//帮会仓库
+			this.img_guildStoreEnter.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildStorePanel();
 			})
 			//帮会支援
 			this.img_guildHelpEnter.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildHelpPanel();
-
 			})
 			//帮会成员
 			this.btn_guildMember.on(Laya.UIEvent.CLICK, this, () => {

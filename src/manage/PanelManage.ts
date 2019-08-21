@@ -54,6 +54,7 @@ module PanelManage {
     export let Friend: view.friend.FriendPanel;//好友界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
+    export let GuildStore: view.guild.GuildStorePanel;//帮派仓库界面
     export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
     export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
@@ -357,6 +358,22 @@ module PanelManage {
             PanelManage.GuildFuli.setData();
             PanelManage.GuildFuli.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.GuildFuli, 3, 5, 1);
+        })
+    }
+    /**
+   * 帮派仓库界面
+   */
+    export function openGuildStorePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildStore) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildStore);
+        ResManage.loadResource(ResData.PanelRes.GuildStore, () => {
+            PanelManage.GuildStore = new view.guild.GuildStorePanel();
+            PanelManage.GuildStore['LCP_skin'] = ResData.PanelRes.GuildStore;
+            PanelManage.GuildStore.setData();
+            PanelManage.GuildStore.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildStore, 3, 5, 1);
         })
     }
     /**
