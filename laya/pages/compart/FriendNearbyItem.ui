@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":18,
+    "selectedBox":2,
+    "selecteID":5,
     "props":{"width":590,"sceneColor":"#000000","height":91},
     "nodeParent":-1,
     "label":"View",
@@ -22,18 +22,18 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":17,
+            "compId":2,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
                     "props":{"y":5,"x":3,"width":81,"skin":"image/common/daoju/fram_common_npc.png","height":79},
-                    "nodeParent":17,
+                    "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":19,
+                    "compId":4,
                     "child":[
                         ]
                 },
@@ -41,51 +41,51 @@
                     "x":30,
                     "type":"Image",
                     "props":{"y":6,"x":19,"skin":"image/common/img_NPC_Zhangjingchao.png"},
-                    "nodeParent":17,
+                    "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":20,
+                    "compId":5,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":34,"x":91,"text":"名字超多六字","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                    "nodeParent":17,
-                    "label":"Label",
+                    "props":{"y":34,"x":91,"var":"lbl_playerName","text":"名字超多六字","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                    "nodeParent":2,
+                    "label":"Label(lbl_playerName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":21,
+                    "compId":6,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":33,"x":248,"text":"1转99级","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":17,
-                    "label":"Label",
+                    "props":{"y":33,"x":248,"var":"lbl_playerRank","text":"1转99级","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_playerRank)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":22,
+                    "compId":8,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":33,"x":362,"text":"啊啊啊啊啊","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":17,
-                    "label":"Label",
+                    "props":{"y":33,"x":362,"var":"lbl_guild","text":"啊啊啊啊啊","fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_guild)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":23,
+                    "compId":9,
                     "child":[
                         ]
                 }]
@@ -93,13 +93,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":29,"x":496,"width":75,"var":"btn_blackList","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":18,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"管理","height":32},
+            "props":{"y":29,"x":496,"width":75,"var":"btn_nearby","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":18,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"管理","height":32},
             "nodeParent":1,
-            "label":"Button(btn_blackList)",
+            "label":"Button(btn_nearby)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":18,
+            "compId":48,
             "child":[
                 ],
             "$HIDDEN":false

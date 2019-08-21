@@ -6,12 +6,13 @@ module view.compart {
 			this.addEvent();
 		}
 		public friendItem: ProtoCmd.stRelationInfoBase;
-		public setData(item: ProtoCmd.stRelationInfoBase): FriendItem {
-			return this;	
+		public setData(item: ProtoCmd.stRelationInfoBase): void {	
 			
 		}
 		public addEvent():void{
-			
+			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.FriendDialog().popup();
+			});
 				
 			
 		}

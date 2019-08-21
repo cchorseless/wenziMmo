@@ -14,22 +14,21 @@ module view.friend {
 			this.tab_friend.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_friend.selectedIndex = index;
 			}, null, false);
-			// for (let i = 0; i < 10; i++) {
-			// 	this.vbox_friend00.addChild(new view.compart.TeamItem());
-			// 	this.vbox_friend02.addChild(new view.compart.TeamItem());
-
-			// }
 			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
 			for (let _key of allKeys) {
-				this.vbox_friend01.addChild(new view.compart.FriendItem().setData(GameApp.MainPlayer.allPlayer[_key]));
+				this.vbox_friend01.addChild(new view.compart.FriendNearbyItem().setData(GameApp.MainPlayer.allPlayer[_key]));
+				let _player = GameApp.MainPlayer.allPlayer[_key];
 			}
 
-			this.initUI();
+			// this.initUI();
 		}
+
 		//获得好友列表
-		public initUI(): void {
+		public item: ProtoCmd.stRelationAddRet
+		public initUI(item:ProtoCmd.stRelationAddRet): void {
+			this.item=item;
 			let pkt = new ProtoCmd.stRelationGetList();
-			pkt.setValue('btType', 3);
+			pkt.setValue('btType', 0);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRelationGetListRet(data);
 				for (let item of cbpkt.friendlist) {
