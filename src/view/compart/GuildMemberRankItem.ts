@@ -5,12 +5,39 @@ module view.compart {
 			super();
 		}
 		public item: ProtoCmd.stSingleGuildMemberInfoBase;
-		public setData(item: ProtoCmd.stSingleGuildMemberInfoBase): void {
+		public setData(item: ProtoCmd.stSingleGuildMemberInfoBase, index: number): void {
 			this.item = item;
+			switch (index) {
+				case 0:
+					this.lbl_conditiontitle.text = '等级';
+					this.lbl_conditionText.text = '' + this.item.dwLevel;
+					break;
+				case 1:
+					this.lbl_conditiontitle.text = '日贡献';
+					this.lbl_conditionText.text = '' + this.item.dwDayGuildDedication;
+					break;
+				case 2:
+					this.lbl_conditiontitle.text = '战力';
+					this.lbl_conditionText.text = '' + this.item.dwFightNum;
+					break;
+			}
+			// 排名
+			this.lbl_rankCount.text = '' + this.item.dwRank;
+			// 名字
+			this.lbl_szName.text = '' + this.item.szName;
+			// 职位
+			this.lbl_zhiWei.text = '' + this.item.szAliaName;
+			// 判断是自己 隐藏管理按钮
+			if (this.item.szName === GameApp.MainPlayer.objName) {
+				this.btn_manage.visible = false;
+			}
+			this.addEvent();
+		}
 
-
-
-
+		public addEvent(): void {
+			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.GuildManageMemberDialog().setData(this, this.lbl_zhiWei.text).popup(true);
+			});
 		}
 
 	}

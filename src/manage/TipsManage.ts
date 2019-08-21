@@ -4,7 +4,7 @@
 module TipsManage {
     /**对象池的key*/
     // 弹窗
-    const TipsPanel = 'TipsShowPanel';
+   export const TipsPanel = 'TipsDialog';
     // 弹图片
     const TipsImage = 'TipsImage';
     // 弹伤害数字
@@ -64,15 +64,8 @@ module TipsManage {
      * @param str 
      */
     export function showTips(str): void {
-        let show: view.common.TipsShowPanel = Laya.Pool.getItemByClass(TipsPanel, view.common.TipsShowPanel)
-        show.setData(str);
-        show.alpha = 0;
-        show.centerX = 0;
-        show.centerY = 0;
-        PanelManage.tipsLayer.addChild(show);
-        EffectUtils.disposeEffectTips1(show, 800, () => {
-            Laya.Pool.recover(TipsPanel, show.removeSelf())
-        });
+        let show: view.dialog.TipsDialog = Laya.Pool.getItemByClass(TipsPanel, view.dialog.TipsDialog)
+        show.setData(str).show()
     }
 }
 

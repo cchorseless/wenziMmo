@@ -220,5 +220,18 @@ module GameObject {
             }
             this._allNpc = {};
         }
+
+
+        /**
+         * 看自己是否是會長 true是
+         */
+        public checkSelfIsGuildMaster(): boolean {
+            // 会长 副会长可以
+            let canDoArray = [EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_FITMASTER,
+            EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_MASTER]
+            // 职位
+            let self_zhiWei = this.feature.btClanMaster;
+            return canDoArray.indexOf(self_zhiWei) != -1
+        }
     }
 }
