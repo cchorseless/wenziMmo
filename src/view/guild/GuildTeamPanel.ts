@@ -50,6 +50,12 @@ module view.guild {
 			this.btn_donate.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.GuildDonateDialog().popup(true);
 			})
+			this.box_guildBuff.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.GuildBuffDialog().popup(true);
+			})
+			this.img_baoxiang00.on(Laya.Event.MOUSE_DOWN, this, () => {
+				new view.dialog.GuildBaoxiangDialog().show();
+			})
 		}
 
 		public initUI(): void {

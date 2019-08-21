@@ -11,15 +11,8 @@ module view.compart {
 			
 		}
 		public addEvent():void{
-			// 	this.img_fujinPerson.clickHandler = Laya.Handler.create(this, () => {
-			// 	if (this.img_fujinPerson.mouseEnabled) {
-			// 		Laya.Tween.to(this.img_tween, { x: 0 }, 500, Laya.Ease.bounceOut);		
-			// 	}
-			// 	else {
-			// 		this.img_tween.visible = true;
-			// 		Laya.Tween.to(this.img_tween, { x: 110 }, 500, Laya.Ease.bounceOut);
-			// 	}
-			// }, null, false);
+			
+				
 			
 		}
 	}
