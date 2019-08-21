@@ -6,8 +6,8 @@ module view.dialog {
 			this.group = 'GuildManageMemberDialog';
 		}
 
-		public ui_GuildMemberItem: view.compart.GuildMemberItem;
-		public setData(ui: view.compart.GuildMemberItem, zhiWei: string): GuildManageMemberDialog {
+		public ui_GuildMemberItem: view.compart.GuildMemberItem | view.compart.GuildMemberRankItem;
+		public setData(ui: view.compart.GuildMemberItem | view.compart.GuildMemberRankItem, zhiWei: string): GuildManageMemberDialog {
 			// 这里关联一下，方便移除
 			this.ui_GuildMemberItem = ui;
 			this.lbl_lvl.text = '' + ui.item.dwLevel;

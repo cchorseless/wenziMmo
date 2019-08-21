@@ -11,12 +11,15 @@ module view.guild {
 			}
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
+				let vbox: Laya.VBox = this['vbox_' + index];
+				if (vbox.numChildren == 0) {
+					this.updateUI(index);
+				}
 			}, null, false);
 			this.updateUI(0);
-			this.updateUI(1);
-			this.updateUI(2);
 			this.addEvent();
 		}
+
 		/**
 		 * 更新UI数据
 		 * @param index 哪个界面
@@ -40,18 +43,20 @@ module view.guild {
 					let ui = new view.compart.GuildMemberRankItem();
 					let item = new ProtoCmd.stSingleGuildMemberInfoBase();
 					item.clone(_item.data);
-					ui.setData(item)
+					ui.setData(item, index);
 					vbox.addChild(ui);
 				}
-
 			})
-
 		}
+
 		public addEvent(): void {
 			for (let i = 0; i < 3; i++) {
 				this['btn_addPage' + i].on(Laya.UIEvent.CLICK, this, this.changePage, [true, i]);
 				this['btn_reducePage' + i].on(Laya.UIEvent.CLICK, this, this.changeData, [false, i]);
-			}
+			};
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			});
 		}
 		/**
 		 * 翻页
@@ -75,8 +80,5 @@ module view.guild {
 			}
 			this.updateUI(index, page)
 		}
-
-
-
 	}
 }

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":12,
     "props":{"width":600,"sceneColor":"#000000","height":100},
     "nodeParent":-1,
     "label":"View",
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":9,"x":508,"width":83,"stateNum":"2","skin":"image/common/img_common_21_finish.png","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"管理","height":84},
+            "props":{"y":9,"x":508,"width":83,"var":"btn_manage","stateNum":"2","skin":"image/common/img_common_21_finish.png","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"管理","height":84},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_manage)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -42,9 +42,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":57,"x":110,"text":"门派名称XX","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":55,"x":114,"var":"lbl_szName","text":"门派名称XX","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_szName)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -56,9 +56,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":57,"x":261,"text":"礼物等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":52,"x":386,"var":"lbl_conditionText","text":"礼物等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_conditionText)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -69,9 +69,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":55,"x":383,"text":"Lv需求","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":56,"x":272,"var":"lbl_zhiWei","text":"Lv需求","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_zhiWei)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -82,7 +82,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":12,"x":14,"width":81,"skin":"image/common/daoju/fram_common_npc.png","height":79},
+            "props":{"y":10,"x":46,"width":81,"skin":"image/common/daoju/fram_common_npc.png","height":79},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -107,7 +107,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":23,"x":146,"text":"名字","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":22,"x":146,"text":"名字","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isOpen":true,
@@ -121,9 +121,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":23,"x":277,"text":"等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":20,"x":404,"var":"lbl_conditiontitle","text":"等级","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_conditiontitle)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -135,7 +135,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":21,"x":394,"text":"职位","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
+            "props":{"y":22,"x":280,"text":"职位","fontSize":24,"font":"SimHei","color":"#000000","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isOpen":true,
@@ -143,6 +143,20 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":10,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":39,"x":13,"var":"lbl_rankCount","text":"11","fontSize":20,"font":"SimHei","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label(lbl_rankCount)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
             "child":[
                 ]
         }],

@@ -1821,7 +1821,7 @@ module ProtoCmd {
         /**
          * 名字
          */
-        public get szName(): number {
+        public get szName(): string {
             return this.getValue('szName');
         }
 
@@ -1852,7 +1852,7 @@ module ProtoCmd {
         /**
          * 别称
          */
-        public get szAliaName(): number {
+        public get szAliaName(): string {
             return this.getValue('szAliaName');
         }
         /**
