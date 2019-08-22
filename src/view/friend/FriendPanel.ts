@@ -4,6 +4,7 @@ module view.friend {
 		constructor() {
 			super();
 		}
+
 		public setData(): void {
 			this.panel_friend00.vScrollBarSkin = '';
 			this.panel_friend01.vScrollBarSkin = '';
@@ -14,19 +15,12 @@ module view.friend {
 			this.tab_friend.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_friend.selectedIndex = index;
 			}, null, false);
-			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
-			for (let _key of allKeys) {
-				this.vbox_friend01.addChild(new view.compart.FriendNearbyItem().setData(GameApp.MainPlayer.allPlayer[_key]));
-				let _player = GameApp.MainPlayer.allPlayer[_key];
-			}
-
-			// this.initUI();
+			this.updateFriendList();
+			this.updateNearbyList();
 		}
-
 		//获得好友列表
-		public item: ProtoCmd.stRelationAddRet
-		public initUI(item:ProtoCmd.stRelationAddRet): void {
-			this.item=item;
+		public updateFriendList(): void {
+			this.vbox_friend00.removeChildren();
 			let pkt = new ProtoCmd.stRelationGetList();
 			pkt.setValue('btType', 0);
 			lcp.send(pkt, this, (data) => {
@@ -35,10 +29,33 @@ module view.friend {
 					let friend_UI = new view.compart.FriendItem();
 					let friendItem = new ProtoCmd.stRelationInfoBase();
 					friendItem.clone(item.data);
+					// GameApp.GameEngine.friendDB
 					friend_UI.setData(friendItem);
 					this.vbox_friend00.addChild(friend_UI);
 				}
+				cbpkt.clear();
+				cbpkt = null;
+				// 更新黑名单
+				this.updateHMDList();
 			})
+		}
+		/**
+		 * 附近人
+		 */
+		public updateNearbyList(): void {
+			this.vbox_friend01.removeChildren();
+			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
+			for (let _key of allKeys) {
+				this.vbox_friend01.addChild(new view.compart.FriendNearbyItem().setData(GameApp.MainPlayer.allPlayer[_key]));
+			}
+		}
+
+
+		/**
+		 * 黑名单
+		 */
+		public updateHMDList():void{
+
 		}
 	}
 }

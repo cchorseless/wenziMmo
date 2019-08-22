@@ -19,22 +19,39 @@ module view.dialog {
 				this.close();
 			})
 			//添加好友
-			this.btn_nearbyAddFriend.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.stRelationAdd();
-				pkt.setValue('btType', 0);
-				pkt.setValue('szName', this.item.objName);
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.stRelationAddRet(data);
-				})
-			})
+			this.btn_nearbyAddFriend.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [0]);
 			//拉入黑名单   
-			this.btn_nearbyIntoBlack.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.stRelationAdd();
-				pkt.setValue('btType', 1);
-				pkt.setValue('szName', this.item.objName);
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.stRelationAddRet(data);
-				})
+			this.btn_nearbyIntoBlack.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [1]);
+		}
+
+		/**
+		 * 添加好友 || 拉入黑名单
+		 * @param type 
+		 */
+		public changeRelationShip(type): void {
+			let tips: string;
+			switch (type) {
+				// 好友
+				case 0:
+					tips = '添加好友';
+					break;
+				// 黑名单
+				case 1:
+					tips = '拉入黑名单';
+					break
+			}
+			let pkt = new ProtoCmd.stRelationAdd();
+			pkt.setValue('btType', type);
+			pkt.setValue('szName', this.item.objName);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stRelationAddRet(data);
+				let errorcode = cbpkt.getValue('btErrorCode');
+				if (errorcode == 0) {
+					TipsManage.showTips(tips + '成功');
+				}
+				else {
+					TipsManage.showTips(tips + '失败');
+				}
 			})
 		}
 	}

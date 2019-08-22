@@ -58,6 +58,7 @@ module ProtoCmd {
     }
 
     //添加好友
+    // 0x0A03
     export class stRelationAdd extends Packet {
         public static msgID: number = 0x0A03;
         public cbPacket = stRelationAddRet;
@@ -67,7 +68,7 @@ module ProtoCmd {
 
         public constructor() {
             super();
-            this.addProperty('btType', PacketBase.TYPE_INT);// //添加的类型 emListType
+            this.addProperty('btType', PacketBase.TYPE_INT);// //添加的类型 0 好友 1黑名单 2仇人
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.cmd = 0x0A03;
         }
@@ -131,10 +132,10 @@ module ProtoCmd {
 
     }
 
-    //列表增加了一个成员
+    //列表增加了一个成员----------
     export class stRelationAddFriend extends Packet {
         public static msgID: number = 0x0A08;
-        //		public var friendlist:Vector.<stRelationInfo> = new Vector.<stRelationInfo>;
+        public friendlist: Array<stRelationInfoBase> = [];
         public friendInfo: stRelationInfoBase = new stRelationInfoBase();
         public constructor(data: Laya.Byte) {
             super();
@@ -170,7 +171,7 @@ module ProtoCmd {
             this.cmd = 0x0A0A;
         }
     }
-    //删除好友返回  /成功后直接删除该成员
+    //删除好友返回  /成功后直接删除该成员------
     export class stRelationDeleteRet extends Packet {
         public static msgID: number = 0x0A0B;
         public constructor(data: Laya.Byte) {
