@@ -83,6 +83,11 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItems), this, this.initBag);
         // 背包内物品数量改变 30a
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
+        /***********************************好友相关 *********************************/
+        // 添加一个好友
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddFriend), this, this.addFriend);
+        //向添加人发出询问
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddQuery), this, this.addFriendAsk);
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
@@ -930,7 +935,40 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-
+    /*******************************************************好友信息******************************************* */
+    /**
+     * 添加一个好友信息
+     */
+    public addFriend(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationAddFriend(data);
+        let Type = msg.getValue('btType');
+        let _friend;
+        switch (Type) {
+            // 好友
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                _friend = GameApp.GameEngine.friendDB;
+                break;
+            // 黑名单
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                _friend = GameApp.GameEngine.blackDB;
+                break;
+            // 仇人
+            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                _friend = GameApp.GameEngine.chouRenDB;
+                break;
+            default:
+                throw new Error('好友类型不对');
+        }
+    }
+    /**
+    * 向添加人发出询问
+    */
+    public addFriendAsk(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationAddQuery(data);
+         let asks = new view.dialog.FriendNearbyDialog();
+        
+        
+    }
 
     /*******************************************************行会信息******************************************* */
     /**
@@ -993,5 +1031,6 @@ class ServerListener extends SingletonClass {
     public clientSetData(data: any): void {
 
     }
+
 }
 

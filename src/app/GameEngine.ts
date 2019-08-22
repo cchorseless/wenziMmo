@@ -56,6 +56,11 @@ class GameEngine extends SingletonClass {
     public equipDBIndex = {};//装备背包位置索引，用于判定该位置是否有装备{bindex:i64id}
     public bagItemDB = {};//物品背包
     public cangKuDB = {};//仓库背包
+    // ****************好友*****************
+    public friendDB = {};//好友
+    public blackDB = {};//黑名单
+    public chouRenDB = {};//仇人
+    
     private mapId: number;
     private mapGroupKey: string;
     public isReady: boolean = false;

@@ -3,7 +3,7 @@ module ProtoCmd {
     //请求关系列表
     export class stRelationGetList extends Packet {
         public static msgID: number = 0x0A01;
-        public cbPacket = stRelationGetListRet
+        public cbPacket = stRelationGetListRet;
         public constructor() {
             super();
             this.addProperty('btType', PacketBase.TYPE_INT);//0好1黑2仇3所有
@@ -58,15 +58,17 @@ module ProtoCmd {
     }
 
     //添加好友
+    // 0x0A03
     export class stRelationAdd extends Packet {
         public static msgID: number = 0x0A03;
+        public cbPacket = stRelationAddRet;
         public static TYPE_FRIEND: number = 0;
         public static TYPE_BLACK: number = 1;
         public static TYPE_ENEMY: number = 2;
 
         public constructor() {
             super();
-            this.addProperty('btType', PacketBase.TYPE_INT);// //添加的类型 emListType
+            this.addProperty('btType', PacketBase.TYPE_INT);// //添加的类型 0 好友 1黑名单 2仇人
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.cmd = 0x0A03;
         }
@@ -130,10 +132,10 @@ module ProtoCmd {
 
     }
 
-    //列表增加了一个成员
+    //列表增加了一个成员----------
     export class stRelationAddFriend extends Packet {
         public static msgID: number = 0x0A08;
-        //		public var friendlist:Vector.<stRelationInfo> = new Vector.<stRelationInfo>;
+        public friendlist: Array<stRelationInfoBase> = [];
         public friendInfo: stRelationInfoBase = new stRelationInfoBase();
         public constructor(data: Laya.Byte) {
             super();
@@ -169,7 +171,7 @@ module ProtoCmd {
             this.cmd = 0x0A0A;
         }
     }
-    //删除好友返回  /成功后直接删除该成员
+    //删除好友返回  /成功后直接删除该成员------
     export class stRelationDeleteRet extends Packet {
         public static msgID: number = 0x0A0B;
         public constructor(data: Laya.Byte) {

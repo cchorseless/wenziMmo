@@ -62,13 +62,13 @@ module view.guild {
 			this.box_guildBuff.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.GuildBuffDialog().popup(true);
 			})
-			//帮会扮相物品奖励
+			//帮会宝箱物品奖励
 			this.img_baoxiang00.on(Laya.Event.MOUSE_DOWN, this, () => {
 				new view.dialog.GuildBaoxiangDialog().show();
 			})
 		}
 
-		public initUI(): void {
+		public initUI(): void {   
 			// 行会信息
 			let pkt = new ProtoCmd.stGlobalGuildCurGuildInfo();
 			pkt.setValue('dwGuildId', this.bp_id);
