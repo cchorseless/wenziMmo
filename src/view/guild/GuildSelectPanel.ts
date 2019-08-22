@@ -10,7 +10,28 @@ module view.guild {
 			this.tab_guild.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_guild.selectedIndex = index;
 			}, null, false);
+			this.img_teamEnter.clickHandler = Laya.Handler.create(this, () => {
+				if (this.img_teamEnter.selected) {
+					Laya.Tween.to(this.img_guildTFGP, { scaleY: 0 }, 500, Laya.Ease.bounceOut);
 
+				}
+				else {
+					Laya.Tween.to(this.img_guildTFGP, { scaleY: 1 }, 500, Laya.Ease.bounceOut);
+				}
+			}, null, false);
+			// 是否只显示满足条件帮会
+			this.check_01.clickHandler = Laya.Handler.create(this, () => {
+				for (let _child of this.vbox_guild._childs) {
+					let player = GameApp.MainPlayer;
+					if (this.check_01.selected) {
+						let canJoin = player.level >= (_child as view.compart.GuildItem).item.dwJoinNeedLvl && player.zslevel >= (_child as view.compart.GuildItem).item.zsLevel;
+						_child.scaleY = canJoin ? 1 : 0;
+					}
+					else {
+						_child.scaleY = 1;
+					}
+				}
+			}, null, false);
 			this.updateBpListUI();
 			this.updateCreateUI();
 			this.addEvent();
@@ -34,15 +55,7 @@ module view.guild {
 			this.box_guildF.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFriendPanel();
 			})
-			this.img_teamEnter.clickHandler = Laya.Handler.create(this, () => {
-				if (this.img_teamEnter.selected) {
-					Laya.Tween.to(this.img_guildTFGP, { scaleY: 0 }, 500, Laya.Ease.bounceOut);
 
-				}
-				else {
-					Laya.Tween.to(this.img_guildTFGP, { scaleY: 1 }, 500, Laya.Ease.bounceOut);
-				}
-			}, null, false);
 		}
 
 		// public showTFGP(isShow: boolean): void {
@@ -62,6 +75,7 @@ module view.guild {
 			// 检查背包内 沃玛号角
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.BP_getHaoJaoInfo, null, this, (msgid, data: { binding: number, index: number, num: number, yuanbao: number }) => {
+				console.log(msgid, data);
 				let needItemID = data.index;
 				let needCount = GameUtil.findItemInBag(needItemID, GameApp.GameEngine.bagItemDB);
 				if (needCount < data.num) {
@@ -147,6 +161,7 @@ module view.guild {
 				this.btn_createItemBuy.disabled = false;
 				return
 			}
+
 			if (!bangPaiKouHao) {
 				TipsManage.showTips('请输入帮派口号');
 				this.btn_createItemBuy.disabled = false;
@@ -160,16 +175,20 @@ module view.guild {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt1 = new ProtoCmd.stCreatGlobalGuildRet(data);
 				let dwGuildId = cbpkt1.getValue('dwGuildId');// 行会ID
-				let errorcode = cbpkt1.getValue('errorcode');
-				// 创建成功
-				if (errorcode == 0) {
-					PanelManage.openGuildTeamPanel(dwGuildId);
+				let errorcode: EnumData.emGuildDonateErrorCode = cbpkt1.getValue('errorcode');
+
+				switch (errorcode) {
+					// 创建成功
+					case 0:
+						PanelManage.openGuildTeamPanel(dwGuildId);
+						break;
+					// 创建失败
+					default:
+						TipsManage.showTips('帮派名称重复');
+						this.btn_createItemBuy.disabled = false;
+						break;
 				}
-				// 创建失败
-				else {
-					TipsManage.showTips('帮派名称重复');
-					this.btn_createItemBuy.disabled = false;
-				}
+
 				cbpkt1.clear();
 				cbpkt1 = null;
 			})

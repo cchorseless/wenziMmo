@@ -30,7 +30,7 @@ module ProtoCmd {
             this.addProperty("posx", PacketBase.TYPE_INT);//点击坐标
             this.addProperty("posy", PacketBase.TYPE_INT);
             this.addProperty('nSize', PacketBase.TYPE_INT);
-            this.cmd = QuestClientData.msgID;
+            this.cmd = 0x091A;
         }
 
         /**

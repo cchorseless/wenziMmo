@@ -3,6 +3,7 @@ module view.compart {
 	export class GuildMemberItem extends ui.compart.GuildMemberItemUI {
 		constructor() {
 			super();
+			this.name = 'GuildMemberItem';
 		}
 		public item: ProtoCmd.AliaMemberInfoBase;
 		public setData(item: ProtoCmd.AliaMemberInfoBase, zhiWei: string) {
@@ -25,6 +26,11 @@ module view.compart {
 			}
 		}
 
-
+		/**
+		 * 更新自己的职位
+		 * @param szAliaName 
+		 */
+		public updateszAliaName(szAliaName) {
+		}
 	}
 }

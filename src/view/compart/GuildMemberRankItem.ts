@@ -3,6 +3,7 @@ module view.compart {
 	export class GuildMemberRankItem extends ui.compart.GuildMemberRankItemUI {
 		constructor() {
 			super();
+			this.name = 'GuildMemberRankItem';
 		}
 		public item: ProtoCmd.stSingleGuildMemberInfoBase;
 		public setData(item: ProtoCmd.stSingleGuildMemberInfoBase, index: number): void {
@@ -38,6 +39,16 @@ module view.compart {
 			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.GuildManageMemberDialog().setData(this, this.lbl_zhiWei.text).popup(true);
 			});
+		}
+		/**
+		 * 更新自己的职位
+		 * @param dwPowerLvl 
+		 */
+		public updateszAliaName(dwPowerLvl: EnumData.emGuildMemberPowerLvl) {
+			let szAliaName = ['帮会成员', '长老', '副帮主', '帮主', '精英', '大将'][dwPowerLvl];
+			this.item.szAliaName = szAliaName;
+			// 职位
+			this.lbl_zhiWei.text = '' + szAliaName;
 		}
 
 	}

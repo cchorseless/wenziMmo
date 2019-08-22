@@ -87,8 +87,8 @@ module view.guild {
 				this.lbl_guildExp.text = '' + singleGuildinfo.dwCurExp + '/' + singleGuildinfo.dwLevelUpExp;
 				// 帮主名字
 				this.lbl_masterName.text = '' + singleGuildinfo.masterName;
-				// 帮主职业
-				this.lbl_masterJob.text = ['战士', '法师', '道士'][singleGuildinfo.btMasterJob]
+				// 行会等级排名
+				this.lbl_guildRank.text = '' + singleGuildinfo.dwRank;
 				// 行会人数上限
 				let countRoof = singleGuildinfo.dwMaxPlayerCount;
 				// 行会当前人员数量
@@ -98,11 +98,49 @@ module view.guild {
 				this.lbl_bpNotice.text = '' + singleGuildinfo.szNotice;
 				// 招賢公告
 				this.lbl_wantedNotice.text = '' + singleGuildinfo.szJoinNotice;
+				// 会长名字
+				this.lbl_masterName.text = '' + singleGuildinfo.masterName;
+				this.lbl_mastername.text = '' + singleGuildinfo.masterName;
 				cbpkt.clear();
 				cbpkt = null;
+				// 更新行会会长信息
+				// 行会内会长的信息
+				let pkt2 = new ProtoCmd.stGlobalGuildSelfInfo();
+				pkt2.setValue('szName', this.lbl_masterName.text);
+				lcp.send(pkt2, this, (data) => {
+					let cbpkt2 = new ProtoCmd.stGlobalGuildSelfInfoRet(data);
+					let stPlayerInfo = cbpkt2.stPlayerInfo;
+					// 更新UI
+					// 会长等级
+					let lvdes = '' + stPlayerInfo.dwLevel;
+					if (stPlayerInfo.zsLevel > 0) {
+						lvdes = '' + stPlayerInfo.zsLevel + '转' + lvdes;
+					}
+					this.lbl_masterLv.text = lvdes;
+					// 会长贡献
+					this.lbl_masterGongXian.text = '' + stPlayerInfo.dwGuildDedication;
+					// 会长VIP等级
+					this.lbl_vipLv.text = 'VIP.' + stPlayerInfo.vipLevel;
+					// 会长战力
+					this.lbl_fight.text = '' + stPlayerInfo.dwFightNum;
+					// 会长状态
+					this.lbl_materState.text = stPlayerInfo.boOnline ? '在线' : '离线';
+					// todo 等级排行
+					// TODO 战力排行
+					cbpkt2.clear();
+					cbpkt2 = null;
+				})
 			});
+
+		}
+
+		/**
+		 * 更新行会自己的信息
+		 */
+		public updateSelfInfo(): void {
 			// 行会内自己的信息
 			let pkt1 = new ProtoCmd.stGlobalGuildSelfInfo();
+			pkt1.setValue('szName', GameApp.MainPlayer.objName);
 			lcp.send(pkt1, this, (data) => {
 				let cbpkt1 = new ProtoCmd.stGlobalGuildSelfInfoRet(data);
 				let stPlayerInfo = cbpkt1.stPlayerInfo;
@@ -120,15 +158,13 @@ module view.guild {
 				guildInfo.playerszAliaName = stPlayerInfo.szAliaName;
 				// 更新UI
 				// 行会职位
-				this.lbl_zhiWei.text = ['成员', '长老', '副帮主', '帮主', '精英', '大将'][stPlayerInfo.dwGuildPowerLvl];
+				this.lbl_zhiWei.text = ['帮会成员', '长老', '副帮主', '帮主', '精英', '大将'][stPlayerInfo.dwGuildPowerLvl];
 				// 行会贡献
 				this.lbl_gongXian.text = '' + stPlayerInfo.dwGuildDedication;
 				cbpkt1.clear();
 				cbpkt1 = null;
 			})
-
 		}
-
 
 	}
 }

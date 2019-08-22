@@ -45,6 +45,7 @@ module EnumData {
         JYH_BUY_ITEM = 1,//交易行购买物品
         BP_BUY_CREATEITEM = 2,//帮派购买物品
         BP_QUIT_MEMBER = 3,//帮派驱逐成员
+        BP_CHANGE_ZHIWEI = 4,//帮派改变成员职位
     }
 
     /**

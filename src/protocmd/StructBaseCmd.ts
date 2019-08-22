@@ -1772,7 +1772,7 @@ module ProtoCmd {
         /**
          * 幫主名字
          */
-        public get masterName():string{
+        public get masterName(): string {
             return this.szAllMasters.split(',')[0]
         }
 
@@ -1829,6 +1829,8 @@ module ProtoCmd {
             this.addProperty("btTxBlueLevel", PacketBase.TYPE_BYTE);//蓝钻等级
             this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
+            this.addProperty("zsLevel", PacketBase.TYPE_DWORD);//转生等级
+            this.addProperty("vipLevel", PacketBase.TYPE_DWORD);//VIP等级
             if (data) {
                 data.pos += this.read(data);
             }
@@ -1870,6 +1872,10 @@ module ProtoCmd {
         public get szAliaName(): string {
             return this.getValue('szAliaName');
         }
+        public set szAliaName(v: string) {
+            this.setValue('szAliaName', v);
+        }
+
         /**
          * 每日贡献
          */
@@ -1897,9 +1903,22 @@ module ProtoCmd {
         /**
          * 是否在线
          */
-        public get boOnline(): number {
+        public get boOnline(): boolean {
             return this.getValue('boOnline');
         }
+        /**
+         * 转生等级
+         */
+        public get zsLevel(): number {
+            return this.getValue('zsLevel');
+        }
+        /**
+         * VIP等级
+         */
+        public get vipLevel(): number {
+            return this.getValue('vipLevel');
+        }
+
 
 
     }
