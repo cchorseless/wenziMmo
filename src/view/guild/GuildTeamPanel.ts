@@ -63,12 +63,18 @@ module view.guild {
 				new view.dialog.GuildBuffDialog().popup(true);
 			})
 			//帮会宝箱物品奖励
-			this.img_baoxiang00.on(Laya.Event.MOUSE_DOWN, this, () => {
-				new view.dialog.GuildBaoxiangDialog().show();
-			})
+			// for (let i = 0; i < 4; i++) {
+			// 	this['btn_baoxiang' + i].on(Laya.Event.MOUSE_DOWN, this, () => {
+
+			// 		new view.dialog.GuildBaoxiangDialog().show();
+			// 	});
+			// 	this['btn_baoxiang' + i].on(Laya.Event.MOUSE_UP, this, () => {
+			// 		Laya.Dialog.closeByGroup('GuildBaoxiangDialog');
+			// 	});
+			// }
 		}
 
-		public initUI(): void {   
+		public initUI(): void {
 			// 行会信息
 			let pkt = new ProtoCmd.stGlobalGuildCurGuildInfo();
 			pkt.setValue('dwGuildId', this.bp_id);
