@@ -88,6 +88,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddFriend), this, this.addFriend);
         //向添加人发出询问
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddQuery), this, this.addFriendAsk);
+        // 回答关系添加结果(only 好友)
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddAnswerQuery), this, this.addFriendAskResult);
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
@@ -965,11 +967,21 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-         let asks = new view.dialog.FriendNearbyDialog();
-        
-        
+        let asks = new view.dialog.FriendCheckDialog();
+        asks.setData(msg.getValue('szName'), msg.getValue('dwLevel')).popup(true);
     }
-
+    /**
+      * 回答关系添加结果(only 好友)
+      */
+    public addFriendAskResult(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationAddAnswerQuery(data);
+        if (msg.getValue('boAgree')) {
+            TipsManage.showTips('你成功添加' + msg.getValue('szName'));
+        }
+        else {
+            TipsManage.showTips('添加失败');
+        }
+    }
     /*******************************************************行会信息******************************************* */
     /**
      * 同步行会信息
@@ -1012,7 +1024,7 @@ class ServerListener extends SingletonClass {
         let strArr = msg.str.split('`');
         if (strArr.length != 4) {
             console.log('=====>', strArr)
-            throw new Error("questServerDataRet" + '长度错误');
+            // throw new Error("questServerDataRet" + '长度错误');
         }
         let infoType = strArr[0];// 大类标识
         let funcName = strArr[1];// 调用的函数名称

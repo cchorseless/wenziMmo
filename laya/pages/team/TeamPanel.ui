@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":25,
-    "selecteID":200,
+    "selectedBox":214,
+    "selecteID":70,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -327,20 +327,20 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":12,"x":0,"width":640,"name":"item0","height":686},
+                    "props":{"y":10,"x":22,"name":"item0"},
                     "nodeParent":6,
                     "label":"Box(item0)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":25,
+                    "compId":214,
                     "child":[
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":42,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":557},
-                            "nodeParent":25,
+                            "props":{"y":44,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":557},
+                            "nodeParent":214,
                             "label":"Image",
                             "isOpen":true,
                             "isDirectory":false,
@@ -354,9 +354,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":607,"x":176,"width":93,"stateNum":"1","skin":"image/main/btn_common_01up.png","labelSize":24,"labelPadding":"-6,3,3,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"创建\\n队伍","height":93},
-                            "nodeParent":25,
-                            "label":"Button",
+                            "props":{"y":609,"x":154,"width":93,"var":"btn_buildTeam","stateNum":"1","skin":"image/main/btn_common_01up.png","labelSize":24,"labelPadding":"-6,3,3,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"创建\\n队伍","height":93},
+                            "nodeParent":214,
+                            "label":"Button(btn_buildTeam)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -367,9 +367,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":607,"x":370,"width":93,"stateNum":"1","skin":"image/main/btn_common_01up.png","labelSize":24,"labelPadding":"-6,3,3,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"离开\\n队伍","height":93},
-                            "nodeParent":25,
-                            "label":"Button",
+                            "props":{"y":609,"x":348,"width":93,"var":"btn_outTeam","stateNum":"1","skin":"image/main/btn_common_01up.png","labelSize":24,"labelPadding":"-6,3,3,0","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"离开\\n队伍","height":93},
+                            "nodeParent":214,
+                            "label":"Button(btn_outTeam)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -380,15 +380,17 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":52,"x":25,"var":"vbox_team00"},
-                            "nodeParent":25,
+                            "props":{"y":51,"x":4,"var":"vbox_team00"},
+                            "nodeParent":214,
                             "label":"VBox(vbox_team00)",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":200,
+                            "compId":213,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
@@ -416,7 +418,7 @@
                             "compId":26,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
                             "x":45,
@@ -442,9 +444,10 @@
                                     "compId":147,
                                     "child":[
                                         ]
-                                }]
+                                }],
+                            "$HIDDEN":true
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -504,7 +507,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":977,"x":62,"width":515,"var":"tab_team","stateNum":2,"space":60,"skin":"image/common/fram_common_09_finish.png","selectedIndex":0,"scaleY":0.8,"labels":"我的队伍,附近队伍,附近的人","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","height":78,"direction":"horizontal"},
+            "props":{"y":977,"x":62,"width":515,"var":"tab_team","stateNum":2,"space":60,"skin":"image/common/fram_common_09_finish.png","selectedIndex":1,"scaleY":0.8,"labels":"我的队伍,附近队伍,附近的人","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","height":78,"direction":"horizontal"},
             "nodeParent":1,
             "label":"Tab(tab_team)",
             "isDirectory":false,

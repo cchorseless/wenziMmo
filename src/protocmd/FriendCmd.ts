@@ -127,7 +127,9 @@ module ProtoCmd {
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
             this.addProperty('boAgree', PacketBase.TYPE_BOOL); //是否同意
             this.cmd = 0x0A06;
-            this.read(data);
+            if(data){
+                  data.pos += this.read(data);
+            }
         }
 
     }
