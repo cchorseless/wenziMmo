@@ -148,7 +148,7 @@ module view.main {
 			});
 			// 换头像界面
 			this.box_head.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.HeadMainDialog().popup(true);
+				new view.dialog.MainChangeDialog().popup(true);
 			});
 			// 地图展开界面
 			this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
