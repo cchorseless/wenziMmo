@@ -72,6 +72,11 @@ module view.dialog {
 						let _dialog: view.dialog.GuildManageMemberDialog = Laya.Dialog.getDialogsByGroup('GuildManageMemberDialog')[0]
 						_dialog.quitMemberCB();
 						break;
+					// 公会界面改变职位
+					case EnumData.SureCanelModel.BP_CHANGE_ZHIWEI:
+						let _dialog1: view.dialog.GuildManageMemberDialog = Laya.Dialog.getDialogsByGroup('GuildManageMemberDialog')[0]
+						_dialog1.changeZhiWeiCB(this.extData);
+						break;
 				}
 
 			}

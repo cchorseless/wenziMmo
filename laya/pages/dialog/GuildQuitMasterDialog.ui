@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":19,
+    "selectedBox":16,
+    "selecteID":13,
     "props":{"width":492,"sceneColor":"#000000","height":444},
     "nodeParent":-1,
     "label":"Dialog",
@@ -33,7 +33,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":15,
+                    "compId":3,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -48,18 +48,18 @@
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":9,
+                    "compId":4,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":5,"x":78,"width":102,"valign":"bottom","text":"成员管理","height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":9,
+                            "props":{"y":5,"x":78,"width":102,"valign":"bottom","text":"弹劾帮主","height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                            "nodeParent":4,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":10,
+                            "compId":5,
                             "child":[
                                 ]
                         }],
@@ -74,7 +74,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":8,
+                    "compId":6,
                     "child":[
                         ]
                 },
@@ -87,7 +87,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":16,
+                    "compId":7,
                     "child":[
                         ]
                 },
@@ -100,7 +100,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":8,
                     "child":[
                         ]
                 },
@@ -110,22 +110,21 @@
                     "props":{"y":46,"x":49,"width":81,"skin":"image/common/daoju/fram_common_npc.png","height":79},
                     "nodeParent":2,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":17,
+                    "compId":9,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":16,"skin":"image/common/img_NPC_Zhangjingchao.png"},
-                            "nodeParent":17,
+                            "nodeParent":9,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":18,
+                            "compId":10,
                             "child":[
                                 ]
                         }]
@@ -139,7 +138,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":25,
+                    "compId":11,
                     "child":[
                         ]
                 },
@@ -152,49 +151,62 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":26,
+                    "compId":12,
                     "child":[
                         ]
                 }]
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":227,"x":119,"width":260,"var":"btn_sendMail","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"寄邮件","height":46},
+            "type":"Label",
+            "props":{"y":151,"x":203,"width":93,"text":"弹劾理由","strokeColor":"#000000","stroke":1,"height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#D2691E"},
             "nodeParent":1,
-            "label":"Button(btn_sendMail)",
+            "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":21,
+            "compId":14,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":287,"x":120,"width":260,"var":"btn_changeZhiWei","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"更改职位","height":46},
+            "props":{"y":379,"x":165,"width":149,"var":"btn_sure","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"确定弹劾","height":41},
             "nodeParent":1,
-            "label":"Button(btn_changeZhiWei)",
+            "label":"Button(btn_sure)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":22,
+            "compId":15,
             "child":[
                 ]
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":347,"x":120,"width":260,"var":"btn_quitMember","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"逐出帮派","height":46},
+            "type":"Image",
+            "props":{"y":185,"x":40,"width":428,"skin":"image/common/fram_common_35.png","sizeGrid":"36,45,53,50","height":188},
             "nodeParent":1,
-            "label":"Button(btn_quitMember)",
-            "isDirectory":false,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
+            "hasChild":true,
+            "compId":16,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"TextArea",
+                    "props":{"y":11,"x":23,"wordWrap":true,"width":381,"var":"txt_context","sizeGrid":"48,75,51,77","promptColor":"#000000","prompt":"请输入弹劾理由：","height":166,"fontSize":18,"font":"Microsoft YaHei"},
+                    "nodeParent":16,
+                    "label":"TextArea(txt_context)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":13,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

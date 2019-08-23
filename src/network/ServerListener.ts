@@ -1008,20 +1008,20 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public questServerDataRet(data: any): void {
-        // let msg = new ProtoCmd.QuestServerDataRet(data);
-        // let strArr = msg.str.split('`');
-        // if (strArr.length != 4) {
-        //     console.log('=====>', strArr)
-        //     throw new Error("questServerDataRet" + '长度错误');
-        // }
-        // let infoType = strArr[0];// 大类标识
-        // let funcName = strArr[1];// 调用的函数名称
-        // let msgID = strArr[2];// 函数内小协议包
-        // let jsonData = JSON.parse(strArr[3]);// json数据
-        // // 抛出事件
-        // GameApp.LListener.event(funcName, [msgID, jsonData]);
-        // msg.clear();
-        // msg = null;
+        let msg = new ProtoCmd.QuestServerDataRet(data);
+        let strArr = msg.str.split('`');
+        if (strArr.length != 4) {
+            console.log('=====>', strArr)
+            throw new Error("questServerDataRet" + '长度错误');
+        }
+        let infoType = strArr[0];// 大类标识
+        let funcName = strArr[1];// 调用的函数名称
+        let msgID = strArr[2];// 函数内小协议包
+        let jsonData = JSON.parse(strArr[3]);// json数据
+        // 抛出事件
+        GameApp.LListener.event(funcName, [msgID, jsonData]);
+        msg.clear();
+        msg = null;
     }
 
     /**

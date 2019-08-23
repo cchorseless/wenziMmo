@@ -23,7 +23,7 @@ module view.guild {
 				this['btn_' + i].on(Laya.UIEvent.CLICK, this, this.getMemberInfo, [i]);
 			}
 		}
-		
+
 		public initUI(): void {
 			// 获取称号列表和人数
 			let pkt1 = new ProtoCmd.stGlobalGuildGetAlia();
@@ -35,7 +35,6 @@ module view.guild {
 				let memberInfo = { '帮主': 0, '副帮主': 1, '长老': 2, '大将': 3, '精英': 4, '帮会成员': 5 };
 				for (let _data of _strList) {
 					let _dataList = _data.split(':');
-					console.log(_dataList);
 					if (_dataList[0]) { this['lbl_' + memberInfo[_dataList[0]]].text = '' + _dataList[1] }
 				}
 				cbpkt1.clear();
@@ -75,6 +74,17 @@ module view.guild {
 					vbox.getChildAt(j)['scaleY'] = btn.selected ? 1 : 0;
 				}
 			}
+		}
+
+		/**
+		 * 刷新UI
+		 */
+		public updateUI(): void {
+			for (let i = 0; i < 6; i++) {
+				this['btn_' + i].selected = false;
+				(this['vbox_' + i] as Laya.VBox).removeChildByName('GuildMemberItem');
+			}
+			this.initUI();
 		}
 	}
 }

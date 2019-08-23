@@ -6,7 +6,8 @@ module view.dialog {
 			this.addEvent();
 		}
 		public setData(data): GuildOutDialog {
-
+			this.lbl_gongXian.text = '';
+			this.lbl_guildLv.text = '';
 			return this;
 		}
 		public addEvent(): void {
@@ -19,6 +20,8 @@ module view.dialog {
 				pkt.setValue('szName', GameApp.MainPlayer.objName);
 				pkt.setValue('szMasterName', GameApp.MainPlayer.guildInfo.masterName);
 				lcp.send(pkt);
+				this.close();
+				PanelManage.openMainPanel()
 			})
 		}
 	}

@@ -383,7 +383,7 @@ module ProtoCmd {
 	export class stGlobalGuildBeginBanMaster extends Packet {
 		public static msgID: number = 0x2A33;
 		public cbPacket = stGlobalGuildBeginBanMasterRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("btType", PacketBase.TYPE_BYTE);//0弹劾会长，1取消弹劾
 			this.addProperty("szDesc", PacketBase.TYPE_STRING, 512);
@@ -863,19 +863,20 @@ module ProtoCmd {
 
 
 	// 0x2A2E
-	/**行会中自己的信息*/
+	/**查询中成员的信息*/
 	export class stGlobalGuildSelfInfo extends Packet {
 		public static msgID: number = 0x2A2E;
 		public cbPacket = stGlobalGuildSelfInfoRet;
 		public constructor(data: Laya.Byte = null) {
 			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A2E;
 		}
 	}
 
 
 	// 0x2A2F
-	/**行会中自己的信息返回*/
+	/**查询中成员的信息返回*/
 	export class stGlobalGuildSelfInfoRet extends Packet {
 		public static msgID: number = 0x2A2F;
 		public stPlayerInfo: stSingleGuildMemberInfoBase;
@@ -1095,7 +1096,7 @@ module ProtoCmd {
 
 	// 0x2A2D
 	/**
-	 * 行会聊天频道禁言
+	 * 沙巴克禁言，如果是沙巴克城主，可以禁 所有人的发言，每次禁止2小时
 	 * */
 	export class stSabacMasterBlanUser extends Packet {
 		public static msgID: number = 0x2A2D;

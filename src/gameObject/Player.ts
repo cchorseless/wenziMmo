@@ -7,7 +7,7 @@ module GameObject {
         public job: EnumData.JOB_TYPE;
         public sex: EnumData.SEX_TYPE;
         public createTime;// 角色创建时间
-        public zslevel: number;//转生等级
+        public zslevel: number = 0;//转生等级
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         private _allPlayer = {};//所有的玩家

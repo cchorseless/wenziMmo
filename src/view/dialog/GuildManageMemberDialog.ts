@@ -7,18 +7,19 @@ module view.dialog {
 		}
 
 		public ui_GuildMemberItem: view.compart.GuildMemberItem | view.compart.GuildMemberRankItem;
+		public zhiWei: string;
 		public setData(ui: view.compart.GuildMemberItem | view.compart.GuildMemberRankItem, zhiWei: string): GuildManageMemberDialog {
 			// 这里关联一下，方便移除
 			this.ui_GuildMemberItem = ui;
+			this.zhiWei = zhiWei;
 			this.lbl_lvl.text = '' + ui.item.dwLevel;
 			this.lbl_szName.text = '' + ui.item.szName;
 			this.lbl_zhiWei.text = '' + zhiWei;
-			this.btn_touPiao.visible = (zhiWei == '帮主');
+			this.btn_changeZhiWei.label = (zhiWei == '帮主') ? '投票罢黜' : '更改职位';
 			this.addEvent();
 			return this
 		}
 		public addEvent(): void {
-			this.btn_touPiao.on(Laya.UIEvent.CLICK, this, this.touPiaoBaMian);
 			this.btn_changeZhiWei.on(Laya.UIEvent.CLICK, this, this.changeZhiWei);
 			this.btn_sendMail.on(Laya.UIEvent.CLICK, this, this.sendMail);
 			this.btn_quitMember.on(Laya.UIEvent.CLICK, this, this.quitMember);
@@ -26,17 +27,53 @@ module view.dialog {
 		}
 
 		/**
-		 * 投票罢免帮主
-		 */
-		public touPiaoBaMian(): void {
-
-		}
-
-		/**
-		 * 改变职位
+		 * 罢黜帮主 || 改变职位
 		 */
 		public changeZhiWei(): void {
+			// 投票罢免帮主
+			if (this.zhiWei == '帮主') {
+				if (GameApp.MainPlayer.checkSelfIsGuildMaster()) {
+					new view.dialog.GuildQuitMasterDialog().setData(this.ui_GuildMemberItem.item).popup(false);
+				} else {
+					TipsManage.showTips('只有副会长才有权限');
+				}
+			}
+			// 改变职位
+			else {
+				new view.dialog.GuildChangeZhiWeiDialog().setData(this.ui_GuildMemberItem.item, this.lbl_zhiWei.text).show(false);
+			}
+			//  todo 帮派主动升级
+			//  TODO 帮派扩展人数
+		}
+		/**
+		 * 改变职位的回调
+		 */
+		public changeZhiWeiCB(dwPowerLvl): void {
+			let pkt = new ProtoCmd.stGlobalGuildChangePowerLvl();
+			pkt.setValue('szName', this.lbl_szName.text);
+			pkt.setValue('dwPowerLvl', dwPowerLvl);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stGlobalGuildChangePowerLvlRet(data);
+				let dochanged = cbpkt.getValue('boChanged');
 
+				if (dochanged) {
+					TipsManage.showTips('修改成功');
+					switch (this.ui_GuildMemberItem.name) {
+						// 排行榜界面刷新自己
+						case 'GuildMemberRankItem':
+							(this.ui_GuildMemberItem as view.compart.GuildMemberRankItem).updateszAliaName(cbpkt.getValue('dwPowerLvl'));
+							break;
+						// 成员界面刷新整个界面
+						case 'GuildMemberItem':
+							PanelManage.GuildMember && PanelManage.GuildMember.updateUI();
+							break;
+					}
+					this.close();
+				}
+				else {
+					TipsManage.showTips('修改失败');
+				}
+			})
 		}
 
 		/**
@@ -50,16 +87,11 @@ module view.dialog {
 		 * 开除成员
 		 */
 		public quitMember(): void {
-			// 会长 副会长可以
-			let canDoArray = [EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_FITMASTER,
-			EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_MASTER]
-			// 职位
-			let self_zhiWei = GameApp.MainPlayer.feature.btClanMaster;
-			if (canDoArray.indexOf(self_zhiWei) == -1) {
-				TipsManage.showTips('只有会长和副会长才有权限');
+			if (GameApp.MainPlayer.checkSelfIsGuildMaster()) {
+				new view.dialog.SureOrCanelDialog().setData('你确定要驱逐该成员吗？', EnumData.SureCanelModel.BP_QUIT_MEMBER).popup(false);
 			}
 			else {
-				new view.dialog.SureOrCanelDialog().setData('你确定要驱逐该成员吗？', EnumData.SureCanelModel.BP_QUIT_MEMBER).popup(false);
+				TipsManage.showTips('只有会长和副会长才有权限');
 			}
 		}
 		/**

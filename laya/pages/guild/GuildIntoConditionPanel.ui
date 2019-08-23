@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":114,
-    "selecteID":117,
+    "selectedBox":132,
+    "selecteID":160,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -431,21 +431,22 @@
                             "props":{"y":158,"x":120,"width":451,"skin":"image/common/fram_common_26.png","sizeGrid":"21,28,23,22","height":160},
                             "nodeParent":146,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":132,
                             "child":[
                                 {
-                                    "type":"Label",
-                                    "props":{"y":24,"x":17,"wordWrap":true,"width":422,"var":"lbl_wantedText","text":"兄弟乱我兄弟者，视投名状，必杀之，天下风云出我辈，一入江湖岁月催，宏图霸业谈笑中，不似人生一场梦，提见纵马挥鬼雨，白骨如山鸟惊飞","height":114,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                                    "x":60,
+                                    "type":"TextArea",
+                                    "props":{"y":19,"x":19,"wordWrap":true,"width":417,"var":"txt_wantedText","type":"text","text":"TextArea","height":77,"fontSize":20,"font":"Microsoft YaHei","editable":false},
                                     "nodeParent":132,
-                                    "label":"Label(lbl_wantedText)",
+                                    "label":"TextArea(txt_wantedText)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":135,
+                                    "compId":160,
                                     "child":[
                                         ]
                                 }]
@@ -456,21 +457,22 @@
                             "props":{"y":-5,"x":120,"width":451,"skin":"image/common/fram_common_26.png","sizeGrid":"21,28,23,22","height":160},
                             "nodeParent":146,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":153,
                             "child":[
                                 {
-                                    "type":"Label",
-                                    "props":{"y":24,"x":17,"wordWrap":true,"width":422,"var":"lbl_noticeText","text":"兄弟乱我兄弟者，视投名状，必杀之，天下风云出我辈，一入江湖岁月催，宏图霸业谈笑中，不似人生一场梦，提见纵马挥鬼雨，白骨如山鸟惊飞","height":114,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                                    "x":60,
+                                    "type":"TextArea",
+                                    "props":{"y":19,"x":18,"wordWrap":true,"width":417,"var":"txt_noticeText","type":"text","text":"TextArea","height":79,"fontSize":20,"font":"Microsoft YaHei","editable":false},
                                     "nodeParent":153,
-                                    "label":"Label(lbl_noticeText)",
+                                    "label":"TextArea(txt_noticeText)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":154,
+                                    "compId":161,
                                     "child":[
                                         ]
                                 }]
@@ -478,29 +480,31 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":327,"x":535,"var":"btn_changeWanted","skin":"image/main/icon_writingbrush.png"},
+                    "type":"Button",
+                    "props":{"y":326,"x":494,"width":87,"var":"btn_changeWanted","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"修改","height":45},
                     "nodeParent":148,
-                    "label":"Image(btn_changeWanted)",
+                    "label":"Button(btn_changeWanted)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":138,
+                    "compId":158,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":169,"x":538,"var":"btn_changeNotice","skin":"image/main/icon_writingbrush.png"},
+                    "type":"Button",
+                    "props":{"y":162,"x":494,"width":87,"var":"btn_changeNotice","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"修改","height":45},
                     "nodeParent":148,
-                    "label":"Image(btn_changeNotice)",
+                    "label":"Button(btn_changeNotice)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":151,
+                    "compId":159,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }]
         },
         {

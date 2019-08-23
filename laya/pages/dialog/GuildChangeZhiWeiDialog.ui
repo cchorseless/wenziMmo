@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":19,
+    "selectedBox":2,
+    "selecteID":3,
     "props":{"width":492,"sceneColor":"#000000","height":444},
     "nodeParent":-1,
     "label":"Dialog",
@@ -33,7 +33,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":15,
+                    "compId":3,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -48,18 +48,18 @@
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":9,
+                    "compId":4,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":78,"width":102,"valign":"bottom","text":"成员管理","height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":9,
+                            "nodeParent":4,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":10,
+                            "compId":5,
                             "child":[
                                 ]
                         }],
@@ -74,7 +74,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":8,
+                    "compId":6,
                     "child":[
                         ]
                 },
@@ -87,7 +87,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":16,
+                    "compId":7,
                     "child":[
                         ]
                 },
@@ -100,7 +100,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":8,
                     "child":[
                         ]
                 },
@@ -114,18 +114,18 @@
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":17,
+                    "compId":9,
                     "child":[
                         {
                             "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":16,"skin":"image/common/img_NPC_Zhangjingchao.png"},
-                            "nodeParent":17,
+                            "nodeParent":9,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":18,
+                            "compId":10,
                             "child":[
                                 ]
                         }]
@@ -139,7 +139,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":25,
+                    "compId":11,
                     "child":[
                         ]
                 },
@@ -152,7 +152,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":26,
+                    "compId":12,
                     "child":[
                         ]
                 }]
@@ -160,39 +160,65 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":227,"x":119,"width":260,"var":"btn_sendMail","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"寄邮件","height":46},
+            "props":{"y":173,"x":24,"width":189,"var":"btn_2","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"改为副帮主","height":46},
             "nodeParent":1,
-            "label":"Button(btn_sendMail)",
+            "label":"Button(btn_2)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":21,
+            "compId":13,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":287,"x":120,"width":260,"var":"btn_changeZhiWei","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"更改职位","height":46},
+            "props":{"y":174,"x":265,"width":193,"var":"btn_1","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"改为长老","height":46},
             "nodeParent":1,
-            "label":"Button(btn_changeZhiWei)",
+            "label":"Button(btn_1)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":22,
+            "compId":14,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":347,"x":120,"width":260,"var":"btn_quitMember","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"逐出帮派","height":46},
+            "props":{"y":247,"x":29,"width":185,"var":"btn_5","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"改成大将","height":46},
             "nodeParent":1,
-            "label":"Button(btn_quitMember)",
+            "label":"Button(btn_5)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":23,
+            "compId":15,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":245,"x":263,"width":199,"var":"btn_4","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"改成精英","height":46},
+            "nodeParent":1,
+            "label":"Button(btn_4)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":16,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":325,"x":114,"width":246,"var":"btn_0","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"改成帮会成员","height":46},
+            "nodeParent":1,
+            "label":"Button(btn_0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
             "child":[
                 ]
         }],
