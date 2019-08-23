@@ -237,6 +237,7 @@ module ProtoCmd {
             this.cmd = 0x0A27;
         }
     }
+    
     //一键添加好友返回
     export class stAdvertiseFriendRet extends Packet {
         public static msgID: number = 0x0A2A;

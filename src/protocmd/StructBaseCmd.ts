@@ -2804,4 +2804,142 @@ module ProtoCmd {
             this.addProperty("szRecommand", PacketBase.TYPE_STRING, 256);//推荐理由
         }
     }
+
+    export class stBossStatusBase extends PacketBase
+	{
+		public constructor(data: Laya.Byte) {
+            super();
+			this.addProperty("dwID",PacketBase.TYPE_DWORD);
+			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("szMapName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
+			this.addProperty("dwNowHp",PacketBase.TYPE_DWORD);
+			this.addProperty("dwMaxHp",PacketBase.TYPE_DWORD);
+			this.addProperty("szLastKillName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+			if(data){
+				data.pos +=this.read(data);
+			}
+		}
+		
+		public  get bossId():number{
+			return this.getValue("dwID");
+		}
+		
+		public  get bossName():String{
+			return this.getValue("szName");
+		}
+		
+		public  get mapName():String{
+			return this.getValue("szMapName");
+		}
+		
+		public  get bossLvl():number{
+			return this.getValue("dwLevel");
+		}
+		
+		public  get nowHp():number{
+			return this.getValue("dwNowHp");
+		}
+		
+		public  get maxHp():number{
+			return this.getValue("dwMaxHp");
+		}
+		
+		public  get lastKillName():String{
+			return this.getValue("szLastKillName");
+		}
+		
+	}
+
+    // export class stSendSingleMemberInfoBase extends PacketBase
+	// {
+	// 	public  nMapX:number =0;
+	// 	public  nMapY:number =0;
+	// 	public  nMapID:number = 0;
+	// 	public  feature:stSimpleFeature = new stSimpleFeature();
+	// 	public constructor(data: Laya.Byte) {
+    //         super();
+	// 		this.addProperty('dwOnlyId',PacketBase.TYPE_BYTES,8);
+	// 		this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+	// 		this.addProperty('job',PacketBase.TYPE_BYTE);
+	// 		this.addProperty('lvl',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('HP',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('MaxHP',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('MP',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('MaxMP',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('map',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
+	// 		this.addProperty('Feature',PacketBase.TYPE_BYTES,this.feature.size(),this.feature);
+	// 		this.addProperty('dwShenJia',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('dwFaBao',PacketBase.TYPE_DWORD);
+	// 		this.addProperty('nFightScore',PacketBase.TYPE_INT);
+	// 		this.addProperty('dwWeaponShineID',PacketBase.TYPE_INT);
+	// 		this.addProperty('nZhanGong',PacketBase.TYPE_INT);
+	// 		this.addProperty('btPlatForm',PacketBase.TYPE_BYTE);//平台类型
+	// 		this.addProperty('btTxYellowType',PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+	// 		this.addProperty('btTxYellowLevel',PacketBase.TYPE_BYTE);//黄钻等级
+	// 		this.addProperty('btLevel3366',PacketBase.TYPE_BYTE);	//3366等级
+	// 		this.addProperty('btTxBlueType',PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+	// 		this.addProperty('btTxBlueLevel',PacketBase.TYPE_BYTE);//蓝钻等级
+	// 		this.addProperty('btTxQQVipType',PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+	// 		this.addProperty('btTxQQVipLevel',PacketBase.TYPE_BYTE);//QQ会员等级
+	// 		this.addProperty('btSex',PacketBase.TYPE_BYTE);
+	// 		this.read(data);
+	// 	}
+	// 	 public  read(data:Laya.Byte):number
+	// 	{
+	// 		data.pos += super.read(data);
+	// 		return data.pos;
+	// 	}
+	// 	public  get szName():String
+	// 	{
+	// 		return this.getValue('szName');
+	// 	}
+	// 	public  get job():number
+	// 	{
+	// 		return this.getValue('job');
+	// 	}
+	// 	public  get lvl():number
+	// 	{
+	// 		return this.getValue('lvl');
+	// 	}
+	// 	public  get HP():number
+	// 	{
+	// 		return this.getValue('HP');
+	// 	}
+	// 	public  get MaxHP():number
+	// 	{
+	// 		return this.getValue('MaxHP');
+	// 	}
+	// 	public  get MP():number
+	// 	{
+	// 		return this.getValue('MP');
+	// 	}
+	// 	public  get MaxMP():number
+	// 	{
+	// 		return this.getValue('MaxMP');
+	// 	}
+	// 	public  get map():String
+	// 	{
+	// 		return this.getValue('map');
+	// 	}
+
+	// 	public  set map(value:String):void
+	// 	{
+	// 		this.setValue('map',value);
+	// 	}
+
+	// 	public  get fabao():number
+	// 	{
+	// 		return this.getValue('dwFaBao');
+	// 	}
+
+
+	// 	public  get onlyid():number
+	// 	{
+	// 		var dwOnlyID:number = BaseFunctions.Int64toLoDword(this.getValue("dwOnlyId"));
+	// 		return dwOnlyID;
+	// 	}
+
+	// }
 }
