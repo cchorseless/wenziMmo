@@ -979,8 +979,7 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-        let asks = new view.dialog.FriendNearbyDialog();
-
+        // let asks = new view.dialog.FriendNearbyDialog();
         let asks = new view.dialog.FriendCheckDialog();
         asks.setData(msg.getValue('szName'), msg.getValue('dwLevel')).popup(true);
     }
