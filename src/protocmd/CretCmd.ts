@@ -351,6 +351,19 @@ module ProtoCmd {
         }
     }
 
+    /** 0x025B
+     * 更新玩家行会贡献
+     */
+    export class AvatarguildJiFenDecoder extends Packet {
+        public static msgID: number = 0x025B;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwJiFen', PacketBase.TYPE_INT);	// 当前工会积分
+            this.addProperty('nChanged', PacketBase.TYPE_INT);	// 增加或者减少
+            this.read(data);
+        }
+    }
+
     /**
      * 初始化玩家属性包
      */
@@ -547,7 +560,7 @@ module ProtoCmd {
     // 更新玩家的feature
     export class PlayerIconDecoder extends Packet {
         public static msgID: number = 0x0229;
-         public _instance: PlayerIconDecoder;
+        public _instance: PlayerIconDecoder;
         private propLength = {
             "1": 1,
             "2": 15,
@@ -579,7 +592,7 @@ module ProtoCmd {
             }
             return Class._instance;
         }
-        
+
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             data.endian = Laya.Byte.LITTLE_ENDIAN;

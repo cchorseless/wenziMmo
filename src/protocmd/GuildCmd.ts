@@ -218,9 +218,9 @@ module ProtoCmd {
 	export class stGloalClientGuildEvent extends Packet {
 		public static msgID: number = 0x2A4B;
 		public cbPacket = stGloalClientGuildEventRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("btType", PacketBase.TYPE_BYTE); // 0 普通行会事件 1 捐献事件
 			this.addProperty("i64OnlyId", PacketBase.TYPE_INT64);
 			this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
 			this.cmd = 0x2A4B;
@@ -625,7 +625,6 @@ module ProtoCmd {
 		public cbPacket = stGlobalGuildGetDiplomacyListRet;
 		public constructor(data: Laya.Byte) {
 			super();
-
 			this.addProperty("btType", PacketBase.TYPE_BYTE);
 			this.cmd = 0x2A1D;
 			if (data) {
@@ -642,7 +641,6 @@ module ProtoCmd {
 		public stZeroArray: Array<DiplomacyGuildBase> = [];
 		public constructor(data: Laya.Byte) {
 			super();
-
 			this.addProperty("btType", PacketBase.TYPE_BYTE);
 			this.addProperty("nCount", PacketBase.TYPE_INT);
 			if (data) {
@@ -659,8 +657,8 @@ module ProtoCmd {
 	}
 
 	/**0x2A24
-			 * 获取外交关系行会数
-			 * */
+	 * 获取外交关系行会数
+	 * */
 	export class stGlobalGuildGetDiplomacyTypeNum extends Packet {
 		public static msgID: number = 0x2A24;
 		public cbPacket = stGlobalGuildGetDiplomacyTypeNumRet;
@@ -808,7 +806,6 @@ module ProtoCmd {
 			if (data) {
 				data.pos += this.read(data);
 			}
-			console.log('=========stGlobalGuildMemberListRet==========', this.getValue('curPage'));
 		}
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
@@ -898,7 +895,7 @@ module ProtoCmd {
 	export class stGlobalGuildVoteBanMaster extends Packet {
 		public static msgID: number = 0x2A35;
 		public cbPacket = stGlobalGuildVoteBanMasterRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("btVote", PacketBase.TYPE_BYTE);	//投票，1同意，0不同意
 			this.cmd = 0x2A35;
@@ -920,7 +917,7 @@ module ProtoCmd {
 	// 0x2A37
 	//通知会员已经发起了废除会长
 	export class stGlobalGuildVoteBanMasterNotice extends Packet {
-		public static msg: number = 0x2A37;
+		public static msgID: number = 0x2A37;
 		public stZeroArray: Array<stVoterBase> = [];
 		public constructor(data: Laya.Byte) {
 			super();
@@ -962,7 +959,8 @@ module ProtoCmd {
 	//投票情况查看
 	export class stGlobalGuildVoteBanMasterView extends Packet {
 		public static msgID: number = 0x2A38;
-		public constructor(data: Laya.Byte) {
+		public cbPacket = stGlobalGuildVoteBanMasterNotice;
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.cmd = 0x2A38;
 		}
@@ -1002,51 +1000,6 @@ module ProtoCmd {
 
 
 
-	// 0x2B0A
-	// 捐赠日志
-	export class stGuildDonateItemLog extends Packet {
-		public static msgID: number = 0x2B0A;
-		public cbPacket = stGuildDonateItemLogRet;
-		public constructor() {
-			super();
-			this.cmd = 0x2B0A;
-		}
-	}
-
-	// 0x2B0B
-	// 捐赠日志返回
-	export class stGuildDonateItemLogRet extends Packet {
-		public static msgID: number = 0x2B0B;
-		public stZeroArray: Array<stDonateLogBase> = [];
-		public constructor(data: Laya.Byte) {
-			super();
-			this.addProperty("btError", PacketBase.TYPE_BYTE);//0 成功 
-			this.addProperty('nCount', PacketBase.TYPE_DWORD);
-			if (data) {
-				data.pos += this.read(data);
-			}
-		}
-
-		public read(data: Laya.Byte): number {
-			data.pos = super.read(data);
-			var co: number = this.getValue('nCount');
-			for (var i: number = 0; i < this.getValue('nCount'); i++) {
-				this.stZeroArray[i] = new stDonateLogBase(data);
-			}
-			return data.pos;
-		}
-
-		public clear(): void {
-			super.clear();
-			for (var i: number = 0; i < this.stZeroArray.length; i++) {
-				this.stZeroArray[i].clear();
-				this.stZeroArray[i] = null;
-			}
-
-			this.stZeroArray.length = 0;
-			this.stZeroArray = null;
-		}
-	}
 
 
 
@@ -1114,7 +1067,7 @@ module ProtoCmd {
 
 
 	// 0x2B01
-	// 点捐献
+	// 点捐献装备
 	export class stBeginDonateEquip extends Packet {
 		public static msgID: number = 0x2B01;
 		public cbPacket = stBeginDonateEquipRet;
@@ -1127,11 +1080,11 @@ module ProtoCmd {
 	}
 
     /** 0x2B02
-	 * 捐献回
+	 * 捐献装备回
 	 * **/
 	export class stBeginDonateEquipRet extends Packet {
 		public static msgID: number = 0x2B02;
-		public item: ItemBase = new ItemBase(null);
+		public item: ItemBase = new ItemBase();
 		public constructor(data: Laya.Byte) {
 			super();
 			this.addProperty("btError", PacketBase.TYPE_BYTE);//0成功,1物品不存在,2此物品不允许捐献,3物品删除失败,4放入行会仓库失败，5您当前没有行会
@@ -1151,15 +1104,15 @@ module ProtoCmd {
 	export class stViewGuildPackage extends Packet {
 		public static msgID: number = 0x2B03;
 		public cbPacket = stViewGuildPackageRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号 =0 默认是0
 			this.cmd = 0x2B03;
 		}
 	}
 
 	/**0x2B04
-	  * 查看仓库的返回
+	  * 查看仓库的返回,服务器会拆成几个包
 	  * */
 	export class stViewGuildPackageRet extends Packet {
 		public static msgID: number = 0x2B04;
@@ -1167,8 +1120,8 @@ module ProtoCmd {
 		public ncount: number = 0;
 		public constructor(data: Laya.Byte) {
 			super();
-			this.addProperty("dwStoretype", PacketBase.TYPE_BYTE);//0表示清空1表示附加
-			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);//仓库编号
+			this.addProperty("dwStoretype", PacketBase.TYPE_BYTE);// 0 表示清空 1 表示附加 2附加性发完 3 一次性发完
+			this.addProperty("dwStoreId", PacketBase.TYPE_DWORD);// 仓库编号 = 0 
 			this.addProperty("nCount", PacketBase.TYPE_INT);//
 			if (data) {
 				data.pos += this.read(data);
@@ -1182,7 +1135,6 @@ module ProtoCmd {
 				for (var i: number = 0; i < this.ncount; i++) {
 					this.items[i] = new ItemBase(data);
 				}
-
 			}
 			return 0;
 		}
@@ -1205,8 +1157,8 @@ module ProtoCmd {
 	// 兑换仓库里的道具
 	export class stWantGetGuildPackageItem extends Packet {
 		public static msgID: number = 0x2B05;
-		public cbPacket = stSucessGetGuildPackageItem;
-		public constructor(data: Laya.Byte) {
+		public cbPacket = stSucessGetGuildPackageItemRet;
+		public constructor(data: Laya.Byte = null) {
 			super();
 			this.addProperty("i64ItemId", PacketBase.TYPE_INT64);//要捐献的装备ID
 			this.cmd = 0x2B05;
@@ -1215,7 +1167,7 @@ module ProtoCmd {
 
 	// 0x2B07
 	// 兑换仓库里的道具返回
-	export class stSucessGetGuildPackageItem extends Packet {
+	export class stSucessGetGuildPackageItemRet extends Packet {
 		public static msgID: number = 0x2B07;
 		public item: ItemBase = new ItemBase();
 		public constructor(data: Laya.Byte) {

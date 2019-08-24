@@ -118,9 +118,9 @@ module view.beiBao {
 			// 物品数量
 			let dwCount = obj.dwCount;
 			// 物品类型
-			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
+			let itemType = obj.itemType
 			// 物品位置
-			let local_index = obj.location.getValue('btLocation');
+			let local_index = obj.location.btLocation;
 			switch (type) {
 				// 背包
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
@@ -164,7 +164,6 @@ module view.beiBao {
 							}
 						}
 					}
-
 					break;
 				// 仓库
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:

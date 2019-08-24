@@ -43,8 +43,10 @@ module ResData {
         public static YangCheng = [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
         public static BeiBao = [{ url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];;
-        // 社交界面
+        // 社交江湖界面
         public static SheJiao = null;
+        // 剧情进度界面
+        public static JuQingInfo = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
         // 任务界面
         public static Task = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派选择界面
@@ -73,12 +75,14 @@ module ResData {
         public static GuildShop = null;
         // 帮派实力排行界面
         public static GuildRank = null;
+        // 帮派实力排行界面
+        public static GuildWaiJiao = null;
         // 副本界面
         public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 剧情对白界面
-        public static JuQingTalk = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];;
+        public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
         // 图鉴江湖界面

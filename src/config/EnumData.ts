@@ -58,7 +58,11 @@ module EnumData {
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
         SHOW_IN_MAIL = 4,//邮件中显示
         SHOW_IN_SHOP = 5,//商店中显示
-
+        SHOW_IN_GUILD_CANGKU = 6,//公会仓库
+        SHOW_IN_GUILD_BAG = 7,//公会背包
+        SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
+        SHOW_IN_BAG_CANGKU = 102,//背包=仓库显示
+        SHOW_IN_BAG_BAITAN = 103,//背包-摆摊显示
     }
 
     /**

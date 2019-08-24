@@ -17,11 +17,16 @@ module view.guild {
 		}
 
 		public addEvent(): void {
+			// 添加属性监听事件
+			this.addLcpEvent();
 			//入会设定
 			this.img_guildIntoSet.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildIntoConditionPanel();
-
 			})
+			// 外交界面
+			this.btn_relationManage.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildWaiJiaoPanel();
+			});
 			//帮会实力排行
 			this.img_guildRank.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildRankPanel();
@@ -72,6 +77,16 @@ module view.guild {
 			// 		Laya.Dialog.closeByGroup('GuildBaoxiangDialog');
 			// 	});
 			// }
+		}
+
+		public addLcpEvent(): void {
+			// 更新公会贡献
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, () => { this.lbl_gongXian.text = '' + GameApp.MainPlayer.wealth.guildDedication });
+		}
+
+		public Dispose(): void {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_GUILDSCORE, this);
+			PopUpManager.Dispose(this);
 		}
 
 		public initUI(): void {
@@ -135,6 +150,8 @@ module view.guild {
 					// TODO 战力排行
 					cbpkt2.clear();
 					cbpkt2 = null;
+					// 更新自己的行会信息
+					this.updateSelfInfo()
 				})
 			});
 
@@ -156,8 +173,8 @@ module view.guild {
 				guildInfo.playerGuildPowerLvl = stPlayerInfo.dwGuildPowerLvl;
 				// 每日贡献
 				guildInfo.playerDayGuildDedication = stPlayerInfo.dwDayGuildDedication;
-				// 公会贡献
-				guildInfo.playerGuildDedication = stPlayerInfo.dwGuildDedication;
+				// 行会贡献
+				GameApp.MainPlayer.changeGuildDedication(stPlayerInfo.dwGuildDedication);
 				// 公会排名
 				guildInfo.playerRank = stPlayerInfo.dwRank;
 				// 公会内别称

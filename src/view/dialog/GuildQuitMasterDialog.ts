@@ -28,11 +28,14 @@ module view.dialog {
 			pkt.setValue('btType', 0);
 			pkt.setValue('szDesc', this.txt_context.text);
 			lcp.send(pkt, this, (data) => {
+				this.close();
 				let cbpackt = new ProtoCmd.stGlobalGuildBeginBanMasterRet(data);
 				let errorcode = cbpackt.getValue('btErrorCode');
 				if (errorcode == 0) {
-					this.close();
-					TipsManage.showTips('发起罢黜成功');
+					TipsManage.showTips('发起罢黜成功,请前往日志界面投票');
+				}
+				else {
+					TipsManage.showTips('发起罢黜失败');
 				}
 				cbpackt.clear();
 				cbpackt = null;

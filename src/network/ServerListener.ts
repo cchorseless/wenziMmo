@@ -30,12 +30,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
         // 创建地图其他玩家 206
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
-
         // 同步怪物feature
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvaterIconDecoder), this, this.syncNotPlayerFeature);
         // 同步玩家feature
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerIconDecoder), this, this.syncPlayerFeature);
-
         // 移动 0x021F
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
         // 攻击 0x0232
@@ -62,6 +60,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPlayerAbility), this, this.cretPlayerAbility);
         // 玩家经济属性包 240
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
+        // 更新玩家行会贡献
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarguildJiFenDecoder), this, this.updateGuildSorce);
         // 玩家复活死亡通知 246
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
         // 服务器提示tips 288
@@ -461,7 +461,19 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
+    /**
+     * 更新行会积分
+     * @param data 
+     */
+    public updateGuildSorce(data): void {
+        let msg = new ProtoCmd.AvatarguildJiFenDecoder(data);
+        let player = GameApp.MainPlayer;
+        player.changeGuildDedication(msg.getValue('dwJiFen'));
+        TipsManage.showTips('公会贡献改变了' + msg.getValue('nChanged'));
+        msg.clear();
+        msg = null;
 
+    }
     /**
      * 经验 0x0237
      * @param data 
@@ -965,9 +977,9 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-         let asks = new view.dialog.FriendNearbyDialog();
-        
-        
+        let asks = new view.dialog.FriendNearbyDialog();
+
+
     }
 
     /*******************************************************行会信息******************************************* */
@@ -1010,14 +1022,16 @@ class ServerListener extends SingletonClass {
     public questServerDataRet(data: any): void {
         let msg = new ProtoCmd.QuestServerDataRet(data);
         let strArr = msg.str.split('`');
-        if (strArr.length != 4) {
-            console.log('=====>', strArr)
-            throw new Error("questServerDataRet" + '长度错误');
-        }
         let infoType = strArr[0];// 大类标识
         let funcName = strArr[1];// 调用的函数名称
-        let msgID = strArr[2];// 函数内小协议包
-        let jsonData = JSON.parse(strArr[3]);// json数据
+        let msgID = 0;// 函数内小协议包
+        console.log(strArr);
+        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+        switch (strArr.length) {
+            case 4:
+                msgID = parseInt(strArr[2]);
+                break;
+        }
         // 抛出事件
         GameApp.LListener.event(funcName, [msgID, jsonData]);
         msg.clear();

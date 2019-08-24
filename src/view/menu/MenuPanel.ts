@@ -12,9 +12,10 @@ module view.menu {
 				new view.dialog.MenuQiandaoDialog().popup(true);
 			})
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
-					new view.dialog.MailDialog().popup(true);
+				new view.dialog.MailDialog().popup(true);
 			})
 
+			console.log(GameApp.LListener)
 		}
 	}
 }

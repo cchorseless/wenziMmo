@@ -42,6 +42,36 @@ module lcp {
         public off(type: string, caller: any, listener: Function, onceOnly?: boolean): Laya.EventDispatcher {
             return this._dispatcher.off(type, caller, listener, onceOnly);
         }
+        // 移除作用域事件
+        public offCaller(type: string, caller: any): Laya.EventDispatcher {
+            let events = this._dispatcher['_events'];
+            if (!events || !events[type]) return this._dispatcher;
+            let listeners = events[type];
+            if (listeners != null) {
+                if (listeners.run) {
+                    if (!caller || listeners.caller === caller) {
+                        delete events[type];
+                        listeners.recover();
+                    }
+                } else {
+                    var count = 0;
+                    for (var i = 0, n = listeners.length; i < n; i++) {
+                        var item = listeners[i];
+                        if (!item) {
+                            count++;
+                            continue;
+                        }
+                        if (item && (!caller || item.caller === caller)) {
+                            count++;
+                            listeners[i] = null;
+                            item.recover();
+                        }
+                    }
+                    if (count === n) delete events[type];
+                }
+            }
+            return this._dispatcher;
+        }
         // 移除所有事件
         public offAll(type?: string): Laya.EventDispatcher {
             return this._dispatcher.offAll(type)

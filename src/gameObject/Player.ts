@@ -61,6 +61,7 @@ module GameObject {
             GameApp.LListener.event(LcpEvent.UPDATE_UI_YUANBAOLOCK);
         }
 
+
         /**
          * 修改荣誉
          * @param honorNum 
@@ -78,11 +79,12 @@ module GameObject {
         }
 
         /**
-         * 帮会积分
+         * 帮会贡献
          * @param guildDedication 
          */
         public changeGuildDedication(guildDedication: number) {
             this.wealth.guildDedication = guildDedication;
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_GUILDSCORE);
         }
 
         /**

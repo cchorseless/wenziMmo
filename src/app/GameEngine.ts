@@ -52,7 +52,7 @@ class GameEngine extends SingletonClass {
     public packetBytes: Laya.Byte;//全局消息包
     public mainPlayer: GameObject.Player;//玩家
     // ****************道具存储*****************
-    public equipDB = {};//装备背包
+    public equipDB = {};//身上的装备背包
     public equipDBIndex = {};//装备背包位置索引，用于判定该位置是否有装备{bindex:i64id}
     public bagItemDB = {};//物品背包
     public cangKuDB = {};//仓库背包
@@ -60,7 +60,7 @@ class GameEngine extends SingletonClass {
     public friendDB = {};//好友
     public blackDB = {};//黑名单
     public chouRenDB = {};//仇人
-    
+
     private mapId: number;
     private mapGroupKey: string;
     public isReady: boolean = false;

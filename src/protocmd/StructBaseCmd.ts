@@ -970,6 +970,24 @@ module ProtoCmd {
             this.addProperty('btTableID', PacketBase.TYPE_CHAR);//页签
             this.addProperty('btIndex', PacketBase.TYPE_CHAR);//索引
         }
+        /**
+         * 装备位置
+         */
+        public get btLocation(): number {
+            return this.getValue('btLocation');
+        }
+        public set btLocation(v: number) {
+            this.setValue('btLocation', v);
+        }
+        /**
+         * 索引
+         */
+        public get btIndex(): number {
+            return this.getValue('btIndex');
+        }
+        public set btIndex(v: number) {
+            this.setValue('btIndex', v);
+        }
     }
 
 
@@ -989,9 +1007,10 @@ module ProtoCmd {
      * 物品结构
      */
     export class ItemBase extends PacketBase {
-        public _location: ItemLocation = new ItemLocation(); //3存储位置
+        private _location: ItemLocation = new ItemLocation(); //3存储位置
         public ExtensionProperty: Laya.Byte;		// 预留 10字节，做扩充
         public defaultName: string;
+        private _itemType;//物品类型
         // 绑定的UI组件
         public ui_item;
         public constructor(data: Laya.Byte = null) {
@@ -1018,6 +1037,15 @@ module ProtoCmd {
             this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60);
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
             if (data) { data.pos += this.read(data); }
+        }
+        /**
+         * 物品类型
+         */
+        public get itemType(): number {
+            if (this._itemType == null) {
+                this._itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.dwBaseID)
+            }
+            return this._itemType;
         }
 
         /**
@@ -1732,7 +1760,6 @@ module ProtoCmd {
         public playerGuildPowerLvl;//行会职位
         public playerszAliaName;// 行会别名
         public playerDayGuildDedication;//行会每日贡献
-        public playerGuildDedication;//行会贡献
         public playerRank;//个人行会排名
 
         public constructor(data: Laya.Byte = null) {
@@ -1926,7 +1953,7 @@ module ProtoCmd {
      * 行会事件
      */
     export class stGuildEventBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
             this.addProperty("dwEventTime", PacketBase.TYPE_DWORD);
@@ -1934,36 +1961,22 @@ module ProtoCmd {
             this.addProperty("dwEventType", PacketBase.TYPE_DWORD);
             if (data) data.pos += this.read(data);
         }
-    }
-
-    export class stClassEventBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("CampClassId", PacketBase.TYPE_DWORD);//key为 营队*100+班级	营队最大99	班级最大99
-            this.addProperty("dwTime", PacketBase.TYPE_DWORD);
-            this.addProperty("szEvents", PacketBase.TYPE_STRING, 512);
-            if (data) {
-                data.pos += this.read(data);
-            }
+        public get dwGuildId(): number {
+            return this.getValue('dwGuildId');
+        }
+        public get dwEventTime(): number {
+            return this.getValue('dwEventTime');
+        }
+        public get szEventText(): string {
+            return this.getValue('szEventText');
+        }
+        public get dwEventType(): number {
+            return this.getValue('dwEventType');
         }
     }
 
 
-    /**
-	 * 班级信息
-	 * */
-    export class stClassInfoBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
-            super();
-            this.addProperty("dwCampId", PacketBase.TYPE_DWORD);
-            this.addProperty("dwClassId", PacketBase.TYPE_DWORD);
-            this.addProperty("dwOnlineNum", PacketBase.TYPE_DWORD);
-            this.addProperty("dwTotalNum", PacketBase.TYPE_DWORD);
-            if (data) {
-                data.pos += this.read(data);
-            }
-        }
-    }
+
 
     /**
 	 * 帮会申请玩家信息
@@ -2108,7 +2121,7 @@ module ProtoCmd {
     }
 
     export class stVoterBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("btVote", PacketBase.TYPE_BYTE);
