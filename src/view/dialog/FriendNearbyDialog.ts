@@ -46,12 +46,19 @@ module view.dialog {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRelationAddRet(data);
 				let errorcode = cbpkt.getValue('btErrorCode');
-				if (errorcode == 0) {
-					TipsManage.showTips(tips + '成功');
+				switch (errorcode) {
+					//成功
+					case EnumData.emFRIENDErrorCode.RELATION_SUCCESS:
+						TipsManage.showTips(tips + '成功');
+						case EnumData.emFRIENDErrorCode.RELATION_FAIL_ALLREADY_FRIEND:
+						TipsManage.showTips('好友已在列表中');
 				}
-				else {
-					TipsManage.showTips(tips + '失败');
-				}
+				// if (EnumData.emFRIENDErrorCode.RELATION_SUCCESS) {
+				// 	TipsManage.showTips(tips + '成功');
+				// }
+				// else {
+				// 	TipsManage.showTips(tips + '失败');
+				// }
 			})
 		}
 	}

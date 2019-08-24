@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.dialog{
-	export class HeadDialog extends ui.dialog.HeadDialogUI{
+	export class MainHeadDialog extends ui.dialog.MainHeadDialogUI{
 		constructor(){
 			super();
 			this.addEvent();
@@ -13,7 +13,7 @@ module view.dialog{
 				this.close();
 			})
 			this.img_changeFrame.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.FrameDialog().popup(true);
+				new view.dialog.MainFrameDialog().popup(true);
 			});
 		}
 	}

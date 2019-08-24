@@ -14,8 +14,13 @@ module view.menu {
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.MailDialog().popup(true);
 			})
+			this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.MenuPaiHangDialog().popup(true);
+			})
+			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.MenuChengJiuDialog().popup(true);
+			})
 
-			console.log(GameApp.LListener)
 		}
 	}
 }
