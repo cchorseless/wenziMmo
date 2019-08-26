@@ -7,5 +7,12 @@ module view.juQing {
 		public setData(): void {
 
 		}
+
+
+		public addEvent(): void {
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			})
+		}
 	}
 }
