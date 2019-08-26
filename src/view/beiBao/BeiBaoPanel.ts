@@ -44,7 +44,7 @@ module view.beiBao {
 		public addEvent(): void {
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.Dispose(this);
+				 PanelManage.openMainPanel()
 			});
 			// 摆摊
 			this.btn_baiTan.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_baiTan']);

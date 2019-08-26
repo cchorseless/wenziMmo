@@ -39,7 +39,7 @@ module view.guild {
 			this.btn_search.on(Laya.UIEvent.CLICK, this, this.searchGuild);
 
 			// 返回
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openMainPanel() });
 			// 队伍
 			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();

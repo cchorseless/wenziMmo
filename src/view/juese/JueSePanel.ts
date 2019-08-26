@@ -17,7 +17,7 @@ module view.juese {
 				PanelManage.openDiZiPanel();
 			});
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
+		 PanelManage.openMainPanel()
 			});
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
