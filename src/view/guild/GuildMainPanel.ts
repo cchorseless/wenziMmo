@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.guild {
-	export class GuildTeamPanel extends ui.guild.GuildTeamPanelUI {
+	export class GuildMainPanel extends ui.guild.GuildMainPanelUI {
 		constructor() {
 			super();
 		}
@@ -77,6 +77,23 @@ module view.guild {
 			// 		Laya.Dialog.closeByGroup('GuildBaoxiangDialog');
 			// 	});
 			// }
+
+			// 返回
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
+			// 队伍
+			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTeamPanel();
+			})
+			// 好友
+			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openFriendPanel();
+			})
+			// NPC好感度
+			// todo
+			// 小说模式
+			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
 		}
 
 		public addLcpEvent(): void {

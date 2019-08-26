@@ -15,8 +15,37 @@ module view.friend {
 			this.tab_friend.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_friend.selectedIndex = index;
 			}, null, false);
-			this.updateFriendList();
-			this.updateNearbyList();
+			// this.updateFriendList();
+			// this.updateNearbyList();
+			this.addEvent();
+		}
+
+		public addEvent(): void {
+			// 返回
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
+			// 工会
+			this.btn_guild.on(Laya.UIEvent.CLICK, this, () => {
+				// 判定 有无公会
+				let dwClanId = GameApp.MainPlayer.feature.dwClanId;
+				// 有工会
+				if (dwClanId) {
+					PanelManage.openGuildTeamPanel(dwClanId);
+				}
+				// 无工会
+				else {
+					PanelManage.openGuildSelectPanel();
+				}
+			})
+			// 组队
+			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTeamPanel();
+			})
+			// NPC好感度
+			// todo
+			// 小说模式
+			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
 		}
 		//获得好友列表
 		public updateFriendList(): void {
@@ -49,12 +78,10 @@ module view.friend {
 				this.vbox_friend01.addChild(new view.compart.FriendNearbyItem().setData(GameApp.MainPlayer.allPlayer[_key]));
 			}
 		}
-
-
 		/**
 		 * 黑名单
 		 */
-		public updateHMDList():void{
+		public updateHMDList(): void {
 
 		}
 	}

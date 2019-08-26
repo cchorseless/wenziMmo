@@ -75,45 +75,38 @@ module view.main {
 
 		public addEvent(): void {
 			// 模式切换
-			this.box_modeChange.on(Laya.UIEvent.CLICK, this, () => {
-				if ((this.box_modeChange.getChildAt(0) as Laya.Radio).selected) {
-					this.box_mode0.visible = true;
-					this.box_mode1.visible = false;
-					for (let tempBtn of this.box_mode0._childs) {
-						for (let _radio of tempBtn._childs) {
-							_radio.selected = false;
-						}
-					}
-					for (let tempBtn of this.box_modeChange._childs) {
-						tempBtn.selected = false;
-					}
-					this.lbl_modeName.text = '小说模式';
-					PanelManage.openMainPanel();
+			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
+			// 物品
+			this.btn_wuPin.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openBeiBaoPanel();
+			});
+			// 角色
+			this.btn_jueSe.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJueSePanel()
+			});
+			// 武学
+			this.btn_wuXue.on(Laya.UIEvent.CLICK, this, () => {
+				// todo
+			});
+			// 江湖
+			this.btn_jiangHu.on(Laya.UIEvent.CLICK, this, () => {
+				// 判定 有无公会
+				let dwClanId = GameApp.MainPlayer.feature.dwClanId;
+				// 有工会
+				if (dwClanId) {
+					PanelManage.openGuildTeamPanel(dwClanId);
 				}
+				// 无工会
 				else {
-					this.box_mode1.visible = true;
-					this.box_mode0.visible = false;
-					for (let tempBtn of this.box_mode1._childs) {
-						for (let _radio of tempBtn._childs) {
-							_radio.selected = false;
-						}
-					}
-					for (let tempBtn of this.box_modeChange._childs) {
-						tempBtn.selected = true;
-					}
-					this.lbl_modeName.text = '场景模式';
-					PanelManage.openJuQingModePanel();
+					PanelManage.openGuildSelectPanel();
 				}
 			});
-
-			this.box_beiBao.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_beiBao']);
-			this.box_jueSe.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jueSe']);
-			this.box_jiangHu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jiangHu']);
-			this.box_yangCheng.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_yangCheng']);
-			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
-			this.box_fuBen.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_fuBen']);
-			this.box_tuJian.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_tuJian']);
-			this.box_task.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_task']);
+			// 养成宅院
+			this.btn_zhaiYuan.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openYangChengPanel();
+			});
 
 			// 聊天大窗
 			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
@@ -134,8 +127,6 @@ module view.main {
 				}
 
 			});
-
-
 			// 世界地图界面
 			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 			// 时辰界面
@@ -203,93 +194,6 @@ module view.main {
 		public showGroupBottom(panel: Laya.View): void {
 			this.box_mainBottom.visible = true;
 			panel.addChild(this.box_mainBottom);
-		}
-
-		public openPanel(msg): void {
-			let _box;
-			let _btn: Laya.Box = this[msg];
-			// BOX状态
-			let isOpen = (_btn.getChildAt(0) as Laya.Radio).selected;
-			// 剧情副本模式
-			let isMode = (this.box_modeChange.getChildAt(0) as Laya.Radio).selected;
-
-			if (isMode) {
-				_box = this.box_mode1;
-			}
-			else {
-				_box = this.box_mode0;
-			};
-
-			if (isOpen) {
-				if (isMode) {
-					PopUpManager.showPanel(PanelManage.JuQingMode);
-				}
-				else {
-					PanelManage.openMainPanel();
-				}
-			}
-			else {
-				switch (msg) {
-					// 角色
-					case "box_jueSe":
-						PanelManage.openJueSePanel()
-						break;
-					// 背包
-					case "box_beiBao":
-						PanelManage.openBeiBaoPanel();
-						break;
-					// 江湖社交
-					case "box_jiangHu":
-						// 判定 有无公会
-						let dwClanId = GameApp.MainPlayer.feature.dwClanId;
-						// 有工会
-						if (dwClanId) {
-							PanelManage.openGuildTeamPanel(dwClanId);
-						}
-						// 无工会
-						else {
-							PanelManage.openGuildSelectPanel();
-						}
-						break;
-					// 宅院
-					case "box_yangCheng":
-						PanelManage.openYangChengPanel();
-						break;
-					// 剧情进度
-					case "box_juQing":
-						PanelManage.openJuQingInfoPanel();
-						break;
-					// 副本
-					case "box_fuBen":
-						PanelManage.openFuBenPanel();
-						break;
-					// 图鉴
-					case "box_tuJian":
-						PanelManage.openTuJianJiangHuPanel();
-						break;
-					// 任务
-					case "box_task":
-						PanelManage.openTaskPanel();
-						break;
-				}
-			};
-
-			for (let tempBtn of _box._childs) {
-				if (tempBtn == _btn) {
-					for (let _radio of tempBtn._childs) {
-						_radio.selected = !isOpen;
-					}
-				}
-				else {
-					for (let _radio of tempBtn._childs) {
-						_radio.selected = false;
-					}
-				}
-			}
-
-			for (let _radio of _btn._childs) {
-				_radio.selected = !isOpen;
-			}
 		}
 
 

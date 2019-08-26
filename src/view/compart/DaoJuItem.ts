@@ -59,7 +59,7 @@ module view.compart {
 					// 背包场景 有三种子状态 0背包-回收 1背包-仓库 2背包-摆摊
 					case EnumData.ItemInfoModel.SHOW_IN_BAG:
 						let model: EnumData.ItemInfoModel;
-						switch (PanelManage.BeiBao.tab_changeView.selectedIndex) {
+						switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
 							case 0:
 								model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
 								break;

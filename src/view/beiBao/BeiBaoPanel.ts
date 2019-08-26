@@ -23,53 +23,6 @@ module view.beiBao {
 			for (let i = 0; i < 5; i++) {
 				this.vbox_sellHot.addChild(new view.compart.ShopHotItem());
 			}
-			// 左上角功能切换
-			this.btn_itemAll.selected = false;
-			this.img_tabBg.visible = false;
-			this.img_tabBg.scaleY = this.img_tabBg.scaleX = 0;
-			this.btn_bagLogo.selected = true;
-			this.lbl_bagLogolbl.text = '背包|回收';
-			this.tab_changeView.selectHandler = Laya.Handler.create(this, (index) => {
-				this.btn_itemAll.selected = false;
-				this.showSmallTab(false);
-				this.btn_bagLogo.skin = 'image/bag/icon_itemfunc' + index + '.png';
-				this.btn_bagLogo.selected = true;
-				// 绑定物品不能交易
-				let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
-				for (let key of allKey) {
-					let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
-					ui_item && ui_item.canGoToSell(index === 2);
-				}
-				switch (index) {
-					// 回收界面
-					case 0:
-						this.lbl_bagLogolbl.text = '背包|回收';
-						this.ui_huiShou.setData()
-						this.viw_BagViewChange.selectedIndex = 0;
-						this.viw_bagBottom.selectedIndex = index;
-						break;
-					// 仓库界面
-					case 1:
-						this.lbl_bagLogolbl.text = '背包|仓库';
-						this.ui_cangKu.setData()
-						this.viw_BagViewChange.selectedIndex = 0;
-						this.viw_bagBottom.selectedIndex = index;
-						break;
-					// 摆摊界面
-					case 2:
-						this.lbl_bagLogolbl.text = '背包|摆摊';
-						this.ui_tanWei.setData()
-						this.viw_BagViewChange.selectedIndex = 0;
-						this.viw_bagBottom.selectedIndex = index;
-						break;
-					// 交易行界面
-					case 3:
-						this.lbl_bagLogolbl.text = '交易行';
-						this.ui_jiaoyihang.setData()
-						this.viw_BagViewChange.selectedIndex = 1;
-						break;
-				}
-			}, null, false);
 			// 初始化背包
 			this.initUI();
 			// 添加事件
@@ -83,29 +36,79 @@ module view.beiBao {
 				this.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, GameApp.GameEngine.bagItemDB[key]);
 			}
 			// 初始化回收界面
+			this.lbl_bagLogolbl.text = '背包|回收';
+			this.btn_huiShou.selected = true;
 			this.ui_huiShou.setData();
 		}
 
 		public addEvent(): void {
-			this.btn_itemAll.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_itemAll.selected = !this.btn_itemAll.selected;
-				this.showSmallTab(this.btn_itemAll.selected);
+			// 返回
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			});
+			// 摆摊
+			this.btn_baiTan.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_baiTan']);
+			// 仓库
+			this.btn_cangKu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_cangKu']);
+			// 回收
+			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_huiShou']);
+			// 交易行
+			this.btn_jiaoYiHang.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_jiaoYiHang']);
+			// 小说模式
+			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
 			});
 		}
 
-		/**
-		 * 显示右上角功能区的tab
-		 * @param isShow 
-		 */
-		public showSmallTab(isShow: boolean): void {
-			if (isShow) {
-				this.img_tabBg.visible = true;
-				Laya.Tween.to(this.img_tabBg, { scaleY: 1, scaleX: 1 }, 200);
+		public openPanel(msg): void {
+			let btn_tmp: Laya.Button = this[msg];
+			if (btn_tmp.selected) { return };
+			// 按钮变颜色
+			let allBtn = ['btn_huiShou', 'btn_cangKu', 'btn_baiTan', 'btn_jiaoYiHang'];
+			for (let btnName of allBtn) {
+				this[btnName].selected = (btnName == msg);
 			}
-			else {
-				Laya.Tween.to(this.img_tabBg, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_tabBg.visible = false }))
+			// 按钮对应索引
+			let index = allBtn.indexOf(msg);
+			// 绑定物品不能交易
+			let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
+			for (let key of allKey) {
+				let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
+				ui_item && ui_item.canGoToSell(index === 2);
 			}
+			switch (index) {
+				// 回收界面
+				case 0:
+					this.lbl_bagLogolbl.text = '背包|回收';
+					this.ui_huiShou.setData()
+					this.viw_BagViewChange.selectedIndex = 0;
+					this.viw_bagBottom.selectedIndex = index;
+					break;
+				// 仓库界面
+				case 1:
+					this.lbl_bagLogolbl.text = '背包|仓库';
+					this.ui_cangKu.setData()
+					this.viw_BagViewChange.selectedIndex = 0;
+					this.viw_bagBottom.selectedIndex = index;
+					break;
+				// 摆摊界面
+				case 2:
+					this.lbl_bagLogolbl.text = '背包|摆摊';
+					this.ui_tanWei.setData()
+					this.viw_BagViewChange.selectedIndex = 0;
+					this.viw_bagBottom.selectedIndex = index;
+					break;
+				// 交易行界面
+				case 3:
+					this.lbl_bagLogolbl.text = '交易行';
+					this.ui_jiaoyihang.setData()
+					this.viw_BagViewChange.selectedIndex = 1;
+					break;
+			}
+
 		}
+
+
 
 		/**
 		 * 添加物品

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":52,
-    "selecteID":34,
+    "selectedBox":1,
+    "selecteID":104,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -344,14 +344,13 @@
             "props":{"y":954,"x":-19},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":61,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":30,"width":145,"skin":"image/common/img_common_06.png","height":68},
                     "nodeParent":61,
@@ -365,7 +364,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":10,"x":62,"width":60,"skin":"image/juQingMode/zi_vip5.png","height":28},
                     "nodeParent":61,
@@ -378,7 +376,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":5,"width":61,"stateNum":"2","skin":"image/juQingMode/icon_jiantou_finish.png","height":65},
                     "nodeParent":61,
@@ -392,7 +389,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":35,"x":56,"width":92,"text":"跳过对白","height":34,"fontSize":23,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":61,
@@ -403,6 +399,184 @@
                     "compId":25,
                     "child":[
                         ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"width":640,"right":0,"left":0,"height":100,"bottom":0},
+            "nodeParent":1,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":104,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":4,"x":7},
+                    "nodeParent":104,
+                    "label":"Box",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":109,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":0,"width":100,"var":"btn_juQing","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":109,
+                            "label":"Button(btn_juQing)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":111,
+                            "child":[
+                                {
+                                    "type":"Button",
+                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"剧情","height":70},
+                                    "nodeParent":111,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":112,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":101,"width":100,"var":"btn_task","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":109,
+                            "label":"Button(btn_task)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":130,
+                            "child":[
+                                {
+                                    "type":"Button",
+                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"任务","height":70},
+                                    "nodeParent":130,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":131,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":202,"width":100,"var":"btn_fuBen","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":109,
+                            "label":"Button(btn_fuBen)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":132,
+                            "child":[
+                                {
+                                    "type":"Button",
+                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"副本","height":70},
+                                    "nodeParent":132,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":133,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":303,"width":100,"var":"btn_tuJian","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":109,
+                            "label":"Button(btn_tuJian)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":134,
+                            "child":[
+                                {
+                                    "type":"Button",
+                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"图鉴","height":70},
+                                    "nodeParent":134,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":135,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":404,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":109,
+                            "label":"Button",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":136,
+                            "child":[
+                                {
+                                    "type":"Button",
+                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"剧情","height":70},
+                                    "nodeParent":136,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":137,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":-19,"x":519,"width":130,"var":"btn_changeMode","stateNum":2,"skin":"image/main/btn_common_04up_finish.png","height":130},
+                    "nodeParent":104,
+                    "label":"Button(btn_changeMode)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":138,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":23,"width":70,"stateNum":2,"skin":"image/main/icon_common_juqingfubeng01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":25,"labelPadding":"25,-10,0,-20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"场景模式","height":70},
+                            "nodeParent":138,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":139,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[

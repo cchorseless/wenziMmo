@@ -50,7 +50,7 @@ module PanelManage {
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
     export let JuQingInfo: view.juQing.JuQingInfoPanel;//剧情界面
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
-    export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
+    export let GuildTeam: view.guild.GuildMainPanel;//帮会界面
     export let Team: view.team.TeamPanel;//队伍界面
     export let Friend: view.friend.FriendPanel;//好友界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
@@ -263,7 +263,7 @@ module PanelManage {
             PanelManage.YangCheng['LCP_skin'] = ResData.PanelRes.YangCheng;
             PanelManage.YangCheng.setData();
             PanelManage.YangCheng.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.YangCheng, 1, 5, 1);
+            PopUpManager.addPanel(PanelManage.YangCheng, 1, 5, 2);
         })
     }
     /**
@@ -279,7 +279,7 @@ module PanelManage {
             PanelManage.GuildSelect['LCP_skin'] = ResData.PanelRes.GuildSelect;
             PanelManage.GuildSelect.setData();
             PanelManage.GuildSelect.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildSelect, 1, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildSelect, 1, 5, 2);
         })
     }
     /**
@@ -291,11 +291,11 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.GuildTeam);
         ResManage.loadResource(ResData.PanelRes.GuildTeam, () => {
-            PanelManage.GuildTeam = new view.guild.GuildTeamPanel();
+            PanelManage.GuildTeam = new view.guild.GuildMainPanel();
             PanelManage.GuildTeam['LCP_skin'] = ResData.PanelRes.GuildTeam;
             PanelManage.GuildTeam.setData(data);
             PanelManage.GuildTeam.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildTeam, 2, 5, 2);
         })
     }
     /**
@@ -311,7 +311,7 @@ module PanelManage {
             PanelManage.Team['LCP_skin'] = ResData.PanelRes.Team;
             PanelManage.Team.setData();
             PanelManage.Team.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Team, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.Team, 2, 5, 2);
         })
     }
     /**
@@ -327,7 +327,7 @@ module PanelManage {
             PanelManage.Friend['LCP_skin'] = ResData.PanelRes.Friend;
             PanelManage.Friend.setData();
             PanelManage.Friend.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Friend, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.Friend, 2, 5, 2);
         })
     }
     /**
@@ -343,7 +343,7 @@ module PanelManage {
             PanelManage.GuildWaiJiao['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
             PanelManage.GuildWaiJiao.setData();
             PanelManage.GuildWaiJiao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildWaiJiao, 3, 5, 1);
+            PopUpManager.addPanel(PanelManage.GuildWaiJiao, 3, 5, 2);
         })
     }
 
@@ -528,7 +528,7 @@ module PanelManage {
             PanelManage.BeiBao['LCP_skin'] = ResData.PanelRes.BeiBao;
             PanelManage.BeiBao.setData();
             PanelManage.BeiBao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.BeiBao, 1, 6, 1);
+            PopUpManager.addPanel(PanelManage.BeiBao, 1, 6, 2);
         })
     }
     /**
@@ -544,7 +544,7 @@ module PanelManage {
             PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
             PanelManage.Task.setData();
             PanelManage.Task.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task, 2, 5, 1);
+            PopUpManager.addPanel(PanelManage.Task, 2, 5, 2);
         })
     }
 
@@ -561,7 +561,7 @@ module PanelManage {
             PanelManage.FuBen['LCP_skin'] = ResData.PanelRes.FuBen;
             PanelManage.FuBen.setData();
             PanelManage.FuBen.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBen, 2, 4, 1);
+            PopUpManager.addPanel(PanelManage.FuBen, 2, 4, 2);
         })
     }
     /**
@@ -577,7 +577,7 @@ module PanelManage {
             PanelManage.JuQingInfo['LCP_skin'] = ResData.PanelRes.JuQingInfo;
             PanelManage.JuQingInfo.setData();
             PanelManage.JuQingInfo.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingInfo, 2, 4, 1);
+            PopUpManager.addPanel(PanelManage.JuQingInfo, 2, 4, 2);
         })
     }
 
@@ -610,7 +610,7 @@ module PanelManage {
             PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
             PanelManage.JuQingMode.setData();
             PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 1, 3, 3);
+            PopUpManager.addPanel(PanelManage.JuQingMode, 1, 3, 2);
         })
     }
 
@@ -627,7 +627,7 @@ module PanelManage {
             PanelManage.TuJianJiangHu['LCP_skin'] = ResData.PanelRes.TuJianJiangHu;
             PanelManage.TuJianJiangHu.setData();
             PanelManage.TuJianJiangHu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 1);
+            PopUpManager.addPanel(PanelManage.TuJianJiangHu, 2, 3, 2);
         })
     }
     /**

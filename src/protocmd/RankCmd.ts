@@ -48,7 +48,7 @@ module ProtoCmd {
         }
 
 
-        public Clear(): void {
+        public clear(): void {
             if (this.TopInfos) {
                 for (var i: number = 0; i < this.TopInfos.length; i++) {
                     this.TopInfos[i].clear();
@@ -137,7 +137,7 @@ module ProtoCmd {
         }
 
 
-        public Clear(): void {
+        public clear(): void {
             if (this.TopInfos) {
                 for (var i: number = 0; i < this.TopInfos.length; i++) {
                     this.TopInfos[i].clear();

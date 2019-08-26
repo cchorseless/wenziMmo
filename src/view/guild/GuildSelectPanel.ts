@@ -10,15 +10,6 @@ module view.guild {
 			this.tab_guild.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_guild.selectedIndex = index;
 			}, null, false);
-			this.img_teamEnter.clickHandler = Laya.Handler.create(this, () => {
-				if (this.img_teamEnter.selected) {
-					Laya.Tween.to(this.img_guildTFGP, { scaleY: 0 }, 500, Laya.Ease.bounceOut);
-
-				}
-				else {
-					Laya.Tween.to(this.img_guildTFGP, { scaleY: 1 }, 500, Laya.Ease.bounceOut);
-				}
-			}, null, false);
 			// 是否只显示满足条件帮会
 			this.check_01.clickHandler = Laya.Handler.create(this, () => {
 				for (let _child of this.vbox_guild._childs) {
@@ -35,7 +26,6 @@ module view.guild {
 			this.updateBpListUI();
 			this.updateCreateUI();
 			this.addEvent();
-			// this.showTFGP(this.img_teamEnter.selected);
 		}
 		public addEvent(): void {
 			// 创建行会
@@ -47,26 +37,26 @@ module view.guild {
 			this.btn_reducePage.on(Laya.UIEvent.CLICK, this, this.changePage, [false]);
 			// 搜索帮会
 			this.btn_search.on(Laya.UIEvent.CLICK, this, this.searchGuild);
+
+			// 返回
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
 			// 队伍
-			this.box_guildT.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
 			})
 			// 好友
-			this.box_guildF.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFriendPanel();
 			})
+			// NPC好感度
+			// todo
+			// 小说模式
+			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
 
 		}
 
-		// public showTFGP(isShow: boolean): void {
-		// 		if (isShow){
-		// 			this.img_guildTFGP.visible = false;
-		// 			Laya.Tween.to(this.img_guildTFGP, {scaleY: 0 }, 500);
-		// 		}
-		// 		else {
-		// 			Laya.Tween.to(this.img_guildTFGP, {scaleY: 1 }, 500, null, Laya.Handler.create(this, () => { this.img_guildTFGP.visible = true }))
-		// 		}
-		// 	}
 
 		/**
 		 * 更新创建公会UI
