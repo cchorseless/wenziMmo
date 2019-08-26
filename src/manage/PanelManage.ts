@@ -295,7 +295,7 @@ module PanelManage {
             PanelManage.GuildMain['LCP_skin'] = ResData.PanelRes.GuildMain;
             PanelManage.GuildMain.setData(data);
             PanelManage.GuildMain.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildMain, 2, 5, 2);
+            PopUpManager.addPanel(PanelManage.GuildMain, 2, 0, 2);
         })
     }
     /**
@@ -610,7 +610,7 @@ module PanelManage {
             PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
             PanelManage.JuQingMode.setData();
             PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 1, 0, 2);
+            PopUpManager.addPanel(PanelManage.JuQingMode, 1);
         })
     }
 
