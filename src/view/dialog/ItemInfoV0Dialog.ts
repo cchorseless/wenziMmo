@@ -9,16 +9,18 @@ module view.dialog {
 		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV0Dialog {
 			this.itemObj = obj;
 			this.model = model;
-			this.viw_model.selectedIndex = model;
 			switch (this.model) {
 				// 背包-回收
-				case 0:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
+					this.viw_model.selectedIndex = 0;
 					break;
 				// 背包-仓库,道具不能拆分放入仓库，所以隐藏
-				case 1:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
+					this.viw_model.selectedIndex = 1;
 					break;
 				// 背包-摆摊
-				case 2:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
+					this.viw_model.selectedIndex = 2;
 					// 参考价格
 					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * this.itemObj.dwCount;
 					// 输入完成事件
@@ -29,16 +31,21 @@ module view.dialog {
 					})
 					break;
 				// 仓库内，道具不能拆分取出仓库，所以隐藏
-				case 3:
+				case EnumData.ItemInfoModel.SHOW_IN_CANGKU:
+					this.viw_model.selectedIndex = 3;
 					break;
 				// 角色身上
-				case 4:
+				case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
+					this.viw_model.selectedIndex = 4;
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
-				case 5:
+				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
+					this.viw_model.selectedIndex = 5;
 					this.height -= this.viw_model.height;
 					break;
+				// 商店内
 				case 6:
+					this.viw_model.selectedIndex = 6;
 					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
@@ -54,7 +61,11 @@ module view.dialog {
 			// 使用职业
 			this.lbl_jobNeed.text = '职业要求:' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
 			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
-			if (this.itemObj.dwCount === 1 || this.model === 1 || this.model === 3 || this.model === 5) {
+			let ban_model =
+				[EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU,
+				EnumData.ItemInfoModel.SHOW_IN_CANGKU,
+				EnumData.ItemInfoModel.SHOW_IN_SHOP];
+			if (this.itemObj.dwCount === 1 || ban_model.indexOf(this.model) != -1) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
 				this.hsbar_count.max = this.hsbar_count.min = this.hsbar_count.value = 1;

@@ -102,7 +102,7 @@ module view.main {
 						tempBtn.selected = true;
 					}
 					this.lbl_modeName.text = '场景模式';
-					PanelManage.openFuBenPanel();
+					PanelManage.openJuQingModePanel();
 				}
 			});
 
@@ -111,7 +111,7 @@ module view.main {
 			this.box_jiangHu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_jiangHu']);
 			this.box_yangCheng.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_yangCheng']);
 			this.box_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_juQing']);
-			this.box_FuBenInJuQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_FuBenInJuQing']);
+			this.box_fuBen.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_fuBen']);
 			this.box_tuJian.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_tuJian']);
 			this.box_task.on(Laya.UIEvent.CLICK, this, this.openPanel, ['box_task']);
 
@@ -222,7 +222,7 @@ module view.main {
 
 			if (isOpen) {
 				if (isMode) {
-					PopUpManager.showPanel(PanelManage.FuBen);
+					PopUpManager.showPanel(PanelManage.JuQingMode);
 				}
 				else {
 					PanelManage.openMainPanel();
@@ -230,12 +230,15 @@ module view.main {
 			}
 			else {
 				switch (msg) {
+					// 角色
 					case "box_jueSe":
 						PanelManage.openJueSePanel()
 						break;
+					// 背包
 					case "box_beiBao":
 						PanelManage.openBeiBaoPanel();
 						break;
+					// 江湖社交
 					case "box_jiangHu":
 						// 判定 有无公会
 						let dwClanId = GameApp.MainPlayer.feature.dwClanId;
@@ -248,19 +251,23 @@ module view.main {
 							PanelManage.openGuildSelectPanel();
 						}
 						break;
+					// 宅院
 					case "box_yangCheng":
 						PanelManage.openYangChengPanel();
 						break;
-
+					// 剧情进度
 					case "box_juQing":
-						// PanelManage.openFuBenPanel();
+						PanelManage.openJuQingInfoPanel();
 						break;
-					case "box_FuBenInJuQing":
-						// PanelManage.openFuBenPanel();
+					// 副本
+					case "box_fuBen":
+						PanelManage.openFuBenPanel();
 						break;
+					// 图鉴
 					case "box_tuJian":
 						PanelManage.openTuJianJiangHuPanel();
 						break;
+					// 任务
 					case "box_task":
 						PanelManage.openTaskPanel();
 						break;

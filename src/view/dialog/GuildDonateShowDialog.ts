@@ -27,6 +27,7 @@ module view.dialog {
 			this.addEvent();
 			return this;
 		}
+
 		public addEvent(): void {
 			this.btn_go.on(Laya.UIEvent.CLICK, this, this.goJuanXian);
 			this.btn_close.on(Laya.UIEvent.CLICK, this, this.close);
@@ -37,13 +38,14 @@ module view.dialog {
 					this.input_count.text = '' + Math.min(parseInt(this.input_count.text), parseInt(this.lbl_goldleft.text), parseInt('' + goldALL / 10000));
 				}
 				else {
-					let yuanBaoALL = GameApp.MainPlayer.wealth.yuanBao + GameApp.MainPlayer.wealth.yuanBao_lock;
+					let yuanBaoALL = GameApp.MainPlayer.wealth.yuanBao;
 					this.input_count.text = '' + Math.min(parseInt(this.input_count.text), yuanBaoALL);
 				}
 				this.updateLbl();
 				if (this.input_count.text == '0') { TipsManage.showTips('货币不足') }
 			})
 		}
+		
 		public updateLbl(): void {
 			// 倍率 元宝是金币的两倍
 			let _temp = this.model ? 1 : 2;
@@ -57,13 +59,11 @@ module view.dialog {
 				TipsManage.showTips('捐献数量不能为0');
 				return
 			}
-			let idx = this.model ? 1 : 2;//idx:1元宝 2金币
+			let idx = this.model ? 2 : 1;//idx:1元宝 2金币
 			let count = parseInt(this.input_count.text) * (this.model ? 10000 : 1);
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.BP_JuanXian, [idx, count], this, (msgid, jsonData) => {
-				// todo
-			})
-
+			pkt.setString(ProtoCmd.BP_JuanXian, [idx, count]);
+			lcp.send(pkt);
 		}
 	}
 }

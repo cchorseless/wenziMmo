@@ -47,7 +47,8 @@ module PanelManage {
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
     export let Task: view.task.TaskPanel;//任务界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
-    export let JuQingTalk: view.juQing.JuQingTalkPanel;//剧情对白界面
+    export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
+    export let JuQingInfo: view.juQing.JuQingInfoPanel;//剧情界面
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildTeam: view.guild.GuildTeamPanel;//帮会界面
     export let Team: view.team.TeamPanel;//队伍界面
@@ -55,6 +56,7 @@ module PanelManage {
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
     export let GuildStore: view.guild.GuildStorePanel;//帮派仓库界面
+    export let GuildWaiJiao: view.guild.GuildWaiJiaoPanel;//帮会外交界面
     export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
     export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
@@ -331,6 +333,23 @@ module PanelManage {
     /**
     * 入帮设置界面
     */
+    export function openGuildWaiJiaoPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildWaiJiao) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.GuildWaiJiao);
+        ResManage.loadResource(ResData.PanelRes.GuildWaiJiao, () => {
+            PanelManage.GuildWaiJiao = new view.guild.GuildWaiJiaoPanel();
+            PanelManage.GuildWaiJiao['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
+            PanelManage.GuildWaiJiao.setData();
+            PanelManage.GuildWaiJiao.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.GuildWaiJiao, 3, 5, 1);
+        })
+    }
+
+    /**
+    * 帮会外交界面
+    */
     export function openGuildIntoConditionPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
             return
@@ -344,6 +363,8 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.GuildIntoCondition, 3, 5, 1);
         })
     }
+
+
     /**
     * 帮派福利界面
     */
@@ -528,7 +549,7 @@ module PanelManage {
     }
 
     /**
-     * 剧情副本界面
+     * 副本界面
      */
     export function openFuBenPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBen) {
@@ -540,7 +561,23 @@ module PanelManage {
             PanelManage.FuBen['LCP_skin'] = ResData.PanelRes.FuBen;
             PanelManage.FuBen.setData();
             PanelManage.FuBen.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBen, 1, 4, 1);
+            PopUpManager.addPanel(PanelManage.FuBen, 2, 4, 1);
+        })
+    }
+    /**
+     * 剧情进度界面
+     */
+    export function openJuQingInfoPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingInfo) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.JuQingInfo);
+        ResManage.loadResource(ResData.PanelRes.JuQingInfo, () => {
+            PanelManage.JuQingInfo = new view.juQing.JuQingInfoPanel();
+            PanelManage.JuQingInfo['LCP_skin'] = ResData.PanelRes.JuQingInfo;
+            PanelManage.JuQingInfo.setData();
+            PanelManage.JuQingInfo.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.JuQingInfo, 2, 4, 1);
         })
     }
 
@@ -561,19 +598,19 @@ module PanelManage {
         })
     }
     /**
-     * 剧情对白界面
+     * 剧情模式界面
      */
-    export function openJuQingTalkPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingTalk) {
+    export function openJuQingModePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingMode) {
             return
         }
-        PopUpManager.checkPanel(PanelManage.JuQingTalk);
-        ResManage.loadResource(ResData.PanelRes.JuQingTalk, () => {
-            PanelManage.JuQingTalk = new view.juQing.JuQingTalkPanel();
-            PanelManage.JuQingTalk['LCP_skin'] = ResData.PanelRes.JuQingTalk;
-            PanelManage.JuQingTalk.setData();
-            PanelManage.JuQingTalk.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingTalk, 2, 3, 3);
+        PopUpManager.checkPanel(PanelManage.JuQingMode);
+        ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
+            PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
+            PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
+            PanelManage.JuQingMode.setData();
+            PanelManage.JuQingMode.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.JuQingMode, 1, 3, 3);
         })
     }
 

@@ -11,13 +11,16 @@ module view.dialog {
 			this.model = model;
 			switch (this.model) {
 				// 背包-回收
-				case 0:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
+					this.viw_model.selectedIndex = 0;
 					break;
 				// 背包-仓库
-				case 1:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
+					this.viw_model.selectedIndex = 1;
 					break;
 				// 背包-摆摊
-				case 2:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
+					this.viw_model.selectedIndex = 2;
 					// 参考价格
 					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID);
 					// 输入完成事件
@@ -28,20 +31,33 @@ module view.dialog {
 					})
 					break;
 				// 仓库内
-				case 3:
+				case EnumData.ItemInfoModel.SHOW_IN_CANGKU:
+					this.viw_model.selectedIndex = 3;
 					break;
 				// 角色身上
-				case 4:
+				case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
+					this.viw_model.selectedIndex = 4;
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
-				case 5:
+				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
+					this.viw_model.selectedIndex = 5;
 					this.height -= this.viw_model.height;
 					break;
 				// 商店内
-				case 6:
+				case EnumData.ItemInfoModel.SHOW_IN_SHOP:
+					this.viw_model.selectedIndex = 6;
 					break;
+				// 公会背包内
+				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:
+					this.viw_model.selectedIndex = 7;
+					break;
+				// 公会仓库内
+				case EnumData.ItemInfoModel.SHOW_IN_GUILD_CANGKU:
+					this.viw_model.selectedIndex = 8;
+					this.lbl_duiHuanPrice.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE('' + obj.dwBaseID);
+					break;
+
 			}
-			this.viw_model.selectedIndex = model;
 			let dwBaseID = '' + obj.dwBaseID;
 			// 是否绑定
 			this.lbl_isLock.visible = Boolean(obj.dwBinding);
@@ -73,10 +89,9 @@ module view.dialog {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			});
-
 			switch (this.model) {
 				// 背包-回收
-				case 0:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
 					// 丢弃\销毁物品
 					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
 						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
@@ -87,30 +102,38 @@ module view.dialog {
 					this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
 					break;
 				// 背包-仓库
-				case 1:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
 					// 放入仓库
 					this.btn_putToCangKu.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
 					break;
 				// 背包-摆摊
-				case 2:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
 					// 上架物品
 					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.goToSell);
 					break;
 				// 仓库内
-				case 3:
+				case EnumData.ItemInfoModel.SHOW_IN_CANGKU:
 					// 取出道具
 					this.btn_putBackCangKu.on(Laya.UIEvent.CLICK, this, this.putBackCangKu);
 					break;
 				// 角色身上
-				case 4:
+				case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
 					// 装备卸下
 					this.btn_noLongerUse.on(Laya.UIEvent.CLICK, this, this.takeOffEquip);
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
-				case 5:
+				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
 					break;
 				// 商店内
-				case 6:
+				case EnumData.ItemInfoModel.SHOW_IN_SHOP:
+					break;
+				// 公会背包内
+				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:
+					this.btn_juanXian.on(Laya.UIEvent.CLICK, this, this.guildJuanXian);
+					break;
+				// 公会仓库内
+				case EnumData.ItemInfoModel.SHOW_IN_GUILD_CANGKU:
+					this.btn_duiHuan.on(Laya.UIEvent.CLICK, this, this.guildDuiHuan);
 					break;
 			}
 		}
@@ -382,6 +405,63 @@ module view.dialog {
 			}
 		}
 
+		/**
+		 * 公会捐献
+		 */
+		public guildJuanXian(): void {
+			this.close();
+			let pkt = new ProtoCmd.stBeginDonateEquip();
+			pkt.setValue('i64ItemId', this.itemObj.i64ItemID);
+			pkt.setValue('dwStoreId', 0);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stBeginDonateEquipRet(data);
+				let btError = cbpkt.getValue('btError');
+				if (btError == 0) {
+					let ui = new view.compart.DaoJuItem();
+					let item = new ProtoCmd.ItemBase();
+					item.clone(cbpkt.item.data);
+					ui.setData(item, EnumData.ItemInfoModel.SHOW_IN_GUILD_CANGKU);
+					PanelManage.GuildStore && PanelManage.GuildStore.addItem(ui, false);
+					// 删除原item
+					this.itemObj.recoverUI();
+					// 更新数量标签
+					PanelManage.GuildStore && PanelManage.GuildStore.updateCangKuCount();
+				}
+				else {
+					TipsManage.showTips('捐献失败，错误码' + btError);
+				}
+				cbpkt.clear();
+				cbpkt = null;
+			});
+		}
 
+		/**
+		 * 工会兑换
+		 */
+		public guildDuiHuan(): void {
+			this.close();
+			let pkt = new ProtoCmd.stWantGetGuildPackageItem();
+			pkt.setValue('i64ItemId', this.itemObj.i64ItemID);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stSucessGetGuildPackageItemRet(data);
+				let btError = cbpkt.getValue('btError');
+				if (btError == 0) {
+					let ui = new view.compart.DaoJuItem();
+					let item = new ProtoCmd.ItemBase();
+					item.clone(cbpkt.item.data);
+					ui.setData(item, EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG);
+					// 删除原item
+					this.itemObj.recoverUI();
+					PanelManage.GuildStore && PanelManage.GuildStore.addItem(ui, true);
+					// 更新数量标签
+					PanelManage.GuildStore && PanelManage.GuildStore.updateCangKuCount();
+				}
+				else {
+					TipsManage.showTips('兑换失败，错误码' + btError);
+				}
+			})
+
+
+		}
 	}
 }

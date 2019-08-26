@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":40,
-    "selecteID":39,
+    "selectedBox":18,
+    "selecteID":43,
     "referenceLines":null,
     "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
@@ -187,14 +187,13 @@
                     "props":{"y":0,"x":0,"name":"item2"},
                     "nodeParent":18,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":42,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"width":107,"text":"出售总价:","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                             "nodeParent":42,
@@ -207,7 +206,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
                             "nodeParent":42,
@@ -219,7 +217,6 @@
                             "compId":40,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-1,"skin":"image/main/icon_common_yuanbao01.png"},
                                     "nodeParent":40,
@@ -232,7 +229,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"TextInput",
                                     "props":{"y":0,"x":31,"width":143,"var":"input_price","type":"number","text":"666666","restrict":"0123456789","maxChars":20,"height":39,"fontSize":25,"align":"center"},
                                     "nodeParent":40,
@@ -246,7 +242,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":316,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
                             "nodeParent":42,
@@ -302,6 +297,20 @@
                     "child":[
                         ],
                     "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item6","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
+                    "nodeParent":18,
+                    "label":"Button(item6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":43,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }]
         },
         {

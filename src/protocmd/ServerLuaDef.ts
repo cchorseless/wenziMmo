@@ -11,8 +11,7 @@ module ProtoCmd {
     // 帮会捐献信息
     export const BP_JuanXianInfo = 'HangHuiJuanXianConfig';
     // 行会捐献
-    export const BP_JuanXian = 'HangHuiJuanXIan';//(_,idx,num) idx:1元宝 2金币
-
+    export const BP_JuanXian = 'HangHuiJuanXIan'; // (_,idx,num) idx:1元宝 2金币
 
 
 }

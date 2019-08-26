@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.juQing {
-	export class JuQingTalkPanel extends ui.juQing.JuQingTalkPanelUI {
+module view.juQingMode {
+	export class JuQingModePanel extends ui.juQingMode.JuQingModePanelUI {
 		constructor() {
 			super();
 		}
@@ -14,9 +14,6 @@ module view.juQing {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this, true, 4);
-			});
 
 			this.vbox_0.on(Laya.UIEvent.CLICK, this, () => {
 				let juqingId = parseInt(this.juqingId) + 1;

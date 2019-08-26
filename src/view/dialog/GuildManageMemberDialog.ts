@@ -55,7 +55,6 @@ module view.dialog {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stGlobalGuildChangePowerLvlRet(data);
 				let dochanged = cbpkt.getValue('boChanged');
-
 				if (dochanged) {
 					TipsManage.showTips('修改成功');
 					switch (this.ui_GuildMemberItem.name) {
