@@ -52,7 +52,7 @@ module ResData {
         // 帮派选择界面
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派界面
-        public static GuildTeam = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
+        public static GuildMain = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 队伍界面
         public static Team = [{ url: "res/atlas/image/team.atlas", type: Laya.Loader.ATLAS }];
         // 好友界面
@@ -78,7 +78,7 @@ module ResData {
         // 帮派实力排行界面
         public static GuildWaiJiao = null;
         // 副本界面
-        public static FuBen = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
+        public static FuBen = null;;
         // 世界地图界面
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 剧情对白界面

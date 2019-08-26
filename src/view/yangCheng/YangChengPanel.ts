@@ -8,6 +8,7 @@ module view.yangCheng {
 			this.panel_yangCheng.hScrollBarSkin = '';
 			this.panel_yangCheng.scrollTo(100, 0);
 			this.initSkeBone();
+			this.addEvent();
 		}
 
 		public initSkeBone(): void {
@@ -26,6 +27,14 @@ module view.yangCheng {
 			// 	// this._skeGroup.scale(0.5, 0.5)
 			// 	guanJia.play(0, true);
 			// });
+		}
+		public addEvent(): void {
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			})
+			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel();
+			});
 		}
 	}
 }

@@ -6,7 +6,7 @@ module view.menu {
 		}
 		public setData(): void {
 			this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openTuJianJiangHuPanel();
+				PanelManage.openTuJianJuesePanel();
 			})
 			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.MenuQiandaoDialog().popup(true);

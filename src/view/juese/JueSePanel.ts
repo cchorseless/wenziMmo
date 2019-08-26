@@ -18,7 +18,10 @@ module view.juese {
 			});
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
-			})
+			});
+			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
 
 		}
 	}

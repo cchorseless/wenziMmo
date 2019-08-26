@@ -5,12 +5,17 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
-			
+
 			this.addEvent();
 		}
 
 		public addEvent(): void {
-		
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.showPanel(PanelManage.JuQingMode);
+			});
+			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel();
+			})
 		}
 	}
 }

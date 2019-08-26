@@ -12,7 +12,15 @@ module view.task {
 			for (let i = 0; i < 10; i++) {
 				this.vbox_right.addChild(new view.compart.TaskInfoItem());
 			}
-
+			this.addEvent();
+		}
+		public addEvent(): void {
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			})
+			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel();
+			});
 		}
 	}
 }

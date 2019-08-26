@@ -22,13 +22,19 @@ module view.juQingMode {
 				this.panel_0.scrollTo(0, this.vbox_0.height);
 			});
 			// 剧情进度
-			this.btn_juQing.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_juQing']);
+			this.btn_juQing.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingInfoPanel()
+			});
 			// 副本
-			this.btn_fuBen.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_fuBen']);
+			this.btn_fuBen.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openFuBenPanel()
+			});
 			// 图鉴
-			this.btn_tuJian.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_tuJian']);
+			this.btn_tuJian.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTuJianJuesePanel()
+			});
 			// 任务
-			this.btn_task.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_task']);
+			this.btn_task.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openTaskPanel(); });
 			// 场景模式
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -60,21 +66,18 @@ module view.juQingMode {
 
 
 		public openPanel(msg): void {
-			let btn_tmp: Laya.Button = this[msg];
-			if (btn_tmp.selected) { return };
-			btn_tmp.selected = true;
 			switch (msg) {
 				case 'btn_juQing':
-					PanelManage.openJuQingInfoPanel()
+
 					break;
 				case 'btn_fuBen':
-					PanelManage.openFuBenPanel()
+
 					break;
 				case 'btn_tuJian':
-					PanelManage.openTuJianJiangHuPanel()
+
 					break;
 				case 'btn_task':
-					PanelManage.openTaskPanel();
+
 					break;
 			}
 

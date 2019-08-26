@@ -6,6 +6,7 @@ module view.juQing {
 		}
 		public setData(): void {
 
+			this.addEvent();
 		}
 
 
@@ -13,6 +14,9 @@ module view.juQing {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.Dispose(this);
 			})
+			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel();
+			});
 		}
 	}
 }
