@@ -2108,11 +2108,11 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_DOUBLE);				//角色唯一ID
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);							//名称
-            this.addProperty('szAliaName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);						//别名
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);	//名称
+            this.addProperty('szAliaName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //别名
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);					//行会id	
             this.addProperty('tInTime', PacketBase.TYPE_DWORD);						//加入氏族时间
-            this.addProperty("dwGuildPowerLvl", PacketBase.TYPE_DWORD);		//职位等级
+            this.addProperty("dwGuildPowerLvl", PacketBase.TYPE_DWORD);		      //职位等级
             this.addProperty("dwRank", PacketBase.TYPE_DWORD);                    //会内排名
             this.addProperty("btJob", PacketBase.TYPE_BYTE);
             this.addProperty("btSex", PacketBase.TYPE_BYTE);

@@ -1208,6 +1208,36 @@ module ProtoCmd {
 		}
 
 	}
+
+	// 0x2A57
+	// 拉取行会日志界面相关信息
+	export class stClientGetGuildShowInfo extends Packet {
+		public static msgID: number = 0x2A57;
+		public cbPacket = stClientGetGuildShowInfoRet;
+		public constructor() {
+			super();
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A57;
+		}
+	}
+	// 0x2A58 
+	// 拉取行会日志界面相关信息返回
+	export class stClientGetGuildShowInfoRet extends Packet {
+		public static msgID: number = 0x2A58;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("dwGoldDonateCnt", PacketBase.TYPE_DWORD);// 金币捐献累计
+			this.addProperty("dwRmbDonateCnt", PacketBase.TYPE_DWORD);// 元宝捐献累计
+			this.addProperty("dwShaBaKeCnt", PacketBase.TYPE_DWORD);// 沙巴克次数
+			this.addProperty("dwInterestCnt", PacketBase.TYPE_DWORD);// 关注行会
+			this.addProperty("dwAllianceCnt", PacketBase.TYPE_DWORD);// 结盟行会
+			this.addProperty("dwHostilityCnt", PacketBase.TYPE_DWORD);// 敌对行会
+			this.addProperty("dwFightCnt", PacketBase.TYPE_DWORD);// 宣战行会
+			this.cmd = 0x2A58;
+			this.read(data);
+		}
+	}
+
 }
 
 

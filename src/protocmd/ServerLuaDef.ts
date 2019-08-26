@@ -13,5 +13,9 @@ module ProtoCmd {
     // 行会捐献
     export const BP_JuanXian = 'HangHuiJuanXIan'; // (_,idx,num) idx:1元宝 2金币
 
-
+    /******************************商店************************ */
+    // 拉取商店道具列表
+    export const SHOP_UpdateItemList = 'openMallLable';// (type:商城类型,subtype:商店子类型=0（0无子ID，从1开始）)
+    // 商店购买物品
+    export const SHOP_BuyItem = 'buyMallItem';//(type,subtype, idx, num)
 }

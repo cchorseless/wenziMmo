@@ -100,7 +100,6 @@ module view.guild {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, () => {
 				this.lbl_gongXian.text = '' + GameApp.MainPlayer.wealth.guildDedication
 			});
-			console.log(GameApp.LListener);
 		}
 
 		public Dispose(): void {
@@ -128,7 +127,7 @@ module view.guild {
 				this.lbl_guildExp.text = '' + singleGuildinfo.dwCurExp + '/' + singleGuildinfo.dwLevelUpExp;
 				// 帮主名字
 				this.lbl_masterName.text = '' + singleGuildinfo.masterName;
-				// 行会等级排名
+				// 行会排名
 				this.lbl_guildRank.text = '' + singleGuildinfo.dwRank;
 				// 行会人数上限
 				let countRoof = singleGuildinfo.dwMaxPlayerCount;
