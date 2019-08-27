@@ -34,13 +34,13 @@ module view.main {
 			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_task.selectedIndex = index;
 				if (index == 1) {
-					this.tab_task.labels = '场\n景,发\n送';
+					this.tab_task.labels = '场景,发送';
 					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
 						this.ui_chatSendDialog.visible = true;
 					})
 				}
 				else {
-					this.tab_task.labels = '场\n景,聊\n天';
+					this.tab_task.labels = '场景,聊天';
 				}
 			}, null, false);
 			this.tab_task.selectedIndex = 1;
@@ -113,7 +113,7 @@ module view.main {
 				this.ui_chatBigDialog.visible = true;
 			});
 			// 场景信息界面
-			this.btn_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
+			this.box_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
 			// 菜单界面
@@ -177,7 +177,7 @@ module view.main {
 				}
 			});
 			// vip等级 todo
-			// GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.font_vipLevel.value = '' + _player.viplvl; });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.font_vipLevel.value = '' + _player.viplvl; });
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { });
 			// 玩家战斗属性
