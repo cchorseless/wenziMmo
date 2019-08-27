@@ -286,9 +286,10 @@ module view.main {
 		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
 			switch (handleType) {
 				case EnumData.HANDLE_TYPE.ADD:
-					let npcIcon: ui.compart.NpcIconItemUI = new ui.compart.NpcIconItemUI();
-					npcIcon.lbl_npcName.text = obj.objName;
-					npcIcon.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.NpcInfoDialog().popup(true); });
+					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
+					npcIcon.setData(obj)
+			
+					
 					this.vbox_npc.addChild(npcIcon);
 					break;
 

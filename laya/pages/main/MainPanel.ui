@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":327,
-    "selecteID":335,
+    "selecteID":339,
     "referenceLines":[
         {
             "value":-85,
@@ -486,13 +486,14 @@
             "props":{"y":127,"x":2,"width":108,"var":"box_npc","mouseThrough":true,"height":699},
             "nodeParent":1,
             "label":"Box(box_npc)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":183,
             "child":[
                 {
+                    "x":30,
                     "type":"CheckBox",
                     "props":{"y":286,"x":107,"width":48,"var":"cek_showNpc","stateNum":1,"skin":"image/main/btn_common_02.png","selected":false,"height":121},
                     "nodeParent":183,
@@ -517,6 +518,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"width":112,"var":"img_npc","skin":"image/common/fram_common_04new.png","sizeGrid":"58,35,64,45","height":717,"bottom":0},
                     "nodeParent":183,
@@ -528,6 +530,7 @@
                     "compId":162,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":683,"x":31,"width":50,"var":"btn_npcHasUp","stateNum":1,"skin":"image/common/icon_zhibiao2.png","scaleY":-1,"height":32},
                             "nodeParent":162,
@@ -540,6 +543,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":31,"width":50,"var":"btn_npcHasDown","stateNum":1,"skin":"image/common/icon_zhibiao2.png","height":32},
                             "nodeParent":162,
@@ -552,6 +556,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":53,"x":4,"width":100,"var":"panel_npc","height":587},
                             "nodeParent":162,
@@ -563,8 +568,9 @@
                             "compId":173,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
-                                    "props":{"y":0,"var":"vbox_npc","right":0,"left":0,"align":"center"},
+                                    "props":{"y":0,"x":0,"var":"vbox_npc","right":0,"left":0,"align":"center"},
                                     "nodeParent":173,
                                     "label":"VBox(vbox_npc)",
                                     "isDirectory":false,
@@ -1292,7 +1298,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":49,"x":594,"width":116,"var":"btn_modeChange","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":48,"x":593,"width":116,"var":"btn_modeChange","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":327,
                     "label":"Button(btn_modeChange)",
                     "isOpen":true,
