@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":160,
-    "selecteID":163,
+    "selectedBox":190,
+    "selecteID":204,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -18,45 +18,22 @@
             "props":{"y":20,"x":20,"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"x":0,"skin":"image/main/img_common_03.png","right":0,"left":0,"height":92,"bottom":0},
+                    "props":{"x":0,"skin":"image/main/img_common_02.png","right":0,"left":0,"height":92,"bottom":0},
                     "nodeParent":5,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":1030,"x":0,"skin":"image/main/fram_common_21.png"},
-                    "nodeParent":5,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":1030,"x":639,"skin":"image/main/fram_common_21.png","scaleX":-1},
-                    "nodeParent":5,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
                     "child":[
                         ]
                 }]
@@ -500,7 +477,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":20,"x":20,"width":640,"right":0,"left":0,"height":100,"bottom":0},
+            "props":{"y":20,"x":20,"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
             "label":"Box",
             "isOpen":true,
@@ -523,7 +500,7 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":2,"skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":191,
                             "label":"Button(btn_back)",
                             "isOpen":true,
@@ -548,7 +525,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":101,"width":100,"var":"btn_self","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "props":{"y":0,"x":101,"width":100,"var":"btn_self","stateNum":2,"skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":191,
                             "label":"Button(btn_self)",
                             "isOpen":true,
@@ -573,7 +550,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":202,"width":100,"var":"btn_dizi0","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "props":{"y":0,"x":202,"width":100,"var":"btn_dizi0","stateNum":2,"skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":191,
                             "label":"Button(btn_dizi0)",
                             "isOpen":true,
@@ -598,7 +575,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":303,"width":100,"var":"btn_dizi1","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "props":{"y":0,"x":303,"width":100,"var":"btn_dizi1","stateNum":2,"skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":191,
                             "label":"Button(btn_dizi1)",
                             "isOpen":true,
@@ -623,7 +600,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":404,"width":100,"var":"btn_dizi2","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "props":{"y":0,"x":404,"width":100,"var":"btn_dizi2","stateNum":2,"skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":191,
                             "label":"Button(btn_dizi2)",
                             "isOpen":true,
@@ -650,30 +627,19 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":-19,"x":519,"width":130,"var":"btn_changeMode","stateNum":2,"skin":"image/main/btn_common_04up_finish.png","height":130},
+                    "props":{"y":40,"x":594,"width":130,"var":"btn_changeMode","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":120,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":190,
                     "label":"Button(btn_changeMode)",
                     "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":202,
+                    "hasChild":false,
+                    "compId":204,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":23,"x":23,"width":70,"stateNum":2,"skin":"image/main/icon_common_juqingfubeng01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":25,"labelPadding":"25,-10,0,-20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"场景模式","height":70},
-                            "nodeParent":202,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":203,
-                            "child":[
-                                ]
-                        }]
-                }]
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {
