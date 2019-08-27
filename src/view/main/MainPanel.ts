@@ -114,7 +114,7 @@ module view.main {
 			});
 
 			// 菜单界面
-			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_menu,Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
 				if (this.btn_menu.selected) {
 					PanelManage.openMenuPanel()
@@ -124,8 +124,7 @@ module view.main {
 				}
 
 			});
-			// 世界地图界面
-			this.btn_worldMap.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
+
 			// 时辰界面
 			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.TimeDialog().setData(null).popup(true);
@@ -288,8 +287,6 @@ module view.main {
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
 					npcIcon.setData(obj)
-			
-					
 					this.vbox_npc.addChild(npcIcon);
 					break;
 

@@ -40,9 +40,11 @@ module view.compart {
 				});
 			}
 			// 场景信息界面
-			this.box_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
+			// 世界地图界面
+			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
 		}
 
 		/**

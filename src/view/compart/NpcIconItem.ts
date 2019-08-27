@@ -11,7 +11,7 @@ module view.compart {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			EventManage.onWithEffect(this, Laya.UIEvent.CLICK, this, () => { new view.dialog.NpcInfoDialog().popup(true); });
+			EventManage.onWithEffect(this, Laya.UIEvent.CLICK, this, () => { new view.dialog.NpcInfoDialog().popup(true) });
 		}
 	}
 }
