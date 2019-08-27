@@ -87,11 +87,11 @@ module view.main {
 				PanelManage.openJueSePanel()
 			});
 			// 武学
-			this.btn_wuXue.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_wuXue, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueWaiGongPanel();
 			});
 			// 江湖
-			this.btn_jiangHu.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_jiangHu, Laya.UIEvent.CLICK, this, () => {
 				// 判定 有无公会
 				let dwClanId = GameApp.MainPlayer.feature.dwClanId;
 				// 有工会
@@ -104,7 +104,7 @@ module view.main {
 				}
 			});
 			// 养成宅院
-			this.btn_zhaiYuan.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_zhaiYuan, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openYangChengPanel();
 			});
 
