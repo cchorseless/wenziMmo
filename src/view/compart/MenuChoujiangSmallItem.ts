@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.compart{
-	export class MenuGonglveItem extends ui.compart.MenuGonglveItemUI{
+	export class MenuChoujiangSmallItem extends ui.compart.MenuChoujiangSmallItemUI{
 		constructor(){
 			super();
 		}
