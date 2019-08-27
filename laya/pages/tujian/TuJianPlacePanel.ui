@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":134,
+    "selecteID":107,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,24 +15,24 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
+            "props":{"y":10,"x":-10,"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":107,
             "child":[
                 {
                     "type":"Image",
                     "props":{"skin":"image/main/img_common_03.png","right":0,"left":0,"height":93,"bottom":0},
-                    "nodeParent":2,
+                    "nodeParent":107,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":9,
+                    "compId":119,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -41,96 +41,96 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":130,"x":-5,"width":656,"height":134},
+            "props":{"y":140,"x":-5,"width":656,"height":134},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":4,
+            "compId":108,
             "child":[
                 {
                     "type":"Image",
                     "props":{"y":7,"skin":"image/main/fram_common_22.png","right":10,"left":10,"height":121},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":12,
+                    "compId":120,
                     "child":[
                         ]
                 },
                 {
                     "type":"Image",
                     "props":{"y":2,"x":27,"skin":"image/main/fram_common_05.png"},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":13,
+                    "compId":121,
                     "child":[
                         ]
                 },
                 {
                     "type":"Image",
                     "props":{"y":-14,"x":648,"skin":"image/main/fram_common_21.png","scaleX":-1},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":14,
+                    "compId":122,
                     "child":[
                         ]
                 },
                 {
                     "type":"Image",
                     "props":{"y":115,"x":44,"skin":"image/main/fram_common_05.png"},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":16,
+                    "compId":123,
                     "child":[
                         ]
                 },
                 {
                     "type":"Image",
                     "props":{"y":20,"x":87,"width":485,"skin":"image/main/fram_common_08.png","sizeGrid":"0,41,0,40","height":96},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":17,
+                    "compId":124,
                     "child":[
                         {
                             "type":"Label",
                             "props":{"y":12,"x":63,"wordWrap":true,"width":377,"text":"洛阳故城XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX","height":71,"fontSize":22,"color":"#ffffff","align":"left"},
-                            "nodeParent":17,
+                            "nodeParent":124,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":18,
+                            "compId":125,
                             "child":[
                                 ]
                         },
                         {
                             "type":"Button",
                             "props":{"y":57,"x":400,"width":32,"stateNum":"1","skin":"image/main/btn_common_01.png","height":32},
-                            "nodeParent":17,
+                            "nodeParent":124,
                             "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":19,
+                            "compId":126,
                             "child":[
                                 ]
                         }]
@@ -138,46 +138,46 @@
                 {
                     "type":"Button",
                     "props":{"y":16,"x":527,"width":116,"stateNum":"2","skin":"image/main/icon_plot_pianzhangmulu.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":35,"labelPadding":"0,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"篇章\\n目录","height":105},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":20,
+                    "compId":127,
                     "child":[
                         ]
                 },
                 {
                     "type":"Image",
                     "props":{"y":11,"x":13,"width":117,"skin":"image/main/img_main_luoyang.png","height":117},
-                    "nodeParent":4,
+                    "nodeParent":108,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":21,
+                    "compId":128,
                     "child":[
                         {
                             "type":"Image",
                             "props":{"y":79,"x":-17,"width":148,"skin":"image/common/title_common_01.png","height":46},
-                            "nodeParent":21,
+                            "nodeParent":128,
                             "label":"Image",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":22,
+                            "compId":129,
                             "child":[
                                 {
                                     "type":"Label",
                                     "props":{"y":7,"x":14,"width":119,"text":"竹林篇","strokeColor":"#000000","stroke":6,"mouseThrough":true,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
-                                    "nodeParent":22,
+                                    "nodeParent":129,
                                     "label":"Label",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":23,
+                                    "compId":130,
                                     "child":[
                                         ]
                                 }],
@@ -190,25 +190,25 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":263,"x":202,"width":235,"skin":"image/common/fram_common_09.png","sizeGrid":"24,26,24,23","height":42},
+            "props":{"y":273,"x":202,"width":235,"skin":"image/common/fram_common_09.png","sizeGrid":"24,26,24,23","height":42},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":6,
+            "compId":109,
             "child":[
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":61,"text":"角色图鉴","fontSize":28,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":6,
+                    "props":{"y":7,"x":61,"text":"地理图鉴","fontSize":28,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":109,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":131,
                     "child":[
                         ]
                 }]
@@ -216,24 +216,24 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":308,"x":24,"width":592,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"18,18,18,22","height":653},
+            "props":{"y":318,"x":24,"width":592,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"18,18,18,22","height":653},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":124,
+            "compId":110,
             "child":[
                 {
                     "type":"Image",
                     "props":{"y":79,"x":-4,"width":600,"skin":"image/common/fram_common_02.png","height":4},
-                    "nodeParent":124,
+                    "nodeParent":110,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":131,
+                    "compId":132,
                     "child":[
                         ]
                 }],
@@ -242,36 +242,36 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":395,"x":36,"width":567,"skin":"image/common/fram_common_02.png","height":29},
+            "props":{"y":405,"x":36,"width":567,"skin":"image/common/fram_common_02.png","height":29},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":154,
+            "compId":111,
             "child":[
                 {
                     "type":"Image",
                     "props":{"y":6,"x":11,"width":184,"skin":"image/main/fram_common_exp.png","height":16},
-                    "nodeParent":154,
+                    "nodeParent":111,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":155,
+                    "compId":133,
                     "child":[
                         ]
                 },
                 {
                     "type":"Label",
                     "props":{"y":4,"x":263,"text":"85%","fontSize":20,"color":"#ffffff"},
-                    "nodeParent":154,
+                    "nodeParent":111,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":156,
+                    "compId":134,
                     "child":[
                         ]
                 }]
@@ -279,57 +279,57 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":431,"x":15,"width":610,"var":"panel_TuJianJuese","height":523},
+            "props":{"y":441,"x":15,"width":610,"height":523},
             "nodeParent":1,
-            "label":"Panel(panel_TuJianJuese)",
+            "label":"Panel",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":7,
+            "compId":112,
             "child":[
                 {
                     "type":"VBox",
-                    "props":{"y":1,"var":"vbox_TuJianJuese","space":15,"right":0,"left":0},
-                    "nodeParent":7,
-                    "label":"VBox(vbox_TuJianJuese)",
+                    "props":{"y":1,"space":15,"right":0,"left":0},
+                    "nodeParent":112,
+                    "label":"VBox",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":25,
+                    "compId":135,
                     "child":[
                         {
                             "type":"Box",
                             "props":{"y":0,"x":15},
-                            "nodeParent":25,
+                            "nodeParent":135,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":68,
+                            "compId":136,
                             "child":[
                                 {
                                     "type":"Box",
                                     "props":{},
-                                    "nodeParent":68,
+                                    "nodeParent":136,
                                     "label":"Box",
-                                    "isOpen":null,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":43,
+                                    "compId":137,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong.png"},
-                                            "nodeParent":43,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_liangongfang.png"},
+                                            "nodeParent":137,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":39,
+                                            "compId":138,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -337,23 +337,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":43,
+                                            "nodeParent":137,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":41,
+                                            "compId":139,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":41,
+                                                    "nodeParent":139,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":42,
+                                                    "compId":140,
                                                     "child":[
                                                         ]
                                                 }]
@@ -361,49 +361,38 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":43,
+                                            "nodeParent":137,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":38,
+                                            "compId":141,
                                             "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":158,"x":114,"skin":"image/tujian/attitude_juesetujian_kind.png"},
-                                            "nodeParent":43,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":40,
-                                            "child":[
-                                                ]
+                                                ],
+                                            "$HIDDEN":false
                                         }]
                                 },
                                 {
                                     "type":"Box",
                                     "props":{"x":201},
-                                    "nodeParent":68,
+                                    "nodeParent":136,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":44,
+                                    "compId":143,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong.png"},
-                                            "nodeParent":44,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":143,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":45,
+                                            "compId":144,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -411,23 +400,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":44,
+                                            "nodeParent":143,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":46,
+                                            "compId":145,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":46,
+                                                    "nodeParent":145,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":47,
+                                                    "compId":146,
                                                     "child":[
                                                         ]
                                                 }]
@@ -435,25 +424,13 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":44,
+                                            "nodeParent":143,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":48,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":158,"x":114,"skin":"image/tujian/attitude_juesetujian_neutral.png"},
-                                            "nodeParent":44,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":49,
+                                            "compId":147,
                                             "child":[
                                                 ]
                                         }]
@@ -461,23 +438,23 @@
                                 {
                                     "type":"Box",
                                     "props":{"x":402},
-                                    "nodeParent":68,
+                                    "nodeParent":136,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":50,
+                                    "compId":149,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong.png"},
-                                            "nodeParent":50,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":149,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":51,
+                                            "compId":150,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -485,23 +462,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":50,
+                                            "nodeParent":149,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":52,
+                                            "compId":151,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":52,
+                                                    "nodeParent":151,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":53,
+                                                    "compId":152,
                                                     "child":[
                                                         ]
                                                 }]
@@ -509,62 +486,49 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":50,
+                                            "nodeParent":149,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":54,
+                                            "compId":153,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":158,"x":114,"skin":"image/tujian/attitude_juesetujian_hostility.png"},
-                                            "nodeParent":50,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":55,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 }]
                         },
                         {
                             "type":"Box",
                             "props":{"y":230,"x":15},
-                            "nodeParent":25,
+                            "nodeParent":135,
                             "label":"Box",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":69,
+                            "compId":155,
                             "child":[
                                 {
                                     "type":"Box",
                                     "props":{},
-                                    "nodeParent":69,
+                                    "nodeParent":155,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":70,
+                                    "compId":156,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":70,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":156,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":71,
+                                            "compId":157,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -572,23 +536,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":70,
+                                            "nodeParent":156,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":72,
+                                            "compId":158,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":72,
+                                                    "nodeParent":158,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":73,
+                                                    "compId":159,
                                                     "child":[
                                                         ]
                                                 }],
@@ -597,50 +561,38 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":70,
+                                            "nodeParent":156,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":74,
+                                            "compId":160,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":70,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":107,
-                                            "child":[
-                                                ]
                                         }]
                                 },
                                 {
                                     "type":"Box",
                                     "props":{"x":201},
-                                    "nodeParent":69,
+                                    "nodeParent":155,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":76,
+                                    "compId":162,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":76,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":162,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":77,
+                                            "compId":163,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -648,23 +600,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":76,
+                                            "nodeParent":162,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":78,
+                                            "compId":164,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":78,
+                                                    "nodeParent":164,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":79,
+                                                    "compId":165,
                                                     "child":[
                                                         ]
                                                 }]
@@ -672,50 +624,37 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":76,
+                                            "nodeParent":162,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":80,
+                                            "compId":166,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":76,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":108,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 },
                                 {
                                     "type":"Box",
                                     "props":{"x":402},
-                                    "nodeParent":69,
+                                    "nodeParent":155,
                                     "label":"Box",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":82,
+                                    "compId":168,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":82,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":168,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":83,
+                                            "compId":169,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -723,23 +662,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":82,
+                                            "nodeParent":168,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":84,
+                                            "compId":170,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":84,
+                                                    "nodeParent":170,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":85,
+                                                    "compId":171,
                                                     "child":[
                                                         ]
                                                 }]
@@ -747,62 +686,49 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":82,
+                                            "nodeParent":168,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":86,
+                                            "compId":172,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":82,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":110,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 }]
                         },
                         {
                             "type":"Box",
                             "props":{"y":460,"x":15},
-                            "nodeParent":25,
+                            "nodeParent":135,
                             "label":"Box",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":88,
+                            "compId":174,
                             "child":[
                                 {
                                     "type":"Box",
                                     "props":{},
-                                    "nodeParent":88,
+                                    "nodeParent":174,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":89,
+                                    "compId":175,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":89,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":175,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":90,
+                                            "compId":176,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -810,23 +736,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":89,
+                                            "nodeParent":175,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":91,
+                                            "compId":177,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":91,
+                                                    "nodeParent":177,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":92,
+                                                    "compId":178,
                                                     "child":[
                                                         ]
                                                 }]
@@ -834,50 +760,37 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":89,
+                                            "nodeParent":175,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":93,
+                                            "compId":179,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":89,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":111,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 },
                                 {
                                     "type":"Box",
                                     "props":{"x":201},
-                                    "nodeParent":88,
+                                    "nodeParent":174,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":95,
+                                    "compId":181,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":95,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":181,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":96,
+                                            "compId":182,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -885,23 +798,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":95,
+                                            "nodeParent":181,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":97,
+                                            "compId":183,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":97,
+                                                    "nodeParent":183,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":98,
+                                                    "compId":184,
                                                     "child":[
                                                         ]
                                                 }]
@@ -909,50 +822,37 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":95,
+                                            "nodeParent":181,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":99,
+                                            "compId":185,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":95,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":112,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 },
                                 {
                                     "type":"Box",
                                     "props":{"x":402},
-                                    "nodeParent":88,
+                                    "nodeParent":174,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":101,
+                                    "compId":187,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_linghuchong2.png"},
-                                            "nodeParent":101,
+                                            "props":{"y":5,"x":3,"skin":"image/tujian/img_renwutujan_weijiesuo.png"},
+                                            "nodeParent":187,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":102,
+                                            "compId":188,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -960,23 +860,23 @@
                                         {
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"width":48,"skin":"image/tujian/Base_name.png","height":142},
-                                            "nodeParent":101,
+                                            "nodeParent":187,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":103,
+                                            "compId":189,
                                             "child":[
                                                 {
                                                     "type":"Label",
                                                     "props":{"y":7,"x":12,"text":"令\\n狐\\n冲","strokeColor":"#000000","stroke":5,"fontSize":23,"font":"FZXK","color":"#f2f2f2"},
-                                                    "nodeParent":103,
+                                                    "nodeParent":189,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":104,
+                                                    "compId":190,
                                                     "child":[
                                                         ]
                                                 }]
@@ -984,28 +884,15 @@
                                         {
                                             "type":"Image",
                                             "props":{"skin":"image/tujian/frame_juesetujian_1.png"},
-                                            "nodeParent":101,
+                                            "nodeParent":187,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":105,
+                                            "compId":191,
                                             "child":[
                                                 ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":82,"x":74,"text":"?","fontSize":50,"color":"#f2f2f2"},
-                                            "nodeParent":101,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":113,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
                                         }]
                                 }]
                         }]
@@ -1015,7 +902,57 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":303,"x":40,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
+            "props":{"y":313,"x":40,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
+            "nodeParent":1,
+            "label":"Button",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":113,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":52,"x":47,"text":"125/125","fontSize":18},
+                    "nodeParent":113,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":193,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":313,"x":240,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
+            "nodeParent":1,
+            "label":"Button",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":114,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":52,"x":47,"text":"125/125","fontSize":18},
+                    "nodeParent":114,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":194,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":313,"x":440,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -1032,7 +969,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":117,
+                    "compId":195,
                     "child":[
                         ]
                 }]
@@ -1040,88 +977,38 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":303,"x":240,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
-            "nodeParent":1,
-            "label":"Button",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":118,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":52,"x":47,"text":"125/125","fontSize":18},
-                    "nodeParent":118,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":119,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":303,"x":440,"stateNum":"2","skin":"image/tujian/label_tujian_Unselected_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"-12","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"西方大陆"},
-            "nodeParent":1,
-            "label":"Button",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":120,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":52,"x":47,"text":"125/125","fontSize":18},
-                    "nodeParent":120,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":121,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":977,"x":462,"width":150,"stateNum":"2","skin":"image/common/fram_common_09_finish（1）.png","labelStrokeColor":"#000000","labelSize":28,"labelColors":"#ffffff,#000000","label":"筛选","height":47},
+            "props":{"y":987,"x":462,"width":150,"stateNum":"2","skin":"image/common/fram_common_09_finish（1）.png","labelStrokeColor":"#000000","labelSize":28,"labelColors":"#ffffff,#000000","label":"筛选","height":47},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":153,
+            "compId":116,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":947,"x":26,"var":"box_juese"},
+            "props":{"y":957,"x":26},
             "nodeParent":1,
-            "label":"Box(box_juese)",
+            "label":"Box",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":132,
+            "compId":117,
             "child":[
                 {
                     "x":30,
                     "type":"Button",
                     "props":{"y":30,"width":150,"stateNum":"2","skin":"image/common/fram_common_09_finish（1）.png","labelStrokeColor":"#000000","labelSize":28,"labelColors":"#ffffff,#000000","label":"奖励","height":47},
-                    "nodeParent":132,
+                    "nodeParent":117,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":152,
+                    "compId":196,
                     "child":[
                         ]
                 },
@@ -1129,12 +1016,12 @@
                     "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":100,"skin":"image/tujian/prompt_redpoint.png"},
-                    "nodeParent":132,
+                    "nodeParent":117,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":8,
+                    "compId":197,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -1143,147 +1030,147 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":50,"x":50,"width":640,"right":0,"left":0,"height":100,"bottom":0},
+            "props":{"y":60,"x":-10,"width":640,"right":0,"left":0,"height":100,"bottom":0},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":134,
+            "compId":118,
             "child":[
                 {
                     "type":"Box",
                     "props":{"y":4,"x":7},
-                    "nodeParent":134,
+                    "nodeParent":118,
                     "label":"Box",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":135,
+                    "compId":198,
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":135,
-                            "label":"Button(btn_back)",
+                            "props":{"y":0,"x":0,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":198,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":136,
+                            "compId":199,
                             "child":[
                                 {
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"返回","height":70},
-                                    "nodeParent":136,
+                                    "nodeParent":199,
                                     "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":137,
+                                    "compId":200,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":101,"width":100,"var":"btn_jueSeTJ","stateNum":2,"skin":"image/main/fram_common_mainbg.png","selected":true,"height":100},
-                            "nodeParent":135,
-                            "label":"Button(btn_jueSeTJ)",
+                            "props":{"y":0,"x":101,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","selected":true,"height":100},
+                            "nodeParent":198,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":138,
+                            "compId":201,
                             "child":[
                                 {
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","selected":true,"scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"角色","height":70},
-                                    "nodeParent":138,
+                                    "nodeParent":201,
                                     "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":139,
+                                    "compId":202,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":202,"width":100,"var":"btn_shiJianTJ","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":135,
-                            "label":"Button(btn_shiJianTJ)",
+                            "props":{"y":0,"x":202,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":198,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":140,
+                            "compId":203,
                             "child":[
                                 {
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"事件","height":70},
-                                    "nodeParent":140,
+                                    "nodeParent":203,
                                     "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":141,
+                                    "compId":204,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":303,"width":100,"var":"btn_diLiTJ","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":135,
-                            "label":"Button(btn_diLiTJ)",
+                            "props":{"y":0,"x":303,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":198,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":142,
+                            "compId":205,
                             "child":[
                                 {
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"地理","height":70},
-                                    "nodeParent":142,
+                                    "nodeParent":205,
                                     "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":143,
+                                    "compId":206,
                                     "child":[
                                         ]
                                 }]
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"x":404,"width":100,"var":"btn_wuPinTJ","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":135,
-                            "label":"Button(btn_wuPinTJ)",
+                            "props":{"y":0,"x":404,"width":100,"stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                            "nodeParent":198,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":144,
+                            "compId":207,
                             "child":[
                                 {
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"物品","height":70},
-                                    "nodeParent":144,
+                                    "nodeParent":207,
                                     "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":145,
+                                    "compId":208,
                                     "child":[
                                         ]
                                 }]
@@ -1291,14 +1178,14 @@
                 },
                 {
                     "type":"Button",
-                    "props":{"y":-7,"x":536,"width":116,"var":"btn_changeMode","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112},
-                    "nodeParent":134,
-                    "label":"Button(btn_changeMode)",
+                    "props":{"y":-7,"x":536,"width":116,"stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112},
+                    "nodeParent":118,
+                    "label":"Button",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":148,
+                    "compId":209,
                     "child":[
                         ],
                     "$HIDDEN":false

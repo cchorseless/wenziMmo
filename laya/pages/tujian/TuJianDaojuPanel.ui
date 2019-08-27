@@ -1,8 +1,14 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":266,
-    "selecteID":278,
+    "selectedBox":1,
+    "selecteID":97,
+    "referenceLines":[
+        {
+            "value":1029,
+            "type":1,
+            "id":1
+        }],
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -37,48 +43,7 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":1030,"x":0,"skin":"image/main/fram_common_21.png"},
-                    "nodeParent":96,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":114,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":1030,"x":639,"skin":"image/main/fram_common_21.png","scaleX":-1},
-                    "nodeParent":96,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":115,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
                 }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":1067,"x":-5,"width":896,"skin":"image/main/fram_common_05.png","rotation":270,"height":19},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":97,
-            "child":[
-                ]
         },
         {
             "x":15,
@@ -246,19 +211,6 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":157,"x":645,"width":896,"skin":"image/main/fram_common_05.png","rotation":90,"height":19},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":99,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
             "props":{"y":263,"x":202,"width":235,"skin":"image/common/fram_common_09.png","sizeGrid":"24,26,24,23","height":42},
             "nodeParent":1,
             "label":"Image",
@@ -285,7 +237,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":308,"x":24,"width":592,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"18,18,18,22","height":647},
+            "props":{"y":308,"x":24,"width":592,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"18,18,18,22","height":653},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -310,23 +262,59 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":395,"x":36,"width":567,"skin":"image/common/fram_common_02.png","height":29},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":280,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"y":6,"x":11,"width":184,"skin":"image/main/fram_common_exp.png","height":16},
+                    "nodeParent":280,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":281,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":4,"x":263,"text":"85%","fontSize":20,"color":"#ffffff"},
+                    "nodeParent":280,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":282,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
             "type":"Panel",
-            "props":{"y":399,"x":15,"width":610,"var":"panel_TuJianDaoju","height":549},
+            "props":{"y":431,"x":15,"width":610,"var":"panel_TuJianDaoju","height":549},
             "nodeParent":1,
             "label":"Panel(panel_TuJianDaoju)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":102,
             "child":[
                 {
-                    "x":30,
                     "type":"VBox",
                     "props":{"y":1,"var":"vbox_TuJianDaoju","space":7,"right":0,"left":0},
                     "nodeParent":102,
                     "label":"VBox(vbox_TuJianDaoju)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -1024,95 +1012,54 @@
         },
         {
             "x":15,
-            "type":"Box",
-            "props":{"y":947,"x":25,"var":"box_daojuReturn"},
+            "type":"Button",
+            "props":{"y":986,"x":462,"width":150,"stateNum":"2","skin":"image/common/fram_common_09_finish（1）.png","labelStrokeColor":"#000000","labelSize":28,"labelColors":"#ffffff,#000000","label":"筛选","height":47},
             "nodeParent":1,
-            "label":"Box(box_daojuReturn)",
-            "isOpen":true,
+            "label":"Button",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":285,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":947,"x":26,"var":"box_daoju"},
+            "nodeParent":1,
+            "label":"Box(box_daoju)",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":220,
+            "compId":264,
             "child":[
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":30,"x":440,"width":150,"skin":"image/common/fram_common_09.png","height":47,"alpha":0.7},
-                    "nodeParent":220,
-                    "label":"Image",
-                    "isOpen":true,
+                    "type":"Button",
+                    "props":{"y":40,"x":10,"width":150,"stateNum":"2","skin":"image/common/fram_common_09_finish（1）.png","labelStrokeColor":"#000000","labelSize":28,"labelColors":"#ffffff,#000000","label":"奖励","height":47},
+                    "nodeParent":264,
+                    "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":110,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":30,"x":487,"width":56,"valign":"bottom","text":"筛选","strokeColor":"#000000","stroke":5,"height":32,"fontSize":28,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                    "nodeParent":220,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":111,
+                    "compId":283,
                     "child":[
                         ]
                 },
                 {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":0,"x":220,"var":"box_daoju"},
-                    "nodeParent":220,
-                    "label":"Box(box_daoju)",
-                    "isOpen":null,
-                    "isDirectory":true,
+                    "type":"Image",
+                    "props":{"y":10,"x":110,"skin":"image/tujian/prompt_redpoint.png"},
+                    "nodeParent":264,
+                    "label":"Image",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":264,
+                    "hasChild":false,
+                    "compId":284,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":30,"width":150,"skin":"image/common/fram_common_09.png","height":47,"alpha":0.7},
-                            "nodeParent":264,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":108,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":30,"x":47,"width":56,"valign":"bottom","text":"奖励","strokeColor":"#000000","stroke":5,"height":32,"fontSize":28,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":264,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":109,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":100,"skin":"image/tujian/prompt_redpoint.png"},
-                            "nodeParent":264,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":112,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }]
+                        ],
+                    "$HIDDEN":false
                 }]
         },
         {
@@ -1301,7 +1248,8 @@
                             "child":[
                                 ]
                         }]
-                }]
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {
