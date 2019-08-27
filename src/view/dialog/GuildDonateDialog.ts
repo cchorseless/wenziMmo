@@ -35,7 +35,7 @@ module view.dialog {
 		public updateUI(magID, jsonData: ProtoCmd.itf_Guild_JuanXianInfo) {
 			this.jsonData = jsonData;
 			let player = GameApp.MainPlayer;
-			this.lbl_goldCount.text = '' + (player.wealth.gold + player.wealth.gold_lock);
+			this.lbl_goldCount.text = '' + player.wealth.gold;
 			this.lbl_yuanBaoCount.text = '' + player.wealth.yuanBao;
 			this.lbl_leftGold.text = '' + parseInt('' + this.jsonData.leftGold / 10000);
 		}

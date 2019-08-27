@@ -28,7 +28,7 @@ module GameObject {
          * @param gold 
          */
         public changeGold(gold: number) {
-            this.wealth.gold = gold;
+            this.wealth._gold = gold;
             Log.trace('金币：' + gold);
             GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLD);
         }
@@ -37,9 +37,9 @@ module GameObject {
          * @param gold_lock 
          */
         public changeGold_lock(gold_lock: number) {
-            this.wealth.gold_lock = gold_lock;
+            this.wealth._gold_lock = gold_lock;
             Log.trace('绑定金币：' + gold_lock);
-            GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLDLOCK);
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_GOLD);
         }
 
         /**

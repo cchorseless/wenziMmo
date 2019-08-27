@@ -4,13 +4,13 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public item: ProtoCmd.itf_Shop_ShopItem
+		public item: ProtoCmd.itf_Shop_ShopItem;
 		public setData(item: ProtoCmd.itf_Shop_ShopItem): void {
 			this.item = item;
 			// 折扣
 			this.lbl_cutDes.text = '' + item.discount + '折';
 			// 价格
-			this.lbl_price.text = '' + item.price;
+			this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
 			// 货币类型
 			this.img_coin.skin = 'image/common/icon_common_jinbi01.png';
 			// 道具数量
@@ -21,6 +21,8 @@ module view.compart {
 			this.ui_item.img_lock.visible = Boolean(item.binding);
 			// 道具底图
 			this.ui_item.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.itemid) + '.png';
+			// 是否可以购买
+			this.disabled = (item.limitcnt <= item.curcnt);
 			this.addEvent()
 		}
 		public addEvent(): void {

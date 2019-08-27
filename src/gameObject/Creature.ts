@@ -88,8 +88,12 @@ module GameObject {
     }
     export class Wealth {
         // 金币
-        public gold: number = 0;
-        public gold_lock: number = 0;
+        public _gold: number = 0;
+        public _gold_lock: number = 0;
+        // 原来分金币和绑定金币，现在合成一个
+        public get gold(): number {
+            return this._gold + this._gold_lock;
+        }
         // 元宝
         public yuanBao: number = 0;
         public yuanBao_lock: number = 0;
@@ -100,6 +104,7 @@ module GameObject {
         // 声望
         public nowFame = 0;
         public maxTotalFame = 0;
+
 
     }
 

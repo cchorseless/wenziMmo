@@ -57,8 +57,6 @@ module view.main {
 			}
 			// 金币
 			this.lbl_gold.text = '' + _player.wealth.gold;
-			// 绑定金币
-			this.lbl_goldlock.text = '' + _player.wealth.gold_lock;
 			// 元宝
 			this.lbl_yuanBao.text = '' + _player.wealth.yuanBao;
 			// 绑定元宝
@@ -122,7 +120,6 @@ module view.main {
 				else {
 					PopUpManager.Dispose(PanelManage.Menu);
 				}
-
 			});
 
 			// 时辰界面
@@ -153,8 +150,6 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 金币
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.lbl_gold.text = '' + _player.wealth.gold; });
-			// 绑定金币
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLDLOCK, this, () => { this.lbl_goldlock.text = '' + _player.wealth.gold_lock; });
 			// 元宝
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAO, this, () => { this.lbl_yuanBao.text = '' + _player.wealth.yuanBao; });
 			// 绑定元宝

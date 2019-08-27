@@ -62,11 +62,14 @@ module ProtoCmd {
         curcnt: number;// 当前已购买次数
         discount: number;// 折扣数
         itemid: number;// 物品ID
-        limitcnt: number;// 限购数量
+        limitcnt: number;// 限购次数
         num: number;// 数量
-        price: number;// 价格
+        price: number;// 总价格
         pricetype: number;// 货币类型
         show: number;// 是否显示
+        type: number;//商店类型
+        subtype: number;//商店子类型
+        index: string;//商店条目索引
     }
     /**
      * 热销商店返回数据

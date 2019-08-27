@@ -78,6 +78,14 @@ module view.beiBao {
 				console.log(jsonData);
 				for (let key of allkeys) {
 					let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
+					console.log(sellItemInfo);
+					// 商店类型
+					sellItemInfo.type = EnumData.ShopType.SHOP_TYPE_BAG_HOT;
+					// 商店子类型
+					sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
+					// 商品条目索引
+					sellItemInfo.index = key;
+					console.log(sellItemInfo);
 					let ui_item = new view.compart.ShopHotItem();
 					ui_item.setData(sellItemInfo);
 					this.vbox_sellHot.addChild(ui_item);

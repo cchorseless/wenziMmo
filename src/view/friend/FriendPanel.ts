@@ -22,9 +22,9 @@ module view.friend {
 
 		public addEvent(): void {
 			// 返回
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { 
-				 PanelManage.openMainPanel()
-			 });
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel()
+			});
 			// 工会
 			this.btn_guild.on(Laya.UIEvent.CLICK, this, () => {
 				// 判定 有无公会
@@ -37,11 +37,11 @@ module view.friend {
 				else {
 					PanelManage.openGuildSelectPanel();
 				}
-			})
+			});
 			// 组队
 			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
-			})
+			});
 			// NPC好感度
 			// todo
 			// 小说模式
@@ -60,7 +60,6 @@ module view.friend {
 					let friend_UI = new view.compart.FriendItem();
 					let friendItem = new ProtoCmd.stRelationInfoBase();
 					friendItem.clone(item.data);
-					// GameApp.GameEngine.friendDB
 					friend_UI.setData(friendItem);
 					this.vbox_friend00.addChild(friend_UI);
 				}
@@ -70,6 +69,7 @@ module view.friend {
 				this.updateHMDList();
 			})
 		}
+		
 		/**
 		 * 附近人
 		 */
@@ -80,10 +80,20 @@ module view.friend {
 				this.vbox_friend01.addChild(new view.compart.FriendNearbyItem().setData(GameApp.MainPlayer.allPlayer[_key]));
 			}
 		}
+
 		/**
 		 * 黑名单
 		 */
 		public updateHMDList(): void {
+
+
+		}
+
+		/**
+		 * 仇敌
+		 */
+		public updateChouDiList(): void {
+
 
 		}
 	}

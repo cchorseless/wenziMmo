@@ -34,8 +34,7 @@ module view.dialog {
 			// 价格框输入完成
 			this.input_count.on(Laya.UIEvent.BLUR, this, () => {
 				if (this.model) {
-					let goldALL = GameApp.MainPlayer.wealth.gold + GameApp.MainPlayer.wealth.gold_lock;
-					this.input_count.text = '' + Math.min(parseInt(this.input_count.text), parseInt(this.lbl_goldleft.text), parseInt('' + goldALL / 10000));
+					this.input_count.text = '' + Math.min(parseInt(this.input_count.text), parseInt(this.lbl_goldleft.text), parseInt('' + GameApp.MainPlayer.wealth.gold / 10000));
 				}
 				else {
 					let yuanBaoALL = GameApp.MainPlayer.wealth.yuanBao;
@@ -45,7 +44,7 @@ module view.dialog {
 				if (this.input_count.text == '0') { TipsManage.showTips('货币不足') }
 			})
 		}
-		
+
 		public updateLbl(): void {
 			// 倍率 元宝是金币的两倍
 			let _temp = this.model ? 1 : 2;

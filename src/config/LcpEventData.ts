@@ -47,7 +47,6 @@ module LcpEvent {
     export const UPDATE_UI_YUANBAO: string = 'UPDATE_UI_YUANBAO';//更新元宝
     export const UPDATE_UI_YUANBAOLOCK: string = 'UPDATE_UI_YUANBAOLOCK';//更新绑定元宝
     export const UPDATE_UI_GOLD: string = 'UPDATE_UI_GOLD';//更新金币
-    export const UPDATE_UI_GOLDLOCK: string = 'UPDATE_UI_GOLDLOCK';//更新绑定金币
     export const UPDATE_UI_GUILDSCORE: string = 'UPDATE_UI_GUILDSCORE';//更新帮派积分
 
     export const UPDATE_UI_PLAYER_LEVEL: string = 'UPDATE_UI_PLAYER_LEVEL';//更新玩家等级
