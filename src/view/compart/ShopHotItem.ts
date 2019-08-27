@@ -35,7 +35,7 @@ module view.compart {
 						break;
 					// 装备
 					case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
-						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+						itemInfoDialog = new view.dialog.ShopBuyItemV1Dialog();
 						break;
 					// 消耗品
 					case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:

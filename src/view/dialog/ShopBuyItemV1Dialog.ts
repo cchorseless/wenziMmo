@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.dialog {
-	export class ShopBuyItemV0Dialog extends ui.dialog.ShopBuyItemV0DialogUI {
+	export class ShopBuyItemV1Dialog extends ui.dialog.ShopBuyItemV1DialogUI {
 		constructor() {
 			super();
 		}
-		public setData(): ShopBuyItemV0Dialog {
+		public setData(): ShopBuyItemV1Dialog {
 			this.addEvent();
 			return this;
 		}

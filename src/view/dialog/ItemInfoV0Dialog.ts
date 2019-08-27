@@ -43,10 +43,6 @@ module view.dialog {
 					this.viw_model.selectedIndex = 5;
 					this.height -= this.viw_model.height;
 					break;
-				// 商店内
-				case 6:
-					this.viw_model.selectedIndex = 6;
-					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
 			// 是否绑定
@@ -63,8 +59,7 @@ module view.dialog {
 			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
 			let ban_model =
 				[EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU,
-				EnumData.ItemInfoModel.SHOW_IN_CANGKU,
-				EnumData.ItemInfoModel.SHOW_IN_SHOP];
+				EnumData.ItemInfoModel.SHOW_IN_CANGKU,];
 			if (this.itemObj.dwCount === 1 || ban_model.indexOf(this.model) != -1) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
@@ -113,15 +108,14 @@ module view.dialog {
 				case 3:
 					// 取出道具
 					this.btn_putBackCangKu.on(Laya.UIEvent.CLICK, this, this.putBackCangKu);
-					// 角色身上
-					// case 4:
+					break
+				// 角色身上
+				case 4:
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case 5:
 					break;
-				// 商店
-				case 6:
-					break;
+
 			}
 		}
 
