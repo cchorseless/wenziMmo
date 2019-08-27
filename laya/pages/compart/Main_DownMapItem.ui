@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":70,
+    "selecteID":2,
     "props":{"y":0,"x":0,"width":630,"sceneColor":"#eacbcb","height":560},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/main/bg_map.png","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":630,"top":0,"skin":"image/main/img_map_01.png","left":0,"height":560},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -105,7 +105,8 @@
                     "compId":70,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {

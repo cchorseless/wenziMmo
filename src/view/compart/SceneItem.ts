@@ -39,6 +39,10 @@ module view.compart {
 					this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
 				});
 			}
+			// 场景信息界面
+			this.box_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.SceneInfoDialog().setData(null).popup(true);
+			});
 		}
 
 		/**
