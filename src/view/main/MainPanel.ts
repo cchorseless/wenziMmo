@@ -112,10 +112,7 @@ module view.main {
 			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_chatBigDialog.visible = true;
 			});
-			// 场景信息界面
-			this.box_sceneMore.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.SceneInfoDialog().setData(null).popup(true);
-			});
+			
 			// 菜单界面
 			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
