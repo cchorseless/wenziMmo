@@ -64,7 +64,7 @@ module view.guild {
 		public updateCreateUI(): void {
 			// 检查背包内 沃玛号角
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.BP_getHaoJaoInfo, null, this, (msgid, data: { binding: number, index: number, num: number, yuanbao: number }) => {
+			pkt.setString(ProtoCmd.BP_getHaoJaoInfo, null, this, (msgid, data: ProtoCmd.itf_Guild_HaoJiaoInfo) => {
 				console.log(msgid, data);
 				let needItemID = data.index;
 				let needCount = GameUtil.findItemInBag(needItemID, GameApp.GameEngine.bagItemDB);

@@ -50,6 +50,7 @@ module ProtoCmd {
                 }
                 s = s.substr(0, s.length - 1) + ')';
             }
+            console.log(s);
             // 有回调
             if (key && cbfunc) {
                 GameApp.LListener.once(funcName, key, cbfunc);

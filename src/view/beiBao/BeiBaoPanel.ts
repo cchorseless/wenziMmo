@@ -3,6 +3,8 @@ module view.beiBao {
 	export class BeiBaoPanel extends ui.beiBao.BeiBaoPanelUI {
 		constructor() {
 			super();
+			// 添加事件
+			this.addEvent();
 		}
 		public setData(): void {
 			// 初始化背包
@@ -25,8 +27,9 @@ module view.beiBao {
 			}
 			// 初始化背包
 			this.initUI();
-			// 添加事件
-			this.addEvent();
+			// 拉取热销商店数据
+			this.updateHotShop()
+
 		}
 
 		public initUI(): void {
@@ -39,12 +42,15 @@ module view.beiBao {
 			this.lbl_bagLogolbl.text = '背包|回收';
 			this.btn_huiShou.selected = true;
 			this.ui_huiShou.setData();
+			// 拉取随机商店
+
 		}
 
 		public addEvent(): void {
+			this.addLcpEvent();
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				 PanelManage.openMainPanel()
+				PanelManage.openMainPanel()
 			});
 			// 摆摊
 			this.btn_baiTan.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_baiTan']);
@@ -58,6 +64,31 @@ module view.beiBao {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
+			// 刷新商店
+			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
+		}
+
+		public addLcpEvent(): void {
+			// 监听刷新商店
+			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
+				this.vbox_sellHot.removeChildren();
+				// 刷新价格
+				this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
+				let allkeys = Object.keys(jsonData.items);
+				console.log(jsonData);
+				for (let key of allkeys) {
+					let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
+					let ui_item = new view.compart.ShopHotItem();
+					ui_item.setData(sellItemInfo);
+					this.vbox_sellHot.addChild(ui_item);
+				}
+			})
+		}
+
+
+		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList, this);
+			PopUpManager.Dispose(this);
 		}
 
 		public openPanel(msg): void {
@@ -107,8 +138,6 @@ module view.beiBao {
 			}
 
 		}
-
-
 
 		/**
 		 * 添加物品
@@ -177,6 +206,30 @@ module view.beiBao {
 					this.ui_cangKu.addItem(obj);
 					break;
 			}
+		}
+
+		/**
+		 *拉取商店信息
+		 */
+		public updateHotShop(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			let data = [EnumData.ShopType.SHOP_TYPE_BAG_HOT, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data);
+			lcp.send(pkt);
+		}
+
+		/**
+		 * 刷新热卖商店
+		 */
+		public refreshHotShop(): void {
+			if (GameApp.MainPlayer.wealth.yuanBao < 20) {
+				TipsManage.showTips('元宝不足');
+				return
+			}
+			let pkt = new ProtoCmd.QuestClientData();
+			let data = [EnumData.ShopType.SHOP_TYPE_BAG_HOT]
+			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data);
+			lcp.send(pkt);
 		}
 
 		/**

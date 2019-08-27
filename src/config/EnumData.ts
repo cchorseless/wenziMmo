@@ -682,8 +682,27 @@ module EnumData {
         SHOP_TYPE_YUANBAOLOCK = 2,//礼券商店
         SHOP_TYPE_SKILL = 3,//技能商店
         SHOP_TYPE_HONOR = 4,//荣誉商店
-        SHOP_TYPE_HOT = 5,//热销商店
+        SHOP_TYPE_BAG_HOT = 5,//背包热销商店
         SHOP_TYPE_GUILD = 6,//行会商店
+        SHOP_TYPE_GUILD_HOT = 7,//帮会热销
+
+    }
+    /**
+     * 商店子类型枚举
+     */
+    export enum ShopSubType {
+        SHOP_SUBTYPE_NONE = 0,// 默认无类型
+    }
+    /**
+     * 货币类型枚举
+     */
+    export enum CoinType {
+        COIN_TYPE_YUANBAO = 1,//元宝
+        COIN_TYPE_YUANBAOLOCK = 2,//礼券
+        COIN_TYPE_GOLD = 3,//金币
+        COIN_TYPE_HONOR = 4,//荣誉
+        COIN_TYPE_GUILDSORCE = 5,//帮贡
+
     }
 
 }

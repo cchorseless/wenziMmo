@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":65,
-    "selecteID":61,
+    "selectedBox":69,
+    "selecteID":71,
     "props":{"width":500,"sceneColor":"#000000","height":600},
     "nodeParent":-1,
     "label":"Dialog",
@@ -455,14 +455,13 @@
                     "props":{"y":0,"x":0,"name":"item2"},
                     "nodeParent":41,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":50,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"width":107,"text":"出售总价:","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                             "nodeParent":50,
@@ -475,7 +474,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
                             "nodeParent":50,
@@ -487,7 +485,6 @@
                             "compId":52,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-1,"skin":"image/main/icon_common_yuanbao01.png"},
                                     "nodeParent":52,
@@ -500,7 +497,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"TextInput",
                                     "props":{"y":0,"x":31,"width":143,"var":"input_price","type":"number","text":"666666","restrict":"0123456789","maxChars":20,"height":39,"fontSize":25,"align":"center"},
                                     "nodeParent":52,
@@ -514,7 +510,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":316,"width":133,"var":"btn_goSell","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":50},
                             "nodeParent":50,
@@ -574,17 +569,83 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"var":"btn_buy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item6","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
+                    "type":"Box",
+                    "props":{"y":2,"x":10,"name":"item6"},
                     "nodeParent":41,
-                    "label":"Button(btn_buy)",
-                    "isDirectory":false,
+                    "label":"Box(item6)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":59,
+                    "hasChild":true,
+                    "compId":66,
                     "child":[
-                        ],
-                    "$HIDDEN":true
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"x":286,"width":133,"var":"btn_buy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
+                            "nodeParent":66,
+                            "label":"Button(btn_buy)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":67,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":10,"width":107,"text":"消耗货币:","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":68,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":10,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
+                            "nodeParent":66,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":69,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-1,"x":-1,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png"},
+                                    "nodeParent":69,
+                                    "label":"Image(img_coinPic)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":70,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":7,"x":53,"width":122,"var":"lbl_coinPrice","text":"0","height":29,"fontSize":25,"align":"center"},
+                                    "nodeParent":69,
+                                    "label":"Label(lbl_coinPrice)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":71,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -606,14 +667,13 @@
                     "props":{"y":2,"x":10,"name":"item8"},
                     "nodeParent":41,
                     "label":"Box(item8)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":65,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":286,"width":133,"var":"btn_duiHuan","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"兑换","height":50},
                             "nodeParent":65,
@@ -627,7 +687,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":10,"width":107,"text":"消耗帮贡::","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                             "nodeParent":65,
@@ -640,7 +699,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
                             "nodeParent":65,
@@ -652,7 +710,6 @@
                             "compId":61,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-1,"skin":"image/main/icon_common_yuanbao01.png"},
                                     "nodeParent":61,
@@ -665,7 +722,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":7,"x":53,"width":122,"var":"lbl_duiHuanPrice","text":"0","height":29,"fontSize":25,"align":"center"},
                                     "nodeParent":61,
@@ -677,7 +733,8 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

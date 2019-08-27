@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":18,
-    "selecteID":43,
+    "selecteID":44,
     "referenceLines":null,
     "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
@@ -254,7 +254,8 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -300,16 +301,82 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item6","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
+                    "type":"Box",
+                    "props":{"y":2,"x":10,"name":"item6"},
                     "nodeParent":18,
-                    "label":"Button(item6)",
-                    "isDirectory":false,
+                    "label":"Box(item6)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":43,
+                    "hasChild":true,
+                    "compId":44,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"x":286,"width":133,"var":"btn_buy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
+                            "nodeParent":44,
+                            "label":"Button(btn_buy)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":45,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":10,"width":107,"text":"消耗货币:","height":28,"fontSize":25,"font":"Microsoft YaHei","color":"#000000","align":"center"},
+                            "nodeParent":44,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":46,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":10,"x":111,"width":177,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":42},
+                            "nodeParent":44,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":47,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-1,"x":-1,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png"},
+                                    "nodeParent":47,
+                                    "label":"Image(img_coinPic)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":48,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":7,"x":53,"width":122,"var":"lbl_coinPrice","text":"0","height":29,"fontSize":25,"align":"center"},
+                                    "nodeParent":47,
+                                    "label":"Label(lbl_coinPrice)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":49,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
                     "$HIDDEN":false
                 }]
         },

@@ -99,6 +99,13 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
+
+        /**********************************服务器打开面板全局监听**************************** */
+        // 正常充值提示界面
+        GameApp.LListener.on(ProtoCmd.CZ_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_chongzhidialog]);
+        // 首次充值提示界面
+        GameApp.LListener.on(ProtoCmd.CZ_weichongzhidialog, this, this.openPanel, [ProtoCmd.CZ_weichongzhidialog]);
+
         // 初始化标记
         this.hasInit = true;
     }
@@ -1061,6 +1068,22 @@ class ServerListener extends SingletonClass {
      */
     public clientSetData(data: any): void {
 
+    }
+    /**
+     * 打开界面
+     * @param data 
+     */
+    public openPanel(data: string): void {
+        switch (data) {
+            // 充值界面
+            case ProtoCmd.CZ_chongzhidialog:
+                new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
+                break;
+                // 首冲界面
+            case ProtoCmd.CZ_weichongzhidialog:
+                new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
+                break;
+        }
     }
 
 }

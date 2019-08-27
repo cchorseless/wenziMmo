@@ -26,13 +26,13 @@ module view.dialog {
 			pkt.setString(ProtoCmd.BP_JuanXianInfo);
 			lcp.send(pkt);
 		}
-		public jsonData: { goldcnt: number, rmbcnt: number, leftGold: number };
+		public jsonData: ProtoCmd.itf_Guild_JuanXianInfo;
 		/**
 		 * 刷新界面
 		 * @param magID 
 		 * @param jsonData 
 		 */
-		public updateUI(magID, jsonData: { goldcnt: number, rmbcnt: number, leftGold: number }) {
+		public updateUI(magID, jsonData: ProtoCmd.itf_Guild_JuanXianInfo) {
 			this.jsonData = jsonData;
 			let player = GameApp.MainPlayer;
 			this.lbl_goldCount.text = '' + (player.wealth.gold + player.wealth.gold_lock);

@@ -14,7 +14,7 @@ module view.tujian {
 				new view.dialog.TuJianRewardDialog().popup(true);
 			})
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-PopUpManager.showPanel(PanelManage.JuQingMode);
+				PopUpManager.showPanel(PanelManage.JuQingMode);
 			});
 			this.btn_wuPinTJ.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianDaojuPanel()
