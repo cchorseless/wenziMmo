@@ -77,9 +77,8 @@ module view.guild {
 			// 		Laya.Dialog.closeByGroup('GuildBaoxiangDialog');
 			// 	});
 			// }
-
 			// 返回
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openMainPanel() });
 			// 队伍
 			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
@@ -98,11 +97,14 @@ module view.guild {
 
 		public addLcpEvent(): void {
 			// 更新公会贡献
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, () => { this.lbl_gongXian.text = '' + GameApp.MainPlayer.wealth.guildDedication });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, () => {
+				this.lbl_gongXian.text = '' + GameApp.MainPlayer.wealth.guildDedication
+			});
 		}
 
 		public Dispose(): void {
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_GUILDSCORE, this);
+			console.log(GameApp.LListener)
 			PopUpManager.Dispose(this);
 		}
 
@@ -125,7 +127,7 @@ module view.guild {
 				this.lbl_guildExp.text = '' + singleGuildinfo.dwCurExp + '/' + singleGuildinfo.dwLevelUpExp;
 				// 帮主名字
 				this.lbl_masterName.text = '' + singleGuildinfo.masterName;
-				// 行会等级排名
+				// 行会排名
 				this.lbl_guildRank.text = '' + singleGuildinfo.dwRank;
 				// 行会人数上限
 				let countRoof = singleGuildinfo.dwMaxPlayerCount;

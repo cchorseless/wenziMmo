@@ -23,7 +23,9 @@ module view.team {
 		}
 		public addEvent(): void {
 			// 返回
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.Dispose(this) });
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel()
+			 });
 			// 工会
 			this.btn_guild.on(Laya.UIEvent.CLICK, this, () => {
 				// 判定 有无公会

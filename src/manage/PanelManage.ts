@@ -42,6 +42,10 @@ module PanelManage {
     /*****************************游戏界面************************************* */
     export let JueSe: view.juese.JueSePanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
+    export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
+    export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
+    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
+    export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
@@ -251,6 +255,75 @@ module PanelManage {
         })
     }
     /**
+    * 武学外功界面
+    */
+    export function openWuXueWaiGongPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.WaiGong) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.WaiGong);
+        ResManage.loadResource(ResData.PanelRes.WaiGong, () => {
+            PanelManage.WaiGong = new view.wuXue.WuXueWaiGongPanel();
+            PanelManage.WaiGong['LCP_skin'] = ResData.PanelRes.WaiGong;
+            PanelManage.WaiGong.setData();
+            PanelManage.WaiGong.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.WaiGong, 1, 0, 2);
+        })
+    }
+    /**
+    * 武学内功界面
+    */
+    export function openWuXueNeiGongPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NeiGong) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.NeiGong);
+        ResManage.loadResource(ResData.PanelRes.NeiGong, () => {
+            PanelManage.NeiGong = new view.wuXue.WuXueNeiGongPanel();
+            PanelManage.NeiGong['LCP_skin'] = ResData.PanelRes.NeiGong;
+            PanelManage.NeiGong.setData();
+            PanelManage.NeiGong.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.NeiGong, 1, 0, 2);
+        })
+    }
+    /**
+    * 武学合道界面
+    */
+    export function openWuXueHeDaoPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.HeDao) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.HeDao);
+        ResManage.loadResource(ResData.PanelRes.HeDao, () => {
+            PanelManage.HeDao = new view.wuXue.WuXueHeDaoPanel();
+            PanelManage.HeDao['LCP_skin'] = ResData.PanelRes.HeDao;
+            PanelManage.HeDao.setData();
+            PanelManage.HeDao.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
+        })
+    }
+    /**
+    * 武学生活技能界面
+    */
+    export function openWuXueLifeSkillPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LifeSkill) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.LifeSkill);
+        ResManage.loadResource(ResData.PanelRes.LifeSkill, () => {
+            PanelManage.LifeSkill = new view.wuXue.WuXueLifeSkillPanel();
+            PanelManage.LifeSkill['LCP_skin'] = ResData.PanelRes.LifeSkill;
+            PanelManage.LifeSkill.setData();
+            PanelManage.LifeSkill.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.LifeSkill, 1, 0, 2);
+        })
+    }
+
+
+
+
+
+    /**
      * 养成界面
      */
     export function openYangChengPanel(): void {
@@ -295,7 +368,7 @@ module PanelManage {
             PanelManage.GuildMain['LCP_skin'] = ResData.PanelRes.GuildMain;
             PanelManage.GuildMain.setData(data);
             PanelManage.GuildMain.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildMain, 2, 5, 2);
+            PopUpManager.addPanel(PanelManage.GuildMain, 2, 0, 2);
         })
     }
     /**
@@ -610,7 +683,7 @@ module PanelManage {
             PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
             PanelManage.JuQingMode.setData();
             PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 1, 0, 2);
+            PopUpManager.addPanel(PanelManage.JuQingMode, 1);
         })
     }
 

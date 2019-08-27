@@ -30,7 +30,7 @@ module view.yangCheng {
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.Dispose(this);
+			 PanelManage.openMainPanel()
 			})
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();

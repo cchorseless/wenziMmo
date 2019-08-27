@@ -88,7 +88,7 @@ module view.main {
 			});
 			// 武学
 			this.btn_wuXue.on(Laya.UIEvent.CLICK, this, () => {
-				// todo
+				PanelManage.openWuXueWaiGongPanel();
 			});
 			// 江湖
 			this.btn_jiangHu.on(Laya.UIEvent.CLICK, this, () => {

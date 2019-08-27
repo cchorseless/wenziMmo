@@ -52,6 +52,33 @@ module view.guild {
 		public initUI(): void {
 			// 创建时间
 			this.lbl_guildCreateTime.text = '' + GameApp.MainPlayer.guildInfo.dwCreateTime;
+			// 拉取数据
+			let pkt = new ProtoCmd.stClientGetGuildShowInfo();
+			pkt.setValue('guildId', GameApp.MainPlayer.guildInfo.dwID);
+
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stClientGetGuildShowInfoRet(data);
+				// 累计金币
+				this.lbl_goldCount.text = '' + cbpkt.getValue('dwGoldDonateCnt') / 10000 + '万';
+
+				// 累计元宝
+				this.lbl_yuanBaoCount.text = '' + cbpkt.getValue('dwRmbDonateCnt');
+
+				// 沙巴克次数
+				this.lbl_shabakeCount.text = '' + cbpkt.getValue('dwShaBaKeCnt');
+
+				// 行会信息
+				this.lbl_rank.text = '' + GameApp.MainPlayer.guildInfo.dwRank;
+
+				// 宣战行会
+				this.lbl_xuanZhanCount.text = '' + cbpkt.getValue('dwFightCnt');
+
+				// 结盟行会数
+				this.lbl_jieMengCount.text = '' + cbpkt.getValue('dwAllianceCnt');
+
+				cbpkt.clear();
+				cbpkt = null
+			})
 		}
 	}
 }

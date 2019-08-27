@@ -540,7 +540,7 @@ module EnumData {
 
 
     export enum emFRIENDErrorCode {
-        RELATION_SUCCESS=0,            //成功
+        RELATION_SUCCESS = 0,            //成功
         RELATION_FAIL_NOT_ONLINE,    //不在线
         RELATION_FAIL_IN_FRIEND,     //是好友
         RELATION_FAIL_IN_BLOCK,      //在黑名单中
@@ -564,7 +564,7 @@ module EnumData {
         RELATION_FAIL_NEED_VERIFY,		//需要验证
         RELATION_FAIL_REFUSEALL,		//设置了拒绝加好友
     };
-    enum emListType {
+    export enum emListType {
         LIST_FRIEND,//好友列表
         LIST_BLOCK,	//黑名单
         LIST_ENEMY,	//仇人列表
@@ -573,7 +573,7 @@ module EnumData {
 
 
     // *************************************排行榜***************************************
-    enum emRankType {
+    export enum emRankType {
         Cret_Level_Rank,					//角色等级排行榜
         Cret_Warrior_Level_Rank,			//战士等级排行榜
         Cret_Mage_Level_Rank,				//法师等级排行榜
@@ -647,7 +647,7 @@ module EnumData {
 
     };
     // ************************************邮件***************************************
-    enum emMailErrorCode {
+    export enum emMailErrorCode {
         MAIL_SUCCESS,            //成功
         MAIL_FAIL_NORECEIVER,    //没找到接收者
         MAIL_FAIL_IDERROR,       //邮件编号错误
@@ -673,5 +673,17 @@ module EnumData {
         MAIL_FAIL_RETURNED,		//已经被退过
     };
 
+    /******************************************商店************************************* */
+    /**
+     * 商店类型枚举
+     */
+    export enum ShopType {
+        SHOP_TYPE_TUIJIAN = 1,//推荐商店
+        SHOP_TYPE_YUANBAOLOCK = 2,//礼券商店
+        SHOP_TYPE_SKILL = 3,//技能商店
+        SHOP_TYPE_HONOR = 4,//荣誉商店
+        SHOP_TYPE_HOT = 5,//热销商店
+        SHOP_TYPE_GUILD = 6,//行会商店
+    }
 
 }

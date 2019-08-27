@@ -16,7 +16,7 @@ module view.task {
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.Dispose(this);
+						PopUpManager.showPanel(PanelManage.JuQingMode);
 			})
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
