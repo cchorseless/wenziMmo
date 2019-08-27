@@ -57,9 +57,8 @@ module EnumData {
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
         SHOW_IN_MAIL = 4,//邮件中显示
-        SHOW_IN_SHOP = 5,//商店中显示
-        SHOW_IN_GUILD_CANGKU = 6,//公会仓库
-        SHOW_IN_GUILD_BAG = 7,//公会背包
+        SHOW_IN_GUILD_CANGKU = 5,//公会仓库
+        SHOW_IN_GUILD_BAG = 6,//公会背包
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
         SHOW_IN_BAG_CANGKU = 102,//背包=仓库显示
         SHOW_IN_BAG_BAITAN = 103,//背包-摆摊显示
@@ -682,8 +681,27 @@ module EnumData {
         SHOP_TYPE_YUANBAOLOCK = 2,//礼券商店
         SHOP_TYPE_SKILL = 3,//技能商店
         SHOP_TYPE_HONOR = 4,//荣誉商店
-        SHOP_TYPE_HOT = 5,//热销商店
+        SHOP_TYPE_BAG_HOT = 5,//背包热销商店
         SHOP_TYPE_GUILD = 6,//行会商店
+        SHOP_TYPE_GUILD_HOT = 7,//帮会热销
+
+    }
+    /**
+     * 商店子类型枚举
+     */
+    export enum ShopSubType {
+        SHOP_SUBTYPE_NONE = 0,// 默认无类型
+    }
+    /**
+     * 货币类型枚举
+     */
+    export enum CoinType {
+        COIN_TYPE_YUANBAO = 1,//元宝
+        COIN_TYPE_YUANBAOLOCK = 2,//礼券
+        COIN_TYPE_GOLD = 3,//金币
+        COIN_TYPE_HONOR = 4,//荣誉
+        COIN_TYPE_GUILDSORCE = 5,//帮贡
+
     }
 
 }

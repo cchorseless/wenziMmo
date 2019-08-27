@@ -43,17 +43,14 @@ module view.dialog {
 					this.viw_model.selectedIndex = 5;
 					this.height -= this.viw_model.height;
 					break;
-				// 商店内
-				case EnumData.ItemInfoModel.SHOW_IN_SHOP:
-					this.viw_model.selectedIndex = 6;
-					break;
+
 				// 公会背包内
 				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:
-					this.viw_model.selectedIndex = 7;
+					this.viw_model.selectedIndex = 6;
 					break;
 				// 公会仓库内
 				case EnumData.ItemInfoModel.SHOW_IN_GUILD_CANGKU:
-					this.viw_model.selectedIndex = 8;
+					this.viw_model.selectedIndex = 7;
 					this.lbl_duiHuanPrice.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE('' + obj.dwBaseID);
 					break;
 
@@ -123,9 +120,6 @@ module view.dialog {
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
-					break;
-				// 商店内
-				case EnumData.ItemInfoModel.SHOW_IN_SHOP:
 					break;
 				// 公会背包内
 				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:

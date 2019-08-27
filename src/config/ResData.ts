@@ -40,13 +40,13 @@ module ResData {
         // 时装界面
         public static Clothe = [{ url: "res/atlas/image/juese/clothe.atlas", type: Laya.Loader.ATLAS }];
         // 武学 外功
-        public static WaiGong =  [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static WaiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 内功
-        public static NeiGong =  [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static NeiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 合道
-        public static HeDao =  [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static HeDao = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 生活技能
-        public static LifeSkill =  [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static LifeSkill = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 养成界面
         public static YangCheng = [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
@@ -93,14 +93,14 @@ module ResData {
         public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
-        // 图鉴江湖界面
-        public static TuJianJiangHu = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+
         // 图鉴道具界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
         // 图鉴角色界面
         public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
-        // 图鉴怪物界面
-        public static TuJianBoss = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+
+        // 天鉴界面
+        public static TianJian = null;
 
     };
     /**

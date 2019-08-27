@@ -166,29 +166,26 @@ module EffectUtils {
      * @param obj 按钮对象
      * @param cb 回调函数
      */
-    export function playButtonEffect(obj, cb = () => { }): void {
-        if (this.isPlayEffectPlay) {
-            return;
-        }
-        var acx = obj.anchorOffsetX;
-        var acy = obj.anchorOffsetY;
-        obj.anchorOffsetX = obj.width / 2;
-        obj.anchorOffsetY = obj.height / 2;
-        var xx = (obj.anchorOffsetX - acx);
-        var yy = (obj.anchorOffsetY - acy);
+    export function playButtonEffect(obj: Laya.Button, cb = () => { }): void {
+        let acx = obj.anchorX;
+        let acy = obj.anchorY;
+        obj.anchorX = 0.5;
+        obj.anchorY = 0.5;
+        let xx = (obj.anchorX - acx);
+        let yy = (obj.anchorY - acy);
         obj.x += xx;
         obj.y += yy;
-        var onComplete2: Function = function () {
+        let onComplete2: Function = function () {
             this.isPlayEffectPlay = false;
-            obj.anchorOffsetX = acx;
-            obj.anchorOffsetY = acy;
+            obj.anchorX = acx;
+            obj.anchorY = acy;
             obj.x -= xx;
             obj.y -= yy;
             obj.scaleX = 1;
             obj.scaleY = 1;
             cb();
         };
-        var onComplete1: Function = function () {
+        let onComplete1: Function = function () {
             Laya.Tween.to(obj, { scaleX: 1, scaleY: 1 }, 100, null, Laya.Handler.create(this, onComplete2));
         };
         Laya.Tween.to(obj, { scaleX: 0.9, scaleY: 0.9 }, 100, Laya.Ease.sineIn, Laya.Handler.create(this, onComplete1))

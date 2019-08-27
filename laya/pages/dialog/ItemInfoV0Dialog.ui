@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":18,
-    "selecteID":43,
+    "selecteID":23,
     "referenceLines":null,
     "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
@@ -165,7 +165,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -254,7 +254,8 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -297,20 +298,6 @@
                     "child":[
                         ],
                     "$HIDDEN":true
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item6","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":50},
-                    "nodeParent":18,
-                    "label":"Button(item6)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":43,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
                 }]
         },
         {

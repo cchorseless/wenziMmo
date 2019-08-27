@@ -69,10 +69,9 @@ module PanelManage {
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
-
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
-
+    export let TianJian:view.tianJian.TianJianPanel;//天鉴界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -718,6 +717,23 @@ module PanelManage {
             PanelManage.TuJianJuese.setData();
             PanelManage.TuJianJuese.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.TuJianJuese, 2, 0, 2);
+        })
+    }
+
+    /**
+    * 天鉴界面
+    */
+    export function openTianJianPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TianJian) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.TianJian);
+        ResManage.loadResource(ResData.PanelRes.TianJian, () => {
+            PanelManage.TianJian = new view.tianJian.TianJianPanel();
+            PanelManage.TianJian['LCP_skin'] = ResData.PanelRes.TianJian;
+            PanelManage.TianJian.setData();
+            PanelManage.TianJian.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 2);
         })
     }
 

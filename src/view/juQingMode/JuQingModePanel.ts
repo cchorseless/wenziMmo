@@ -35,6 +35,9 @@ module view.juQingMode {
 			});
 			// 任务
 			this.btn_task.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openTaskPanel(); });
+			// 天鉴
+			this.btn_tianJian.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openTianJianPanel(); });
+
 			// 场景模式
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
