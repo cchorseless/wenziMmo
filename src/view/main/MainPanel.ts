@@ -114,7 +114,7 @@ module view.main {
 			});
 
 			// 菜单界面
-			EventManage.onWithEffect(this.btn_menu,Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
 				if (this.btn_menu.selected) {
 					PanelManage.openMenuPanel()
@@ -138,7 +138,7 @@ module view.main {
 				new view.dialog.MainChangeDialog().popup(true);
 			});
 			// 地图展开界面
-			this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				this.btn_mapBig.selected = !this.btn_mapBig.selected;
 				if (this.btn_mapBig.selected) {
 					this.ui_mainDownMapItem.showSelf(true);
@@ -147,7 +147,6 @@ module view.main {
 					this.ui_mainDownMapItem.showSelf(false);
 				}
 			})
-
 		}
 
 		public updateUI(): void {
