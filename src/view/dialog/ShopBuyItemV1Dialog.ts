@@ -5,12 +5,20 @@ module view.dialog {
 			super();
 		}
 		public setData(): ShopBuyItemV1Dialog {
+
+
+			
 			this.addEvent();
 			return this;
 		}
 
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, this.close);
+			this.btn_buy.on(Laya.UIEvent.CLICK, this, this.buyItem);
+		}
+
+		public buyItem(): void {
+			
 		}
 	}
 }

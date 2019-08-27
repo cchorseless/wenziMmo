@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":183,
+    "selectedBox":327,
+    "selecteID":335,
     "referenceLines":[
         {
             "value":-85,
@@ -91,7 +91,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":3,"bottom":0},
+            "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -1100,212 +1100,199 @@
             "child":[
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":4,"x":7,"space":7},
+                    "type":"Button",
+                    "props":{"y":4,"x":7,"width":100,"var":"btn_jueSe","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
                     "nodeParent":327,
-                    "label":"HBox",
-                    "isOpen":true,
+                    "label":"Button(btn_jueSe)",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":359,
+                    "compId":329,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
-                            "props":{"width":100,"var":"btn_jueSe","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":359,
-                            "label":"Button(btn_jueSe)",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
+                            "nodeParent":329,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":329,
+                            "hasChild":false,
+                            "compId":330,
                             "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_common_juese01up_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
-                                    "nodeParent":329,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":330,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_caidan_01_finish.png"},
-                                    "nodeParent":329,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":360,
-                                    "child":[
-                                        ]
-                                }]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
-                            "props":{"x":101,"width":100,"var":"btn_wuXue","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":359,
-                            "label":"Button(btn_wuXue)",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_caidan_01_finish.png"},
+                            "nodeParent":329,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":331,
+                            "hasChild":false,
+                            "compId":360,
                             "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_wuxue_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
-                                    "nodeParent":331,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":332,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_wuxue_01_finish.png"},
-                                    "nodeParent":331,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":362,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"x":202,"width":100,"var":"btn_jiangHu","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":359,
-                            "label":"Button(btn_jiangHu)",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":333,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_jianghu_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
-                                    "nodeParent":333,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":334,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_jianghu_01_finish.png"},
-                                    "nodeParent":333,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":361,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"x":303,"width":100,"var":"btn_zhaiYuan","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":359,
-                            "label":"Button(btn_zhaiYuan)",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":335,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_zhaiyuan_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
-                                    "nodeParent":335,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":336,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_zhaoyuan_01_finish.png"},
-                                    "nodeParent":335,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":363,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"x":404,"width":100,"var":"btn_wuPin","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
-                            "nodeParent":359,
-                            "label":"Button(btn_wuPin)",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":337,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_wuping_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
-                                    "nodeParent":337,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":338,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_wuping_01_finish.png"},
-                                    "nodeParent":337,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":364,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         }]
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":-7,"x":536,"width":116,"var":"btn_modeChange","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112},
+                    "props":{"y":4,"x":108,"width":100,"var":"btn_wuXue","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                    "nodeParent":327,
+                    "label":"Button(btn_wuXue)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":331,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_wuxue_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
+                            "nodeParent":331,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":332,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_wuxue_01_finish.png"},
+                            "nodeParent":331,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":362,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":4,"x":209,"width":100,"var":"btn_jiangHu","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100},
+                    "nodeParent":327,
+                    "label":"Button(btn_jiangHu)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":333,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_jianghu_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
+                            "nodeParent":333,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":334,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_jianghu_01_finish.png"},
+                            "nodeParent":333,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":361,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":54,"x":360,"width":100,"var":"btn_zhaiYuan","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":327,
+                    "label":"Button(btn_zhaiYuan)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":335,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_zhaiyuan_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
+                            "nodeParent":335,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":336,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_zhaoyuan_01_finish.png"},
+                            "nodeParent":335,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":363,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":54,"x":461,"width":100,"var":"btn_wuPin","stateNum":2,"skin":"image/main/fram_common_mainbg.png","height":100,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":327,
+                    "label":"Button(btn_wuPin)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":337,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":70,"stateNum":2,"skin":"image/main/icon_wuping_01_finish.png","scaleY":1.2,"scaleX":1.2,"labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":70},
+                            "nodeParent":337,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":338,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":61,"x":19,"stateNum":"2","skin":"image/main/zi_wuping_01_finish.png"},
+                            "nodeParent":337,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":364,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":49,"x":594,"width":116,"var":"btn_modeChange","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","height":112,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":327,
                     "label":"Button(btn_modeChange)",
                     "isOpen":true,

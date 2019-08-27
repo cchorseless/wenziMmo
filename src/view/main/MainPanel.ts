@@ -66,24 +66,24 @@ module view.main {
 			// 战斗力
 			this.clip_power.value = '' + _player.ability.nFight;
 			// 节气
-			this.btn_jieQi.label = '【' + this.getJieQi() + '】';
+			this.btn_jieQi.label = '' + this.getJieQi();
 			// 时辰
-			this.btn_shiChen.label = '【' + this.getShiChen() + '】';
+			this.btn_shiChen.label = '' + this.getShiChen();
 			this.addEvent();
 			this.updateUI();
 		}
 
 		public addEvent(): void {
 			// 模式切换
-			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
-			});
+			})
 			// 物品
-			this.btn_wuPin.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_wuPin, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openBeiBaoPanel();
 			});
 			// 角色
-			this.btn_jueSe.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_jueSe, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJueSePanel()
 			});
 			// 武学
@@ -112,7 +112,7 @@ module view.main {
 			this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.ui_chatBigDialog.visible = true;
 			});
-			
+
 			// 菜单界面
 			this.btn_menu.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;

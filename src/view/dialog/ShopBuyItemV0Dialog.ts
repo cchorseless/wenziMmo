@@ -4,7 +4,8 @@ module view.dialog {
 		constructor() {
 			super();
 		}
-		public setData(): ShopBuyItemV0Dialog {
+		public setData(item: ProtoCmd.itf_Shop_ShopItem): ShopBuyItemV0Dialog {
+			// this.lbl
 			this.addEvent();
 			return this;
 		}
