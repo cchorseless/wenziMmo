@@ -140,7 +140,6 @@ module view.main {
 			// 地图展开界面
 			this.btn_mapBig.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_mapBig.selected = !this.btn_mapBig.selected;
-				this.btn_mapBig.scaleY = -this.btn_mapBig.scaleY;
 				if (this.btn_mapBig.selected) {
 					this.ui_mainDownMapItem.showSelf(true);
 				}
