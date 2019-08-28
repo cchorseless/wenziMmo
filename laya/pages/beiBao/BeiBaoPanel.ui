@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":386,
-    "selecteID":406,
+    "selectedBox":401,
+    "selecteID":404,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -443,13 +443,14 @@
                                     "props":{"y":67,"width":104,"var":"panel_sellHot","right":0,"left":8,"height":585},
                                     "nodeParent":22,
                                     "label":"Panel(panel_sellHot)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":35,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"VBox",
                                             "props":{"y":0,"var":"vbox_sellHot","right":0,"left":0},
                                             "nodeParent":35,
@@ -516,9 +517,9 @@
                                         {
                                             "x":75,
                                             "type":"Image",
-                                            "props":{"y":0,"x":-12,"width":50,"skin":"image/main/icon_common_yuanbao01.png","height":40},
+                                            "props":{"y":0,"x":-12,"width":50,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png","height":40},
                                             "nodeParent":401,
-                                            "label":"Image",
+                                            "label":"Image(img_coinPic)",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,

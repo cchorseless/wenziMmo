@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":7,
-    "selecteID":23,
+    "selectedBox":1,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bg_common_01.png"},
+            "props":{"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":1044,"x":0,"width":643,"skin":"image/main/img_common_02.png","left":0,"height":92},
+                    "props":{"skin":"image/main/img_common_02.png","right":0,"left":0,"height":92,"bottom":0},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -301,17 +301,18 @@
                     "props":{"y":9,"x":525,"width":106,"skin":"image/common/input_bg.png","height":33},
                     "nodeParent":7,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":44,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":6,"x":19,"text":"123456","padding":"-1","fontSize":18,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":6,"x":19,"var":"lbl_gongXian","text":"123456","padding":"-1","fontSize":18,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":44,
-                            "label":"Label",
+                            "label":"Label(lbl_gongXian)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -376,155 +377,107 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-2,"x":8,"name":"item0"},
+                    "type":"Panel",
+                    "props":{"y":-2,"x":8,"width":606,"var":"panel_guildShop00","name":"item0","height":637},
                     "nodeParent":46,
-                    "label":"Box(item0)",
+                    "label":"Panel(panel_guildShop00)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":47,
+                    "compId":8,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"width":606,"var":"panel_guildShop00","height":637},
-                            "nodeParent":47,
-                            "label":"Panel(panel_guildShop00)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "type":"VBox",
+                            "props":{"y":1,"var":"vbox_guildShop00","right":0,"left":0},
+                            "nodeParent":8,
+                            "label":"VBox(vbox_guildShop00)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":8,
+                            "hasChild":false,
+                            "compId":40,
                             "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":1,"var":"vbox_guildShop00","right":0,"left":0},
-                                    "nodeParent":8,
-                                    "label":"VBox(vbox_guildShop00)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":40,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-2,"x":8,"name":"item1"},
+                    "type":"Panel",
+                    "props":{"y":-2,"x":8,"width":606,"var":"panel_guildShop01","name":"item1","height":637},
                     "nodeParent":46,
-                    "label":"Box(item1)",
+                    "label":"Panel(panel_guildShop01)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":48,
+                    "compId":49,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"width":606,"var":"panel_guildShop01","height":637},
-                            "nodeParent":48,
-                            "label":"Panel(panel_guildShop01)",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "type":"VBox",
+                            "props":{"y":1,"var":"vbox_guildShop01","right":0,"left":0},
+                            "nodeParent":49,
+                            "label":"VBox(vbox_guildShop01)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":49,
+                            "hasChild":false,
+                            "compId":50,
                             "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":1,"var":"vbox_guildShop01","right":0,"left":0},
-                                    "nodeParent":49,
-                                    "label":"VBox(vbox_guildShop01)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":50,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-2,"x":8,"name":"item2"},
+                    "type":"Panel",
+                    "props":{"y":-2,"x":8,"width":606,"var":"panel_guildShop02","name":"item2","height":637},
                     "nodeParent":46,
-                    "label":"Box(item2)",
+                    "label":"Panel(panel_guildShop02)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":51,
+                    "compId":52,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"width":606,"var":"panel_guildShop02","height":637},
-                            "nodeParent":51,
-                            "label":"Panel(panel_guildShop02)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "type":"VBox",
+                            "props":{"y":1,"var":"vbox_guildShop02","right":0,"left":0},
+                            "nodeParent":52,
+                            "label":"VBox(vbox_guildShop02)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":52,
+                            "hasChild":false,
+                            "compId":53,
                             "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":1,"var":"vbox_guildShop02","right":0,"left":0},
-                                    "nodeParent":52,
-                                    "label":"VBox(vbox_guildShop02)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":53,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-2,"x":8,"name":"item3"},
+                    "type":"Panel",
+                    "props":{"y":-2,"x":8,"width":606,"var":"panel_guildShop03","name":"item3","height":637},
                     "nodeParent":46,
-                    "label":"Box(item3)",
+                    "label":"Panel(panel_guildShop03)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":54,
+                    "compId":55,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"width":606,"var":"panel_guildShop03","height":637},
-                            "nodeParent":54,
-                            "label":"Panel(panel_guildShop03)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "type":"VBox",
+                            "props":{"y":1,"var":"vbox_guildShop03","right":0,"left":0},
+                            "nodeParent":55,
+                            "label":"VBox(vbox_guildShop03)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":55,
+                            "hasChild":false,
+                            "compId":56,
                             "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":1,"var":"vbox_guildShop03","right":0,"left":0},
-                                    "nodeParent":55,
-                                    "label":"VBox(vbox_guildShop03)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":56,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
+                                ]
+                        }],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         }],

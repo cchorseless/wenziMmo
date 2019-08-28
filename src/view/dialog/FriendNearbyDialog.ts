@@ -10,7 +10,7 @@ module view.dialog {
 			//附近的人的昵称
 			this.lbl_name.text = '' + this.item.objName;
 			//附近的人的等级
-			this.lbl_rank.text = '' + this.item.level;
+			this.lbl_lvl.text = '' + this.item.level;
 			this.addEvent();
 			return this;
 		}
@@ -29,36 +29,59 @@ module view.dialog {
 		 * @param type 
 		 */
 		public changeRelationShip(type): void {
-			let tips: string;
-			switch (type) {
-				// 好友
-				case 0:
-					tips = '添加好友';
-					break;
-				// 黑名单
-				case 1:
-					tips = '拉入黑名单';
-					break
-			}
 			let pkt = new ProtoCmd.stRelationAdd();
 			pkt.setValue('btType', type);
-			pkt.setValue('szName', this.item.objName);
+			pkt.setValue('szName', this.lbl_name.text);
 			lcp.send(pkt, this, (data) => {
+				this.close();
 				let cbpkt = new ProtoCmd.stRelationAddRet(data);
 				let errorcode = cbpkt.getValue('btErrorCode');
 				switch (errorcode) {
 					//成功
-					case EnumData.emFRIENDErrorCode.RELATION_SUCCESS:
-						TipsManage.showTips(tips + '成功');
-						case EnumData.emFRIENDErrorCode.RELATION_FAIL_ALLREADY_FRIEND:
-						TipsManage.showTips('好友已在列表中');
+					case EnumData.emFriendErrorCode.RELATION_SUCCESS:
+						TipsManage.showTips('操作成功');
+						break;
+					// 好友已在列表中
+					case EnumData.emFriendErrorCode.RELATION_FAIL_ALLREADY_FRIEND:
+						TipsManage.showTips('对方已在好友列表中');
+						break;
+					//不在线
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NOT_ONLINE:
+						TipsManage.showTips('对方不在线');
+						break;
+					//在黑名单中
+					case EnumData.emFriendErrorCode.RELATION_FAIL_IN_BLOCK:
+						TipsManage.showTips('对方已在黑名单列表中');
+						break;
+					//拒绝操作
+					case EnumData.emFriendErrorCode.RELATION_FAIL_REFUSE:
+						TipsManage.showTips('对方拒绝操作');
+						break;
+					//好友名单满了
+					case EnumData.emFriendErrorCode.RELATION_FAIL_FRIENDLIST_FULL:
+						break;
+					//黑名单满了
+					case EnumData.emFriendErrorCode.RELATION_FAIL_BLOCKLIST_FULL:
+						break;
+					//名字错误
+					case EnumData.emFriendErrorCode.RELATION_FAIL_ERRORNAME:
+						break;
+					//没有这个用户
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NO_USER:
+						break;
+					case EnumData.emFriendErrorCode.RELATION_FAIL_WAIT_TO_ANSWER: break;  //
+					case EnumData.emFriendErrorCode.RELATION_FAIL_CLOSE_INVITE: break;  //关闭邀请
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NOSELF: break;  	//不能添加自己
+					case EnumData.emFriendErrorCode.RELATION_FAIL_ENEMYLIST_FULL: break;  	//仇人名单满了
+					case EnumData.emFriendErrorCode.RELATION_FAIL_ALLREADY_ENEMY: break;  	//已经在仇人了
+					case EnumData.emFriendErrorCode.RELATION_FAIL_SERVERERROR: break;  		//系统错误
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NOT_FRIEND: break;  //没有这好友
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NOT_ENEMY: break;  //没有这敌人
+					case EnumData.emFriendErrorCode.RELATION_FAIL_LOCATION_QUERY: break;   //探查令不够
+					case EnumData.emFriendErrorCode.RELATION_FAIL_ENEMY_CANT_BE_FRIEND: break;  //仇人不是
+					case EnumData.emFriendErrorCode.RELATION_FAIL_NEED_VERIFY: break;  		//需要验证
+					case EnumData.emFriendErrorCode.RELATION_FAIL_REFUSEALL: break;  		//设置了拒绝加好友
 				}
-				// if (EnumData.emFRIENDErrorCode.RELATION_SUCCESS) {
-				// 	TipsManage.showTips(tips + '成功');
-				// }
-				// else {
-				// 	TipsManage.showTips(tips + '失败');
-				// }
 			})
 		}
 	}

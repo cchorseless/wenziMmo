@@ -42,8 +42,6 @@ module view.beiBao {
 			this.lbl_bagLogolbl.text = '背包|回收';
 			this.btn_huiShou.selected = true;
 			this.ui_huiShou.setData();
-			// 拉取随机商店
-
 		}
 
 		public addEvent(): void {
@@ -230,7 +228,7 @@ module view.beiBao {
 		 * 刷新热卖商店
 		 */
 		public refreshHotShop(): void {
-			if (GameApp.MainPlayer.wealth.yuanBao < 20) {
+			if (GameApp.MainPlayer.wealth.yuanBao < parseInt(this.lbl_refreshPrice.text)) {
 				TipsManage.showTips('元宝不足');
 				return
 			}
