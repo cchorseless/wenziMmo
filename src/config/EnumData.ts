@@ -538,7 +538,7 @@ module EnumData {
     };
 
 
-    export enum emFRIENDErrorCode {
+    export enum emFriendErrorCode {
         RELATION_SUCCESS = 0,            //成功
         RELATION_FAIL_NOT_ONLINE,    //不在线
         RELATION_FAIL_IN_FRIEND,     //是好友
@@ -696,12 +696,11 @@ module EnumData {
      * 货币类型枚举
      */
     export enum CoinType {
-        COIN_TYPE_YUANBAO = 1,//元宝
-        COIN_TYPE_YUANBAOLOCK = 2,//礼券
-        COIN_TYPE_GOLD = 3,//金币
-        COIN_TYPE_HONOR = 4,//荣誉
-        COIN_TYPE_GUILDSORCE = 5,//帮贡
-
+        COIN_TYPE_YUANBAO = 1,     //元宝
+        COIN_TYPE_YUANBAOLOCK = 2, //礼券
+        COIN_TYPE_GOLD = 3,        //金币
+        COIN_TYPE_HONOR = 4,       //荣誉
+        COIN_TYPE_GUILDSORCE = 5,  //帮贡
     }
 
 }

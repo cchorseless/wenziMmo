@@ -27,6 +27,7 @@ module view.guild {
 				}
 			}
 			this.initUI();
+			this.updateHotShop();
 		}
 
 
@@ -37,10 +38,35 @@ module view.guild {
 			lcp.send(pkt);
 		}
 
+		/**
+		 *拉取商店信息
+		 */
+		public updateHotShop(): void {
+			// todo 与背包内可能有冲突 需要回包加标识
+			let pkt = new ProtoCmd.QuestClientData();
+			let data = [EnumData.ShopType.SHOP_TYPE_GUILD_HOT, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data);
+			lcp.send(pkt);
+		}
+		/**
+		 * 刷新热卖商店
+		 */
+		public refreshHotShop(): void {
+			if (GameApp.MainPlayer.wealth.guildDedication < parseInt(this.lbl_refreshPrice.text)) {
+				TipsManage.showTips('帮贡不足');
+				return
+			}
+			let pkt = new ProtoCmd.QuestClientData();
+			let data = [EnumData.ShopType.SHOP_TYPE_GUILD_HOT]
+			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data);
+			lcp.send(pkt);
+		}
 		public addEvent(): void {
 			this.btn_guildStoreReturn.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			});
+			// 刷新商店
+			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
 			this.addLcpEvent();
 		}
 
@@ -49,13 +75,40 @@ module view.guild {
 			GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stViewGuildPackageRet), this, this.updateCangKu);
 			// 更新帮贡
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, this.updateGongXianLbl);
+			// 监听刷新商店
+			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
+				this.vbox_sellHot.removeChildren();
+				// 刷新价格
+				this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
+				let allkeys = Object.keys(jsonData.items);
+				console.log(jsonData);
+				for (let key of allkeys) {
+					let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
+					console.log(sellItemInfo);
+					// 商店类型
+					sellItemInfo.type = EnumData.ShopType.SHOP_TYPE_GUILD_HOT;
+					// 商店子类型
+					sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
+					// 商品条目索引
+					sellItemInfo.index = key;
+					console.log(sellItemInfo);
+					let ui_item = new view.compart.ShopHotItem();
+					ui_item.setData(sellItemInfo);
+					this.vbox_sellHot.addChild(ui_item);
+				}
+			})
 		}
 
 		public Dispose(): void {
+			// 仓库协议包
 			GameApp.LListener.offCaller(ProtoCmd.Packet.eventName(ProtoCmd.stViewGuildPackageRet), this);
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_GUILDSCORE, this)
+			// 更新帮会积分
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_GUILDSCORE, this);
+			// 更新热卖商店
+			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList, this);
 			PopUpManager.Dispose(this);
 		}
+		// 更新仓库
 		public updateCangKu(data): void {
 			let cbPkt = new ProtoCmd.stViewGuildPackageRet(data);
 			let dwStoretype = cbPkt.getValue('dwStoretype');
@@ -77,8 +130,9 @@ module view.guild {
 			cbPkt.clear();
 			cbPkt = null;
 		}
+		// 帮派贡献
 		public updateGongXianLbl(): void {
-			// 帮派贡献
+			
 			this.lbl_bangGong.text = '' + GameApp.MainPlayer.wealth.guildDedication;
 		}
 		/**

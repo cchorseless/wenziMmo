@@ -91,7 +91,7 @@ module view.compart {
 			// 物品ICON
 			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.dwBaseID) + '.png';
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + item.btQuality + '.png';
+			this.img_bg.skin = 'image/common/daoju/quality_' +  SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
 			// 物品数量
 			this.lbl_count.text = '' + ((item.dwCount === 0 || item.dwCount === 1) ? '' : item.dwCount);
 		}

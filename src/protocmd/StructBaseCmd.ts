@@ -2479,6 +2479,9 @@ module ProtoCmd {
     }
 
 
+    /**
+     * 单条关系玩家信息
+     */
     export class stRelationInfoBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();
@@ -2516,11 +2519,11 @@ module ProtoCmd {
             return this.getValue("dwLevel");
         }
 
-        public get playerName(): String {
+        public get playerName(): string {
             return this.getValue("szName");
         }
 
-        public get guildName(): String {
+        public get guildName(): string {
             return this.getValue("guildname");
         }
 
@@ -2532,7 +2535,7 @@ module ProtoCmd {
             return this.getValue("btSex");
         }
 
-        public get onlyId(): Number {
+        public get onlyId(): Int64 {
             return this.getValue("dwOnlyId");
         }
     }

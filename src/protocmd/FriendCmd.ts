@@ -1,6 +1,7 @@
 module ProtoCmd {
 
     //请求关系列表
+    // 0x0A01
     export class stRelationGetList extends Packet {
         public static msgID: number = 0x0A01;
         public cbPacket = stRelationGetListRet;
@@ -11,6 +12,7 @@ module ProtoCmd {
         }
     }
     //请求关系列表返回
+    // 0x0A02
     export class stRelationGetListRet extends Packet {
         public static msgID: number = 0x0A02;
         public friendlist: Array<stRelationInfoBase> = [];
@@ -74,7 +76,8 @@ module ProtoCmd {
         }
     }
 
-    //添加好友返回
+    // 添加好友返回
+    // 0x0A04
     export class stRelationAddRet extends Packet {
         public static msgID: number = 0x0A04;
         public constructor(data: Laya.Byte) {
@@ -118,7 +121,6 @@ module ProtoCmd {
     }
 
 
-
     //c-s 回答关系添加结果(only 好友)
     export class stRelationAddAnswerQuery extends Packet {
         public static msgID: number = 0x0A06;
@@ -127,8 +129,8 @@ module ProtoCmd {
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
             this.addProperty('boAgree', PacketBase.TYPE_BOOL); //是否同意
             this.cmd = 0x0A06;
-            if(data){
-                  data.pos += this.read(data);
+            if (data) {
+                data.pos += this.read(data);
             }
         }
 
@@ -186,7 +188,10 @@ module ProtoCmd {
     }
 
     //搜索好友
+    // 0x0A0C
     export class stRelationSearchFriend extends Packet {
+        public static msgID: number = 0x0A0C;
+        public cbPacket = stRelationSearchFriendRet;
         constructor() {
             super();
             this.cmd = 0x0A0C;
@@ -195,12 +200,14 @@ module ProtoCmd {
     }
 
     //搜索好友返回
+    // 0x0A0D
     export class stRelationSearchFriendRet extends Packet {
         public static msgID: number = 0x0A0D
         public results: Array<stFindResultBase> = [];
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('nCount', PacketBase.TYPE_DWORD);
+            this.cmd = 0x0A0D;
             if (data) this.read(data);
         }
 
@@ -239,7 +246,7 @@ module ProtoCmd {
             this.cmd = 0x0A27;
         }
     }
-    
+
     //一键添加好友返回
     export class stAdvertiseFriendRet extends Packet {
         public static msgID: number = 0x0A2A;

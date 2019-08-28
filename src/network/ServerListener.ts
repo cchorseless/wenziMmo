@@ -1049,17 +1049,23 @@ class ServerListener extends SingletonClass {
         let infoType = strArr[0];// 大类标识
         let funcName = strArr[1];// 调用的函数名称
         let msgID = 0;// 函数内小协议包
-        console.log(strArr);
-        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-        switch (strArr.length) {
-            case 4:
-                msgID = parseInt(strArr[2]);
-                break;
+        // console.log(strArr);
+        try {
+            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+            switch (strArr.length) {
+                case 4:
+                    msgID = parseInt(strArr[2]);
+                    break;
+            }
+            // 抛出事件
+            GameApp.LListener.event(funcName, [msgID, jsonData]);
+            msg.clear();
+            msg = null;
         }
-        // 抛出事件
-        GameApp.LListener.event(funcName, [msgID, jsonData]);
-        msg.clear();
-        msg = null;
+        catch (e) {
+
+        }
+
     }
 
     /**
@@ -1079,7 +1085,7 @@ class ServerListener extends SingletonClass {
             case ProtoCmd.CZ_chongzhidialog:
                 new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
                 break;
-                // 首冲界面
+            // 首冲界面
             case ProtoCmd.CZ_weichongzhidialog:
                 new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
                 break;
