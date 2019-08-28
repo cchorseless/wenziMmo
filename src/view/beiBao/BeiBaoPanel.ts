@@ -39,7 +39,7 @@ module view.beiBao {
 				this.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, GameApp.GameEngine.bagItemDB[key]);
 			}
 			// 初始化回收界面
-			this.lbl_bagLogolbl.text = '背包|回收';
+			// this.lbl_bagLogolbl.text = '背包|回收';
 			this.btn_huiShou.selected = true;
 			this.ui_huiShou.setData();
 			// 拉取随机商店
@@ -118,21 +118,21 @@ module view.beiBao {
 			switch (index) {
 				// 回收界面
 				case 0:
-					this.lbl_bagLogolbl.text = '背包|回收';
+					this.lbl_bagLogolbl.text = '回收';
 					this.ui_huiShou.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
 					break;
 				// 仓库界面
 				case 1:
-					this.lbl_bagLogolbl.text = '背包|仓库';
+					this.lbl_bagLogolbl.text = '仓库';
 					this.ui_cangKu.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
 					break;
 				// 摆摊界面
 				case 2:
-					this.lbl_bagLogolbl.text = '背包|摆摊';
+					this.lbl_bagLogolbl.text = '摆摊';
 					this.ui_tanWei.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
