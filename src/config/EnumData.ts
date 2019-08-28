@@ -56,7 +56,7 @@ module EnumData {
         SHOW_IN_BAG = 1,//背包中显示
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
-        SHOW_IN_MAIL = 4,//邮件中显示
+        SHOW_IN_MAIL = 4,//邮件中显示,只有信息 误操作按钮
         SHOW_IN_GUILD_CANGKU = 5,//公会仓库
         SHOW_IN_GUILD_BAG = 6,//公会背包
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
@@ -701,6 +701,16 @@ module EnumData {
         COIN_TYPE_GOLD = 3,        //金币
         COIN_TYPE_HONOR = 4,       //荣誉
         COIN_TYPE_GUILDSORCE = 5,  //帮贡
+    }
+
+    /**
+     * 商店购买界面类型
+     */
+    export enum ShopBuyPanelType {
+        SHOP_BUY_HOT_PANEL = 0,// 热卖商店购买界面,单次购买一组
+        SHOP_BUY_GUILD_PANEL = 1,// 公会商店购买界面
+
+
     }
 
 }

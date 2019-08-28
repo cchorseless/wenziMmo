@@ -5,6 +5,7 @@ module view.compart {
 		public model: EnumData.ItemInfoModel = 0;
 		constructor() {
 			super();
+			this.addEvent();
 		}
 		/**
 		 *  每个itemBase 绑定一个this,此方法通过绑定的形式初始化UI
@@ -17,14 +18,14 @@ module view.compart {
 			item.recoverUI();
 			item.ui_item = this;
 			this.initUI(this.item, model);
-			this.addEvent();
+
 		}
 
 		public addEvent(): void {
-			if (this.model == EnumData.ItemInfoModel.SHOW_NONE) {
-				return
-			}
 			this.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.model == EnumData.ItemInfoModel.SHOW_NONE) {
+					return
+				}
 				// 是否可以上架
 				if (this.isNotCanSell) {
 					TipsManage.showTips('绑定物品不能上架');
@@ -91,7 +92,7 @@ module view.compart {
 			// 物品ICON
 			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.dwBaseID) + '.png';
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' +  SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
+			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
 			// 物品数量
 			this.lbl_count.text = '' + ((item.dwCount === 0 || item.dwCount === 1) ? '' : item.dwCount);
 		}

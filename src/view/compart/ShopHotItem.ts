@@ -12,7 +12,7 @@ module view.compart {
 			// 价格
 			this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
 			// 货币类型
-			this.img_coin.skin = 'image/common/icon_common_jinbi01.png';
+			this.img_coin.skin = 'image/main/icon_coin_' + item.pricetype + '.png';
 			// 道具数量
 			this.ui_item.lbl_count.text = '' + item.num;
 			// 道具ICON
@@ -28,7 +28,7 @@ module view.compart {
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
-				let itemInfoDialog;
+				let itemInfoDialog: view.dialog.ShopBuyItemV0Dialog | view.dialog.ShopBuyItemV1Dialog;
 				// 根据物品类型显示不同界面
 				switch (itemType) {
 					// 材料
@@ -55,7 +55,7 @@ module view.compart {
 						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
 						break;
 				}
-				itemInfoDialog.setData(this.item).show(true);
+				itemInfoDialog.setData(this.item, EnumData.ShopBuyPanelType.SHOP_BUY_HOT_PANEL).show(true);
 			})
 		}
 	}

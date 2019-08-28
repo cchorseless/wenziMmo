@@ -5,14 +5,14 @@ module view.dialog {
 			super();
 		}
 		public item: ProtoCmd.itf_Shop_ShopItem;
-		public setData(item: ProtoCmd.itf_Shop_ShopItem): ShopBuyItemV1Dialog {
+		public setData(item: ProtoCmd.itf_Shop_ShopItem, model: EnumData.ShopBuyPanelType): ShopBuyItemV1Dialog {
 			this.item = item;
 			// 道具ID
 			let dwBaseID = '' + item.itemid;
 			// 消耗货币描述
 			this.lbl_coinDes.text = '' + '消耗' + ['', '元宝', '礼券', '金币', '荣誉', '帮贡'][item.pricetype];
 			// 消耗货币ICON
-			// let coinPicList=
+			this.img_coinPic.skin = 'image/main/icon_coin_' + item.pricetype + '.png';
 			// 是否绑定
 			this.lbl_isLock.visible = Boolean(item.binding);
 			// 物品名称

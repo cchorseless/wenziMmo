@@ -144,4 +144,6 @@ module ResData {
             { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
         ]
     }
+
+    
 }

@@ -77,5 +77,6 @@ module ProtoCmd {
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
         items: { itf_Shop_ShopItem };//刷新道具
+        pricetype:number;//刷新货币类型
     }
 }

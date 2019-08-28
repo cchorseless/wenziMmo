@@ -1049,7 +1049,8 @@ class ServerListener extends SingletonClass {
         let infoType = strArr[0];// 大类标识
         let funcName = strArr[1];// 调用的函数名称
         let msgID = 0;// 函数内小协议包
-        // console.log(strArr);
+        console.log(strArr);
+        // TODO
         try {
             let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
             switch (strArr.length) {

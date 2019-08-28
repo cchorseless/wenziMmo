@@ -69,26 +69,31 @@ module view.beiBao {
 		public addLcpEvent(): void {
 			// 监听刷新商店
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				this.vbox_sellHot.removeChildren();
-				// 刷新价格
-				this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
-				let allkeys = Object.keys(jsonData.items);
-				console.log(jsonData);
-				for (let key of allkeys) {
-					let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
-					console.log(sellItemInfo);
-					// 商店类型
-					sellItemInfo.type = EnumData.ShopType.SHOP_TYPE_BAG_HOT;
-					// 商店子类型
-					sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
-					// 商品条目索引
-					sellItemInfo.index = key;
-					console.log(sellItemInfo);
-					let ui_item = new view.compart.ShopHotItem();
-					ui_item.setData(sellItemInfo);
-					this.vbox_sellHot.addChild(ui_item);
+				// 背包热销回调
+				if (msgID == EnumData.ShopType.SHOP_TYPE_BAG_HOT) {
+					this.vbox_sellHot.removeChildren();
+					// 刷新价格
+					this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
+					// 刷新货币
+					this.img_coinPic.skin = 'image/main/icon_coin_' + jsonData.pricetype + '.png';
+					let allkeys = Object.keys(jsonData.items);
+					console.log(jsonData);
+					for (let key of allkeys) {
+						let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
+						console.log(sellItemInfo);
+						// 商店类型
+						sellItemInfo.type = EnumData.ShopType.SHOP_TYPE_BAG_HOT;
+						// 商店子类型
+						sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
+						// 商品条目索引
+						sellItemInfo.index = key;
+						console.log(sellItemInfo);
+						let ui_item = new view.compart.ShopHotItem();
+						ui_item.setData(sellItemInfo);
+						this.vbox_sellHot.addChild(ui_item);
+					}
 				}
-			})
+			});
 		}
 
 
