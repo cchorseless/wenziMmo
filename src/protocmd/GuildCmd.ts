@@ -300,7 +300,7 @@ module ProtoCmd {
 		public cbPacket = stGlobalGuildAddToDiplomacyRet;
 		public constructor(data: Laya.Byte) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会（1 3有用，其他不用）
 			this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A1B;
 			if (data) data.pos += this.read(data);
@@ -623,9 +623,9 @@ module ProtoCmd {
 	export class stGlobalGuildGetDiplomacyList extends Packet {
 		public static msgID: number = 0x2A1D;
 		public cbPacket = stGlobalGuildGetDiplomacyListRet;
-		public constructor(data: Laya.Byte) {
+		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);
+			this.addProperty("btType", PacketBase.TYPE_BYTE);//0关注行会1行会联盟2敌对行会3宣战行会（1 3有用，其他不用）
 			this.cmd = 0x2A1D;
 			if (data) {
 				data.pos += this.read(data);
@@ -649,7 +649,8 @@ module ProtoCmd {
 		}
 		public read(data: Laya.Byte): number {
 			data.pos = super.read(data);
-			for (var i: number = 0; i < this.getValue("nCount"); i++) {
+			let nCount = this.getValue("nCount");
+			for (var i: number = 0; i < nCount; i++) {
 				this.stZeroArray[i] = new DiplomacyGuildBase(data);
 			}
 			return data.pos;
@@ -721,7 +722,7 @@ module ProtoCmd {
 		}
 	}
 	// 0x2A31
-	// 行会非成员信息
+	// 行会内非帮会成员（管理层）信息
 	export class stGlobalGuildMasterInfo extends Packet {
 		public static msgID: number = 0x2A31;
 		public members: Array<stGuildMemberBase> = [];
