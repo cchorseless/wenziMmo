@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":337,
-    "selecteID":338,
+    "selectedBox":131,
+    "selecteID":347,
     "referenceLines":[
         {
             "value":-85,
@@ -857,13 +857,14 @@
                     "props":{"y":0,"x":0,"var":"box_head"},
                     "nodeParent":2,
                     "label":"Box(box_head)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":131,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
                             "nodeParent":131,
@@ -876,6 +877,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":2,"x":7,"var":"img_avatarIcon","skin":"image/main/img_zhujue_01.png"},
                             "nodeParent":131,
@@ -889,6 +891,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
                             "nodeParent":131,
@@ -901,6 +904,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":6,"x":89,"skin":"image/main/img_vipdi.png"},
                             "nodeParent":131,
@@ -913,6 +917,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":110,"width":25,"skin":"image/common/zi_vip_01.png","scaleY":0.7,"scaleX":0.7,"height":30},
                             "nodeParent":131,
@@ -925,6 +930,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "props":{"var":"font_vipLevel","value":1,"spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","centerY":-42,"centerX":56},
                             "nodeParent":131,
@@ -937,8 +943,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":-5,"x":68,"skin":"image/main/icon_vip_01.png","scaleY":0.8,"scaleX":0.8},
+                            "props":{"y":1,"x":70,"skin":"image/main/icon_vip_01.png","scaleY":0.7,"scaleX":0.7},
                             "nodeParent":131,
                             "label":"Image",
                             "isDirectory":false,
