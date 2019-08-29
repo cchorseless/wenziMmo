@@ -16,6 +16,12 @@ module view.tujian {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 		PopUpManager.showPanel(PanelManage.JuQingMode);
 			});
+			this.btn_shiJianTJ.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTuJianEventPanel()
+			});
+			this.btn_diLiTJ.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTuJianPlacePanel()
+			});
 			this.btn_jueSeTJ.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianJuesePanel()
 			});

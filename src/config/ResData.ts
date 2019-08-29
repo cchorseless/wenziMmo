@@ -93,12 +93,14 @@ module ResData {
         public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];;
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
-
         // 图鉴道具界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
         // 图鉴角色界面
         public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
-
+        // 图鉴事件界面
+        public static TuJianEvent = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+        // 图鉴地理界面
+        public static TuJianPlace = null;
         // 天鉴界面
         public static TianJian = null;
 
@@ -145,5 +147,5 @@ module ResData {
         ]
     }
 
-    
+
 }
