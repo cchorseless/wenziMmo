@@ -121,28 +121,28 @@ module view.beiBao {
 			switch (index) {
 				// 回收界面
 				case 0:
-					this.lbl_bagLogolbl.text = '回收';
+					this.lbl_bagLogolbl.text = '回 收';
 					this.ui_huiShou.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
 					break;
 				// 仓库界面
 				case 1:
-					this.lbl_bagLogolbl.text = '仓库';
+					this.lbl_bagLogolbl.text = '仓 库';
 					this.ui_cangKu.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
 					break;
 				// 摆摊界面
 				case 2:
-					this.lbl_bagLogolbl.text = '摆摊';
+					this.lbl_bagLogolbl.text = '摆 摊';
 					this.ui_tanWei.setData()
 					this.viw_BagViewChange.selectedIndex = 0;
 					this.viw_bagBottom.selectedIndex = index;
 					break;
 				// 交易行界面
 				case 3:
-					this.lbl_bagLogolbl.text = '交易行';
+					this.lbl_bagLogolbl.text = '交 易 行';
 					this.ui_jiaoyihang.setData()
 					this.viw_BagViewChange.selectedIndex = 1;
 					break;

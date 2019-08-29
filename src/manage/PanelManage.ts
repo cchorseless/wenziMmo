@@ -71,6 +71,8 @@ module PanelManage {
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
+    export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
+    export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian:view.tianJian.TianJianPanel;//天鉴界面
     /*****************************通用方法************************************* */
 
@@ -719,7 +721,39 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.TuJianJuese, 2, 0, 2);
         })
     }
+  /**
+    * 图鉴事件界面
+    */
+    export function openTuJianEventPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianEvent) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.TuJianEvent);
+        ResManage.loadResource(ResData.PanelRes.TuJianEvent, () => {
+            PanelManage.TuJianEvent = new view.tujian.TuJianEventPanel();
+            PanelManage.TuJianEvent['LCP_skin'] = ResData.PanelRes.TuJianEvent;
+            PanelManage.TuJianEvent.setData();
+            PanelManage.TuJianEvent.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.TuJianEvent, 2, 0, 2);
+        })
+    }
 
+ /**
+    * 图鉴地理界面
+    */
+    export function openTuJianPlacePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianPlace) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.TuJianPlace);
+        ResManage.loadResource(ResData.PanelRes.TuJianPlace, () => {
+            PanelManage.TuJianPlace = new view.tujian.TuJianPlacePanel();
+            PanelManage.TuJianPlace['LCP_skin'] = ResData.PanelRes.TuJianPlace;
+            PanelManage.TuJianPlace.setData();
+            PanelManage.TuJianPlace.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.TuJianPlace, 2, 0, 2);
+        })
+    }
     /**
     * 天鉴界面
     */
