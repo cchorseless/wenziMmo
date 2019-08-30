@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":217,
-    "selecteID":218,
+    "selectedBox":214,
+    "selecteID":67,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -258,9 +258,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":44,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":557},
+                            "props":{"y":44,"width":596,"var":"img_ceshi","skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":557},
                             "nodeParent":214,
-                            "label":"Image",
+                            "label":"Image(img_ceshi)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -299,7 +299,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":51,"x":4,"var":"vbox_team00"},
+                            "props":{"y":51,"x":4,"width":590,"var":"vbox_team00","height":550},
                             "nodeParent":214,
                             "label":"VBox(vbox_team00)",
                             "isOpen":true,
@@ -319,14 +319,13 @@
                     "props":{"y":12,"x":0,"width":640,"name":"item1","height":686},
                     "nodeParent":6,
                     "label":"Box(item1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":38,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":42,"x":22,"width":596,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":655},
                             "nodeParent":38,
@@ -340,7 +339,6 @@
                             "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":51,"x":25,"width":589,"var":"panel_team01","height":639},
                             "nodeParent":38,
@@ -352,7 +350,6 @@
                             "compId":140,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":1,"var":"vbox_team01","right":0,"left":0},
                                     "nodeParent":140,
@@ -362,11 +359,12 @@
                                     "hasChild":false,
                                     "compId":147,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":true
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -400,13 +398,14 @@
                             "props":{"y":51,"x":25,"width":589,"var":"panel_team02","height":639},
                             "nodeParent":61,
                             "label":"Panel(panel_team02)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":153,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":1,"var":"vbox_team02","right":0,"left":0},
                                     "nodeParent":153,
@@ -416,7 +415,8 @@
                                     "hasChild":false,
                                     "compId":154,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }]
                         }],
                     "$HIDDEN":true

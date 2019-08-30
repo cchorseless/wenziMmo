@@ -28,11 +28,12 @@ module ProtoCmd {
 
 
     }
-   
+
     //0x2801
     // 创建队伍
     export class TeamBuildEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_CREATE;
+        public cbPacket = TeamBuildDecoder
         public constructor() {
             super();
             this.cmd = Msg_team_Cfg.MSG_TEAM_CREATE;
@@ -97,7 +98,7 @@ module ProtoCmd {
         }
     }
 
-     //0x2807
+    //0x2807
     // 申请加入队伍
     export class TeamAgreeJoinEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_ASKFORJOIN;
@@ -146,9 +147,10 @@ module ProtoCmd {
     //队伍成员信息
     export class TeamInfomationDecoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_GROUPUSERINFO;
+        public cbPacket = TeamInfomationDecoder;
         public ncount: number;
         public Members: Array<stSendSingleMemberInfoBase> = [];
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwGroupId', PacketBase.TYPE_DWORD);//
             this.addProperty('dwMasterId', PacketBase.TYPE_BYTES, 8);//
