@@ -36,6 +36,11 @@ module view.compart {
 		}
 
 		public buyShopItem(): void {
+			// 限购判定
+			if (this.item.limitcnt > 0 && this.item.limitcnt == this.item.curcnt) {
+				TipsManage.showTips('无法购买');
+				return
+			}
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
 			let itemInfoDialog: view.dialog.ShopBuyItemV0Dialog | view.dialog.ShopBuyItemV1Dialog;
 			// 根据物品类型显示不同界面

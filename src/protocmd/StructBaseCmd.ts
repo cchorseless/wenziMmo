@@ -1774,7 +1774,7 @@ module ProtoCmd {
             this.addProperty("dwRank", PacketBase.TYPE_DWORD);
             this.addProperty("btMasterSex", PacketBase.TYPE_BYTE);// 会长性别
             this.addProperty("btMasterJob", PacketBase.TYPE_BYTE);// 会长职业
-            this.addProperty("btRelation", PacketBase.TYPE_BYTE);// 本帮与此帮会的关系0：正常  1：宣战
+            this.addProperty("btRelation", PacketBase.TYPE_BYTE);// 本帮与此帮会的关系 0：正常  1：宣战 2:结盟
             if (data) {
                 data.pos += this.read(data);
             }
@@ -1978,9 +1978,6 @@ module ProtoCmd {
         }
     }
 
-
-
-
     /**
 	 * 帮会申请玩家信息
 	 * */
@@ -2077,20 +2074,24 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 外交行会单条信息
+     */
     export class DiplomacyGuildBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty("dwGuildId", PacketBase.TYPE_DWORD);
             this.addProperty("szGuildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("dwOnlinePlayerCount", PacketBase.TYPE_DWORD);
             this.addProperty("dwGuildPlayerCount", PacketBase.TYPE_DWORD);
-            this.addProperty("szMasterNamep", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty("szMasterName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("dwGuildLevel", PacketBase.TYPE_DWORD);
             if (data) {
                 data.pos += this.read(data);
             }
         }
     }
+
     export class stGuildMemberBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();
@@ -2103,9 +2104,6 @@ module ProtoCmd {
             if (data) data.pos += this.read(data);
         }
     }
-
-
-
 
     export class stGuildMemberExtenBase extends PacketBase {
         public constructor(data: Laya.Byte) {
@@ -2413,7 +2411,6 @@ module ProtoCmd {
 
     //邮件摘要 
     export class stMailSummaryBase extends PacketBase {
-
         /*
            DWORD dwMailID;        //不需显示,客户端操作时候需填写的
            char szSenderName[_MAX_NAME_LEN_];//发件人
@@ -2424,7 +2421,6 @@ module ProtoCmd {
            bool boPaid; //邮件是否付费
            bool boSystem;//是否来自系统
          */
-
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwMailID', PacketBase.TYPE_DWORD);
@@ -2452,8 +2448,6 @@ module ProtoCmd {
         public get szTitle(): string {
             return this.getValue("szTitle");
         }
-
-
     }
     export class stToClientItemAndCountBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
@@ -2568,8 +2562,7 @@ module ProtoCmd {
 
     export class stRankInfo extends PacketBase {
         constructor(data) {
-            super()
-
+            super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);	//角色名字
             this.addProperty('dwLevel', PacketBase.TYPE_INT);//等级
             this.addProperty('btJob', PacketBase.TYPE_BYTE);//职业
@@ -2602,7 +2595,7 @@ module ProtoCmd {
             this.addProperty("wingExp", PacketBase.TYPE_INT);//翅膀经验
             this.addProperty("fameScore", PacketBase.TYPE_INT);//威名积分
 
-            //新加
+            // 新加
             this.addProperty("dwRmbHistory", PacketBase.TYPE_INT);//历史充值
             this.addProperty("dwRmbHistoryTime", PacketBase.TYPE_INT);//历史充值时间
             this.addProperty("dwLvAddZSlv", PacketBase.TYPE_INT);//等级和转生等级综合排名
@@ -2619,13 +2612,13 @@ module ProtoCmd {
             this.addProperty("dwFameTime", PacketBase.TYPE_INT);//跨服战场胜点改变时间
             this.addProperty("dwHeQuJiFen", PacketBase.TYPE_INT);//合区积分
             this.addProperty("dwHeQuJiFenTime", PacketBase.TYPE_INT);//合区积分改变时间
-            //			//消费排行
+            // 消费排行
             this.addProperty("dwConsume", PacketBase.TYPE_INT);
             this.addProperty("dwConsumeTime", PacketBase.TYPE_INT);
             this.addProperty("dwCharge", PacketBase.TYPE_INT);
             this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
             this.addProperty("btChargeSex", PacketBase.TYPE_BYTE);//
-            //充值排行
+            // 充值排行
             for (var i: number = 1; i <= 30; i++) {
                 this.addProperty("dwChuMoScore" + i.toString(), PacketBase.TYPE_DWORD);//除魔积分
             }
@@ -2843,140 +2836,126 @@ module ProtoCmd {
         }
     }
 
-    export class stBossStatusBase extends PacketBase
-	{
-		public constructor(data: Laya.Byte) {
+    export class stBossStatusBase extends PacketBase {
+        public constructor(data: Laya.Byte) {
             super();
-			this.addProperty("dwID",PacketBase.TYPE_DWORD);
-			this.addProperty("szName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("szMapName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty("dwLevel",PacketBase.TYPE_DWORD);
-			this.addProperty("dwNowHp",PacketBase.TYPE_DWORD);
-			this.addProperty("dwMaxHp",PacketBase.TYPE_DWORD);
-			this.addProperty("szLastKillName",PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			if(data){
-				data.pos +=this.read(data);
-			}
-		}
-		
-		public  get bossId():number{
-			return this.getValue("dwID");
-		}
-		
-		public  get bossName():String{
-			return this.getValue("szName");
-		}
-		
-		public  get mapName():String{
-			return this.getValue("szMapName");
-		}
-		
-		public  get bossLvl():number{
-			return this.getValue("dwLevel");
-		}
-		
-		public  get nowHp():number{
-			return this.getValue("dwNowHp");
-		}
-		
-		public  get maxHp():number{
-			return this.getValue("dwMaxHp");
-		}
-		
-		public  get lastKillName():String{
-			return this.getValue("szLastKillName");
-		}
-		
-	}
+            this.addProperty("dwID", PacketBase.TYPE_DWORD);
+            this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty("szMapName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("dwNowHp", PacketBase.TYPE_DWORD);
+            this.addProperty("dwMaxHp", PacketBase.TYPE_DWORD);
+            this.addProperty("szLastKillName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            if (data) {
+                data.pos += this.read(data);
+            }
+        }
 
-    export class stSendSingleMemberInfoBase extends PacketBase
-	{
-		public  nMapX:number =0;
-		public  nMapY:number =0;
-		public  nMapID:number = 0;
-		public  feature:SimpleFeature = new SimpleFeature();
-		public constructor(data: Laya.Byte) {
+        public get bossId(): number {
+            return this.getValue("dwID");
+        }
+
+        public get bossName(): String {
+            return this.getValue("szName");
+        }
+
+        public get mapName(): String {
+            return this.getValue("szMapName");
+        }
+
+        public get bossLvl(): number {
+            return this.getValue("dwLevel");
+        }
+
+        public get nowHp(): number {
+            return this.getValue("dwNowHp");
+        }
+
+        public get maxHp(): number {
+            return this.getValue("dwMaxHp");
+        }
+
+        public get lastKillName(): String {
+            return this.getValue("szLastKillName");
+        }
+
+    }
+
+    export class stSendSingleMemberInfoBase extends PacketBase {
+        public nMapX: number = 0;
+        public nMapY: number = 0;
+        public nMapID: number = 0;
+        public feature: SimpleFeature = new SimpleFeature();
+        public constructor(data: Laya.Byte) {
             super();
-			this.addProperty('dwOnlyId',PacketBase.TYPE_BYTES,8);
-			this.addProperty('szName',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty('job',PacketBase.TYPE_BYTE);
-			this.addProperty('lvl',PacketBase.TYPE_DWORD);
-			this.addProperty('HP',PacketBase.TYPE_DWORD);
-			this.addProperty('MaxHP',PacketBase.TYPE_DWORD);
-			this.addProperty('MP',PacketBase.TYPE_DWORD);
-			this.addProperty('MaxMP',PacketBase.TYPE_DWORD);
-			this.addProperty('dwGuildId',PacketBase.TYPE_DWORD);
-			this.addProperty('map',PacketBase.TYPE_STRING,Packet._MAX_NAME_LEN);
-			this.addProperty('Feature',PacketBase.TYPE_BYTES,this.feature.size(),this.feature);
-			this.addProperty('dwShenJia',PacketBase.TYPE_DWORD);
-			this.addProperty('dwFaBao',PacketBase.TYPE_DWORD);
-			this.addProperty('nFightScore',PacketBase.TYPE_INT);
-			this.addProperty('dwWeaponShineID',PacketBase.TYPE_INT);
-			this.addProperty('nZhanGong',PacketBase.TYPE_INT);
-			this.addProperty('btPlatForm',PacketBase.TYPE_BYTE);//平台类型
-			this.addProperty('btTxYellowType',PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
-			this.addProperty('btTxYellowLevel',PacketBase.TYPE_BYTE);//黄钻等级
-			this.addProperty('btLevel3366',PacketBase.TYPE_BYTE);	//3366等级
-			this.addProperty('btTxBlueType',PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
-			this.addProperty('btTxBlueLevel',PacketBase.TYPE_BYTE);//蓝钻等级
-			this.addProperty('btTxQQVipType',PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
-			this.addProperty('btTxQQVipLevel',PacketBase.TYPE_BYTE);//QQ会员等级
-			this.addProperty('btSex',PacketBase.TYPE_BYTE);
-			this.read(data);
-		}
-		 public  read(data:Laya.Byte):number
-		{
-			data.pos += super.read(data);
-			return data.pos;
-		}
-		public  get szName():String
-		{
-			return this.getValue('szName');
-		}
-		public  get job():number
-		{
-			return this.getValue('job');
-		}
-		public  get lvl():number
-		{
-			return this.getValue('lvl');
-		}
-		public  get HP():number
-		{
-			return this.getValue('HP');
-		}
-		public  get MaxHP():number
-		{
-			return this.getValue('MaxHP');
-		}
-		public  get MP():number
-		{
-			return this.getValue('MP');
-		}
-		public  get MaxMP():number
-		{
-			return this.getValue('MaxMP');
-		}
-		public  get map():String
-		{
-			return this.getValue('map');
-		}
+            this.addProperty('dwOnlyId', PacketBase.TYPE_BYTES, 8);
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('job', PacketBase.TYPE_BYTE);
+            this.addProperty('lvl', PacketBase.TYPE_DWORD);
+            this.addProperty('HP', PacketBase.TYPE_DWORD);
+            this.addProperty('MaxHP', PacketBase.TYPE_DWORD);
+            this.addProperty('MP', PacketBase.TYPE_DWORD);
+            this.addProperty('MaxMP', PacketBase.TYPE_DWORD);
+            this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
+            this.addProperty('map', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('Feature', PacketBase.TYPE_BYTES, this.feature.size(), this.feature);
+            this.addProperty('dwShenJia', PacketBase.TYPE_DWORD);
+            this.addProperty('dwFaBao', PacketBase.TYPE_DWORD);
+            this.addProperty('nFightScore', PacketBase.TYPE_INT);
+            this.addProperty('dwWeaponShineID', PacketBase.TYPE_INT);
+            this.addProperty('nZhanGong', PacketBase.TYPE_INT);
+            this.addProperty('btPlatForm', PacketBase.TYPE_BYTE);//平台类型
+            this.addProperty('btTxYellowType', PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
+            this.addProperty('btTxYellowLevel', PacketBase.TYPE_BYTE);//黄钻等级
+            this.addProperty('btLevel3366', PacketBase.TYPE_BYTE);	//3366等级
+            this.addProperty('btTxBlueType', PacketBase.TYPE_BYTE);//蓝钻类型 1蓝钻,2年蓝钻,3豪华蓝钻
+            this.addProperty('btTxBlueLevel', PacketBase.TYPE_BYTE);//蓝钻等级
+            this.addProperty('btTxQQVipType', PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
+            this.addProperty('btTxQQVipLevel', PacketBase.TYPE_BYTE);//QQ会员等级
+            this.addProperty('btSex', PacketBase.TYPE_BYTE);
+            this.read(data);
+        }
+        public read(data: Laya.Byte): number {
+            data.pos += super.read(data);
+            return data.pos;
+        }
+        public get szName(): String {
+            return this.getValue('szName');
+        }
+        public get job(): number {
+            return this.getValue('job');
+        }
+        public get lvl(): number {
+            return this.getValue('lvl');
+        }
+        public get HP(): number {
+            return this.getValue('HP');
+        }
+        public get MaxHP(): number {
+            return this.getValue('MaxHP');
+        }
+        public get MP(): number {
+            return this.getValue('MP');
+        }
+        public get MaxMP(): number {
+            return this.getValue('MaxMP');
+        }
+        public get map(): String {
+            return this.getValue('map');
+        }
 
-		public  set map(value:String)
-		{
-			this.setValue('map',value);
-		}
+        public set map(value: String) {
+            this.setValue('map', value);
+        }
 
-		public  get fabao():number
-		{
-			return this.getValue('dwFaBao');
-		}
+        public get fabao(): number {
+            return this.getValue('dwFaBao');
+        }
 
 
-		public  get onlyid():Int64
-		{
-			return this.getValue("dwOnlyId");
-		}
+        public get onlyid(): Int64 {
+            return this.getValue("dwOnlyId");
+        }
 
-	}
+    }
 }

@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.guild {
-	export class GuildApplyPanel extends ui.guild.GuildApplyPanelUI {
+	export class GuildApplyListPanel extends ui.guild.GuildApplyListPanelUI {
 		constructor() {
 			super();
 		}
@@ -31,7 +31,7 @@ module view.guild {
 				this.lbl_curPage.text = cbpkt.getValue('nPage');
 				this.vbox_guildApply.removeChildren();
 				for (let applyInfo of cbpkt.stZeroArray) {
-					let ui = new view.compart.GuildApplyItem();
+					let ui = new view.compart.GuildApplyDealItem();
 					let item = new ProtoCmd.szAskJoinUserInfoBase()
 					item.clone(applyInfo.data);
 					ui.setData(item);

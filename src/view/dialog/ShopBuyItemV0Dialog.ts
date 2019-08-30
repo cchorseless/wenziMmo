@@ -46,12 +46,20 @@ module view.dialog {
 				case EnumData.ShopBuyPanelType.SHOP_BUY_GUILD_PANEL:
 					// 是否多个显示单价和滑竿
 					// 购买次数==1不显示
-					let maxLimit = item.limitcnt - item.curcnt;
-					this.box_count.visible = this.box_danJia.visible = (maxLimit != 1);
-					// 单价
-					this.lbl_price.text='' + Math.ceil(item.price * item.discount / 10);
-					this.hsbar_count.max = Math.max(maxLimit, 1);
+					let maxLimit = Math.max(item.limitcnt - item.curcnt, 1);
+					// 最大购买数量
+					this.hsbar_count.max = maxLimit;
 					this.hsbar_count.value = this.hsbar_count.min = 1;
+					// 不限购
+					if (item.limitcnt > 0) {
+						this.box_count.visible = this.box_danJia.visible = true;
+					}
+					// 限购
+					else {
+						this.box_count.visible = this.box_danJia.visible = (maxLimit > 1);
+					}
+					// 单价
+					this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
 					// 滑竿数量
 					this.hsbar_count.changeHandler = Laya.Handler.create(this, (value) => {
 						this.lbl_countDes.text = '购买数量:' + value;

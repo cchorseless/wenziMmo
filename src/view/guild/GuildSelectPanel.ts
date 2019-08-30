@@ -15,7 +15,7 @@ module view.guild {
 				for (let _child of this.vbox_guild._childs) {
 					let player = GameApp.MainPlayer;
 					if (this.check_01.selected) {
-						let canJoin = player.level >= (_child as view.compart.GuildItem).item.dwJoinNeedLvl && player.zslevel >= (_child as view.compart.GuildItem).item.zsLevel;
+						let canJoin = player.level >= (_child as view.compart.GuildApplyItem).item.dwJoinNeedLvl && player.zslevel >= (_child as view.compart.GuildApplyItem).item.zsLevel;
 						_child.scaleY = canJoin ? 1 : 0;
 					}
 					else {
@@ -95,7 +95,7 @@ module view.guild {
 				this.lbl_allPage.text = '' + cbpkt.getValue('dwMaxPage');
 				this.lbl_curPage.text = '' + curpage;
 				for (let guildinfo of cbpkt.stZeroArray) {
-					let ui = new view.compart.GuildItem()
+					let ui = new view.compart.GuildApplyItem()
 					let item = new ProtoCmd.stSingleGuildinfoBase();
 					item.clone(guildinfo.data);
 					ui.setData(item);
@@ -205,7 +205,7 @@ module view.guild {
 				else {
 					let guildInfo = new ProtoCmd.stSingleGuildinfoBase();
 					guildInfo.clone(cbpkt.guildinfo.data);
-					let ui = new view.compart.GuildItem();
+					let ui = new view.compart.GuildApplyItem();
 					ui.setData(guildInfo);
 					this.vbox_searchResult.addChild(ui);
 				}

@@ -28,6 +28,10 @@ module ProtoCmd {
     // 热销商店刷新
     export const SHOP_HOT_REFRESH = 'refreshMallHotItem';
 
+    /*******************************地图移动******************** */
+    // 传送地图
+    export const MAP_MOVE = 'minMapSpaceMove';// 飞地图 (mapid:小地图ID)
+
 }
 
 /**
@@ -77,6 +81,6 @@ module ProtoCmd {
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
         items: { itf_Shop_ShopItem };//刷新道具
-        pricetype:number;//刷新货币类型
+        pricetype: number;//刷新货币类型
     }
 }

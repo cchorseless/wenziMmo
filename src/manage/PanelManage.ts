@@ -62,7 +62,7 @@ module PanelManage {
     export let GuildStore: view.guild.GuildStorePanel;//帮派仓库界面
     export let GuildWaiJiao: view.guild.GuildWaiJiaoPanel;//帮会外交界面
     export let GuildRecord: view.guild.GuildRecordPanel;//帮派日志界面
-    export let GuildApply: view.guild.GuildApplyPanel;//入帮申请界面
+    export let GuildApply: view.guild.GuildApplyListPanel;//入帮申请界面
     export let GuildHelp: view.guild.GuildHelpPanel;//帮派支援界面
     export let GuildMember: view.guild.GuildMemberPanel;//帮派成员界面
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
@@ -405,7 +405,7 @@ module PanelManage {
         })
     }
     /**
-    * 入帮设置界面
+    * 帮会外交界面
     */
     export function openGuildWaiJiaoPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildWaiJiao) {
@@ -417,12 +417,12 @@ module PanelManage {
             PanelManage.GuildWaiJiao['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
             PanelManage.GuildWaiJiao.setData();
             PanelManage.GuildWaiJiao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GuildWaiJiao, 3, 0, 2);
+            PopUpManager.addPanel(PanelManage.GuildWaiJiao, 3, 0, 1);
         })
     }
 
     /**
-    * 帮会外交界面
+    * 帮会入会设定界面
     */
     export function openGuildIntoConditionPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
@@ -499,7 +499,7 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.GuildApply);
         ResManage.loadResource(ResData.PanelRes.GuildApply, () => {
-            PanelManage.GuildApply = new view.guild.GuildApplyPanel();
+            PanelManage.GuildApply = new view.guild.GuildApplyListPanel();
             PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
             PanelManage.GuildApply.setData();
             PanelManage.GuildApply.mouseEnabled = true;
