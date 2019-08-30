@@ -23,8 +23,8 @@ module view.compart {
 			// 是否申请
 			this.btn_applyJoin.label = '' + (this.hasApply ? '取消申请' : '申请加入');
 		}
+		
 		public addEvent(): void {
-
 			this.btn_applyJoin.on(Laya.UIEvent.CLICK, this, () => {
 				// 取消申请
 				if (this.hasApply) {
@@ -39,7 +39,6 @@ module view.compart {
 			// 查看详细信息
 			this.btn_getInfo.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.GuildDetailDialog().popup(true);
-
 			})
 		}
 

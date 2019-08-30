@@ -22,24 +22,24 @@ module view.juQingMode {
 				this.panel_0.scrollTo(0, this.vbox_0.height);
 			});
 			// 剧情进度
-			this.btn_juQing.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingInfoPanel()
 			});
 			// 副本
-			this.btn_fuBen.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenPanel()
 			});
 			// 图鉴
-			this.btn_tuJian.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianJuesePanel()
 			});
 			// 任务
-			this.btn_task.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openTaskPanel(); });
+			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTaskPanel(); });
 			// 天鉴
-			this.btn_tianJian.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openTianJianPanel(); });
+			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => { PanelManage.openTianJianPanel(); });
 
 			// 场景模式
-			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
 		}

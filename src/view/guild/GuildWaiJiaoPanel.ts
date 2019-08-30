@@ -4,6 +4,7 @@ module view.guild {
 		constructor() {
 			super();
 		}
+
 		public setData(): void {
 			this.panel_didui.vScrollBarSkin = '';
 			this.panel_find.vScrollBarSkin = '';
@@ -31,9 +32,10 @@ module view.guild {
 			this.addEvent();
 		}
 
+
 		public addEvent(): void {
 			// 关闭
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {PopUpManager.checkPanel(this)});
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => { PopUpManager.checkPanel(this) });
 			// 搜索帮会
 			this.btn_search.on(Laya.UIEvent.CLICK, this, this.searchGuild);
 			// 查看行会列表翻页
@@ -41,9 +43,11 @@ module view.guild {
 			this.btn_reducePage.on(Laya.UIEvent.CLICK, this, this.changePage, [false]);
 		}
 
-		public initUI(): void {
 
+		public initUI(): void {
+			
 		}
+
 
 		/**
 		 * 更新公会外交列表 // 0关注行会 1行会联盟 2敌对行会 3宣战行会（1 3有用，其他不用）
@@ -61,6 +65,7 @@ module view.guild {
 				}
 			})
 		}
+
 
 		/**
 		 * 更新公会列表UI
@@ -87,6 +92,7 @@ module view.guild {
 			})
 		}
 
+
 		/**
 		 * 翻页
 		 * @param isAdd 
@@ -106,6 +112,7 @@ module view.guild {
 			this.updateBpListUI(curpage);
 		}
 
+
 		/**
 		 * 搜索帮会
 		 */
@@ -115,8 +122,8 @@ module view.guild {
 				return
 			}
 			this.vbox_find.removeChildren();
-			let pkt = new ProtoCmd.stGlobalClientSearchGuild()
-			pkt.setValue('szName', this.input_find.text)
+			let pkt = new ProtoCmd.stGlobalClientSearchGuild();
+			pkt.setValue('szName', this.input_find.text);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stGlobalClientSearchGuildRet(data);
 				// 没有搜索到
@@ -127,11 +134,11 @@ module view.guild {
 				else {
 					let guildInfo = new ProtoCmd.stSingleGuildinfoBase();
 					guildInfo.clone(cbpkt.guildinfo.data);
-					let ui = new view.compart.GuildInfoItem();
-					ui.setData(guildInfo);
-					this.vbox_find.addChild(ui);
+					let ui_item = new view.compart.GuildInfoItem();
+					ui_item.setData(guildInfo);
+					this.vbox_find.addChild(ui_item);
 				}
-			})
+			});
 		}
 	}
 }

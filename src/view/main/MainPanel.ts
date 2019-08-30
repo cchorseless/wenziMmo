@@ -67,6 +67,7 @@ module view.main {
 			this.btn_jieQi.label = '' + this.getJieQi();
 			// 时辰
 			this.btn_shiChen.label = '' + this.getShiChen();
+			this.loadMap();
 			this.addEvent();
 			this.updateUI();
 		}
@@ -321,6 +322,13 @@ module view.main {
 		}
 		public clearMonsterView(): void {
 			this.ui_scene.clearMonster();
+		}
+
+
+		public loadMap(id = 0): void {
+			let ui_map = new view.map.SmallMap_fengduItem();
+			ui_map.setData();
+			this.ui_mainDownMapItem.panel_0.addChild(ui_map);
 		}
 	}
 }
