@@ -54,6 +54,9 @@ module ProtoCmd {
         }
 
         public get id(): string {
+            if(!this._id){
+                this._id = this.int64ToStr();
+            }
             return this._id;
         }
 
