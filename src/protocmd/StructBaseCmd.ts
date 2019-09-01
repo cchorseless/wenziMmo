@@ -748,7 +748,7 @@ module ProtoCmd {
             this.setValue('dwMasterTmpID', v);
         }
         /**
-         * NPC 怪物基本ID  
+         * NPC 怪物配置表ID  
          */
         public get dwCretTypeId(): number {
             return this.getValue('dwCretTypeId');
@@ -890,6 +890,18 @@ module ProtoCmd {
             this.addProperty('ncurx', PacketBase.TYPE_WORD);//   所在坐标X  
             this.addProperty('ncury', PacketBase.TYPE_WORD);//   所在坐标Y  
             this.addProperty('ncurz', PacketBase.TYPE_WORD);//   所在坐标Z 
+        }
+        public get mapid(): number {
+            return this.getValue('mapid');
+        }
+        public get ncurx(): number {
+            return this.getValue('ncurx');
+        }
+        public get ncury(): number {
+            return this.getValue('ncury')
+        }
+        public get ncurz(): number {
+            return this.getValue('ncurz')
         }
     }
 
@@ -2955,4 +2967,104 @@ module ProtoCmd {
         }
 
     }
+
+    // *****************************任务相关*******************************************
+    export class stQuestInfoBase extends PacketBase {
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('taskid', PacketBase.TYPE_DWORD);// 4 任务ID 
+            this.addProperty('questsection', PacketBase.TYPE_DWORD);//任务章节
+            this.addProperty('questtype', PacketBase.TYPE_DWORD);// 4 任务类型，0=剧情，1=日常，2=历练  10 =万事通
+            this.addProperty('questsubtype', PacketBase.TYPE_DWORD);// 万事通类型，1 魔晶 2座机升级丹 3宝石精华
+            this.addProperty('questlv', PacketBase.TYPE_DWORD);// 4 任务等级 
+            this.addProperty('timelimit', PacketBase.TYPE_DWORD);//4 时间限制 
+            this.addProperty('beginnpcid', PacketBase.TYPE_DWORD);// 4 开始NPCID 
+            this.addProperty('beginnpcname', PacketBase.TYPE_STRING, 48);// 开始NPC名字 
+            this.addProperty('endnpcid', PacketBase.TYPE_DWORD);// 4 结束NPCID 
+            this.addProperty('endnpcfaceid', PacketBase.TYPE_DWORD);// 4 结束NPC头像ID 
+            this.addProperty('endnpcname', PacketBase.TYPE_STRING, 48);// 结束NPC名字 
+            this.addProperty('questname', PacketBase.TYPE_STRING, 48);// 任务名字 
+            this.addProperty('dis', PacketBase.TYPE_STRING, 512);// 任务描述 
+            this.addProperty('targetdis', PacketBase.TYPE_STRING, 512);// 任务目标描述 
+            this.addProperty('jiangli', PacketBase.TYPE_STRING, 1024);// 任务奖励'/'分开 
+            this.addProperty('star', PacketBase.TYPE_BYTE);//星级
+            this.addProperty('itemchoose', PacketBase.TYPE_BOOL);// 1 物品单选还是全选,true单选 
+            this.addProperty('queststatus', PacketBase.TYPE_BYTE);// 1 任务状态，标示如下 
+            if (data) {
+                data.pos += this.read(data);
+            }
+
+        }
+
+        /**
+         * 任务ID
+         */
+        public set taskid(value: number) {
+            this.setValue("taskid", value);
+        }
+        public get taskid(): number {
+            return this.getValue("taskid");
+        }
+
+        /**
+         * 任务章节
+         */
+        public set questsection(value: number) {
+            this.setValue("questsection", value);
+        }
+        public get questsection(): number {
+            return this.getValue("questsection");
+        }
+
+        /**
+         * 任务类型
+         */
+        public set questtype(value: number) {
+            this.setValue("questtype", value);
+        }
+        public get questtype(): number {
+            return this.getValue("questtype");
+        }
+
+        /**
+         * 任务子类型
+         */
+        public set questsubtype(value: number) {
+            this.setValue("questsubtype", value);
+        }
+        public get questsubtype(): number {
+            return this.getValue("questsubtype");
+        }
+
+        /**
+         * 任务等级
+         */
+        public set questlv(value: number) {
+            this.setValue("questlv", value);
+        }
+        public get questlv(): number {
+            return this.getValue("questlv");
+        }
+
+        /**
+         * 时间限制
+         */
+        public set timelimit(value: number) {
+            this.setValue("timelimit", value);
+        }
+        public get timelimit(): number {
+            return this.getValue("timelimit");
+        }
+
+
+        public set beginnpcid(value: number) {
+            this.setValue("beginnpcid", value);
+        }
+        public get beginnpcid(): number {
+            return this.getValue("beginnpcid");
+        }
+    }
+
+
+
 }

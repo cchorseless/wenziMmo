@@ -8,9 +8,15 @@ module view.compart {
 		public setData(item: ProtoCmd.itf_Shop_ShopItem): void {
 			this.item = item;
 			// 折扣
-			this.lbl_cutDes.text = '' + item.discount + '折';
+			if (item.discount > 0) { this.img_zheKou.skin = 'image/common/img_' + item.discount + 'zhe.png'; }
+			else {
+				this.img_zheKou.visible = false;
+				this.box_daZhe.visible = false;
+			}
 			// 价格
 			this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
+			// 原价
+			this.lbl_oldPrice.text = '' + item.price;
 			// 货币类型
 			this.img_coin.skin = 'image/main/icon_coin_' + item.pricetype + '.png';
 			// 道具数量

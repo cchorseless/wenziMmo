@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":4,
     "props":{"y":0,"x":0,"width":100,"sceneColor":"#827171","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":12,"x":15,"width":70,"var":"img_avatarPic","skin":"image/common/icon_nv01.png","height":70},
+            "props":{"y":12,"x":15,"width":70,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1001.png","height":70},
             "nodeParent":1,
             "label":"Image(img_avatarPic)",
             "isDirectory":false,
@@ -73,6 +73,32 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":6,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":2,"x":98,"width":101,"visible":false,"var":"img_chat","skin":"image/common/fram_common_35.png","sizeGrid":"0,37,0,38","height":108},
+            "nodeParent":1,
+            "label":"Image(img_chat)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":7,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":30,"wordWrap":true,"width":81,"var":"lbl_chat","text":"label","right":10,"left":10,"height":47},
+                    "nodeParent":7,
+                    "label":"Label(lbl_chat)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
                     "child":[
                         ]
                 }]

@@ -144,6 +144,8 @@ module view.compart {
 			}
 		}
 
+	
+
 		/**
 		 * 清除所有怪物
 		 */

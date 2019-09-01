@@ -10,7 +10,6 @@ class GameEngine extends SingletonClass {
     public token: string = "";                                                    //微信登陆成功的密匙，使用此内容login
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
     public tableState: string = "0";                                              //0 空闲  1，游戏中
-    public isSign: boolean = false;                                               //是否已经签到 0未签到
     public serverid: string = "";
     public version: string = "";//版本号
 
@@ -38,7 +37,6 @@ class GameEngine extends SingletonClass {
     /***************************end***************************/
 
     /*************************用户初始化数据****************** */
-    public json;//策划配置表
 
     /******************************************************** */
 
@@ -60,9 +58,9 @@ class GameEngine extends SingletonClass {
     public friendDB = {};//好友
     public blackDB = {};//黑名单
     public chouRenDB = {};//仇人
+    /************************地图信息************* */
+    public smallMapData
 
-    private mapId: number;
-    private mapGroupKey: string;
     public isReady: boolean = false;
     public isLogin: boolean = false;
 

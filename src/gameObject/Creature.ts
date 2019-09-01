@@ -115,6 +115,7 @@ module GameObject {
         public tempId: number;// 临时ID
         public onlyId: ProtoCmd.Int64;// 唯一ID
         public mapName: string;// 地图名字
+        public roomId: number;//房间ID
         public dir: number;//8方向朝向
 
         public ability: Ability;//能力信息

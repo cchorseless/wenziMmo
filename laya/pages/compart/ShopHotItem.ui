@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
+    "selecteID":17,
     "props":{"width":100,"sceneColor":"#f6f4f4","height":130},
     "nodeParent":-1,
     "label":"View",
@@ -28,23 +28,10 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":-4,"x":-1,"width":50,"var":"lbl_cutDes","text":"3折","height":36,"fontSize":25,"font":"Microsoft YaHei","bold":true},
-            "nodeParent":1,
-            "label":"Label(lbl_cutDes)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":5,"x":14,"skin":"image/bag/img_jiuzhe.png"},
+            "props":{"y":8,"x":16,"width":50,"var":"img_zheKou","skin":"image/common/img_1zhe.png","height":35},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_zheKou)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -68,7 +55,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":73,"x":4,"width":35,"var":"img_coin","skin":"image/common/icon_common_jinbi01.png","height":28},
+            "props":{"y":78,"x":2,"width":35,"var":"img_coin","skin":"image/common/icon_common_jinbi01.png","height":28},
             "nodeParent":1,
             "label":"Image(img_coin)",
             "isDirectory":false,
@@ -80,42 +67,56 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"x":12,"width":27,"text":"原：","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#404040","bottom":6,"align":"center"},
+            "type":"Box",
+            "props":{"y":106,"x":10,"var":"box_daZhe"},
             "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
+            "label":"Box(box_daZhe)",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
+            "hasChild":true,
+            "compId":17,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"width":80,"text":"10000","right":0,"height":24,"fontSize":18,"font":"Microsoft YaHei","color":"#404040","bottom":0,"align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":14,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":109,"x":9,"skin":"image/bag/img_common_09.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":15,
-            "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"x":-6,"width":27,"text":"原:","height":18,"fontSize":18,"font":"Microsoft YaHei","color":"#404040","bottom":9,"align":"center"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"width":87,"var":"lbl_oldPrice","text":"10000","right":0,"height":24,"fontSize":18,"font":"Microsoft YaHei","color":"#404040","bottom":0,"align":"center"},
+                    "nodeParent":17,
+                    "label":"Label(lbl_oldPrice)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":3,"x":11,"width":73,"skin":"image/bag/img_common_09.png","height":16},
+                    "nodeParent":17,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

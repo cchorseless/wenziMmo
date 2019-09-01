@@ -212,6 +212,7 @@ module GameObject {
             }
             this._allPlayer = {};
 
+
             for (let tempId in this._allMonster) {
                 this._allMonster[tempId] = null;
             }
@@ -221,6 +222,12 @@ module GameObject {
                 this._allNpc[tempId] = null;
             }
             this._allNpc = {};
+
+            if (PanelManage.Main) {
+                PanelManage.Main.clearMonsterView();
+                PanelManage.Main.clearNpcView();
+                PanelManage.Main.clearPlayerView();
+            }
         }
 
 

@@ -83,4 +83,13 @@ module ProtoCmd {
         items: { itf_Shop_ShopItem };//刷新道具
         pricetype: number;//刷新货币类型
     }
+
+
+    /*******************************************地图移动*************************** */
+    export interface itf_MAP_MOVE {
+        errorcode: number;// 状态码
+        curmapid: number;// 房间ID
+    }
+
+    /********************************************客户端小地图信息******************* */
 }

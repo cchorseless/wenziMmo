@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":300,
+    "selecteID":201,
     "referenceLines":[
         {
             "value":-85,
@@ -123,13 +123,14 @@
             "props":{"y":869,"x":25,"width":340,"skin":"image/main/fram_common_03a.png","sizeGrid":"16,16,16,16","height":192},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":243,
             "child":[
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"var":"vstack_task","top":10,"selectedIndex":0,"right":10,"left":10,"bottom":0},
                     "nodeParent":243,
@@ -141,8 +142,9 @@
                     "compId":66,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
-                            "props":{"y":0,"var":"panel_sceneMsg","right":0,"name":"item0","left":0,"height":200},
+                            "props":{"y":0,"width":320,"var":"panel_sceneMsg","right":0,"name":"item0","left":0,"height":170},
                             "nodeParent":66,
                             "label":"Panel(panel_sceneMsg)",
                             "isOpen":true,
@@ -152,6 +154,7 @@
                             "compId":244,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_sceneMsg","top":10,"space":5,"right":10,"left":10,"align":"left"},
                                     "nodeParent":244,
@@ -165,8 +168,9 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
-                            "props":{"y":0,"var":"panel_chatMsg","right":0,"name":"item1","left":0,"height":200},
+                            "props":{"y":0,"width":320,"var":"panel_chatMsg","right":0,"name":"item1","left":0,"height":166},
                             "nodeParent":66,
                             "label":"Panel(panel_chatMsg)",
                             "isOpen":true,
@@ -176,6 +180,7 @@
                             "compId":246,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_chatMsg","top":10,"space":5,"right":10,"left":10,"align":"left"},
                                     "nodeParent":246,
@@ -975,7 +980,7 @@
             "compId":300,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

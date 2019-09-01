@@ -278,6 +278,7 @@ module view.main {
 		 */
 		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
 			switch (handleType) {
+
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
 					npcIcon.setData(obj)
@@ -285,6 +286,12 @@ module view.main {
 					break;
 
 				case EnumData.HANDLE_TYPE.REMOVE:
+					for (let _child of this.vbox_npc._childs) {
+						if ((_child as view.compart.NpcIconItem).item.tempId == obj.tempId) {
+							_child.removeSelf();
+							break;
+						}
+					}
 					break;
 			}
 		}
@@ -323,12 +330,49 @@ module view.main {
 		public clearMonsterView(): void {
 			this.ui_scene.clearMonster();
 		}
+		public clearViewUI() {
+			this.vbox_npc.removeChildren();
+			this.ui_scene.clearPlayer();
+			this.ui_scene.clearMonster();
+		}
 
-
+		/**
+		 * 加载地图
+		 * @param id 
+		 */
 		public loadMap(id = 0): void {
 			let ui_map = new view.map.SmallMap_fengduItem();
 			ui_map.setData();
 			this.ui_mainDownMapItem.panel_0.addChild(ui_map);
+		}
+		/**
+		 * 更新小地图
+		 */
+		public updateSmallMap(): void {
+
+		}
+
+		/**
+		 * 更新场景旁白
+		 */
+		public updateSceneView(_chatMsg: string): void {
+			// 更新到小窗
+			let small_txt: Laya.Label;
+			if (this.vbox_sceneMsg.numChildren > GameApp.GameEngine.chatDataSmallMax) {
+				small_txt = this.vbox_sceneMsg.getChildAt(0) as Laya.Label;
+			}
+			else {
+				small_txt = new Laya.Label();
+			}
+			small_txt.text = _chatMsg;
+			small_txt.fontSize = 16;//字号
+			small_txt.bold = true;
+			small_txt.width = 340;
+			small_txt.wordWrap = true;
+			this.vbox_sceneMsg.addChild(small_txt);
+			this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);
+
+
 		}
 	}
 }
