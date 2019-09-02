@@ -99,6 +99,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
+        /***********************************任务信息*************************************** */
+        // 监听任务信息
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo)
 
         /**********************************服务器打开面板全局监听**************************** */
         // 正常充值提示界面
@@ -233,9 +236,12 @@ class ServerListener extends SingletonClass {
         player.lifestate = msgData.getValue('lifestate');
         player.createTime = msgData.getValue('dwPlayerCreateTime');
         player.clearViewObj();
+        // 切完大地图发送
         let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
             GameApp.GameEngine.isReady = true;
+            // 切完大地图拉取地图信息
+            PanelManage.Main && PanelManage.Main.loadMap();
         });
         msgData.clear();
     }
@@ -1029,12 +1035,22 @@ class ServerListener extends SingletonClass {
         if (btState > 0) {
             // 有红点提示
         }
-        else[
+        else {
             // 去除红点提示
-        ]
+        }
+    }
+
+    /**********************************任务信息********************************* */
+    /**
+     * 任务
+     */
+    public updateTaskInfo(data): void {
+        let cbpket = new ProtoCmd.stQuestLoginRet(data);
 
 
     }
+
+
     /**
      * 服务器返回的lua脚本数据
      * @param data 
@@ -1058,8 +1074,12 @@ class ServerListener extends SingletonClass {
                     msgID = parseInt(strArr[2]);
                     break;
             }
+            let eventName = funcName;
+            if (msgID) {
+                eventName += '_' + msgID;
+            }
             // 抛出事件
-            GameApp.LListener.event(funcName, [msgID, jsonData]);
+            GameApp.LListener.event(eventName, [jsonData]);
             msg.clear();
             msg = null;
         }

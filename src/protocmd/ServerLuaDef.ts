@@ -2,7 +2,8 @@
  * 调用服务器lua
  */
 module ProtoCmd {
-
+    /********************************物品使用***************** */
+    export const ITEM_LoopUseItem = 'LoopUseItem';//批量使用物品
     /*****************************充值********************** */
     // 正常充值界面
     export const CZ_chongzhidialog = 'chongzhidialog';
@@ -31,6 +32,12 @@ module ProtoCmd {
     /*******************************地图移动******************** */
     // 传送地图
     export const MAP_MOVE = 'minMapSpaceMove';// 飞地图 (mapid:小地图ID)
+    // 小地图信息
+    export const MAP_Get_ALLROOM_INFO = 'getAllMinMapStatus';//获取所有小地图信息
+
+    /*****************************任务相关********************* */
+    // 任务刷新星级
+    export const TASK_REFRESH_XINGJI = 'huanrenwu_shuaxingxingji';// 任务刷新星级
 
 }
 
@@ -85,11 +92,29 @@ module ProtoCmd {
     }
 
 
-    /*******************************************地图移动*************************** */
+    /*******************************************地图*************************** */
+    /**
+     * 地图移动返回
+     */
     export interface itf_MAP_MOVE {
         errorcode: number;// 状态码
         curmapid: number;// 房间ID
+        dstmap:itf_MAP_SMALL_INFO;//上下左右房间信息
     }
-
+    /**
+     * 地图房间信息返回
+     */
+    export interface itf_MAP_ROOM_INFO {
+        curminmapid: number;// 当前房间ID
+        dstmap: itf_MAP_SMALL_INFO;//上下左右房间信息
+        statetab: any;
+    }
+    export interface itf_MAP_SMALL_INFO {
+        left: number;
+        right: number;
+        up: number;
+        down: number;
+    }
     /********************************************客户端小地图信息******************* */
+
 }

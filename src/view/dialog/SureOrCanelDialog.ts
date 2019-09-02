@@ -61,10 +61,11 @@ module view.dialog {
 						break;
 					// 公会界面购买沃玛号角
 					case EnumData.SureCanelModel.BP_BUY_CREATEITEM:
-						pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.BP_GouMaiCreateItem, null, this, (msgid, data: { tips: string }) => {
-							TipsManage.showTips(data.tips);
-							PanelManage.GuildSelect && PanelManage.GuildSelect.updateCreateUI();
-						});
+						pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.BP_GouMaiCreateItem, null, 0, this,
+							(data: { tips: string }) => {
+								TipsManage.showTips(data.tips);
+								PanelManage.GuildSelect && PanelManage.GuildSelect.updateCreateUI();
+							});
 						lcp.send(pkt);
 						break;
 					// 公会界面驱逐成员

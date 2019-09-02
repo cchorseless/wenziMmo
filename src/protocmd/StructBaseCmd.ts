@@ -54,7 +54,7 @@ module ProtoCmd {
         }
 
         public get id(): string {
-            if(!this._id){
+            if (!this._id) {
                 this._id = this.int64ToStr();
             }
             return this._id;
@@ -2972,6 +2972,9 @@ module ProtoCmd {
     }
 
     // *****************************任务相关*******************************************
+    /**
+     * 单条任务信息
+     */
     export class stQuestInfoBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
             super();
@@ -2987,8 +2990,8 @@ module ProtoCmd {
             this.addProperty('endnpcfaceid', PacketBase.TYPE_DWORD);// 4 结束NPC头像ID 
             this.addProperty('endnpcname', PacketBase.TYPE_STRING, 48);// 结束NPC名字 
             this.addProperty('questname', PacketBase.TYPE_STRING, 48);// 任务名字 
-            this.addProperty('dis', PacketBase.TYPE_STRING, 512);// 任务描述 
-            this.addProperty('targetdis', PacketBase.TYPE_STRING, 512);// 任务目标描述 
+            this.addProperty('des', PacketBase.TYPE_STRING, 512);// 任务描述 
+            this.addProperty('targetdes', PacketBase.TYPE_STRING, 512);// 任务目标描述 
             this.addProperty('jiangli', PacketBase.TYPE_STRING, 1024);// 任务奖励'/'分开 
             this.addProperty('star', PacketBase.TYPE_BYTE);//星级
             this.addProperty('itemchoose', PacketBase.TYPE_BOOL);// 1 物品单选还是全选,true单选 
@@ -3059,15 +3062,126 @@ module ProtoCmd {
             return this.getValue("timelimit");
         }
 
-
+        /**
+         * 开始的NPC ID
+         */
         public set beginnpcid(value: number) {
             this.setValue("beginnpcid", value);
         }
         public get beginnpcid(): number {
             return this.getValue("beginnpcid");
         }
+
+        /**
+         * 开始的NPC 名字
+         */
+        public set beginnpcname(value: string) {
+            this.setValue("beginnpcname", value);
+        }
+        public get beginnpcname(): string {
+            return this.getValue("beginnpcname");
+        }
+
+        /**
+         * 结束的NPC ID
+         */
+        public set endnpcid(value: number) {
+            this.setValue("endnpcid", value);
+        }
+        public get endnpcid(): number {
+            return this.getValue("endnpcid");
+        }
+
+        /**
+         * 结束的NPC 头像ID
+         */
+        public set endnpcfaceid(value: number) {
+            this.setValue("endnpcfaceid", value);
+        }
+        public get endnpcfaceid(): number {
+            return this.getValue("endnpcfaceid");
+        }
+
+
+        /**
+         * 结束的NPC名字
+         */
+        public set endnpcname(value: string) {
+            this.setValue("endnpcname", value);
+        }
+        public get endnpcname(): string {
+            return this.getValue("endnpcname");
+        }
+
+
+        /**
+         * 任务名称
+         */
+        public set questname(value: string) {
+            this.setValue("questname", value);
+        }
+        public get questname(): string {
+            return this.getValue("questname");
+        }
+        
+        /**
+         * 任务描述
+         */
+        public set des(value: string) {
+            this.setValue("des", value);
+        }
+        public get des(): string {
+            return this.getValue("des");
+        }
+
+        /**
+         * 任务目标描述
+         */
+        public set targetdes(value: string) {
+            this.setValue("targetdes", value);
+        }
+        public get targetdes(): string {
+            return this.getValue("targetdes");
+        }
+
+        /**
+         * 任务奖励
+         */
+        public set jiangli(value: string) {
+            this.setValue("jiangli", value);
+        }
+        public get jiangli(): string {
+            return this.getValue("jiangli");
+        }
+
+        /**
+         * 任务星级
+         */
+        public set star(value: string) {
+            this.setValue("star", value);
+        }
+        public get star(): string {
+            return this.getValue("star");
+        }
+
+        /**
+         * 任务名称
+         */
+        public set itemchoose(value: boolean) {
+            this.setValue("itemchoose", value);
+        }
+        public get itemchoose(): boolean {
+            return this.getValue("itemchoose");
+        }
+
+        /**
+         * 任务名称
+         */
+        public set queststatus(value: number) {
+            this.setValue("queststatus", value);
+        }
+        public get queststatus(): number {
+            return this.getValue("queststatus");
+        }
     }
-
-
-
 }

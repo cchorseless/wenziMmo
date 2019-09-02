@@ -63,7 +63,7 @@ module view.team {
 					a.clear();
 					for (let info of cbpkt.Members) {
 
-						this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info))
+						// this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info))
 						console.log(info);
 						a.push(info)
 					}

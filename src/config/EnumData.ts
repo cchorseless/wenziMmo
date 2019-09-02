@@ -709,6 +709,113 @@ module EnumData {
     export enum ShopBuyPanelType {
         SHOP_BUY_HOT_PANEL = 0,// 热卖商店购买界面,单次购买一组
         SHOP_BUY_GUILD_PANEL = 1,// 公会商店购买界面
+    }
+
+    // *************************************任务相关******************************************
+
+    /**
+     * 任务状态枚举
+     */
+    export enum QUESTSTATUS {//任务状态
+        QUESTNO = -1,			//任务未接
+        QUESTNEW = 0,			//新建任务
+        QUESTDOING = 1,		//任务进行中
+        QUESTCOMPLETED = 2,	//完成任务(条件达成)
+        QUESTFINISH = 3,		//结束任务
+        QUESTFAIL = 4,		//任务失败
+        QUESTMALLCOMPLETED = 5,//完成任务(通过商城道具达成)
+        QUESTGOTOCLONEMAP = 100,	//任务重新进入副本
+    };
+
+    /**
+     * NPC状态枚举
+     */
+    export enum NPCSTATUS {//NPC状态	相差10级以上这些状态全显示NOTASKALL
+        ONETASKNORECEIV = 0,	//（1）	NPC身上有可领取的只能完成一次的任务但该玩家未领取该任务时：显示１
+        ONETASKCOMPLETE,	//（2）	NPC身上有可交的一次性任务且该玩家达成任务未交任务时：显示２
+        ONETASKNOT,			//（3）	NPC身上有可交的任务且该玩家未达成任务时：显示３
+        REPEATTASKNORECEIV,	//（4）	NPC身上有可领取的可重复完成的任务但该玩家未领取该任务时：显示4
+        REPEATTASKCOMPLETE,	//（5）	NPC身上有可交的重复性任务且该玩家达成任务未交任务时：显示5
+        NOTASKALL,			//（6）	NPC身上没有任务或玩家不具备领取该任务的条件时：不显示
+    };
+    /**
+     * 任务类型枚举
+     */
+    export enum TaskType {
+        SYSTEM = 0,	//剧情/主线
+        EVERYDAY = 1,	//每日
+        LIFEEXP = 2,	//历练/支线
+        CLAN = 3,		//氏族
+        RANSYSTEM = 4,//剧情随机
+        RUNRING = 5,	//跑环/环式任务 (除魔任務)
+        LOOP = 6,		//循环
+        RUNWEEKRING = 7,	//每周跑环
+        QUESTTYPE_RANDOM = 8,//随机任务
+        WANTED = 9,			//悬赏
+        WST = 10,			//万事通
+        JINYIN = 11,		//精英任務
+        ACHIEVEMENT = 50,	//成就
+        ONLINEREWARD = 51,  //在线奖励
+
+    };
+    /**
+     * 任务子类型枚举
+     */
+    export enum TaskSubType {   //事件类型
+        NEEDLV = 0,	            //函数样式needlv_%d 需要的等级数
+        NPCKILL = 1,	        //函数样式npckill_%d npc的id
+        NPCVISIT = 2,	        //函数样式npcvisit_%d npc的id
+        ITEMUSE = 3,	        //函数样式itemuse_%d 物品id
+        ITEMGET = 4,	        //函数样式itemget_%d 物品id 标记player questmark
+        ITEMDROP = 5,	        //函数样式itemdrop_%d 物品id
+        MAPAREA = 6,	        //函数样式maparea_%d_%d_%d_%d 地图ID 坐标X 坐标Y 范围Z  标记player mapcheck
+        CONTONLINETIME = 7,     //单次在线时间
+        CONTONLINEDAY = 8,	    //连续登陆天数
+        FIGHTNUM = 9,	        //函数样式fightnum_%d_%d 战斗地图ID 要战斗的次数
+        LOGIN = 10,	            //函数样式login_%d 登陆次数
+        OFFLINE = 11,	        //函数样式offline_%d 离线次数
+        DIE = 12,		        //函数样式die_%d 死亡次数
+        FIGHTING = 13,          //函数样式fighting_%d npcid回合数 直接进入战斗 可能也需要标记player questmark
+        GRASPPET = 14,          //函数样式grasppet_%d 宠物id
+        ESCORT = 15,	        //函数样式escort_%d npcid
+        PANEL = 16,         	//函数样式panel_%d 面板id 枚举其id
+        MAPCELL = 17,	        //函数样式mapcell_%d_%d_%d_%d 地图ID 坐标X 坐标Y 范围Z
+        FIGHTMAP = 18,          //函数样式fightmap_%d 地图ID
+        SETFIGHT = 19,          //函数样式setfight_%d 怪物AIID
+        FIGHTSTART = 20,        //函数样式fightstart_%d 玩家临时ID
+        MAPNUM = 21,	        //函数样式mapnum_%d 地图ID
+        EQUIPITEM = 22,         //函数样式equipitem_%d 装备物品事件，物品ID
+        FIGHTMAPFINISH = 24,    //函数样式fightmapfinish_%d 战场结束的事件
+        CHANGESVROFFLINE = 25,  //函数样式changesvroffline_%d 切换服务器的事件
+        CLIENTFILISH = 26,	    //客户端触发完成
+        ANSWER = 27,		    //答题任务
+        KILLPLAYER = 28,	    //杀人
+        ADDFRIEND = 29,	        //加好友
+        INGROUP = 30,		    //组队
+        SHENJIAUP = 31,	        //神翼升级任务
+        XINGHUNUP = 32,	        //星魂升级任务
+        FABAOUP = 33,		    //法宝升级任
+        RIDEPETUP = 34,	        //骑宠
+        WEAR_ANIMALSOUL = 35,	//穿戴任意兽魂
+        SHENBINGUP = 36,	    //神兵升级
+        MAGICPETUP = 37,	    //魔宠升级
+        JUNXIANUP = 38,		    //军衔升级
+        FUMOUP = 39,		    //附魔升级
+        QIANGHUAUP = 40,	    //强化升级任务	
+        EVERYDAYFINISH = 41,	//完成一环赏金任务
+        LOOPFINISH = 42,		//完成一环环式任务
+        TESHU_QUEST = 43,
+        NEEDHEROLV = 44,		//英雄升级
+        BUYINGIFTSMALL = 45,	//礼券商城购买
+        SKILLEXP = 46,          //技能经验
+    };
+
+    /**
+     * 大地图ID枚举
+     */
+    export enum MAP_BIG_MAP_ID {
+        MAP_FENG_DU = 5001,//酆都
+        MAP_FU_ZHOU_CHENG = 5002,//福州城
 
 
     }

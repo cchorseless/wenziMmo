@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":201,
+    "selectedBox":211,
+    "selecteID":237,
     "referenceLines":[
         {
             "value":-85,
@@ -216,15 +216,16 @@
             "props":{"y":822,"x":347,"width":297,"var":"img_mapBg","skin":"image/main/img_map_01.png","height":260},
             "nodeParent":1,
             "label":"Image(img_mapBg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":211,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":109,"width":76,"var":"btn_mapUp","stateNum":2,"skin":"image/main/icon_maiin_chengqiang01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","height":67},
+                    "props":{"y":40,"x":147,"width":76,"var":"btn_mapUp","stateNum":2,"skin":"image/main/icon_maiin_chengqiang01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapUp)",
                     "isDirectory":false,
@@ -232,11 +233,13 @@
                     "hasChild":false,
                     "compId":214,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":158,"x":114,"width":76,"var":"btn_mapDown","stateNum":2,"skin":"image/main/icon_main_dajie01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","height":67},
+                    "props":{"y":191,"x":152,"width":76,"var":"btn_mapDown","stateNum":2,"skin":"image/main/icon_main_dajie01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapDown)",
                     "isDirectory":false,
@@ -247,8 +250,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":84,"x":113,"width":76,"var":"btn_mapCenter","stateNum":2,"skin":"image/main/icon_maiin_yizhan01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","height":67},
+                    "props":{"y":117,"x":151,"width":76,"var":"btn_mapCenter","stateNum":2,"skin":"image/main/icon_maiin_yizhan01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapCenter)",
                     "isDirectory":false,
@@ -259,8 +263,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":90,"x":199,"width":76,"var":"btn_mapRight","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67},
+                    "props":{"y":123,"x":237,"width":76,"var":"btn_mapRight","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapRight)",
                     "isDirectory":false,
@@ -271,8 +276,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":92,"x":22,"width":76,"var":"btn_mapLeft","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67},
+                    "props":{"y":125,"x":60,"width":76,"var":"btn_mapLeft","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapLeft)",
                     "isDirectory":false,
@@ -283,6 +289,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":36,"x":252,"width":56,"var":"btn_mapBig","stateNum":"2","skin":"image/main/btn_common_02_finish.png","height":59,"anchorY":0.45,"anchorX":0.55},
                     "nodeParent":211,

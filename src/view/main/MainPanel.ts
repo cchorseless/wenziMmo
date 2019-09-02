@@ -67,7 +67,6 @@ module view.main {
 			this.btn_jieQi.label = '' + this.getJieQi();
 			// 时辰
 			this.btn_shiChen.label = '' + this.getShiChen();
-			this.loadMap();
 			this.addEvent();
 			this.updateUI();
 		}
@@ -144,7 +143,24 @@ module view.main {
 				else {
 					this.ui_mainDownMapItem.showSelf(false);
 				}
-			})
+			});
+			// ****************小地图***************
+			// 向下移动
+			EventManage.onWithEffect(this.btn_mapDown, Laya.UIEvent.CLICK, this, () => {
+				this.joinRoom(GameApp.GameEngine.smallMapData.down);
+			});
+			// 向上移动
+			EventManage.onWithEffect(this.btn_mapUp, Laya.UIEvent.CLICK, this, () => {
+				this.joinRoom(GameApp.GameEngine.smallMapData.up);
+			});
+			// 向左移动
+			EventManage.onWithEffect(this.btn_mapLeft, Laya.UIEvent.CLICK, this, () => {
+				this.joinRoom(GameApp.GameEngine.smallMapData.left);
+			});
+			// 向右移动
+			EventManage.onWithEffect(this.btn_mapRight, Laya.UIEvent.CLICK, this, () => {
+				this.joinRoom(GameApp.GameEngine.smallMapData.right);
+			});
 		}
 
 		public updateUI(): void {
@@ -278,13 +294,11 @@ module view.main {
 		 */
 		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
 			switch (handleType) {
-
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
 					npcIcon.setData(obj)
 					this.vbox_npc.addChild(npcIcon);
 					break;
-
 				case EnumData.HANDLE_TYPE.REMOVE:
 					for (let _child of this.vbox_npc._childs) {
 						if ((_child as view.compart.NpcIconItem).item.tempId == obj.tempId) {
@@ -330,7 +344,7 @@ module view.main {
 		public clearMonsterView(): void {
 			this.ui_scene.clearMonster();
 		}
-		public clearViewUI() {
+		public clearViewUI(): void {
 			this.vbox_npc.removeChildren();
 			this.ui_scene.clearPlayer();
 			this.ui_scene.clearMonster();
@@ -340,16 +354,97 @@ module view.main {
 		 * 加载地图
 		 * @param id 
 		 */
-		public loadMap(id = 0): void {
-			let ui_map = new view.map.SmallMap_fengduItem();
-			ui_map.setData();
+		public loadMap(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.MAP_Get_ALLROOM_INFO, null, null, this, (jsonData: ProtoCmd.itf_MAP_ROOM_INFO) => {
+				// 当前小房间信息
+				GameApp.MainPlayer.roomId = jsonData.curminmapid;
+				// 上下左右房间的信息
+				GameApp.GameEngine.smallMapData = jsonData.dstmap;
+				this.updateSmallMap();
+			});
+			lcp.send(pkt);
+			let ui_map;
+			switch (GameApp.MainPlayer.location.mapid) {
+				// 酆都
+				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DU:
+					ui_map = new view.map.SmallMap_fengduItem();
+					ui_map.setData();
+					break;
+				// 
+			}
+			this.ui_mainDownMapItem.panel_0.removeChildren();
 			this.ui_mainDownMapItem.panel_0.addChild(ui_map);
 		}
+
 		/**
 		 * 更新小地图
 		 */
 		public updateSmallMap(): void {
+			let mapInfo = GameApp.GameEngine.smallMapData;
+			let roomId = GameApp.MainPlayer.roomId;
+			// 中间自己
+			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			// 左侧
+			if (mapInfo.left) {
+				this.btn_mapLeft.visible = true;
+				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
+			}
+			else {
+				this.btn_mapLeft.visible = false;
+			}
+			// 下面
+			if (mapInfo.down) {
+				this.btn_mapDown.visible = true;
+				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
+			}
+			else {
+				this.btn_mapDown.visible = false;
+			}
+			// 上面
+			if (mapInfo.up) {
+				this.btn_mapUp.visible = true;
+				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
+			}
+			else {
+				this.btn_mapUp.visible = false;
+			}
+			// 右边
+			if (mapInfo.right) {
+				this.btn_mapRight.visible = true;
+				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
+			}
+			else {
+				this.btn_mapRight.visible = false;
+			}
+			// 更新scene_item
+			this.ui_scene.updateMapInfo();
+		}
 
+		/**
+		 * 进入房间
+		 * @param roomid 
+		 */
+		public joinRoom(roomid): void {
+			if (!roomid) { return };
+			if (GameApp.MainPlayer.roomId == roomid) {
+				TipsManage.showTips('当前就在此地图');
+				return
+			}
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.MAP_MOVE, [roomid], null, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
+				if (jsonData.errorcode == 0) {
+					GameApp.MainPlayer.roomId = jsonData.curmapid;
+					// 上下左右房间的信息
+					GameApp.GameEngine.smallMapData = jsonData.dstmap;
+					TipsManage.showTips('进入了' + jsonData.curmapid);
+					// 更新场景信息
+					this.updateSceneView('进入了' + jsonData.curmapid);
+					// 更新小地图
+					this.updateSmallMap();
+				}
+			});
+			lcp.send(pkt);
 		}
 
 		/**
@@ -371,8 +466,6 @@ module view.main {
 			small_txt.wordWrap = true;
 			this.vbox_sceneMsg.addChild(small_txt);
 			this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);
-
-
 		}
 	}
 }

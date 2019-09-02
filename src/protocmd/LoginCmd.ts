@@ -260,6 +260,7 @@ module ProtoCmd {
     }
     //0x0209
     //客户端与服务器状态
+    // 每次切大地图需要发送
     export class StateReady extends Packet {
         public static msgID: number = 0x0209;
         public cbPacket = StateReady;

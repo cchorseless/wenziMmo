@@ -21,6 +21,12 @@ module view.dialog {
 			// 监听刷新界面
 			GameApp.LListener.on(ProtoCmd.BP_JuanXianInfo, this, this.updateUI)
 		}
+
+		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.BP_JuanXianInfo, this)
+			PopUpManager.Dispose(this);
+		}
+
 		public initUI(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.BP_JuanXianInfo);
@@ -32,7 +38,7 @@ module view.dialog {
 		 * @param magID 
 		 * @param jsonData 
 		 */
-		public updateUI(magID, jsonData: ProtoCmd.itf_Guild_JuanXianInfo) {
+		public updateUI(jsonData: ProtoCmd.itf_Guild_JuanXianInfo) {
 			this.jsonData = jsonData;
 			let player = GameApp.MainPlayer;
 			this.lbl_goldCount.text = '' + player.wealth.gold;
