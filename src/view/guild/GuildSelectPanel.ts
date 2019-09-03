@@ -75,7 +75,7 @@ module view.guild {
 				else {
 					this.img_createItem.disabled = false;
 					this.btn_createItemBuy.disabled = true;
-					this.btn_createItemBuy.label = '已拥有';
+					// this.btn_createItemBuy.label = '已拥有';
 				}
 			})
 			lcp.send(pkt);
