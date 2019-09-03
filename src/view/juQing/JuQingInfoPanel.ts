@@ -17,6 +17,10 @@ module view.juQing {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
+			this.btn_pianZhang.on(Laya.UIEvent.CLICK,this,()=>{
+				new view.dialog.ChapterListDialog().popup(true);
+			})
+
 		}
 	}
 }
