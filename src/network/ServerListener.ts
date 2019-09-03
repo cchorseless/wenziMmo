@@ -101,8 +101,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
         /***********************************任务信息*************************************** */
         // 监听任务信息
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo)
-
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
+        // 服务器推送创建新任务
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo);
         /**********************************服务器打开面板全局监听**************************** */
         // 正常充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_chongzhidialog]);
@@ -1042,14 +1043,37 @@ class ServerListener extends SingletonClass {
 
     /**********************************任务信息********************************* */
     /**
-     * 任务
+     * 服务器推送所有已有任务
      */
     public updateTaskInfo(data): void {
+        console.log('收到了任务信息');
         let cbpket = new ProtoCmd.stQuestLoginRet(data);
-
-
+        for (let task of cbpket.questinfos) {
+            let _item = new ProtoCmd.stQuestInfoBase();
+            _item.clone(task.data);
+            if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
+                GameApp.GameEngine.taskInfo[_item.questtype] = {};
+            }
+            GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
+        }
+        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
+        if (cbpket.questinfos.length == 0 && GameApp.MainPlayer.level == 1) {
+            let pkt = new ProtoCmd.QuestClientData();
+            pkt.setString(ProtoCmd.TASK_GET_FIRST_MAINTASK);
+            lcp.send(pkt);
+        }
+        cbpket.clear();
+        cbpket = null;
     }
 
+    /**
+     * 服务器推送创建任务
+     * @param data 
+     */
+    public addTaskInfo(data): void {
+
+        
+    }
 
     /**
      * 服务器返回的lua脚本数据

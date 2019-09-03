@@ -3165,7 +3165,7 @@ module ProtoCmd {
         }
 
         /**
-         * 任务名称
+         * 任务奖励选择
          */
         public set itemchoose(value: boolean) {
             this.setValue("itemchoose", value);
@@ -3175,7 +3175,7 @@ module ProtoCmd {
         }
 
         /**
-         * 任务名称
+         * 任务状态
          */
         public set queststatus(value: number) {
             this.setValue("queststatus", value);

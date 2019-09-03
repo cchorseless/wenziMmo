@@ -9,7 +9,6 @@ class GameEngine extends SingletonClass {
     public openid: string = "";
     public token: string = "";                                                    //微信登陆成功的密匙，使用此内容login
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
-    public tableState: string = "0";                                              //0 空闲  1，游戏中
     public serverid: string = "";
     public version: string = "";//版本号
 
@@ -60,7 +59,8 @@ class GameEngine extends SingletonClass {
     public chouRenDB = {};//仇人
     /************************地图信息************* */
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
-
+    /************************任务信息************ */
+    public taskInfo = {};// 所有任务信息
     public isReady: boolean = false;
     public isLogin: boolean = false;
 

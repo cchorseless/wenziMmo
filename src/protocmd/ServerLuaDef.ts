@@ -38,6 +38,8 @@ module ProtoCmd {
     /*****************************任务相关********************* */
     // 任务刷新星级
     export const TASK_REFRESH_XINGJI = 'huanrenwu_shuaxingxingji';// 任务刷新星级
+    // 开始触发主线任务
+    export const TASK_GET_FIRST_MAINTASK = 'HuangYingJieMian_QianDuan';// 触发主线任务
 
 }
 
@@ -99,7 +101,7 @@ module ProtoCmd {
     export interface itf_MAP_MOVE {
         errorcode: number;// 状态码
         curmapid: number;// 房间ID
-        dstmap:itf_MAP_SMALL_INFO;//上下左右房间信息
+        dstmap: itf_MAP_SMALL_INFO;//上下左右房间信息
     }
     /**
      * 地图房间信息返回

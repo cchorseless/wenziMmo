@@ -124,6 +124,7 @@ module ProtoCmd {
             this.cmd = 0x0428;
         }
     }
+    
     // 0x0905
     // 打开NPC面板返回身上携带的任务信息
     export class TalkWithNPCDecoder extends Packet {
