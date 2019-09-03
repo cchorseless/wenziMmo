@@ -22,7 +22,14 @@ module view.dialog {
 			// 拉取篇章目录进度
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_PIANZHANG, null, null, this, (jsonData) => {
-				console.log(jsonData);
+				this.vbox_chapterList.removeChildren();
+				let keys = Object.keys(jsonData);
+				for (let key of keys) {
+					let charpterInfo: ProtoCmd.itf_JUQING_PIANZHANG = jsonData[key];
+					let ui_item = new view.compart.JuQingCharpterInfoItem();
+					ui_item.setData(charpterInfo);
+					this.vbox_chapterList.addChild(ui_item);
+				}
 			})
 			lcp.send(pkt);
 		}

@@ -1049,7 +1049,7 @@ class ServerListener extends SingletonClass {
      * 服务器推送所有已有任务
      */
     public updateTaskInfo(data): void {
-        console.log('收到了任务信息');
+        console.log('同步了任务信息');
         let cbpket = new ProtoCmd.stQuestLoginRet(data);
         for (let task of cbpket.questinfos) {
             let _item = new ProtoCmd.stQuestInfoBase();
@@ -1074,10 +1074,11 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public addTaskInfo(data): void {
-        console.log('收到了任务信息');
+
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
+        console.log('新增了任务信息：' + _item.taskid);
         if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
             GameApp.GameEngine.taskInfo[_item.questtype] = {};
         }

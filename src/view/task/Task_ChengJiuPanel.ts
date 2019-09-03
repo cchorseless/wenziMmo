@@ -1,14 +1,16 @@
 /**Created by the LayaAirIDE*/
-module view.task{
-	export class Task_ChengJiuPanel extends ui.task.Task_ChengJiuPanelUI{
-		constructor(){
+module view.task {
+	export class Task_ChengJiuPanel extends ui.task.Task_ChengJiuPanelUI {
+		constructor() {
 			super();
 		}
-		public setData():void{
+		public setData(): void {
 
+			this.panel_0.hScrollBarSkin = '';
+			this.tab_0.labels = '传奇生涯,累计登录,角色成长,降妖除魔,强化装备,魂石天赋,罡气护体,龙魂血盾,隐藏成就'
 			this.addEvent()
 		}
-		public addEvent ():void{
+		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
 			});

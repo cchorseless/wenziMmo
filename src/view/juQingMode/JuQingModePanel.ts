@@ -46,6 +46,10 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
+			// 奖励
+			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.JuQingPrizeDialog().setData().popup();
+			});
 		}
 
 		public juqingId: string;// 剧情对白ID
@@ -75,6 +79,7 @@ module view.juQingMode {
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [GameApp.MainPlayer.charpterID], null, this, (jsonData) => {
+				console.log('拉取了章节数据')
 				console.log(jsonData);
 			});
 			lcp.send(pkt);

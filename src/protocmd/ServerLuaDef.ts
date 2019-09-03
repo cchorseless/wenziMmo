@@ -150,10 +150,23 @@ module ProtoCmd {
         down: number;
     }
     /********************************************剧情*************************** */
-    export interface itf_JUQING_SELFINFO{
-        dbid:number;// 对白ID
-        pzid:number;// 篇章ID
-        zjid:number;// 章节ID
+    /**
+     * 个人剧情进度信息
+     */
+    export interface itf_JUQING_SELFINFO {
+        dbid: number;// 对白ID
+        pzid: number;// 篇章ID
+        zjid: number;// 章节ID
     }
+
+    /**
+     * 单条篇章目录
+     */
+    export interface itf_JUQING_PIANZHANG {
+        id: number;// 篇章ID
+        name: number;// 篇章名称
+        cnt: number;// 篇章内章节数量
+    }
+
 
 }

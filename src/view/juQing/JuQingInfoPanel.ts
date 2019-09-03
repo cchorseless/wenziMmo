@@ -31,6 +31,12 @@ module view.juQing {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
 				(jsonData) => {
+					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
+						// 删除这个没用的字段
+						delete jsonData.pzid;
+
+
+					}
 
 					console.log(jsonData);
 
