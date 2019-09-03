@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":4,
-    "props":{"width":140,"sceneColor":"#b28281","height":220},
+    "selectedBox":11,
+    "selecteID":10,
+    "props":{"width":153,"sceneColor":"#b28281","height":222},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/fram_common_28.png","sizeGrid":"17,20,18,23","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":153,"skin":"image/guild/fram_common_11.png","sizeGrid":"17,20,18,23","height":222},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -23,13 +23,14 @@
             "hasChild":false,
             "compId":2,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"UIView",
             "source":"compart/DaoJuItem.ui",
-            "props":{"y":36,"x":34,"var":"ui_item","runtime":"view.compart.DaoJuItem"},
+            "props":{"y":41,"x":40,"var":"ui_item","runtime":"view.compart.DaoJuItem"},
             "nodeParent":1,
             "label":"UIView(ui_item)",
             "isDirectory":false,
@@ -42,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":120,"x":48,"width":79,"var":"lbl_price","text":"1000","strokeColor":"#000000","stroke":3,"padding":"-1","height":20,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"right"},
+            "props":{"y":122,"x":68,"width":45,"var":"lbl_price","text":"999","strokeColor":"#000000","padding":"-1","height":20,"fontSize":22,"font":"Microsoft YaHei","color":"#5b3816","align":"right"},
             "nodeParent":1,
             "label":"Label(lbl_price)",
             "isDirectory":false,
@@ -55,7 +56,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":113,"x":21,"var":"img_coinPic","skin":"image/guild/icon_guild_SHOP.png"},
+            "props":{"y":121,"x":44,"width":24,"var":"img_coinPic","skin":"image/guild/icon_guild_SHOP.png","height":30},
             "nodeParent":1,
             "label":"Image(img_coinPic)",
             "isDirectory":false,
@@ -69,7 +70,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":8,"x":8,"var":"lbl_itemName","text":"道具名称名称","strokeColor":"#000000","stroke":3,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#43d8ee"},
+            "props":{"y":11,"x":30,"var":"lbl_itemName","text":"道具名称","strokeColor":"#000000","stroke":4,"padding":"-1","fontSize":22,"font":"Microsoft YaHei","color":"#f5dd7b"},
             "nodeParent":1,
             "label":"Label(lbl_itemName)",
             "isDirectory":false,
@@ -82,7 +83,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":152,"x":30,"width":80,"var":"btn_buy","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"购买","height":40},
+            "props":{"y":149,"x":23,"var":"btn_buy","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买"},
             "nodeParent":1,
             "label":"Button(btn_buy)",
             "isDirectory":false,
@@ -95,16 +96,29 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":193,"x":22,"width":95,"var":"lbl_xianGou","text":"限购:0/1","strokeColor":"#000000","stroke":3,"padding":"-1","height":17,"fontSize":15,"font":"Microsoft YaHei","color":"#43d8ee","align":"center"},
+            "type":"Image",
+            "props":{"y":1,"x":90,"skin":"image/guild/bottom_Homepurchaserestrictions.png"},
             "nodeParent":1,
-            "label":"Label(lbl_xianGou)",
-            "isDirectory":false,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
+            "hasChild":true,
+            "compId":11,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":10,"x":26,"width":39,"var":"lbl_xianGou","text":"0/1","strokeColor":"#000000","stroke":2,"padding":"-1","height":17,"fontSize":16,"color":"#ffffff","align":"center"},
+                    "nodeParent":11,
+                    "label":"Label(lbl_xianGou)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
