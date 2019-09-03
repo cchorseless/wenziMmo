@@ -21,7 +21,7 @@ module EventManage {
         dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
             Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn);
         });
-        let cbFunc = (args) => {
+        let cbFunc = () => {
             Laya.timer.once(time, this, func, args);
         }
         // 事件监听

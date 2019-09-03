@@ -13,16 +13,18 @@ module view.juese {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.box_change.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openDiZiPanel();
-			});
+
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-		 PanelManage.openMainPanel()
+				PanelManage.openMainPanel()
 			});
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
-
+			for (let i = 0; i < 3; i++) {
+				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
+					PanelManage.openDiZiPanel();
+				})
+			}
 		}
 	}
 }

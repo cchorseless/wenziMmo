@@ -45,7 +45,7 @@ module view.guild {
 			// todo 与背包内可能有冲突 需要回包加标识
 			let pkt = new ProtoCmd.QuestClientData();
 			let data = [EnumData.ShopType.SHOP_TYPE_GUILD_HOT, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
-			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data);
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, EnumData.ShopType.SHOP_TYPE_GUILD_HOT);
 			lcp.send(pkt);
 		}
 		/**
@@ -58,7 +58,7 @@ module view.guild {
 			}
 			let pkt = new ProtoCmd.QuestClientData();
 			let data = [EnumData.ShopType.SHOP_TYPE_GUILD_HOT]
-			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data);
+			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data, EnumData.ShopType.SHOP_TYPE_GUILD_HOT);
 			lcp.send(pkt);
 		}
 		public addEvent(): void {
@@ -76,9 +76,9 @@ module view.guild {
 			// 更新帮贡
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GUILDSCORE, this, this.updateGongXianLbl);
 			// 监听刷新商店
-			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				// 公会热销回调
-				if (msgID === EnumData.ShopType.SHOP_TYPE_GUILD_HOT) {
+			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_GUILD_HOT, this,
+				(jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
+					// 公会热销回调
 					this.vbox_sellHot.removeChildren();
 					// 刷新价格
 					this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
@@ -99,8 +99,7 @@ module view.guild {
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
 					}
-				}
-			})
+				})
 		}
 
 		public Dispose(): void {
@@ -109,7 +108,7 @@ module view.guild {
 			// 更新帮会积分
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_GUILDSCORE, this);
 			// 更新热卖商店
-			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList, this);
+			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_GUILD_HOT, this);
 			PopUpManager.Dispose(this);
 		}
 		// 更新仓库

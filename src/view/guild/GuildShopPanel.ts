@@ -29,9 +29,9 @@ module view.guild {
 
 		public addLcpEvent(): void {
 			// 监听刷新商店
-			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				// 背包热销回调
-				if (msgID == EnumData.ShopType.SHOP_TYPE_GUILD) {
+			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_GUILD, this,
+				(jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
+					// 背包热销回调
 					let vbox: Laya.VBox = this['vbox_guildShop0' + this.tab_guildShop.selectedIndex];
 					vbox.removeChildren();
 					let allkeys = Object.keys(jsonData.items);
@@ -64,12 +64,12 @@ module view.guild {
 							vbox.addChild(hbox);
 						}
 					}
-				}
-			});
+
+				});
 		}
 
 		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList, this);
+			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_GUILD, this);
 			PopUpManager.Dispose(this);
 		}
 
@@ -84,7 +84,7 @@ module view.guild {
 			}
 			let pkt = new ProtoCmd.QuestClientData();
 			let data = [EnumData.ShopType.SHOP_TYPE_GUILD, index + 1];
-			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data);
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, EnumData.ShopType.SHOP_TYPE_GUILD);
 			lcp.send(pkt);
 		}
 	}

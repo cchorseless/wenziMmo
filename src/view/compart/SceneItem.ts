@@ -144,7 +144,7 @@ module view.compart {
 			}
 		}
 
-	
+
 
 		/**
 		 * 清除所有怪物
@@ -195,6 +195,14 @@ module view.compart {
 			}
 		}
 
+		/**
+		 * 更新地图信息
+		 */
+		public updateMapInfo(): void {
+			let roomId = GameApp.MainPlayer.roomId;
+			// 中间自己
+			this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+		}
 
 	}
 }
