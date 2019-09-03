@@ -1056,7 +1056,7 @@ class ServerListener extends SingletonClass {
             }
             GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
         }
-        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
+    // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）ju
         if (cbpket.questinfos.length == 0 && GameApp.MainPlayer.level == 1) {
             let pkt = new ProtoCmd.QuestClientData();
             pkt.setString(ProtoCmd.TASK_GET_FIRST_MAINTASK);
@@ -1071,8 +1071,15 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public addTaskInfo(data): void {
-
-        
+        let cbpket = new ProtoCmd.stQuestCreateRet(data);
+        let _item = new ProtoCmd.stQuestInfoBase();
+        _item.clone(cbpket.info.data);
+        if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
+            GameApp.GameEngine.taskInfo[_item.questtype] = {};
+        }
+        GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
+        cbpket.clear();
+        cbpket = null;
     }
 
     /**
