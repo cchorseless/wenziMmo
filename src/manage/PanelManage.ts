@@ -49,7 +49,10 @@ module PanelManage {
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
-    export let Task: view.task.Task_MainPanel;//任务界面
+    export let Task_Main: view.task.Task_MainPanel;//主线任务界面
+    export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
+    export let Task_LiLian: view.task.Task_LiLianPanel;//历练任务界面
+    export let Task_chengJiu: view.task.Task_ChengJiuPanel;//成就任务界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
     export let JuQingInfo: view.juQing.JuQingInfoPanel;//剧情界面
@@ -73,7 +76,7 @@ module PanelManage {
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
-    export let TianJian:view.tianJian.TianJianPanel;//天鉴界面
+    export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -606,21 +609,74 @@ module PanelManage {
         })
     }
     /**
-   * 任务界面
-   */
-    export function openTaskPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task) {
+     * 主线任务界面
+     */
+    export function openTask_MainPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_Main) {
             return
         }
-        PopUpManager.checkPanel(PanelManage.Task);
-        ResManage.loadResource(ResData.PanelRes.Task, () => {
-            PanelManage.Task = new view.task.Task_MainPanel();
-            PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
-            PanelManage.Task.setData();
-            PanelManage.Task.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task, 2, 0, 2);
+        PopUpManager.checkPanel(PanelManage.Task_Main);
+        ResManage.loadResource(ResData.PanelRes.Task_Main, () => {
+            PanelManage.Task_Main = new view.task.Task_MainPanel();
+            PanelManage.Task_Main['LCP_skin'] = ResData.PanelRes.Task_Main;
+            PanelManage.Task_Main.setData();
+            PanelManage.Task_Main.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Task_Main, 2, 0, 2);
         })
     }
+
+    /**
+     * 日常任务界面
+     */
+    export function openTask_DailyPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_Daily) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Task_Daily);
+        ResManage.loadResource(ResData.PanelRes.Task_Daily, () => {
+            PanelManage.Task_Daily = new view.task.Task_DailyPanel();
+            PanelManage.Task_Daily['LCP_skin'] = ResData.PanelRes.Task_Daily;
+            PanelManage.Task_Daily.setData();
+            PanelManage.Task_Daily.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Task_Daily, 2, 0, 2);
+        })
+    }
+
+    /**
+     * 历练任务界面
+     */
+    export function openTask_LiLianPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_LiLian) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Task_LiLian);
+        ResManage.loadResource(ResData.PanelRes.Task_LiLian, () => {
+            PanelManage.Task_LiLian = new view.task.Task_LiLianPanel();
+            PanelManage.Task_LiLian['LCP_skin'] = ResData.PanelRes.Task_LiLian;
+            PanelManage.Task_LiLian.setData();
+            PanelManage.Task_LiLian.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Task_LiLian, 2, 0, 2);
+        })
+    }
+
+    /**
+     * 成就任务界面
+     */
+    export function openTask_ChengJiuPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_chengJiu) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Task_chengJiu);
+        ResManage.loadResource(ResData.PanelRes.Task_chengJiu, () => {
+            PanelManage.Task_chengJiu = new view.task.Task_ChengJiuPanel();
+            PanelManage.Task_chengJiu['LCP_skin'] = ResData.PanelRes.Task_chengJiu;
+            PanelManage.Task_chengJiu.setData();
+            PanelManage.Task_chengJiu.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Task_chengJiu, 2, 0, 2);
+        })
+    }
+
+
 
     /**
      * 副本界面
@@ -721,9 +777,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.TuJianJuese, 2, 0, 2);
         })
     }
-  /**
-    * 图鉴事件界面
-    */
+    /**
+      * 图鉴事件界面
+      */
     export function openTuJianEventPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianEvent) {
             return
@@ -738,9 +794,9 @@ module PanelManage {
         })
     }
 
- /**
-    * 图鉴地理界面
-    */
+    /**
+       * 图鉴地理界面
+       */
     export function openTuJianPlacePanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianPlace) {
             return

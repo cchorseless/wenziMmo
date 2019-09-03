@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.task{
-	export class Task_ChengJiuPanel extends ui.task.Task_ChengJiuPanelUI{
+	export class Task_DailyPanel extends ui.task.Task_DailyPanelUI{
 		constructor(){
 			super();
 		}
-		public setData():void{
+				public setData():void{
 
 			this.addEvent()
 		}

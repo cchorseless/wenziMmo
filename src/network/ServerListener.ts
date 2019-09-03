@@ -1074,6 +1074,7 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public addTaskInfo(data): void {
+        console.log('收到了任务信息');
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
@@ -1090,7 +1091,7 @@ class ServerListener extends SingletonClass {
     /**
      * 服务器推送更新剧情信息
      */
-    public updatePlayerJuQingInfo(data:ProtoCmd.itf_JUQING_SELFINFO): void {
+    public updatePlayerJuQingInfo(data: ProtoCmd.itf_JUQING_SELFINFO): void {
         GameApp.MainPlayer.changeJuQingInfo(data);
     }
 
