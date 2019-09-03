@@ -38,15 +38,20 @@ class ByteArrayMsg {
      * @param msg
      */
     public decode(msg: Laya.Byte): any {
-        let msgID = ProtoCmd.Packet.ReadPackCmd(msg, 'recv')
+        let compress = msg.getByte()
+        let msgData = msg;
+        if (compress != 0) {
+            msgData = FunctionUtils.uncompress(msg)
+        }
+        let msgID = ProtoCmd.Packet.ReadPackCmd(msgData, 'recv')
         let bytes: Laya.Byte = new Laya.Byte();
         bytes.endian = Laya.Byte.LITTLE_ENDIAN;
-        bytes.writeArrayBuffer(msg.buffer, 0, msg.length);
+        bytes.writeArrayBuffer(msgData.buffer, msgData.pos, msgData.length);
         bytes.pos = 0;
         var obj: any = {};
         obj.msgID = msgID;
         obj.data = bytes;
-        msg.clear();
+        msgData.clear();
         return obj;
     }
 }

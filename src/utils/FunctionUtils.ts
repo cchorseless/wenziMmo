@@ -95,7 +95,7 @@ class FunctionUtils {
        * @param bytes 
        * @returns Array.<number> or Uint8Array
        */
-    public static compress(bytes: Laya.Byte): Laya.Byte {
+    public static compress(bytes: Laya.Byte): any {
         var byte8 = new Uint8Array(bytes.buffer);
         var defate = new Zlib.Deflate(byte8);
         var compressed = defate.compress();
@@ -104,13 +104,15 @@ class FunctionUtils {
 
     /**
      * 解压 二进制数据
-     * @param compressed  Array.<number> or Uint8Array
+     * @param compressed  Laya.Byte
      */
-    public static uncompress(compressed: any): Laya.Byte {
-        var inflate = new Zlib.Inflate(compressed);
+    public static uncompress(compressed: Laya.Byte): Laya.Byte {
+        var byte8 = new Uint8Array(compressed.buffer, compressed.pos);
+        var inflate = new Zlib.Inflate(byte8);
         var plain = inflate.decompress();
 
         var plainByte: Laya.Byte = new Laya.Byte(plain);
+        plainByte.pos = 0;
         return plainByte;
     }
 }
