@@ -68,9 +68,8 @@ module view.beiBao {
 
 		public addLcpEvent(): void {
 			// 监听刷新商店
-			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList, this, (msgID, jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				// 背包热销回调
-				if (msgID == EnumData.ShopType.SHOP_TYPE_BAG_HOT) {
+			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_BAG_HOT, this,
+				(jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
 					this.vbox_sellHot.removeChildren();
 					// 刷新价格
 					this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
@@ -91,14 +90,14 @@ module view.beiBao {
 						let ui_item = new view.compart.ShopHotItem();
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
+
 					}
-				}
-			});
+				});
 		}
 
 
 		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList, this);
+			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_BAG_HOT, this);
 			PopUpManager.Dispose(this);
 		}
 
@@ -225,7 +224,7 @@ module view.beiBao {
 		public updateHotShop(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			let data = [EnumData.ShopType.SHOP_TYPE_BAG_HOT, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
-			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data);
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, EnumData.ShopType.SHOP_TYPE_BAG_HOT);
 			lcp.send(pkt);
 		}
 
@@ -239,7 +238,7 @@ module view.beiBao {
 			}
 			let pkt = new ProtoCmd.QuestClientData();
 			let data = [EnumData.ShopType.SHOP_TYPE_BAG_HOT]
-			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data);
+			pkt.setString(ProtoCmd.SHOP_HOT_REFRESH, data, EnumData.ShopType.SHOP_TYPE_BAG_HOT);
 			lcp.send(pkt);
 		}
 

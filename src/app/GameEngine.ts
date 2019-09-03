@@ -9,7 +9,6 @@ class GameEngine extends SingletonClass {
     public openid: string = "";
     public token: string = "";                                                    //微信登陆成功的密匙，使用此内容login
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
-    public tableState: string = "0";                                              //0 空闲  1，游戏中
     public serverid: string = "";
     public version: string = "";//版本号
 
@@ -42,10 +41,10 @@ class GameEngine extends SingletonClass {
 
     /*************************用户本地数据******************** */
 
-    public chatData = {};//聊天缓存信息
-    public chatDataSingleMax = 100;//单个频道聊天缓存信息最大条数
-    public chatDataAllMax = 500;//全部频道缓存的信息最大条数目
-    public chatDataSmallMax = 50;//小窗缓存的信息最大条目数
+    public chatData = {};           //聊天缓存信息
+    public chatDataSingleMax = 100; //单个频道聊天缓存信息最大条数
+    public chatDataAllMax = 500;    //全部频道缓存的信息最大条数目
+    public chatDataSmallMax = 50;   //小窗缓存的信息最大条目数
     /******************************************************** */
     public packetBytes: Laya.Byte;//全局消息包
     public mainPlayer: GameObject.Player;//玩家
@@ -59,8 +58,9 @@ class GameEngine extends SingletonClass {
     public blackDB = {};//黑名单
     public chouRenDB = {};//仇人
     /************************地图信息************* */
-    public smallMapData
-
+    public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
+    /************************任务信息************ */
+    public taskInfo = {};// 所有任务信息
     public isReady: boolean = false;
     public isLogin: boolean = false;
 
@@ -131,17 +131,4 @@ class GameEngine extends SingletonClass {
         GameApp.ServerListener.init();
     }
 
-    /**
-     * 添加背包物品
-     */
-    public addItemToBag(): void {
-
-    }
-
-    /**
-     * 删除背包物品
-     */
-    public deleteItemBag(): void {
-
-    }
 }

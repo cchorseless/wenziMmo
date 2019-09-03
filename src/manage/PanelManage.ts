@@ -235,7 +235,7 @@ module PanelManage {
             PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.JueSe;
             PanelManage.DiZi.setData();
             PanelManage.DiZi.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.DiZi, 2, 0, 1);
+            PopUpManager.addPanel(PanelManage.DiZi, 1, 0, 2);
         })
     }
 

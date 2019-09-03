@@ -133,8 +133,12 @@ module ResData {
             { url: 'json/canshuSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.canshuSheet },
             // 剧情对白表
             { url: 'json/juQingTxtSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingTxtSheet },
-            // 行会表
+            // 行会升级表
             { url: 'json/config_guild.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.config_guild },
+            // 地图房间表
+            { url: 'json/mapRoomSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mapRoomSheet },
+            // 地图信息表
+            { url: 'json/mydb_mapinfo_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mapinfo_tbl },
         ];
     }
 

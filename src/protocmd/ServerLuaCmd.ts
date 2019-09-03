@@ -40,7 +40,7 @@ module ProtoCmd {
          * @param key 回调函数上下文
          * @param cbfunc 回调函数
          */
-        public setString(funcName: string, data: Array<any> = [], key = null, cbfunc: Function = null): QuestClientData {
+        public setString(funcName: string, data: Array<any> = [], msgID: number = 0, key = null, cbfunc: Function = null): QuestClientData {
             let s = funcName;
             // 有参数
             if (data && data.length != 0) {
@@ -53,7 +53,12 @@ module ProtoCmd {
             console.log(s);
             // 有回调
             if (key && cbfunc) {
-                GameApp.LListener.once(funcName, key, cbfunc);
+                let eventName = funcName;
+                if (msgID) {
+                    eventName += '_' + msgID;
+                }
+                console.log(eventName);
+                GameApp.LListener.once(eventName, key, cbfunc);
             }
             GameApp.GameEngine.packetBytes.clear();
             GameApp.GameEngine.packetBytes.writeUTFBytes(s);

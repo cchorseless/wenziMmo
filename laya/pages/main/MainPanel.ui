@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":350,
+    "selectedBox":211,
+    "selecteID":237,
     "referenceLines":[
         {
             "value":-85,
@@ -216,15 +216,16 @@
             "props":{"y":822,"x":347,"width":297,"var":"img_mapBg","skin":"image/main/img_map_01.png","height":260},
             "nodeParent":1,
             "label":"Image(img_mapBg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":211,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":109,"width":76,"var":"btn_mapUp","stateNum":2,"skin":"image/main/icon_maiin_chengqiang01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","height":67},
+                    "props":{"y":40,"x":147,"width":76,"var":"btn_mapUp","stateNum":2,"skin":"image/main/icon_maiin_chengqiang01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapUp)",
                     "isDirectory":false,
@@ -232,11 +233,13 @@
                     "hasChild":false,
                     "compId":214,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":158,"x":114,"width":76,"var":"btn_mapDown","stateNum":2,"skin":"image/main/icon_main_dajie01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","height":67},
+                    "props":{"y":191,"x":152,"width":76,"var":"btn_mapDown","stateNum":2,"skin":"image/main/icon_main_dajie01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapDown)",
                     "isDirectory":false,
@@ -247,8 +250,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":84,"x":113,"width":76,"var":"btn_mapCenter","stateNum":2,"skin":"image/main/icon_maiin_yizhan01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","height":67},
+                    "props":{"y":117,"x":151,"width":76,"var":"btn_mapCenter","stateNum":2,"skin":"image/main/icon_maiin_yizhan01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapCenter)",
                     "isDirectory":false,
@@ -259,8 +263,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":90,"x":199,"width":76,"var":"btn_mapRight","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67},
+                    "props":{"y":123,"x":237,"width":76,"var":"btn_mapRight","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapRight)",
                     "isDirectory":false,
@@ -271,8 +276,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":92,"x":22,"width":76,"var":"btn_mapLeft","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67},
+                    "props":{"y":125,"x":60,"width":76,"var":"btn_mapLeft","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":211,
                     "label":"Button(btn_mapLeft)",
                     "isDirectory":false,
@@ -283,6 +289,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":36,"x":252,"width":56,"var":"btn_mapBig","stateNum":"2","skin":"image/main/btn_common_02_finish.png","height":59,"anchorY":0.45,"anchorX":0.55},
                     "nodeParent":211,
@@ -559,16 +566,15 @@
             "props":{"y":0,"x":0,"var":"box_mainTop","top":0,"right":0,"left":0},
             "nodeParent":1,
             "label":"Box(box_mainTop)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
+                    "props":{"y":0,"x":0,"skin":"image/main/img_common_03.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -580,7 +586,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":83,"x":69},
                     "nodeParent":2,
@@ -641,7 +646,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":-3,"x":107,"right":-9},
                     "nodeParent":2,
@@ -786,7 +790,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":36,"x":82,"skin":"image/main/fram_common_03.png","height":40},
                     "nodeParent":2,
@@ -835,7 +838,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":0,"var":"box_head"},
                     "nodeParent":2,
@@ -847,7 +849,6 @@
                     "compId":131,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
                             "nodeParent":131,
@@ -860,7 +861,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":2,"x":7,"var":"img_avatarIcon","skin":"image/main/img_zhujue_01.png"},
                             "nodeParent":131,
@@ -874,7 +874,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
                             "nodeParent":131,
@@ -887,7 +886,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":6,"x":89,"skin":"image/main/img_vipdi.png"},
                             "nodeParent":131,
@@ -900,7 +898,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":110,"width":25,"skin":"image/common/zi_vip_01.png","scaleY":0.7,"scaleX":0.7,"height":30},
                             "nodeParent":131,
@@ -913,7 +910,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "props":{"var":"font_vipLevel","value":1,"spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","centerY":-42,"centerX":56},
                             "nodeParent":131,
@@ -926,7 +922,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":70,"skin":"image/main/icon_vip_01.png","scaleY":0.7,"scaleX":0.7},
                             "nodeParent":131,
@@ -940,7 +935,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":67,"x":582,"var":"btn_menu","stateNum":"2","skin":"image/main/btn_caidan_01down_finish.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
@@ -953,7 +947,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":85,"x":358,"width":90,"var":"btn_jieQi","stateNum":2,"skin":"image/main/btn_common_03_finish.png","right":192,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"夏至","height":38},
                     "nodeParent":2,
@@ -967,7 +960,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":85,"x":449,"width":90,"var":"btn_shiChen","stateNum":2,"skin":"image/main/btn_common_03_finish.png","right":101,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"辰时","height":38},
                     "nodeParent":2,

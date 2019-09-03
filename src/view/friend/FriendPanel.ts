@@ -76,7 +76,7 @@ module view.friend {
 				return
 			}
 			let pkt = new ProtoCmd.stRelationGetList();
-			// 0好友 1黑名单 2仇人
+			// 0 好友 1 黑名单 2 仇人
 			pkt.setValue('btType', index);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRelationGetListRet(data);

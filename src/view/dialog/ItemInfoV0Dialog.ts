@@ -144,7 +144,7 @@ module view.dialog {
 			// 批量使用
 			else {
 				let data = [this.itemObj.dwBaseID, itemCount, this.itemObj.i64ItemID.toString()];
-				let pkt = new ProtoCmd.QuestClientData().setString('LoopUseItem', data);
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ITEM_LoopUseItem, data);
 				lcp.send(pkt);
 			}
 

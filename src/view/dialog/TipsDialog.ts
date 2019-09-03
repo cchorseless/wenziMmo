@@ -13,7 +13,7 @@ module view.dialog {
 		 * 打開後執行
 		 */
 		public onOpened(): void {
-			Laya.timer.frameOnce(5, this, () => { this.close() });
+			Laya.timer.frameOnce(10, this, () => { this.close() });
 		}
 		/**
 		 * 關閉回收

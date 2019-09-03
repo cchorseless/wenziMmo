@@ -58,11 +58,12 @@ module view.team {
 				pkt.setValue('dwGroupId', btGroupId)
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
-					//循环查询成员信息列表
+					//循环查询成员信息
 					let a;
 					a.clear();
 					for (let info of cbpkt.Members) {
-						this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info,cbpkt.ncount))
+
+						// this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info))
 						console.log(info);
 						a.push(info)
 					}
