@@ -91,5 +91,26 @@ class FunctionUtils {
         return nDir;
     }
 
+    /* 压缩 二进制数据
+       * @param bytes 
+       * @returns Array.<number> or Uint8Array
+       */
+    public static compress(bytes: Laya.Byte): Laya.Byte {
+        var byte8 = new Uint8Array(bytes.buffer);
+        var defate = new Zlib.Deflate(byte8);
+        var compressed = defate.compress();
+        return compressed;
+    }
 
+    /**
+     * 解压 二进制数据
+     * @param compressed  Array.<number> or Uint8Array
+     */
+    public static uncompress(compressed: any): Laya.Byte {
+        var inflate = new Zlib.Inflate(compressed);
+        var plain = inflate.decompress();
+
+        var plainByte: Laya.Byte = new Laya.Byte(plain);
+        return plainByte;
+    }
 }
