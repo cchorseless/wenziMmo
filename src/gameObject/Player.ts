@@ -17,6 +17,10 @@ module GameObject {
         public feature: ProtoCmd.PlayerFeature;//外显
         // ****************行会********************
         public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
+        // *****************剧情*******************
+        public pianZhangID: number;// 篇章ID
+        public charpterID: number;// 章节ID
+        public talkID: number;// 对白ID
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -138,7 +142,6 @@ module GameObject {
                 default:
                     break;
             }
-            console.log(obj.objName + obj.tempId + '进入地图');
         }
         /**
          * 将游戏对象移除视野
@@ -240,7 +243,17 @@ module GameObject {
             EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_MASTER]
             // 职位
             let self_zhiWei = this.feature.btClanMaster;
-            return canDoArray.indexOf(self_zhiWei) != -1
+            return canDoArray.indexOf(self_zhiWei) != -1;
+        }
+
+        /**
+         * 更改角色剧情信息
+         * @param data 
+         */
+        public changeJuQingInfo(data: ProtoCmd.itf_JUQING_SELFINFO) {
+            this.charpterID = data.zjid;
+            this.talkID = data.dbid;
+            this.pianZhangID = data.pzid;
         }
     }
 }

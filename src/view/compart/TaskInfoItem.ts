@@ -5,16 +5,12 @@ module view.compart {
 			super();
 			this.addEvent();
 		}
-
-		public setData(): void {
-
+		public item: ProtoCmd.stQuestInfoBase;
+		public setData(item): void {
+			this.item = item;
 		}
 		public addEvent(): void {
-			this.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.TaskLayerDialog().show(true);
-
-			})
-
+			
 		}
 
 	}

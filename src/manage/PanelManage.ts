@@ -49,7 +49,7 @@ module PanelManage {
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let FuBen: view.fuBen.FuBenPanel;//副本界面
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
-    export let Task: view.task.TaskPanel;//任务界面
+    export let Task: view.task.Task_MainPanel;//任务界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
     export let JuQingInfo: view.juQing.JuQingInfoPanel;//剧情界面
@@ -614,7 +614,7 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.Task);
         ResManage.loadResource(ResData.PanelRes.Task, () => {
-            PanelManage.Task = new view.task.TaskPanel();
+            PanelManage.Task = new view.task.Task_MainPanel();
             PanelManage.Task['LCP_skin'] = ResData.PanelRes.Task;
             PanelManage.Task.setData();
             PanelManage.Task.mouseEnabled = true;

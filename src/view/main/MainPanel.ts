@@ -351,6 +351,14 @@ module view.main {
 		}
 
 		/**
+		 * 客户端准备后初始化数据
+		 */
+		public initUI():void{
+			this.loadMap();
+			this.loadJuQingData();
+		}
+
+		/**
 		 * 加载地图
 		 * @param id 
 		 */
@@ -466,6 +474,15 @@ module view.main {
 			small_txt.wordWrap = true;
 			this.vbox_sceneMsg.addChild(small_txt);
 			this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);
+		}
+
+		/**
+		 * 拉取剧情数据
+		 */
+		public loadJuQingData(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO);
+			lcp.send(pkt);
 		}
 	}
 }

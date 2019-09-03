@@ -41,6 +41,35 @@ module ProtoCmd {
     // 开始触发主线任务
     export const TASK_GET_FIRST_MAINTASK = 'HuangYingJieMian_QianDuan';// 触发主线任务
 
+    /*****************************剧情相关*************************** */
+
+    // 拉取自己的剧情相关信息
+    export const JQ_GET_JQ_SELF_INFO = 'getSelfJuQingInfo';
+
+    // 拉取剧情篇章目录
+    export const JQ_GET_JQ_PIANZHANG = 'getJuQingPianZhang';
+
+    // 剧情章节目录:篇章ID
+    export const JQ_GET_JQ_ZHANGJIE = 'getJuQingCharpter';
+
+    // 剧情详情:章节ID
+    export const JQ_GET_JQ_JuQingInfo = 'getJuQingInfo';
+
+    // 阅读剧情:章节ID
+    export const JQ_GET_JQ_readJuQing = 'readJuQing';
+
+    // VIP跳剧情:章节ID
+    export const JQ_GET_JQ_vipSkipJuQing = 'vipSkipJuQing';
+
+    // 领取剧情奖励:章节ID
+    export const JQ_GET_JQ_getJuQingBaseReward = 'getJuQingBaseReward';
+
+    // 领取进度奖励:章节ID,对白ID
+    export const JQ_GET_JQ_getJuQingReward = 'getJuQingReward';
+
+    // 打开奖励面板
+    export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
+
 }
 
 /**
@@ -111,12 +140,20 @@ module ProtoCmd {
         dstmap: itf_MAP_SMALL_INFO;//上下左右房间信息
         statetab: any;
     }
+    /**
+     * 房间上下左右信息
+     */
     export interface itf_MAP_SMALL_INFO {
         left: number;
         right: number;
         up: number;
         down: number;
     }
-    /********************************************客户端小地图信息******************* */
+    /********************************************剧情*************************** */
+    export interface itf_JUQING_SELFINFO{
+        dbid:number;// 对白ID
+        pzid:number;// 篇章ID
+        zjid:number;// 章节ID
+    }
 
 }

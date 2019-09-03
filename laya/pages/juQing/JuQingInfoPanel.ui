@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":31,
-    "selecteID":75,
+    "selectedBox":89,
+    "selecteID":98,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -54,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":241,"x":501,"width":798,"skin":"image/main/fram_common_05.png","rotation":90,"height":15},
+            "props":{"y":252,"x":164,"width":798,"skin":"image/main/fram_common_05.png","rotation":90,"height":15},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -235,7 +235,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":636,"x":45.99999999999997,"width":450,"skin":"image/main/fram_common_08.png","sizeGrid":"0,41,0,40","height":116},
+            "props":{"y":632,"x":180,"width":450,"skin":"image/main/fram_common_08.png","sizeGrid":"0,41,0,40","height":116},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -350,7 +350,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":641,"x":79.99999999999997,"width":110,"skin":"image/common/img_common_06.png","rotation":90,"height":88},
+            "props":{"y":641,"x":229,"width":110,"skin":"image/common/img_common_06.png","rotation":90,"height":88},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -377,7 +377,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":919,"x":92,"width":105,"skin":"image/common/img_common_06.png","rotation":90,"height":87},
+            "props":{"y":924,"x":235,"width":105,"skin":"image/common/img_common_06.png","rotation":90,"height":87},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -403,7 +403,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":782,"x":66.99999999999997,"width":107,"skin":"image/common/img_common_06.png","rotation":90,"height":67},
+            "props":{"y":779,"x":221,"width":107,"skin":"image/common/img_common_06.png","rotation":90,"height":67},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -428,44 +428,17 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":872,"x":549,"width":30,"skin":"image/common/btn_common_05.png","height":22},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":72,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":285,"x":550,"width":30,"skin":"image/common/btn_common_05.png","scaleY":-1,"height":22},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":73,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Box",
-            "props":{"y":936,"x":90},
+            "props":{"y":940,"x":253},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":78,
             "child":[
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"x":100},
@@ -479,7 +452,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"x":199},
@@ -493,7 +465,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"x":299},
@@ -507,7 +478,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{},
@@ -524,7 +494,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":760,"skin":"image/main/fram_common_05.png","right":145,"left":5,"height":19},
+            "props":{"y":747,"x":162,"width":478,"skin":"image/main/fram_common_05.png","height":19},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -562,7 +532,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":899,"skin":"image/main/fram_common_05.png","right":145,"left":5,"height":19},
+            "props":{"y":899,"x":155,"width":485,"skin":"image/main/fram_common_05.png","height":27},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -600,18 +570,19 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":286,"x":488,"width":147,"var":"panel_left","height":583},
+            "props":{"y":273,"x":5,"width":147,"var":"panel_left","height":754},
             "nodeParent":1,
             "label":"Panel(panel_left)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":89,
             "child":[
                 {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":10,"width":195,"var":"tab_left","stateNum":2,"skin":"image/juQing/btn_plot_01_finish.png","selectedIndex":0,"labels":",,,,,,,,","labelStrokeColor":"#000000","labelStroke":4,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","height":584,"direction":"vertical"},
+                    "props":{"y":0,"x":10,"width":147,"var":"tab_left","stateNum":2,"skin":"image/juQing/btn_plot_01_finish.png","selectedIndex":0,"labels":",,,,,,,,","labelStrokeColor":"#000000","labelStroke":4,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","height":584,"direction":"vertical"},
                     "nodeParent":89,
                     "label":"Tab(tab_left)",
                     "isOpen":true,
@@ -623,6 +594,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"VBox",
                     "props":{"var":"vbox_left","space":15,"right":0,"mouseThrough":true,"left":0,"align":"right"},
                     "nodeParent":89,
@@ -634,12 +606,13 @@
                     "compId":98,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":262,"x":11},
+            "props":{"y":261,"x":162},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
@@ -717,7 +690,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":774,"x":64.99999999999997,"width":424,"var":"panel_event","height":119},
+            "props":{"y":772,"x":212,"width":424,"var":"panel_event","height":119},
             "nodeParent":1,
             "label":"Panel(panel_event)",
             "isOpen":false,
@@ -1186,7 +1159,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                            "props":{"y":50,"x":50,"width":100,"var":"btn_back","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":148,
                             "label":"Button(btn_back)",
                             "isOpen":true,
@@ -1213,7 +1186,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":101,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                            "props":{"y":50,"x":151,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":148,
                             "label":"Button",
                             "isOpen":true,
@@ -1225,7 +1198,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"任务","height":84},
+                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"目录","height":84},
                                     "nodeParent":151,
                                     "label":"Button",
                                     "isOpen":true,
@@ -1240,7 +1213,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":202,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                            "props":{"y":50,"x":252,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":148,
                             "label":"Button",
                             "isOpen":true,
@@ -1252,7 +1225,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"副本","height":84},
+                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"指引","height":84},
                                     "nodeParent":153,
                                     "label":"Button",
                                     "isOpen":true,
@@ -1267,7 +1240,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":303,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                            "props":{"y":50,"x":353,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":148,
                             "label":"Button",
                             "isOpen":true,
@@ -1279,7 +1252,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"图鉴","height":84},
+                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"指南","height":84},
                                     "nodeParent":155,
                                     "label":"Button",
                                     "isOpen":true,
@@ -1294,7 +1267,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":404,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                            "props":{"y":50,"x":454,"width":100,"stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":148,
                             "label":"Button",
                             "isOpen":true,
@@ -1306,7 +1279,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"剧情","height":84},
+                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"排行","height":84},
                                     "nodeParent":157,
                                     "label":"Button",
                                     "isOpen":true,
@@ -1339,7 +1312,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":623,"x":10,"skin":"image/main/fram_common_05.png","right":145,"left":5,"height":19},
+            "props":{"y":619,"x":166,"width":470,"skin":"image/main/fram_common_05.png","height":21},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -1377,17 +1350,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":588,"x":5,"width":488,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":37},
+            "props":{"y":579,"x":166,"width":488,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":37},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":177,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":11,"width":108,"text":"挂机效率：","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1400,7 +1372,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":124,"width":108,"text":"金币7000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1413,7 +1384,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":235,"width":108,"text":"阅历60000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1426,7 +1396,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":351,"width":108,"text":"弟子阅历40000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,

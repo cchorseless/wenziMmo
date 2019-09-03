@@ -3123,7 +3123,7 @@ module ProtoCmd {
         public get questname(): string {
             return this.getValue("questname");
         }
-        
+
         /**
          * 任务描述
          */

@@ -104,6 +104,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
         // 服务器推送创建新任务
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo);
+        /***********************************剧情信息**************************************** */
+        // 改变剧情相关数据
+        GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
         /**********************************服务器打开面板全局监听**************************** */
         // 正常充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_chongzhidialog]);
@@ -242,7 +245,7 @@ class ServerListener extends SingletonClass {
         lcp.send(ready, this, () => {
             GameApp.GameEngine.isReady = true;
             // 切完大地图拉取地图信息
-            PanelManage.Main && PanelManage.Main.loadMap();
+            PanelManage.Main && PanelManage.Main.initUI();
         });
         msgData.clear();
     }
@@ -1056,7 +1059,7 @@ class ServerListener extends SingletonClass {
             }
             GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
         }
-    // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）ju
+        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）ju
         if (cbpket.questinfos.length == 0 && GameApp.MainPlayer.level == 1) {
             let pkt = new ProtoCmd.QuestClientData();
             pkt.setString(ProtoCmd.TASK_GET_FIRST_MAINTASK);
@@ -1080,6 +1083,15 @@ class ServerListener extends SingletonClass {
         GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
         cbpket.clear();
         cbpket = null;
+    }
+
+
+    /****************************************剧情相关********************************* */
+    /**
+     * 服务器推送更新剧情信息
+     */
+    public updatePlayerJuQingInfo(data:ProtoCmd.itf_JUQING_SELFINFO): void {
+        GameApp.MainPlayer.changeJuQingInfo(data);
     }
 
     /**

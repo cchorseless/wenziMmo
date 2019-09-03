@@ -742,21 +742,20 @@ module EnumData {
      * 任务类型枚举
      */
     export enum TaskType {
-        SYSTEM = 0,	//剧情/主线
-        EVERYDAY = 1,	//每日
-        LIFEEXP = 2,	//历练/支线
-        CLAN = 3,		//氏族
-        RANSYSTEM = 4,//剧情随机
-        RUNRING = 5,	//跑环/环式任务 (除魔任務)
-        LOOP = 6,		//循环
-        RUNWEEKRING = 7,	//每周跑环
-        QUESTTYPE_RANDOM = 8,//随机任务
-        WANTED = 9,			//悬赏
-        WST = 10,			//万事通
-        JINYIN = 11,		//精英任務
-        ACHIEVEMENT = 50,	//成就
-        ONLINEREWARD = 51,  //在线奖励
-
+        SYSTEM = 0,	         // 剧情主线
+        EVERYDAY = 1,	     // 每日任务
+        LIFEEXP = 2,	     // 历练/支线
+        CLAN = 3,		     // 氏族任务 
+        RANSYSTEM = 4,       // 剧情随机 不要
+        RUNRING = 5,	     // 跑环/环式任务 (除魔任務)
+        LOOP = 6,		     // 循环 不要
+        RUNWEEKRING = 7,	 // 每周跑环 不要
+        QUESTTYPE_RANDOM = 8,// 随机任务 不要
+        WANTED = 9,			 // 悬赏任务
+        WST = 10,			 // 万事通 不要
+        JINYIN = 11,		 // 精英任務 
+        ACHIEVEMENT = 50,	 // 成就任务
+        ONLINEREWARD = 51,   // 在线奖励任务
     };
     /**
      * 任务子类型枚举

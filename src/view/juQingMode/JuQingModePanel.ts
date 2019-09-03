@@ -8,12 +8,11 @@ module view.juQingMode {
 		public setData(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
-			for (let i = 10001; i < 10008; i++) {
-				this.addJuQingTalkItem('' + i);
-			}
+			this.initUI();
 			this.addEvent();
 		}
 		public addEvent(): void {
+
 			// 添加剧情对白
 			this.vbox_0.on(Laya.UIEvent.CLICK, this, () => {
 				let juqingId = parseInt(this.juqingId) + 1;
@@ -21,20 +20,25 @@ module view.juQingMode {
 				this.addJuQingTalkItem('' + juqingId);
 				this.panel_0.scrollTo(0, this.vbox_0.height);
 			});
+
 			// 剧情进度
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingInfoPanel()
 			});
+
 			// 副本
 			EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenPanel()
 			});
-			// 图鉴
+
+			// 图谱
 			EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianJuesePanel()
 			});
+
 			// 任务
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTaskPanel(); });
+
 			// 天鉴
 			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => { PanelManage.openTianJianPanel(); });
 
@@ -67,23 +71,14 @@ module view.juQingMode {
 			this.vbox_0.addChild(ui_item);
 		}
 
-
-		public openPanel(msg): void {
-			switch (msg) {
-				case 'btn_juQing':
-
-					break;
-				case 'btn_fuBen':
-
-					break;
-				case 'btn_tuJian':
-
-					break;
-				case 'btn_task':
-
-					break;
-			}
-
+		public initUI(): void {
+			// 拉取章节所有剧情
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [GameApp.MainPlayer.charpterID], null, this, (jsonData) => {
+				console.log(jsonData);
+			});
+			lcp.send(pkt);
 		}
+
 	}
 }
