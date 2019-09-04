@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":34,
-    "selecteID":36,
+    "selectedBox":20,
+    "selecteID":34,
     "props":{"width":612,"sceneColor":"#a17e7d","height":102},
     "nodeParent":-1,
     "label":"View",
@@ -160,9 +160,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":58,"x":260,"var":"lv_giftLv","text":"1转20级","strokeColor":"#2d1c05","fontSize":20,"font":"Microsoft YaHei","color":"#a53232"},
+                    "props":{"y":58,"x":260,"var":"lbl_lv","text":"1转20级","strokeColor":"#2d1c05","fontSize":20,"font":"Microsoft YaHei","color":"#a53232"},
                     "nodeParent":20,
-                    "label":"Label(lv_giftLv)",
+                    "label":"Label(lbl_lv)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -182,46 +182,6 @@
                     "compId":33,
                     "child":[
                         ]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":1,"x":7,"width":41,"height":47},
-                    "nodeParent":20,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":34,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":45,"x":47,"width":50,"skin":"image/common/fram_common_vipdi.png","rotation":180,"height":50},
-                            "nodeParent":34,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":35,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":4,"width":34,"var":"lbl_lv","text":"Lv.6","strokeColor":"#000000","stroke":2,"height":24,"fontSize":15,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":34,
-                            "label":"Label(lbl_lv)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":36,
-                            "child":[
-                                ]
-                        }]
                 }],
             "$HIDDEN":false
         }],
