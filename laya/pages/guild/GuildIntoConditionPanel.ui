@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":200,
+    "selecteID":180,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -533,6 +533,19 @@
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":126,"x":515,"stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"保存"},
+            "nodeParent":1,
+            "label":"Button",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":200,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Box",
             "props":{"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
@@ -746,19 +759,6 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":126,"x":515,"stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"保存"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":200,
-            "child":[
-                ]
         }],
     "animations":[
         {

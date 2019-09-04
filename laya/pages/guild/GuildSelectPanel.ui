@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":193,
-    "selecteID":92,
+    "selectedBox":10,
+    "selecteID":35,
     "referenceLines":[
         {
             "value":149,
@@ -293,26 +293,24 @@
                     "props":{"y":-70,"x":0,"var":"box_createGuild","name":"item1"},
                     "nodeParent":10,
                     "label":"Box(box_createGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":194,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{},
                             "nodeParent":194,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":193,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/guild/img_chuangjianbanghui.png"},
                                     "nodeParent":193,
@@ -326,7 +324,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":151,"x":279,"var":"img_createItem","skin":"image/guild/icon_gonghui02.png"},
                                     "nodeParent":193,
@@ -340,7 +337,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":451,"x":126},
                                     "nodeParent":193,
@@ -352,7 +348,6 @@
                                     "compId":19,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-92,"x":-3,"skin":"image/guild/bottom_kouhao.png"},
                                             "nodeParent":19,
@@ -379,7 +374,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":-62,"x":-8,"width":405,"var":"input_bangPaiName","text":"文字江湖","skin":"image/guild/Inputbox_2.png","padding":"0,0,6,20","height":65,"fontSize":18,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                             "nodeParent":19,
@@ -393,7 +387,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-4,"x":-3,"skin":"image/guild/bottom_kouhao.png"},
                                             "nodeParent":19,
@@ -421,7 +414,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"TextInput",
                                     "props":{"y":468,"x":109,"width":416,"var":"input_bangPaiSlogan","text":"义，大义凛然之义，替天行道之义","skin":"image/guild/Inputbox_3.png","padding":"-15,0,6,28","height":113,"fontSize":18,"font":"Microsoft YaHei","bold":true},
                                     "nodeParent":193,
@@ -435,7 +427,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":600,"x":264,"var":"btn_create","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"创建"},
                                     "nodeParent":193,
@@ -450,7 +441,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":294,"x":270,"var":"btn_createItemBuy","stateNum":"1","skin":"image/guild/butto_womahaojiaoBuy.png"},
                                     "nodeParent":193,
@@ -466,7 +456,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":697,"x":5,"width":629,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"22,27,28,25","height":162},
                             "nodeParent":194,
@@ -516,12 +505,12 @@
                             "$LOCKED":false,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":12,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":686},
+                    "props":{"y":12,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":777},
                     "nodeParent":10,
                     "label":"Box(box_searchGuild)",
                     "isOpen":false,
@@ -531,6 +520,7 @@
                     "compId":35,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-69,"x":508,"var":"btn_search","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelPadding":"-3","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
                             "nodeParent":35,
@@ -544,6 +534,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
                             "props":{"y":-63,"x":22,"width":481,"var":"input_search","skin":"image/guild/Inputbox_1.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","padding":"2,160,8,4","height":52,"fontSize":20,"font":"Microsoft YaHei","align":"center"},
                             "nodeParent":35,
@@ -557,6 +548,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":3,"x":20,"width":600,"var":"vbox_searchResult","align":"center"},
                             "nodeParent":35,
@@ -570,6 +562,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":271,"x":136,"skin":"image/guild/bottom_prompt.png"},
                             "nodeParent":35,
