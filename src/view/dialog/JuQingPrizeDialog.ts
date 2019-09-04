@@ -15,7 +15,6 @@ module view.dialog {
 			});
 
 			this.btn_lingQu.on(Laya.UIEvent.CLICK, this, () => {
-
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_getJuQingBaseReward, null, null, this, (jsonData) => {
 					console.log(jsonData);

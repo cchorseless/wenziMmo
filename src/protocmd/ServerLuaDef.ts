@@ -168,5 +168,18 @@ module ProtoCmd {
         cnt: number;// 篇章内章节数量
     }
 
-
+    /**
+     * 单条对白信息
+     */
+    export interface itf_JUQING_TALKINFO {
+        msg: {
+            content: string;
+            eventA: string;
+            eventB: string;
+            eventBn: string;
+            id: number;
+            npcid: number;
+        }
+    }
+    
 }

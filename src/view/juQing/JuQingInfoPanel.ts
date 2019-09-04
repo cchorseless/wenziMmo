@@ -17,23 +17,22 @@ module view.juQing {
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
-			})
+			});
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
 			this.btn_pianZhang.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.ChapterListDialog().setData().popup(true);
-			})
+			});
 
 		}
 
 		public initUI(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
-				(jsonData) => {
+				(jsonData: { pzid: number, charpterInfo: number }) => {
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
-						// 删除这个没用的字段
-						delete jsonData.pzid;
+						
 
 
 					}

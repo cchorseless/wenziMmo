@@ -61,6 +61,9 @@ class GameEngine extends SingletonClass {
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
+    /************************对白信息************ */
+    public talkInfo = {};// 所有对白信息
+    
     public isReady: boolean = false;
     public isLogin: boolean = false;
 
