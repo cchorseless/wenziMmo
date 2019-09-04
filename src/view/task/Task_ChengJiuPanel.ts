@@ -7,7 +7,7 @@ module view.task {
 		public setData(): void {
 
 			this.panel_0.hScrollBarSkin = '';
-			this.tab_0.labels = '传奇生涯,累计登录,角色成长,降妖除魔,强化装备,魂石天赋,罡气护体,龙魂血盾,隐藏成就'
+			this.tab_0.labels = '传奇生涯,累计登录,角色成长,降妖除魔,强化装备,魂石天赋,罡气护体,龙魂血盾,隐藏成就';
 			this.addEvent()
 		}
 		public addEvent(): void {

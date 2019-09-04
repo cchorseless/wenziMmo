@@ -15,10 +15,10 @@ module view.juQingMode {
 
 			// 添加剧情对白
 			this.vbox_0.on(Laya.UIEvent.CLICK, this, () => {
-				let juqingId = parseInt(this.juqingId) + 1;
-				if (juqingId > 10030) return;
-				this.addJuQingTalkItem('' + juqingId);
-				this.panel_0.scrollTo(0, this.vbox_0.height);
+				// let juqingId = parseInt(this.juqingId) + 1;
+				// if (juqingId > 10030) return;
+				// this.addJuQingTalkItem('' + juqingId);
+				// this.panel_0.scrollTo(0, this.vbox_0.height);
 			});
 
 			// 剧情进度
@@ -52,36 +52,38 @@ module view.juQingMode {
 			});
 		}
 
-		public juqingId: string;// 剧情对白ID
-		public addJuQingTalkItem(juqingId: string): void {
-			this.juqingId = juqingId;
-			let npc = SheetConfig.juQingTxtSheet.getInstance(null).NPCID(juqingId);
-			let context = SheetConfig.juQingTxtSheet.getInstance(null).TXTCONTENT(juqingId);
+
+		public addJuQingTalkItem(): void {
+
 			let ui_item;
-			switch (npc) {
-				case '0':
-					ui_item = new view.compart.JuQingContentV0Item();
-					ui_item.setData(context);
-					break;
-				case '1':
-					ui_item = new view.compart.JuQingContentV1Item();
-					ui_item.setData(context);
-					break
-				default:
-					ui_item = new view.compart.JuQingContentV2Item();
-					ui_item.setData(npc, context);
-					break;
-			}
+			// switch (npc) {
+			// 	case '0':
+			// 		ui_item = new view.compart.JuQingContentV0Item();
+			// 		ui_item.setData(context);
+			// 		break;
+			// 	case '1':
+			// 		ui_item = new view.compart.JuQingContentV1Item();
+			// 		ui_item.setData(context);
+			// 		break
+			// 	default:
+			// 		ui_item = new view.compart.JuQingContentV2Item();
+			// 		ui_item.setData(npc, context);
+			// 		break;
+			// }
 			this.vbox_0.addChild(ui_item);
 		}
 
 		public initUI(): void {
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [GameApp.MainPlayer.charpterID], null, this, (jsonData) => {
-				console.log('拉取了章节数据')
-				console.log(jsonData);
-			});
+			let charpterID = GameApp.MainPlayer.charpterID;
+			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID], null, this,
+				(jsonData) => {
+					GameApp.GameEngine.talkInfo[charpterID] = jsonData;
+	
+
+
+				});
 			lcp.send(pkt);
 		}
 
