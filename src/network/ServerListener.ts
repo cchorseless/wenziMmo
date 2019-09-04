@@ -108,6 +108,8 @@ class ServerListener extends SingletonClass {
         // 改变剧情相关数据
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
         /**********************************服务器打开面板全局监听**************************** */
+        // 新玩家进入游戏打开欢迎界面
+        GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.openWelcomePanel);
         // 正常充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_chongzhidialog]);
         // 首次充值提示界面
@@ -1049,8 +1051,9 @@ class ServerListener extends SingletonClass {
      * 服务器推送所有已有任务
      */
     public updateTaskInfo(data): void {
-        console.log('同步了任务信息');
+
         let cbpket = new ProtoCmd.stQuestLoginRet(data);
+        console.log('同步了任务信息' + cbpket.questinfos.length);
         for (let task of cbpket.questinfos) {
             let _item = new ProtoCmd.stQuestInfoBase();
             _item.clone(task.data);
@@ -1059,22 +1062,24 @@ class ServerListener extends SingletonClass {
             }
             GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
         }
-        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）ju
-        if (cbpket.questinfos.length == 0 && GameApp.MainPlayer.level == 1) {
-            let pkt = new ProtoCmd.QuestClientData();
-            pkt.setString(ProtoCmd.TASK_GET_FIRST_MAINTASK);
-            lcp.send(pkt);
-        }
-        cbpket.clear();
-        cbpket = null;
     }
 
+    /**
+     * 欢迎界面领取第一个主线任务
+     * @param data 
+     */
+    public openWelcomePanel(): void {
+        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
+        if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
+            new view.dialog.WelcomeDialog().setData().popup(true);
+        }
+
+    }
     /**
      * 服务器推送创建任务
      * @param data 
      */
     public addTaskInfo(data): void {
-
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
@@ -1083,6 +1088,11 @@ class ServerListener extends SingletonClass {
             GameApp.GameEngine.taskInfo[_item.questtype] = {};
         }
         GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
+        switch (_item.questtype) {
+            case EnumData.TaskType.SYSTEM:
+                PanelManage.Main && PanelManage.Main.updateTaskInfo(null);
+                break;
+        }
         cbpket.clear();
         cbpket = null;
     }
@@ -1112,25 +1122,25 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         console.log(strArr);
         // TODO
-        // try {
-        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-        switch (strArr.length) {
-            case 4:
-                msgID = parseInt(strArr[2]);
-                break;
+        try {
+            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+            switch (strArr.length) {
+                case 4:
+                    msgID = parseInt(strArr[2]);
+                    break;
+            }
+            let eventName = funcName;
+            if (msgID) {
+                eventName += '_' + msgID;
+            }
+            // 抛出事件
+            GameApp.LListener.event(eventName, [jsonData]);
+            msg.clear();
+            msg = null;
         }
-        let eventName = funcName;
-        if (msgID) {
-            eventName += '_' + msgID;
-        }
-        // 抛出事件
-        GameApp.LListener.event(eventName, [jsonData]);
-        msg.clear();
-        msg = null;
-        // }
-        // catch (e) {
+        catch (e) {
 
-        // }
+        }
 
     }
 

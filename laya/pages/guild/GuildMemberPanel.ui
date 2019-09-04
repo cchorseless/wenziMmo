@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":64,
-    "selecteID":86,
+    "selectedBox":1,
+    "selecteID":38,
     "referenceLines":[
         {
             "value":358,
@@ -154,7 +154,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":4,"var":"vbox_0","right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_0","right":0,"left":0,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_0)",
                             "isOpen":false,
@@ -168,7 +168,7 @@
                                     "props":{"y":0,"x":3,"width":615,"skin":"image/guild/img_common_itembg.png","left":0},
                                     "nodeParent":28,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -252,7 +252,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":96,"var":"vbox_1","right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_1","right":0,"left":0,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_1)",
                             "isOpen":false,
@@ -351,17 +351,16 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":187,"var":"vbox_2","right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_2","right":0,"left":0,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_2)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":35,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":3,"width":615,"skin":"image/guild/img_common_itembg.png","left":0},
                                     "nodeParent":35,
@@ -373,7 +372,6 @@
                                     "compId":52,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":28,"x":38,"skin":"image/guild/font_zhanglao.png"},
                                             "nodeParent":52,
@@ -386,7 +384,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":205,"width":100,"text":"成员数量：","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                                             "nodeParent":52,
@@ -399,7 +396,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":326,"width":28,"var":"lbl_2","text":"0","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":52,
@@ -412,7 +408,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":15,"x":500,"var":"btn_2","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStroke":4,"labelSize":22,"labelPadding":"-4,18","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"展开"},
                                             "nodeParent":52,
@@ -424,7 +419,6 @@
                                             "compId":78,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":23,"x":73,"skin":"image/guild/state_zhankai.png"},
                                                     "nodeParent":78,
@@ -438,7 +432,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":322,"width":69,"text":"/5","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":52,
@@ -456,17 +449,16 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":278,"var":"vbox_3","right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_3","right":0,"left":0,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_3)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":36,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":3,"width":615,"skin":"image/guild/img_common_itembg.png","left":0},
                                     "nodeParent":36,
@@ -478,7 +470,6 @@
                                     "compId":58,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":28,"x":38,"skin":"image/guild/font_dajiang.png"},
                                             "nodeParent":58,
@@ -491,7 +482,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":205,"width":100,"text":"成员数量：","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                                             "nodeParent":58,
@@ -505,7 +495,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":328,"width":23,"var":"lbl_3","text":"0","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":58,
@@ -518,7 +507,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":15,"x":500,"var":"btn_3","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStroke":4,"labelSize":22,"labelPadding":"-4,18","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"展开"},
                                             "nodeParent":58,
@@ -530,7 +518,6 @@
                                             "compId":79,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":23,"x":73,"skin":"image/guild/state_zhankai.png"},
                                                     "nodeParent":79,
@@ -544,7 +531,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":322,"width":69,"text":"/8","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":58,
@@ -562,17 +548,16 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":370,"var":"vbox_4","right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_4","right":0,"left":0,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_4)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":37,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":3,"width":615,"skin":"image/guild/img_common_itembg.png","left":0},
                                     "nodeParent":37,
@@ -584,7 +569,6 @@
                                     "compId":64,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":28,"x":38,"skin":"image/guild/font_jingying.png"},
                                             "nodeParent":64,
@@ -597,7 +581,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":205,"width":100,"text":"成员数量：","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                                             "nodeParent":64,
@@ -610,7 +593,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":330,"width":19,"var":"lbl_4","text":"0","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":64,
@@ -623,7 +605,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":15,"x":500,"var":"btn_4","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStroke":4,"labelSize":22,"labelPadding":"-4,18","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"展开"},
                                             "nodeParent":64,
@@ -635,7 +616,6 @@
                                             "compId":80,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":23,"x":73,"skin":"image/guild/state_zhankai.png"},
                                                     "nodeParent":80,
@@ -649,7 +629,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":328,"width":69,"text":"/20","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":64,
@@ -667,7 +646,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":461,"var":"vbox_5","right":0,"left":1,"align":"center"},
+                            "props":{"var":"vbox_5","right":0,"left":1,"align":"center"},
                             "nodeParent":27,
                             "label":"VBox(vbox_5)",
                             "isOpen":true,
@@ -682,14 +661,13 @@
                                     "props":{"y":0,"x":3,"width":615,"skin":"image/guild/img_common_itembg.png","left":0},
                                     "nodeParent":38,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":70,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":28,"x":38,"skin":"image/guild/font_chengyuan.png"},
                                             "nodeParent":70,
@@ -702,7 +680,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":205,"width":100,"text":"成员数量：","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","align":"center"},
                                             "nodeParent":70,
@@ -715,7 +692,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":31,"x":309,"width":69,"var":"lbl_5","text":"0","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#179a0d","align":"center"},
                                             "nodeParent":70,
@@ -728,7 +704,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":15,"x":500,"var":"btn_5","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStroke":4,"labelSize":22,"labelPadding":"-4,18","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"展开"},
                                             "nodeParent":70,
@@ -740,7 +715,6 @@
                                             "compId":81,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":23,"x":73,"skin":"image/guild/state_zhankai.png"},
                                                     "nodeParent":81,
