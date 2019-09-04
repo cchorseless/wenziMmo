@@ -202,7 +202,6 @@ module view.main {
 			panel.addChild(this.box_mainBottom);
 		}
 
-
 		/**
 		 * 获取时辰
 		 */
@@ -287,6 +286,7 @@ module view.main {
 			// 更新到大窗
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
+
 		/**
 		 * 更新NPC
 		 * @param handleType 
@@ -309,14 +309,15 @@ module view.main {
 					break;
 			}
 		}
+
 		/**
 		 * 更新玩家
 		 * @param handleType 
 		 * @param obj 
 		 */
 		public updatePlayerView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
-
 		}
+
 		/**
 		 * 更新怪物
 		 * @param handleType 
@@ -338,12 +339,15 @@ module view.main {
 		public clearNpcView(): void {
 			this.vbox_npc.removeChildren();
 		}
+
 		public clearPlayerView(): void {
 			this.ui_scene.clearPlayer();
 		}
+
 		public clearMonsterView(): void {
 			this.ui_scene.clearMonster();
 		}
+
 		public clearViewUI(): void {
 			this.vbox_npc.removeChildren();
 			this.ui_scene.clearPlayer();
@@ -353,7 +357,7 @@ module view.main {
 		/**
 		 * 客户端准备后初始化数据
 		 */
-		public initUI():void{
+		public initUI(): void {
 			this.loadMap();
 			this.loadJuQingData();
 		}
@@ -483,6 +487,18 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO);
 			lcp.send(pkt);
+		}
+
+		/**
+		 * 更新主界面任务信息
+		 * @param data 
+		 */
+		public updateTaskInfo(data): void {
+			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+			// 任务信息
+			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
+			// 任务描述
+			this.lbl_taskdes.text = '' + taskInfo.des;
 		}
 	}
 }

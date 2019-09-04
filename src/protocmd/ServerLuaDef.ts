@@ -2,6 +2,8 @@
  * 调用服务器lua
  */
 module ProtoCmd {
+    /********************************新玩家进入游戏触发第一个主线任务****** */
+    export const NEW_PLAYER_WelcomeDialog = 'welcomedialog';
     /********************************物品使用***************** */
     export const ITEM_LoopUseItem = 'LoopUseItem';//批量使用物品
     /*****************************充值********************** */
@@ -55,7 +57,7 @@ module ProtoCmd {
     // 剧情详情:章节ID
     export const JQ_GET_JQ_JuQingInfo = 'getJuQingInfo';
 
-    // 阅读剧情:章节ID
+    // 阅读剧情
     export const JQ_GET_JQ_readJuQing = 'readJuQing';
 
     // VIP跳剧情:章节ID
@@ -167,6 +169,20 @@ module ProtoCmd {
         name: number;// 篇章名称
         cnt: number;// 篇章内章节数量
     }
+    /**
+     * 单条章节信息
+     */
+    export interface itf_JUQING_CHARPTERINFO {
+        drops: any;
+        enddbid: number;
+        intro: number;
+        items: any;
+        lvl: number;
+        name: string;
+        startdbid: number;
+        zjid: number;
+        zslvl: number;
+    }
 
     /**
      * 单条对白信息
@@ -181,5 +197,18 @@ module ProtoCmd {
             npcid: number;
         }
     }
-    
+
+    /**
+     * 单条阅读结果返回数据
+     */
+    export interface itf_JUQING_READBACK {
+        eventid: number;// 完成事件奖励
+        items: any;// 奖励
+        mainquestid: number; // 主线完成任务
+        subquestid: number; // 激活任务
+        tjeventid: number;// 图鉴激活事件
+        tjitem: number;// 图鉴激活物品
+        tjmap: number;// 图鉴激活地图
+        tjrole: number;// 图鉴激活角色
+    }
 }
