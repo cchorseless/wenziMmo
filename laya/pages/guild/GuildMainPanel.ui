@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":23,
-    "selecteID":23,
+    "selectedBox":143,
+    "selecteID":135,
     "referenceLines":[
         {
             "value":301,
@@ -918,22 +918,24 @@
                     "compId":394,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":4.000000000000128,"x":11.99999624871431},
                             "nodeParent":394,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":58,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":58,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -1126,141 +1128,115 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":-3.000000000000128,"x":-12.99999624871431},
+                                    "props":{"y":43,"x":8},
                                     "nodeParent":58,
                                     "label":"Box",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":142,
+                                    "compId":423,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
-                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/common/img_common_21_finish(1).png","height":129},
-                                            "nodeParent":142,
+                                            "props":{"y":-8,"x":26,"stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png"},
+                                            "nodeParent":423,
                                             "label":"Button",
                                             "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":30,
+                                            "compId":416,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
-                                                    "props":{"y":9,"x":20,"skin":"image/guild/icon_bangpai.png"},
-                                                    "nodeParent":30,
+                                                    "props":{"y":5,"x":9,"skin":"image/guild/gang_Headportrait.png"},
+                                                    "nodeParent":416,
                                                     "label":"Image",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":31,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        },
-                                        {
-                                            "type":"Box",
-                                            "props":{"y":103.00000000000013,"x":106.99999624871431,"width":74,"var":"box_guildBuff","height":46},
-                                            "nodeParent":142,
-                                            "label":"Box(box_guildBuff)",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":52,
-                                            "child":[
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":41.99999999999994,"x":77.00000225077137,"width":77,"skin":"image/common/fram_common_vipdi.png","scaleY":0.6,"rotation":180,"height":70,"alpha":0.8},
-                                                    "nodeParent":52,
-                                                    "label":"Image",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":51,
+                                                    "compId":420,
                                                     "child":[
                                                         ]
                                                 },
                                                 {
-                                                    "type":"Button",
-                                                    "props":{"y":13.999999999999943,"x":15.000002250771374,"stateNum":"2","skin":"image/guild/zi_buff_finish.png"},
-                                                    "nodeParent":52,
-                                                    "label":"Button",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":33,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        },
-                                        {
-                                            "type":"Box",
-                                            "props":{"y":-1,"x":1,"width":77,"height":75},
-                                            "nodeParent":142,
-                                            "label":"Box",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":54,
-                                            "child":[
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":69.99999999999989,"x":77.00000375128569,"width":77,"skin":"image/common/fram_common_vipdi.png","rotation":180,"height":70},
-                                                    "nodeParent":54,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":32,
-                                                    "child":[
-                                                        ]
-                                                },
-                                                {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":28,"x":20,"width":34,"var":"lbl_guidlLv","text":"Lv.6","strokeColor":"#000000","stroke":2,"height":24,"fontSize":17,"font":"Microsoft YaHei","color":"#ffffff"},
-                                                    "nodeParent":54,
-                                                    "label":"Label(lbl_guidlLv)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":53,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":141.0000000000001,"x":21.99999624871431,"skin":"image/common/fram_common_04.png","alpha":0.75},
-                                            "nodeParent":142,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":55,
-                                            "child":[
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":26,"width":96,"var":"lbl_guildName","text":"公会名称","strokeColor":"#000000","stroke":5,"height":35,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
-                                                    "nodeParent":55,
+                                                    "props":{"y":75,"x":-18,"width":127,"var":"lbl_guildName","text":"公会名称123","strokeColor":"#000000","stroke":3,"height":35,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff"},
+                                                    "nodeParent":416,
                                                     "label":"Label(lbl_guildName)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":56,
+                                                    "compId":421,
+                                                    "child":[
+                                                        ],
+                                                    "$HIDDEN":false
+                                                }],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":-17,"x":0,"var":"btn_guildBuff","stateNum":"1","skin":"image/guild/icon_buff.png"},
+                                            "nodeParent":423,
+                                            "label":"Button(btn_guildBuff)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":424,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Image",
+                                            "props":{"y":102,"x":1,"skin":"image/guild/Progressbar_gang_bottom.png"},
+                                            "nodeParent":423,
+                                            "label":"Image",
+                                            "isOpen":false,
+                                            "isDirectory":true,
+                                            "isAniNode":true,
+                                            "hasChild":true,
+                                            "compId":418,
+                                            "child":[
+                                                {
+                                                    "type":"Image",
+                                                    "props":{"y":1,"x":1,"width":133,"skin":"image/guild/Progressbar_gang_top.png","height":7},
+                                                    "nodeParent":418,
+                                                    "label":"Image",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":422,
                                                     "child":[
                                                         ]
-                                                }]
-                                        }]
+                                                },
+                                                {
+                                                    "type":"Label",
+                                                    "props":{"y":-8,"x":1,"var":"lbl_guidlLv","text":"Lv.6","strokeColor":"#000000","stroke":3,"fontSize":20,"color":"#FFFFFF"},
+                                                    "nodeParent":418,
+                                                    "label":"Label(lbl_guidlLv)",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":419,
+                                                    "child":[
+                                                        ]
+                                                }],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":341.0000000000001,"x":8.99999624871431},
                             "nodeParent":394,
@@ -1458,17 +1434,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":351.0000000000001,"x":496.9999962487143,"width":85,"var":"btn_donate","stateNum":"2","skin":"image/guild/button_shenqingjiaru_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","height":85},
                             "nodeParent":394,
                             "label":"Button(btn_donate)",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":185,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":13,"x":1,"skin":"image/guild/font_meirijuanzeng.png"},
                                     "nodeParent":185,
@@ -1483,19 +1461,21 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":482.0000000000001,"x":10.99999624871431},
                             "nodeParent":394,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":358,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"var":"img_guildShopEnter","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":82,"x":149,"var":"img_guildShopEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
                                     "label":"Image(img_guildShopEnter)",
                                     "isOpen":false,
@@ -1568,8 +1548,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":314,"var":"img_guildStoreEnter","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":82,"x":463,"var":"img_guildStoreEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
                                     "label":"Image(img_guildStoreEnter)",
                                     "isOpen":false,
@@ -1642,8 +1623,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":170,"var":"img_guildFuliEnter","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":252,"x":149,"var":"img_guildFuliEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
                                     "label":"Image(img_guildFuliEnter)",
                                     "isOpen":false,
@@ -1716,8 +1698,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":170,"x":314,"var":"img_guildHelpEnter","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":252,"x":463,"var":"img_guildHelpEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
                                     "label":"Image(img_guildHelpEnter)",
                                     "isOpen":false,
@@ -1792,6 +1775,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":187.0000000000001,"x":19.99999624871431,"width":596,"height":147},
                             "nodeParent":394,
@@ -1860,13 +1844,14 @@
                     "props":{"x":7,"var":"box_teamManage","name":"item2"},
                     "nodeParent":411,
                     "label":"Box(box_teamManage)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":312,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":1,"x":5},
                             "nodeParent":312,
@@ -1878,6 +1863,7 @@
                             "compId":186,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":11,"x":-5,"width":625,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,23,19,17","height":342},
                                     "nodeParent":186,
@@ -1891,11 +1877,12 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":186,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -2087,109 +2074,132 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":0,"x":2},
+                                    "props":{"y":28,"x":20},
                                     "nodeParent":186,
                                     "label":"Box",
                                     "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":203,
+                                    "compId":425,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":34,"x":48,"skin":"image/common/icon_nv01.png"},
-                                            "nodeParent":203,
+                                            "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
+                                            "nodeParent":425,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":205,
+                                            "compId":426,
                                             "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Button",
-                                            "props":{"y":25.000000000000128,"x":27.99999624871431,"width":127,"stateNum":"2","skin":"image/common/img_common_21_finish(1).png","height":129},
-                                            "nodeParent":203,
-                                            "label":"Button",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":204,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Box",
-                                            "props":{"y":-1,"x":1,"width":77,"height":75},
-                                            "nodeParent":203,
-                                            "label":"Box",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":209,
-                                            "child":[
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":69.99999999999989,"x":77.00000375128569,"width":77,"skin":"image/common/fram_common_vipdi.png","rotation":180,"height":70},
-                                                    "nodeParent":209,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":210,
-                                                    "child":[
-                                                        ]
-                                                },
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":28,"x":20,"width":34,"var":"lbl_vipLv","text":"VIP4","strokeColor":"#000000","stroke":2,"height":24,"fontSize":17,"font":"Microsoft YaHei","color":"#ffffff"},
-                                                    "nodeParent":209,
-                                                    "label":"Label(lbl_vipLv)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":211,
-                                                    "child":[
-                                                        ]
-                                                }]
+                                                ]
                                         },
                                         {
                                             "type":"Image",
-                                            "props":{"y":141.0000000000001,"x":21.99999624871431,"skin":"image/common/fram_common_04.png","alpha":0.75},
-                                            "nodeParent":203,
+                                            "props":{"y":2,"x":7,"skin":"image/main/img_zhujue_01.png"},
+                                            "nodeParent":425,
                                             "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
+                                            "isDirectory":false,
                                             "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":212,
+                                            "hasChild":false,
+                                            "compId":427,
                                             "child":[
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":26,"width":96,"var":"lbl_mastername","text":"帮主名称","strokeColor":"#000000","stroke":5,"height":35,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
-                                                    "nodeParent":212,
-                                                    "label":"Label(lbl_mastername)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":213,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }],
-                                    "$HIDDEN":false
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
+                                            "nodeParent":425,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":428,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":6,"x":89,"skin":"image/main/img_vipdi.png"},
+                                            "nodeParent":425,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":429,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":7,"x":110,"width":25,"skin":"image/common/zi_vip_01.png","scaleY":0.7,"scaleX":0.7,"height":30},
+                                            "nodeParent":425,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":430,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"FontClip",
+                                            "props":{"value":1,"spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","centerY":-42,"centerX":56},
+                                            "nodeParent":425,
+                                            "label":"FontClip",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":431,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":1,"x":70,"skin":"image/main/icon_vip_01.png","scaleY":0.7,"scaleX":0.7},
+                                            "nodeParent":425,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":432,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":95,"x":0,"var":"lbl_mastername","text":"名字超多六字","strokeColor":"#2d1c05 ","stroke":4,"fontSize":22,"color":"#f9e596"},
+                                            "nodeParent":425,
+                                            "label":"Label(lbl_mastername)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":433,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":6,"x":127,"width":20,"var":"lbl_vipLv","text":"4","strokeColor":"#000000","stroke":2,"height":24,"fontSize":17,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":425,
+                                            "label":"Label(lbl_vipLv)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":211,
+                                            "child":[
+                                                ]
+                                        }]
                                 }],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":182,"x":12,"width":596,"height":147},
                             "nodeParent":312,
@@ -2251,19 +2261,21 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":359,"x":4},
                             "nodeParent":312,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":143,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":0,"x":0,"var":"btn_relationManage","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":82,"x":149,"var":"btn_relationManage","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(btn_relationManage)",
                                     "isOpen":false,
@@ -2339,8 +2351,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":0,"x":315,"var":"img_guildIntoSet","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":82,"x":464,"var":"img_guildIntoSet","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(img_guildIntoSet)",
                                     "isOpen":false,
@@ -2414,8 +2427,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":171,"x":0,"var":"img_guildRecord","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":253,"x":149,"var":"img_guildRecord","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(img_guildRecord)",
                                     "isOpen":false,
@@ -2490,8 +2504,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":171,"x":315,"var":"btn_guildMember","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":253,"x":464,"var":"btn_guildMember","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(btn_guildMember)",
                                     "isOpen":false,
@@ -2565,8 +2580,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":341,"x":0,"var":"img_guildApply","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":423,"x":149,"var":"img_guildApply","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(img_guildApply)",
                                     "isOpen":false,
@@ -2639,17 +2655,19 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":341,"x":315,"var":"img_guildRank","skin":"image/guild/frame_gang_store.png"},
+                                    "props":{"y":423,"x":464,"var":"img_guildRank","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
                                     "label":"Image(img_guildRank)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":135,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":12,"x":56,"skin":"image/guild/icon_tuichubangpai_shadow.png"},
                                             "nodeParent":135,
@@ -2662,6 +2680,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":84,"x":3,"skin":"image/guild/decorate_bangpaishangdian.png"},
                                             "nodeParent":135,
@@ -2675,6 +2694,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":66,"x":67,"width":205,"skin":"image/guild/bottom_kouhao.png","height":69,"alpha":0.6},
                                             "nodeParent":135,
@@ -2688,6 +2708,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":39,"x":19,"skin":"image/guild/icon_tuichubangpai.png"},
                                             "nodeParent":135,
@@ -2700,20 +2721,9 @@
                                                 ]
                                         },
                                         {
-                                            "type":"Label",
-                                            "props":{"y":9,"x":124,"width":128,"text":"实力排名","height":43,"fontSize":30,"font":"Microsoft YaHei","bold":true},
-                                            "nodeParent":135,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":214,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
+                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":63,"x":126,"skin":"image/guild/font_tuichubanghui.png"},
+                                            "props":{"y":63,"x":126,"skin":"image/guild/font_shilipaihang.png"},
                                             "nodeParent":135,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -2727,7 +2737,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":149,
+    "selectedBox":24,
+    "selecteID":80,
     "props":{"width":640,"sceneColor":"#863938","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -125,13 +125,14 @@
                     "props":{"y":-34,"x":0,"width":622,"name":"item0","height":805},
                     "nodeParent":24,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":77,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":60,"x":2,"width":620,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":630},
                             "nodeParent":77,
@@ -207,8 +208,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Tab",
-                            "props":{"x":145,"width":330,"var":"tab_guanXi","stateNum":2,"space":60,"skin":"image/common/fram_common_09_finish.png","selectedIndex":0,"scaleY":0.7,"labels":"结盟帮会,敌对帮会","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","height":78,"direction":"horizontal"},
+                            "props":{"y":25,"x":127,"width":330,"var":"tab_guanXi","stateNum":1,"space":60,"skin":"image/guild/line_jiemengbanghui.png","selectedIndex":0,"scaleY":0.7,"labels":"结盟帮会,敌对帮会","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","height":78,"direction":"horizontal"},
                             "nodeParent":77,
                             "label":"Tab(tab_guanXi)",
                             "isDirectory":false,
@@ -772,7 +774,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {
@@ -786,7 +788,8 @@
             "hasChild":false,
             "compId":19,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,

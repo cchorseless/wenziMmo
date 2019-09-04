@@ -20,43 +20,43 @@ module view.guild {
 			// 添加属性监听事件
 			this.addLcpEvent();
 			//入会设定
-			this.img_guildIntoSet.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildIntoSet,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildIntoConditionPanel();
 			})
 			// 外交界面
-			this.btn_relationManage.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_relationManage,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildWaiJiaoPanel();
 			});
 			//帮会实力排行
-			this.img_guildRank.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildRank,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildRankPanel();
 			})
 			//帮会日志
-			this.img_guildRecord.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildRecord,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildRecordPanel();
 			})
 			//入帮申请
-			this.img_guildApply.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildApply,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildApplyPanel();
 			})
 			//帮会福利
-			this.img_guildFuliEnter.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildFuliEnter,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildFuliPanel();
 			})
 			//帮会仓库
-			this.img_guildStoreEnter.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildStoreEnter,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildStorePanel();
 			})
 			//帮会支援
-			this.img_guildHelpEnter.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildHelpEnter,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildHelpPanel();
 			})
 			//帮会成员
-			this.btn_guildMember.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_guildMember,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildMemberPanel();
 			})
 			//帮会商店
-			this.img_guildShopEnter.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.img_guildShopEnter,Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildShopPanel();
 			})
 			//帮会捐赠弹窗
@@ -64,7 +64,7 @@ module view.guild {
 				new view.dialog.GuildDonateDialog().popup(true);
 			})
 			//帮会Buff弹窗
-			this.box_guildBuff.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_guildBuff,Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.GuildBuffDialog().popup(true);
 			})
 			//帮会宝箱物品奖励
