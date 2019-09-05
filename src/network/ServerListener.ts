@@ -38,10 +38,29 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerIconDecoder), this, this.syncPlayerFeature);
         // 移动 0x021F
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
+        /*************************************战斗相关***************************************** */
         // 攻击 0x0232
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
+        // 怪物掉血 0x0297
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
+        // 删除地图上的物品 29D
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
+        // 拾取地图上的物品 288
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
+        // 地图上添加物品 2a0
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
+        // 玩家复活死亡通知 246
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+        /*************************************技能相关************************************************ */
+        // 推送技能列表
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarAllSkillsDecoderRet), this, this.updateSkillList);
+        // 推送技能冷却
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarMagicColdRet), this, this.updateSkillCold);
+        // 推送技能更改状态
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSkillAddDecoderRet), this, this.updateSkillState);
+        /*************************************同步玩家属性************************************ */
         // 金币 236
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
         // 绑定金币 2b6
@@ -54,8 +73,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretExpChange), this, this.cretExpChange);
         // 等级 238
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
-        // 聊天相关 239
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
         // 场景内角色战斗属性包 23b
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
         // 玩家战斗属性包 249
@@ -64,18 +81,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretCharBase), this, this.cretCharBase);
         // 更新玩家行会贡献
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarguildJiFenDecoder), this, this.updateGuildSorce);
-        // 玩家复活死亡通知 246
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
-        // 服务器提示tips 288
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.tipMsg);
-        // 怪物掉血 0x0297
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
-        // 删除地图上的物品 29D
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
-        // 拾取地图上的物品 288
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
-        // 地图上添加物品 2a0
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
+        /***************************************聊天相关***************************************** */
+        // 聊天相关 239
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretChat), this, this.cretChat);
         /***********************************背包相关 *********************************/
         // 删除背包道具 301
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretDeleteItem), this, this.cretDeleteItem);
@@ -375,19 +383,15 @@ class ServerListener extends SingletonClass {
 
 
     //0x021F
+    /**
+     * 地图走路移动
+     * @param data 
+     */
     public cretMoveRet(data: any): void {
         let msg = new ProtoCmd.CretMoveRet(data);
         if (msg.getValue('moveerrorcode') != 0) {
             GameApp.MainPlayer.location.clone(msg.location.data);
-            ////App.MainPanel.addSysChat('move fail');
-            return;
         }
-        // //App.MainPanel.modifListViewObjPos(msg.getValue('dwTmpId'), msg.location.getValue('ncurx'), msg.location.getValue('ncury'));
-        // if (msg.getValue('dwTmpId') ==GameApp.GameEngine.mainPlayer.onlyid) {
-        //     //App.MainPanel.playerBtn.text =GameApp.GameEngine.mainPlayer.playerName + 'lv.' +GameApp.GameEngine.mainPlayer.level
-        //         + "[color=#00EE00](" +GameApp.GameEngine.mainPlayer.x + ',' +GameApp.GameEngine.mainPlayer.y + ")[/color]";
-        //     //App.MainPanel.playerBtn.grayed = //App.MainPanel.playerBtn.grayed ? false : true;
-        // }
         msg.clear();
         msg = null;
     }
@@ -439,6 +443,42 @@ class ServerListener extends SingletonClass {
 
 
 
+    /*************************************同步技能状态************************************ */
+
+    /**
+     * 更新技能列表
+     */
+    public updateSkillList(data): void {
+        console.log('更新技能列表')
+        let cbpkt = new ProtoCmd.AvatarAllSkillsDecoderRet(data);
+        for (let skillInfo of cbpkt.skills) {
+            let skill = new ProtoCmd.stSkillLvlBase();
+            skill.clone(skillInfo.data);
+            GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
+        }
+        cbpkt.clear();
+        cbpkt = null;
+    }
+    /**
+     * 更新技能冷却
+     * @param data 
+     */
+    public updateSkillCold(data): void {
+        let cbpket = new ProtoCmd.AvatarMagicColdRet(data);
+    }
+    /**
+     * 更新技能状态
+     * @param data 
+     */
+    public updateSkillState(data): void {
+        let cbpkt = new ProtoCmd.AvatarSkillAddDecoderRet(data);
+        let skill = new ProtoCmd.stSkillLvlBase();
+        skill.clone(cbpkt.skilllvl.data);
+        GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
+        cbpkt.clear();
+        cbpkt = null;
+    }
+    /*************************************同步玩家属性************************************ */
     /**
      * 金币 0x0236
      * @param data 
@@ -559,21 +599,6 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-    /**
-     * 聊天频道相关
-     * @param data 
-     */
-    public cretChat(data: any): void {
-        // let msg: ProtoCmd.CretChat = Laya.Pool.getItemByCreateFun('ProtoCmd.CretChat', () => {
-        //     return new ProtoCmd.CretChat(data)
-        // });
-        let msg = new ProtoCmd.CretChat(data);
-        if (msg.chatMsg != "") {
-            PanelManage.Main && PanelManage.Main.updateChatView(msg);
-        }
-        msg.clear();
-        // Laya.Pool.recover("ProtoCmd.CretChat", msg);
-    }
 
     /**
      * 更新场景内所有角色的战斗属性
@@ -669,17 +694,22 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
-
-    public tipMsg(data: any): void {
-        let msg = new ProtoCmd.TipMsg(data);
-        //App.MainPanel.tipsInfo.text = msg.tipmsg;
-        // Main.main.getTransition('tipsinfo').play(() => {
-        //     //App.MainPanel.tipsInfo.text = "";
+    /*************************************聊天信息************************************ */
+    /**
+     * 聊天频道相关
+     * @param data 
+     */
+    public cretChat(data: any): void {
+        // let msg: ProtoCmd.CretChat = Laya.Pool.getItemByCreateFun('ProtoCmd.CretChat', () => {
+        //     return new ProtoCmd.CretChat(data)
         // });
+        let msg = new ProtoCmd.CretChat(data);
+        if (msg.chatMsg != "") {
+            PanelManage.Main && PanelManage.Main.updateChatView(msg);
+        }
         msg.clear();
-        msg = null;
+        // Laya.Pool.recover("ProtoCmd.CretChat", msg);
     }
-
 
     // *********************************************背包相关***************************************
 
@@ -1125,6 +1155,7 @@ class ServerListener extends SingletonClass {
         GameApp.MainPlayer.changeJuQingInfo(data);
     }
 
+    /***************************************LUA消息分发****************************** */
     /**
      * 服务器返回的lua脚本数据
      * @param data 
