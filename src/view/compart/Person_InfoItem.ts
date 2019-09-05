@@ -11,7 +11,7 @@ module view.compart {
 			
 		}
 		public addEvent(): void {
-			this.img_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openClothePanel();
 			})
 			 this.box_birthEnter.on(Laya.UIEvent.CLICK, this, () => {
