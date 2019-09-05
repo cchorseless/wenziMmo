@@ -17,6 +17,7 @@ module ProtoCmd {
             this.addProperty("boself", PacketBase.TYPE_BOOL);//是否包含自己，服务器用
             this.cmd = CretAttack.msgID;
         }
+        
     }
 
 

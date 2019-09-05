@@ -20,6 +20,7 @@ module view.compart {
 
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
+				let pkt=new ProtoCmd.CretAttack();
 
 
 			})
