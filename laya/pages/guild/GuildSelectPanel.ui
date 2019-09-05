@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":10,
-    "selecteID":35,
+    "selectedBox":35,
+    "selecteID":96,
     "referenceLines":[
         {
             "value":149,
@@ -74,7 +74,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":11,"x":43,"skin":"image/guild/bottom_jianghuxiaobang.png"},
+                    "props":{"y":11,"x":43,"skin":"image/common/bottom_jianghuxiaobang.png"},
                     "nodeParent":204,
                     "label":"Image",
                     "isOpen":false,
@@ -215,7 +215,7 @@
                         },
                         {
                             "type":"Box",
-                            "props":{"y":712,"x":222},
+                            "props":{"y":712,"x":222,"width":198,"height":42},
                             "nodeParent":42,
                             "label":"Box",
                             "isOpen":true,
@@ -428,7 +428,7 @@
                                 },
                                 {
                                     "type":"Button",
-                                    "props":{"y":600,"x":264,"var":"btn_create","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"创建"},
+                                    "props":{"y":600,"x":264,"var":"btn_create","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"创建"},
                                     "nodeParent":193,
                                     "label":"Button(btn_create)",
                                     "isOpen":true,
@@ -513,7 +513,7 @@
                     "props":{"y":12,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":777},
                     "nodeParent":10,
                     "label":"Box(box_searchGuild)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -521,7 +521,7 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"y":-69,"x":508,"var":"btn_search","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelPadding":"-3","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
+                            "props":{"y":-69,"x":508,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelPadding":"-3","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
                             "nodeParent":35,
                             "label":"Button(btn_search)",
                             "isDirectory":false,
@@ -534,7 +534,7 @@
                         },
                         {
                             "type":"TextInput",
-                            "props":{"y":-63,"x":22,"width":481,"var":"input_search","skin":"image/guild/Inputbox_1.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","padding":"2,160,8,4","height":52,"fontSize":20,"font":"Microsoft YaHei","align":"center"},
+                            "props":{"y":-63,"x":22,"width":481,"var":"input_search","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","padding":"2,160,8,4","height":52,"fontSize":20,"font":"Microsoft YaHei","align":"center"},
                             "nodeParent":35,
                             "label":"TextInput(input_search)",
                             "isDirectory":false,
@@ -582,7 +582,7 @@
                                         ],
                                     "$HIDDEN":false
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":false
                 }],

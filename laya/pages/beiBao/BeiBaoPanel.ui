@@ -1,8 +1,7 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":350,
-    "selecteID":351,
+    "selectedBox":22,
+    "selecteID":184,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -13,7 +12,6 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "props":{"y":10,"x":10,"top":0,"skin":"image/common/bg_common_01.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
@@ -25,7 +23,6 @@
             "compId":17,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"skin":"image/main/img_common_02.png","right":0,"left":0,"bottom":0},
                     "nodeParent":17,
@@ -39,7 +36,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"x":0,"width":640,"skin":"image/main/fram_common_02a.png","height":963,"bottom":0},
             "nodeParent":1,
@@ -53,7 +49,6 @@
             "$HIDDEN":true
         },
         {
-            "x":15,
             "type":"ViewStack",
             "props":{"y":131,"x":0,"var":"viw_BagViewChange"},
             "nodeParent":1,
@@ -65,7 +60,6 @@
             "compId":417,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"name":"item0"},
                     "nodeParent":417,
@@ -77,7 +71,6 @@
                     "compId":416,
                     "child":[
                         {
-                            "x":45,
                             "type":"Tab",
                             "props":{"var":"tab_bag","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"left":194,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#000000","labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
                             "nodeParent":416,
@@ -90,7 +83,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":65,"x":116,"width":510,"skin":"image/bag/fram_commom_09.png","sizeGrid":"8,7,6,7","height":448},
                             "nodeParent":416,
@@ -102,7 +94,6 @@
                             "compId":39,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"ViewStack",
                                     "props":{"y":6,"x":0,"width":510,"var":"viw_bag","selectedIndex":0,"height":435},
                                     "nodeParent":39,
@@ -114,7 +105,6 @@
                                     "compId":32,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":0,"x":0,"width":510,"var":"panel_bag0","name":"item0","height":435},
                                             "nodeParent":32,
@@ -126,7 +116,6 @@
                                             "compId":301,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"VBox",
                                                     "props":{"y":1,"x":5,"var":"vbox_bag0","space":2,"align":"left"},
                                                     "nodeParent":301,
@@ -141,7 +130,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":0,"x":0,"width":510,"var":"panel_bag1","name":"item1","height":435},
                                             "nodeParent":32,
@@ -153,7 +141,6 @@
                                             "compId":310,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"VBox",
                                                     "props":{"y":1,"x":5,"var":"vbox_bag1","space":2,"align":"left"},
                                                     "nodeParent":310,
@@ -168,7 +155,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":0,"x":0,"width":510,"var":"panel_bag2","name":"item2","height":435},
                                             "nodeParent":32,
@@ -180,7 +166,6 @@
                                             "compId":317,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"VBox",
                                                     "props":{"y":1,"x":5,"var":"vbox_bag2","space":2,"align":"left"},
                                                     "nodeParent":317,
@@ -193,10 +178,9 @@
                                                     "child":[
                                                         ]
                                                 }],
-                                            "$HIDDEN":false
+                                            "$HIDDEN":true
                                         },
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":0,"x":0,"width":510,"var":"panel_bag3","name":"item3","height":435},
                                             "nodeParent":32,
@@ -208,7 +192,6 @@
                                             "compId":324,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"VBox",
                                                     "props":{"y":1,"x":5,"var":"vbox_bag3","space":2,"align":"left"},
                                                     "nodeParent":324,
@@ -226,7 +209,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":44,"x":0,"skin":"image/common/fram_common_04new.png","sizeGrid":"58,35,64,45","height":872},
                             "nodeParent":416,
@@ -238,9 +220,8 @@
                             "compId":22,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-3,"x":0,"skin":"image/bag/img_zhekou.png"},
+                                    "props":{"y":-3,"x":0,"skin":"image/common/img_zhekou.png"},
                                     "nodeParent":22,
                                     "label":"Image",
                                     "isOpen":true,
@@ -253,7 +234,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Panel",
                                     "props":{"y":60,"width":98,"var":"panel_sellHot","left":1,"height":682},
                                     "nodeParent":22,
@@ -265,7 +245,6 @@
                                     "compId":35,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"VBox",
                                             "props":{"y":0,"var":"vbox_sellHot","right":0,"left":0},
                                             "nodeParent":35,
@@ -280,7 +259,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":837,"x":54,"width":29,"var":"lbl_refreshPrice","text":"20","height":27,"fontSize":22,"font":"Arial","color":"#63491a","bold":false,"align":"left"},
                                     "nodeParent":22,
@@ -293,7 +271,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":831,"x":11,"width":42,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png","height":34},
                                     "nodeParent":22,
@@ -306,7 +283,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":813,"x":14,"wordWrap":true,"width":73,"text":"0点刷新","height":26,"fontSize":18,"font":"Microsoft YaHei","color":"#63491a","bold":true},
                                     "nodeParent":22,
@@ -319,7 +295,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":768,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/bag/btn_common_05_finish.png","right":14,"labelStrokeColor":"#000000","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#291810,#291810","labelBold":true,"label":"刷新","height":45},
                                     "nodeParent":22,
@@ -334,7 +309,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"ViewStack",
                             "props":{"y":520,"x":118,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
                             "nodeParent":416,
@@ -346,7 +320,6 @@
                             "compId":350,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/HuiShouItem.ui",
                                     "props":{"var":"ui_huiShou","top":0,"runtime":"view.compart.HuiShouItem","name":"item0","left":0},
@@ -358,10 +331,9 @@
                                     "compId":351,
                                     "child":[
                                         ],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/CangKuItem.ui",
                                     "props":{"x":-11,"var":"ui_cangKu","top":0,"runtime":"view.compart.CangKuItem","name":"item1"},
@@ -377,7 +349,6 @@
                                     "$HIDDEN":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/BaiTanItem.ui",
                                     "props":{"var":"ui_tanWei","top":0,"runtime":"view.compart.BaiTanItem","name":"item2","left":0},
@@ -391,12 +362,11 @@
                                         ],
                                     "$HIDDEN":true
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/JiaoYiHangItem.ui",
                     "props":{"var":"ui_jiaoyihang","top":-28,"runtime":"view.compart.JiaoYiHangItem","name":"item1","left":0},
@@ -413,7 +383,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":20,"x":20,"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
@@ -425,7 +394,6 @@
             "compId":386,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":4,"x":0},
                     "nodeParent":386,
@@ -437,7 +405,6 @@
                     "compId":387,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"var":"btn_back","stateNum":"1","skin":"image/common/img_common_07bg.png"},
                             "nodeParent":387,
@@ -449,7 +416,6 @@
                             "compId":388,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":4,"x":17,"width":84,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"返回","height":84},
                                     "nodeParent":388,
@@ -464,7 +430,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":101,"var":"btn_huiShou","stateNum":"1","skin":"image/common/img_common_07bg.png"},
                             "nodeParent":387,
@@ -476,7 +441,6 @@
                             "compId":390,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":4,"x":17,"width":84,"stateNum":"2","skin":"image/common/icon_itemfunc2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                                     "nodeParent":390,
@@ -490,7 +454,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":53,"x":16,"stateNum":"2","skin":"image/bag/zi_huishou_01_finish.png"},
                                     "nodeParent":390,
@@ -505,7 +468,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":202,"var":"btn_cangKu","stateNum":"1","skin":"image/common/img_common_07bg.png"},
                             "nodeParent":387,
@@ -517,7 +479,6 @@
                             "compId":392,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":4,"x":17,"width":84,"stateNum":2,"skin":"image/common/icon_itemfunc0.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                                     "nodeParent":392,
@@ -531,7 +492,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":53,"x":16,"stateNum":"2","skin":"image/bag/zi_cangku_01_finish.png"},
                                     "nodeParent":392,
@@ -545,7 +505,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":303,"var":"btn_baiTan","stateNum":"1","skin":"image/common/img_common_07bg.png"},
                             "nodeParent":387,
@@ -557,7 +516,6 @@
                             "compId":394,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":4,"x":17,"width":84,"stateNum":2,"skin":"image/common/icon_itemfunc1.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                                     "nodeParent":394,
@@ -571,7 +529,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":53,"x":16,"stateNum":"2","skin":"image/bag/zi_baitan_01_finish.png"},
                                     "nodeParent":394,
@@ -585,7 +542,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":404,"var":"btn_jiaoYiHang","stateNum":"1","skin":"image/common/img_common_07bg.png"},
                             "nodeParent":387,
@@ -597,7 +553,6 @@
                             "compId":396,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":4,"x":17,"width":84,"stateNum":2,"skin":"image/common/icon_itemfunc3.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                                     "nodeParent":396,
@@ -611,7 +566,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":53,"x":16,"stateNum":"2","skin":"image/bag/zi_jiaoyihang_01_finish.png","label":"label"},
                                     "nodeParent":396,
@@ -626,7 +580,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":50,"x":599,"var":"btn_modeChange","stateNum":"1","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":386,
@@ -643,7 +596,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":104,"x":14},
             "nodeParent":1,
@@ -655,7 +607,6 @@
             "compId":413,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":21,"x":28,"skin":"image/main/fram_common_08a.png"},
                     "nodeParent":413,
@@ -667,7 +618,6 @@
                     "compId":411,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":45,"var":"lbl_bagLogolbl","text":"回  收","strokeColor":"#000000","stroke":5,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":411,
@@ -682,7 +632,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png"},
                     "nodeParent":413,
