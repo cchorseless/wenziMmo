@@ -23,6 +23,7 @@ module view.compart {
 			this.img_battleMode.visible = false;
 			this.img_battleMode.scaleY = this.img_battleMode.scaleX = 0;
 			this.initSelfPlayer();
+			this.initDiziPlayer();
 			this.addPlayer(null);
 			this.addEvent();
 		}
@@ -75,11 +76,24 @@ module view.compart {
 			Laya.Tween.to(this.hbox_player02, { space: 1 }, 500, null, null, null, true);
 		}
 
+		public selfPlayerAvatar: view.compart.SelfPlayerInSceneItem;
 		/**
 		 * 初始化自己的角色
 		 */
 		public initSelfPlayer(): void {
-			this.box_self.addChild(new view.compart.SelfPlayerInSceneItem());
+			this.selfPlayerAvatar = new view.compart.SelfPlayerInSceneItem();
+			this.selfPlayerAvatar.setData(0);
+			this.box_self.addChild(this.selfPlayerAvatar);
+		}
+
+		public selfDiZiAvatar: view.compart.SelfPlayerInSceneItem;
+		/**
+		 * 初始化弟子
+		 */
+		public initDiziPlayer(): void {
+			this.selfDiZiAvatar = new view.compart.SelfPlayerInSceneItem();
+			this.selfDiZiAvatar.setData(1);
+			this.box_diZi.addChild(this.selfDiZiAvatar);
 		}
 
 		/**
@@ -89,6 +103,7 @@ module view.compart {
 		public addMonster(obj): void {
 			let monster: view.compart.MonsterInSceneItem = new view.compart.MonsterInSceneItem();
 			monster.setData(obj);
+
 			let childNum = this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren;
 			let mod = childNum % 12;
 			switch (Math.floor(mod / 4)) {
@@ -105,7 +120,6 @@ module view.compart {
 				default:
 					this.hbox_monster01.addChild(monster);
 			}
-			console.log('addMonster==>当前场景内怪物数据' + (childNum + 1))
 		}
 
 		/**
@@ -144,8 +158,6 @@ module view.compart {
 			}
 		}
 
-
-
 		/**
 		 * 清除所有怪物
 		 */
@@ -174,6 +186,7 @@ module view.compart {
 		public removePlayer(obj): void {
 
 		}
+		
 		/**
 		 * 清除所有玩家
 		 */
@@ -183,7 +196,7 @@ module view.compart {
 		}
 
 		/**
-		 * 攻击状态缓动
+		 * 攻击状态模式缓动
 		 */
 		public showBattleModel(isShow): void {
 			if (isShow) {
@@ -203,6 +216,11 @@ module view.compart {
 			// 中间自己
 			this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 		}
+
+
+
+
+
 
 	}
 }

@@ -516,7 +516,13 @@ module view.main {
 			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
 			// 任务描述
 			// this.div_taskDes.innerHTML = "<font style='color:#FFFFFF;font-weight:bold;font-size:30'>击杀: </font><font color='#000000'>鸡</font>";
+		}
 
+		/**
+		 * 战斗主场景
+		 */
+		public getMainScene() {
+			return this.ui_scene
 		}
 	}
 }

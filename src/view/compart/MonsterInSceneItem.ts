@@ -16,12 +16,12 @@ module view.compart {
 				this._skeGroup.play(1, true);
 				this.addEvent();
 			});
-
 		}
 
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				console.log(this.item.objName);
+
+
 			})
 		}
 	}

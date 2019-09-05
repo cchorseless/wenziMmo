@@ -11,7 +11,7 @@ module view.beiBao {
 			for (let i = 0; i < 4; i++) {
 				this['panel_bag' + i].vScrollBarSkin = '';
 				this['vbox_bag' + i]['sortItem'] = (items) => { };
-				for (let j = 0; j < 5; j++) {
+				for (let j = 0; j < 6; j++) {
 					this['vbox_bag' + i].addChild(new view.compart.DaoJuGroupItem());
 				}
 			}
