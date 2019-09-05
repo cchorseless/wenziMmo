@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":91,
+    "selectedBox":118,
+    "selecteID":119,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -105,7 +105,7 @@
                 },
                 {
                     "type":"Button",
-                    "props":{"y":-1,"x":513,"var":"btn_touPiaoEvent","stateNum":"2","skin":"image/guild/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":20,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"投票事件"},
+                    "props":{"y":-1,"x":513,"var":"btn_touPiaoEvent","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":20,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"投票事件"},
                     "nodeParent":26,
                     "label":"Button(btn_touPiaoEvent)",
                     "isDirectory":false,
@@ -200,18 +200,19 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":364,"x":20},
+            "props":{"y":364,"x":20,"width":599,"height":227},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":114,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"width":204,"skin":"image/guild/bottom_kouhao.png","height":70},
+                    "props":{"y":6,"x":0,"width":224,"skin":"image/common/bottom_smalltitle.png","height":56},
                     "nodeParent":114,
                     "label":"Image",
                     "isOpen":true,
@@ -221,6 +222,7 @@
                     "compId":113,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":16,"text":"帮会累计情报","strokeColor":"#000000","stroke":4,"fontSize":30,"color":"#ffffff"},
                             "nodeParent":113,
@@ -235,6 +237,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":93,"x":218,"width":100,"var":"lbl_goldCount","text":"0万","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -247,6 +250,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":92,"x":32,"width":113,"text":"捐献金币：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -259,6 +263,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":94,"x":512,"width":87,"var":"lbl_yuanBaoCount","text":"1554","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -271,6 +276,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":93,"x":329,"width":106,"text":"捐献元宝：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -283,6 +289,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":140,"x":241,"width":61,"var":"lbl_rank","text":"2","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -295,6 +302,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":136,"x":33,"width":120,"text":"公会排名：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -307,6 +315,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":139,"x":554,"width":36,"var":"lbl_shabakeCount","text":"0","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -320,6 +329,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":137,"x":327,"width":132,"text":"沙巴克次数：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -333,6 +343,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":177,"x":241,"width":42,"var":"lbl_xuanZhanCount","text":"0","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -345,6 +356,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":177,"x":33,"width":165,"text":"敌对公会数量：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -357,6 +369,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":176,"x":328,"width":157,"text":"友善公会数量：","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":114,
@@ -369,6 +382,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":178,"x":554,"width":24,"var":"lbl_jieMengCount","text":"0","strokeColor":"#000000","height":24,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":114,
@@ -383,17 +397,59 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":630,"x":8,"width":623,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":384},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":117,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":637,"x":20,"width":224,"skin":"image/common/bottom_smalltitle.png","height":56},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":118,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":13,"x":16,"text":"帮会捐献记录","strokeColor":"#000000","stroke":4,"fontSize":30,"color":"#ffffff"},
+                    "nodeParent":118,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":119,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"ViewStack",
-            "props":{"y":730,"x":5,"width":630,"var":"viw_0","selectedIndex":0,"height":303},
+            "props":{"y":710,"x":10,"width":619,"var":"viw_0","selectedIndex":0,"height":303},
             "nodeParent":1,
             "label":"ViewStack(viw_0)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":84,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"var":"panel_0","right":0,"name":"item0","left":0},
                     "nodeParent":84,
@@ -405,6 +461,7 @@
                     "compId":85,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","right":0,"left":0,"align":"center"},
                             "nodeParent":85,
@@ -418,6 +475,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"var":"panel_1","right":0,"name":"item1","left":0},
                     "nodeParent":84,
@@ -429,6 +487,7 @@
                     "compId":86,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_1","right":0,"left":0,"align":"center"},
                             "nodeParent":86,
@@ -442,6 +501,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"x":10,"var":"panel_2","right":0,"name":"item2","left":0},
                     "nodeParent":84,
@@ -453,6 +513,7 @@
                     "compId":87,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_2","right":0,"left":0,"align":"center"},
                             "nodeParent":87,

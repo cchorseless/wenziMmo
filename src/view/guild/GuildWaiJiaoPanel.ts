@@ -21,9 +21,9 @@ module view.guild {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
 			// 帮派列表切页
-			this.tab_list.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_list.selectedIndex = index;
-			}, null, false);
+			// this.tab_list.selectHandler = Laya.Handler.create(this, (index) => {
+			// 	this.viw_list.selectedIndex = index;
+			// }, null, false);
 			// 帮派关系
 			this.tab_guanXi.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_guanxi.selectedIndex = index;
