@@ -403,7 +403,7 @@ module view.main {
 				// 
 			}
 			this.ui_mainDownMapItem.panel_0.removeChildren();
-			this.ui_mainDownMapItem.panel_0.addChild(ui_map);
+			ui_map && this.ui_mainDownMapItem.panel_0.addChild(ui_map);
 		}
 
 		/**

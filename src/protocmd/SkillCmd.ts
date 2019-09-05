@@ -2,7 +2,7 @@ module ProtoCmd {
 
     // 0x02A3
     // 拉取技能列表
-    export class AvatarAllSkillsDecoder extends Packet {
+    export class AvatarAllSkillsDecoderRet extends Packet {
         public static msgID: number = 0x02A3;
         public skills: Array<stSkillLvlBase> = [];
         public constructor(data: Laya.Byte) {
@@ -32,19 +32,19 @@ module ProtoCmd {
 
     // 0x02A6
     // 服务器推送技能冷却
-    export class AvatarMagicCold extends Packet {
+    export class AvatarMagicColdRet extends Packet {
         public static msgID: number = 0x02A6;
-        public constructor() {
+        public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('dwMagicId', PacketBase.TYPE_DWORD);
-            this.addProperty('dwPublicTick', PacketBase.TYPE_DWORD);
-            this.addProperty('dwSelfTick', PacketBase.TYPE_DWORD);
+            this.addProperty('dwskillId', PacketBase.TYPE_DWORD);
+            this.addProperty('dwPublicTick', PacketBase.TYPE_DWORD);//公共的CD
+            this.addProperty('dwSelfTick', PacketBase.TYPE_DWORD);//单个的CD
         }
     }
 
     // 0x0299
     // 服务器推送改变技能状态
-    export class AvatarSkillAddDecoder extends Packet {
+    export class AvatarSkillAddDecoderRet extends Packet {
         public static msgID: number = 0x0299;
         public skilllvl: stSkillLvlBase = new stSkillLvlBase();
         public constructor(data: Laya.Byte) {

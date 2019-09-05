@@ -3207,6 +3207,55 @@ module ProtoCmd {
                 data.pos += this.read(data);	//修改偏移
             }
         }
+        /**
+         * 技能ID
+         */
+        public get skillid(): number {
+            return this.getValue("skillid");
+        }
+        /**
+         * 技能等级
+         */
+        public get level(): number {
+            return this.getValue("level");
+        }
+        /**
+         * 技能经验
+         */
+        public get dwexp(): number {
+            return this.getValue("dwexp");
+        }
+        /**
+         * 
+         */
+        public get boLocked(): number {
+            return this.getValue("boLocked");
+        }
+        /**
+         * 
+         */
+        public get boLockChange(): number {
+            return this.getValue("boLockChange");
+        }
+        /**
+         * 
+         */
+        public get boContinuousCasting(): number {
+            return this.getValue("boContinuousCasting");
+        }
+        /**
+         * 
+         */
+        public get boContinuousCastChange(): number {
+            return this.getValue("boContinuousCastChange");
+        }
+        /**
+         * 是否激活
+         */
+        public get isopen(): number {
+            return this.getValue("isopen");
+        }
     }
+
 
 }

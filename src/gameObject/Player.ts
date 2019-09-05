@@ -21,6 +21,8 @@ module GameObject {
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
         public talkID: number;// 对白ID
+        /******************技能******************** */
+        public skillInfo = {};
         constructor() {
             super();
             this.wealth = new Wealth();
