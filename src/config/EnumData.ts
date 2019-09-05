@@ -730,13 +730,13 @@ module EnumData {
     /**
      * NPC状态枚举
      */
-    export enum NPCSTATUS {//NPC状态	相差10级以上这些状态全显示NOTASKALL
+    export enum NPCSTATUS {     // NPC状态	相差10级以上这些状态全显示NOTASKALL
         ONETASKNORECEIV = 0,	//（1）	NPC身上有可领取的只能完成一次的任务但该玩家未领取该任务时：显示１
-        ONETASKCOMPLETE,	//（2）	NPC身上有可交的一次性任务且该玩家达成任务未交任务时：显示２
-        ONETASKNOT,			//（3）	NPC身上有可交的任务且该玩家未达成任务时：显示３
-        REPEATTASKNORECEIV,	//（4）	NPC身上有可领取的可重复完成的任务但该玩家未领取该任务时：显示4
-        REPEATTASKCOMPLETE,	//（5）	NPC身上有可交的重复性任务且该玩家达成任务未交任务时：显示5
-        NOTASKALL,			//（6）	NPC身上没有任务或玩家不具备领取该任务的条件时：不显示
+        ONETASKCOMPLETE,	    //（2）	NPC身上有可交的一次性任务且该玩家达成任务未交任务时：显示２
+        ONETASKNOT,			    //（3）	NPC身上有可交的任务且该玩家未达成任务时：显示３
+        REPEATTASKNORECEIV,	    //（4）	NPC身上有可领取的可重复完成的任务但该玩家未领取该任务时：显示4
+        REPEATTASKCOMPLETE,	    //（5）	NPC身上有可交的重复性任务且该玩家达成任务未交任务时：显示5
+        NOTASKALL,			    //（6）	NPC身上没有任务或玩家不具备领取该任务的条件时：不显示
     };
     /**
      * 任务类型枚举

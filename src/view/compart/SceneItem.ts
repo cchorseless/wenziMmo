@@ -86,9 +86,9 @@ module view.compart {
 		 * 添加怪物
 		 * @param obj 
 		 */
-		public addMonster(obj: GameObject.Creature): void {
+		public addMonster(obj): void {
 			let monster: view.compart.MonsterInSceneItem = new view.compart.MonsterInSceneItem();
-			monster.tempId = obj.tempId;
+			monster.setData(obj);
 			let childNum = this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren;
 			let mod = childNum % 12;
 			switch (Math.floor(mod / 4)) {
@@ -115,7 +115,7 @@ module view.compart {
 		public removeMonster(obj: GameObject.Creature): void {
 			let find = false;
 			for (let child of this.hbox_monster01._childs) {
-				if (child.tempId == obj.tempId) {
+				if (child.item.tempId == obj.tempId) {
 					(child as view.compart.MonsterInSceneItem).removeSelf();
 					find = true;
 					break
@@ -123,7 +123,7 @@ module view.compart {
 			}
 			if (!find) {
 				for (let child of this.hbox_monster02._childs) {
-					if (child.tempId == obj.tempId) {
+					if (child.item.tempId == obj.tempId) {
 						(child as view.compart.MonsterInSceneItem).removeSelf();
 						find = true;
 						break
@@ -132,7 +132,7 @@ module view.compart {
 			}
 			if (!find) {
 				for (let child of this.hbox_monster03._childs) {
-					if (child.tempId == obj.tempId) {
+					if (child.item.tempId == obj.tempId) {
 						(child as view.compart.MonsterInSceneItem).removeSelf();
 						find = true;
 						break

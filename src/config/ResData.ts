@@ -145,6 +145,8 @@ module ResData {
             { url: 'json/mapRoomSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mapRoomSheet },
             // 地图信息表
             { url: 'json/mydb_mapinfo_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mapinfo_tbl },
+            // NPC位置表
+            { url: 'json/mydb_npcgen_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_npcgen_tbl },
         ];
     }
 

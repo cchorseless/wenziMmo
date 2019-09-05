@@ -9,6 +9,7 @@ module view.task {
 			this.addEvent();
 		}
 		public addEvent(): void {
+
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
 			});
@@ -28,9 +29,11 @@ module view.task {
 			this.btn_liLianTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_LiLianPanel()
 			});
+
 			this.btn_juQingTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_MainPanel()
 			});
+
 
 		}
 
@@ -41,16 +44,16 @@ module view.task {
 			}
 			// 任务信息
 			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
-			// 开始任务NPC
-			this.lbl_startNpc.text = '委托人:' + taskInfo.beginnpcname;
-			// 结束任务NPC
-			this.lbl_finishNpc.text = '交付NPC:' + taskInfo.endnpcname;
-			// 任务章节
-			this.lbl_taskCharpter.text = '任务章节' + taskInfo.questsection;
-			// 任务描述
-			this.lbl_taskDes.text = '说明:' + taskInfo.des;
+			// // 开始任务NPC
+			// this.lbl_startNpc.text = '委托人:' + taskInfo.beginnpcname;
+			// // 结束任务NPC
+			// this.lbl_finishNpc.text = '交付NPC:' + taskInfo.endnpcname;
+			// // 任务章节
+			// this.lbl_taskCharpter.text = '任务章节' + taskInfo.questsection;
+			// // 任务描述
+			// this.div_taskDes.innerHTML =  taskInfo.targetdes;
 			// 任务目标
-			this.lbl_taskTarget.text = '任务目标:' + taskInfo.targetdes;
+			// this.lbl_taskTarget.text = '任务目标:' + taskInfo.targetdes;
 		}
 	}
 }

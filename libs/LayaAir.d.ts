@@ -16871,6 +16871,8 @@ declare module laya.display {
         canvasRotation: boolean;
         /**画布的旋转角度。*/
         canvasDegree: number;
+        /**使用物理分辨率模式 */
+        useRetinalCanvas:boolean;
         /**
          * <p>设置是否渲染，设置为false，可以停止渲染，画面会停留到最后一次渲染上，减少cpu消耗，此设置不影响时钟。</p>
          * <p>比如非激活状态，可以设置renderingEnabled=true以节省消耗。</p>
@@ -20171,7 +20173,7 @@ declare module laya.net {
      * <p> <code>LocalStorage</code> 类用于没有时间限制的数据存储。</p>
      */
     class LocalStorage {
-        static _SingletonClass: any;
+        static _baseClass: any;
         /**
          *  数据列表。
          */
@@ -26520,9 +26522,15 @@ declare module laya.utils {
         static onIE: boolean;
         /** 微信内*/
         static onWeiXin: boolean;
+        /** 表示是否在微信小游戏内 */
         static onMiniGame: boolean;
+        /** 表示是否在百度内 */
 		static onBDMiniGame: boolean;
         static onLimixiu: boolean;
+        /** 表示是否在小米内 */
+        static onKGMiniGame:boolean;
+        /** 表示是否在oppo内 */
+        static onQGMiniGame:boolean;
         /** 表示是否在 PC 端。*/
         static onPC: boolean;
         /** 表示是否是 HTTP 协议。*/
@@ -31363,6 +31371,7 @@ declare module Laya {
     }
     class DebugTool extends laya.debug.DebugTool {
     }
+
 }
 declare class Laya3D {
     /**

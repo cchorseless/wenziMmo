@@ -5,11 +5,12 @@ module view.juQing {
 			super();
 		}
 		public setData(): void {
+			
 			this.initUI();
-			for (let i = 0; i < 6; i++) {
-				let titleItem = new view.compart.JuQingTitleItem();
-				this.vbox_left.addChild(titleItem);
-			}
+			// for (let i = 0; i < 6; i++) {
+			// 	let titleItem = new view.compart.JuQingTitleItem();
+			// 	this.vbox_left.addChild(titleItem);
+			// }
 			this.addEvent();
 		}
 
@@ -27,9 +28,11 @@ module view.juQing {
 
 		}
 
+
 		public initUI(): void {
 			// 拉取章节信息
 			let pkt1 = new ProtoCmd.QuestClientData();
+
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
 				(jsonData: { pzid: number, charpterInfo: number }) => {
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
@@ -38,6 +41,7 @@ module view.juQing {
 					}
 					console.log(jsonData);
 				});
+
 			lcp.send(pkt1);
 		}
 	}

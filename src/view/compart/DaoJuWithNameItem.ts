@@ -4,5 +4,8 @@ module view.compart{
 		constructor(){
 			super();
 		}
+		public setData(item):void{
+			
+		}
 	}
 }

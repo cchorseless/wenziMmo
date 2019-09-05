@@ -161,6 +161,20 @@ module view.main {
 			EventManage.onWithEffect(this.btn_mapRight, Laya.UIEvent.CLICK, this, () => {
 				this.joinRoom(GameApp.GameEngine.smallMapData.right);
 			});
+
+			// 新手任务
+			this.box_goTask.on(Laya.UIEvent.CLICK, this, () => {
+				let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+				// 任务信息
+				let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.MAP_MOVE_POINT, [1000, 53, 80, '111111'], null, this, (jsonData) => {
+					console.log(jsonData)
+				})
+				lcp.send(pkt);
+			})
+
+
 		}
 
 		public updateUI(): void {
@@ -292,7 +306,7 @@ module view.main {
 		 * @param handleType 
 		 * @param obj 
 		 */
-		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
+		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj): void {
 			switch (handleType) {
 				case EnumData.HANDLE_TYPE.ADD:
 					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
@@ -307,6 +321,21 @@ module view.main {
 						}
 					}
 					break;
+			}
+		}
+
+		/**
+		 * 更新NPC的任务状态
+		 * @param npcID 
+		 * @param state 
+		 */
+		public updateNpcState(npcID, state: EnumData.NPCSTATUS): void {
+			for (let npcUI of this.vbox_npc._childs) {
+				let npcObject: GameObject.Npc = npcUI.item;
+				if (npcObject.feature.dwCretTypeId == npcID) {
+					npcObject.taskState = state;
+					break;
+				}
 			}
 		}
 
@@ -334,18 +363,6 @@ module view.main {
 					break;
 			}
 
-		}
-
-		public clearNpcView(): void {
-			this.vbox_npc.removeChildren();
-		}
-
-		public clearPlayerView(): void {
-			this.ui_scene.clearPlayer();
-		}
-
-		public clearMonsterView(): void {
-			this.ui_scene.clearMonster();
 		}
 
 		public clearViewUI(): void {
@@ -493,12 +510,13 @@ module view.main {
 		 * 更新主界面任务信息
 		 * @param data 
 		 */
-		public updateTaskInfo(data): void {
+		public updateTaskInfo(): void {
 			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			// 任务信息
 			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
 			// 任务描述
-			this.lbl_taskdes.text = '' + taskInfo.des;
+			// this.div_taskDes.innerHTML = "<font style='color:#FFFFFF;font-weight:bold;font-size:30'>击杀: </font><font color='#000000'>鸡</font>";
+
 		}
 	}
 }

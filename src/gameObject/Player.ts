@@ -227,9 +227,7 @@ module GameObject {
             this._allNpc = {};
 
             if (PanelManage.Main) {
-                PanelManage.Main.clearMonsterView();
-                PanelManage.Main.clearNpcView();
-                PanelManage.Main.clearPlayerView();
+                PanelManage.Main.clearViewUI();
             }
         }
 

@@ -124,7 +124,7 @@ module ProtoCmd {
             this.cmd = 0x0428;
         }
     }
-    
+
     // 0x0905
     // 打开NPC面板返回身上携带的任务信息
     export class TalkWithNPCDecoder extends Packet {
@@ -142,10 +142,33 @@ module ProtoCmd {
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             this.str = data.readUTFBytes(this.getValue('nCount'));
-
             return data.pos;
         }
 
+        public clear(): void {
+            super.clear();
+            this.str = null;
+        }
+    }
+    //电影模式对话
+    // 0x091c
+    export class Quest_FilmDialogRet extends Packet {
+        public static msgID: number = 0x091c;
+        public str;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwQuestId', PacketBase.TYPE_DWORD);// NPC临时ID 
+            this.addProperty('nStatus', PacketBase.TYPE_DWORD);// 脚本资源ID,0标示无 
+            this.addProperty('nType', PacketBase.TYPE_INT);
+            this.addProperty('nCount', PacketBase.TYPE_INT);
+            this.read(data);
+
+        }
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            this.str = data.readUTFBytes(this.getValue('nCount'));
+            return data.pos;
+        }
         public clear(): void {
             super.clear();
             this.str = null;

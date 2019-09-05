@@ -63,7 +63,7 @@ class GameEngine extends SingletonClass {
     public taskInfo = {};// 所有任务信息
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
-    
+
     public isReady: boolean = false;
     public isLogin: boolean = false;
 
@@ -85,6 +85,8 @@ class GameEngine extends SingletonClass {
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new GameObject.Player();
         this.initSelf();
+        console.log(Laya.version);
+        
     }
 
 
@@ -94,9 +96,7 @@ class GameEngine extends SingletonClass {
         this.bagItemDB = {};
         this.cangKuDB = {};
         if (PanelManage.Main) {
-            PanelManage.Main.clearPlayerView();
-            PanelManage.Main.clearNpcView();
-            PanelManage.Main.clearMonsterView();
+            PanelManage.Main.clearViewUI();
         }
     }
 

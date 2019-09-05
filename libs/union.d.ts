@@ -280,12 +280,12 @@ interface _uploadFileObject {
   /**
    * HTTP 请求 Header, header 中不能设置 Referer
    */
-  header: any;
+  header: Object;
 
   /**
    * HTTP 请求中其他额外的 form data
    */
-  formData: any;
+  formData: Object;
 
   /**
    * 接口调用成功的回调函数
@@ -1177,7 +1177,7 @@ interface _setNavigationBarColorObject {
   /**
    * 动画效果
    */
-  animation: any;
+  animation: Object;
 
   /**
    * 接口调用成功的回调函数
@@ -1541,7 +1541,7 @@ interface _requestObject {
   /**
    * 设置请求的 header，header 中不能设置 Referer。
    */
-  header: any;
+  header: Object;
 
   /**
    * （需大写）有效值：OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -1587,7 +1587,7 @@ interface _requestSuccessObject {
   /**
    * 开发者服务器返回的 HTTP Response Header
    */
-  header: any;
+  header: Object;
 }
 
 interface _removeTabBarBadgeObject {
@@ -1852,7 +1852,7 @@ interface _openSettingSuccessObject {
   /**
    * 用户授权结果，其中 key 为 scope 值，value 为 Bool 值，表示用户是否允许授权，详见 [scope 列表](./authorize-index.md#scope-列表)
    */
-  authSetting: any;
+  authSetting: Object;
 }
 
 interface _openLocationObject {
@@ -1963,7 +1963,7 @@ interface _onWifiConnectedCallbackResult {
   /**
    * Wi-Fi 信息
    */
-  wifi: any;
+  wifi: Object;
 }
 interface _onUserCaptureScreenCallbackResult {}
 interface _onSocketMessageCallbackResult {
@@ -2009,7 +2009,7 @@ interface _onEvaluateWifiCallbackResult {
   /**
    * Wi-Fi 信息
    */
-  wifi: any;
+  wifi: Object;
 }
 interface _onCompassChangeCallbackResult {
   /**
@@ -2156,7 +2156,7 @@ interface _navigateToMiniProgramObject {
   /**
    * 需要传递给目标小程序的数据，目标小程序可在 `App.onLaunch()`，`App.onShow()` 中获取到这份数据。[详情](../framework/app-service/app.md)
    */
-  extraData: any;
+  extraData: Object;
 
   /**
    * 要打开的小程序版本，有效值 develop（开发版），trial（体验版），release（正式版） ，仅在当前小程序为开发版或体验版时此参数有效；如果当前小程序是体验版或正式版，则打开的小程序必定是正式版。默认值 release
@@ -2210,7 +2210,7 @@ interface _navigateBackMiniProgramObject {
   /**
    * 需要返回给上一个小程序的数据，上一个小程序可在 `App.onShow()` 中获取到这份数据。[详情](../framework/app-service/app.md)
    */
-  extraData: any;
+  extraData: Object;
 
   /**
    * 接口调用成功的回调函数
@@ -2466,7 +2466,7 @@ interface _getUserInfoSuccessObject {
   /**
    * 用户信息对象，不包含 openid 等敏感信息
    */
-  userInfo: any;
+  userInfo: Object;
 
   /**
    * 不包括敏感信息的原始数据字符串，用于计算签名。
@@ -2768,7 +2768,7 @@ interface _getSettingSuccessObject {
   /**
    * 用户授权结果，其中 key 为 scope 值，value 为 Bool 值，表示用户是否允许授权，详见 [scope 列表](./authorize-index.md#scope-列表)
    */
-  authSetting: any;
+  authSetting: Object;
 }
 
 interface _getScreenBrightnessObject {
@@ -3092,7 +3092,7 @@ interface _getExtConfigSyncReturnValue {
   /**
    * 第三方平台自定义的数据
    */
-  extConfig: any;
+  extConfig: Object;
 }
 
 interface _getExtConfigObject {
@@ -3120,7 +3120,7 @@ interface _getExtConfigSuccessObject {
   /**
    * 第三方平台自定义的数据
    */
-  extConfig: any;
+  extConfig: Object;
 }
 
 interface _getConnectedWifiObject {
@@ -3143,7 +3143,7 @@ interface _getConnectedWifiSuccessObject {
   /**
    * Wi-Fi 信息
    */
-  wifi: any;
+  wifi: Object;
 }
 
 interface _getConnectedBluetoothDevicesObject {
@@ -3541,7 +3541,7 @@ interface _downloadFileObject {
   /**
    * HTTP 请求的 Header，Header 中不能设置 Referer
    */
-  header: any;
+  header: Object;
   /**
    * 	指定文件下载后存储的路径 
    */
@@ -3672,7 +3672,7 @@ interface _connectSocketObject {
   /**
    * HTTP Header , header 中不能设置 Referer
    */
-  header: any;
+  header: Object;
 
   /**
    * 默认是GET，有效值：OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -4559,7 +4559,7 @@ interface _AppShowOptions {
   /**
    * 打开小程序的query
    */
-  query: any;
+  query: Object;
 
   /**
    * 打开小程序的场景值
@@ -4942,7 +4942,7 @@ declare function App(options: _AppOptions): void;
 /**
  * 获取到小程序实例
  */
-declare function getApp(): any;
+declare function getApp(): Object;
 
 declare interface PageOptions {
   /**
@@ -4953,7 +4953,7 @@ declare interface PageOptions {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad?: (options?: any) => void;
+  onLoad?: (options?: Object) => void;
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -5000,7 +5000,7 @@ declare interface PageOptions {
 
 declare function Page(page: PageOptions): void;
 
-declare function getCurrentPages(): any[];
+declare function getCurrentPages(): Object[];
 
 declare namespace qg {
   /**

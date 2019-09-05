@@ -24,8 +24,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
         // 玩家进入地图 201
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
-        // 地图创建怪物 202
+        // 地图创建怪物和NPC 202
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
+        // 地图同步NPC的任务状态
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.NpcStatsQuestRet), this, this.updateNpcState);
         // 地图删除怪物 203
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
         // 创建地图其他玩家 206
@@ -291,7 +293,20 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 同步怪物和NPC的信息
+     * 同步NPC身上的任务状态信息
+     * @param data 
+     */
+    public updateNpcState(data): void {
+        let cbpkt = new ProtoCmd.NpcStatsQuestRet(data);
+        let npcid = cbpkt.getValue('npcid');
+        let npcState = cbpkt.getValue('npcState');
+        PanelManage.Main && PanelManage.Main.updateNpcState(npcid, npcState);
+    }
+
+
+
+    /**
+     * 同步怪物和NPC的feature信息
      * @param data 
      */
     public syncNotPlayerFeature(data: any): void {
@@ -1051,7 +1066,6 @@ class ServerListener extends SingletonClass {
      * 服务器推送所有已有任务
      */
     public updateTaskInfo(data): void {
-
         let cbpket = new ProtoCmd.stQuestLoginRet(data);
         console.log('同步了任务信息' + cbpket.questinfos.length);
         for (let task of cbpket.questinfos) {
@@ -1059,8 +1073,13 @@ class ServerListener extends SingletonClass {
             _item.clone(task.data);
             if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
                 GameApp.GameEngine.taskInfo[_item.questtype] = {};
-            }
+            };
             GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
+            switch (_item.questtype) {
+                case EnumData.TaskType.SYSTEM:
+                    PanelManage.Main && PanelManage.Main.updateTaskInfo();
+                    break;
+            }
         }
     }
 
@@ -1090,7 +1109,7 @@ class ServerListener extends SingletonClass {
         GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
         switch (_item.questtype) {
             case EnumData.TaskType.SYSTEM:
-                PanelManage.Main && PanelManage.Main.updateTaskInfo(null);
+                PanelManage.Main && PanelManage.Main.updateTaskInfo();
                 break;
         }
         cbpket.clear();

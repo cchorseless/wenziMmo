@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":4,
+    "selecteID":7,
     "props":{"y":0,"x":0,"width":100,"sceneColor":"#827171","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -80,7 +80,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":2,"x":98,"width":101,"visible":false,"var":"img_chat","skin":"image/common/fram_common_35.png","sizeGrid":"0,37,0,38","height":108},
+            "props":{"y":2,"x":50,"width":101,"visible":true,"var":"img_chat","skin":"image/common/fram_common_35.png","sizeGrid":"0,37,0,38","scaleX":0,"height":108},
             "nodeParent":1,
             "label":"Image(img_chat)",
             "isOpen":true,
@@ -99,6 +99,32 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":8,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"skin":"image/common/fram_common_04.png","right":0,"left":-3,"height":30,"bottom":86},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":9,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"var":"lbl_zuoBiao","text":"王一切与","right":0,"left":0,"height":24,"fontSize":18,"font":"FZXK","color":"#ffffff","bottom":0,"align":"center"},
+                    "nodeParent":9,
+                    "label":"Label(lbl_zuoBiao)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
                     "child":[
                         ]
                 }]

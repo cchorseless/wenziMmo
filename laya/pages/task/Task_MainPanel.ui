@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":65,
-    "selecteID":78,
+    "selectedBox":242,
+    "selecteID":262,
     "referenceLines":[
         {
             "value":1019,
@@ -464,13 +464,14 @@
                             "props":{"y":5,"x":21,"width":598,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"11,14,16,13","name":"item0","height":658},
                             "nodeParent":201,
                             "label":"Image(item0)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":242,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":188,"x":18,"width":124,"text":"任务条件","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -483,6 +484,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":102,"x":62,"width":184,"var":"lbl_startNpc","text":"委托人：阎罗王","height":26,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -495,6 +497,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":164,"width":331,"var":"lbl_taskName","text":"【主线】任务名称名称","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -508,6 +511,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":62,"x":15,"width":140,"text":"任务描述","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -521,10 +525,11 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":130,"x":64,"wordWrap":true,"width":492,"var":"lbl_taskDes","text":"说明：阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王","height":54,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
+                                    "props":{"y":130,"x":64,"wordWrap":true,"width":492,"text":"说明：阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王","height":54,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
-                                    "label":"Label(lbl_taskDes)",
+                                    "label":"Label",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -533,6 +538,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":234,"x":67,"width":184,"var":"lbl_finishNpc","text":"交付NPC：阎罗王","height":26,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -545,6 +551,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":272,"x":68,"wordWrap":true,"width":492,"var":"lbl_taskTarget","text":"任务目标：前往【酆都】，找到小鬼，并跟他对话","height":40,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -557,6 +564,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":10,"x":17,"width":140,"var":"lbl_taskCharpter","text":"任务章节","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -570,6 +578,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuWithNameItem.ui",
                                     "props":{"y":432,"x":79},
@@ -583,6 +592,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuWithNameItem.ui",
                                     "props":{"y":432,"x":190},
@@ -596,6 +606,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuWithNameItem.ui",
                                     "props":{"y":432,"x":302},
@@ -609,6 +620,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/DaoJuWithNameItem.ui",
                                     "props":{"y":432,"x":413},
@@ -622,6 +634,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":33,"x":500,"width":86,"stateNum":"2","skin":"image/common/fram_common_38_finish.png","name":"btn_zhuiZong","labelSize":30,"labelPadding":"0,0,0,-70","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"追踪","height":69},
                                     "nodeParent":242,
@@ -634,6 +647,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":313,"x":68,"wordWrap":true,"width":419,"var":"lbl_taskJinDu","text":"任务进度：小鬼（0/1）","height":40,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -646,6 +660,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":563,"x":207,"width":184,"var":"btn_qianWang","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"前往","height":62},
                                     "nodeParent":242,
@@ -659,6 +674,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":364,"x":19,"width":140,"text":"任务奖励","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
                                     "nodeParent":242,
@@ -668,6 +684,19 @@
                                     "isAniNode":true,
                                     "hasChild":false,
                                     "compId":260,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"HTMLDivElement",
+                                    "props":{"y":133,"x":122,"width":432,"var":"div_taskDes","innerHTML":"htmlText","height":44},
+                                    "nodeParent":242,
+                                    "label":"HTMLDivElement(div_taskDes)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":262,
                                     "child":[
                                         ]
                                 }]

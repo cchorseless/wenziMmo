@@ -28,6 +28,7 @@ module view.task {
 			this.btn_liLianTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_LiLianPanel()
 			});
+			
 			this.btn_juQingTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_MainPanel()
 			});

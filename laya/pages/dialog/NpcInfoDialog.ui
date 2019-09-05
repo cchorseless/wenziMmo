@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":16,
+    "selectedBox":28,
+    "selecteID":29,
     "referenceLines":null,
     "props":{"width":520,"sceneColor":"#000000","height":580},
     "nodeParent":-1,
@@ -19,13 +19,14 @@
             "props":{"y":407,"x":110,"top":0,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"55,42,67,40","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-10,"x":-10,"top":-10,"skin":"image/common/fram_common_17.png","sizeGrid":"52,60,56,62","right":-10,"left":-10,"bottom":-10},
                     "nodeParent":2,
@@ -38,6 +39,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":4,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png","right":3},
                     "nodeParent":2,
@@ -134,14 +136,13 @@
             "props":{"y":212,"x":79,"width":46,"skin":"image/common/icon_haogandu.png","height":41},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":14,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":15,"x":9,"width":38,"var":"lbl_haoGan","text":"LV:5","height":19,"fontSize":15,"font":"FZXK","color":"#000000","bold":true,"align":"left"},
                     "nodeParent":14,
@@ -157,85 +158,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":413,"x":67,"width":130,"var":"btn_task","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"任务","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_task)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":15,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":335,"x":67,"width":130,"var":"btn_info","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"详细信息","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_info)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":492,"x":308,"width":130,"var":"btn_touXi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"偷袭","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_touXi)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":17,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":416,"x":305,"width":130,"var":"btn_talk","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"对话","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_talk)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":18,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":336,"x":303,"width":130,"var":"btn_touQie","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"偷窃","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_touQie)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":19,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":491,"x":68,"width":130,"var":"btn_battle","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"切磋","height":54,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Button(btn_battle)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":254,"x":65,"width":102,"var":"btn_songLi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"送礼","height":47,"alpha":0.7},
+            "props":{"y":249,"x":35,"width":102,"var":"btn_songLi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"送礼","height":47,"alpha":0.7},
             "nodeParent":1,
             "label":"Button(btn_songLi)",
             "isDirectory":false,
@@ -307,6 +230,256 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":27,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":312,"var":"viw_bottom","right":10,"left":10,"height":253},
+            "nodeParent":1,
+            "label":"ViewStack(viw_bottom)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":28,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":23,"x":57,"name":"item0"},
+                    "nodeParent":28,
+                    "label":"Box(item0)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":29,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":78,"width":130,"var":"btn_task","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"任务","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_task)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":15,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"width":130,"var":"btn_info","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"详细信息","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_info)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":157,"x":241,"width":130,"var":"btn_touXi","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"偷袭","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_touXi)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":17,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":81,"x":238,"width":130,"var":"btn_talk","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"对话","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_talk)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":18,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":1,"x":236,"width":130,"var":"btn_touQie","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"偷窃","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_touQie)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":156,"x":1,"width":130,"var":"btn_battle","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelColors":"#ffffff,#000000","label":"切磋","height":54,"alpha":0.7},
+                            "nodeParent":29,
+                            "label":"Button(btn_battle)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":3,"x":21,"name":"item1"},
+                    "nodeParent":28,
+                    "label":"Box(item1)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":41,
+                    "child":[
+                        {
+                            "type":"Tab",
+                            "props":{"x":79,"var":"tab_info","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,装备,宝物","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","direction":"horizontal"},
+                            "nodeParent":41,
+                            "label":"Tab(tab_info)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":31,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"ViewStack",
+                            "props":{"y":48,"width":458,"var":"viw_info","height":195},
+                            "nodeParent":41,
+                            "label":"ViewStack(viw_info)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":32,
+                            "child":[
+                                {
+                                    "type":"HBox",
+                                    "props":{"y":41,"x":29,"width":400,"var":"hbox_xiHao","name":"item0","height":100},
+                                    "nodeParent":32,
+                                    "label":"HBox(hbox_xiHao)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":37,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"HBox",
+                                    "props":{"y":41,"x":29,"width":400,"var":"hbox_equip","name":"item1","height":100},
+                                    "nodeParent":32,
+                                    "label":"HBox(hbox_equip)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":39,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"HBox",
+                                    "props":{"y":41,"x":29,"width":400,"var":"hbox_baoWu","name":"item2","height":100},
+                                    "nodeParent":32,
+                                    "label":"HBox(hbox_baoWu)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":40,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":51,"x":52,"name":"item2"},
+                    "nodeParent":28,
+                    "label":"Box(item2)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":44,
+                    "child":[
+                        {
+                            "type":"HBox",
+                            "props":{"y":41,"width":400,"var":"hbox_gift","height":100},
+                            "nodeParent":44,
+                            "label":"HBox(hbox_gift)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":129,"width":142,"text":"背包内礼物","height":25,"fontSize":25,"font":"FZXK","color":"#000000","bold":true,"align":"left"},
+                            "nodeParent":44,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":43,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":74,"x":25,"width":453,"var":"panel_task","name":"item3","height":100},
+                    "nodeParent":28,
+                    "label":"Panel(panel_task)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":47,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":0,"x":2,"width":450,"var":"vbox_task"},
+                            "nodeParent":47,
+                            "label":"VBox(vbox_task)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":46,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":321,"x":11,"width":47,"var":"btn_return","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png","right":462,"height":48},
+            "nodeParent":1,
+            "label":"Button(btn_return)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":30,
             "child":[
                 ]
         }],

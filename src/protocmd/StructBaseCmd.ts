@@ -3184,4 +3184,29 @@ module ProtoCmd {
             return this.getValue("queststatus");
         }
     }
+
+
+
+    /******************************战斗信息***************************************** */
+
+    /**
+     * 单条技能结构
+     */
+    export class stSkillLvlBase extends PacketBase {
+        public constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('skillid', PacketBase.TYPE_INT);					//技能ID
+            this.addProperty('level', PacketBase.TYPE_INT);						//技能等级
+            this.addProperty('dwexp', PacketBase.TYPE_INT);						//技能经验
+            this.addProperty('boLocked', PacketBase.TYPE_BOOL);                 //自动锁定的值
+            this.addProperty('boLockChange', PacketBase.TYPE_BOOL);             //自动锁定修改
+            this.addProperty('boContinuousCasting', PacketBase.TYPE_BOOL);      //连续施放的值
+            this.addProperty('boContinuousCastChange', PacketBase.TYPE_BOOL);   //连续施放修改
+            this.addProperty('isopen', PacketBase.TYPE_BOOL);//是否学习
+            if (data) {
+                data.pos += this.read(data);	//修改偏移
+            }
+        }
+    }
+
 }
