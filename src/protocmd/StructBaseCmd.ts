@@ -900,11 +900,20 @@ module ProtoCmd {
         public get ncurx(): number {
             return this.getValue('ncurx');
         }
+        public set ncurx(v: number) {
+            this.setValue('ncurx', v);
+        }
         public get ncury(): number {
             return this.getValue('ncury')
         }
+        public set ncury(v: number) {
+            this.setValue('ncury', v);
+        }
         public get ncurz(): number {
             return this.getValue('ncurz')
+        }
+        public set ncurz(v: number) {
+            this.setValue('ncurz', v);
         }
     }
 

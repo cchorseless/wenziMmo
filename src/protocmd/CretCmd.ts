@@ -159,7 +159,8 @@ module ProtoCmd {
     }
 
 
-    //生物移动后
+    //生物移动后，
+    // 0x0221
     export class CretAfterSpaceMove extends Packet {
         public static msgID: number = 0x0221;
         public constructor(data: Laya.Byte) {
@@ -194,7 +195,7 @@ module ProtoCmd {
 
 
 
-    //血　蓝改变通知
+    //血蓝改变通知,玩家自己
     export class CretHealthChange extends Packet {
         public static msgID: number = 0x0234;
         public constructor(data: Laya.Byte) {

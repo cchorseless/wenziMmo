@@ -23,6 +23,8 @@ module GameObject {
         public talkID: number;// 对白ID
         /******************技能******************** */
         public skillInfo = {};
+        /******************UI****************** */
+        public ui_item: view.compart.SelfPlayerInSceneItem;
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -128,22 +130,17 @@ module GameObject {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._allPlayer[obj.tempId] = obj;
-                    PanelManage.Main && PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.ADD, obj);
-                    //GameApp.GameEngine.outputSystemInfo('玩家：' + (obj as Player).name + '(' + (obj as Player).onlyid + ')' + '进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this._allMonster[obj.tempId] = obj;
-                    PanelManage.Main && PanelManage.Main.updateMonsterView(EnumData.HANDLE_TYPE.ADD, obj);
-                    //GameApp.GameEngine.outputSystemInfo('怪物 lv' + monster.level + '：' + monster.name + '(' + monster.onlyid + ')[' + monster.x + ',' + monster.y + '] 进入你的视野');
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
                     this._allNpc[obj.tempId] = obj;
-                    PanelManage.Main && PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.ADD, obj);
-                    //GameApp.GameEngine.outputSystemInfo('<font color="#00CD00">NPC：' + npc.name + '(' + npc.onlyid + ')[' + npc.x + ',' + npc.y + '] 进入你的视野</font>');
                     break;
                 default:
                     break;
             }
+            PanelManage.Main && PanelManage.Main.addViewObjUI(obj, type);
         }
         /**
          * 将游戏对象移除视野
@@ -153,23 +150,33 @@ module GameObject {
         public removeViewObj(tempId: number, type: EnumData.CRET_TYPE): void {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    PanelManage.Main.updatePlayerView(EnumData.HANDLE_TYPE.REMOVE, this._allPlayer[tempId]);
-                    console.log(this._allPlayer[tempId].objName + this._allPlayer[tempId].tempId + '离开地图');
-                    delete this._allPlayer[tempId]
+                    if (this._allPlayer[tempId]) {
+                        this._allPlayer[tempId].clear();
+                        console.log(this._allPlayer[tempId].objName + this._allPlayer[tempId].tempId + '离开地图');
+                        delete this._allPlayer[tempId]
+                    }
                     break;
+
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    PanelManage.Main.updateMonsterView(EnumData.HANDLE_TYPE.REMOVE, this._allMonster[tempId]);
-                    console.log(this._allMonster[tempId].objName + this._allMonster[tempId].tempId + '离开地图');
-                    delete this._allMonster[tempId]
+                    if (this._allMonster[tempId]) {
+                        this._allMonster[tempId].clear();
+                        console.log(this._allMonster[tempId].objName + this._allMonster[tempId].tempId + '离开地图');
+                        delete this._allMonster[tempId]
+                    }
                     break;
+
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    PanelManage.Main.updateNpcView(EnumData.HANDLE_TYPE.REMOVE, this._allNpc[tempId]);
-                    console.log(this._allNpc[tempId].objName + this._allNpc[tempId].tempId + '离开地图');
-                    delete this._allNpc[tempId]
+                    if (this._allNpc[tempId]) {
+                        this._allNpc[tempId].clear();
+                        console.log(this._allNpc[tempId].objName + this._allNpc[tempId].tempId + '离开地图');
+                        delete this._allNpc[tempId]
+                    }
                     break;
+
                 default:
                     break;
             }
+
         }
 
         /**
@@ -177,7 +184,10 @@ module GameObject {
          * @param tempId 
          * @param type 
          */
-        public findViewObj(tempId: number, type: EnumData.CRET_TYPE): Creature {
+        public findViewObj(tempId: number, type?: EnumData.CRET_TYPE): Creature {
+            if (GameApp.MainPlayer.tempId == tempId) {
+                return GameApp.MainPlayer
+            }
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     return this._allPlayer[tempId]
@@ -185,6 +195,11 @@ module GameObject {
                     return this._allMonster[tempId]
                 case EnumData.CRET_TYPE.CRET_NPC:
                     return this._allNpc[tempId]
+                default:
+                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId]]) {
+                        if (obj) return obj;
+                    }
+                    break;
             }
         }
 
@@ -213,21 +228,20 @@ module GameObject {
          */
         public clearViewObj() {
             for (let tempId in this._allPlayer) {
+                this._allPlayer[tempId].clear();
                 this._allPlayer[tempId] = null;
             }
             this._allPlayer = {};
-
-
             for (let tempId in this._allMonster) {
+                this._allMonster[tempId].clear();
                 this._allMonster[tempId] = null;
             }
             this._allMonster = {};
-
             for (let tempId in this._allNpc) {
+                this._allNpc[tempId].clear();
                 this._allNpc[tempId] = null;
             }
             this._allNpc = {};
-
             if (PanelManage.Main) {
                 PanelManage.Main.clearViewUI();
             }
@@ -254,6 +268,59 @@ module GameObject {
             this.charpterID = data.zjid;
             this.talkID = data.dbid;
             this.pianZhangID = data.pzid;
+        }
+
+
+        /***************************************战斗******************************************* */
+        /**
+         * 尝试攻击，检查释放能攻击
+         */
+        public tryAttack(target: Creature, skillID: number = 999): void {
+            let pkt = new ProtoCmd.CretAttack();
+            pkt.dwTempId = this.tempId;
+            switch (this.job) {
+                // 战士
+                case EnumData.JOB_TYPE.JOB_WARRIOR:
+                    break;
+                // 法师
+                case EnumData.JOB_TYPE.JOB_MAGE:
+                    skillID = 2002;
+                    break;
+                // 道士
+                case EnumData.JOB_TYPE.JOB_MONK:
+                    skillID = 3002;
+                    break;
+            }
+            pkt.nMagicId = skillID;
+            pkt.dwTargetId = target.tempId;
+            pkt.nX = target.location.ncurx;
+            pkt.nY = target.location.ncury;
+            lcp.send(pkt);
+        }
+
+        /**
+         * 播放攻击动作
+         */
+        public startAttack(): void {
+            console.log(this.objName + '正在攻击');
+            this.ui_item.playAni();
+        }
+
+
+
+        /**
+         * 受击
+         */
+        public onAttack(): void {
+
+        }
+
+        /**
+         * 死亡
+         */
+        public goDie(): void {
+            console.log(this.objName + '死亡了');
+            this.ui_item.playAni(3,false)
         }
     }
 }

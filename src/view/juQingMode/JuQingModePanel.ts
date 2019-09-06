@@ -14,7 +14,7 @@ module view.juQingMode {
 		public addEvent(): void {
 
 			// 添加剧情对白
-			this.box_click.on(Laya.UIEvent.CLICK, this, () => {
+			this.vbox_0.on(Laya.UIEvent.CLICK, this, () => {
 				console.log('阅读剧情')
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_readJuQing, null, null, this, (jsonData) => {

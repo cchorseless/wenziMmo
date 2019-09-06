@@ -6,6 +6,7 @@ module view.compart {
 		}
 		public setData(item: ProtoCmd.stGuildEventBase) {
 			this.lbl_time.text = '' + item.dwEventTime;
+			this.div_des.style.fontSize = 25;
 			this.div_des.innerHTML = '' + item.szEventText;
 		}
 	}

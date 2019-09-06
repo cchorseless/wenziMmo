@@ -8,6 +8,7 @@ module view.compart {
 		public item: GameObject.Npc;
 		public setData(obj: GameObject.Npc): void {
 			this.item = obj;
+			this.item.ui_item = this;
 			this.initUI();
 			this.showHelloTalk();
 			this.addEvent();
@@ -38,7 +39,6 @@ module view.compart {
 			// 任务状态
 			switch (this.item.taskState) {
 				case EnumData.NPCSTATUS.NOTASKALL:
-
 					break;
 				case EnumData.NPCSTATUS.ONETASKCOMPLETE:
 					break;

@@ -29,13 +29,6 @@ module EnumData {
         DEFAULT = 30,
 
     }
-    /**
-     * Handle行为类型
-     */
-    export enum HANDLE_TYPE {
-        ADD,//增加
-        REMOVE,//去除
-    }
 
     /**
      * 确认界面场景模式
@@ -815,8 +808,73 @@ module EnumData {
     export enum MAP_BIG_MAP_ID {
         MAP_FENG_DU = 5001,//酆都
         MAP_FU_ZHOU_CHENG = 5002,//福州城
-
-
     }
 
+
+
+    /******************************************************战斗模块********************* */
+
+    /**
+     * 攻击结果返回
+     */
+    export enum BattleResult {
+        SUCCESS = 0,//成功
+        CRET_MAGICFAIL_CASTNOTSUCCESS = 1,//施放不成功
+        CRET_MAGICFAIL_MAGICLACKING = 2,	//魔法不足
+        CRET_MAGICFAIL_NOTINSCENE = 3,	//不在场景中
+
+        CRET_MAGICFAIL_BOUND = 4,		 //自己被束缚
+        CRET_MAGICFAIL_PETRIFACTION = 5, //自己被石化
+        CRET_MAGICFAIL_IMPRISONMENT = 6, //自己被禁锢
+        CRET_MAGICFAIL_SLEEP = 7,		 //自己被昏睡
+        CRET_MAGICFAIL_PARALYSIS = 8,	 //自己被麻痹
+        CRET_MAGICFAIL_FROZEN = 9,		 //自己被冰冻
+        CRET_MAGICFAIL_DEAD = 10,		 //自己死亡
+
+        CRET_MAGICFAIL_TARGET = 11,		 //目标无效
+        CRET_MAGICFAIL_LACKITEM = 12,	 //缺少物品
+        CRET_MAGICFAIL_DELETEITEMFAIL = 13,	//删除物品失败
+
+        CRET_MAGICFAIL_NOCOOLING = 14,	 //没有冷却
+        CRET_MAGICFAIL_NORANGE = 15,	 //超出范围
+
+        CRET_MAGICFAIL_NEEDLIFENUM = 16,	//没有足够的寿命值
+    };
+
+    /**
+     * 怪物受击特效枚举
+     */
+    export enum FeatureStatus {
+        STATE_Poisoning = 0x1,
+        STATE_SpeedSlow = 0x2,
+        STATE_Dizzy = 0x4,
+        STATE_Petrifaction = 0x8,
+        STATE_Mofadun = 0x10,
+        STATE_Fire = 0x20,		//陨石燃烧的效果
+        STATE_Yinshen = 0x40,
+        STATE_DaoTui = 0x80,	//倒退
+        STATE_Zhonghun = 0x100,
+        STATE_Deter = 0x200,
+        STATE_Thorns = 0x400,
+        STATE_SpeedUp = 0x800,
+        STATE_Godbless = 0x1000,
+        STATE_Back = 0x2000,
+        STATE_Halo = 0x4000,
+        STATE_SupserMoster = 0x8000,	//精英怪脚底下有个光圈
+        STATE_BAN = 0x10000,
+        STATE_YUANSHEN1 = 0x20000,
+        STATE_YUANSHEN2 = 0x40000,
+        STATE_YUANSHEN3 = 0x80000,
+        STATE_YUANSHEN4 = 0x100000,
+        STATE_YUANSHEN5 = 0x200000,
+        STATE_HANBINGPINGZHANG = 0x400000,
+    };
+
+
+    //技能攻击类型枚举
+    export enum emAttackType {
+        NEARLY_ATTACK,		//近身
+        FAR_ATTACK,			//远程
+        SELF_ATTACK,		//自身
+    };
 }
