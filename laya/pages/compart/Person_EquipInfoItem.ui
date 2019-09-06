@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":141,
-    "selecteID":227,
+    "selectedBox":176,
+    "selecteID":236,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -320,13 +320,14 @@
                     "props":{"y":597},
                     "nodeParent":140,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":176,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-8,"x":0,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":176,
@@ -353,6 +354,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuBgItem.ui",
                             "props":{"y":56,"x":63},
@@ -366,6 +368,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuBgItem.ui",
                             "props":{"y":56,"x":185},
@@ -379,6 +382,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuBgItem.ui",
                             "props":{"y":56,"x":306},
@@ -392,6 +396,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuBgItem.ui",
                             "props":{"y":56,"x":428},
@@ -403,7 +408,8 @@
                             "compId":239,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

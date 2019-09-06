@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":168,
-    "selecteID":171,
+    "selecteID":182,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -54,30 +54,16 @@
         },
         {
             "x":15,
-            "type":"Panel",
-            "props":{"y":117,"x":0,"width":66,"var":"panel_player","height":935},
+            "type":"Tab",
+            "props":{"y":116,"x":0,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/juese/btn_common_13_finish.png","selectedIndex":0,"labels":"人\\n物\\n简\\n介,战\\n斗\\n属\\n性,行\\n头\\n装\\n备,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":24,"labelPadding":"0,10","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","labelAlign":"center","direction":"vertical"},
             "nodeParent":1,
-            "label":"Panel(panel_player)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Tab(tab_player)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":160,
+            "hasChild":false,
+            "compId":163,
             "child":[
-                {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":2,"x":0,"width":70,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/juese/btn_common_13_finish.png","selectedIndex":0,"scaleX":0.9,"labels":"人\\n物\\n简\\n介,战\\n斗\\n属\\n性,行\\n头\\n装\\n备,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":24,"labelPadding":"5,10","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","height":935,"direction":"vertical"},
-                    "nodeParent":160,
-                    "label":"Tab(tab_player)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":163,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {
@@ -120,7 +106,7 @@
                     "compId":170,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -135,13 +121,13 @@
                     "compId":171,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_TalentInfoItem.ui",
-                    "props":{"name":"item3"},
+                    "props":{"y":-3,"x":0,"name":"item3"},
                     "nodeParent":168,
                     "label":"UIView(item3)",
                     "isDirectory":false,
@@ -156,7 +142,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_JingluoItem.ui",
-                    "props":{"y":0,"x":0,"name":"item4"},
+                    "props":{"y":-3,"x":0,"name":"item4"},
                     "nodeParent":168,
                     "label":"UIView(item4)",
                     "isDirectory":false,
@@ -171,7 +157,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_GangQiItem.ui",
-                    "props":{"name":"item5"},
+                    "props":{"y":-2,"x":0,"name":"item5"},
                     "nodeParent":168,
                     "label":"UIView(item5)",
                     "isDirectory":false,
@@ -186,7 +172,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_FourFaItem.ui",
-                    "props":{"name":"item6"},
+                    "props":{"y":-2,"x":-1,"name":"item6"},
                     "nodeParent":168,
                     "label":"UIView(item6)",
                     "isDirectory":false,
@@ -201,7 +187,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_ShengWangItem.ui",
-                    "props":{"runtime":"view.compart.Person_ShengWangItem","name":"item7"},
+                    "props":{"y":-2,"x":-1,"runtime":"view.compart.Person_ShengWangItem","name":"item7"},
                     "nodeParent":168,
                     "label":"UIView(item7)",
                     "isDirectory":false,
