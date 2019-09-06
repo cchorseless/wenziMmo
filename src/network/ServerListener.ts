@@ -36,21 +36,25 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvaterIconDecoder), this, this.syncNotPlayerFeature);
         // 同步玩家feature
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerIconDecoder), this, this.syncPlayerFeature);
-        // 移动 0x021F
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretMoveRet), this, this.cretMoveRet);
+        // 传送移动 0x0221
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAfterSpaceMove), this, this.syncPlayerPosition);
         /*************************************战斗相关***************************************** */
         // 攻击 0x0232
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
         // 怪物掉血 0x0297
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
+        // 生物复活死亡通知 246
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+        // 攻击技能特效飞行
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatorSpellDecoderRet), this, this.AvatorSpellDecoderRet);
+        /*************************************地图上道具******************************************** */
         // 删除地图上的物品 29D
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
         // 拾取地图上的物品 288
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
         // 地图上添加物品 2a0
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
-        // 生物复活死亡通知 246
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
+
         /*************************************技能相关************************************************ */
         // 推送技能列表
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarAllSkillsDecoderRet), this, this.updateSkillList);
@@ -354,8 +358,10 @@ class ServerListener extends SingletonClass {
         player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));//血
         player.changeMp(msg.getValue('nNowMp'), msg.getValue('nMaxMp'));//蓝
         player.changeNeigong(msg.getValue('nMaxNG') - msg.getValue('nHasUseNG'), msg.getValue('nMaxNG'));//内功
-        // 添加到玩家视野中
-        GameApp.MainPlayer.addViewObj(player, type);
+        // 添加到玩家视野中,不包括自己
+        if (!player.isMainPlayer) {
+            GameApp.MainPlayer.addViewObj(player, type);
+        }
         msg.clear();
         msg = null;
     }
@@ -381,20 +387,27 @@ class ServerListener extends SingletonClass {
         msgData.clear();
     }
 
-
-    //0x021F
     /**
-     * 地图走路移动
+     * 同步玩家的坐标
      * @param data 
      */
-    public cretMoveRet(data: any): void {
-        let msg = new ProtoCmd.CretMoveRet(data);
-        if (msg.getValue('moveerrorcode') != 0) {
-            GameApp.MainPlayer.location.clone(msg.location.data);
+    public syncPlayerPosition(data: Laya.Byte): void {
+        let cbpkt = new ProtoCmd.CretAfterSpaceMove(data);
+        console.log(cbpkt.getValue('dwTmpId') );
+        let obj = GameApp.MainPlayer.findViewObj(cbpkt.getValue('dwTmpId'));
+        if (obj) {
+            obj.dir = cbpkt.getValue('dir');
+            obj.location.ncurx = cbpkt.getValue('ncurx');
+            obj.location.ncury = cbpkt.getValue('ncury');
+            obj.location.ncurz = cbpkt.getValue('ncurz');
+            // 更新大地图
+            PanelManage.Main.ui_scene.initUI();
         }
-        msg.clear();
-        msg = null;
+        else {
+            TipsManage.showTips('同步位置找不到玩家');
+        }
     }
+
 
     /*****************************************************战斗模块******************************************** */
     //0x0232
@@ -414,15 +427,12 @@ class ServerListener extends SingletonClass {
                     break;
             }
         }
-        else{
-             TipsManage.showTips('攻击失败' + '没有找到目标');
+        else {
+            TipsManage.showTips('攻击失败' + '没有找到目标');
         }
         msgData.clear();
         msgData = null;
     }
-
-
-
 
 
     //0x0297
@@ -496,7 +506,9 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-    /**
+
+
+    /** 0x0246
      * 复活死亡消息
      * @param data 
      */
@@ -519,6 +531,27 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
+
+    /**
+     * 技能飞行动作
+     * @param data 
+     */
+    public AvatorSpellDecoderRet(data: Laya.Byte): void {
+        let cbpkt = new ProtoCmd.AvatorSpellDecoderRet(data);
+        // 施法者
+        let dwTempId = cbpkt.getValue('dwTempId');
+        // 受击者
+        let dwTargetId = cbpkt.getValue('dwTargetId');
+        // 技能ID
+        let nMagicId = cbpkt.getValue('nMagicId');
+        // 花费时间
+        let dwActionTick = cbpkt.getValue('dwActionTick');
+        let atker = GameApp.MainPlayer.findViewObj(dwTempId);
+        atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
+        cbpkt.clear();
+        cbpkt = null;
+    }
+
     /*************************************同步技能状态************************************ */
 
     /**
@@ -670,7 +703,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretExpChange(data);
         let type = msg.getValue('nType');
         let nowExp = msg.getValue('i64Exp');
-        let addExp = msg.getValue('dwAdd');
+        let addExp = (msg.getValue('dwAdd') as ProtoCmd.Int64).int64ToNumber();
         switch (type) {
             // 更新角色
             case 0:

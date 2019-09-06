@@ -102,4 +102,21 @@ module ProtoCmd {
         }
     }
 
+    // 0x0296
+    // 技能飞行路径
+    export class AvatorSpellDecoderRet extends Packet {
+        public static msgID: number = 0x0296;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.cmd = 0x0296;
+            this.addProperty('dwTempId', PacketBase.TYPE_INT);// 发招人
+            this.addProperty('dwTargetId', PacketBase.TYPE_INT);// 受击者
+            this.addProperty('btDir', PacketBase.TYPE_BYTE);
+            this.addProperty('nX', PacketBase.TYPE_INT);
+            this.addProperty('nY', PacketBase.TYPE_INT);
+            this.addProperty('nMagicId', PacketBase.TYPE_INT);
+            this.addProperty('dwActionTick', PacketBase.TYPE_INT);//花费时间
+        }
+    }
+
 }

@@ -72,8 +72,8 @@ module view.compart {
 			Laya.Tween.to(this.hbox_player01, { space: 1 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_player02, { space: 1 }, 500, null, null, null, true);
 		}
-		
-		public initUI():void{
+
+		public initUI(): void {
 			this.initSelfPlayer();
 		}
 
@@ -82,9 +82,14 @@ module view.compart {
 		 * 初始化自己的角色
 		 */
 		public initSelfPlayer(): void {
-			this.selfPlayerAvatar = new view.compart.SelfPlayerInSceneItem();
-			this.selfPlayerAvatar.setData(GameApp.MainPlayer);
-			this.box_self.addChild(this.selfPlayerAvatar);
+			if (!this.selfPlayerAvatar) {
+				this.selfPlayerAvatar = new view.compart.SelfPlayerInSceneItem();
+				this.selfPlayerAvatar.setData(GameApp.MainPlayer);
+				this.box_self.addChild(this.selfPlayerAvatar);
+			}
+			else{
+				this.selfPlayerAvatar.updateUI();
+			}
 		}
 
 		public selfDiZiAvatar: view.compart.SelfPlayerInSceneItem;

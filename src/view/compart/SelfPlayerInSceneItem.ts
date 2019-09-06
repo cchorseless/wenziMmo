@@ -10,8 +10,6 @@ module view.compart {
 			this.item = item;
 			this.item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
-			
 			this._skeGroup.loadRes(['sk/juese01/ZJ_RYY_1.sk'], () => {
 				this.addChild(this._skeGroup);
 				this._skeGroup.pos(this.width / 2, this.height * 0.5);
@@ -27,15 +25,16 @@ module view.compart {
 		}
 
 		/**
-		 * 播放攻击动画
+		 * 播放动画
 		 * @param model 
 		 */
-		public playAni(model = 0): void {
-			this._skeGroup.play(model, true);
+		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
+			this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
 		}
 
 		public updateUI(): void {
 			this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 	}
 }

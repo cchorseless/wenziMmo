@@ -448,6 +448,8 @@ module view.main {
 					this.updateSceneView('进入了' + jsonData.curmapid);
 					// 更新小地图
 					this.updateSmallMap();
+					// 更新大地图
+					this.ui_scene.initUI();
 				}
 			});
 			lcp.send(pkt);

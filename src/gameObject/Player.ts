@@ -185,6 +185,9 @@ module GameObject {
          * @param type 
          */
         public findViewObj(tempId: number, type?: EnumData.CRET_TYPE): Creature {
+            if (GameApp.MainPlayer.tempId == tempId) {
+                return GameApp.MainPlayer
+            }
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     return this._allPlayer[tempId]
@@ -275,19 +278,19 @@ module GameObject {
         public tryAttack(target: Creature, skillID: number = 999): void {
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
-            // switch (this.job) {
-            //     // 战士
-            //     case EnumData.JOB_TYPE.JOB_WARRIOR:
-            //         break;
-            //     // 法师
-            //     case EnumData.JOB_TYPE.JOB_MAGE:
-            //         skillID = 2002;
-            //         break;
-            //     // 道士
-            //     case EnumData.JOB_TYPE.JOB_MONK:
-            //         skillID = 3002;
-            //         break;
-            // }
+            switch (this.job) {
+                // 战士
+                case EnumData.JOB_TYPE.JOB_WARRIOR:
+                    break;
+                // 法师
+                case EnumData.JOB_TYPE.JOB_MAGE:
+                    skillID = 2002;
+                    break;
+                // 道士
+                case EnumData.JOB_TYPE.JOB_MONK:
+                    skillID = 3002;
+                    break;
+            }
             pkt.nMagicId = skillID;
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
@@ -302,11 +305,22 @@ module GameObject {
             console.log(this.objName + '正在攻击');
             this.ui_item.playAni();
         }
+
+
+
+        /**
+         * 受击
+         */
+        public onAttack(): void {
+
+        }
+
         /**
          * 死亡
          */
         public goDie(): void {
             console.log(this.objName + '死亡了');
+            this.ui_item.playAni(3,false)
         }
     }
 }

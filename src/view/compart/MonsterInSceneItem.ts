@@ -36,7 +36,7 @@ module view.compart {
 		 * @param model 
 		 */
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
-			this._skeGroup.play(model, loop);
+			this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
 		}
 
 		public updateUI(): void {

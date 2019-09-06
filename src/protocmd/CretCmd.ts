@@ -159,7 +159,8 @@ module ProtoCmd {
     }
 
 
-    //生物移动后
+    //生物移动后，
+    // 0x0221
     export class CretAfterSpaceMove extends Packet {
         public static msgID: number = 0x0221;
         public constructor(data: Laya.Byte) {

@@ -342,14 +342,29 @@ module GameObject {
          * 尝试攻击，检查释放能攻击
          */
         public tryAttack(target: Creature, skillID: number = 1000): void {
-
         }
 
         /**
          * 攻击开始
          */
         public startAttack(): void {
-            console.log(this.objName + '正在攻击');
+        }
+
+        /**
+         * 播放技能
+         * @param dwTargetId 受击人
+         * @param nMagicId 技能ID
+         * @param dwActionTick 花费时间
+         */
+        public showSkill(dwTargetId, nMagicId, dwActionTick): void {
+            
+
+        }
+        /**
+         * 受击
+         */
+        public onAttack(): void {
+
         }
 
         /**
