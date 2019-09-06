@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":6,
     "props":{"width":130,"sceneColor":"#000000","height":80},
     "nodeParent":-1,
     "label":"View",
@@ -22,6 +22,45 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":3,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":75,"x":2,"width":130,"var":"lbl_hp","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
+            "nodeParent":1,
+            "label":"Label(lbl_hp)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":4,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":47,"x":3,"width":130,"var":"lbl_name","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
+            "nodeParent":1,
+            "label":"Label(lbl_name)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":5,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":20,"x":4,"width":130,"var":"lbl_zuoBiao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
+            "nodeParent":1,
+            "label":"Label(lbl_zuoBiao)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
             "child":[
                 ]
         }],

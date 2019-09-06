@@ -173,8 +173,6 @@ module view.main {
 				})
 				lcp.send(pkt);
 			})
-
-
 		}
 
 		public updateUI(): void {
@@ -301,28 +299,6 @@ module view.main {
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
 
-		/**
-		 * 更新NPC
-		 * @param handleType 
-		 * @param obj 
-		 */
-		public updateNpcView(handleType: EnumData.HANDLE_TYPE, obj): void {
-			switch (handleType) {
-				case EnumData.HANDLE_TYPE.ADD:
-					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
-					npcIcon.setData(obj)
-					this.vbox_npc.addChild(npcIcon);
-					break;
-				case EnumData.HANDLE_TYPE.REMOVE:
-					for (let _child of this.vbox_npc._childs) {
-						if ((_child as view.compart.NpcIconItem).item.tempId == obj.tempId) {
-							_child.removeSelf();
-							break;
-						}
-					}
-					break;
-			}
-		}
 
 		/**
 		 * 更新NPC的任务状态
@@ -340,30 +316,30 @@ module view.main {
 		}
 
 		/**
-		 * 更新玩家
+		 * 更新是业内对象UI
 		 * @param handleType 
 		 * @param obj 
 		 */
-		public updatePlayerView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
-		}
-
-		/**
-		 * 更新怪物
-		 * @param handleType 
-		 * @param obj 
-		 */
-		public updateMonsterView(handleType: EnumData.HANDLE_TYPE, obj: GameObject.Creature): void {
-			switch (handleType) {
-				case EnumData.HANDLE_TYPE.ADD:
+		public addViewObjUI(obj, type: EnumData.CRET_TYPE): void {
+			switch (type) {
+				// 玩家
+				case EnumData.CRET_TYPE.CRET_PLAYER:
+					break;
+				// 怪物
+				case EnumData.CRET_TYPE.CRET_MONSTER:
 					this.ui_scene.addMonster(obj);
 					break;
-
-				case EnumData.HANDLE_TYPE.REMOVE:
-					this.ui_scene.removeMonster(obj);
+				// NPC
+				case EnumData.CRET_TYPE.CRET_NPC:
+					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
+					npcIcon.setData(obj)
+					this.vbox_npc.addChild(npcIcon);
+					break;
+				default:
 					break;
 			}
-
 		}
+
 
 		public clearViewUI(): void {
 			this.vbox_npc.removeChildren();
@@ -377,6 +353,7 @@ module view.main {
 		public initUI(): void {
 			this.loadMap();
 			this.loadJuQingData();
+			this.ui_scene.initUI();
 		}
 
 		/**

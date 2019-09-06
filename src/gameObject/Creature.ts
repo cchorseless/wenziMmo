@@ -121,11 +121,19 @@ module GameObject {
         public ability: Ability;//能力信息
         public feature;//外观特征
         public location: ProtoCmd.CretLocation;//位置信息
+        public ui_item;//绑定的UI组件
         public constructor() {
             this.ability = new Ability();
             this.location = new ProtoCmd.CretLocation();
         }
 
+        public clear(): void {
+            if (this.ui_item) {
+                this.ui_item.removeSelf();
+                this.ui_item.item = null;
+            }
+            this.ui_item = null;
+        }
 
 
         /**
@@ -224,8 +232,8 @@ module GameObject {
             else {
                 this.ability.nowHP = nowHP;
             }
-            if (this.isMainPlayer) {
-                ////GameApp.MainPanel.bloodBtn.text = '血量:(' + this.ability.nowHP + '/' + this.ability.nMaxHP + ')';
+            if (this.ui_item) {
+                this.ui_item.updateUI();
             }
         }
 
@@ -327,6 +335,27 @@ module GameObject {
         public changeLevel(level: number) {
             this.level = level;
             GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_LEVEL);
+        }
+
+        /***********************************战斗模块*********************************** */
+        /**
+         * 尝试攻击，检查释放能攻击
+         */
+        public tryAttack(target: Creature, skillID: number = 1000): void {
+
+        }
+
+        /**
+         * 攻击开始
+         */
+        public startAttack(): void {
+            console.log(this.objName + '正在攻击');
+        }
+
+        /**
+         * 死亡
+         */
+        public goDie(): void {
         }
     }
 }

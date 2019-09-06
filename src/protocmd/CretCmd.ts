@@ -194,7 +194,7 @@ module ProtoCmd {
 
 
 
-    //血　蓝改变通知
+    //血蓝改变通知,玩家自己
     export class CretHealthChange extends Packet {
         public static msgID: number = 0x0234;
         public constructor(data: Laya.Byte) {

@@ -22,9 +22,6 @@ module view.compart {
 			this.hbox_player02.space = 1;
 			this.img_battleMode.visible = false;
 			this.img_battleMode.scaleY = this.img_battleMode.scaleX = 0;
-			this.initSelfPlayer();
-			this.initDiziPlayer();
-			this.addPlayer(null);
 			this.addEvent();
 		}
 
@@ -75,6 +72,10 @@ module view.compart {
 			Laya.Tween.to(this.hbox_player01, { space: 1 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_player02, { space: 1 }, 500, null, null, null, true);
 		}
+		
+		public initUI():void{
+			this.initSelfPlayer();
+		}
 
 		public selfPlayerAvatar: view.compart.SelfPlayerInSceneItem;
 		/**
@@ -82,7 +83,7 @@ module view.compart {
 		 */
 		public initSelfPlayer(): void {
 			this.selfPlayerAvatar = new view.compart.SelfPlayerInSceneItem();
-			this.selfPlayerAvatar.setData(0);
+			this.selfPlayerAvatar.setData(GameApp.MainPlayer);
 			this.box_self.addChild(this.selfPlayerAvatar);
 		}
 
@@ -91,9 +92,9 @@ module view.compart {
 		 * 初始化弟子
 		 */
 		public initDiziPlayer(): void {
-			this.selfDiZiAvatar = new view.compart.SelfPlayerInSceneItem();
-			this.selfDiZiAvatar.setData(1);
-			this.box_diZi.addChild(this.selfDiZiAvatar);
+			// this.selfDiZiAvatar = new view.compart.SelfPlayerInSceneItem();
+			// this.selfDiZiAvatar.setData(1);
+			// this.box_diZi.addChild(this.selfDiZiAvatar);
 		}
 
 		/**
@@ -103,7 +104,6 @@ module view.compart {
 		public addMonster(obj): void {
 			let monster: view.compart.MonsterInSceneItem = new view.compart.MonsterInSceneItem();
 			monster.setData(obj);
-
 			let childNum = this.hbox_monster01.numChildren + this.hbox_monster02.numChildren + this.hbox_monster03.numChildren;
 			let mod = childNum % 12;
 			switch (Math.floor(mod / 4)) {
@@ -122,41 +122,6 @@ module view.compart {
 			}
 		}
 
-		/**
-		 * 移除怪物
-		 * @param obj 
-		 */
-		public removeMonster(obj: GameObject.Creature): void {
-			let find = false;
-			for (let child of this.hbox_monster01._childs) {
-				if (child.item.tempId == obj.tempId) {
-					(child as view.compart.MonsterInSceneItem).removeSelf();
-					find = true;
-					break
-				}
-			}
-			if (!find) {
-				for (let child of this.hbox_monster02._childs) {
-					if (child.item.tempId == obj.tempId) {
-						(child as view.compart.MonsterInSceneItem).removeSelf();
-						find = true;
-						break
-					}
-				}
-			}
-			if (!find) {
-				for (let child of this.hbox_monster03._childs) {
-					if (child.item.tempId == obj.tempId) {
-						(child as view.compart.MonsterInSceneItem).removeSelf();
-						find = true;
-						break
-					}
-				}
-			}
-			if (!find) {
-				throw new Error('没有在视野中发现' + obj.tempId);
-			}
-		}
 
 		/**
 		 * 清除所有怪物
@@ -172,21 +137,10 @@ module view.compart {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
-			for (let i = 0; i < 4; i++) {
-				this.hbox_player01.addChild(new view.compart.OtherPlayerInSceneItem())
-				this.hbox_player02.addChild(new view.compart.OtherPlayerInSceneItem())
-			}
 
 		}
 
-		/**
-		 * 移除玩家
-		 * @param obj 
-		 */
-		public removePlayer(obj): void {
 
-		}
-		
 		/**
 		 * 清除所有玩家
 		 */

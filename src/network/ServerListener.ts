@@ -41,8 +41,6 @@ class ServerListener extends SingletonClass {
         /*************************************战斗相关***************************************** */
         // 攻击 0x0232
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
-        // 血条/蓝条变化 0x0234
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
         // 怪物掉血 0x0297
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
         // 删除地图上的物品 29D
@@ -51,7 +49,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
         // 地图上添加物品 2a0
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
-        // 玩家复活死亡通知 246
+        // 生物复活死亡通知 246
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLifestateChange), this, this.cretLifestateChange);
         /*************************************技能相关************************************************ */
         // 推送技能列表
@@ -61,6 +59,8 @@ class ServerListener extends SingletonClass {
         // 推送技能更改状态
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSkillAddDecoderRet), this, this.updateSkillState);
         /*************************************同步玩家属性************************************ */
+        // 血条/蓝条变化 0x0234
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
         // 金币 236
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
         // 绑定金币 2b6
@@ -396,53 +396,129 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
+    /*****************************************************战斗模块******************************************** */
     //0x0232
+    // 攻击返回包
     public cretAttackRet(data: any): void {
         let msgData = new ProtoCmd.CretAttackRet(data);
-        if (msgData.getValue('btErrorCode') == 0) {
-            ////App.MainPanel.addSysChat('怪物:'+msgData.getValue('dwTempId'));
-        } else {
-            ////App.MainPanel.addSysChat('攻击失败 errorcode:' + msgData.getValue('btErrorCode') + 'magicid:' + msgData.getValue('nMagicId'));
+        let player = GameApp.MainPlayer;
+        let atker = player.findViewObj(msgData.dwTempId);
+        if (atker) {
+            switch (msgData.btErrorCode) {
+                // 检查攻击动作，释放攻击动作,检查CD
+                case EnumData.BattleResult.SUCCESS:
+                    atker.startAttack();
+                    break;
+                default:
+                    TipsManage.showTips('攻击失败' + msgData.btErrorCode);
+                    break;
+            }
+        }
+        else{
+             TipsManage.showTips('攻击失败' + '没有找到目标');
         }
         msgData.clear();
         msgData = null;
     }
 
 
-    //0x0234
-    public cretHealthChange(data: any): void {
-        let msgData = new ProtoCmd.CretHealthChange(data);
-        let nowhp = msgData.getValue('nNowHP');
-        let maxhp = msgData.getValue('nMaxHP');
-        let onlyid = msgData.getValue('dwtempid');
-        if (onlyid == GameApp.GameEngine.mainPlayer.onlyId) {
-            let hp = msgData.getValue('nChangeHP');
-            if (hp < 0) {
-                ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
-            } else {
-                ////App.MainPanel.addSysChat('你掉了' + (-hp) + '血量');
-            }
-            // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
-            //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
-            GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
-        }
-        // for (let v = 0; v < //App.MainPanel.objItemDB.length; ++v) {
-        //     if (//App.MainPanel.objItemDB[v].onlyid == onlyid) {
-        //         let db = //App.MainPanel.objItemDB[v];
-        //         db.nowhp = nowhp;
-        //         db.maxhp = maxhp;
-        //         let obj = //App.MainPanel.listView.getChildAt(v) as ObjItem;
-        //         //obj.blood.text = nowhp + '/' + maxhp;
-        //         obj.blood.text = "<font color='#00EE00'>(" + db.x + ',' + db.y + ")</font>" + db.nowhp + '/' + db.maxhp;
-        //         break;
+
+
+
+    //0x0297
+    // 同屏内怪物掉血
+    public cretStruck(data: any): void {
+        let msg = new ProtoCmd.CretStruck(data);
+        let nowhp = msg.getValue('nHp');
+        let maxhp = msg.getValue('nMaxHp');
+        let actmpid = msg.getValue('dwAcTmpID');
+        let tartmpid = msg.getValue('dwTmpId');
+        let player = GameApp.MainPlayer;
+        // 攻击者
+        let atker = player.findViewObj(actmpid);
+        // 受伤者
+        let targeter = player.findViewObj(tartmpid);
+        targeter && targeter.changeHp(nowhp, maxhp);
+        console.log('=========', targeter);
+        //App.MainPanel.onStruck(tartmpid, nowhp, maxhp, (nowhp > 0 ? false : true));
+
+        // if (actmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
+        //     srcName = "您";
+
+        // }
+        // else {
+        //     //TODO Player
+        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
+        //         if (//App.MainPanel.objItemDB[k].onlyid == actmpid) {
+        //             srcName = //App.MainPanel.objItemDB[k].name;
+        //             if (nowhp == 0) {
+        //                 //App.MainPanel.objItemDB[k].lifestate = 0;
+        //             }
+        //             break;
+        //         }
         //     }
         // }
-        msgData.clear();
-        msgData = null;
+
+        // if (tartmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
+        //     dstName = "您";
+        //     msgstr = '<font color="#00EE00"><u>10秒后自动复活！</u></font>'
+        //     ////App.MainPanel.bloodBtn.text = '血量:(' + msg.getValue('nHp') + '/' + msg.getValue('nMaxHp') + ')';
+        //    GameApp.GameEngine.mainPlayer.changeHp(nowhp);
+        // } else {
+        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
+        //         if (//App.MainPanel.objItemDB[k].onlyid == tartmpid) {
+        //             dstName = //App.MainPanel.objItemDB[k].name;
+        //             break;
+        //         }
+        //     }
+        // }
+
+        // if (srcName == '无名英雄' || dstName == '无名英雄') {
+
+        // } else {
+        //     if (nowhp > 0) {
+        //         msgstr = '[' + srcName + ']对[' + dstName + ']造成' + msg.getValue('npower') + '点伤害值, [' + dstName + ']剩余血量:' + nowhp;
+        //     } else {
+        //         msgstr = '[' + srcName + ']对[' + dstName + ']致命一击 [' + dstName + ']已死亡!' + msgstr;
+        //     }
+
+        //     let color: string = "#FFFFFF";
+        //     if (!(srcName == '您' || dstName == '您')) {
+        //         //msgstr = '<font color="#A9A9A9">' + msgstr + '</font>'
+        //         color = '#A9A9A9';
+        //         if (Main.auditVer) {
+        //             return;
+        //         }
+        //     }
+        //     //App.MainPanel.addSysChat(msgstr, color);
+        // }
+
+        msg.clear();
+        msg = null;
     }
+    /**
+     * 复活死亡消息
+     * @param data 
+     */
+    public cretLifestateChange(data: any): void {
+        let msg = new ProtoCmd.CretLifestateChange(data);
+        let dwTempID = msg.getValue('dwTempID');
+        let lifestate = msg.getValue('curLifeState');
+        let targeter = GameApp.MainPlayer.findViewObj(dwTempID);
+        switch (lifestate) {
+            // 复活
+            case 0:
 
+                break;
+            // 死亡
+            case 1:
+                targeter.goDie();
+                break;
+        }
 
-
+        msg.clear();
+        msg = null;
+    }
     /*************************************同步技能状态************************************ */
 
     /**
@@ -479,6 +555,42 @@ class ServerListener extends SingletonClass {
         cbpkt = null;
     }
     /*************************************同步玩家属性************************************ */
+
+    //0x0234
+    /**
+     * 玩家血蓝变化
+     */
+    public cretHealthChange(data: any): void {
+        let msgData = new ProtoCmd.CretHealthChange(data);
+        let nowhp = msgData.getValue('nNowHP');
+        let maxhp = msgData.getValue('nMaxHP');
+        let onlyid = msgData.getValue('dwtempid');
+        if (onlyid == GameApp.GameEngine.mainPlayer.onlyId) {
+            let hp = msgData.getValue('nChangeHP');
+            if (hp < 0) {
+                ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
+            } else {
+                ////App.MainPanel.addSysChat('你掉了' + (-hp) + '血量');
+            }
+            // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
+            //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
+            GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
+        }
+        // for (let v = 0; v < //App.MainPanel.objItemDB.length; ++v) {
+        //     if (//App.MainPanel.objItemDB[v].onlyid == onlyid) {
+        //         let db = //App.MainPanel.objItemDB[v];
+        //         db.nowhp = nowhp;
+        //         db.maxhp = maxhp;
+        //         let obj = //App.MainPanel.listView.getChildAt(v) as ObjItem;
+        //         //obj.blood.text = nowhp + '/' + maxhp;
+        //         obj.blood.text = "<font color='#00EE00'>(" + db.x + ',' + db.y + ")</font>" + db.nowhp + '/' + db.maxhp;
+        //         break;
+        //     }
+        // }
+        msgData.clear();
+        msgData = null;
+    }
+
     /**
      * 金币 0x0236
      * @param data 
@@ -673,26 +785,7 @@ class ServerListener extends SingletonClass {
     }
 
 
-    public cretLifestateChange(data: any): void {
-        let msg = new ProtoCmd.CretLifestateChange(data);
-        let onlyid = msg.getValue('dwTempID');
-        let lifestate = msg.getValue('curLifeState');
-        // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
-        //     if (//App.MainPanel.objItemDB[i].onlyid == onlyid) {
-        //         //App.MainPanel.objItemDB[i].lifestate = lifestate;
-        //         let obj = //App.MainPanel.listView.getChildAt(i).asCom;
-        //         if (lifestate > 0) {
-        //             obj.getTransition('die').play();
-        //             ////App.MainPanel.autoAttack = false;
-        //         } else {
-        //             obj.getTransition('t1').play();
-        //         }
-        //         break;
-        //     }
-        // }
-        msg.clear();
-        msg = null;
-    }
+
 
     /*************************************聊天信息************************************ */
     /**
@@ -865,73 +958,6 @@ class ServerListener extends SingletonClass {
 
 
 
-    //0x0297
-    public cretStruck(data: any): void {
-        let msg = new ProtoCmd.CretStruck(data);
-        let nowhp = msg.getValue('nHp');
-        let maxhp = msg.getValue('nMaxHp');
-        let actmpid = msg.getValue('dwAcTmpID');
-        let tartmpid = msg.getValue('dwTmpId');
-        let srcName = '无名英雄';
-        let dstName = '无名英雄';
-        let msgstr = ''
-        //App.MainPanel.onStruck(tartmpid, nowhp, maxhp, (nowhp > 0 ? false : true));
-
-        // if (actmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
-        //     srcName = "您";
-
-        // }
-        // else {
-        //     //TODO Player
-        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
-        //         if (//App.MainPanel.objItemDB[k].onlyid == actmpid) {
-        //             srcName = //App.MainPanel.objItemDB[k].name;
-        //             if (nowhp == 0) {
-        //                 //App.MainPanel.objItemDB[k].lifestate = 0;
-        //             }
-        //             break;
-        //         }
-        //     }
-        // }
-
-        // if (tartmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
-        //     dstName = "您";
-        //     msgstr = '<font color="#00EE00"><u>10秒后自动复活！</u></font>'
-        //     ////App.MainPanel.bloodBtn.text = '血量:(' + msg.getValue('nHp') + '/' + msg.getValue('nMaxHp') + ')';
-        //    GameApp.GameEngine.mainPlayer.changeHp(nowhp);
-        // } else {
-        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
-        //         if (//App.MainPanel.objItemDB[k].onlyid == tartmpid) {
-        //             dstName = //App.MainPanel.objItemDB[k].name;
-        //             break;
-        //         }
-        //     }
-        // }
-
-        // if (srcName == '无名英雄' || dstName == '无名英雄') {
-
-        // } else {
-        //     if (nowhp > 0) {
-        //         msgstr = '[' + srcName + ']对[' + dstName + ']造成' + msg.getValue('npower') + '点伤害值, [' + dstName + ']剩余血量:' + nowhp;
-        //     } else {
-        //         msgstr = '[' + srcName + ']对[' + dstName + ']致命一击 [' + dstName + ']已死亡!' + msgstr;
-        //     }
-
-        //     let color: string = "#FFFFFF";
-        //     if (!(srcName == '您' || dstName == '您')) {
-        //         //msgstr = '<font color="#A9A9A9">' + msgstr + '</font>'
-        //         color = '#A9A9A9';
-        //         if (Main.auditVer) {
-        //             return;
-        //         }
-        //     }
-        //     //App.MainPanel.addSysChat(msgstr, color);
-        // }
-
-
-        msg.clear();
-        msg = null;
-    }
 
     /**
      * 删除地图物品 0x029D
