@@ -6,7 +6,6 @@ module view.juese {
 		}
 
 		public setData(): void {
-			this.panel_player.vScrollBarSkin = '';
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_player.selectedIndex = index;
 			}, null, false);
