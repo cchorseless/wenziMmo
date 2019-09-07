@@ -5,6 +5,16 @@ module view.task {
 			super();
 		}
 		public setData(): void {
+			this.panel_zhiXian.vScrollBarSkin = '';
+			this.vbox_zhiXian['sortItem'] = (items) => { };
+			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
+				this.viw_0.selectedIndex = index;
+
+			}, null, false);
+			for (let i = 0; i < 3; i++) {
+				this.vbox_zhiXian.addChild(new view.compart.TaskInfoItem().setData(null))
+			}
+
 			this.initUI();
 			this.addEvent();
 		}

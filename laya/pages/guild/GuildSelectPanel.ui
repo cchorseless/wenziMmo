@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":161,
-    "selecteID":177,
+    "selectedBox":10,
+    "selecteID":194,
     "referenceLines":[
         {
             "value":149,
@@ -505,7 +505,7 @@
                             "$LOCKED":false,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -513,14 +513,13 @@
                     "props":{"y":12,"x":0,"width":640,"var":"box_searchGuild","name":"item2","height":777},
                     "nodeParent":10,
                     "label":"Box(box_searchGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":35,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":-69,"x":508,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelPadding":"-3","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"搜索"},
                             "nodeParent":35,
@@ -534,7 +533,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
                             "props":{"y":-63,"x":22,"width":481,"var":"input_search","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","prompt":"请输入帮派名称","padding":"2,160,8,4","height":52,"fontSize":20,"font":"Microsoft YaHei","align":"center"},
                             "nodeParent":35,
@@ -548,7 +546,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":3,"x":20,"width":600,"var":"vbox_searchResult","align":"center"},
                             "nodeParent":35,
@@ -562,7 +559,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":271,"x":136,"skin":"image/guild/bottom_prompt.png"},
                             "nodeParent":35,
@@ -588,7 +584,7 @@
                                 }],
                             "$HIDDEN":true
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

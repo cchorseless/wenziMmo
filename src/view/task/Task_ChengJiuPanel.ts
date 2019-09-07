@@ -8,6 +8,10 @@ module view.task {
 
 			this.panel_0.hScrollBarSkin = '';
 			this.tab_0.labels = '传奇生涯,累计登录,角色成长,降妖除魔,强化装备,魂石天赋,罡气护体,龙魂血盾,隐藏成就';
+			this.updateUI();
+			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
+				this.updateUI(index);
+			}, null, false);
 			this.addEvent()
 		}
 		public addEvent(): void {
@@ -34,5 +38,13 @@ module view.task {
 				PanelManage.openTask_MainPanel()
 			});
 		}
+		public updateUI(index = 0): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.TASK_GET_CHENGJIU_INFO, [index], null, this, (jsonData) => {
+				console.log(jsonData)
+			})
+			lcp.send(pkt);
+		}
+
 	}
 }

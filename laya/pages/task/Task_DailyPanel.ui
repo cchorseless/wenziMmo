@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":11,
-    "selecteID":33,
+    "selectedBox":78,
+    "selecteID":76,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -229,14 +229,13 @@
             "props":{"y":50,"x":10,"right":0,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":11,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":4,"x":7},
                     "nodeParent":11,
@@ -248,7 +247,6 @@
                     "compId":22,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":22,
@@ -274,7 +272,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":101,"width":100,"var":"btn_juQingTask","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":22,
@@ -286,7 +283,6 @@
                             "compId":25,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"剧情","height":84},
                                     "nodeParent":25,
@@ -301,7 +297,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":202,"width":100,"var":"btn_dailyTask","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":22,
@@ -313,7 +308,6 @@
                             "compId":27,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"日常","height":84},
                                     "nodeParent":27,
@@ -328,7 +322,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":303,"width":100,"var":"btn_liLianTask","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":22,
@@ -340,7 +333,6 @@
                             "compId":29,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"历练","height":84},
                                     "nodeParent":29,
@@ -355,7 +347,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":404,"width":100,"var":"btn_achieveTask","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                             "nodeParent":22,
@@ -367,7 +358,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"成就","height":84},
                                     "nodeParent":31,
@@ -383,7 +373,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing_01.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":11,
@@ -402,15 +391,619 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":295,"x":145,"stateNum":2,"space":30,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"每日,资源,帮会","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","direction":"horizontal"},
+            "props":{"y":295,"x":69,"var":"tab_0","stateNum":2,"space":30,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"每日,资源,帮会,循环","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","direction":"horizontal"},
             "nodeParent":1,
-            "label":"Tab",
+            "label":"Tab(tab_0)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":12,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":353,"x":0,"width":640,"var":"viw_0","selectedIndex":0,"height":670},
+            "nodeParent":1,
+            "label":"ViewStack(viw_0)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":34,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":23,"x":20,"name":"item0"},
+                    "nodeParent":34,
+                    "label":"Box(item0)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":78,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"y":105,"width":620,"var":"panel_0","height":561},
+                            "nodeParent":78,
+                            "label":"Panel(panel_0)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":56,
+                            "child":[
+                                {
+                                    "type":"VBox",
+                                    "props":{"y":0,"x":0,"width":620,"var":"vbox_0","align":"center"},
+                                    "nodeParent":56,
+                                    "label":"VBox(vbox_0)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":57,
+                                    "child":[
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/TaskInfoV0Item.ui",
+                                            "props":{},
+                                            "nodeParent":57,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":79,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/TaskInfoV0Item.ui",
+                                            "props":{"y":10,"x":10},
+                                            "nodeParent":57,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":80,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/TaskInfoV0Item.ui",
+                                            "props":{"y":20,"x":20},
+                                            "nodeParent":57,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":81,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/TaskInfoV0Item.ui",
+                                            "props":{"y":30,"x":30},
+                                            "nodeParent":57,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":82,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"UIView",
+                                            "source":"compart/TaskInfoV0Item.ui",
+                                            "props":{"y":40,"x":40},
+                                            "nodeParent":57,
+                                            "label":"UIView",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":83,
+                                            "child":[
+                                                ]
+                                        }]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":-6,"x":13},
+                            "nodeParent":78,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":60,
+                            "child":[
+                                {
+                                    "type":"Box",
+                                    "props":{"y":42,"x":0,"scaleX":1.1},
+                                    "nodeParent":60,
+                                    "label":"Box",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":61,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"skin":"image/common/img_common_25.png"},
+                                            "nodeParent":61,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":62,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"skin":"image/common/img_common_25down.png"},
+                                            "nodeParent":61,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":63,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":10,"x":62,"skin":"image/common/icon_baoxiang01down.png"},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":64,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":64,"x":75,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":65,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":1,"x":25,"text":"5","fontSize":23},
+                                            "nodeParent":65,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":66,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":8,"x":162,"skin":"image/common/icon_baoxiang02down.png"},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":67,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":65,"x":180,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":68,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":1,"x":25,"text":"5","fontSize":23},
+                                            "nodeParent":68,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":69,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":6,"x":265,"skin":"image/common/icon_baoxiang03.png"},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":70,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":65,"x":282,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":71,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":1,"x":25,"text":"5","fontSize":23},
+                                            "nodeParent":71,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":72,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":7,"x":377,"skin":"image/common/icon_baoxiang04.png"},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":73,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":57,"x":377,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
+                                    "nodeParent":60,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":74,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":1,"x":25,"text":"5","fontSize":23},
+                                            "nodeParent":74,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":75,
+                                            "child":[
+                                                ]
+                                        }]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":6,"x":505,"width":85,"stateNum":"2","skin":"image/task/button_shenqingjiaru_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":15,"labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"当前活跃度\\n50","height":85},
+                            "nodeParent":78,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":76,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":7,"x":10,"width":620,"var":"panel_1","name":"item1","height":672},
+                    "nodeParent":34,
+                    "label":"Panel(panel_1)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":52,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":0,"x":0,"width":620,"var":"vbox_1","align":"center"},
+                            "nodeParent":52,
+                            "label":"VBox(vbox_1)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":53,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":50,"x":50},
+                                    "nodeParent":53,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":84,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":60,"x":60},
+                                    "nodeParent":53,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":85,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":70,"x":70},
+                                    "nodeParent":53,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":86,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":80,"x":80},
+                                    "nodeParent":53,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":87,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":90,"x":90},
+                                    "nodeParent":53,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":88,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":7,"x":10,"width":620,"var":"panel_2","name":"item2","height":672},
+                    "nodeParent":34,
+                    "label":"Panel(panel_2)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":54,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":-1,"x":0,"width":620,"var":"vbox_2","height":500,"align":"center"},
+                            "nodeParent":54,
+                            "label":"VBox(vbox_2)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":55,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":101,"x":100},
+                                    "nodeParent":55,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":89,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":111,"x":110},
+                                    "nodeParent":55,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":90,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":121,"x":120},
+                                    "nodeParent":55,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":91,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":131,"x":130},
+                                    "nodeParent":55,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":92,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":141,"x":140},
+                                    "nodeParent":55,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":93,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":7,"x":10,"width":620,"var":"panel_3","name":"item3","height":672},
+                    "nodeParent":34,
+                    "label":"Panel(panel_3)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":58,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":-1,"x":0,"width":620,"var":"vbox_3","height":500,"align":"center"},
+                            "nodeParent":58,
+                            "label":"VBox(vbox_3)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":59,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":152,"x":150},
+                                    "nodeParent":59,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":94,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":161,"x":160},
+                                    "nodeParent":59,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":95,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":171,"x":170},
+                                    "nodeParent":59,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":96,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":181,"x":180},
+                                    "nodeParent":59,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":97,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/TaskInfoV0Item.ui",
+                                    "props":{"y":191,"x":190},
+                                    "nodeParent":59,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":98,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

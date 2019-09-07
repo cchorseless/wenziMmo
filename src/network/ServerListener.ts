@@ -393,7 +393,7 @@ class ServerListener extends SingletonClass {
      */
     public syncPlayerPosition(data: Laya.Byte): void {
         let cbpkt = new ProtoCmd.CretAfterSpaceMove(data);
-        console.log(cbpkt.getValue('dwTmpId') );
+        console.log(cbpkt.getValue('dwTmpId'));
         let obj = GameApp.MainPlayer.findViewObj(cbpkt.getValue('dwTmpId'));
         if (obj) {
             obj.dir = cbpkt.getValue('dir');
@@ -448,8 +448,10 @@ class ServerListener extends SingletonClass {
         let atker = player.findViewObj(actmpid);
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
-        targeter && targeter.changeHp(nowhp, maxhp);
-        console.log('=========', targeter);
+        if(targeter){
+            targeter.onAttack();
+            targeter.changeHp(nowhp, maxhp);
+        }
         //App.MainPanel.onStruck(tartmpid, nowhp, maxhp, (nowhp > 0 ? false : true));
 
         // if (actmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
@@ -548,6 +550,7 @@ class ServerListener extends SingletonClass {
         let dwActionTick = cbpkt.getValue('dwActionTick');
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
+        console.log(dwTempId, dwTargetId, nMagicId, dwActionTick)
         cbpkt.clear();
         cbpkt = null;
     }

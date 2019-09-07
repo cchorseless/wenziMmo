@@ -53,7 +53,8 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-
+            TipsManage.showTips(this.objName + '受击');
+            this.ui_item.playAni(2);
         }
 
         /**

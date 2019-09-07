@@ -820,8 +820,8 @@ module EnumData {
     export enum BattleResult {
         SUCCESS = 0,//成功
         CRET_MAGICFAIL_CASTNOTSUCCESS = 1,//施放不成功
-        CRET_MAGICFAIL_MAGICLACKING = 2,	//魔法不足
-        CRET_MAGICFAIL_NOTINSCENE = 3,	//不在场景中
+        CRET_MAGICFAIL_MAGICLACKING = 2,  //魔法不足
+        CRET_MAGICFAIL_NOTINSCENE = 3,	  //不在场景中
 
         CRET_MAGICFAIL_BOUND = 4,		 //自己被束缚
         CRET_MAGICFAIL_PETRIFACTION = 5, //自己被石化

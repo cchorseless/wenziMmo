@@ -55,14 +55,16 @@ module ResData {
         public static SheJiao = null;
         // 剧情进度界面
         public static JuQingInfo = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
+        // 排行榜界面
+        public static RankMain = null;
         // 主线任务界面
-        public static Task_Main = null;
+        public static Task_Main = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];
         // 日常任务界面
-        public static Task_Daily = null;
+        public static Task_Daily = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
         // 历练任务界面
-        public static Task_LiLian = null;
+        public static Task_LiLian = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
         // 成就任务界面
-        public static Task_chengJiu = null;
+        public static Task_chengJiu = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派选择界面
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派界面

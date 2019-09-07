@@ -44,6 +44,8 @@ module ProtoCmd {
     export const TASK_REFRESH_XINGJI = 'huanrenwu_shuaxingxingji';// 任务刷新星级
     // 开始触发主线任务
     export const TASK_GET_FIRST_MAINTASK = 'HuangYingJieMian_QianDuan';// 触发主线任务
+    // 成就任务信息
+    export const TASK_GET_CHENGJIU_INFO = 'achievementPanel';// 拉取成就信息     (index:页签)
 
     /*****************************剧情相关*************************** */
 

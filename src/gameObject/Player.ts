@@ -302,7 +302,7 @@ module GameObject {
          * 播放攻击动作
          */
         public startAttack(): void {
-            console.log(this.objName + '正在攻击');
+            TipsManage.showTips(this.objName + '正在攻击');
             this.ui_item.playAni();
         }
 
@@ -319,8 +319,8 @@ module GameObject {
          * 死亡
          */
         public goDie(): void {
-            console.log(this.objName + '死亡了');
-            this.ui_item.playAni(3,false)
+            TipsManage.showTips(this.objName + '死亡了');
+            this.ui_item.playAni(3, false)
         }
     }
 }

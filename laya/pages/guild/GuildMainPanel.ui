@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":232,
-    "selecteID":246,
+    "selectedBox":394,
+    "selecteID":185,
     "referenceLines":[
         {
             "value":301,
@@ -911,13 +911,14 @@
                     "props":{"x":8,"var":"box_teamDetail","name":"item1"},
                     "nodeParent":411,
                     "label":"Box(box_teamDetail)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":394,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":4.000000000000128,"x":11.99999624871431},
                             "nodeParent":394,
@@ -929,6 +930,7 @@
                             "compId":58,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":58,
@@ -1126,6 +1128,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":43,"x":8},
                                     "nodeParent":58,
@@ -1137,6 +1140,7 @@
                                     "compId":423,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":-8,"x":26,"stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png"},
                                             "nodeParent":423,
@@ -1148,6 +1152,7 @@
                                             "compId":416,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":5,"x":9,"skin":"image/guild/gang_Headportrait.png"},
                                                     "nodeParent":416,
@@ -1160,6 +1165,7 @@
                                                         ]
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":75,"x":-18,"width":127,"var":"lbl_guildName","text":"公会名称123","strokeColor":"#000000","stroke":3,"height":35,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff"},
                                                     "nodeParent":416,
@@ -1175,6 +1181,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":-17,"x":0,"var":"btn_guildBuff","stateNum":"1","skin":"image/guild/icon_buff.png"},
                                             "nodeParent":423,
@@ -1187,6 +1194,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":102,"x":1,"skin":"image/guild/Progressbar_gang_bottom.png"},
                                             "nodeParent":423,
@@ -1228,6 +1236,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":341.0000000000001,"x":8.99999624871431},
                             "nodeParent":394,
@@ -1425,6 +1434,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":351.0000000000001,"x":496.9999962487143,"width":85,"var":"btn_donate","stateNum":"2","skin":"image/guild/button_shenqingjiaru_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","height":85},
                             "nodeParent":394,
@@ -1436,6 +1446,7 @@
                             "compId":185,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":13,"x":1,"skin":"image/guild/font_meirijuanzeng.png"},
                                     "nodeParent":185,
@@ -1450,6 +1461,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":482.0000000000001,"x":10.99999624871431},
                             "nodeParent":394,
@@ -1461,6 +1473,7 @@
                             "compId":358,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":149,"var":"img_guildShopEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
@@ -1535,6 +1548,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":463,"var":"img_guildStoreEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
@@ -1609,6 +1623,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":252,"x":149,"var":"img_guildFuliEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
@@ -1683,6 +1698,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":252,"x":463,"var":"img_guildHelpEnter","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":358,
@@ -1759,6 +1775,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":187.0000000000001,"x":19.99999624871431,"width":596,"height":147},
                             "nodeParent":394,
@@ -1819,7 +1836,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1827,14 +1844,13 @@
                     "props":{"x":7,"var":"box_teamManage","name":"item2"},
                     "nodeParent":411,
                     "label":"Box(box_teamManage)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":312,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":1,"x":5},
                             "nodeParent":312,
@@ -1846,7 +1862,6 @@
                             "compId":186,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":11,"x":-5,"width":625,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,23,19,17","height":342},
                                     "nodeParent":186,
@@ -1860,7 +1875,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":186,
@@ -2057,7 +2071,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":28,"x":20},
                                     "nodeParent":186,
@@ -2182,7 +2195,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":182,"x":12,"width":596,"height":147},
                             "nodeParent":312,
@@ -2244,7 +2256,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":359,"x":4},
                             "nodeParent":312,
@@ -2256,7 +2267,6 @@
                             "compId":143,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":149,"var":"btn_relationManage","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2334,7 +2344,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":464,"var":"img_guildIntoSet","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2410,7 +2419,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":253,"x":149,"var":"img_guildRecord","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2487,7 +2495,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":253,"x":464,"var":"btn_guildMember","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2563,7 +2570,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":423,"x":149,"var":"img_guildApply","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2638,7 +2644,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":423,"x":464,"var":"img_guildRank","skin":"image/guild/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2650,7 +2655,6 @@
                                     "compId":135,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":12,"x":56,"skin":"image/guild/icon_tuichubangpai_shadow.png"},
                                             "nodeParent":135,
@@ -2663,7 +2667,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":84,"x":3,"skin":"image/guild/decorate_bangpaishangdian.png"},
                                             "nodeParent":135,
@@ -2677,7 +2680,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":66,"x":67,"width":205,"skin":"image/guild/bottom_kouhao.png","height":69,"alpha":0.6},
                                             "nodeParent":135,
@@ -2691,7 +2693,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":39,"x":19,"skin":"image/guild/icon_tuichubangpai.png"},
                                             "nodeParent":135,
@@ -2704,7 +2705,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":63,"x":126,"skin":"image/guild/font_shilipaihang.png"},
                                             "nodeParent":135,
@@ -2720,7 +2720,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         },
         {

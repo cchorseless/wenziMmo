@@ -25,7 +25,10 @@ module view.juQing {
 			this.btn_pianZhang.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.ChapterListDialog().setData().popup(true);
 			});
-
+			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			});
+			
 		}
 
 

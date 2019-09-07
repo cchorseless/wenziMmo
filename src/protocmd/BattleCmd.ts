@@ -116,6 +116,7 @@ module ProtoCmd {
             this.addProperty('nY', PacketBase.TYPE_INT);
             this.addProperty('nMagicId', PacketBase.TYPE_INT);
             this.addProperty('dwActionTick', PacketBase.TYPE_INT);//花费时间
+            this.read(data);
         }
     }
 

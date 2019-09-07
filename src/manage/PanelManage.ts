@@ -55,7 +55,8 @@ module PanelManage {
     export let Task_chengJiu: view.task.Task_ChengJiuPanel;//成就任务界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
-    export let JuQingInfo: view.juQing.JuQingInfoPanel;//剧情界面
+    export let JuQingInfo: view.juQing.JuQingInfoPanel;//手册界面
+    export let RankMain: view.rank.Rank_MainPanel;//排行榜主界面
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildMain: view.guild.GuildMainPanel;//帮会界面
     export let Team: view.team.TeamPanel;//队伍界面
@@ -710,6 +711,28 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.JuQingInfo, 2, 0, 2);
         })
     }
+
+    /**
+     * 排行榜界面
+     */
+    export function openRankMainPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.RankMain) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.RankMain);
+        ResManage.loadResource(ResData.PanelRes.RankMain, () => {
+            PanelManage.RankMain = new view.rank.Rank_MainPanel();
+            PanelManage.RankMain['LCP_skin'] = ResData.PanelRes.RankMain;
+            PanelManage.RankMain.setData();
+            PanelManage.RankMain.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.RankMain, 2, 0, 2);
+        })
+
+
+    }
+
+
+
 
     /**
      * 世界地图界面

@@ -171,6 +171,7 @@ module ProtoCmd {
             this.addProperty('ncurx', PacketBase.TYPE_WORD);//移动后坐标X 
             this.addProperty('ncury', PacketBase.TYPE_WORD);// 移动后坐标Y 
             this.addProperty('ncurz', PacketBase.TYPE_WORD);// 移动后坐标Z 
+            this.read(data);
         }
     }
 
@@ -188,11 +189,9 @@ module ProtoCmd {
             this.addProperty("wHeroLvl", PacketBase.TYPE_WORD);//英雄等级
             this.addProperty("btHeroState", PacketBase.TYPE_BYTE);//英雄状态
             this.addProperty("dwReliveTime", PacketBase.TYPE_DWORD);//英雄复活时间戳
+            this.read(data);
         }
     }
-
-
-
 
 
     //血蓝改变通知,玩家自己

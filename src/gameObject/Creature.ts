@@ -357,8 +357,22 @@ module GameObject {
          * @param dwActionTick 花费时间
          */
         public showSkill(dwTargetId, nMagicId, dwActionTick): void {
-            
-
+            let targeter = GameApp.MainPlayer.findViewObj(dwTargetId);
+            if (targeter) {
+                let selfPoint = (this.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
+                let targetPoint = (targeter.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
+                let _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
+                _skeGroup.loadRes(['sk/skill/huoqu/B_fire_02_ske.sk', 'sk/skill/huoqu/S_fire_02_ske.sk'], () => {
+                    _skeGroup.pos(selfPoint.x, selfPoint.y)
+                    Laya.stage.addChild(_skeGroup);
+                    Laya.Tween.to(_skeGroup, { x: targetPoint.x, y: targetPoint.y }, 500, null, Laya.Handler.create(this, () => {
+                        _skeGroup.showChild(1);
+                        _skeGroup.play(0,false,true,Laya.Handler.create(this,()=>{
+                            _skeGroup.removeSelf()
+                        }))
+                    }))
+                })
+            }
         }
         /**
          * 受击
