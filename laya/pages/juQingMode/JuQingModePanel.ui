@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":134,
-    "selecteID":135,
+    "selectedBox":104,
+    "selecteID":111,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -281,7 +281,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":54,"x":57,"width":100,"var":"btn_juQing","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":54,"x":57,"var":"btn_juQing","stateNum":"3","skin":"image/main/img_common_04down_finish.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
                     "label":"Button(btn_juQing)",
                     "isOpen":true,
@@ -302,8 +302,10 @@
                             "hasChild":false,
                             "compId":112,
                             "child":[
-                                ]
-                        }]
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
