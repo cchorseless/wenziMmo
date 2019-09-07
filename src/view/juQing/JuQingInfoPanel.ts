@@ -5,7 +5,7 @@ module view.juQing {
 			super();
 		}
 		public setData(): void {
-			
+
 			this.initUI();
 			// for (let i = 0; i < 6; i++) {
 			// 	let titleItem = new view.compart.JuQingTitleItem();
@@ -16,19 +16,19 @@ module view.juQing {
 
 
 		public addEvent(): void {
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
 			});
-			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
-			this.btn_pianZhang.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.ChapterListDialog().setData().popup(true);
 			});
 			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();
 			});
-			
+
 		}
 
 
@@ -39,7 +39,7 @@ module view.juQing {
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
 				(jsonData: { pzid: number, charpterInfo: number }) => {
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
-						
+
 
 					}
 					console.log(jsonData);

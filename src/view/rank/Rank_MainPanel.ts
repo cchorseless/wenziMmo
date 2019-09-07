@@ -9,7 +9,16 @@ module view.rank {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
-			}, null, false)
+			}, null, false);
+			this.addEvent();
+		}
+		public addEvent(): void {
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.showPanel(PanelManage.JuQingMode);
+			});
+			EventManage.onWithEffect(this.btn_mulu, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingInfoPanel();
+			});
 		}
 	}
 }
