@@ -53,55 +53,13 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"var":"技能","skin":"image/juese/武学-技能.png"},
-            "nodeParent":1,
-            "label":"Image(技能)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":36,
-            "child":[
-                ],
-            "$LOCKED":false,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":139,"x":43,"skin":"image/common/bottom_jianghuxiaobang.png"},
+            "props":{"y":137,"x":49,"skin":"image/common/bottom_jianghuxiaobang.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":37,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":134,"x":13,"width":58,"stateNum":"2","skin":"image/juese/icon_role_xiadianlu01.png","height":62},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":38,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":152,"x":70,"skin":"image/juese/font_renwuzhi.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":39,
+            "compId":77,
             "child":[
                 ],
             "$HIDDEN":false
@@ -109,56 +67,44 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":211,"x":22,"skin":"image/juese/imgIjineng2.png"},
+            "props":{"y":140,"x":5,"width":64,"skin":"image/common/icon_bangpaichengyuan.png","height":48},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":72,
+            "compId":78,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":596,"x":91,"skin":"image/juese/botton_100.png"},
+            "props":{"y":150,"x":70,"skin":"image/juese/font_renwuzhi.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":40,
+            "hasChild":false,
+            "compId":79,
             "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":18,"x":48,"text":"黄泉剑法","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"Microsoft YaHei","color":"#f2f2f2","align":"left"},
-                    "nodeParent":40,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":56,
-                    "child":[
-                        ]
-                }],
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":679,"x":20,"width":596,"height":147},
+            "props":{"y":679,"x":22,"width":596,"height":147},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":47,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":0,"skin":"image/guild/bottom_ConfederationDeclaration.png"},
                     "nodeParent":47,
@@ -171,7 +117,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"x":21,"skin":"image/common/title_ConfederationDeclaration.png"},
                     "nodeParent":47,
@@ -184,7 +129,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"x":24,"skin":"image/juese/font_zhaoshishuoming.png"},
                     "nodeParent":47,
@@ -198,7 +142,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":27,"x":124,"wordWrap":true,"width":347,"text":"从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
                     "nodeParent":47,
@@ -212,7 +155,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":50,"x":193,"wordWrap":true,"width":64,"text":"120%","strokeColor":"#000000","stroke":4,"height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bold":false},
                     "nodeParent":47,
@@ -226,7 +168,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":50,"x":258,"wordWrap":true,"width":20,"text":"+","strokeColor":"#000000","stroke":4,"height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","bold":false},
                     "nodeParent":47,
@@ -240,7 +181,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":50,"x":282,"wordWrap":true,"width":45,"text":"420","strokeColor":"#000000","stroke":4,"height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#72ed5d","bold":false},
                     "nodeParent":47,
@@ -254,7 +194,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":51,"x":324,"wordWrap":true,"width":86,"text":"的伤害","strokeColor":"#000000","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
                     "nodeParent":47,
@@ -266,8 +205,69 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":17,"x":459,"skin":"image/juese/bottom_shuliandu.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":81,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":23,"x":467,"skin":"image/juese/img_shuliandu.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":82,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":50,"x":482,"skin":"image/juese/img_shulliandu.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":80,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":83,"x":506,"skin":"image/juese/img_7.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":85,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":84,"x":515,"skin":"image/juese/img_5.png"},
+                    "nodeParent":47,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":86,
+                    "child":[
+                        ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -384,7 +384,7 @@
                 },
                 {
                     "type":"Button",
-                    "props":{"y":85,"x":420,"width":140,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"勤学苦练","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","height":59},
+                    "props":{"y":85,"x":420,"width":140,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"勤学苦练","height":59},
                     "nodeParent":62,
                     "label":"Button",
                     "isDirectory":false,
@@ -394,7 +394,44 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                }]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":58,"x":428,"text":"消耗：","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "nodeParent":62,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":88,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":55,"x":473,"width":39,"skin":"image/common/icon_common_jinbi01.png","height":32},
+                    "nodeParent":62,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":89,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":59,"x":511,"text":"1999","strokeColor":"#000000","stroke":3,"fontSize":20,"color":"#ffffff"},
+                    "nodeParent":62,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":90,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -558,7 +595,8 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -572,6 +610,67 @@
             "hasChild":true,
             "compId":69,
             "child":[
+                {
+                    "type":"Image",
+                    "props":{"y":-54,"x":-352,"width":624,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"41,31,25,18","height":450},
+                    "nodeParent":69,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":91,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":-52,"x":-337,"skin":"image/juese/imgIjineng2.png"},
+                    "nodeParent":69,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":72,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":256,"x":-351,"skin":"image/juese/bottom_waigingzhanshi.png"},
+                    "nodeParent":69,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":92,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":333,"x":-268,"skin":"image/juese/botton_100.png"},
+                    "nodeParent":69,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":40,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":18,"x":48,"text":"黄泉剑法","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"Microsoft YaHei","color":"#f2f2f2","align":"left"},
+                            "nodeParent":40,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
                 {
                     "type":"Button",
                     "props":{"y":87,"width":122,"stateNum":"2","skin":"image/juese/img_common_16_finish.png","height":134},
