@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.fuBen {
-	export class FuBenPanel extends ui.fuBen.FuBenPanelUI {
+	export class FuBen_MainPanel extends ui.fuBen.FuBen_MainPanelUI {
 		constructor() {
 			super();
 		}

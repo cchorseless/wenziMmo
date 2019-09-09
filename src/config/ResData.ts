@@ -97,8 +97,16 @@ module ResData {
         public static GuildRank = null;
         // 帮派实力排行界面
         public static GuildWaiJiao = null;
-        // 副本界面
-        public static FuBen = null;;
+        // 副本-剧情界面
+        public static FuBenMain = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
+        // 副本-日常界面
+
+        // 副本-历练界面
+        // 副本-限时界面
+
+
+
+
         // 世界地图界面
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 剧情对白界面
