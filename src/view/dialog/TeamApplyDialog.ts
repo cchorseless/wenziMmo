@@ -16,16 +16,16 @@ module view.dialog {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
-			// this.btn_teamApply.on(Laya.UIEvent.CLICK, this, () => {
-			// 	let pkt = new ProtoCmd.TeamAgreeJoinEncoder();
-			// 	pkt.getValue('szName', GameApp.MainPlayer.objName);
-			// 	pkt.getValue('btJob', GameApp.MainPlayer.job);
-			// 	pkt.getValue('dwLevel', GameApp.MainPlayer.level);
-			// 	pkt.getValue('btSex', GameApp.MainPlayer.sex);
-			// 	lcp.send(pkt, this, (data) => {
-			// 		let cbpkt = new ProtoCmd.TeamAgreeJoinDecoder(data);
-			// 	})
-			// })
+			this.btn_teamApply.on(Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.TeamAgreeJoinEncoder(null);
+				pkt.setValue('szName', GameApp.MainPlayer.objName);
+				pkt.setValue('btJob', GameApp.MainPlayer.job);
+				pkt.setValue('dwLevel', GameApp.MainPlayer.level);
+				pkt.setValue('btSex', GameApp.MainPlayer.sex);
+				lcp.send(pkt, this, (data) => {
+					let cbpkt = new ProtoCmd.TeamAgreeJoinDecoder(data);
+				})
+			})
 		}
 	}
 }

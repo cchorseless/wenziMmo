@@ -750,6 +750,8 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.WorldMap, 2);
         })
     }
+  
+     
     /**
      * 剧情模式界面
      */

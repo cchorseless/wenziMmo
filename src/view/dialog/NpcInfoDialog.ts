@@ -33,6 +33,27 @@ module view.dialog {
 				this.viw_bottom.selectedIndex = 3;
 				this.btn_return.visible = true;
 			});
+			// 切磋
+			this.btn_battle.on(Laya.UIEvent.CLICK, this, () => {
+				this.viw_bottom.selectedIndex = 4;
+				this.btn_return.visible = true;
+			});
+			// 偷袭
+			this.btn_touXi.on(Laya.UIEvent.CLICK, this, () => {
+				this.viw_bottom.selectedIndex = 5;
+				this.btn_return.visible = true;
+			});
+			// 偷窃
+			this.btn_touQie.on(Laya.UIEvent.CLICK, this, () => {
+			new view.dialog.NpcInfoTouQieDialog().popup();
+				this.btn_return.visible = true;
+			});
+			// 对话
+			this.btn_talk.on(Laya.UIEvent.CLICK, this, () => {
+		new view.dialog.NpcInfoTalkDialog().popup();
+				this.btn_return.visible = true;
+			});
+			
 		}
 
 		public initUI(): void {

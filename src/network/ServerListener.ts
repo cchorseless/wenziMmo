@@ -104,6 +104,11 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddQuery), this, this.addFriendAsk);
         // 回答关系添加结果(only 好友)
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddAnswerQuery), this, this.addFriendAskResult);
+        /***********************************组队相关********************************* */
+        //向队长发出申请
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeJoinEncoder), this, this.addTeamAsk);
+        //回答申请加入组队结果
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeJoinDecoder), this, this.allowTeam);
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
@@ -1105,7 +1110,6 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-        // let asks = new view.dialog.FriendNearbyDialog();
         let asks = new view.dialog.FriendCheckDialog();
         asks.setData(msg.getValue('szName'), msg.getValue('dwLevel')).popup(true);
     }
@@ -1121,6 +1125,27 @@ class ServerListener extends SingletonClass {
             TipsManage.showTips('添加失败');
         }
     }
+      /*******************************************************组队信息******************************************* */
+     /**
+    * 向队长发出询问
+    */
+    public addTeamAsk(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamAgreeJoinEncoder(data);
+        let asks = new view.dialog.TeamApplyCheckDialog();
+        asks.setData(msg).popup(true);
+    }
+     /**
+    * 回答申请加入队伍请求
+    */
+      public allowTeam(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamAgreeJoinDecoder(data);
+          if (msg.getValue('boAllow')) {
+            TipsManage.showTips( msg.getValue('szName')+'已成功加入您的队伍' );
+        }
+        else {
+            TipsManage.showTips('拒绝'+ msg.getValue('szName')+'加入');
+        }
+      }
     /*******************************************************行会信息******************************************* */
     /**
      * 同步行会信息

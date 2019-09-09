@@ -102,7 +102,7 @@ module ProtoCmd {
     // 申请加入队伍
     export class TeamAgreeJoinEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_ASKFORJOIN;
-        public cbPacket = TeamAgreeJoinDecoder
+        public cbPacket = TeamAgreeJoinEncoder
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//目标玩家名称
