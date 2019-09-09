@@ -16,9 +16,24 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
 			});
-			EventManage.onWithEffect(this.btn_mulu, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingInfoPanel();
+			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openMainPanel();
 			});
+
+			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			});
+			EventManage.onWithEffect(this.btn_yinDao, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openYinDaoPanel();
+			});
+			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openZhiNanPanel();
+			});
+			EventManage.onWithEffect(this.box_rankPrize, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.RankPrizeInfoDialog().setData().popup(true);
+			});
+
+
 		}
 	}
 }

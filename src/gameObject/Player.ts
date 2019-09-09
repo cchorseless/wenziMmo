@@ -303,7 +303,7 @@ module GameObject {
          */
         public startAttack(): void {
             TipsManage.showTips(this.objName + '正在攻击');
-            this.ui_item.playAni();
+            this.ui_item && this.ui_item.playAni();
         }
 
 
@@ -320,7 +320,7 @@ module GameObject {
          */
         public goDie(): void {
             TipsManage.showTips(this.objName + '死亡了');
-            this.ui_item.playAni(3, false)
+            this.ui_item && this.ui_item.playAni(3, false)
         }
     }
 }
