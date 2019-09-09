@@ -134,6 +134,10 @@ module view.main {
 			this.box_head.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.MainChangeDialog().popup(true);
 			});
+			// 路引弹窗
+			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.MainLuYinDialog().popup(true);
+			});
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				this.btn_mapBig.selected = !this.btn_mapBig.selected;
