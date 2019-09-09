@@ -28,6 +28,12 @@ module view.juQing {
 			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();
 			});
+			EventManage.onWithEffect(this.btn_yinDao, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openYinDaoPanel();
+			});
+			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openZhiNanPanel();
+			});
 
 		}
 

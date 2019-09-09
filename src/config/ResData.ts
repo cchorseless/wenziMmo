@@ -57,6 +57,10 @@ module ResData {
         public static JuQingInfo = [{ url: "res/atlas/image/juQing.atlas", type: Laya.Loader.ATLAS }];
         // 排行榜界面
         public static RankMain = null;
+        // 引导界面
+        public static YinDao = null;
+        // 指南界面
+        public static ZhiNan = null;
         // 主线任务界面
         public static Task_Main = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];
         // 日常任务界面
