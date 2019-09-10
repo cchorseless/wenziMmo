@@ -101,9 +101,9 @@ module view.main {
 					PanelManage.openGuildSelectPanel();
 				}
 			});
-			// 养成宅院
+			// 宅院
 			EventManage.onWithEffect(this.btn_zhaiYuan, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openYangChengPanel();
+				PanelManage.openZhaiYuanPanel();
 			});
 
 			// 聊天大窗

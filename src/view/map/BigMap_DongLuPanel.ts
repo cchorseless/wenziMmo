@@ -4,5 +4,8 @@ module view.map{
 		constructor(){
 			super();
 		}
+		public setData():void{
+			
+		}
 	}
 }

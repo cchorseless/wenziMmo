@@ -48,16 +48,20 @@ module PanelManage {
     export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
-    export let FuBenDaily:view.fuBen.FuBen_DailyPanel;//日常副本界面
-    export let FuBenLiLian:view.fuBen.FuBen_LiLianPanel;//历练副本界面
-    export let FuBenXianShi:view.fuBen.FuBen_XianShiPanel;//限时副本界面
+    export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
+    export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
+    export let FuBenXianShi: view.fuBen.FuBen_XianShiPanel;//限时副本界面
 
 
-    export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
+    export let ZhaiYuan: view.zhaiYuan.ZhaiYuanPanel;//养成界面
     export let Task_Main: view.task.Task_MainPanel;//主线任务界面
     export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
     export let Task_LiLian: view.task.Task_LiLianPanel;//历练任务界面
     export let Task_chengJiu: view.task.Task_ChengJiuPanel;//成就任务界面
+
+    export let NorthMap: view.map.BigMap_BeiLuPanel;//北陆地图界面
+    export let SouthMap: view.map.BigMap_NanLuPanel;//南陆地图界面
+    export let EastMap: view.map.BigMap_DongLuPanel;//东陆地图界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
     export let JuQingInfo: view.juQing.JuQingInfoPanel;//手册界面
@@ -337,19 +341,19 @@ module PanelManage {
 
 
     /**
-     * 养成界面
+     * 宅院界面
      */
-    export function openYangChengPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.YangCheng) {
+    export function openZhaiYuanPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhaiYuan) {
             return
         }
-        PopUpManager.checkPanel(PanelManage.YangCheng);
-        ResManage.loadResource(ResData.PanelRes.YangCheng, () => {
-            PanelManage.YangCheng = new view.yangCheng.YangChengPanel();
-            PanelManage.YangCheng['LCP_skin'] = ResData.PanelRes.YangCheng;
-            PanelManage.YangCheng.setData();
-            PanelManage.YangCheng.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.YangCheng, 1, 0, 2);
+        PopUpManager.checkPanel(PanelManage.ZhaiYuan);
+        ResManage.loadResource(ResData.PanelRes.ZhaiYuan, () => {
+            PanelManage.ZhaiYuan = new view.zhaiYuan.ZhaiYuanPanel();
+            PanelManage.ZhaiYuan['LCP_skin'] = ResData.PanelRes.ZhaiYuan;
+            PanelManage.ZhaiYuan.setData();
+            PanelManage.ZhaiYuan.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhaiYuan, 1);
         })
     }
     /**
@@ -707,8 +711,8 @@ module PanelManage {
     /**
      * 每日副本界面
      */
-    export function openFuBenDailyPanel():void{
-         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenDaily) {
+    export function openFuBenDailyPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenDaily) {
             return
         }
         PopUpManager.checkPanel(PanelManage.FuBenDaily);
@@ -724,8 +728,8 @@ module PanelManage {
     /**
      * 历练副本界面
      */
-    export function openFuBenLiLianPanel():void{
-         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenLiLian) {
+    export function openFuBenLiLianPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenLiLian) {
             return
         }
         PopUpManager.checkPanel(PanelManage.FuBenLiLian);
@@ -741,8 +745,8 @@ module PanelManage {
     /**
      * 限时副本界面
      */
-    export function openFuBenXianShiPanel():void{
-         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenXianShi) {
+    export function openFuBenXianShiPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenXianShi) {
             return
         }
         PopUpManager.checkPanel(PanelManage.FuBenXianShi);
@@ -829,8 +833,54 @@ module PanelManage {
 
 
     }
-
-
+    /**
+     * 北陆地图界面
+     */
+    export function openNorthMapPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NorthMap) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.NorthMap);
+        ResManage.loadResource(ResData.PanelRes.NorthMap, () => {
+            PanelManage.NorthMap = new view.map.BigMap_BeiLuPanel();
+            PanelManage.NorthMap['LCP_skin'] = ResData.PanelRes.NorthMap;
+            PanelManage.NorthMap.setData();
+            PanelManage.NorthMap.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.NorthMap, 2);
+        })
+    }
+    /**
+     * 南陆地图界面
+     */
+    export function openSouthMapPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.SouthMap) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.SouthMap);
+        ResManage.loadResource(ResData.PanelRes.SouthMap, () => {
+            PanelManage.SouthMap = new view.map.BigMap_NanLuPanel();
+            PanelManage.SouthMap['LCP_skin'] = ResData.PanelRes.SouthMap;
+            PanelManage.SouthMap.setData();
+            PanelManage.SouthMap.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.SouthMap, 2);
+        })
+    }
+    /**
+     * 东陆地图界面
+     */
+    export function openEastMapPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.EastMap) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.EastMap);
+        ResManage.loadResource(ResData.PanelRes.EastMap, () => {
+            PanelManage.EastMap = new view.map.BigMap_DongLuPanel();
+            PanelManage.EastMap['LCP_skin'] = ResData.PanelRes.EastMap;
+            PanelManage.EastMap.setData();
+            PanelManage.EastMap.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.EastMap, 3);
+        })
+    }
 
 
     /**
@@ -846,11 +896,11 @@ module PanelManage {
             PanelManage.WorldMap['LCP_skin'] = ResData.PanelRes.WorldMap;
             PanelManage.WorldMap.setData();
             PanelManage.WorldMap.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.WorldMap, 2);
+            PopUpManager.addPanel(PanelManage.WorldMap, 3);
         })
     }
-  
-     
+
+
     /**
      * 剧情模式界面
      */

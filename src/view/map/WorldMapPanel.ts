@@ -5,27 +5,26 @@ module view.map {
 			super();
 
 		}
-		//UI 界面状态
-		public popState = 0;
 		public setData(): void {
-			this.panel_worldMap.hScrollBarSkin = '';
-			this.panel_worldMap.vScrollBarSkin = '';
-			this.panel_worldMap.scrollTo(100);
+			this.panel_0.hScrollBarSkin = '';
+			this.panel_0.vScrollBarSkin = '';
+			this.panel_0.scrollTo(100);
 			// this.panel_worldMap.vScrollBarSkin = this.panel_worldMap.hScrollBarSkin = ''	
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				switch (this.popState) {
-					case 0:
-						PopUpManager.checkPanel(this);
-						break;
-					case 1:
-						break;
-					case 2:
-						break;
-				}
-			});
+			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
+			})
+			EventManage.onWithEffect(this.btn_eastLand, Laya.UIEvent.CLICK, this, () => {
+				// PanelManage.openEastMapPanel()
+			})
+			EventManage.onWithEffect(this.btn_northMap, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openNorthMapPanel()
+			})
+			EventManage.onWithEffect(this.btn_southLand, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openSouthMapPanel()
+			})
 		}
 
 	}

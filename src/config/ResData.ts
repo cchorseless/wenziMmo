@@ -47,8 +47,8 @@ module ResData {
         public static HeDao = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 生活技能
         public static LifeSkill = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
-        // 养成界面
-        public static YangCheng = [{ url: "res/atlas/image/yangCheng.atlas", type: Laya.Loader.ATLAS }];;
+        // 宅院界面
+        public static ZhaiYuan = [{ url: "res/atlas/image/zhaiYuan.atlas", type: Laya.Loader.ATLAS }];;
         // 背包界面
         public static BeiBao = [{ url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }];;
         // 社交江湖界面
@@ -105,10 +105,15 @@ module ResData {
         public static FuBenLiLian = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 副本-限时界面
         public static FuBenXianShi = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
-
-
-
-
+        // 北陆地图
+        public static NorthMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
+        ];;
+        // 南陆地图
+        public static SouthMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
+                { url: "res/atlas/image/map/southland.atlas", type: Laya.Loader.ATLAS },];;
+        // 东陆地图
+        public static EastMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
         public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 剧情对白界面
