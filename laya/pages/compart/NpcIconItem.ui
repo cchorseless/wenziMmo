@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":11,
+    "selecteID":12,
     "props":{"y":0,"x":0,"width":100,"sceneColor":"#827171","height":110},
     "nodeParent":-1,
     "label":"View",
@@ -69,34 +69,35 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":6,"skin":"image/common/frame_touxinag.png"},
+            "props":{"y":11,"x":6,"skin":"image/common/frame_touxinag.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":11,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":14,"x":21,"var":"img_avatarPic","skin":"image/common/img_touxiang.png"},
-                    "nodeParent":11,
-                    "label":"Image(img_avatarPic)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                }],
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":-13,"x":-9,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1004.png"},
+            "nodeParent":1,
+            "label":"Image(img_avatarPic)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":1,"x":-3,"var":"lbl_zuoBiao","text":"(10,8)","right":0,"left":-3,"height":24,"fontSize":18,"color":"#443030","bottom":85,"align":"center"},
+            "props":{"y":1,"x":-2,"var":"lbl_zuoBiao","text":"(10,8)","right":0,"left":-3,"height":24,"fontSize":18,"color":"#443030","bottom":85,"align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_zuoBiao)",
             "isDirectory":false,
