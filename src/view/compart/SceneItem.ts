@@ -41,8 +41,8 @@ module view.compart {
 			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
-			// 世界地图界面
-			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
+			// 当前地图界面
+			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
 		}
 
 		/**
