@@ -37,7 +37,7 @@ module view.juQingMode {
 
 			// 副本
 			EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenPanel()
+				PanelManage.openFuBenMainPanel()
 			});
 
 			// 图谱

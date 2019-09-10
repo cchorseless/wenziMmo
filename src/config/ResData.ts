@@ -100,9 +100,11 @@ module ResData {
         // 副本-剧情界面
         public static FuBenMain = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 副本-日常界面
-
+        public static FuBenDaily = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 副本-历练界面
+        public static FuBenLiLian = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 副本-限时界面
+        public static FuBenXianShi = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
 
 
 

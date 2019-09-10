@@ -47,7 +47,12 @@ module PanelManage {
     export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
     export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
     export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
-    export let FuBenMain: view.fuBen.FuBen_MainPanel;//副本界面
+    export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
+    export let FuBenDaily:view.fuBen.FuBen_DailyPanel;//日常副本界面
+    export let FuBenLiLian:view.fuBen.FuBen_LiLianPanel;//历练副本界面
+    export let FuBenXianShi:view.fuBen.FuBen_XianShiPanel;//限时副本界面
+
+
     export let YangCheng: view.yangCheng.YangChengPanel;//养成界面
     export let Task_Main: view.task.Task_MainPanel;//主线任务界面
     export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
@@ -683,9 +688,9 @@ module PanelManage {
 
 
     /**
-     * 副本界面
+     * 主线副本界面
      */
-    export function openFuBenPanel(): void {
+    export function openFuBenMainPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenMain) {
             return
         }
@@ -698,6 +703,62 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.FuBenMain, 2, 0, 2);
         })
     }
+
+    /**
+     * 每日副本界面
+     */
+    export function openFuBenDailyPanel():void{
+         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenDaily) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.FuBenDaily);
+        ResManage.loadResource(ResData.PanelRes.FuBenDaily, () => {
+            PanelManage.FuBenDaily = new view.fuBen.FuBen_DailyPanel();
+            PanelManage.FuBenDaily['LCP_skin'] = ResData.PanelRes.FuBenDaily;
+            PanelManage.FuBenDaily.setData();
+            PanelManage.FuBenDaily.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenDaily, 2, 0, 2);
+        })
+    }
+
+    /**
+     * 历练副本界面
+     */
+    export function openFuBenLiLianPanel():void{
+         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenLiLian) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.FuBenLiLian);
+        ResManage.loadResource(ResData.PanelRes.FuBenLiLian, () => {
+            PanelManage.FuBenLiLian = new view.fuBen.FuBen_LiLianPanel();
+            PanelManage.FuBenLiLian['LCP_skin'] = ResData.PanelRes.FuBenDaily;
+            PanelManage.FuBenLiLian.setData();
+            PanelManage.FuBenLiLian.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenLiLian, 2, 0, 2);
+        })
+    }
+
+    /**
+     * 限时副本界面
+     */
+    export function openFuBenXianShiPanel():void{
+         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenXianShi) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.FuBenXianShi);
+        ResManage.loadResource(ResData.PanelRes.FuBenXianShi, () => {
+            PanelManage.FuBenXianShi = new view.fuBen.FuBen_XianShiPanel();
+            PanelManage.FuBenXianShi['LCP_skin'] = ResData.PanelRes.FuBenXianShi;
+            PanelManage.FuBenXianShi.setData();
+            PanelManage.FuBenXianShi.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenXianShi, 2, 0, 2);
+        })
+    }
+
+
+
+
+
     /**
      * 剧情进度界面
      */

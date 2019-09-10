@@ -323,6 +323,20 @@ module EnumData {
         NP_POS_10_5,
     };
 
+    /**
+     *  //角色属性 改变通知枚举
+    // 0x0237
+     */
+    export enum eEXP_VALUE_TYPE {
+        EXP_VALUE_TYPE_PLAYER,//角色
+        EXP_VALUE_TYPE_HERO,//弟子
+        EXP_VALUE_TYPE_BOSS,//boss积分
+        EXP_VALUE_TYPE_HEALTH,//健康
+        EXP_VALUE_TYPE_SPITIT,//精神
+        EXP_VALUE_TYPE_TILI,//体力
+        EXP_VALUE_TYPE_PRETTY,//颜值
+        EXP_VALUE_TYPE_MOOD,//心情
+    };
 
     /**
      * 属性类型
