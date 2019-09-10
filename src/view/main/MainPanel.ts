@@ -21,7 +21,7 @@ module view.main {
 				}
 				else {
 					this.img_npc.visible = true;
-					Laya.Tween.to(this.cek_showNpc, { x: 110 }, 500, Laya.Ease.bounceOut);
+					Laya.Tween.to(this.cek_showNpc, { x: 96 }, 500, Laya.Ease.bounceOut);
 					Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
 					this.ui_scene.changeToSmall();
 				}

@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
-module view.wuXue{
-	export class WuXueWaiGongPanel extends ui.wuXue.WuXueWaiGongPanelUI{
-		constructor(){
+module view.wuXue {
+	export class WuXueWaiGongPanel extends ui.wuXue.WuXueWaiGongPanelUI {
+		constructor() {
 			super();
 		}
 
@@ -31,7 +31,10 @@ module view.wuXue{
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueHeDaoPanel();
 			});
-
+			//技能更换
+			this.btn_waigongChange.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.WuXueWaigongDialog().popup(true);
+			})
 		}
 	}
 }
