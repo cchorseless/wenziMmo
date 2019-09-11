@@ -64,9 +64,9 @@ module view.main {
 			// 战斗力
 			this.clip_power.value = '' + _player.ability.nFight;
 			// 节气
-			this.btn_jieQi.label = '' + this.getJieQi();
+			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
-			this.btn_shiChen.label = '' + this.getShiChen();
+			this.lbl_shiChen.text = '' + this.getShiChen();
 			this.addEvent();
 			this.updateUI();
 		}
@@ -123,11 +123,11 @@ module view.main {
 			});
 
 			// 时辰界面
-			this.btn_shiChen.on(Laya.UIEvent.CLICK, this, () => {
+			this.lbl_shiChen.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.TimeDialog().setData(null).popup(true);
 			});
 			// 节气界面
-			this.btn_jieQi.on(Laya.UIEvent.CLICK, this, () => {
+			this.lbl_jieQi.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SeasonDialog().setData(null).popup(true);
 			});
 			// 换头像界面
