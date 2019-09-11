@@ -689,4 +689,51 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 接收服务器存档
+     */
+    export class RecvTypeKeyValue extends Packet {
+        public static msgID: number = 0x02B9;//185
+        public values = [];
+        public count:number = 0;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('count', PacketBase.TYPE_INT);
+            this.read(data);
+        }
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            this.count = this.getValue('count');
+            if (this.count > 0) {
+                for (let i: number = 0; i < this.count; ++i) {
+                    this.values[i] = new TypeKeyValue(data);
+                    console.log('RecvTypeKeyValue-->>', this.values[i].getValue('type'), this.values[i].getValue('key'), this.values[i].getValue('value'))
+                }
+            }
+            return 0;
+        }
+
+        public clear(): void {
+            super.clear();
+            for (let i: number = 0; i < this.values.length; ++i) {
+                this.values[i].clear();
+                this.values[i] = null;
+            }
+            this.values.length = 0;
+            this.values = null;
+        }
+    }
+
+    /**
+     * 有则更新，没则增加
+     */
+    export class AddTypeKeyValue extends Packet {
+        public static msgID: number = 0x02BA;//186
+        public value: TypeKeyValue = new TypeKeyValue();
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('value', PacketBase.TYPE_BYTES, this.value.size(), this.value);
+            this.read(data)
+        }
+    }
 }
