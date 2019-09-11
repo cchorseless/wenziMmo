@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":157,
+    "selectedBox":62,
+    "selecteID":153,
     "props":{"width":567,"sceneColor":"#ca6665","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -73,13 +73,14 @@
             "props":{"y":41,"x":253,"width":303,"skin":"image/juese/bottom_renwushuju.png","sizeGrid":"23,25,25,24","height":320},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":62,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":19,"x":46,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":62,
@@ -105,6 +106,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":70,"x":38,"width":105,"text":"需要钱财：","strokeColor":"#000000","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":62,
@@ -117,6 +119,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":104,"x":38,"width":105,"text":"需要阅历：","strokeColor":"#000000","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":62,
@@ -129,6 +132,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":104,"x":148,"width":105,"text":"99999999","strokeColor":"#000000","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":62,
@@ -141,6 +145,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":138,"x":38,"width":105,"text":"心境增加：","strokeColor":"#000000","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":62,
@@ -153,6 +158,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":138,"x":148,"width":105,"text":"151515","strokeColor":"#000000","height":27,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":62,
@@ -165,6 +171,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":187,"x":51,"width":207,"skin":"image/common/img_Resource support_di11.png","sizeGrid":"0,60,0,45","height":43},
                     "nodeParent":62,
@@ -176,6 +183,7 @@
                     "compId":148,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":6,"x":32,"width":104,"valign":"bottom","text":"返璞归真","strokeColor":"#000000","stroke":4,"height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":148,
@@ -188,6 +196,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":118,"width":73,"valign":"bottom","text":"（3/3）","strokeColor":"#000000","stroke":4,"height":22,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":148,
@@ -202,10 +211,11 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":237,"x":81,"width":140,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"突破转生","height":59},
+                    "props":{"y":237,"x":81,"width":140,"var":"btn_zhuanSheng","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"突破转生","height":59},
                     "nodeParent":62,
-                    "label":"Button",
+                    "label":"Button(btn_zhuanSheng)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,

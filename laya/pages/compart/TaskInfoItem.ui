@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":7,
-    "selecteID":53,
-    "props":{"width":620,"sceneColor":"#823d3c","height":680},
+    "selectedBox":1,
+    "selecteID":56,
+    "props":{"width":620,"sceneColor":"#823d3c","height":710},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,128 +15,100 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":620,"var":"img_taskInfo","top":0,"skin":"image/common/fram_common_28.png","sizeGrid":"0,34,22,46","right":0,"left":0,"height":135},
+            "props":{"y":-2,"x":5,"width":609,"var":"img_taskInfo","skin":"image/common/fram_common_11.png","sizeGrid":"23,18,28,55","height":114},
             "nodeParent":1,
             "label":"Image(img_taskInfo)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":7,
+            "compId":56,
             "child":[
                 {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":65,"x":314,"text":"（5/10）","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":7,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":65,"x":119,"width":202,"text":"前往新手村击杀蜘蛛","height":22,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":7,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":20,"x":115,"text":"支线：任务名称名称","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":7,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":21,"x":329,"text":"(未完成）","fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":7,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":20,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":12,"width":77,"text":"已追踪","height":22,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":7,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":29,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":27,"x":482,"width":128,"skin":"image/common/fram_common_09.png","height":45},
-                    "nodeParent":7,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":14,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":8,"x":24,"text":"前往","fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":14,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":15,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":44,"x":9,"width":89,"skin":"image/common/icon_baoxiang04.png","height":82},
-                    "nodeParent":7,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":91,"x":519,"width":60,"var":"btn_selected","stateNum":"2","skin":"image/task/button_jiantou.png","height":30},
-                    "nodeParent":7,
+                    "props":{"y":42,"x":490,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"前 往"},
+                    "nodeParent":56,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":58,"x":450,"width":22,"var":"btn_selected","stateNum":"2","skin":"image/common/button_jiantou.png","height":22},
+                    "nodeParent":56,
                     "label":"Button(btn_selected)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":53,
+                    "compId":58,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":14,"x":511,"text":"已追踪","fontSize":20,"font":"Microsoft YaHei","color":"#179a0d"},
+                    "nodeParent":56,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":59,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":22,"x":127,"width":96,"text":"除魔任务","strokeColor":"#000000","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#5b3816","bold":true},
+                    "nodeParent":56,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":60,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":22,"x":225,"width":96,"text":"（5/10）","strokeColor":"#000000","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#a53232","bold":true},
+                    "nodeParent":56,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":61,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":61,"x":129,"width":239,"text":"前往新手村击杀蜘蛛可领取","strokeColor":"#000000","height":30,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                    "nodeParent":56,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":62,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":13,"x":24,"skin":"image/task/icon_baoxiang.png"},
+                    "nodeParent":56,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":63,
                     "child":[
                         ]
                 }]
@@ -144,167 +116,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":137,"x":20,"width":580,"var":"img_taskInfoMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"11,14,16,13","height":537},
+            "props":{"y":119,"x":1,"width":617,"var":"img_taskInfoMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"11,14,16,13","height":592},
             "nodeParent":1,
             "label":"Image(img_taskInfoMore)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":30,
             "child":[
                 {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":188,"x":18,"width":124,"text":"任务条件","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":32,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":102,"x":62,"width":184,"text":"委托人：阎罗王","height":26,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":33,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":13,"x":156,"width":267,"text":"任务名称名称","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true,"align":"center"},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":34,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":62,"x":15,"width":140,"text":"任务描述","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":35,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":130,"x":64,"wordWrap":true,"width":492,"text":"说明：阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王","height":54,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":36,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":234,"x":67,"width":184,"text":"交付NPC：阎罗王","height":26,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":37,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":272,"x":68,"wordWrap":true,"width":492,"text":"任务目标：前往【酆都】，找到小鬼，并跟他对话","height":40,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":38,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":10,"x":17,"width":140,"text":"任务章节","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":39,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":10,"x":524,"width":54,"stateNum":"2","skin":"image/task/frame_choose_finish.png","labelSize":30,"labelPadding":"0,0,0,-70","labelFont":"Microsoft YaHei","labelColors":"#ffffff","label":"追踪","height":47},
-                    "nodeParent":30,
-                    "label":"Button",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":44,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":306,"x":176,"wordWrap":true,"width":160,"text":"小鬼（0/1）","height":40,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":45,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":322,"x":19,"width":140,"text":"任务奖励","height":44,"fontSize":30,"font":"Microsoft YaHei","color":"#000000","bold":true},
-                    "nodeParent":30,
-                    "label":"Label",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":46,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":368,"x":54},
+                    "props":{"y":379,"x":73,"scaleY":1.21,"scaleX":1.21},
                     "nodeParent":30,
                     "label":"UIView",
                     "isDirectory":false,
@@ -315,10 +139,9 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":368,"x":176},
+                    "props":{"y":379,"x":198,"scaleY":1.21,"scaleX":1.21},
                     "nodeParent":30,
                     "label":"UIView",
                     "isDirectory":false,
@@ -329,10 +152,9 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":368,"x":299},
+                    "props":{"y":379,"x":323,"scaleY":1.21,"scaleX":1.21},
                     "nodeParent":30,
                     "label":"UIView",
                     "isDirectory":false,
@@ -343,10 +165,9 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":368,"x":421},
+                    "props":{"y":379,"x":448,"scaleY":1.21,"scaleX":1.21},
                     "nodeParent":30,
                     "label":"UIView",
                     "isDirectory":false,
@@ -357,9 +178,8 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":482,"x":87,"width":126,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelPadding":"-5","labelFont":"24","labelColors":"#ffffff,#000000","labelAlign":"center","label":"放弃任务","height":45},
+                    "props":{"y":522,"x":148,"width":141,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"-5","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"放弃任务","height":59},
                     "nodeParent":30,
                     "label":"Button",
                     "isDirectory":false,
@@ -367,12 +187,12 @@
                     "hasChild":false,
                     "compId":51,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":480,"x":370,"width":126,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelPadding":"-5","labelFont":"24","labelColors":"#ffffff,#000000","labelAlign":"center","label":"前往","height":45},
+                    "props":{"y":522,"x":340,"width":141,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"-5","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"前往","height":59},
                     "nodeParent":30,
                     "label":"Button",
                     "isDirectory":false,
@@ -381,7 +201,227 @@
                     "compId":52,
                     "child":[
                         ]
-                }]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":56,"x":52,"width":76,"text":"委托人：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":65,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":55,"x":141,"width":68,"text":"阎罗王","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":66,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":88,"x":53,"width":76,"text":"说   明：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":67,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":89,"x":139,"wordWrap":true,"width":441,"text":"阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王。","height":74,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":68,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":218,"x":52,"width":103,"text":"交付NPC：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":69,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":218,"x":164,"width":68,"text":"阎罗王","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":70,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":250,"x":162,"wordWrap":true,"width":347,"text":"前往酆都，找到小鬼，并跟他对话","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":71,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":7,"x":581,"var":"btn_zhuiZong","stateNum":"2","skin":"image/common/frame_choose_finish.png","labelSize":22,"labelPadding":"-5,0,0,-48","labelFont":"Microsoft YaHei","labelColors":"#000000,#000000","label":"追踪"},
+                    "nodeParent":30,
+                    "label":"Button(btn_zhuiZong)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":72,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":283,"x":163,"wordWrap":true,"width":136,"text":"小鬼（0/1）","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":73,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":326,"x":10,"skin":"image/common/bottom_smalltitle.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":74,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":2,"x":20,"text":"任务奖励","strokeColor":"#000000","stroke":4,"fontSize":30,"color":"#ffffff"},
+                            "nodeParent":74,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":79,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":164,"x":11,"skin":"image/common/bottom_smalltitle.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":75,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":5,"x":20,"text":"任务条件","strokeColor":"#000000","stroke":4,"fontSize":30,"color":"#ffffff"},
+                            "nodeParent":75,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":80,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":8,"x":14,"skin":"image/common/bottom_smalltitle.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":76,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":3,"x":17,"text":"任务描述","strokeColor":"#000000","stroke":4,"fontSize":30,"color":"#ffffff"},
+                            "nodeParent":76,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":81,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":251,"x":53,"width":103,"text":"任务目标：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":77,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":284,"x":53,"width":103,"text":"任务进度：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":30,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":78,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

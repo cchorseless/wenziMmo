@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
-module view.wuXue{
-	export class WuXueLifeSkillPanel extends ui.wuXue.WuXueLifeSkillPanelUI{
-		constructor(){
+module view.wuXue {
+	export class WuXueLifeSkillPanel extends ui.wuXue.WuXueLifeSkillPanelUI {
+		constructor() {
 			super();
 		}
 
@@ -31,7 +31,10 @@ module view.wuXue{
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueHeDaoPanel();
 			});
-
+			// 鱼种预览
+			this.btn_fishView.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.WuXueFishDialog().popup(true);
+			});
 		}
 	}
 }

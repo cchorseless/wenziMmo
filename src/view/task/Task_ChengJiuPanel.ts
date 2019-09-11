@@ -5,13 +5,29 @@ module view.task {
 			super();
 		}
 		public setData(): void {
-
-			this.panel_0.hScrollBarSkin = '';
-			this.tab_0.labels = '传奇生涯,累计登录,角色成长,降妖除魔,强化装备,魂石天赋,罡气护体,龙魂血盾,隐藏成就';
-			this.updateUI();
-			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
+			this.panel_top.hScrollBarSkin = '';
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.updateUI(index);
 			}, null, false);
+			this.panel_0.vScrollBarSkin = '';
+			this.vbox_0['sortItem'] = (items) => { };
+			this.panel_1.vScrollBarSkin = '';
+			this.vbox_1['sortItem'] = (items) => { };
+			this.panel_2.vScrollBarSkin = '';
+			this.vbox_2['sortItem'] = (items) => { };
+			this.panel_3.vScrollBarSkin = '';
+			this.vbox_3['sortItem'] = (items) => { };
+			this.panel_4.vScrollBarSkin = '';
+			this.vbox_4['sortItem'] = (items) => { };
+			this.panel_5.vScrollBarSkin = '';
+			this.vbox_5['sortItem'] = (items) => { };
+			this.panel_6.vScrollBarSkin = '';
+			this.vbox_6['sortItem'] = (items) => { };
+			this.panel_7.vScrollBarSkin = '';
+			this.vbox_7['sortItem'] = (items) => { };
+			this.panel_8.vScrollBarSkin = '';
+			this.vbox_8['sortItem'] = (items) => { };
+
 			this.addEvent()
 		}
 		public addEvent(): void {
