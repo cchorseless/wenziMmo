@@ -27,7 +27,7 @@ module view.task {
 			this.vbox_7['sortItem'] = (items) => { };
 			this.panel_8.vScrollBarSkin = '';
 			this.vbox_8['sortItem'] = (items) => { };
-
+			this.updateUI();
 			this.addEvent()
 		}
 		public addEvent(): void {
