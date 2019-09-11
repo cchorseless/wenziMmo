@@ -891,4 +891,16 @@ module EnumData {
         FAR_ATTACK,			//远程
         SELF_ATTACK,		//自身
     };
+
+    //图鉴类型枚举
+    export enum emSaveKeyValueType {
+        SAVE_KEY_VALUE_TYPE_TUJIAN_CRET,	//角色图鉴
+        SAVE_KEY_VALUE_TYPE_TUJIAN_MAP,		//地图图鉴
+        SAVE_KEY_VALUE_TYPE_TUJIAN_EVENT,	//事件图鉴
+        SAVE_KEY_VALUE_TYPE_TUJIAN_ITEM,	//物品图鉴
+
+        SAVE_KEY_VALUE_TYPE_MAX,
+
+    };
+
 }

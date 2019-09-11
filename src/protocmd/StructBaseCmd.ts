@@ -3266,5 +3266,16 @@ module ProtoCmd {
         }
     }
 
-
+    // *****************************服务器 type key value 通用存档值*******************************************
+    export class TypeKeyValue extends PacketBase {
+        constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('type', PacketBase.TYPE_BYTE);     //类型
+            this.addProperty('key', PacketBase.TYPE_DWORD);		//key
+            this.addProperty('value', PacketBase.TYPE_DWORD);	//value
+            if (data) {
+                data.pos += this.read(data);	//修改偏移
+            }
+        }
+    }
 }

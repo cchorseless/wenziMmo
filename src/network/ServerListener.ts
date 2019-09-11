@@ -134,6 +134,9 @@ class ServerListener extends SingletonClass {
         // 首次充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_weichongzhidialog, this, this.openPanel, [ProtoCmd.CZ_weichongzhidialog]);
 
+         // 监听图鉴信息
+         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
+            
         // 初始化标记
         this.hasInit = true;
     }
@@ -1305,5 +1308,10 @@ class ServerListener extends SingletonClass {
         }
     }
 
+    public recvTypeKeyValue(data:any):void {
+        let msg = new ProtoCmd.RecvTypeKeyValue(data);
+        
+        msg.clear();
+    }
 }
 
