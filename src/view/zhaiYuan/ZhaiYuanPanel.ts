@@ -7,7 +7,7 @@ module view.zhaiYuan {
 		public setData(): void {
 			this.panel_shiWai.hScrollBarSkin = '';
 			this.panel_yiLou.hScrollBarSkin = '';
-
+			this.panel_shiWai.scrollTo(640, 0)
 			this.initSkeBone();
 			this.addEvent();
 		}
@@ -30,12 +30,7 @@ module view.zhaiYuan {
 			// });
 		}
 		public addEvent(): void {
-			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel()
-			})
-			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel();
-			});
+
 			EventManage.onWithEffect(this.box_shiNei, Laya.UIEvent.CLICK, this, () => {
 				this.viw_0.selectedIndex = 1;
 			});
@@ -49,6 +44,19 @@ module view.zhaiYuan {
 				this.viw_0.selectedIndex = 1;
 			});
 
+			EventManage.onWithEffect(this.box_back, Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
+			});
+
+			// 荷花池
+			EventManage.onWithEffect(this.box_heHuaChi, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.ZhaiYuan_yangYuDialog().setData().popup(true);
+			});
+
+			// 炼器
+			EventManage.onWithEffect(this.box_lianQi, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.ZhaiYuan_lianQiDialog().setData().popup(true);
+			});
 		}
 	}
 }
