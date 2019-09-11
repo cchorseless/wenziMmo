@@ -45,15 +45,15 @@ module view.dialog {
 			});
 			// 偷窃
 			this.btn_touQie.on(Laya.UIEvent.CLICK, this, () => {
-			new view.dialog.NpcInfoTouQieDialog().popup();
+				new view.dialog.NpcInfoTouQieDialog().popup();
 				this.btn_return.visible = true;
 			});
 			// 对话
 			this.btn_talk.on(Laya.UIEvent.CLICK, this, () => {
-		new view.dialog.NpcInfoTalkDialog().popup();
+				new view.dialog.NpcInfoTalkDialog().popup();
 				this.btn_return.visible = true;
 			});
-			
+
 		}
 
 		public initUI(): void {
@@ -69,10 +69,8 @@ module view.dialog {
 			this.lbl_npcDes1.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES2(configId);
 			let nickName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_NICKNAME(configId);
 			let commonName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(configId);
-			if (nickName) {
-				commonName += '(' + nickName + ')';
-			}
 			this.lbl_npcName.text = commonName;
+			if (nickName) { this.lbl_nickname.text = '(' + nickName + ')'; }
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {
