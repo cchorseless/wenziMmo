@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":63,
-    "selecteID":19,
+    "selectedBox":1,
+    "selecteID":62,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -97,9 +97,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":334,"x":72,"width":101,"text":"（布衣剑士）","height":25,"fontSize":18,"font":"Microsoft YaHei","color":"#010101","align":"left"},
+            "props":{"y":334,"x":72,"width":101,"var":"lbl_nickname","height":25,"fontSize":18,"font":"Microsoft YaHei","color":"#010101","align":"left"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_nickname)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -338,14 +338,13 @@
                     "props":{"y":72,"x":39,"name":"item0"},
                     "nodeParent":28,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":63,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":348,"var":"btn_task","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"任务"},
                             "nodeParent":63,
@@ -358,7 +357,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"var":"btn_info","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"详细信息"},
                             "nodeParent":63,
@@ -371,7 +369,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":73,"x":170,"var":"btn_touXi","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"偷袭"},
                             "nodeParent":63,
@@ -384,7 +381,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":170,"var":"btn_talk","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"对话"},
                             "nodeParent":63,
@@ -397,7 +393,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":73,"x":348,"var":"btn_touQie","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"偷窃"},
                             "nodeParent":63,
@@ -410,7 +405,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":73,"var":"btn_battle","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"切磋"},
                             "nodeParent":63,
@@ -698,14 +692,13 @@
                     "props":{"y":29,"x":44,"name":"item2"},
                     "nodeParent":28,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":44,
                     "child":[
                         {
-                            "x":45,
                             "type":"HBox",
                             "props":{"y":41,"width":400,"var":"hbox_gift","height":100},
                             "nodeParent":44,
@@ -718,7 +711,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":-8,"x":198,"width":142,"text":"背包内礼物","height":25,"fontSize":25,"font":"FZXK","color":"#000000","bold":true,"align":"left"},
                             "nodeParent":44,
