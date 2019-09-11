@@ -30,6 +30,10 @@ module view.wuXue {
 			this.btn_lifeSkill.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueLifeSkillPanel();
 			});
+			//转生突破
+			this.btn_zhuanSheng.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.HeroZhuanShengDialog().popup(true);
+			})
 
 		}
 	}

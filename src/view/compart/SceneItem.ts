@@ -41,15 +41,15 @@ module view.compart {
 			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
-			// 世界地图界面
-			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openWorldMapPanel() });
+			// 当前地图界面
+			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
 		}
 
 		/**
 		 * 展开
 		 */
 		public changeToBig(): void {
-			Laya.Tween.to(this, { left: 5 }, 500, Laya.Ease.bounceOut);
+			Laya.Tween.to(this, { left: 0 }, 500, Laya.Ease.bounceOut);
 			Laya.Tween.to(this.panel_player, { left: 10 }, 500, null, null, null, true);
 			Laya.Tween.to(this.panel_monster, { left: 10 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_monster01, { space: 30 }, 500, null, null, null, true);
@@ -63,7 +63,7 @@ module view.compart {
 		 * 缩小
 		 */
 		public changeToSmall(): void {
-			Laya.Tween.to(this, { left: 115 }, 500, Laya.Ease.bounceOut);
+			Laya.Tween.to(this, { left: 100 }, 500, Laya.Ease.bounceOut);
 			Laya.Tween.to(this.panel_player, { left: 0 }, 500, null, null, null, true);
 			Laya.Tween.to(this.panel_monster, { left: 0 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_monster01, { space: 1 }, 500, null, null, null, true);

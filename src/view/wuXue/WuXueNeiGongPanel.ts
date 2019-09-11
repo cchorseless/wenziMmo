@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
-module view.wuXue{
-	export class WuXueNeiGongPanel extends ui.wuXue.WuXueNeiGongPanelUI{
-		constructor(){
+module view.wuXue {
+	export class WuXueNeiGongPanel extends ui.wuXue.WuXueNeiGongPanelUI {
+		constructor() {
 			super();
 		}
-	
+
 		public setData(): void {
 			this.addEvent();
 		}
@@ -31,7 +31,10 @@ module view.wuXue{
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueHeDaoPanel();
 			});
-
+			//内功更换
+			this.btn_neigongChange.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.WuXueNeigongDialog().popup(true);
+			})
 		}
 	}
 }

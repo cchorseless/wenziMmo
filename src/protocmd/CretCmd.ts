@@ -263,14 +263,15 @@ module ProtoCmd {
         }
     }
 
-    //经验 改变通知
+    //角色属性 改变通知
+    // 0x0237
     export class CretExpChange extends Packet {
         public static msgID: number = 0x0237;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('i64Exp', PacketBase.TYPE_INT64);// 8 当前经验 
             this.addProperty('dwAdd', PacketBase.TYPE_INT64);// 8 增加的经验 
-            this.addProperty("nType", PacketBase.TYPE_BYTE);//0 player, 1 hero, 2 boss积分
+            this.addProperty("nType", PacketBase.TYPE_BYTE);//枚举类型 eEXP_VALUE_TYPE
             this.read(data);
         }
     }
@@ -386,6 +387,12 @@ module ProtoCmd {
             this.addProperty('dwBindRmb', PacketBase.TYPE_DWORD);//绑定元宝，弃用
 
             this.addProperty("i64MaxHeroExp", PacketBase.TYPE_INT64);//英雄最大经验
+            this.addProperty('nHealth', PacketBase.TYPE_DWORD); //健康
+            this.addProperty('nSpirte', PacketBase.TYPE_DWORD); //精神
+            this.addProperty('nTili', PacketBase.TYPE_DWORD); //体力
+            this.addProperty('nYanZhi', PacketBase.TYPE_DWORD); //颜值
+            this.addProperty('nXinQing', PacketBase.TYPE_DWORD); //心情
+
             this.read(data);
         }
     }
