@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":220,
-    "selecteID":221,
-    "props":{"width":601,"sceneColor":"#000000","height":762},
+    "selectedBox":1,
+    "selecteID":153,
+    "props":{"width":607,"sceneColor":"#000000","height":762},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -18,15 +18,16 @@
             "props":{"y":0,"x":-4,"width":607,"skin":"image/common/bottom_bigPopup.png","height":762},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":152,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":-13,"x":540,"var":"btn_guildBuffClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":9,"x":528,"var":"btn_guildBuffClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":152,
                     "label":"Button(btn_guildBuffClose)",
                     "isDirectory":false,
@@ -55,10 +56,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":96,"x":66},
+            "props":{"y":96,"x":55},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -66,7 +67,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":130},
+                    "props":{"y":7,"x":0,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55"},
                     "nodeParent":167,
                     "label":"Image",
                     "isDirectory":false,
@@ -76,6 +77,18 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":13,"x":151,"width":322,"skin":"image/common/frame_list_2.png","height":104},
+                    "nodeParent":167,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":222,
+                    "child":[
+                        ]
                 },
                 {
                     "type":"Button",
@@ -262,10 +275,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":235,"x":66},
+            "props":{"y":235,"x":55},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -273,7 +286,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":130},
+                    "props":{"y":7,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55"},
                     "nodeParent":168,
                     "label":"Image",
                     "isDirectory":false,
@@ -283,6 +296,18 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":13,"x":151,"width":322,"skin":"image/common/frame_list_2.png","height":104},
+                    "nodeParent":168,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":223,
+                    "child":[
+                        ]
                 },
                 {
                     "type":"Button",
@@ -469,10 +494,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":379,"x":66},
+            "props":{"y":379,"x":55},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -480,7 +505,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":130},
+                    "props":{"y":7,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55"},
                     "nodeParent":185,
                     "label":"Image",
                     "isDirectory":false,
@@ -490,6 +515,18 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":13,"x":151,"width":322,"skin":"image/common/frame_list_2.png","height":104},
+                    "nodeParent":185,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":224,
+                    "child":[
+                        ]
                 },
                 {
                     "type":"Button",
@@ -676,10 +713,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":520,"x":66},
+            "props":{"y":520,"x":55},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -687,7 +724,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":130},
+                    "props":{"y":7,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55"},
                     "nodeParent":202,
                     "label":"Image",
                     "isDirectory":false,
@@ -697,6 +734,18 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":13,"x":151,"width":322,"skin":"image/common/frame_list_2.png","height":104},
+                    "nodeParent":202,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":225,
+                    "child":[
+                        ]
                 },
                 {
                     "type":"Button",
@@ -883,7 +932,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-26,"x":139,"skin":"image/common/bottom_title1.png"},
+            "props":{"y":10,"x":144,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,

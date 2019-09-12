@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":590,"sceneColor":"#b07473","height":100},
+    "selecteID":4,
+    "props":{"width":584,"sceneColor":"#b07473","height":130},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,41 +14,54 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"x":97,"width":482,"skin":"image/juQingMode/fram_common_30.png","height":5,"bottom":0},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"x":100,"wordWrap":true,"width":480,"var":"lbl_content","valign":"middle","text":"楼，街道向东向西延伸，街上行人不断：有挑担赶路的、有驾牛送货的、又赶着毛驴拉货的。","leading":3,"height":94,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff","bottom":5,"align":"left"},
-            "nodeParent":1,
-            "label":"Label(lbl_content)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"UIView",
             "source":"compart/NpcIconItem.ui",
-            "props":{"y":-5,"x":0,"var":"ui_item","left":0},
+            "props":{"y":4,"var":"ui_item","left":4},
             "nodeParent":1,
             "label":"UIView(ui_item)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":4,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":1,"x":119,"width":464,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"27,19,26,27","height":90},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":6,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"y":1,"x":-24,"skin":"image/juQingMode/img_zhuangshi_01.png"},
+                    "nodeParent":6,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":8,"x":132,"wordWrap":true,"width":440,"var":"lbl_content","text":"        霸业未成,为贼人所害。今盗贼猖獗,城外地盘均为其所占，帮众叫苦连天。","height":70,"fontSize":24,"font":"Microsoft YaHei","color":"#55453e"},
+            "nodeParent":1,
+            "label":"Label(lbl_content)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
             "child":[
                 ]
         }],
