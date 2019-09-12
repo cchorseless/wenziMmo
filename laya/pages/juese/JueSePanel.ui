@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":200,
-    "selecteID":210,
+    "selectedBox":168,
+    "selecteID":171,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -55,7 +55,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":116,"x":0,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/juese/btn_common_13_finish.png","selectedIndex":0,"labels":"人\\n物\\n简\\n介,战\\n斗\\n属\\n性,行\\n头\\n装\\n备,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":24,"labelPadding":"0,10","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","labelAlign":"center","direction":"vertical"},
+            "props":{"y":116,"x":0,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/juese/btn_common_13_dizi.png","selectedIndex":0,"labels":"人\\n物\\n简\\n介,装\\n备\\n属\\n性,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":30,"labelPadding":"0,5","labelFont":"FZXK","labelColors":"#404040,#ffffff","labelAlign":"center","direction":"vertical"},
             "nodeParent":1,
             "label":"Tab(tab_player)",
             "isDirectory":false,
@@ -96,25 +96,10 @@
                 {
                     "x":30,
                     "type":"UIView",
-                    "source":"compart/Person_BattlePropsItem.ui",
-                    "props":{"y":-3,"x":0,"runtime":"view.compart.Person_BattlePropsItem","name":"item1"},
-                    "nodeParent":168,
-                    "label":"UIView(item1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":170,
-                    "child":[
-                        ],
-                    "$HIDDEN":true
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
                     "source":"compart/Person_EquipInfoItem.ui",
-                    "props":{"y":-3,"x":0,"runtime":"view.compart.Person_EquipInfoItem","name":"item2"},
+                    "props":{"y":-3,"x":0,"var":"ui_equipProps","runtime":"view.compart.Person_EquipInfoItem","name":"item1"},
                     "nodeParent":168,
-                    "label":"UIView(item2)",
+                    "label":"UIView(ui_equipProps)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -127,9 +112,9 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_TalentInfoItem.ui",
-                    "props":{"y":-3,"x":0,"name":"item3"},
+                    "props":{"y":-3,"x":0,"var":"ui_talent","runtime":"view.compart.Person_TalentInfoItem","name":"item2"},
                     "nodeParent":168,
-                    "label":"UIView(item3)",
+                    "label":"UIView(ui_talent)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -142,9 +127,9 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_JingluoItem.ui",
-                    "props":{"y":-3,"x":0,"name":"item4"},
+                    "props":{"y":-3,"x":0,"var":"ui_jingLuo","runtime":"view.compart.Person_JingluoItem","name":"item3"},
                     "nodeParent":168,
-                    "label":"UIView(item4)",
+                    "label":"UIView(ui_jingLuo)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -157,9 +142,9 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_GangQiItem.ui",
-                    "props":{"y":-3,"x":1,"name":"item5"},
+                    "props":{"y":-3,"x":1,"var":"ui_gangQi","runtime":"view.compart.Person_GangQiItem","name":"item4"},
                     "nodeParent":168,
-                    "label":"UIView(item5)",
+                    "label":"UIView(ui_gangQi)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -172,9 +157,9 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_FourFaItem.ui",
-                    "props":{"y":-2,"x":-1,"name":"item6"},
+                    "props":{"y":-2,"x":-1,"var":"ui_wuXueFour","runtime":"view.compart.Person_FourFaItem","name":"item5"},
                     "nodeParent":168,
-                    "label":"UIView(item6)",
+                    "label":"UIView(ui_wuXueFour)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -187,9 +172,9 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/Person_ShengWangItem.ui",
-                    "props":{"y":-2,"x":-1,"runtime":"view.compart.Person_ShengWangItem","name":"item7"},
+                    "props":{"y":-2,"x":-1,"var":"ui_shengWang","runtime":"view.compart.Person_ShengWangItem","name":"item6"},
                     "nodeParent":168,
-                    "label":"UIView(item7)",
+                    "label":"UIView(ui_shengWang)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -214,202 +199,189 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":4,"x":7},
+                    "type":"Button",
+                    "props":{"y":4,"x":7,"width":100,"var":"btn_back","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
                     "nodeParent":190,
-                    "label":"Box",
+                    "label":"Button(btn_back)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":191,
+                    "compId":192,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":0,"width":100,"var":"btn_back","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
-                            "nodeParent":191,
-                            "label":"Button(btn_back)",
+                            "props":{"y":8,"x":8,"width":84,"stateNum":"2","skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"返回","height":84},
+                            "nodeParent":192,
+                            "label":"Button",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":192,
+                            "hasChild":false,
+                            "compId":193,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":8,"x":8,"width":84,"stateNum":"2","skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"返回","height":84},
-                                    "nodeParent":192,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":193,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":4,"x":108,"width":100,"var":"btn_self","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                    "nodeParent":190,
+                    "label":"Button(btn_self)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":194,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":194,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":195,
+                            "child":[
+                                ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":101,"width":100,"var":"btn_self","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
-                            "nodeParent":191,
-                            "label":"Button(btn_self)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_wanjia_01_finish.png","bottom":10},
+                            "nodeParent":194,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":194,
+                            "hasChild":false,
+                            "compId":207,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                                    "nodeParent":194,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":195,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_wanjia_01_finish.png","bottom":10},
-                                    "nodeParent":194,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":207,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":4,"x":209,"width":100,"var":"btn_dizi0","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                    "nodeParent":190,
+                    "label":"Button(btn_dizi0)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":196,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":196,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":197,
+                            "child":[
+                                ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":202,"width":100,"var":"btn_dizi0","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
-                            "nodeParent":191,
-                            "label":"Button(btn_dizi0)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_dadizi_01_finish.png","bottom":10},
+                            "nodeParent":196,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":196,
+                            "hasChild":false,
+                            "compId":208,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                                    "nodeParent":196,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":197,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_dadizi_01_finish.png","bottom":10},
-                                    "nodeParent":196,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":208,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":4,"x":310,"width":100,"var":"btn_dizi1","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                    "nodeParent":190,
+                    "label":"Button(btn_dizi1)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":198,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":198,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":199,
+                            "child":[
+                                ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":303,"width":100,"var":"btn_dizi1","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
-                            "nodeParent":191,
-                            "label":"Button(btn_dizi1)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_erdizi_01_finish.png","bottom":10},
+                            "nodeParent":198,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":198,
+                            "hasChild":false,
+                            "compId":209,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                                    "nodeParent":198,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":199,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"x":6,"stateNum":"2","skin":"image/juese/zi_erdizi_01_finish.png","bottom":10},
-                                    "nodeParent":198,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":209,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":4,"x":411,"width":100,"var":"btn_dizi2","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
+                    "nodeParent":190,
+                    "label":"Button(btn_dizi2)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":200,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":200,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":201,
+                            "child":[
+                                ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":404,"width":100,"var":"btn_dizi2","stateNum":"3","skin":"image/main/img_common_04down_finish.png","height":100},
-                            "nodeParent":191,
-                            "label":"Button(btn_dizi2)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "props":{"y":58,"x":6,"stateNum":"2","skin":"image/juese/zi_sandizi_01_finish.png","bottom":10},
+                            "nodeParent":200,
+                            "label":"Button",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":200,
+                            "hasChild":false,
+                            "compId":210,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":0,"x":8,"width":84,"stateNum":"3","skin":"image/main/icon_juese_01down_finish.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                                    "nodeParent":200,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":201,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":58,"x":6,"stateNum":"2","skin":"image/juese/zi_sandizi_01_finish.png","bottom":10},
-                                    "nodeParent":200,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":210,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         }]
                 },
                 {

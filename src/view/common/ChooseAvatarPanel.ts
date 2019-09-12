@@ -14,25 +14,14 @@ module view.common {
 			let nlevel = playerInfo.getValue('nlevel');// 等级
 			let zslevel = playerInfo.getValue('zslevel');// 转生等级
 			let viplvl = playerInfo.getValue('viplvl');// VIP等级
-
-			let path;
-			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-				path = 'image/common/nan';
-			}
-			else {
-				path = 'image/common/nv';
-			}
-
 			GameApp.MainPlayer.sex = sex;
 			GameApp.MainPlayer.job = job;
 			GameApp.MainPlayer.objName = szName;
-			GameApp.MainPlayer.avatarIcon = path + '0' + job + '.png';
 			GameApp.MainPlayer.level = nlevel;
 			GameApp.MainPlayer.zslevel = zslevel;
 			GameApp.MainPlayer.viplvl = viplvl;
-
 			// 角色图片
-			this.img_heroPic.skin = path + '0' + job + '.png';
+			this.img_heroPic.skin = GameApp.MainPlayer.halfAvatarPic;
 			// 角色名称
 			this.lbl_playerName.text = szName;
 			// 角色等级

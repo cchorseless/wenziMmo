@@ -78,15 +78,6 @@ module view.common {
 			GameApp.GameEngine.mainPlayer.sex = this.curSex;
 			// 职业
 			GameApp.GameEngine.mainPlayer.job = this.curMenPai;
-			// 玩家头像
-			let path;
-			if (GameApp.GameEngine.mainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
-				path = 'image/common/icon_nan';
-			}
-			else {
-				path = 'image/common/icon_nv';
-			}
-			GameApp.GameEngine.mainPlayer.avatarIcon = path + '0' + GameApp.GameEngine.mainPlayer.job + '.png';
 			let createusr = new ProtoCmd.CreatePlayer();
 			createusr.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);

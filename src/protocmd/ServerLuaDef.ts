@@ -76,6 +76,29 @@ module ProtoCmd {
     // 打开奖励面板
     export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
 
+
+    /********************************角色信息界面***************** */
+    // 声望信息
+    export const JS_PrestigePanel = 'prestigePanel';
+    // 强化大师(强化、装备等级、升级大师)
+    export const JS_SoulNecklacePanel = 'SoulNecklacePanel';// (type:0是玩家1是英雄)
+    /*********************************资质天赋******************** */
+    // 善缘-官印
+    // 激活善缘
+    export const JS_SHANYUAN_Active = 'activeOfficialSeal';
+    // 善缘界面
+    export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
+    // 升级善缘
+    export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
+
+
+    // 悟性=龙魂
+
+    // 臂力-神盾
+
+    // 身法=血玉
+
+    // 根骨-勋章
 }
 
 /**
@@ -214,5 +237,19 @@ module ProtoCmd {
         tjitem: number;// 图鉴激活物品
         tjmap: number;// 图鉴激活地图
         tjrole: number;// 图鉴激活角色
+    }
+    /**********************************角色信息************************* */
+
+    /**
+     * 拉取声望信息
+     */
+    export interface itf_JS_ShengWangInfo {
+        damage: number;// 百分比 
+        daydelexp: number;// 每日衰减经验
+        effid: number;// 效果ID
+        maxexp: number;// 当前挡位
+        minexp: number;// 当前声望值
+        prestigeid: number;// 称号ID
+        rank: any;// 排行榜
     }
 }

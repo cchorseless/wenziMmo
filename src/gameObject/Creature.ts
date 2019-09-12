@@ -328,6 +328,7 @@ module GameObject {
             }
         }
 
+
         /**
          * 等级
          * @param level 
@@ -372,6 +373,9 @@ module GameObject {
                         }))
                     }))
                 })
+            }
+            else{
+                TipsManage.showTips('技能没有找到目标对象');
             }
         }
         /**

@@ -3,7 +3,6 @@ module GameObject {
     export class Player extends Creature {
         public playerAccount: string;
         public playerPassword: string;
-        public avatarIcon: string;
         public job: EnumData.JOB_TYPE;
         public sex: EnumData.SEX_TYPE;
         public createTime;// 角色创建时间
@@ -25,6 +24,14 @@ module GameObject {
         public skillInfo = {};
         /******************UI****************** */
         public ui_item: view.compart.SelfPlayerInSceneItem;
+        /******************生活属性************ */
+        public nHealth: number = 0;// 健康
+        public nSpirte: number = 0;// 精神
+        public nTili: number = 0;// 体力
+        public nYanZhi: number = 0;// 颜值
+        public nXinQing: number = 0;// 心情
+        /******************BOSS积分************ */
+        public bossCoin: number = 0;
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -111,6 +118,31 @@ module GameObject {
             this.wealth.maxTotalFame = maxTotalFame
         }
 
+        // 健康
+        public changenHealth(v: number) {
+            this.nHealth = v;
+        }
+        // 颜值
+        public changenYanZhi(v: number) {
+            this.nYanZhi = v
+        }
+        // 体力
+        public changenTili(v: number) {
+            this.nTili = v
+        }
+        // 精力
+        public changenSpirte(v: number) {
+            this.nSpirte = v
+        }
+        // 心情
+        public changenXinQing(v: number) {
+            this.nXinQing = v
+        }
+        // BOSS积分
+        public changeBossCoin(v: number) {
+            this.bossCoin = v;
+        }
+        /*******************************************************************get************************************* */
         /**
          * 获取玩家真实名称
          */
@@ -121,6 +153,63 @@ module GameObject {
             return '';
 
         }
+
+        /**
+         * 获取头像
+         */
+        public get iconAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/icon_nan';
+            }
+            else {
+                path = 'image/common/icon_nv';
+            }
+            return path + '0' + this.job + '.png';
+        }
+        /**
+         * 获取半身像
+         */
+        public get halfAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/nan';
+            }
+            else {
+                path = 'image/common/nv';
+            }
+            return path + '0' + this.job + '_half.png';
+        }
+        /**
+         * 获取全身像
+         */
+        public get allAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/nan';
+            }
+            else {
+                path = 'image/common/nv';
+            }
+            return path + '0' + this.job + '.png';
+        }
+
+        /**
+         * 获取角色龙骨资源
+         */
+        public get skeBoneRes(): string {
+
+            // 令狐冲
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                return 'sk/juese02/ZJ_LHC_1.sk'
+            }
+            // 任盈盈
+            else {
+                return 'sk/juese01/ZJ_RYY_1.sk'
+            }
+        }
+
+
         /**
          * 将游戏对象添加到视野
          * @param obj 
@@ -278,23 +367,24 @@ module GameObject {
         public tryAttack(target: Creature, skillID: number = 999): void {
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
-            switch (this.job) {
-                // 战士
-                case EnumData.JOB_TYPE.JOB_WARRIOR:
-                    break;
-                // 法师
-                case EnumData.JOB_TYPE.JOB_MAGE:
-                    skillID = 2002;
-                    break;
-                // 道士
-                case EnumData.JOB_TYPE.JOB_MONK:
-                    skillID = 3002;
-                    break;
-            }
+            // switch (this.job) {
+            //     // 战士
+            //     case EnumData.JOB_TYPE.JOB_WARRIOR:
+            //         break;
+            //     // 法师
+            //     case EnumData.JOB_TYPE.JOB_MAGE:
+            //         skillID = 2002;
+            //         break;
+            //     // 道士
+            //     case EnumData.JOB_TYPE.JOB_MONK:
+            //         skillID = 3002;
+            //         break;
+            // }
             pkt.nMagicId = skillID;
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
             pkt.nY = target.location.ncury;
+            pkt.distance = 3;
             lcp.send(pkt);
         }
 
@@ -302,7 +392,6 @@ module GameObject {
          * 播放攻击动作
          */
         public startAttack(): void {
-            TipsManage.showTips(this.objName + '正在攻击');
             this.ui_item && this.ui_item.playAni();
         }
 

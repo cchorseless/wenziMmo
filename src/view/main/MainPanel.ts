@@ -63,6 +63,8 @@ module view.main {
 			this.lbl_yuanBaolock.text = '' + _player.wealth.yuanBao_lock;
 			// 战斗力
 			this.clip_power.value = '' + _player.ability.nFight;
+			// 头像
+			this.img_avatarIcon.skin = '' + _player.iconAvatarPic;
 			// 节气
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰

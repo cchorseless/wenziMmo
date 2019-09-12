@@ -5,7 +5,6 @@ class GameEngine extends SingletonClass {
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
-    public avatarIcon: string;                                                    //头像图片路径
     public openid: string = "";
     public token: string = "";                                                    //微信登陆成功的密匙，使用此内容login
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
@@ -14,16 +13,14 @@ class GameEngine extends SingletonClass {
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
-    public connectIP: string = (true) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
+    public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
     public updateHZ: number = 100;                                                      // 客户端玩家跟新更新坐标频率
     public clientType: number = EnumData.CLIENT_TYPE.CLIENT_TYPE_MOBILE;                // 客户端类型
-    public isOnInitCallPropertysSetMethods: boolean = true;                             // 在Entity初始化时是否触发属性的set_*事件(callPropertysSetMethods)
 
     // game配置
-    public platform: string = 'Web';                                                    // 小游戏客户端运行平台
     public isGuest: boolean = false;                                                    // 来宾模式，随机一个账号进行服务器登陆
     public reConnectUpper: number = 5;                                                  // 断线连接次数上限
 
