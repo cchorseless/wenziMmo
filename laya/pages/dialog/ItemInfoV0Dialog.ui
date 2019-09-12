@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":18,
-    "selecteID":23,
+    "selectedBox":33,
+    "selecteID":32,
     "referenceLines":null,
     "props":{"width":500,"sceneColor":"#89504f","height":500},
     "nodeParent":-1,
@@ -135,15 +135,16 @@
                     "props":{"y":-3,"x":0,"name":"item0"},
                     "nodeParent":18,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":14,"width":101,"var":"btn_use","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"使用","height":50},
+                            "props":{"y":-1,"x":18,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"使用"},
                             "nodeParent":19,
                             "label":"Button(btn_use)",
                             "isDirectory":false,
@@ -154,8 +155,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":338,"width":105,"var":"btn_destroy","stateNum":"2","skin":"image/common/fram_common_09_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"销毁","height":50},
+                            "props":{"y":-2,"x":321,"var":"btn_destroy","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"销毁"},
                             "nodeParent":19,
                             "label":"Button(btn_destroy)",
                             "isDirectory":false,
@@ -165,12 +167,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":-4,"x":153,"width":133,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":50},
+                    "props":{"y":-4,"x":169,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库"},
                     "nodeParent":18,
                     "label":"Button(btn_putToCangKu)",
                     "isDirectory":false,
@@ -274,7 +276,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":153,"width":133,"stateNum":"2","skin":"image/common/fram_common_09_finish.png","name":"item4","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":50},
+                    "props":{"y":-3,"x":169,"stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item4","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下"},
                     "nodeParent":18,
                     "label":"Button(item4)",
                     "isDirectory":false,
@@ -297,7 +299,7 @@
                     "compId":27,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         },
         {
@@ -339,7 +341,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,

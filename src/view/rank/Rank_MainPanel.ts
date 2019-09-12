@@ -10,6 +10,32 @@ module view.rank {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
+			this.panel_0.vScrollBarSkin = '';
+			this.vbox_0['sortItem'] = (items) => { };
+			this.panel_1.vScrollBarSkin = '';
+			this.vbox_1['sortItem'] = (items) => { };
+			this.panel_2.vScrollBarSkin = '';
+			this.vbox_2['sortItem'] = (items) => { };
+			this.panel_3.vScrollBarSkin = '';
+			this.vbox_3['sortItem'] = (items) => { };
+			this.panel_4.vScrollBarSkin = '';
+			this.vbox_4['sortItem'] = (items) => { };
+			this.panel_5.vScrollBarSkin = '';
+			this.vbox_5['sortItem'] = (items) => { };
+			this.panel_6.vScrollBarSkin = '';
+			this.vbox_6['sortItem'] = (items) => { };
+			this.panel_7.vScrollBarSkin = '';
+			this.vbox_7['sortItem'] = (items) => { };
+			for (let i = 0; i < 15; i++) {
+				this.vbox_0.addChild(new view.compart.RankPlayerItem())
+				this.vbox_1.addChild(new view.compart.RankPlayerItem())
+				this.vbox_2.addChild(new view.compart.RankPlayerItem())
+				this.vbox_3.addChild(new view.compart.RankPlayerItem())
+				this.vbox_4.addChild(new view.compart.RankPlayerItem())
+				this.vbox_5.addChild(new view.compart.RankPlayerItem())
+				this.vbox_6.addChild(new view.compart.RankPlayerItem())
+				this.vbox_7.addChild(new view.compart.RankPlayerItem())
+			}
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -29,7 +55,7 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openZhiNanPanel();
 			});
-			EventManage.onWithEffect(this.box_rankPrize, Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_rankPrize, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.RankPrizeInfoDialog().setData().popup(true);
 			});
 

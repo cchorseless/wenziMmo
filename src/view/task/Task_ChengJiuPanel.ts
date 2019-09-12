@@ -7,7 +7,7 @@ module view.task {
 		public setData(): void {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				this.updateUI(index);
+				this.vstack_chengjiu.selectedIndex = index;
 			}, null, false);
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
@@ -27,6 +27,17 @@ module view.task {
 			this.vbox_7['sortItem'] = (items) => { };
 			this.panel_8.vScrollBarSkin = '';
 			this.vbox_8['sortItem'] = (items) => { };
+			for (let i = 0; i < 15; i++) {
+				this.vbox_0.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_1.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_2.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_3.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_4.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_5.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_6.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_7.addChild(new view.compart.TaskInfoV1Item())
+				this.vbox_8.addChild(new view.compart.TaskInfoV1Item())
+			}
 			this.updateUI();
 			this.addEvent()
 		}
