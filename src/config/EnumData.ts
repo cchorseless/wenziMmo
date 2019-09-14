@@ -49,7 +49,7 @@ module EnumData {
         SHOW_IN_BAG = 1,//背包中显示
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
-        SHOW_IN_MAIL = 4,//邮件中显示,只有信息 误操作按钮
+        SHOW_IN_MAIL = 4,//邮件中显示,只有信息 无操作按钮
         SHOW_IN_GUILD_CANGKU = 5,//公会仓库
         SHOW_IN_GUILD_BAG = 6,//公会背包
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示

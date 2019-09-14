@@ -75,7 +75,10 @@ module view.dialog {
 				}, null, false)
 			}
 			// 道具ICON信息赋值
-			this.ui_item.initUI(obj);
+			this.ui_item.initUI({
+				itemid: obj.dwBaseID,
+				binding: obj.dwBinding,
+				dwCount: obj.dwCount});
 			this.addEvent();
 			return this;
 		}

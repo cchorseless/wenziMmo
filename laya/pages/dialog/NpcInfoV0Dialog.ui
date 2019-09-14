@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":37,
-    "props":{"width":627,"sceneColor":"#844544","height":650},
+    "selectedBox":49,
+    "selecteID":44,
+    "props":{"width":627,"sceneColor":"#844544","height":610},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -186,7 +186,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":239,"x":223,"width":288,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","labels":"喜好,宝物,装备","labelStrokeColor":"#404040","labelStroke":2,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","height":52,"direction":"horizontal"},
+                    "props":{"y":257,"x":216,"width":288,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelStrokeColor":"#404040","labelStroke":2,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","height":52,"direction":"horizontal"},
                     "nodeParent":4,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,
@@ -200,7 +200,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":293,"x":-17,"width":525,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":193},
+                    "props":{"y":305,"x":-17,"width":525,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":140},
                     "nodeParent":4,
                     "label":"Image",
                     "isOpen":true,
@@ -212,7 +212,7 @@
                         {
                             "x":45,
                             "type":"ViewStack",
-                            "props":{"var":"viw_0","top":0,"right":0,"left":0,"bottom":0},
+                            "props":{"width":525,"var":"viw_0","top":0,"selectedIndex":0,"right":0,"left":0,"height":200,"bottom":0},
                             "nodeParent":37,
                             "label":"ViewStack(viw_0)",
                             "isOpen":true,
@@ -223,46 +223,87 @@
                             "child":[
                                 {
                                     "x":60,
-                                    "type":"HBox",
-                                    "props":{"width":525,"name":"item0","height":210},
+                                    "type":"Panel",
+                                    "props":{"var":"panel_0","top":5,"right":5,"name":"item0","left":5,"bottom":5},
                                     "nodeParent":18,
-                                    "label":"HBox(item0)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":19,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"HBox",
-                                    "props":{"width":525,"name":"item1","height":210},
-                                    "nodeParent":18,
-                                    "label":"HBox(item1)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":20,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":true
-                                },
-                                {
-                                    "x":60,
-                                    "type":"HBox",
-                                    "props":{"width":525,"name":"item2","height":210},
-                                    "nodeParent":18,
-                                    "label":"HBox(item2)",
+                                    "label":"Panel(panel_0)",
                                     "isOpen":true,
-                                    "isDirectory":false,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":21,
+                                    "hasChild":true,
+                                    "compId":46,
                                     "child":[
-                                        ],
-                                    "$HIDDEN":true
+                                        {
+                                            "x":75,
+                                            "type":"HBox",
+                                            "props":{"var":"hbox_0","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                                            "nodeParent":46,
+                                            "label":"HBox(hbox_0)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":19,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Panel",
+                                    "props":{"y":10,"x":10,"var":"panel_1","top":5,"right":5,"name":"item1","left":5,"bottom":5},
+                                    "nodeParent":18,
+                                    "label":"Panel(panel_1)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":49,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"HBox",
+                                            "props":{"var":"hbox_1","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                                            "nodeParent":49,
+                                            "label":"HBox(hbox_1)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":44,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Panel",
+                                    "props":{"y":20,"x":20,"var":"panel_2","top":5,"right":5,"name":"item2","left":5,"bottom":5},
+                                    "nodeParent":18,
+                                    "label":"Panel(panel_2)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":50,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"HBox",
+                                            "props":{"var":"hbox_2","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                                            "nodeParent":50,
+                                            "label":"HBox(hbox_2)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":45,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }]
                                 }]
                         }],
                     "$HIDDEN":false
