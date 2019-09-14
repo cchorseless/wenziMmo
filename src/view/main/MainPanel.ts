@@ -398,6 +398,7 @@ module view.main {
 			// 中间自己
 			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			// 左侧
+			this.img_lineLeft.visible = Boolean(mapInfo.left);
 			if (mapInfo.left) {
 				this.btn_mapLeft.visible = true;
 				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
@@ -406,6 +407,7 @@ module view.main {
 				this.btn_mapLeft.visible = false;
 			}
 			// 下面
+			this.img_lineDown.visible = Boolean(mapInfo.down);
 			if (mapInfo.down) {
 				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
@@ -414,6 +416,7 @@ module view.main {
 				this.btn_mapDown.visible = false;
 			}
 			// 上面
+			this.img_lineUp.visible = Boolean(mapInfo.up);
 			if (mapInfo.up) {
 				this.btn_mapUp.visible = true;
 				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
@@ -422,6 +425,7 @@ module view.main {
 				this.btn_mapUp.visible = false;
 			}
 			// 右边
+			this.img_lineRight.visible = Boolean(mapInfo.right);
 			if (mapInfo.right) {
 				this.btn_mapRight.visible = true;
 				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);

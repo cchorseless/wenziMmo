@@ -10,32 +10,31 @@ module view.compart {
 			this.item = obj;
 			this.item.ui_item = this;
 			this.initUI();
-			this.showHelloTalk();
 			this.addEvent();
 		}
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.NpcInfoDialog().setData(this.item).popup(true);
+				new view.dialog.NpcInfoV1Dialog().setData(this.item).popup(true);
 			});
 		}
 
 		public showHelloTalk(): void {
-			this.img_chat.visible = true;
+			// this.img_chat.visible = true;
 			// 配置表ID
-			let configId = '' + this.item.feature.dwCretTypeId;
-			let allTalk = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_TALK(configId);
-			this.lbl_chat.text = '' + RandomUtils.randomArray(allTalk);
-			Laya.Tween.to(this.img_chat, { scaleX: 1 }, 500, null,
-				Laya.Handler.create(this, () => {
-					Laya.Tween.to(this.img_chat, { scaleX: 0 }, 500, null, null, 2000)
-				})
-			)
+			// let configId = '' + this.item.feature.dwCretTypeId;
+			// let allTalk = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_TALK(configId);
+			// this.lbl_chat.text = '' + RandomUtils.randomArray(allTalk);
+			// Laya.Tween.to(this.img_chat, { scaleX: 1 }, 500, null,
+			// 	Laya.Handler.create(this, () => {
+			// 		Laya.Tween.to(this.img_chat, { scaleX: 0 }, 500, null, null, 2000)
+			// 	})
+			// )
 		}
 
 		public initUI(): void {
 			this.lbl_npcName.text = '' + this.item.objName;
-			this.img_warn.visible = false;
+			this.img_tips.visible = false;
 			// 任务状态
 			switch (this.item.taskState) {
 				case EnumData.NPCSTATUS.NOTASKALL:

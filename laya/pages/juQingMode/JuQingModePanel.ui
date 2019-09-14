@@ -1,7 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
+    "selectedBox":10,
+    "selecteID":35,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -119,7 +120,7 @@
                 {
                     "x":30,
                     "type":"VBox",
-                    "props":{"var":"vbox_0","space":20,"right":0,"left":0,"align":"left"},
+                    "props":{"var":"vbox_0","space":20,"right":0,"left":0,"align":"center"},
                     "nodeParent":10,
                     "label":"VBox(vbox_0)",
                     "isOpen":true,
@@ -506,45 +507,6 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":443,"x":30,"width":580,"skin":"image/common/line_yeqian.png","alpha":0.35},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":213,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":573,"x":30,"width":580,"skin":"image/common/line_yeqian.png","alpha":0.35},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":215,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":704,"x":30,"width":580,"skin":"image/common/line_yeqian.png","alpha":0.35},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":216,
-            "child":[
-                ]
         }],
     "animations":[
         {

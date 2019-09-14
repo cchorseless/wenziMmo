@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":584,"sceneColor":"#dbc5c5","height":130},
+    "selecteID":10,
+    "props":{"width":584,"sceneColor":"#dbc5c5","height":120},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,31 +14,18 @@
     "child":[
         {
             "x":15,
-            "type":"UIView",
-            "source":"compart/MyselfItem.ui",
-            "props":{"y":-5,"x":472,"var":"ui_item"},
-            "nodeParent":1,
-            "label":"UIView(ui_item)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
             "props":{"y":2,"x":464,"width":464,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"27,19,26,27","scaleX":-1,"height":90},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":-24,"skin":"image/juQingMode/img_zhuangshi_01.png"},
                     "nodeParent":6,
@@ -54,13 +41,40 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":14,"x":10,"wordWrap":true,"width":440,"var":"lbl_content","text":"        霸业未成,为贼人所害。今盗贼猖獗,城外地盘均为其所占，帮众叫苦连天。","height":70,"fontSize":24,"font":"Microsoft YaHei","color":"#55453e"},
+            "props":{"y":10,"x":10,"wordWrap":true,"width":440,"var":"lbl_content","valign":"middle","text":"        霸业未成,为贼人所害。今盗贼猖獗,城外地盘均为其所占，帮众叫苦连天。","height":70,"fontSize":24,"font":"Microsoft YaHei","color":"#55453e"},
             "nodeParent":1,
             "label":"Label(lbl_content)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/NpcIconItem.ui",
+            "props":{"y":0,"x":472,"var":"ui_item","runtime":"view.compart.NpcIconItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":10,"x":10,"skin":"image/common/line_yeqian.png","right":0,"left":0,"height":2,"bottom":0,"alpha":0.35},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
             "child":[
                 ]
         }],

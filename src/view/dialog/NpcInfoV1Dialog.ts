@@ -1,13 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.dialog {
-	export class NpcInfoDialog extends ui.dialog.NpcInfoDialogUI {
+	export class NpcInfoV1Dialog extends ui.dialog.NpcInfoV1DialogUI {
 		constructor() {
 			super();
 		}
 		public item: GameObject.Npc;
-		public setData(item: GameObject.Npc): NpcInfoDialog {
+		public setData(item: GameObject.Npc): NpcInfoV1Dialog {
 			this.item = item;
-
 			this.initUI();
 			this.addEvent();
 			return this;
