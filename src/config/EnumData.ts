@@ -898,9 +898,17 @@ module EnumData {
         SAVE_KEY_VALUE_TYPE_TUJIAN_MAP,		//地图图鉴
         SAVE_KEY_VALUE_TYPE_TUJIAN_EVENT,	//事件图鉴
         SAVE_KEY_VALUE_TYPE_TUJIAN_ITEM,	//物品图鉴
-
         SAVE_KEY_VALUE_TYPE_MAX,
 
     };
 
+
+    /****************************************货币枚举******************************* */
+    export enum emCoinType {
+
+        Gold=24
+
+
+
+    }
 }

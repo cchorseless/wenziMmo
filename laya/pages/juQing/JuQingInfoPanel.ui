@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":89,
+    "selectedBox":89,
+    "selecteID":98,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -423,7 +423,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":273,"x":5,"width":147,"var":"panel_left","height":754},
+            "props":{"y":273,"x":12,"width":147,"var":"panel_left","height":754},
             "nodeParent":1,
             "label":"Panel(panel_left)",
             "isOpen":true,
@@ -434,22 +434,8 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Tab",
-                    "props":{"y":0,"x":10,"width":147,"var":"tab_left","stateNum":2,"skin":"image/juQing/btn_plot_01_finish.png","selectedIndex":0,"labels":",,,,,,,,","labelStrokeColor":"#000000","labelStroke":4,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","height":584,"direction":"vertical"},
-                    "nodeParent":89,
-                    "label":"Tab(tab_left)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":88,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"VBox",
-                    "props":{"var":"vbox_left","space":15,"right":0,"mouseThrough":true,"left":0,"align":"right"},
+                    "props":{"x":0,"var":"vbox_left","space":15,"right":0,"left":0,"align":"right"},
                     "nodeParent":89,
                     "label":"VBox(vbox_left)",
                     "isOpen":true,
@@ -1008,13 +994,14 @@
             "props":{"y":579,"x":166,"width":488,"skin":"image/common/fram_common_04.png","sizeGrid":"0,56,0,38","height":37},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":177,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":11,"width":108,"text":"挂机效率：","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1027,6 +1014,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":124,"width":108,"var":"lbl_coinXl","text":"金币7000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1039,6 +1027,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":235,"width":108,"var":"lbl_playExpXl","text":"阅历60000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,
@@ -1051,6 +1040,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":351,"width":108,"var":"lbl_heroExpXl","text":"弟子阅历40000/h","height":29,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                     "nodeParent":177,

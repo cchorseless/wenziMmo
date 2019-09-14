@@ -17,12 +17,7 @@ module view.compart {
 			this.item = item;
 			item.recoverUI();
 			item.ui_item = this;
-			let itemData: ProtoCmd.itf_ItemInfo = {
-				itemid: this.item.dwBaseID,
-				dwCount: this.item.dwCount,
-				binding: this.item.dwBinding
-			};
-			this.initUI(itemData, model);
+			this.initUI(item, model);
 
 		}
 
@@ -90,14 +85,14 @@ module view.compart {
 		 * @param item 
 		 * @param model 
 		 */
-		public initUI(item: ProtoCmd.itf_ItemInfo, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public initUI(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			this.model = model;
 			// 是否绑定
-			this.img_lock.visible = Boolean(item.binding);
+			this.img_lock.visible = Boolean(item.dwBinding);
 			// 物品ICON
-			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.itemid) + '.png';
+			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.dwBaseID) + '.png';
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.itemid) + '.png';
+			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
 			// 物品数量
 			if (item.dwCount && item.dwCount > 1) {
 				this.lbl_count.text = '' + item.dwCount;

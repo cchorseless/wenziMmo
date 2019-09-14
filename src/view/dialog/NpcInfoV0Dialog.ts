@@ -25,9 +25,8 @@ module view.dialog {
 			console.log(xiHaoItem)
 			for (let itemid0 of xiHaoItem) {
 				let itemUI = new view.compart.DaoJuWithNameItem();
-				let xihaoItemInfo: ProtoCmd.itf_ItemInfo = {
-					itemid: itemid0,
-				};
+				let xihaoItemInfo = new ProtoCmd.ItemBase();
+				xihaoItemInfo.dwBaseID = itemid0;
 				itemUI.setData(xihaoItemInfo);
 				this.hbox_0.addChild(itemUI);
 			}
@@ -35,10 +34,8 @@ module view.dialog {
 			let baowuItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWUID(configId);
 			for (let itemid1 of baowuItem) {
 				let itemUI = new view.compart.DaoJuWithNameItem();
-				let baowuItemInfo: ProtoCmd.itf_ItemInfo = {
-					itemid: itemid1
-					// todo 宝物信息应该服务器发送
-				}
+				let baowuItemInfo = new ProtoCmd.ItemBase();
+				baowuItemInfo.dwBaseID = itemid1;
 				itemUI.setData(baowuItemInfo);
 				this.hbox_1.addChild(itemUI);
 			}
@@ -46,10 +43,9 @@ module view.dialog {
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let itemid2 of equipItem) {
 				let itemUI = new view.compart.DaoJuWithNameItem();
-				let equipItemInfo: ProtoCmd.itf_ItemInfo = {
-					itemid: itemid2
-				}
-				itemUI.setData(equipItemInfo);
+				let equipItemInfo = new ProtoCmd.ItemBase();
+				equipItemInfo.dwBaseID = itemid2;
+				// itemUI.setData(equipItemInfo);
 				this.hbox_2.addChild(itemUI);
 			}
 

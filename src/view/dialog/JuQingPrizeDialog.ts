@@ -30,16 +30,15 @@ module view.dialog {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
 				let keys = Object.keys(jsonData);
-				console.log(jsonData,keys);
+				console.log(jsonData, keys);
 				for (let key of keys) {
 					let _itemData = jsonData[key];
 					console.log(_itemData);
 					let itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo: ProtoCmd.itf_ItemInfo = {
-						itemid: _itemData.index,
-						binding: _itemData.binding,
-						dwCount: _itemData.num
-					};
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = _itemData.index;
+					itemInfo.dwBinding = _itemData.binding;
+					itemInfo.dwCount = _itemData.num;
 					itemUI.setData(itemInfo);
 					this.hbox_1.addChild(itemUI);
 				};

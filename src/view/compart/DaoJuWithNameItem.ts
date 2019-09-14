@@ -5,10 +5,10 @@ module view.compart {
 			super();
 		}
 
-		public setData(item: ProtoCmd.itf_ItemInfo): void {
-			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.itemid);
-			this.ui_item.initUI(item, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+		public setData(item: ProtoCmd.ItemBase): void {
+			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.dwBaseID);
+			this.ui_item.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 		}
-		
+
 	}
 }

@@ -143,7 +143,5 @@ module view.juQingMode {
 				});
 			lcp.send(pkt1);
 		}
-
-
 	}
 }

@@ -76,11 +76,7 @@ module view.dialog {
 			// 道具性别
 			this.lbl_sex.text = ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
 			// 道具ICON信息赋值
-			this.ui_item.initUI({
-				itemid: obj.dwBaseID,
-				binding: obj.dwBinding,
-				dwCount: obj.dwCount
-			});
+			this.ui_item.initUI(obj);
 			// 添加监听
 			this.addEvent();
 			return this;

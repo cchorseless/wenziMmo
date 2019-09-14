@@ -143,15 +143,6 @@ module ProtoCmd {
         index: string;//商店条目索引
     }
 
-    /**
-     * 单个商品信息
-     */
-    export interface itf_ItemInfo {
-        itemid: number;// 物品ID
-        binding?: number;// 绑定
-        dwCount?: number;// 数量
-    }
-
 
     /**
      * 热销商店返回数据
