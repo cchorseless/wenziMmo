@@ -365,21 +365,10 @@ module GameObject {
          * 尝试攻击，检查释放能攻击
          */
         public tryAttack(target: Creature, skillID: number = 999): void {
+            this.atkTargetTempId = target.tempId;
+            console.log('当前目标:', this.atkTargetTempId);
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
-            // switch (this.job) {
-            //     // 战士
-            //     case EnumData.JOB_TYPE.JOB_WARRIOR:
-            //         break;
-            //     // 法师
-            //     case EnumData.JOB_TYPE.JOB_MAGE:
-            //         skillID = 2002;
-            //         break;
-            //     // 道士
-            //     case EnumData.JOB_TYPE.JOB_MONK:
-            //         skillID = 3002;
-            //         break;
-            // }
             pkt.nMagicId = skillID;
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
@@ -388,11 +377,51 @@ module GameObject {
             lcp.send(pkt);
         }
 
+        public completeAtkHandle: Laya.Handler = null;
+        // 攻击目标
+        public atkTargetTempId: number = null;
+        /**
+         * 自动战斗
+         */
+        public startAutoAtk(): void {
+            this.completeAtkHandle = Laya.Handler.create(this, () => {
+                // 有攻击目标找攻击目标 
+                if (this.atkTargetTempId) {
+                    let target = this.findViewObj(this.atkTargetTempId);
+                    if (target) {
+                        this.tryAttack(target);
+                        return
+                    }
+                }
+                // 没有攻击目标,所有的怪物找血最少的
+                TipsManage.showTips('无怪物')
+            }, null, false);
+            this.completeAtkHandle.run();
+        }
+
+        /**
+         * 停止自动战斗
+         */
+        public stopAutoAtk(): void {
+            this.completeAtkHandle.recover();
+            this.completeAtkHandle = null;
+        }
+
+
         /**
          * 播放攻击动作
          */
         public startAttack(): void {
-            this.ui_item && this.ui_item.playAni();
+            if (this.ui_item) {
+                // 自动攻击
+                if (this.completeAtkHandle) {
+                    this.ui_item.playAni(0, false, false, this.completeAtkHandle);
+                }
+                else {
+                    this.ui_item.playAni();
+                    this.atkTargetTempId = null;
+                }
+            }
         }
 
 

@@ -1318,6 +1318,7 @@ module ProtoCmd {
          */
         public recoverUI(): void {
             if (this.ui_item) {
+                console.log(this.ui_item)
                 this.ui_item.destroy(true);
             }
             this.ui_item = null;

@@ -20,29 +20,29 @@ module view.compart {
 			this.hbox_monster03.space = 1;
 			this.hbox_player01.space = 1;
 			this.hbox_player02.space = 1;
-			this.img_battleMode.visible = false;
-			this.img_battleMode.scaleY = this.img_battleMode.scaleX = 0;
+
 			this.addEvent();
 		}
 
 		public addEvent(): void {
-			this.box_mainMode.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
-				this.showBattleModel(this.btn_modeIcon.selected);
-			});
-			for (let i = 0; i < 5; i++) {
-				this['box_mode' + i].on(Laya.UIEvent.CLICK, this, () => {
-					this.showBattleModel(false);
-					this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
-					this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
-				});
-			}
 			// 场景信息界面
 			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
 			// 当前地图界面
 			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
+			// 自动战斗
+			EventManage.onWithEffect(this.btn_autoAtk, Laya.UIEvent.CLICK, this, () => {
+				this.btn_autoAtk.selected = !this.btn_autoAtk.selected;
+				// 自动战斗
+				if(this.btn_autoAtk){
+					GameApp.MainPlayer.startAutoAtk()
+				}
+				else{
+					GameApp.MainPlayer.stopAutoAtk()
+				}
+
+			});
 		}
 
 		/**
@@ -87,7 +87,7 @@ module view.compart {
 				this.selfPlayerAvatar.setData(GameApp.MainPlayer);
 				this.box_self.addChild(this.selfPlayerAvatar);
 			}
-			else{
+			else {
 				this.selfPlayerAvatar.updateUI();
 			}
 		}
@@ -157,15 +157,15 @@ module view.compart {
 		/**
 		 * 攻击状态模式缓动
 		 */
-		public showBattleModel(isShow): void {
-			if (isShow) {
-				this.img_battleMode.visible = true;
-				Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
-			}
-			else {
-				Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
-			}
-		}
+		// public showBattleModel(isShow): void {
+		// 	if (isShow) {
+		// 		this.img_battleMode.visible = true;
+		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
+		// 	}
+		// 	else {
+		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
+		// 	}
+		// }
 
 		/**
 		 * 更新地图信息

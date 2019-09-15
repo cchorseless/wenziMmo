@@ -7,12 +7,11 @@ module view.compart {
 
 		/**
 		 * 
-		 * @param index 章节编号
 		 * @param data 章节数据
 		 */
-		public setData(index, data: ProtoCmd.itf_JUQING_CHARPTERINFO): void {
+		public setData(data: ProtoCmd.itf_JUQING_CHARPTERINFO): void {
 			this.lbl_charpterName.text = data.name;
-			this.lbl_charpterNo.text = '第' + index + '章';
+			this.lbl_charpterNo.text = '第' + data.index + '章';
 			// 解锁条件
 			let player = GameApp.MainPlayer;
 			// 未解锁
@@ -39,8 +38,8 @@ module view.compart {
 					TipsManage.showTips('章节未解锁');
 					return;
 				}
-				if(PanelManage.JuQingInfo){
-					
+				if (PanelManage.JuQingInfo) {
+
 				}
 
 

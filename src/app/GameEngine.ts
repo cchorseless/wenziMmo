@@ -60,7 +60,7 @@ class GameEngine extends SingletonClass {
     public taskInfo = {};// 所有任务信息
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
-
+    public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
     public isReady: boolean = false;
     public isLogin: boolean = false;
 
@@ -83,7 +83,7 @@ class GameEngine extends SingletonClass {
         this.mainPlayer = new GameObject.Player();
         this.initSelf();
         console.log(Laya.version);
-        
+
     }
 
 

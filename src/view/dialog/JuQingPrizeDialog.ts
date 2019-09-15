@@ -27,23 +27,50 @@ module view.dialog {
 			})
 		}
 		public initUI(): void {
+			// 奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
 				let keys = Object.keys(jsonData);
-				console.log(jsonData, keys);
 				for (let key of keys) {
 					let _itemData = jsonData[key];
-					console.log(_itemData);
-					let itemUI = new view.compart.DaoJuWithNameItem();
+					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
 					itemInfo.dwCount = _itemData.num;
-					itemUI.setData(itemInfo);
-					this.hbox_1.addChild(itemUI);
+					console.log(_itemUI)
+					// _itemUI.setData(itemInfo);
+					// todo
+					this.hbox_1.addChild(_itemUI);
 				};
 			})
 			lcp.send(pkt);
+			// 掉落信息
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID];
+			if (charpterInfo) {
+				// 章节名称
+				this.lbl_charpterName.text = '' + charpterInfo.name;
+				this.lbl_charpterNo.text = '第' + charpterInfo.index + '章';
+				// 金币
+				this.lbl_coinXl.text = '金币：' + charpterInfo.items[EnumData.CoinType.COIN_TYPE_GOLD] + '/H';
+				// 玩家经验
+				// this.lbl_playerExp.text = '经验：' + charpterInfo.items[]
+				// 英雄经验
+				// 随机掉落池
+				let keys = Object.keys(charpterInfo.drops);
+				for (let key of keys) {
+					let _itemData = charpterInfo.drops[key];
+					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = _itemData.index;
+					itemInfo.dwBinding = _itemData.binding;
+					itemInfo.dwCount = _itemData.num;
+					// _itemUI.setData(itemInfo);
+					// todo
+					this.hbox_0.addChild(_itemUI);
+				}
+				console.log(charpterInfo);
+			}
 		}
 	}
 }

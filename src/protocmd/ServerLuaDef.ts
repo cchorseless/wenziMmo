@@ -198,6 +198,7 @@ module ProtoCmd {
         name: number;// 篇章名称
         cnt: number;// 篇章内章节数量
     }
+    
     /**
      * 单条章节信息
      */
@@ -211,6 +212,7 @@ module ProtoCmd {
         startdbid: number;// 开始对话ID
         zjid: number;// 章节ID
         zslvl: number;// 转生等级
+        index: string;//章节编号
     }
 
     /**

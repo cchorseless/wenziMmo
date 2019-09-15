@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":17,
+    "selecteID":18,
     "props":{"y":0,"x":0,"width":112,"sceneColor":"#827171","height":122},
     "nodeParent":-1,
     "label":"View",
@@ -14,85 +14,92 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":6,"width":100,"skin":"image/common/frame_touxinag.png","height":100},
+            "type":"Box",
+            "props":{"y":57,"x":53,"var":"box_view","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":13,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":8,"x":11,"width":90,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1402.png","height":90},
-            "nodeParent":1,
-            "label":"Image(img_avatarPic)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":80,"x":2,"width":108,"var":"lbl_npcName","text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_npcName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":15,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":99,"x":16,"width":80,"var":"lbl_zuoBiao","text":"(150,140)","height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#060606"},
-            "nodeParent":1,
-            "label":"Label(lbl_zuoBiao)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":14,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":-5,"x":-4,"var":"img_tips","skin":"image/main/fram_tishi.png"},
-            "nodeParent":1,
-            "label":"Image(img_tips)",
-            "isOpen":true,
+            "label":"Box(box_view)",
+            "isOpen":null,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":17,
+            "compId":18,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":-2,"x":11,"var":"img_warn","skin":"image/main/icon_tishi.png"},
-                    "nodeParent":17,
-                    "label":"Image(img_warn)",
+                    "props":{"y":7,"x":10,"width":100,"skin":"image/common/frame_touxinag.png","height":100},
+                    "nodeParent":18,
+                    "label":"Image",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":13,
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":15,"x":15,"width":90,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1402.png","height":90},
+                    "nodeParent":18,
+                    "label":"Image(img_avatarPic)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":87,"x":6,"width":108,"var":"lbl_npcName","text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                    "nodeParent":18,
+                    "label":"Label(lbl_npcName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":106,"x":20,"width":80,"var":"lbl_zuoBiao","text":"(150,140)","height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#060606"},
+                    "nodeParent":18,
+                    "label":"Label(lbl_zuoBiao)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":2,"var":"img_tips","skin":"image/main/fram_tishi.png"},
+                    "nodeParent":18,
+                    "label":"Image(img_tips)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":17,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":-2,"x":11,"var":"img_warn","skin":"image/main/icon_tishi.png"},
+                            "nodeParent":17,
+                            "label":"Image(img_warn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":3,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 }]
         }],
     "animations":[

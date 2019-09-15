@@ -40,7 +40,7 @@ module view.juQing {
 
 		}
 
-		public allCharpterInfo;//{ziid:章节信息}
+
 		public initUI(): void {
 			// 拉取章节信息
 			let pkt1 = new ProtoCmd.QuestClientData();
@@ -50,12 +50,12 @@ module view.juQing {
 						let keys = Object.keys(jsonData.charpterInfo);
 						for (let key of keys) {
 							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
+							charpterInfo.index = key;
 							let charpterTitle_ui = new view.compart.JuQingTitleItem();
-							charpterTitle_ui.setData(key, charpterInfo);
+							charpterTitle_ui.setData(charpterInfo);
 							this.vbox_left.addChild(charpterTitle_ui);
 							// 更新章节信息
-							this.allCharpterInfo = {};
-							this.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
 					}
 				});
@@ -67,9 +67,9 @@ module view.juQing {
 		 * @param zjID 
 		 */
 		public updateRightInfo(zjID: number): void {
-			if (this.allCharpterInfo == null || this.allCharpterInfo[zjID] == null) { return };
-			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = this.allCharpterInfo[zjID];
-			this.lbl_coinXl.text='金币:'+charpterInfo.items
+			if (GameApp.GameEngine.allCharpterInfo[zjID] == null) { return };
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[zjID];
+			this.lbl_coinXl.text = '金币:' + charpterInfo.items
 
 		}
 	}

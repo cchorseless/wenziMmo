@@ -14,7 +14,7 @@ module view.compart {
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			this.img_bottom.scale(0.8, 0.8);
 			this._skeGroup.loadRes(['sk/dingmian/BOSS_DM.sk'], () => {
-				this.addChild(this._skeGroup);
+				this.box_view.addChild(this._skeGroup);
 				this._skeGroup.pos(this.width / 2, this.height * 0.6);
 				this._skeGroup.scale(0.4, 0.4)
 				this._skeGroup.play(1, true);
@@ -24,7 +24,7 @@ module view.compart {
 		}
 
 		public addEvent(): void {
-			this.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				player.tryAttack(this.item);
 			})
