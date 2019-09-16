@@ -6,7 +6,7 @@ module view.compart {
 		}
 		public _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
 		public item: GameObject.Player;
-		public setData(item): void {
+		public setData(item: GameObject.Player): void {
 			this.item = item;
 			this.item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
@@ -30,6 +30,10 @@ module view.compart {
 		 */
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
+		}
+
+		public stopPlayAni(): void {
+			this._skeGroup.stopPlay();
 		}
 
 		public updateUI(): void {

@@ -74,10 +74,6 @@ module view.common {
 			}
 			// 角色名称
 			GameApp.GameEngine.mainPlayer.objName = this.input_random.text;
-			// 性别
-			GameApp.GameEngine.mainPlayer.sex = this.curSex;
-			// 职业
-			GameApp.GameEngine.mainPlayer.job = this.curMenPai;
 			let createusr = new ProtoCmd.CreatePlayer();
 			createusr.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);

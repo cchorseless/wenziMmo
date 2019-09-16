@@ -366,7 +366,7 @@ module GameObject {
                 _skeGroup.rotation = -90;
                 _skeGroup.loadRes(['sk/skill/huoqu/B_fire_02_ske.sk', 'sk/skill/huoqu/S_fire_02_ske.sk'], () => {
                     _skeGroup.pos(selfPoint.x + 100, selfPoint.y)
-                    Laya.stage.addChild(_skeGroup);
+                    PanelManage.Main.addChild(_skeGroup);
                     Laya.Tween.to(_skeGroup, { x: targetPoint.x + 50, y: targetPoint.y + 50 }, 500, null, Laya.Handler.create(this, () => {
                         _skeGroup.showChild(1);
                         _skeGroup.play(0, false, true, Laya.Handler.create(this, () => {

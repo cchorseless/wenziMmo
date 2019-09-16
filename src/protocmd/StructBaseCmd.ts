@@ -721,7 +721,7 @@ module ProtoCmd {
             this.addProperty('dwMonsterAudioId', PacketBase.TYPE_DWORD);// 怪物声音类型
             this.addProperty("dwRefreshTime", PacketBase.TYPE_DWORD);//BOSS刷新时间
             this.addProperty('dwMasterTmpID', PacketBase.TYPE_DWORD);//主人ID;
-            this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//NPC 怪物基本ID  
+            this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//NPC 怪物基本表格ID  
         }
         /**
          * 怪物声音类型
@@ -772,7 +772,7 @@ module ProtoCmd {
             this.addProperty('btGroupMaster', PacketBase.TYPE_BYTE);//是否是队长			
             this.addProperty('dwClanId', PacketBase.TYPE_INT);//  4  氏族ID  公会ID
             this.addProperty('btClanMaster', PacketBase.TYPE_BYTE);// 1  行会职位  
-            this.addProperty('dwVip', PacketBase.TYPE_DWORD); //vip类型
+            this.addProperty('dwVip', PacketBase.TYPE_DWORD); //vip等级
             this.addProperty("btNameColor", PacketBase.TYPE_BYTE);//名字颜色 0是正常的，1灰，2黄，3红
             this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
         }

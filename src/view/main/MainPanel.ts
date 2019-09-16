@@ -330,6 +330,7 @@ module view.main {
 			switch (type) {
 				// 玩家
 				case EnumData.CRET_TYPE.CRET_PLAYER:
+					this.ui_scene.addPlayer(obj);
 					break;
 				// 怪物
 				case EnumData.CRET_TYPE.CRET_MONSTER:
@@ -510,7 +511,7 @@ module view.main {
 		/**
 		 * 战斗主场景
 		 */
-		public getMainScene() {
+		public getMainScene(): view.compart.SceneItem {
 			return this.ui_scene
 		}
 	}

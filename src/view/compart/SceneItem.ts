@@ -35,10 +35,10 @@ module view.compart {
 			EventManage.onWithEffect(this.btn_autoAtk, Laya.UIEvent.CLICK, this, () => {
 				this.btn_autoAtk.selected = !this.btn_autoAtk.selected;
 				// 自动战斗
-				if(this.btn_autoAtk){
+				if (this.btn_autoAtk) {
 					GameApp.MainPlayer.startAutoAtk()
 				}
-				else{
+				else {
 					GameApp.MainPlayer.stopAutoAtk()
 				}
 
@@ -142,6 +142,24 @@ module view.compart {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
+			let playerUI: view.compart.OtherPlayerInSceneItem = new view.compart.OtherPlayerInSceneItem();
+			playerUI.setData(obj);
+			let childNum = this.hbox_player01.numChildren + this.hbox_player01.numChildren;
+			let mod = childNum % 8;
+			switch (Math.floor(mod / 4)) {
+				case 0:
+				case 3:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				case 1:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				case 2:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				default:
+					this.hbox_player01.addChild(playerUI);
+			}
 
 		}
 

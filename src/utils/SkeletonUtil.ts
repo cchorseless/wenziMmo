@@ -71,5 +71,12 @@ module SkeletonUtil {
                 curSkeleton.play(nameOrIndex, loop, force);
             }
         }
+
+        /**
+         * 停止播放
+         */
+        stopPlay(): void {
+            this.curSkeleton && this.curSkeleton.stop();
+        }
     }
 }

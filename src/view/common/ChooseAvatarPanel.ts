@@ -14,8 +14,6 @@ module view.common {
 			let nlevel = playerInfo.getValue('nlevel');// 等级
 			let zslevel = playerInfo.getValue('zslevel');// 转生等级
 			let viplvl = playerInfo.getValue('viplvl');// VIP等级
-			GameApp.MainPlayer.sex = sex;
-			GameApp.MainPlayer.job = job;
 			GameApp.MainPlayer.objName = szName;
 			GameApp.MainPlayer.level = nlevel;
 			GameApp.MainPlayer.zslevel = zslevel;
