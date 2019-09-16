@@ -26,7 +26,7 @@ module view.compart {
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
-				player.tryAttack(this.item);
+				player.startHandAtk(this.item);
 			})
 		}
 
@@ -38,6 +38,11 @@ module view.compart {
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
 		}
+
+		public stopPlayAni():void{
+			
+		}
+
 
 		public updateUI(): void {
 			this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;

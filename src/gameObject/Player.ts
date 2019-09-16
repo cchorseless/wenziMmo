@@ -3,8 +3,18 @@ module GameObject {
     export class Player extends Creature {
         public playerAccount: string;
         public playerPassword: string;
-        public job: EnumData.JOB_TYPE;
-        public sex: EnumData.SEX_TYPE;
+        /**
+         * 职业
+         */
+        public get job(): EnumData.JOB_TYPE {
+            return this.feature.simpleFeature.job;
+        }
+        /**
+         * 性别
+         */
+        public get sex(): EnumData.SEX_TYPE {
+            return this.feature.simpleFeature.sex;
+        }
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
         public viplvl: number;//Vip等级
@@ -23,7 +33,7 @@ module GameObject {
         /******************技能******************** */
         public skillInfo = {};
         /******************UI****************** */
-        public ui_item: view.compart.SelfPlayerInSceneItem;
+        public ui_item;
         /******************生活属性************ */
         public nHealth: number = 0;// 健康
         public nSpirte: number = 0;// 精神
@@ -393,9 +403,24 @@ module GameObject {
                         return
                     }
                 }
-                // 没有攻击目标,所有的怪物找血最少的
-                TipsManage.showTips('无怪物')
+                // 先找BOSS
+                let allMonsterKeys = Object.keys(this.allMonster);
+                for (let key of allMonsterKeys) {
+                    let monsterObj: Monster = this.allMonster[key];
+                    let config = monsterObj.feature.dwCretTypeId;
+                    // 查表找到BOSS
+                    if (Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + config))) {
+                        this.tryAttack(monsterObj);
+                        return
+                    }
+                }
+                // 没有攻击目标,所有的怪物位置最靠左的
+                // if( ){
+
+                // }
+                TipsManage.showTips('无怪物');
             }, null, false);
+            // 攻击一次
             this.completeAtkHandle.run();
         }
 
@@ -403,23 +428,35 @@ module GameObject {
          * 停止自动战斗
          */
         public stopAutoAtk(): void {
-            this.completeAtkHandle.recover();
+            if (this.completeAtkHandle) {
+                this.completeAtkHandle.recover();
+            }
             this.completeAtkHandle = null;
         }
 
+        /**
+         * 手动攻击
+         * @param target 
+         * @param skillID 
+         */
+        public startHandAtk(target: Creature, skillID: number = 999): void {
+            this.stopAutoAtk();
+            this.tryAttack(target, skillID)
+        }
 
         /**
          * 播放攻击动作
          */
         public startAttack(): void {
             if (this.ui_item) {
+                this.ui_item.stopPlayAni();
                 // 自动攻击
                 if (this.completeAtkHandle) {
-                    this.ui_item.playAni(0, false, false, this.completeAtkHandle);
+                    this.ui_item.playAni(0, false, true, this.completeAtkHandle);
                 }
+                // 手动攻击
                 else {
                     this.ui_item.playAni();
-                    this.atkTargetTempId = null;
                 }
             }
         }
