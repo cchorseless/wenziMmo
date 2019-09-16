@@ -5,10 +5,19 @@ module view.tujian {
 			super();
 		}
 		public setData(): void {
-			this.panel_tujianEvent.vScrollBarSkin = '';
-			this.vbox_tujianEvent['sortltem'] = (items) => { };
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				this.vstack_top.selectedIndex = index;
+			}, null, false);
+			this.panel_0.vScrollBarSkin = '';
+			this.vbox_0['sortltem'] = (items) => { };
+			this.panel_1.vScrollBarSkin = '';
+			this.vbox_1['sortltem'] = (items) => { };
+			this.panel_2.vScrollBarSkin = '';
+			this.vbox_2['sortltem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_tujianEvent.addChild(new view.compart.TuJianEventItem);
+				this.vbox_0.addChild(new view.compart.TuJianEventItem);
+				this.vbox_1.addChild(new view.compart.TuJianEventItem);
+				this.vbox_2.addChild(new view.compart.TuJianEventItem);
 			}
 			this.addEvent();
 		}

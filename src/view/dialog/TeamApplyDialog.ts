@@ -10,6 +10,7 @@ module view.dialog {
 			this.lbl_name.text = '' + item.szName;
 			this.lbl_lvl.text = '' + item.lvl;
 			this.lbl_count.text = '' + count;
+			this.addEvent();
 			return this;
 		}
 		public addEvent(): void {
@@ -17,14 +18,13 @@ module view.dialog {
 				this.close();
 			})
 			this.btn_teamApply.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.TeamAgreeJoinEncoder(null);
-				pkt.setValue('szName', GameApp.MainPlayer.objName);
+				let pkt = new ProtoCmd.TeamAgreeJoinEncoder();
+				pkt.setValue('szName', this.item.szName);
 				pkt.setValue('btJob', GameApp.MainPlayer.job);
 				pkt.setValue('dwLevel', GameApp.MainPlayer.level);
 				pkt.setValue('btSex', GameApp.MainPlayer.sex);
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.TeamAgreeJoinDecoder(data);
-				})
+				lcp.send(pkt);
+				this.close();
 			})
 		}
 	}

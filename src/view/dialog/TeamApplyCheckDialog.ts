@@ -7,6 +7,7 @@ module view.dialog{
 			public setData(item:any): TeamApplyCheckDialog {
 			this.lbl_name.text = '' + item.playerName;
 			this.lbl_level.text = '' + item.level;
+			this.addEvent();
 			return this;
 		}
 		public addEvent(): void {
@@ -15,7 +16,7 @@ module view.dialog{
 				pkt.setValue('szName', this.lbl_name.text);
 				pkt.setValue('szMasterName', GameApp.MainPlayer.objName);
 				pkt.setValue('dwGroupId', GameApp.MainPlayer.feature.btGroupId);
-				pkt.setValue('boAgree', true);
+				pkt.setValue('boAllow', true);
 				lcp.send(pkt, this)
 				this.close();
 			})
@@ -24,7 +25,7 @@ module view.dialog{
 				pkt.setValue('szName', this.lbl_name.text);
 				pkt.setValue('szMasterName', GameApp.MainPlayer.objName);
 				pkt.setValue('dwGroupId', GameApp.MainPlayer.feature.btGroupId);
-				pkt.setValue('boAgree', false);
+				pkt.setValue('boAllow', false);
 				lcp.send(pkt, this)
 				this.close();
 			})
