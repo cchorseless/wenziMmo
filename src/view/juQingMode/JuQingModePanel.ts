@@ -10,6 +10,7 @@ module view.juQingMode {
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_zhangJieInfo['sortItem'] = (items) => { };
 			this.vbox_zhangJieInfo.scaleY = 0;
+			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.initUI();
 			this.addEvent();
 		}
@@ -32,13 +33,12 @@ module view.juQingMode {
 						// 图鉴
 
 
-
 					}
 					else {
 						TipsManage.showTips('章节已经读完');
-						this.btn_next.label='本章结束，切换下一章';
-						
+						this.btn_next.label = '本章结束，切换下一章';
 						this.panel_0.scrollTo(0, this.vbox_0.height);
+						this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP);
 					}
 				});
 				lcp.send(pkt);
@@ -113,7 +113,7 @@ module view.juQingMode {
 			// 拉取章节信息
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
-				(jsonData: { pzid: number, charpterInfo: number }) => {
+				(jsonData: { pzid: number,pzname: string, charpterInfo: number }) => {
 					// 拉取对白
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
 						let keys = Object.keys(jsonData.charpterInfo);
@@ -138,22 +138,32 @@ module view.juQingMode {
 								let startTalkId = charpterInfo.startdbid;
 								// 当前ID
 								let nowTalkId = GameApp.MainPlayer.talkID;
-								// 拉取章节所有剧情
-								let pkt = new ProtoCmd.QuestClientData();
-								pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID], null, this,
-									(jsonData) => {
-										GameApp.GameEngine.talkInfo[charpterID] = jsonData;
-										for (let i = startTalkId; i <= nowTalkId; i++) {
-											let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = jsonData.data[i];
-											this.addJuQingTalkItem(_talkInfo)
-										}
-									});
-								lcp.send(pkt);
+								this.updateTalkInfo(charpterID, startTalkId, nowTalkId);
 							}
 						}
 					};
 				});
 			lcp.send(pkt1);
+		}
+
+		/**
+		 * 拉取章节对白
+		 * @param charpterID 章节ID
+		 * @param startTalkId 开始对白ID
+		 * @param nowTalkId 当前进度对白ID
+		 */
+		public updateTalkInfo(charpterID, startTalkId, nowTalkId): void {
+			// 拉取章节所有剧情
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID], null, this,
+				(jsonData) => {
+					GameApp.GameEngine.talkInfo[charpterID] = jsonData;
+					for (let i = startTalkId; i <= nowTalkId; i++) {
+						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = jsonData.data[i];
+						this.addJuQingTalkItem(_talkInfo)
+					}
+				});
+			lcp.send(pkt);
 		}
 	}
 }

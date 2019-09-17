@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":4,
-    "selecteID":17,
+    "selecteID":11,
     "props":{"width":627,"sceneColor":"#844544","height":610},
     "nodeParent":-1,
     "label":"Dialog",
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":-4,"x":157,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+                    "props":{"y":22,"x":156,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
                     "nodeParent":4,
                     "label":"Label(lbl_npcDes0)",
                     "isDirectory":false,
@@ -94,7 +94,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":51,"x":159,"width":350,"skin":"image/common/line_guild.png"},
+                    "props":{"y":76,"x":160,"width":350,"skin":"image/common/line_guild.png"},
                     "nodeParent":4,
                     "label":"Image",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":61,"x":157,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+                    "props":{"y":109,"x":155,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
                     "nodeParent":4,
                     "label":"Label(lbl_npcDes1)",
                     "isDirectory":false,
@@ -120,7 +120,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":117,"x":159,"width":350,"skin":"image/common/line_guild.png"},
+                    "props":{"y":166,"x":154,"width":350,"skin":"image/common/line_guild.png"},
                     "nodeParent":4,
                     "label":"Image",
                     "isDirectory":false,
@@ -132,61 +132,8 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":126,"x":157,"wordWrap":true,"width":349,"var":"lbl_npcDes2","text":"（战力描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
-                    "nodeParent":4,
-                    "label":"Label(lbl_npcDes2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":181,"x":159,"width":350,"skin":"image/common/line_guild.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":190,"x":157,"wordWrap":true,"width":349,"var":"lbl_npcDes3","text":"（当前状态描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
-                    "nodeParent":4,
-                    "label":"Label(lbl_npcDes3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":15,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":246,"x":159,"width":350,"skin":"image/common/line_guild.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Tab",
-                    "props":{"y":257,"x":216,"width":288,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelStrokeColor":"#404040","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","height":52,"direction":"horizontal"},
+                    "props":{"y":228,"x":220,"width":288,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelStrokeColor":"#404040","labelStroke":2,"labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#404040,#ffffff","height":52,"direction":"horizontal"},
                     "nodeParent":4,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,
@@ -200,7 +147,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":305,"x":-17,"width":525,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":140},
+                    "props":{"y":284,"x":-11,"width":525,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":140},
                     "nodeParent":4,
                     "label":"Image",
                     "isOpen":true,

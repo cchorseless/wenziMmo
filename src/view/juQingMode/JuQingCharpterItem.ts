@@ -23,9 +23,23 @@ module view.juQingMode {
 			}
 			// 解锁
 			else {
-				this.lbl_conDes.visible = false;
-			}
+				if (player.talkID >= data.enddbid) {
+					this.lbl_conDes.text = '已完成';
+				}
+				else if (player.talkID < data.startdbid) {
+					this.lbl_conDes.text = '未开始';
+				}
+				else {
+					this.lbl_conDes.text = '进行中';
+				}
 
+			}
+			this.addEvent()
+		}
+		public addEvent(): void {
+			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.JuQingMode.box_pianZhang.event(Laya.UIEvent.MOUSE_UP);
+			})
 		}
 	}
 }

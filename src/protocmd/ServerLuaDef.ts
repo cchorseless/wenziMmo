@@ -180,6 +180,16 @@ module ProtoCmd {
         up: number;
         down: number;
     }
+    /********************************************道具*************************** */
+    /**
+     * 道具信息
+     */
+    export interface itf_ItemInfo {
+        index: number;
+        binding: number;
+        num: number;
+    }
+
     /********************************************剧情*************************** */
     /**
      * 个人剧情进度信息
@@ -188,6 +198,8 @@ module ProtoCmd {
         dbid: number;// 对白ID
         pzid: number;// 篇章ID
         zjid: number;// 章节ID
+        zjname: string;// 章节名字
+        pzname: string;// 篇章名字
     }
 
     /**
@@ -198,7 +210,7 @@ module ProtoCmd {
         name: number;// 篇章名称
         cnt: number;// 篇章内章节数量
     }
-    
+
     /**
      * 单条章节信息
      */
@@ -213,6 +225,7 @@ module ProtoCmd {
         zjid: number;// 章节ID
         zslvl: number;// 转生等级
         index: string;//章节编号
+        events: any;//事件信息
     }
 
     /**
