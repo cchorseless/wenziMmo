@@ -49,7 +49,7 @@ module EnumData {
         SHOW_IN_BAG = 1,//背包中显示
         SHOW_IN_CANGKU = 2,//仓库中显示
         SHOW_IN_PLAYER = 3,//角色弟子身上中显示
-        SHOW_IN_MAIL = 4,//邮件中显示,只有信息 误操作按钮
+        SHOW_IN_MAIL = 4,//邮件中显示,只有信息 无操作按钮
         SHOW_IN_GUILD_CANGKU = 5,//公会仓库
         SHOW_IN_GUILD_BAG = 6,//公会背包
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
@@ -149,21 +149,21 @@ module EnumData {
         EQUIP_HERO_MONK_BELT = 57,				//英雄道士腰带
 
         //资源线
-        EQUIP_MEDAL,					//勋章
-        EQUIP_DRAGONSOUL,				//龙魂
-        EQUIP_BLOODJADE,				//血玉
-        EQUIP_WING,						//光翼
-        EQUIP_SHIELD,					//神盾
-        EQUIP_OFFICIALSEAL = 63,		//官印
+        EQUIP_MEDAL,					// 勋章-根骨
+        EQUIP_DRAGONSOUL,				// 龙魂-悟性
+        EQUIP_BLOODJADE,				// 血玉-身法
+        EQUIP_WING,						// 光翼-罡气
+        EQUIP_SHIELD,					// 神盾-臂力
+        EQUIP_OFFICIALSEAL = 63,		// 官印-善缘
 
-        EQUIP_HERO_DRAGONHEART,			//英雄共享装备-火龙之心
-        EQUIP_HERO_WING,				//英雄共享装备-翅膀
+        EQUIP_HERO_DRAGONHEART,			// 英雄共享装备-火龙之心
+        EQUIP_HERO_WING,				// 英雄共享装备-翅膀
 
-        EQUIP_SHOULDER,					//肩
-        EQUIP_KNEE,						//膝
-        EQUIP_PENDANT,					//吊坠
-        EQUIP_FACE = 69,				//脸
-        EQUIP_MAX_COUNT,				//总数
+        EQUIP_SHOULDER,					// 肩
+        EQUIP_KNEE,						// 膝
+        EQUIP_PENDANT,					// 吊坠
+        EQUIP_FACE = 69,				// 脸
+        EQUIP_MAX_COUNT,				// 总数
     };
 
 
@@ -328,8 +328,8 @@ module EnumData {
     // 0x0237
      */
     export enum eEXP_VALUE_TYPE {
-        EXP_VALUE_TYPE_PLAYER,//角色
-        EXP_VALUE_TYPE_HERO,//弟子
+        EXP_VALUE_TYPE_PLAYER,//角色经验
+        EXP_VALUE_TYPE_HERO,//弟子经验
         EXP_VALUE_TYPE_BOSS,//boss积分
         EXP_VALUE_TYPE_HEALTH,//健康
         EXP_VALUE_TYPE_SPITIT,//精神
@@ -898,9 +898,10 @@ module EnumData {
         SAVE_KEY_VALUE_TYPE_TUJIAN_MAP,		//地图图鉴
         SAVE_KEY_VALUE_TYPE_TUJIAN_EVENT,	//事件图鉴
         SAVE_KEY_VALUE_TYPE_TUJIAN_ITEM,	//物品图鉴
-
         SAVE_KEY_VALUE_TYPE_MAX,
 
     };
+
+
 
 }

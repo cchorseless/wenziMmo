@@ -67,7 +67,7 @@ module view.dialog {
 			// 帮会回收贡献值
 			this.lbl_guildRecover.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE(dwBaseID);
 			// 道具类型
-			this.lbl_type.text =['头盔', '项链', '衣服', '武器', '手镯', '手镯', '戒指', '戒指', '鞋子', '腰带'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
+			this.lbl_type.text = ['头盔', '项链', '衣服', '武器', '手镯', '手镯', '戒指', '戒指', '鞋子', '腰带'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
 			// 道具职业
 			this.lbl_job.text = ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
 			// 道具等级，使用等级

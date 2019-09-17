@@ -60,7 +60,9 @@ module view.dialog {
 			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
 			let ban_model =
 				[EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU,
-				EnumData.ItemInfoModel.SHOW_IN_CANGKU,];
+				EnumData.ItemInfoModel.SHOW_IN_CANGKU,
+				EnumData.ItemInfoModel.SHOW_IN_MAIL
+				];
 			if (this.itemObj.dwCount === 1 || ban_model.indexOf(this.model) != -1) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;

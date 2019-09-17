@@ -19,7 +19,7 @@
             "type":0,
             "id":3
         }],
-    "props":{"width":455,"sceneColor":"#000000","height":490},
+    "props":{"width":537,"sceneColor":"#000000","height":534},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -31,20 +31,88 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":0,"width":455,"skin":"image/common/fram_common_20.png","sizeGrid":"23,18,21,24","height":480,"bottom":0},
+            "props":{"y":0,"x":0,"width":537,"skin":"image/common/bottom_Pop-ups_small.png","height":534},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":34,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":67,"x":22,"skin":"image/tujian/Base_name.png","rotation":-90},
-                    "nodeParent":2,
+                    "props":{"y":348,"x":37,"width":449,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"10,10,28,40","height":125},
+                    "nodeParent":34,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":364,"x":83,"skin":"image/tujian/attitude_kind_Selected.png"},
+                    "nodeParent":34,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":21,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":364,"x":218,"skin":"image/tujian/attitude_neutral_Selected.png"},
+                    "nodeParent":34,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ],
+                    "$LOCKED":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":364,"x":351,"skin":"image/tujian/attitude_hostility_unselected.png"},
+                    "nodeParent":34,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":23,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":116,"x":37,"width":448,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"10,10,28,40","height":176},
+                    "nodeParent":34,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":25,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":66,"x":54,"skin":"image/common/bottom_smalltitle.png"},
+                    "nodeParent":34,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
@@ -54,7 +122,7 @@
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":20,"x":42,"text":"门派","rotation":90,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":3,"x":32,"width":64,"text":"门派","strokeColor":"#404040","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":16,
                             "label":"Label",
                             "isDirectory":false,
@@ -68,105 +136,100 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":67,"x":24,"width":407,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"10,10,28,40","height":185},
-                    "nodeParent":2,
+                    "props":{"y":299,"x":54,"skin":"image/common/bottom_smalltitle.png"},
+                    "nodeParent":34,
                     "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":25,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":254,"x":24},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":26,
+                    "compId":35,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":53,"width":407,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"10,10,28,40","height":141},
-                            "nodeParent":26,
-                            "label":"Image",
-                            "isOpen":true,
+                            "type":"Label",
+                            "props":{"y":3,"x":32,"width":64,"text":"态度","strokeColor":"#404040","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":35,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":5,
+                            "compId":36,
                             "child":[
                                 ]
-                        },
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":127,"x":79,"width":119,"stateNum":"2","skin":"image/common/img_common_16_finish.png","labelSize":28,"labelPadding":"77","labelFont":"FZXK","labelColors":"#404040,#64491a","label":"华山派","height":130},
+                    "nodeParent":34,
+                    "label":"Button",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":41,
+                    "child":[
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":53,"skin":"image/tujian/Base_name.png","rotation":-90},
-                            "nodeParent":26,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":18,
-                            "child":[
-                                {
-                                    "x":60,
-                                    "type":"Label",
-                                    "props":{"y":20,"x":42,"text":"态度","rotation":90,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                                    "nodeParent":18,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":19,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":79,"x":23,"skin":"image/tujian/attitude_kind_Selected.png"},
-                            "nodeParent":26,
-                            "label":"Image",
+                            "type":"Button",
+                            "props":{"y":29,"x":23,"stateNum":"2","skin":"image/common/login/icon_huashan01up_finish.png"},
+                            "nodeParent":41,
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":21,
+                            "compId":44,
                             "child":[
                                 ]
-                        },
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":127,"x":204,"width":119,"stateNum":"2","skin":"image/common/img_common_16_finish.png","labelSize":28,"labelPadding":"77","labelFont":"FZXK","labelColors":"#404040,#64491a","label":"武当派","height":130},
+                    "nodeParent":34,
+                    "label":"Button",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":42,
+                    "child":[
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":79,"x":157,"skin":"image/tujian/attitude_neutral_Selected.png"},
-                            "nodeParent":26,
-                            "label":"Image",
+                            "type":"Button",
+                            "props":{"y":29,"x":23,"stateNum":"2","skin":"image/common/login/icon_wudang01up_finish.png"},
+                            "nodeParent":42,
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":22,
+                            "compId":45,
                             "child":[
                                 ]
-                        },
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":127,"x":329,"width":119,"stateNum":"2","skin":"image/common/img_common_16_finish.png","labelSize":28,"labelPadding":"77","labelFont":"FZXK","labelColors":"#404040,#64491a","label":"魔教","height":130},
+                    "nodeParent":34,
+                    "label":"Button",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":43,
+                    "child":[
                         {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":79,"x":291,"skin":"image/tujian/attitude_hostility_unselected.png"},
-                            "nodeParent":26,
-                            "label":"Image",
+                            "type":"Button",
+                            "props":{"y":29,"x":23,"stateNum":"2","skin":"image/common/login/icon_mojiao01up_finish.png"},
+                            "nodeParent":43,
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":23,
+                            "compId":46,
                             "child":[
                                 ]
                         }]
@@ -175,86 +238,8 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":97,"x":46,"skin":"image/tujian/Gang_huashan_seleted.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":27,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":108,"x":3,"text":"华山派","padding":"-1","fontSize":30,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":27,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":97,"x":179,"skin":"image/tujian/Gang_wudang_unseleted.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":29,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":108,"x":3,"text":"武当派","padding":"-1","fontSize":30,"font":"Microsoft YaHei","color":"#000000","alpha":0.3},
-                    "nodeParent":29,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":97,"x":315,"skin":"image/tujian/Gang_mojiao_unseleted.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":31,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":108,"x":18,"text":"魔教","padding":"-1","fontSize":30,"font":"Microsoft YaHei","color":"#000000","alpha":0.3,"align":"center"},
-                    "nodeParent":31,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":32,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
             "type":"Button",
-            "props":{"y":0,"x":391,"var":"btn_shaiXuanClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":24,"x":445,"var":"btn_shaiXuanClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
             "label":"Button(btn_shaiXuanClose)",
             "isDirectory":false,

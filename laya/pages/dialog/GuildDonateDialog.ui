@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":5,
+    "selectedBox":145,
+    "selecteID":147,
     "props":{"width":610,"sceneColor":"#000000","height":748},
     "nodeParent":-1,
     "label":"Dialog",
@@ -45,21 +45,22 @@
             "props":{"y":0,"x":167,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":145,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":14,"x":55,"skin":"image/guild/zi_gonghuimujuan.png"},
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":17,"x":60,"text":"公会募捐","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":145,
-                    "label":"Image",
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":146,
+                    "compId":147,
                     "child":[
                         ]
                 }]
@@ -145,7 +146,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":1,"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
+                    "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                     "nodeParent":76,
                     "label":"Image",
                     "isDirectory":false,
@@ -329,7 +330,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":1,"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
+                    "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                     "nodeParent":110,
                     "label":"Image",
                     "isDirectory":false,
@@ -513,7 +514,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":1,"width":502,"skin":"image/guild/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
+                    "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                     "nodeParent":125,
                     "label":"Image",
                     "isDirectory":false,

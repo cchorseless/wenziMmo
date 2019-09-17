@@ -6,10 +6,11 @@ module view.compart {
 		}
 
 		public setData(txt: string): void {
-			if (txt.length > 60) {
-				this.height = 120;
-			}
-			this.lbl_content.text = txt;
+			this.div_content.style.fontSize = 24;
+			this.div_content.style.wordWrap = true;
+			this.div_content.style.leading = 5;
+			this.div_content.style.align = 'middle';
+			this.div_content.innerHTML = txt;
 		}
 	}
 }

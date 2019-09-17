@@ -63,6 +63,8 @@ module view.main {
 			this.lbl_yuanBaolock.text = '' + _player.wealth.yuanBao_lock;
 			// 战斗力
 			this.clip_power.value = '' + _player.ability.nFight;
+			// 头像
+			this.img_avatarIcon.skin = '' + _player.iconAvatarPic;
 			// 节气
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
@@ -328,6 +330,7 @@ module view.main {
 			switch (type) {
 				// 玩家
 				case EnumData.CRET_TYPE.CRET_PLAYER:
+					this.ui_scene.addPlayer(obj);
 					break;
 				// 怪物
 				case EnumData.CRET_TYPE.CRET_MONSTER:
@@ -396,6 +399,7 @@ module view.main {
 			// 中间自己
 			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			// 左侧
+			this.img_lineLeft.visible = Boolean(mapInfo.left);
 			if (mapInfo.left) {
 				this.btn_mapLeft.visible = true;
 				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
@@ -404,6 +408,7 @@ module view.main {
 				this.btn_mapLeft.visible = false;
 			}
 			// 下面
+			this.img_lineDown.visible = Boolean(mapInfo.down);
 			if (mapInfo.down) {
 				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
@@ -412,6 +417,7 @@ module view.main {
 				this.btn_mapDown.visible = false;
 			}
 			// 上面
+			this.img_lineUp.visible = Boolean(mapInfo.up);
 			if (mapInfo.up) {
 				this.btn_mapUp.visible = true;
 				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
@@ -420,6 +426,7 @@ module view.main {
 				this.btn_mapUp.visible = false;
 			}
 			// 右边
+			this.img_lineRight.visible = Boolean(mapInfo.right);
 			if (mapInfo.right) {
 				this.btn_mapRight.visible = true;
 				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
@@ -504,7 +511,7 @@ module view.main {
 		/**
 		 * 战斗主场景
 		 */
-		public getMainScene() {
+		public getMainScene(): view.compart.SceneItem {
 			return this.ui_scene
 		}
 	}

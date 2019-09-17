@@ -420,7 +420,7 @@ class ServerListener extends SingletonClass {
 
 
     /*****************************************************战斗模块******************************************** */
-    //0x0232
+    // 0x0232
     // 攻击返回包
     public cretAttackRet(data: any): void {
         let msgData = new ProtoCmd.CretAttackRet(data);
@@ -445,7 +445,7 @@ class ServerListener extends SingletonClass {
     }
 
 
-    //0x0297
+    // 0x0297
     // 同屏内怪物掉血
     public cretStruck(data: any): void {
         let msg = new ProtoCmd.CretStruck(data);
@@ -462,59 +462,9 @@ class ServerListener extends SingletonClass {
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
         }
-        //App.MainPanel.onStruck(tartmpid, nowhp, maxhp, (nowhp > 0 ? false : true));
-
-        // if (actmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
-        //     srcName = "您";
-
-        // }
-        // else {
-        //     //TODO Player
-        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
-        //         if (//App.MainPanel.objItemDB[k].onlyid == actmpid) {
-        //             srcName = //App.MainPanel.objItemDB[k].name;
-        //             if (nowhp == 0) {
-        //                 //App.MainPanel.objItemDB[k].lifestate = 0;
-        //             }
-        //             break;
-        //         }
-        //     }
-        // }
-
-        // if (tartmpid ==GameApp.GameEngine.mainPlayer.onlyid) {
-        //     dstName = "您";
-        //     msgstr = '<font color="#00EE00"><u>10秒后自动复活！</u></font>'
-        //     ////App.MainPanel.bloodBtn.text = '血量:(' + msg.getValue('nHp') + '/' + msg.getValue('nMaxHp') + ')';
-        //    GameApp.GameEngine.mainPlayer.changeHp(nowhp);
-        // } else {
-        //     for (let k = 0; k < //App.MainPanel.objItemDB.length; ++k) {
-        //         if (//App.MainPanel.objItemDB[k].onlyid == tartmpid) {
-        //             dstName = //App.MainPanel.objItemDB[k].name;
-        //             break;
-        //         }
-        //     }
-        // }
-
-        // if (srcName == '无名英雄' || dstName == '无名英雄') {
-
-        // } else {
-        //     if (nowhp > 0) {
-        //         msgstr = '[' + srcName + ']对[' + dstName + ']造成' + msg.getValue('npower') + '点伤害值, [' + dstName + ']剩余血量:' + nowhp;
-        //     } else {
-        //         msgstr = '[' + srcName + ']对[' + dstName + ']致命一击 [' + dstName + ']已死亡!' + msgstr;
-        //     }
-
-        //     let color: string = "#FFFFFF";
-        //     if (!(srcName == '您' || dstName == '您')) {
-        //         //msgstr = '<font color="#A9A9A9">' + msgstr + '</font>'
-        //         color = '#A9A9A9';
-        //         if (Main.auditVer) {
-        //             return;
-        //         }
-        //     }
-        //     //App.MainPanel.addSysChat(msgstr, color);
-        // }
-
+        else {
+            TipsManage.showTips('没有找到受击对象')
+        };
         msg.clear();
         msg = null;
     }
@@ -532,14 +482,12 @@ class ServerListener extends SingletonClass {
         switch (lifestate) {
             // 复活
             case 0:
-
                 break;
             // 死亡
             case 1:
                 targeter.goDie();
                 break;
         }
-
         msg.clear();
         msg = null;
     }
@@ -560,7 +508,6 @@ class ServerListener extends SingletonClass {
         let dwActionTick = cbpkt.getValue('dwActionTick');
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
-        console.log(dwTempId, dwTargetId, nMagicId, dwActionTick)
         cbpkt.clear();
         cbpkt = null;
     }
@@ -714,22 +661,42 @@ class ServerListener extends SingletonClass {
      */
     public cretExpChange(data: any): void {
         let msg = new ProtoCmd.CretExpChange(data);
-        let type = msg.getValue('nType');
+        let type: EnumData.eEXP_VALUE_TYPE = msg.getValue('nType');
         let nowExp = msg.getValue('i64Exp');
         let addExp = (msg.getValue('dwAdd') as ProtoCmd.Int64).int64ToNumber();
         switch (type) {
-            // 更新角色
-            case 0:
+            // 更新角色经验
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PLAYER:
                 GameApp.MainPlayer.changeExp(nowExp);
                 TipsManage.showTxt('主角经验改变了' + addExp);
                 break;
-            // 更新英雄
-            case 1:
-                // todo
+            // 更新英雄经验
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_HERO:
                 TipsManage.showTxt('英雄经验改变了' + addExp);
                 break;
             // 更新BOSS积分
-            case 2:
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_BOSS:
+                GameApp.MainPlayer.changeBossCoin(nowExp);
+                break;
+            //健康
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_HEALTH:
+                GameApp.MainPlayer.changenHealth(nowExp);
+                break;
+            //精神
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_SPITIT:
+                GameApp.MainPlayer.changenSpirte(nowExp);
+                break;
+            //体力
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_TILI:
+                GameApp.MainPlayer.changenTili(nowExp);
+                break;
+            //颜值
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PRETTY:
+                GameApp.MainPlayer.changenYanZhi(nowExp);
+                break;
+            //心情
+            case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_MOOD:
+                GameApp.MainPlayer.changenXinQing(nowExp);
                 break;
         }
         msg.clear();
@@ -826,6 +793,11 @@ class ServerListener extends SingletonClass {
         player.changeMaxTotalFame(msg.getValue('i64TotalFame'));//累计声望
         player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
         player.changeFight(msg.getValue('nFight'));//战斗力
+        player.changenHealth(msg.getValue('nHealth'));// 健康
+        player.changenSpirte(msg.getValue('nSpirte'));// 精神
+        player.changenXinQing(msg.getValue('nXinQing'));// 心情
+        player.changenTili(msg.getValue('nTili'));// 体力
+        player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         msg.clear();
         msg = null;
     }
@@ -1146,6 +1118,8 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.TeamAgreeJoinDecoder(data);
         if (msg.getValue('boAllow')) {
             TipsManage.showTips(msg.getValue('szName') + '已成功加入您的队伍');
+            let a=new view.team.TeamPanel();
+            a.myTeam();
         }
         else {
             TipsManage.showTips('拒绝' + msg.getValue('szName') + '加入');

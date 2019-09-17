@@ -15,6 +15,7 @@ module ProtoCmd {
             this.addProperty('nX', PacketBase.TYPE_WORD);//目标坐标
             this.addProperty('nY', PacketBase.TYPE_WORD);
             this.addProperty("boself", PacketBase.TYPE_BOOL);//是否包含自己，服务器用
+            this.addProperty("distance", PacketBase.TYPE_WORD);//攻击距离
             this.cmd = 0x0232;
         }
         public set dwTempId(v: number) {
@@ -39,6 +40,12 @@ module ProtoCmd {
         }
         public set boself(v: number) {
             this.setValue('boself', v)
+        }
+        /**
+         * 攻击距离
+         */
+        public set distance(v: number) {
+            this.setValue('distance', v)
         }
 
     }

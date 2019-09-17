@@ -111,7 +111,7 @@ module ResData {
         ];;
         // 南陆地图
         public static SouthMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
-                { url: "res/atlas/image/map/southland.atlas", type: Laya.Loader.ATLAS },];;
+        { url: "res/atlas/image/map/southland.atlas", type: Laya.Loader.ATLAS },];;
         // 东陆地图
         public static EastMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
         // 世界地图界面
@@ -168,6 +168,8 @@ module ResData {
             { url: 'json/mydb_mapinfo_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mapinfo_tbl },
             // NPC位置表
             { url: 'json/mydb_npcgen_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_npcgen_tbl },
+            // 怪物表
+            { url: 'json/mydb_monster_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_monster_tbl },
         ];
     }
 

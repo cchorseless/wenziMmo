@@ -3,9 +3,18 @@ module GameObject {
     export class Player extends Creature {
         public playerAccount: string;
         public playerPassword: string;
-        public avatarIcon: string;
-        public job: EnumData.JOB_TYPE;
-        public sex: EnumData.SEX_TYPE;
+        /**
+         * 职业
+         */
+        public get job(): EnumData.JOB_TYPE {
+            return this.feature.simpleFeature.job;
+        }
+        /**
+         * 性别
+         */
+        public get sex(): EnumData.SEX_TYPE {
+            return this.feature.simpleFeature.sex;
+        }
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
         public viplvl: number;//Vip等级
@@ -24,7 +33,15 @@ module GameObject {
         /******************技能******************** */
         public skillInfo = {};
         /******************UI****************** */
-        public ui_item: view.compart.SelfPlayerInSceneItem;
+        public ui_item;
+        /******************生活属性************ */
+        public nHealth: number = 0;// 健康
+        public nSpirte: number = 0;// 精神
+        public nTili: number = 0;// 体力
+        public nYanZhi: number = 0;// 颜值
+        public nXinQing: number = 0;// 心情
+        /******************BOSS积分************ */
+        public bossCoin: number = 0;
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -111,6 +128,31 @@ module GameObject {
             this.wealth.maxTotalFame = maxTotalFame
         }
 
+        // 健康
+        public changenHealth(v: number) {
+            this.nHealth = v;
+        }
+        // 颜值
+        public changenYanZhi(v: number) {
+            this.nYanZhi = v
+        }
+        // 体力
+        public changenTili(v: number) {
+            this.nTili = v
+        }
+        // 精力
+        public changenSpirte(v: number) {
+            this.nSpirte = v
+        }
+        // 心情
+        public changenXinQing(v: number) {
+            this.nXinQing = v
+        }
+        // BOSS积分
+        public changeBossCoin(v: number) {
+            this.bossCoin = v;
+        }
+        /*******************************************************************get************************************* */
         /**
          * 获取玩家真实名称
          */
@@ -121,6 +163,63 @@ module GameObject {
             return '';
 
         }
+
+        /**
+         * 获取头像
+         */
+        public get iconAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/icon_nan';
+            }
+            else {
+                path = 'image/common/icon_nv';
+            }
+            return path + '0' + this.job + '.png';
+        }
+        /**
+         * 获取半身像
+         */
+        public get halfAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/nan';
+            }
+            else {
+                path = 'image/common/nv';
+            }
+            return path + '0' + this.job + '_half.png';
+        }
+        /**
+         * 获取全身像
+         */
+        public get allAvatarPic(): string {
+            let path;
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                path = 'image/common/nan';
+            }
+            else {
+                path = 'image/common/nv';
+            }
+            return path + '0' + this.job + '.png';
+        }
+
+        /**
+         * 获取角色龙骨资源
+         */
+        public get skeBoneRes(): string {
+
+            // 令狐冲
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                return 'sk/juese02/ZJ_LHC_1.sk'
+            }
+            // 任盈盈
+            else {
+                return 'sk/juese01/ZJ_RYY_1.sk'
+            }
+        }
+
+
         /**
          * 将游戏对象添加到视野
          * @param obj 
@@ -276,34 +375,90 @@ module GameObject {
          * 尝试攻击，检查释放能攻击
          */
         public tryAttack(target: Creature, skillID: number = 999): void {
+            this.atkTargetTempId = target.tempId;
+            console.log('当前目标:', this.atkTargetTempId);
             let pkt = new ProtoCmd.CretAttack();
             pkt.dwTempId = this.tempId;
-            switch (this.job) {
-                // 战士
-                case EnumData.JOB_TYPE.JOB_WARRIOR:
-                    break;
-                // 法师
-                case EnumData.JOB_TYPE.JOB_MAGE:
-                    skillID = 2002;
-                    break;
-                // 道士
-                case EnumData.JOB_TYPE.JOB_MONK:
-                    skillID = 3002;
-                    break;
-            }
             pkt.nMagicId = skillID;
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
             pkt.nY = target.location.ncury;
+            pkt.distance = 3;
             lcp.send(pkt);
+        }
+
+        public completeAtkHandle: Laya.Handler = null;
+        // 攻击目标
+        public atkTargetTempId: number = null;
+        /**
+         * 自动战斗
+         */
+        public startAutoAtk(): void {
+            this.completeAtkHandle = Laya.Handler.create(this, () => {
+                // 有攻击目标找攻击目标 
+                if (this.atkTargetTempId) {
+                    let target = this.findViewObj(this.atkTargetTempId);
+                    if (target) {
+                        this.tryAttack(target);
+                        return
+                    }
+                }
+                // 先找BOSS
+                let allMonsterKeys = Object.keys(this.allMonster);
+                for (let key of allMonsterKeys) {
+                    let monsterObj: Monster = this.allMonster[key];
+                    let config = monsterObj.feature.dwCretTypeId;
+                    // 查表找到BOSS
+                    if (Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + config))) {
+                        this.tryAttack(monsterObj);
+                        return
+                    }
+                }
+                // 没有攻击目标,所有的怪物位置最靠左的
+                // if( ){
+
+                // }
+                TipsManage.showTips('无怪物');
+            }, null, false);
+            // 攻击一次
+            this.completeAtkHandle.run();
+        }
+
+        /**
+         * 停止自动战斗
+         */
+        public stopAutoAtk(): void {
+            if (this.completeAtkHandle) {
+                this.completeAtkHandle.recover();
+            }
+            this.completeAtkHandle = null;
+        }
+
+        /**
+         * 手动攻击
+         * @param target 
+         * @param skillID 
+         */
+        public startHandAtk(target: Creature, skillID: number = 999): void {
+            this.stopAutoAtk();
+            this.tryAttack(target, skillID)
         }
 
         /**
          * 播放攻击动作
          */
         public startAttack(): void {
-            TipsManage.showTips(this.objName + '正在攻击');
-            this.ui_item && this.ui_item.playAni();
+            if (this.ui_item) {
+                this.ui_item.stopPlayAni();
+                // 自动攻击
+                if (this.completeAtkHandle) {
+                    this.ui_item.playAni(0, false, true, this.completeAtkHandle);
+                }
+                // 手动攻击
+                else {
+                    this.ui_item.playAni();
+                }
+            }
         }
 
 

@@ -1,11 +1,9 @@
 /**Created by the LayaAirIDE*/
 module view.compart {
 	export class SceneItem extends ui.compart.SceneItemUI {
-		public pkModelTxt = ['和平', '队伍', '帮会', '善恶', '全体'];
 		constructor() {
 			super();
 			this.setData();
-
 		}
 		public setData(): void {
 			this.panel_monster.hScrollBarSkin = '';
@@ -22,33 +20,29 @@ module view.compart {
 			this.hbox_monster03.space = 1;
 			this.hbox_player01.space = 1;
 			this.hbox_player02.space = 1;
-			this.img_battleMode.visible = false;
-			this.img_battleMode.scaleY = this.img_battleMode.scaleX = 0;
+
 			this.addEvent();
 		}
 
 		public addEvent(): void {
-			this.box_mainMode.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
-				this.showBattleModel(this.btn_modeIcon.selected);
-			});
-			for (let i = 0; i < 5; i++) {
-				this['box_mode' + i].on(Laya.UIEvent.CLICK, this, () => {
-					this.showBattleModel(false);
-					let pkt = new ProtoCmd.CretPkModel()
-					let model = this.getPkModelByType(i);
-					pkt.setValue('pkModel', model);
-					lcp.send(pkt);
-					// this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
-					this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
-				});
-			}
 			// 场景信息界面
 			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SceneInfoDialog().setData(null).popup(true);
 			});
 			// 当前地图界面
 			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
+			// 自动战斗
+			EventManage.onWithEffect(this.btn_autoAtk, Laya.UIEvent.CLICK, this, () => {
+				this.btn_autoAtk.selected = !this.btn_autoAtk.selected;
+				// 自动战斗
+				if (this.btn_autoAtk) {
+					GameApp.MainPlayer.startAutoAtk()
+				}
+				else {
+					GameApp.MainPlayer.stopAutoAtk()
+				}
+
+			});
 		}
 
 		/**
@@ -148,6 +142,24 @@ module view.compart {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
+			let playerUI: view.compart.OtherPlayerInSceneItem = new view.compart.OtherPlayerInSceneItem();
+			playerUI.setData(obj);
+			let childNum = this.hbox_player01.numChildren + this.hbox_player01.numChildren;
+			let mod = childNum % 8;
+			switch (Math.floor(mod / 4)) {
+				case 0:
+				case 3:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				case 1:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				case 2:
+					this.hbox_player01.addChild(playerUI);
+					break;
+				default:
+					this.hbox_player01.addChild(playerUI);
+			}
 
 		}
 
@@ -163,53 +175,15 @@ module view.compart {
 		/**
 		 * 攻击状态模式缓动
 		 */
-		public showBattleModel(isShow): void {
-			if (isShow) {
-				this.img_battleMode.visible = true;
-				Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
-			}
-			else {
-				Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
-			}
-		}
-
-		public pkModelChanged(model): void {
-			let id = 0;
-			switch (model) {
-				case EnumData.PkModel.PKMODEL_TEAMMODE:
-					id = 1;
-					break;
-				case EnumData.PkModel.PKMODEL_GUILDMODE:
-					id = 2;
-					break;
-				case EnumData.PkModel.PKMODEL_GOODANDEVILMODE:
-					id = 3;
-					break;
-				case EnumData.PkModel.PKMODEL_ALLTHEMODE:
-					id = 4;
-					break;
-			}
-			this.lbl_modeDes.text = this.pkModelTxt[id] + '模式';
-		}
-
-		/**
-		 * 
-		 * @param type UI 列表的顺序
-		 */
-		public getPkModelByType(type): number {
-			switch (type) {
-				case 1:
-					return EnumData.PkModel.PKMODEL_TEAMMODE;
-				case 2:
-					return EnumData.PkModel.PKMODEL_GUILDMODE;
-				case 3:
-					return EnumData.PkModel.PKMODEL_GOODANDEVILMODE;
-				case 4:
-					return EnumData.PkModel.PKMODEL_ALLTHEMODE;
-				default:
-					return EnumData.PkModel.PKMODEL_PEACEMODE;
-			}
-		}
+		// public showBattleModel(isShow): void {
+		// 	if (isShow) {
+		// 		this.img_battleMode.visible = true;
+		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
+		// 	}
+		// 	else {
+		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
+		// 	}
+		// }
 
 		/**
 		 * 更新地图信息

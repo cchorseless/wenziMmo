@@ -7,12 +7,13 @@ module view.juese {
 
 		public setData(): void {
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
+				this.viw_player.getChildAt(index)['setData']();
 				this.viw_player.selectedIndex = index;
+
 			}, null, false);
 			this.addEvent();
 		}
 		public addEvent(): void {
-
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
 			});

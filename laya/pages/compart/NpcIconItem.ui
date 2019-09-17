@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":12,
-    "props":{"y":0,"x":0,"width":90,"sceneColor":"#827171","height":110},
+    "selectedBox":18,
+    "selecteID":16,
+    "props":{"y":0,"x":0,"width":112,"sceneColor":"#827171","height":122},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,99 +14,100 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":-4,"x":67,"width":40,"var":"img_warn","skin":"image/common/icon_tishi.png","height":45},
+            "type":"Box",
+            "props":{"y":57,"x":53,"var":"box_view","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image(img_warn)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":2,"x":50,"width":101,"visible":true,"var":"img_chat","skin":"image/common/fram_common_35.png","sizeGrid":"0,37,0,38","scaleX":0,"height":108},
-            "nodeParent":1,
-            "label":"Image(img_chat)",
+            "label":"Box(box_view)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":7,
+            "compId":18,
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":30,"wordWrap":true,"width":81,"var":"lbl_chat","text":"label","right":10,"left":10,"height":47},
-                    "nodeParent":7,
-                    "label":"Label(lbl_chat)",
+                    "type":"Image",
+                    "props":{"y":7,"x":10,"width":100,"skin":"image/common/frame_touxinag.png","height":100},
+                    "nodeParent":18,
+                    "label":"Image",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":8,
+                    "compId":13,
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":15,"x":15,"width":90,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1402.png","height":90},
+                    "nodeParent":18,
+                    "label":"Image(img_avatarPic)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":87,"x":6,"width":108,"var":"lbl_npcName","text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                    "nodeParent":18,
+                    "label":"Label(lbl_npcName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":106,"x":20,"width":80,"var":"lbl_zuoBiao","text":"(150,140)","height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#060606"},
+                    "nodeParent":18,
+                    "label":"Label(lbl_zuoBiao)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":2,"var":"img_tips","skin":"image/main/fram_tishi.png"},
+                    "nodeParent":18,
+                    "label":"Image(img_tips)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":17,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-2,"x":11,"var":"img_warn","skin":"image/main/icon_tishi.png"},
+                            "nodeParent":17,
+                            "label":"Image(img_warn)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":3,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":11,"x":1,"skin":"image/common/frame_touxinag.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":-16,"x":-17,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1004.png"},
-            "nodeParent":1,
-            "label":"Image(img_avatarPic)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":1,"x":-2,"var":"lbl_zuoBiao","text":"(10,8)","right":0,"left":-3,"height":24,"fontSize":18,"color":"#443030","bottom":85,"align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_zuoBiao)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":86,"x":0,"var":"lbl_npcName","text":"NPC名称","right":0,"left":0,"height":24,"fontSize":18,"font":"Microsoft YaHei","color":"#443030","bottom":0,"align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_npcName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
-            "child":[
-                ]
         }],
     "animations":[
         {

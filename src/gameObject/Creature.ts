@@ -328,6 +328,7 @@ module GameObject {
             }
         }
 
+
         /**
          * 等级
          * @param level 
@@ -362,16 +363,20 @@ module GameObject {
                 let selfPoint = (this.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
                 let targetPoint = (targeter.ui_item as Laya.Box).localToGlobal(new Laya.Point(0, 0), false);
                 let _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
+                _skeGroup.rotation = -90;
                 _skeGroup.loadRes(['sk/skill/huoqu/B_fire_02_ske.sk', 'sk/skill/huoqu/S_fire_02_ske.sk'], () => {
-                    _skeGroup.pos(selfPoint.x, selfPoint.y)
-                    Laya.stage.addChild(_skeGroup);
-                    Laya.Tween.to(_skeGroup, { x: targetPoint.x, y: targetPoint.y }, 500, null, Laya.Handler.create(this, () => {
+                    _skeGroup.pos(selfPoint.x + 100, selfPoint.y)
+                    PanelManage.Main.addChild(_skeGroup);
+                    Laya.Tween.to(_skeGroup, { x: targetPoint.x + 50, y: targetPoint.y + 50 }, 500, null, Laya.Handler.create(this, () => {
                         _skeGroup.showChild(1);
-                        _skeGroup.play(0,false,true,Laya.Handler.create(this,()=>{
+                        _skeGroup.play(0, false, true, Laya.Handler.create(this, () => {
                             _skeGroup.removeSelf()
                         }))
                     }))
                 })
+            }
+            else {
+                TipsManage.showTips('技能没有找到目标对象');
             }
         }
         /**

@@ -3,7 +3,7 @@ module view.compart {
 	export class TeamNearbyItem extends ui.compart.TeamNearbyItemUI {
 		constructor() {
 			super();
-		
+
 		}
 		public item;
 		public count;
@@ -17,9 +17,9 @@ module view.compart {
 			this.lbl_monsterlvl.text = '' + item.lvl;
 			//队伍人数
 			this.lbl_number.text = '' + count;
-				this.addEvent();
+			this.addEvent();
 			return this;
-			
+
 		}
 		//打开附近队伍管理弹窗
 		public addEvent(): void {

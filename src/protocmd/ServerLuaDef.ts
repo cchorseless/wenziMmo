@@ -76,6 +76,29 @@ module ProtoCmd {
     // 打开奖励面板
     export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
 
+
+    /********************************角色信息界面***************** */
+    // 声望信息
+    export const JS_PrestigePanel = 'prestigePanel';
+    // 强化大师(强化、装备等级、升级大师)
+    export const JS_SoulNecklacePanel = 'SoulNecklacePanel';// (type:0是玩家1是英雄)
+    /*********************************资质天赋******************** */
+    // 善缘-官印
+    // 激活善缘
+    export const JS_SHANYUAN_Active = 'activeOfficialSeal';
+    // 善缘界面
+    export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
+    // 升级善缘
+    export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
+
+
+    // 悟性=龙魂
+
+    // 臂力-神盾
+
+    // 身法=血玉
+
+    // 根骨-勋章
 }
 
 /**
@@ -119,6 +142,8 @@ module ProtoCmd {
         subtype: number;//商店子类型
         index: string;//商店条目索引
     }
+
+
     /**
      * 热销商店返回数据
      */
@@ -173,19 +198,21 @@ module ProtoCmd {
         name: number;// 篇章名称
         cnt: number;// 篇章内章节数量
     }
+    
     /**
      * 单条章节信息
      */
     export interface itf_JUQING_CHARPTERINFO {
-        drops: any;
-        enddbid: number;
-        intro: number;
-        items: any;
-        lvl: number;
-        name: string;
-        startdbid: number;
-        zjid: number;
-        zslvl: number;
+        drops: any;// 章节随机掉落池
+        enddbid: number;// 章节结束ID
+        intro: number;// 章节介绍
+        items: any;// 章节奖励ID
+        lvl: number;// 章节解锁等级
+        name: string;// 章节名称
+        startdbid: number;// 开始对话ID
+        zjid: number;// 章节ID
+        zslvl: number;// 转生等级
+        index: string;//章节编号
     }
 
     /**
@@ -214,5 +241,19 @@ module ProtoCmd {
         tjitem: number;// 图鉴激活物品
         tjmap: number;// 图鉴激活地图
         tjrole: number;// 图鉴激活角色
+    }
+    /**********************************角色信息************************* */
+
+    /**
+     * 拉取声望信息
+     */
+    export interface itf_JS_ShengWangInfo {
+        damage: number;// 百分比 
+        daydelexp: number;// 每日衰减经验
+        effid: number;// 效果ID
+        maxexp: number;// 当前挡位
+        minexp: number;// 当前声望值
+        prestigeid: number;// 称号ID
+        rank: any;// 排行榜
     }
 }

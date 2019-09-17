@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":590,"sceneColor":"#b07473","height":100},
+    "selecteID":14,
+    "props":{"width":584,"sceneColor":"#f4e1e1","height":120},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,26 +15,27 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":97,"width":482,"skin":"image/juQingMode/fram_common_30.png","height":5,"bottom":0},
+            "props":{"y":8,"x":83,"width":499,"skin":"image/juQingMode/img_duihuakuang.png","height":96},
             "nodeParent":1,
             "label":"Image",
+            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":15,
             "child":[
                 ]
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"x":100,"wordWrap":true,"width":480,"var":"lbl_content","valign":"middle","text":"楼，街道向东向西延伸，街上行人不断：有挑担赶路的、有驾牛送货的、又赶着毛驴拉货的。","leading":3,"height":94,"fontSize":25,"font":"Microsoft YaHei","color":"#ffffff","bottom":5,"align":"left"},
+            "type":"HTMLDivElement",
+            "props":{"y":10,"x":118,"width":452,"var":"div_content","innerHTML":"htmlText","height":88},
             "nodeParent":1,
-            "label":"Label(lbl_content)",
+            "label":"HTMLDivElement(div_content)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":14,
             "child":[
                 ]
         },
@@ -42,13 +43,27 @@
             "x":15,
             "type":"UIView",
             "source":"compart/NpcIconItem.ui",
-            "props":{"y":-5,"x":0,"var":"ui_item","left":0},
+            "props":{"y":61,"x":60,"var":"ui_item","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"UIView(ui_item)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":4,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":20,"x":20,"skin":"image/common/line_yeqian.png","right":0,"left":0,"height":2,"bottom":0,"alpha":0.35},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
             "child":[
                 ]
         }],

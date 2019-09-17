@@ -74,19 +74,6 @@ module view.common {
 			}
 			// 角色名称
 			GameApp.GameEngine.mainPlayer.objName = this.input_random.text;
-			// 性别
-			GameApp.GameEngine.mainPlayer.sex = this.curSex;
-			// 职业
-			GameApp.GameEngine.mainPlayer.job = this.curMenPai;
-			// 玩家头像
-			let path;
-			if (GameApp.GameEngine.mainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
-				path = 'image/common/icon_nan';
-			}
-			else {
-				path = 'image/common/icon_nv';
-			}
-			GameApp.GameEngine.mainPlayer.avatarIcon = path + '0' + GameApp.GameEngine.mainPlayer.job + '.png';
 			let createusr = new ProtoCmd.CreatePlayer();
 			createusr.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);

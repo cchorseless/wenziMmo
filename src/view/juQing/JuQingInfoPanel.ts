@@ -5,12 +5,15 @@ module view.juQing {
 			super();
 		}
 		public setData(): void {
-
+			this.panel_left.vScrollBarSkin = '';
+			this.vbox_left['sortItem'] = (items) => { };
+			this.panel_0.vScrollBarSkin = '';
+			this.panel_1.vScrollBarSkin = '';
+			this.panel_event.vScrollBarSkin = '';
+			this.hbox_0['sortItem'] = (items) => { };
+			this.hbox_1['sortItem'] = (items) => { };
+			this.hbox_event['sortItem'] = (items) => { };
 			this.initUI();
-			// for (let i = 0; i < 6; i++) {
-			// 	let titleItem = new view.compart.JuQingTitleItem();
-			// 	this.vbox_left.addChild(titleItem);
-			// }
 			this.addEvent();
 		}
 
@@ -41,17 +44,33 @@ module view.juQing {
 		public initUI(): void {
 			// 拉取章节信息
 			let pkt1 = new ProtoCmd.QuestClientData();
-
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
-				(jsonData: { pzid: number, charpterInfo: number }) => {
+				(jsonData: { pzid: number, charpterInfo: any }) => {
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
-
-
+						let keys = Object.keys(jsonData.charpterInfo);
+						for (let key of keys) {
+							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
+							charpterInfo.index = key;
+							let charpterTitle_ui = new view.compart.JuQingTitleItem();
+							charpterTitle_ui.setData(charpterInfo);
+							this.vbox_left.addChild(charpterTitle_ui);
+							// 更新章节信息
+							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+						}
 					}
-					console.log(jsonData);
 				});
-
 			lcp.send(pkt1);
+		}
+
+		/**
+		 * 更新右侧界面
+		 * @param zjID 
+		 */
+		public updateRightInfo(zjID: number): void {
+			if (GameApp.GameEngine.allCharpterInfo[zjID] == null) { return };
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[zjID];
+			this.lbl_coinXl.text = '金币:' + charpterInfo.items
+
 		}
 	}
 }

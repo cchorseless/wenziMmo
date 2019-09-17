@@ -103,7 +103,7 @@ module ProtoCmd {
     export class TeamAgreeJoinEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_ASKFORJOIN;
         public cbPacket = TeamAgreeJoinEncoder
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte=null) {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//目标玩家名称
             this.addProperty('btJob', PacketBase.TYPE_BYTE);

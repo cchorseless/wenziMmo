@@ -2,7 +2,7 @@
 module view.compart {
 	export class DaoJuItem extends ui.compart.DaoJuItemUI {
 		public item: ProtoCmd.ItemBase;
-		public model: EnumData.ItemInfoModel = 0;
+		public model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE;
 		constructor() {
 			super();
 			this.addEvent();
@@ -17,7 +17,7 @@ module view.compart {
 			this.item = item;
 			item.recoverUI();
 			item.ui_item = this;
-			this.initUI(this.item, model);
+			this.initUI(item, model);
 
 		}
 
@@ -94,8 +94,14 @@ module view.compart {
 			// 底图
 			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
 			// 物品数量
-			this.lbl_count.text = '' + ((item.dwCount === 0 || item.dwCount === 1) ? '' : item.dwCount);
+			if (item.dwCount && item.dwCount > 1) {
+				this.lbl_count.text = '' + item.dwCount;
+			}
+			else {
+				this.lbl_count.text = '';
+			}
 		}
+
 		/**
 		 * 更新道具数量
 		 */
