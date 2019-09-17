@@ -8,8 +8,6 @@ module view.common {
 		public setData(data: ProtoCmd.UserLoginRet): void {
 			this.userLoginInfo = data;
 			let playerInfo = data.players[0];
-			let sex = playerInfo.feature.getValue('sex');
-			let job = playerInfo.feature.getValue('job');
 			let szName = playerInfo.getValue('szName');
 			let nlevel = playerInfo.getValue('nlevel');// 等级
 			let zslevel = playerInfo.getValue('zslevel');// 转生等级
@@ -18,6 +16,8 @@ module view.common {
 			GameApp.MainPlayer.level = nlevel;
 			GameApp.MainPlayer.zslevel = zslevel;
 			GameApp.MainPlayer.viplvl = viplvl;
+			GameApp.MainPlayer.sex = playerInfo.feature.getValue('sex');
+			GameApp.MainPlayer.job = playerInfo.feature.getValue('job');
 			// 角色图片
 			this.img_heroPic.skin = GameApp.MainPlayer.halfAvatarPic;
 			// 角色名称
