@@ -22,6 +22,7 @@ module GameObject {
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物
         private _allNpc = {};//所有的NPC
+        public allItem = {};//所有的掉落宝物
         public wealth: Wealth;//财富
         public feature: ProtoCmd.PlayerFeature;//外显
         // ****************行会********************
@@ -30,6 +31,8 @@ module GameObject {
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
         public talkID: number;// 对白ID
+        public charpterName: string;// 章节名字
+        public pianZhangName: string;// 篇章名字
         /******************技能******************** */
         public skillInfo = {};
         /******************UI****************** */
@@ -42,6 +45,7 @@ module GameObject {
         public nXinQing: number = 0;// 心情
         /******************BOSS积分************ */
         public bossCoin: number = 0;
+
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -364,9 +368,12 @@ module GameObject {
          * @param data 
          */
         public changeJuQingInfo(data: ProtoCmd.itf_JUQING_SELFINFO) {
+            console.log(data);
             this.charpterID = data.zjid;
             this.talkID = data.dbid;
-            this.pianZhangID = data.pzid;
+            this.pianZhangID = data.pzid;// 篇章ID
+            this.pianZhangName = data.pzname;// 篇章名字
+            this.charpterName = data.zjname;// 章节名字
         }
 
 
@@ -449,7 +456,7 @@ module GameObject {
          */
         public startAttack(): void {
             if (this.ui_item) {
-                this.ui_item.stopPlayAni();
+                // this.ui_item.stopPlayAni();
                 // 自动攻击
                 if (this.completeAtkHandle) {
                     this.ui_item.playAni(0, false, true, this.completeAtkHandle);

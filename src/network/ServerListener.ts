@@ -50,10 +50,8 @@ class ServerListener extends SingletonClass {
         /*************************************地图上道具******************************************** */
         // 删除地图上的物品 29D
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
-        // 拾取地图上的物品 288
+        // 添加地图上的物品 288
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
-        // 地图上添加物品 2a0
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventPick), this, this.mapItemEventPick);
 
         /*************************************技能相关************************************************ */
         // 推送技能列表
@@ -971,27 +969,18 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-
-
-
-
     /**
      * 删除地图物品 0x029D
      * @param data 
      */
     public mapItemEventDel(data: any): void {
         let msg = new ProtoCmd.MapItemEventDel(data);
-        let i64ItemID = msg.getValue('i64ItemID');
-        // for (let i = 0; i < //App.MainPanel.objItemDB.length; ++i) {
-        //     let obj = //App.MainPanel.objItemDB[i] as ObjItemDB;
-        //     if (obj.cretType == CRET_TYPE.CRET_NONE) {
-        //         if (obj.i64ItemID.id == i64ItemID.id) {
-        //             //App.MainPanel.objItemDB.splice(i, 1);
-        //             break;
-        //         }
-        //     }
-        // }
-        //App.MainPanel.listView.numItems = //App.MainPanel.objItemDB.length;
+        let key = msg.getValue('i64ItemID').int64ToStr();
+        let itemInfo: ProtoCmd.ItemBase = GameApp.MainPlayer.allItem[key]
+        if (itemInfo) {
+            itemInfo.clear();
+        }
+        delete GameApp.MainPlayer.allItem[key];
         msg.clear();
         msg = null;
     }
@@ -1002,59 +991,18 @@ class ServerListener extends SingletonClass {
      */
     public mapItemEventAdd(data: any): void {
         let msg = new ProtoCmd.MapItemEventAdd(data);
-
-        // let objDB = new ObjItemDB;
-        // objDB.x = msg.getValue('wX');
-        // objDB.y = msg.getValue('wY');
-        // objDB.i64ItemID = msg.getValue('i64ItemID');
-        // objDB.dwBaseID = msg.getValue('dwBaseID');
-        // objDB.dwCount = msg.getValue('dwCount');
-        // objDB.quality = msg.getValue('btQuality');
-
-        // if (Main.auditVer) {
-        //     let basedb = Main.itemDBMap.get(objDB.dwBaseID)
-        //     if (basedb) {
-        //         if (basedb.job !=GameApp.GameEngine.mainPlayer.job) {
-        //             return;
-        //         }
-        //     }
-        // }
-
-        // objDB.cretType = CRET_TYPE.CRET_NONE;
-        //App.MainPanel.objItemDB.push(objDB);
-        //App.MainPanel.listView.numItems = //App.MainPanel.objItemDB.length;
-
+        let itemInfo = new ProtoCmd.ItemBase()
+        itemInfo.i64ItemID = msg.getValue('i64ItemID');
+        itemInfo.dwBaseID = msg.getValue('dwBaseID');
+        itemInfo.dwCount = msg.getValue('dwCount');
+        itemInfo.btQuality = msg.getValue('btQuality');
+        // let itemUI = new view.compart.DaoJuWithNameItem();
+        // itemUI.setData(itemInfo);
+        GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()] = itemInfo;
         msg.clear();
         msg = null;
     }
 
-    /**
-     * 拾取地图上物品 0x02A0
-     * @param data 
-     */
-    public mapItemEventPick(data: any): void {
-        let msg = new ProtoCmd.MapItemEventPick(data);
-
-        if (msg.getValue('btErrorCode') == 0) {
-
-        }
-        else {
-            let errorcode = msg.getValue('btErrorCode');
-            if (errorcode == 1) {
-                //App.MainPanel.addSysChat('该物品不属于你');
-            }
-            else if (errorcode == 3) {
-                //App.MainPanel.addSysChat('背包空间不足');
-            }
-            else {
-                ////App.MainPanel.addSysChat('拾取物品失败 errorcode:' + errorcode);
-                //App.MainPanel.moveTo(255,GameApp.GameEngine.mainPlayer.x,GameApp.GameEngine.mainPlayer.y + 1);
-            }
-        }
-
-        msg.clear();
-        msg = null;
-    }
     /*******************************************************好友信息******************************************* */
     /**
      * 添加一个好友信息

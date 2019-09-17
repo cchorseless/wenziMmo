@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":8,
+    "selecteID":7,
     "props":{"y":0,"x":0,"width":130,"sceneColor":"#907676","height":200},
     "nodeParent":-1,
     "label":"View",
@@ -14,67 +14,80 @@
     "child":[
         {
             "x":15,
-            "type":"Button",
-            "props":{"top":0,"skin":"image/common/btn_plot_01_finish.png","right":0,"left":0,"bottom":0},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Box",
-            "props":{"y":0,"x":8,"width":120,"height":200},
+            "props":{"y":100,"x":0,"var":"box_view","anchorY":0.5},
             "nodeParent":1,
-            "label":"Box",
+            "label":"Box(box_view)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":8,
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":48,"x":17,"wordWrap":true,"width":31,"var":"lbl_charpterNo","text":"第一章","strokeColor":"#000000","stroke":4,"height":96,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_charpterNo)",
+                    "type":"Button",
+                    "props":{"y":0,"x":0,"width":130,"var":"btn_bg","stateNum":"2","skin":"image/common/btn_plot_01_finish.png","height":199},
+                    "nodeParent":8,
+                    "label":"Button(btn_bg)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":7,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":6,"x":72,"wordWrap":true,"width":28,"var":"lbl_charpterName","text":"玉软香温情","strokeColor":"#000000","stroke":4,"height":160,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_charpterName)",
-                    "isDirectory":false,
+                    "type":"Box",
+                    "props":{"y":0,"x":5,"width":123,"height":200},
+                    "nodeParent":8,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
+                    "hasChild":true,
+                    "compId":2,
                     "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":164,"x":0,"wordWrap":true,"width":117,"var":"lbl_conDes","text":"13转150级解锁","strokeColor":"#000000","stroke":4,"height":31,"fontSize":18,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_conDes)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":48,"x":17,"wordWrap":true,"width":31,"var":"lbl_charpterNo","text":"第一章","strokeColor":"#000000","stroke":4,"height":96,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":2,
+                            "label":"Label(lbl_charpterNo)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":3,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":6,"x":72,"wordWrap":true,"width":28,"var":"lbl_charpterName","text":"玉软香温情","strokeColor":"#000000","stroke":4,"height":160,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":2,
+                            "label":"Label(lbl_charpterName)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":4,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":164,"x":0,"wordWrap":true,"width":117,"var":"lbl_conDes","text":"13转150级解锁","strokeColor":"#000000","stroke":4,"height":31,"fontSize":18,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":2,
+                            "label":"Label(lbl_conDes)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":6,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[

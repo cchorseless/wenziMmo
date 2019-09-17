@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":76,
-    "selecteID":82,
+    "selectedBox":92,
+    "selecteID":98,
     "referenceLines":[
         {
             "value":1127,
@@ -762,13 +762,14 @@
             "props":{"y":794,"var":"img_mapBg","skin":"image/main/img_map_01.png","right":0},
             "nodeParent":1,
             "label":"Image(img_mapBg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":92,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":49,"x":157,"width":81,"var":"img_lineUp","skin":"image/main/fram_common_001.png","rotation":90,"height":4},
                     "nodeParent":92,
@@ -781,6 +782,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":127,"x":54,"width":100,"var":"img_lineLeft","skin":"image/main/fram_common_001.png"},
                     "nodeParent":92,
@@ -793,6 +795,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":129,"x":160,"width":100,"var":"img_lineRight","skin":"image/main/fram_common_001.png"},
                     "nodeParent":92,
@@ -806,6 +809,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":140,"x":157,"width":81,"var":"img_lineDown","skin":"image/main/fram_common_001.png","rotation":90,"height":4},
                     "nodeParent":92,
@@ -818,6 +822,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":121,"x":58,"var":"btn_mapLeft","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":92,
@@ -831,6 +836,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":123,"x":256,"var":"btn_mapRight","stateNum":2,"skin":"image/main/icon_main_wuqipu01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":92,
@@ -844,6 +850,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":127,"x":155,"var":"btn_mapCenter","stateNum":2,"skin":"image/main/icon_maiin_yizhan01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"40,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":92,
@@ -857,6 +864,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":212,"x":155,"var":"btn_mapDown","stateNum":2,"skin":"image/main/icon_main_dajie01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":92,
@@ -870,6 +878,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":49,"x":155,"var":"btn_mapUp","stateNum":2,"skin":"image/main/icon_maiin_chengqiang01up_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"25,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":92,
@@ -883,8 +892,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":33,"x":262,"width":40,"var":"btn_mapBig","stateNum":"2","skin":"image/main/btn_common_02_finish.png","height":46,"anchorY":0.44,"anchorX":0.55},
+                    "props":{"y":38,"x":259,"width":61,"var":"btn_mapBig","stateNum":"2","skin":"image/main/btn_common_02_finish.png","labelStroke":4,"labelSize":20,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"酆都","height":55,"anchorY":0.44,"anchorX":0.55},
                     "nodeParent":92,
                     "label":"Button(btn_mapBig)",
                     "isDirectory":false,
@@ -896,6 +906,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":5,"x":12,"var":"btn_flyPoint","stateNum":2,"skin":"image/main/icon_luyin_01_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"路引"},
                     "nodeParent":92,

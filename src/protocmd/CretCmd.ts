@@ -667,13 +667,13 @@ module ProtoCmd {
             super();
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
             this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
-            this.addProperty('wX', PacketBase.TYPE_WORD); //坐标
+            this.addProperty('wX', PacketBase.TYPE_WORD);           //坐标
             this.addProperty('wY', PacketBase.TYPE_WORD);
 
             if (data) {
                 this.read(data);
             }
-            this.cmd = MapItemEventPick.msgID;
+            this.cmd = 0x02A0;
         }
     }
 
@@ -688,13 +688,14 @@ module ProtoCmd {
             this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
             this.addProperty('dwBaseID', PacketBase.TYPE_INT);	//物品基本id
             this.addProperty('dwCount', PacketBase.TYPE_INT);	//物品数量	0..100
-            this.addProperty('dwEffId', PacketBase.TYPE_DWORD);						//当前效果ID
-            this.addProperty('btQuality', PacketBase.TYPE_BYTE);	//物品品质
+            this.addProperty('dwEffId', PacketBase.TYPE_DWORD);	//当前效果ID
+            this.addProperty('btQuality', PacketBase.TYPE_BYTE);//物品品质
             this.addProperty('i64OwnerId', PacketBase.TYPE_INT64);//归属权ID
             this.addProperty("coldTime", PacketBase.TYPE_BYTE);//消失时间戳
             this.read(data);
         }
     }
+
 
     /**
      * 接收服务器存档
@@ -702,7 +703,7 @@ module ProtoCmd {
     export class RecvTypeKeyValue extends Packet {
         public static msgID: number = 0x02B9;//185
         public values = [];
-        public count:number = 0;
+        public count: number = 0;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('count', PacketBase.TYPE_INT);

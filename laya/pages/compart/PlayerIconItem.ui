@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":4,
     "props":{"width":80,"sceneColor":"#db8280","height":80},
     "nodeParent":-1,
     "label":"View",
@@ -14,29 +14,40 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"width":80,"skin":"image/common/daoju/fram_common_npc.png","height":80},
+            "type":"Box",
+            "props":{"y":40,"x":40,"width":80,"var":"btn_view","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
+            "label":"Box(btn_view)",
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
+            "hasChild":true,
+            "compId":4,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":4,"x":16,"width":58,"skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ]
+                {
+                    "type":"Image",
+                    "props":{"y":0,"x":0,"width":80,"skin":"image/common/daoju/fram_common_npc.png","height":80},
+                    "nodeParent":4,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":2,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":4,"x":16,"width":58,"skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
+                    "nodeParent":4,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
