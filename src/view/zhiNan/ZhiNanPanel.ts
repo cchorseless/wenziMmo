@@ -8,8 +8,7 @@ module view.zhiNan {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false)
-
-
+			this.panel_left.vScrollBarSkin = "";
 			this.addEvent();
 		}
 
