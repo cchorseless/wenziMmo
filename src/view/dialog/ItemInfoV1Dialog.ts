@@ -3,6 +3,7 @@ module view.dialog {
 	export class ItemInfoV1Dialog extends ui.dialog.ItemInfoV1DialogUI {
 		constructor() {
 			super();
+			this.group = 'ItemInfoDialog';
 		}
 		public model = 0;
 		public itemObj: ProtoCmd.ItemBase;

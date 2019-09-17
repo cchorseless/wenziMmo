@@ -179,6 +179,7 @@ module ResData {
     export class TTFRes {
         public static AllTTFData = [
             { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
+               { url: 'fonts/FZHL.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZHL' },
         ]
     }
 

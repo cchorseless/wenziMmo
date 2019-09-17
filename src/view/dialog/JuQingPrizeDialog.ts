@@ -9,6 +9,7 @@ module view.dialog {
 			this.panel_1.hScrollBarSkin = '';
 			this.hbox_0['sortItem'] = (items) => { };
 			this.hbox_1['sortItem'] = (items) => { };
+			this.lbl_pzName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.initUI();
 			this.addEvent();
 			return this
@@ -21,7 +22,7 @@ module view.dialog {
 			this.btn_lingQu.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_getJuQingBaseReward, null, null, this, (jsonData) => {
-					console.log(jsonData);
+					this.close();
 				});
 				lcp.send(pkt);
 			})
@@ -30,19 +31,18 @@ module view.dialog {
 			// 奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
+				console.log(jsonData);
 				let keys = Object.keys(jsonData);
 				for (let key of keys) {
 					let _itemData = jsonData[key];
 					let _itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo = new ProtoCmd.ItemBase();
-					itemInfo.dwBaseID = _itemData.index;
-					itemInfo.dwBinding = _itemData.binding;
-					itemInfo.dwCount = _itemData.num;
-					console.log(_itemUI)
-					// _itemUI.setData(itemInfo);
-					// todo
+					_itemUI.initUI(_itemData);
+					// TODO
+					console.log(_itemUI);
 					this.hbox_1.addChild(_itemUI);
 				};
+				// 无奖励提示
+				this.lbl_NoPrizeTips.visible = (this.hbox_1.numChildren == 0);
 			})
 			lcp.send(pkt);
 			// 掉落信息
@@ -51,11 +51,25 @@ module view.dialog {
 				// 章节名称
 				this.lbl_charpterName.text = '' + charpterInfo.name;
 				this.lbl_charpterNo.text = '第' + charpterInfo.index + '章';
-				// 金币
-				this.lbl_coinXl.text = '金币：' + charpterInfo.items[EnumData.CoinType.COIN_TYPE_GOLD] + '/H';
-				// 玩家经验
-				// this.lbl_playerExp.text = '经验：' + charpterInfo.items[]
-				// 英雄经验
+				// 金币 效率
+				let itemsKeys = Object.keys(charpterInfo.items);
+				for (let key of itemsKeys) {
+					let itemInfo = charpterInfo.items[key];
+					switch (itemInfo.index) {
+						// 金币
+						case EnumData.CoinType.COIN_TYPE_GOLD:
+							this.lbl_coinXl.text = '金币:' + itemInfo.num + '/H';
+							break;
+						// 玩家经验
+						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
+							this.lbl_playerExp.text = '阅历:' + itemInfo.num + '/H';
+							break;
+						// 英雄经验
+						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
+							this.lbl_heroExp.text = '默契:' + itemInfo.num + '/H';
+							break;
+					}
+				}
 				// 随机掉落池
 				let keys = Object.keys(charpterInfo.drops);
 				for (let key of keys) {
@@ -64,12 +78,10 @@ module view.dialog {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
-					itemInfo.dwCount = _itemData.num;
-					// _itemUI.setData(itemInfo);
-					// todo
+					_itemUI.setData(itemInfo);
 					this.hbox_0.addChild(_itemUI);
 				}
-				console.log(charpterInfo);
+
 			}
 		}
 	}

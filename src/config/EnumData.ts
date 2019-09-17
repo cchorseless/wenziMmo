@@ -210,6 +210,17 @@ module EnumData {
         JYH_QITA = 3,//其他道具
     }
 
+    /**
+     * 拾取装备枚举
+     */
+    export enum emPickType {
+        PICK_SUCCESS,		// 成功
+        PICK_NOOWNER,		// 不是你的物品
+        PICK_NOITEM,		// 没有物品
+        PICK_NOBAG,			// 没有加入到包裹
+        PICK_NOXY,			// 坐标不对
+        PICK_MAGICPET,      // 魔宠拾取
+    };
 
     /**
      * 装备品质
@@ -413,6 +424,29 @@ module EnumData {
         CRET_COPYHUMAN,
         CRET_HERO,
         CRET_ALL,
+    };
+
+    /**
+     * 怪物类型
+     */
+    export enum emMonsterType {
+        _MON_TYPE_NORMAL_ = 0,		//普通怪物
+        _MON_TYPE_LITTLEBOSS_ = 1,	//小BOSS
+        _MON_TYPE_BIGBOSS_ = 2,		//大BOSS
+        _MON_TYPE_PET_ = 3,		    //宠物
+        _MON_TYPE_DEAD_ = 4,		//死亡系
+        _MON_TYPE_DEFENSEFORCE_ = 5,//强制防御,掉血一点
+        _MON_TYPE_BROADSWORD_ = 6,	//大刀守卫
+        _MON_TYPE_BATTLE_ = 7,		//战场怪
+        _MON_TYPE_CHARGEDART_ = 8,	//镖车
+        _MON_TYPE_HUMAN_ = 9,		//模拟玩家类怪物
+        _MON_TYPE_GUARD_ = 10,		//公会守护神
+        _MON_TYPE_COPYHUMAN_ = 11,	//人物分身
+        _MON_TYPE_CREAM_ = 12,		//精英怪物
+        _MON_TYPE_CITYGUARD_ = 13,	//友军怪物
+        _MON_TYPE_MAGICPET_ = 14,	//魔宠
+        _MON_TYPE_COLLECT_ = 15,	//收集类
+        _MON_TYPE_HERO_ = 16,		//英雄
     };
 
     /**
@@ -708,6 +742,8 @@ module EnumData {
         COIN_TYPE_GOLD = 3,        //金币
         COIN_TYPE_HONOR = 4,       //荣誉
         COIN_TYPE_GUILDSORCE = 5,  //帮贡
+        COIN_TYPE_PLAYER_EXP = 20001,//玩家经验
+        COIN_TYPE_HERO_EXP = 20024,//英雄经验
     }
 
     /**
@@ -899,9 +935,7 @@ module EnumData {
         SAVE_KEY_VALUE_TYPE_TUJIAN_EVENT,	//事件图鉴
         SAVE_KEY_VALUE_TYPE_TUJIAN_ITEM,	//物品图鉴
         SAVE_KEY_VALUE_TYPE_MAX,
-
     };
-
 
 
 }

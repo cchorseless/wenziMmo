@@ -33,6 +33,8 @@ module view.compart {
 				}
 				let itemInfoDialog;
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
+				// 关闭其他ItemInfoDialog界面
+				Laya.Dialog.closeByGroup('ItemInfoDialog');
 				// 根据物品类型显示不同界面
 				switch (itemType) {
 					// 材料
@@ -55,6 +57,7 @@ module view.compart {
 						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
 						break;
 				}
+
 				// 根据model显示界面不同的状态
 				switch (this.model) {
 					// 背包场景 有三种子状态 0背包-回收 1背包-仓库 2背包-摆摊
@@ -71,10 +74,10 @@ module view.compart {
 								model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
 								break;
 						}
-						itemInfoDialog.setData(this.item, model).show(true);
+						itemInfoDialog.setData(this.item, model).show(false);
 						break;
 					default:
-						itemInfoDialog.setData(this.item, this.model).show(true);
+						itemInfoDialog.setData(this.item, this.model).show(false);
 						break;
 				}
 			});
