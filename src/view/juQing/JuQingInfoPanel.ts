@@ -1,18 +1,12 @@
 
 module view.juQing {
-	export class JuQingInfoPanel extends ui.juQing.JuQingInfoPanelUI {
+		export class JuQingInfoPanel extends ui.juQing.JuQingInfoPanelUI {
 		constructor() {
 			super();
 		}
 		public setData(): void {
-			this.panel_left.vScrollBarSkin = '';
-			this.vbox_left['sortItem'] = (items) => { };
-			this.panel_0.vScrollBarSkin = '';
-			this.panel_1.vScrollBarSkin = '';
-			this.panel_event.vScrollBarSkin = '';
-			this.hbox_0['sortItem'] = (items) => { };
-			this.hbox_1['sortItem'] = (items) => { };
-			this.hbox_event['sortItem'] = (items) => { };
+			this.panel_right.vScrollBarSkin = '';
+			this.vbox_right['sortItem'] = (items) => { };
 			this.initUI();
 			this.addEvent();
 		}
@@ -53,7 +47,7 @@ module view.juQing {
 							charpterInfo.index = key;
 							let charpterTitle_ui = new view.compart.JuQingTitleItem();
 							charpterTitle_ui.setData(charpterInfo);
-							this.vbox_left.addChild(charpterTitle_ui);
+							this.vbox_right.addChild(charpterTitle_ui);
 							// 更新章节信息
 							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
