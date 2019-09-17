@@ -1,9 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view.compart {
 	export class SceneItem extends ui.compart.SceneItemUI {
+		public pkModelTxt = ['和平', '队伍', '帮会', '善恶', '全体'];
 		constructor() {
 			super();
 			this.setData();
+
 		}
 		public setData(): void {
 			this.panel_monster.hScrollBarSkin = '';
@@ -33,7 +35,11 @@ module view.compart {
 			for (let i = 0; i < 5; i++) {
 				this['box_mode' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.showBattleModel(false);
-					this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
+					let pkt = new ProtoCmd.CretPkModel()
+					let model = this.getPkModelByType(i);
+					pkt.setValue('pkModel', model);
+					lcp.send(pkt);
+					// this.lbl_modeDes.text = '' + ['和平', '队伍', '帮会', '善恶', '全体'][i] + '模式';
 					this.btn_modeIcon.selected = !this.btn_modeIcon.selected;
 				});
 			}
@@ -87,7 +93,7 @@ module view.compart {
 				this.selfPlayerAvatar.setData(GameApp.MainPlayer);
 				this.box_self.addChild(this.selfPlayerAvatar);
 			}
-			else{
+			else {
 				this.selfPlayerAvatar.updateUI();
 			}
 		}
@@ -164,6 +170,44 @@ module view.compart {
 			}
 			else {
 				Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
+			}
+		}
+
+		public pkModelChanged(model): void {
+			let id = 0;
+			switch (model) {
+				case EnumData.PkModel.PKMODEL_TEAMMODE:
+					id = 1;
+					break;
+				case EnumData.PkModel.PKMODEL_GUILDMODE:
+					id = 2;
+					break;
+				case EnumData.PkModel.PKMODEL_GOODANDEVILMODE:
+					id = 3;
+					break;
+				case EnumData.PkModel.PKMODEL_ALLTHEMODE:
+					id = 4;
+					break;
+			}
+			this.lbl_modeDes.text = this.pkModelTxt[id] + '模式';
+		}
+
+		/**
+		 * 
+		 * @param type UI 列表的顺序
+		 */
+		public getPkModelByType(type): number {
+			switch (type) {
+				case 1:
+					return EnumData.PkModel.PKMODEL_TEAMMODE;
+				case 2:
+					return EnumData.PkModel.PKMODEL_GUILDMODE;
+				case 3:
+					return EnumData.PkModel.PKMODEL_GOODANDEVILMODE;
+				case 4:
+					return EnumData.PkModel.PKMODEL_ALLTHEMODE;
+				default:
+					return EnumData.PkModel.PKMODEL_PEACEMODE;
 			}
 		}
 

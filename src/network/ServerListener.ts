@@ -134,9 +134,11 @@ class ServerListener extends SingletonClass {
         // 首次充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_weichongzhidialog, this, this.openPanel, [ProtoCmd.CZ_weichongzhidialog]);
 
-         // 监听图鉴信息
-         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
-            
+        // 监听图鉴信息
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
+        //PKModel
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
+
         // 初始化标记
         this.hasInit = true;
     }
@@ -456,7 +458,7 @@ class ServerListener extends SingletonClass {
         let atker = player.findViewObj(actmpid);
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
-        if(targeter){
+        if (targeter) {
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
         }
@@ -1128,27 +1130,27 @@ class ServerListener extends SingletonClass {
             TipsManage.showTips('添加失败');
         }
     }
-      /*******************************************************组队信息******************************************* */
-     /**
-    * 向队长发出询问
-    */
+    /*******************************************************组队信息******************************************* */
+    /**
+   * 向队长发出询问
+   */
     public addTeamAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamAgreeJoinEncoder(data);
         let asks = new view.dialog.TeamApplyCheckDialog();
         asks.setData(msg).popup(true);
     }
-     /**
-    * 回答申请加入队伍请求
-    */
-      public allowTeam(data: Laya.Byte): void {
+    /**
+   * 回答申请加入队伍请求
+   */
+    public allowTeam(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamAgreeJoinDecoder(data);
-          if (msg.getValue('boAllow')) {
-            TipsManage.showTips( msg.getValue('szName')+'已成功加入您的队伍' );
+        if (msg.getValue('boAllow')) {
+            TipsManage.showTips(msg.getValue('szName') + '已成功加入您的队伍');
         }
         else {
-            TipsManage.showTips('拒绝'+ msg.getValue('szName')+'加入');
+            TipsManage.showTips('拒绝' + msg.getValue('szName') + '加入');
         }
-      }
+    }
     /*******************************************************行会信息******************************************* */
     /**
      * 同步行会信息
@@ -1308,9 +1310,19 @@ class ServerListener extends SingletonClass {
         }
     }
 
-    public recvTypeKeyValue(data:any):void {
+    public recvTypeKeyValue(data: any): void {
         let msg = new ProtoCmd.RecvTypeKeyValue(data);
-        
+      
+        msg.clear();
+    }
+
+    /**
+     * 
+     * @param data PK 模式 
+     */
+    public changePkModel(data: any): void {
+        let msg = new ProtoCmd.CretPkModel(data);
+          PanelManage.Main.ui_scene.pkModelChanged(msg.getValue('pkModel'));
         msg.clear();
     }
 }
