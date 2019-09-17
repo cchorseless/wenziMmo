@@ -53,7 +53,6 @@ module view.team {
 			let btGroupId = GameApp.MainPlayer.feature.btGroupId;
 			// 有队伍
 			if (btGroupId) {
-				console.log('========================>>>>>>haveTeam', btGroupId)
 				let pkt = new ProtoCmd.TeamInfomationDecoder();
 				pkt.setValue('dwGroupId', btGroupId)
 				lcp.send(pkt, this, (data) => {
@@ -62,8 +61,7 @@ module view.team {
 					let a;
 					a.clear();
 					for (let info of cbpkt.Members) {
-
-						// this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info))
+						// this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info,data.btMemberCount))
 						console.log(info);
 						a.push(info)
 					}
@@ -71,7 +69,6 @@ module view.team {
 			}
 			// 无队伍
 			else {
-				console.log('===========>noneTeam')
 				//创建队伍
 				this.btn_buildTeam.on(Laya.UIEvent.CLICK, this, () => {
 					let pkt = new ProtoCmd.TeamBuildEncoder();
@@ -107,10 +104,7 @@ module view.team {
 					for (let member of cbpkt.Members) {
 						let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
 						let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
-						console.log('=============>', onlyId.id)
-						console.log('=============>', masterId.id)
-						if (onlyId.id == masterId.id) {
-						
+						if (onlyId.id == masterId.id) {			
 							this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member,cbpkt.getValue('btMemberCount')));
 
 						}

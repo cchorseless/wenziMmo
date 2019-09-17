@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":437,
+    "selectedBox":425,
+    "selecteID":427,
     "referenceLines":[
         {
             "value":301,
@@ -147,13 +147,14 @@
             "props":{"y":0,"x":0,"width":640,"top":0,"right":0,"left":0,"height":125},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":264,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
                     "nodeParent":264,
@@ -167,6 +168,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":83,"x":69},
                     "nodeParent":264,
@@ -227,6 +229,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-3,"x":107,"right":-9},
                     "nodeParent":264,
@@ -371,6 +374,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":36,"x":82,"skin":"image/main/fram_common_03.png","height":40},
                     "nodeParent":264,
@@ -419,17 +423,19 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":0},
                     "nodeParent":264,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":287,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
                             "nodeParent":287,
@@ -442,8 +448,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":2,"x":7,"skin":"image/main/img_zhujue_01.png"},
+                            "props":{"y":2,"x":7,"skin":"image/common/icon_nan01.png"},
                             "nodeParent":287,
                             "label":"Image",
                             "isDirectory":false,
@@ -455,6 +462,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
                             "nodeParent":287,
@@ -467,6 +475,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":6,"x":89,"skin":"image/main/img_vipdi.png"},
                             "nodeParent":287,
@@ -479,6 +488,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":110,"width":25,"skin":"image/common/zi_vip_01.png","scaleY":0.7,"scaleX":0.7,"height":30},
                             "nodeParent":287,
@@ -491,6 +501,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "props":{"value":1,"spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","centerY":-42,"centerX":56},
                             "nodeParent":287,
@@ -503,6 +514,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":70,"skin":"image/main/icon_vip_01.png","scaleY":0.7,"scaleX":0.7},
                             "nodeParent":287,
@@ -516,6 +528,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":67,"x":582,"stateNum":"2","skin":"image/main/btn_caidan_01down_finish.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":264,
@@ -528,6 +541,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":85,"x":358,"width":90,"stateNum":2,"skin":"image/main/btn_common_03_finish.png","right":192,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"夏至","height":38},
                     "nodeParent":264,
@@ -541,6 +555,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":85,"x":449,"width":90,"stateNum":2,"skin":"image/main/btn_common_03_finish.png","right":101,"labelStrokeColor":"#000000","labelStroke":6,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"辰时","height":38},
                     "nodeParent":264,
@@ -2071,7 +2086,7 @@
                                         {
                                             "x":75,
                                             "type":"Image",
-                                            "props":{"y":2,"x":7,"skin":"image/main/img_zhujue_01.png"},
+                                            "props":{"y":2,"x":7,"skin":"image/common/icon_nan01.png"},
                                             "nodeParent":425,
                                             "label":"Image",
                                             "isDirectory":false,

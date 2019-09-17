@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":143,
-    "selecteID":144,
+    "selectedBox":172,
+    "selecteID":173,
     "props":{"width":601,"sceneColor":"#f69897","height":910},
     "nodeParent":-1,
     "label":"Dialog",
@@ -945,6 +945,32 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"x":150,"skin":"image/common/bottom_title1.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":172,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":17,"x":60,"text":"帮派信息","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":172,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":173,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[
