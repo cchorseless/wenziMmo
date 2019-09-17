@@ -19,6 +19,7 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_next, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_readJuQing, null, null, this, (jsonData: ProtoCmd.itf_JUQING_READBACK) => {
+					console.log(jsonData);
 					let allKeys = Object.keys(jsonData);
 					if (allKeys.length > 0) {
 						let charpterData = GameApp.GameEngine.talkInfo[GameApp.MainPlayer.charpterID];
@@ -27,7 +28,6 @@ module view.juQingMode {
 							this.addJuQingTalkItem(_talkInfo);
 						}
 						// 奖励
-
 
 
 						// 图鉴
@@ -83,6 +83,12 @@ module view.juQingMode {
 			});
 		}
 
+
+		public addLcpEvent():void{
+			
+
+
+		}
 		/**
 		 * 添加剧情对白条目
 		 * @param _talkInfo 
@@ -113,7 +119,7 @@ module view.juQingMode {
 			// 拉取章节信息
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
-				(jsonData: { pzid: number,pzname: string, charpterInfo: number }) => {
+				(jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
 					// 拉取对白
 					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
 						let keys = Object.keys(jsonData.charpterInfo);
