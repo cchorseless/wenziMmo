@@ -28,6 +28,9 @@ module view.fuBen {
 			EventManage.onWithEffect(this.btn_xianShi, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenXianShiPanel();
 			});
+			EventManage.onWithEffect(this.btn_pianZhang, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.ChapterListDialog().setData().popup(true);
+			});
 		}
 
 
@@ -40,7 +43,7 @@ module view.fuBen {
 		}
 
 		/**
-		 * 更新篇章
+		 * 更新篇章目录条
 		 * @param index 
 		 */
 		public updatePianZhangInfo(pzID: number): void {
@@ -63,9 +66,89 @@ module view.fuBen {
 							// 更新章节信息
 							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
+						// 更新单个章节的信息
+						this.updateMainFuBenInfo(GameApp.MainPlayer.charpterID);
 					}
 				});
 			lcp.send(pkt1);
+		}
+
+		/**
+		 * 拉取单个章节信息
+		 * @param charpterID 
+		 */
+		public updateMainFuBenInfo(charpterID: number): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
+				console.log(jsonData);
+				// 关卡名称
+				let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
+				if (charpterInfo) {
+					// 章节标题信息
+					this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;
+				}
+				// 挑战次数
+				this.lbl_tiaoZhanTimes.text = '挑战次数:' + jsonData.curcnt + '/' + jsonData.totalcnt;
+				// 关卡信息
+				let keys = Object.keys(jsonData.state);
+				for (let key of keys) {
+					// 设置怪物头像数据
+					(this['ui_item' + (parseInt(key) % 5)] as view.compart.MonsterIconV0Item).setData(charpterID, key, jsonData.state[key]);
+				}
+				// 设置宝箱状态
+				// 9星宝箱
+				let img9skin = '';
+				switch (jsonData.star['1'].bj) {
+					// 不能打开
+					case 0:
+						img9skin = 'image/common/icon_baoxiang02.png';
+						break;
+					// 可以打开
+					case 1:
+						img9skin = 'image/common/icon_baoxiang02down.png';
+						break;
+					// 已被打开
+					case 2:
+						img9skin = 'image/common/icon_baoxiang02.png';
+						break;
+				}
+				this.img_9prize.skin = img9skin;
+				// 15星宝箱
+				let img15skin = '';
+				switch (jsonData.star['2'].bj) {
+					// 不能打开
+					case 0:
+						img15skin = 'image/common/icon_baoxiang03.png';
+						break;
+					// 可以打开
+					case 1:
+						img15skin = 'image/common/icon_baoxiang03down.png';
+						break;
+					// 已被打开
+					case 2:
+						img15skin = 'image/common/icon_baoxiang03.png';
+						break;
+				}
+				this.img_15prize.skin = img15skin;
+				// 显示单个BOSS信息
+				this.updateMainFuBenBossInfo(jsonData.ceng)
+			})
+			lcp.send(pkt);
+		}
+
+
+		/**
+		 * 选择单个BOSS信息
+		 */
+		public updateMainFuBenBossInfo(ceng: number): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData) => {
+				// this.lbl_cureventName.text =
+
+
+
+			})
+			lcp.send(pkt);
 		}
 	}
 }

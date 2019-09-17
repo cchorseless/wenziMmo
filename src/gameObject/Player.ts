@@ -9,11 +9,17 @@ module GameObject {
         public get job(): EnumData.JOB_TYPE {
             return this.feature.simpleFeature.job;
         }
+        public set job(v: EnumData.JOB_TYPE) {
+            this.feature.simpleFeature.job = v;
+        }
         /**
          * 性别
          */
         public get sex(): EnumData.SEX_TYPE {
             return this.feature.simpleFeature.sex;
+        }
+        public set sex(v: EnumData.SEX_TYPE) {
+            this.feature.simpleFeature.sex = v;
         }
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级

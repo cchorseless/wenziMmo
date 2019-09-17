@@ -109,25 +109,25 @@ module view.juQing {
 		 * @param pzID 
 		 */
 		public updatePianZhang(pzID: number): void {
-			// 拉取章节信息
-			let pkt1 = new ProtoCmd.QuestClientData();
-			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [pzID], null, this,
-				(jsonData: { pzid: number, pzname: string, charpterInfo: any }) => {
-					if (jsonData.pzid == pzID) {
-						this.lbl_pianZhangName.text = '' + jsonData.pzname;
-						let keys = Object.keys(jsonData.charpterInfo);
-						for (let key of keys) {
-							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
-							charpterInfo.index = key;
-							let charpterTitle_ui = new view.compart.JuQingTitleItem();
-							charpterTitle_ui.setData(charpterInfo);
-							this.vbox_left.addChild(charpterTitle_ui);
-							// 更新章节信息
-							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
-						}
-					}
-				});
-			lcp.send(pkt1);
+			// // 拉取章节信息
+			// let pkt1 = new ProtoCmd.QuestClientData();
+			// pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [pzID], null, this,
+			// 	(jsonData: { pzid: number, pzname: string, charpterInfo: any }) => {
+			// 		if (jsonData.pzid == pzID) {
+			// 			this.lbl_pianZhangName.text = '' + jsonData.pzname;
+			// 			let keys = Object.keys(jsonData.charpterInfo);
+			// 			for (let key of keys) {
+			// 				let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
+			// 				charpterInfo.index = key;
+			// 				let charpterTitle_ui = new view.compart.JuQingTitleItem();
+			// 				charpterTitle_ui.setData(charpterInfo);
+			// 				this.vbox_left.addChild(charpterTitle_ui);
+			// 				// 更新章节信息
+			// 				GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+			// 			}
+			// 		}
+			// 	});
+			// lcp.send(pkt1);
 		}
 	}
 }

@@ -67,6 +67,7 @@ module ProtoCmd {
     // VIP跳剧情:章节ID
     export const JQ_GET_JQ_vipSkipJuQing = 'vipSkipJuQing';
 
+
     // 领取剧情奖励:章节ID
     export const JQ_GET_JQ_getJuQingBaseReward = 'getJuQingBaseReward';
 
@@ -75,6 +76,19 @@ module ProtoCmd {
 
     // 打开奖励面板
     export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
+
+    /********************************主线副本界面**************** */
+    // 打开主线面板
+    export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)
+    // 获取单层信息
+    export const FB_ChuMoCengOpen = 'ChuMoCengOpen';//{层数ID}
+    // 进入主线副本
+    export const FB_ChuMoEnter = 'ChuMoEnter';
+    // 离开主线副本
+    export const FB_ChuMoLeave = 'ChuMoLeave';
+
+
+
 
 
     /********************************角色信息界面***************** */
@@ -268,5 +282,16 @@ module ProtoCmd {
         minexp: number;// 当前声望值
         prestigeid: number;// 称号ID
         rank: any;// 排行榜
+    }
+
+    /**
+     * 拉取主线副本信息
+     */
+    export interface itf_FB_MainFbInfo {
+        ceng: number;// 层数
+        curcnt: number;// 当前挑战次数
+        star: any; //星级宝箱
+        state: any;//BOss信息
+        totalcnt: number;//总层数
     }
 }

@@ -73,13 +73,13 @@ module view.common {
 				return
 			}
 			// 角色名称
-			GameApp.GameEngine.mainPlayer.objName = this.input_random.text;
+			GameApp.MainPlayer.objName = this.input_random.text;
 			let createusr = new ProtoCmd.CreatePlayer();
-			createusr.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
+			createusr.setValue('szAccount', GameApp.MainPlayer.playerAccount);
 			createusr.setValue('countryId', 1);
-			createusr.playerinfo.setValue('szName', GameApp.GameEngine.mainPlayer.objName);
-			createusr.playerinfo.feature.setValue('sex', GameApp.GameEngine.mainPlayer.sex);
-			createusr.playerinfo.feature.setValue('job', GameApp.GameEngine.mainPlayer.job);
+			createusr.playerinfo.setValue('szName', this.input_random.text);
+			createusr.playerinfo.feature.setValue('sex', this.curSex);
+			createusr.playerinfo.feature.setValue('job', this.curMenPai);
 			// 创角协议
 			lcp.send(createusr, this, this.createPlayerRet);
 		}
