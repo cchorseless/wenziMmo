@@ -714,8 +714,13 @@ class ServerListener extends SingletonClass {
         if (GameApp.MainPlayer.tempId == dwTempId) {
             player = GameApp.MainPlayer;
         }
-        player.changeLevel(level);
-        player.changeExp(i64LeftExp, i64MaxExp);
+        else {
+            player = GameApp.MainPlayer.findViewObj(dwTempId, EnumData.CRET_TYPE.CRET_PLAYER) as GameObject.Player;
+        }
+        if (player) {
+            player.changeLevel(level);
+            player.changeExp(i64LeftExp, i64MaxExp);
+        }
         msg.clear();
         msg = null;
     }
@@ -1064,7 +1069,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.TeamAgreeJoinDecoder(data);
         if (msg.getValue('boAllow')) {
             TipsManage.showTips(msg.getValue('szName') + '已成功加入您的队伍');
-            let a=new view.team.TeamPanel();
+            let a = new view.team.TeamPanel();
             a.myTeam();
         }
         else {
