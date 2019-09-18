@@ -30,3 +30,21 @@ class SingletonClass {
         return Class._instance;
     }
 }
+
+class SingletonPacket {
+    public _instance;
+    public static create(...args: any[]): any {
+        var argsLen: number = args.length;
+        var Class: any = this;
+        if (!Class._instance) {
+            if (argsLen == 0) {
+                Class._instance = new Class();
+            } else if (argsLen == 1) {
+                Class._instance = new Class(args[0]);
+            }
+        } else if(argsLen == 1) {
+            Class._instance.read(args[0])
+        }
+        return Class._instance;
+    }
+}

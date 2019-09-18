@@ -280,7 +280,8 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public mapCreateCret(data: any): void {
-        let msgData = new ProtoCmd.MapCreateCret(data);
+        // let msgData = new ProtoCmd.MapCreateCret(data);
+        let msgData = ProtoCmd.MapCreateCret.create(data);
         let type = msgData.feature.getValue('btCretType');
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
@@ -308,8 +309,6 @@ class ServerListener extends SingletonClass {
         obj.dir = msgData.getValue('btDir');
         // 将对象添加到视野列表中
         GameApp.MainPlayer.addViewObj(obj, type);
-        msgData.clear();
-        msgData = null;
     }
 
     /**
