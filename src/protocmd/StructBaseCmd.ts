@@ -2997,6 +2997,7 @@ module ProtoCmd {
             this.addProperty('beginnpcid', PacketBase.TYPE_DWORD);// 4 开始NPCID 
             this.addProperty('beginnpcname', PacketBase.TYPE_STRING, 48);// 开始NPC名字 
             this.addProperty('endnpcid', PacketBase.TYPE_DWORD);// 4 结束NPCID 
+            this.addProperty('talkInfo', PacketBase.TYPE_STRING, 1024);// 任务过程对白
             this.addProperty('endnpcfaceid', PacketBase.TYPE_DWORD);// 4 结束NPC头像ID 
             this.addProperty('endnpcname', PacketBase.TYPE_STRING, 48);// 结束NPC名字 
             this.addProperty('questname', PacketBase.TYPE_STRING, 48);// 任务名字 

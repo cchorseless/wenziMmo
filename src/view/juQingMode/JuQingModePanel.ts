@@ -65,7 +65,6 @@ module view.juQingMode {
 
 
 		public addLcpEvent(): void {
-
 			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData) => {
 				let allKeys = Object.keys(jsonData);
 				if (allKeys.length > 0) {
