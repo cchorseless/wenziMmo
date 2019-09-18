@@ -736,11 +736,23 @@ module ProtoCmd {
      * 有则更新，没则增加
      */
     export class AddTypeKeyValue extends Packet {
-        public static msgID: number = 0x02BA;//186
+        public static msgID: number = 0x02BA; // 186
         public value: TypeKeyValue = new TypeKeyValue();
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('value', PacketBase.TYPE_BYTES, this.value.size(), this.value);
+            this.read(data)
+        }
+    }
+
+    /**
+     * 新手引导进度
+     */
+    export class SUBCMD_QUESTBOOLDATA extends Packet {
+        public static msgID: number = 0x02B5; // 181
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('value', PacketBase.TYPE_BYTES, 256);
             this.read(data)
         }
     }

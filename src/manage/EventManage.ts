@@ -22,8 +22,14 @@ module EventManage {
         });
         // 抬起事件
         dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
-            dispatch['lcp_onWithEffect'] = false;
-            Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn, Laya.Handler.create(caller, func, args));
+            if (dispatch['lcp_onWithEffect']) {
+                dispatch['lcp_onWithEffect'] = false;
+                Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn, Laya.Handler.create(caller, func, args));
+            }
+            else {
+                dispatch['lcp_onWithEffect'] = false;
+                Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn)
+            }
         });
     }
 }

@@ -804,28 +804,28 @@ module EnumData {
      * 任务子类型枚举
      */
     export enum TaskSubType {   //事件类型
-        NEEDLV = 0,	            //函数样式needlv_%d 需要的等级数
-        NPCKILL = 1,	        //函数样式npckill_%d npc的id
-        NPCVISIT = 2,	        //函数样式npcvisit_%d npc的id
-        ITEMUSE = 3,	        //函数样式itemuse_%d 物品id
-        ITEMGET = 4,	        //函数样式itemget_%d 物品id 标记player questmark
-        ITEMDROP = 5,	        //函数样式itemdrop_%d 物品id
+        NEEDLV = 0,	            //函数样式needlv_%d 需要的等级数（升级）
+        NPCKILL = 1,	        //函数样式npckill_%d npc的id 杀死 怪物
+        NPCVISIT = 2,	        //函数样式npcvisit_%d npc的id 拜访NPC
+        ITEMUSE = 3,	        //函数样式itemuse_%d 物品id（使用物品）
+        ITEMGET = 4,	        //函数样式itemget_%d 物品id 标记player questmark（获取物品）
+        ITEMDROP = 5,	        //函数样式itemdrop_%d 物品id（丢弃物品）
         MAPAREA = 6,	        //函数样式maparea_%d_%d_%d_%d 地图ID 坐标X 坐标Y 范围Z  标记player mapcheck
-        CONTONLINETIME = 7,     //单次在线时间
-        CONTONLINEDAY = 8,	    //连续登陆天数
-        FIGHTNUM = 9,	        //函数样式fightnum_%d_%d 战斗地图ID 要战斗的次数
+        // CONTONLINETIME = 7,     //单次在线时间（不用）
+        // CONTONLINEDAY = 8,	    //连续登陆天数（不用）
+        // FIGHTNUM = 9,	        //函数样式fightnum_%d_%d 战斗地图ID 要战斗的次数（不用）
         LOGIN = 10,	            //函数样式login_%d 登陆次数
         OFFLINE = 11,	        //函数样式offline_%d 离线次数
         DIE = 12,		        //函数样式die_%d 死亡次数
-        FIGHTING = 13,          //函数样式fighting_%d npcid回合数 直接进入战斗 可能也需要标记player questmark
-        GRASPPET = 14,          //函数样式grasppet_%d 宠物id
-        ESCORT = 15,	        //函数样式escort_%d npcid
-        PANEL = 16,         	//函数样式panel_%d 面板id 枚举其id
-        MAPCELL = 17,	        //函数样式mapcell_%d_%d_%d_%d 地图ID 坐标X 坐标Y 范围Z
-        FIGHTMAP = 18,          //函数样式fightmap_%d 地图ID
-        SETFIGHT = 19,          //函数样式setfight_%d 怪物AIID
-        FIGHTSTART = 20,        //函数样式fightstart_%d 玩家临时ID
-        MAPNUM = 21,	        //函数样式mapnum_%d 地图ID
+        // FIGHTING = 13,          //函数样式fighting_%d npcid回合数 直接进入战斗 可能也需要标记player questmark（不用）
+        // GRASPPET = 14,          //函数样式grasppet_%d 宠物id（不用）
+        // ESCORT = 15,	        //函数样式escort_%d npcid（不用）
+        // PANEL = 16,         	//函数样式panel_%d 面板id 枚举其id（不用）
+        // MAPCELL = 17,	        //函数样式mapcell_%d_%d_%d_%d 地图ID 坐标X 坐标Y 范围Z（不用）
+        // FIGHTMAP = 18,          //函数样式fightmap_%d 地图ID（不用）
+        // SETFIGHT = 19,          //函数样式setfight_%d 怪物AIID（不用）
+        // FIGHTSTART = 20,        //函数样式fightstart_%d 玩家临时ID（不用）
+        // MAPNUM = 21,	        //函数样式mapnum_%d 地图ID（不用）
         EQUIPITEM = 22,         //函数样式equipitem_%d 装备物品事件，物品ID
         FIGHTMAPFINISH = 24,    //函数样式fightmapfinish_%d 战场结束的事件
         CHANGESVROFFLINE = 25,  //函数样式changesvroffline_%d 切换服务器的事件
@@ -846,9 +846,9 @@ module EnumData {
         QIANGHUAUP = 40,	    //强化升级任务	
         EVERYDAYFINISH = 41,	//完成一环赏金任务
         LOOPFINISH = 42,		//完成一环环式任务
-        TESHU_QUEST = 43,
+        TESHU_QUEST = 43,       //特殊任务特殊处理
         NEEDHEROLV = 44,		//英雄升级
-        BUYINGIFTSMALL = 45,	//礼券商城购买
+        BUYINGIFTSMALL = 45,	//礼券商城购买（不用）
         SKILLEXP = 46,          //技能经验
     };
 
