@@ -58,15 +58,15 @@ module view.dialog {
 					switch (itemInfo.index) {
 						// 金币
 						case EnumData.CoinType.COIN_TYPE_GOLD:
-							this.lbl_coinXl.text = '金币:' + itemInfo.num + '/H';
+							this.lbl_coinXl.text =  itemInfo.num + '/H';
 							break;
 						// 玩家经验
 						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
-							this.lbl_playerExp.text = '阅历:' + itemInfo.num + '/H';
+							this.lbl_playerExp.text =  itemInfo.num + '/H';
 							break;
 						// 英雄经验
 						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
-							this.lbl_heroExp.text = '默契:' + itemInfo.num + '/H';
+							this.lbl_heroExp.text =  itemInfo.num + '/H';
 							break;
 					}
 				}

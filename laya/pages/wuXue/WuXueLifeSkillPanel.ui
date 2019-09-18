@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":129,
-    "selecteID":142,
+    "selectedBox":158,
+    "selecteID":159,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -219,15 +219,16 @@
             "props":{"y":323,"x":119,"stateNum":"2","skin":"image/juese/bottom_fuzhu.png"},
             "nodeParent":1,
             "label":"Button",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":158,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":25,"x":25,"stateNum":"2","skin":"image/juese/btn_duanzao_Selected_finish.png"},
+                    "props":{"y":25,"x":25,"stateNum":"2","skin":"image/common/btn_duanzao_Selected_finish.png"},
                     "nodeParent":158,
                     "label":"Button",
                     "isDirectory":false,
@@ -238,6 +239,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":104,"x":26,"text":"锻 造","strokeColor":"#404040","stroke":4,"height":26,"fontSize":28,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":158,

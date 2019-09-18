@@ -5,7 +5,12 @@ module view.dialog {
 			super();
 		}
 		public setData(): ZhaiYuan_lianQiDialog {
-
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				this.vstack_top.selectedIndex = index;
+			}, null, false);
+			this.tab_down.selectHandler = Laya.Handler.create(this, (index) => {
+				this.vstack_down.selectedIndex = index;
+			}, null, false);
 			this.addEvent()
 			return this
 		}
