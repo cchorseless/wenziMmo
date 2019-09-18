@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":222,
-    "selecteID":223,
+    "selectedBox":241,
+    "selecteID":257,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -641,15 +641,16 @@
             "props":{"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":241,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":-10,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png"},
+                    "props":{"y":51,"x":61,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":241,
                     "label":"Button(btn_back)",
                     "isOpen":true,
@@ -659,6 +660,7 @@
                     "compId":242,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":41,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":242,
@@ -673,6 +675,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":242,
@@ -687,8 +690,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":100,"var":"btn_juQing","stateNum":"2","skin":"image/common/img_common_07bg.png"},
+                    "props":{"y":51,"x":171,"var":"btn_juQing","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":241,
                     "label":"Button(btn_juQing)",
                     "isOpen":true,
@@ -698,6 +702,7 @@
                     "compId":245,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":30,"stateNum":"2","skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":245,
@@ -712,6 +717,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"剧情","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":245,
@@ -726,8 +732,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":206,"var":"btn_daily","stateNum":"2","skin":"image/common/img_common_07bg.png"},
+                    "props":{"y":51,"x":277,"var":"btn_daily","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":241,
                     "label":"Button(btn_daily)",
                     "isOpen":true,
@@ -737,6 +744,7 @@
                     "compId":248,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":248,
@@ -751,6 +759,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"日常","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":248,
@@ -764,8 +773,9 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":314,"var":"btn_liLian","stateNum":"2","skin":"image/common/img_common_07bg.png"},
+                    "props":{"y":51,"x":385,"var":"btn_liLian","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":241,
                     "label":"Button(btn_liLian)",
                     "isOpen":true,
@@ -775,6 +785,7 @@
                     "compId":251,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":251,
@@ -789,6 +800,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"历练","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":251,
@@ -803,8 +815,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":429,"var":"btn_xianShi","stateNum":"2","skin":"image/common/img_common_07bg.png"},
+                    "props":{"y":51,"x":500,"var":"btn_xianShi","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":241,
                     "label":"Button(btn_xianShi)",
                     "isOpen":true,
@@ -814,6 +827,7 @@
                     "compId":254,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":254,
@@ -828,6 +842,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"限时","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":254,
@@ -842,6 +857,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing_01.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":241,
@@ -853,6 +869,7 @@
                     "compId":257,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":54,"x":18,"text":"场景","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":257,

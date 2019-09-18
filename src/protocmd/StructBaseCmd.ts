@@ -2640,12 +2640,7 @@ module ProtoCmd {
             this.addProperty("dwCharge", PacketBase.TYPE_INT);
             this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
             this.addProperty("btChargeSex", PacketBase.TYPE_BYTE);//
-            // 充值排行
-            for (var i: number = 1; i <= 30; i++) {
-                this.addProperty("dwChuMoScore" + i.toString(), PacketBase.TYPE_DWORD);//除魔积分
-            }
             this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//
-            this.addProperty("dwChuMoJiFen", PacketBase.TYPE_DWORD);//
             this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);
             this.addProperty("dwMedalTime", PacketBase.TYPE_DWORD);
             this.addProperty("dwStrenTotalLvl", PacketBase.TYPE_DWORD);
@@ -2908,7 +2903,7 @@ module ProtoCmd {
         public nMapY: number = 0;
         public nMapID: number = 0;
         public feature: SimpleFeature = new SimpleFeature();
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('dwOnlyId', PacketBase.TYPE_BYTES, 8);
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -2935,7 +2930,9 @@ module ProtoCmd {
             this.addProperty('btTxQQVipType', PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty('btTxQQVipLevel', PacketBase.TYPE_BYTE);//QQ会员等级
             this.addProperty('btSex', PacketBase.TYPE_BYTE);
-            this.read(data);
+            if(data) {
+                this.read(data);
+            }
         }
         public read(data: Laya.Byte): number {
             data.pos += super.read(data);
