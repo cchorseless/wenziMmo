@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":75,
+    "selecteID":100,
     "referenceLines":[
         {
             "value":1127,
@@ -404,7 +404,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":80,"x":375,"var":"lbl_jieQi","text":"大雪","strokeColor":"#404040","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":80,"x":375,"var":"lbl_jieQi","text":"大雪","strokeColor":"#000000","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":129,
                     "label":"Label(lbl_jieQi)",
                     "isDirectory":false,
@@ -417,7 +417,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":80,"x":461,"var":"lbl_shiChen","text":"末时","strokeColor":"#404040","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":80,"x":461,"var":"lbl_shiChen","text":"末时","strokeColor":"#000000","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":129,
                     "label":"Label(lbl_shiChen)",
                     "isDirectory":false,
@@ -469,7 +469,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":8,"x":44,"width":75,"var":"lbl_gold","text":"90万","fontSize":25,"font":"FZLB","color":"#ffffff","bold":false,"align":"left"},
+                            "props":{"y":8,"x":44,"width":75,"var":"lbl_gold","text":"90万","strokeColor":"#000000","stroke":4,"italic":true,"fontSize":25,"font":"FZLB","color":"#f9e596","bold":true,"align":"left"},
                             "nodeParent":47,
                             "label":"Label(lbl_gold)",
                             "isDirectory":false,
@@ -509,7 +509,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":8,"x":52,"width":83,"var":"lbl_yuanBao","text":"80万","height":32,"fontSize":25,"font":"FZLB","color":"#ffffff","bold":false,"align":"left"},
+                            "props":{"y":8,"x":52,"width":83,"var":"lbl_yuanBao","text":"80万","strokeColor":"#000000","stroke":4,"italic":true,"height":32,"fontSize":25,"font":"FZLB","color":"#f9e596","bold":false,"align":"left"},
                             "nodeParent":48,
                             "label":"Label(lbl_yuanBao)",
                             "isDirectory":false,
@@ -551,7 +551,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":4,"x":41,"width":83,"var":"lbl_yuanBaolock","text":"90万","height":23,"fontSize":25,"font":"FZLB","color":"#ffffff","bold":false,"align":"left"},
+                            "props":{"y":4,"x":41,"width":83,"var":"lbl_yuanBaolock","text":"90万","strokeColor":"#000000","stroke":4,"italic":true,"height":23,"fontSize":25,"font":"FZLB","color":"#f9e596","bold":true,"align":"left"},
                             "nodeParent":49,
                             "label":"Label(lbl_yuanBaolock)",
                             "isDirectory":false,
@@ -583,7 +583,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":0,"skin":"image/main/img_main_bg02.png","bottom":0},
+            "props":{"x":0,"skin":"image/main/img_main_bg02.png","bottom":3},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -691,7 +691,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":872,"var":"tab_task","stateNum":2,"space":10,"skin":"image/main/fram_common_42_finish.png","selectedIndex":0,"left":-2,"labels":"世,场","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelFont":"FZXK","labelColors":"#fef3d5,#f9e596","direction":"vertical"},
+            "props":{"y":872,"var":"tab_task","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":0,"left":0,"labels":"世\\n界,场\\n景","labelStrokeColor":"#000000","labelStroke":6,"labelSize":32,"labelFont":"FZXK","labelColors":"#ffffff,#fef3d5","direction":"vertical"},
             "nodeParent":1,
             "label":"Tab(tab_task)",
             "isDirectory":false,
@@ -708,13 +708,14 @@
             "props":{"y":850,"x":29,"skin":"image/main/fram_common_03a.png","sizeGrid":"16,16,16,16"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":86,
             "child":[
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"var":"vstack_task","top":10,"selectedIndex":0,"right":10,"left":10,"bottom":0},
                     "nodeParent":86,
@@ -726,6 +727,7 @@
                     "compId":87,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"width":320,"var":"panel_sceneMsg","right":0,"name":"item0","left":0,"height":170},
                             "nodeParent":87,
@@ -737,6 +739,7 @@
                             "compId":88,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_sceneMsg","top":10,"space":5,"right":10,"left":10,"align":"left"},
                                     "nodeParent":88,
@@ -750,6 +753,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"width":320,"var":"panel_chatMsg","right":0,"name":"item1","left":0,"height":166},
                             "nodeParent":87,
@@ -761,6 +765,7 @@
                             "compId":90,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_chatMsg","top":10,"space":5,"right":10,"left":10,"align":"left"},
                                     "nodeParent":90,
