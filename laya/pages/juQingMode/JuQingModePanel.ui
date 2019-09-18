@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":10,
-    "selecteID":35,
+    "selectedBox":104,
+    "selecteID":140,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -229,13 +229,14 @@
             "props":{"y":1040,"x":0,"right":0,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":104,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":53,"x":61,"var":"btn_juQing","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -247,6 +248,7 @@
                     "compId":111,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/juQingMode/icon_shouce.png","labelSize":30,"labelPadding":"15,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":111,
@@ -261,6 +263,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"手册","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":111,
@@ -275,6 +278,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":53,"x":168,"var":"btn_task","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -286,6 +290,7 @@
                     "compId":130,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/juQingMode/icon_renwu.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":130,
@@ -299,6 +304,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"任务","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":130,
@@ -312,6 +318,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":53,"x":275,"var":"btn_fuBen","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -323,6 +330,7 @@
                     "compId":132,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/juQingMode/icon_fuben.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":132,
@@ -336,6 +344,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"副本","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":132,
@@ -349,6 +358,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":55,"x":382,"var":"btn_tuJian","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -360,6 +370,7 @@
                     "compId":134,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/juQingMode/icon_tujian.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":134,
@@ -373,6 +384,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"图鉴","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":134,
@@ -386,6 +398,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":53,"x":491,"var":"btn_tianJian","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -397,6 +410,7 @@
                     "compId":136,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/juQingMode/icon_tianjian.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":136,
@@ -410,6 +424,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"天鉴","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":136,
@@ -423,6 +438,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing_01.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":104,
@@ -434,6 +450,7 @@
                     "compId":140,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":58,"x":18,"text":"场景","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":140,

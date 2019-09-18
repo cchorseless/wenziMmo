@@ -48,7 +48,10 @@ module view.guild {
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFriendPanel();
 			})
-			// NPC好感度
+			// 排行榜
+			this.btn_haoGan.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			})
 			// todo
 			// 小说模式
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {

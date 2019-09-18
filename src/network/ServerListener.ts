@@ -1069,8 +1069,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.TeamAgreeJoinDecoder(data);
         if (msg.getValue('boAllow')) {
             TipsManage.showTips(msg.getValue('szName') + '已成功加入您的队伍');
-            let a = new view.team.TeamPanel();
-            a.myTeam();
+            PanelManage.Team.myTeam();
         }
         else {
             TipsManage.showTips('拒绝' + msg.getValue('szName') + '加入');
