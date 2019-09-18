@@ -88,6 +88,10 @@ module view.guild {
 				PanelManage.openFriendPanel();
 			})
 			// NPC好感度
+			// 排行榜
+			this.btn_haoGanDu.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			})
 			// todo
 			// 小说模式
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {

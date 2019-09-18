@@ -23,7 +23,7 @@ module view.juQing {
 				new view.dialog.ChapterListDialog().setData().popup(true);
 			});
 			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openRankMainPanel();
+				// PanelManage.openRankMainPanel();
 			});
 			EventManage.onWithEffect(this.btn_yinDao, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openYinDaoPanel();

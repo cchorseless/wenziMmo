@@ -15,6 +15,7 @@ module view.team {
 			}, null, false);
 			this.addEvent();
 			this.updateNearbyList();
+
 		}
 		public addEvent(): void {
 			// 返回
@@ -58,12 +59,9 @@ module view.team {
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
 					//循环查询成员信息
-					let a;
-					a.clear();
+					this.vbox_team00.removeChildren();
 					for (let info of cbpkt.Members) {
-						// this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info,data.btMemberCount))
-						console.log(info);
-						a.push(info)
+						this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info, cbpkt.getValue('btMemberCount')))
 					}
 				})
 			}
@@ -104,8 +102,8 @@ module view.team {
 					for (let member of cbpkt.Members) {
 						let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
 						let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
-						if (onlyId.id == masterId.id) {			
-							this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member,cbpkt.getValue('btMemberCount')));
+						if (onlyId.id == masterId.id) {
+							this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member, cbpkt.getValue('btMemberCount')));
 
 						}
 					}

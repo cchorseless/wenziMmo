@@ -34,13 +34,13 @@ module view.main {
 			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_task.selectedIndex = index;
 				if (index == 1) {
-					this.tab_task.labels = '场景,发送';
+					this.tab_task.labels = '场\n景,发\n送';
 					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
 						this.ui_chatSendDialog.visible = true;
 					})
 				}
 				else {
-					this.tab_task.labels = '场景,聊天';
+					this.tab_task.labels = '场\n景,聊\n天';
 				}
 			}, null, false);
 			this.tab_task.selectedIndex = 1;
@@ -361,6 +361,23 @@ module view.main {
 			this.loadMap();
 			this.loadJuQingData();
 			this.ui_scene.initUI();
+
+
+			let sss = "<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
+ft=\"&lt;font color='#dfd4ab'&gt;击杀: &lt;/font&gt;&lt;\
+a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dfd4ab'&gt;鸡&lt;/font&gt;&lt;\
+font face='宋体' color='#BFBFBF'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#C99936'&gt;鸡&lt;/font&gt;&lt;font color='#DFD4AB'&gt;(1/1)&lt;/font&gt;\" \
+ loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
+<q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
+<j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
+			let obj: XMLDocument = Laya.Utils.parseXMLFromString(sss)
+			console.log('======',obj)
+			console.log('=======', obj.firstElementChild.getAttribute('ft'));
+			this.div_taskDes.style.fontSize = 20;
+			this.div_taskDes.innerHTML = obj.firstElementChild.getAttribute('ft') + '</a>';
+			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
+				console.log(data)
+			})
 		}
 
 		/**
@@ -505,7 +522,20 @@ module view.main {
 			// 任务信息
 			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
 			// 任务描述
-			// this.div_taskDes.innerHTML = "<font style='color:#FFFFFF;font-weight:bold;font-size:30'>击杀: </font><font color='#000000'>鸡</font>";
+			// 			this.div_taskDes.style.fontSize = 20;
+			// 			this.div_taskDes.innerHTML =
+			// 				"<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
+			// ft=\"&lt;font color='#dfd4ab'&gt;击杀: &lt;/font&gt;&lt;\
+			// a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dfd4ab'&gt;鸡&lt;/font&gt;&lt;\
+			// font face='宋体' color='#BFBFBF'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#C99936'&gt;鸡&lt;/font&gt;&lt;font color='#DFD4AB'&gt;(1/1)&lt;/font&gt;\" \
+			//  loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
+			// <q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
+			// <j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
+
+			// 			console.log('=======', this.div_taskDes.innerHTML);
+			// 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
+			// 				console.log(data)
+			// 			})
 		}
 
 		/**
