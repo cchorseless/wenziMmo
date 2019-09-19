@@ -23,8 +23,8 @@ module view.juQingMode {
 			});
 
 			// 剧情进度
-			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingInfoPanel()
+			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openZhiNanPanel()
 			});
 
 			// 副本
