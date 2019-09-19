@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":48,
+    "selecteID":46,
     "props":{"width":520,"sceneColor":"#f3ecec","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -15,47 +15,31 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":0,"width":211,"skin":"image/bag/fram_commom_10.png","sizeGrid":"0,32,0,32"},
+            "props":{"y":7,"x":6,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":44,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":8,"x":56,"text":"回收","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":24,"font":"Microsoft YaHei","color":"#ebb749"},
+                    "props":{"y":11,"x":152,"text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":44,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":57,
+                    "compId":65,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":135,"text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":44,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":66,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":147,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":11,"x":142,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":44,
                     "label":"Label",
                     "isDirectory":false,
@@ -67,15 +51,27 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":156,"text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":11,"x":128,"text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":44,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":65,
+                    "compId":66,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":3,"x":44,"text":"回收","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                    "nodeParent":44,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -85,7 +81,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":5,"x":281,"text":"    特权回收\\n格外+5%经验","strokeColor":"#603d22","padding":"-1","fontSize":18,"font":"Microsoft YaHei","color":"#63491a","bold":true},
+            "props":{"y":9,"x":280,"text":"    特权回收\\n格外+5%经验","strokeColor":"#603d22","padding":"-1","fontSize":18,"font":"Microsoft YaHei","color":"#63491a","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -99,7 +95,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":407,"width":105,"stateNum":"2","skin":"image/bag/btn_common_05_finish.png","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#291810,#291810","labelBold":true,"label":"激活","height":55},
+            "props":{"y":-1,"x":401,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -107,185 +103,319 @@
             "hasChild":false,
             "compId":46,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":143,"x":365,"width":134,"stateNum":"2","skin":"image/bag/btn_common_06_finish (2).png","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#0b4452,#0b4452","labelBold":true,"label":"转生装备","height":55},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":47,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":273,"x":365,"width":134,"stateNum":"2","skin":"image/bag/btn_common_06_finish (2).png","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#0b4452,#0b4452","labelBold":true,"label":"非转生装备","height":55},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":48,
-            "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":102,"x":383,"width":44,"skin":"image/bag/icon_exp.png","height":39},
+            "props":{"y":48,"x":-15,"skin":"image/bag/img_lianhulu.png"},
             "nodeParent":1,
             "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":68,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":130,"x":42,"var":"btn_qiu","stateNum":"2","skin":"image/bag/btn_common_16.png","labelStrokeColor":"#603d22","labelStroke":4,"labelSize":26,"labelPadding":"2,8","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"89级\\n以下"},
+            "nodeParent":1,
+            "label":"Button(btn_qiu)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":69,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":61,"x":241,"width":267,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,30,31,23","height":269},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":78,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":65,"x":247,"width":254,"var":"panel_a","height":260},
+            "nodeParent":1,
+            "label":"Panel(panel_a)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":49,
+            "compId":79,
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":17,"x":40,"width":13,"text":"：","strokeColor":"#000000","stroke":3,"padding":"-15","height":14,"fontSize":30,"color":"#ffffff"},
-                    "nodeParent":49,
-                    "label":"Label",
-                    "isDirectory":false,
+                    "type":"VBox",
+                    "props":{"var":"vbox_huishou","right":0,"left":4},
+                    "nodeParent":79,
+                    "label":"VBox(vbox_huishou)",
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":59,
+                    "hasChild":true,
+                    "compId":80,
                     "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":55,"text":"99W","strokeColor":"#000000","stroke":3,"fontSize":20,"color":"#ffffff"},
-                    "nodeParent":49,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":60,
-                    "child":[
-                        ]
+                        {
+                            "type":"Box",
+                            "props":{"y":0,"x":0},
+                            "nodeParent":80,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":84,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{},
+                                    "nodeParent":84,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":81,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":86},
+                                    "nodeParent":84,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":82,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":172},
+                                    "nodeParent":84,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":83,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":78,"x":0},
+                            "nodeParent":80,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":85,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{},
+                                    "nodeParent":85,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":86,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":86},
+                                    "nodeParent":85,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":87,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":172},
+                                    "nodeParent":85,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":88,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":156,"x":0},
+                            "nodeParent":80,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":89,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{},
+                                    "nodeParent":89,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":90,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":86},
+                                    "nodeParent":89,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":91,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":172},
+                                    "nodeParent":89,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":92,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":234,"x":0},
+                            "nodeParent":80,
+                            "label":"Box",
+                            "isOpen":null,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":93,
+                            "child":[
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{},
+                                    "nodeParent":93,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":94,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":86},
+                                    "nodeParent":93,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":95,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"UIView",
+                                    "source":"compart/DaoJuItem.ui",
+                                    "props":{"x":172},
+                                    "nodeParent":93,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":96,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
                 }]
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":232,"x":383,"width":44,"skin":"image/bag/icon_exp.png","height":39},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":50,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":17,"x":40,"width":13,"text":"：","strokeColor":"#000000","stroke":3,"padding":"-15","height":14,"fontSize":30,"color":"#ffffff"},
-                    "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":61,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":11,"x":55,"text":"99W","strokeColor":"#000000","stroke":3,"fontSize":20,"color":"#ffffff"},
-                    "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":62,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
             "type":"Button",
-            "props":{"y":63,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
+            "props":{"y":331,"x":9,"width":155,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"一键选择","height":59},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":51,
+            "compId":97,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":120,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
+            "props":{"y":331,"x":180,"width":155,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"一键选择","height":59},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":52,
+            "compId":98,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":173,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
+            "props":{"y":331,"x":350,"width":155,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"回收","height":59},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":53,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":229,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":54,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":284,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":55,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":337,"x":3,"stateNum":"2","skin":"image/bag/btn_common_07_finish (2).png","labelSize":20,"labelColors":"#63491a,#63491a","labelBold":true,"label":"点击回收89级以下的装备(10)"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":56,
+            "compId":99,
             "child":[
                 ]
         }],

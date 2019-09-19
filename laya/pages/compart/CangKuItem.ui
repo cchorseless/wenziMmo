@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":10,
-    "selecteID":11,
+    "selectedBox":1,
+    "selecteID":22,
     "referenceLines":[
         {
             "value":-222,
@@ -21,66 +21,66 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":11,"width":211,"skin":"image/bag/fram_commom_10.png","sizeGrid":"0,32,0,32"},
+            "props":{"y":7,"x":17,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":10,
+            "compId":22,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":8,"x":56,"text":"仓库","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":24,"font":"Microsoft YaHei","color":"#ebb749"},
-                    "nodeParent":10,
+                    "props":{"y":3,"x":44,"text":"仓库","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                    "nodeParent":22,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":11,
+                    "compId":26,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":135,"var":"lbl_itemCount","text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":10,
-                    "label":"Label(lbl_itemCount)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":147,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":10,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":156,"var":"lbl_maxCount","text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":10,
+                    "props":{"y":11,"x":152,"var":"lbl_maxCount","text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":22,
                     "label":"Label(lbl_maxCount)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":15,
+                    "compId":23,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":11,"x":142,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":22,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":11,"x":128,"var":"lbl_itemCount","text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":22,
+                    "label":"Label(lbl_itemCount)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":25,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -90,16 +90,15 @@
             "props":{"y":50,"x":10,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"8,7,6,7","height":340},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":5,
             "child":[
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":0,"width":509,"var":"panel_0","height":330},
+                    "props":{"y":5,"width":505,"var":"panel_0","right":2,"height":330},
                     "nodeParent":5,
                     "label":"Panel(panel_0)",
                     "isOpen":true,
@@ -109,7 +108,6 @@
                     "compId":6,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","right":0,"left":0,"align":"left"},
                             "nodeParent":6,

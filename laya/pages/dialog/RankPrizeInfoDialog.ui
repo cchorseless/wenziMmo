@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":118,
-    "selecteID":142,
+    "selectedBox":93,
+    "selecteID":116,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -175,8 +175,22 @@
                 },
                 {
                     "x":30,
+                    "type":"Image",
+                    "props":{"y":293,"x":45,"width":530,"skin":"image/common/line_yeqian.png"},
+                    "nodeParent":93,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":116,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"y":242,"x":61,"width":492,"var":"panel_0","height":54},
+                    "props":{"y":242,"x":76,"width":470,"var":"panel_0","height":54},
                     "nodeParent":93,
                     "label":"Panel(panel_0)",
                     "isOpen":true,
@@ -188,7 +202,7 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"y":0,"x":2,"stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleX":1.24,"labels":"等级榜,战力榜,英雄战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+                            "props":{"y":0,"x":2,"stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"等级榜,战力榜,英雄\\n战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelPadding":"7","labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
                             "nodeParent":23,
                             "label":"Tab",
                             "isDirectory":false,
@@ -225,20 +239,6 @@
                             "child":[
                                 ]
                         }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":290,"x":45,"width":530,"skin":"image/common/line_yeqian.png"},
-                    "nodeParent":93,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":116,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
                 },
                 {
                     "x":30,

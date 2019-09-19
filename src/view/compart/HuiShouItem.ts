@@ -6,12 +6,14 @@ module view.compart {
 		}
 		public hasInit = false;
 		public setData(): void {
+			this.panel_a.vScrollBarSkin = '';
+			this.vbox_huishou['sortItem'] = (items) => { };
 			if (this.hasInit) return;
 			this.hasInit = true;
 			this.initUI();
 			this.addEvent();
 
-			
+
 		}
 
 		public initUI(): void {
@@ -19,6 +21,9 @@ module view.compart {
 
 		}
 		public addEvent(): void {
+			this.btn_qiu.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.BagHuiShouDialog().show();
+			})
 
 		}
 	}

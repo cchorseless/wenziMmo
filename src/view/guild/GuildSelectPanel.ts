@@ -49,7 +49,7 @@ module view.guild {
 				PanelManage.openFriendPanel();
 			})
 			// 排行榜
-			this.btn_haoGan.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();
 			})
 			// todo

@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":88,
-    "selecteID":31,
+    "selecteID":32,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -46,14 +46,13 @@
             "props":{"y":84,"x":54,"var":"img_npcBg","skin":"image/main/bottom_role.png"},
             "nodeParent":1,
             "label":"Image(img_npcBg)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-4,"x":-3,"skin":"image/main/bottom_role2.png"},
                     "nodeParent":8,
@@ -66,7 +65,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":42,"x":2,"var":"img_npcPic","skin":"image/common/npc/npc_half_1001.png"},
                     "nodeParent":8,
@@ -433,7 +431,7 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"x":139,"var":"tab_info","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","labels":"喜好,宝物,装备,信息","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","direction":"horizontal"},
+                            "props":{"y":3,"x":106,"var":"tab_info","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备,信息","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
                             "nodeParent":88,
                             "label":"Tab(tab_info)",
                             "isDirectory":false,
@@ -468,7 +466,7 @@
                                     "compId":37,
                                     "child":[
                                         ],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "x":60,
@@ -688,7 +686,8 @@
                                             "$HIDDEN":false
                                         }],
                                     "$HIDDEN":true
-                                }]
+                                }],
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":false
                 },

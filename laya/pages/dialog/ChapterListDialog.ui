@@ -59,13 +59,14 @@
             "props":{"skin":"image/common/bottom_bigPopup.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":25,
@@ -89,45 +90,47 @@
                                 ]
                         }],
                     "$HIDDEN":false
-                },
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":134,"x":57,"width":503,"var":"panel_chapterList","height":712},
+            "nodeParent":1,
+            "label":"Panel(panel_chapterList)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":6,
+            "child":[
                 {
-                    "type":"Panel",
-                    "props":{"y":134,"x":57,"width":503,"var":"panel_chapterList","height":712},
-                    "nodeParent":25,
-                    "label":"Panel(panel_chapterList)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":6,
-                    "child":[
-                        {
-                            "type":"VBox",
-                            "props":{"y":1,"var":"vbox_chapterList","space":-3,"right":0,"left":0},
-                            "nodeParent":6,
-                            "label":"VBox(vbox_chapterList)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":17,"x":540,"var":"btn_chapterListClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
-                    "nodeParent":25,
-                    "label":"Button(btn_chapterListClose)",
+                    "type":"VBox",
+                    "props":{"y":1,"var":"vbox_chapterList","space":-3,"right":0,"left":0},
+                    "nodeParent":6,
+                    "label":"VBox(vbox_chapterList)",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":11,
+                    "compId":7,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":17,"x":540,"var":"btn_chapterListClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "nodeParent":1,
+            "label":"Button(btn_chapterListClose)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ],
             "$HIDDEN":false
         }],
     "animations":[

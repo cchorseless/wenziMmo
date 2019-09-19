@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":220,
-    "selecteID":233,
+    "selectedBox":233,
+    "selecteID":235,
     "props":{"width":640,"sceneColor":"#863938","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -81,28 +81,28 @@
         },
         {
             "x":15,
-            "type":"Tab",
-            "props":{"y":180,"x":55,"width":427,"var":"tab_0","stateNum":2,"space":5,"skin":"image/common/btn_common_04_finish.png","selectedIndex":1,"scaleX":1.24,"labels":"帮会关系,帮会留言,帮会列表,帮会排行","labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#404040,#63491a","labelBold":true,"height":54},
-            "nodeParent":1,
-            "label":"Tab(tab_0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":18,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":226,"x":0,"skin":"image/common/line_yeqian.png"},
+            "props":{"y":231,"x":0,"skin":"image/common/line_yeqian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":126,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":180,"x":88,"var":"tab_0","stateNum":2,"space":5,"skin":"image/common/btn_common_04_finish.png","selectedIndex":1,"labels":"帮会关系,帮会留言,帮会列表,帮会排行","labelSize":22,"labelPadding":"5","labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"height":54},
+            "nodeParent":1,
+            "label":"Tab(tab_0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":18,
             "child":[
                 ],
             "$HIDDEN":false
@@ -1176,7 +1176,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":25,"text":"好感度","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":49,"x":25,"text":"排行榜","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":233,
                             "label":"Label",
                             "isDirectory":false,
