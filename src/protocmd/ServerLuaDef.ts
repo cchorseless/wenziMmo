@@ -2,8 +2,16 @@
  * 调用服务器lua
  */
 module ProtoCmd {
-    /********************************新玩家进入游戏触发第一个主线任务****** */
+    /********************************新玩家进入****** */
+    // 游戏触发第一个主线任务
     export const NEW_PLAYER_WelcomeDialog = 'welcomedialog';
+    // 上线请求天赋资质
+    export const NEW_PLAYER_sendTianFuZiZhi = 'sendTianFuZiZhi';
+    // 随机天赋
+    export const NEW_PLAYER_randomTianFuValue = 'randomTianFuValue';
+    // 随机资质
+    export const NEW_PLAYER_randomZiZhiValue = 'randomZiZhiValue';
+
     /********************************物品使用***************** */
     export const ITEM_LoopUseItem = 'LoopUseItem';//批量使用物品
     /*****************************充值********************** */
@@ -247,12 +255,12 @@ module ProtoCmd {
      */
     export interface itf_JUQING_TALKINFO {
         msg: {
-            content: string;
-            eventA: string;
-            eventB: string;
-            eventBn: string;
-            id: number;
-            npcid: number;
+            content?: string;
+            eventA?: string;
+            eventB?: string;
+            eventBn?: string;
+            id?: number;
+            npcid?: number;
         }
     }
 

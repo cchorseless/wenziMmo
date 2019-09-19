@@ -23,8 +23,8 @@ module view.juQingMode {
 			});
 
 			// 剧情进度
-			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingInfoPanel()
+			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openZhiNanPanel()
 			});
 
 			// 副本
@@ -51,6 +51,11 @@ module view.juQingMode {
 			// 奖励
 			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.JuQingPrizeDialog().setData().popup();
+			});
+
+			// 剧情事件
+			EventManage.onWithEffect(this.btn_eventPrize, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.JuQingEventDialog().setData().popup();
 			});
 
 			// 章节信息
@@ -82,12 +87,14 @@ module view.juQingMode {
 					this.panel_0.scrollTo(0, this.vbox_0.height);
 					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP);
 				}
-			})
-
+			});
+			// 拉取剧情对白数据
+			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_JuQingInfo, this, this.updateJuQingTalkInfo);
 		}
 
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_readJuQing, this);
+			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_JuQingInfo, this);
 			PopUpManager.Dispose(this);
 		}
 		/**
@@ -97,7 +104,7 @@ module view.juQingMode {
 		public addJuQingTalkItem(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO): void {
 			let npc = _talkInfo.msg.npcid;
 			let context = _talkInfo.msg.content;
-			let ui_item;
+			let ui_item = null;
 			switch (npc) {
 				case 0:
 					ui_item = new view.compart.JuQingContentV0Item();
@@ -112,6 +119,8 @@ module view.juQingMode {
 					ui_item.setData(npc, context);
 					break;
 			}
+
+			console.log("===========>")
 			this.vbox_0.addChild(ui_item);
 			this.panel_0.scrollTo(0, this.vbox_0.height);
 		}
@@ -141,11 +150,7 @@ module view.juQingMode {
 								this.lbl_charpterTile.text = '第' + key + '章';
 								// 章节名字
 								this.lbl_charpterName.text = charpterInfo.name;
-								// 开始的章节ID
-								let startTalkId = charpterInfo.startdbid;
-								// 当前ID
-								let nowTalkId = GameApp.MainPlayer.talkID;
-								this.updateTalkInfo(charpterID, startTalkId, nowTalkId);
+								this.updateTalkInfo(charpterID);
 							}
 						}
 					};
@@ -156,21 +161,40 @@ module view.juQingMode {
 		/**
 		 * 拉取章节对白
 		 * @param charpterID 章节ID
-		 * @param startTalkId 开始对白ID
-		 * @param nowTalkId 当前进度对白ID
 		 */
-		public updateTalkInfo(charpterID, startTalkId, nowTalkId): void {
+		public updateTalkInfo(charpterID): void {
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID], null, this,
-				(jsonData) => {
-					GameApp.GameEngine.talkInfo[charpterID] = jsonData;
-					for (let i = startTalkId; i <= nowTalkId; i++) {
-						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = jsonData.data[i];
+			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID]);
+			lcp.send(pkt);
+		}
+
+		/**
+		 * 拉取剧情详细对白
+		 * @param data 
+		 */
+		public updateJuQingTalkInfo(jsonData: { zjid: number, data: any, statetab: any, flag: number }): void {
+			if (GameApp.GameEngine.talkInfo[jsonData.zjid]) {
+				GameApp.GameEngine.talkInfo[jsonData.zjid].statetab = jsonData.statetab;
+				// 合并剧情对白
+				Object['assign'](GameApp.GameEngine.talkInfo[jsonData.zjid].data, jsonData.data);
+				// 剧情拉完了
+				if (jsonData.flag) {
+					// 开始的对白ID
+					let startTalkId = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].startdbid;
+					console.log('======', startTalkId, GameApp.MainPlayer.talkID)
+					
+					for (let i = startTalkId; i <= 10178; i++) {
+						
+						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[jsonData.zjid].data[i];
+						console.log(i)
 						this.addJuQingTalkItem(_talkInfo)
 					}
-				});
-			lcp.send(pkt);
+				}
+			}
+			else {
+				GameApp.GameEngine.talkInfo[jsonData.zjid] = jsonData;
+			}
 		}
 	}
 }
