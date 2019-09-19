@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":117,
-    "selecteID":130,
+    "selectedBox":1,
+    "selecteID":137,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -67,8 +67,22 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":241,"x":2,"skin":"image/common/line_yeqian.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":137,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Tab",
-            "props":{"y":175,"x":68,"var":"tab_top","stateNum":2,"space":8,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleY":1.42,"scaleX":1.55,"labels":"北方大陆,南方大陆,东方大陆","labelSize":18,"labelPadding":"-3","labelFont":"FZXK","labelColors":"#404040,#63491a"},
+            "props":{"y":175,"x":68,"var":"tab_top","stateNum":2,"space":8,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleY":1.3,"scaleX":1.5,"labels":"北方大陆,南方大陆,东方大陆","labelSize":18,"labelPadding":"-3","labelFont":"FZXK","labelColors":"#404040,#63491a"},
             "nodeParent":1,
             "label":"Tab(tab_top)",
             "isDirectory":false,
@@ -208,20 +222,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":146,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":243,"x":10,"skin":"image/common/line_yeqian.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":137,
             "child":[
                 ],
             "$HIDDEN":false

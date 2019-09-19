@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
-    "props":{"width":520,"sceneColor":"#000000","height":250},
+    "selecteID":8,
+    "props":{"width":530,"sceneColor":"#ead6d6","height":322},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,20 +15,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/fram_common_20.png","sizeGrid":"58,30,30,30","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":530,"skin":"image/common/bottom_Pop-ups_small.png","sizeGrid":"50,60,71,53","height":322},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":11,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":471,"width":50,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","height":50},
+            "props":{"y":18,"x":443,"width":50,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","height":50},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":38,"x":12,"width":400,"var":"txtInput_0","type":"text","skin":"image/common/input_bg.png","promptColor":"#ffffff","prompt":"点击输入文本:","maxChars":50,"height":94,"fontSize":30,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
+            "props":{"y":88,"x":51,"width":333,"var":"txtInput_0","type":"text","skin":"image/main/frame_chat.png","promptColor":"#000000","prompt":"点击输入文本:","maxChars":50,"height":44,"fontSize":20,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"TextInput(txtInput_0)",
             "isDirectory":false,
@@ -53,21 +53,21 @@
         },
         {
             "x":15,
-            "type":"RadioGroup",
-            "props":{"y":165,"x":36,"width":644,"var":"rad_type","stateNum":3,"space":20,"skin":"image/main/btn_common_08up_finish.png","selectedIndex":0,"scaleY":0.7,"scaleX":0.7,"labels":"当前,世界,组队,帮会","labelSize":35,"labelPadding":"15,0,0,0","labelFont":"FZXK","labelColors":"#000000,#000000,#000000","height":69},
+            "type":"Button",
+            "props":{"y":97,"x":347,"var":"btn_biaoQing","stateNum":"2","skin":"image/main/icon_common_biaoqing01up_finish.png"},
             "nodeParent":1,
-            "label":"RadioGroup(rad_type)",
+            "label":"Button(btn_biaoQing)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":7,
+            "compId":9,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":61,"width":100,"var":"btn_send","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","right":13,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","labelBold":true,"label":"发送","height":57},
+            "props":{"y":87,"x":399,"width":82,"var":"btn_send","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":49,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"发送","height":43},
             "nodeParent":1,
             "label":"Button(btn_send)",
             "isDirectory":false,
@@ -75,18 +75,19 @@
             "hasChild":false,
             "compId":8,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":55,"x":337,"width":60,"var":"btn_biaoQing","stateNum":"2","skin":"image/main/icon_common_biaoqing01up_finish.png","height":60},
+            "type":"RadioGroup",
+            "props":{"y":182,"x":50,"var":"rad_type","stateNum":2,"space":22,"skin":"image/common/frame_choose_finish.png","selectedIndex":0,"labels":"当前,世界,组队,帮会","labelSize":26,"labelFont":"FZXK","labelColors":"#404040,#404040","height":69},
             "nodeParent":1,
-            "label":"Button(btn_biaoQing)",
+            "label":"RadioGroup(rad_type)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":9,
+            "compId":7,
             "child":[
                 ]
         }],

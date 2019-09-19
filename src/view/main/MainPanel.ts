@@ -364,9 +364,9 @@ module view.main {
 
 
 			let sss = "<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
-ft=\"&lt;font color='#dfd4ab'&gt;击杀: &lt;/font&gt;&lt;\
-a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dfd4ab'&gt;鸡&lt;/font&gt;&lt;\
-font face='宋体' color='#BFBFBF'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#C99936'&gt;鸡&lt;/font&gt;&lt;font color='#DFD4AB'&gt;(1/1)&lt;/font&gt;\" \
+ft=\"&lt;font color='#000000'&gt;击杀: &lt;/font&gt;&lt;\
+a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;\
+font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;font color='#17930d'&gt;(1/1)&lt;/font&gt;\" \
  loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
 <q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
 <j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":245,
-    "selecteID":261,
+    "selectedBox":1,
+    "selecteID":265,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -91,21 +91,8 @@
         },
         {
             "x":15,
-            "type":"Tab",
-            "props":{"y":175,"x":60,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleX":1.24,"labels":"每日,资源,心魔,循环","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","direction":"horizontal"},
-            "nodeParent":1,
-            "label":"Tab(tab_0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":222,"x":2,"skin":"image/common/line_yeqian.png"},
+            "props":{"y":226,"x":2,"skin":"image/common/line_yeqian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -115,6 +102,19 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":175,"x":93,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"每日,资源,心魔,循环","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+            "nodeParent":1,
+            "label":"Tab(tab_0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
+            "child":[
+                ]
         },
         {
             "x":15,

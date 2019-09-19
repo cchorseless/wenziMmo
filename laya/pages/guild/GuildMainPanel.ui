@@ -576,14 +576,13 @@
             "props":{"y":114,"x":8,"stateNum":"2","skin":"image/common/icon_bangpai_Selected_finish.png"},
             "nodeParent":1,
             "label":"Button",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":415,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":11,"x":43,"skin":"image/common/bottom_jianghuxiaobang.png"},
                     "nodeParent":415,
@@ -610,22 +609,8 @@
         },
         {
             "x":15,
-            "type":"Tab",
-            "props":{"y":130,"x":249,"var":"tab_team","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":1,"scaleX":1.24,"labels":"帮派活动,帮派信息,帮派管理","labelStrokeColor":"#000000","labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
-            "nodeParent":1,
-            "label":"Tab(tab_team)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":175,"x":0,"skin":"image/common/line_yeqian.png"},
+            "props":{"y":181,"x":0,"skin":"image/common/line_yeqian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -638,18 +623,31 @@
         },
         {
             "x":15,
+            "type":"Tab",
+            "props":{"y":130,"x":281,"var":"tab_team","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":1,"labels":"帮派活动,帮派信息,帮派管理","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+            "nodeParent":1,
+            "label":"Tab(tab_team)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":23,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"ViewStack",
             "props":{"y":172,"x":0,"width":640,"var":"vstack_team","selectedIndex":1,"height":857},
             "nodeParent":1,
             "label":"ViewStack(vstack_team)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":411,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"var":"box_teamAct","right":0,"name":"item0","left":1},
                     "nodeParent":411,
@@ -921,7 +919,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":30,"x":16,"width":616,"var":"box_teamDetail","name":"item1","height":869},
                     "nodeParent":411,
@@ -1824,7 +1821,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":7,"width":630,"var":"box_teamManage","name":"item2","height":873},
                     "nodeParent":411,
@@ -1836,7 +1832,6 @@
                     "compId":312,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":1,"x":5},
                             "nodeParent":312,
@@ -1848,7 +1843,6 @@
                             "compId":186,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":11,"x":-5,"width":625,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,23,19,17","height":342},
                                     "nodeParent":186,
@@ -1862,7 +1856,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":6.999999999999886,"x":187.0000037512857},
                                     "nodeParent":186,
@@ -2059,7 +2052,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":28,"x":20},
                                     "nodeParent":186,
@@ -2071,7 +2063,6 @@
                                     "compId":425,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
                                             "nodeParent":425,
@@ -2084,7 +2075,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":2,"x":7,"skin":"image/common/icon_nan01.png"},
                                             "nodeParent":425,
@@ -2098,7 +2088,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
                                             "nodeParent":425,
@@ -2111,7 +2100,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":6,"x":89,"skin":"image/main/img_vipdi.png"},
                                             "nodeParent":425,
@@ -2124,7 +2112,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":7,"x":110,"width":25,"skin":"image/common/zi_vip_01.png","scaleY":0.7,"scaleX":0.7,"height":30},
                                             "nodeParent":425,
@@ -2137,7 +2124,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"FontClip",
                                             "props":{"value":1,"spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","centerY":-42,"centerX":56},
                                             "nodeParent":425,
@@ -2150,7 +2136,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":1,"x":70,"skin":"image/main/icon_vip_01.png","scaleY":0.7,"scaleX":0.7},
                                             "nodeParent":425,
@@ -2163,7 +2148,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":95,"x":0,"var":"lbl_mastername","text":"名字超多六字","strokeColor":"#2d1c05 ","stroke":4,"fontSize":22,"font":"Microsoft YaHei","color":"#f9e596"},
                                             "nodeParent":425,
@@ -2177,7 +2161,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":6,"x":127,"width":20,"var":"lbl_vipLv","text":"4","strokeColor":"#000000","stroke":2,"height":24,"fontSize":17,"font":"Microsoft YaHei","color":"#ffffff"},
                                             "nodeParent":425,
@@ -2193,7 +2176,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":182,"x":12,"width":596,"height":147},
                             "nodeParent":312,
@@ -2205,7 +2187,6 @@
                             "compId":102,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":1,"x":0,"width":594,"skin":"image/common/bottom_ConfederationDeclaration.png","height":149},
                                     "nodeParent":102,
@@ -2218,7 +2199,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":3,"x":21,"skin":"image/common/title_ConfederationDeclaration.png"},
                                     "nodeParent":102,
@@ -2231,7 +2211,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":7,"x":24,"skin":"image/guild/font_zhaopinguanggao.png"},
                                     "nodeParent":102,
@@ -2244,7 +2223,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":27,"x":116,"wordWrap":true,"width":431,"var":"lbl_wantedNotice","text":"够爷们你就来，来了就是兄弟。兄弟带你闯天下，一起霸气满天下。","strokeColor":"#000000","height":95,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
                                     "nodeParent":102,
@@ -2259,7 +2237,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":359,"x":4},
                             "nodeParent":312,
@@ -2271,7 +2248,6 @@
                             "compId":143,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":149,"var":"btn_relationManage","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2349,7 +2325,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":82,"x":464,"var":"img_guildIntoSet","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2425,7 +2400,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":253,"x":149,"var":"img_guildRecord","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2502,7 +2476,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":253,"x":464,"var":"btn_guildMember","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2578,7 +2551,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":423,"x":149,"var":"img_guildApply","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2653,7 +2625,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":423,"x":464,"var":"img_guildRank","skin":"image/common/frame_gang_store.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":143,
@@ -2665,7 +2636,6 @@
                                     "compId":135,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":12,"x":56,"skin":"image/guild/icon_tuichubangpai_shadow.png"},
                                             "nodeParent":135,
@@ -2678,7 +2648,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":84,"x":3,"skin":"image/guild/decorate_bangpaishangdian.png"},
                                             "nodeParent":135,
@@ -2692,7 +2661,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":66,"x":67,"width":205,"skin":"image/common/bottom_kouhao.png","height":69,"alpha":0.6},
                                             "nodeParent":135,
@@ -2706,7 +2674,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":39,"x":19,"skin":"image/guild/icon_tuichubangpai.png"},
                                             "nodeParent":135,
@@ -2719,7 +2686,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":63,"x":126,"skin":"image/guild/font_shilipaihang.png"},
                                             "nodeParent":135,
@@ -2921,9 +2887,9 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":51,"x":500,"var":"btn_haoGanDu","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+                    "props":{"y":51,"x":500,"var":"btn_paihang","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":437,
-                    "label":"Button(btn_haoGanDu)",
+                    "label":"Button(btn_paihang)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -2948,7 +2914,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":25,"text":"好感度","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":49,"x":25,"text":"排行榜","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":450,
                             "label":"Label",
                             "isDirectory":false,

@@ -89,7 +89,7 @@ module view.guild {
 			})
 			// NPC好感度
 			// 排行榜
-			this.btn_haoGanDu.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();
 			})
 			// todo

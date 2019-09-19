@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":215,
+    "selecteID":232,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -80,7 +80,7 @@
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":1,"x":21,"width":104,"var":"lbl_des","text":"根骨四阶","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":1,"x":45,"var":"lbl_des","text":"根骨四阶","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":201,
                             "label":"Label(lbl_des)",
                             "isDirectory":false,
@@ -96,115 +96,76 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":90,"x":218,"width":100,"var":"btn_top0","stateNum":"1","skin":"image/juese/img_common_wuxing.png","height":110},
+                    "props":{"y":87,"x":218,"width":105,"var":"btn_top0","stateNum":"1","skin":"image/juese/icon_wuxing_big.png","height":104},
                     "nodeParent":215,
                     "label":"Button(btn_top0)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":45,
+                    "compId":46,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":19,"x":10,"stateNum":"1","skin":"image/juese/icon_wuxing_big.png","scaleY":1.1,"scaleX":1.1},
-                            "nodeParent":45,
-                            "label":"Button",
+                            "type":"Label",
+                            "props":{"y":107,"x":36,"text":"悟 性","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":46,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":46,
+                            "compId":229,
                             "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":96,"x":18,"skin":"image/juese/font_wuxing.png","scaleY":1.1,"scaleX":1.1},
-                            "nodeParent":45,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":203,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }]
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":59,"x":157,"width":100,"var":"btn_top3","stateNum":"1","skin":"image/juese/img_common_wuxing.png","scaleY":0.7,"scaleX":0.7,"height":110,"alpha":0.7},
+                    "props":{"y":51,"x":142,"width":55,"var":"btn_top3","stateNum":"2","skin":"image/juese/icon_shenfan01_finish.png","scaleY":1.4,"scaleX":1.4,"height":57},
                     "nodeParent":215,
                     "label":"Button(btn_top3)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":88,
+                    "compId":89,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":3,"x":0,"stateNum":"2","skin":"image/juese/icon_shenfan01_finish.png","scaleY":1.4,"scaleX":1.4},
-                            "nodeParent":88,
-                            "label":"Button",
+                            "type":"Label",
+                            "props":{"y":45,"x":3,"text":"身 法","strokeColor":"#000000","stroke":4,"fontSize":18,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":89,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":89,
+                            "compId":227,
                             "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":82,"x":16,"skin":"image/juese/font_shenfa.png","scaleY":1.4,"scaleX":1.4},
-                            "nodeParent":88,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":204,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         }],
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":90,"x":78,"width":100,"var":"btn_top4","stateNum":"1","skin":"image/juese/img_common_wuxing.png","scaleY":0.8,"scaleX":0.8,"height":110,"alpha":0.8},
+                    "props":{"y":94,"x":50,"width":67,"var":"btn_top4","stateNum":"2","skin":"image/juese/icon_gengu01_finish.png","scaleY":1.3,"scaleX":1.3,"height":68},
                     "nodeParent":215,
                     "label":"Button(btn_top4)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":73,
+                    "compId":74,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":7,"x":3,"stateNum":"2","skin":"image/juese/icon_gengu01_finish.png","scaleY":1.3,"scaleX":1.3},
-                            "nodeParent":73,
-                            "label":"Button",
+                            "type":"Label",
+                            "props":{"y":55,"x":8,"text":"根 骨","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":74,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":74,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":95,"x":16,"skin":"image/juese/font_gengu.png","scaleY":1.3,"scaleX":1.3},
-                            "nodeParent":73,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":205,
+                            "compId":230,
                             "child":[
                                 ]
                         }],
@@ -213,36 +174,25 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":59,"x":319,"width":100,"var":"btn_top2","stateNum":"1","skin":"image/juese/img_common_wuxing.png","scaleY":0.7,"scaleX":0.7,"height":110,"alpha":0.7},
+                    "props":{"y":46,"x":319,"width":57,"var":"btn_top2","stateNum":"2","skin":"image/juese/icon_shanyuan01_finish.png","scaleY":1.4,"scaleX":1.4,"height":59},
                     "nodeParent":215,
                     "label":"Button(btn_top2)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":83,
+                    "compId":84,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":3,"x":0,"stateNum":"2","skin":"image/juese/icon_shanyuan01_finish.png","scaleY":1.4,"scaleX":1.4},
-                            "nodeParent":83,
-                            "label":"Button",
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":49,"x":15,"text":"善缘","strokeColor":"#000000","stroke":4,"fontSize":18,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":84,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":84,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":84,"x":12,"skin":"image/juese/font_shanyuan.png","scaleY":1.4,"scaleX":1.4},
-                            "nodeParent":83,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":206,
+                            "compId":228,
                             "child":[
                                 ]
                         }]
@@ -250,36 +200,24 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":90,"x":383,"width":100,"var":"btn_top1","stateNum":"1","skin":"image/juese/img_common_wuxing.png","scaleY":0.8,"scaleX":0.8,"height":110,"alpha":0.8},
+                    "props":{"y":94,"x":398,"width":64,"var":"btn_top1","stateNum":"2","skin":"image/juese/icon_bili01_finish.png","scaleY":1.3,"scaleX":1.3,"height":66},
                     "nodeParent":215,
                     "label":"Button(btn_top1)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":78,
+                    "compId":79,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":10,"x":9,"stateNum":"2","skin":"image/juese/icon_bili01_finish.png","scaleY":1.3,"scaleX":1.3},
-                            "nodeParent":78,
-                            "label":"Button",
+                            "type":"Label",
+                            "props":{"y":56,"x":9,"text":"臂 力","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":79,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":79,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":95,"x":16,"skin":"image/juese/font_bili.png","scaleY":1.3,"scaleX":1.3},
-                            "nodeParent":78,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":207,
+                            "compId":226,
                             "child":[
                                 ]
                         }]
@@ -1210,68 +1148,97 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":51,"x":132,"name":"item1"},
+                    "type":"Button",
+                    "props":{"y":27,"x":47,"var":"btn_starCount","stateNum":"1","skin":"image/juese/img_wuxing.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce"},
                     "nodeParent":222,
-                    "label":"Box(item1)",
-                    "isOpen":null,
+                    "label":"Button(btn_starCount)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":221,
+                    "compId":217,
                     "child":[
                         {
-                            "type":"Button",
-                            "props":{"y":55,"width":324,"var":"btn_starCount","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":true,"labelSize":100,"labelColors":"#FFFFFf,#FFFFFf,#FFFFFf","labelBold":true,"label":"15","height":305},
-                            "nodeParent":221,
-                            "label":"Button(btn_starCount)",
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":275,"x":209,"text":"99","strokeColor":"#52331e","stroke":6,"italic":true,"fontSize":50,"font":"fzxk","color":"#fff4ce"},
+                            "nodeParent":217,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":217,
+                            "compId":234,
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        },
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":19,"x":178,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
+                    "nodeParent":222,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":218,
+                    "child":[
                         {
-                            "type":"Image",
-                            "props":{"x":62,"skin":"image/common/bottom_smalltitle.png"},
-                            "nodeParent":221,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":218,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":1,"x":21,"width":165,"text":"先天悟性资质","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                                    "nodeParent":218,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":219,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":383,"x":41,"width":235,"var":"btn_jiHuo","stateNum":"2","skin":"image/common/btn_common_green_down_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":25,"labelPadding":"-3","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":107},
-                            "nodeParent":221,
-                            "label":"Button(btn_jiHuo)",
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":6,"x":24,"text":"先天悟性资质","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":218,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":220,
+                            "compId":219,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":573,"x":219,"width":139,"var":"btn_jiHuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                    "nodeParent":222,
+                    "label":"Button(btn_jiHuo)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":220,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":470,"x":3,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
+                    "nodeParent":222,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":224,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":8,"x":19,"wordWrap":true,"width":522,"text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
+                            "nodeParent":224,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":225,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[
