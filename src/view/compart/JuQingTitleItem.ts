@@ -45,9 +45,12 @@ module view.compart {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
+				if (this.btn_bg.selected) { return };
 				for (let _item of this.parent._childs) {
-					this.btn_bg.selected = (_item == this);
+					_item.btn_bg.selected = false;
 				}
+				this.btn_bg.selected = true;
+				PanelManage.FuBenMain.updateMainFuBenInfo(this.dataItem.zjid);
 			})
 		}
 	}
