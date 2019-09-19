@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":104,
-    "selecteID":111,
+    "selectedBox":1,
+    "selecteID":143,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -136,28 +136,16 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":931,"x":527,"var":"btn_eventPrize","stateNum":"2","skin":"image/juQingMode/icon_baoxiang_01.png","labelStroke":4,"labelSize":20,"labelPadding":"30","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"事件名称"},
+            "props":{"y":976,"x":572,"var":"btn_eventPrize","stateNum":"2","skin":"image/juQingMode/icon_baoxiang_01.png","labelStroke":4,"labelSize":20,"labelPadding":"30","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"进度:50%","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_eventPrize)",
-            "isOpen":false,
-            "isDirectory":true,
+            "isOpen":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":143,
             "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":33,"x":22,"var":"lbl_jinDu","text":"50%","strokeColor":"#404040","stroke":4,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":143,
-                    "label":"Label(lbl_jinDu)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":160,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {
