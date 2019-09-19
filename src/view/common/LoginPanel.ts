@@ -64,7 +64,7 @@ module view.common {
 
 				// 登陆前验证
 				if (GameApp.Socket.isConnecting) {
-					lcp.send(new ProtoCmd.UserPreLogin(), this, this.userRetPreLogin);
+					lcp.send(ProtoCmd.UserPreLogin.create(), this, this.userRetPreLogin);
 				}
 				else {
 					GameApp.Socket.connect();
@@ -78,7 +78,8 @@ module view.common {
 		* @param data 登陆验证成功
 		*/
 		public userRetPreLogin(data: any): void {
-			let msgData: ProtoCmd.UserRetPreLogin = new ProtoCmd.UserRetPreLogin(data);
+			// let msgData: ProtoCmd.UserRetPreLogin = new ProtoCmd.UserRetPreLogin(data);
+			let msgData = ProtoCmd.UserRetPreLogin.create(data);
 			// 成功连接至服务器
 			let login = new ProtoCmd.NormalUserLogin();
 			login.setValue('queryhistory', 0);

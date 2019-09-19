@@ -127,4 +127,15 @@ module ProtoCmd {
         }
     }
 
+    //0x02A7
+    //PK模式
+    export class CretPkModel extends Packet {
+        public static msgID:number = 0x02A7;
+        public constructor(data:Laya.Byte = null) {
+            super();
+            this.cmd = CretPkModel.msgID;
+            this.addProperty('pkModel', PacketBase.TYPE_BYTE);
+            this.read(data);
+        }
+    }
 }

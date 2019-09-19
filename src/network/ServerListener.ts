@@ -134,6 +134,8 @@ class ServerListener extends SingletonClass {
 
         // 监听图鉴信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
+        //PKModel
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
 
         // 初始化标记
         this.hasInit = true;
@@ -278,7 +280,8 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public mapCreateCret(data: any): void {
-        let msgData = new ProtoCmd.MapCreateCret(data);
+        // let msgData = new ProtoCmd.MapCreateCret(data);
+        let msgData = ProtoCmd.MapCreateCret.create(data);
         let type = msgData.feature.getValue('btCretType');
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
@@ -306,8 +309,6 @@ class ServerListener extends SingletonClass {
         obj.dir = msgData.getValue('btDir');
         // 将对象添加到视野列表中
         GameApp.MainPlayer.addViewObj(obj, type);
-        msgData.clear();
-        msgData = null;
     }
 
     /**
@@ -1236,7 +1237,17 @@ class ServerListener extends SingletonClass {
 
     public recvTypeKeyValue(data: any): void {
         let msg = new ProtoCmd.RecvTypeKeyValue(data);
+      
+        msg.clear();
+    }
 
+    /**
+     * 
+     * @param data PK 模式 
+     */
+    public changePkModel(data: any): void {
+        let msg = new ProtoCmd.CretPkModel(data);
+        //   PanelManage.Main.ui_scene.pkModelChanged(msg.getValue('pkModel'));
         msg.clear();
     }
 }

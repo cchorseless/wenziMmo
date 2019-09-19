@@ -91,7 +91,7 @@ module ProtoCmd {
     /**
      * 包结构体
      */
-    export class PacketBase {
+    export class PacketBase extends SingletonPacket {
         public static TYPE_BYTE: number = 1;
         public static TYPE_CHAR: number = 2;
         public static TYPE_BOOL: number = 3
@@ -118,6 +118,7 @@ module ProtoCmd {
         public _offsetinparentStruct: number = 0;
 
         public constructor() {
+            super()
             this._bytes = new Laya.Byte();
             this._bytes.endian = Laya.Byte.LITTLE_ENDIAN;
             this._posList = [];
@@ -558,7 +559,7 @@ module ProtoCmd {
                 Packet.ReadPackCmd(this._bytes, "send");
                 GameApp.Socket.send(this._bytes);
             }
-            this.clear();
+            // this.clear();
         }
         /**
          * 包号转化成事件字符串
