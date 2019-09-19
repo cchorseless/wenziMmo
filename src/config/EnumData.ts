@@ -830,7 +830,7 @@ module EnumData {
         FIGHTMAPFINISH = 24,    //函数样式fightmapfinish_%d 战场结束的事件
         CHANGESVROFFLINE = 25,  //函数样式changesvroffline_%d 切换服务器的事件
         CLIENTFILISH = 26,	    //客户端触发完成
-        ANSWER = 27,		    //答题任务
+        // ANSWER = 27,		    // 答题任务
         KILLPLAYER = 28,	    //杀人
         ADDFRIEND = 29,	        //加好友
         INGROUP = 30,		    //组队

@@ -4,7 +4,7 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public npcId;
+		public npcId: string
 		public setData(npcid: number, txt: string): void {
 			this.div_content.style.fontSize = 24;
 			this.div_content.style.wordWrap = true;
@@ -12,7 +12,7 @@ module view.compart {
 			this.div_content.style.align = 'middle';
 			this.div_content.innerHTML = txt;
 			// NPC 头像
-			this.npcId = npcid;
+			this.npcId = '' + npcid;
 			this.ui_item.img_avatarPic.skin = 'image/common/npc/npc_icon_' + npcid + '.png';
 			this.ui_item.img_tips.visible = false;
 			this.ui_item.lbl_npcName.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + npcid);

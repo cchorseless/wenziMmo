@@ -124,7 +124,7 @@ class ServerListener extends SingletonClass {
         /***********************************剧情信息**************************************** */
         // 改变剧情相关数据
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
-    
+
         /**********************************服务器打开面板全局监听**************************** */
         // 新玩家进入游戏打开欢迎界面
         GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.openWelcomePanel);
@@ -1173,7 +1173,7 @@ class ServerListener extends SingletonClass {
         GameApp.MainPlayer.changeJuQingInfo(data);
     }
 
-   
+
 
     /***************************************LUA消息分发****************************** */
     /**
@@ -1209,7 +1209,7 @@ class ServerListener extends SingletonClass {
             msg = null;
         }
         catch (e) {
-
+            console.error(e)
         }
 
     }

@@ -31,14 +31,22 @@ module view.fuBen {
 			EventManage.onWithEffect(this.btn_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.ChapterListDialog().setData().popup(true);
 			});
+			// 切换层数,把自己的层数发过来
+			for (let i = 0; i < 5; i++) {
+				EventManage.onWithEffect(this['ui_item' + i], Laya.UIEvent.CLICK, this, () => {
+					this.updateMainFuBenBossInfo(this['ui_item' + i].ceng);
+				});
+			}
 		}
 
 
 		public initUI(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.panel_1.hScrollBarSkin = '';
+			this.panel_2.hScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
 			this.hbox_1['sortItem'] = (items) => { };
+			this.hbox_2['sortItem'] = (items) => { };
 			this.updatePianZhangInfo(GameApp.MainPlayer.pianZhangID);
 		}
 
@@ -78,15 +86,48 @@ module view.fuBen {
 		 * @param charpterID 
 		 */
 		public updateMainFuBenInfo(charpterID: number): void {
+			this.hbox_1.removeChildren();
+			// 关卡名称
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
+			if (charpterInfo) {
+				// 章节标题信息
+				this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;
+				// 章节简介
+				this.lbl_into.text = '' + charpterInfo.intro;
+				// 挂机预览
+				let itemsKeys = Object.keys(charpterInfo.items);
+				for (let key of itemsKeys) {
+					let itemInfo = charpterInfo.items[key];
+					switch (itemInfo.index) {
+						// 金币
+						case EnumData.CoinType.COIN_TYPE_GOLD:
+							this.lbl_conXl.text = itemInfo.num + '/H';
+							break;
+						// 玩家经验
+						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
+							this.lbl_expXl.text = itemInfo.num + '/H';
+							break;
+						// 英雄经验
+						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
+							this.lbl_exp2xl.text = itemInfo.num + '/H';
+							break;
+					}
+				}
+				// 随机掉落池
+				let keys = Object.keys(charpterInfo.drops);
+				for (let key of keys) {
+					let _itemData = charpterInfo.drops[key];
+					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = _itemData.index;
+					itemInfo.dwBinding = _itemData.binding;
+					_itemUI.setData(itemInfo);
+					this.hbox_1.addChild(_itemUI);
+				}
+			}
+			// 除魔相关信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
-				console.log(jsonData);
-				// 关卡名称
-				let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
-				if (charpterInfo) {
-					// 章节标题信息
-					this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;
-				}
 				// 挑战次数
 				this.lbl_tiaoZhanTimes.text = '挑战次数:' + jsonData.curcnt + '/' + jsonData.totalcnt;
 				// 关卡信息
@@ -141,13 +182,23 @@ module view.fuBen {
 		 * 选择单个BOSS信息
 		 */
 		public updateMainFuBenBossInfo(ceng: number): void {
+			if (ceng == null) { return }
+			this.hbox_2.removeChildren();
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData) => {
-				// this.lbl_cureventName.text =
-
-
-
-			})
+			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData: { item: any, times: number }) => {
+				console.log(jsonData);
+				// 随机掉落池
+				let keys = Object.keys(jsonData.item);
+				for (let key of keys) {
+					let _itemData = jsonData.item[key];
+					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = _itemData.index;
+					itemInfo.dwBinding = _itemData.binding;
+					_itemUI.setData(itemInfo);
+					this.hbox_2.addChild(_itemUI);
+				};
+			});
 			lcp.send(pkt);
 		}
 	}

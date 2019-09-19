@@ -5,7 +5,7 @@ module view.dialog {
 			super();
 		}
 
-		public setData(configId): NpcInfoV0Dialog {
+		public setData(configId:string): NpcInfoV0Dialog {
 			if (configId == null) { return }
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;

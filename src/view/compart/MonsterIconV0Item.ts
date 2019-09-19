@@ -5,8 +5,8 @@ module view.compart {
 			super();
 		}
 		public ceng: number;
-		public setData(charpterID, key, data: { star: number, monsterid: number }) {
-			this.ceng = key;
+		public setData(charpterID, key: string, data: { star: number, monsterid: number }) {
+			this.ceng = parseInt(key);
 			// 星级
 			for (let i = 0; i < 3; i++) {
 				this['btn_star' + i].selected = (i < data.star);
@@ -19,12 +19,8 @@ module view.compart {
 			// 怪物头像
 			// todo
 			// this.img_monsterPic.skin=''
-			this.addEvent();
-		}
-
-
-		public addEvent(): void {
 
 		}
+
 	}
 }

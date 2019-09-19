@@ -31,14 +31,14 @@ module view.dialog {
 			// 奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
-				console.log(jsonData);
 				let keys = Object.keys(jsonData);
 				for (let key of keys) {
-					let _itemData = jsonData[key];
+					let _itemData = new ProtoCmd.ItemBase();
+					_itemData.dwBaseID = jsonData[key].index;
+					_itemData.dwBinding = jsonData[key].binding;
+					_itemData.dwCount = jsonData[key].num;
 					let _itemUI = new view.compart.DaoJuWithNameItem();
-					_itemUI.initUI(_itemData);
-					// TODO
-					console.log(_itemUI);
+					_itemUI.setData(_itemData);
 					this.hbox_1.addChild(_itemUI);
 				};
 				// 无奖励提示
@@ -51,22 +51,22 @@ module view.dialog {
 				// 章节名称
 				this.lbl_charpterName.text = '' + charpterInfo.name;
 				this.lbl_charpterNo.text = '第' + charpterInfo.index + '章';
-				// 金币 效率
+				// 挂机效率
 				let itemsKeys = Object.keys(charpterInfo.items);
 				for (let key of itemsKeys) {
 					let itemInfo = charpterInfo.items[key];
 					switch (itemInfo.index) {
 						// 金币
 						case EnumData.CoinType.COIN_TYPE_GOLD:
-							this.lbl_coinXl.text =  itemInfo.num + '/H';
+							this.lbl_coinXl.text = itemInfo.num + '/H';
 							break;
 						// 玩家经验
 						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
-							this.lbl_playerExp.text =  itemInfo.num + '/H';
+							this.lbl_playerExp.text = itemInfo.num + '/H';
 							break;
 						// 英雄经验
 						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
-							this.lbl_heroExp.text =  itemInfo.num + '/H';
+							this.lbl_heroExp.text = itemInfo.num + '/H';
 							break;
 					}
 				}

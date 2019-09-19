@@ -182,12 +182,8 @@ module view.juQingMode {
 				if (jsonData.flag) {
 					// 开始的对白ID
 					let startTalkId = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].startdbid;
-					console.log('======', startTalkId, GameApp.MainPlayer.talkID)
-					
-					for (let i = startTalkId; i <= 10178; i++) {
-						
+					for (let i = startTalkId; i <= GameApp.MainPlayer.talkID; i++) {
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[jsonData.zjid].data[i];
-						console.log(i)
 						this.addJuQingTalkItem(_talkInfo)
 					}
 				}
