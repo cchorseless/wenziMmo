@@ -20,8 +20,19 @@ module view.dialog {
 			})
 			//添加好友
 			this.btn_nearbyAddFriend.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [0]);
-			//拉入黑名单   
+			// 拉入黑名单   
 			this.btn_nearbyIntoBlack.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [1]);
+			//邀请加入队伍
+			this.btn_nearbyBuildTeam.on(Laya.UIEvent.CLICK, this, () => {
+				let pkt=new ProtoCmd.TeamInviteEnDecoder(null);
+				pkt.playerName,GameApp.MainPlayer.objName;
+				pkt.level,this.item.level;
+				pkt.job,this.item.job;
+				pkt.sex,this.item.sex;
+				lcp.send(pkt, this, (data) => {
+					let cbpkt = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
+				})
+			})
 		}
 
 		/**
