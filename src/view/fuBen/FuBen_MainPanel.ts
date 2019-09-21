@@ -37,8 +37,21 @@ module view.fuBen {
 					this.updateMainFuBenBossInfo(this['ui_item' + i].ceng);
 				});
 			}
+			// 挑战BOSS
+			EventManage.onWithEffect(this.btn_battle, Laya.UIEvent.CLICK, this, this.enterFuBen);
+			this.addLcpEvent();
 		}
 
+		public addLcpEvent(): void {
+			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, this.updateInFuBenInfo)
+
+		}
+
+		public Diapose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
+			PopUpManager.Dispose(this);
+
+		}
 
 		public initUI(): void {
 			this.panel_0.vScrollBarSkin = '';
@@ -177,16 +190,18 @@ module view.fuBen {
 			lcp.send(pkt);
 		}
 
-
+		public selectedCeng: number;
 		/**
 		 * 选择单个BOSS信息
 		 */
 		public updateMainFuBenBossInfo(ceng: number): void {
-			if (ceng == null) { return }
+			if (ceng == null) { return };
+			this.selectedCeng = ceng;
 			this.hbox_2.removeChildren();
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData: { item: any, times: number }) => {
-				console.log(jsonData);
+			// type(1强化等级，2神盾，3龙魂，4光翼，5武器等级,6穿戴多少件多少等级的装备，8勋章ID)
+			pkt.setString(ProtoCmd.FB_ChuMoCengOpen, [ceng], null, this, (jsonData: { type?: number, need?: number, lv?: number, item: any, times: number }) => {
+				console.log(jsonData)
 				// 随机掉落池
 				let keys = Object.keys(jsonData.item);
 				for (let key of keys) {
@@ -198,8 +213,62 @@ module view.fuBen {
 					_itemUI.setData(itemInfo);
 					this.hbox_2.addChild(_itemUI);
 				};
+				if (jsonData.lv) {
+					this.lbl_lvneed.text = '' + jsonData.lv;
+				};
+				switch (jsonData.type) {
+					case 0:
+						this.lbl_extraDes.visible = false;
+						this.lbl_needextra.visible = false;
+						break;
+					case 1:
+						this.lbl_extraDes.text = '装备强化等级'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+					case 2:
+						this.lbl_extraDes.text = '神盾等级'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+					case 3:
+						this.lbl_extraDes.text = '龙魂等级'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+					case 4:
+						this.lbl_extraDes.text = '罡气境界'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+					case 5:
+						this.lbl_extraDes.text = '武器等级'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+					case 6:
+						this.lbl_extraDes.text = '装备穿戴等级'
+						this.lbl_needextra.text = '穿戴' + jsonData.lv + '级' + jsonData.need + '件';
+						break;
+					case 8:
+						this.lbl_extraDes.text = '善缘等级'
+						this.lbl_needextra.text = '' + jsonData.need;
+						break;
+				}
 			});
 			lcp.send(pkt);
+		}
+
+		/**
+		 * 进入除魔副本
+		 */
+		public enterFuBen(): void {
+			if (this.selectedCeng == null) { return };
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
+			lcp.send(pkt);
+		}
+		/**
+		 * 更新副本进度
+		 * @param jsondata 
+		 */
+		public updateInFuBenInfo(jsondata): void {
+			console.log(jsondata);
 		}
 	}
 }

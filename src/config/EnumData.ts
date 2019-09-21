@@ -936,6 +936,13 @@ module EnumData {
         SAVE_KEY_VALUE_TYPE_TUJIAN_ITEM,	//物品图鉴
         SAVE_KEY_VALUE_TYPE_MAX,
     };
-
-
+    /**
+     * 房间类型，决定ui_scene类型
+     */
+    export enum emRoomType {
+        singleFuBen = 1,// 个人副本
+        publicFuBen = 2,// 公共副本
+        publicYeWai = 3,  // 公共野外
+        publicZhuCheng = 4,// 主城
+    }
 }

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":241,
+    "selecteID":319,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -540,9 +540,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":1005,"x":64,"width":99,"text":"5转150级","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+            "props":{"y":1005,"x":64,"width":99,"var":"lbl_lvneed","text":"5转150级","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_lvneed)",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
@@ -877,6 +877,33 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":983,"x":359,"width":102,"var":"lbl_extraDes","text":"等级需求：","height":25,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+            "nodeParent":1,
+            "label":"Label(lbl_extraDes)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":319,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":1010,"x":361,"width":99,"var":"lbl_needextra","text":"5转150级","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
+            "nodeParent":1,
+            "label":"Label(lbl_needextra)",
+            "isOpen":false,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":320,
+            "child":[
+                ]
         }],
     "animations":[
         {

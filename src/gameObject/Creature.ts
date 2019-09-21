@@ -133,6 +133,7 @@ module GameObject {
                 this.ui_item.item = null;
             }
             this.ui_item = null;
+            console.log(this.objName + '离开视野');
         }
 
 

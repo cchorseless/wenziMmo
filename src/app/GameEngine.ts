@@ -82,8 +82,6 @@ class GameEngine extends SingletonClass {
         this.logintoken.endian = Laya.Byte.LITTLE_ENDIAN;
         this.mainPlayer = new GameObject.Player();
         this.initSelf();
-        console.log(Laya.version);
-
     }
 
 

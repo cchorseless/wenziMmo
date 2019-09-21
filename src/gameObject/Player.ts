@@ -42,7 +42,7 @@ module GameObject {
         /******************技能******************** */
         public skillInfo = {};
         /******************UI****************** */
-        public ui_item;
+        public ui_item: view.scene.PlayerInSceneItem;
         /******************生活属性************ */
         public nHealth: number = 0;// 健康
         public nSpirte: number = 0;// 精神
@@ -257,11 +257,11 @@ module GameObject {
          * @param type 
          */
         public removeViewObj(tempId: number, type: EnumData.CRET_TYPE): void {
+            console.log(tempId + '从视野被移除');
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     if (this._allPlayer[tempId]) {
                         this._allPlayer[tempId].clear();
-                        console.log(this._allPlayer[tempId].objName + this._allPlayer[tempId].tempId + '离开地图');
                         delete this._allPlayer[tempId]
                     }
                     break;
@@ -269,7 +269,6 @@ module GameObject {
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     if (this._allMonster[tempId]) {
                         this._allMonster[tempId].clear();
-                        console.log(this._allMonster[tempId].objName + this._allMonster[tempId].tempId + '离开地图');
                         delete this._allMonster[tempId]
                     }
                     break;
@@ -277,7 +276,6 @@ module GameObject {
                 case EnumData.CRET_TYPE.CRET_NPC:
                     if (this._allNpc[tempId]) {
                         this._allNpc[tempId].clear();
-                        console.log(this._allNpc[tempId].objName + this._allNpc[tempId].tempId + '离开地图');
                         delete this._allNpc[tempId]
                     }
                     break;

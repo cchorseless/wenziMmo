@@ -91,11 +91,12 @@ module ProtoCmd {
     // 获取单层信息
     export const FB_ChuMoCengOpen = 'ChuMoCengOpen';//{层数ID}
     // 进入主线副本
-    export const FB_ChuMoEnter = 'ChuMoEnter';
+    export const FB_ChuMoEnter = 'ChuMoEnter';//{层数ID} 
     // 离开主线副本
     export const FB_ChuMoLeave = 'ChuMoLeave';
-
-
+    // 主线副本进入成功,更新副本进度
+    export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
+    
 
 
 

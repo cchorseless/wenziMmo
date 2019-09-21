@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class SelfPlayerInSceneItem extends ui.compart.SelfPlayerInSceneItemUI {
+module view.scene {
+	export class PlayerInSceneItem extends ui.scene.PlayerInSceneItemUI {
 		constructor() {
 			super();
 		}
@@ -10,10 +10,8 @@ module view.compart {
 			this.item = item;
 			this.item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
-			this._skeGroup.loadRes([GameApp.MainPlayer.skeBoneRes], () => {
-				this.addChild(this._skeGroup);
-				this._skeGroup.pos(this.width * 0.5, this.height * 0.5);
-				this._skeGroup.scale(0.6, 0.6)
+			this._skeGroup.loadRes([this.item.skeBoneRes], () => {
+				this.spr_pos.addChild(this._skeGroup);
 				this._skeGroup.play(1, true);
 				this.addEvent();
 			});

@@ -3,7 +3,7 @@ module GameObject {
     export class Monster extends Creature {
 
         public feature: ProtoCmd.AnimalFeature;
-        public ui_item: view.compart.MonsterInSceneItem;
+        public ui_item: view.scene.MonsterInSceneItem;
         constructor() {
             super();
             this.feature = new ProtoCmd.AnimalFeature();

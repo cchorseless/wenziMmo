@@ -22,7 +22,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
-        // 玩家进入地图 201
+        // 玩家改变地图ID 201
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
         // 地图创建怪物和NPC 202
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreateCret), this, this.mapCreateCret);
@@ -31,7 +31,7 @@ class ServerListener extends SingletonClass {
         // 地图删除怪物 203
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapRemoveCret), this, this.mapRemoveCret);
         // 创建地图其他玩家 206
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.mapCreatePlayer);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapCreatePlayer), this, this.MapCreateNewPlayer);
         // 同步怪物feature
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvaterIconDecoder), this, this.syncNotPlayerFeature);
         // 同步玩家feature
@@ -248,11 +248,10 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 玩家地图信息
+     * 刷新自己地图信息，改变地图ID
      * @param data 
      */
     public playerChangeMap(data: any): void {
-        Log.trace('========>玩家进入地图');
         let msgData = new ProtoCmd.PlayerChangeMap(data);
         let player = GameApp.MainPlayer;
         // 更新位置信息
@@ -265,12 +264,12 @@ class ServerListener extends SingletonClass {
         player.lifestate = msgData.getValue('lifestate');
         player.createTime = msgData.getValue('dwPlayerCreateTime');
         player.clearViewObj();
-        // 切完大地图发送
+        console.log('=====已经改变了地图ID======')
+        // 切完大地图发送,地图ID改变
         let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
             GameApp.GameEngine.isReady = true;
-            // 切完大地图拉取地图信息
-            PanelManage.Main && PanelManage.Main.initUI();
+            PanelManage.Main && PanelManage.Main.updateUI()
         });
         msgData.clear();
     }
@@ -335,10 +334,10 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 玩家进入地图
+     * 地图ID改变后，创建玩家角色。包括自己和其他人
      * @param data 
      */
-    public mapCreatePlayer(data: any): void {
+    public MapCreateNewPlayer(data: any): void {
         let msg = new ProtoCmd.MapCreatePlayer(data);
         let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
@@ -366,8 +365,15 @@ class ServerListener extends SingletonClass {
         player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));//血
         player.changeMp(msg.getValue('nNowMp'), msg.getValue('nMaxMp'));//蓝
         player.changeNeigong(msg.getValue('nMaxNG') - msg.getValue('nHasUseNG'), msg.getValue('nMaxNG'));//内功
-        // 添加到玩家视野中,不包括自己
-        if (!player.isMainPlayer) {
+        // 自己进入地图，加载ui_scene.
+        // 只会调用一次，创建自己的角色。
+        // 这里可以拉取数据
+        if (player.isMainPlayer) {
+            console.log('====自己进入了地图====');
+            PanelManage.Main && PanelManage.Main.initUI()
+        }
+        // 其他玩家进入地图，添加到玩家视野中,不包括自己
+        else {
             GameApp.MainPlayer.addViewObj(player, type);
         }
         msg.clear();
@@ -401,15 +407,14 @@ class ServerListener extends SingletonClass {
      */
     public syncPlayerPosition(data: Laya.Byte): void {
         let cbpkt = new ProtoCmd.CretAfterSpaceMove(data);
-        console.log(cbpkt.getValue('dwTmpId'));
         let obj = GameApp.MainPlayer.findViewObj(cbpkt.getValue('dwTmpId'));
         if (obj) {
             obj.dir = cbpkt.getValue('dir');
             obj.location.ncurx = cbpkt.getValue('ncurx');
             obj.location.ncury = cbpkt.getValue('ncury');
             obj.location.ncurz = cbpkt.getValue('ncurz');
-            // 更新大地图
-            PanelManage.Main.ui_scene.initUI();
+            // 刷新UI上的坐标
+            obj.ui_item && obj.ui_item.updateUI();
         }
         else {
             TipsManage.showTips('同步位置找不到玩家');
@@ -1192,25 +1197,22 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         console.log(strArr);
         // TODO
-        try {
-            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-            switch (strArr.length) {
-                case 4:
-                    msgID = parseInt(strArr[2]);
-                    break;
-            }
-            let eventName = funcName;
-            if (msgID) {
-                eventName += '_' + msgID;
-            }
-            // 抛出事件
-            GameApp.LListener.event(eventName, [jsonData]);
-            msg.clear();
-            msg = null;
+        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+        switch (strArr.length) {
+            case 4:
+                msgID = parseInt(strArr[2]);
+                break;
         }
-        catch (e) {
-            console.error(e)
+        let eventName = funcName;
+        if (msgID) {
+            eventName += '_' + msgID;
         }
+        // 抛出事件
+        GameApp.LListener.event(eventName, [jsonData]);
+        msg.clear();
+        msg = null;
+
+
 
     }
 

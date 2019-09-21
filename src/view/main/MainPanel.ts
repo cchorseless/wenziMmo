@@ -7,25 +7,11 @@ module view.main {
 		public setData(): void {
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
+			// 初始化一个场景
+			this.updateUiScene(EnumData.emRoomType.publicYeWai);
 			// NPC列表
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
-			// NPC竖条 展开缩放的动画
-			this.cek_showNpc.clickHandler = Laya.Handler.create(this, () => {
-				if (this.cek_showNpc.selected) {
-					Laya.Tween.to(this.cek_showNpc, { x: 0 }, 500, Laya.Ease.bounceOut);
-					Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut, Laya.Handler.create(this, () => {
-						this.img_npc.visible = false;
-					}));
-					this.ui_scene.changeToBig();
-				}
-				else {
-					this.img_npc.visible = true;
-					Laya.Tween.to(this.cek_showNpc, { x: 96 }, 500, Laya.Ease.bounceOut);
-					Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
-					this.ui_scene.changeToSmall();
-				}
-			}, null, false);
 			//  聊天小窗
 			this.panel_sceneMsg.vScrollBarSkin = '';
 			this.panel_chatMsg.vScrollBarSkin = '';
@@ -70,7 +56,6 @@ module view.main {
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 			this.addEvent();
-			this.updateUI();
 		}
 
 		public addEvent(): void {
@@ -178,10 +163,11 @@ module view.main {
 					console.log(jsonData)
 				})
 				lcp.send(pkt);
-			})
+			});
+			this.addLcpEvent();
 		}
 
-		public updateUI(): void {
+		public addLcpEvent(): void {
 			let _player = GameApp.MainPlayer;
 			// 金币
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.lbl_gold.text = '' + _player.wealth.gold; });
@@ -220,6 +206,20 @@ module view.main {
 			panel.addChild(this.box_mainBottom);
 		}
 
+		// 界面展示NPC列表
+		public showGroupNpcList(show: boolean): void {
+			if (show) {
+				Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut, Laya.Handler.create(this, () => {
+					this.img_npc.visible = false;
+				}));
+				Laya.Tween.to(this.box_uiScene0, { left: 0 }, 500, Laya.Ease.bounceOut);
+			}
+			else {
+				this.img_npc.visible = true;
+				Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
+				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 500, Laya.Ease.bounceOut);
+			}
+		}
 		/**
 		 * 获取时辰
 		 */
@@ -322,11 +322,25 @@ module view.main {
 		}
 
 		/**
-		 * 更新是业内对象UI
+		 * 获取当前场景
+		 */
+		public get ui_scene(): itf.SceneItem {
+			if (this.box_uiScene1.numChildren > 0) {
+				return (this.box_uiScene1.getChildAt(0) as any);
+			}
+			else {
+				return this.box_uiScene0.getChildAt(0) as any;
+			}
+		}
+
+
+		/**
+		 * 更新视野内对象UI
 		 * @param handleType 
 		 * @param obj 
 		 */
 		public addViewObjUI(obj, type: EnumData.CRET_TYPE): void {
+			console.log(obj.objName + '进入视野')
 			switch (type) {
 				// 玩家
 				case EnumData.CRET_TYPE.CRET_PLAYER:
@@ -347,50 +361,115 @@ module view.main {
 			}
 		}
 
-
+		/**
+		 * 清空视野
+		 */
 		public clearViewUI(): void {
 			this.vbox_npc.removeChildren();
-			this.ui_scene.clearPlayer();
-			this.ui_scene.clearMonster();
+			this.ui_scene && this.ui_scene.clearPlayer();
+			this.ui_scene && this.ui_scene.clearMonster();
 		}
 
 		/**
-		 * 客户端准备后初始化数据
+		 * 客户端创建完成角色后初始化数据
+		 * 只调用一次
 		 */
 		public initUI(): void {
-			this.loadMap();
+			// 更新数据
 			this.loadJuQingData();
-			this.ui_scene.initUI();
+		}
+		/**
+		 * 玩家切换地图后刷新界面
+		 */
+		public updateUI(): void {
+			// ui_scene 布局
+			let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
+			// 大于0是副本地图.根据大地图类型布局。1 个人副本 2 公共副本
+			if (bigMapType > 0) {
+				this.updateUiScene(bigMapType);
+			}
+			else {
+				this.loadSmallMap();
+			}
+		}
+		/**
+		 * 更新主场景ui_scene
+		 */
+		public updateUiScene(mapType: EnumData.emRoomType): void {
+			console.log('===updateUiScene===>', mapType);
+			let uiscene;
+			switch (mapType) {
+				// 个人副本
+				case EnumData.emRoomType.singleFuBen:
+					this.box_uiScene1.removeChildren();
+					uiscene = new view.scene.SceneV1Item();
+					uiscene.setData();
+					this.box_uiScene1.visible = true;
+					this.box_uiScene1.addChild(uiscene);
+					break;
+				// 多人副本
+				case EnumData.emRoomType.publicFuBen:
+					this.box_uiScene1.removeChildren();
+					uiscene = new view.scene.SceneV2Item();
+					uiscene.setData();
+					this.box_uiScene1.visible = true;
+					this.box_uiScene1.addChild(uiscene);
+					break;
+				// 野外地图
+				case EnumData.emRoomType.publicYeWai:
+					this.box_uiScene1.removeChildren();
+					this.box_uiScene1.visible = false;
+					if (this.box_uiScene0.numChildren == 0 || this.box_uiScene0.getChildAt(0).name != 'SceneV3Item') {
+						this.box_uiScene0.removeChildren();
+						uiscene = new view.scene.SceneV3Item();
+						uiscene.setData();
+						this.box_uiScene0.addChild(uiscene);
+						if (this.box_uiScene0.left == 0) {
+							uiscene.changeToBig();
+						}
+					}
+					else {
+						(this.box_uiScene0.getChildAt(0) as view.scene.SceneV3Item).updateUI();
+					}
+					break;
+				// 主城
+				case EnumData.emRoomType.publicZhuCheng:
+					this.box_uiScene1.removeChildren();
+					this.box_uiScene1.visible = false;
+					if (this.box_uiScene0.numChildren == 0 || this.box_uiScene0.getChildAt(0).name != 'SceneV4Item') {
+						this.box_uiScene0.removeChildren();
+						uiscene = new view.scene.SceneV4Item();
+						uiscene.setData();
+						this.box_uiScene0.addChild(uiscene);
+						if (this.box_uiScene0.left == 0) {
+							uiscene.changeToBig();
+						}
+					}
+					else {
+						(this.box_uiScene0.getChildAt(0) as view.scene.SceneV4Item).updateUI();
+					}
+					break;
+			}
 
-
-			let sss = "<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
-ft=\"&lt;font color='#000000'&gt;击杀: &lt;/font&gt;&lt;\
-a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;\
-font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;font color='#17930d'&gt;(1/1)&lt;/font&gt;\" \
- loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
-<q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
-<j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
-			let obj: XMLDocument = Laya.Utils.parseXMLFromString(sss)
-			console.log('======',obj)
-			console.log('=======', obj.firstElementChild.getAttribute('ft'));
-			this.div_taskDes.style.fontSize = 20;
-			this.div_taskDes.innerHTML = obj.firstElementChild.getAttribute('ft') + '</a>';
-			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
-				console.log(data)
-			})
 		}
 
+
 		/**
-		 * 加载地图
+		 * 加载小地图
 		 * @param id 
 		 */
-		public loadMap(): void {
+		public loadSmallMap(): void {
+			console.log('加载小地图中');
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.MAP_Get_ALLROOM_INFO, null, null, this, (jsonData: ProtoCmd.itf_MAP_ROOM_INFO) => {
 				// 当前小房间信息
 				GameApp.MainPlayer.roomId = jsonData.curminmapid;
 				// 上下左右房间的信息
 				GameApp.GameEngine.smallMapData = jsonData.dstmap;
+				// 更新主场景
+				let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curminmapid);
+				this.updateUiScene(mapType);
+				// 更新小地图
 				this.updateSmallMap();
 			});
 			lcp.send(pkt);
@@ -451,8 +530,6 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
 			else {
 				this.btn_mapRight.visible = false;
 			}
-			// 更新scene_item
-			this.ui_scene.updateMapInfo();
 		}
 
 		/**
@@ -468,16 +545,18 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.MAP_MOVE, [roomid], null, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
+					this.clearViewUI();
 					GameApp.MainPlayer.roomId = jsonData.curmapid;
 					// 上下左右房间的信息
 					GameApp.GameEngine.smallMapData = jsonData.dstmap;
 					TipsManage.showTips('进入了' + jsonData.curmapid);
 					// 更新场景信息
 					this.updateSceneView('进入了' + jsonData.curmapid);
+					// 更新主场景
+					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
+					this.updateUiScene(mapType);
 					// 更新小地图
 					this.updateSmallMap();
-					// 更新大地图
-					this.ui_scene.initUI();
 				}
 			});
 			lcp.send(pkt);
@@ -536,13 +615,21 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
 			// 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
 			// 				console.log(data)
 			// 			})
-		}
-
-		/**
-		 * 战斗主场景
-		 */
-		public getMainScene(): view.compart.SceneItem {
-			return this.ui_scene
+			let sss = "<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
+ft=\"&lt;font color='#000000'&gt;击杀: &lt;/font&gt;&lt;\
+a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;\
+font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;font color='#17930d'&gt;(1/1)&lt;/font&gt;\" \
+ loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
+<q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
+<j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
+			let obj: XMLDocument = Laya.Utils.parseXMLFromString(sss)
+			console.log('======', obj)
+			console.log('=======', obj.firstElementChild.getAttribute('ft'));
+			this.div_taskDes.style.fontSize = 20;
+			this.div_taskDes.innerHTML = obj.firstElementChild.getAttribute('ft') + '</a>';
+			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
+				console.log(data)
+			})
 		}
 	}
 }

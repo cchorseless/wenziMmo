@@ -72,4 +72,8 @@ public static getInstance(data): mydb_mapinfo_tbl { let Class:any=this;if(!Class
  *  地图介绍
  */
  public MAPINFO(configID:string):string { return this.data[configID][17]}
+/**
+ *  地图类型
+ */
+ public MAPTYPE(configID:string):number { return this.data[configID][18]}
 }}

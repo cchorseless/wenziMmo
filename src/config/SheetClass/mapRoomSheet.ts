@@ -64,4 +64,8 @@ public static getInstance(data): mapRoomSheet { let Class:any=this;if(!Class._in
  *  房间描述
  */
  public ROOMDES(configID:string):string { return this.data[configID][15]}
+/**
+ *  房间类型
+ */
+ public ROOMTYPE(configID:string):number { return this.data[configID][16]}
 }}

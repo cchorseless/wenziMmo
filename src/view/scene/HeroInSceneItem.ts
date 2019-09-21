@@ -1,22 +1,19 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class MonsterInSceneItem extends ui.compart.MonsterInSceneItemUI {
+module view.scene {
+	export class HeroInSceneItem extends ui.scene.HeroInSceneItemUI {
 		constructor() {
 			super();
 		}
 		public _skeGroup: SkeletonUtil.SkeletonGroup = new SkeletonUtil.SkeletonGroup();
-		public item: GameObject.Monster;
-		public setData(item: GameObject.Monster): void {
-			// 相互绑定
+		public item: GameObject.Player;
+		public setData(item: GameObject.Player): void {
 			this.item = item;
-			item.ui_item = this;
+			this.item.ui_item = this as any;
 			this.lbl_name.text = this.item.objName;
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
-			this.img_bottom.scale(0.8, 0.8);
-			this._skeGroup.loadRes(['sk/dingmian/BOSS_DM.sk'], () => {
+			this._skeGroup.loadRes([item.skeBoneRes], () => {
 				this.box_view.addChild(this._skeGroup);
-				this._skeGroup.pos(this.width / 2, this.height * 0.6);
-				this._skeGroup.scale(0.4, 0.4)
+				this._skeGroup.pos(this.width * 0.5, this.height * 0.5);
+				this._skeGroup.scale(0.5, 0.5)
 				this._skeGroup.play(1, true);
 				this.addEvent();
 			});
@@ -24,12 +21,8 @@ module view.compart {
 		}
 
 		public addEvent(): void {
-			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
-				let player = GameApp.MainPlayer;
-				player.startHandAtk(this.item);
-			})
-		}
 
+		}
 
 		/**
 		 * 播放动画
@@ -38,15 +31,12 @@ module view.compart {
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
 		}
-
-		public stopPlayAni():void{
-			
+		public stopPlayAni(): void {
+			this._skeGroup.stopPlay();
 		}
-
-
 		public updateUI(): void {
 			this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
-
 	}
 }
