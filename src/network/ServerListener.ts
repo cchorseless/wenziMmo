@@ -107,6 +107,12 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeJoinEncoder), this, this.addTeamAsk);
         //回答申请加入组队结果
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeJoinDecoder), this, this.allowTeam);
+        //退出队伍
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamQuitDecoder), this, this.outTeam);
+        //邀请加入队伍
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamInviteEnDecoder), this, this.invitTeam);
+        //回答邀请加入队伍结果
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeInviteEnDecoder), this, this.allowInvitTeam);
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
@@ -1080,6 +1086,35 @@ class ServerListener extends SingletonClass {
         }
         else {
             TipsManage.showTips('拒绝' + msg.getValue('szName') + '加入');
+        }
+    }
+    /**
+ *离队返回
+ */
+    public outTeam(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamAgreeJoinEncoder(data);
+        PanelManage.Team.myTeam();
+        TipsManage.showTips('您已离开队伍');
+    }
+    /**
+* 邀请加入队伍
+*/
+    public invitTeam(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamInviteEnDecoder(data);
+        let asks = new view.dialog.TeamInvitCheckDialog();
+        asks.setData(msg).popup(true);
+    }
+     /**
+   * 回答邀请加入队伍
+   */
+    public allowInvitTeam(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
+        if (msg.getValue('boAllow')) {
+            TipsManage.showTips('已成功邀请加入队伍');
+            PanelManage.Team.myTeam();
+        }
+        else {
+            TipsManage.showTips('拒绝加入');
         }
     }
     /*******************************************************行会信息******************************************* */

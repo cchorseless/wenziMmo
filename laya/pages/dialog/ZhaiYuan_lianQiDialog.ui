@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":128,
+    "selecteID":127,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -110,7 +110,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":154,"x":56,"var":"vstack_top"},
+            "props":{"y":154,"x":56,"var":"vstack_top","selectedIndex":0},
             "nodeParent":1,
             "label":"ViewStack(vstack_top)",
             "isOpen":true,
@@ -157,7 +157,7 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":18,"x":16,"width":121,"skin":"image/juese/img_common_16.png","height":132},
+                            "props":{"y":18,"x":16,"width":121,"skin":"image/common/img_common_016.png","height":132},
                             "nodeParent":129,
                             "label":"Image",
                             "isOpen":false,
@@ -337,7 +337,7 @@
                             "child":[
                                 {
                                     "type":"Image",
-                                    "props":{"y":5,"x":7,"width":67,"skin":"image/juQingMode/icon_dazao.png","height":67},
+                                    "props":{"y":5,"x":7,"width":67,"skin":"image/common/icon_dazao.png","height":67},
                                     "nodeParent":88,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -373,7 +373,7 @@
                             "child":[
                                 {
                                     "type":"Image",
-                                    "props":{"y":4,"x":164,"skin":"image/juese/bottom_shuliandu.png"},
+                                    "props":{"y":4,"x":164,"skin":"image/common/bottom_shuliandu.png"},
                                     "nodeParent":110,
                                     "label":"Image",
                                     "isOpen":null,
@@ -384,7 +384,7 @@
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":6,"x":8,"skin":"image/juese/img_shuliandu.png"},
+                                            "props":{"y":6,"x":8,"skin":"image/common/img_shuliandu.png"},
                                             "nodeParent":83,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -649,7 +649,7 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":32,"x":6,"width":121,"skin":"image/juese/img_common_16.png","height":132},
+                            "props":{"y":32,"x":6,"width":121,"skin":"image/common/img_common_016.png","height":132},
                             "nodeParent":195,
                             "label":"Image",
                             "isOpen":false,
@@ -961,7 +961,7 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":13,"x":4,"width":121,"skin":"image/juese/img_common_16.png","height":132},
+                            "props":{"y":13,"x":4,"width":121,"skin":"image/common/img_common_016.png","height":132},
                             "nodeParent":232,
                             "label":"Image",
                             "isOpen":false,
@@ -1363,13 +1363,14 @@
             "props":{"y":496,"x":43},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":184,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":301,"x":70,"width":292,"skin":"image/common/fram_common_09gray.png","height":37},
                     "nodeParent":184,
@@ -1395,6 +1396,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":347,"x":70,"width":292,"skin":"image/common/fram_common_09gray.png","height":37},
                     "nodeParent":184,
@@ -1421,6 +1423,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":309,"x":383,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"强化"},
                     "nodeParent":184,
@@ -1434,6 +1437,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":52,"width":534,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,12,18,22","height":234},
                     "nodeParent":184,
@@ -1446,6 +1450,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Tab",
                     "props":{"x":113,"var":"tab_down","stateNum":2,"skin":"image/common/line_jiemengbanghui1.png","selectedIndex":0,"labels":"玩家装备,弟子装备","labelSize":30,"labelFont":"FZXK","labelColors":"#404040,#781b0c"},
                     "nodeParent":184,
@@ -1459,6 +1464,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"y":79,"x":32,"var":"vstack_down"},
                     "nodeParent":184,
@@ -1757,6 +1763,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":339,"x":-7,"stateNum":"2","skin":"image/zhaiYuan/btn_common_18.png"},
                     "nodeParent":184,

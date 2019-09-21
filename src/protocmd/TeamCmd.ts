@@ -33,7 +33,7 @@ module ProtoCmd {
     // 创建队伍
     export class TeamBuildEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_CREATE;
-        public cbPacket = TeamBuildDecoder
+        public cbPacket = TeamBuildDecoder;
         public constructor() {
             super();
             this.cmd = Msg_team_Cfg.MSG_TEAM_CREATE;
@@ -56,9 +56,10 @@ module ProtoCmd {
     //离队
     export class TeamQuitEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_LEAVEGROUP;
+        public cbPacket = TeamQuitDecoder;
         public constructor() {
             super();
-            this.addProperty('dwOnlyid', PacketBase.TYPE_BYTES, 8);
+            this.addProperty('dwOnlyid', PacketBase.TYPE_INT64);
             this.cmd = Msg_team_Cfg.MSG_TEAM_LEAVEGROUP;
         }
     }
@@ -68,8 +69,8 @@ module ProtoCmd {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_LEAVEGROUPRT;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('dwLeaveOnlyId', PacketBase.TYPE_BYTES, 8);
-            this.addProperty('dwNowMasterId', PacketBase.TYPE_BYTES, 8);
+            this.addProperty('dwLeaveOnlyId', PacketBase.TYPE_INT64);
+            this.addProperty('dwNowMasterId', PacketBase.TYPE_INT64);
             this.addProperty('btGroupType', PacketBase.TYPE_BYTE);
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
             this.addProperty('szLeaveName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -92,7 +93,7 @@ module ProtoCmd {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_BELEAVERT;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('dwKickOutOnlyId', PacketBase.TYPE_BYTES, 8);
+            this.addProperty('dwKickOutOnlyId', PacketBase.TYPE_INT64);
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
             this.read(data);
         }
@@ -103,7 +104,7 @@ module ProtoCmd {
     export class TeamAgreeJoinEncoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_ASKFORJOIN;
         public cbPacket = TeamAgreeJoinEncoder
-        public constructor(data: Laya.Byte=null) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//目标玩家名称
             this.addProperty('btJob', PacketBase.TYPE_BYTE);
@@ -204,6 +205,7 @@ module ProtoCmd {
     //邀请加入队伍
     export class TeamInviteEnDecoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_INVITEJOINGROUP;
+        public cbPacket = TeamInviteEnDecoder;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -261,7 +263,7 @@ module ProtoCmd {
             this.read(data);
         }
     }
-    //0x2815
+    //0x2815 //邀请加入组队返回给队长
     export class TeamInviteMasterDecoder extends Packet {
         public static msgID: number = 0x2815;
         public constructor(data: Laya.Byte) {
@@ -272,7 +274,7 @@ module ProtoCmd {
         }
     }
 
-    //0x2816
+    //0x2816 //申请加入组队返回给队员
     export class TeamInvitePlayerDecoder extends Packet {
         public static msgID: number = 0x2816;
         public constructor(data: Laya.Byte) {

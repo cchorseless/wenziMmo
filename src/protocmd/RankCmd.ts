@@ -5,8 +5,9 @@ module ProtoCmd {
     //查询排行榜列表 返回本包
     export class stRankMsg extends Packet {
         public static msgID: number = 0x2016;
+        public cbPacket = stRankMsg;
         public TopInfos: Array<stRankInfo> = [];
-        public constructor(data: Laya.Byte = null) {
+        public constructor(data: Laya.Byte) {
             super();
 
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);  //0成功 1 未找到

@@ -22,6 +22,20 @@ module view.team {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
 			});
+			// 离开队伍
+			this.btn_outTeam.on(Laya.UIEvent.CLICK, this, () => {
+				//判断是否是队长
+				let btGroupMaster = GameApp.MainPlayer.feature.btGroupMaster;
+				if (btGroupMaster) {
+
+				} else {
+					let pkt = new ProtoCmd.TeamQuitEncoder();
+					pkt.setValue('dwOnlyid',GameApp.MainPlayer.onlyId)
+					lcp.send(pkt,this,(data)=>{
+							let cbpkt = new ProtoCmd.TeamQuitDecoder(data);
+					})
+				}
+			});
 			// 工会
 			this.btn_guild.on(Laya.UIEvent.CLICK, this, () => {
 				// 判定 有无公会
@@ -45,6 +59,7 @@ module view.team {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
+
 		}
 		/**
 		  * 我的队伍

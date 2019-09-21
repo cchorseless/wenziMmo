@@ -26,16 +26,27 @@ module view.rank {
 			this.vbox_6['sortItem'] = (items) => { };
 			this.panel_7.vScrollBarSkin = '';
 			this.vbox_7['sortItem'] = (items) => { };
-			for (let i = 0; i < 15; i++) {
-				this.vbox_0.addChild(new view.compart.RankPlayerItem())
-				this.vbox_1.addChild(new view.compart.RankPlayerItem())
-				this.vbox_2.addChild(new view.compart.RankPlayerItem())
-				this.vbox_3.addChild(new view.compart.RankPlayerItem())
-				this.vbox_4.addChild(new view.compart.RankPlayerItem())
-				this.vbox_5.addChild(new view.compart.RankPlayerItem())
-				this.vbox_6.addChild(new view.compart.RankPlayerItem())
-				this.vbox_7.addChild(new view.compart.RankPlayerItem())
-			}
+			// for (let i = 0; i < 15; i++) {
+			// 	this.vbox_0.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_1.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_2.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_3.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_4.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_5.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_6.addChild(new view.compart.RankPlayerItem())
+			// 	this.vbox_7.addChild(new view.compart.RankPlayerItem())
+			// }
+			let pkt = new ProtoCmd.stRankMsg(null);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.stRankMsg(data);
+				for (let item of data) {
+					let ui_rank = new view.compart.RankPlayerItem();
+					let TopInfos = new ProtoCmd.stRankInfo(data);
+					// TopInfos.clone(item)
+					this.vbox_0.addChild(ui_rank.setData(TopInfos));
+				}
+
+			})
 			this.addEvent();
 		}
 		public addEvent(): void {
