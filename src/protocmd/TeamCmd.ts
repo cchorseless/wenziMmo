@@ -205,7 +205,7 @@ module ProtoCmd {
     //邀请加入队伍
     export class TeamInviteEnDecoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_INVITEJOINGROUP;
-        public cbPacket = TeamAgreeInviteEnDecoder;
+        public cbPacket = TeamInviteEnDecoder;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
@@ -263,7 +263,7 @@ module ProtoCmd {
             this.read(data);
         }
     }
-    //0x2815
+    //0x2815 //邀请加入组队返回给队长
     export class TeamInviteMasterDecoder extends Packet {
         public static msgID: number = 0x2815;
         public constructor(data: Laya.Byte) {
@@ -274,7 +274,7 @@ module ProtoCmd {
         }
     }
 
-    //0x2816
+    //0x2816 //申请加入组队返回给队员
     export class TeamInvitePlayerDecoder extends Packet {
         public static msgID: number = 0x2816;
         public constructor(data: Laya.Byte) {

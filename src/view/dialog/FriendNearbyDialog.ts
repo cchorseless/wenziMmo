@@ -22,13 +22,13 @@ module view.dialog {
 			this.btn_nearbyAddFriend.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [0]);
 			// 拉入黑名单   
 			this.btn_nearbyIntoBlack.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [1]);
-			//邀请加入队伍
+			//邀请附近的人加入队伍
 			this.btn_nearbyBuildTeam.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt=new ProtoCmd.TeamInviteEnDecoder(null);
-				pkt.playerName,GameApp.MainPlayer.objName;
-				pkt.level,this.item.level;
-				pkt.job,this.item.job;
-				pkt.sex,this.item.sex;
+				pkt.setValue('szName', this.item.objName);
+				pkt.setValue('dwLevel', this.item.level);
+				pkt.setValue('btJob', this.item.job);
+				pkt.setValue('btSex', this.item.sex);
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
 				})

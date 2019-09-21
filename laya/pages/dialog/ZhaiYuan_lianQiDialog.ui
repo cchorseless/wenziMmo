@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":233,
+    "selecteID":127,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -110,16 +110,17 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":154,"x":56,"var":"vstack_top"},
+            "props":{"y":154,"x":56,"var":"vstack_top","selectedIndex":0},
             "nodeParent":1,
             "label":"ViewStack(vstack_top)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":233,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-5,"x":-12,"name":"item0"},
                     "nodeParent":233,
@@ -583,6 +584,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-19,"x":-2,"name":"item1"},
                     "nodeParent":233,
@@ -920,6 +922,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"name":"item2"},
                     "nodeParent":233,
