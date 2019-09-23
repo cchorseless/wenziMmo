@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":167,
-    "selecteID":241,
+    "selectedBox":1,
+    "selecteID":235,
     "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":680},
     "nodeParent":-1,
     "label":"View",
@@ -97,7 +97,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":34,"x":49,"width":100,"var":"box_sceneMore","skin":"image/common/scene/sceneicon_01.png","height":90,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":34,"x":58,"var":"box_sceneMore","skin":"image/main/img_bgLuoyang.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(box_sceneMore)",
             "isOpen":false,
@@ -108,7 +108,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":52,"x":25,"var":"lbl_roomName","text":"洛阳","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":1,"x":17,"var":"lbl_roomName","text":"洛阳","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":226,
                     "label":"Label(lbl_roomName)",
                     "isOpen":true,
@@ -165,7 +165,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":640,"var":"btn_showAllSkill","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","right":3,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"展开","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":638,"var":"btn_showAllSkill","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","right":6,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"展开","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_showAllSkill)",
             "isOpen":true,
@@ -180,7 +180,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":577,"width":49,"var":"btn_autoAtk","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","right":6,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动","height":41,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":577,"var":"btn_autoAtk","stateNum":"1","skin":"image/main/img_zhandou.png","right":6,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_autoAtk)",
             "isOpen":true,
@@ -210,7 +210,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":340,"x":22,"width":50,"var":"btn_changSize","stateNum":"1","skin":"image/main/btn_common_02.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":127,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":340,"x":22,"var":"btn_changSize","stateNum":"2","skin":"image/main/btn_common_02.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_changSize)",
             "isOpen":true,

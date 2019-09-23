@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":20,
-    "selecteID":34,
+    "selectedBox":22,
+    "selecteID":23,
     "props":{"width":612,"sceneColor":"#a17e7d","height":102},
     "nodeParent":-1,
     "label":"View",
@@ -44,15 +44,16 @@
                     "props":{"y":6,"x":28,"width":63,"stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png","height":64},
                     "nodeParent":20,
                     "label":"Button",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":22,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":5,"x":9,"width":51,"skin":"image/guild/gang_Headportrait.png","height":52},
+                            "props":{"y":7,"x":6,"width":51,"skin":"image/guild/icon_bangpai_normal.png","height":52},
                             "nodeParent":22,
                             "label":"Image",
                             "isDirectory":false,
@@ -66,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":71,"x":14,"var":"lbl_guildName","text":"门派名称XX","fontSize":20,"font":"SimHei","color":"#5d3816","bold":true},
+                    "props":{"y":71,"x":3,"var":"lbl_guildName","text":"门派名称XX","fontSize":26,"font":"FZXK","color":"#5d3816","bold":true},
                     "nodeParent":20,
                     "label":"Label(lbl_guildName)",
                     "isOpen":true,
@@ -108,7 +109,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":21,"x":174,"text":"排名","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":21,"x":174,"text":"排名","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":20,
                     "label":"Label",
                     "isDirectory":false,
@@ -121,7 +122,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":20,"x":278,"text":"等级","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":20,"x":278,"text":"等级","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":20,
                     "label":"Label",
                     "isDirectory":false,
@@ -134,7 +135,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":20,"x":373,"text":"人数","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":20,"x":373,"text":"人数","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":20,
                     "label":"Label",
                     "isDirectory":false,
@@ -147,7 +148,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":58,"x":180,"width":29,"var":"lbl_rank","text":"56","strokeColor":"#2d1c05","height":20,"fontSize":20,"font":"Microsoft YaHei","color":"#a53232","align":"center"},
+                    "props":{"y":58,"x":180,"width":29,"var":"lbl_rank","text":"56","strokeColor":"#2d1c05","height":20,"fontSize":20,"font":"FZHL","color":"#a53232","align":"center"},
                     "nodeParent":20,
                     "label":"Label(lbl_rank)",
                     "isDirectory":false,
@@ -160,7 +161,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":58,"x":260,"var":"lbl_lv","text":"1转20级","strokeColor":"#2d1c05","fontSize":20,"font":"Microsoft YaHei","color":"#a53232"},
+                    "props":{"y":58,"x":260,"var":"lbl_lv","text":"1转20级","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                     "nodeParent":20,
                     "label":"Label(lbl_lv)",
                     "isDirectory":false,
@@ -173,7 +174,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":57,"x":368,"var":"lbl_playerCount","text":"XXXX","strokeColor":"#2d1c05","fontSize":20,"font":"Microsoft YaHei","color":"#a53232"},
+                    "props":{"y":57,"x":368,"var":"lbl_playerCount","text":"XXXX","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                     "nodeParent":20,
                     "label":"Label(lbl_playerCount)",
                     "isDirectory":false,

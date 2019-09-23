@@ -638,40 +638,8 @@ module EnumData {
         Cret_HeQuJiFen_Rank,                //合区积分排行榜
         Cret_Consume_Rank,                  //精彩活动消费排行榜
         Cret_Recharge_Rank,                 //精彩活动充值排行榜
-
-
-        Cret_ChuMoCeng1_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng2_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng3_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng4_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng5_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng6_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng7_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng8_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng9_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng10_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng11_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng12_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng13_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng14_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng15_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng16_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng17_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng18_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng19_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng20_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng21_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng22_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng23_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng24_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng25_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng26_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng27_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng28_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng29_Rank,               //除魔层排行榜
-        Cret_ChuMoCeng30_Rank,               //除魔层排行榜
+        
         Cret_ChuMoEndJiFen_Rank,             //除魔通关积分
-        Cret_ChuMoTotalJiFen_Rank,           //除魔总排行榜
         Cret_Medal_Rank,                     //勋章总排行榜
         Cret_Intensify_Rank,                 //强化总排行榜
 

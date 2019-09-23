@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":160,
-    "selecteID":162,
+    "selectedBox":1,
+    "selecteID":142,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -58,24 +58,24 @@
             "props":{"y":125,"x":178,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":142,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":0,"x":50,"skin":"image/guild/zi_shilipaiming.png"},
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":7,"x":62,"text":"实力排名","strokeColor":"#000000","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":142,
-                    "label":"Image",
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":143,
+                    "compId":165,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        ]
                 }],
             "$HIDDEN":false
         },
