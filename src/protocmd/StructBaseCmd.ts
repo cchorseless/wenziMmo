@@ -2660,9 +2660,15 @@ module ProtoCmd {
             this.addProperty("dwRelive", PacketBase.TYPE_DWORD);//精彩转生
             this.addProperty("dwReliveTime", PacketBase.TYPE_DWORD);
 
-            if (data) data.position += this.read(data);
+            if (data) data.pos += this.read(data);
         }
 
+        public get szname(): number {
+            return this.getValue("szName");
+        }
+        public get nNowRankNum(): number {
+            return this.getValue("nNowRankNum");
+        }
         public get strenLvl(): number {
             return this.getValue("dwStrenTotalLvl");
         }
@@ -2931,7 +2937,7 @@ module ProtoCmd {
             this.addProperty('btTxQQVipType', PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty('btTxQQVipLevel', PacketBase.TYPE_BYTE);//QQ会员等级
             this.addProperty('btSex', PacketBase.TYPE_BYTE);
-            if(data) {
+            if (data) {
                 this.read(data);
             }
         }

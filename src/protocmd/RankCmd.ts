@@ -63,7 +63,8 @@ module ProtoCmd {
 
     //查询我的排名
     export class stMyRankRequest extends Packet {
-        constructor() {
+          public cbPacket = stMyRankReturn;
+         public  constructor() {
             super();
             this.addProperty("btType", PacketBase.TYPE_BYTE);
             this.cmd = 0x2032;

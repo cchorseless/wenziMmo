@@ -37,12 +37,15 @@ module view.rank {
 			// 	this.vbox_7.addChild(new view.compart.RankPlayerItem())
 			// }
 			let pkt = new ProtoCmd.stRankMsg(null);
+			pkt.setValue('btErrorCode', 0);
+			pkt.setValue('btType', EnumData.emRankType.Cret_Level_Rank);
+			pkt.setValue('nPage', 1);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
-				for (let item of data) {
+				for (let item of cbpkt.TopInfos) {
 					let ui_rank = new view.compart.RankPlayerItem();
-					let TopInfos = new ProtoCmd.stRankInfo(data);
-					// TopInfos.clone(item)
+					let TopInfos = new ProtoCmd.stRankInfo(item);
+					TopInfos.clone(item.data)
 					this.vbox_0.addChild(ui_rank.setData(TopInfos));
 				}
 
@@ -50,8 +53,9 @@ module view.rank {
 			this.addEvent();
 		}
 		public addEvent(): void {
+			// 返回
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.showPanel(PanelManage.JuQingMode);
+				PanelManage.openMainPanel()
 			});
 			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
