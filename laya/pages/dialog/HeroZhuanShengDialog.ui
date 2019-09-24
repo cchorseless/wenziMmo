@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":4,
+    "selecteID":3,
     "props":{"width":601,"sceneColor":"#000000","height":910},
     "nodeParent":-1,
     "label":"Dialog",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":157,"skin":"image/common/bottom_title1.png"},
+            "props":{"y":24,"x":165,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -39,14 +39,14 @@
             "compId":34,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":14,"x":59,"skin":"image/juese/font_zhuanshengtupo.png"},
+                    "type":"Label",
+                    "props":{"y":17,"x":60,"text":"转生突破","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":34,
-                    "label":"Image",
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":35,
+                    "compId":60,
                     "child":[
                         ]
                 }],
@@ -55,7 +55,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":543,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":20,"x":544,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -69,7 +69,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":44,"x":0,"skin":"image/juese/img_zhuanshengtupo_bj.png"},
+            "props":{"y":64,"x":0,"skin":"image/juese/img_zhuanshengtupo_bj.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -83,7 +83,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":92,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":112,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -96,7 +96,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":156,"x":429,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":176,"x":429,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -110,7 +110,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":212,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":232,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -124,7 +124,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":239,"x":348,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":259,"x":348,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -138,7 +138,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":313,"x":377,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":333,"x":377,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -152,7 +152,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":387,"x":347,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":407,"x":347,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -166,7 +166,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":312,"x":165,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":332,"x":165,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -180,7 +180,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":238,"x":197,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":258,"x":197,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":true,
@@ -195,7 +195,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":156,"x":336,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":176,"x":336,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -206,7 +206,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"逆行","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#b053ce"},
+                    "props":{"y":15,"x":16,"text":"逆行","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#b053ce"},
                     "nodeParent":17,
                     "label":"Label",
                     "isDirectory":false,
@@ -218,7 +218,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":17,
                     "label":"Label",
                     "isDirectory":false,
@@ -233,7 +233,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":250,"x":432,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":270,"x":432,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -247,7 +247,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":383,"x":431,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":403,"x":431,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -261,7 +261,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":472,"x":336,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":492,"x":336,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -275,7 +275,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":471,"x":209,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":491,"x":209,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -289,7 +289,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":383,"x":115,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":403,"x":115,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":true,
@@ -304,7 +304,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":251,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":271,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -318,7 +318,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":156,"x":208,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":176,"x":208,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -329,7 +329,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"相承","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#b053ce"},
+                    "props":{"y":15,"x":16,"text":"相承","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#b053ce"},
                     "nodeParent":24,
                     "label":"Label",
                     "isDirectory":false,
@@ -341,7 +341,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":24,
                     "label":"Label",
                     "isDirectory":false,
@@ -356,7 +356,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":532,"x":272,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":552,"x":272,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -370,7 +370,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":313,"x":52,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":333,"x":52,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -384,7 +384,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":158,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":178,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -398,7 +398,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":313,"x":271,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":333,"x":271,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -409,7 +409,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"初心","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#f0903f"},
+                    "props":{"y":15,"x":16,"text":"初心","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#f0903f"},
                     "nodeParent":41,
                     "label":"Label",
                     "isDirectory":false,
@@ -421,7 +421,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"起点","fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"起点","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":41,
                     "label":"Label",
                     "isDirectory":false,
@@ -436,7 +436,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":468,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":488,"x":116,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -447,7 +447,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"灵感","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#b053ce"},
+                    "props":{"y":15,"x":16,"text":"灵感","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#b053ce"},
                     "nodeParent":44,
                     "label":"Label",
                     "isDirectory":false,
@@ -459,7 +459,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":44,
                     "label":"Label",
                     "isDirectory":false,
@@ -474,7 +474,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":469,"x":427,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":489,"x":427,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -485,7 +485,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"终点","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#f15a57"},
+                    "props":{"y":15,"x":16,"text":"终点","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#f15a57"},
                     "nodeParent":47,
                     "label":"Label",
                     "isDirectory":false,
@@ -497,7 +497,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"置顶","fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"置顶","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":47,
                     "label":"Label",
                     "isDirectory":false,
@@ -512,7 +512,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":312,"x":494,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":332,"x":494,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -523,7 +523,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"寡聚","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#b053ce"},
+                    "props":{"y":15,"x":16,"text":"寡聚","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#b053ce"},
                     "nodeParent":50,
                     "label":"Label",
                     "isDirectory":false,
@@ -535,7 +535,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":50,
                     "label":"Label",
                     "isDirectory":false,
@@ -550,7 +550,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":386,"x":198,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":406,"x":198,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -561,7 +561,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"如常","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":15,"x":16,"text":"如常","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":53,
                     "label":"Label",
                     "isDirectory":false,
@@ -573,7 +573,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":53,
                     "label":"Label",
                     "isDirectory":false,
@@ -588,7 +588,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":421,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
+            "props":{"y":441,"x":273,"stateNum":"2","skin":"image/juese/bottom_common_tupo_finish.png"},
             "nodeParent":1,
             "label":"Button",
             "isOpen":false,
@@ -599,7 +599,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":15,"x":16,"text":"如常","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":15,"x":16,"text":"如常","strokeColor":"#000000","stroke":3,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":56,
                     "label":"Label",
                     "isDirectory":false,
@@ -611,7 +611,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"color":"#000000"},
+                    "props":{"y":44,"x":21,"text":"54%","fontSize":18,"font":"FZHL","color":"#000000"},
                     "nodeParent":56,
                     "label":"Label",
                     "isDirectory":false,
@@ -626,33 +626,35 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":638,"x":228,"skin":"image/juese/fram_common_009.png"},
+            "props":{"y":662,"x":220,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":31,
+            "compId":61,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":56,"text":"突破","strokeColor":"#000000","stroke":4,"fontSize":24,"color":"#ffffff","bold":true},
-                    "nodeParent":31,
+                    "props":{"y":-1,"x":59,"text":"突破","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":61,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":33,
+                    "compId":62,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":683,"x":107,"wordWrap":true,"width":447,"text":"              啊啊啊啊啊啊啊啊啊啊\\n啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊","height":91,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
+            "props":{"y":709,"x":112,"wordWrap":true,"width":443,"text":"              啊啊啊啊啊啊啊啊啊啊\\n啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊","leading":5,"height":91,"fontSize":22,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -660,7 +662,8 @@
             "hasChild":false,
             "compId":32,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {

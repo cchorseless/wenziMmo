@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":37,
+    "selectedBox":18,
+    "selecteID":50,
     "props":{"width":627,"sceneColor":"#844544","height":610},
     "nodeParent":-1,
     "label":"Dialog",
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":22,"x":156,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+                    "props":{"y":22,"x":156,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
                     "nodeParent":4,
                     "label":"Label(lbl_npcDes0)",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":109,"x":155,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+                    "props":{"y":109,"x":155,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
                     "nodeParent":4,
                     "label":"Label(lbl_npcDes1)",
                     "isDirectory":false,
@@ -147,7 +147,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":232,"x":188,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelSize":22,"labelPadding":"5","labelFont":"Microsoft YaHei","labelColors":"#404040,#63491a","labelBold":true,"height":52,"direction":"horizontal"},
+                    "props":{"y":232,"x":188,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelSize":26,"labelPadding":"5","labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"height":52,"direction":"horizontal"},
                     "nodeParent":4,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,
@@ -208,7 +208,8 @@
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
-                                        }]
+                                        }],
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "x":60,
@@ -236,7 +237,8 @@
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
-                                        }]
+                                        }],
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "x":60,
@@ -264,7 +266,8 @@
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
-                                        }]
+                                        }],
+                                    "$HIDDEN":false
                                 }]
                         }],
                     "$HIDDEN":false
@@ -274,7 +277,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":302,"x":98,"width":76,"var":"lbl_npcName","text":"司马德","height":32,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":true,"align":"left"},
+            "props":{"y":302,"x":87,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":4,"height":32,"fontSize":30,"font":"FZXK","color":"#ffffff"},
             "nodeParent":1,
             "label":"Label(lbl_npcName)",
             "isDirectory":false,

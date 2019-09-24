@@ -2631,7 +2631,7 @@ module ProtoCmd {
             this.addProperty("dwGuanZhilvTime", PacketBase.TYPE_INT);//官职等级升级时间
             this.addProperty("dwHunShilv", PacketBase.TYPE_INT);//魂石等级
             this.addProperty("dwHunShilvTime", PacketBase.TYPE_INT);//魂石等级升级时间
-            this.addProperty("dwFame", PacketBase.TYPE_INT);//跨服战场胜点
+            this.addProperty("dwFame", PacketBase.TYPE_INT);//声望等级
             this.addProperty("dwFameTime", PacketBase.TYPE_INT);//跨服战场胜点改变时间
             this.addProperty("dwHeQuJiFen", PacketBase.TYPE_INT);//合区积分
             this.addProperty("dwHeQuJiFenTime", PacketBase.TYPE_INT);//合区积分改变时间
@@ -2642,9 +2642,9 @@ module ProtoCmd {
             this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
             this.addProperty("btChargeSex", PacketBase.TYPE_BYTE);//
             this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//
-            this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);
+            this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);//勋章等级
             this.addProperty("dwMedalTime", PacketBase.TYPE_DWORD);
-            this.addProperty("dwStrenTotalLvl", PacketBase.TYPE_DWORD);
+            this.addProperty("dwStrenTotalLvl", PacketBase.TYPE_DWORD);//强化等级
             this.addProperty("dwStrenTime", PacketBase.TYPE_DWORD);
             this.addProperty("dwVipLvl", PacketBase.TYPE_DWORD);
             this.addProperty("dwXinFuConsume", PacketBase.TYPE_DWORD);//新服消费

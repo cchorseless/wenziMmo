@@ -31,6 +31,8 @@ module view.compart {
 				}
 				else if (player.talkID < data.startdbid) {
 					this.lbl_conDes.text = '未开始';
+					this.img_bg.visible=true;
+					this.img_shuo.visible=true;
 				}
 				else {
 					this.lbl_conDes.text = '进行中';

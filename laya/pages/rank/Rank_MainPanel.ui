@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":268,
-    "selecteID":115,
+    "selecteID":113,
     "props":{"width":640,"sceneColor":"#ad7e7e","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -246,7 +246,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -569,9 +569,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":198,"width":43,"text":"等级","strokeColor":"#2d1c05","stroke":4,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":55,"x":198,"width":43,"var":"lbl_title","text":"等级","strokeColor":"#2d1c05","stroke":4,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
                     "nodeParent":268,
-                    "label":"Label",
+                    "label":"Label(lbl_title)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
