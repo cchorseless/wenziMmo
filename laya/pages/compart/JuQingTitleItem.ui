@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":8,
-    "selecteID":7,
+    "selectedBox":2,
+    "selecteID":11,
     "props":{"y":0,"x":0,"width":113,"sceneColor":"#907676","height":193},
     "nodeParent":-1,
     "label":"View",
@@ -79,7 +79,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":141,"x":8,"wordWrap":true,"width":91,"var":"lbl_conDes","text":"13转150级解锁","height":31,"fontSize":20,"font":"FZXK","color":"#781b0c","align":"center"},
+                            "props":{"y":141,"x":8,"wordWrap":true,"width":91,"var":"lbl_conDes","text":"13转150级解锁","height":31,"fontSize":18,"font":"FZHL","color":"#781b0c","align":"center"},
                             "nodeParent":2,
                             "label":"Label(lbl_conDes)",
                             "isDirectory":false,
@@ -88,7 +88,33 @@
                             "compId":6,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"visible":false,"var":"img_bg","top":0,"skin":"image/common/bottom_black.png","right":0,"left":0,"bottom":0,"alpha":0.5},
+                            "nodeParent":2,
+                            "label":"Image(img_bg)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":107,"x":23,"var":"img_shuo","skin":"image/main/icon_shuo.png"},
+                    "nodeParent":8,
+                    "label":"Image(img_shuo)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[

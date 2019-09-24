@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":53,
+    "selectedBox":3,
+    "selecteID":77,
     "props":{"width":601,"sceneColor":"#000000","height":910},
     "nodeParent":-1,
     "label":"Dialog",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":155,"skin":"image/common/bottom_title1.png"},
+            "props":{"y":22,"x":158,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -40,14 +40,14 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":14,"x":59,"skin":"image/juese/font_neigonggenghuan.png"},
+                    "type":"Label",
+                    "props":{"y":17,"x":60,"text":"内功更换","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":3,
-                    "label":"Image",
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
+                    "compId":77,
                     "child":[
                         ]
                 }],
@@ -56,7 +56,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":541,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":22,"x":541,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -70,7 +70,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":141,"x":123},
+            "props":{"y":164,"x":120},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
@@ -331,25 +331,24 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":88,"x":69,"width":258,"skin":"image/common/bottom_smalltitle.png","height":42},
+            "props":{"y":117,"x":64,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":29,
+            "compId":73,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":-9,"x":39,"width":104,"text":"当前内功","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":29,
+                    "props":{"y":-1,"x":30,"text":"当前内功","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":73,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":30,
+                    "compId":74,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -359,25 +358,24 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":391,"x":71,"width":258,"skin":"image/common/bottom_smalltitle.png","height":42},
+            "props":{"y":423,"x":64,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":27,
+            "compId":75,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":-9,"x":39,"width":104,"text":"已学内功","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":27,
+                    "props":{"y":-1,"x":30,"text":"已学内功","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":75,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":28,
+                    "compId":76,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -387,7 +385,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":452,"x":60},
+            "props":{"y":477,"x":56},
             "nodeParent":1,
             "label":"Box",
             "isOpen":null,
@@ -465,7 +463,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":581,"x":60},
+            "props":{"y":606,"x":56},
             "nodeParent":1,
             "label":"Box",
             "isOpen":null,
@@ -543,10 +541,10 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":711,"x":60},
+            "props":{"y":736,"x":56},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -616,7 +614,8 @@
                     "compId":71,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

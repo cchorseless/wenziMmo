@@ -74,7 +74,6 @@ module ProtoCmd {
     export class stMyRankReturn extends Packet {
         public static msgID: number = 0x2033;
         public myInfo: stRankInfo = new stRankInfo(null);
-
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('rankType', PacketBase.TYPE_BYTE);

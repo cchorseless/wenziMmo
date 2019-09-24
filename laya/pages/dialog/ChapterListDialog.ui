@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":25,
+    "selectedBox":27,
+    "selecteID":28,
     "referenceLines":[
         {
             "value":105,
@@ -59,7 +59,7 @@
             "props":{"skin":"image/common/bottom_bigPopup.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -71,15 +71,16 @@
                     "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":25,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":27,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"篇章目录","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":17,"x":60,"text":"篇章目录","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":27,
                             "label":"Label",
                             "isDirectory":false,

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":23,
-    "selecteID":24,
+    "selectedBox":30,
+    "selecteID":31,
     "props":{"width":622,"sceneColor":"#f4afae","height":928},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"skin":"image/common/bottom_bigPopup.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":29,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":29,
@@ -36,8 +37,9 @@
                     "compId":30,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":21,"x":105,"text":"聊天","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":17,"x":105,"text":"聊天","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":30,
                             "label":"Label",
                             "isDirectory":false,

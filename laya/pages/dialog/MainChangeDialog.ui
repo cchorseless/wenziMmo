@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":87,
-    "props":{"width":529,"sceneColor":"#000000","height":522},
+    "selecteID":85,
+    "props":{"width":529,"sceneColor":"#e2d4d4","height":522},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -33,15 +33,16 @@
             "props":{"y":11,"x":115,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":67,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":-7,"x":52,"text":"个人信息","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":-7,"x":52,"text":"个人信息","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":67,
                     "label":"Label",
                     "isDirectory":false,
@@ -97,7 +98,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":190,"x":89,"var":"btn_changeHeadFrame","stateNum":"1","skin":"image/main/frame_genghuan.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff","label":"更换"},
+            "props":{"y":190,"x":89,"var":"btn_changeHeadFrame","stateNum":"1","skin":"image/main/frame_genghuan.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff","label":"更换"},
             "nodeParent":1,
             "label":"Button(btn_changeHeadFrame)",
             "isDirectory":false,
@@ -228,7 +229,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":270,"x":38,"width":443,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"24,14,26,26","height":192},
+            "props":{"y":270,"x":36,"width":443,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"24,14,26,26","height":192},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -243,7 +244,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":293,"x":58,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"联系客服"},
+            "props":{"y":293,"x":58,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"联系客服"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -257,7 +258,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":293,"x":274,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"更换大区"},
+            "props":{"y":293,"x":274,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"更换大区"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -271,7 +272,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":366,"x":58,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"更换账号"},
+            "props":{"y":366,"x":58,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"更换账号"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -285,7 +286,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":366,"x":274,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"退出登录"},
+            "props":{"y":366,"x":274,"stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"退出登录"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
