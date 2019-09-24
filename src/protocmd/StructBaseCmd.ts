@@ -3011,6 +3011,7 @@ module ProtoCmd {
             this.addProperty('star', PacketBase.TYPE_BYTE);//星级
             this.addProperty('itemchoose', PacketBase.TYPE_BOOL);// 1 物品单选还是全选,true单选 
             this.addProperty('queststatus', PacketBase.TYPE_BYTE);// 1 任务状态，标示如下 
+            this.addProperty('targetType', PacketBase.TYPE_DWORD);// 任务目标类型 
             if (data) {
                 data.pos += this.read(data);
             }
@@ -3198,6 +3199,19 @@ module ProtoCmd {
         public get queststatus(): number {
             return this.getValue("queststatus");
         }
+
+        /**
+         * 任务目标类型
+         */
+        public set targetType(value: number) {
+            this.setValue("targetType", value);
+        }
+        public get targetType(): number {
+            return this.getValue("targetType");
+        }
+
+
+
     }
 
 

@@ -37,6 +37,9 @@ module view.compart {
 				Laya.Dialog.closeByGroup('ItemInfoDialog');
 				// 根据物品类型显示不同界面
 				switch (itemType) {
+					// 货币,不进背包
+					case EnumData.ItemTypeDef.ITEM_TYPE_GOLD:
+						return
 					// 材料
 					case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
 						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
@@ -57,29 +60,31 @@ module view.compart {
 						itemInfoDialog = new view.dialog.ItemInfoV0Dialog();
 						break;
 				}
-
-				// 根据model显示界面不同的状态
-				switch (this.model) {
-					// 背包场景 有三种子状态 0背包-回收 1背包-仓库 2背包-摆摊
-					case EnumData.ItemInfoModel.SHOW_IN_BAG:
-						let model: EnumData.ItemInfoModel;
-						switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
-							case 0:
-								model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
-								break;
-							case 1:
-								model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
-								break;
-							case 2:
-								model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
-								break;
-						}
-						itemInfoDialog.setData(this.item, model).show(false);
-						break;
-					default:
-						itemInfoDialog.setData(this.item, this.model).show(false);
-						break;
+				if (itemInfoDialog) {
+					// 根据model显示界面不同的状态
+					switch (this.model) {
+						// 背包场景 有三种子状态 0背包-回收 1背包-仓库 2背包-摆摊
+						case EnumData.ItemInfoModel.SHOW_IN_BAG:
+							let model: EnumData.ItemInfoModel;
+							switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
+								case 0:
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
+									break;
+								case 1:
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
+									break;
+								case 2:
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
+									break;
+							}
+							itemInfoDialog.setData(this.item, model).show(false);
+							break;
+						default:
+							itemInfoDialog.setData(this.item, this.model).show(false);
+							break;
+					}
 				}
+
 			});
 		}
 

@@ -10,7 +10,7 @@ module view.juQingMode {
 			this.div_content.style.wordWrap = true;
 			this.div_content.style.leading = 5;
 			this.div_content.style.align = 'middle';
-			this.div_content.innerHTML = txt;
+			this.div_content.innerHTML = txt.replace(/拎壶冲/g, "<font color='#17930d'>" + GameApp.MainPlayer.objName + "</font>");
 			// 自己的头像
 			this.ui_item.lbl_zuoBiao.visible = false;
 			this.ui_item.img_tips.visible = false;

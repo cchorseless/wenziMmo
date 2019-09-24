@@ -11,6 +11,7 @@ module view.juQingMode {
 			this.vbox_zhangJieInfo['sortItem'] = (items) => { };
 			this.vbox_zhangJieInfo.scaleY = 0;
 			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
+			this.box_selectQuestion.scaleY = 0;
 			this.initUI();
 			this.addEvent();
 		}
@@ -54,9 +55,7 @@ module view.juQingMode {
 			});
 
 			// 剧情事件
-			EventManage.onWithEffect(this.btn_eventPrize, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.JuQingEventDialog().setData().popup();
-			});
+			EventManage.onWithEffect(this.btn_eventPrize, Laya.UIEvent.CLICK, this, this.showJuQingEvent);
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
@@ -64,19 +63,38 @@ module view.juQingMode {
 				let temp = this.btn_charpter.selected ? 1 : 0;
 				Laya.Tween.to(this.vbox_zhangJieInfo, { scaleY: temp }, 200)
 			});
+
+			// 选项AB
+			EventManage.onWithEffect(this.btn_selectA, Laya.UIEvent.CLICK, this, () => {
+				this.btn_next.disabled = false;
+				this.SELECT_MODE = true;
+				Laya.Tween.to(this.box_selectQuestion, { scaleY: 0 }, 200);
+			});
+			EventManage.onWithEffect(this.btn_selectB, Laya.UIEvent.CLICK, this, () => {
+				this.btn_next.disabled = false;
+				this.SELECT_MODE = false;
+				Laya.Tween.to(this.box_selectQuestion, { scaleY: 0 }, 200);
+			});
 			// 添加本地事件
 			this.addLcpEvent()
 		}
 
 
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData) => {
+			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData: ProtoCmd.itf_JUQING_READBACK) => {
+				console.log(jsonData);
 				let allKeys = Object.keys(jsonData);
 				if (allKeys.length > 0) {
 					let charpterData = GameApp.GameEngine.talkInfo[GameApp.MainPlayer.charpterID];
 					if (charpterData) {
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = charpterData.data[GameApp.MainPlayer.talkID];
+						// 处理选项对白
+						this.showSelectQuestion(_talkInfo);
 						this.addJuQingTalkItem(_talkInfo);
+					}
+					// 任务
+					if (jsonData.mainquestid) {
+						this.btn_next.label = ''
 					}
 					// 奖励
 					// 图鉴
@@ -93,7 +111,6 @@ module view.juQingMode {
 		}
 
 		public Dispose(): void {
-			// this.visible = true;
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_readJuQing, this);
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_JuQingInfo, this);
 			PopUpManager.Dispose(this);
@@ -103,9 +120,14 @@ module view.juQingMode {
 		 * @param _talkInfo 
 		 */
 		public addJuQingTalkItem(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO): void {
-			let npc = _talkInfo.msg.npcid;
-			let context = _talkInfo.msg.content;
+			console.log(_talkInfo.msg);
+			// 选项模式决定选哪个对白
+			if (_talkInfo.msg.eventBn.length == 0) {
+				this.SELECT_MODE = true;
+			}
+			let context = this.SELECT_MODE ? _talkInfo.msg.content : _talkInfo.msg.eventBn;
 			let ui_item = null;
+			let npc = _talkInfo.msg.npcid;
 			switch (npc) {
 				case 0:
 					ui_item = new view.juQingMode.JuQingContentV0Item();
@@ -120,9 +142,8 @@ module view.juQingMode {
 					ui_item.setData(npc, context);
 					break;
 			}
-			console.log("===========>")
 			this.vbox_0.addChild(ui_item);
-			this.panel_0.scrollTo(0, this.vbox_0.height);
+			this.panel_0.scrollTo(0, this.vbox_0.height + 130);
 		}
 
 		public initUI(): void {
@@ -191,6 +212,37 @@ module view.juQingMode {
 			else {
 				GameApp.GameEngine.talkInfo[jsonData.zjid] = jsonData;
 			}
+		}
+
+		// 选项类型
+		public SELECT_MODE: boolean = true;
+		/**
+		 * 展示对白选项
+		 */
+		public showSelectQuestion(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO): void {
+			// 处理对白选项
+			if (_talkInfo.msg.question && _talkInfo.msg.eventA && _talkInfo.msg.eventB) {
+				this.btn_next.disabled = true;
+				this.lbl_selestQuestion.text = '' + _talkInfo.msg.question;
+				this.btn_selectA.label = '' + _talkInfo.msg.eventA;
+				this.btn_selectB.label = '' + _talkInfo.msg.eventB;
+				Laya.Tween.to(this.box_selectQuestion, { scaleY: 1 }, 300, null, Laya.Handler.create(this, () => {
+					this.btn_next.disabled = false;
+				}));
+			}
+
+		}
+
+		/**
+		 * 展示剧情事件
+		 */
+		public showJuQingEvent(): void {
+			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+			if (taskInfo) {
+				let _task = taskInfo[Object.keys(taskInfo)[0]];
+				new view.dialog.JuQingEventDialog().setData(_task).popup();
+			}
+
 		}
 	}
 }

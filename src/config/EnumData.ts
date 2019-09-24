@@ -757,7 +757,7 @@ module EnumData {
         EVERYDAY = 1,	     // 每日任务
         LIFEEXP = 2,	     // 历练/支线
         CLAN = 3,		     // 氏族任务 
-        RANSYSTEM = 4,       // 剧情事件
+        JUQINGEVENT = 4,       // 剧情事件
         RUNRING = 5,	     // 跑环/环式任务 (除魔任務)
         LOOP = 6,		     // 循环 不要
         RUNWEEKRING = 7,	 // 每周跑环 不要

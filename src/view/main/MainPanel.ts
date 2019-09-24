@@ -541,6 +541,9 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.MAP_MOVE, [roomid], null, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
+					// 清空视野
+					GameApp.MainPlayer.clearViewObj();
+					// 更新房间数据
 					GameApp.MainPlayer.roomId = jsonData.curmapid;
 					// 上下左右房间的信息
 					GameApp.GameEngine.smallMapData = jsonData.dstmap;

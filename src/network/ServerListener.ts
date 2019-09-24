@@ -127,6 +127,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
         // 服务器推送创建新任务
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo);
+        // 改变任务状态
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestDoingRet), this, this.changeTaskState);
+
         /***********************************剧情信息**************************************** */
         // 改变剧情相关数据
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
@@ -417,7 +420,7 @@ class ServerListener extends SingletonClass {
      */
     public syncPlayerPosition(data: Laya.Byte): void {
         let cbpkt = new ProtoCmd.CretAfterSpaceMove(data);
-        let obj = GameApp.MainPlayer.findViewObj(cbpkt.getValue('dwTmpId'));
+        let obj = GameApp.MainPlayer.findViewObj(cbpkt.getValue('dwTmpId')) as GameObject.Player;
         if (obj) {
             obj.dir = cbpkt.getValue('dir');
             obj.location.ncurx = cbpkt.getValue('ncurx');
@@ -1168,8 +1171,13 @@ class ServerListener extends SingletonClass {
             };
             GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
             switch (_item.questtype) {
+                // 主线任务
                 case EnumData.TaskType.SYSTEM:
                     PanelManage.Main && PanelManage.Main.updateTaskInfo();
+                    break;
+                // 剧情任务
+                case EnumData.TaskType.JUQINGEVENT:
+
                     break;
             }
         }
@@ -1203,11 +1211,22 @@ class ServerListener extends SingletonClass {
             case EnumData.TaskType.SYSTEM:
                 PanelManage.Main && PanelManage.Main.updateTaskInfo();
                 break;
+            // 剧情任务
+            case EnumData.TaskType.JUQINGEVENT:
+                PanelManage.JuQingMode && PanelManage.JuQingMode.showJuQingEvent();
+                break;
         }
         cbpket.clear();
         cbpket = null;
     }
 
+    /**
+     * 改变任务状态
+     * @param data 
+     */
+    public changeTaskState(data): void {
+        let cbpket = new ProtoCmd.stQuestDoingRet(data);
+    }
 
     /****************************************剧情相关********************************* */
     /**

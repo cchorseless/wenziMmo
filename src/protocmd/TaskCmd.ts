@@ -6,14 +6,38 @@ module ProtoCmd {
         public static msgID: number = 0x0901;
         public constructor() {
             super();
-            this.addProperty('questType', PacketBase.TYPE_BYTE);// 4 任务类型，0=剧情，1=日常，2=历练 
-            this.addProperty('funcname', PacketBase.TYPE_STRING, 116);// 函数名(queststart,questfunc,questfinish)
+            this.addProperty('questType', PacketBase.TYPE_BYTE);// 4 任务类型，0=主线，1=日常，2=历练 
+            this.addProperty('funcname', PacketBase.TYPE_STRING, 116);// 函数名(queststart`,questfunc`,questfinish`)
             this.addProperty('showone', PacketBase.TYPE_BOOL);// true
             this.addProperty('szinput', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty('chooseidx', PacketBase.TYPE_INT);//倍数
             this.addProperty('dilogngc', PacketBase.TYPE_INT);
             this.addProperty('btCostType', PacketBase.TYPE_BYTE);//1金币，2元宝，3礼金
             this.cmd = 0x0901;
+        }
+        // 任务类型
+        public get questType(): number {
+            return this.getValue("questType");
+        }
+
+        public set questType(value: number) {
+            this.setValue("questType", value);
+        }
+        // 任务数据
+        public get funcname(): string {
+            return this.getValue("funcname");
+        }
+
+        public set funcname(value: string) {
+            this.setValue("funcname", value);
+        }
+        // showone
+        public get showone(): boolean {
+            return this.getValue("showone");
+        }
+
+        public set showone(value: boolean) {
+            this.setValue("showone", value);
         }
     }
 
@@ -33,7 +57,7 @@ module ProtoCmd {
     // 服务器返回改变任务状态
     export class stQuestDoingRet extends Packet {
         public static msgID: number = 0x0903;
-        public str: string = '';
+        public str: string = '';//任务状态，任务结构体中的targetDes
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('id', PacketBase.TYPE_DWORD);// 4 任务ID 

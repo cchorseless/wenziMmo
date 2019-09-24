@@ -96,7 +96,7 @@ module ProtoCmd {
     export const FB_ChuMoLeave = 'ChuMoLeave';
     // 主线副本进入成功,更新副本进度
     export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
-    
+
 
 
 
@@ -257,9 +257,10 @@ module ProtoCmd {
     export interface itf_JUQING_TALKINFO {
         msg: {
             content?: string;
+            eventBn?: string;//第二种选项对白
+            question: string;//选项问题
             eventA?: string;
             eventB?: string;
-            eventBn?: string;
             id?: number;
             npcid?: number;
         }
@@ -271,8 +272,9 @@ module ProtoCmd {
     export interface itf_JUQING_READBACK {
         eventid: number;// 完成事件奖励
         items: any;// 奖励
-        mainquestid: number; // 主线完成任务
+        mainquestid: number; // 剧情触发任务
         subquestid: number; // 激活任务
+        
         tjeventid: number;// 图鉴激活事件
         tjitem: number;// 图鉴激活物品
         tjmap: number;// 图鉴激活地图
