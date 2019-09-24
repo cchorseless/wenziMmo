@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class JuQingContentV1Item extends ui.compart.JuQingContentV1ItemUI {
+module view.juQingMode {
+	export class JuQingContentV1Item extends ui.juQingMode.JuQingContentV1ItemUI {
 		constructor() {
 			super();
 		}

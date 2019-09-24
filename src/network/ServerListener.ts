@@ -269,13 +269,15 @@ class ServerListener extends SingletonClass {
         player.dir = msgData.getValue('dir');
         player.lifestate = msgData.getValue('lifestate');
         player.createTime = msgData.getValue('dwPlayerCreateTime');
+        // 清空视野
         player.clearViewObj();
+        // 先更新UI布局
+        PanelManage.Main && PanelManage.Main.updateUI();
         console.log('=====已经改变了地图ID======')
         // 切完大地图发送,地图ID改变
         let ready = new ProtoCmd.StateReady();
         lcp.send(ready, this, () => {
             GameApp.GameEngine.isReady = true;
-            PanelManage.Main && PanelManage.Main.updateUI()
         });
         msgData.clear();
     }
@@ -400,9 +402,11 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public mapRemoveCret(data: any): void {
+
         let msgData = new ProtoCmd.MapRemoveCret(data);
         let dwTmpId = msgData.getValue('dwTmpId');
         let btCretType = msgData.getValue('btCretType');
+        console.log(dwTmpId, btCretType, '离开地图');
         GameApp.MainPlayer.removeViewObj(dwTmpId, btCretType);
         msgData.clear();
     }
@@ -1104,9 +1108,9 @@ class ServerListener extends SingletonClass {
         let asks = new view.dialog.TeamInvitCheckDialog();
         asks.setData(msg).popup(true);
     }
-     /**
-   * 回答邀请加入队伍
-   */
+    /**
+  * 回答邀请加入队伍
+  */
     public allowInvitTeam(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
         if (msg.getValue('boAllow')) {

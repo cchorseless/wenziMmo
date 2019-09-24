@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":88,
-    "selecteID":32,
+    "selectedBox":1,
+    "selecteID":57,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":84,"x":54,"var":"img_npcBg","skin":"image/main/bottom_role.png"},
+            "props":{"y":59,"x":52,"var":"img_npcBg","skin":"image/main/bottom_role.png"},
             "nodeParent":1,
             "label":"Image(img_npcBg)",
             "isOpen":false,
@@ -81,7 +81,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":293,"x":88,"width":76,"var":"lbl_npcName","text":"司马德","height":32,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":true,"align":"left"},
+            "props":{"y":256,"x":88,"width":76,"var":"lbl_npcName","text":"司马德","height":32,"fontSize":26,"font":"Microsoft YaHei","color":"#000000","bold":true,"align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_npcName)",
             "isDirectory":false,
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":334,"x":72,"width":101,"var":"lbl_nickname","height":25,"fontSize":18,"font":"Microsoft YaHei","color":"#010101","align":"left"},
+            "props":{"y":293,"x":77,"width":101,"var":"lbl_nickname","height":25,"fontSize":18,"font":"Microsoft YaHei","color":"#010101","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_nickname)",
             "isDirectory":false,
@@ -109,7 +109,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":331,"x":264,"width":190,"height":22},
+            "props":{"y":338,"x":88,"width":184,"height":22},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
@@ -120,7 +120,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":6,"x":-5,"width":200,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","left":-14},
+                    "props":{"y":6,"width":96,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","left":-14,"height":11},
                     "nodeParent":52,
                     "label":"Image",
                     "isOpen":false,
@@ -134,7 +134,7 @@
                 },
                 {
                     "type":"Image",
-                    "props":{"y":7,"x":-13,"width":115,"skin":"image/common/Progressbar_gang_top.png","sizeGrid":"5,11,5,5","height":7},
+                    "props":{"y":7,"x":-13,"width":72,"skin":"image/common/Progressbar_gang_top.png","sizeGrid":"5,11,5,5","height":10},
                     "nodeParent":52,
                     "label":"Image",
                     "isDirectory":false,
@@ -147,7 +147,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":-10,"x":45,"width":79,"var":"lbl_exp","text":"150/200","strokeColor":"#000000","stroke":2,"height":22,"fontSize":18,"color":"#ffffff","align":"left"},
+                    "props":{"y":-13,"x":-5,"width":79,"var":"lbl_exp","text":"150/200","strokeColor":"#000000","stroke":2,"height":22,"fontSize":18,"color":"#ffffff","align":"left"},
                     "nodeParent":52,
                     "label":"Label(lbl_exp)",
                     "isDirectory":false,
@@ -162,7 +162,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":312,"x":213,"skin":"image/main/icon_haogandu.png"},
+            "props":{"y":319,"x":37,"skin":"image/main/icon_haogandu.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -188,7 +188,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":309,"x":457,"var":"btn_songLi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"赠送"},
+            "props":{"y":321,"x":166,"width":46,"var":"btn_songLi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":24,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"送","height":47},
             "nodeParent":1,
             "label":"Button(btn_songLi)",
             "isDirectory":false,
@@ -215,7 +215,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":122,"x":221,"width":350,"skin":"image/common/line_guild.png"},
+            "props":{"y":136,"x":226,"width":350,"skin":"image/common/line_guild.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -228,7 +228,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":136,"x":219,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+            "props":{"y":152,"x":222,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_npcDes1)",
             "isDirectory":false,
@@ -241,7 +241,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":180,"x":221,"width":350,"skin":"image/common/line_guild.png"},
+            "props":{"y":213,"x":225,"width":350,"skin":"image/common/line_guild.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -254,7 +254,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":191,"x":219,"wordWrap":true,"width":349,"var":"lbl_npcDes2","text":"（战力描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+            "props":{"y":229,"x":218,"wordWrap":true,"width":349,"var":"lbl_npcDes2","text":"（战力描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_npcDes2)",
             "isDirectory":false,
@@ -267,7 +267,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":234,"x":221,"width":350,"skin":"image/common/line_guild.png"},
+            "props":{"y":285,"x":220,"width":350,"skin":"image/common/line_guild.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -280,7 +280,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":247,"x":219,"wordWrap":true,"width":349,"var":"lbl_npcDes3","text":"（当前状态描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
+            "props":{"y":299,"x":218,"wordWrap":true,"width":349,"var":"lbl_npcDes3","text":"（当前状态描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":47,"fontSize":18,"font":"SimHei","color":"#63491a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_npcDes3)",
             "isDirectory":false,
@@ -293,7 +293,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":291,"x":221,"width":350,"skin":"image/common/line_guild.png"},
+            "props":{"y":357,"x":220,"width":350,"skin":"image/common/line_guild.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -324,7 +324,7 @@
             "props":{"y":349,"x":45,"var":"viw_bottom","right":10,"left":10,"height":253},
             "nodeParent":1,
             "label":"ViewStack(viw_bottom)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -1024,7 +1024,7 @@
                         }],
                     "$HIDDEN":true
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

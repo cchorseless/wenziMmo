@@ -12,7 +12,6 @@ module view.scene {
 			this.hbox_player['sortItem'] = (items) => { };
 			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
 			this.hbox_monster.addChild(ui_monsterGroup);
-			this.updateUI();
 			this.addEvent();
 		}
 
@@ -54,8 +53,10 @@ module view.scene {
 		 * 刷新界面
 		 */
 		public updateUI(): void {
-			// 更新怪物
-			// 更新其他玩家
+			// 清除怪物
+			this.clearMonster();
+			// 清除其他玩家
+			this.clearPlayer();
 			// 更新角色
 			this.updateSelfPlayer();
 			// 更新地图
@@ -164,7 +165,6 @@ module view.scene {
 			playerUI.setData(obj);
 			playerUI.scale(0.7, 0.7);
 			this.hbox_player.addChild(playerUI);
-
 		}
 
 
