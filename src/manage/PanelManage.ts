@@ -220,19 +220,19 @@ module PanelManage {
             PanelManage.loadMainPanel();
         }
     }
-    /**
-     * 显示剧情界面
-     */
-    export function openJuQingModePanel(): void {
+    // /**
+    //  * 显示剧情界面
+    //  */
+    // export function openJuQingModePanel(): void {
 
-        if (PanelManage.JuQingMode) {
-            PopUpManager.showPanel(PanelManage.JuQingMode);
-        }
-        else {
-            PanelManage.loadJuQingModePanel();
-        }
+    //     if (PanelManage.JuQingMode) {
+    //         PopUpManager.showPanel(PanelManage.JuQingMode);
+    //     }
+    //     else {
+    //         PanelManage.loadJuQingModePanel();
+    //     }
 
-    }
+    // }
 
     /******************************游戏界面************************************* */
     /**
@@ -918,7 +918,7 @@ module PanelManage {
     /**
      * 剧情模式界面
      */
-    export function loadJuQingModePanel(): void {
+    export function openJuQingModePanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingMode) {
             return
         }
@@ -928,7 +928,7 @@ module PanelManage {
             PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
             PanelManage.JuQingMode.setData();
             PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 0.1);
+            PopUpManager.addPanel(PanelManage.JuQingMode, 1);
         })
     }
 

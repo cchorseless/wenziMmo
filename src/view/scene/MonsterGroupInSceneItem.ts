@@ -3,6 +3,8 @@ module view.scene {
 	export class MonsterGroupInSceneItem extends ui.scene.MonsterGroupInSceneItemUI {
 		constructor() {
 			super();
+			// this.anchorX = this.anchorY = 0.5
+			// this.scaleY = -1;
 		}
 		/**
 		 * 展开
@@ -33,16 +35,16 @@ module view.scene {
 			for (let i = 0; i < 12; i++) {
 				if (this['box_' + i].numChildren == 0) {
 					// 第一排
-					if (i < 5) {
-						monster.scale(0.5, 0.5);
+					if (i < 3) {
+						monster.scale(0.7, 0.7);
 					}
 					// 第二排
-					else if (i >= 5 && i < 9) {
+					else if (i >= 3 && i < 7) {
 						monster.scale(0.6, 0.6);
 					}
 					// 第三排
 					else {
-						monster.scale(0.7, 0.7);
+						monster.scale(0.5, 0.5);
 					}
 					monster.centerY = 0;
 					monster.centerX = 0;

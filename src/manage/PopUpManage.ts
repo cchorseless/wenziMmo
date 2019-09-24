@@ -25,7 +25,7 @@ module PopUpManager {
     /**
      * 添加面板方法
      * @param panel  面板
-     * @param isAlway 界面层级。小于1（可以小数）:创建开始就一直存在,1级以上，每级只存在一个界面，1级界面打开的必定是2级界面，2级打开必定是3级，以此类推   
+     * @param isAlway 界面层级。0:创建开始就一直存在,1级以上，每级只存在一个界面，1级界面打开的必定是2级界面，2级打开必定是3级，以此类推   
      * @param effectType 0：没有动画 1:从中间轻微弹出 2：从中间猛烈弹出  3：从左向右 4：从右向左 5、从上到下 6、从下到上
      * @param showType 主界面上上下两个group是否显示；默认0：不显示；1：全显示；2：只显示上；3：只显示下。
      */
@@ -92,7 +92,6 @@ module PopUpManager {
         });
         // 界面层级管理
         let lenn = ALLPANEL.keys.length;
-        // 0层是主界面
         if (isAlway >= 0) {
             // isAlway的低一级界面的标识
             let _tmpArray = [0]
@@ -106,19 +105,14 @@ module PopUpManager {
             for (let i = lenn - 1; i >= 0; i--) {
                 let tmp = ALLPANEL.keys[i]
                 if (tmp != undefined) {
-                    // 高于本层级界面且层级大于1的界面，全部销毁掉
-                    if (tmp >= isAlway && tmp >= 1) {
+                    // 高于界面全部销毁掉
+                    if (tmp >= isAlway) {
                         checkPanel(ALLPANEL.get(tmp))
-                    }
-                    // 高于本层界面但是层级不大于1界面，隐藏掉
-                    else if (tmp > isAlway && tmp < 1) {
-                        ALLPANEL.get(tmp).visible = false;
                     }
                     // 低一级界面显示,其他隐藏掉
                     else if (tmp != lowIsAlways) {
                         ALLPANEL.get(tmp).visible = false;
                     }
-
                 }
             }
         }
@@ -221,13 +215,9 @@ module PopUpManager {
         for (let i = lenn - 1; i >= 0; i--) {
             let tmp = ALLPANEL.keys[i];
             if (tmp != undefined) {
-                // 高于本界面全部销毁掉且大于1销毁掉
-                if (tmp > isAlway && tmp >= 1) {
+                // 高于本界面全部销毁掉
+                if (tmp > isAlway) {
                     checkPanel(ALLPANEL.get(tmp))
-                }
-                // 高于本层界面但是层级不大于1界面，隐藏掉
-                else if (tmp > isAlway && tmp < 1) {
-                    ALLPANEL.get(tmp).visible = false;
                 }
                 // 低于低一层界面隐藏掉
                 else if (tmp < lowIsAlways) {

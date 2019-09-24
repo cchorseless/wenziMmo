@@ -16,7 +16,6 @@ module view.scene {
 			ui_monsterGroup.changeToBig();
 			this.hbox_2.addChild(ui_monsterGroup);
 			this.viw_0.setIndexHandler = Laya.Handler.create(this, (index) => {
-				console.log(index);
 				let keys = Object.keys(GameApp.MainPlayer.allMonster);
 				for (let key of keys) {
 					// 把所有小怪全部重新添加
@@ -30,7 +29,6 @@ module view.scene {
 					}
 				}
 			}, null, false);
-			this.updateUI();
 			this.addEvent();
 		}
 
@@ -43,8 +41,9 @@ module view.scene {
 		}
 
 		public updateUI(): void {
+			this.clearMonster();
+			this.clearPlayer();
 			// 更新怪物
-			this.viw_0.setIndexHandler.runWith(this.viw_0.selectedIndex);
 			// 更新角色
 			this.updateSelfPlayer();
 			// 更新地图

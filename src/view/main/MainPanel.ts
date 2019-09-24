@@ -428,9 +428,6 @@ module view.main {
 							uiscene.changeToBig();
 						}
 					}
-					else {
-						(this.box_uiScene0.getChildAt(0) as view.scene.SceneV3Item).updateUI();
-					}
 					break;
 				// 主城
 				case EnumData.emRoomType.publicZhuCheng:
@@ -445,12 +442,11 @@ module view.main {
 							uiscene.changeToBig();
 						}
 					}
-					else {
-						(this.box_uiScene0.getChildAt(0) as view.scene.SceneV4Item).updateUI();
-					}
 					break;
 			}
-
+			console.log('刷新了ui_scene')
+			// 刷新界面
+			this.ui_scene.updateUI();
 		}
 
 
@@ -545,16 +541,15 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.MAP_MOVE, [roomid], null, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
-					this.clearViewUI();
 					GameApp.MainPlayer.roomId = jsonData.curmapid;
 					// 上下左右房间的信息
 					GameApp.GameEngine.smallMapData = jsonData.dstmap;
-					TipsManage.showTips('进入了' + jsonData.curmapid);
-					// 更新场景信息
-					this.updateSceneView('进入了' + jsonData.curmapid);
+					console.log('进入了' + jsonData.curmapid);
 					// 更新主场景
 					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
 					this.updateUiScene(mapType);
+					// 更新场景信息
+					this.updateSceneView('进入了' + jsonData.curmapid);
 					// 更新小地图
 					this.updateSmallMap();
 				}

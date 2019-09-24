@@ -1,13 +1,13 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class SceneV2Item extends ui.scene.SceneV2ItemUI implements itf.SceneItem{
+	export class SceneV2Item extends ui.scene.SceneV2ItemUI implements itf.SceneItem {
 		constructor() {
 			super();
 		}
 
 
 
-		public initUI(): void {
+		public updateUI(): void {
 
 		}
 

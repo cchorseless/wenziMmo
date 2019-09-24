@@ -93,6 +93,7 @@ module view.juQingMode {
 		}
 
 		public Dispose(): void {
+			// this.visible = true;
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_readJuQing, this);
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_JuQingInfo, this);
 			PopUpManager.Dispose(this);
@@ -107,19 +108,18 @@ module view.juQingMode {
 			let ui_item = null;
 			switch (npc) {
 				case 0:
-					ui_item = new view.compart.JuQingContentV0Item();
+					ui_item = new view.juQingMode.JuQingContentV0Item();
 					ui_item.setData(context);
 					break;
 				case 1:
-					ui_item = new view.compart.JuQingContentV1Item();
+					ui_item = new view.juQingMode.JuQingContentV1Item();
 					ui_item.setData(context);
 					break
 				default:
-					ui_item = new view.compart.JuQingContentV2Item();
+					ui_item = new view.juQingMode.JuQingContentV2Item();
 					ui_item.setData(npc, context);
 					break;
 			}
-
 			console.log("===========>")
 			this.vbox_0.addChild(ui_item);
 			this.panel_0.scrollTo(0, this.vbox_0.height);

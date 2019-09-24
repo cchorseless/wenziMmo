@@ -802,22 +802,25 @@ module EnumData {
         KILLPLAYER = 28,	    //杀人
         ADDFRIEND = 29,	        //加好友
         INGROUP = 30,		    //组队
-        SHENJIAUP = 31,	        //神翼升级任务
-        XINGHUNUP = 32,	        //星魂升级任务
-        FABAOUP = 33,		    //法宝升级任
-        RIDEPETUP = 34,	        //骑宠
-        WEAR_ANIMALSOUL = 35,	//穿戴任意兽魂
-        SHENBINGUP = 36,	    //神兵升级
-        MAGICPETUP = 37,	    //魔宠升级
-        JUNXIANUP = 38,		    //军衔升级
-        FUMOUP = 39,		    //附魔升级
+
+        GANGQI_UP = 31,	        //罡气升级任务
+        NEIGONG_UP = 32,	        //内功经络升级
+        WUXING_UP = 33,		    //悟性升级任务
+        GENGU_UP = 34,	        //根骨升级任务
+        SHANYUAN_UP = 35,	//善缘升级任务
+        BILI_UP = 36,	    //臂力升级任务
+        SHENFA_UP = 37,	    //身法升级任务
+        SHENGWANG_UP = 38,		    //声望升级任务
+
+        DRESS_WUXUE = 39,		    //装备武学
         QIANGHUAUP = 40,	    //强化升级任务	
         EVERYDAYFINISH = 41,	//完成一环赏金任务
         LOOPFINISH = 42,		//完成一环环式任务
         TESHU_QUEST = 43,       //特殊任务特殊处理
         NEEDHEROLV = 44,		//英雄升级
-        BUYINGIFTSMALL = 45,	//礼券商城购买（不用）
+        // BUYINGIFTSMALL = 45,	//礼券商城购买（不用）
         SKILLEXP = 46,          //技能经验
+        FINISH_CHUMOFUBEN=47,   //通关除魔副本
     };
 
     /**
@@ -827,7 +830,6 @@ module EnumData {
         MAP_FENG_DU = 5001,//酆都
         MAP_FU_ZHOU_CHENG = 5002,//福州城
     }
-
 
 
     /******************************************************战斗模块********************* */
