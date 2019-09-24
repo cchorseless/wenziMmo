@@ -1255,22 +1255,25 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         console.log(strArr);
         // TODO
-        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-        switch (strArr.length) {
-            case 4:
-                msgID = parseInt(strArr[2]);
-                break;
+        try {
+            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+            switch (strArr.length) {
+                case 4:
+                    msgID = parseInt(strArr[2]);
+                    break;
+            }
+            let eventName = funcName;
+            if (msgID) {
+                eventName += '_' + msgID;
+            }
+            // 抛出事件
+            GameApp.LListener.event(eventName, [jsonData]);
         }
-        let eventName = funcName;
-        if (msgID) {
-            eventName += '_' + msgID;
+        catch (e) {
+
         }
-        // 抛出事件
-        GameApp.LListener.event(eventName, [jsonData]);
         msg.clear();
         msg = null;
-
-
 
     }
 
