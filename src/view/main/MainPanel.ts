@@ -622,11 +622,11 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
 <j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
 
 
-			let obj = new DOMParser().parseFromString(sss, "text/xml");
-			console.log('======', obj)
-			console.log('=======', obj.getElementsByName('t'));
+			let obj = GameApp.DomUtil.parseXML(sss);
+			let tNode = obj.getElementsByTagName('t');
+			console.log('======',tNode)
 			this.div_taskDes.style.fontSize = 20;
-			this.div_taskDes.innerHTML = obj.firstElementChild.getAttribute('ft') + '</a>';
+			this.div_taskDes.innerHTML = tNode[0].getAttribute('ft') + '</a>';
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
 				console.log(data)
 			})

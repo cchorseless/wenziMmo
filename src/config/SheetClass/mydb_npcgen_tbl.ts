@@ -37,71 +37,55 @@ public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class.
  */
  public ORIENTATION(configID:string):number { return this.data[configID][8]}
 /**
- *  脚本ID
- */
- public SCRIPTID(configID:string):number { return this.data[configID][9]}
-/**
  *  是否走路
  */
- public WALK(configID:string):number { return this.data[configID][10]}
+ public WALK(configID:string):number { return this.data[configID][9]}
 /**
  *  是否隐身
  */
- public INVISIBLE(configID:string):number { return this.data[configID][11]}
+ public INVISIBLE(configID:string):number { return this.data[configID][10]}
 /**
  *  走路路径
  */
- public WALKING_PATH(configID:string):number { return this.data[configID][12]}
+ public WALKING_PATH(configID:string):number { return this.data[configID][11]}
 /**
  *  复活时间
  */
- public RESURRECTION_TIME(configID:string):number { return this.data[configID][13]}
-/**
- *  怪物ID
- */
- public MONSTERID(configID:string):number { return this.data[configID][14]}
+ public RESURRECTION_TIME(configID:string):number { return this.data[configID][12]}
 /**
  *  怪物名称
  */
- public MONSTER_NAME(configID:string):string { return this.data[configID][15]}
+ public MONSTER_NAME(configID:string):string { return this.data[configID][13]}
 /**
  *  所在房间ID
  */
- public ROOMID(configID:string):number { return this.data[configID][16]}
+ public ROOMID(configID:string):number { return this.data[configID][14]}
 /**
  *  所在房间名称
  */
- public ROOMNAME(configID:string):string { return this.data[configID][17]}
+ public ROOMNAME(configID:string):string { return this.data[configID][15]}
 /**
  *  NPC别称
  */
- public NPC_NICKNAME(configID:string):string { return this.data[configID][18]}
+ public NPC_NICKNAME(configID:string):string { return this.data[configID][16]}
 /**
  *  NPC人设描述
  */
- public NPC_DES1(configID:string):string { return this.data[configID][19]}
+ public NPC_DES1(configID:string):string { return this.data[configID][17]}
 /**
  *  NPC外貌描写
  */
- public NPC_DES2(configID:string):string { return this.data[configID][20]}
+ public NPC_DES2(configID:string):string { return this.data[configID][18]}
 /**
- *  NPC对白
+ *  喜好
  */
- public NPC_TALK(configID:string):Array<string> { return this.data[configID][21]}
+ public NPC_LOVE(configID:string):Array<number> { return this.data[configID][19]}
 /**
- *  喜好道具ID
+ *  装备信息
  */
- public NPC_LOVE(configID:string):Array<number> { return this.data[configID][22]}
+ public NPC_EQUIP(configID:string):Array<number> { return this.data[configID][20]}
 /**
- *  装备信息ID
+ *  宝物信息
  */
- public NPC_EQUIP(configID:string):Array<number> { return this.data[configID][23]}
-/**
- *  宝物信息ID
- */
- public NPC_BAOWUID(configID:string):Array<number> { return this.data[configID][24]}
-/**
- *  宝物信息数量
- */
- public NPC_BAOWUCOUNT(configID:string):Array<number> { return this.data[configID][25]}
+ public NPC_BAOWU(configID:string):Array<number> { return this.data[configID][21]}
 }}
