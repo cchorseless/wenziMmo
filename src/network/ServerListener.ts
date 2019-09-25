@@ -140,10 +140,11 @@ class ServerListener extends SingletonClass {
         // 新玩家进入游戏打开欢迎界面
         GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.openWelcomePanel);
         // 正常充值提示界面
-        GameApp.LListener.on(ProtoCmd.CZ_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_chongzhidialog]);
+        GameApp.LListener.on(ProtoCmd.CZ_OPEN_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_OPEN_chongzhidialog]);
         // 首次充值提示界面
-        GameApp.LListener.on(ProtoCmd.CZ_weichongzhidialog, this, this.openPanel, [ProtoCmd.CZ_weichongzhidialog]);
-
+        GameApp.LListener.on(ProtoCmd.CZ_OPEN_weichongzhidialog, this, this.openPanel, [ProtoCmd.CZ_OPEN_weichongzhidialog]);
+        // 剧情事件提示面板
+        GameApp.LListener.on(ProtoCmd.JQ_OPEN_JuQingEventDialog, this, this.openPanel, [ProtoCmd.JQ_OPEN_JuQingEventDialog]);
         // 监听图鉴信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
         //PKModel
@@ -1223,7 +1224,7 @@ class ServerListener extends SingletonClass {
                 break;
             // 剧情任务
             case EnumData.TaskType.JUQINGEVENT:
-                PanelManage.JuQingMode && PanelManage.JuQingMode.showJuQingEvent();
+                // PanelManage.JuQingMode && PanelManage.JuQingMode.showJuQingEvent();
                 break;
         }
         cbpket.clear();
@@ -1236,6 +1237,19 @@ class ServerListener extends SingletonClass {
      */
     public changeTaskState(data): void {
         let cbpket = new ProtoCmd.stQuestDoingRet(data);
+        let keys = Object.keys(GameApp.GameEngine.taskInfo);
+        for (let key of keys) {
+            let taskGroup = GameApp.GameEngine.taskInfo[key];
+            let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
+            if (taskInfo) {
+                console.log('更新了任务' + cbpket.getValue('taskid'))
+                taskInfo.targetdes = cbpket.str;
+                taskInfo.queststatus = cbpket.getValue('queststatus')
+                break;
+            }
+        }
+        cbpket.clear();
+        cbpket = null;
     }
 
     /****************************************剧情相关********************************* */
@@ -1278,12 +1292,17 @@ class ServerListener extends SingletonClass {
             }
             // 抛出事件
             GameApp.LListener.event(eventName, [jsonData]);
+
         }
         catch (e) {
 
         }
+
         msg.clear();
         msg = null;
+
+
+
 
     }
 
@@ -1301,12 +1320,20 @@ class ServerListener extends SingletonClass {
     public openPanel(data: string): void {
         switch (data) {
             // 充值界面
-            case ProtoCmd.CZ_chongzhidialog:
+            case ProtoCmd.CZ_OPEN_chongzhidialog:
                 new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
                 break;
             // 首冲界面
-            case ProtoCmd.CZ_weichongzhidialog:
+            case ProtoCmd.CZ_OPEN_weichongzhidialog:
                 new view.dialog.ChongZhiNoticeDialog().setData().popup(true);
+                break;
+            // 剧情事件界面
+            case ProtoCmd.JQ_OPEN_JuQingEventDialog:
+                let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+                if (taskInfo) {
+                    let _task = taskInfo[Object.keys(taskInfo)[0]];
+                    new view.dialog.JuQingEventDialog().setData(_task).popup();
+                }
                 break;
         }
     }

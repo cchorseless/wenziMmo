@@ -16,10 +16,13 @@ module ProtoCmd {
     export const ITEM_LoopUseItem = 'LoopUseItem';//批量使用物品
     /*****************************充值********************** */
     // 正常充值界面
-    export const CZ_chongzhidialog = 'chongzhidialog';
+    export const CZ_OPEN_chongzhidialog = 'chongzhidialog';
 
     // 首冲界面
-    export const CZ_weichongzhidialog = 'weichongzhidialog';
+    export const CZ_OPEN_weichongzhidialog = 'weichongzhidialog';
+
+    // 剧情提示面板
+    export const JQ_OPEN_JuQingEventDialog = 'JuQingEventDialog';
 
     /*****************************帮派*********************** */
     // 号角信息
@@ -274,7 +277,7 @@ module ProtoCmd {
         items: any;// 奖励
         mainquestid: number; // 剧情触发任务
         subquestid: number; // 激活任务
-        
+
         tjeventid: number;// 图鉴激活事件
         tjitem: number;// 图鉴激活物品
         tjmap: number;// 图鉴激活地图

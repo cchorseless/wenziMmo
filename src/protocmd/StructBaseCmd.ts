@@ -3160,6 +3160,10 @@ module ProtoCmd {
             return this.getValue("targetdes");
         }
 
+        public get taskJinDu():string{
+            return  this.targetdes
+        }
+
         /**
          * 任务奖励
          */

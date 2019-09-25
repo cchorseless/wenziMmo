@@ -40,10 +40,16 @@ class GameApp {
     /**
      * HttpManager
      */
-    public static get HttpManager():HttpManager{
+    public static get HttpManager(): HttpManager {
         return HttpManager.getInstance();
     }
 
+    /**
+     * xml解析类
+     */
+    public static get DomUtil(): DomUtil {
+        return DomUtil.getInstance();
+    }
     // /**
     //  * 服务器返回的消息处理中心
     //  * @type {MessageCenter}

@@ -16,6 +16,7 @@ module view.dialog {
 			// 任务目标
 			this.div_targetDes.style.fontSize = 20;
 			this.div_targetDes.innerHTML = '' + taskInfo.targetdes;
+			this.div_targetDes.on(Laya.Event.LINK, this, this.goToFinishTask)
 			// 任务NPC
 			this.lbl_npc.text = '' + taskInfo.endnpcname;
 			this.box_npc.visible = Boolean(taskInfo.endnpcname);
@@ -33,12 +34,12 @@ module view.dialog {
 			}
 
 			// 任务奖励
-			let obj: XMLDocument = Laya.Utils.parseXMLFromString(taskInfo.jiangli);
-			let nodeList = obj.firstChild.childNodes;
+			let obj = GameApp.DomUtil.parseXML(taskInfo.jiangli);
+			let nodeList = obj.getElementsByTagName('j')[0].getElementsByTagName('i');
 			for (let i = 0; i < nodeList.length; i++) {
 				let _itemInfo = new ProtoCmd.ItemBase();
-				_itemInfo.dwBaseID = parseInt('' + nodeList.item(i).attributes.getNamedItem('id').nodeValue);
-				_itemInfo.dwCount = parseInt('' + nodeList.item(i).attributes.getNamedItem('co').nodeValue);
+				_itemInfo.dwBaseID = parseInt('' + nodeList[i].getAttribute('id'));
+				_itemInfo.dwCount = parseInt('' + nodeList[i].getAttribute('co'));
 				let itemUI = new view.compart.DaoJuWithNameItem();
 				itemUI.setData(_itemInfo);
 				this.hbox_0.addChild(itemUI);
@@ -65,15 +66,27 @@ module view.dialog {
 						break;
 					// 进行中
 					case EnumData.QUESTSTATUS.QUESTDOING:
-						// let obj: XMLDocument = Laya.Utils.parseXMLFromString(this.taskInfo.targetdes);
-						// console.log(obj);
-						// let nodeList = obj.firstElementChild.getAttribute();
-
+						this.close();
+						for (let _ele of this.div_targetDes._childs) {
+							if (_ele.href) {
+								this.div_targetDes.event(Laya.Event.LINK, _ele.href)
+							}
+						}
 						break;
 				}
-
-
 			});
+		}
+
+		/**
+		 * 前去完成任务
+		 * @param data 
+		 */
+		public goToFinishTask(data: string): void {
+			console.log(data);
+			console.log(data.split('|'));
+			let hander = data.split('|');
+			// for()
+			// if(hander.length==1)
 		}
 	}
 }

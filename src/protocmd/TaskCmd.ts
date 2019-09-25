@@ -60,7 +60,7 @@ module ProtoCmd {
         public str: string = '';//任务状态，任务结构体中的targetDes
         public constructor(data: Laya.Byte = null) {
             super();
-            this.addProperty('id', PacketBase.TYPE_DWORD);// 4 任务ID 
+            this.addProperty('taskid', PacketBase.TYPE_DWORD);// 4 任务ID 
             this.addProperty('queststatus', PacketBase.TYPE_BYTE);// 1 任务状态 
             this.addProperty('szKillID', PacketBase.TYPE_STRING, 300);
             this.addProperty('nCount', PacketBase.TYPE_INT);

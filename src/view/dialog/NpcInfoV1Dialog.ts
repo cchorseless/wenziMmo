@@ -70,24 +70,24 @@ module view.dialog {
 			let commonName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(configId);
 			this.lbl_npcName.text = commonName;
 			if (nickName) { this.lbl_nickname.text = '(' + nickName + ')'; }
-			// 喜好
-			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
-			for (let _itemId of xiHaoItem) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				this.hbox_xiHao.addChild(itemUI);
-			}
-			// 装备
-			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
-			for (let _itemId of equipItem) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				this.hbox_equip.addChild(itemUI);
-			}
-			// 宝物
-			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWUID(configId);
-			for (let _itemId of BAOWUItem) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				this.hbox_baoWu.addChild(itemUI);
-			}
+			// // 喜好
+			// let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
+			// for (let _itemId of xiHaoItem) {
+			// 	let itemUI = new view.compart.DaoJuWithNameItem();
+			// 	this.hbox_xiHao.addChild(itemUI);
+			// }
+			// // 装备
+			// let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
+			// for (let _itemId of equipItem) {
+			// 	let itemUI = new view.compart.DaoJuWithNameItem();
+			// 	this.hbox_equip.addChild(itemUI);
+			// }
+			// // 宝物
+			// let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWUID(configId);
+			// for (let _itemId of BAOWUItem) {
+			// 	let itemUI = new view.compart.DaoJuWithNameItem();
+			// 	this.hbox_baoWu.addChild(itemUI);
+			// }
 		}
 	}
 }

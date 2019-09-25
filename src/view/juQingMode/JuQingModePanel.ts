@@ -87,17 +87,21 @@ module view.juQingMode {
 				if (allKeys.length > 0) {
 					let charpterData = GameApp.GameEngine.talkInfo[GameApp.MainPlayer.charpterID];
 					if (charpterData) {
+						// 激活了任务
+						if (jsonData.mainquestid) {
+							this.btn_next.label = 'new 剧情事件!!!!';
+						}
+						else {
+							this.btn_next.label = '继 续';
+						}
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = charpterData.data[GameApp.MainPlayer.talkID];
 						// 处理选项对白
 						this.showSelectQuestion(_talkInfo);
 						this.addJuQingTalkItem(_talkInfo);
+						// 奖励
+
+						// 图鉴
 					}
-					// 任务
-					if (jsonData.mainquestid) {
-						this.btn_next.label = ''
-					}
-					// 奖励
-					// 图鉴
 				}
 				else {
 					TipsManage.showTips('章节已经读完');
@@ -177,6 +181,14 @@ module view.juQingMode {
 					};
 				});
 			lcp.send(pkt1);
+			// 判定是否有触发了剧情事件
+			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+			if (taskInfo) {
+				this.btn_next.label = 'new 剧情事件!!!!';
+			}
+			else {
+				this.btn_next.label = '继 续';
+			}
 		}
 
 		/**
@@ -242,7 +254,6 @@ module view.juQingMode {
 				let _task = taskInfo[Object.keys(taskInfo)[0]];
 				new view.dialog.JuQingEventDialog().setData(_task).popup();
 			}
-
 		}
 	}
 }

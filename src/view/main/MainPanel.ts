@@ -620,11 +620,13 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
  loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
 <q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
 <j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
-			let obj: XMLDocument = Laya.Utils.parseXMLFromString(sss)
-			console.log('======', obj)
-			console.log('=======', obj.firstElementChild.getAttribute('ft'));
+
+
+			let obj = GameApp.DomUtil.parseXML(sss);
+			let tNode = obj.getElementsByTagName('t');
+			console.log('======',tNode)
 			this.div_taskDes.style.fontSize = 20;
-			this.div_taskDes.innerHTML = obj.firstElementChild.getAttribute('ft') + '</a>';
+			this.div_taskDes.innerHTML = tNode[0].getAttribute('ft') + '</a>';
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
 				console.log(data)
 			})
