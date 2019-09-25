@@ -1226,6 +1226,19 @@ class ServerListener extends SingletonClass {
      */
     public changeTaskState(data): void {
         let cbpket = new ProtoCmd.stQuestDoingRet(data);
+        let keys = Object.keys(GameApp.GameEngine.taskInfo);
+        for (let key of keys) {
+            let taskGroup = GameApp.GameEngine.taskInfo[key];
+            let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
+            if (taskInfo) {
+                console.log('更新了任务' + cbpket.getValue('taskid'))
+                taskInfo.targetdes = cbpket.str;
+                taskInfo.queststatus=cbpket.getValue('queststatus')
+                break;
+            }
+        }
+        cbpket.clear();
+        cbpket = null;
     }
 
     /****************************************剧情相关********************************* */
@@ -1255,7 +1268,7 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         console.log(strArr);
         // TODO
-        try {
+
             let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
             switch (strArr.length) {
                 case 4:
@@ -1268,10 +1281,8 @@ class ServerListener extends SingletonClass {
             }
             // 抛出事件
             GameApp.LListener.event(eventName, [jsonData]);
-        }
-        catch (e) {
+        
 
-        }
         msg.clear();
         msg = null;
 
