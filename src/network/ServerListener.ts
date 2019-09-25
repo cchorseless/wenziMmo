@@ -113,6 +113,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamInviteEnDecoder), this, this.invitTeam);
         //回答邀请加入队伍结果
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeInviteEnDecoder), this, this.allowInvitTeam);
+        //队长踢出队伍
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamKickoutDecoder), this, this.outedTeam);
         /***********************************行会信息********************************* */
         // 同步行会信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stGlobalGuildChangeGuildRet), this, this.syncBangPaiInfo);
@@ -1123,6 +1125,14 @@ class ServerListener extends SingletonClass {
         else {
             TipsManage.showTips('拒绝加入');
         }
+    }
+       /**
+ *队长踢出队伍
+ */
+    public outedTeam(data: Laya.Byte): void {
+        let msg = new ProtoCmd.TeamKickoutDecoder(data);
+        PanelManage.Team.myTeam();
+        TipsManage.showTips('您已被踢出队伍');
     }
     /*******************************************************行会信息******************************************* */
     /**

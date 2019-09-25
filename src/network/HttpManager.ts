@@ -1,6 +1,6 @@
 
 
-const HTTP_URL = 'http://192.168.10.199:3000/'; 
+const HTTP_URL = 'http://192.168.10.188:8090/'; 
 const HTTP_SUCCESS = 200;
 
 //name=zoneList 请求区服列表

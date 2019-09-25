@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":116,
-    "selecteID":136,
+    "selectedBox":156,
+    "selecteID":85,
     "referenceLines":[
         {
             "value":1127,
@@ -838,15 +838,16 @@
             "props":{"y":850,"x":0,"var":"box_talk"},
             "nodeParent":1,
             "label":"Box(box_talk)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":156,
             "child":[
                 {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":22,"var":"tab_task","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":0,"left":0,"labels":"世\\n界,场\\n景","labelStrokeColor":"#000000","labelStroke":6,"labelSize":32,"labelFont":"FZXK","labelColors":"#ffffff,#fef3d5","direction":"vertical"},
+                    "props":{"y":22,"var":"tab_task","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":0,"left":0,"labels":"世\\n界,场\\n景","labelStrokeColor":"#000000","labelStroke":6,"labelSize":32,"labelFont":"FZXK","labelColors":"#ffffff,#ffce00","direction":"vertical"},
                     "nodeParent":156,
                     "label":"Tab(tab_task)",
                     "isDirectory":false,
@@ -858,6 +859,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":29,"skin":"image/main/fram_common_03a.png","sizeGrid":"16,16,16,16"},
                     "nodeParent":156,

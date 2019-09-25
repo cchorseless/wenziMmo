@@ -29,29 +29,30 @@ module view.rank {
 			this.vbox_7['sortItem'] = (items) => { };
 			this.addEvent();
 			this.rankList();
-			
+
 		}
 		public addEvent(): void {
 			// 返回
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
 			});
-			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel();
+			// 小说模式
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel();
+			});
+			// 队伍
+			EventManage.onWithEffect(this.btn_team, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTeamPanel();
+			});
+			// 好友
+			EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openFriendPanel();
+			});
+			// 帮会
+			EventManage.onWithEffect(this.btn_guild, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openGuildSelectPanel();
 			});
 
-			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openRankMainPanel();
-			});
-			EventManage.onWithEffect(this.btn_yinDao, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openYinDaoPanel();
-			});
-			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openZhiNanPanel();
-			});
-			EventManage.onWithEffect(this.btn_rankPrize, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.RankPrizeInfoDialog().setData().popup(true);
-			});
 
 
 		}

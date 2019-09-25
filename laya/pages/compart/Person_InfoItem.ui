@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":160,
-    "selecteID":171,
+    "selecteID":183,
     "props":{"width":567,"sceneColor":"#f8eeee","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -429,38 +429,42 @@
             "props":{"y":597,"x":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":145,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":3,"x":4,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":145,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":146,
+                    "compId":181,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":1,"x":21,"width":104,"text":"人物标签","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":146,
+                            "props":{"y":4,"x":41,"text":"人物标签","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":181,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":147,
+                            "compId":182,
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":51,"x":37,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -472,6 +476,7 @@
                     "compId":148,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"text":"乐天达观","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":148,
@@ -485,6 +490,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":51,"x":173,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -496,6 +502,7 @@
                     "compId":150,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"width":80,"text":"成熟稳重","strokeColor":"#000000","stroke":2,"height":30,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":150,
@@ -509,6 +516,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":51,"x":307,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -520,6 +528,7 @@
                     "compId":152,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"text":"幼稚调皮","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":152,
@@ -533,6 +542,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":51,"x":442,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -544,6 +554,7 @@
                     "compId":154,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"text":"内向害羞","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":154,
@@ -557,6 +568,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":101,"x":37,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -568,6 +580,7 @@
                     "compId":156,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"text":"温柔体贴","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":156,
@@ -581,6 +594,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":101,"x":173,"width":97,"skin":"image/juese/img_common_15 .png","height":42},
                     "nodeParent":145,
@@ -592,6 +606,7 @@
                     "compId":158,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":8,"text":"活泼可爱","strokeColor":"#000000","stroke":2,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                             "nodeParent":158,
@@ -620,28 +635,30 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":3,"x":4,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":160,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":161,
+                    "compId":183,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":1,"x":21,"width":104,"text":"命数履历","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":161,
+                            "props":{"y":4,"x":41,"text":"命数履历","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":183,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":162,
+                            "compId":184,
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

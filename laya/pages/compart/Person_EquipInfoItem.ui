@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":270,
-    "selecteID":243,
+    "selectedBox":141,
+    "selecteID":216,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -81,7 +81,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":361,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
+                    "props":{"y":477,"x":361,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -94,7 +94,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":229,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
+                    "props":{"y":477,"x":229,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":96,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
+                    "props":{"y":477,"x":96,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -303,25 +303,24 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":11,"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":9,"x":-5,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":270,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":240,
+                    "compId":272,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
-                            "props":{"y":1,"x":21,"width":104,"text":"战斗属性","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":240,
+                            "props":{"y":4,"x":41,"text":"战斗属性","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":272,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":241,
+                            "compId":273,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -671,7 +670,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":33,"var":"lbl_pk","text":"100","strokeColor":"#000000","stroke":4,"italic":true,"fontSize":50,"color":"#ffffff"},
+                            "props":{"y":3,"x":33,"var":"lbl_pk","text":"100","strokeColor":"#000000","stroke":4,"italic":true,"fontSize":50,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":244,
                             "label":"Label(lbl_pk)",
                             "isDirectory":false,
