@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":185,
+    "selectedBox":162,
+    "selecteID":164,
     "props":{"width":640,"sceneColor":"#cdb0af","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -59,15 +59,16 @@
             "props":{"y":64,"x":176,"skin":"image/common/frame_zhangjie.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":162,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":6,"x":18,"width":82,"var":"lbl_charpterTile","text":"第一章","strokeColor":"#404040","stroke":4,"height":36,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":6,"x":15,"width":82,"var":"lbl_charpterTile","text":"第一章","strokeColor":"#404040","stroke":4,"height":36,"fontSize":28,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":162,
                     "label":"Label(lbl_charpterTile)",
                     "isDirectory":false,
@@ -78,8 +79,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":6,"x":111,"width":158,"var":"lbl_charpterName","text":"我与你的约定","strokeColor":"#404040","stroke":4,"height":36,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":6,"x":107,"var":"lbl_charpterName","text":"我与你的约定","strokeColor":"#404040","stroke":4,"height":36,"fontSize":28,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":162,
                     "label":"Label(lbl_charpterName)",
                     "isDirectory":false,
@@ -545,7 +547,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":12,"x":-4,"width":641,"var":"lbl_selestQuestion","valign":"middle","text":"现在向哪个方向走呢？","height":80,"fontSize":30,"color":"#f9f6f6","align":"center"},
+                    "props":{"y":12,"x":-4,"width":641,"var":"lbl_selestQuestion","valign":"middle","text":"现在向哪个方向走呢？","height":80,"fontSize":30,"font":"FZHL","color":"#f9f6f6","align":"center"},
                     "nodeParent":185,
                     "label":"Label(lbl_selestQuestion)",
                     "isDirectory":false,
@@ -558,7 +560,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":151,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":151,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
                     "label":"Button(btn_selectA)",
                     "isDirectory":false,
@@ -571,7 +573,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":149,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":149,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
                     "label":"Button(btn_selectB)",
                     "isDirectory":false,
