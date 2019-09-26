@@ -65,55 +65,55 @@ module view.rank {
 				//等级榜
 				case 0:
 					btType = EnumData.emRankType.Cret_Level_Rank;
-					myLevel = 'dwLevel'
+					myLevel = 'dwLevel';
 					ui_rank_box = this.vbox_0;
 					break;
 				//战力榜
 				case 1:
 					btType = EnumData.emRankType.Cret_EquipScore_Rank;
-					myLevel = 'nEquipScore'
+					myLevel = 'nEquipScore';
 					this.lbl_title.text = '角色战力';
 					ui_rank_box = this.vbox_1;
 					break;
 				//英雄战力榜
 				case 2:
 					btType = EnumData.emRankType.Cret_Hero_Warrior_Score_Rank;
-					myLevel = 'heroPower1'
+					myLevel = 'heroPower1';
 					this.lbl_title.text = '英雄战力';
 					ui_rank_box = this.vbox_2;
 					break;
 				//勋章榜
 				case 3:
 					btType = EnumData.emRankType.Cret_Medal_Rank;
-					myLevel = 'dwMedalRank'
+					myLevel = 'dwMedalRank';
 					this.lbl_title.text = '勋章等级';
 					ui_rank_box = this.vbox_3;
 					break;
 				//官印榜
 				case 4:
 					btType = EnumData.emRankType.Cret_GuanZhiLv_Rank;
-					myLevel = 'dwGuanZhilv'
+					myLevel = 'dwGuanZhilv';
 					this.lbl_title.text = '官印等级';
 					ui_rank_box = this.vbox_4;
 					break;
 				//龙魂榜
 				case 5:
 					btType = EnumData.emRankType.Cret_LongHunLv_Rank;
-					myLevel = 'dwLongHunlv'
+					myLevel = 'dwLongHunlv';
 					this.lbl_title.text = '龙魂等级';
 					ui_rank_box = this.vbox_5;
 					break;
 				//强化榜
 				case 6:
 					btType = EnumData.emRankType.Cret_Intensify_Rank;
-					myLevel = 'dwStrenTotalLvl'
+					myLevel = 'dwStrenTotalLvl';
 					this.lbl_title.text = '强化等级';
 					ui_rank_box = this.vbox_6;
 					break;
 				//威望榜
 				case 7:
 					btType = EnumData.emRankType.Cret_Fame_Rank;
-					myLevel = 'dwFame'
+					myLevel = 'dwFame';
 					this.lbl_title.text = '威望等级';
 					ui_rank_box = this.vbox_7;
 					break;

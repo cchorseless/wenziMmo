@@ -20,6 +20,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // 更新本地密匙 109
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
+        //
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CreatePlayerRet), this, this.createPlayerRet)
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
         // 玩家改变地图ID 201
@@ -231,6 +233,53 @@ class ServerListener extends SingletonClass {
         Log.trace('------->>token=' + token);
         msgData.clear();
     }
+
+
+	/**
+  		* 创角协议回调
+  		* @param data 
+  		*/
+    public createPlayerRet(data: any): void {
+        let msg = new ProtoCmd.CreatePlayerRet(data);
+        let errorcode = msg.getValue('errorcode');
+        console.log('==========errorcode', errorcode)
+        if (errorcode == 0) {
+            // 单服单角色，这里可以扩展
+            let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
+            selector.setValue("nselectidx", 0);
+            selector.setValue("szName", msg.getValue('szPlayerName'));
+            selector.setValue("btmapsubline", 1);
+            lcp.send(selector, this, PanelManage.ChooseServer.selectPlayerRet)
+            GameApp.GameEngine.isLogin = true;
+        }
+        else {
+            let strmsg: string;
+            switch (errorcode) {
+                case -10:
+                    strmsg = '有非法字符';
+                    break;
+                case -14:
+                    strmsg = '昵称名检查没通过';
+                    break;
+                case -15:
+                    strmsg = '昵称名不能超过4个以上的数字';
+                    break;
+                case -16:
+                    strmsg = '当前服务器正在维护';
+                    break;
+                case -70:
+                    strmsg = '昵称重复';
+                    break;
+                default:
+                    strmsg = '昵称重复';
+                    break;
+            }
+            TipsManage.showTips(strmsg);
+        }
+        msg.clear();
+        msg = null;
+    }
+
     /**
      * 服务器提示的tips
      * @param data 
@@ -1127,9 +1176,9 @@ class ServerListener extends SingletonClass {
             TipsManage.showTips('拒绝加入');
         }
     }
-       /**
- *队长踢出队伍
- */
+    /**
+*队长踢出队伍
+*/
     public outedTeam(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamKickoutDecoder(data);
         PanelManage.Team.myTeam();

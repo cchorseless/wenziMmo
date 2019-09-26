@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":30,
-    "selecteID":4,
+    "selectedBox":1,
+    "selecteID":30,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -242,43 +242,6 @@
                             "child":[
                                 ]
                         }]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":873,"x":150,"width":340,"skin":"image/common/input_bg.png","height":64},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":27,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":22,"x":58,"width":166,"var":"lbl_serverName","text":"服务器1区","height":31,"fontSize":25,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":27,
-                    "label":"Label(lbl_serverName)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":21,"x":223,"width":84,"var":"btn_changeServer","text":"[换区]","height":31,"fontSize":25,"font":"FZXK","color":"#ffffff","bold":true,"align":"center"},
-                    "nodeParent":27,
-                    "label":"Label(btn_changeServer)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":29,
-                    "child":[
-                        ]
                 }]
         }],
     "animations":[

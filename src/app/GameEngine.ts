@@ -15,6 +15,9 @@ class GameEngine extends SingletonClass {
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
     public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
+    public trueZoneid: number = 1;
+    public zoneid: number = 1001;//区号
+    public svrIndex: number = 0;//服号
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
     public updateHZ: number = 100;                                                      // 客户端玩家跟新更新坐标频率
@@ -69,9 +72,7 @@ class GameEngine extends SingletonClass {
     public tokenCheck: number;
     public logintoken: Laya.Byte;
 
-    public trueZoneid: number = 1;
-    public zoneid: number = 1001;//区号
-    public svrIndex: number = 0;//服号
+
 
 
     public constructor() {
