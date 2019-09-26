@@ -2,40 +2,36 @@
 module view.common {
 	export class ChooseServerPanel extends ui.common.ChooseServerPanelUI {
 		public password = '';
-		constructor(account, password) {
+		constructor() {
 			super();
-			this.setData(account, password);
 		}
-		public setData(account, password): ChooseServerPanel {
-			this.lbl_playerName.text = account;
-			this.password = password;
+		public setData(): ChooseServerPanel {
+			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
+			this.password = Laya.LocalStorage.getItem('password');
 			this.addEvent();
-			// 监听正式进入游戏
-			GameApp.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
 			return this;
 		}
 		public addEvent(): void {
+			// 公告
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
 			//打开服务器列表
 			this.btn_changeServer.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.ServerListDialog().popup() });
+			// 開始游戲
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
 				// 初始化客户端
 				GameApp.GameEngine.init(Laya.Handler.create(this, () => {
 					if (GameApp.GameEngine.isReady != true) {
 						// 账号
-						GameApp.MainPlayer.playerAccount = this.lbl_playerName.text + '@' + GameApp.GameEngine.zoneid;
+						GameApp.MainPlayer.playerAccount = Laya.LocalStorage.getItem('account') + '@' + GameApp.GameEngine.zoneid;
 						// 密码
 						GameApp.MainPlayer.playerPassword = this.password;
 					}
-
-
 					// 登陆前验证
 					if (GameApp.Socket.isConnecting) {
 						lcp.send(ProtoCmd.UserPreLogin.create(), this, this.userRetPreLogin);
 					}
 					else {
 						GameApp.Socket.connect();
-						// this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 					}
 				}, null, false))
 			});
@@ -81,7 +77,8 @@ module view.common {
 				// 是否是重连进来的
 				if (GameApp.GameEngine.isReady == true) {
 					this.startGame();
-				} else {
+				}
+				else {
 					// 判断是否有角色
 					if (userLoginInfo.count > 0) {
 						// 选择角色
@@ -127,17 +124,6 @@ module view.common {
 				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
 			msgData.clear();
-		}
-
-		/**
-		 * 正式进入游戏
-		 */
-		public realLoginGame(): void {
-			if (GameApp.GameEngine.isReady != true) {
-				Laya.LocalStorage.setItem('account', this.lbl_playerName.text);
-				Laya.LocalStorage.setItem('password', this.password);
-			}
-			PanelManage.openMainPanel();
 		}
 	}
 }

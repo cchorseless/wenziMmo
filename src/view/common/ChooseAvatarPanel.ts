@@ -34,7 +34,9 @@ module view.common {
 
 		public addEvent(): void {
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, this.startGame);
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.ChooseServer.startGame();
+			});
 		}
 
 		/**
@@ -47,7 +49,7 @@ module view.common {
 			// selector.setValue("btmapsubline", 1);
 			// lcp.send(selector, this, PanelManage.Login.selectPlayerRet);
 			// GameApp.GameEngine.isLogin = true;
-			PanelManage.ChooseServer.startGame();
+			// PanelManage.ChooseServer.startGame();
 		}
 	}
 }

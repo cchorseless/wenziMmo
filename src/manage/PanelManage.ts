@@ -154,31 +154,17 @@ module PanelManage {
     }
 
     // 选择服务器界面
-    export function openChooseServerPanel(account, password): void {
+    export function openChooseServerPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ChooseServer) {
             return
         }
         PopUpManager.checkPanel(PanelManage.ChooseServer);
         ResManage.loadResource(ResData.PanelRes.ChooseServer, () => {
-            PanelManage.ChooseServer = new view.common.ChooseServerPanel(account, password);
+            PanelManage.ChooseServer = new view.common.ChooseServerPanel();
             PanelManage.ChooseServer['LCP_skin'] = ResData.PanelRes.ChooseServer;
-            // PanelManage.ChooseServer.setData(data);
+            PanelManage.ChooseServer.setData();
             PanelManage.ChooseServer.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ChooseServer, 2);
-        })
-    }
-    // 服务器公告界面
-    export function openServerNoticePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerNotice) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ServerNotice);
-        ResManage.loadResource(ResData.PanelRes.ServerNotice, () => {
-            PanelManage.ServerNotice = new view.common.ServerNoticePanel();
-            PanelManage.ServerNotice['LCP_skin'] = ResData.PanelRes.ServerList;
-            PanelManage.ServerNotice.setData();
-            PanelManage.ServerNotice.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ServerNotice, 2);
+            PopUpManager.addPanel(PanelManage.ChooseServer, 1);
         })
     }
     // 创建角色界面
@@ -192,7 +178,7 @@ module PanelManage {
             PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.CreateAvatar.setData();
             PanelManage.CreateAvatar.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.CreateAvatar, 1);
+            PopUpManager.addPanel(PanelManage.CreateAvatar, 2);
         })
     }
 
@@ -207,7 +193,22 @@ module PanelManage {
             PanelManage.ChooseAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.ChooseAvatar.setData(data);
             PanelManage.ChooseAvatar.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ChooseAvatar, 1);
+            PopUpManager.addPanel(PanelManage.ChooseAvatar, 2);
+        })
+    }
+
+    // 服务器公告界面
+    export function openServerNoticePanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerNotice) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.ServerNotice);
+        ResManage.loadResource(ResData.PanelRes.ServerNotice, () => {
+            PanelManage.ServerNotice = new view.common.ServerNoticePanel();
+            PanelManage.ServerNotice['LCP_skin'] = ResData.PanelRes.ServerList;
+            PanelManage.ServerNotice.setData();
+            PanelManage.ServerNotice.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ServerNotice, 3);
         })
     }
     /**
