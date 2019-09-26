@@ -15,7 +15,7 @@ module view.common {
 			// 公告
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
 			//打开服务器列表
-			this.btn_changeServer.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.ServerListDialog().popup() });
+			this.btn_changeServer.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup() });
 			// 開始游戲
 			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
 				// 初始化客户端

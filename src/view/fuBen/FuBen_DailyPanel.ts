@@ -9,8 +9,9 @@ module view.fuBen {
 		public setData(): void {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
-			}, null, false)
-					this.addEvent();
+			}, null, false);
+			this.init_XinMo()
+			this.addEvent();
 		}
 
 		public addEvent(): void {
@@ -32,6 +33,19 @@ module view.fuBen {
 			EventManage.onWithEffect(this.btn_xianShi, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenXianShiPanel();
 			});
+		}
+
+		/**
+		 * 心魔界面
+		 */
+		public init_XinMo(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_GeRenBoss_Open, null, null, this, (jsonData: {any}) => {
+
+				let aaa: ProtoCmd.itf_FB_XinMoInfo = jsonData[1];
+
+			});
+			lcp.send(pkt);
 		}
 	}
 }

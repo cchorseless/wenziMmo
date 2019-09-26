@@ -100,8 +100,9 @@ module ProtoCmd {
     // 主线副本进入成功,更新副本进度
     export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
 
-
-
+    /********************************心魔副本*********************** */
+    // 打開個人BOSS界面
+    export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
 
     /********************************角色信息界面***************** */
     // 声望信息
@@ -307,5 +308,21 @@ module ProtoCmd {
         star: any; //星级宝箱
         state: any;//BOss信息
         totalcnt: number;//总层数
+    }
+    /*******************************************副本接口**************************** */
+    /**
+     * 心魔副本信息
+     */
+    export interface itf_FB_XinMoInfo {
+        flag: number;
+        maxcnt: number;
+        maxlv: number;
+        minlv: number;
+        monsterid: number;
+        sec: number;
+        show: number;
+        viplv: number;
+        x: number;
+        y: number;
     }
 }

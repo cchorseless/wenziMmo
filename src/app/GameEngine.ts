@@ -17,6 +17,7 @@ class GameEngine extends SingletonClass {
     public connectPort: string = '8001';
     public trueZoneid: number = 1;
     public zoneid: number = 1001;//区号
+    public tradeid:number = 1;
     public svrIndex: number = 0;//服号
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
