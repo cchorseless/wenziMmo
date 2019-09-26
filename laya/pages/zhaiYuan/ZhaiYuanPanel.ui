@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":5,
-    "selecteID":40,
+    "selectedBox":88,
+    "selecteID":4,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -30,7 +30,7 @@
                     "props":{"y":0,"x":0,"var":"panel_shiWai","top":0,"right":0,"name":"item0","left":0,"bottom":0},
                     "nodeParent":88,
                     "label":"Panel(panel_shiWai)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -39,247 +39,180 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"x":0,"width":1920,"top":0,"skin":"image/zhaiYuan/img_yangChengBJ.png","bottom":0},
+                            "props":{"y":0,"x":0,"width":1920,"skin":"image/zhaiYuan/img_yangChengBJ.png"},
                             "nodeParent":4,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":5,
                             "child":[
                                 {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":585,"x":1149,"skin":"image/zhaiYuan/img_stool.png"},
-                                    "nodeParent":5,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":12,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":496,"x":1250,"skin":"image/zhaiYuan/img_chuTou.png"},
-                                    "nodeParent":5,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":15,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":925,"x":242,"var":"box_heHuaChi","anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":305,"x":1532,"var":"box_back"},
                                     "nodeParent":5,
-                                    "label":"Box(box_heHuaChi)",
-                                    "isOpen":true,
+                                    "label":"Box(box_back)",
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":38,
+                                    "compId":100,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"skin":"image/zhaiYuan/img_pool.png"},
-                                            "nodeParent":38,
+                                            "props":{"y":-2,"x":62,"skin":"image/zhaiYuan/img_door.png"},
+                                            "nodeParent":100,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":8,
+                                            "compId":16,
                                             "child":[
-                                                ]
+                                                ],
+                                            "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":-3,"x":352,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":38,
+                                            "props":{"y":3,"x":-5,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":100,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":35,
+                                            "compId":97,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"荷\\n花\\n池","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":35,
+                                                    "props":{"y":29,"x":5,"text":"出\\n门","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":97,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":36,
+                                                    "compId":98,
                                                     "child":[
                                                         ]
                                                 }]
                                         }]
                                 },
                                 {
-                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":925,"x":-1,"skin":"image/zhaiYuan/img_qj.png"},
+                                    "nodeParent":5,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":17,
+                                    "child":[
+                                        ]
+                                },
+                                {
                                     "type":"Box",
-                                    "props":{"y":522,"x":1171},
+                                    "props":{"y":774,"x":480},
                                     "nodeParent":5,
                                     "label":"Box",
-                                    "isOpen":null,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":42,
+                                    "compId":50,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"skin":"image/zhaiYuan/img_farmland.png"},
-                                            "nodeParent":42,
+                                            "props":{"y":87,"x":-6,"width":225,"skin":"image/zhaiYuan/img_table.png","height":117},
+                                            "nodeParent":50,
                                             "label":"Image",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":11,
+                                            "compId":9,
                                             "child":[
-                                                ]
+                                                ],
+                                            "$HIDDEN":false
                                         },
                                         {
                                             "type":"Image",
-                                            "props":{"x":100,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":42,
+                                            "props":{"y":51,"x":203,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":50,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":25,
+                                            "compId":48,
                                             "child":[
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"种\\n地","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":25,
+                                                    "props":{"y":29,"x":5,"text":"下\\n棋","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":48,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":26,
+                                                    "compId":49,
                                                     "child":[
                                                         ]
-                                                }]
-                                        }]
+                                                }],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":829,"x":1793,"width":371,"var":"box_lianQi","height":614,"anchorY":0.5,"anchorX":0.5},
-                                    "nodeParent":5,
-                                    "label":"Box(box_lianQi)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":40,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":8,"x":-162,"skin":"image/zhaiYuan/img_tieJiangPu.png"},
-                                            "nodeParent":40,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":13,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":31,"x":-43,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":40,
-                                            "label":"Image",
-                                            "isOpen":false,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":29,
-                                            "child":[
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":32,"x":8,"text":"炼\\n器","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":29,
-                                                    "label":"Label",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":30,
-                                                    "child":[
-                                                        ]
-                                                }]
-                                        }]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Box",
-                                    "props":{"y":789,"x":1350},
+                                    "props":{"y":457,"x":542},
                                     "nodeParent":5,
                                     "label":"Box",
-                                    "isOpen":null,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":41,
+                                    "compId":39,
                                     "child":[
                                         {
                                             "type":"Image",
-                                            "props":{"y":23,"x":44,"skin":"image/zhaiYuan/img_shiMo.png"},
-                                            "nodeParent":41,
+                                            "props":{"y":150,"x":45,"skin":"image/zhaiYuan/img_housekeeper.png"},
+                                            "nodeParent":39,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":14,
+                                            "compId":52,
                                             "child":[
                                                 ]
                                         },
                                         {
                                             "type":"Image",
-                                            "props":{"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":41,
+                                            "props":{"y":173,"x":164,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":39,
                                             "label":"Image",
                                             "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":27,
+                                            "compId":31,
                                             "child":[
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"磨\\n石","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":27,
+                                                    "props":{"y":29,"x":5,"text":"管\\n家","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":31,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":28,
+                                                    "compId":32,
                                                     "child":[
                                                         ]
-                                                }]
+                                                }],
+                                            "$HIDDEN":false
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":239,"x":880,"width":858,"var":"box_shiNei","height":489,"anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":244,"x":1005,"var":"box_shiNei","height":489,"anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":5,
                                     "label":"Box(box_shiNei)",
                                     "isOpen":false,
@@ -298,11 +231,12 @@
                                             "hasChild":false,
                                             "compId":6,
                                             "child":[
-                                                ]
+                                                ],
+                                            "$HIDDEN":false
                                         },
                                         {
                                             "type":"Image",
-                                            "props":{"y":301,"x":757,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "props":{"y":303,"x":750,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":44,
                                             "label":"Image",
                                             "isOpen":true,
@@ -313,7 +247,7 @@
                                             "child":[
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"宅\\n院","fontSize":40,"font":"FZXK","color":"#ffffff"},
+                                                    "props":{"y":29,"x":5,"text":"宅\\n院","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":23,
                                                     "label":"Label",
                                                     "isDirectory":false,
@@ -322,14 +256,14 @@
                                                     "compId":24,
                                                     "child":[
                                                         ]
-                                                }]
+                                                }],
+                                            "$HIDDEN":false
                                         }],
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":389,"x":156},
+                                    "props":{"y":392,"x":156},
                                     "nodeParent":5,
                                     "label":"Box",
                                     "isOpen":true,
@@ -339,9 +273,8 @@
                                     "compId":21,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"skin":"image/zhaiYuan/img_danLu.png"},
+                                            "props":{"y":-8,"x":3,"skin":"image/zhaiYuan/img_danLu.png"},
                                             "nodeParent":21,
                                             "label":"Image",
                                             "isDirectory":false,
@@ -353,9 +286,8 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":42,"x":268,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "props":{"y":66,"x":282,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":21,
                                             "label":"Image",
                                             "isOpen":false,
@@ -366,7 +298,7 @@
                                             "child":[
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"炼\\n丹","fontSize":40,"font":"FZXK","color":"#ffffff"},
+                                                    "props":{"y":29,"x":5,"text":"炼\\n丹","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":19,
                                                     "label":"Label",
                                                     "isDirectory":false,
@@ -379,174 +311,224 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":445,"x":523},
+                                    "props":{"y":792,"x":1350},
                                     "nodeParent":5,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":39,
+                                    "compId":41,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":150,"x":45,"skin":"image/zhaiYuan/img_housekeeper.png"},
-                                            "nodeParent":39,
+                                            "props":{"y":18,"x":45,"skin":"image/zhaiYuan/img_shiMo.png"},
+                                            "nodeParent":41,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":52,
+                                            "compId":14,
                                             "child":[
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":89,"x":150,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":39,
+                                            "props":{"y":-50,"x":65,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":41,
                                             "label":"Image",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":31,
+                                            "compId":27,
                                             "child":[
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"管\\n家","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":31,
+                                                    "props":{"y":29,"x":5,"text":"磨\\n石","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":27,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":32,
+                                                    "compId":28,
                                                     "child":[
                                                         ]
                                                 }]
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":782,"x":473},
+                                    "props":{"y":521,"x":1274},
                                     "nodeParent":5,
                                     "label":"Box",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":50,
+                                    "compId":42,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":92,"skin":"image/zhaiYuan/img_table.png"},
-                                            "nodeParent":50,
+                                            "props":{"y":0,"x":-1,"skin":"image/zhaiYuan/img_farmland.png"},
+                                            "nodeParent":42,
                                             "label":"Image",
-                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":9,
+                                            "compId":11,
                                             "child":[
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":0,"x":152,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":50,
+                                            "props":{"y":-7,"x":-22,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":42,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":48,
+                                            "compId":25,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"下\\n棋","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":48,
+                                                    "props":{"y":29,"x":5,"text":"种\\n地","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":25,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":49,
+                                                    "compId":26,
+                                                    "child":[
+                                                        ]
+                                                }]
+                                        }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Box",
+                                    "props":{"y":832,"x":1793,"width":371,"var":"box_lianQi","height":614,"anchorY":0.5,"anchorX":0.5},
+                                    "nodeParent":5,
+                                    "label":"Box(box_lianQi)",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":40,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":-3,"x":-174,"skin":"image/zhaiYuan/img_tieJiangPu.png"},
+                                            "nodeParent":40,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":13,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":244,"x":-21,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":40,
+                                            "label":"Image",
+                                            "isOpen":true,
+                                            "isDirectory":true,
+                                            "isAniNode":true,
+                                            "hasChild":true,
+                                            "compId":29,
+                                            "child":[
+                                                {
+                                                    "type":"Label",
+                                                    "props":{"y":32,"x":5,"text":"炼\\n器","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":29,
+                                                    "label":"Label",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":30,
                                                     "child":[
                                                         ]
                                                 }]
                                         }]
                                 },
                                 {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":922,"x":-1,"skin":"image/zhaiYuan/img_qj.png"},
-                                    "nodeParent":5,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":17,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
                                     "type":"Box",
-                                    "props":{"y":302,"x":1532,"var":"box_back"},
+                                    "props":{"y":928,"x":242,"var":"box_heHuaChi","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":5,
-                                    "label":"Box(box_back)",
-                                    "isOpen":true,
+                                    "label":"Box(box_heHuaChi)",
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":100,
+                                    "compId":38,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"x":62,"skin":"image/zhaiYuan/img_door.png"},
-                                            "nodeParent":100,
+                                            "props":{"y":-4,"x":3,"skin":"image/zhaiYuan/img_pool.png"},
+                                            "nodeParent":38,
                                             "label":"Image",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":16,
+                                            "compId":8,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
-                                            "props":{"y":6,"x":0,"skin":"image/zhaiYuan/img_common_24.png"},
-                                            "nodeParent":100,
+                                            "props":{"y":-24,"x":219,"skin":"image/zhaiYuan/img_common_24.png"},
+                                            "nodeParent":38,
                                             "label":"Image",
                                             "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
-                                            "compId":97,
+                                            "compId":35,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":29,"x":8,"text":"出\\n门","fontSize":40,"font":"FZXK","color":"#ffffff"},
-                                                    "nodeParent":97,
+                                                    "props":{"y":29,"x":5,"text":"荷\\n花\\n池","fontSize":25,"font":"FZHL","color":"#fae6c4"},
+                                                    "nodeParent":35,
                                                     "label":"Label",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
-                                                    "compId":98,
+                                                    "compId":36,
                                                     "child":[
                                                         ]
                                                 }]
                                         }]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":499,"x":1250,"skin":"image/zhaiYuan/img_chuTou.png"},
+                                    "nodeParent":5,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":15,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":588,"x":1149,"skin":"image/zhaiYuan/img_stool.png"},
+                                    "nodeParent":5,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":12,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         }],
@@ -879,7 +861,8 @@
                                 }]
                         }],
                     "$HIDDEN":true
-                }]
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {

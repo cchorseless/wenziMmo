@@ -8,7 +8,7 @@ module ProtoCmd {
         public static MSG_TEAM_LEAVEGROUP: number = 0x2803;//离队
         public static MSG_TEAM_LEAVEGROUPRT: number = 0x2804;//离队返回
 
-        public static MSG_TEAM_BELEAVERT: number = 0x2806;//队长请离
+        public static MSG_TEAM_BELEAVERT: number = 0x2806;//队长请离返回
 
         public static MSG_TEAM_ASKFORJOIN: number = 0x2807;//申请加入队伍，
         public static MSG_TEAM_ASKFORJOINRT: number = 0x2808;//申请加入返回值，申请人名字发给队长
@@ -79,21 +79,23 @@ module ProtoCmd {
     }
 
     //0x2805
+    //队长请离
     export class TeamKickoutEncoder extends Packet {
         public static msgID: number = 0x2805;
+        public cbPacket = TeamKickoutDecoder;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('dwOnlyid', PacketBase.TYPE_INT64);
+            this.addProperty('dwOnlyid', PacketBase.TYPE_BYTES, 8);
             this.cmd = 0x2805;
         }
     }
     //0x2806
-    //队长请离---
+    //队长请离返回
     export class TeamKickoutDecoder extends Packet {
         public static msgID: number = Msg_team_Cfg.MSG_TEAM_BELEAVERT;
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('dwKickOutOnlyId', PacketBase.TYPE_INT64);
+            this.addProperty('dwKickOutOnlyId', PacketBase.TYPE_BYTES, 8);
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);
             this.read(data);
         }
