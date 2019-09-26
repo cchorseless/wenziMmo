@@ -34,7 +34,7 @@ module PanelManage {
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
     export let GM: view.common.GmPanel;                                                  //GM界面
     export let Login: view.common.LoginPanel;                                            //登陆界面
-    export let ServerList: view.common.ServerListPanel;                                  //服务器列表界面
+    export let ChooseServer: view.common.ChooseServerPanel;                              //选择服务器界面
     export let ServerNotice: view.common.ServerNoticePanel;                              //服务器公告界面
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
     export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
@@ -152,18 +152,19 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Login, 0);
         })
     }
-    // 服务器列表界面
-    export function openServerListPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerList) {
+
+    // 选择服务器界面
+    export function openChooseServerPanel(account, password): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ChooseServer) {
             return
         }
-        PopUpManager.checkPanel(PanelManage.ServerList);
-        ResManage.loadResource(ResData.PanelRes.ServerList, () => {
-            PanelManage.ServerList = new view.common.ServerListPanel();
-            PanelManage.ServerList['LCP_skin'] = ResData.PanelRes.ServerList;
-            PanelManage.ServerList.setData();
-            PanelManage.ServerList.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ServerList, 2);
+        PopUpManager.checkPanel(PanelManage.ChooseServer);
+        ResManage.loadResource(ResData.PanelRes.ChooseServer, () => {
+            PanelManage.ChooseServer = new view.common.ChooseServerPanel(account, password);
+            PanelManage.ChooseServer['LCP_skin'] = ResData.PanelRes.ChooseServer;
+            // PanelManage.ChooseServer.setData(data);
+            PanelManage.ChooseServer.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ChooseServer, 2);
         })
     }
     // 服务器公告界面

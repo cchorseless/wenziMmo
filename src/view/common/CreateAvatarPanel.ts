@@ -81,52 +81,7 @@ module view.common {
 			createusr.playerinfo.feature.setValue('sex', this.curSex);
 			createusr.playerinfo.feature.setValue('job', this.curMenPai);
 			// 创角协议
-			lcp.send(createusr, this, this.createPlayerRet);
-		}
-
-		/**
-  		* 创角协议回调
-  		* @param data 
-  		*/
-		public createPlayerRet(data: any): void {
-			let msg = new ProtoCmd.CreatePlayerRet(data);
-			let errorcode = msg.getValue('errorcode');
-			console.log('==========errorcode', errorcode)
-			if (errorcode == 0) {
-				// 单服单角色，这里可以扩展
-				let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
-				selector.setValue("nselectidx", 0);
-				selector.setValue("szName", msg.getValue('szPlayerName'));
-				selector.setValue("btmapsubline", 1);
-				lcp.send(selector, this, PanelManage.Login.selectPlayerRet)
-				GameApp.GameEngine.isLogin = true;
-			}
-			else {
-				let strmsg: string;
-				switch (errorcode) {
-					case -10:
-						strmsg = '有非法字符';
-						break;
-					case -14:
-						strmsg = '昵称名检查没通过';
-						break;
-					case -15:
-						strmsg = '昵称名不能超过4个以上的数字';
-						break;
-					case -16:
-						strmsg = '当前服务器正在维护';
-						break;
-					case -70:
-						strmsg = '昵称重复';
-						break;
-					default:
-						strmsg = '昵称重复';
-						break;
-				}
-				TipsManage.showTips(strmsg);
-			}
-			msg.clear();
-			msg = null;
+			lcp.send(createusr);
 		}
 	}
 }

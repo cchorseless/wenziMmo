@@ -13,6 +13,8 @@ module ResData {
         public static GM = null;
         // 登陆界面
         public static Login = [{ url: "res/atlas/image/common/login.atlas", type: Laya.Loader.ATLAS },];
+        // 选择服务器界面  
+        public static ChooseServer = null
         // 服务器列表界面
         public static ServerList = null
         // 服务器公告界面
