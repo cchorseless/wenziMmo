@@ -13,6 +13,12 @@ module view.juQingMode {
 			this.div_content.style.leading = 5;
 			this.div_content.style.align = 'middle';
 			this.div_content.innerHTML = txt;
+			if (txt.search('<a href=') > -1) {
+				this.div_content.on(Laya.Event.LINK, this, (data) => {
+					console.log(data)
+					
+				})
+			}
 			// 自己的头像
 			this.ui_item.lbl_zuoBiao.visible = false;
 			this.ui_item.img_tips.visible = false;

@@ -4,15 +4,20 @@ module view.juQingMode {
 		constructor() {
 			super();
 		}
+
+		public charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO;
 		/**
 		 * 
 		 * @param data 章节数据
 		 */
 		public setData(data: ProtoCmd.itf_JUQING_CHARPTERINFO): void {
+			this.charpterInfo = data;
 			this.lbl_charpterName.text = data.name;
 			this.lbl_charpterNo.text = '第' + data.index + '章';
 			// 解锁条件
 			let player = GameApp.MainPlayer;
+			// 选中状态
+			this.btn_view.selected = (data.zjid == player.charpterID);
 			// 未解锁
 			if (player.zslevel * 1000 + player.level < data.zslvl * 1000 + data.lvl) {
 				let des = '';
@@ -39,7 +44,8 @@ module view.juQingMode {
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_view, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.JuQingMode.box_pianZhang.event(Laya.UIEvent.MOUSE_UP);
+				this.btn_view.selected = true;
+				PanelManage.JuQingMode.changeCharpter(this);
 			})
 
 		}

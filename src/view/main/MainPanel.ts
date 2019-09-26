@@ -300,7 +300,7 @@ module view.main {
 			small_txt.width = 340;
 			small_txt.wordWrap = true;
 			vbox_small.addChild(small_txt);
-			panel_small.scrollTo(null, panel_small.contentHeight);
+			Laya.timer.frameOnce(2, this, () => { 	panel_small.scrollTo(0, panel_small.contentHeight);})
 			// 更新到大窗
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
@@ -592,7 +592,7 @@ module view.main {
 			small_txt.width = 340;
 			small_txt.wordWrap = true;
 			this.vbox_sceneMsg.addChild(small_txt);
-			this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);
+			Laya.timer.frameOnce(2, this, () => { 	this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);})
 		}
 
 		/**

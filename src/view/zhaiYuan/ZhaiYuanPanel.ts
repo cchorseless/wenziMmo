@@ -7,7 +7,8 @@ module view.zhaiYuan {
 		public setData(): void {
 			this.panel_shiWai.hScrollBarSkin = '';
 			this.panel_yiLou.hScrollBarSkin = '';
-			this.panel_shiWai.scrollTo(640, 0)
+			// 延时两帧滚动
+			Laya.timer.frameOnce(2, this, () => { this.panel_shiWai.scrollTo(640, 0) });
 			this.initSkeBone();
 			this.addEvent();
 		}

@@ -8,8 +8,10 @@ module view.juQingMode {
 		public setData(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
-			this.vbox_zhangJieInfo['sortItem'] = (items) => { };
-			this.vbox_zhangJieInfo.scaleY = 0;
+			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
+			this.vbox_zhangJieRight['sortItem'] = (items) => { };
+			this.panel_zhangJie.scaleY = 0;
+			this.panel_zhangJie.vScrollBarSkin = '';
 			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
 			this.initUI();
@@ -61,7 +63,7 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
 				let temp = this.btn_charpter.selected ? 1 : 0;
-				Laya.Tween.to(this.vbox_zhangJieInfo, { scaleY: temp }, 200)
+				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200)
 			});
 
 			// 选项AB
@@ -107,7 +109,7 @@ module view.juQingMode {
 					TipsManage.showTips('章节已经读完');
 					this.btn_next.label = '本章结束，切换下一章';
 					this.panel_0.scrollTo(0, this.vbox_0.height);
-					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP);
+					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 				}
 			});
 			// 拉取剧情对白数据
@@ -122,8 +124,9 @@ module view.juQingMode {
 		/**
 		 * 添加剧情对白条目
 		 * @param _talkInfo 
+		 * @param needScroll  是否需要滚动
 		 */
-		public addJuQingTalkItem(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO): void {
+		public addJuQingTalkItem(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO, needScroll: boolean = true): void {
 			console.log(_talkInfo.msg);
 			// 选项模式决定选哪个对白
 			if (_talkInfo.msg.eventBn.length == 0) {
@@ -147,7 +150,11 @@ module view.juQingMode {
 					break;
 			}
 			this.vbox_0.addChild(ui_item);
-			this.panel_0.scrollTo(0, this.vbox_0.height);
+			if (needScroll) {
+				// 延时两帧滚动
+				Laya.timer.frameOnce(2, this, () => { this.panel_0.scrollTo(0, this.vbox_0.height) });
+			}
+
 		}
 
 		public initUI(): void {
@@ -168,7 +175,12 @@ module view.juQingMode {
 							// 章节ui
 							let charpterInfo_ui = new view.juQingMode.JuQingCharpterItem();
 							charpterInfo_ui.setData(charpterInfo);
-							this.vbox_zhangJieInfo.addChild(charpterInfo_ui);
+							if (this.vbox_zhangJieLeft.numChildren > this.vbox_zhangJieRight.numChildren) {
+								this.vbox_zhangJieRight.addChild(charpterInfo_ui);
+							}
+							else {
+								this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
+							}
 							// 找到自己的章节ID，拿到开始对白ID和结束对白ID
 							if (charpterInfo.zjid == charpterID) {
 								// 章节编号
@@ -196,6 +208,7 @@ module view.juQingMode {
 		 * @param charpterID 章节ID
 		 */
 		public updateTalkInfo(charpterID): void {
+			if (GameApp.GameEngine.talkInfo[charpterID]) { return };
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID]);
@@ -217,7 +230,7 @@ module view.juQingMode {
 					let startTalkId = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].startdbid;
 					for (let i = startTalkId; i <= GameApp.MainPlayer.talkID; i++) {
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[jsonData.zjid].data[i];
-						this.addJuQingTalkItem(_talkInfo)
+						this.addJuQingTalkItem(_talkInfo, false)
 					}
 				}
 			}
@@ -254,6 +267,27 @@ module view.juQingMode {
 				let _task = taskInfo[Object.keys(taskInfo)[0]];
 				new view.dialog.JuQingEventDialog().setData(_task).popup();
 			}
+		}
+
+		/**
+		 * 更改章节
+		 * @param item 
+		 */
+		public changeCharpter(item: view.juQingMode.JuQingCharpterItem): void {
+			for (let _item of this.vbox_zhangJieLeft._childs) {
+				if (_item != item) {
+					_item.btn_view.selected = false;
+				}
+			}
+			for (let _item of this.vbox_zhangJieRight._childs) {
+				if (_item != item) {
+					_item.btn_view.selected = false;
+				}
+			}
+			// 关闭界面
+			this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
+			// 拉取剧情
+			this.updateTalkInfo(item.charpterInfo.zjid);
 		}
 	}
 }

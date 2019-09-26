@@ -8,7 +8,7 @@ module view.map {
 		public setData(): void {
 			this.panel_0.hScrollBarSkin = '';
 			this.panel_0.vScrollBarSkin = '';
-			this.panel_0.scrollTo(100);
+				Laya.timer.frameOnce(2, this, () => { this.panel_0.scrollTo(100);})
 			// this.panel_worldMap.vScrollBarSkin = this.panel_worldMap.hScrollBarSkin = ''	
 			this.addEvent();
 		}
