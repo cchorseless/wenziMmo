@@ -147,7 +147,7 @@ module view.juQingMode {
 					break;
 			}
 			this.vbox_0.addChild(ui_item);
-			this.panel_0.scrollTo(0, this.vbox_0.height + 130);
+			this.panel_0.scrollTo(0, this.vbox_0.height);
 		}
 
 		public initUI(): void {

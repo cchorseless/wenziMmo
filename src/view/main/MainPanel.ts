@@ -7,8 +7,6 @@ module view.main {
 		public setData(): void {
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
-			// 初始化一个场景
-			this.updateUiScene(EnumData.emRoomType.publicYeWai);
 			// NPC列表
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
@@ -56,6 +54,8 @@ module view.main {
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 			this.addEvent();
+			// 加载场景
+			this.loadScene();
 		}
 
 		public addEvent(): void {
@@ -370,18 +370,11 @@ module view.main {
 			this.ui_scene && this.ui_scene.clearMonster();
 		}
 
-		/**
-		 * 客户端创建完成角色后初始化数据
-		 * 只调用一次
-		 */
-		public initUI(): void {
-			// 更新数据
-			this.loadJuQingData();
-		}
+
 		/**
 		 * 玩家切换地图后刷新界面
 		 */
-		public updateUI(): void {
+		public loadScene(): void {
 			// ui_scene 布局
 			let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
 			// 大于0是副本地图.根据大地图类型布局。1 个人副本 2 公共副本
@@ -391,7 +384,28 @@ module view.main {
 			else {
 				this.loadSmallMap();
 			}
+			// 切完大地图发送,地图ID改变
+			let ready = new ProtoCmd.StateReady();
+			lcp.send(ready, this, () => {
+				// 首次ready拉取一次数据
+				if (!GameApp.GameEngine.isReady) {
+					this.initData();
+				}
+				console.log('客户端准备完成');
+				GameApp.GameEngine.isReady = true;
+			});
 		}
+
+		/**
+		 * 客户端创建完成角色后初始化数据
+		 * 只调用一次
+		 */
+		public initData(): void {
+			// 更新数据
+			this.loadJuQingData();
+		}
+
+
 		/**
 		 * 更新主场景ui_scene
 		 */
@@ -624,7 +638,7 @@ font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体'
 
 			let obj = GameApp.DomUtil.parseXML(sss);
 			let tNode = obj.getElementsByTagName('t');
-			console.log('======',tNode)
+			console.log('======', tNode)
 			this.div_taskDes.style.fontSize = 20;
 			this.div_taskDes.innerHTML = tNode[0].getAttribute('ft') + '</a>';
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {

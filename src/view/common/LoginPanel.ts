@@ -36,8 +36,6 @@ module view.common {
 		public addEvent() {
 			this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
-			// 监听正式进入游戏
-			GameApp.LListener.on(LcpEvent.GAME_INIT_FINISH, this, this.realLoginGame)
 		}
 
 
@@ -60,8 +58,6 @@ module view.common {
 					// 密码
 					GameApp.MainPlayer.playerPassword = this.input_password.text;
 				}
-
-
 				// 登陆前验证
 				if (GameApp.Socket.isConnecting) {
 					lcp.send(ProtoCmd.UserPreLogin.create(), this, this.userRetPreLogin);
@@ -110,9 +106,13 @@ module view.common {
 				GameApp.GameEngine.svrIndex = userLoginInfo.getValue("nSvrIndex");
 				GameApp.GameEngine.loginsvrIdType = userLoginInfo.getValue('loginsvr_id_type');
 				// 是否是重连进来的
-				if (GameApp.GameEngine.isReady == true) {
+				if (GameApp.GameEngine.isReady) {
 					this.startGame();
-				} else {
+				}
+				else {
+					// 登录成功需要存一下
+					Laya.LocalStorage.setItem('account', this.input_account.text);
+					Laya.LocalStorage.setItem('password', this.input_password.text);
 					// 判断是否有角色
 					if (userLoginInfo.count > 0) {
 						// 选择角色
@@ -148,16 +148,6 @@ module view.common {
 			}
 			msgData.clear();
 		}
-		/**
-		 * 正式进入游戏
-		 */
-		public realLoginGame(): void {
-			if (GameApp.GameEngine.isReady != true) {
-				Laya.LocalStorage.setItem('account', this.input_account.text);
-				Laya.LocalStorage.setItem('password', this.input_password.text);
-			}
-			PanelManage.openMainPanel();
-		}
 
 		/**
 		* 开始游戏
@@ -170,6 +160,5 @@ module view.common {
 			lcp.send(selector, this, this.selectPlayerRet);
 			GameApp.GameEngine.isLogin = true;
 		}
-
 	}
 }

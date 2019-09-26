@@ -127,9 +127,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
         // 服务器推送创建新任务
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo);
-        // 改变任务状态
+        // 改变任务状态和描述
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestDoingRet), this, this.changeTaskState);
-
+        // 只改变任务状态
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestFinishRet), this, this.changeOnlyTaskState);
         /***********************************剧情信息**************************************** */
         // 改变剧情相关数据
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
@@ -248,8 +249,6 @@ class ServerListener extends SingletonClass {
         let msgData = new ProtoCmd.UserRealLoginRet(data);
         if (msgData.getValue('nErrorCode') == 0) {
             Log.trace('游戏登陆成功');
-            // 抛出事件
-            GameApp.LListener.event(LcpEvent.GAME_INIT_FINISH);
         }
         else {
             Log.trace('游戏重连失败');
@@ -275,14 +274,14 @@ class ServerListener extends SingletonClass {
         player.createTime = msgData.getValue('dwPlayerCreateTime');
         // 清空视野
         player.clearViewObj();
-        // 先更新UI布局
-        PanelManage.Main && PanelManage.Main.updateUI();
         console.log('=====已经改变了地图ID======')
-        // 切完大地图发送,地图ID改变
-        let ready = new ProtoCmd.StateReady();
-        lcp.send(ready, this, () => {
-            GameApp.GameEngine.isReady = true;
-        });
+        // 更新UI布局
+        if (PanelManage.Main) {
+            PanelManage.Main.loadScene();
+        }
+        else {
+            PanelManage.openMainPanel()
+        }
         msgData.clear();
     }
 
@@ -382,7 +381,6 @@ class ServerListener extends SingletonClass {
         // 这里可以拉取数据
         if (player.isMainPlayer) {
             console.log('====自己进入了地图====');
-            PanelManage.Main && PanelManage.Main.initUI()
         }
         // 其他玩家进入地图，添加到玩家视野中,不包括自己
         else {
@@ -1242,6 +1240,32 @@ class ServerListener extends SingletonClass {
         cbpket = null;
     }
 
+    /**
+     * 只改变任务状态
+     * @param data 
+     */
+    public changeOnlyTaskState(data): void {
+        let cbpket = new ProtoCmd.stQuestFinishRet(data);
+        let keys = Object.keys(GameApp.GameEngine.taskInfo);
+        for (let key of keys) {
+            let taskGroup = GameApp.GameEngine.taskInfo[key];
+            let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
+            if (taskInfo) {
+                console.log('更新了任务状态' + cbpket.getValue('taskid'));
+                if (cbpket.getValue('queststatus') == 3) {
+                    delete taskGroup[cbpket.getValue('taskid')];
+
+                }
+                else {
+                    taskInfo.queststatus = cbpket.getValue('queststatus');
+
+                }
+                break;
+            }
+        }
+        cbpket.clear();
+        cbpket = null;
+    }
     /****************************************剧情相关********************************* */
     /**
      * 服务器推送更新剧情信息
@@ -1269,24 +1293,24 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         console.log(strArr);
         // TODO
-        try {
-            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-            switch (strArr.length) {
-                case 4:
-                    msgID = parseInt(strArr[2]);
-                    break;
-            }
-            let eventName = funcName;
-            if (msgID) {
-                eventName += '_' + msgID;
-            }
-            // 抛出事件
-            GameApp.LListener.event(eventName, [jsonData]);
-
+        // try {
+        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+        switch (strArr.length) {
+            case 4:
+                msgID = parseInt(strArr[2]);
+                break;
         }
-        catch (e) {
-
+        let eventName = funcName;
+        if (msgID) {
+            eventName += '_' + msgID;
         }
+        // 抛出事件
+        GameApp.LListener.event(eventName, [jsonData]);
+
+        // }
+        // catch (e) {
+
+        // }
 
         msg.clear();
         msg = null;
