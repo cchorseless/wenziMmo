@@ -15,21 +15,23 @@ module view.dialog {
 			this.lbl_eventDes.text = '' + taskInfo.des;
 			// 任务目标
 			this.div_targetDes.style.fontSize = 20;
-			this.div_targetDes.innerHTML = '' + taskInfo.targetdes;
-			this.div_targetDes.on(Laya.Event.LINK, this, this.goToFinishTask)
+			this.div_targetDes.innerHTML = '' + taskInfo.target;
 			// 任务NPC
 			this.lbl_npc.text = '' + taskInfo.endnpcname;
 			this.box_npc.visible = Boolean(taskInfo.endnpcname);
 			// 任务进度
+			this.div_jinDu.style.fontSize = 20;
 			switch (taskInfo.queststatus) {
 				// 完成
 				case EnumData.QUESTSTATUS.QUESTCOMPLETED:
 				case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
-					this.lbl_jinDu.text = '任务已完成';
+					this.div_jinDu.innerHTML = '任务已完成';
 					this.btn_qianWang.label = '领取奖励';
 					break;
 				// 进行中
 				case EnumData.QUESTSTATUS.QUESTDOING:
+					this.div_jinDu.innerHTML = '' + taskInfo.taskJinDu;
+					console.log(taskInfo.taskJinDu);
 					break;
 			}
 
@@ -61,12 +63,11 @@ module view.dialog {
 						let pkt = new ProtoCmd.SelectTalkOptionEncoder();
 						pkt.questType = this.taskInfo.questtype;
 						pkt.showone = true;
-						pkt.funcname = 'questfinish`' + this.taskInfo.taskid;
+						pkt.funcname = 'questfinish~' + this.taskInfo.taskid;
 						lcp.send(pkt)
 						break;
 					// 进行中
 					case EnumData.QUESTSTATUS.QUESTDOING:
-						this.close();
 						for (let _ele of this.div_targetDes._childs) {
 							if (_ele.href) {
 								this.div_targetDes.event(Laya.Event.LINK, _ele.href)
@@ -74,7 +75,10 @@ module view.dialog {
 						}
 						break;
 				}
+				this.close();
 			});
+			// 点击任务前往
+			this.div_targetDes.on(Laya.Event.LINK, this, this.goToFinishTask)
 		}
 
 		/**
@@ -84,9 +88,28 @@ module view.dialog {
 		public goToFinishTask(data: string): void {
 			console.log(data);
 			console.log(data.split('|'));
-			let hander = data.split('|');
-			// for()
+			let handerList = data.split('|');
+			let list = [];
+			for (let _hander of handerList) {
+				list.push(_hander.split(':'));
+			};
+			for (let needHander of list) {
+				switch (needHander[0]) {
+					case 'opendialog':
+						break;
+					case 'gotoroom':
+						break;
+
+				}
+			}
+
 			// if(hander.length==1)
+			switch (this.taskInfo.targetType) {
+				// 客户端触发
+				case EnumData.TaskSubType.CLIENTFILISH:
+
+					break;
+			}
 		}
 	}
 }

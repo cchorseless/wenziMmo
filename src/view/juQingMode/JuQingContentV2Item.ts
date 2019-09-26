@@ -6,11 +6,12 @@ module view.juQingMode {
 		}
 		public npcId: string
 		public setData(npcid: number, txt: string): void {
+			txt = GameApp.DomUtil.dealWithTalkTxt(txt);
 			this.div_content.style.fontSize = 24;
 			this.div_content.style.wordWrap = true;
 			this.div_content.style.leading = 5;
 			this.div_content.style.align = 'middle';
-			this.div_content.innerHTML = txt.replace(/拎壶冲/g, "<font color='#17930d'>" + GameApp.MainPlayer.objName + "</font>");
+			this.div_content.innerHTML = txt;
 			// NPC 头像
 			this.npcId = '' + npcid;
 			this.ui_item.img_avatarPic.skin = 'image/common/npc/npc_icon_' + npcid + '.png';

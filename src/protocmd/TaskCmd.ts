@@ -82,10 +82,11 @@ module ProtoCmd {
     // 服务器返回任务完成
     export class stQuestFinishRet extends Packet {
         public static msgID: number = 0x0904;
-        public constructor() {
+        public constructor(data) {
             super();
-            this.addProperty('id', PacketBase.TYPE_DWORD);// 任务ID 
+            this.addProperty('taskid', PacketBase.TYPE_DWORD);// 任务ID 
             this.addProperty('queststatus', PacketBase.TYPE_BYTE);//任务状态，任务状态枚举
+            this.read(data);
         }
     }
 

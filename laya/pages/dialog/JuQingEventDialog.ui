@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
-    "selecteID":5,
+    "selectedBox":30,
+    "selecteID":42,
     "props":{"width":600,"sceneColor":"#d4b3b2","height":700},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"top":0,"skin":"image/common/bottom_Pop-ups_small.png","sizeGrid":"71,75,101,77","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":154,"x":68,"width":76,"text":"说   明：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":2,
@@ -37,6 +38,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":155,"x":154,"wordWrap":true,"width":390,"var":"lbl_eventDes","text":"阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王。","height":57,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":2,
@@ -50,6 +52,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":574,"x":493,"var":"btn_zhuiZong","stateNum":"2","skin":"image/common/frame_choose_finish.png","labelSize":22,"labelPadding":"-5,0,0,-48","labelFont":"Microsoft YaHei","labelColors":"#000000,#000000","label":"追踪"},
                     "nodeParent":2,
@@ -62,6 +65,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":115,"x":46,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
                     "nodeParent":2,
@@ -87,6 +91,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":217,"x":46,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
                     "nodeParent":2,
@@ -112,6 +117,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":370,"x":51,"width":178,"skin":"image/common/bottom_smalltitle.png","height":36},
                     "nodeParent":2,
@@ -137,6 +143,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":562,"x":212,"width":139,"var":"btn_qianWang","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"前往","height":59},
                     "nodeParent":2,
@@ -150,6 +157,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":66,"x":201,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":2,
@@ -161,6 +169,7 @@
                     "compId":28,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":41,"var":"lbl_eventName","text":"事件名称","strokeColor":"#52331e","stroke":4,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":28,
@@ -175,29 +184,19 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":331,"x":75,"var":"box_jinDu"},
                     "nodeParent":2,
                     "label":"Box(box_jinDu)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":30,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"x":116,"wordWrap":true,"width":136,"var":"lbl_jinDu","text":"小鬼（0/1）","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a"},
-                            "nodeParent":30,
-                            "label":"Label(lbl_jinDu)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Label",
                             "props":{"width":103,"text":"任务进度：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                             "nodeParent":30,
@@ -208,20 +207,35 @@
                             "compId":21,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HTMLDivElement",
+                            "props":{"y":6,"x":112,"width":354,"var":"div_jinDu","innerHTML":"htmlText","height":30},
+                            "nodeParent":30,
+                            "label":"HTMLDivElement(div_jinDu)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":292,"x":76,"var":"box_target"},
                     "nodeParent":2,
                     "label":"Box(box_target)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":34,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"width":103,"text":"任务目标：","height":26,"fontSize":22,"font":"Microsoft YaHei","color":"#000000"},
                             "nodeParent":34,
@@ -234,6 +248,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"HTMLDivElement",
                             "props":{"y":6,"x":110,"width":354,"var":"div_targetDes","innerHTML":"htmlText","height":30},
                             "nodeParent":34,
@@ -247,6 +262,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":257,"x":75,"var":"box_npc"},
                     "nodeParent":2,
@@ -283,6 +299,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":429,"x":64,"width":465,"var":"panel_0","height":114},
                     "nodeParent":2,
@@ -294,6 +311,7 @@
                     "compId":36,
                     "child":[
                         {
+                            "x":45,
                             "type":"HBox",
                             "props":{"var":"hbox_0","top":0,"bottom":0},
                             "nodeParent":36,

@@ -3151,7 +3151,7 @@ module ProtoCmd {
         }
 
         /**
-         * 任务目标描述
+         * 任务目标和进度
          */
         public set targetdes(value: string) {
             this.setValue("targetdes", value);
@@ -3160,8 +3160,17 @@ module ProtoCmd {
             return this.getValue("targetdes");
         }
 
-        public get taskJinDu():string{
-            return  this.targetdes
+        /**
+         * 任务目标
+         */
+        public get target(): string {
+            return this.targetdes.split('<br>')[0];
+        }
+        /**
+         * 任务进度
+         */
+        public get taskJinDu(): string {
+            return this.targetdes.split('<br>')[1];
         }
 
         /**
