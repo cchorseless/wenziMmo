@@ -88,7 +88,7 @@ module view.dialog {
 			all_txt.width = 500;
 			all_txt.wordWrap = true;
 			this.vbox_big0.addChild(all_txt);
-			this.panel_big0.scrollTo(null, this.panel_big0.contentHeight);
+			Laya.timer.frameOnce(2, this, () => { this.panel_big0.scrollTo(null, this.panel_big0.contentHeight); })
 
 			// 单个频道
 			let _curIndex = 5;
@@ -135,7 +135,7 @@ module view.dialog {
 			single_txt.width = 500;
 			single_txt.wordWrap = true;
 			_curVbox.addChild(single_txt);
-			_curPanel.scrollTo(null, _curPanel.contentHeight);
+			Laya.timer.frameOnce(2, this, () => { _curPanel.scrollTo(null, _curPanel.contentHeight); })
 		}
 	}
 }

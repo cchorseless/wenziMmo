@@ -20,9 +20,9 @@ module EventManage {
             dispatch['lcp_onWithEffect'] = false;
             Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn)
         });
-        // 抬起事件
-        dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
-            if (dispatch['lcp_onWithEffect']) {
+        // 抬起事件 e 强制触发
+        dispatch.on(Laya.UIEvent.MOUSE_UP, caller, (e) => {
+            if (dispatch['lcp_onWithEffect'] || e) {
                 dispatch['lcp_onWithEffect'] = false;
                 Laya.Tween.to(dispatch, { scaleX: 1, scaleY: 1 }, time, Laya.Ease.sineIn, Laya.Handler.create(caller, func, args));
             }

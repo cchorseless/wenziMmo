@@ -221,12 +221,13 @@ module GameObject {
 
             // 令狐冲
             if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-                return 'sk/juese02/ZJ_LHC_1.sk'
+                return 'sk/player/1_1.sk'
             }
             // 任盈盈
             else {
-                return 'sk/juese01/ZJ_RYY_1.sk'
+                return 'sk/player/1_2.sk'
             }
+            // return 'sk/player/' + this.job + '_' + this.sex + '.sk';
         }
 
 
