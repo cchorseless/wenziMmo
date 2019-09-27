@@ -2,7 +2,6 @@ module GameObject {
 
     export class Player extends Creature {
         public playerAccount: string;
-        public playerPassword: string;
         /**
          * 职业
          */
@@ -163,16 +162,6 @@ module GameObject {
             this.bossCoin = v;
         }
         /*******************************************************************get************************************* */
-        /**
-         * 获取玩家真实賬號
-         */
-        public get realName(): string {
-            if (this.objName != null) {
-                return this.objName.split('@')[0];
-            }
-            return '';
-
-        }
 
         /**
          * 获取头像

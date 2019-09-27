@@ -195,8 +195,8 @@ class ServerListener extends SingletonClass {
     public onSocketReconnect() {
         GameApp.GameEngine.initSelf();
         let realLogin = new ProtoCmd.UserRealLogin();
-        realLogin.setValue('szAccount', GameApp.GameEngine.mainPlayer.playerAccount);
-        realLogin.setValue('szPlayerName', GameApp.GameEngine.mainPlayer.objName);
+        realLogin.setValue('szAccount', GameApp.MainPlayer.playerAccount);
+        realLogin.setValue('szPlayerName', GameApp.MainPlayer.objName);
         realLogin.setValue('dwTrueZoneid', GameApp.GameEngine.trueZoneid);
         realLogin.setValue('dwUserOnlyId', GameApp.GameEngine.mainPlayer.onlyId);
         //realLogin.setValue('btReloginType', 2);

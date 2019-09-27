@@ -63,7 +63,16 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
 				let temp = this.btn_charpter.selected ? 1 : 0;
-				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200)
+				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200);
+				// 刷新item
+				if (this.btn_charpter.selected) {
+					for (let _item of this.vbox_zhangJieLeft._childs) {
+						_item.updateUI();
+					}
+					for (let _item of this.vbox_zhangJieRight._childs) {
+						_item.updateUI();
+					}
+				}
 			});
 
 			// 选项AB
@@ -71,11 +80,13 @@ module view.juQingMode {
 				this.btn_next.disabled = false;
 				this.SELECT_MODE = true;
 				Laya.Tween.to(this.box_selectQuestion, { scaleY: 0 }, 200);
+				this.btn_next.event(Laya.UIEvent.MOUSE_UP, true);
 			});
 			EventManage.onWithEffect(this.btn_selectB, Laya.UIEvent.CLICK, this, () => {
 				this.btn_next.disabled = false;
 				this.SELECT_MODE = false;
 				Laya.Tween.to(this.box_selectQuestion, { scaleY: 0 }, 200);
+				this.btn_next.event(Laya.UIEvent.MOUSE_UP, true);
 			});
 			// 添加本地事件
 			this.addLcpEvent()
@@ -183,10 +194,6 @@ module view.juQingMode {
 							}
 							// 找到自己的章节ID，拿到开始对白ID和结束对白ID
 							if (charpterInfo.zjid == charpterID) {
-								// 章节编号
-								this.lbl_charpterTile.text = '第' + key + '章';
-								// 章节名字
-								this.lbl_charpterName.text = charpterInfo.name;
 								this.updateTalkInfo(charpterID);
 							}
 						}
@@ -208,7 +215,24 @@ module view.juQingMode {
 		 * @param charpterID 章节ID
 		 */
 		public updateTalkInfo(charpterID): void {
-			if (GameApp.GameEngine.talkInfo[charpterID]) { return };
+			// 有对白ID
+			if (GameApp.GameEngine.talkInfo[charpterID]) {
+				let startTalkId = GameApp.GameEngine.allCharpterInfo[charpterID].startdbid;
+				let endTalkId = Math.min(GameApp.MainPlayer.talkID, GameApp.GameEngine.allCharpterInfo[charpterID].enddbid);
+				console.log(startTalkId,endTalkId);
+				for (let i = startTalkId; i <= endTalkId; i++) {
+					let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[charpterID].data[i];
+					this.addJuQingTalkItem(_talkInfo, false)
+				}
+				return
+			};
+			// 清空数据
+			this.vbox_0.removeChildren();
+			let charpterInfo = GameApp.GameEngine.allCharpterInfo[charpterID];
+			// 章节编号
+			this.lbl_charpterTile.text = '第' + charpterInfo.index + '章';
+			// 章节名字
+			this.lbl_charpterName.text = charpterInfo.name;
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID]);
@@ -228,7 +252,8 @@ module view.juQingMode {
 				if (jsonData.flag) {
 					// 开始的对白ID
 					let startTalkId = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].startdbid;
-					for (let i = startTalkId; i <= GameApp.MainPlayer.talkID; i++) {
+					let endTalkId = Math.min(GameApp.MainPlayer.talkID, GameApp.GameEngine.allCharpterInfo[jsonData.zjid].enddbid)
+					for (let i = startTalkId; i <= endTalkId; i++) {
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[jsonData.zjid].data[i];
 						this.addJuQingTalkItem(_talkInfo, false)
 					}
@@ -274,16 +299,6 @@ module view.juQingMode {
 		 * @param item 
 		 */
 		public changeCharpter(item: view.juQingMode.JuQingCharpterItem): void {
-			for (let _item of this.vbox_zhangJieLeft._childs) {
-				if (_item != item) {
-					_item.btn_view.selected = false;
-				}
-			}
-			for (let _item of this.vbox_zhangJieRight._childs) {
-				if (_item != item) {
-					_item.btn_view.selected = false;
-				}
-			}
 			// 关闭界面
 			this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 			// 拉取剧情
