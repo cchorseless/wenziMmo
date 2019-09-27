@@ -1,13 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view.common {
 	export class ChooseServerPanel extends ui.common.ChooseServerPanelUI {
-		public password = '';
 		constructor() {
 			super();
 		}
 		public setData(): ChooseServerPanel {
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
-			this.password = Laya.LocalStorage.getItem('password');
 			this.addEvent();
 			return this;
 		}
@@ -23,8 +21,6 @@ module view.common {
 					if (GameApp.GameEngine.isReady != true) {
 						// 账号
 						GameApp.MainPlayer.playerAccount = Laya.LocalStorage.getItem('account') + '@' + GameApp.GameEngine.zoneid;
-						// 密码
-						GameApp.MainPlayer.playerPassword = this.password;
 					}
 					// 登陆前验证
 					if (GameApp.Socket.isConnecting) {
@@ -56,7 +52,7 @@ module view.common {
 			login.setValue('szAccountDis', 1);
 			login.setValue("dwZoneid", GameApp.GameEngine.zoneid);
 			login.setValue("dwTrueZoneid", GameApp.GameEngine.trueZoneid);
-			let crc32: number = FunctionUtils.passwordCrc32(GameApp.MainPlayer.playerPassword);
+			let crc32: number = FunctionUtils.passwordCrc32(Laya.LocalStorage.getItem('password'));
 			login.setValue('dwPassCrc32', crc32);
 			login.setValue('isSaveEncodePass', false);
 			login.setValue('szADUrl', "1");
@@ -97,21 +93,21 @@ module view.common {
 			}
 		}
 		/**
-				* 开始游戏
-				*/
+		 * 开始游戏
+		 */
 		public startGame(): void {
 			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
 			selector.setValue("nselectidx", 0);
-			selector.setValue("szName", GameApp.MainPlayer.realName);
+			selector.setValue("szName", GameApp.MainPlayer.objName);
 			selector.setValue("btmapsubline", 1);
 			lcp.send(selector, this, this.selectPlayerRet);
 			GameApp.GameEngine.isLogin = true;
 		}
 
 		/**
-	  * 选择角色回调，返回服务器分配的端口，需要重联
-	  * @param data 
-	  */
+	  	 * 选择角色回调，返回服务器分配的端口，需要重联
+	  	 * @param data 
+	  	 */
 		public selectPlayerRet(data: any): void {
 			let msgData: ProtoCmd.SelectPlayerRet = new ProtoCmd.SelectPlayerRet(data);
 			if (msgData.getValue('nErrorCode') == 0) {

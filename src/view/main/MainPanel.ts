@@ -31,7 +31,7 @@ module view.main {
 			// 界面赋值
 			let _player = GameApp.MainPlayer;
 			// 名字
-			this.lbl_playerName.text = _player.realName;
+			this.lbl_playerName.text = _player.objName;
 			// 等级
 			if (_player.zslevel == null || _player.zslevel == 0) {
 				this.lbl_level.text = '' + _player.level + '级';
@@ -300,7 +300,7 @@ module view.main {
 			small_txt.width = 340;
 			small_txt.wordWrap = true;
 			vbox_small.addChild(small_txt);
-			Laya.timer.frameOnce(2, this, () => { 	panel_small.scrollTo(0, panel_small.contentHeight);})
+			Laya.timer.frameOnce(2, this, () => { panel_small.scrollTo(0, panel_small.contentHeight); })
 			// 更新到大窗
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
@@ -592,7 +592,7 @@ module view.main {
 			small_txt.width = 340;
 			small_txt.wordWrap = true;
 			this.vbox_sceneMsg.addChild(small_txt);
-			Laya.timer.frameOnce(2, this, () => { 	this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight);})
+			Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
 		}
 
 		/**
@@ -612,35 +612,8 @@ module view.main {
 			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			// 任务信息
 			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
-			// 任务描述
-			// 			this.div_taskDes.style.fontSize = 20;
-			// 			this.div_taskDes.innerHTML =
-			// 				"<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
-			// ft=\"&lt;font color='#dfd4ab'&gt;击杀: &lt;/font&gt;&lt;\
-			// a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dfd4ab'&gt;鸡&lt;/font&gt;&lt;\
-			// font face='宋体' color='#BFBFBF'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#C99936'&gt;鸡&lt;/font&gt;&lt;font color='#DFD4AB'&gt;(1/1)&lt;/font&gt;\" \
-			//  loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
-			// <q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
-			// <j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
-
-			// 			console.log('=======', this.div_taskDes.innerHTML);
-			// 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
-			// 				console.log(data)
-			// 			})
-			let sss = "<t id='60' npcname='新手接待员' questid='0' qnidx='0' \
-ft=\"&lt;font color='#000000'&gt;击杀: &lt;/font&gt;&lt;\
-a href='event:findpoint`1000,4701,4702,4703,4704,4705,4706,4707,4801`57`76`鸡'&gt;&lt;font color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;\
-font face='宋体' color='#000000'&gt;进度:&lt;/font&gt;&lt;font face='宋体' color='#dc53cd'&gt;鸡&lt;/font&gt;&lt;font color='#17930d'&gt;(1/1)&lt;/font&gt;\" \
- loop='0' star='0' ns='0' nm='0' question=\" \" dng='-1' text=\"嗯……说点什么好呢？ \" > <quest> \
-<q t='『主线』  主线:初临玛法' c='0xf5e187' ck='1' u='0' f='questfinish~701' qid='701' ty='0' text='送你一把乌木剑，杀个鹿看看效果！' > \
-<j><i id='20001' co='1600'/><i id='20000' co='10000'/><i id='1122010' co='1' /></j> </q> </quest></t>";
-
-
-			let obj = GameApp.DomUtil.parseXML(sss);
-			let tNode = obj.getElementsByTagName('t');
-			console.log('======', tNode)
 			this.div_taskDes.style.fontSize = 20;
-			this.div_taskDes.innerHTML = tNode[0].getAttribute('ft') + '</a>';
+			this.div_taskDes.innerHTML = taskInfo.target;
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
 				console.log(data)
 			})

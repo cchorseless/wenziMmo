@@ -54,7 +54,7 @@ module view.dialog {
 		public readServerList(): void {	
 			let str;
 			let vbox;
-			let str0 = 'name=zoneList&tradeId=1&minId=0&maxId=100';
+			let str0 = 'name=zoneList&minId=0&maxId=100';
 			let str1 = 'name=zoneList&tradeId=1&minId=101&maxId=200';
 			let str2 = 'name=zoneList&tradeId=1&minId=201&maxId=300';
 			let str3 = 'name=zoneList&tradeId=1&minId=301&maxId=400';
