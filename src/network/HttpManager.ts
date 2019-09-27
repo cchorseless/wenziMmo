@@ -42,11 +42,11 @@ class HttpManager extends SingletonClass {
      */
     public post(param, data, cb = this.defaultCB, isJosn = false, ) {
         let xhr = new XMLHttpRequest();
-        let fixed = 'text';
+        let fixed = 'text?';
         if (isJosn) {
-            fixed = 'json';
+            fixed = 'json?';
         }
-        xhr.open('POST', HTTP_URL + fixed, true);
+        xhr.open('POST', HTTP_URL + fixed + param, true);
 
 
         xhr.onload = (e) => {

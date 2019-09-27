@@ -206,6 +206,18 @@ class ServerListener extends SingletonClass {
         realLogin.setValue('logintoken', GameApp.GameEngine.logintoken);
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
+        let accounts = GameApp.GameEngine.mainPlayer.playerAccount.split('@');
+        GameApp.HttpManager.postJson('name=playerLogin',
+            {
+                account:accounts[0],
+                username: GameApp.GameEngine.mainPlayer.objName,
+                zoneId: GameApp.GameEngine.zoneid,
+                trueZoneId: GameApp.GameEngine.trueZoneid,
+                tradeId: GameApp.GameEngine.tradeid
+            },
+            (res) => {
+                // console.log('post json response=', res);
+            });
     }
 
     /**

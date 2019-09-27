@@ -3,9 +3,12 @@ module view.dialog {
 	export class ServerListDialog extends ui.dialog.ServerListDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			
 		}
-		public setData(): void {
+		public account;
+		public setData(account): ServerListDialog {
+			// this.tab_left.labels = '0-100,101-200,201-300,301-400,401-500,501-600';
+			this.account=account;
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_left.selectedIndex = index;
 				this.readServerList();
@@ -24,6 +27,7 @@ module view.dialog {
 			this.vbox_5['sortItem'] = (items) => { };
 			this.addEvent();
 			this.readServerList();
+			return this;
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
@@ -66,10 +70,10 @@ module view.dialog {
 					break;
 
 			}
-			let h = 'name=historyZoneList&tradeId=1&account=1';
 
 			GameApp.HttpManager.get(str, (res) => {
 				let resData = JSON.parse(res);
+				let length = resData.length;
 				vbox.removeChildren();
 				let ui_server = null;
 				for (let id of resData) {
@@ -80,7 +84,23 @@ module view.dialog {
 					}
 					ui_server.setData(id);
 				}
+
 			});
+			let h = 'name=historyZoneList&tradeId=1&account='+this.account;
+			
+			GameApp.HttpManager.get(h, (res) => {
+				console.log('==================>res',res)
+				let resData = JSON.parse(res);
+				let ui_server = null;
+				for (let id of resData) {
+					let value = id.trueZoneId % 2;
+					if (value == 1) {
+						ui_server = new view.compart.ServerListItem()
+						this.vbox_recently.addChild(ui_server);
+					}
+					ui_server.setData(id);
+				}
+			})
 
 		}
 	}
