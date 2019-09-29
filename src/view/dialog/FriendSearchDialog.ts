@@ -25,7 +25,7 @@ module view.dialog {
 			this.vbox_nearby.removeChildren();
 			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
 			for (let _key of allKeys) {
-				this.vbox_nearby.addChild(new view.compart.FriendNearbyItem().setNearbyPlayerInfo(GameApp.MainPlayer.allPlayer[_key]));
+				// this.vbox_nearby.addChild(new view.compart.FriendTeamItem().setNearbyPlayerInfo(GameApp.MainPlayer.allPlayer[_key]));
 			}
 		}
 		/**
@@ -42,11 +42,11 @@ module view.dialog {
 				this.vbox_nearby.removeChildren();
 				let cbpkt = new ProtoCmd.stRelationSearchFriendRet(data);
 				for (let _item of cbpkt.results) {
-					let ui_item = new view.compart.FriendNearbyItem();
-					let itemInfo = new ProtoCmd.stFindResultBase();
-					itemInfo.clone(_item.data);
-					ui_item.setFindPlayerInfo(itemInfo);
-					this.vbox_nearby.addChild(ui_item);
+					// let ui_item = new view.compart.FriendTeamItem();
+					// let itemInfo = new ProtoCmd.stFindResultBase();
+					// itemInfo.clone(_item.data);
+					// ui_item.setFindPlayerInfo(itemInfo);
+					// this.vbox_nearby.addChild(ui_item);
 				}
 				cbpkt.clear();
 				cbpkt = null;

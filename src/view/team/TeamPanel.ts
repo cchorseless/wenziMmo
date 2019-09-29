@@ -5,16 +5,9 @@ module view.team {
 			super();
 		}
 		public setData(): void {
-			this.panel_team01.vScrollBarSkin = '';
-			this.panel_team02.vScrollBarSkin = '';
-			this.vbox_team01['sortItem'] = (items) => { };
-			this.vbox_team02['sortItem'] = (items) => { };
-			this.tab_team.selectHandler = Laya.Handler.create(this, (index) => {
-				this.vstask_team.selectedIndex = index;
-				this.myTeam();
-			}, null, false);
 			this.addEvent();
 			this.updateNearbyList();
+			this.myTeam();
 
 		}
 		public addEvent(): void {
@@ -23,19 +16,19 @@ module view.team {
 				PanelManage.openMainPanel()
 			});
 			// 离开队伍
-			this.btn_outTeam.on(Laya.UIEvent.CLICK, this, () => {
-				//判断是否是队长
-				let btGroupMaster = GameApp.MainPlayer.feature.btGroupMaster;
-				if (btGroupMaster) {
+			// this.btn_outTeam.on(Laya.UIEvent.CLICK, this, () => {
+			// 	//判断是否是队长
+			// 	let btGroupMaster = GameApp.MainPlayer.feature.btGroupMaster;
+			// 	if (btGroupMaster) {
 
-				} else {
-					let pkt = new ProtoCmd.TeamQuitEncoder();
-					pkt.setValue('dwOnlyid',GameApp.MainPlayer.onlyId)
-					lcp.send(pkt,this,(data)=>{
-							let cbpkt = new ProtoCmd.TeamQuitDecoder(data);
-					})
-				}
-			});
+			// 	} else {
+			// 		let pkt = new ProtoCmd.TeamQuitEncoder();
+			// 		pkt.setValue('dwOnlyid',GameApp.MainPlayer.onlyId)
+			// 		lcp.send(pkt,this,(data)=>{
+			// 				let cbpkt = new ProtoCmd.TeamQuitDecoder(data);
+			// 		})
+			// 	}
+			// });
 			// 工会
 			this.btn_guild.on(Laya.UIEvent.CLICK, this, () => {
 				// 判定 有无公会
@@ -98,34 +91,34 @@ module view.team {
 		 * 附近的人，与好友中附近的人共用一个item
 		 */
 		public updateNearbyList(): void {
-			this.vbox_team02.removeChildren();
-			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
-			let groupIds = {}
-			for (let _key of allKeys) {
-				this.vbox_team02.addChild(new view.compart.FriendNearbyItem().setNearbyPlayerInfo(GameApp.MainPlayer.allPlayer[_key]));
-				//通过附近的人获取其队伍ID
-				let id = GameApp.MainPlayer.allPlayer[_key].feature.btGroupId;
-				if (id && !groupIds[id]) {
-					groupIds[id] = id;
-				}
+			// this.vbox_team02.removeChildren();
+			// let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
+			// let groupIds = {}
+			// for (let _key of allKeys) {
+			// 	this.vbox_team02.addChild(new view.compart.FriendNearbyItem().setNearbyPlayerInfo(GameApp.MainPlayer.allPlayer[_key]));
+			// 	//通过附近的人获取其队伍ID
+			// 	let id = GameApp.MainPlayer.allPlayer[_key].feature.btGroupId;
+			// 	if (id && !groupIds[id]) {
+			// 		groupIds[id] = id;
+			// 	}
 			}
 			//附近队伍
 			// 通过队伍ID获取队长信息
-			let pkt = new ProtoCmd.TeamInfomationDecoder();
-			for (let a in groupIds) {
-				pkt.setValue('dwGroupId', a);
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
-					for (let member of cbpkt.Members) {
-						let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
-						let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
-						if (onlyId.id == masterId.id) {
-							this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member, cbpkt.getValue('btMemberCount')));
+			// let pkt = new ProtoCmd.TeamInfomationDecoder();
+			// for (let a in groupIds) {
+			// 	pkt.setValue('dwGroupId', a);
+			// 	lcp.send(pkt, this, (data) => {
+			// 		let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
+			// 		for (let member of cbpkt.Members) {
+			// 			let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
+			// 			let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
+			// 			if (onlyId.id == masterId.id) {
+			// 				this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member, cbpkt.getValue('btMemberCount')));
 
-						}
-					}
-				})
-			}
-		}
+						// }
+					// }
+				// })
+			// }
+		// }
 	}
 }
