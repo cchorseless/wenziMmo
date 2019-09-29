@@ -99,11 +99,18 @@ module ProtoCmd {
     export const FB_ChuMoLeave = 'ChuMoLeave';
     // 主线副本进入成功,更新副本进度
     export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
-
+    /********************************资源副本*********************** */
+    // 资源状态
+    export const FB_CLFubenStatus = 'CLFubenStatus';
+    //单个资源副本
+    export const FB_OpenNpc_CLFuben = 'OpenNpc_CLFuben';
     /********************************心魔副本*********************** */
-    // 打開個人BOSS界面
+    // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
 
+    /********************************诛杀邪帝副本*********************** */
+    // 打开世界boss界面
+    export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -314,15 +321,41 @@ module ProtoCmd {
      * 心魔副本信息
      */
     export interface itf_FB_XinMoInfo {
-        flag: number;
-        maxcnt: number;
-        maxlv: number;
-        minlv: number;
-        monsterid: number;
-        sec: number;
-        show: number;
-        viplv: number;
-        x: number;
-        y: number;
+        flag: number;//已刷副本次数
+        maxcnt: number;//最大刷副本次数
+        maxlv: number;//最大等级
+        minlv: number;//最小等级
+        monsterid: number;//bossID
+        sec: number;//剩余刷新时间
+        show: number;//是否展示
+        viplv: number;//vip等级
+        x: number;//boss的X坐标
+        y: number;//boss的y坐标
+    }
+      /**
+     * 资源副本信息
+     */
+    export interface itf_FB_ZiYuanInfo {
+        caninto: number//已进入副本次数
+        index: number//索引
+        leftcnt: number//最大可进入次数
+        name: string//副本类型
+        name1: string//副本地图名称
+        openlv: number//开放等级
+    }
+      /**
+     * 资源副本单行信息
+     */
+    export interface itf_FB_ZiYuanOneInfo {
+        FuBenIndex: number//索引
+        activity: number//特权
+        caninto: number//已进入次数
+        jiangli: any//奖励
+        leftcnt: number//最大进入次数
+        linquneed: any//多倍领取需要的货币
+        name1: string//副本地图名称
+        need: any//需要的物品
+        ntype: number//领取的多倍奖励的货币类型
+        openlv: number//开放等级
     }
 }
