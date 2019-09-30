@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":168,
-    "selecteID":169,
+    "selecteID":182,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -54,20 +54,6 @@
         },
         {
             "x":15,
-            "type":"Tab",
-            "props":{"y":116,"x":0,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/common/btn_common_13_dizi.png","selectedIndex":0,"labels":"人\\n物\\n简\\n介,装\\n备\\n属\\n性,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#7b5a47,#f0dbbe","labelAlign":"center","direction":"vertical"},
-            "nodeParent":1,
-            "label":"Tab(tab_player)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":163,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"ViewStack",
             "props":{"y":122,"width":567,"var":"viw_player","selectedIndex":0,"right":6,"height":911},
             "nodeParent":1,
@@ -95,18 +81,44 @@
                 },
                 {
                     "x":30,
-                    "type":"UIView",
-                    "source":"compart/Person_EquipInfoItem.ui",
-                    "props":{"y":-3,"x":0,"var":"ui_equipProps","runtime":"view.compart.Person_EquipInfoItem","name":"item1"},
+                    "type":"Box",
+                    "props":{"y":-33,"x":-67,"name":"item1"},
                     "nodeParent":168,
-                    "label":"UIView(ui_equipProps)",
-                    "isDirectory":false,
+                    "label":"Box(item1)",
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":171,
+                    "hasChild":true,
+                    "compId":235,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "type":"Image",
+                            "props":{"skin":"image/juese/img_yunBg.png"},
+                            "nodeParent":235,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":229,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"compart/Person_EquipInfoItem.ui",
+                            "props":{"y":30,"x":67,"var":"ui_equipProps","runtime":"view.compart.Person_EquipInfoItem"},
+                            "nodeParent":235,
+                            "label":"UIView(ui_equipProps)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":171,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -151,7 +163,7 @@
                     "compId":182,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -183,7 +195,21 @@
                         ],
                     "$HIDDEN":true
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":116,"x":0,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/common/btn_common_13_dizi.png","selectedIndex":0,"labels":"人\\n物\\n简\\n介,装\\n备\\n属\\n性,资\\n质\\n天\\n赋,内\\n息\\n经\\n络,罡\\n气\\n护\\n体,武\\n学\\n四\\n法,江\\n湖\\n声\\n望","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#7b5a47,#f0dbbe","labelAlign":"center","direction":"vertical"},
+            "nodeParent":1,
+            "label":"Tab(tab_player)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":163,
+            "child":[
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,

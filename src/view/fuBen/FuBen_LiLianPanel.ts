@@ -12,10 +12,8 @@ module view.fuBen {
 			this.vbox_0['sortItem'] = (items) => { };
 			this.panel_1.vScrollBarSkin = '';
 			this.vbox_1['sortItem'] = (items) => { };
-			this.panel_2.vScrollBarSkin = '';
-			this.vbox_2['sortItem'] = (items) => { };
 			this.addEvent();
-			this.init_killXieDi();
+			this.init_bossHome();
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
@@ -38,7 +36,23 @@ module view.fuBen {
 			});
 		}
 		/**
-			 * 诛杀邪帝界面
+		  * 天山血狱界面（boss之家）
+		  */
+		public init_bossHome(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData: { any }) => {
+				let keys = Object.keys(jsonData);
+				for (let key of keys) {
+					let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
+					this.vbox_1.addChild(new view.compart.FuBenLiLianV1Item().setData(key,data));
+					
+				}
+			
+			})
+			lcp.send(pkt);
+		}
+		/**
+			 * 诛杀邪帝界面(世界BOSS)
 			 */
 		public init_killXieDi(): void {
 			// let pkt = new ProtoCmd.QuestClientData();

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":61,
-    "selecteID":114,
+    "selectedBox":89,
+    "selecteID":90,
     "props":{"width":567,"sceneColor":"#aa6867","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -107,7 +107,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":486,"x":428,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"传世大师"},
+                            "props":{"y":486,"x":428,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"传世大师"},
                             "nodeParent":61,
                             "label":"Button",
                             "isDirectory":false,
@@ -120,7 +120,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":486,"x":295,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
+                            "props":{"y":486,"x":295,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
                             "nodeParent":61,
                             "label":"Button",
                             "isDirectory":false,
@@ -133,7 +133,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":486,"x":163,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
+                            "props":{"y":486,"x":163,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
                             "nodeParent":61,
                             "label":"Button",
                             "isDirectory":false,
@@ -146,7 +146,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":486,"x":30,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
+                            "props":{"y":486,"x":30,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
                             "nodeParent":61,
                             "label":"Button",
                             "isDirectory":false,
@@ -332,15 +332,16 @@
                             "props":{"y":-8,"x":0,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":82,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":83,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":1,"x":21,"width":104,"text":"装备推荐","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                                    "props":{"y":1,"x":35,"width":104,"text":"装备推荐","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":26,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":83,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -417,13 +418,14 @@
                     "props":{"y":753,"x":1},
                     "nodeParent":60,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":89,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":89,
@@ -435,8 +437,9 @@
                             "compId":90,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":1,"x":21,"width":104,"text":"获取途径","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                                    "props":{"y":1,"x":35,"width":104,"text":"获取途径","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":26,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":90,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -449,17 +452,19 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":49,"x":85},
                             "nodeParent":89,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":92,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
                                     "nodeParent":92,
@@ -484,19 +489,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":92,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":95,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":95,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -512,17 +519,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":49,"x":220},
                             "nodeParent":89,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":97,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
                                     "nodeParent":97,
@@ -547,19 +556,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":97,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":100,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":100,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -575,17 +586,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":49,"x":352},
                             "nodeParent":89,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":102,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
                                     "nodeParent":102,
@@ -610,19 +623,21 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":102,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":105,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":105,
                                             "label":"Label",
                                             "isDirectory":false,

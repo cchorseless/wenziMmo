@@ -108,9 +108,15 @@ module ProtoCmd {
     // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
 
-    /********************************诛杀邪帝副本*********************** */
-    // 打开世界boss界面
+    /********************************缉盗悬赏副本*********************** */
+    // 打开野外boss界面
     export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
+    /********************************天山血狱副本*********************** */
+    // 打开boss之家界面
+    export const FB_WorldBoss_Open = 'WorldBoss_Open';
+    // 获取boss之家信息
+    export const FB_GetWorldBossInfo = 'GetWorldBossInfo';
+
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -332,9 +338,9 @@ module ProtoCmd {
         x: number;//boss的X坐标
         y: number;//boss的y坐标
     }
-      /**
-     * 资源副本信息
-     */
+    /**
+   * 资源副本信息
+   */
     export interface itf_FB_ZiYuanInfo {
         caninto: number//已进入副本次数
         index: number//索引
@@ -343,9 +349,9 @@ module ProtoCmd {
         name1: string//副本地图名称
         openlv: number//开放等级
     }
-      /**
-     * 资源副本单行信息
-     */
+    /**
+   * 资源副本单行信息
+   */
     export interface itf_FB_ZiYuanOneInfo {
         FuBenIndex: number//索引
         activity: number//特权
@@ -358,4 +364,14 @@ module ProtoCmd {
         ntype: number//领取的多倍奖励的货币类型
         openlv: number//开放等级
     }
-}
+    export interface itf_FB_XueYuInfo {
+        mapid: number//地图id
+        vip: number//vip级别
+        alive1: number//vip层存活状态
+        alive2: number//普通层存活状态
+        bossid: number//boss ID
+    }
+ export interface itf_FB_XueYuOneInfo {
+      
+    }
+    }

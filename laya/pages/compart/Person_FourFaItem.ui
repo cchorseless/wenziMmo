@@ -1,8 +1,14 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":102,
-    "selecteID":103,
+    "selectedBox":71,
+    "selecteID":54,
+    "referenceLines":[
+        {
+            "value":11,
+            "type":0,
+            "id":1
+        }],
     "props":{"width":567,"sceneColor":"#c59695","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -82,7 +88,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":483,"x":389,"width":121,"valign":"bottom","text":"腿法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":483,"x":389,"width":121,"valign":"bottom","text":"腿法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZHL","color":"#ffffff","align":"center"},
                     "nodeParent":71,
                     "label":"Label",
                     "isDirectory":false,
@@ -95,7 +101,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":245,"x":390,"width":121,"valign":"bottom","text":"身法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":245,"x":390,"width":121,"valign":"bottom","text":"身法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZHL","color":"#ffffff","align":"center"},
                     "nodeParent":71,
                     "label":"Label",
                     "isDirectory":false,
@@ -108,7 +114,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":483,"x":63,"width":121,"valign":"bottom","text":"手法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":483,"x":63,"width":121,"valign":"bottom","text":"手法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZHL","color":"#ffffff","align":"center"},
                     "nodeParent":71,
                     "label":"Label",
                     "isDirectory":false,
@@ -121,7 +127,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":245,"x":64,"width":121,"valign":"bottom","text":"眼法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":245,"x":64,"width":121,"valign":"bottom","text":"眼法精要","strokeColor":"#000000","stroke":4,"height":27,"fontSize":30,"font":"FZHL","color":"#ffffff","align":"center"},
                     "nodeParent":71,
                     "label":"Label",
                     "isDirectory":false,
@@ -134,31 +140,32 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":56,"x":181,"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":62,"x":24,"width":174,"skin":"image/common/bottom_smalltitle.png","height":35},
                     "nodeParent":71,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":102,
+                    "compId":106,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
-                            "props":{"y":4,"x":41,"text":"武学四法","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                            "nodeParent":102,
+                            "props":{"y":0,"x":29,"text":"武学四法","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":106,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":103,
+                            "compId":107,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         }],
+                    "$LOCKED":true,
                     "$HIDDEN":false
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -172,6 +179,34 @@
             "hasChild":true,
             "compId":63,
             "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-6,"x":6,"width":174,"skin":"image/common/bottom_smalltitle.png","height":35},
+                    "nodeParent":63,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":104,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":29,"text":"四法评价","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":104,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":105,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$LOCKED":false,
+                    "$HIDDEN":false
+                },
                 {
                     "x":30,
                     "type":"UIView",
@@ -227,33 +262,6 @@
                     "compId":69,
                     "child":[
                         ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-10,"x":3,"skin":"image/common/bottom_smalltitle.png"},
-                    "nodeParent":63,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":98,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":4,"x":41,"text":"四法评价","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                            "nodeParent":98,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":99,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
                 }]
         },
         {
@@ -271,28 +279,29 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-16,"x":16,"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":-14,"x":15,"width":174,"skin":"image/common/bottom_smalltitle.png","height":35},
                     "nodeParent":72,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":100,
+                    "compId":108,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":4,"x":41,"text":"获取途径","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                            "nodeParent":100,
+                            "props":{"y":0,"x":29,"text":"获取途径","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                            "nodeParent":108,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":101,
+                            "compId":109,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         }],
+                    "$LOCKED":false,
                     "$HIDDEN":false
                 },
                 {
@@ -312,7 +321,7 @@
                             "props":{"y":7,"x":-2},
                             "nodeParent":75,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -347,7 +356,7 @@
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":76,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -355,7 +364,7 @@
                                     "child":[
                                         {
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":79,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -375,7 +384,7 @@
                             "props":{"y":7,"x":133},
                             "nodeParent":75,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -410,7 +419,7 @@
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":81,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -418,7 +427,7 @@
                                     "child":[
                                         {
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":84,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -438,7 +447,7 @@
                             "props":{"y":7,"x":265},
                             "nodeParent":75,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -473,7 +482,7 @@
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":86,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -481,7 +490,7 @@
                                     "child":[
                                         {
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":89,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -501,7 +510,7 @@
                             "props":{"y":7,"x":399},
                             "nodeParent":75,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -536,7 +545,7 @@
                                     "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
                                     "nodeParent":91,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -544,7 +553,7 @@
                                     "child":[
                                         {
                                             "type":"Label",
-                                            "props":{"y":-1,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":94,
                                             "label":"Label",
                                             "isDirectory":false,

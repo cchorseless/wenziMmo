@@ -16,11 +16,19 @@ module view.common {
 				ResManage.loadTTF(ResData.TTFRes.AllTTFData, () => {
 					// 加载配置表文件
 					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => { PanelManage.openLoginPanel() },
-						(data) => { this.lbl_progress.text = '加载配置表过程中---' }, errorFunc)
+						(data) => {
+							this.lbl_progress.text = '加载配置表过程中';
+							this.updatePregressPic(data);
+						}, errorFunc)
 				})
-			}, (data) => { this.lbl_progress.text = '加载通用资源过程中---' + data * 100 + '%' }, errorFunc)
+			}, (data) => {
+				this.lbl_progress.text = '加载通用资源过程中';
+				this.updatePregressPic(data);
+			}, errorFunc)
 
 		}
-
+		public updatePregressPic(data): void {
+			this.img_pregress.scaleY = data;
+		}
 	}
 }

@@ -7,7 +7,7 @@ module view.juese {
 
 		public setData(): void {
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_player.getChildAt(index)['setData']();
+				// this.viw_player.getChildAt(index)['setData']();
 				this.viw_player.selectedIndex = index;
 
 			}, null, false);

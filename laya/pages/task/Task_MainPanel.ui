@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":321,
-    "selecteID":322,
+    "selectedBox":361,
+    "selecteID":333,
     "referenceLines":[
         {
             "value":1019,
@@ -159,16 +159,17 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"x":205,"skin":"image/common/bottom_smalltitle.png"},
+                            "props":{"y":3,"x":205,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":361,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":333,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":4,"x":41,"var":"lbl_taskName","text":"主线任务","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":333,
