@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":235,
+    "selectedBox":227,
+    "selecteID":231,
     "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":680},
     "nodeParent":-1,
     "label":"View",
@@ -124,18 +124,19 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":33,"var":"btn_worldMap","stateNum":"1","skin":"image/main/img_main_ditu_finish.png","right":9,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"var":"btn_worldMap","stateNum":"2","skin":"image/main/img_main_ditu_finish.png","right":14,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_worldMap)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":227,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":50,"x":3,"text":"地图","strokeColor":"#010101","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":30,"x":3,"text":"地图","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":227,
                     "label":"Label",
                     "isDirectory":false,

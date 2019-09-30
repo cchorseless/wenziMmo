@@ -339,13 +339,14 @@
             "props":{"y":507,"x":53,"width":511,"var":"panel_1","height":109},
             "nodeParent":1,
             "label":"Panel(panel_1)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":40,
             "child":[
                 {
+                    "x":30,
                     "type":"HBox",
                     "props":{"y":0,"x":5,"var":"hbox_1","height":105},
                     "nodeParent":40,
@@ -362,7 +363,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":547,"x":224,"var":"lbl_NoPrizeTips","text":"暂无奖励领取","fontSize":30},
+            "props":{"y":547,"x":224,"var":"lbl_NoPrizeTips","text":"暂无奖励领取","fontSize":30,"font":"FZHL"},
             "nodeParent":1,
             "label":"Label(lbl_NoPrizeTips)",
             "isDirectory":false,

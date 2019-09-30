@@ -24,7 +24,7 @@ module view.compart {
 		//打开附近队伍管理弹窗
 		public addEvent(): void {
 			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.TeamApplyDialog().setData(this.item, this.count).popup();
+				// new view.dialog.TeamApplyDialog().setData(this.item, this.count).popup();
 			});
 		}
 	}

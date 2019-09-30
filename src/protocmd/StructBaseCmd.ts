@@ -2533,6 +2533,9 @@ module ProtoCmd {
                 data.pos += this.read(data);
             }
         }
+         public get szName(): number {
+            return this.getValue("szName");
+        }
         public get state(): number {
             return this.getValue("btState");
         }
