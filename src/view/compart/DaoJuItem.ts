@@ -136,9 +136,6 @@ module view.compart {
 				this.alpha = 1;
 			}
 		}
-		public fubenDaily(index): DaoJuItem {
-			this.img_item.skin = 'image/common/daoju/itemicon_' + index + '.png';
-			return this;
-		}
+
 	}
 }

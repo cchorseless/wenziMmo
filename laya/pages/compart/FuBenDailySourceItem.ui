@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":14,
-    "selecteID":23,
+    "selecteID":31,
     "props":{"width":608,"sceneColor":"#000000","height":163},
     "nodeParent":-1,
     "label":"View",
@@ -61,34 +61,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":17,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/DaoJuItem.ui",
-                    "props":{"y":80,"x":112,"var":"ui_item0","runtime":"view.compart.DaoJuItem"},
-                    "nodeParent":14,
-                    "label":"UIView(ui_item0)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/DaoJuItem.ui",
-                    "props":{"y":80,"x":200,"var":"ui_item1","runtime":"view.compart.DaoJuItem"},
-                    "nodeParent":14,
-                    "label":"UIView(ui_item1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
                     "child":[
                         ]
                 },
@@ -224,6 +196,33 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":80,"x":107,"width":207,"var":"panel_ziyuan","height":82},
+                    "nodeParent":14,
+                    "label":"Panel(panel_ziyuan)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":31,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"x":5,"var":"hbox_ziyuan","top":0,"bottom":0},
+                            "nodeParent":31,
+                            "label":"HBox(hbox_ziyuan)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":32,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         }],

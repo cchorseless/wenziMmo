@@ -11,9 +11,12 @@ module view.fuBen {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
 			this.panel_xinMo.hScrollBarSkin = '';
+			this.hbox_xinMo['sortItem'] = (items) => { };
 			this.panel_xinMo1.hScrollBarSkin = '';
+			this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_res.vScrollBarSkin = '';
-			this.init_res()
+			this.vbox_res['sortItem'] = (items) => { };		
+				this.init_res()
 			this.init_XinMo();
 			this.addEvent();
 		}
@@ -57,48 +60,51 @@ module view.fuBen {
 		/**
 		 * 心魔界面
 		 */
+
+		public json;
 		public init_XinMo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GeRenBoss_Open, null, null, this, (jsonData: { any }) => {
-				let boss: ProtoCmd.itf_FB_XinMoInfo = jsonData[1];
-				//boss[1]名称
-				let bossName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + boss.monsterid);
-				let name = bossName.split('_')
-				this.lbl_bossName.text = '' + name[0];
-				//BOSS[1]在造型图上名称
-				this.lbl_bossTitle.text = '' + name[0];
-				//boss[1]等级
-				this.lbl_bossLvl.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + boss.monsterid);
-				//boss[1]造型
-				this.img_boss.skin = 'image/common/npc/npc_half_' + SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + boss.monsterid) + '.png';
-				//boss[1]挑战等级
-				this.lbl_challengeLvl.text = '' + boss.minlv;
-				//boss[1]坐标
-				this.lbl_position.text = '(' + boss.x + ',' + boss.y + ')';
-				//boss[1]掉落奖励
-				let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid).split('#');
-				for (let i = 0; bossGet[i]; i++) {
-					this.hbox_xinMo1.addChild(new view.compart.DaoJuItem().fubenDaily(bossGet[i]))
+			pkt.setString(ProtoCmd.FB_GeRenBoss_Open, null, null, this, (jsonData) => {
+				console.log(jsonData);
+				let keys = Object.keys(jsonData);
+				for (let key of keys) {
+					let data: ProtoCmd.itf_FB_XinMoInfo = jsonData[key];
+					this.hbox_xinMo.addChild(new view.compart.FuBenDailyXinMoItem().setData(data));
 				}
-
-				for (let i = 1; jsonData[i]; ++i) {
-					let boss: ProtoCmd.itf_FB_XinMoInfo = jsonData[i];
-					//boss名称
-					let bossName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + boss.monsterid);
-					let name = bossName.split('_')
-					//boss等级
-					let bossLvl = '' + SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + boss.monsterid);
-					//boss造型
-					let img_bossID = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + boss.monsterid);
-					//boss掉落奖励
-					let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid).split('#');
-					
-					this.hbox_xinMo.addChild(new view.compart.FuBenDailyXinMoItem().setData(boss, name, bossLvl, img_bossID, bossGet))
-					console.log('=============>心魔心魔心魔',bossGet)
-
-				}
+				this.json = jsonData[1]
+				this.update_XinMo(this.json);
 			});
 			lcp.send(pkt);
+		}
+
+		public update_XinMo(data: any): FuBen_DailyPanel {
+			//boss[1]名称
+			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid).split("_");
+			this.lbl_bossName.text = '' + name[0];
+			//BOSS在造型图上名称
+			this.lbl_bossTitle.text = '' + name[0];
+			//boss等级
+			let lvl = SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + data.monsterid);
+			this.lbl_bossLvl.text = '' + lvl;
+			//boss造型
+			let imgItem = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + data.monsterid);
+			this.img_boss.skin = 'image/common/npc/npc_half_' + imgItem + '.png';
+			//boss挑战等级
+			this.lbl_challengeLvl.text = '' + data.minlv;
+			//boss坐标
+			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
+			// boss掉落奖励
+			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
+			this.hbox_xinMo1.removeChildren();
+			for (let i = 0; jiangli[i]; i++) {
+				let _itemUI = new view.compart.DaoJuWithNameItem();
+				let itemInfo = new ProtoCmd.ItemBase();
+				itemInfo.dwBaseID = jiangli[i];
+				_itemUI.setData(itemInfo);
+				this.hbox_xinMo1.addChild(_itemUI)
+			}
+			console.log('========>心魔心魔data', data)
+			return this;
 		}
 	}
 }
