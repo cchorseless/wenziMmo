@@ -36,7 +36,7 @@ module view.scene {
 				switch (skePath) {
 					// 收集道具
 					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-						
+
 						if (this.collectHander) { this.collectHander.run() }
 						break;
 					default:

@@ -24,16 +24,15 @@ module view.common {
 			this.vbox_1['sortItem'] = (items) => { };
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_talk.selectedIndex = index;
-			}, null, false)
-			this.initSelf();
-			this.addEvent();
-			this.box_npcTalk.visible = false;
+			}, null, false);
 			this.addDiFuTalk();
 			this.addRenJianTalk();
+			this.initSelf();
 		}
 
 		public initSelf(): void {
 			this.alpha = 0;
+			this.box_npcTalk.visible = false;
 			// 加载动作
 			let playerObj = new GameObject.Player();
 			playerObj.skeBoneRes = 'sk/player/ZJ_GH.sk';
@@ -46,13 +45,14 @@ module view.common {
 			// 加载过长动画
 			let cg = new SkeletonUtil.SkeletonGroup();
 			cg.loadRes(['sk/new/MH.sk'], () => {
-				cg.pos(320, 560);
+				cg.pos(Laya.stage.width / 2, Laya.stage.height / 2);
 				Laya.stage.addChild(cg);
 				cg.play(0, false, false, Laya.Handler.create(this, () => {
+					this.addEvent();
 					this.changeMap(1);
 					Laya.Tween.to(cg, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => { cg.destroy(true) }));
 					Laya.Tween.to(this, { alpha: 1 }, 1000);
-				}));
+				}), 2);
 			})
 		}
 
@@ -117,7 +117,7 @@ module view.common {
 		public talkConfigList = [null,
 			// 鬼门关
 			[
-				{ 1: '这是哪里？？？', 'delay': 120 },
+				{ 1: '这是哪里？？？', 'delay': 60 },
 				{ 1001: '既到地府，还不速速报道！' },
 				{ 1: '！！！！！！' },
 				{ 1: '敢问两位大哥，这里是哪里啊？我认识两位吗？' },
@@ -134,7 +134,7 @@ module view.common {
 			],
 			// 黄泉路
 			[
-				{ 1004: '啧啧啧，又来一个倒霉鬼！！！', 'delay': 120 },
+				{ 1004: '啧啧啧，又来一个倒霉鬼！！！', 'delay': 60 },
 				{ 1003: '哈哈哈，新来的，瞅啥呢？麻溜滴，小跑过来！！！' },
 				{ 1: '...看两位面相奇特，骨骼惊奇，想必是牛头马面两位鬼差大哥了。' },
 				{ 1003: '你还算聪明，知道我们是当差的。过来吧，手臂打开，腰杆挺直，老实一点！' },
@@ -169,7 +169,7 @@ module view.common {
 			[
 				{ 1009: '你来了' },
 				{ 1009: '地域不空誓不成佛。往前就是六道轮回，通往阳界。选个天赋吧', 'showDialog': 5, 'stop': true },
-				{ 1009: '选好了是吧，你看看镜子，这就是你投胎后的样子', 'showDialog': 6, 'stop': true },
+				{ 1009: '点开轮回之门，开始你的重生之旅吧', 'showTips': 'box_boss', 'showTipsMode': 90, 'stop': true },
 			],
 
 			null]
@@ -187,6 +187,7 @@ module view.common {
 		public changeMap(index): void {
 			// 禁用按钮
 			this.btn_mapUp.disabled = true;
+			this.box_boss.disabled = true;
 			this.curMap = index;
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].gray = (i != index);
@@ -283,28 +284,23 @@ module view.common {
 							break;
 						// 轮回道
 						case 200005:
-							progerUI.setData('轮回之路已开启...', 3000);
-							progerUI.closeHandler = Laya.Handler.create(this, () => { this.parseTalkList(this.curMap) })
+							progerUI.setData('轮回之门正在开启...', 3000);
+							progerUI.closeHandler = Laya.Handler.create(this, () => {
+								this.lbl_finaName.text = this.playerName;
+								// 拉取姓名九宫和生成八字
+								let pkt2 = new ProtoCmd.QuestClientData();
+								pkt2.setString(ProtoCmd.JS_birthdateAndCompellation, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
+									console.log(jsonData);
+									this.showDialog(true, 6);
+								});
+								lcp.send(pkt2);
+
+							})
 							break;
 					}
-
 					progerUI.popup(true);
-				}, null, false)
+				})
 				this.box_boss.addChild(monsterUI);
-			}
-
-			switch (index) {
-				case 1:
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				case 5:
-					break;
-
 			}
 
 		}
@@ -411,9 +407,19 @@ module view.common {
 			 */
 			EventManage.onWithEffect(this.btn_finallySure, Laya.UIEvent.CLICK, this, () => {
 				this.showDialog(false);
-				Laya.timer.frameOnce(120, this, () => {
+				// 睁眼动画
+				let cg = new SkeletonUtil.SkeletonGroup();
+				cg.loadRes(['sk/new/Zhenyan.sk'], () => {
+					cg.pos(Laya.stage.width / 2, Laya.stage.height / 2);
+					Laya.stage.addChild(cg);
 					PanelManage.openJuQingModePanel();
+					cg.play(0, false, false, Laya.Handler.create(this, () => {
+						Laya.Tween.to(cg, { alpha: 1 }, 1000, null, Laya.Handler.create(this, () => {
+							cg.destroy(true);
+						}))
+					}), 0.5);
 				})
+
 			});
 
 
@@ -727,6 +733,7 @@ module view.common {
 			for (let i = 1; i < 9; i++) {
 				if (GameApp.MainPlayer.xingGeInfo[i]) {
 					this['btn_xingGe' + i].visible = true;
+					this['btn_xingGe' + i].label = '' + SheetConfig.attribute.getInstance(null).NAME('' + GameApp.MainPlayer.xingGeInfo[i].id);
 				}
 				else {
 					this['btn_xingGe' + i].visible = false;

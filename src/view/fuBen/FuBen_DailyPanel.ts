@@ -76,7 +76,7 @@ module view.fuBen {
 				//boss[1]坐标
 				this.lbl_position.text = '(' + boss.x + ',' + boss.y + ')';
 				//boss[1]掉落奖励
-				let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid).split('#');
+				let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid);
 				for (let i = 0; bossGet[i]; i++) {
 					this.hbox_xinMo1.addChild(new view.compart.DaoJuItem().fubenDaily(bossGet[i]))
 				}
@@ -91,7 +91,7 @@ module view.fuBen {
 					//boss造型
 					let img_bossID = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + boss.monsterid);
 					//boss掉落奖励
-					let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid).split('#');
+					let bossGet = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + boss.monsterid);
 					
 					this.hbox_xinMo.addChild(new view.compart.FuBenDailyXinMoItem().setData(boss, name, bossLvl, img_bossID, bossGet))
 					console.log('=============>心魔心魔心魔',bossGet)

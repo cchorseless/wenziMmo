@@ -130,6 +130,8 @@ module ProtoCmd {
     export const JS_randomXingGeValue = 'randomTianFuValue';
     // 随机天赋
     export const JS_randomZiZhiValue = 'randomZiZhiValue';
+    // 拉取姓名九宫和生辰八字
+    export const JS_birthdateAndCompellation = 'birthdateAndCompellation';
     // 悟性=龙魂
 
     // 臂力-神盾
@@ -341,9 +343,9 @@ module ProtoCmd {
         x: number;//boss的X坐标
         y: number;//boss的y坐标
     }
-      /**
-     * 资源副本信息
-     */
+    /**
+   * 资源副本信息
+   */
     export interface itf_FB_ZiYuanInfo {
         caninto: number//已进入副本次数
         index: number//索引
@@ -352,9 +354,9 @@ module ProtoCmd {
         name1: string//副本地图名称
         openlv: number//开放等级
     }
-      /**
-     * 资源副本单行信息
-     */
+    /**
+   * 资源副本单行信息
+   */
     export interface itf_FB_ZiYuanOneInfo {
         FuBenIndex: number//索引
         activity: number//特权
