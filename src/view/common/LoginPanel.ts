@@ -56,5 +56,23 @@ module view.common {
 			Laya.LocalStorage.setItem('password', this.input_password.text);
 			PanelManage.openChooseServerPanel();
 		}
+		/**
+  		 * 选择界面登录
+  		 * @param data 
+  		 */
+		public selectPlayerRet(data: any): void {
+			let msgData: ProtoCmd.SelectPlayerRet = new ProtoCmd.SelectPlayerRet(data);
+			if (msgData.getValue('nErrorCode') == 0) {
+				GameApp.GameEngine.gamesvrIdType = msgData.getValue('gamesvr_id_type');
+				GameApp.MainPlayer.onlyId = msgData.getValue('dwUserOnlyId');
+				GameApp.MainPlayer.objName = msgData.getValue('szName');
+				// 这里重置一下socket,启用重连协议进入服务器
+				GameApp.Socket.resetSocket(FunctionUtils.ipbytestoipstr(msgData.getValue('ip')), msgData.getValue('port'));
+			} else {
+				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
+			}
+			msgData.clear();
+
+		}
 	}
 }

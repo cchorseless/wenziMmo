@@ -15,7 +15,11 @@ module view.common {
 				// 加载字体文件
 				ResManage.loadTTF(ResData.TTFRes.AllTTFData, () => {
 					// 加载配置表文件
-					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => { PanelManage.openLoginPanel() },
+					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => {
+						// 先打开主界面放在最下层，再打开登录界面
+						PanelManage.openMainPanel();
+						PanelManage.openLoginPanel()
+					},
 						(data) => { this.lbl_progress.text = '加载配置表过程中---' }, errorFunc)
 				})
 			}, (data) => { this.lbl_progress.text = '加载通用资源过程中---' + data * 100 + '%' }, errorFunc)

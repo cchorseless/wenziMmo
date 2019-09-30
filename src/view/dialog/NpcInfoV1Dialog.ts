@@ -44,7 +44,7 @@ module view.dialog {
 			});
 			// 偷窃
 			this.btn_touQie.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.NpcInfoTouQieDialog().popup();
+				new view.dialog.ProgressDialog().popup();
 				this.btn_return.visible = true;
 			});
 			// 对话

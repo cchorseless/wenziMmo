@@ -28,6 +28,11 @@ module view.main {
 				}
 			}, null, false);
 			this.tab_task.selectedIndex = 1;
+			this.addEvent();
+			this.visible = false;
+		}
+
+		public updateUI(): void {
 			// 界面赋值
 			let _player = GameApp.MainPlayer;
 			// 名字
@@ -53,11 +58,7 @@ module view.main {
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
-			this.addEvent();
-			// 加载场景
-			this.loadScene();
 		}
-
 		public addEvent(): void {
 			// 模式切换
 			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {

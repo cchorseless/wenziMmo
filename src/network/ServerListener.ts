@@ -20,8 +20,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CheckSignalCmd), this, this.checkSignalCmd);
         // 更新本地密匙 109
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
-        //
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CreatePlayerRet), this, this.createPlayerRet)
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
         // 玩家改变地图ID 201
@@ -209,7 +207,7 @@ class ServerListener extends SingletonClass {
         let accounts = GameApp.GameEngine.mainPlayer.playerAccount.split('@');
         GameApp.HttpManager.postJson('name=playerLogin',
             {
-                account:accounts[0],
+                account: accounts[0],
                 username: GameApp.GameEngine.mainPlayer.objName,
                 zoneId: GameApp.GameEngine.zoneid,
                 trueZoneId: GameApp.GameEngine.trueZoneid,
@@ -248,50 +246,7 @@ class ServerListener extends SingletonClass {
     }
 
 
-	/**
-  		* 创角协议回调
-  		* @param data 
-  		*/
-    public createPlayerRet(data: any): void {
-        let msg = new ProtoCmd.CreatePlayerRet(data);
-        let errorcode = msg.getValue('errorcode');
-        console.log('==========errorcode', errorcode)
-        if (errorcode == 0) {
-            // 单服单角色，这里可以扩展
-            let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
-            selector.setValue("nselectidx", 0);
-            selector.setValue("szName", msg.getValue('szPlayerName'));
-            selector.setValue("btmapsubline", 1);
-            lcp.send(selector, this, PanelManage.ChooseServer.selectPlayerRet)
-            GameApp.GameEngine.isLogin = true;
-        }
-        else {
-            let strmsg: string;
-            switch (errorcode) {
-                case -10:
-                    strmsg = '有非法字符';
-                    break;
-                case -14:
-                    strmsg = '昵称名检查没通过';
-                    break;
-                case -15:
-                    strmsg = '昵称名不能超过4个以上的数字';
-                    break;
-                case -16:
-                    strmsg = '当前服务器正在维护';
-                    break;
-                case -70:
-                    strmsg = '昵称重复';
-                    break;
-                default:
-                    strmsg = '昵称重复';
-                    break;
-            }
-            TipsManage.showTips(strmsg);
-        }
-        msg.clear();
-        msg = null;
-    }
+
 
     /**
      * 服务器提示的tips
@@ -337,14 +292,13 @@ class ServerListener extends SingletonClass {
         player.createTime = msgData.getValue('dwPlayerCreateTime');
         // 清空视野
         player.clearViewObj();
-        console.log('=====已经改变了地图ID======')
+        console.log('=====已经改变了地图ID======');
+        // 非创建角色
+        if (!msgData.getValue('isFirstCreate')) {
+            PanelManage.openMainPanel();
+        }
         // 更新UI布局
-        if (PanelManage.Main) {
-            PanelManage.Main.loadScene();
-        }
-        else {
-            PanelManage.openMainPanel()
-        }
+        PanelManage.Main && PanelManage.Main.loadScene();
         msgData.clear();
     }
 
@@ -444,6 +398,7 @@ class ServerListener extends SingletonClass {
         // 这里可以拉取数据
         if (player.isMainPlayer) {
             console.log('====自己进入了地图====');
+
         }
         // 其他玩家进入地图，添加到玩家视野中,不包括自己
         else {
@@ -1262,7 +1217,6 @@ class ServerListener extends SingletonClass {
         if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
             new view.dialog.WelcomeDialog().setData().popup(true);
         }
-
     }
     /**
      * 服务器推送创建任务

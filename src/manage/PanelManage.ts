@@ -149,7 +149,7 @@ module PanelManage {
             PanelManage.Login['LCP_skin'] = ResData.PanelRes.Login;
             PanelManage.Login.setData();
             PanelManage.Login.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Login, 0);
+            PopUpManager.addPanel(PanelManage.Login, 1);
         })
     }
 
@@ -164,7 +164,7 @@ module PanelManage {
             PanelManage.ChooseServer['LCP_skin'] = ResData.PanelRes.ChooseServer;
             PanelManage.ChooseServer.setData();
             PanelManage.ChooseServer.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ChooseServer, 1);
+            PopUpManager.addPanel(PanelManage.ChooseServer, 2);
         })
     }
     // 创建角色界面
@@ -178,7 +178,7 @@ module PanelManage {
             PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.CreateAvatar.setData();
             PanelManage.CreateAvatar.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.CreateAvatar, 2);
+            PopUpManager.addPanel(PanelManage.CreateAvatar, 3);
         })
     }
 
@@ -193,7 +193,7 @@ module PanelManage {
             PanelManage.ChooseAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
             PanelManage.ChooseAvatar.setData(data);
             PanelManage.ChooseAvatar.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ChooseAvatar, 2);
+            PopUpManager.addPanel(PanelManage.ChooseAvatar, 3);
         })
     }
 
@@ -208,7 +208,7 @@ module PanelManage {
             PanelManage.ServerNotice['LCP_skin'] = ResData.PanelRes.ServerList;
             PanelManage.ServerNotice.setData();
             PanelManage.ServerNotice.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ServerNotice, 3);
+            PopUpManager.addPanel(PanelManage.ServerNotice, 4);
         })
     }
     /**
@@ -216,6 +216,7 @@ module PanelManage {
      */
     export function openMainPanel(): void {
         if (PanelManage.Main) {
+            PanelManage.Main.updateUI()
             PopUpManager.showPanel(PanelManage.Main);
         }
         else {

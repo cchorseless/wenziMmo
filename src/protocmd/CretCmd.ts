@@ -15,7 +15,7 @@ module ProtoCmd {
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//角色名
             this.addProperty('szMapFileName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//地图文件名
             this.addProperty('dir', PacketBase.TYPE_BYTE);//方向
-            this.addProperty('light', PacketBase.TYPE_BYTE);//弃用
+            this.addProperty('isFirstCreate', PacketBase.TYPE_BYTE);//首次创角 1：新角色 0：正常登陆
             this.addProperty('country', PacketBase.TYPE_BYTE);//弃用
             this.addProperty('factionid', PacketBase.TYPE_BYTE);//弃用
             this.addProperty('minimapidx', PacketBase.TYPE_INT);//小地图ID

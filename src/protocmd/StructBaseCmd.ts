@@ -312,8 +312,9 @@ module ProtoCmd {
                                 this._bytes.pos = field._pos;
                                 var str: string = value;
                                 for (i = 0; i < len; i++) {
-                                    this._bytes[this._bytes.pos + i] = 0;
+                                    this._bytes.writeByte(0);
                                 }
+                                this._bytes.pos = field._pos;
                                 if (str.length < len) {
                                     this._bytes.writeUTFBytes(str);
                                     this._bytes.writeByte(0);

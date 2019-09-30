@@ -371,7 +371,7 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
 /**
  *  掉落物品
  */
- public DROPPED_ARTICLES(configID:string):string { return this.data[configID][92]}
+ public DROPPED_ARTICLES(configID:string):Array<number> { return this.data[configID][92]}
 /**
  *  是否人形怪
  */
@@ -387,5 +387,9 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
 /**
  *  缩放比例
  */
- public SCALEUP_RATIO(configID:string):number { return this.data[configID][96]}
+ public SCALE_UP_RATIO(configID:string):number { return this.data[configID][96]}
+/**
+ *  怪物龙骨资源
+ */
+ public SKERES(configID:string):string { return this.data[configID][97]}
 }}

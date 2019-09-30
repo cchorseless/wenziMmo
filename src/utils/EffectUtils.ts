@@ -77,7 +77,7 @@ module EffectUtils {
      * @param interval 闪烁时间间隔
      * @param times 闪烁次数，0；不闪烁。小于0：一直闪烁
      */
-    export function playBlinkEffect(obj, interval: number = 1000, times: number = -1, cb: Function): void {
+    export function playBlinkEffect(obj, interval: number = 1000, times: number = -1, cb: Function = () => { }): void {
         var onComplete1: Function = function () {
             Laya.Tween.to(obj, { alpha: 0 }, interval, null, Laya.Handler.create(this, onComplete2))
         }

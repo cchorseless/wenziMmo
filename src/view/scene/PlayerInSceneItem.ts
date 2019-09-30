@@ -12,7 +12,7 @@ module view.scene {
 			this.lbl_name.text = this.item.objName;
 			this._skeGroup.loadRes([this.item.skeBoneRes], () => {
 				this.spr_pos.addChild(this._skeGroup);
-				this._skeGroup.play(1, true);
+				this._skeGroup.play(0, true);
 				this.addEvent();
 			});
 			this.updateUI();

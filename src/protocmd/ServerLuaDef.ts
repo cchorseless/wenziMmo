@@ -117,8 +117,12 @@ module ProtoCmd {
     export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
     // 升级善缘
     export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
-
-
+    // 拉取天赋+性格随机结果
+    export const JS_sendTianFuZiZhi = 'sendTianFuZiZhi';
+    // 随机性格
+    export const JS_randomXingGeValue = 'randomTianFuValue';
+    // 随机天赋
+    export const JS_randomZiZhiValue = 'randomZiZhiValue';
     // 悟性=龙魂
 
     // 臂力-神盾
@@ -285,6 +289,11 @@ module ProtoCmd {
         tjrole: number;// 图鉴激活角色
     }
     /**********************************角色信息************************* */
+    export interface itf_JS_talentXingGeInfo {
+        zztab: any,//性格
+        tftab: any,//天赋
+        TotalZiZhiPoint: number,//天赋总数
+    }
 
     /**
      * 拉取声望信息
@@ -309,7 +318,7 @@ module ProtoCmd {
         state: any;//BOss信息
         totalcnt: number;//总层数
     }
-    /*******************************************副本接口**************************** */
+    /***********************************副本接口**************************** */
     /**
      * 心魔副本信息
      */
@@ -325,4 +334,5 @@ module ProtoCmd {
         x: number;
         y: number;
     }
+
 }
