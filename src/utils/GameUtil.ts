@@ -16,4 +16,18 @@ module GameUtil {
         }
         return count;
     }
+
+    export function addTipsJianTou(btn: Laya.Button, rotation) {
+        let img = new Laya.Image()
+        img.skin = 'image/common/Indication_arrow2.png';
+        img.anchorY = 0.5;
+        img.rotation = rotation;
+        let hudu = Laya.Utils.toRadian(rotation)
+        img.pos(btn.width / 2 * Math.cos(hudu), btn.height / 2 * Math.sin(hudu))
+        btn.addChild(img);
+        EffectUtils.playBlinkEffect(img, 150, 30, () => {
+            img.removeSelf();
+        });
+        btn.once(Laya.UIEvent.CLICK, this, () => { img.removeSelf(); })
+    }
 }

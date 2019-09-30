@@ -108,15 +108,9 @@ module ProtoCmd {
     // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
 
-    /********************************缉盗悬赏副本*********************** */
-    // 打开野外boss界面
+    /********************************诛杀邪帝副本*********************** */
+    // 打开世界boss界面
     export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
-    /********************************天山血狱副本*********************** */
-    // 打开boss之家界面
-    export const FB_WorldBoss_Open = 'WorldBoss_Open';
-    // 获取boss之家信息
-    export const FB_GetWorldBossInfo = 'GetWorldBossInfo';
-
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -130,8 +124,14 @@ module ProtoCmd {
     export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
     // 升级善缘
     export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
-
-
+    // 拉取天赋+性格随机结果
+    export const JS_sendTianFuZiZhi = 'sendTianFuZiZhi';
+    // 随机性格
+    export const JS_randomXingGeValue = 'randomTianFuValue';
+    // 随机天赋
+    export const JS_randomZiZhiValue = 'randomZiZhiValue';
+    // 拉取姓名九宫和生辰八字
+    export const JS_birthdateAndCompellation = 'birthdateAndCompellation';
     // 悟性=龙魂
 
     // 臂力-神盾
@@ -298,6 +298,11 @@ module ProtoCmd {
         tjrole: number;// 图鉴激活角色
     }
     /**********************************角色信息************************* */
+    export interface itf_JS_talentXingGeInfo {
+        zztab: any,//性格
+        tftab: any,//天赋
+        TotalZiZhiPoint: number,//天赋总数
+    }
 
     /**
      * 拉取声望信息
@@ -322,7 +327,7 @@ module ProtoCmd {
         state: any;//BOss信息
         totalcnt: number;//总层数
     }
-    /*******************************************副本接口**************************** */
+    /***********************************副本接口**************************** */
     /**
      * 心魔副本信息
      */
@@ -364,14 +369,5 @@ module ProtoCmd {
         ntype: number//领取的多倍奖励的货币类型
         openlv: number//开放等级
     }
-    export interface itf_FB_XueYuInfo {
-        mapid: number//地图id
-        vip: number//vip级别
-        alive1: number//vip层存活状态
-        alive2: number//普通层存活状态
-        bossid: number//boss ID
-    }
- export interface itf_FB_XueYuOneInfo {
-      
-    }
-    }
+
+}

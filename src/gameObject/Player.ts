@@ -20,6 +20,10 @@ module GameObject {
         public set sex(v: EnumData.SEX_TYPE) {
             this.feature.simpleFeature.sex = v;
         }
+        // 天赋
+        public talentInfo;
+        // 性格
+        public xingGeInfo;
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
         public viplvl: number;//Vip等级
@@ -203,11 +207,14 @@ module GameObject {
             return path + '0' + this.job + '.png';
         }
 
+        public _skeBoneRes;
         /**
          * 获取角色龙骨资源
          */
         public get skeBoneRes(): string {
-
+            if (this._skeBoneRes) {
+                return this._skeBoneRes;
+            }
             // 令狐冲
             if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
                 return 'sk/player/1_1.sk'
@@ -217,6 +224,10 @@ module GameObject {
                 return 'sk/player/1_2.sk'
             }
             // return 'sk/player/' + this.job + '_' + this.sex + '.sk';
+        }
+
+        public set skeBoneRes(v: string) {
+            this._skeBoneRes = v;
         }
 
 

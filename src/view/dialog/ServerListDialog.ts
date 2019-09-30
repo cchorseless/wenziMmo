@@ -51,7 +51,7 @@ module view.dialog {
 				this.close();
 			});
 		}
-		public readServerList(): void {	
+		public readServerList(): void {
 			let str;
 			let vbox;
 			let str0 = 'name=zoneList&minId=0&maxId=100';
@@ -98,7 +98,7 @@ module view.dialog {
 						vbox.addChild(ui_server);
 						ui_server.setData(id);
 					} else {
-						ui_server.setData(id);
+						ui_server.setData(id, false);
 						ui_server = null;
 					}
 				}
@@ -116,7 +116,8 @@ module view.dialog {
 						this.vbox_recently.addChild(ui_server);
 						ui_server.setData(id);
 					} else {
-						ui_server.setData(id);
+						ui_server.setData(id, false);
+						ui_server = null;
 					}
 
 				}

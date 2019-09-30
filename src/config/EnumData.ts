@@ -350,6 +350,17 @@ module EnumData {
     };
 
     /**
+     * 天赋枚举
+     */
+    export enum emTalentType {
+        talent_wuXing = 1,// 悟性-龙魂
+        talent_genGu = 2,// 根骨-勋章
+        talent_biLi = 3,// 臂力-神盾
+        talent_shenFa = 4,// 身法-血玉
+        talent_shanYuan = 5,// 善缘-官印
+    }
+
+    /**
      * 属性类型
      */
     export enum emNonpareilType {
@@ -638,7 +649,7 @@ module EnumData {
         Cret_HeQuJiFen_Rank,                //合区积分排行榜
         Cret_Consume_Rank,                  //精彩活动消费排行榜
         Cret_Recharge_Rank,                 //精彩活动充值排行榜
-        
+
         Cret_ChuMoEndJiFen_Rank,             //除魔通关积分
         Cret_Medal_Rank,                     //勋章总排行榜
         Cret_Intensify_Rank,                 //强化总排行榜
@@ -820,7 +831,7 @@ module EnumData {
         NEEDHEROLV = 44,		//英雄升级
         // BUYINGIFTSMALL = 45,	//礼券商城购买（不用）
         SKILLEXP = 46,          //技能经验
-        FINISH_CHUMOFUBEN=47,   //通关除魔副本
+        FINISH_CHUMOFUBEN = 47,   //通关除魔副本
     };
 
     /**

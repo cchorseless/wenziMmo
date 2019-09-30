@@ -8,15 +8,12 @@ module view.compart {
 		}
 		public res0;
 		public res1;
-		public setData(res: any): ServerListItem {
-			let value = res.trueZoneId % 2;
-			//服务区是奇数
-			if (value == 1) {
+		public setData(res: any, boFirst:boolean = true): ServerListItem {
+			if (boFirst) {
 				this.btn_0.label = '' + res.zoneName;
 				this.btn_0.visible = true;
 				this.res0 = res
 			}
-			//服务区是偶数
 			else {
 				this.btn_1.label = '' + res.zoneName;
 				this.btn_1.visible = true;
@@ -32,6 +29,7 @@ module view.compart {
 				GameApp.GameEngine.connectPort = '' + this.res0.port;
 				GameApp.GameEngine.zoneid = this.res0.zoneId;
 				GameApp.GameEngine.trueZoneid = this.res0.trueZoneId;
+				GameApp.GameEngine.tradeid = this.res0.tradeId
 				PanelManage.ChooseServer.lbl_serverName.text = '' + this.res0.zoneName;
 				view.dialog.ServerListDialog.closeAll()
 
@@ -41,6 +39,7 @@ module view.compart {
 				GameApp.GameEngine.connectPort = '' + this.res1.port;
 				GameApp.GameEngine.zoneid = this.res1.zoneId;
 				GameApp.GameEngine.trueZoneid = this.res1.trueZoneId;
+					GameApp.GameEngine.tradeid = this.res1.tradeId
 				PanelManage.ChooseServer.lbl_serverName.text = '' + this.res1.zoneName;
 				view.dialog.ServerListDialog.closeAll()
 
