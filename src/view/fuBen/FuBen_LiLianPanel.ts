@@ -15,8 +15,8 @@ module view.fuBen {
 			this.panel_2.vScrollBarSkin = '';
 			this.vbox_2['sortItem'] = (items) => { };
 			this.addEvent();
+			this.init_killXieDi();
 		}
-
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);
@@ -36,6 +36,16 @@ module view.fuBen {
 			EventManage.onWithEffect(this.btn_xianShi, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenXianShiPanel();
 			});
+		}
+		/**
+			 * 诛杀邪帝界面
+			 */
+		public init_killXieDi(): void {
+			// let pkt = new ProtoCmd.QuestClientData();
+			// pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
+			// 	console.log('============>邪帝邪帝', jsonData)
+			// })
+			// lcp.send(pkt);
 		}
 	}
 }

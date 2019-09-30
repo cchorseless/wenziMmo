@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":173,
+    "selecteID":201,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -314,7 +314,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":146,"x":414,"width":203,"skin":"image/juese/fram_common_21.png","sizeGrid":"54,0,0,0","height":226},
+            "props":{"y":146,"x":20,"skin":"image/juese/img_waikuang.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":201,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":146,"x":416,"width":203,"skin":"image/juese/fram_common_21.png","sizeGrid":"54,0,0,0","height":226},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -1121,7 +1134,7 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/juese/icon_hedao2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_hedao2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":165,
                             "label":"Button",
                             "isOpen":true,
