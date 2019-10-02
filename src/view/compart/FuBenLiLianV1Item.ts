@@ -4,7 +4,7 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public setData(key, data: ProtoCmd.itf_FB_XueYuInfo): FuBenLiLianV1Item {
+		public setData(key, data/**: ProtoCmd.itf_FB_XueYuInfo*/): FuBenLiLianV1Item {
 			this.panel_xueYu.hScrollBarSkin = '';
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.bossid).split("_");
@@ -43,11 +43,11 @@ module view.compart {
 		}
 
 		public getBossInfo(key): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
-				console.log('============>天山血狱', jsonData);
-			})
-			lcp.send(pkt);
+			// let pkt = new ProtoCmd.QuestClientData();
+			// pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
+			// 	console.log('============>天山血狱', jsonData);
+			// })
+			// lcp.send(pkt);
 		}
 	}
 }

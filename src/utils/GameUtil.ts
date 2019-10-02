@@ -30,4 +30,43 @@ module GameUtil {
         });
         btn.once(Laya.UIEvent.CLICK, this, () => { img.removeSelf(); })
     }
+    // opendialog:'main'|tab:{name:'tab_3',index:3}|mapid:5001|roomid:1000|npcid:10001|button:'btn_renWu
+    export function parseTaskInfo(str: string) {
+        let handleList = str.split('|')
+        for (let singleHandle of handleList) {
+            let singlehandleList = singleHandle.split(':');
+            let key = singlehandleList[0];
+            let info = singlehandleList[1];
+            switch (key) {
+                // 打开界面
+                case 'opendialog':
+                    switch (info) {
+                        case 'TianJian':
+                            break;
+                    }
+
+                    break;
+                // 选择界面内的子界面
+                case 'tab':
+
+                    break;
+                // 地图ID
+                case 'mapid':
+                    break;
+                // 房间ID
+                case 'roomid':
+                    break;
+                // npcID
+                case 'npcid':
+                    break;
+                // 怪物ID
+                case 'monsterid':
+                    break;
+                // 按钮
+                case 'button':
+                    break;
+            }
+
+        }
+    }
 }

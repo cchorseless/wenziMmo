@@ -1283,7 +1283,6 @@ class ServerListener extends SingletonClass {
                 }
                 else {
                     taskInfo.queststatus = cbpket.getValue('queststatus');
-
                 }
                 break;
             }

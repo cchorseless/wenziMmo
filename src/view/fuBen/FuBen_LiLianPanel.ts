@@ -39,17 +39,17 @@ module view.fuBen {
 		  * 天山血狱界面（boss之家）
 		  */
 		public init_bossHome(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData: { any }) => {
-				let keys = Object.keys(jsonData);
-				for (let key of keys) {
-					let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
-					this.vbox_1.addChild(new view.compart.FuBenLiLianV1Item().setData(key,data));
+			// let pkt = new ProtoCmd.QuestClientData();
+			// pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData: { any }) => {
+			// 	let keys = Object.keys(jsonData);
+			// 	for (let key of keys) {
+			// 		let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
+			// 		this.vbox_1.addChild(new view.compart.FuBenLiLianV1Item().setData(key,data));
 					
-				}
+			// 	}
 			
-			})
-			lcp.send(pkt);
+			// })
+			// lcp.send(pkt);
 		}
 		/**
 			 * 诛杀邪帝界面(世界BOSS)

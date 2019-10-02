@@ -14,9 +14,11 @@ module view.juQingMode {
 			this.panel_zhangJie.vScrollBarSkin = '';
 			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
+			this.box_jiangLi.visible = false;
 			this.initUI();
 			this.addEvent();
 		}
+
 		public addEvent(): void {
 			// 添加剧情对白
 			EventManage.onWithEffect(this.btn_next, Laya.UIEvent.CLICK, this, () => {
@@ -57,7 +59,7 @@ module view.juQingMode {
 			});
 
 			// 剧情事件
-			EventManage.onWithEffect(this.btn_eventPrize, Laya.UIEvent.CLICK, this, this.showJuQingEvent);
+			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => { PanelManage.openMenuPanel() });
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
@@ -92,7 +94,6 @@ module view.juQingMode {
 			this.addLcpEvent()
 		}
 
-
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData: ProtoCmd.itf_JUQING_READBACK) => {
 				console.log(jsonData);
@@ -112,7 +113,14 @@ module view.juQingMode {
 						this.showSelectQuestion(_talkInfo);
 						this.addJuQingTalkItem(_talkInfo);
 						// 奖励
-
+						this.box_jiangLi.visible = true;
+						Laya.Tween.to(this.box_jiangLi, { x: this.btn_prize.x, y: this.btn_prize.y, scaleX: 0.3, scaleY: 0.3 }, 600, null,
+							Laya.Handler.create(this, () => {
+								this.box_jiangLi.visible = false;
+								this.box_jiangLi.pos(this.btn_next.x, this.btn_next.y);
+								this.box_jiangLi.scale(1, 1);
+							})
+						)
 						// 图鉴
 					}
 				}
@@ -132,6 +140,7 @@ module view.juQingMode {
 			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_JuQingInfo, this);
 			PopUpManager.Dispose(this);
 		}
+
 		/**
 		 * 添加剧情对白条目
 		 * @param _talkInfo 
@@ -167,6 +176,7 @@ module view.juQingMode {
 			}
 
 		}
+
 
 		public initUI(): void {
 			// 拉取章节信息
@@ -219,7 +229,7 @@ module view.juQingMode {
 			if (GameApp.GameEngine.talkInfo[charpterID]) {
 				let startTalkId = GameApp.GameEngine.allCharpterInfo[charpterID].startdbid;
 				let endTalkId = Math.min(GameApp.MainPlayer.talkID, GameApp.GameEngine.allCharpterInfo[charpterID].enddbid);
-				console.log(startTalkId,endTalkId);
+				console.log(startTalkId, endTalkId);
 				for (let i = startTalkId; i <= endTalkId; i++) {
 					let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[charpterID].data[i];
 					this.addJuQingTalkItem(_talkInfo, false)

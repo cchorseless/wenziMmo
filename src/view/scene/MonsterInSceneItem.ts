@@ -20,7 +20,7 @@ module view.scene {
 			// 龙骨资源
 			this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
 				this.spr_pos.addChild(this._skeGroup);
-				this._skeGroup.play(0, true);
+				this._skeGroup.play(1, true);
 				this.addEvent();
 			});
 			this.updateUI();

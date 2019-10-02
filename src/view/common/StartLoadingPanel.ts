@@ -15,7 +15,10 @@ module view.common {
 				// 加载字体文件
 				ResManage.loadTTF(ResData.TTFRes.AllTTFData, () => {
 					// 加载配置表文件
-					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => { PanelManage.openLoginPanel() },
+					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => {
+						PanelManage.openMainPanel();
+						PanelManage.openLoginPanel();
+					},
 						(data) => {
 							this.lbl_progress.text = '加载配置表过程中';
 							this.updatePregressPic(data);
@@ -28,7 +31,8 @@ module view.common {
 
 		}
 		public updatePregressPic(data): void {
-			this.img_pregress.scaleY = data;
+			console.log(data);
+			this.img_pregress.width = 550 * data;
 		}
 	}
 }
