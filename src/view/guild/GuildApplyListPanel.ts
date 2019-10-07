@@ -31,7 +31,7 @@ module view.guild {
 				this.lbl_curPage.text = cbpkt.getValue('nPage');
 				this.vbox_guildApply.removeChildren();
 				for (let applyInfo of cbpkt.stZeroArray) {
-					let ui = new view.compart.GuildApplyDealItem();
+					let ui = new view.guild.GuildApplyDealItem();
 					let item = new ProtoCmd.szAskJoinUserInfoBase()
 					item.clone(applyInfo.data);
 					ui.setData(item);

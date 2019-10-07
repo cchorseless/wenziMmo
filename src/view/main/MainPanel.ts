@@ -120,11 +120,11 @@ module view.main {
 			});
 			// 换头像界面
 			this.box_head.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MainChangeDialog().popup(true);
+				new view.main.Main_playerInfoDialog().popup(true);
 			});
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MainLuYinDialog().popup(true);
+				new view.main.MainLuYinDialog().popup(true);
 			});
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
@@ -156,14 +156,14 @@ module view.main {
 
 			// 新手任务
 			this.box_goTask.on(Laya.UIEvent.CLICK, this, () => {
-				let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
-				// 任务信息
-				let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.MAP_MOVE_POINT, [1000, 53, 80, '111111'], null, this, (jsonData) => {
-					console.log(jsonData)
-				})
-				lcp.send(pkt);
+				for (let _ele of this.div_taskDes._childs) {
+					if (_ele.href) {
+						this.div_taskDes.event(Laya.Event.LINK, _ele.href);
+						break;
+					}
+
+				}
+
 			});
 			this.addLcpEvent();
 		}
@@ -616,8 +616,35 @@ module view.main {
 			this.div_taskDes.style.fontSize = 20;
 			this.div_taskDes.innerHTML = taskInfo.target;
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
-				console.log(data)
+				GameUtil.parseTaskInfo(data);
 			})
+		}
+
+		/**
+		 * 添加NPC交互的进度条
+		 */
+		public addNpcPregressItem(obj: GameObject.Creature): void {
+			let configID = obj.feature.dwCretTypeId;
+			let progerUI = new view.npc.NpcProgressItem()
+			switch (configID) {
+				// 孽冤镜
+				case 200003:
+					progerUI.setData('镜面上泛起涟漪...', 3000);
+					break;
+				// 孟婆汤
+				case 200004:
+					progerUI.setData('吨吨吨吨吨吨...', 3000);
+					break;
+				// 轮回道
+				case 200005:
+					progerUI.setData('轮回之门正在开启...', 3000);
+					break;
+				default:
+					progerUI.setData('东看看,西看看...', 3000);
+					break;
+			}
+			// 添加读条界面
+			this.box_uiScene0.addChild(progerUI);
 		}
 	}
 }

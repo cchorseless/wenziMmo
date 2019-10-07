@@ -29,7 +29,7 @@ module view.fuBen {
 				PanelManage.openFuBenXianShiPanel();
 			});
 			EventManage.onWithEffect(this.btn_pianZhang, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.ChapterListDialog().setData().popup(true);
+				new view.juQing.ChapterListDialog().setData().popup(true);
 			});
 			// 切换层数,把自己的层数发过来
 			for (let i = 0; i < 5; i++) {

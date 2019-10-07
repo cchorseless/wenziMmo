@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart{
-	export class MenuPaiMingItem extends ui.compart.MenuPaiMingItemUI{
+module view.menu{
+	export class MenuPaiMingItem extends ui.menu.MenuPaiMingItemUI{
 		constructor(){
 			super();
 		}

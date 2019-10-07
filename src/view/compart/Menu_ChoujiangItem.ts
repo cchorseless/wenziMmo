@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class Menu_ChoujiangItem extends ui.compart.Menu_ChoujiangItemUI {
+module view.menu {
+	export class Menu_ChoujiangItem extends ui.menu.Menu_ChoujiangItemUI {
 		constructor() {
 			super();
 			this.setData();
@@ -29,37 +29,37 @@ module view.compart {
 			this.panel_choujiang00.vScrollBarSkin = '';
 			this.vbox_choujiang00['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang00.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang00.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 			//抽奖礼券01
 			this.panel_choujiang01.vScrollBarSkin = '';
 			this.vbox_choujiang01['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang01.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang01.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 			//抽奖技能02
 			this.panel_choujiang02.vScrollBarSkin = '';
 			this.vbox_choujiang02['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang02.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang02.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 			//抽奖荣誉03
 			this.panel_choujiang03.vScrollBarSkin = '';
 			this.vbox_choujiang03['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang03.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang03.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 			//抽奖限购04
 			this.panel_choujiang04.vScrollBarSkin = '';
 			this.vbox_choujiang04['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang04.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang04.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 			//抽奖礼券05
 			this.panel_choujiang05.vScrollBarSkin = '';
 			this.vbox_choujiang05['sortItem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_choujiang05.addChild(new view.compart.MenuChoujiangSmallItem());
+				this.vbox_choujiang05.addChild(new view.menu.MenuChoujiangSmallItem());
 			}
 		}
 	}

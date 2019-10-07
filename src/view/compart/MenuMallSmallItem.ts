@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class MenuMallSmallItem extends ui.compart.MenuMallSmallItemUI {
+module view.menu {
+	export class MenuMallSmallItem extends ui.menu.MenuMallSmallItemUI {
 		constructor() {
 			super();
 			this.setData();
@@ -11,16 +11,16 @@ module view.compart {
 		public addEvent(): void { 
 			//道具购买
 			this.box_daoju1.on(Laya.UIEvent.CLICK,this,()=>{
-				new view.dialog.MenuMallDialog().show(true);
+				new view.menu.MenuMallDialog().show(true);
 			})
 				this.box_daoju2.on(Laya.UIEvent.CLICK,this,()=>{
-				new view.dialog.MenuMallDialog().show(true);
+				new view.menu.MenuMallDialog().show(true);
 			})
 				this.box_daoju3.on(Laya.UIEvent.CLICK,this,()=>{
-				new view.dialog.MenuMallDialog().show(true);
+				new view.menu.MenuMallDialog().show(true);
 			})
 				this.box_daoju4.on(Laya.UIEvent.CLICK,this,()=>{
-				new view.dialog.MenuMallDialog().show(true);
+				new view.menu.MenuMallDialog().show(true);
 			})
 		}
 	}

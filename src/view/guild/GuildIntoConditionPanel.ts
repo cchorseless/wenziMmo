@@ -159,7 +159,7 @@ module view.guild {
 		 * 退出幫會
 		 */
 		public quitGuild(): void {
-			new view.dialog.GuildOutDialog().setData(null).popup(true);
+			new view.guild.GuildOutDialog().setData(null).popup(true);
 		}
 	}
 }

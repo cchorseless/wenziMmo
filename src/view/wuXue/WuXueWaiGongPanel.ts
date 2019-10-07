@@ -33,7 +33,7 @@ module view.wuXue {
 			});
 			//技能更换
 			this.btn_waigongChange.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.WuXueWaigongDialog().popup(true);
+				new view.wuXue.WuXueWaigongDialog().popup(true);
 			})
 		}
 	}

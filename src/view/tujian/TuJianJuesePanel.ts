@@ -18,7 +18,7 @@ module view.tujian {
 		}
 		public addEvent(): void {
 			this.box_juese.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.TuJianRewardDialog().popup(true);
+				new view.tujian.TuJianRewardDialog().popup(true);
 			});
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.showPanel(PanelManage.JuQingMode);

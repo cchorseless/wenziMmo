@@ -58,7 +58,7 @@ module view.guild {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stGlobalGuildGetDiplomacyListRet(data);
 				for (let _item of cbpkt.stZeroArray) {
-					let ui_item = new view.compart.GuildInfoItem();
+					let ui_item = new view.guild.GuildInfoItem();
 					let data_item = new ProtoCmd.DiplomacyGuildBase();
 					data_item.clone(_item.data);
 					// ui_item.setData(data_item);
@@ -81,7 +81,7 @@ module view.guild {
 				this.lbl_maxPage.text = '' + cbpkt.getValue('dwMaxPage');
 				this.lbl_curPage.text = '' + curpage;
 				for (let guildinfo of cbpkt.stZeroArray) {
-					let ui_item = new view.compart.GuildInfoItem()
+					let ui_item = new view.guild.GuildInfoItem()
 					let item = new ProtoCmd.stSingleGuildinfoBase();
 					item.clone(guildinfo.data);
 					ui_item.setData(item);
@@ -134,7 +134,7 @@ module view.guild {
 				else {
 					let guildInfo = new ProtoCmd.stSingleGuildinfoBase();
 					guildInfo.clone(cbpkt.guildinfo.data);
-					let ui_item = new view.compart.GuildInfoItem();
+					let ui_item = new view.guild.GuildInfoItem();
 					ui_item.setData(guildInfo);
 					this.vbox_find.addChild(ui_item);
 				}

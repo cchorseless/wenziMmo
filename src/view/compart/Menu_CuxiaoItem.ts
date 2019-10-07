@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart{
-	export class Menu_CuxiaoItem extends ui.compart.Menu_CuxiaoItemUI{
+module view.menu{
+	export class Menu_CuxiaoItem extends ui.menu.Menu_CuxiaoItemUI{
 		constructor(){
 			super();
 		}

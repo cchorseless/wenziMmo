@@ -127,7 +127,7 @@ module view.rank {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
 				ui_rank_box.removeChildren();
 				for (let item of cbpkt.TopInfos) {
-					let ui_rank = new view.compart.RankPlayerItem();
+					let ui_rank = new view.rank.RankPlayerItem();
 					let TopInfos = new ProtoCmd.stRankInfo(item);
 					TopInfos.clone(item.data)
 					ui_rank_box.addChild(ui_rank.setData(TopInfos));

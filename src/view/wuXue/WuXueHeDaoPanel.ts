@@ -32,7 +32,7 @@ module view.wuXue {
 			});
 			//转生突破
 			this.btn_zhuanSheng.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.HeroZhuanShengDialog().popup(true);
+				new view.hero.HeroZhuanShengDialog().popup(true);
 			})
 
 		}

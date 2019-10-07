@@ -77,7 +77,7 @@ module view.compart {
 				this.lbl_pageCount.text = '' + (pktcb.curPage + 1);
 				this.lbl_maxPage.text = '' + (Math.floor(pktcb.totalItem / 20) + 1);
 				for (let _item of pktcb.items) {
-					let _ui_item = new view.compart.BaiTanBuyItem();
+					let _ui_item = new view.beiBao.Bag_BaiTanBuyItem();
 					let new_item = new ProtoCmd.stAuctionItemBase();
 					new_item.clone(_item.data);
 					_ui_item.setData(new_item);
@@ -111,7 +111,7 @@ module view.compart {
 				this.lbl_pageCount.text = '' + (pktcb.curPage + 1);
 				this.lbl_maxPage.text = '' + (Math.floor(pktcb.totalItem / 20) + 1);
 				for (let _item of pktcb.items) {
-					let _ui_item = new view.compart.BaiTanBuyItem();
+					let _ui_item = new view.beiBao.Bag_BaiTanBuyItem();
 					let new_item = new ProtoCmd.stAuctionItemBase();
 					new_item.clone(_item.data);
 					_ui_item.setData(new_item);
@@ -177,7 +177,7 @@ module view.compart {
 				this.lbl_pageCount.text = '' + (pktcb.curPage + 1);
 				this.lbl_maxPage.text = '' + (Math.floor(pktcb.totalItem / 20) + 1);
 				for (let _item of pktcb.items) {
-					let _ui_item = new view.compart.BaiTanBuyItem();
+					let _ui_item = new view.beiBao.Bag_BaiTanBuyItem();
 					let new_item = new ProtoCmd.stAuctionItemBase();
 					new_item.clone(_item.data);
 					_ui_item.setData(new_item);

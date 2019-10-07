@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":47,
-    "selecteID":65,
+    "selectedBox":67,
+    "selecteID":71,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -147,59 +147,35 @@
                     "props":{"width":612,"var":"panel_0","name":"item0","height":791},
                     "nodeParent":79,
                     "label":"Panel(panel_0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":66,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","right":0,"left":0},
                             "nodeParent":66,
                             "label":"VBox(vbox_0)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":67,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
-                                    "source":"compart/FuBenLiLianV0Item.ui",
-                                    "props":{"y":0,"x":2,"runtime":"view.compart.FuBenLiLianV0Item"},
+                                    "source":"fuBen/FuBenLiLianV0Item.ui",
+                                    "props":{"y":0,"x":2,"runtime":"view.fuBen.FuBenLiLianV0Item"},
                                     "nodeParent":67,
                                     "label":"UIView",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
                                     "compId":71,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/FuBenLiLianV0Item.ui",
-                                    "props":{"y":645,"x":2,"runtime":"view.compart.FuBenLiLianV0Item"},
-                                    "nodeParent":67,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":77,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/FuBenLiLianV0Item.ui",
-                                    "props":{"y":1290,"x":2,"runtime":"view.compart.FuBenLiLianV0Item"},
-                                    "nodeParent":67,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":78,
                                     "child":[
                                         ]
                                 }]

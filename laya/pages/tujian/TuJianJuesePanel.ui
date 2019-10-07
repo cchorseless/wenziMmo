@@ -1,8 +1,6 @@
 {
-    "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":195,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -13,7 +11,6 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "props":{"top":0,"skin":"image/main/fram_common_02a.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
@@ -25,7 +22,6 @@
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"skin":"image/main/img_common_02.png","right":0,"left":0,"height":93,"bottom":0},
                     "nodeParent":2,
@@ -39,7 +35,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
                     "nodeParent":2,
@@ -54,7 +49,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":292,"x":8,"width":626,"skin":"image/common/frame_main.png","height":691},
             "nodeParent":1,
@@ -68,7 +62,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":241,"x":10,"skin":"image/common/line_yeqian.png"},
             "nodeParent":1,
@@ -82,7 +75,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Tab",
             "props":{"y":175,"x":68,"var":"tab_top","stateNum":2,"space":8,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleY":1.3,"scaleX":1.5,"labels":"北方大陆,南方大陆,东方大陆","labelSize":18,"labelPadding":"-3","labelFont":"FZXK","labelColors":"#404040,#63491a"},
             "nodeParent":1,
@@ -96,7 +88,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"ViewStack",
             "props":{"y":296,"x":16,"width":606,"var":"vstack_top","height":672},
             "nodeParent":1,
@@ -142,7 +133,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":274,
                                             "label":"UIView",
@@ -155,7 +146,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":274,
                                             "label":"UIView",
@@ -168,7 +159,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":274,
                                             "label":"UIView",
@@ -193,7 +184,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":275,
                                             "label":"UIView",
@@ -206,7 +197,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":275,
                                             "label":"UIView",
@@ -219,7 +210,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":275,
                                             "label":"UIView",
@@ -244,7 +235,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":279,
                                             "label":"UIView",
@@ -257,7 +248,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":279,
                                             "label":"UIView",
@@ -270,7 +261,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":279,
                                             "label":"UIView",
@@ -321,7 +312,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":286,
                                             "label":"UIView",
@@ -334,7 +325,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":286,
                                             "label":"UIView",
@@ -347,7 +338,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":286,
                                             "label":"UIView",
@@ -372,7 +363,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":290,
                                             "label":"UIView",
@@ -385,7 +376,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":290,
                                             "label":"UIView",
@@ -398,7 +389,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":290,
                                             "label":"UIView",
@@ -423,7 +414,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":294,
                                             "label":"UIView",
@@ -436,7 +427,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":294,
                                             "label":"UIView",
@@ -449,7 +440,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":294,
                                             "label":"UIView",
@@ -500,7 +491,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":300,
                                             "label":"UIView",
@@ -513,7 +504,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":300,
                                             "label":"UIView",
@@ -526,7 +517,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":300,
                                             "label":"UIView",
@@ -551,7 +542,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":304,
                                             "label":"UIView",
@@ -564,7 +555,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":304,
                                             "label":"UIView",
@@ -577,7 +568,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":304,
                                             "label":"UIView",
@@ -602,7 +593,7 @@
                                     "child":[
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{},
                                             "nodeParent":308,
                                             "label":"UIView",
@@ -615,7 +606,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":207},
                                             "nodeParent":308,
                                             "label":"UIView",
@@ -628,7 +619,7 @@
                                         },
                                         {
                                             "type":"UIView",
-                                            "source":"compart/TuJianJueseItem.ui",
+                                            "source":"tujian/TuJianJueseItem.ui",
                                             "props":{"x":412},
                                             "nodeParent":308,
                                             "label":"UIView",
@@ -646,7 +637,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "props":{"y":986,"x":498,"width":142,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"筛选","height":57},
             "nodeParent":1,
@@ -660,7 +650,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":964,"x":7,"width":130,"var":"box_juese","height":78},
             "nodeParent":1,
@@ -699,7 +688,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":20,"x":20,"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
@@ -932,7 +920,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Label",
             "props":{"y":215,"x":118,"width":67,"text":"10/125","height":26,"fontSize":18,"font":"Microsoft YaHei","color":"#404040"},
             "nodeParent":1,
@@ -946,7 +933,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Label",
             "props":{"y":215,"x":292,"width":67,"text":"10/125","height":26,"fontSize":18,"font":"Microsoft YaHei","color":"#404040"},
             "nodeParent":1,
@@ -960,7 +946,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Label",
             "props":{"y":215,"x":461,"width":67,"text":"10/125","height":26,"fontSize":18,"font":"Microsoft YaHei","color":"#404040"},
             "nodeParent":1,
@@ -974,7 +959,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Button",
             "props":{"y":114,"x":5,"stateNum":"2","skin":"image/common/icon_bangpai_Selected_finish.png"},
             "nodeParent":1,
@@ -1012,7 +996,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":268,"x":20,"width":605,"skin":"image/common/Progressbar_gang_bottom.png"},
             "nodeParent":1,
@@ -1026,7 +1009,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":269,"x":23,"width":79,"skin":"image/common/Progressbar_gang_top.png"},
             "nodeParent":1,
@@ -1039,7 +1021,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Label",
             "props":{"y":252,"x":304,"width":42,"text":"12%","strokeColor":"#404040","stroke":4,"height":26,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff"},
             "nodeParent":1,

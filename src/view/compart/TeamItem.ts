@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class TeamItem extends ui.compart.TeamItemUI {
+module view.team {
+	export class TeamItem extends ui.team.TeamItemUI {
 		constructor() {
 			super();
 
@@ -37,7 +37,7 @@ module view.compart {
 		}
 		public addEvent(): void {
 			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.TeamMemberDialog().setData(this.item).popup(true);
+				new view.team.TeamMemberDialog().setData(this.item).popup(true);
 			});
 
 		}

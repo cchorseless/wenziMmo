@@ -40,7 +40,7 @@ module view.guild {
 				lbl_curPage.text = '' + page;
 				lbl_maxPage.text = '' + dwMaxPag;
 				for (let _item of cbpkt.stZeroArray) {
-					let ui = new view.compart.GuildMemberRankItem();
+					let ui = new view.guild.GuildMemberRankItem();
 					let item = new ProtoCmd.stSingleGuildMemberInfoBase();
 					item.clone(_item.data);
 					ui.setData(item, index);

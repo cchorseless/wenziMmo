@@ -97,15 +97,22 @@ module EffectUtils {
     * @param obj           对象
     * @param tt 时间
     */
-    export function playScaleEffect(obj, tt: number = 1000): void {
+    export function playScaleEffect(obj, tt: number = 1000, times = 1): void {
+        var old_scaleX = obj.scaleX;
+        var old_scaleY = obj.scaleY;
+
         var onComplete2: Function = function () {
-            obj.scaleX = 1;
-            obj.scaleY = 1;
-            Laya.Tween.to(obj, { alpha: 1 }, tt, null, Laya.Handler.create(this, onComplete1));
+            Laya.Tween.to(obj, { scaleX: old_scaleX, scaleY: old_scaleY }, tt, null, Laya.Handler.create(this,
+                () => {
+                    times -= 1;
+                    if (times > 0) {
+                        onComplete1();
+                    }
+                }
+            ));
         };
         var onComplete1: Function = function () {
-            obj.alpha = 1;
-            Laya.Tween.to(obj, { scaleX: 1.5, scaleY: 1.5, alpha: 0 }, tt, null, Laya.Handler.create(this, onComplete2));
+            Laya.Tween.to(obj, { scaleX: old_scaleX * 1.2, scaleY: old_scaleY * 1.2 }, tt, null, Laya.Handler.create(this, onComplete2));
         };
         onComplete1();
     }
@@ -116,11 +123,20 @@ module EffectUtils {
      * @param scope 抖动幅度
      * @param shakeNum 抖动时间
      */
-    export function playShakeX(obj, scope: number = 20, shakeNum: number = 80): void {
+    export function playShakeX(obj, scope: number = 20, shakeNum: number = 80, times = 1, cb = () => { }): void {
         var oldX: number = obj.x;
         let onComplete3 = () => {
-            Laya.Tween.to(obj, { x: oldX }, shakeNum)
+            Laya.Tween.to(obj, { x: oldX }, shakeNum, null, Laya.Handler.create(this, () => {
+                times -= 1;
+                if (times > 0) {
+                    Laya.Tween.to(obj, { x: obj.x - scope / 2 }, shakeNum, null, Laya.Handler.create(this, onComplete))
+                }
+                else {
+                    cb();
+                }
+            }))
         }
+
         let onComplete2 = () => {
             Laya.Tween.to(obj, { x: obj.x + scope }, shakeNum, null, Laya.Handler.create(this, onComplete3))
         }
@@ -128,6 +144,7 @@ module EffectUtils {
         let onComplete1 = () => {
             Laya.Tween.to(obj, { x: obj.x - scope }, shakeNum, null, Laya.Handler.create(this, onComplete2))
         }
+
         let onComplete = () => {
             Laya.Tween.to(obj, { x: obj.x + scope }, shakeNum, null, Laya.Handler.create(this, onComplete1))
         }
@@ -140,10 +157,18 @@ module EffectUtils {
      * @param scope 抖动幅度
      * @param shakeNum 抖动时间
      */
-    export function playShakeY(obj, scope: number = 20, shakeNum: number = 80): void {
+    export function playShakeY(obj, scope: number = 20, shakeNum: number = 80, times = 1, cb = () => { }): void {
         var oldY: number = obj.y;
         let onComplete3 = () => {
-            Laya.Tween.to(obj, { y: oldY }, shakeNum)
+            Laya.Tween.to(obj, { y: oldY }, shakeNum, null, Laya.Handler.create(this, () => {
+                times -= 1;
+                if (times > 0) {
+                    Laya.Tween.to(obj, { y: obj.y - scope / 2 }, shakeNum, null, Laya.Handler.create(this, onComplete));
+                }
+                else {
+                    cb();
+                }
+            }))
         }
         let onComplete2 = () => {
             Laya.Tween.to(obj, { y: obj.y + scope }, shakeNum, null, Laya.Handler.create(this, onComplete3))
@@ -156,7 +181,9 @@ module EffectUtils {
             Laya.Tween.to(obj, { y: obj.y + scope }, shakeNum, null, Laya.Handler.create(this, onComplete1))
         }
 
-        Laya.Tween.to(obj, { y: obj.y - scope / 2 }, shakeNum, null, Laya.Handler.create(this, onComplete))
+        Laya.Tween.to(obj, { y: obj.y - scope / 2 }, shakeNum, null, Laya.Handler.create(this, onComplete));
+
+
     }
 
     //========================== a lot of effect will coming! ============================

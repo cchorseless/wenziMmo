@@ -1075,7 +1075,7 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-        let asks = new view.dialog.FriendCheckDialog();
+        let asks = new view.friend.FriendCheckDialog();
         asks.setData(msg.getValue('szName'), msg.getValue('dwLevel')).popup(true);
     }
     /**
@@ -1096,7 +1096,7 @@ class ServerListener extends SingletonClass {
    */
     public addTeamAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamAgreeJoinEncoder(data);
-        let asks = new view.dialog.TeamApplyCheckDialog();
+        let asks = new view.team.TeamApplyCheckDialog();
         asks.setData(msg).popup(true);
     }
     /**
@@ -1125,7 +1125,7 @@ class ServerListener extends SingletonClass {
 */
     public invitTeam(data: Laya.Byte): void {
         let msg = new ProtoCmd.TeamInviteEnDecoder(data);
-        let asks = new view.dialog.TeamInvitCheckDialog();
+        let asks = new view.team.TeamInvitCheckDialog();
         asks.setData(msg).popup(true);
     }
     /**
@@ -1366,7 +1366,7 @@ class ServerListener extends SingletonClass {
                 let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
                 if (taskInfo) {
                     let _task = taskInfo[Object.keys(taskInfo)[0]];
-                    new view.dialog.JuQingEventDialog().setData(_task).popup();
+                    new view.juQingMode.JuQingEventDialog().setData(_task).popup();
                 }
                 break;
         }

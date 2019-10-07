@@ -9,7 +9,7 @@ module view.guild{
 			this.vbox_guildHelp['sortItem'] = (items) => { };
 
 			for (let i = 0; i < 10; i++) {
-				this.vbox_guildHelp.addChild(new view.compart.GuildHelpItem());
+				this.vbox_guildHelp.addChild(new view.guild.GuildHelpItem());
 			}
  this.btn_guildHelpReturn.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this, true, 4);

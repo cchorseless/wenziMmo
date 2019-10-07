@@ -23,7 +23,7 @@ module view.guild {
 			});
 			// 投票事件查看
 			this.btn_touPiaoEvent.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.GuildTouPiaoEventDialog().setData().popup(true);
+				new view.guild.GuildTouPiaoEventDialog().setData().popup(true);
 			});
 		}
 		/**
@@ -40,7 +40,7 @@ module view.guild {
 				vbox.removeChildren();
 				let cbpkt = new ProtoCmd.stGloalClientGuildEventRet(data);
 				for (let eventInfo of cbpkt.stGuildeveArray) {
-					let uiitem = new view.compart.GuildEventInfoItem();
+					let uiitem = new view.guild.GuildEventInfoItem();
 					let item = new ProtoCmd.stGuildEventBase()
 					item.clone(eventInfo.data);
 					uiitem.setData(item);

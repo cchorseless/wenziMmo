@@ -40,13 +40,13 @@ module PanelManage {
     export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
     export let Main: view.main.MainPanel;                                                //主界面                                              
     /*****************************游戏界面************************************* */
-    export let JueSe: view.juese.JueSePanel;//角色界面
+    export let JueSe: view.juese.PersonPanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
     export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
     export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
-    export let BeiBao: view.beiBao.BeiBaoPanel;//背包界面
+    export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
     export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
@@ -247,7 +247,7 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.JueSe);
         ResManage.loadResource(ResData.PanelRes.JueSe, () => {
-            PanelManage.JueSe = new view.juese.JueSePanel();
+            PanelManage.JueSe = new view.juese.PersonPanel();
             PanelManage.JueSe['LCP_skin'] = ResData.PanelRes.JueSe;
             PanelManage.JueSe.setData();
             PanelManage.JueSe.mouseEnabled = true;
@@ -631,7 +631,7 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.BeiBao);
         ResManage.loadResource(ResData.PanelRes.BeiBao, () => {
-            PanelManage.BeiBao = new view.beiBao.BeiBaoPanel();
+            PanelManage.BeiBao = new view.beiBao.BagPanel();
             PanelManage.BeiBao['LCP_skin'] = ResData.PanelRes.BeiBao;
             PanelManage.BeiBao.setData();
             PanelManage.BeiBao.mouseEnabled = true;

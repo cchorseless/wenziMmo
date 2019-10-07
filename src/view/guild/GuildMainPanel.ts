@@ -61,11 +61,11 @@ module view.guild {
 			})
 			//帮会捐赠弹窗
 			this.btn_donate.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.GuildDonateDialog().popup(true);
+				new view.guild.GuildDonateDialog().popup(true);
 			})
 			//帮会Buff弹窗
 			EventManage.onWithEffect(this.btn_guildBuff,Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.GuildBuffDialog().popup(true);
+				new view.guild.GuildBuffDialog().popup(true);
 			})
 			//帮会宝箱物品奖励
 			// for (let i = 0; i < 4; i++) {

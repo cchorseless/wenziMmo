@@ -15,7 +15,7 @@ module view.menu {
 			})
 			//签到
 			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MenuQiandaoDialog().popup(true);
+				new view.menu.MenuQiandaoDialog().popup(true);
 			})
 			//邮件
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
@@ -23,11 +23,11 @@ module view.menu {
 			})
 			//排名
 			this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MenuPaiHangDialog().popup(true);
+				new view.menu.MenuPaiHangDialog().popup(true);
 			})
 			//成就
 			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MenuChengJiuDialog().popup(true);
+				new view.menu.MenuChengJiuDialog().popup(true);
 			})
 			// 菜单活动
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {

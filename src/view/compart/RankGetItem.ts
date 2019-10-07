@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart{
-	export class RankGetItem extends ui.compart.RankGetItemUI{
+module view.rank{
+	export class RankGetItem extends ui.rank.RankGetItemUI{
 		constructor(){
 			super();
 		}

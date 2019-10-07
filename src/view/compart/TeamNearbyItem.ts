@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class TeamNearbyItem extends ui.compart.TeamNearbyItemUI {
+module view.team {
+	export class TeamNearbyItem extends ui.team.TeamNearbyItemUI {
 		constructor() {
 			super();
 

@@ -18,7 +18,7 @@ module view.scene {
 		public addEvent(): void {
 			// 场景信息界面
 			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.SceneInfoDialog().setData().popup(true);
+				new view.scene.SceneInfoDialog().setData().popup(true);
 			});
 			// 当前地图界面
 			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });

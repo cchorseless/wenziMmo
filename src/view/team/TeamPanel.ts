@@ -70,7 +70,7 @@ module view.team {
 					//循环查询成员信息
 					this.vbox_team00.removeChildren();
 					for (let info of cbpkt.Members) {
-						this.vbox_team00.addChild(new view.compart.TeamItem().memberInfo(info, cbpkt.getValue('btMemberCount'),cbpkt.MasterId))
+						this.vbox_team00.addChild(new view.team.TeamItem().memberInfo(info, cbpkt.getValue('btMemberCount'),cbpkt.MasterId))
 						console.log('============>MemberID',info.onlyid)
 					}
 				})
@@ -82,7 +82,7 @@ module view.team {
 					let pkt = new ProtoCmd.TeamBuildEncoder();
 					lcp.send(pkt, this, (data) => {
 						let cbpkt = new ProtoCmd.TeamBuildDecoder(data);
-						this.vbox_team00.addChild(new view.compart.TeamItem().setData(GameApp.MainPlayer))
+						this.vbox_team00.addChild(new view.team.TeamItem().setData(GameApp.MainPlayer))
 					})
 				})
 			}

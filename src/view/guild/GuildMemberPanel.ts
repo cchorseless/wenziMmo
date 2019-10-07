@@ -61,7 +61,7 @@ module view.guild {
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.stGlobalGuildGetAliaMemberRet(data);
 					for (let _memberInfo of cbpkt.stZeroArray) {
-						let ui = new view.compart.GuildMemberItem();
+						let ui = new view.guild.GuildMemberItem();
 						let item = new ProtoCmd.AliaMemberInfoBase()
 						item.clone(_memberInfo.data);
 						ui.setData(item, memberInfo[i]);

@@ -51,12 +51,12 @@ module view.zhaiYuan {
 
 			// 荷花池
 			EventManage.onWithEffect(this.box_heHuaChi, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.ZhaiYuan_yangYuDialog().setData().popup(true);
+				new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 			});
 
 			// 炼器
 			EventManage.onWithEffect(this.box_lianQi, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.ZhaiYuan_lianQiDialog().setData().popup(true);
+				new view.zhaiYuan.ZhaiYuan_lianQiDialog().setData().popup(true);
 			});
 		}
 	}

@@ -20,7 +20,7 @@ module view.juQing {
 				PanelManage.openMainPanel();
 			});
 			EventManage.onWithEffect(this.btn_pianZhang, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.ChapterListDialog().setData().popup(true);
+				new view.juQing.ChapterListDialog().setData().popup(true);
 			});
 			EventManage.onWithEffect(this.btn_rank, Laya.UIEvent.CLICK, this, () => {
 				// PanelManage.openRankMainPanel();

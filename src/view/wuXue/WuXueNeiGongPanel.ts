@@ -33,7 +33,7 @@ module view.wuXue {
 			});
 			//内功更换
 			this.btn_neigongChange.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.WuXueNeigongDialog().popup(true);
+				new view.wuXue.WuXueNeigongDialog().popup(true);
 			})
 		}
 	}

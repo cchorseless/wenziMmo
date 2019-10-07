@@ -52,7 +52,7 @@ module view.fuBen {
 			pkt.setString(ProtoCmd.FB_CLFubenStatus, null, null, this, (jsonData: { any }) => {
 				for (let i = 1; jsonData[i]; ++i) {
 					let data = jsonData[i];
-					this.vbox_res.addChild(new view.compart.FuBenDailySourceItem().setData(data))
+					this.vbox_res.addChild(new view.fuBen.FuBenDailySourceItem().setData(data))
 				}
 			})
 			lcp.send(pkt);
@@ -69,7 +69,7 @@ module view.fuBen {
 				let keys = Object.keys(jsonData);
 				for (let key of keys) {
 					let data: ProtoCmd.itf_FB_XinMoInfo = jsonData[key];
-					this.hbox_xinMo.addChild(new view.compart.FuBenDailyXinMoItem().setData(data));
+					this.hbox_xinMo.addChild(new view.fuBen.FuBenDailyXinMoItem().setData(data));
 				}
 				this.json = jsonData[1]
 				this.update_XinMo(this.json);

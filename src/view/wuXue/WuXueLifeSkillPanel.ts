@@ -33,7 +33,7 @@ module view.wuXue {
 			});
 			// 鱼种预览
 			this.btn_fishView.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.WuXueFishDialog().popup(true);
+				new view.wuXue.WuXueLife_FishDialog().popup(true);
 			});
 		}
 	}

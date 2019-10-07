@@ -26,7 +26,7 @@ module view.juQingMode {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.ui_item, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.NpcInfoV0Dialog().setData(this.npcId).popup();
+				new view.npc.NpcInfoV0Dialog().setData(this.npcId).popup();
 			})
 		}
 	}

@@ -30,14 +30,17 @@ module view.scene {
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
-				let configID = '' + this.item.feature.dwCretTypeId;
+				let configID = this.item.feature.dwCretTypeId;
 				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE('' + configID);
 				// 怪物类型
 				switch (skePath) {
 					// 收集道具
 					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-
-						if (this.collectHander) { this.collectHander.run() }
+						if (this.collectHander)
+						{ this.collectHander.run() }
+						else {
+							PanelManage.Main.addNpcPregressItem(this.item);
+						}
 						break;
 					default:
 						player.startHandAtk(this.item);

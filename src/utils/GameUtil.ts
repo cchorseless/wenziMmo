@@ -32,23 +32,37 @@ module GameUtil {
     }
     // opendialog:'main'|tab:{name:'tab_3',index:3}|mapid:5001|roomid:1000|npcid:10001|button:'btn_renWu
     export function parseTaskInfo(str: string) {
+        console.log('解析任务描述', str);
         let handleList = str.split('|')
         for (let singleHandle of handleList) {
             let singlehandleList = singleHandle.split(':');
             let key = singlehandleList[0];
             let info = singlehandleList[1];
+            let tipsJianTou = new view.compart.TipsJianTouItem();
             switch (key) {
                 // 打开界面
                 case 'opendialog':
                     switch (info) {
+                        // 天鉴界面
                         case 'TianJian':
+                            // 打开剧情界面
+                            PanelManage.openJuQingModePanel();
+                            tipsJianTou.showSelf(PanelManage.JuQingMode.btn_tianJian, 3);
                             break;
+                        case 'JuQingMode':
+                            if (PopUpManager.curPanel == PanelManage.Main) {
+                                tipsJianTou.showSelf(PanelManage.Main.btn_modeChange, 3);
+                            }
+                            else {
+                                PanelManage.openJuQingModePanel();
+
+                            }
                     }
 
                     break;
+
                 // 选择界面内的子界面
                 case 'tab':
-
                     break;
                 // 地图ID
                 case 'mapid':

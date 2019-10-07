@@ -255,7 +255,7 @@ module view.common {
 				monsterUI.scale(1.5, 1.5)
 				monsterUI.setData(monsterObj);
 				monsterUI.collectHander = Laya.Handler.create(this, () => {
-					let progerUI = new view.dialog.ProgressDialog()
+					let progerUI = new view.npc.NpcProgressItem()
 					switch (monsterList[0]) {
 						// 孽冤镜
 						case 200003:
@@ -298,7 +298,7 @@ module view.common {
 							})
 							break;
 					}
-					progerUI.popup(true);
+					this.box_uiScene0.addChild(progerUI);
 				})
 				this.box_boss.addChild(monsterUI);
 			}

@@ -55,11 +55,11 @@ module view.juQingMode {
 
 			// 奖励
 			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.JuQingPrizeDialog().setData().popup();
+				new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
 
 			// 剧情事件
-			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => { PanelManage.openMenuPanel() });
+			// EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => { PanelManage.openMenuPanel() });
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
@@ -300,7 +300,7 @@ module view.juQingMode {
 			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
 			if (taskInfo) {
 				let _task = taskInfo[Object.keys(taskInfo)[0]];
-				new view.dialog.JuQingEventDialog().setData(_task).popup();
+				new view.juQingMode.JuQingEventDialog().setData(_task).popup();
 			}
 		}
 

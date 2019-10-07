@@ -15,9 +15,9 @@ module view.tujian {
 			this.panel_2.vScrollBarSkin = '';
 			this.vbox_2['sortltem'] = (items) => { };
 			for (let i = 0; i < 10; i++) {
-				this.vbox_0.addChild(new view.compart.TuJianEventItem);
-				this.vbox_1.addChild(new view.compart.TuJianEventItem);
-				this.vbox_2.addChild(new view.compart.TuJianEventItem);
+				this.vbox_0.addChild(new view.tujian.TuJianEventItem);
+				this.vbox_1.addChild(new view.tujian.TuJianEventItem);
+				this.vbox_2.addChild(new view.tujian.TuJianEventItem);
 			}
 			this.addEvent();
 		}

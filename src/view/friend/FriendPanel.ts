@@ -42,16 +42,16 @@ module view.friend {
 
 			//黑名单
 			this.btn_black.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.FriendBlackListDialog().popup();
+				new view.friend.FriendBlackListDialog().popup();
 
 			});
 			//好友申请
 			this.btn_apply.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.FriendApplyDialog().popup();
+				new view.friend.FriendApplyDialog().popup();
 			});
 			//好友搜寻
 			this.btn_search.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.FriendSearchDialog().popup();
+				new view.friend.FriendSearchDialog().popup();
 			});
 		}
 		/**
@@ -64,7 +64,7 @@ module view.friend {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRelationGetListRet(data);
 					for (let item of cbpkt.friendlist) {
-						let friend_UI = new view.compart.FriendInfoItem();
+						let friend_UI = new view.friend.FriendInfoItem();
 						let friendItem = new ProtoCmd.stRelationInfoBase();
 						friendItem.clone(item.data);
 						friend_UI.setData(friendItem);
