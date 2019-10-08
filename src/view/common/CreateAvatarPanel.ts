@@ -163,7 +163,7 @@ module view.common {
 				{ 1008: '来喝口汤，忘了前世吧', 'showTips': 'box_boss', 'stop': true },
 				{ 1008: '忘了前世苦，重选今世忧', 'showDialog': 4, 'stop': true },
 				{ 1: '啊？' },
-				{ 1008: '选好了是吧，来世做个好人。往前走，地藏王在哪等着你', 'showTips': 'btn_mapUp', 'showTipsMode': 90 },
+				{ 1008: '选好了是吧，来世做个好人。往前走，地藏王在那等着你', 'showTips': 'btn_mapUp', 'showTipsMode': 90 },
 			],
 			// 轮回道
 			[

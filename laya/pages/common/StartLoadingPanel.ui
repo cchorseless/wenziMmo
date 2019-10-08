@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":13,
     "props":{"width":640,"top":0,"sceneColor":"#000000","right":0,"name":"StartLoadingPanel","left":0,"height":1136,"bottom":0},
     "nodeParent":-1,
     "label":"View(StartLoadingPanel)",
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"x":79,"width":523,"var":"lbl_progress","text":"label","height":33,"fontSize":24,"font":"Microsoft YaHei","color":"#000000","centerY":482,"bold":true,"align":"center"},
+            "props":{"x":79,"width":523,"var":"lbl_progress","text":"一剑一壶平生意，不负狂名十五年","height":33,"fontSize":24,"font":"Microsoft YaHei","color":"#000000","centerY":482,"bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_progress)",
             "isOpen":true,
@@ -56,7 +56,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1067,"x":68,"width":550,"var":"img_pregressBg","skin":"image/common/startLoad/img_loadingGray.png"},
+            "props":{"y":1004,"x":25,"skin":"image/mc/img_loadingBoat.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":1067,"x":45,"width":550,"var":"img_pregressBg","skin":"image/common/startLoad/img_loadingGray.png"},
             "nodeParent":1,
             "label":"Image(img_pregressBg)",
             "isOpen":true,

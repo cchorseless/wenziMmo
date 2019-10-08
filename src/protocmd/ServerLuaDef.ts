@@ -107,10 +107,21 @@ module ProtoCmd {
     /********************************心魔副本*********************** */
     // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
-
+    /********************************缉盗悬赏副本*********************** */
+    // 打开野外boss界面
+    export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
     /********************************诛杀邪帝副本*********************** */
     // 打开世界boss界面
-    export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
+    export const FB_WorldBossPanel = 'WorldBossPanel';
+
+    /********************************天山血狱副本*********************** */
+    // 打开boss之家界面
+    export const FB_WorldBoss_Open = 'WorldBoss_Open';
+    // boss之家单条信息界面
+    export const FB_GetWorldBossInfo = 'GetWorldBossInfo';
+    /********************************阴葵门副本*********************** */
+    // 打开锁妖塔界面
+    export const FB_BossSuoYaoTa = 'BossSuoYaoTa';
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -369,5 +380,41 @@ module ProtoCmd {
         ntype: number//领取的多倍奖励的货币类型
         openlv: number//开放等级
     }
-
+    /**
+   * 天山血狱
+   */
+    export interface itf_FB_XueYuInfo {
+        mapid: number//地图ID
+        vip: number//vip等级
+        alive1: number//普通层存活率
+        alive2: number//vip层存活率
+        bossid: number//bossID
+    }
+    /**
+ * 阴葵门
+ */
+    export interface itf_FB_YinKuiMenInfo {
+        bossid: number//bossID
+        mapid: number//地图ID
+        time: number//Boss刷新时间
+        zslvl: number//进入需求等级
+    }
+    /**
+* 缉盗悬赏
+*/
+    export interface itf_FB_JiDaoInfo {
+        monid: number//bossID
+        mapid: number//地图ID
+        time: number//Boss刷新时间
+    }
+    export interface itf_FB_KillXieDiInfo {
+        desc: string//描述
+        endtime: number//活动结束时间
+        mapid: number//地图id
+        monsterid: number//bossID
+        openlvl: number//打开等级
+        ranktab: any//排行榜
+        reward: any//奖励
+        starttime: number//活动开始时间
+    }
 }

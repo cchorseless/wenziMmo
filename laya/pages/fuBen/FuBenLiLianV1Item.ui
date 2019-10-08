@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":8,
-    "props":{"width":607,"sceneColor":"#f19b9a","height":527},
+    "selecteID":5,
+    "props":{"width":607,"sceneColor":"#f19b9a","height":510},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -40,9 +40,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":41,"x":21,"text":"第一层","strokeColor":"#404040","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":41,"x":21,"var":"lbl_ceng","text":"第一层","strokeColor":"#404040","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":2,
-                    "label":"Label",
+                    "label":"Label(lbl_ceng)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -119,7 +119,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":131,"x":0,"width":607,"var":"img_liLianMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,22,25,20","height":396},
+            "props":{"y":114,"x":0,"width":607,"var":"img_liLianMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,22,25,20","height":396},
             "nodeParent":1,
             "label":"Image(img_liLianMore)",
             "isOpen":true,
@@ -134,15 +134,16 @@
                     "props":{"y":185,"x":3,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":11,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":6,"x":45,"text":"BOSS奖励","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":2,"x":27,"text":"BOSS奖励","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":11,
                             "label":"Label",
                             "isDirectory":false,
@@ -257,33 +258,33 @@
                     "compId":24,
                     "child":[
                         ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":373,"x":62,"width":482,"var":"panel_xueYu","height":109},
-            "nodeParent":1,
-            "label":"Panel(panel_xueYu)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":25,
-            "child":[
+                },
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":0,"x":5,"var":"hbox_xueYu","height":105},
-                    "nodeParent":25,
-                    "label":"HBox(hbox_xueYu)",
+                    "type":"Panel",
+                    "props":{"y":242,"x":62,"width":482,"var":"panel_xueYu","height":109},
+                    "nodeParent":3,
+                    "label":"Panel(panel_xueYu)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":26,
+                    "hasChild":true,
+                    "compId":25,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"y":0,"x":5,"var":"hbox_xueYu","height":105},
+                            "nodeParent":25,
+                            "label":"HBox(hbox_xueYu)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[

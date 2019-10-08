@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":141,
-    "selecteID":284,
+    "selecteID":297,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -24,33 +24,6 @@
             "hasChild":true,
             "compId":141,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"x":48,"skin":"image/common/bottom_jianghuxiaobang.png"},
-                    "nodeParent":141,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":172,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":3,"x":4,"width":64,"skin":"image/common/icon_bangpaichengyuan.png","height":48},
-                    "nodeParent":141,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":174,
-                    "child":[
-                        ]
-                },
                 {
                     "x":30,
                     "type":"Image",
@@ -275,16 +248,52 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":15,"x":65,"width":126,"var":"lbl_funcName","text":"人物属性","stroke":4,"height":37,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                    "type":"Box",
+                    "props":{"y":0,"x":4},
                     "nodeParent":141,
-                    "label":"Label(lbl_funcName)",
-                    "isDirectory":false,
+                    "label":"Box",
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":271,
+                    "hasChild":true,
+                    "compId":297,
                     "child":[
-                        ]
+                        {
+                            "type":"Image",
+                            "props":{"y":20,"x":22,"skin":"image/common/box_txt.png"},
+                            "nodeParent":297,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":298,
+                            "child":[
+                                {
+                                    "type":"Label",
+                                    "props":{"y":3,"x":42,"text":"人物志","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                                    "nodeParent":298,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":299,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
+                            "nodeParent":297,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":300,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         },
