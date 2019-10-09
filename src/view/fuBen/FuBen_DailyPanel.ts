@@ -95,7 +95,6 @@ module view.fuBen {
 			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
 			// boss掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
-
 			this.hbox_xinMo1.removeChildren();
 			for (let i = 0; jiangli[i]; i++) {
 				let _itemUI = new view.compart.DaoJuWithNameItem();

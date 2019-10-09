@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":14,
+    "selectedBox":14,
+    "selecteID":15,
     "props":{"width":609,"sceneColor":"#c5908f","height":114},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":42,"x":490,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"前 往"},
+                    "props":{"y":42,"x":482,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"前 往"},
                     "nodeParent":14,
                     "label":"Button",
                     "isDirectory":false,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":19,"x":508,"var":"lbl_huoyuedu","text":"30活跃度","fontSize":20,"font":"Microsoft YaHei","color":"#179a0d"},
+                    "props":{"y":17,"x":465,"width":140,"var":"lbl_huoyuedu","text":"30活跃度","height":24,"fontSize":20,"font":"FZHL","color":"#179a0d","align":"center"},
                     "nodeParent":14,
                     "label":"Label(lbl_huoyuedu)",
                     "isDirectory":false,
@@ -54,9 +54,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":132,"width":96,"text":"除魔任务","strokeColor":"#000000","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#5b3816","bold":true},
+                    "props":{"y":11,"x":132,"var":"lbl_taskName","text":"除魔任务任务","strokeColor":"#000000","height":30,"fontSize":24,"font":"FZHL","color":"#5b3816","bold":true,"align":"center"},
                     "nodeParent":14,
-                    "label":"Label",
+                    "label":"Label(lbl_taskName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -68,9 +68,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":227,"width":96,"text":"（5/10）","strokeColor":"#000000","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#a53232","bold":true},
+                    "props":{"y":11,"x":278,"var":"lbl_jindu","text":"（5/10）","strokeColor":"#000000","height":30,"fontSize":24,"font":"FZHL","color":"#a53232","bold":true,"align":"center"},
                     "nodeParent":14,
-                    "label":"Label",
+                    "label":"Label(lbl_jindu)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -82,9 +82,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":48,"x":130,"width":239,"text":"前往新手村击杀蜘蛛可领取","strokeColor":"#000000","height":30,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":false},
+                    "props":{"y":48,"x":130,"width":239,"var":"lbl_detail","text":"前往新手村击杀蜘蛛可领取","strokeColor":"#000000","height":30,"fontSize":20,"font":"FZHL","color":"#000000","bold":false},
                     "nodeParent":14,
-                    "label":"Label",
+                    "label":"Label(lbl_detail)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -96,7 +96,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":79,"x":131,"width":75,"text":"可获得：","strokeColor":"#000000","height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
+                    "props":{"y":79,"x":131,"width":75,"text":"可获得：","strokeColor":"#000000","height":27,"fontSize":20,"font":"FZHL","color":"#000000","bold":true},
                     "nodeParent":14,
                     "label":"Label",
                     "isDirectory":false,
@@ -110,7 +110,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":80,"x":207,"width":173,"text":"战国珠宝|金币|经验","strokeColor":"#000000","height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#5b3816","bold":false},
+                    "props":{"y":80,"x":207,"width":173,"text":"战国珠宝|金币|经验","strokeColor":"#000000","height":27,"fontSize":20,"font":"FZHL","color":"#5b3816","bold":false},
                     "nodeParent":14,
                     "label":"Label",
                     "isDirectory":false,
@@ -124,13 +124,13 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":13,"x":24,"skin":"image/task/icon_baoxiang.png"},
+                    "props":{"y":0,"x":12,"width":114,"var":"img_baoxiang","skin":"image/common/icon_baoxiang3_close.png","height":114},
                     "nodeParent":14,
-                    "label":"Image",
+                    "label":"Image(img_baoxiang)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":22,
+                    "compId":23,
                     "child":[
                         ]
                 }],
