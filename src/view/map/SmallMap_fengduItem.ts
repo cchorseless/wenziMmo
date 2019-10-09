@@ -6,20 +6,22 @@ module view.map {
 		}
 
 		public setData(): void {
-
+			for (let i = 9001; i < 9006; i++) {
+				let btn: Laya.Button = this['btn_' + i];
+				btn.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + i);
+				btn.labelSize = (btn.label.length > 3) ? 19 : 25;
+				btn.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + i) + '.png';
+			}
 			this.addEvent();
 		}
 
 		public addEvent(): void {
 			for (let i = 9001; i < 9006; i++) {
-				this['btn_' + i].on(Laya.UIEvent.CLICK, this, () => {
+				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
 					PanelManage.Main && PanelManage.Main.joinRoom(i);
 				})
 			}
-			// 出口
-			this.btn_exit.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.Main && PanelManage.Main.joinRoom(10003);
-			})
+
 		}
 	}
 }

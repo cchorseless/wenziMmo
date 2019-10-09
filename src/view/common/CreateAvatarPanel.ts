@@ -25,6 +25,7 @@ module view.common {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_talk.selectedIndex = index;
 			}, null, false);
+			this.box_bigMap.scale(0, 0);
 			this.addDiFuTalk();
 			this.addRenJianTalk();
 			this.initSelf();
@@ -109,7 +110,6 @@ module view.common {
 				'你被地藏王菩萨掌心的一颗金色的光球所吸引，呆呆的看着它。',
 				'还未等你说话，只见地藏王菩萨一挥手，眼前泛起耀眼的白光。',
 				'而你只感觉天旋地转，直接晕了过去。',
-
 			],
 			null
 		]
@@ -321,7 +321,6 @@ module view.common {
 
 				}
 			});
-
 			// 性别
 			// 男
 			EventManage.onWithEffect(this.box_nan, Laya.UIEvent.CLICK, this, () => {
@@ -380,7 +379,11 @@ module view.common {
 				})
 				lcp.send(pkt);
 			});
-
+			// 地图展开
+			this.btn_showMap.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_showMap.selected = !this.btn_showMap.selected;
+				this.showBigMap(this.btn_showMap.selected);
+			});
 			// 性格资质确定
 			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
 				this.showDialog(false);
@@ -421,7 +424,6 @@ module view.common {
 				})
 
 			});
-
 
 			// 向前进
 			EventManage.onWithEffect(this.btn_mapUp, Laya.UIEvent.CLICK, this, () => {
@@ -749,5 +751,20 @@ module view.common {
 
 		}
 
+		/**
+		 * 展示地图
+		 * @param isShow 
+		 */
+		public showBigMap(isShow): void {
+			if (isShow) {
+				this.box_bigMap.visible = true;
+				Laya.Tween.to(this.box_bigMap, { scaleX: 1, scaleY: 1 }, 300)
+			}
+			else {
+				Laya.Tween.to(this.box_bigMap, { scaleX: 0, scaleY: 0 }, 300, null, Laya.Handler.create(this, () => {
+					this.box_bigMap.visible = false;
+				}))
+			}
+		}
 	}
 }

@@ -124,7 +124,7 @@ module view.main {
 			});
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.MainLuYinDialog().popup(true);
+				new view.main.Main_LuYinDialog().popup(true);
 			});
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
@@ -491,7 +491,16 @@ module view.main {
 					ui_map = new view.map.SmallMap_fengduItem();
 					ui_map.setData();
 					break;
-				// 
+				// 福州城
+				case EnumData.MAP_BIG_MAP_ID.MAP_FU_ZHOU_CHENG:
+					ui_map = new view.map.SmallMap_fuzhouItem();
+					ui_map.setData();
+					break;
+				// 华山派
+				case EnumData.MAP_BIG_MAP_ID.MAP_HUA_SHAN_PAI:
+					ui_map = new view.map.SmallMap_fuzhouItem();
+					ui_map.setData();
+					break;
 			}
 			this.ui_mainDownMapItem.panel_0.removeChildren();
 			ui_map && this.ui_mainDownMapItem.panel_0.addChild(ui_map);
@@ -505,11 +514,15 @@ module view.main {
 			let roomId = GameApp.MainPlayer.roomId;
 			// 中间自己
 			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 20 : 25;
+			this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + roomId) + '.png';
 			// 左侧
 			this.img_lineLeft.visible = Boolean(mapInfo.left);
 			if (mapInfo.left) {
 				this.btn_mapLeft.visible = true;
 				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
+				this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 20 : 25;
+				this.btn_mapLeft.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.left) + '.png';
 			}
 			else {
 				this.btn_mapLeft.visible = false;
@@ -519,6 +532,8 @@ module view.main {
 			if (mapInfo.down) {
 				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
+				this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 20 : 25;
+				this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.down) + '.png';
 			}
 			else {
 				this.btn_mapDown.visible = false;
@@ -528,6 +543,8 @@ module view.main {
 			if (mapInfo.up) {
 				this.btn_mapUp.visible = true;
 				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
+				this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 20 : 25;
+				this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.up) + '.png';
 			}
 			else {
 				this.btn_mapUp.visible = false;
@@ -537,6 +554,8 @@ module view.main {
 			if (mapInfo.right) {
 				this.btn_mapRight.visible = true;
 				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
+				this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 20 : 25;
+				this.btn_mapRight.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.right) + '.png';
 			}
 			else {
 				this.btn_mapRight.visible = false;
