@@ -4,11 +4,15 @@ module view.fuBen {
 		constructor() {
 			super();
 		}
-		public setData(key, data/**: ProtoCmd.itf_FB_XueYuInfo*/): FuBenLiLianV1Item {
+		public setData(key, data: ProtoCmd.itf_FB_XueYuInfo): FuBenLiLianV1Item {
+console.log('============>血狱血狱', data.mapid)
 			this.panel_xueYu.hScrollBarSkin = '';
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.bossid).split("_");
 			this.lbl_name.text = '' + name[0];
+			//BOSS地图
+			let map = SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + data[1].mapid);
+			this.lbl_ceng.text = '' + map;
 			//奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.bossid);
 			this.hbox_xueYu.removeChildren();
@@ -19,6 +23,7 @@ module view.fuBen {
 				_itemUI.setData(itemInfo);
 				this.hbox_xueYu.addChild(_itemUI)
 			}
+
 			this.img_liLianMore.scaleY = 0;
 			this.height = this.img_liLian.height;
 			this.addEvent();
@@ -43,11 +48,11 @@ module view.fuBen {
 		}
 
 		public getBossInfo(key): void {
-			// let pkt = new ProtoCmd.QuestClientData();
-			// pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
-			// 	console.log('============>天山血狱', jsonData);
-			// })
-			// lcp.send(pkt);
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
+
+			})
+			lcp.send(pkt);
 		}
 	}
 }

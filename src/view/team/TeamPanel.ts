@@ -46,7 +46,10 @@ module view.team {
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFriendPanel();
 			})
-			// NPC好感度
+			// 排行榜
+			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			})
 			// todo
 			// 小说模式
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
@@ -66,12 +69,12 @@ module view.team {
 				pkt.setValue('dwGroupId', btGroupId)
 				lcp.send(pkt, this, (data) => {
 					let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
-					console.log('============>masterID',cbpkt.MasterId)
+					console.log('============>masterID', cbpkt.MasterId)
 					//循环查询成员信息
 					this.vbox_team00.removeChildren();
 					for (let info of cbpkt.Members) {
-						this.vbox_team00.addChild(new view.team.TeamItem().memberInfo(info, cbpkt.getValue('btMemberCount'),cbpkt.MasterId))
-						console.log('============>MemberID',info.onlyid)
+						this.vbox_team00.addChild(new view.team.TeamItem().memberInfo(info, cbpkt.getValue('btMemberCount'), cbpkt.MasterId))
+						console.log('============>MemberID', info.onlyid)
 					}
 				})
 			}
@@ -101,24 +104,24 @@ module view.team {
 			// 	if (id && !groupIds[id]) {
 			// 		groupIds[id] = id;
 			// 	}
-			}
-			//附近队伍
-			// 通过队伍ID获取队长信息
-			// let pkt = new ProtoCmd.TeamInfomationDecoder();
-			// for (let a in groupIds) {
-			// 	pkt.setValue('dwGroupId', a);
-			// 	lcp.send(pkt, this, (data) => {
-			// 		let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
-			// 		for (let member of cbpkt.Members) {
-			// 			let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
-			// 			let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
-			// 			if (onlyId.id == masterId.id) {
-			// 				this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member, cbpkt.getValue('btMemberCount')));
+		}
+		//附近队伍
+		// 通过队伍ID获取队长信息
+		// let pkt = new ProtoCmd.TeamInfomationDecoder();
+		// for (let a in groupIds) {
+		// 	pkt.setValue('dwGroupId', a);
+		// 	lcp.send(pkt, this, (data) => {
+		// 		let cbpkt = new ProtoCmd.TeamInfomationDecoder(data);
+		// 		for (let member of cbpkt.Members) {
+		// 			let onlyId: ProtoCmd.Int64 = member.getValue('dwOnlyId');
+		// 			let masterId: ProtoCmd.Int64 = cbpkt.getValue('dwMasterId');
+		// 			if (onlyId.id == masterId.id) {
+		// 				this.vbox_team01.addChild(new view.compart.TeamNearbyItem().setData(member, cbpkt.getValue('btMemberCount')));
 
-						// }
-					// }
-				// })
-			// }
+		// }
+		// }
+		// })
+		// }
 		// }
 	}
 }

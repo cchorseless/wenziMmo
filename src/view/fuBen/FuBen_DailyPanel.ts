@@ -4,8 +4,6 @@ module view.fuBen {
 		constructor() {
 			super();
 		}
-
-
 		public setData(): void {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
@@ -15,8 +13,8 @@ module view.fuBen {
 			this.panel_xinMo1.hScrollBarSkin = '';
 			this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_res.vScrollBarSkin = '';
-			this.vbox_res['sortItem'] = (items) => { };		
-				this.init_res()
+			this.vbox_res['sortItem'] = (items) => { };
+			this.init_res()
 			this.init_XinMo();
 			this.addEvent();
 		}
@@ -41,8 +39,6 @@ module view.fuBen {
 				PanelManage.openFuBenXianShiPanel();
 			});
 		}
-
-
 		/**
 		 * 资源界面
 		 */
@@ -53,6 +49,7 @@ module view.fuBen {
 				for (let i = 1; jsonData[i]; ++i) {
 					let data = jsonData[i];
 					this.vbox_res.addChild(new view.fuBen.FuBenDailySourceItem().setData(data))
+
 				}
 			})
 			lcp.send(pkt);
@@ -89,12 +86,16 @@ module view.fuBen {
 			//boss造型
 			let imgItem = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + data.monsterid);
 			this.img_boss.skin = 'image/common/npc/npc_half_' + imgItem + '.png';
+			//BOSS描述
+			let detail = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + data.monsterid);
+			this.lbl_introduce.text = '' + detail;
 			//boss挑战等级
 			this.lbl_challengeLvl.text = '' + data.minlv;
 			//boss坐标
 			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
 			// boss掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
+
 			this.hbox_xinMo1.removeChildren();
 			for (let i = 0; jiangli[i]; i++) {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
@@ -103,7 +104,7 @@ module view.fuBen {
 				_itemUI.setData(itemInfo);
 				this.hbox_xinMo1.addChild(_itemUI)
 			}
-			console.log('========>心魔心魔data', data)
+
 			return this;
 		}
 	}

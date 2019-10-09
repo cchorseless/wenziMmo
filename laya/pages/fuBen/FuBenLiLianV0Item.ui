@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":607,"sceneColor":"#f1a7a5","height":645},
+    "selectedBox":2,
+    "selecteID":33,
+    "props":{"width":607,"sceneColor":"#f1a7a5","height":625},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -80,9 +80,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":15,"x":118,"text":"BOSS名称","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#5b3816"},
+                    "props":{"y":15,"x":118,"var":"lbl_name","text":"BOSS名称","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#5b3816"},
                     "nodeParent":2,
-                    "label":"Label",
+                    "label":"Label(lbl_name)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -108,9 +108,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":15,"x":16,"width":85,"skin":"image/common/npc/npc_icon_1402.png","height":83},
+                    "props":{"y":15,"x":16,"width":85,"var":"img_bossHead","skin":"image/common/npc/npc_icon_1402.png","height":83},
                     "nodeParent":2,
-                    "label":"Image",
+                    "label":"Image(img_bossHead)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -123,16 +123,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":131,"x":0,"width":607,"var":"img_liLianMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,22,25,20","height":512},
+            "props":{"y":112,"x":0,"width":607,"var":"img_liLianMore","skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,22,25,20","height":512},
             "nodeParent":1,
             "label":"Image(img_liLianMore)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":11,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":269,"x":3,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":11,
@@ -158,58 +159,34 @@
                     "$HIDDEN":false
                 },
                 {
-                    "type":"UIView",
-                    "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":320,"x":56,"scaleY":1.24,"scaleX":1.24},
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":322,"x":62,"width":482,"var":"panel_jidao","height":109},
                     "nodeParent":11,
-                    "label":"UIView",
-                    "isDirectory":false,
+                    "label":"Panel(panel_jidao)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
+                    "hasChild":true,
+                    "compId":41,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"y":0,"x":5,"var":"hbox_jidao","space":10,"height":105},
+                            "nodeParent":41,
+                            "label":"HBox(hbox_jidao)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":42,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
-                    "type":"UIView",
-                    "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":320,"x":181,"scaleY":1.24,"scaleX":1.24},
-                    "nodeParent":11,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":320,"x":306,"scaleY":1.24,"scaleX":1.24},
-                    "nodeParent":11,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":15,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuWithNameItem.ui",
-                    "props":{"y":320,"x":431,"scaleY":1.24,"scaleX":1.24},
-                    "nodeParent":11,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":41,"x":295,"text":"名称：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
                     "nodeParent":11,
@@ -222,6 +199,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":102,"x":296,"text":"状态：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
                     "nodeParent":11,
@@ -234,6 +212,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":163,"x":296,"text":"所在地：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
                     "nodeParent":11,
@@ -246,6 +225,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":475,"x":78,"text":"刷新时间：","height":29,"fontSize":20,"font":"Microsoft YaHei","color":"#404040"},
                     "nodeParent":11,
@@ -258,10 +238,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":40,"x":371,"text":"BOSS名称","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
+                    "props":{"y":40,"x":371,"var":"lbl_bossName","text":"BOSS名称","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":11,
-                    "label":"Label",
+                    "label":"Label(lbl_bossName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -270,10 +251,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":103,"x":372,"text":"可击杀","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#179a0d"},
+                    "props":{"y":103,"x":372,"var":"lbl_time","text":"可击杀","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#179a0d"},
                     "nodeParent":11,
-                    "label":"Label",
+                    "label":"Label(lbl_time)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -282,10 +264,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":165,"x":398,"text":"青城派","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
+                    "props":{"y":165,"x":398,"var":"lbl_place","text":"青城派","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":11,
-                    "label":"Label",
+                    "label":"Label(lbl_place)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -294,6 +277,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":474,"x":176,"text":"每小时整点、15分、30分、45分刷新","height":29,"fontSize":20,"font":"Microsoft YaHei","color":"#a53232"},
                     "nodeParent":11,
@@ -306,17 +290,19 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":21,"x":69,"skin":"image/main/bottom_role.png","scaleY":1.2,"scaleX":1.2},
                     "nodeParent":11,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":37,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-4,"x":-3,"skin":"image/main/bottom_role2.png"},
                             "nodeParent":37,
@@ -329,10 +315,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":42,"x":2,"skin":"image/common/npc/npc_half_1001.png"},
+                            "props":{"y":42,"x":2,"var":"img_boss","skin":"image/common/npc/npc_half_1001.png"},
                             "nodeParent":37,
-                            "label":"Image",
+                            "label":"Image(img_boss)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,

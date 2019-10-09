@@ -33,7 +33,10 @@ module view.friend {
 			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
 			});
-			// NPC好感度
+			// 排行榜
+			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openRankMainPanel();
+			})
 			// todo
 			// 小说模式
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
@@ -63,13 +66,13 @@ module view.friend {
 			pkt.setValue('btType', 0);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRelationGetListRet(data);
-					for (let item of cbpkt.friendlist) {
-						let friend_UI = new view.friend.FriendInfoItem();
-						let friendItem = new ProtoCmd.stRelationInfoBase();
-						friendItem.clone(item.data);
-						friend_UI.setData(friendItem);
-						this.vbox_friend0.addChild(friend_UI);
-					}
+				for (let item of cbpkt.friendlist) {
+					let friend_UI = new view.friend.FriendInfoItem();
+					let friendItem = new ProtoCmd.stRelationInfoBase();
+					friendItem.clone(item.data);
+					friend_UI.setData(friendItem);
+					this.vbox_friend0.addChild(friend_UI);
+				}
 
 				cbpkt.clear();
 				cbpkt = null;

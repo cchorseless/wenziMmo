@@ -87,7 +87,6 @@ module view.guild {
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFriendPanel();
 			})
-			// NPC好感度
 			// 排行榜
 			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":218,
-    "selecteID":219,
+    "selectedBox":1,
+    "selecteID":235,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -229,45 +229,45 @@
             "props":{"y":0,"x":5},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":214,
+            "compId":235,
             "child":[
                 {
                     "type":"Image",
-                    "props":{"x":44,"skin":"image/common/bottom_jianghuxiaobang.png"},
-                    "nodeParent":214,
+                    "props":{"y":20,"x":22,"skin":"image/common/box_txt.png"},
+                    "nodeParent":235,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":127,
+                    "hasChild":true,
+                    "compId":236,
                     "child":[
-                        ]
+                        {
+                            "type":"Label",
+                            "props":{"y":3,"x":42,"text":"人物志","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":236,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":237,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "type":"Image",
-                    "props":{"y":13,"x":65,"skin":"image/juese/font_renwuzhi.png"},
-                    "nodeParent":214,
+                    "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
+                    "nodeParent":235,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":128,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":3,"width":64,"skin":"image/common/icon_bangpaichengyuan.png","height":48},
-                    "nodeParent":214,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":129,
+                    "compId":238,
                     "child":[
                         ]
                 }]

@@ -392,4 +392,8 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
  *  怪物龙骨资源
  */
  public SKERES(configID:string):string { return this.data[configID][97]}
+/**
+ *  怪物文本描述
+ */
+ public MONSTERDES(configID:string):string { return this.data[configID][98]}
 }}

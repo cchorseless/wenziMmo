@@ -40,15 +40,16 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":2,"x":2,"width":111,"stateNum":"2","skin":"image/common/icon_hedao2.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelPadding":"38","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"欲念心魔","height":106},
+                    "props":{"y":2,"x":2,"width":111,"var":"btn_xinmo","stateNum":"2","skin":"image/common/icon_hedao2.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":26,"labelPadding":"38","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"欲念心魔","height":106},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Button(btn_xinmo)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":4,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[
