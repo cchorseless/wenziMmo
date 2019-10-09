@@ -13,59 +13,59 @@ public static getInstance(data): mapRoomSheet { let Class:any=this;if(!Class._in
  */
  public MAPNAME(configID:string):string { return this.data[configID][2]}
 /**
+ *  房间类型
+ */
+ public ROOMTYPE(configID:string):number { return this.data[configID][3]}
+/**
  *  上连接ID
  */
- public UPID(configID:string):number { return this.data[configID][3]}
+ public UPID(configID:string):number { return this.data[configID][4]}
 /**
  *  下连接ID
  */
- public DOWNID(configID:string):number { return this.data[configID][4]}
+ public DOWNID(configID:string):number { return this.data[configID][5]}
 /**
  *  左连接ID
  */
- public LEFTID(configID:string):number { return this.data[configID][5]}
+ public LEFTID(configID:string):number { return this.data[configID][6]}
 /**
  *  右连接ID
  */
- public RIGHTID(configID:string):number { return this.data[configID][6]}
+ public RIGHTID(configID:string):number { return this.data[configID][7]}
 /**
  *  X坐标最小
  */
- public XMIN(configID:string):number { return this.data[configID][7]}
+ public XMIN(configID:string):number { return this.data[configID][8]}
 /**
  *  X坐标最大
  */
- public XMAX(configID:string):number { return this.data[configID][8]}
+ public XMAX(configID:string):number { return this.data[configID][9]}
 /**
  *  Y坐标最小
  */
- public YMIN(configID:string):number { return this.data[configID][9]}
+ public YMIN(configID:string):number { return this.data[configID][10]}
 /**
  *  Y坐标最大
  */
- public YMAX(configID:string):number { return this.data[configID][10]}
+ public YMAX(configID:string):number { return this.data[configID][11]}
 /**
  *  ICON资源
  */
- public ICONPIC(configID:string):number { return this.data[configID][11]}
+ public ICONPIC(configID:string):string { return this.data[configID][12]}
 /**
  *  场景图片资源
  */
- public SCENEPIC(configID:string):number { return this.data[configID][12]}
+ public SCENEPIC(configID:string):string { return this.data[configID][13]}
 /**
  *  进入等级条件
  */
- public LVNEED(configID:string):number { return this.data[configID][13]}
+ public LVNEED(configID:string):number { return this.data[configID][14]}
 /**
  *  进入任务条件
  */
- public TASKIDNEED(configID:string):number { return this.data[configID][14]}
+ public TASKIDNEED(configID:string):number { return this.data[configID][15]}
 /**
  *  房间描述
  */
- public ROOMDES(configID:string):string { return this.data[configID][15]}
-/**
- *  房间类型
- */
- public ROOMTYPE(configID:string):number { return this.data[configID][16]}
+ public ROOMDES(configID:string):string { return this.data[configID][16]}
 }}

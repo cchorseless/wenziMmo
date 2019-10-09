@@ -52,6 +52,7 @@ module EnumData {
         SHOW_IN_MAIL = 4,//邮件中显示,只有信息 无操作按钮
         SHOW_IN_GUILD_CANGKU = 5,//公会仓库
         SHOW_IN_GUILD_BAG = 6,//公会背包
+        SHOW_IN_BAG_EQUIP = 100,//背包-装备显示
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
         SHOW_IN_BAG_CANGKU = 102,//背包=仓库显示
         SHOW_IN_BAG_BAITAN = 103,//背包-摆摊显示
@@ -838,8 +839,9 @@ module EnumData {
      * 大地图ID枚举
      */
     export enum MAP_BIG_MAP_ID {
-        MAP_FENG_DU = 5001,//酆都
-        MAP_FU_ZHOU_CHENG = 5002,//福州城
+        MAP_FENG_DU = 5001,// 酆都
+        MAP_FU_ZHOU_CHENG = 5002,// 福州城
+        MAP_HUA_SHAN_PAI = 5003,// 华山派
     }
 
 
