@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":72,
+    "selecteID":3,
     "props":{"width":629,"sceneColor":"#cf413f","height":771},
     "nodeParent":-1,
     "label":"Dialog",
@@ -56,7 +56,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":35,"x":573,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":42,"x":575,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -68,30 +68,17 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":60,"x":47,"skin":"image/common/bottom_smalltitle.png"},
+            "type":"Label",
+            "props":{"y":61,"x":69,"text":"剧情进度","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":71,
+            "hasChild":false,
+            "compId":72,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":23,"text":"剧情进度","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":71,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":72,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -151,30 +138,16 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":161,"x":46,"skin":"image/common/bottom_smalltitle.png"},
+            "type":"Label",
+            "props":{"y":162,"x":69,"text":"挂机效率","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":73,
+            "hasChild":false,
+            "compId":74,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":23,"text":"挂机效率","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":73,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":74,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {
@@ -257,30 +230,16 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":252,"x":45,"skin":"image/common/bottom_smalltitle.png"},
+            "type":"Label",
+            "props":{"y":253,"x":69,"text":"掉落预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":75,
+            "hasChild":false,
+            "compId":76,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":23,"text":"掉落预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":75,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":76,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {
@@ -311,30 +270,16 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":448,"x":47,"skin":"image/common/bottom_smalltitle.png"},
+            "type":"Label",
+            "props":{"y":449,"x":69,"text":"累计奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":77,
+            "hasChild":false,
+            "compId":78,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":23,"text":"累计奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":77,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":78,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
+                ],
             "$HIDDEN":false
         },
         {

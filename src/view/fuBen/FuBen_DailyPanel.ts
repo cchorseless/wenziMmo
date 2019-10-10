@@ -49,7 +49,6 @@ module view.fuBen {
 				for (let i = 1; jsonData[i]; ++i) {
 					let data = jsonData[i];
 					this.vbox_res.addChild(new view.fuBen.FuBenDailySourceItem().setData(data))
-
 				}
 			})
 			lcp.send(pkt);

@@ -97,14 +97,9 @@ module view.task {
 							this['img_baoxiang' + i].skin = 'image/common/icon_baoxiang' + i + '_open.png'
 							break;
 					}
-
 				}
-
 			})
-
 		}
-
-
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.TASK_HuoYueDuClientOpen, this);
 			PopUpManager.Dispose(this);
@@ -187,7 +182,6 @@ module view.task {
 		public init_daily(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_DailyTaskClientOpen, null, null, this, (jsonData: { any }) => {
-				console.log('=====>每日每日', jsonData)
 				let keys = Object.keys(jsonData);
 					for (let key of keys) {
 					let data = jsonData[key];

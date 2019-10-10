@@ -63,6 +63,13 @@ module ProtoCmd {
     export const TASK_HuoYueGetWard = 'HuoYueGetWard';// 领取活跃度
     // 任务日常每日
     export const TASK_DailyTaskClientOpen = 'DailyTaskClientOpen';
+    // 任务历练威望
+    export const TASK_prestigeQuestPanel = 'prestigeQuestPanel';
+    // 任务成就
+    export const TASK_achievementPanel = 'achievementPanel';
+      // 任务成就信息
+    export const TASK_achievementDesc = 'achievementDesc';
+
     /*****************************剧情相关*************************** */
 
     // 拉取自己的剧情相关信息
@@ -440,14 +447,30 @@ module ProtoCmd {
         desc: string;//任务描述
         name: string;//任务名称
     }
+    /**
+     * 任务日常每日信息
+     */
     export interface itf_Task_DailyInfo {
         buycnt: number//购买任务次数
         curcnt: number//当前进度
         id: number//任务id
         maxcnt: number//最大进度
         txt: string//进入所需级别
-        title:string//任务名称
-        desc:string//任务描述
+        title: string//任务名称
+        desc: string//任务描述
     }
+    /**
+     * 任务历练威望信息
+     */
+    export interface itf_Task_PrestigeInfo {
+        needrmb: number//一键完成需要的元宝
+        questdbname: string//任务名字
+        questid: number//任务ID
+        score: number//威望积分
+        status: any//任务状态 -1是未接||0新接||1进行中||2已完成||3已结束||4放弃
+        szquestrewards: string//任务奖励(id:奖励id，co：奖励数量)
+        statustab: any
+    }
+
 
 }

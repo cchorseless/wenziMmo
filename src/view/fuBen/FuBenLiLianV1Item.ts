@@ -48,7 +48,7 @@ module view.fuBen {
 
 		public getBossInfo(key): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
+			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, [key], null, this, (jsonData: { any }) => {
 
 			})
 			lcp.send(pkt);

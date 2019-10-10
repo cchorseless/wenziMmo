@@ -12,7 +12,6 @@ module view.fuBen {
 			//副本名称
 			this.lbl_name.text = '' + data.name;
 			// this.lbl_detail.text = '' +;
-			console.log('========>心魔心魔data',  data.leftcnt,data.caninto)
 			this.openFuBen(data.index);
 			return this;
 		}
