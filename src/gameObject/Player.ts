@@ -8,8 +8,8 @@ module GameObject {
         public get job(): EnumData.JOB_TYPE {
             return this.feature.simpleFeature.job;
         }
-        public set job(v: EnumData.JOB_TYPE) {
-            this.feature.simpleFeature.job = v;
+        public set job(srcID: EnumData.JOB_TYPE) {
+            this.feature.simpleFeature.job = srcID;
         }
         /**
          * 性别
@@ -17,8 +17,8 @@ module GameObject {
         public get sex(): EnumData.SEX_TYPE {
             return this.feature.simpleFeature.sex;
         }
-        public set sex(v: EnumData.SEX_TYPE) {
-            this.feature.simpleFeature.sex = v;
+        public set sex(srcID: EnumData.SEX_TYPE) {
+            this.feature.simpleFeature.sex = srcID;
         }
         // 天赋
         public talentInfo;
@@ -54,6 +54,11 @@ module GameObject {
         public nXinQing: number = 0;// 心情
         /******************BOSS积分************ */
         public bossCoin: number = 0;
+
+        ///最短路径
+        public line = {};//保存所有节点关系
+        public res = [];//最短路径结果
+        public hasRes = false;//是否 至少有一个可以到达的路径
 
         constructor() {
             super();
@@ -142,28 +147,28 @@ module GameObject {
         }
 
         // 健康
-        public changenHealth(v: number) {
-            this.nHealth = v;
+        public changenHealth(srcID: number) {
+            this.nHealth = srcID;
         }
         // 颜值
-        public changenYanZhi(v: number) {
-            this.nYanZhi = v
+        public changenYanZhi(srcID: number) {
+            this.nYanZhi = srcID
         }
         // 体力
-        public changenTili(v: number) {
-            this.nTili = v
+        public changenTili(srcID: number) {
+            this.nTili = srcID
         }
         // 精力
-        public changenSpirte(v: number) {
-            this.nSpirte = v
+        public changenSpirte(srcID: number) {
+            this.nSpirte = srcID
         }
         // 心情
-        public changenXinQing(v: number) {
-            this.nXinQing = v
+        public changenXinQing(srcID: number) {
+            this.nXinQing = srcID
         }
         // BOSS积分
-        public changeBossCoin(v: number) {
-            this.bossCoin = v;
+        public changeBossCoin(srcID: number) {
+            this.bossCoin = srcID;
         }
         /*******************************************************************get************************************* */
 
@@ -226,8 +231,8 @@ module GameObject {
             // return 'sk/player/' + this.job + '_' + this.sex + '.sk';
         }
 
-        public set skeBoneRes(v: string) {
-            this._skeBoneRes = v;
+        public set skeBoneRes(srcID: string) {
+            this._skeBoneRes = srcID;
         }
 
 
@@ -397,6 +402,8 @@ module GameObject {
             pkt.nY = target.location.ncury;
             pkt.distance = 3;
             lcp.send(pkt);
+
+
         }
 
         public completeAtkHandle: Laya.Handler = null;
@@ -431,6 +438,7 @@ module GameObject {
 
                 // }
                 TipsManage.showTips('无怪物');
+                console.log(this.getRoomPath());
             }, null, false);
             // 攻击一次
             this.completeAtkHandle.run();
@@ -488,6 +496,87 @@ module GameObject {
         public goDie(): void {
             TipsManage.showTips(this.objName + '死亡了');
             this.ui_item && this.ui_item.playAni(3, false)
+        }
+
+
+        /**
+         * 添加房间对应关系
+         * @param srcID 起始ID
+         * @param dstID 相连ID
+         */
+        addLine(srcID, dstID) {
+            if (dstID > 0) {
+                this._addLine(srcID, dstID);
+                this._addLine(dstID, srcID);
+            }
+        }
+
+        _addLine(srcID, dstID) {
+            !this.line[srcID] && (this.line[srcID] = []);
+            this.line[srcID].push(dstID);
+        }
+
+        /**
+         * 返回最短路径
+         * @param srcID 起始ID
+         * @param dstID 目的ID
+         */
+        minPath(srcID, dstID) {
+            this.step(this.line[srcID], [srcID], dstID);
+            return this.res;
+        }
+
+        step(adjacentNodes, tempRes, dstID) {
+            //当前节点没有相邻节点
+            if (!adjacentNodes) {
+                return;
+            }
+            //存在可以到达的路径，并且比正在探测的路径短则直接退出探测
+            if (this.hasRes && this.res.length < tempRes.length) {
+                return;
+            }
+            adjacentNodes.forEach(item => {
+                //当前探测的点已经走过了，不再重复走
+                if (tempRes.indexOf(item) !== -1) {
+                    return;
+                }
+                let newTempRes = tempRes.concat(item);
+                //到达终点
+                if (item === dstID) {
+                    if (this.hasRes) {
+                        if (newTempRes.length < this.res.length) {
+                            //已有最短路径，且比当前路径更短，替换
+                            this.res = newTempRes;
+                        }
+                    } else {
+                        //目前没有最短路径，替换
+                        this.res = newTempRes;
+                        this.hasRes = true;
+                    }
+                } else {
+                    this.step(this.line[item], newTempRes, dstID);
+                }
+            });
+        }
+
+
+        public getRoomPath(): any {
+            this.line = {};
+            this.res = [];
+            this.hasRes = false;
+
+            let mapRoom = SheetConfig.mapRoomSheet.getInstance(null);
+            let curRoomID = 10005
+            let dstRoomID = 10028
+            for (let i = 10001; i <= 10027; ++i) {
+                this.addLine(i, mapRoom.UPID(i.toString()));
+                this.addLine(i, mapRoom.DOWNID(i.toString()));
+                this.addLine(i, mapRoom.LEFTID(i.toString()));
+                this.addLine(i, mapRoom.RIGHTID(i.toString()));
+
+            }
+
+            return this.minPath(curRoomID, dstRoomID);
         }
     }
 }

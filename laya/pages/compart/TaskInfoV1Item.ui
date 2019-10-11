@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":10,
-    "selecteID":11,
+    "selecteID":10,
     "props":{"width":612,"sceneColor":"#000000","height":103},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":21,"x":490,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"前 往"},
+                    "props":{"y":21,"x":490,"stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"前 往"},
                     "nodeParent":10,
                     "label":"Button",
                     "isDirectory":false,
@@ -41,9 +41,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":16,"x":139,"width":96,"text":"除魔任务","strokeColor":"#000000","height":30,"fontSize":24,"font":"Microsoft YaHei","color":"#5b3816","bold":true},
+                    "props":{"y":16,"x":139,"width":293,"var":"lbl_detail","text":"除魔任务","strokeColor":"#000000","height":30,"fontSize":24,"font":"FZHL","color":"#5b3816","bold":true},
                     "nodeParent":10,
-                    "label":"Label",
+                    "label":"Label(lbl_detail)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -55,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":58,"x":143,"width":52,"text":"奖励：","strokeColor":"#000000","height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#000000","bold":true},
+                    "props":{"y":58,"x":143,"width":52,"text":"奖励：","strokeColor":"#000000","height":27,"fontSize":20,"font":"FZHL","color":"#000000","bold":true},
                     "nodeParent":10,
                     "label":"Label",
                     "isDirectory":false,
@@ -69,7 +69,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":57,"x":200,"width":173,"text":"战国珠宝|金币|经验","strokeColor":"#000000","height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#5b3816","bold":false},
+                    "props":{"y":57,"x":200,"width":173,"text":"战国珠宝|金币|经验","strokeColor":"#000000","height":27,"fontSize":20,"font":"FZHL","color":"#5b3816","bold":false},
                     "nodeParent":10,
                     "label":"Label",
                     "isDirectory":false,
@@ -83,13 +83,13 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":13,"x":24,"skin":"image/task/icon_baoxiang.png"},
+                    "props":{"y":-6,"x":11,"width":114,"var":"img_baoxiang","skin":"image/common/icon_baoxiang3_close.png","height":114},
                     "nodeParent":10,
-                    "label":"Image",
+                    "label":"Image(img_baoxiang)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":18,
+                    "compId":19,
                     "child":[
                         ]
                 }]

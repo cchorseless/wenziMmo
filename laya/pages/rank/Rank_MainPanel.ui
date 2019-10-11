@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":269,
-    "selecteID":273,
+    "selectedBox":1,
+    "selecteID":39,
     "props":{"width":640,"sceneColor":"#ad7e7e","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -175,13 +175,14 @@
                     "props":{"y":-7,"x":-6,"width":617,"name":"item0","height":530},
                     "nodeParent":13,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":102,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":-1,"x":2,"width":615,"var":"panel_0","height":534},
                             "nodeParent":102,
@@ -193,6 +194,7 @@
                             "compId":15,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":1,"var":"vbox_0","right":7,"left":7,"align":"center"},
                                     "nodeParent":15,
@@ -483,7 +485,7 @@
                     "$HIDDEN":true
                 }],
             "$LOCKED":false,
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -542,7 +544,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"x":2,"width":113,"valign":"middle","text":"我的数据","strokeColor":"#404040","stroke":4,"height":30,"fontSize":28,"font":"FZXK","color":"#FFFFFF","align":"center"},
+                    "props":{"x":2,"width":113,"valign":"middle","text":"我的数据","strokeColor":"#000000","stroke":4,"height":30,"fontSize":28,"font":"FZXK","color":"#FFFFFF","align":"center"},
                     "nodeParent":268,
                     "label":"Label",
                     "isOpen":true,
@@ -556,7 +558,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":20,"width":80,"text":"当前排名","strokeColor":"#2d1c05","stroke":4,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":55,"x":20,"width":80,"text":"当前排名","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"FZHL","color":"#f3edd3"},
                     "nodeParent":268,
                     "label":"Label",
                     "isDirectory":false,
@@ -569,7 +571,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":198,"width":43,"var":"lbl_title","text":"等级","strokeColor":"#2d1c05","stroke":4,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":55,"x":198,"width":43,"var":"lbl_title","text":"等级","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"FZHL","color":"#f3edd3"},
                     "nodeParent":268,
                     "label":"Label(lbl_title)",
                     "isDirectory":false,
@@ -582,7 +584,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":55,"x":383,"width":43,"text":"奖励","strokeColor":"#2d1c05","stroke":4,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#f3edd3"},
+                    "props":{"y":55,"x":383,"width":43,"text":"奖励","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"FZHL","color":"#f3edd3"},
                     "nodeParent":268,
                     "label":"Label",
                     "isDirectory":false,
@@ -595,7 +597,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":98,"x":20,"width":76,"var":"lbl_myrank","text":"123456","height":27,"fontSize":20,"font":"FZHL","color":"#a53232"},
+                    "props":{"y":98,"x":20,"width":76,"var":"lbl_myrank","text":"12345","height":27,"fontSize":20,"font":"FZHL","color":"#a53232","align":"center"},
                     "nodeParent":268,
                     "label":"Label(lbl_myrank)",
                     "isDirectory":false,
@@ -608,7 +610,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":98,"x":179,"width":83,"var":"lbl_mylvl","text":"1转20级","height":27,"fontSize":20,"font":"FZHL","color":"#a53232"},
+                    "props":{"y":98,"x":179,"width":83,"var":"lbl_mylvl","text":"1转20级","height":27,"fontSize":20,"font":"FZHL","color":"#a53232","align":"center"},
                     "nodeParent":268,
                     "label":"Label(lbl_mylvl)",
                     "isDirectory":false,
@@ -690,7 +692,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":247,"x":44,"text":"排名","strokeColor":"#000000","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+            "props":{"y":247,"x":50,"text":"排名","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -704,7 +706,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":247,"x":150,"text":"名字","strokeColor":"#000000","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+            "props":{"y":247,"x":150,"text":"名字","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -718,9 +720,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":246,"x":291,"text":"等级","strokeColor":"#000000","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+            "props":{"y":247,"x":290,"width":131,"var":"lbl_rankTitle","text":"等级","strokeColor":"#000000","stroke":4,"height":26,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_rankTitle)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -732,7 +734,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":246,"x":414,"text":"帮会","strokeColor":"#000000","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+            "props":{"y":247,"x":491,"text":"帮会","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -758,7 +760,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"等级榜,战力榜,英雄\\n战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelPadding":"7","labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+                    "props":{"y":0,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"等级榜,战力榜,英雄\\n战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelPadding":"7","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
                     "nodeParent":44,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,

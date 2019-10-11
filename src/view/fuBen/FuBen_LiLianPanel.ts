@@ -86,6 +86,9 @@ module view.fuBen {
 				//BOSS半身像
 				let img = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + jsonData[1].bossid);
 				this.img_yinkuiBoss.skin = 'image/common/npc/npc_half_' + img + '.png';
+				//BOSS描述
+				let detail = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + jsonData[1].bossid);
+				this.lbl_detail.text = '' + detail;
 				//掉落奖励
 				let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + jsonData[1].bossid);
 				this.hbox_yinkui.removeChildren();
@@ -127,31 +130,32 @@ module view.fuBen {
 				this.img_worldBoss.skin = 'image/common/npc/npc_half_' + img + '.png';
 				//BOSS血量
 				let HP = SheetConfig.mydb_monster_tbl.getInstance(null).MAX_HP('' + jsonData.monsterid);
-				this.lbl_HP.text =''+HP;
+				this.lbl_HP.text = '' + HP;
 				//BOSS描述
 				let detail = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + jsonData.monsterid);
-				this.lbl_detail.text =''+detail;
+				this.lbl_worldDetail.text = '' + detail;
 				//活动时间
 				let starMinute = jsonData.starttime % 60;
 				let startHour = (jsonData.starttime - starMinute) / 60;
 				let endMinute = jsonData.endtime % 60;
-				let star=':';
-				let end=':';
-				if(starMinute<10){
-					star=':0'
+				let star = ':';
+				let end = ':';
+				if (starMinute < 10) {
+					star = ':0'
 				}
-				if(endMinute<10){
-					end=':0'
+				if (endMinute < 10) {
+					end = ':0'
 				}
-				
 				let endtHour = (jsonData.endtime - endMinute) / 60;
 				this.lbl_worldTime.text = startHour + star + starMinute + '-' + endtHour + end + endMinute;
 				//掉落奖励
+				
 				this.hbox_world.removeChildren();
 				for (let i = 1; jsonData.reward[i]; i++) {
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jsonData.reward[i].index;
+					itemInfo.dwCount = jsonData.reward[i].num;
 					_itemUI.setData(itemInfo);
 					this.hbox_world.addChild(_itemUI)
 				}

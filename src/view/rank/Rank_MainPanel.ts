@@ -4,7 +4,8 @@ module view.rank {
 		constructor() {
 			super();
 		}
-
+		public page: number = 1;
+		public maxpage: number = 0;
 		public setData(): void {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
@@ -53,7 +54,32 @@ module view.rank {
 				PanelManage.openGuildSelectPanel();
 			});
 
+			this.panel_0.on(Laya.UIEvent.MOUSE_MOVE, this, () => {
+				if (this.panel_0.vScrollBar.max - this.panel_0.vScrollBar.value) {
 
+				}
+
+			})
+
+			this.btn_nextPage.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.page < this.maxpage) {
+					this.page = this.page + 1;
+					this.rankList();
+				} else {
+					TipsManage.showTxt('当前页是最后一页');
+				}
+
+			})
+			this.btn_lastPage.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.page > 1) {
+					this.page = this.page - 1;
+					this.rankList();
+				}
+				else {
+					TipsManage.showTxt('当前页是第一页');
+				}
+
+			})
 
 		}
 		public rankList(): void {
@@ -66,12 +92,15 @@ module view.rank {
 				case 0:
 					btType = EnumData.emRankType.Cret_Level_Rank;
 					myLevel = 'dwLevel';
+					this.lbl_rankTitle.text = '等级';
+					this.lbl_title.text = '等级';
 					ui_rank_box = this.vbox_0;
 					break;
 				//战力榜
 				case 1:
 					btType = EnumData.emRankType.Cret_EquipScore_Rank;
 					myLevel = 'nEquipScore';
+					this.lbl_rankTitle.text = '角色战力';
 					this.lbl_title.text = '角色战力';
 					ui_rank_box = this.vbox_1;
 					break;
@@ -79,6 +108,7 @@ module view.rank {
 				case 2:
 					btType = EnumData.emRankType.Cret_Hero_Warrior_Score_Rank;
 					myLevel = 'heroPower1';
+					this.lbl_rankTitle.text = '英雄战力';
 					this.lbl_title.text = '英雄战力';
 					ui_rank_box = this.vbox_2;
 					break;
@@ -86,6 +116,7 @@ module view.rank {
 				case 3:
 					btType = EnumData.emRankType.Cret_Medal_Rank;
 					myLevel = 'dwMedalRank';
+					this.lbl_rankTitle.text = '勋章等级';
 					this.lbl_title.text = '勋章等级';
 					ui_rank_box = this.vbox_3;
 					break;
@@ -93,6 +124,7 @@ module view.rank {
 				case 4:
 					btType = EnumData.emRankType.Cret_GuanZhiLv_Rank;
 					myLevel = 'dwGuanZhilv';
+					this.lbl_rankTitle.text = '官印等级';
 					this.lbl_title.text = '官印等级';
 					ui_rank_box = this.vbox_4;
 					break;
@@ -100,6 +132,7 @@ module view.rank {
 				case 5:
 					btType = EnumData.emRankType.Cret_LongHunLv_Rank;
 					myLevel = 'dwLongHunlv';
+					this.lbl_rankTitle.text = '龙魂等级';
 					this.lbl_title.text = '龙魂等级';
 					ui_rank_box = this.vbox_5;
 					break;
@@ -107,6 +140,7 @@ module view.rank {
 				case 6:
 					btType = EnumData.emRankType.Cret_Intensify_Rank;
 					myLevel = 'dwStrenTotalLvl';
+					this.lbl_rankTitle.text = '强化等级';
 					this.lbl_title.text = '强化等级';
 					ui_rank_box = this.vbox_6;
 					break;
@@ -114,6 +148,7 @@ module view.rank {
 				case 7:
 					btType = EnumData.emRankType.Cret_Fame_Rank;
 					myLevel = 'dwFame';
+					this.lbl_rankTitle.text = '威望等级';
 					this.lbl_title.text = '威望等级';
 					ui_rank_box = this.vbox_7;
 					break;
@@ -122,24 +157,37 @@ module view.rank {
 			let pkt = new ProtoCmd.stRankMsg(null);
 			pkt.setValue('btErrorCode', 0);
 			pkt.setValue('btType', btType);
-			pkt.setValue('nPage', 1);
+			pkt.setValue('nPage', this.page);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
+				this.maxpage = cbpkt.maxPage;
+				this.lbl_pageCount.text = '' + cbpkt.curPage;
+				this.lbl_maxPage.text = '' + cbpkt.maxPage;
+				console.log('=====---->排行排行', cbpkt)
 				ui_rank_box.removeChildren();
 				for (let item of cbpkt.TopInfos) {
 					let ui_rank = new view.rank.RankPlayerItem();
 					let TopInfos = new ProtoCmd.stRankInfo(item);
 					TopInfos.clone(item.data)
 					ui_rank_box.addChild(ui_rank.setData(TopInfos));
+
 				}
 			})
 			let mypkt = new ProtoCmd.stMyRankRequest();
 			pkt.setValue('btType', btType);
 			lcp.send(mypkt, this, (data) => {
 				let mycbpkt = new ProtoCmd.stMyRankReturn(data);
-				this.lbl_myrank.text = '' + mycbpkt.rank;
-				this.lbl_mylvl.text = '' + mycbpkt.myInfo.getValue(myLevel);
+				if (mycbpkt.rank >= 0) {
+					this.lbl_myrank.text = (mycbpkt.rank + 1) + '';
+					this.lbl_mylvl.text = '' + mycbpkt.myInfo.getValue(myLevel);
+				} else {
+					this.lbl_myrank.text = '未上榜';
+					this.lbl_mylvl.text = '--';
+				}
 			})
+		}
+		public pageChange(): void {
+
 		}
 	}
 }

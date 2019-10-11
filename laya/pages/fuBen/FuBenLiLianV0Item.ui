@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":33,
+    "selecteID":34,
     "props":{"width":607,"sceneColor":"#f1a7a5","height":625},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":26,"x":480,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"前往"},
+                    "props":{"y":40,"x":480,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"前往"},
                     "nodeParent":2,
                     "label":"Button",
                     "isDirectory":false,
@@ -87,6 +87,19 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":7,"x":494,"var":"lbl_time","text":"可击杀","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#179a0d"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_time)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":34,
                     "child":[
                         ]
                 },
@@ -201,20 +214,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":102,"x":296,"text":"状态：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
-                    "nodeParent":11,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":22,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":163,"x":296,"text":"所在地：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
+                    "props":{"y":101,"x":296,"text":"所在地：","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#010101"},
                     "nodeParent":11,
                     "label":"Label",
                     "isDirectory":false,
@@ -253,20 +253,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":103,"x":372,"var":"lbl_time","text":"可击杀","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#179a0d"},
-                    "nodeParent":11,
-                    "label":"Label(lbl_time)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":34,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":165,"x":398,"var":"lbl_place","text":"青城派","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
+                    "props":{"y":103,"x":398,"var":"lbl_place","text":"青城派","height":29,"fontSize":24,"font":"Microsoft YaHei","color":"#63491a"},
                     "nodeParent":11,
                     "label":"Label(lbl_place)",
                     "isDirectory":false,

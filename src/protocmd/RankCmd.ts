@@ -41,6 +41,7 @@ module ProtoCmd {
                 data.pos = super.read(data);
                 for (var i: number = 0; i < this.getValue('nCount'); i++) {
                     var topinfo: stRankInfo = new stRankInfo(data);
+                    topinfo.nNowRankNum = i + (this.curPage - 1)*8 + 1;
                     this.TopInfos.push(topinfo);
                 }
                 return data.pos;
