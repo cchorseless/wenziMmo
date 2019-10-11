@@ -4,8 +4,8 @@ module view.rank {
 		constructor() {
 			super();
 		}
-		public page = 1;
-		public maxpage;
+		public page: number = 1;
+		public maxpage: number = 0;
 		public setData(): void {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
@@ -53,22 +53,32 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_guild, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildSelectPanel();
 			});
+
+			this.panel_0.on(Laya.UIEvent.MOUSE_MOVE, this, () => {
+				if (this.panel_0.vScrollBar.max - this.panel_0.vScrollBar.value) {
+
+				}
+
+			})
+
 			this.btn_nextPage.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.page < this.maxpage) {
 					this.page = this.page + 1;
+					this.rankList();
 				} else {
 					TipsManage.showTxt('当前页是最后一页');
 				}
-				this.rankList();
+
 			})
 			this.btn_lastPage.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.page > 1) {
 					this.page = this.page - 1;
+					this.rankList();
 				}
 				else {
 					TipsManage.showTxt('当前页是第一页');
 				}
-				this.rankList();
+
 			})
 
 		}
@@ -151,16 +161,16 @@ module view.rank {
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
 				this.maxpage = cbpkt.maxPage;
-				this.lbl_pageCount.text=''+cbpkt.curPage;
-				this.lbl_maxPage.text=''+cbpkt.maxPage;
-				console.log('=====>排行排行', cbpkt)
+				this.lbl_pageCount.text = '' + cbpkt.curPage;
+				this.lbl_maxPage.text = '' + cbpkt.maxPage;
+				console.log('=====---->排行排行', cbpkt)
 				ui_rank_box.removeChildren();
 				for (let item of cbpkt.TopInfos) {
 					let ui_rank = new view.rank.RankPlayerItem();
 					let TopInfos = new ProtoCmd.stRankInfo(item);
 					TopInfos.clone(item.data)
 					ui_rank_box.addChild(ui_rank.setData(TopInfos));
-					
+
 				}
 			})
 			let mypkt = new ProtoCmd.stMyRankRequest();
@@ -175,6 +185,9 @@ module view.rank {
 					this.lbl_mylvl.text = '--';
 				}
 			})
+		}
+		public pageChange(): void {
+
 		}
 	}
 }
