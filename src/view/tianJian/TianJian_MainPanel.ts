@@ -4,5 +4,8 @@ module view.tianJian{
 		constructor(){
 			super();
 		}
+		public setData(){
+			
+		}
 	}
 }
