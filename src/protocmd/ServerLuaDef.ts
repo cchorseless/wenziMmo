@@ -150,6 +150,11 @@ module ProtoCmd {
     // 身法=血玉
 
     // 根骨-勋章
+
+    // 请求介绍手册的解锁状态
+    export const getIntroductionInfo = 'getIntroductionInfo';
+    // 领取介绍手册中奖励
+    export const getIntroductionReward = 'getIntroductionReward';
 }
 
 /**

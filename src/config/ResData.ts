@@ -65,6 +65,16 @@ module ResData {
         public static YinDao = null;
         // 指南界面
         public static ZhiNan = null;
+        // 玩法界面
+        public static ZhiNan_WanFa = null;
+        // 门派界面
+        public static ZhiNan_MenPai = null;
+        // 武学界面
+        public static ZhiNan_WuXue = null;
+        // 属性界面
+        public static ZhiNan_ShuXing = null;
+        // 地域界面
+        public static ZhiNan_DiYu = null;
         // 主线任务界面
         public static Task_Main = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];
         // 日常任务界面
@@ -176,6 +186,8 @@ module ResData {
             { url: 'json/mydb_monster_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_monster_tbl },
             // 随机属性表
             { url: 'json/attribute.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.attribute },
+            // 手册介绍表
+            { url: 'json/Introduction_play.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Introduction_play },
         ];
     }
 
