@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":4,
+    "selectedBox":1,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#000000","height":980},
     "nodeParent":-1,
     "label":"View",
@@ -28,16 +28,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":10,"x":10,"var":"img_bg","top":0,"skin":"image/common/scene/scene01.png","sizeGrid":"0,50,0,50","right":0,"left":0,"height":680},
+            "props":{"y":10,"x":10,"var":"img_bg","top":0,"skin":"image/common/scene/zdmap_icon_001.png","sizeGrid":"0,50,0,50","right":0,"left":0,"height":680},
             "nodeParent":1,
             "label":"Image(img_bg)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":850,"x":339,"width":200,"var":"box_self","height":90,"bottom":55,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
@@ -51,6 +52,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":776,"x":75,"width":123,"var":"box_dizi","left":13,"height":90,"bottom":129,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,

@@ -18,9 +18,11 @@ module view.main {
 		}
 
 		public showSelf(isShow: boolean): void {
+			// 更新小地图中自己的位置
 			if (isShow) {
 				this.visible = true;
-				Laya.Tween.to(this, { scaleX: 1, scaleY: 1 }, 300)
+				Laya.Tween.to(this, { scaleX: 1, scaleY: 1 }, 300);
+				this.updateUI();
 			}
 			else {
 				Laya.Tween.to(this, { scaleX: 0, scaleY: 0 }, 300, null, Laya.Handler.create(this, () => {
@@ -28,10 +30,21 @@ module view.main {
 				}))
 			}
 		}
-
-		public initUI(): void {
-
-
+		public findRoomButton(roomID): Laya.Button {
+			return this.panel_0.getChildAt(0)['btn_' + roomID]
 		}
+
+		public updateUI() {
+			let map: any = this.panel_0.getChildAt(0);
+			let img_selfOn: Laya.Image = map.img_selfOn;
+			let targgetBtn: Laya.Button = map['btn_' + GameApp.MainPlayer.roomId];
+			if (img_selfOn && targgetBtn) {
+				img_selfOn.anchorX = img_selfOn.anchorY = 0.5;
+				img_selfOn.width = targgetBtn.width;
+				img_selfOn.height = targgetBtn.height;
+				img_selfOn.pos(targgetBtn.x, targgetBtn.y)
+			}
+		}
+
 	}
 }

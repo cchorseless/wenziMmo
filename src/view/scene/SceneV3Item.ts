@@ -193,8 +193,11 @@ module view.scene {
 		 */
 		public updateMapInfo(): void {
 			let roomId = GameApp.MainPlayer.roomId;
-			// 中间自己
-			// this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			// 房间名称
+			this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			// 地图背景
+			let bgRes = SheetConfig.mapRoomSheet.getInstance(null).SCENEPIC('' + roomId);
+			this.img_bg.skin = 'image/common/scene/zdmap_icon_' + bgRes + '.png';
 		}
 	}
 }

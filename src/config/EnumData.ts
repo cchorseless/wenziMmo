@@ -52,6 +52,7 @@ module EnumData {
         SHOW_IN_MAIL = 4,//邮件中显示,只有信息 无操作按钮
         SHOW_IN_GUILD_CANGKU = 5,//公会仓库
         SHOW_IN_GUILD_BAG = 6,//公会背包
+        SHOW_IN_HUI_SHOU_LU = 7,// 回收炉
         SHOW_IN_BAG_EQUIP = 100,//背包-装备显示
         SHOW_IN_BAG_HUISHOU = 101,//背包-回收显示
         SHOW_IN_BAG_CANGKU = 102,//背包=仓库显示
@@ -661,7 +662,7 @@ module EnumData {
         Cret_Medal2_Rank,					 //精彩活动勋章总排行榜
         Cret_WingNum_Rank,					 //精彩活动光翼总排行榜
         Cret_Relive_Rank,					 //精彩活动转生总排行榜
-        /*Cret_FightConsume_Rank,				 //新服消费夺宝排行榜*/
+        /*Cret_FightConsume_Rank,			 //新服消费夺宝排行榜*/
 
         Rank_Max_Count,						//最大排行类型
 

@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"x":79,"width":523,"var":"lbl_progress","text":"一剑一壶平生意，不负狂名十五年","height":33,"fontSize":24,"font":"Microsoft YaHei","color":"#000000","centerY":482,"bold":true,"align":"center"},
+            "props":{"width":523,"var":"lbl_progress","text":"一剑一壶平生意，不负狂名十五年","height":33,"fontSize":24,"font":"Microsoft YaHei","color":"#000000","centerX":0,"bottom":5,"bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_progress)",
             "isOpen":true,
@@ -56,19 +56,6 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1004,"x":25,"skin":"image/mc/img_loadingBoat.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":13,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
             "props":{"y":1067,"x":45,"width":550,"var":"img_pregressBg","skin":"image/common/startLoad/img_loadingGray.png"},
             "nodeParent":1,
             "label":"Image(img_pregressBg)",
@@ -84,12 +71,25 @@
                     "props":{"y":8,"x":0,"width":10,"var":"img_pregress","skin":"image/common/startLoad/img_loadingBlue.png","sizeGrid":"0,106,0,32"},
                     "nodeParent":11,
                     "label":"Image(img_pregress)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":12,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-71,"skin":"image/common/startLoad/img_loadingBoat.png","right":0},
+                            "nodeParent":12,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        }],
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false

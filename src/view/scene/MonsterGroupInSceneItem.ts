@@ -32,6 +32,23 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addMonster(monster: view.scene.MonsterInSceneItem): boolean {
+			// 优先添加BOX_ONLY
+			if (this.box_only.visible && this.box_only.numChildren == 0) {
+				monster.scale(1.5, 1.5);
+				monster.centerY = 0;
+				monster.centerX = 0;
+				this.box_only.addChild(monster);
+				return true
+			}
+			else {
+				this.box_only.visible = false;
+				if (this.box_only.numChildren == 1) {
+					let _monsterItem = this.box_only.getChildAt(0).removeSelf() as view.scene.MonsterInSceneItem;
+					this.addMonster(_monsterItem);
+				}
+			}
+
+
 			for (let i = 0; i < 12; i++) {
 				if (this['box_' + i].numChildren == 0) {
 					// 第一排
@@ -57,6 +74,8 @@ module view.scene {
 		 * 清除所有怪物
 		 */
 		public clearAllMonster(): void {
+			this.box_only.removeChildren();
+			this.box_only.visible = true;
 			for (let i = 0; i < 12; i++) {
 				(this['box_' + i] as Laya.Box).removeChildren();
 			}

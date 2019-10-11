@@ -8,7 +8,7 @@ module ResData {
     export class PanelRes {
         //****************************************通用素材******************************** */
         // 开始游戏界面
-        public static StartLoading = [{ url: "image/mc/loading.atlas", type: Laya.Loader.ATLAS },];
+        public static StartLoading = [{ url: "res/atlas/image/common/startLoad.atlas", type: Laya.Loader.ATLAS },];
         // GM界面
         public static GM = null;
         // 登陆界面

@@ -17,70 +17,135 @@ module GameUtil {
         return count;
     }
 
-    export function addTipsJianTou(btn: Laya.Button, rotation) {
-        let img = new Laya.Image()
-        img.skin = 'image/common/Indication_arrow2.png';
-        img.anchorY = 0.5;
-        img.rotation = rotation;
-        let hudu = Laya.Utils.toRadian(rotation)
-        img.pos(btn.width / 2 * Math.cos(hudu), btn.height / 2 * Math.sin(hudu))
-        btn.addChild(img);
-        EffectUtils.playBlinkEffect(img, 150, 30, () => {
-            img.removeSelf();
-        });
-        btn.once(Laya.UIEvent.CLICK, this, () => { img.removeSelf(); })
+    export function addTipsJianTou(btn: Laya.Button, mode) {
+        let tipsJianTou = new view.compart.TipsJianTouItem();
+        tipsJianTou.showSelf(PanelManage.JuQingMode.btn_tianJian, 3);
     }
-    // opendialog:'main'|tab:{name:'tab_3',index:3}|mapid:5001|roomid:1000|npcid:10001|button:'btn_renWu
+
+    export const isParse: Boolean = false;
+    // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
     export function parseTaskInfo(str: string) {
+        if (this.isParse) {
+            return
+        }
+        this.isParse = true;
         console.log('解析任务描述', str);
-        let handleList = str.split('|')
+        let handleList = str.split('|');
+        let toDoList = {};
         for (let singleHandle of handleList) {
             let singlehandleList = singleHandle.split(':');
             let key = singlehandleList[0];
             let info = singlehandleList[1];
-            let tipsJianTou = new view.compart.TipsJianTouItem();
             switch (key) {
                 // 打开界面
                 case 'opendialog':
                     switch (info) {
                         // 天鉴界面
                         case 'TianJian':
-                            // 打开剧情界面
-                            PanelManage.openJuQingModePanel();
-                            tipsJianTou.showSelf(PanelManage.JuQingMode.btn_tianJian, 3);
+                            toDoList = { JuQingMode: ['btn_changeMode'], Main: ['btn_jueSe'], JueSe: ['tab_player=3', 'ui_jingLuo=btn_lvUp'], endPanel: 'JueSe' };
                             break;
+                        // 阅读小说界面
                         case 'JuQingMode':
-                            if (PopUpManager.curPanel == PanelManage.Main) {
-                                tipsJianTou.showSelf(PanelManage.Main.btn_modeChange, 3);
-                            }
-                            else {
-                                PanelManage.openJuQingModePanel();
-
-                            }
+                            toDoList = { Main: ['btn_modeChange'], JuQingMode: [], end: 'JuQingMode' };
+                            break;
                     }
-
                     break;
 
-                // 选择界面内的子界面
-                case 'tab':
-                    break;
                 // 地图ID
-                case 'mapid':
+                case 'find':
+                    toDoList[toDoList['endPanel']].push('find=' + info);
                     break;
-                // 房间ID
-                case 'roomid':
-                    break;
-                // npcID
-                case 'npcid':
-                    break;
-                // 怪物ID
-                case 'monsterid':
+                // 使用物品
+                case 'use':
+                    toDoList[toDoList['endPanel']].push('use=' + info);
                     break;
                 // 按钮
                 case 'button':
+                    toDoList[toDoList['endPanel']].push(info);
+
                     break;
             }
-
         }
+        // 循环函数
+        let loopFunc = () => {
+            let curName = PopUpManager.curPanel.name;
+            if (curName && toDoList[curName]) {
+                let btn_name: string = (toDoList[curName] as Array<any>).shift()
+                if (btn_name) {
+                    let btn;
+                    // 界面内tab || ui_item || 查找NPC
+                    if (btn_name.indexOf('=') != -1) {
+                        let list = btn_name.split('=');
+                        let biaoZhi = list[0];
+                        let spr = PopUpManager.curPanel[biaoZhi];
+
+                        // tab
+                        if (biaoZhi.indexOf('tab') != -1) {
+                            btn = spr.items[parseInt(list[1])];
+                        }
+
+                        // ui_item
+                        else if (biaoZhi.indexOf('ui') != -1) {
+                            btn = spr[list[1]];
+                        }
+
+                        // 查找NPC和怪物
+                        else if (biaoZhi == 'find') {
+                            let mapid = parseInt(list[1]);
+                            let roomid = list[2];
+                            let npcid = list[3];
+                            // 同一张地图的情况
+                            if (GameApp.MainPlayer.location.mapid == mapid) {
+                                btn = PanelManage.Main.btn_mapBig;
+                                // 地图内按钮
+                                GameUtil.addEffectButton(PanelManage.Main.ui_mainDownMapItem.findRoomButton(roomid));
+                            }
+                        }
+
+                        // 查找道具
+                        else if (biaoZhi == 'use') {
+                            // 背包内道具
+                            let allObjitem = Object.keys(GameApp.GameEngine.bagItemDB)
+                            for (let i = 1; i < list.length; i++) {
+                                for (let key of allObjitem) {
+                                    let _item: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[key];
+                                    if (list.indexOf('' + _item.dwBaseID) != -1) {
+                                        GameUtil.addEffectButton(_item.ui_item);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    // 界面内按钮
+                    else {
+                        btn = PopUpManager.curPanel[btn_name]
+                    }
+                    btn && GameUtil.addEffectButton(btn);
+                }
+            }
+            if (curName == toDoList['endPanel'] && toDoList[curName].length == 0) {
+                this.isParse = false;
+                Laya.timer.clearAll(this);
+                console.log('引导完成');
+            }
+        }
+        Laya.timer.frameLoop(20, this, loopFunc);
+        loopFunc();
+
+    }
+
+    /**
+     * 给按钮添加特效
+     * @param btn 
+     */
+    export function addEffectButton(btn) {
+        EffectUtils.playScaleEffect(btn, 200, 2);
+        btn.filters = [new Laya.GlowFilter('#4af608', 50)];
+        // 按钮添加监听
+        btn.once(Laya.UIEvent.CLICK, this, () => {
+            btn.filters = [];
+        });
+
     }
 }

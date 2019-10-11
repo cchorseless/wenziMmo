@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":20,
+    "selecteID":21,
     "props":{"width":640,"sceneColor":"#b75352","height":700},
     "nodeParent":-1,
     "label":"View",
@@ -36,6 +36,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":346,"x":303,"width":100,"var":"img_selfOn","skin":"image/map/smallMap/img_selfInMap.png","height":100,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_selfOn)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
             "child":[
                 ]
         },
