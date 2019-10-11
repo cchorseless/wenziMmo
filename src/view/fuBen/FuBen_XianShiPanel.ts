@@ -6,8 +6,10 @@ module view.fuBen {
 		}
 
 		public setData(): void {
-
+			this.panel_xianshi.vScrollBarSkin = '';
+			this.vbox_xianshi['sortItem'] = (items) => { };
 			this.addEvent();
+			this.init_xianshi();
 		}
 
 		public addEvent(): void {
@@ -30,5 +32,23 @@ module view.fuBen {
 				PanelManage.openFuBenXianShiPanel();
 			});
 		}
+		/**
+     * 限时副本打开
+     * 
+     */
+		public init_xianshi(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_LimitActivities, null, null, this, (jsonData) => {
+				console.log('=====>限时活动', jsonData)
+				let keys=Object.keys(jsonData.state);
+				this.vbox_xianshi.removeChildren();
+				for (let key of keys) {
+					let data=jsonData.state[key]
+					this.vbox_xianshi.addChild(new view.fuBen.FuBen_XianShiItem().setData(data.id,jsonData.now));
+				}
+			})
+			lcp.send(pkt);
+		}
+
 	}
 }
