@@ -12,8 +12,9 @@ module ProtoCmd {
     // 随机资质
     export const NEW_PLAYER_randomZiZhiValue = 'randomZiZhiValue';
 
-    /********************************物品使用***************** */
+    /********************************物品***************** */
     export const ITEM_LoopUseItem = 'LoopUseItem';//批量使用物品
+    export const ITEM_zhuangbeihuishousys = 'zhuangbeihuishousys';// 批量回收装备
     /*****************************充值********************** */
     // 正常充值界面
     export const CZ_OPEN_chongzhidialog = 'chongzhidialog';
@@ -167,6 +168,11 @@ module ProtoCmd {
     // 身法=血玉
 
     // 根骨-勋章
+
+    // 请求介绍手册的解锁状态
+    export const getIntroductionInfo = 'getIntroductionInfo';
+    // 领取介绍手册中奖励
+    export const getIntroductionReward = 'getIntroductionReward';
 }
 
 /**

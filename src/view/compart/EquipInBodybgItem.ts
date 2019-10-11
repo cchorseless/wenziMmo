@@ -15,5 +15,10 @@ module view.compart {
 			this.addChild(item);
 			item.centerX = item.centerY = 0;
 		}
+		public clearItem() {
+			if (this.checkIsFull()) {
+				this.removeChildAt(1);
+			}
+		}
 	}
 }

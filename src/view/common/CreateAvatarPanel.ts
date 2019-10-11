@@ -59,6 +59,8 @@ module view.common {
 
 		public curMap = 1;// 当前进度：1：鬼门关 2：黄泉路 3：幽冥殿 4：奈何桥 5：轮回道
 		public mapNameList = [null, '鬼门关', '黄泉路', '幽冥殿', '奈何桥', '轮回道', null];
+		public mapIconList = [null, "016", "018", "030", "021", "020", null];
+		public sceneBgList = [null, '001', '002', '003', '004', '005', null]
 		public npcConfigList = [null, [1001, 1002], [1003, 1004], [1005, 1006, 1007], [1008], [1009], null];
 		public monsterConfigList = [null, [], [200002, 200002, 200002], [200003], [200004], [200005], null];
 		// 场景对白
@@ -117,20 +119,14 @@ module view.common {
 		public talkConfigList = [null,
 			// 鬼门关
 			[
-				{ 1: '这是哪里？？？', 'delay': 60 },
-				{ 1001: '既到地府，还不速速报道！' },
-				{ 1: '！！！！！！' },
-				{ 1: '敢问两位大哥，这里是哪里啊？我认识两位吗？' },
-				{ 1001: '这里是鬼门关。我们二人乃是黑白无常，你阳寿已尽，我二人再次等候多时了。' },
-				{ 1: '黑白无常？卧槽，真的有鬼？我咋就死了呢？' },
-				{ 1: '啊啊啊啊，我的钱还没花完，我要回家，我想我妈，呜呜呜呜~~~~~' },
-				{ 1001: '既然已经身死，何必再想前世，不如好好想想自己来世应该怎么活？' },
-				{ 1002: '废话少说，报上名字，我好登记在册。' },
-				{ 1: '名字？我叫啥来着？？？', 'showDialog': 0 },
-				{ 1001: '说个名字吞吞吐吐磨磨蹭蹭。' },
-				{ 1002: '登记好了，赶快去幽冥殿报道！阎王老爷等着你呢！' },
-				{ 1: '！！！敢问两位老爷，幽冥殿要怎么走？你俩能带我去吗？我路痴！！！' },
-				{ 1001: '我俩还有公干，你顺着这条黄泉路一直走就能看到幽冥殿了。快点去，别磨蹭，还能争个好胎位！', 'showTips': 'btn_mapUp', 'showTipsMode': 180 },
+				{ 1: '这是哪里？？？你好，有人吗？ 有人吗？', 'delay': 30 },
+				{ 1001: '大胆，酆都重地。何人胆敢在此喧哗！' },
+				{ 1: '敢问你们两位是？' },
+				{ 1001: '我们二人乃是黑白无常，你阳寿已尽，轮回至此，我二人再次等候多时了。' },
+				{ 1: '黑白无常？鬼门关？我真的死了？这怎么可能！！！我记得。。。好像是有个陨石。。。然后。。。咦？我脖子上的这个吊坠是哪来的。。。' },
+				{ 1002: '无需废话，既来此地，速去幽冥殿报道，盘算你前世因来世果。' },
+				{ 1: '。。。。。。幽冥殿？我第一次来啊，要怎么走？' },
+				{ 1002: '顺着黄泉路一直走就能看到幽冥殿了', 'showTips': 'btn_mapUp', 'showTipsMode': 2 },
 			],
 			// 黄泉路
 			[
@@ -139,47 +135,61 @@ module view.common {
 				{ 1: '...看两位面相奇特，骨骼惊奇，想必是牛头马面两位鬼差大哥了。' },
 				{ 1003: '你还算聪明，知道我们是当差的。过来吧，手臂打开，腰杆挺直，老实一点！' },
 				{ 1: '啊？这是要干啥？我身上可没啥宝贝，两位大哥还是放过我吧！' },
-				{ 1004: '屁话！谁要你的东西。你以为幽冥殿是想来就来地方！请配合安检，老实一点。男同志来找我' },
-				{ 1003: '女同志请过来找我' },
+				{ 1004: '屁话！谁要你的东西。你以为幽冥殿是想来就来地方！请配合安检，老实一点。男的来找我' },
+				{ 1003: '女的请过来找我' },
 				{ 1: '！！！我是男是女来着？？？', 'showDialog': 1, 'stop': true },
 				{ 1004: '等等，你脖子挂的是个啥东西？好像在哪里见过来着！' },
 				{ 1: '啊！低头一看，发现脖子上不知何时挂了个奇怪的玉珏，散发着幽幽白光，似乎把心神都能吸进去了~~~' },
 				{ 1003: '哈哈哈，现在不同以前了。不要你的东西，瞧给你吓得。看样子也不像危险品，诺，还给你。' },
 				{ 1: '是是是，谢谢鬼差大哥！我怎么会带危险品来这，我老实得很，老实得很。' },
-				{ 1004: '好了，你走吧。幽冥殿就在前面。', 'showTips': 'btn_mapUp', 'showTipsMode': 90 },
+				{ 1004: '好了，你走吧。幽冥殿就在前面。', 'showTips': 'btn_mapUp', 'showTipsMode': 2 },
 
 			],
 			// 幽冥殿
 			[
-				{ 1007: '你来了' },
-				{ 1007: '转生选个出身吧', },
-				{ 1: '啊？', 'showDialog': 2 },
-				{ 1007: '选好了是吧，你看看镜子，这就是你投胎后的样子', 'showTips': 'box_boss', 'showTipsMode': 90, 'stop': true },
-				{ 1007: '决定好了是吧，去奈何桥吧', 'updateTask': '去找地藏王菩萨', 'showTips': 'btn_mapUp', 'showTipsMode': 90 },
+				{ 1007: '我是这幽冥殿的功曹，在此等候多时了。' },
+				{ 1: '不知我现在应该怎么办。' },
+				{ 1007: '随我去见阎王大人。' },
+				{ 1: '见过阎王大人。' },
+				{ 1005: '不必多礼，为你自己选一个出身吧。', 'showDialog': 2 },
+				{ 1: '我选好了。' },
+				{ 1005: '功曹带他去见判官吧！' },
+				{ 1: '好！' },
+				{ 1007: '这位是这幽冥殿的判官。' },
+				{ 1006: '姓名！' },
+				{ 1: '我的姓名是……', 'showDialog': 0 },
+				{ 1006: '你一生未犯重罪，不必受地狱之苦，直接可以去转世投胎' },
+				{ 1: '多谢判官！' },
+				{ 1006: '不必谢我，这些都是你应得的。' },
+				{ 1006: '此乃孽镜台，镜中的你就是转生之后的样子，看清楚了，出了这幽冥殿，你想改就难了。', 'showTips': 'box_boss', 'showTipsMode': 1, 'stop': true },
+				{ 1: '我确定了。' },
+				{ 1005: '好！既然如此功曹你带他去奈何桥吧。', 'updateTask': '去找地藏王菩萨', 'showTips': 'btn_mapUp', 'showTipsMode': 1 },
+
 			],
 			// 奈何桥
 			[
-				{ 1008: '你来了' },
-				{ 1008: '来喝口汤，忘了前世吧', 'showTips': 'box_boss', 'stop': true },
-				{ 1008: '忘了前世苦，重选今世忧', 'showDialog': 4, 'stop': true },
-				{ 1: '啊？' },
-				{ 1008: '选好了是吧，来世做个好人。往前走，地藏王在那等着你', 'showTips': 'btn_mapUp', 'showTipsMode': 90 },
+				{ 1008: '你来了！' },
+				{ 1: '见过孟婆！' },
+				{ 1008: '不必多礼，随我去看看那孟婆汤吧。', },
+				{ 1008: '此锅名为孟婆锅，锅内就是孟婆汤' },
+				{ 1008: '喝了这碗孟婆汤，忘记前尘俗事。' },
+				{ 1008: '选你来世的性格吧！', 'showTips': 'box_boss', 'stop': true },
+				{ 1: '选好了！' },
+				{ 1008: '来世做个好人，继续往前走，地藏王菩萨在那里等着你呢。', 'showTips': 'btn_mapUp', 'showTipsMode': 1 },
+
 			],
 			// 轮回道
 			[
-				{ 1009: '你来了' },
-				{ 1009: '地域不空誓不成佛。往前就是六道轮回，通往阳界。选个天赋吧', 'showDialog': 5, 'stop': true },
-				{ 1009: '点开轮回之门，开始你的重生之旅吧', 'showTips': 'box_boss', 'showTipsMode': 90, 'stop': true },
+				{ 1009: '有缘人，你来了。' },
+				{ 1: '？？？。。。您就是传说中的地藏王菩萨？请问我该如何投胎转世呢？' },
+				{ 1009: '有缘人，来到此地一切皆是缘法。你再往前一步就是阳界。正所谓众生平等，这世间不会有全知全能的人，但总会有人在某些方面有着超乎常人的聪慧，这就是天赋。' },
+				{ 1: '我懂了！看来这里需要选择我的转世天赋！！！' },
+				{ 1009: '正是，正所谓千人千面，有短有长。你且过来，这就是你的六根五识盘，拿好了！！！', 'showDialog': 5, 'stop': true },
+				{ 1: '谢谢菩萨，我已经选好了。（把命盘递给了菩萨）' },
+				{ 1009: '（菩萨偷偷瞄了一眼你的命数盘，一脸的笑容）好好好，果然是有趣之人！你且去吧，跳入轮回之海开始你的另一段故事！！！', 'showTips': 'box_boss', 'showTipsMode': 1, 'stop': true },
 			],
 
-			null]
-
-
-
-
-
-
-
+			null];
 
 		/**
 		 * 切换场景
@@ -189,6 +199,10 @@ module view.common {
 			this.btn_mapUp.disabled = true;
 			this.box_boss.disabled = true;
 			this.curMap = index;
+			// 更新小地图自己的标识
+			let _btn_fengDu = this.ui_fengDu['btn_900' + index];
+			this.ui_fengDu.img_selfOn.pos(_btn_fengDu.x, _btn_fengDu.y);
+
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].gray = (i != index);
 			}
@@ -197,7 +211,7 @@ module view.common {
 			// 剧情对白
 			this.parseTalkList(this.curMap);
 			// 背景图
-			this.img_sceneBg.skin = 'image/common/scene/scene0' + index + '.png';
+			this.img_sceneBg.skin = 'image/common/scene/zdmap_icon_' + this.sceneBgList[index] + '.png';
 			// 清地图
 			this.vbox_left.removeChildren();
 			this.box_boss.removeChildren();
@@ -207,10 +221,12 @@ module view.common {
 			let mapName1 = this.mapNameList[index];
 			let mapName2 = this.mapNameList[index + 1];
 			this.btn_mapCenter.label = '' + mapName1;
+			this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index] + '.png';
 			this.lbl_sceneName.text = '' + mapName1;
 			if (mapName0) {
 				this.btn_mapDown.visible = this.img_mapLineDown.visible = true;
 				this.btn_mapDown.label = '' + mapName0;
+				this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index - 1] + '.png';
 			}
 			else {
 				this.btn_mapDown.visible = this.img_mapLineDown.visible = false;
@@ -219,6 +235,7 @@ module view.common {
 			if (mapName2) {
 				this.btn_mapUp.visible = this.img_mapLineUp.visible = true
 				this.btn_mapUp.label = '' + mapName2;
+				this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index + 1] + '.png';
 			}
 			else {
 				this.btn_mapUp.visible = this.img_mapLineUp.visible = false;
@@ -297,9 +314,10 @@ module view.common {
 
 							})
 							break;
-					}
+					};
 					this.box_uiScene0.addChild(progerUI);
-				})
+					this.box_boss.disabled = true;
+				}, null, false);
 				this.box_boss.addChild(monsterUI);
 			}
 
@@ -317,6 +335,19 @@ module view.common {
 					this.playerName = this.input_name.text;
 					this.lbl_playerName.text = this.input_name.text;
 					console.log('=========>', this.playerName);
+					// 确定了人物形象
+					// 名字
+					this.lbl_finaName.text = this.playerName;
+					this.lbl_finaName1.text = this.playerName;
+					// 立绘
+					let sexDes = '';
+					if (this.sex == 1) {
+						sexDes = 'nan';
+					} else {
+						sexDes = 'nv';
+					}
+					this.img_avatar.skin = 'image/common/' + sexDes + '0' + this.job + '.png';
+					this.img_finallyavatar.skin = 'image/common/' + sexDes + '0' + this.job + '.png';
 					this.showDialog(false);
 
 				}
@@ -339,17 +370,27 @@ module view.common {
 			// 确定性别
 			EventManage.onWithEffect(this.btn_sexSure, Laya.UIEvent.CLICK, this, () => {
 				if (this.sex) {
+					let sexDes = '';
+					if (this.sex == 1) {
+						sexDes = 'nan';
+					} else {
+						sexDes = 'nv';
+					}
+					this.img_job1.skin = 'image/common/' + sexDes + '01_half.png';
+					this.img_job2.skin = 'image/common/' + sexDes + '02_half.png';
+					this.img_job3.skin = 'image/common/' + sexDes + '03_half.png';
 					this.showDialog(false);
 				}
 			});
 			// 选择职业
 			for (let i = 1; i < 4; i++) {
-				EventManage.onWithEffect(this['btn_job' + i], Laya.UIEvent.CLICK, this, () => {
+				EventManage.onWithEffect(this['img_job' + i], Laya.UIEvent.CLICK, this, () => {
 					this.viw_chuShendes.selectedIndex = i - 1;
 					this.job = i;// 职业
 					this.lbl_chuShenDes.text = '转世出身：' + ['隐门传人', '奇侠怪盗', '灭门孤儿'][i - 1];
 					for (let j = 1; j < 4; j++) {
 						this['btn_job' + j].selected = i == j;
+						this['img_job' + j].gray = i != j;
 					}
 				});
 			}
@@ -364,9 +405,11 @@ module view.common {
 			EventManage.onWithEffect(this.btn_avatarSure, Laya.UIEvent.CLICK, this, () => {
 				this.createAvatar();
 			});
-			// 重选出身
+			// 重选姓名
 			EventManage.onWithEffect(this.btn_avatarBack, Laya.UIEvent.CLICK, this, () => {
-
+				this.viw_0.selectedIndex = 0;
+				let addTalk = { 1006: '那好，再看看孽冤镜吧。', 'showTips': 'box_boss', 'showTipsMode': 1, 'stop': true };
+				(this.talkConfigList[this.curMap] as Array<any>).unshift(addTalk);
 			});
 
 			// 性格资质随机
@@ -508,9 +551,9 @@ module view.common {
 				};
 				// 点击提示
 				let btn = this.curTalkInfo['showTips'];
-				let rotation = this.curTalkInfo['showTipsMode'];
+				let mode = this.curTalkInfo['showTipsMode'];
 				if (btn != null) {
-					this.showTipsImage(this[btn], rotation);
+					this.showTipsImage(this[btn], mode);
 				};
 				// 停止
 				let stop = this.curTalkInfo['stop'];
@@ -529,10 +572,16 @@ module view.common {
 		 * @param btn 
 		 * @param rotation 
 		 */
-		public showTipsImage(btn: Laya.Button, rotation): void {
+		public showTipsImage(btn: Laya.Button, mode): void {
 			btn.disabled = false;
 			btn.alpha = 1;
-			EffectUtils.playBlinkEffect(btn, 150, 10);
+			// GameUtil.addTipsJianTou(btn, rotation);
+			EffectUtils.playScaleEffect(btn, 300, 4);
+			btn.filters = [new Laya.GlowFilter('#4af608', 50)];
+			// 按钮添加监听
+			btn.once(Laya.UIEvent.CLICK, this, () => {
+				btn.filters = [];
+			});
 		}
 
 		// 随机角色姓名
@@ -600,7 +649,6 @@ module view.common {
 					div.style.leading = 5;
 					div.style.fontSize = 20;
 					box.height = 40;
-					console.log(sceneInfo[0]);
 					div.innerHTML = sceneInfo.shift();
 					box.addChild(div);
 					this.vbox_scene.addChild(box);

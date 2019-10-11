@@ -63,7 +63,7 @@ module view.compart {
 				if (itemInfoDialog) {
 					// 根据model显示界面不同的状态
 					switch (this.model) {
-						// 背包场景 有三种子状态 0背包-回收 1背包-仓库 2背包-摆摊
+						// 背包场景 有三种子状态 0背包-装备 1背包-回收 2背包-仓库 3背包-摆摊
 						case EnumData.ItemInfoModel.SHOW_IN_BAG:
 							let model: EnumData.ItemInfoModel;
 							switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
@@ -111,6 +111,12 @@ module view.compart {
 			else {
 				this.lbl_count.text = '';
 			}
+			// 是否有能力提升的提示
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + item.dwBaseID);
+			this.btn_isStronger.visible = (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP);
+			if (this.btn_isStronger.visible) {
+				this.updateIsStronger();
+			}
 		}
 
 		/**
@@ -132,12 +138,32 @@ module view.compart {
 		public canGoToSell(isNotCanSell: boolean): void {
 			this.isNotCanSell = isNotCanSell && Boolean(this.item.dwBinding);
 			// 不能上架
-			if (this.isNotCanSell) {
-				this.alpha = 0.5;
+			this.disabled = this.isNotCanSell;
+		}
+
+		/**
+		 * 更新战力提升提示
+		 */
+		public updateIsStronger(): void {
+			// 优先对比角色
+
+
+			// 再对比弟子
+
+		}
+
+		/**
+		 * 获取装备评分
+		 */
+		public get eQuipScore(): number {
+			let score = 0;
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
+			// 确定是装备，需要计算积分
+			if (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP) {
+				
+
 			}
-			else {
-				this.alpha = 1;
-			}
+			return score;
 		}
 
 	}

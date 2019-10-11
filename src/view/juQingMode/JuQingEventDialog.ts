@@ -86,30 +86,9 @@ module view.juQingMode {
 		 * @param data 
 		 */
 		public goToFinishTask(data: string): void {
-			console.log(data);
-			console.log(data.split('|'));
-			let handerList = data.split('|');
-			let list = [];
-			for (let _hander of handerList) {
-				list.push(_hander.split(':'));
-			};
-			for (let needHander of list) {
-				switch (needHander[0]) {
-					case 'opendialog':
-						break;
-					case 'gotoroom':
-						break;
 
-				}
-			}
+			GameUtil.parseTaskInfo(data)
 
-			// if(hander.length==1)
-			switch (this.taskInfo.targetType) {
-				// 客户端触发
-				case EnumData.TaskSubType.CLIENTFILISH:
-
-					break;
-			}
 		}
 	}
 }

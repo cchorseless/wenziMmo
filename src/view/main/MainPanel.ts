@@ -560,6 +560,8 @@ module view.main {
 			else {
 				this.btn_mapRight.visible = false;
 			}
+			// 更新地图
+			this.ui_mainDownMapItem.updateUI();
 		}
 
 		/**
@@ -629,9 +631,17 @@ module view.main {
 		 * @param data 
 		 */
 		public updateTaskInfo(): void {
-			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
-			// 任务信息
-			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
+			let taskInfo: ProtoCmd.stQuestInfoBase;
+			// 优先显示事件任务
+			let eventInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+			if (eventInfo && Object.keys(eventInfo).length > 0) {
+				taskInfo = eventInfo[Object.keys(eventInfo)[0]];
+			}
+			else {
+				// 主线任务
+				let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+				taskInfo = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
+			}
 			this.div_taskDes.style.fontSize = 20;
 			this.div_taskDes.innerHTML = taskInfo.target;
 			this.div_taskDes.on(Laya.Event.LINK, this, (data) => {
@@ -642,7 +652,7 @@ module view.main {
 		/**
 		 * 添加NPC交互的进度条
 		 */
-		public addNpcPregressItem(obj: GameObject.Creature): void {
+		public addNpcPregressItem(obj: GameObject.Creature, closerHander: Laya.Handler = null): void {
 			let configID = obj.feature.dwCretTypeId;
 			let progerUI = new view.npc.NpcProgressItem()
 			switch (configID) {
@@ -662,6 +672,7 @@ module view.main {
 					progerUI.setData('东看看,西看看...', 3000);
 					break;
 			}
+			progerUI.closeHandler = closerHander;
 			// 添加读条界面
 			this.box_uiScene0.addChild(progerUI);
 		}

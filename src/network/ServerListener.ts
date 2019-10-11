@@ -458,7 +458,7 @@ class ServerListener extends SingletonClass {
     public cretAttackRet(data: any): void {
         let msgData = new ProtoCmd.CretAttackRet(data);
         let player = GameApp.MainPlayer;
-        let atker = player.findViewObj(msgData.dwTempId);
+        let atker: GameObject.Monster = player.findViewObj(msgData.dwTempId);
         if (atker) {
             switch (msgData.btErrorCode) {
                 // 检查攻击动作，释放攻击动作,检查CD
@@ -512,6 +512,7 @@ class ServerListener extends SingletonClass {
         let dwTempID = msg.getValue('dwTempID');
         let lifestate = msg.getValue('curLifeState');
         let targeter = GameApp.MainPlayer.findViewObj(dwTempID);
+        console.log('' + dwTempID + '死亡了');
         switch (lifestate) {
             // 复活
             case 0:

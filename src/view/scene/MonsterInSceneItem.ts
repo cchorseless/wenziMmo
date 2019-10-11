@@ -36,10 +36,12 @@ module view.scene {
 				switch (skePath) {
 					// 收集道具
 					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
-						if (this.collectHander)
-						{ this.collectHander.run() }
+						if (this.collectHander) {
+							this.collectHander.run()
+						}
 						else {
-							PanelManage.Main.addNpcPregressItem(this.item);
+							let closerHander = Laya.Handler.create(this, () => { player.startHandAtk(this.item); }, null, false);
+							PanelManage.Main.addNpcPregressItem(this.item, closerHander);
 						}
 						break;
 					default:

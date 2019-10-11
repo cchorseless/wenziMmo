@@ -61,11 +61,19 @@ public static getInstance(data): mapRoomSheet { let Class:any=this;if(!Class._in
  */
  public LVNEED(configID:string):number { return this.data[configID][14]}
 /**
+ *  进入VIP等级限制
+ */
+ public VIPNEED(configID:string):number { return this.data[configID][15]}
+/**
  *  进入任务条件
  */
- public TASKIDNEED(configID:string):number { return this.data[configID][15]}
+ public TASKIDNEED(configID:string):number { return this.data[configID][16]}
+/**
+ *  无视进入条件限制
+ */
+ public ISNEEDLIMIT(configID:string):number { return this.data[configID][17]}
 /**
  *  房间描述
  */
- public ROOMDES(configID:string):string { return this.data[configID][16]}
+ public ROOMDES(configID:string):string { return this.data[configID][18]}
 }}
