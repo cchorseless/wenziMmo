@@ -6,7 +6,7 @@ module view.map {
 		}
 
 		public setData(): void {
-			for (let i = 10001; i < 10027; i++) {
+			for (let i = 10001; i <= 10027; i++) {
 				let btn: Laya.Button = this['btn_' + i];
 				btn.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + i);
 				btn.labelSize = (btn.label.length > 3) ? 19 : 25;
@@ -17,7 +17,7 @@ module view.map {
 		}
 
 		public addEvent(): void {
-			for (let i = 10001; i < 10027; i++) {
+			for (let i = 10001; i <= 10027; i++) {
 				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
 					PanelManage.Main && PanelManage.Main.joinRoom(i);
 				})

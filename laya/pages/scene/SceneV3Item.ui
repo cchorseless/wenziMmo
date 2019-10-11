@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":227,
-    "selecteID":231,
+    "selectedBox":1,
+    "selecteID":2,
     "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":680},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"var":"img_bg","top":0,"skin":"image/common/scene/scene01.png","sizeGrid":"0,50,0,50","right":0,"left":0,"height":680},
+            "props":{"var":"img_bg","top":0,"skin":"image/common/scene/zdmap_icon_001.png","sizeGrid":"0,50,0,50","right":0,"left":0,"height":680},
             "nodeParent":1,
             "label":"Image(img_bg)",
             "isDirectory":false,
@@ -59,14 +59,13 @@
             "props":{"y":342,"width":545,"var":"panel_player","right":0,"left":0,"height":219},
             "nodeParent":1,
             "label":"Panel(panel_player)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":167,
             "child":[
                 {
-                    "x":30,
                     "type":"HBox",
                     "props":{"x":0,"var":"hbox_player","top":0,"bottom":0,"align":"bottom"},
                     "nodeParent":167,
@@ -100,13 +99,14 @@
             "props":{"y":34,"x":58,"var":"box_sceneMore","skin":"image/main/img_bgLuoyang.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Image(box_sceneMore)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":226,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":17,"var":"lbl_roomName","text":"洛阳","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":226,
@@ -124,7 +124,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":33,"var":"btn_worldMap","stateNum":"2","skin":"image/main/img_main_ditu_finish.png","right":14,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":43,"width":69,"var":"btn_worldMap","stateNum":"2","skin":"image/main/img_main_ditu_finish.png","right":11,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_worldMap)",
             "isOpen":true,

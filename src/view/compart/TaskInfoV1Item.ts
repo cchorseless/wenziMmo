@@ -6,9 +6,8 @@ module view.compart {
 		}
 
 		public setData(jsonData, key, i): TaskInfoV1Item {
-
-			// console.log('========>状态',jsonData)
 			switch (jsonData[key]) {
+				//任务成就宝箱状态，0未达到|1已达到后未领取|2达到后已领取
 				case 0:
 					this.img_baoxiang.skin = 'image/common/icon_baoxiang3_close.png';
 					break;
@@ -27,6 +26,7 @@ module view.compart {
 			pkt.setString(ProtoCmd.TASK_achievementDesc, null, null, this, (jsonData) => {
 				let arr = jsonData[i];
 				for (let j = 1; arr[j]; j++) {
+					//arr[j].id是每条信息的成就ID
 					if (arr[j].id == key) {
 						let detail=arr[j].desc.split('^')
 						this.lbl_detail.text = '' + detail[0];

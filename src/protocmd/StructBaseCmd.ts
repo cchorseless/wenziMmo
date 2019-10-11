@@ -1038,7 +1038,7 @@ module ProtoCmd {
         public defaultName: string;
         private _itemType;//物品类型
         // 绑定的UI组件
-        public ui_item;
+        public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {
             super();
             this.ExtensionProperty = new Laya.Byte();
@@ -1084,6 +1084,7 @@ module ProtoCmd {
         public set location(v: ItemLocation) {
             this._location.clone(v.data);
         }
+
 
         /**
          * 道具ID

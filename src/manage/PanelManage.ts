@@ -89,7 +89,7 @@ module PanelManage {
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
-    export let TianJian: view.tianJian.TianJian_MainPanel;//天鉴界面
+    export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
 
 
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
@@ -1099,7 +1099,7 @@ module PanelManage {
         }
         PopUpManager.checkPanel(PanelManage.TianJian);
         ResManage.loadResource(ResData.PanelRes.TianJian, () => {
-            PanelManage.TianJian = new view.tianJian.TianJian_MainPanel();
+            PanelManage.TianJian = new view.tianJian.TianJianPanel();
             PanelManage.TianJian['LCP_skin'] = ResData.PanelRes.TianJian;
             PanelManage.TianJian.setData();
             PanelManage.TianJian.mouseEnabled = true;

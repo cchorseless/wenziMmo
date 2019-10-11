@@ -62,6 +62,7 @@ module GameObject {
         public goDie(): void {
             console.log(this.objName + '死亡');
             this.ui_item.playAni(3)
+            this.ui_item.disabled = true;
         }
     }
 }

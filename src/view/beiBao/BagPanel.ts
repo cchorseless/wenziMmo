@@ -56,8 +56,6 @@ module view.beiBao {
 			this.btn_cangKu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_cangKu']);
 			// 回收
 			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_huiShou']);
-
-
 			// 小说模式
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
@@ -79,14 +77,12 @@ module view.beiBao {
 					console.log(jsonData);
 					for (let key of allkeys) {
 						let sellItemInfo: ProtoCmd.itf_Shop_ShopItem = jsonData.items[key];
-						console.log(sellItemInfo);
 						// 商店类型
 						sellItemInfo.type = EnumData.ShopType.SHOP_TYPE_BAG_HOT;
 						// 商店子类型
 						sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
 						// 商品条目索引
 						sellItemInfo.index = key;
-						console.log(sellItemInfo);
 						let ui_item = new view.compart.ShopHotItem();
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
@@ -115,7 +111,7 @@ module view.beiBao {
 			let allKey = Object.keys(GameApp.GameEngine.bagItemDB);
 			for (let key of allKey) {
 				let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
-				ui_item && ui_item.canGoToSell(index === 3);
+				ui_item && ui_item.canGoToSell(msg === "btn_baiTan");
 			}
 			// 显示界面
 			this.viw_BagViewChange.selectedIndex = 0;
@@ -232,7 +228,7 @@ module view.beiBao {
 		 * 更新摊位信息
 		 */
 		public updateTanWei(): void {
-			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 2) {
+			if (!this.destroyed) {
 				this.ui_tanWei.updateTanWeiUI();
 			}
 		}
@@ -240,7 +236,7 @@ module view.beiBao {
 		 * 更新仓库
 		 */
 		public updateCangKuInfo(): void {
-			if (!this.destroyed && this.viw_bagBottom.selectedIndex == 1) {
+			if (!this.destroyed) {
 				this.ui_cangKu.updateCangKuUI()
 			}
 		}
@@ -253,7 +249,6 @@ module view.beiBao {
 				return false
 			}
 			return true
-
 		}
 
 	}

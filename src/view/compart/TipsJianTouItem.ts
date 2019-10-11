@@ -47,8 +47,12 @@ module view.compart {
 			}
 			// EffectUtils.playBlinkEffect(this, 200, 5, () => { this.removeSelf() });
 			EffectUtils.playScaleEffect(btn, 150, 4);
+			btn.filters = [new Laya.GlowFilter('#ff0905')]
 			// 按钮添加监听
-			btn.once(Laya.UIEvent.CLICK, this, () => { this.removeSelf() })
+			btn.once(Laya.UIEvent.CLICK, this, () => {
+				this.removeSelf();
+				btn.filters = [];
+			})
 			// 添加到舞台
 			Laya.stage.addChild(this);
 		}

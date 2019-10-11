@@ -11,7 +11,9 @@ module view.dialog {
 			this.itemObj = obj;
 			this.model = model;
 			switch (this.model) {
+				// 背包-装备
 				// 背包-回收
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
 					this.viw_model.selectedIndex = 0;
 					break;
@@ -36,18 +38,13 @@ module view.dialog {
 					this.viw_model.selectedIndex = 3;
 					break;
 				// 角色身上
-				case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
-					this.viw_model.selectedIndex = 4;
-					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
-				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
-					this.viw_model.selectedIndex = 5;
+				default:
+					this.viw_model.visible = false;
 					this.height -= this.viw_model.height;
 					break;
 			}
 			let dwBaseID = '' + obj.dwBaseID;
-			// 是否绑定
-			this.lbl_isLock.visible = Boolean(obj.dwBinding);
 			// 物品名称
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
 			// 物品描述
@@ -68,7 +65,8 @@ module view.dialog {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
 				this.hsbar_count.max = this.hsbar_count.min = this.hsbar_count.value = 1;
-			} else {
+			}
+			else {
 				this.hsbar_count.max = this.itemObj.dwCount;
 				this.hsbar_count.min = 1;
 				this.hsbar_count.value = this.itemObj.dwCount;
@@ -89,8 +87,10 @@ module view.dialog {
 			});
 
 			switch (this.model) {
+				// 背包-装备
 				// 背包-回收
-				case 0:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
 					// 物品使用
 					this.btn_use.on(Laya.UIEvent.CLICK, this, this.useItem);
 					// 丢弃\销毁物品
@@ -98,28 +98,21 @@ module view.dialog {
 						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
 					});
 					break;
-				// 背包-仓库
-				case 1:
+				// 背包-仓库,道具不能拆分放入仓库，所以隐藏
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
 					// 放入仓库
 					this.btn_putToCangKu.on(Laya.UIEvent.CLICK, this, this.putToCangKu);
 					break;
 				// 背包-摆摊
-				case 2:
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
 					// 上架物品
 					this.btn_goSell.on(Laya.UIEvent.CLICK, this, this.goToSell);
 					break;
-				// 仓库内
-				case 3:
+				// 仓库内，道具不能拆分取出仓库，所以隐藏
+				case EnumData.ItemInfoModel.SHOW_IN_CANGKU:
 					// 取出道具
 					this.btn_putBackCangKu.on(Laya.UIEvent.CLICK, this, this.putBackCangKu);
 					break
-				// 角色身上
-				case 4:
-					break;
-				// 邮件内,无操作按钮，所以需要缩短界面高度
-				case 5:
-					break;
-
 			}
 		}
 

@@ -104,6 +104,8 @@ module view.juQingMode {
 						// 激活了任务
 						if (jsonData.mainquestid) {
 							this.btn_next.label = 'new 剧情事件!!!!';
+							// 更新主线任务
+							PanelManage.Main.updateTaskInfo();
 						}
 						else {
 							this.btn_next.label = '继 续';

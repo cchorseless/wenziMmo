@@ -11,9 +11,13 @@ module view.dialog {
 			this.itemObj = obj;
 			this.model = model;
 			switch (this.model) {
+				// 背包-装备
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
+					this.viw_model.selectedIndex = 0;
+					break;
 				// 背包-回收
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
-					this.viw_model.selectedIndex = 0;
+					this.viw_model.selectedIndex = 5;
 					break;
 				// 背包-仓库
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
@@ -39,12 +43,15 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_PLAYER:
 					this.viw_model.selectedIndex = 4;
 					break;
+				// 回收炉内
+				case EnumData.ItemInfoModel.SHOW_IN_HUI_SHOU_LU:
+					this.viw_model.selectedIndex = 8;
+					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
-					this.viw_model.selectedIndex = 5;
+					this.viw_model.visible = false;
 					this.height -= this.viw_model.height;
 					break;
-
 				// 公会背包内
 				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:
 					this.viw_model.selectedIndex = 6;
@@ -57,8 +64,6 @@ module view.dialog {
 
 			}
 			let dwBaseID = '' + obj.dwBaseID;
-			// 是否绑定
-			this.lbl_isLock.visible = Boolean(obj.dwBinding);
 			// 物品名称
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
 			// 物品描述
@@ -73,7 +78,7 @@ module view.dialog {
 			this.lbl_job.text = ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
 			// 道具等级，使用等级
 			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
-			this.lbl_level.text =  (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID) + '级';
+			this.lbl_level.text = (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID) + '级';
 			// 道具性别
 			this.lbl_sex.text = ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
 			// 道具ICON信息赋值
@@ -88,16 +93,16 @@ module view.dialog {
 				this.close();
 			});
 			switch (this.model) {
-				// 背包-回收
-				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
-					// 丢弃\销毁物品
-					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
-						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
-					});
+				// 背包-装备
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
 					// 角色穿戴
 					this.btn_playerUse.on(Laya.UIEvent.CLICK, this, this.dressEquip);
 					// 英雄穿戴
 					this.btn_tuDiUse.on(Laya.UIEvent.CLICK, this, this.dressEquip, ['hero']);
+					break;
+				// 背包-回收
+				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
+					this.btn_putToHuiShou.on(Laya.UIEvent.CLICK, this, this.putToHuiShou);
 					break;
 				// 背包-仓库
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU:
@@ -121,6 +126,11 @@ module view.dialog {
 					break;
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				case EnumData.ItemInfoModel.SHOW_IN_MAIL:
+					break;
+				// 回收炉内
+				case EnumData.ItemInfoModel.SHOW_IN_HUI_SHOU_LU:
+					// 取出道具
+					this.btn_putBackHuiShou.on(Laya.UIEvent.CLICK, this, this.putBackHuiShou);
 					break;
 				// 公会背包内
 				case EnumData.ItemInfoModel.SHOW_IN_GUILD_BAG:
@@ -146,9 +156,15 @@ module view.dialog {
 			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP);
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
+			let jobType: number = 0;
 			if (data === 'hero') {
-				let jobType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.itemObj.dwBaseID);
+				// 没有装备限制，给弟子穿装备
+				jobType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.itemObj.dwBaseID) || PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex;
 				switch (jobType) {
+					// 战士
+					case EnumData.JOB_TYPE.JOB_WARRIOR:
+						offset = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
+						break;
 					// 法师
 					case EnumData.JOB_TYPE.JOB_MAGE:
 						offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
@@ -156,10 +172,6 @@ module view.dialog {
 					// 道士
 					case EnumData.JOB_TYPE.JOB_MONK:
 						offset = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
-						break;
-					// 战士
-					case EnumData.JOB_TYPE.JOB_WARRIOR:
-						offset = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
 						break;
 				}
 			}
@@ -227,6 +239,13 @@ module view.dialog {
 						// 清除绑定的UI
 						GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
 						GameApp.GameEngine.equipDBIndex[des_btIndex] = i64ItemId;
+						// 更新UI
+						if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == jobType) {
+							PanelManage.BeiBao.ui_equipInfo.updateUI();
+						}
+						else {
+							PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = jobType;
+						}
 						delete GameApp.GameEngine.bagItemDB[i64ItemId];
 						TipsManage.showTips('装备穿戴成功');
 					}
@@ -271,6 +290,8 @@ module view.dialog {
 						_itemBase.recoverUI();
 						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
 						delete GameApp.GameEngine.equipDB[i64ItemId];
+						// 更新背包UI
+						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase)
 						TipsManage.showTips('装备卸下成功');
 					} else {
 						TipsManage.showTips('卸下失败(client 01)');
@@ -283,6 +304,24 @@ module view.dialog {
 				msg = null;
 			});
 		}
+		/**
+		 * 放入熔炉
+		 */
+		public putToHuiShou(): void {
+			this.itemObj.ui_item.disabled = true;
+			PanelManage.BeiBao.ui_huiShou.addItem(this.itemObj)
+			this.close();
+		}
+
+		/**
+		 * 取出熔炉
+		 */
+		public putBackHuiShou(): void {
+
+
+		}
+
+
 		/**
 		 * 放入仓库
 		 */

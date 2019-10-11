@@ -155,15 +155,15 @@ module view.fuBen {
 				switch (jsonData.star['1'].bj) {
 					// 不能打开
 					case 0:
-						img9skin = 'image/common/icon_baoxiang02.png';
+						img9skin = 'image/common/icon_baoxiang2_close.png';
 						break;
 					// 可以打开
 					case 1:
-						img9skin = 'image/common/icon_baoxiang02down.png';
+						img9skin = 'image/common/icon_baoxiang2_light.png';
 						break;
 					// 已被打开
 					case 2:
-						img9skin = 'image/common/icon_baoxiang02.png';
+						img9skin = 'image/common/icon_baoxiang2_open.png';
 						break;
 				}
 				this.img_9prize.skin = img9skin;
@@ -172,15 +172,15 @@ module view.fuBen {
 				switch (jsonData.star['2'].bj) {
 					// 不能打开
 					case 0:
-						img15skin = 'image/common/icon_baoxiang03.png';
+						img15skin = 'image/common/icon_baoxiang3_close.png';
 						break;
 					// 可以打开
 					case 1:
-						img15skin = 'image/common/icon_baoxiang03down.png';
+						img15skin = 'image/common/icon_baoxiang3_light.png';
 						break;
 					// 已被打开
 					case 2:
-						img15skin = 'image/common/icon_baoxiang03.png';
+						img15skin = 'image/common/icon_baoxiang3_open.png';
 						break;
 				}
 				this.img_15prize.skin = img15skin;

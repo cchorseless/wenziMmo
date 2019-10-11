@@ -76,6 +76,13 @@ module TimeUtils {
             case 5:
                 str = getFormatBySecond5(second);
                 break;
+            case 6:
+                str = getFormatBySecond6(second);
+                break;
+            case 7:
+                str = getFormatBySecond7(second);
+                break;
+     
         }
         str += mss_tail;
         return str;
@@ -365,5 +372,18 @@ module TimeUtils {
             str += minst + "分";
         }
         return str;
+    }
+
+
+    export function getFormatBySecond8(s): any {
+        let time = new Date(s*1000);
+        let obj: any = {}
+        obj.year = time.getFullYear();
+        obj.mon = time.getMonth();
+        obj.day = time.getDay();
+        obj.hour = time.getHours();
+        obj.min = time.getMinutes();
+        return obj;
+
     }
 }

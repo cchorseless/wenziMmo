@@ -12,6 +12,7 @@ module view.scene {
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_1['sortItem'] = (items) => { };
 			this.hbox_2['sortItem'] = (items) => { };
+			
 			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
 			ui_monsterGroup.changeToBig();
 			this.hbox_2.addChild(ui_monsterGroup);

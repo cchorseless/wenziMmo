@@ -55,9 +55,10 @@ module view.task {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_achievementPanel, [i + 1], null, this, (jsonData) => {
 				let keys = Object.keys(jsonData);
-				i = i + 1;
+				i = i + 1;//成就类型
 				this.vbox_0.removeChildren();
 				for (let key of keys) {
+					//key是成就ID
 					this.vbox_0.addChild(new view.compart.TaskInfoV1Item().setData(jsonData, key,i));
 				}
 			})
