@@ -68,12 +68,15 @@ module view.compart {
 							let model: EnumData.ItemInfoModel;
 							switch (PanelManage.BeiBao.viw_bagBottom.selectedIndex) {
 								case 0:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP;
 									break;
 								case 1:
-									model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU;
 									break;
 								case 2:
+									model = EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU;
+									break;
+								case 3:
 									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
 									break;
 							}

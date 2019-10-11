@@ -380,7 +380,7 @@ module ProtoCmd {
                     }
                 case PacketBase.TYPE_WORD:
                     {
-                        return this._bytes.getUint16();
+                        return this._bytes.getInt16();
                     }
                 case PacketBase.TYPE_INT:
                     {
@@ -2533,7 +2533,7 @@ module ProtoCmd {
                 data.pos += this.read(data);
             }
         }
-         public get szName(): number {
+        public get szName(): number {
             return this.getValue("szName");
         }
         public get state(): number {
@@ -2644,7 +2644,8 @@ module ProtoCmd {
             this.addProperty("dwConsumeTime", PacketBase.TYPE_INT);
             this.addProperty("dwCharge", PacketBase.TYPE_INT);
             this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
-            this.addProperty("btChargeSex", PacketBase.TYPE_BYTE);//
+            this.addProperty("btSex", PacketBase.TYPE_BYTE);//性别
+            this.addProperty("dwChuMoEndTime", PacketBase.TYPE_DWORD);//
             this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//
             this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);//勋章等级
             this.addProperty("dwMedalTime", PacketBase.TYPE_DWORD);
@@ -2672,6 +2673,9 @@ module ProtoCmd {
         }
         public get nNowRankNum(): number {
             return this.getValue("nNowRankNum");
+        }
+        public set nNowRankNum(value: number) {
+            this.setValue("nNowRankNum", value);
         }
         public get strenLvl(): number {
             return this.getValue("dwStrenTotalLvl");
@@ -2722,6 +2726,9 @@ module ProtoCmd {
 
         public get job(): number {
             return this.getValue("btJob");
+        }
+        public get sex(): number {
+            return this.getValue("btSex");
         }
 
         public get guildName(): String {

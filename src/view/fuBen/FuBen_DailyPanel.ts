@@ -49,7 +49,6 @@ module view.fuBen {
 				for (let i = 1; jsonData[i]; ++i) {
 					let data = jsonData[i];
 					this.vbox_res.addChild(new view.fuBen.FuBenDailySourceItem().setData(data))
-
 				}
 			})
 			lcp.send(pkt);
@@ -95,7 +94,6 @@ module view.fuBen {
 			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
 			// boss掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
-
 			this.hbox_xinMo1.removeChildren();
 			for (let i = 0; jiangli[i]; i++) {
 				let _itemUI = new view.compart.DaoJuWithNameItem();

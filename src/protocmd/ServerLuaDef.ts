@@ -57,6 +57,18 @@ module ProtoCmd {
     export const TASK_GET_FIRST_MAINTASK = 'HuangYingJieMian_QianDuan';// 触发主线任务
     // 成就任务信息
     export const TASK_GET_CHENGJIU_INFO = 'achievementPanel';// 拉取成就信息     (index:页签)
+    // 任务日常活跃
+    export const TASK_HuoYueDuClientOpen = 'HuoYueDuClientOpen';// 活跃度打开
+    // 任务日常活跃度领取
+    export const TASK_HuoYueGetWard = 'HuoYueGetWard';// 领取活跃度
+    // 任务日常每日
+    export const TASK_DailyTaskClientOpen = 'DailyTaskClientOpen';
+    // 任务历练威望
+    export const TASK_prestigeQuestPanel = 'prestigeQuestPanel';
+    // 任务成就
+    export const TASK_achievementPanel = 'achievementPanel';
+      // 任务成就信息
+    export const TASK_achievementDesc = 'achievementDesc';
 
     /*****************************剧情相关*************************** */
 
@@ -363,63 +375,107 @@ module ProtoCmd {
    * 资源副本信息
    */
     export interface itf_FB_ZiYuanInfo {
-        caninto: number//已进入副本次数
-        index: number//索引
-        leftcnt: number//最大可进入次数
-        name: string//副本类型
-        name1: string//副本地图名称
-        openlv: number//开放等级
+        caninto: number;//已进入副本次数
+        index: number;//索引
+        leftcnt: number;//最大可进入次数
+        name: string;//副本类型
+        name1: string;//副本地图名称
+        openlv: number;//开放等级
     }
     /**
    * 资源副本单行信息
    */
     export interface itf_FB_ZiYuanOneInfo {
-        FuBenIndex: number//索引
-        activity: number//特权
-        caninto: number//已进入次数
-        jiangli: any//奖励
-        leftcnt: number//最大进入次数
-        linquneed: any//多倍领取需要的货币
-        name1: string//副本地图名称
-        need: any//需要的物品
-        ntype: number//领取的多倍奖励的货币类型
-        openlv: number//开放等级
+        FuBenIndex: number;//索引
+        activity: number;//特权
+        caninto: number;//已进入次数
+        jiangli: any;//奖励
+        leftcnt: number;//最大进入次数
+        linquneed: any;//多倍领取需要的货币
+        name1: string;//副本地图名称
+        need: any;//需要的物品
+        ntype: number;//领取的多倍奖励的货币类型
+        openlv: number;//开放等级
     }
     /**
    * 天山血狱
    */
     export interface itf_FB_XueYuInfo {
-        mapid: number//地图ID
-        vip: number//vip等级
-        alive1: number//普通层存活率
-        alive2: number//vip层存活率
-        bossid: number//bossID
+        mapid: number;//地图ID
+        vip: number;//vip等级
+        alive1: number;//普通层存活率
+        alive2: number;//vip层存活率
+        bossid: number;//bossID
     }
     /**
  * 阴葵门
  */
     export interface itf_FB_YinKuiMenInfo {
-        bossid: number//bossID
-        mapid: number//地图ID
-        time: number//Boss刷新时间
-        zslvl: number//进入需求等级
+        bossid: number;//bossID
+        mapid: number;//地图ID
+        time: number;//Boss刷新时间
+        zslvl: number;//进入需求等级
     }
     /**
 * 缉盗悬赏
 */
     export interface itf_FB_JiDaoInfo {
-        monid: number//bossID
-        mapid: number//地图ID
-        time: number//Boss刷新时间
+        monid: number;//bossID
+        mapid: number;//地图ID
+        time: number;//Boss刷新时间
     }
     export interface itf_FB_KillXieDiInfo {
-        desc: string//描述
-        endtime: number//活动结束时间
-        mapid: number//地图id
-        monsterid: number//bossID
-        openlvl: number//打开等级
-        ranktab: any//排行榜
-        reward: any//奖励
-        starttime: number//活动开始时间
+        desc: string;//描述
+        endtime: number;//活动结束时间
+        mapid: number;//地图id
+        monsterid: number;//bossID
+        openlvl: number;//打开等级
+        ranktab: any;//排行榜
+        reward: any;//奖励
+        starttime: number;//活动开始时间
     }
+    /***********************************任务接口**************************** */
+    /**
+     * 任务日常活跃信息
+     */
+    export interface itf_Task_HuoYueInfo {
+        maxvalue: number;//最大活跃值
+        addvalue: number//做任务可获得活跃度
+        tab: any;//任务相关
+        value: number;//当前活跃值    
+        cur: number;//当前任务君度
+        id: number;//任务类型id
+        max: number;//任务进度最大值
+        wardtab: any;//宝箱活跃度相关（bj:领取状态，id:宝箱id，value:活跃值达到多少时可领取）
+        item: any//奖励(num:数量，index：奖励id，blind)
+        bj: number;//0不可领取|1可领取|2已领取
+        desc: string;//任务描述
+        name: string;//任务名称
+    }
+    /**
+     * 任务日常每日信息
+     */
+    export interface itf_Task_DailyInfo {
+        buycnt: number//购买任务次数
+        curcnt: number//当前进度
+        id: number//任务id
+        maxcnt: number//最大进度
+        txt: string//进入所需级别
+        title: string//任务名称
+        desc: string//任务描述
+    }
+    /**
+     * 任务历练威望信息
+     */
+    export interface itf_Task_PrestigeInfo {
+        needrmb: number//一键完成需要的元宝
+        questdbname: string//任务名字
+        questid: number//任务ID
+        score: number//威望积分
+        status: any//任务状态 -1是未接||0新接||1进行中||2已完成||3已结束||4放弃
+        szquestrewards: string//任务奖励(id:奖励id，co：奖励数量)
+        statustab: any
+    }
+
+
 }

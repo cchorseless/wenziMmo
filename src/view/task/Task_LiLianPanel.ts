@@ -17,12 +17,13 @@ module view.task {
 			this.panel_3.vScrollBarSkin = '';
 			this.vbox_3['sortItem'] = (items) => { };
 			for (let i = 0; i < 15; i++) {
-				this.vbox_0.addChild(new view.compart.TaskInfoItem().setData(null))
-				this.vbox_1.addChild(new view.compart.TaskInfoItem().setData(null))
-				this.vbox_2.addChild(new view.compart.TaskInfoItem().setData(null))
-				this.vbox_3.addChild(new view.compart.TaskInfoItem().setData(null))
+				// this.vbox_0.addChild(new view.compart.TaskInfoItem().setData(null))
+				// this.vbox_1.addChild(new view.compart.TaskInfoItem().setData(null))
+				// this.vbox_2.addChild(new view.compart.TaskInfoItem().setData(null))
+				// this.vbox_3.addChild(new view.compart.TaskInfoItem().setData(null))
 			}
-			this.addEvent()
+			this.init_prestige();
+			this.addEvent();
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
@@ -48,6 +49,23 @@ module view.task {
 			this.btn_juQingTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_MainPanel()
 			});
+		}
+		/**
+  * 威望
+  * 
+  */
+		public init_prestige(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.TASK_prestigeQuestPanel, null, null, this, (jsonData) => {
+				console.log('=====>威望威望', jsonData)
+				let keys = Object.keys(jsonData.questtab);
+				for (let key of keys) {
+					let data = jsonData.questtab[key];
+					this.vbox_1.addChild(new view.compart.TaskInfoItem().setData(data));
+					
+				}
+			})
+			lcp.send(pkt);
 		}
 	}
 }

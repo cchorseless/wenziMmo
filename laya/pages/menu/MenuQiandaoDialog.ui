@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":5,
+    "selectedBox":25,
+    "selecteID":29,
     "props":{"width":490,"sceneColor":"#000000","height":750},
     "nodeParent":-1,
     "label":"Dialog",
@@ -1011,13 +1011,14 @@
                     "props":{"y":48,"x":10,"scaleY":0.75,"scaleX":0.75},
                     "nodeParent":53,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":22,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"width":550,"skin":"image/common/fram_common_02.png","height":25},
                             "nodeParent":22,
@@ -1030,6 +1031,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"x":9,"width":470,"skin":"image/common/fram_common_10.png","height":15},
                             "nodeParent":22,
@@ -1042,19 +1044,21 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-31,"x":68},
                             "nodeParent":22,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":25,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":4,"width":65,"skin":"image/common/icon_baoxiang01.png","height":60},
+                                    "props":{"x":4,"width":65,"skin":"image/common/icon_baoxiang1_close.png","height":60},
                                     "nodeParent":25,
                                     "label":"Image",
                                     "isOpen":true,
@@ -1064,6 +1068,7 @@
                                     "compId":26,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":68,"x":6,"text":"5天","fontSize":23},
                                             "nodeParent":26,
@@ -1078,8 +1083,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-1,"x":141,"width":65,"skin":"image/common/icon_baoxiang02.png","height":60},
+                                    "props":{"y":-1,"x":141,"width":65,"skin":"image/common/icon_baoxiang2_close.png","height":60},
                                     "nodeParent":25,
                                     "label":"Image",
                                     "isOpen":true,
@@ -1089,6 +1095,7 @@
                                     "compId":29,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":68,"x":6,"text":"10天","fontSize":23},
                                             "nodeParent":29,
@@ -1102,8 +1109,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":0,"x":264,"width":65,"skin":"image/common/icon_baoxiang03.png","height":60},
+                                    "props":{"y":0,"x":264,"width":65,"skin":"image/common/icon_baoxiang3_close.png","height":60},
                                     "nodeParent":25,
                                     "label":"Image",
                                     "isOpen":true,
@@ -1113,6 +1121,7 @@
                                     "compId":32,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":68,"x":6,"text":"15天","fontSize":23},
                                             "nodeParent":32,
@@ -1126,8 +1135,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":2,"x":372,"width":65,"skin":"image/common/icon_baoxiang04.png","height":60},
+                                    "props":{"y":2,"x":372,"width":65,"skin":"image/common/icon_baoxiang4_close.png","height":60},
                                     "nodeParent":25,
                                     "label":"Image",
                                     "isOpen":true,
@@ -1137,6 +1147,7 @@
                                     "compId":35,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":68,"x":6,"text":"20天","fontSize":23},
                                             "nodeParent":35,

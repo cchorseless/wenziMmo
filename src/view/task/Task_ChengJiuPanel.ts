@@ -8,38 +8,13 @@ module view.task {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_chengjiu.selectedIndex = index;
+				this.init_chengjiu(index);
 			}, null, false);
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
-			this.panel_1.vScrollBarSkin = '';
-			this.vbox_1['sortItem'] = (items) => { };
-			this.panel_2.vScrollBarSkin = '';
-			this.vbox_2['sortItem'] = (items) => { };
-			this.panel_3.vScrollBarSkin = '';
-			this.vbox_3['sortItem'] = (items) => { };
-			this.panel_4.vScrollBarSkin = '';
-			this.vbox_4['sortItem'] = (items) => { };
-			this.panel_5.vScrollBarSkin = '';
-			this.vbox_5['sortItem'] = (items) => { };
-			this.panel_6.vScrollBarSkin = '';
-			this.vbox_6['sortItem'] = (items) => { };
-			this.panel_7.vScrollBarSkin = '';
-			this.vbox_7['sortItem'] = (items) => { };
-			this.panel_8.vScrollBarSkin = '';
-			this.vbox_8['sortItem'] = (items) => { };
-			for (let i = 0; i < 15; i++) {
-				this.vbox_0.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_1.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_2.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_3.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_4.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_5.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_6.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_7.addChild(new view.compart.TaskInfoV1Item())
-				this.vbox_8.addChild(new view.compart.TaskInfoV1Item())
-			}
-			this.updateUI();
-			this.addEvent()
+			let i = 0
+			this.init_chengjiu(i);
+			this.addEvent();
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
@@ -65,10 +40,26 @@ module view.task {
 				PanelManage.openTask_MainPanel()
 			});
 		}
-		public updateUI(index = 0): void {
+		// public updateUI(index = 0): void {
+		// 	let pkt = new ProtoCmd.QuestClientData();
+		// 	pkt.setString(ProtoCmd.TASK_GET_CHENGJIU_INFO, [index], null, this, (jsonData) => {
+		// 		console.log(jsonData)
+		// 	})
+		// 	lcp.send(pkt);
+		// }
+		/**
+* 成就
+* 
+*/
+		public init_chengjiu(i): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.TASK_GET_CHENGJIU_INFO, [index], null, this, (jsonData) => {
-				console.log(jsonData)
+			pkt.setString(ProtoCmd.TASK_achievementPanel, [i + 1], null, this, (jsonData) => {
+				let keys = Object.keys(jsonData);
+				i = i + 1;
+				this.vbox_0.removeChildren();
+				for (let key of keys) {
+					this.vbox_0.addChild(new view.compart.TaskInfoV1Item().setData(jsonData, key,i));
+				}
 			})
 			lcp.send(pkt);
 		}

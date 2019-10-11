@@ -5,7 +5,6 @@ module view.fuBen {
 			super();
 		}
 		public setData(key, data: ProtoCmd.itf_FB_XueYuInfo): FuBenLiLianV1Item {
-console.log('============>血狱血狱', data.mapid)
 			this.panel_xueYu.hScrollBarSkin = '';
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.bossid).split("_");
@@ -49,7 +48,7 @@ console.log('============>血狱血狱', data.mapid)
 
 		public getBossInfo(key): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, key, null, this, (jsonData: { any }) => {
+			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, [key], null, this, (jsonData: { any }) => {
 
 			})
 			lcp.send(pkt);

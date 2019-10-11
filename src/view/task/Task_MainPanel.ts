@@ -11,7 +11,7 @@ module view.task {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
 			for (let i = 0; i < 3; i++) {
-				this.vbox_zhiXian.addChild(new view.compart.TaskInfoItem().setData(null))
+				this.vbox_zhiXian.addChild(new view.compart.TaskInfoItem())
 			}
 
 			this.initUI();
