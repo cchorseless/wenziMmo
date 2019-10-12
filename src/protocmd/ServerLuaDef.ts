@@ -145,6 +145,14 @@ module ProtoCmd {
     export const JS_PrestigePanel = 'prestigePanel';
     // 强化大师(强化、装备等级、升级大师)
     export const JS_SoulNecklacePanel = 'SoulNecklacePanel';// (type:0是玩家1是英雄)
+    // 内功经络
+    export const JS_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
+    // 内功经络升级
+    export const JS_shuxingxitong_shengji = 'shuxingxitong_shengji';
+     // 罡气护体激活
+    export const JS_activePlayerWing = 'activePlayerWing';
+      // 罡气护体
+    export const JS_playerWingPanel = 'playerWingPanel';
     /*********************************资质天赋******************** */
     // 善缘-官印
     // 激活善缘
@@ -345,15 +353,32 @@ module ProtoCmd {
         damage: number;// 百分比 
         daydelexp: number;// 每日衰减经验
         effid: number;// 效果ID
-        maxexp: number;// 当前挡位
+        maxexp: number;// 最大声望值
         minexp: number;// 当前声望值
         prestigeid: number;// 称号ID
         rank: any;// 排行榜
+        titletab: any//声望头衔信息
+    }
+    /**
+    * 拉取内息经络
+    */
+    export interface itf_JS_NeiGongInfo {
+
+        dangqiandengji: number//当前等级
+        dangqianneigong: number//当前内功
+        dangqianshuxing: string//“内功抵抗=当前属性”
+        nghf: number//内功恢复
+        xiajishuxing: string//下级属性
+        xiaohaoitem: number//当前属性的最大内功
+        zongnum: number
     }
 
+
+
+    /***********************************副本接口**************************** */
     /**
-     * 拉取主线副本信息
-     */
+    * 拉取主线副本信息
+    */
     export interface itf_FB_MainFbInfo {
         ceng: number;// 层数
         curcnt: number;// 当前挑战次数
@@ -361,7 +386,6 @@ module ProtoCmd {
         state: any;//BOss信息
         totalcnt: number;//总层数
     }
-    /***********************************副本接口**************************** */
     /**
      * 心魔副本信息
      */
