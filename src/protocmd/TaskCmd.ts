@@ -136,6 +136,21 @@ module ProtoCmd {
         }
     }
 
+
+
+    /**0x091D
+     * 客户端主动完成任务
+     */
+    export class stClientFinishTask extends Packet {
+        public static msgID: number = 0x091D;
+        public constructor() {
+            super();
+            this.addProperty('dwQuestId', PacketBase.TYPE_DWORD);// 客户端任务ID
+            this.cmd = 0x091D;
+        }
+    }
+
+
     // 0x0428
     // 查询NPC身上任务信息
     export class VisitNPCEncoder extends Packet {

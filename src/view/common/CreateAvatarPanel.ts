@@ -575,13 +575,7 @@ module view.common {
 		public showTipsImage(btn: Laya.Button, mode): void {
 			btn.disabled = false;
 			btn.alpha = 1;
-			// GameUtil.addTipsJianTou(btn, rotation);
-			EffectUtils.playScaleEffect(btn, 300, 4);
-			btn.filters = [new Laya.GlowFilter('#4af608', 50)];
-			// 按钮添加监听
-			btn.once(Laya.UIEvent.CLICK, this, () => {
-				btn.filters = [];
-			});
+			GameUtil.addEffectButton(btn)
 		}
 
 		// 随机角色姓名

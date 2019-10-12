@@ -1103,7 +1103,7 @@ module PanelManage {
             PanelManage.TianJian['LCP_skin'] = ResData.PanelRes.TianJian;
             PanelManage.TianJian.setData();
             PanelManage.TianJian.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 2);
+            PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 0);
         })
     }
 

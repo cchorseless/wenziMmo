@@ -61,7 +61,7 @@ module view.main {
 		}
 		public addEvent(): void {
 			// 模式切换
-			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			})
 			// 物品

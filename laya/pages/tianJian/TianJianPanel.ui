@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":131,
     "props":{"width":640,"sceneColor":"#000000","name":"TianJian","height":1136},
     "nodeParent":-1,
     "label":"View(TianJian)",
@@ -33,17 +33,18 @@
             "props":{"y":132,"x":62},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":93,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":104,"x":122,"stateNum":"1","skin":"image/juQingMode/btn_jihuo.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":60,"labelPadding":"80","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活"},
+                    "props":{"y":253,"x":271,"var":"btn_center","stateNum":"1","skin":"image/juQingMode/btn_jihuo.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":60,"labelPadding":"80","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":93,
-                    "label":"Button",
+                    "label":"Button(btn_center)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -53,6 +54,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":7,"x":119,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -66,6 +68,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"x":264,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -79,6 +82,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":90,"x":377,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -92,6 +96,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":228,"x":404,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -105,6 +110,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":346,"x":335,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -118,6 +124,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":397,"x":203,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -131,6 +138,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":350,"x":71,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -144,6 +152,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":236,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -157,6 +166,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":100,"x":17,"stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                     "nodeParent":93,
@@ -176,13 +186,14 @@
             "props":{"y":826,"x":17},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":104,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-114,"x":0,"width":626,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"28,27,20,14","height":387},
                     "nodeParent":104,
@@ -194,6 +205,7 @@
                     "compId":105,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":20,"x":20,"wordWrap":true,"width":581,"text":"        天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍","leading":2,"height":72,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":105,
@@ -207,6 +219,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-156,"x":202,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":104,
@@ -218,6 +231,7 @@
                     "compId":107,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":23,"text":"天鉴介绍","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":107,
@@ -233,6 +247,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":50,"x":3},
                     "nodeParent":104,
@@ -516,6 +531,20 @@
                             "$HIDDEN":false
                         }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":-2,"x":4,"var":"btn_back","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"返回","alpha":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_back)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":131,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {
