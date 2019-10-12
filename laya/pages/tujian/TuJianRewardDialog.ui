@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":126,
-    "selecteID":128,
+    "selectedBox":1,
+    "selecteID":116,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -32,36 +32,23 @@
             "props":{"y":118,"x":61,"width":495,"skin":"image/common/fram_common_11.png","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":75,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":8,"x":10,"skin":"image/common/bottom_smalltitle.png"},
+                    "type":"Label",
+                    "props":{"y":11,"x":26,"text":"集成成就","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":75,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"Label",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":76,
+                    "hasChild":false,
+                    "compId":77,
                     "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":3,"x":16,"text":"集成成就","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":76,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":77,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "type":"Label",
@@ -159,37 +146,12 @@
             "props":{"y":269,"x":61,"width":495,"skin":"image/common/fram_common_11.png","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":86,
             "child":[
-                {
-                    "type":"Image",
-                    "props":{"y":8,"x":10,"skin":"image/common/bottom_smalltitle.png"},
-                    "nodeParent":86,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":87,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":3,"x":16,"text":"集成成就","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":87,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":88,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
                 {
                     "type":"Label",
                     "props":{"y":18,"x":302,"width":174,"text":"图鉴集成率达到100%","height":21,"fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
@@ -200,7 +162,8 @@
                     "hasChild":false,
                     "compId":89,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "type":"Label",
@@ -213,7 +176,7 @@
                     "compId":90,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "type":"Image",
@@ -277,6 +240,18 @@
                     "compId":95,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":11,"x":26,"text":"集成成就","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":86,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":129,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },
@@ -286,37 +261,12 @@
             "props":{"y":420,"x":61,"width":495,"skin":"image/common/fram_common_11.png","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":96,
             "child":[
-                {
-                    "type":"Image",
-                    "props":{"y":8,"x":10,"skin":"image/common/bottom_smalltitle.png"},
-                    "nodeParent":96,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":97,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":3,"x":16,"text":"集成成就","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":97,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":98,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
                 {
                     "type":"Label",
                     "props":{"y":18,"x":302,"width":174,"text":"图鉴集成率达到100%","height":21,"fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
@@ -340,7 +290,7 @@
                     "compId":100,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "type":"Image",
@@ -404,6 +354,18 @@
                     "compId":105,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":11,"x":26,"text":"集成成就","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":96,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":130,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },
@@ -413,37 +375,12 @@
             "props":{"y":571,"x":61,"width":495,"skin":"image/common/fram_common_11.png","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":106,
             "child":[
-                {
-                    "type":"Image",
-                    "props":{"y":8,"x":10,"skin":"image/common/bottom_smalltitle.png"},
-                    "nodeParent":106,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":107,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":3,"x":16,"text":"集成成就","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":107,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":108,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
                 {
                     "type":"Label",
                     "props":{"y":18,"x":302,"width":174,"text":"图鉴集成率达到100%","height":21,"fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
@@ -467,7 +404,7 @@
                     "compId":110,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "type":"Image",
@@ -531,6 +468,18 @@
                     "compId":115,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":11,"x":26,"text":"集成成就","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":106,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":131,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },
@@ -540,38 +489,14 @@
             "props":{"y":723,"x":61,"width":495,"skin":"image/common/fram_common_11.png","height":148},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":116,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"y":8,"x":10,"skin":"image/common/bottom_smalltitle.png"},
-                    "nodeParent":116,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":117,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":3,"x":16,"text":"集成成就","strokeColor":"#404040","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":117,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":118,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":18,"x":302,"width":174,"text":"图鉴集成率达到100%","height":21,"fontSize":18,"font":"Microsoft YaHei","color":"#179a0d"},
                     "nodeParent":116,
@@ -584,6 +509,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":18,"x":313,"width":174,"text":"图鉴集成率达到80%","height":21,"fontSize":18,"font":"Microsoft YaHei","color":"#a53232"},
                     "nodeParent":116,
@@ -594,9 +520,10 @@
                     "compId":120,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":53,"x":7,"width":480,"skin":"image/common/line_yeqian.png"},
                     "nodeParent":116,
@@ -609,6 +536,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":71,"x":369,"stateNum":"2","skin":"image/common/button_qianwang_redgray.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领取"},
                     "nodeParent":116,
@@ -621,6 +549,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":56,"x":10},
@@ -634,6 +563,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":56,"x":97},
@@ -647,6 +577,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":56,"x":185},
@@ -656,6 +587,19 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":125,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":11,"x":26,"text":"集成成就","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":116,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":132,
                     "child":[
                         ]
                 }],

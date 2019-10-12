@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":237,
-    "selecteID":161,
+    "selectedBox":1,
+    "selecteID":171,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"top":0,"skin":"image/main/fram_common_02a.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":26,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":100,"x":6,"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
                     "nodeParent":26,
@@ -38,6 +39,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1041,"x":0,"skin":"image/main/img_common_02.png","right":0,"left":0,"bottom":0},
                     "nodeParent":26,
@@ -119,18 +121,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":152,"x":187,"skin":"image/common/bottom_smalltitle.png"},
+            "props":{"y":152,"x":187,"width":199,"skin":"image/common/bottom_smalltitle.png","height":40},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":222,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":2,"x":16,"width":178,"var":"lbl_charpterName","text":"第十章","strokeColor":"#000000","stroke":4,"height":33,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":7,"x":10,"width":178,"var":"lbl_charpterName","text":"第十章","strokeColor":"#52331e","stroke":4,"fontSize":26,"font":"FZHL","color":"#fff4ce"},
                     "nodeParent":222,
                     "label":"Label(lbl_charpterName)",
                     "isDirectory":false,
@@ -169,7 +172,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":4,"x":41,"text":"挂机预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                            "props":{"y":1,"x":23,"text":"挂机预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":321,
                             "label":"Label",
                             "isDirectory":false,
@@ -540,7 +543,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":41,"text":"通关奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "props":{"y":1,"x":23,"text":"通关奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":325,
                     "label":"Label",
                     "isDirectory":false,
@@ -627,15 +630,16 @@
             "props":{"y":544,"x":6,"skin":"image/common/bottom_smalltitle.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":323,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":41,"text":"事件预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "props":{"y":1,"x":23,"text":"事件预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":323,
                     "label":"Label",
                     "isDirectory":false,

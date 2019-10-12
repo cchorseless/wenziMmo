@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":24,
-    "selecteID":181,
+    "selectedBox":1,
+    "selecteID":145,
     "props":{"width":640,"sceneColor":"#863938","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -55,25 +55,25 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":124,"x":183,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
+            "props":{"y":124,"x":228,"skin":"image/common/frame_title.png","sizeGrid":"24,26,24,23"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":145,
+            "compId":239,
             "child":[
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":62,"text":"外交管理","strokeColor":"#000000","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":145,
+                    "props":{"y":5,"x":11,"text":"外交管理","strokeColor":"#000000","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":239,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":238,
+                    "compId":240,
                     "child":[
                         ]
                 }],
@@ -649,7 +649,6 @@
                     "compId":80,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-46,"x":3,"width":620,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":745},
                             "nodeParent":80,
@@ -661,7 +660,6 @@
                             "compId":92,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":1,"x":-2,"width":626,"height":799},
                                     "nodeParent":92,
@@ -673,7 +671,6 @@
                                     "compId":99,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":58,"x":4,"width":617,"var":"panel_find","height":660},
                                             "nodeParent":99,
@@ -699,7 +696,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":1,"x":498,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"搜索"},
                                             "nodeParent":99,
@@ -713,7 +709,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":8,"x":12,"width":481,"var":"input_find","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入帮派名称","padding":"2,140,8,4","height":52,"fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
                                             "nodeParent":99,
@@ -727,7 +722,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":754,"x":215,"width":198,"height":42},
                                             "nodeParent":99,

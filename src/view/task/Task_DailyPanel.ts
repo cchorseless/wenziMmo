@@ -60,6 +60,7 @@ module view.task {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
 				let keys = Object.keys(jsonData.tab);
+				console.log('=====>宝箱活跃度',jsonData)
 				//活跃度进度条
 				if (jsonData.value / jsonData.maxvalue < 1) {
 					//当前活跃度/最大活跃度时<1时，进度条长度

@@ -66,9 +66,9 @@ module ProtoCmd {
     export const TASK_DailyTaskClientOpen = 'DailyTaskClientOpen';
     // 任务历练威望
     export const TASK_prestigeQuestPanel = 'prestigeQuestPanel';
-    // 任务成就
+    //任务成就id及其对应宝箱状态，0未达到|1已达到后未领取|2达到后已领取
     export const TASK_achievementPanel = 'achievementPanel';
-      // 任务成就信息
+    //任务成就描述与奖励
     export const TASK_achievementDesc = 'achievementDesc';
 
     /*****************************剧情相关*************************** */
@@ -135,6 +135,11 @@ module ProtoCmd {
     /********************************阴葵门副本*********************** */
     // 打开锁妖塔界面
     export const FB_BossSuoYaoTa = 'BossSuoYaoTa';
+    /********************************限时副本*********************** */
+    // 打开限时（限时活动）界面
+    export const FB_LimitActivities = 'LimitActivities';
+    // 打开限时详细信息界面
+    export const FB_LimitActivitiesCfg = 'LimitActivitiesCfg';
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -425,6 +430,9 @@ module ProtoCmd {
         mapid: number;//地图ID
         time: number;//Boss刷新时间
     }
+    /**
+* 诛杀邪帝
+*/
     export interface itf_FB_KillXieDiInfo {
         desc: string;//描述
         endtime: number;//活动结束时间
@@ -434,6 +442,27 @@ module ProtoCmd {
         ranktab: any;//排行榜
         reward: any;//奖励
         starttime: number;//活动开始时间
+    }
+    /**
+* 限时副本
+*/
+    export interface itf_FB_XianshiInfo {
+        now: number;//当前时间
+        id: number;//限时活动ID
+    }
+    /**
+* 限时活动副本详细信息
+*/
+    export interface itf_FB_XianshiDetailInfo {
+        award: any;//奖励id 
+        id: number;//限时活动ID
+        introduce: string;//活动简介
+        levelDesc: string;//需求等级
+        lv: number;//需求等级
+        name: string;//活动名称
+        starttime: string;//开始时间
+        time: string;//活动时间
+        tipDes: string;//点立即参与活动时的提示
     }
     /***********************************任务接口**************************** */
     /**
@@ -477,6 +506,4 @@ module ProtoCmd {
         szquestrewards: string//任务奖励(id:奖励id，co：奖励数量)
         statustab: any
     }
-
-
 }
