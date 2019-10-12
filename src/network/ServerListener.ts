@@ -1246,7 +1246,7 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 改变任务状态
+     * 改变任务信息
      * @param data 
      */
     public changeTaskState(data): void {
@@ -1256,9 +1256,17 @@ class ServerListener extends SingletonClass {
             let taskGroup = GameApp.GameEngine.taskInfo[key];
             let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
             if (taskInfo) {
-                console.log('更新了任务' + cbpket.getValue('taskid'))
+                console.log('更新了任务' + cbpket.getValue('taskid'));
+                let queststatus = cbpket.getValue('queststatus')
                 taskInfo.targetdes = cbpket.str;
-                taskInfo.queststatus = cbpket.getValue('queststatus')
+                taskInfo.queststatus = queststatus;
+                switch (queststatus) {
+                    // 任务完成通知
+                    case EnumData.QUESTSTATUS.QUESTCOMPLETED:
+                    case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
+                        new view.task.Task_CompleteDialog().popup();
+                        break;
+                }
                 break;
             }
         }
@@ -1319,18 +1327,18 @@ class ServerListener extends SingletonClass {
         // console.log(strArr);
         // TODO
         // try {
-            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-            switch (strArr.length) {
-                case 4:
-                    msgID = parseInt(strArr[2]);
-                    break;
-            }
-            let eventName = funcName;
-            if (msgID) {
-                eventName += '_' + msgID;
-            }
-            // 抛出事件
-            GameApp.LListener.event(eventName, [jsonData]);
+        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+        switch (strArr.length) {
+            case 4:
+                msgID = parseInt(strArr[2]);
+                break;
+        }
+        let eventName = funcName;
+        if (msgID) {
+            eventName += '_' + msgID;
+        }
+        // 抛出事件
+        GameApp.LListener.event(eventName, [jsonData]);
 
         // }
         // catch (e) {

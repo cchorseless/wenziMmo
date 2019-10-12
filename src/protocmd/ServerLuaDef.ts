@@ -25,6 +25,15 @@ module ProtoCmd {
     // 剧情提示面板
     export const JQ_OPEN_JuQingEventDialog = 'JuQingEventDialog';
 
+    /****************************NPC************************* */
+    // 偷盗
+    export const stealNpcItem = 'stealNpcItem';
+    // 切搓
+    export const fightWithNpc = 'fightWithNpc'; // (_, npcid)
+    // 送礼
+    export const giveGiftToNpc = 'giveGiftToNpc'; //(_, npcid, itemid)
+
+
     /*****************************帮派*********************** */
     // 号角信息
     export const BP_getHaoJaoInfo = 'getHaoJaoInfo';

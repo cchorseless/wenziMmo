@@ -31,6 +31,8 @@ module view.npc {
 			this.btn_task.on(Laya.UIEvent.CLICK, this, () => {
 				this.viw_bottom.selectedIndex = 3;
 				this.btn_return.visible = true;
+				let pkt=new ProtoCmd.VisitNPCEncoder()
+
 			});
 			// 切磋
 			this.btn_battle.on(Laya.UIEvent.CLICK, this, () => {
@@ -69,25 +71,37 @@ module view.npc {
 			let nickName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_NICKNAME(configId);
 			let commonName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(configId);
 			this.lbl_npcName.text = commonName;
-			if (nickName) { this.lbl_nickname.text = '(' + nickName + ')'; }
-			// // 喜好
-			// let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
-			// for (let _itemId of xiHaoItem) {
-			// 	let itemUI = new view.compart.DaoJuWithNameItem();
-			// 	this.hbox_xiHao.addChild(itemUI);
-			// }
-			// // 装备
-			// let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
-			// for (let _itemId of equipItem) {
-			// 	let itemUI = new view.compart.DaoJuWithNameItem();
-			// 	this.hbox_equip.addChild(itemUI);
-			// }
-			// // 宝物
-			// let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWUID(configId);
-			// for (let _itemId of BAOWUItem) {
-			// 	let itemUI = new view.compart.DaoJuWithNameItem();
-			// 	this.hbox_baoWu.addChild(itemUI);
-			// }
+			if (nickName != '0') { this.lbl_nickname.text = '(' + nickName + ')'; }
+			// 喜好
+			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
+			for (let _itemId of xiHaoItem) {
+				let _itembase = new ProtoCmd.ItemBase();
+				_itembase.dwBaseID = _itemId;
+				let itemUI = new view.compart.DaoJuWithNameItem();
+				itemUI.setData(_itembase);
+				this.hbox_xiHao.addChild(itemUI);
+			}
+			// 装备
+			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
+			for (let _itemId of equipItem) {
+				let itemUI = new view.compart.DaoJuWithNameItem();
+				let _itembase = new ProtoCmd.ItemBase();
+				_itembase.dwBaseID = _itemId;
+				itemUI.setData(_itembase);
+				this.hbox_equip.addChild(itemUI);
+			}
+			// 宝物
+			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
+			for (let _itemId of BAOWUItem) {
+				let itemUI = new view.compart.DaoJuWithNameItem();
+				let _itembase = new ProtoCmd.ItemBase();
+				_itembase.dwBaseID = _itemId;
+				itemUI.setData(_itembase);
+				this.hbox_baoWu.addChild(itemUI);
+			}
+			// 战斗属性
+			console.log(this.item.ability);
+			
 		}
 	}
 }

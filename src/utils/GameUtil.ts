@@ -149,6 +149,12 @@ module GameUtil {
                         case 'WuXue':
 
                             break;
+                        // 背包界面
+                        case 'BeiBao':
+                            toDoList['JuQingMode'] = ['btn_changeMode'];
+                            toDoList['Main'] = ['btn_wuPin'];
+                            toDoList['TaskMain'] = ['btn_back'];
+                            break;
                     }
                     break;
 
