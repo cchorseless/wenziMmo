@@ -19,7 +19,13 @@ module view.map {
 		public addEvent(): void {
 			for (let i = 10001; i <= 10027; i++) {
 				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
-					PanelManage.Main && PanelManage.Main.joinRoom(i);
+					// 隐藏自己
+					PanelManage.Main.ui_mainDownMapItem.showSelf(false);
+					// 设置导航
+					let findMap = new GameUtil.findMapPath(10001, 10027).minPath(GameApp.MainPlayer.roomId, i);
+					console.log(findMap);
+					GameUtil.parseMapPath(findMap);
+
 				})
 			}
 		}

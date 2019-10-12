@@ -1,5 +1,5 @@
 module GameUtil {
-
+    let btn;
     /**
      * 查找背包内道具的数量
      * @param itemID 
@@ -24,6 +24,7 @@ module GameUtil {
 
     export const isParse: Boolean = false;
     // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
+    // opendialog:TianJian|button:btn_center
     export function parseTaskInfo(str: string) {
         if (this.isParse) {
             return
@@ -126,7 +127,7 @@ module GameUtil {
             }
             if (curName == toDoList['endPanel'] && toDoList[curName].length == 0) {
                 this.isParse = false;
-                Laya.timer.clearAll(this);
+                Laya.timer.clear(this, loopFunc);
                 console.log('引导完成');
             }
         }
@@ -134,18 +135,135 @@ module GameUtil {
         loopFunc();
 
     }
+    /**
+     * 地图导航
+     * @param toDoList 
+     */
+    export function parseMapPath(toDoList: Array<number>) {
+        Laya.timer.clearAll(this)
+        let loopFunc = () => {
+            let curRoomID = GameApp.MainPlayer.roomId;
+            let index = toDoList.indexOf(curRoomID);
+            let btn;
+            if (index + 1 < toDoList.length) {
+                let next_id = toDoList[index + 1];
+                if (GameApp.GameEngine.smallMapData.left == next_id) {
+                    btn = PanelManage.Main.btn_mapLeft;
+                }
+                else if (GameApp.GameEngine.smallMapData.right == next_id) {
+                    btn = PanelManage.Main.btn_mapRight
+                }
+                else if (GameApp.GameEngine.smallMapData.up == next_id) {
+                    btn = PanelManage.Main.btn_mapUp
+                }
+                else if (GameApp.GameEngine.smallMapData.down == next_id) {
+                    btn = PanelManage.Main.btn_mapDown
+                }
+                toDoList[index] = null;
+                btn && GameUtil.addEffectButton(btn);
+            }
+            else {
+                TipsManage.showTips('到达目的地');
+                Laya.timer.clear(this, loopFunc)
+            }
+        }
+        Laya.timer.frameLoop(20, this, loopFunc);
+    }
 
     /**
      * 给按钮添加特效
      * @param btn 
      */
-    export function addEffectButton(btn) {
+    export function addEffectButton(btn: Laya.Sprite) {
         EffectUtils.playScaleEffect(btn, 200, 2);
         btn.filters = [new Laya.GlowFilter('#4af608', 50)];
         // 按钮添加监听
         btn.once(Laya.UIEvent.CLICK, this, () => {
-            btn.filters = [];
+            btn.filters = null;
         });
+    }
 
+    /**
+     * 生成地图导航路径
+     */
+    export class findMapPath {
+
+        constructor(minid, maxid) {
+            this.line = {};
+            this.res = [];
+            this.hasRes = false;
+
+            let mapRoom = SheetConfig.mapRoomSheet.getInstance(null);
+            for (let i = minid; i <= maxid; ++i) {
+                this.addLine(i, mapRoom.UPID(i.toString()));
+                this.addLine(i, mapRoom.DOWNID(i.toString()));
+                this.addLine(i, mapRoom.LEFTID(i.toString()));
+                this.addLine(i, mapRoom.RIGHTID(i.toString()));
+            }
+        }
+
+        ///最短路径
+        public line = {};//保存所有节点关系
+        public res = [];//最短路径结果
+        public hasRes = false;//是否 至少有一个可以到达的路径
+        /**
+         * 添加房间对应关系
+         * @param srcID 起始ID
+         * @param dstID 相连ID
+         */
+        private addLine(srcID, dstID) {
+            if (dstID > 0) {
+                this._addLine(srcID, dstID);
+                this._addLine(dstID, srcID);
+            }
+        }
+
+        private _addLine(srcID, dstID) {
+            !this.line[srcID] && (this.line[srcID] = []);
+            this.line[srcID].push(dstID);
+        }
+
+        /**
+         * 返回最短路径
+         * @param srcID 起始ID
+         * @param dstID 目的ID
+         */
+        public minPath(srcID, dstID) {
+            this.step(this.line[srcID], [srcID], dstID);
+            return this.res;
+        }
+
+        private step(adjacentNodes, tempRes, dstID) {
+            //当前节点没有相邻节点
+            if (!adjacentNodes) {
+                return;
+            }
+            //存在可以到达的路径，并且比正在探测的路径短则直接退出探测
+            if (this.hasRes && this.res.length < tempRes.length) {
+                return;
+            }
+            adjacentNodes.forEach(item => {
+                //当前探测的点已经走过了，不再重复走
+                if (tempRes.indexOf(item) !== -1) {
+                    return;
+                }
+                let newTempRes = tempRes.concat(item);
+                //到达终点
+                if (item === dstID) {
+                    if (this.hasRes) {
+                        if (newTempRes.length < this.res.length) {
+                            //已有最短路径，且比当前路径更短，替换
+                            this.res = newTempRes;
+                        }
+                    } else {
+                        //目前没有最短路径，替换
+                        this.res = newTempRes;
+                        this.hasRes = true;
+                    }
+                } else {
+                    this.step(this.line[item], newTempRes, dstID);
+                }
+            });
+        }
     }
 }
