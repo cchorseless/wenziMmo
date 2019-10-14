@@ -65,7 +65,7 @@ module ResData {
         // 引导界面
         public static YinDao = null;
         // 指南界面
-        public static ZhiNan = null;
+        public static ZhiNan = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
         // 玩法界面
         public static ZhiNan_WanFa = null;
         // 门派界面
@@ -189,6 +189,8 @@ module ResData {
             { url: 'json/attribute.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.attribute },
             // 手册介绍表
             { url: 'json/Introduction_play.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Introduction_play },
+            // 技能表
+            { url: 'json/mydb_magic_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_magic_tbl },
         ];
     }
 

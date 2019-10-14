@@ -6,15 +6,13 @@ module view.zhiNan {
 		constructor() {
 			super();
 			this.addEvent();
-			// this.btn_item.anchorX = this.btn_item.anchorY = 0.5;
-
 		}
 		public setData(data, index) {
 			// this.btn_itemIcon.skin = data[9];
 			this.lab_itemName.text = data[0];
 			this.lab_itemDemand.text = data[2];
 			this.itemID = index;
-			let p = lockState[index];
+			let p = lockState[this.itemID];
 			if (p > 0){
 				this.islock = true;
 				this.lock.visible = false;

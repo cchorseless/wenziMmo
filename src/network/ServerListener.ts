@@ -1318,7 +1318,7 @@ class ServerListener extends SingletonClass {
         let msgID = 0;// 函数内小协议包
         // console.log(strArr);
         // TODO
-        // try {
+        try {
             let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
             switch (strArr.length) {
                 case 4:
@@ -1332,10 +1332,10 @@ class ServerListener extends SingletonClass {
             // 抛出事件
             GameApp.LListener.event(eventName, [jsonData]);
 
-        // }
-        // catch (e) {
-        //     console.error(e)
-        // }
+        }
+        catch (e) {
+            console.error(e)
+        }
 
         msg.clear();
         msg = null;

@@ -73,9 +73,9 @@ module view.zhiNan {
 		}
 		public upDataGongFaListView(boo: boolean) {
 			if (boo) {
-				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3001, 3050);
+				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3);
 			} else {
-				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3001, 3050); //后续根据配表修改3051-3100 ？
+				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3); //后续根据配表修改3051-3100 ？
 			}
 			this.list_wuxue.vScrollBarSkin = "";
 			this.list_wuxue.itemRender = view.zhiNan.ZhiNan_listwuxueItem;

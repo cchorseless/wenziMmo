@@ -173,6 +173,10 @@ module ProtoCmd {
     export const getIntroductionInfo = 'getIntroductionInfo';
     // 领取介绍手册中奖励
     export const getIntroductionReward = 'getIntroductionReward';
+    //天鉴界面打开请求参数
+    export const SpecialRingPanel = "SpecialRingPanel";
+    //天鉴界面激活
+    export const activeSpecialRing = "activeSpecialRing";
 }
 
 /**

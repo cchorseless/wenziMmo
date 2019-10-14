@@ -22,7 +22,7 @@ module view.zhiNan {
 
 		}
 		public setData(): void {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(1001, 1054);
+			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(1);
 			this.list_wanfa.vScrollBarSkin = "";
 			this.list_wanfa.itemRender = view.zhiNan.ZhiNan_listwanfaItem;
 			this.list_wanfa.array = this.data;
@@ -36,20 +36,26 @@ module view.zhiNan {
 				} else {
 					cell.btn_itemIcon.selected = false;
 				}
+				if (lockState[cell.itemID] == 1) {
+					cell.img_redPoint.visible = true;
+				}
+				else {
+					cell.img_redPoint.visible = false;
+				}
 			}
 			this.tempData = this.data[0];
 			console.log("&&&&&&&&&&&")
-			this.upDataView(this.tempData, lockState[0]);  //正式使用的时候需要用 serverData  替换
+			this.upDataView(this.tempData, lockState[0], 1);  //正式使用的时候需要用 serverData  替换
 			this.checkObjIndex = 0;
 			this.reViewListCells(0);
 		}
 		public onChooseItem(index) {
 			this.tempData = this.data[index];
-			this.upDataView(this.tempData, lockState[index]);  //正式使用的时候需要用 serverData  替换
+			this.upDataView(this.tempData, lockState[index], index + 1);  //正式使用的时候需要用 serverData  替换
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
-		public upDataView(data, islock: number) {
+		public upDataView(data, islock: number, index) {
 			this.lab_unLock.text = data[2].toString();
 			this.lab_location.text = data[4];
 			this.lab_available.text = data[5];
@@ -64,9 +70,12 @@ module view.zhiNan {
 				this.lab_hasGet.text = "可领取";
 				this.lab_hasGet.color = "#a53232";
 				this.item_reward.on(Laya.UIEvent.CLICK, this, () => {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionReward, [1], 0, this,
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionReward, [1, index], 0, this,
 						(data) => {
-							console.log("领取结果：", data)
+							// console.log("领取结果：", data)
+							serverData[index] = 2;
+							lockState[index - 1] = 2;
+							this.setData();
 						});
 					lcp.send(pkt);
 				})
