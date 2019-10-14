@@ -52,7 +52,7 @@ module view.compart {
 			}
 			// 配置表ID
 			let configId = this.item.feature.dwCretTypeId;
-			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + configId + '.png';
+			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId) + '.png';
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 	}

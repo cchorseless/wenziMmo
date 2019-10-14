@@ -31,7 +31,6 @@ module view.juQingMode {
 				// 进行中
 				case EnumData.QUESTSTATUS.QUESTDOING:
 					this.div_jinDu.innerHTML = '' + taskInfo.taskJinDu;
-					console.log(taskInfo.taskJinDu);
 					break;
 			}
 
@@ -86,9 +85,22 @@ module view.juQingMode {
 		 * @param data 
 		 */
 		public goToFinishTask(data: string): void {
+			let finishHandle;// 引导完成
+			// 任务完成方式
+			switch (this.taskInfo.targetType) {
+				// 客户端触发完成
+				case EnumData.TaskSubType.CLIENTFILISH:
+					finishHandle = Laya.Handler.create(this, () => {
+						let pkt = new ProtoCmd.stClientFinishTask();
+						pkt.setValue('dwQuestId', this.taskInfo.taskid);
+						lcp.send(pkt);
+					})
+					break;
+				// 
 
-			GameUtil.parseTaskInfo(data)
+			}
 
+			GameUtil.parseTaskInfo(data, finishHandle)
 		}
 	}
 }

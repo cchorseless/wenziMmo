@@ -18,7 +18,8 @@ module view.map {
 		public addEvent(): void {
 			for (let i = 9001; i < 9006; i++) {
 				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
-					PanelManage.Main && PanelManage.Main.joinRoom(i);
+					PanelManage.Main.ui_mainDownMapItem.showSelf(false);
+					console.log(new GameUtil.findMapPath(9001,9006).minPath(GameApp.MainPlayer.roomId, i));
 				})
 			}
 

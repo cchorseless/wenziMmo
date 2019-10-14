@@ -51,7 +51,7 @@ class GameEngine extends SingletonClass {
     public mainPlayer: GameObject.Player;//玩家
     // ****************道具存储*****************
     public equipDB = {};//身上的装备背包
-    public equipDBIndex = {};//装备背包位置索引，用于判定该位置是否有装备{bindex:i64id}
+    public equipDBIndex = {};//装备位置索引，用于判定该位置是否有装备{bindex:i64id}
     public bagItemDB = {};//物品背包
     public cangKuDB = {};//仓库背包
     // ****************好友*****************

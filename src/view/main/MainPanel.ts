@@ -61,7 +61,7 @@ module view.main {
 		}
 		public addEvent(): void {
 			// 模式切换
-			EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			})
 			// 物品
@@ -477,6 +477,7 @@ module view.main {
 				GameApp.MainPlayer.roomId = jsonData.curminmapid;
 				// 上下左右房间的信息
 				GameApp.GameEngine.smallMapData = jsonData.dstmap;
+
 				// 更新主场景
 				let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curminmapid);
 				this.updateUiScene(mapType);
@@ -583,6 +584,7 @@ module view.main {
 					GameApp.MainPlayer.roomId = jsonData.curmapid;
 					// 上下左右房间的信息
 					GameApp.GameEngine.smallMapData = jsonData.dstmap;
+					console.log(jsonData.dstmap);
 					console.log('进入了' + jsonData.curmapid);
 					// 更新主场景
 					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);

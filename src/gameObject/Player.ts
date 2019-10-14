@@ -55,10 +55,7 @@ module GameObject {
         /******************BOSS积分************ */
         public bossCoin: number = 0;
 
-        ///最短路径
-        public line = {};//保存所有节点关系
-        public res = [];//最短路径结果
-        public hasRes = false;//是否 至少有一个可以到达的路径
+
 
         constructor() {
             super();
@@ -438,7 +435,6 @@ module GameObject {
 
                 // }
                 TipsManage.showTips('无怪物');
-                console.log(this.getRoomPath());
             }, null, false);
             // 攻击一次
             this.completeAtkHandle.run();
@@ -499,84 +495,6 @@ module GameObject {
         }
 
 
-        /**
-         * 添加房间对应关系
-         * @param srcID 起始ID
-         * @param dstID 相连ID
-         */
-        addLine(srcID, dstID) {
-            if (dstID > 0) {
-                this._addLine(srcID, dstID);
-                this._addLine(dstID, srcID);
-            }
-        }
 
-        _addLine(srcID, dstID) {
-            !this.line[srcID] && (this.line[srcID] = []);
-            this.line[srcID].push(dstID);
-        }
-
-        /**
-         * 返回最短路径
-         * @param srcID 起始ID
-         * @param dstID 目的ID
-         */
-        minPath(srcID, dstID) {
-            this.step(this.line[srcID], [srcID], dstID);
-            return this.res;
-        }
-
-        step(adjacentNodes, tempRes, dstID) {
-            //当前节点没有相邻节点
-            if (!adjacentNodes) {
-                return;
-            }
-            //存在可以到达的路径，并且比正在探测的路径短则直接退出探测
-            if (this.hasRes && this.res.length < tempRes.length) {
-                return;
-            }
-            adjacentNodes.forEach(item => {
-                //当前探测的点已经走过了，不再重复走
-                if (tempRes.indexOf(item) !== -1) {
-                    return;
-                }
-                let newTempRes = tempRes.concat(item);
-                //到达终点
-                if (item === dstID) {
-                    if (this.hasRes) {
-                        if (newTempRes.length < this.res.length) {
-                            //已有最短路径，且比当前路径更短，替换
-                            this.res = newTempRes;
-                        }
-                    } else {
-                        //目前没有最短路径，替换
-                        this.res = newTempRes;
-                        this.hasRes = true;
-                    }
-                } else {
-                    this.step(this.line[item], newTempRes, dstID);
-                }
-            });
-        }
-
-
-        public getRoomPath(): any {
-            this.line = {};
-            this.res = [];
-            this.hasRes = false;
-
-            let mapRoom = SheetConfig.mapRoomSheet.getInstance(null);
-            let curRoomID = 10005
-            let dstRoomID = 10028
-            for (let i = 10001; i <= 10027; ++i) {
-                this.addLine(i, mapRoom.UPID(i.toString()));
-                this.addLine(i, mapRoom.DOWNID(i.toString()));
-                this.addLine(i, mapRoom.LEFTID(i.toString()));
-                this.addLine(i, mapRoom.RIGHTID(i.toString()));
-
-            }
-
-            return this.minPath(curRoomID, dstRoomID);
-        }
     }
 }

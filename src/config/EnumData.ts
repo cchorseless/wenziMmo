@@ -151,12 +151,12 @@ module EnumData {
         EQUIP_HERO_MONK_BELT = 57,				//英雄道士腰带
 
         //资源线
-        EQUIP_MEDAL,					// 勋章-根骨
-        EQUIP_DRAGONSOUL,				// 龙魂-悟性
-        EQUIP_BLOODJADE,				// 血玉-身法
+        EQUIP_MEDAL,					// 勋章-根骨1
+        EQUIP_DRAGONSOUL,				// 龙魂-悟性2
+        EQUIP_BLOODJADE,				// 血玉-身法3
         EQUIP_WING,						// 光翼-罡气
-        EQUIP_SHIELD,					// 神盾-臂力
-        EQUIP_OFFICIALSEAL = 63,		// 官印-善缘
+        EQUIP_SHIELD,					// 神盾-臂力4
+        EQUIP_OFFICIALSEAL = 63,		// 官印-善缘5
 
         EQUIP_HERO_DRAGONHEART,			// 英雄共享装备-火龙之心
         EQUIP_HERO_WING,				// 英雄共享装备-翅膀
