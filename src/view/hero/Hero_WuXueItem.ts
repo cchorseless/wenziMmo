@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.hero{
-	export class Hero_NeiXiItem extends ui.hero.Hero_NeiXiItemUI{
+	export class Hero_NeiXiItem extends ui.hero.Hero_WuXueItemUI{
 		constructor(){
 			super();
 		}

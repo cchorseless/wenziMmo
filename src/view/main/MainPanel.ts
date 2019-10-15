@@ -402,8 +402,19 @@ module view.main {
 		 * 只调用一次
 		 */
 		public initData(): void {
-			// 更新数据
+			// 拉取剧情数据
 			this.loadJuQingData();
+			// 拉取性格天赋数据
+			this.loadXingGeTalentData();
+			// 拉取出生信息
+			this.getPlayerBirthData();
+		}
+		public getPlayerBirthData() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
+				(data) => {
+					GameApp.GameEngine.playerBirthData = data
+				});
+			lcp.send(pkt);
 		}
 
 
@@ -626,6 +637,21 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO);
 			lcp.send(pkt);
+		}
+
+		/**
+		 * 拉取性格天赋数据
+		 */
+		public loadXingGeTalentData(): void {
+			let pkt1 = new ProtoCmd.QuestClientData();
+			pkt1.setString(ProtoCmd.JS_sendTianFuZiZhi, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
+				console.log(jsonData);
+				// 天赋
+				GameApp.MainPlayer.talentInfo = jsonData.zztab;
+				// 性格
+				GameApp.MainPlayer.xingGeInfo = jsonData.tftab;
+			});
+			lcp.send(pkt1);
 		}
 
 		/**

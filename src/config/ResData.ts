@@ -191,6 +191,12 @@ module ResData {
             { url: 'json/Introduction_play.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Introduction_play },
             // 技能表
             { url: 'json/mydb_magic_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_magic_tbl },
+            // 九宫表
+            { url: 'json/Palace.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Palace },
+            // 八字表
+            { url: 'json/characters.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.characters },
+            // 八字介绍表
+            { url: 'json/troduce.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.troduce },
         ];
     }
 

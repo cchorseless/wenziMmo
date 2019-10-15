@@ -224,6 +224,8 @@ module ProtoCmd {
     export const SpecialRingPanel = "SpecialRingPanel";
     //天鉴界面激活
     export const activeSpecialRing = "activeSpecialRing";
+    //四格，9宫
+    export const birthdateAndCompellation = "birthdateAndCompellation";
 }
 
 /**

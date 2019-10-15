@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":167,
+    "selectedBox":117,
+    "selecteID":172,
     "props":{"width":567,"sceneColor":"#aa6867","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -67,13 +67,14 @@
             "props":{"y":0,"x":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":117,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":92,"x":118,"skin":"image/juese/img_taiji.png"},
                     "nodeParent":117,
@@ -86,6 +87,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":58,"x":173,"skin":"image/juese/role_renyingying_Halfbody.png"},
                     "nodeParent":117,
@@ -99,6 +101,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":477,"x":361,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
                     "nodeParent":117,
@@ -111,6 +114,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":477,"x":229,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
                     "nodeParent":117,
@@ -123,6 +127,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":477,"x":96,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
                     "nodeParent":117,
@@ -135,6 +140,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":563,"width":566,"skin":"image/juese/line_juese.png"},
                     "nodeParent":117,
@@ -149,6 +155,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":106,"x":77,"runtime":"view.compart.EquipInBodybgItem"},
@@ -162,6 +169,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":198,"x":77,"runtime":"view.compart.EquipInBodybgItem"},
@@ -175,6 +183,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":289,"x":77,"runtime":"view.compart.EquipInBodybgItem"},
@@ -188,6 +197,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":381,"x":77,"runtime":"view.compart.EquipInBodybgItem"},
@@ -201,6 +211,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":381,"x":190,"runtime":"view.compart.EquipInBodybgItem"},
@@ -215,6 +226,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":381,"x":302,"runtime":"view.compart.EquipInBodybgItem"},
@@ -228,6 +240,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":381,"x":415,"runtime":"view.compart.EquipInBodybgItem"},
@@ -241,6 +254,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":289,"x":415,"runtime":"view.compart.EquipInBodybgItem"},
@@ -254,6 +268,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":198,"x":415,"runtime":"view.compart.EquipInBodybgItem"},
@@ -267,6 +282,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
                     "props":{"y":106,"x":415,"runtime":"view.compart.EquipInBodybgItem"},
@@ -278,6 +294,34 @@
                     "compId":137,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":338,"x":194,"skin":"image/common/zi_zhanli.png"},
+                    "nodeParent":117,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":171,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"FontClip",
+                    "props":{"y":346,"x":279,"width":107,"value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+                    "nodeParent":117,
+                    "label":"FontClip",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":172,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
