@@ -147,12 +147,17 @@ module GameUtil {
                             break;
                         // 武学界面
                         case 'WuXue':
-
                             break;
                         // 背包界面
                         case 'BeiBao':
                             toDoList['JuQingMode'] = ['btn_changeMode'];
                             toDoList['Main'] = ['btn_wuPin'];
+                            toDoList['TaskMain'] = ['btn_back'];
+                            break;
+                        // 副本界面
+                        case 'FuBen':
+                            toDoList['JuQingMode'] = ['btn_fuBen'];
+                            toDoList['Main'] = ['btn_changeMode'];
                             toDoList['TaskMain'] = ['btn_back'];
                             break;
                     }

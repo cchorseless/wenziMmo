@@ -2,6 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
+    "selecteID":10,
     "referenceLines":null,
     "props":{"width":520,"sceneColor":"#c1403e","height":390},
     "nodeParent":-1,
@@ -41,7 +42,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":272,"x":205,"width":109,"var":"btn_sure","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"确定","height":52},
+            "props":{"y":272,"x":193,"width":133,"var":"btn_sure","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领取奖励","height":52},
             "nodeParent":1,
             "label":"Button(btn_sure)",
             "isDirectory":false,
@@ -54,7 +55,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":74,"x":69,"skin":"image/common/bottom_diyizhang.png"},
+            "props":{"y":74,"x":47,"skin":"image/common/bottom_diyizhang.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -80,15 +81,54 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":117,"x":221,"wordWrap":true,"width":34,"var":"lbl_taskInfo","text":"任务完成","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#f9e596"},
+            "props":{"y":63,"x":161,"wordWrap":true,"width":132,"var":"lbl_taskName","text":"任务名字","strokeColor":"#000000","stroke":4,"height":34,"fontSize":30,"font":"FZXK","color":"#f9e596"},
             "nodeParent":1,
-            "label":"Label(lbl_taskInfo)",
+            "label":"Label(lbl_taskName)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":8,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":104,"x":130,"wordWrap":true,"width":330,"var":"lbl_taskDes","text":"任务完成描述","strokeColor":"#000000","stroke":4,"height":60,"fontSize":30,"font":"FZXK","color":"#f9e596"},
+            "nodeParent":1,
+            "label":"Label(lbl_taskDes)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":170,"x":118,"width":323,"var":"panel_0","height":98},
+            "nodeParent":1,
+            "label":"Panel(panel_0)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":10,
+            "child":[
+                {
+                    "x":30,
+                    "type":"HBox",
+                    "props":{"var":"hbox_0","top":0,"bottom":0},
+                    "nodeParent":10,
+                    "label":"HBox(hbox_0)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

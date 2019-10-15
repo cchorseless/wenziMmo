@@ -17,6 +17,9 @@ module view.scene {
 			let configID = '' + this.item.feature.dwCretTypeId;
 			// 半身像
 			let skePath = SheetConfig.mydb_monster_tbl.getInstance(null).SKERES('' + configID);
+			if(skePath=='0'){
+				skePath='BOSS_dingmian'
+			}
 			// 龙骨资源
 			this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
 				this.spr_pos.addChild(this._skeGroup);

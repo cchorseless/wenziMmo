@@ -57,7 +57,7 @@ module ProtoCmd {
     // 服务器返回改变任务状态
     export class stQuestDoingRet extends Packet {
         public static msgID: number = 0x0903;
-        public str: string = '';//任务状态，任务结构体中的targetDes
+        public str: string = '';//任务状态，任务结构体中的targetDes和Des 用~~分割
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('taskid', PacketBase.TYPE_DWORD);// 4 任务ID 
@@ -65,6 +65,12 @@ module ProtoCmd {
             this.addProperty('szKillID', PacketBase.TYPE_STRING, 300);
             this.addProperty('nCount', PacketBase.TYPE_INT);
             this.read(data);
+        }
+        public get targetDes(): string {
+            return this.str.split('~~')[0]
+        }
+        public get des(): string {
+            return this.str.split('~~')[1]
         }
 
         public read(data: Laya.Byte): number {
@@ -126,7 +132,7 @@ module ProtoCmd {
         public info: stQuestInfoBase = new stQuestInfoBase();
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('location', PacketBase.TYPE_BYTE);//1是增加,2删除,3是刷新任务星系
+            this.addProperty('location', PacketBase.TYPE_BYTE);//1 是增加,2 删除,3 是刷新任务星系
             this.addProperty('info', PacketBase.TYPE_BYTES, this.info.size(), this.info);
             this.read(data);
         }

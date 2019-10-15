@@ -130,12 +130,15 @@ class ServerListener extends SingletonClass {
         /***********************************任务信息*************************************** */
         // 监听任务信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
-        // 服务器推送创建新任务
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo);
+        // 服务器推送创建新任务1 主线-剧情
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestCreateRet), this, this.addTaskInfo_V1);
+        // 服务器推送创建新任务2 能接未接任务
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestSendQuestInfoRet), this, this.addTaskInfo_V2);
         // 改变任务状态和描述
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestDoingRet), this, this.changeTaskState);
         // 只改变任务状态
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestFinishRet), this, this.changeOnlyTaskState);
+
         /***********************************剧情信息**************************************** */
         // 改变剧情相关数据
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
@@ -296,8 +299,9 @@ class ServerListener extends SingletonClass {
         // 清空视野
         player.clearViewObj();
         console.log('=====已经改变了地图ID======');
+        console.log('===isFirstCreate===', msgData.getValue('isFirstCreate'))
         // 非创建角色
-        if (!msgData.getValue('isFirstCreate')) {
+        if (!msgData.getValue('isFirstCreate') || GameApp.GameEngine.isReady) {
             PanelManage.openMainPanel();
         }
         // 更新UI布局
@@ -485,6 +489,7 @@ class ServerListener extends SingletonClass {
     // 同屏内怪物掉血
     public cretStruck(data: any): void {
         let msg = new ProtoCmd.CretStruck(data);
+        let npower = msg.getValue('npower');
         let nowhp = msg.getValue('nHp');
         let maxhp = msg.getValue('nMaxHp');
         let actmpid = msg.getValue('dwAcTmpID');
@@ -497,6 +502,7 @@ class ServerListener extends SingletonClass {
         if (targeter) {
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
+            TipsManage.showTxt('HP--' + npower);
         }
         else {
             TipsManage.showTips('没有找到受击对象')
@@ -1357,10 +1363,10 @@ class ServerListener extends SingletonClass {
         }
     }
     /**
-     * 服务器推送创建任务
+     * 服务器推送创建任务（已接任务）
      * @param data 
      */
-    public addTaskInfo(data): void {
+    public addTaskInfo_V1(data): void {
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
         let _item = new ProtoCmd.stQuestInfoBase();
         _item.clone(cbpket.info.data);
@@ -1383,25 +1389,47 @@ class ServerListener extends SingletonClass {
     }
 
     /**
+     * 服务器推送创建任务（能接未接任务）
+     * @param data 
+     */
+    public addTaskInfo_V2(data): void {
+        let cbpket = new ProtoCmd.stQuestSendQuestInfoRet(data);
+        let _item = new ProtoCmd.stQuestInfoBase();
+        _item.clone(cbpket.info.data);
+        console.log('新增了任务信息：' + _item.taskid);
+        if (GameApp.GameEngine.taskInfo[_item.questtype] == null) {
+            GameApp.GameEngine.taskInfo[_item.questtype] = {};
+        }
+        GameApp.GameEngine.taskInfo[_item.questtype][_item.taskid] = _item;
+        cbpket.clear();
+        cbpket = null;
+    }
+
+
+
+
+    /**
      * 改变任务信息
      * @param data 
      */
     public changeTaskState(data): void {
         let cbpket = new ProtoCmd.stQuestDoingRet(data);
         let keys = Object.keys(GameApp.GameEngine.taskInfo);
+        let taskid = cbpket.getValue('taskid');
         for (let key of keys) {
             let taskGroup = GameApp.GameEngine.taskInfo[key];
-            let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[cbpket.getValue('taskid')];
+            let taskInfo: ProtoCmd.stQuestInfoBase = taskGroup[taskid];
             if (taskInfo) {
-                console.log('更新了任务' + cbpket.getValue('taskid'));
+                console.log('更新了任务' + taskid);
                 let queststatus = cbpket.getValue('queststatus')
-                taskInfo.targetdes = cbpket.str;
+                taskInfo.targetdes = cbpket.targetDes;
+                taskInfo.des = cbpket.des;
                 taskInfo.queststatus = queststatus;
                 switch (queststatus) {
                     // 任务完成通知
                     case EnumData.QUESTSTATUS.QUESTCOMPLETED:
                     case EnumData.QUESTSTATUS.QUESTMALLCOMPLETED:
-                        new view.task.Task_CompleteDialog().popup();
+                        new view.task.Task_CompleteDialog().setData(taskInfo).popup(true);
                         break;
                 }
                 break;

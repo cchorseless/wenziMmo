@@ -3235,7 +3235,9 @@ module ProtoCmd {
             return this.getValue("targetType");
         }
 
-
+        public get talkInfo(): string {
+            return this.getValue('talkInfo')
+        }
 
     }
 
