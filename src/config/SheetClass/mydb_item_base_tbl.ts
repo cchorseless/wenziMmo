@@ -1,4 +1,4 @@
-module SheetConfig{ export class  mydb_item_base_tbl { private data;private _instance; public constructor(data){ this.data=data;}
+module SheetConfig{ export class  mydb_item_base_tbl { public data;private _instance; public constructor(data){ this.data=data;}
 public static getInstance(data): mydb_item_base_tbl { let Class:any=this;if(!Class._instance){Class._instance=new Class(data);}return Class._instance;}
 /**
  *  物品升级编号

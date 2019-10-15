@@ -82,7 +82,7 @@ module TimeUtils {
             case 7:
                 str = getFormatBySecond7(second);
                 break;
-     
+
         }
         str += mss_tail;
         return str;
@@ -376,7 +376,7 @@ module TimeUtils {
 
 
     export function getFormatBySecond8(s): any {
-        let time = new Date(s*1000);
+        let time = new Date(s * 1000);
         let obj: any = {}
         obj.year = time.getFullYear();
         obj.mon = time.getMonth();
@@ -384,6 +384,37 @@ module TimeUtils {
         obj.hour = time.getHours();
         obj.min = time.getMinutes();
         return obj;
+
+    }
+    /**
+     * 时间戳转日期
+     * @param timestamp 时间戳
+     * @param type 0：年月日  1：小时数  2：年月日时分秒
+     */
+    export function timestampToTime(timestamp, type):string {
+
+        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+
+        let Year = date.getFullYear() + '年';
+
+        let Month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '月';
+
+        let Day = date.getDate() + '日';
+
+        let hour = date.getHours();
+
+        let minute = date.getMinutes();
+
+        let second = date.getSeconds();
+        if (type == 0) {
+            return Year + Month + Day;
+        }
+        else if (type == 1) {
+            return hour.toString();
+        } else if (type == 2) {
+            return Year + Month + Day + hour + ":" + minute + ":" + second;
+        }
+
 
     }
 }

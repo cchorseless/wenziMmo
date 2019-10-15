@@ -404,8 +404,20 @@ module view.main {
 		public initData(): void {
 			// 更新数据
 			this.loadJuQingData();
+
 			// 拉取性格天赋数据
 			this.loadXingGeTalentData();
+
+			this.getPlayerBirthData();
+			
+
+		}
+		public getPlayerBirthData() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
+				(data) => {
+					GameApp.GameEngine.playerBirthData = data
+				});
+			lcp.send(pkt);
 		}
 
 

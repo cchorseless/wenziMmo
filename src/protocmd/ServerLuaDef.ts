@@ -149,6 +149,12 @@ module ProtoCmd {
     export const FB_LimitActivities = 'LimitActivities';
     // 打开限时详细信息界面
     export const FB_LimitActivitiesCfg = 'LimitActivitiesCfg';
+    /********************************排行榜相关*********************** */
+    //我的排行榜奖励预览
+    export const Rank_rankShowRewardByRankType = 'rankShowRewardByRankType';
+    //我的奖励领取
+    export const Rank_getRankRewardByRankType = 'getRankRewardByRankType';
+
     /********************************角色信息界面***************** */
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
@@ -158,18 +164,18 @@ module ProtoCmd {
     export const JS_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
     // 内功经络升级
     export const JS_shuxingxitong_shengji = 'shuxingxitong_shengji';
-     // 罡气护体激活
+    // 罡气护体激活
     export const JS_activePlayerWing = 'activePlayerWing';
-      // 罡气护体
+    // 罡气护体
     export const JS_playerWingPanel = 'playerWingPanel';
     /*********************************资质天赋******************** */
-    // 善缘-官印
-    // 激活善缘
-    export const JS_SHANYUAN_Active = 'activeOfficialSeal';
-    // 善缘界面
-    export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
-    // 升级善缘
-    export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
+    // // 善缘-官印
+    // // 激活善缘
+    // export const JS_SHANYUAN_Active = 'activeOfficialSeal';
+    // // 善缘界面
+    // export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
+    // // 升级善缘
+    // export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
     // 拉取天赋+性格随机结果
     export const JS_sendTianFuZiZhi = 'sendTianFuZiZhi';
     // 随机性格
@@ -178,14 +184,26 @@ module ProtoCmd {
     export const JS_randomZiZhiValue = 'randomZiZhiValue';
     // 拉取姓名九宫和生辰八字
     export const JS_birthdateAndCompellation = 'birthdateAndCompellation';
+    // 善緣=官印
+    export const JS_OfficialSealPanel = 'OfficialSealPanel';
+    // 善緣激活
+    export const JS_activeOfficialSeal = 'activeOfficialSeal';
     // 悟性=龙魂
-
+    export const JS_DragonSoulPanel = 'DragonSoulPanel';//curscore：当前经验 isfull:是否满级 score: 最大经验
+    // 悟性激活
+    export const JS_activeDragonSoul = 'activeDragonSoul';
     // 臂力-神盾
-
+    export const JS_ShieldPanel = 'ShieldPanel';
+    // 臂力激活
+    export const JS_activeShield = 'activeShield';
     // 身法=血玉
-
+    export const JS_BloodJadePanel = 'BloodJadePanel';
+    // 身法激活
+    export const JS_activeBloodJade = 'activeBloodJade';
     // 根骨-勋章
-
+    export const JS_MedalPanel = 'MedalPanel';
+    // 根骨激活
+    export const JS_activeMedal = 'activeMedal';
     // 请求介绍手册的解锁状态
     export const getIntroductionInfo = 'getIntroductionInfo';
     // 领取介绍手册中奖励
@@ -194,6 +212,8 @@ module ProtoCmd {
     export const SpecialRingPanel = "SpecialRingPanel";
     //天鉴界面激活
     export const activeSpecialRing = "activeSpecialRing";
+    //四格，9宫
+    export const birthdateAndCompellation = "birthdateAndCompellation";
 }
 
 /**

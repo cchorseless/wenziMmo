@@ -43,7 +43,9 @@ module view.juese {
 				new view.juese.PersonBirthDialog().popup(true);
 			})
 			this.btn_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
+
 				new view.juese.PersonNameDialog().popup(true);
+
 			})
 			this.btn_shengpingEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonShengPingDialog().popup(true);

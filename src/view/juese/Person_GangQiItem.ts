@@ -4,8 +4,10 @@ module view.juese {
 		constructor() {
 			super();
 		}
-		public hasInit = false;// 初始化自己
+		// public hasInit = false;// 初始化自己
 		public setData(): void {
+			// 	if (this.hasInit) { return };
+			// this.hasInit = true;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.wingInfo();
@@ -13,8 +15,7 @@ module view.juese {
 		}
 
 		public wingInfo(): void {
-			if (this.hasInit) { return };
-			this.hasInit = true;
+		
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_GangQIInfo();
@@ -59,8 +60,8 @@ module view.juese {
 			this.img_progress.width = 470 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
-			// console.log(SheetConfig.mydb_effect_base_tbl.getInstance(null).)
 			this.lbl_dangqian.text = '' + gangqiName;
+
 			//当前属性攻击值
 			let minkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
 			let maxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
@@ -79,7 +80,7 @@ module view.juese {
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = parseInt(key);
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
 					this['box_gangqi' + i].addChild(_itemUI)
 				}
 
