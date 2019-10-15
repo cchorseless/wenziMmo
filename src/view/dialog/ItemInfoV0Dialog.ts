@@ -157,35 +157,9 @@ module view.dialog {
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
 			packet.srcLocation = this.itemObj.location;
-			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE);
-			packet.destLocation.setValue('btIndex', 0);
-			lcp.send(packet, this, (data) => {
-				let msg = new ProtoCmd.CretProcessingItem(data);
-				let errorcode = msg.getValue('nErrorCode');
-				let i64ItemId = msg.getValue('i64ItemId').toString();
-				if (errorcode == 0) {
-					// 全局数据更新
-					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
-					if (_itemBase) {
-						// 重置位置属性
-						_itemBase.location = msg.destLocation;
-						// 清除绑定的UI
-						_itemBase.recoverUI();
-						GameApp.GameEngine.cangKuDB[i64ItemId] = _itemBase;
-						delete GameApp.GameEngine.bagItemDB[i64ItemId];
-						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE, _itemBase);
-						TipsManage.showTips('放入仓库成功');
-					} else {
-						TipsManage.showTips('放入仓库失败(client 01)');
-					}
-				}
-				else {
-					TipsManage.showTips('放入仓库失败(server ' + errorcode + ')');
-				}
-				msg.clear();
-				msg = null;
-			});
-
+			packet.destLocation.btLocation = EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE;
+			packet.destLocation.btIndex = 0;
+			lcp.send(packet);
 		}
 
 		/**
@@ -197,38 +171,9 @@ module view.dialog {
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
 			packet.srcLocation = this.itemObj.location;
-			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE);
-			packet.destLocation.setValue('btIndex', 0);
-			lcp.send(packet, this, (data) => {
-				let msg = new ProtoCmd.CretProcessingItem(data);
-				let errorcode = msg.getValue('nErrorCode');
-				let i64ItemId = msg.getValue('i64ItemId').toString();
-				if (errorcode == 0) {
-					// 全局数据更新
-					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
-					if (_itemBase) {
-						// 重置位置属性
-						_itemBase.location = msg.destLocation;
-						// 清除绑定的UI
-						_itemBase.recoverUI();
-						GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
-						delete GameApp.GameEngine.cangKuDB[i64ItemId];
-						PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
-						PanelManage.BeiBao && PanelManage.BeiBao.updateCangKuInfo();
-						TipsManage.showTips('取出仓库成功');
-					} else {
-						TipsManage.showTips('取出仓库失败(client 01)');
-					}
-				}
-				else {
-					TipsManage.showTips('取出仓库失败(server ' + errorcode + ')');
-				}
-				msg.clear();
-				msg = null;
-			});
-
-
-
+			packet.destLocation.btLocation = EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE;
+			packet.destLocation.btIndex = 0;
+			lcp.send(packet);
 		}
 
 		/**

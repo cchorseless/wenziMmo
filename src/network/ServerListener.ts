@@ -52,6 +52,9 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventDel), this, this.mapItemEventDel);
         // 添加地图上的物品 288
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.MapItemEventAdd), this, this.mapItemEventAdd);
+        /************************************背包内道具********************************************* */
+        // 背包内道具移动
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretProcessingItem), this, this.itemLocationChange);
 
         /*************************************技能相关************************************************ */
         // 推送技能列表
@@ -1046,6 +1049,140 @@ class ServerListener extends SingletonClass {
         msg = null;
     }
 
+    /**
+     * 道具位置移动 包裹-身上-仓库
+     * 
+     * @param data 
+     */
+    public itemLocationChange(data: any): void {
+        let msg = new ProtoCmd.CretProcessingItem(data);
+        let errorcode = msg.getValue('nErrorCode');
+        let i64ItemId = msg.getValue('i64ItemId').toString();
+        let src_btIndex = msg.srcLocation.btIndex;
+        let src_btLocation = msg.srcLocation.btLocation;
+        let des_btIndex = msg.destLocation.btIndex;
+        let des_btLocation = msg.destLocation.btLocation;
+        let _itemBase: ProtoCmd.ItemBase;
+        if (errorcode == 0) {
+            // 根据来源找到装备的itembase
+            switch (src_btLocation) {
+                // 从仓库操作
+                case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                    _itemBase = GameApp.GameEngine.cangKuDB[i64ItemId];
+                    break;
+                // 玩家身上装备操作
+                case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                    _itemBase = GameApp.GameEngine.equipDB[i64ItemId];
+                    break;
+                // 背包内操作
+                case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                    _itemBase = GameApp.GameEngine.bagItemDB[i64ItemId];
+                    break;
+            }
+            if (_itemBase) {
+                // 重置位置属性
+                _itemBase.location = msg.destLocation;
+                // 清除绑定的UI
+                _itemBase.recoverUI();
+                // 位置分情况处理
+                switch (des_btLocation) {
+                    // 放入仓库
+                    case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                        GameApp.GameEngine.cangKuDB[i64ItemId] = _itemBase;
+                        delete GameApp.GameEngine.bagItemDB[i64ItemId];
+                        PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE, _itemBase);
+                        TipsManage.showTips('放入仓库成功');
+                        break;
+
+                    // 放回背包
+                    case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+                        switch (src_btLocation) {
+                            // 从仓库取出 放回背包
+                            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+                                GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
+                                delete GameApp.GameEngine.cangKuDB[i64ItemId];
+                                PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase);
+                                PanelManage.BeiBao && PanelManage.BeiBao.updateCangKuInfo();
+                                TipsManage.showTips('取出仓库成功');
+                                break;
+                            // 装备卸下
+                            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                                // 清除装备位置索引
+                                delete GameApp.GameEngine.equipDBIndex[src_btIndex];
+                                GameApp.GameEngine.bagItemDB[i64ItemId] = _itemBase;
+                                delete GameApp.GameEngine.equipDB[i64ItemId];
+                                // 更新背包UI
+                                PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, _itemBase)
+                                TipsManage.showTips('装备卸下成功');
+                                break;
+                        }
+                        break;
+
+
+                    // 穿戴装备
+                    case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+                        // 是否替换判断
+                        let old_i64ItemId = GameApp.GameEngine.equipDBIndex[des_btIndex];
+                        if (old_i64ItemId) {
+                            let old_itemBase = GameApp.GameEngine.equipDB[old_i64ItemId];
+                            if (old_itemBase) {
+                                old_itemBase.recoverUI();
+                                old_itemBase.location.btIndex = src_btIndex;
+                                old_itemBase.location.btLocation = src_btLocation;
+                                GameApp.GameEngine.bagItemDB[old_i64ItemId] = old_itemBase;
+                                delete GameApp.GameEngine.equipDB[old_i64ItemId];
+                                delete GameApp.GameEngine.equipDBIndex[des_btIndex];
+                                // 向背包中添加物品
+                                PanelManage.BeiBao && PanelManage.BeiBao.addItem(EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE, old_itemBase);
+                            }
+                        }
+                        // 清除绑定的UI
+                        GameApp.GameEngine.equipDB[i64ItemId] = _itemBase;
+                        GameApp.GameEngine.equipDBIndex[des_btIndex] = i64ItemId;
+                        // 根据装备部位 UI刷新
+                        let nowIndex = _itemBase.location.btIndex;
+                        let updateTabIndex = 0;
+                        // 角色身上装备
+                        if (nowIndex >= EnumData.emEquipPosition.EQUIP_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_BELT) {
+                            updateTabIndex = 0;
+                        }
+                        // 英雄战士
+                        else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT) {
+                            updateTabIndex = 1;
+                        }
+                        // 英雄法师
+                        else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT) {
+                            updateTabIndex = 2;
+                        }
+                        // 英雄道士
+                        else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT) {
+                            updateTabIndex = 3;
+                        }
+                        if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == updateTabIndex) {
+                            PanelManage.BeiBao.ui_equipInfo.updateUI();
+                        }
+                        else {
+                            PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
+                        }
+                        delete GameApp.GameEngine.bagItemDB[i64ItemId];
+                        TipsManage.showTips('装备穿戴成功');
+                        break;
+
+
+                }
+            } else {
+                TipsManage.showTips('找不到对应的装备itemBase');
+            }
+        }
+        else {
+            TipsManage.showTips('装备操作失败(server ' + errorcode + ')');
+        }
+        msg.clear();
+        msg = null;
+
+
+    }
+
     /*******************************************************好友信息******************************************* */
     /**
      * 添加一个好友信息
@@ -1327,18 +1464,18 @@ class ServerListener extends SingletonClass {
         // console.log(strArr);
         // TODO
         try {
-        let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
-        switch (strArr.length) {
-            case 4:
-                msgID = parseInt(strArr[2]);
-                break;
-        }
-        let eventName = funcName;
-        if (msgID) {
-            eventName += '_' + msgID;
-        }
-        // 抛出事件
-        GameApp.LListener.event(eventName, [jsonData]);
+            let jsonData = JSON.parse(strArr[strArr.length - 1]);// json数据
+            switch (strArr.length) {
+                case 4:
+                    msgID = parseInt(strArr[2]);
+                    break;
+            }
+            let eventName = funcName;
+            if (msgID) {
+                eventName += '_' + msgID;
+            }
+            // 抛出事件
+            GameApp.LListener.event(eventName, [jsonData]);
 
         }
         catch (e) {
