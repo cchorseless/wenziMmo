@@ -5,15 +5,13 @@ module view.juese {
 			super();
 		}
 		public setData(id): Person_TalentInfoBtnItem {
-			
-			// this.lbl_name.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
+			this.lbl_name.text = ''+SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + id);
 			this.addEvent(id);
-			console.log('===>xiajijijij',id)
 			return this;
 		}
 		public addEvent(id): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.JueSe.ui_talent.init_xiajeshuxing(id);
+				
 			})
 		}
 	}

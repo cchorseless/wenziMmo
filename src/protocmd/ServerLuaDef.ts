@@ -168,6 +168,8 @@ module ProtoCmd {
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
     export const JS_playerWingPanel = 'playerWingPanel';
+     // 罡气进阶
+    export const JS_advancePlayerWing = 'advancePlayerWing';
     /*********************************资质天赋******************** */
     // // 善缘-官印
     // // 激活善缘
@@ -188,22 +190,32 @@ module ProtoCmd {
     export const JS_OfficialSealPanel = 'OfficialSealPanel';
     // 善緣激活
     export const JS_activeOfficialSeal = 'activeOfficialSeal';
+    // 善緣升级
+    export const JS_upgradeOfficialSeal = 'upgradeOfficialSeal';
     // 悟性=龙魂
     export const JS_DragonSoulPanel = 'DragonSoulPanel';//curscore：当前经验 isfull:是否满级 score: 最大经验
     // 悟性激活
     export const JS_activeDragonSoul = 'activeDragonSoul';
+    // 悟性升级
+    export const JS_upgradeDragonSoul = 'upgradeDragonSoul';
     // 臂力-神盾
     export const JS_ShieldPanel = 'ShieldPanel';
     // 臂力激活
     export const JS_activeShield = 'activeShield';
+     // 臂力升级
+    export const JS_upgradeShield = 'upgradeShield';
     // 身法=血玉
     export const JS_BloodJadePanel = 'BloodJadePanel';
     // 身法激活
     export const JS_activeBloodJade = 'activeBloodJade';
+     // 身法升级
+    export const JS_upgradeBloodJade = 'upgradeBloodJade';
     // 根骨-勋章
     export const JS_MedalPanel = 'MedalPanel';
     // 根骨激活
     export const JS_activeMedal = 'activeMedal';
+    // 根骨升级
+    export const JS_upgradeMedal = 'upgradeMedal';
     // 请求介绍手册的解锁状态
     export const getIntroductionInfo = 'getIntroductionInfo';
     // 领取介绍手册中奖励

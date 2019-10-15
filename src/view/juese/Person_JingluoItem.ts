@@ -23,7 +23,7 @@ module view.juese {
 		public init_NeiGongInfo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.JS_shuxingxitong_minabandakai, this, (jsonData: ProtoCmd.itf_JS_NeiGongInfo) => {
-				console.log('===>经络升级', jsonData)
+
 				//经络重数
 				this.clip_chongshu.value = '' + Math.ceil(jsonData.dangqiandengji);
 				//内功恢复
@@ -52,7 +52,6 @@ module view.juese {
 					}
 				}
 			})
-			lcp.send(pkt);
 		}
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_shuxingxitong_minabandakai, this);

@@ -5,12 +5,14 @@ module view.juese {
 			super();
 		}
 		public setData(j): Person_GangQiBtnItem {
+			//罡气
+			this.lbl_name.text = '' + j;
 			this.addEvent(j);
 			return this;
 		}
 		public addEvent(j): void {
-			this.on(Laya.UIEvent.CLICK,this,()=>{
-				PanelManage.JueSe.ui_gangQi.img_xiajie.skin='image/juese/img_gangQi_0'+j+'.png'
+			this.on(Laya.UIEvent.CLICK, this, () => {
+
 			})
 		}
 	}

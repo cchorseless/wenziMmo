@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":5,
+    "selectedBox":19,
+    "selecteID":20,
     "referenceLines":null,
     "props":{"width":520,"sceneColor":"#89504f","height":520},
     "nodeParent":-1,
@@ -135,13 +135,14 @@
                     "props":{"y":10,"x":0,"width":432,"name":"item0","height":58},
                     "nodeParent":18,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-1,"x":300,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"使用"},
                             "nodeParent":19,
@@ -154,6 +155,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-1,"x":20,"var":"btn_destroy","stateNum":"2","skin":"image/common/button_qianwang_red.png","left":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"销毁"},
                             "nodeParent":19,
@@ -165,7 +167,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -179,7 +181,7 @@
                     "compId":23,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
