@@ -97,6 +97,7 @@ module view.tianJian {
 			this.lab_defense.text = "";
 			this.lab_physicalAttack.text = "";
 			this.lab_magicAttack.text = "";
+			this.lab_term.text = arr.condition;
 		}
 		public changeChoose(index) {
 			let arr = this.tempData.status

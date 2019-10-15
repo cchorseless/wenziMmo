@@ -73,6 +73,9 @@ class GameEngine extends SingletonClass {
     public tokenCheck: number;
     public logintoken: Laya.Byte;
 
+    //玩家出生信息
+    public playerBirthData = null;
+
 
 
 
