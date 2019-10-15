@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":141,
-    "selecteID":297,
+    "selectedBox":1,
+    "selecteID":302,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -54,7 +54,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":361,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
+                    "props":{"y":488,"x":361,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"魂石大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -67,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":229,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
+                    "props":{"y":488,"x":229,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"精炼大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -80,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":477,"x":96,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
+                    "props":{"y":488,"x":96,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"锻造大师"},
                     "nodeParent":141,
                     "label":"Button",
                     "isDirectory":false,
@@ -151,7 +151,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
-                    "props":{"y":381,"x":77,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
+                    "props":{"y":396,"x":77,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
                     "nodeParent":141,
                     "label":"UIView(ui_item3)",
                     "isDirectory":false,
@@ -165,7 +165,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
-                    "props":{"y":381,"x":190,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
+                    "props":{"y":396,"x":190,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
                     "nodeParent":141,
                     "label":"UIView(ui_item4)",
                     "isDirectory":false,
@@ -180,7 +180,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
-                    "props":{"y":381,"x":302,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
+                    "props":{"y":396,"x":302,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
                     "nodeParent":141,
                     "label":"UIView(ui_item5)",
                     "isDirectory":false,
@@ -194,7 +194,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/EquipInBodybgItem.ui",
-                    "props":{"y":381,"x":415,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
+                    "props":{"y":396,"x":415,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
                     "nodeParent":141,
                     "label":"UIView(ui_item6)",
                     "isDirectory":false,
@@ -691,6 +691,34 @@
             "compId":245,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":355,"x":185,"skin":"image/common/zi_zhanli.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":301,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"FontClip",
+            "props":{"y":363,"x":270,"width":107,"value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+            "nodeParent":1,
+            "label":"FontClip",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":302,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {
