@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":181,
-    "selecteID":180,
+    "selectedBox":212,
+    "selecteID":213,
     "props":{"width":567,"sceneColor":"#d7b5b5","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -18,15 +18,16 @@
             "props":{"y":0,"x":4},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":211,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":22,"skin":"image/common/box_txt.png"},
+                    "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
                     "nodeParent":211,
                     "label":"Image",
                     "isOpen":true,
@@ -36,8 +37,9 @@
                     "compId":212,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":42,"text":"人物志","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":3,"x":30,"text":"罡气护体","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":212,
                             "label":"Label",
                             "isDirectory":false,
@@ -49,6 +51,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
                     "nodeParent":211,
