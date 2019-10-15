@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":141,
-    "selecteID":297,
+    "selectedBox":297,
+    "selecteID":298,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -252,15 +252,16 @@
                     "props":{"y":0,"x":4},
                     "nodeParent":141,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":297,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":20,"x":22,"skin":"image/common/box_txt.png"},
+                            "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
                             "nodeParent":297,
                             "label":"Image",
                             "isOpen":true,
@@ -270,8 +271,9 @@
                             "compId":298,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":3,"x":42,"text":"人物志","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                                    "props":{"y":3,"x":30,"text":"装备属性","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":298,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -283,6 +285,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
                             "nodeParent":297,

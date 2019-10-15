@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":53,
-    "selecteID":119,
+    "selectedBox":116,
+    "selecteID":117,
     "referenceLines":[
         {
             "value":18,
@@ -586,15 +586,16 @@
                     "props":{"y":0,"x":5},
                     "nodeParent":62,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":115,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":20,"x":22,"skin":"image/common/box_txt.png"},
+                            "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
                             "nodeParent":115,
                             "label":"Image",
                             "isOpen":true,
@@ -604,8 +605,9 @@
                             "compId":116,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":3,"x":42,"text":"人物志","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                                    "props":{"y":3,"x":30,"text":"内息经络","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":116,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -617,6 +619,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
                             "nodeParent":115,

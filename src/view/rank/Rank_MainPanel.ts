@@ -6,6 +6,7 @@ module view.rank {
 		}
 		public page: number = 1;
 		public maxpage: number = 0;
+		public type;
 		public setData(): void {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
@@ -53,10 +54,14 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_guild, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildSelectPanel();
 			});
-
+			this.btn_rankPrize.on(Laya.UIEvent.CLICK, this, () => {
+				new view.rank.RankPrizeInfoDialog().popup();
+			})
+			this.btn_get.on(Laya.UIEvent.CLICK, this, () => {
+				this.myjiangliGet();
+			})
 			this.panel_0.on(Laya.UIEvent.MOUSE_MOVE, this, () => {
 				if (this.panel_0.vScrollBar.max - this.panel_0.vScrollBar.value) {
-
 				}
 
 			})
@@ -154,16 +159,18 @@ module view.rank {
 					break;
 
 			}
+			this.type = btType;
 			let pkt = new ProtoCmd.stRankMsg(null);
 			pkt.setValue('btErrorCode', 0);
+			//排行榜类型
 			pkt.setValue('btType', btType);
+			//排行榜页数
 			pkt.setValue('nPage', this.page);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
 				this.maxpage = cbpkt.maxPage;
 				this.lbl_pageCount.text = '' + cbpkt.curPage;
 				this.lbl_maxPage.text = '' + cbpkt.maxPage;
-				console.log('=====---->排行排行', cbpkt)
 				ui_rank_box.removeChildren();
 				for (let item of cbpkt.TopInfos) {
 					let ui_rank = new view.rank.RankPlayerItem();
@@ -185,9 +192,21 @@ module view.rank {
 					this.lbl_mylvl.text = '--';
 				}
 			})
-		}
-		public pageChange(): void {
+			//显示我的排行榜奖励
+			let pktr = new ProtoCmd.QuestClientData();
+			pktr.setString(ProtoCmd.Rank_rankShowRewardByRankType, [btType], null, this, (jsonData: { any }) => {
 
+			})
+			lcp.send(pktr);
+		}
+		/**
+		 * 领取我的排行榜奖励
+		 */
+		public myjiangliGet(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Rank_getRankRewardByRankType, [this.type], null, this, (jsonData: { any }) => {
+			})
+			lcp.send(pkt);
 		}
 	}
 }

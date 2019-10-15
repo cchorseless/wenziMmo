@@ -49,10 +49,28 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
 				let keys = Object.keys(jsonData);
-				for (let key of keys) {
-					let data = jsonData[key];
-					this.vbox_0.addChild(new view.fuBen.FuBenLiLianV0Item().setData(data));
+				this.vbox_0.removeChildren();
+				let ui_jidao = null;
+				for (let i = 1; jsonData[i]; i++) {
+					let num = i % 3;
+					let data = jsonData[i];
+					if (num == 1) {
+						ui_jidao = null;
+						ui_jidao = new view.fuBen.FuBenLiLianV0Item()
+						this.vbox_0.addChild(ui_jidao);
+						ui_jidao.setData(num,data);
+					}
+					if (num == 2) {
+						ui_jidao.setData(num,data)
+					}
+					if (num == 0) {
+						ui_jidao.setData(num,data)
+						ui_jidao = null;
+					}
+
+
 				}
+				
 			})
 			lcp.send(pkt);
 		}
@@ -149,7 +167,7 @@ module view.fuBen {
 				let endtHour = (jsonData.endtime - endMinute) / 60;
 				this.lbl_worldTime.text = startHour + star + starMinute + '-' + endtHour + end + endMinute;
 				//掉落奖励
-				
+
 				this.hbox_world.removeChildren();
 				for (let i = 1; jsonData.reward[i]; i++) {
 					let _itemUI = new view.compart.DaoJuWithNameItem();

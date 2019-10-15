@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":93,
-    "selecteID":116,
+    "selecteID":145,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -202,9 +202,9 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"y":0,"x":2,"stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"等级榜,战力榜,英雄\\n战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelPadding":"7","labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+                            "props":{"y":0,"x":2,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"等级榜,战力榜,英雄\\n战力榜,勋章榜,官印榜,龙魂榜,强化榜,威望榜","labelSize":22,"labelPadding":"7","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
                             "nodeParent":23,
-                            "label":"Tab",
+                            "label":"Tab(tab_0)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -216,295 +216,232 @@
                 },
                 {
                     "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"var":"panel_1","height":505},
+                    "type":"ViewStack",
+                    "props":{"y":300,"x":58,"var":"vstack_0"},
                     "nodeParent":93,
-                    "label":"Panel(panel_1)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":41,
-                    "child":[
-                        {
-                            "type":"VBox",
-                            "props":{"var":"vbox_1","right":0,"left":0,"align":"center"},
-                            "nodeParent":41,
-                            "label":"VBox(vbox_1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":42,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
+                    "label":"ViewStack(vstack_0)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":117,
+                    "compId":145,
                     "child":[
                         {
                             "x":45,
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":117,
-                            "label":"VBox",
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_1","name":"item0","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_1)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":118,
+                            "compId":41,
                             "child":[
                                 {
                                     "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_1","right":0,"left":0,"align":"center"},
+                                    "nodeParent":41,
+                                    "label":"VBox(vbox_1)",
+                                    "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":137,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":138,
+                                    "compId":42,
                                     "child":[
                                         ]
-                                },
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_2","name":"item1","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_2)",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":117,
+                            "child":[
                                 {
                                     "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_2","right":0,"left":0,"align":"center"},
+                                    "nodeParent":117,
+                                    "label":"VBox(vbox_2)",
+                                    "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":139,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":140,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":141,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"UIView",
-                                    "source":"rank/RankGetItem.ui",
-                                    "props":{},
-                                    "nodeParent":118,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":142,
+                                    "compId":118,
                                     "child":[
                                         ]
                                 }]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":119,
-                    "child":[
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":119,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_3","name":"item2","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_3)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":120,
+                            "hasChild":true,
+                            "compId":119,
                             "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":121,
-                    "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_3","right":0,"left":0,"align":"center"},
+                                    "nodeParent":119,
+                                    "label":"VBox(vbox_3)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":120,
+                                    "child":[
+                                        ]
+                                }]
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":121,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_4","name":"item3","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_4)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":122,
+                            "hasChild":true,
+                            "compId":121,
                             "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":123,
-                    "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_4","right":0,"left":0,"align":"center"},
+                                    "nodeParent":121,
+                                    "label":"VBox(vbox_4)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":122,
+                                    "child":[
+                                        ]
+                                }]
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":123,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_5","name":"item4","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_5)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":127,
+                            "hasChild":true,
+                            "compId":123,
                             "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":124,
-                    "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_5","right":0,"left":0,"align":"center"},
+                                    "nodeParent":123,
+                                    "label":"VBox(vbox_5)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":127,
+                                    "child":[
+                                        ]
+                                }]
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":124,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_6","name":"item5","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_6)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":128,
+                            "hasChild":true,
+                            "compId":124,
                             "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":125,
-                    "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_6","right":0,"left":0,"align":"center"},
+                                    "nodeParent":124,
+                                    "label":"VBox(vbox_6)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":128,
+                                    "child":[
+                                        ]
+                                }]
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":125,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_7","name":"item6","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_7)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":129,
+                            "hasChild":true,
+                            "compId":125,
                             "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":300,"x":58,"width":497,"height":505},
-                    "nodeParent":93,
-                    "label":"Panel",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":126,
-                    "child":[
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_7","right":0,"left":0,"align":"center"},
+                                    "nodeParent":125,
+                                    "label":"VBox(vbox_7)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":129,
+                                    "child":[
+                                        ]
+                                }]
+                        },
                         {
-                            "type":"VBox",
-                            "props":{"right":0,"left":0,"align":"center"},
-                            "nodeParent":126,
-                            "label":"VBox",
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"width":497,"var":"panel_8","name":"item7","height":505},
+                            "nodeParent":145,
+                            "label":"Panel(panel_8)",
                             "isOpen":true,
-                            "isDirectory":false,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":130,
+                            "hasChild":true,
+                            "compId":126,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_8","right":0,"left":0,"align":"center"},
+                                    "nodeParent":126,
+                                    "label":"VBox(vbox_8)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":130,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 }]
         }],
