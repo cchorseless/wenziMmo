@@ -29,7 +29,7 @@ module view.juQing {
 				PanelManage.openYinDaoPanel();
 			});
 			EventManage.onWithEffect(this.btn_zhiNan, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openZhiNanPanel();
+				// PanelManage.openZhiNanPanel();
 			});
 
 		}

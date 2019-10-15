@@ -18,7 +18,7 @@ module view.zhiNan {
 			});
 		}
 		public setData() {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(5001, 5019);
+			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(5);
 			this.list_shuxing.vScrollBarSkin = "";
 			this.list_shuxing.itemRender = view.zhiNan.ZhiNan_listshuxingItem;
 			this.list_shuxing.array = this.data;

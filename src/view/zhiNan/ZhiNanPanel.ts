@@ -1,4 +1,5 @@
 /**Created by the LayaAirIDE*/
+var hasRP: boolean = false;
 module view.zhiNan {
 	var arrayIntroduce: string[] = ["玩法介绍", "门派介绍", "武学介绍", "地域介绍", "属性介绍", "疾病介绍", "生活介绍", "战斗介绍", "天鉴介绍"];
 	export class ZhiNanPanel extends ui.zhiNan.ZhiNanPanelUI {
@@ -6,14 +7,22 @@ module view.zhiNan {
 			super();
 		}
 		public setData(): void {
-			this.list_jieshao.vScrollBarSkin = "";
+			this.panel_zhinan.vScrollBarSkin = "";
+			// this.panel_zhinan.ScrollBar
+			// this.list_jieshao.vScrollBarSkin = "";
 			this.list_jieshao.itemRender = view.zhiNan.ZhiNan_jieshaoItem;
 			this.list_jieshao.array = arrayIntroduce;
 			this.list_jieshao.renderHandler = new laya.utils.Handler(this, updataPetItem);
 			this.list_jieshao.selectEnable = true;
-			function updataPetItem(cell: view.zhiNan.ZhiNan_jieshaoItem, index:number) {
-				var data: Object  = arrayIntroduce[index];
-				cell.setData(data,index)	
+			function updataPetItem(cell: view.zhiNan.ZhiNan_jieshaoItem, index: number) {
+				var data: Object = arrayIntroduce[index];
+				cell.setData(data, index)
+				if(cell.index == 0){
+					cell.img_redPoint.visible = true;
+				}
+				else{
+					cell.img_redPoint.visible = false;
+				}
 			}
 			this.addEvent();
 		}

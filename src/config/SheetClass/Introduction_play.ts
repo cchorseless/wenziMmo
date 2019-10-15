@@ -45,13 +45,15 @@ module SheetConfig {
         /**
          * 全部数据
          */
-        public GETDATALIST(minConfigID: number, maxConfigID: number): any {
+        public GETDATALIST(typeKey): any {
+            this.data;
             let tempDate = [];
-            for (let i = minConfigID; i < maxConfigID + 1; i++) {
-                let p = i.toString();
-                let base = this.data[p]
-                // tempDate.push()
-                tempDate.push(base)
+            for (let i in this.data) {
+                if(this.data[i][1] == typeKey)
+                {
+                    let base = this.data[i]
+                    tempDate.push(base)
+                }
             }
             return tempDate;
         }

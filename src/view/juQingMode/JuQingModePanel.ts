@@ -29,7 +29,19 @@ module view.juQingMode {
 
 			// 剧情进度
 			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openZhiNanPanel()
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
+					(data) => {
+						// console.log("从服务器获取的数据：", data)
+						serverData = data;
+						for (let i in data) {
+							if (data[i] == 1) {
+								hasRP = true;
+							}
+						}
+						PanelManage.openZhiNanPanel()
+					});
+				lcp.send(pkt);
+
 			});
 
 			// 副本
@@ -46,7 +58,16 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTask_MainPanel(); });
 
 			// 天鉴
-			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => { PanelManage.openTianJianPanel(); });
+			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
+
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
+					(data) => {
+						console.log("从服务器获取的数据：", data)
+						PanelManage.openTianJianPanel(data);
+					});
+				lcp.send(pkt);
+
+			});
 
 			// 场景模式
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {

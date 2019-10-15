@@ -1093,7 +1093,7 @@ module PanelManage {
     /**
     * 天鉴界面
     */
-    export function openTianJianPanel(): void {
+    export function openTianJianPanel(data:any): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TianJian) {
             return
         }
@@ -1101,7 +1101,7 @@ module PanelManage {
         ResManage.loadResource(ResData.PanelRes.TianJian, () => {
             PanelManage.TianJian = new view.tianJian.TianJianPanel();
             PanelManage.TianJian['LCP_skin'] = ResData.PanelRes.TianJian;
-            PanelManage.TianJian.setData();
+            PanelManage.TianJian.setData(data);
             PanelManage.TianJian.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 0);
         })
