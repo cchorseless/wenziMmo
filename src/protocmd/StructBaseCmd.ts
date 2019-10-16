@@ -3235,13 +3235,14 @@ module ProtoCmd {
             return this.getValue("targetType");
         }
 
+        /**
+         * 任务对白
+         */
         public get talkInfo(): string {
             return this.getValue('talkInfo')
         }
 
     }
-
-
 
     /******************************战斗信息***************************************** */
 

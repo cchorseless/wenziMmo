@@ -36,7 +36,7 @@ module view.tianJian {
 			}
 			this.box_skillIcon.on(Laya.Event.MOUSE_DOWN, this, this.onTouchStart);
 			this.box_skillIcon.on(Laya.Event.MOUSE_UP, this, this.onTouchEnd);
-			EventManage.onWithEffect(this.btn_activate, Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_center, Laya.UIEvent.CLICK, this, () => {
 				this.onActivate();
 			})
 		}

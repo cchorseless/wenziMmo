@@ -433,9 +433,9 @@ module EnumData {
         CRET_PLAYER = 1,
         CRET_NPC = 2,
         CRET_MONSTER = 3,
-        CRET_PET,
-        CRET_COPYHUMAN,
-        CRET_HERO,
+        CRET_PET = 4,
+        CRET_COPYHUMAN = 5,
+        CRET_HERO = 6,
         CRET_ALL,
     };
 

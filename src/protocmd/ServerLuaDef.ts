@@ -2,6 +2,10 @@
  * 调用服务器lua
  */
 module ProtoCmd {
+
+    /*******************************新手引导进度设置************ */
+    // 设置新手引导进度
+    export const playerBubble = 'PlayerBubble';// 1-256*8
     /********************************新玩家进入****** */
     // 游戏触发第一个主线任务
     export const NEW_PLAYER_WelcomeDialog = 'welcomedialog';

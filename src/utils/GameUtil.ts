@@ -1,5 +1,4 @@
 module GameUtil {
-    let btn;
     /**
      * 查找背包内道具的数量
      * @param itemID 
@@ -28,12 +27,37 @@ module GameUtil {
         }
     }
 
-
-    export function addTipsJianTou(btn: Laya.Button, mode) {
-        let tipsJianTou = new view.compart.TipsJianTouItem();
-        tipsJianTou.showSelf(PanelManage.JuQingMode.btn_tianJian, 3);
+    /**
+     * 获取云服务器设置的新手引导数据
+     * @param index 
+     */
+    export function getServerData(index: number): Boolean {
+        if (GameApp.GameEngine.questBoolData) {
+            GameApp.GameEngine.questBoolData.pos = index;
+            return GameApp.GameEngine.questBoolData.getUint8() > 0;
+        }
+        return false
+    }
+    /**
+     * 设置云服务器的新手引导二进制数据
+     * @param index 
+     * @param value 
+     */
+    export function setServerData(index: number) {
+        let pkt = new ProtoCmd.QuestClientData();
+        pkt.setString(ProtoCmd.playerBubble, [index * 8]);
+        lcp.send(pkt);
+        // 维护本地数据，玩家上线后会重新
+        GameApp.GameEngine.questBoolData.pos = index;
+        GameApp.GameEngine.questBoolData.writeUint8(1);
     }
 
+
+    /**
+     * 任务循环
+     * @param toDoList 
+     * @param finishHander 
+     */
     export function loopFuncTask(toDoList, finishHander = null) {
         let curName = PopUpManager.curPanel.name;
         if (curName && toDoList[curName]) {
@@ -65,15 +89,30 @@ module GameUtil {
                         if (GameApp.MainPlayer.location.mapid == mapid) {
                             // 不在同一个房间内
                             if (GameApp.MainPlayer.roomId != roomid) {
-                                GameUtil.addEffectButton(PanelManage.Main.btn_mapBig);
-                                GameUtil.addEffectButton(PanelManage.Main.ui_mainDownMapItem.findRoomButton(roomid));
+                                // 是否需要导航
+                                if (GameApp.GameEngine.smallMapData.left == roomid) {
+                                    btn = PanelManage.Main.btn_mapLeft;
+                                }
+                                else if (GameApp.GameEngine.smallMapData.right == roomid) {
+                                    btn = PanelManage.Main.btn_mapRight
+                                }
+                                else if (GameApp.GameEngine.smallMapData.up == roomid) {
+                                    btn = PanelManage.Main.btn_mapUp
+                                }
+                                else if (GameApp.GameEngine.smallMapData.down == roomid) {
+                                    btn = PanelManage.Main.btn_mapDown
+                                }
+                                // 非相邻房间，需要展开地图导航
+                                else {
+                                    GameUtil.addEffectButton(PanelManage.Main.btn_mapBig);
+                                    GameUtil.addEffectButton(PanelManage.Main.ui_mainDownMapItem.findRoomButton(roomid));
+                                }
                             }
                             GameUtil.findNPC(roomid, npcid);
                         }
                         // 其他地图
                         else {
                             GameUtil.addEffectButton(PanelManage.Main.box_uiScene0.getChildAt(0)['btn_worldMap']);
-                            TipsManage.showTips('到达地图后继续');
                         }
                     }
 
@@ -91,21 +130,33 @@ module GameUtil {
                             }
                         }
                     }
+
                 }
                 // 界面内按钮
                 else {
                     btn = PopUpManager.curPanel[btn_name]
                 }
-                btn && GameUtil.addEffectButton(btn);
+                // 找到了BUTTON
+                if (btn) {
+                    GameUtil.addEffectButton(btn);
+                    // 判断最后一个按钮
+                    if (curName == toDoList['endPanel'] && toDoList[curName].length == 0) {
+                        btn.once(Laya.UIEvent.CLICK, this, () => {
+                            if (finishHander) {
+                                finishHander.run()
+                            }
+                        })
+                    }
+                }
+
             }
         }
+        // 判断最后一个按钮
         if (curName == toDoList['endPanel'] && toDoList[curName].length == 0) {
             Laya.timer.clear(this, GameUtil.loopFuncTask);
-            if (finishHander) {
-                finishHander.run()
-            }
             console.log('引导完成');
         }
+
     }
 
     // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
