@@ -959,6 +959,8 @@ class ServerListener extends SingletonClass {
             // 身上穿戴的
             case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
                 _bag = GameApp.GameEngine.equipDB;
+                // 身上穿的装备要同步位置
+                GameApp.GameEngine.equipDBIndex[msg.item.location.btIndex] = idx;
                 break;
             // 背包里面的
             case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
@@ -976,10 +978,11 @@ class ServerListener extends SingletonClass {
             _bag[idx].clone(msg.item.data);
         }
         else {
-            let item = new ProtoCmd.ItemBase(null);
+            let item = new ProtoCmd.ItemBase();
             item.clone(msg.item.data);
             _bag[idx] = item;
         }
+
         Log.trace('===>获得了道具' + idx);
         PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, _bag[idx]);
         msg.clear();
