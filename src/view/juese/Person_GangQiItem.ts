@@ -4,10 +4,8 @@ module view.juese {
 		constructor() {
 			super();
 		}
-		// public hasInit = false;// 初始化自己
+
 		public setData(): void {
-			// 	if (this.hasInit) { return };
-			// this.hasInit = true;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.wingInfo();
@@ -20,7 +18,6 @@ module view.juese {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
 				this.init_gangqi();
-				
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -65,7 +62,6 @@ module view.juese {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
-
 			//当前属性生命
 			let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
 			this.lbl_mylife.text = '' + life;
@@ -119,8 +115,7 @@ module view.juese {
 					_itemUI.lbl_exp.visible = true;
 					_itemUI.lbl_exp.text = data.exp;
 					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
-					this['box_gangqi' + i].addChild(_itemUI)
-
+					this['box_gangqi' + i].addChild(_itemUI);
 				}
 				this.init_GangQIInfo();
 			})

@@ -20,6 +20,16 @@ module GameObject {
         public set sex(srcID: EnumData.SEX_TYPE) {
             this.feature.simpleFeature.sex = srcID;
         }
+
+        /**
+         * 年龄
+         */
+        public get age(): number {
+            return
+
+        }
+
+
         // 天赋
         public talentInfo;
         // 性格
@@ -54,6 +64,9 @@ module GameObject {
         public nXinQing: number = 0;// 心情
         /******************BOSS积分************ */
         public bossCoin: number = 0;
+
+        //
+        public playerBirthData:ProtoCmd.itf_Guild_birthdateAndCompellation = null;
 
 
 

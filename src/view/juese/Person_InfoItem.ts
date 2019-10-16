@@ -65,7 +65,6 @@ module view.juese {
 					 let tt = new view.dialog.PlayerTagDialog();
 					 tt.popup(true);
 					 tt.setData(i)
-					
 				})
 			}
 

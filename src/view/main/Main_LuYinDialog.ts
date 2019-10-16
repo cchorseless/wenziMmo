@@ -96,6 +96,7 @@ module view.main {
 				});
 			lcp.send(pkt);
 		}
+		//删除  路引数据并发送到服务器
 		public deleteData() {
 
 			let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.delChuangSongRecord, [this.deleteTabID, this.deleteStr])

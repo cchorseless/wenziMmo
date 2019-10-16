@@ -17,7 +17,7 @@ module view.zhiNan {
 			function updataPetItem(cell: view.zhiNan.ZhiNan_jieshaoItem, index: number) {
 				var data: Object = arrayIntroduce[index];
 				cell.setData(data, index)
-				if(cell.index == 0){
+				if(cell.index == 0 &&hasRP == true){
 					cell.img_redPoint.visible = true;
 				}
 				else{

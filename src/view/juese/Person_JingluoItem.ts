@@ -10,20 +10,18 @@ module view.juese {
 			this.hasInit = true;
 			this.addEvent();
 			this.init_jingluo();
-			this.init_NeiGongInfo();
 		}
 		public addEvent(): void {
 			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_ShengJiInfo();
 			})
+			this.addLcpEvent();
 		}
 		/**
 		 * 经络信息拉取
 		 */
-		public init_NeiGongInfo(): void {
-			let pkt = new ProtoCmd.QuestClientData();
+		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JS_shuxingxitong_minabandakai, this, (jsonData: ProtoCmd.itf_JS_NeiGongInfo) => {
-
 				//经络重数
 				this.clip_chongshu.value = '' + Math.ceil(jsonData.dangqiandengji);
 				//内功恢复
@@ -42,7 +40,6 @@ module view.juese {
 				for (let i = 0; i < neigong; i++) {
 					let g = i + 1
 					this['btn_xuewei' + g].selected = true;
-
 				}
 				//穴位连接线点亮
 				for (let i = 0; i < line; i++) {
@@ -57,9 +54,10 @@ module view.juese {
 			GameApp.LListener.offCaller(ProtoCmd.JS_shuxingxitong_minabandakai, this);
 			PopUpManager.Dispose(this);
 		}
+
 		//经络拉取发包
 		public init_jingluo(): void {
-			let pkt = new ProtoCmd.QuestClientData;
+			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_shuxingxitong_minabandakai)
 			lcp.send(pkt);
 		}
