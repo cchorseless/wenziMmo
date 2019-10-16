@@ -47,13 +47,21 @@ module view.common {
 			let cg = new SkeletonUtil.SkeletonGroup();
 			cg.loadRes(['sk/new/MH.sk'], () => {
 				cg.pos(Laya.stage.width / 2, Laya.stage.height / 2);
-				Laya.stage.addChild(cg);
-				cg.play(0, false, false, Laya.Handler.create(this, () => {
-					this.addEvent();
-					this.changeMap(1);
-					Laya.Tween.to(cg, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => { cg.destroy(true) }));
-					Laya.Tween.to(this, { alpha: 1 }, 1000);
-				}), 2);
+				this.img_cg.addChild(cg);
+				let playIndex = 0;
+				cg.play(playIndex, false, false, null, 0.5);
+				this.img_cg.on(Laya.UIEvent.CLICK, this, () => {
+					playIndex += 1;
+					if (playIndex >= 6) {
+						this.addEvent();
+						this.changeMap(1);
+						Laya.Tween.to(this.img_cg, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => { this.img_cg.destroy(true) }));
+						Laya.Tween.to(this, { alpha: 1 }, 1000);
+					}
+					else {
+						cg.play(playIndex, false, false, null, 0.5);
+					}
+				})
 			})
 		}
 

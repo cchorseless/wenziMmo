@@ -22,6 +22,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
+        // 新手引导进度
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SUBCMD_QUESTBOOLDATA), this, this.updateQuestBoolData);
         // 玩家改变地图ID 201
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
         // 地图创建怪物和NPC 202
@@ -263,6 +265,17 @@ class ServerListener extends SingletonClass {
         TipsManage.showTips(cbpkt.tipmsg);
         cbpkt.clear();
         cbpkt = null;
+    }
+
+    /**
+     * 新手引导存储数据
+     * @param data 
+     */
+    public updateQuestBoolData(data): void {
+        let pkt = new ProtoCmd.SUBCMD_QUESTBOOLDATA(data);
+        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value'));
+        pkt.clear();
+        pkt = null;
     }
 
     /**
@@ -1176,8 +1189,6 @@ class ServerListener extends SingletonClass {
                         delete GameApp.GameEngine.bagItemDB[i64ItemId];
                         TipsManage.showTips('装备穿戴成功');
                         break;
-
-
                 }
             } else {
                 TipsManage.showTips('找不到对应的装备itemBase');
