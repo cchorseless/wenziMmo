@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":82,
-    "selecteID":68,
+    "selectedBox":74,
+    "selecteID":75,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -240,7 +240,7 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"x":348,"var":"btn_task","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"任务"},
+                            "props":{"y":73,"x":348,"var":"btn_task","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"任务"},
                             "nodeParent":63,
                             "label":"Button(btn_task)",
                             "isDirectory":false,
@@ -288,7 +288,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":73,"x":348,"var":"btn_touQie","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"偷窃"},
+                            "props":{"y":0,"x":349,"var":"btn_touQie","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"偷窃"},
                             "nodeParent":63,
                             "label":"Button(btn_touQie)",
                             "isDirectory":false,
@@ -629,13 +629,14 @@
                     "props":{"y":2,"x":208,"name":"item3"},
                     "nodeParent":28,
                     "label":"Box(item3)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":118,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":40,"width":142,"text":"任务列表","height":25,"fontSize":25,"font":"FZXK","color":"#000000","bold":true,"align":"left"},
                             "nodeParent":118,
@@ -648,19 +649,21 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":65,"x":-121,"width":453,"var":"panel_task","name":"item3","height":100},
                             "nodeParent":118,
                             "label":"Panel(panel_task)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":47,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
-                                    "props":{"y":0,"x":2,"width":450,"var":"vbox_task"},
+                                    "props":{"y":0,"x":2,"width":450,"var":"vbox_task","align":"center"},
                                     "nodeParent":47,
                                     "label":"VBox(vbox_task)",
                                     "isDirectory":false,
@@ -672,7 +675,7 @@
                                 }],
                             "$HIDDEN":true
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -968,7 +971,8 @@
             "hasChild":false,
             "compId":30,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,

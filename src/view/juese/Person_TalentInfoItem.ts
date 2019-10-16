@@ -4,27 +4,28 @@ module view.juese {
 		constructor() {
 			super();
 		}
-		public hasInit = false;// 初始化自己
+		private hasInit = false;// 初始化自己
 		//拉取天赋信息类型
-		public talent;
+		private talent;
 		//装备类型
-		public type;
+		private type;
 		//天赋激活类型
-		public index;
+		private index;
+		//天赋升级类型
+		private upLevelType;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.panel_talent.hScrollBarSkin = '';
 			this.hbox_talent['sortItem'] = (items) => { };
+			this.panel_wupin.hScrollBarSkin = '';
+			this.hbox_wupin['sortItem'] = (items) => { };
 			this.talent = ProtoCmd.JS_DragonSoulPanel
 			this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 			this.index = ProtoCmd.JS_activeDragonSoul;
+			this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 			this.hasInit = true;
 			this.addEvent();
 			this.TalentInfo();
-			this.getItemInfo();
-			this.init_talent();
-			this.activeTalent();
-			
 		}
 
 
@@ -35,11 +36,14 @@ module view.juese {
 			// this.box_0.on(Laya.UIEvent.MOUSE_DOWN, this, (e: Laya.Event) => {
 			// 	this.downX = e.stageX;
 			// });
+			//升级
+		
 			//悟性
 			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_DragonSoulPanel;
 				this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 				this.index = ProtoCmd.JS_activeDragonSoul;
+				this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 				this.TalentInfo();
 			});
 			//臂力
@@ -47,6 +51,7 @@ module view.juese {
 				this.talent = ProtoCmd.JS_ShieldPanel;
 				this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
 				this.index = ProtoCmd.JS_activeShield;
+				this.upLevelType = ProtoCmd.JS_upgradeShield;
 				this.TalentInfo();
 
 			});
@@ -55,6 +60,7 @@ module view.juese {
 				this.talent = ProtoCmd.JS_OfficialSealPanel;
 				this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
 				this.index = ProtoCmd.JS_activeOfficialSeal;
+				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
 				this.TalentInfo();
 
 
@@ -64,6 +70,7 @@ module view.juese {
 				this.talent = ProtoCmd.JS_BloodJadePanel;
 				this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
 				this.index = ProtoCmd.JS_activeBloodJade;
+				this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
 				this.TalentInfo();
 
 			});
@@ -72,9 +79,13 @@ module view.juese {
 				this.talent = ProtoCmd.JS_MedalPanel;
 				this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
 				this.index = ProtoCmd.JS_activeMedal;
+				this.upLevelType = ProtoCmd.JS_upgradeMedal;
 				this.TalentInfo();
 
 			});
+				this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
+				this.lvUpTalent();
+			})
 		}
 
 
@@ -102,9 +113,12 @@ module view.juese {
 				this.viw_0.selectedIndex = 0;
 				this.init_talent();
 				this.zhuangbeiInfo(this.getItemInfo());
+				this.init_laqu();
+
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
+				this.activeTalent();
 			}
 
 		}
@@ -112,32 +126,57 @@ module view.juese {
 			return GameUtil.findEquipInPlayer(this.type)
 		}
 
-		/**
-		 * 升级天赋
-		 * @param index 
-		 */
-		public lvUpTalent(index): void {
 
-		}
 		public init_talent(): void {
 			// 拉取天賦
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(this.talent, null, null, this, (jsonData) => {
+			GameApp.LListener.on(this.talent, this, (jsonData) => {
 				this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
 				this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
-				for (let i = 1; jsonData.itemtab[i]; i++) {
+				let keys = Object.keys(jsonData.itemtab);
+				console.log('===>物品id',jsonData )
+				this.hbox_wupin.removeChildren();
+				for (let key of keys) {
+					let data = jsonData.itemtab[key];
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
-					itemInfo.dwBaseID = jsonData.itemtab[i].index;
-					itemInfo.dwCount = jsonData.itemtab[i].score;
+					let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
+					itemInfo.dwBaseID = data.index;
+					itemInfo.dwCount = num;
+					
+					//经验值
+					_itemUI.img_exp.visible = true;
+					_itemUI.lbl_exp.visible = true;
+					_itemUI.lbl_exp.text = jsonData.score;
 					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
-					this['box_talent' + i].addChild(_itemUI)
+					this.hbox_wupin.addChild(_itemUI)
+									
 				}
-				console.log('===>天賦天賦', jsonData);
 			})
+		}
+		public Dispose(): void {
+			GameApp.LListener.offCaller(this.talent, this);
+			PopUpManager.Dispose(this);
+		}
+		public init_laqu(): void {
+			let pkt = new ProtoCmd.QuestClientData;
+			pkt.setString(this.talent)
 			lcp.send(pkt);
 		}
+		/**
+	  * 升级天赋
+	  * @param index 
+	  */
+		public lvUpTalent(): void {
+			let pkt = new ProtoCmd.QuestClientData;
+			pkt.setString(this.upLevelType)
+			lcp.send(pkt);
+		}
+		/**
+		 * 当前属性与星级
+		 * @param data 当前天赋
+		 */
 		public zhuangbeiInfo(data: ProtoCmd.ItemBase): void {
+			//星级
 			for (let i = 0; i < data.dwLevel; i++) {
 				let j = i + 1
 				this['btn_' + j].selected = true;
@@ -227,18 +266,31 @@ module view.juese {
 					this.lbl_shuxing4.text = '受英雄伤害减少：' + hero_reduce;
 					break;
 			}
-			this.init_xiajie(data.dwEffId);
+			this.init_xiajie(data.dwBaseID);
 			this.init_xiajeshuxing(data.dwEffId);
 		}
+		/**
+		 * 
+		 * @param id 查找下阶物品id
+		 */
 		public init_xiajie(id): void {
-			let xiajieID = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + id))
-			while (xiajieID !== 0) {
-				xiajieID = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + xiajieID));
-
+			let xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + id)
+			this.hbox_talent.removeChildren();
+			while (xiajieID > 0) {
+				xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + xiajieID);
+				if (xiajieID == 0) {
+					break;
+				}
 				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(xiajieID));
 			}
 		}
-		public init_xiajeshuxing(id): void {
+		/**
+		 * 下阶属性
+		 * @param dwEffId 当前天赋ID
+		 */
+		public init_xiajeshuxing(dwEffId): void {
+			//下阶效果属性ID
+			let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + dwEffId)
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
