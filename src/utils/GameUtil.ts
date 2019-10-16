@@ -28,7 +28,7 @@ module GameUtil {
     }
 
     /**
-     * 获取云服务器设置的数据
+     * 获取云服务器设置的新手引导数据
      * @param index 
      */
     export function getServerData(index: number): Boolean {
@@ -39,14 +39,17 @@ module GameUtil {
         return false
     }
     /**
-     * 设置云服务器的二进制数据
+     * 设置云服务器的新手引导二进制数据
      * @param index 
      * @param value 
      */
     export function setServerData(index: number) {
         let pkt = new ProtoCmd.QuestClientData();
-        pkt.setString(ProtoCmd.playerBubble, [index * 8])
+        pkt.setString(ProtoCmd.playerBubble, [index * 8]);
         lcp.send(pkt);
+        // 维护本地数据，玩家上线后会重新
+        GameApp.GameEngine.questBoolData.pos = index;
+        GameApp.GameEngine.questBoolData.writeUint8(1);
     }
 
 

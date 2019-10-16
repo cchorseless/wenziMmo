@@ -129,10 +129,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
-         /***********************************弟子相关信息********************************* */
-           // 是否有弟子
+        /***********************************弟子相关信息********************************* */
+        // 是否有弟子
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdatePlayerInfo), this, this.haveDizi);
-        
+
         /***********************************任务信息*************************************** */
         // 监听任务信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
@@ -277,7 +277,7 @@ class ServerListener extends SingletonClass {
      */
     public updateQuestBoolData(data): void {
         let pkt = new ProtoCmd.SUBCMD_QUESTBOOLDATA(data);
-        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value'));
+        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer);
         pkt.clear();
         pkt = null;
     }
@@ -1542,10 +1542,10 @@ class ServerListener extends SingletonClass {
     /**
      * 
      * 是否有弟子     */
-     public haveDizi(): void {
+    public haveDizi(): void {
 
     }
-    
+
     /**
      * 打开界面
      * @param data 
