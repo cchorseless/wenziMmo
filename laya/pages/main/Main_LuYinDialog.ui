@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":122,
-    "selecteID":151,
+    "selectedBox":1,
+    "selecteID":121,
     "props":{"width":627,"sceneColor":"#c5a6a5","height":702},
     "nodeParent":-1,
     "label":"Dialog",
@@ -107,1232 +107,33 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"name":"item0"},
+                    "type":"Image",
+                    "props":{"y":0,"x":7,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
                     "nodeParent":121,
-                    "label":"Box(item0)",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":58,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"x":2,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":25,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":25,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":26,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":26,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":27,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":25,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":28,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":29,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":29,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":30,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":30,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":31,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":29,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":32,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":334,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":33,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":33,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":34,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":34,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":35,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":33,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":36,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":37,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":37,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":38,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":38,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":39,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":37,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":40,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":41,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":41,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":42,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":42,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":43,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":41,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":44,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":45,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":45,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":46,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":46,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":47,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":45,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":48,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":1,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":49,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":49,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":53,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":54,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":54,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":55,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":58,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":56,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":56,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":57,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"name":"item1"},
-                    "nodeParent":121,
-                    "label":"Box(item1)",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":59,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"x":2,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":60,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":60,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":61,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":61,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":62,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":60,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":63,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":64,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":64,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":65,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":65,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":66,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":64,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":67,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":334,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":68,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":68,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":69,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":69,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":70,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":68,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":71,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":72,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":72,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":73,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":73,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":74,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":72,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":75,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":76,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":76,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":77,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":77,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":78,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":76,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":79,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":80,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":80,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":81,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":81,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":82,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":80,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":83,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":1,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":84,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":84,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":85,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":86,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":86,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":87,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":59,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":88,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":88,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":89,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"name":"item2"},
-                    "nodeParent":121,
-                    "label":"Box(item2)",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":90,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"x":2,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":91,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":91,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":92,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":92,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":93,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":91,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":94,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":95,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":95,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":96,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":96,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":97,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":95,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":98,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":334,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":99,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":99,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":100,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":100,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":101,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":99,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":102,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":103,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":103,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":104,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":104,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":105,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":103,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":106,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":107,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":107,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":108,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":108,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":109,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":107,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":110,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":117,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":111,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":111,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":112,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":112,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":113,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":111,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":114,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":1,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":115,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":115,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":116,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":117,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":117,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":118,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":235,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":90,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":119,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":119,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":120,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"name":"item3"},
-                    "nodeParent":121,
-                    "label":"Box(item3)",
+                    "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":122,
+                    "compId":123,
                     "child":[
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"x":2,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide1"},
+                            "nodeParent":123,
+                            "label":"Box(box_guide1)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":123,
+                            "compId":278,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":123,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":278,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
@@ -1341,10 +142,12 @@
                                     "compId":124,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName1","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
                                             "nodeParent":124,
-                                            "label":"Label",
+                                            "label":"Label(lab_locationName1)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -1356,10 +159,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":123,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate1","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":278,
+                                    "label":"Label(lab_coordinate1)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1372,36 +176,79 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete1","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":123,
+                            "label":"Button(btn_delete1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":156,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add1","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":123,
+                            "label":"Button(btn_add1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":157,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":169,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":279,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide2"},
+                            "nodeParent":279,
+                            "label":"Box(box_guide2)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":127,
+                            "compId":280,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":127,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":280,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":128,
+                                    "compId":281,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":128,
-                                            "label":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName2","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":281,
+                                            "label":"Label(lab_locationName2)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":129,
+                                            "compId":282,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -1409,14 +256,15 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":127,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate2","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":280,
+                                    "label":"Label(lab_coordinate2)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":130,
+                                    "compId":283,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -1425,36 +273,79 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"x":334,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete2","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":279,
+                            "label":"Button(btn_delete2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":284,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add2","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":279,
+                            "label":"Button(btn_add2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":285,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":331,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":286,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide3"},
+                            "nodeParent":286,
+                            "label":"Box(box_guide3)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":131,
+                            "compId":287,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":131,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":287,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":132,
+                                    "compId":288,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":132,
-                                            "label":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName3","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":288,
+                                            "label":"Label(lab_locationName3)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":133,
+                                            "compId":289,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -1462,14 +353,15 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":131,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate3","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":287,
+                                    "label":"Label(lab_coordinate3)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":134,
+                                    "compId":290,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -1478,36 +370,79 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":117,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete3","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":286,
+                            "label":"Button(btn_delete3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":291,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add3","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":286,
+                            "label":"Button(btn_add3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":292,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":118,"x":7,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":337,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide4"},
+                            "nodeParent":337,
+                            "label":"Box(box_guide4)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":135,
+                            "compId":338,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":135,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":338,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":136,
+                                    "compId":339,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":136,
-                                            "label":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName4","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":339,
+                                            "label":"Label(lab_locationName4)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":137,
+                                            "compId":340,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -1515,14 +450,15 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":135,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate4","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":338,
+                                    "label":"Label(lab_coordinate4)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":138,
+                                    "compId":341,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -1531,36 +467,79 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":117,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete4","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":337,
+                            "label":"Button(btn_delete4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":342,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add4","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":337,
+                            "label":"Button(btn_add4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":343,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":118,"x":169,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":344,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide5"},
+                            "nodeParent":344,
+                            "label":"Box(box_guide5)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":139,
+                            "compId":345,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":139,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":345,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":140,
+                                    "compId":346,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":140,
-                                            "label":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName5","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":346,
+                                            "label":"Label(lab_locationName5)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":141,
+                                            "compId":347,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -1568,14 +547,15 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":139,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate5","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":345,
+                                    "label":"Label(lab_coordinate5)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":142,
+                                    "compId":348,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -1584,36 +564,79 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":117,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":null,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete5","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":344,
+                            "label":"Button(btn_delete5)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":349,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add5","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":344,
+                            "label":"Button(btn_add5)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":350,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":118,"x":331,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":351,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide6"},
+                            "nodeParent":351,
+                            "label":"Box(box_guide6)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":143,
+                            "compId":352,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":35,"x":6,"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
-                                    "nodeParent":143,
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":352,
                                     "label":"Image",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
-                                    "compId":144,
+                                    "compId":353,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-14,"x":15,"width":117,"text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
-                                            "nodeParent":144,
-                                            "label":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName6","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":353,
+                                            "label":"Label(lab_locationName6)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":145,
+                                            "compId":354,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
@@ -1621,14 +644,15 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":63,"x":5,"width":138,"text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
-                                    "nodeParent":143,
-                                    "label":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate6","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":352,
+                                    "label":"Label(lab_coordinate6)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":146,
+                                    "compId":355,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -1637,90 +661,331 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":235,"x":1,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":false,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete6","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":351,
+                            "label":"Button(btn_delete6)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":356,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add6","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":351,
+                            "label":"Button(btn_add6)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":357,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":236,"x":7,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":359,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide7"},
+                            "nodeParent":359,
+                            "label":"Box(box_guide7)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":147,
+                            "compId":360,
                             "child":[
                                 {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":147,
-                                    "label":"Button",
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":360,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":361,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName7","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":361,
+                                            "label":"Label(lab_locationName7)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":362,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate7","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":360,
+                                    "label":"Label(lab_coordinate7)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":148,
+                                    "compId":363,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":235,"x":167,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":false,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete7","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":359,
+                            "label":"Button(btn_delete7)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":364,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add7","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":359,
+                            "label":"Button(btn_add7)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":365,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":236,"x":169,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":366,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide8"},
+                            "nodeParent":366,
+                            "label":"Box(box_guide8)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":149,
+                            "compId":367,
                             "child":[
                                 {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":149,
-                                    "label":"Button",
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":367,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":368,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName8","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":368,
+                                            "label":"Label(lab_locationName8)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":369,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate8","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":367,
+                                    "label":"Label(lab_coordinate8)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":150,
+                                    "compId":370,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":235,"x":333,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
-                            "nodeParent":122,
-                            "label":"Image",
-                            "isOpen":false,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete8","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":366,
+                            "label":"Button(btn_delete8)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":371,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add8","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":366,
+                            "label":"Button(btn_add8)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":372,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":236,"x":331,"width":158,"skin":"image/common/frame_gang_store.png","height":108},
+                    "nodeParent":121,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":373,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":12,"x":5,"var":"box_guide9"},
+                            "nodeParent":373,
+                            "label":"Box(box_guide9)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":151,
+                            "compId":374,
                             "child":[
                                 {
-                                    "type":"Button",
-                                    "props":{"y":22,"x":48,"stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
-                                    "nodeParent":151,
-                                    "label":"Button",
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"width":148,"skin":"image/common/bottom_smalltitle.png","height":25},
+                                    "nodeParent":374,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":375,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":-4,"x":15,"width":117,"var":"lab_locationName9","text":"洛阳 - 客栈","strokeColor":"#000000","stroke":2,"height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#ffffff"},
+                                            "nodeParent":375,
+                                            "label":"Label(lab_locationName9)",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":376,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":51,"x":5,"width":138,"var":"lab_coordinate9","text":"（440 , 150）","strokeColor":"#000000","height":33,"fontSize":23,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
+                                    "nodeParent":374,
+                                    "label":"Label(lab_coordinate9)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":152,
+                                    "compId":377,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
-                        }]
-                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":-9,"x":128,"var":"btn_delete9","stateNum":"3","skin":"image/common/comp/btn_close.png"},
+                            "nodeParent":373,
+                            "label":"Button(btn_delete9)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":378,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":48,"var":"btn_add9","stateNum":"2","skin":"image/main/btn_tianjia_01_finish.png"},
+                            "nodeParent":373,
+                            "label":"Button(btn_add9)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":379,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":553,"x":112,"width":144,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"保存记录点","height":59},
+            "props":{"y":553,"x":112,"width":144,"var":"btn_add","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"保存记录点","height":59},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_add)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -1732,9 +997,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":553,"x":344,"width":144,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"删除记录点","height":59},
+            "props":{"y":553,"x":344,"width":144,"var":"btn_delete","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff","label":"删除记录点","height":59},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_delete)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

@@ -11,6 +11,7 @@ module view.zhiNan {
 			this.lab_shuxingName.text = data[0];
 			this.itemID = index;
 		}
+		//自身点击后调用panel的对应方法
 		private addEvent() {
 			EventManage.onWithEffect(this.btn_shuxingIcon, Laya.UIEvent.CLICK, this, () => {
 				ZhiNan_shuxingPanel.self.onChooseItem(this.itemID);

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":2,
+    "selecteID":3,
     "props":{"width":516,"sceneColor":"#ffffff","height":75},
     "nodeParent":-1,
     "label":"View",
@@ -18,17 +18,18 @@
             "props":{},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"x":41,"text":"2019.02","fontSize":24,"font":"FZHL","color":"#1e1e1e"},
+                    "props":{"y":2,"x":39,"width":201,"var":"lab_time","text":"2019.02","height":24,"fontSize":24,"font":"FZHL","color":"#1e1e1e","align":"left"},
                     "nodeParent":2,
-                    "label":"Label",
+                    "label":"Label(lab_time)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -37,10 +38,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":38,"x":39,"text":"你干掉了XXX，获得了XXX奖励。","fontSize":20,"font":"FZHL","color":"#404040"},
+                    "props":{"y":38,"x":39,"width":464,"var":"lab_content","text":"你干掉了XXX，获得了XXX奖励。","height":20,"fontSize":20,"font":"FZHL","color":"#404040","align":"left"},
                     "nodeParent":2,
-                    "label":"Label",
+                    "label":"Label(lab_content)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -49,6 +51,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":72,"skin":"image/juese/line_yeqian01.png"},
                     "nodeParent":2,

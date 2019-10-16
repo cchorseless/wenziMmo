@@ -11,6 +11,7 @@ module view.zhiNan {
 			this.lab_SkillName.text = data[0];
 			this.itemID = index;
 		}
+		//自身点击后调用panel的对应方法
 		private addEvent() {
 			EventManage.onWithEffect(this.btn_item, Laya.UIEvent.CLICK, this, () => {
 				ZhiNan_wuxuePanel.self.onChooseItem(this.itemID);

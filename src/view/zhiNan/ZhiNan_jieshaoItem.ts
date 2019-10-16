@@ -15,29 +15,23 @@ module view.zhiNan {
 			EventManage.onWithEffect(this.btn_wanfa, Laya.UIEvent.CLICK, this, () => {
 				switch (this.index) {
 					case 0:
-						PanelManage.openZhiNanWanFaPanel();
-						// let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-						// 	(data) => {
-						// 		console.log("从服务器获取的数据：", data)
-						// 		serverData = data;
-						// 	});
-						// lcp.send(pkt);
+						PanelManage.openZhiNanWanFaPanel();   //玩法
 						break;
 					case 1:
 						// TipsManage.showTips('敬请期待');
-						PanelManage.openZhiNanMenPaiPanel();
+						PanelManage.openZhiNanMenPaiPanel();  //门派
 						break;
 					case 2:
 						// TipsManage.showTips('敬请期待');
-						PanelManage.openZhiNanWuXuePanel();
+						PanelManage.openZhiNanWuXuePanel();   //武学
 						break;
 					case 3:
 						// TipsManage.showTips('敬请期待');
-						PanelManage.openZhiNanDiYuPanel();
+						PanelManage.openZhiNanDiYuPanel();    //地域
 						break;
 					case 4:
 						// TipsManage.showTips('敬请期待');
-						PanelManage.openZhiNanShuXingPanel();
+						PanelManage.openZhiNanShuXingPanel();  //属性
 						break;
 					case 5:
 						TipsManage.showTips('敬请期待');

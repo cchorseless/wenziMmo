@@ -17,6 +17,7 @@ module view.zhiNan {
 				PopUpManager.checkPanel(this);
 			});
 		}
+		//设置地域数据
 		public setData() {
 			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(4);
 			this.list_diyu.vScrollBarSkin = "";
@@ -24,6 +25,7 @@ module view.zhiNan {
 			this.list_diyu.array = this.data;
 			this.list_diyu.renderHandler = new laya.utils.Handler(this, updataPetItem);
 			this.list_diyu.selectEnable = true;
+			// this.list_diyu.viewport
 			function updataPetItem(cell: view.zhiNan.ZhiNan_listdiyuItem, index: number) {
 				var data: Object = this.data[index];
 				cell.setData(data, index)
@@ -38,13 +40,14 @@ module view.zhiNan {
 			this.checkObjIndex = 0;
 			this.reViewListCells(0);
 		}
+		//玩家选择list中的子项
 		public onChooseItem(index) {
 			this.tempData = this.data[index];
 			this.upDataView(this.tempData, index)
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
-
+		//更新显示
 		public upDataView(data, index: number) {
 			this.lab_detail.text = data[8];
 			this.lab_level.text = data[3];
@@ -53,6 +56,7 @@ module view.zhiNan {
 			// this.img_icon.skin =data[9];
 
 		}
+		//重置list中的子项
 		public reViewListCells(index) {
 			for (let i = 0; i < this.list_diyu.cells.length - 1; i++) {
 				if (this.list_diyu.cells[i].itemID == index) {

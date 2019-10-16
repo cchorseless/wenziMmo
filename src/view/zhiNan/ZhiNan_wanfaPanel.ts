@@ -49,12 +49,14 @@ module view.zhiNan {
 			this.checkObjIndex = 0;
 			this.reViewListCells(0);
 		}
+		//选择的子项事件的响应事件
 		public onChooseItem(index) {
 			this.tempData = this.data[index];
 			this.upDataView(this.tempData, lockState[index], index + 1);  //正式使用的时候需要用 serverData  替换
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
+		//更新显示
 		public upDataView(data, islock: number, index) {
 			this.lab_unLock.text = data[2].toString();
 			this.lab_location.text = data[4];
@@ -71,8 +73,7 @@ module view.zhiNan {
 				this.lab_hasGet.color = "#a53232";
 				this.item_reward.on(Laya.UIEvent.CLICK, this, () => {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionReward, [1, index], 0, this,
-						(data) => {
-							// console.log("领取结果：", data)
+						() => {
 							serverData[index] = 2;
 							lockState[index - 1] = 2;
 							this.setData();
@@ -88,6 +89,7 @@ module view.zhiNan {
 
 			})
 		}
+		//重置list中子项显示
 		public reViewListCells(index) {
 			for (let i = 0; i < this.list_wanfa.cells.length - 1; i++) {
 				if (this.list_wanfa.cells[i].itemID == index) {

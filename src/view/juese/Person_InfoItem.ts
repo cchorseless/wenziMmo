@@ -1,8 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.juese {
 	export class Person_InfoItem extends ui.juese.Person_InfoItemUI {
+		public static self: Person_InfoItem;
 		constructor() {
 			super();
+			Person_InfoItem.self = this;
 			this.setData();
 		}
 		public hasInit = false;
@@ -30,6 +32,11 @@ module view.juese {
 			this.lbl_xinQing.text = '' + player.nXinQing + '/100';
 			// 角色形象
 			this.img_avatar.skin = '' + player.allAvatarPic;
+			//个人标签
+			for(let i = 1;i < 9;i++){
+				let o = GameApp.MainPlayer.xingGeInfo[i].id
+				this["lab_tag" + i ].text = SheetConfig.Label.getInstance(null).NAME(o);
+			}
 			// 拉取声望
 			this.getShengWangInfo();
 			this.addEvent();
@@ -50,6 +57,18 @@ module view.juese {
 			this.btn_shengpingEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonShengPingDialog().popup(true);
 			})
+			this.img_tag1.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.PlayerTagDialog().popup(true);
+			})
+			for (let i = 1; i < 9; i++) {
+				this["img_tag" + i].on(Laya.UIEvent.CLICK, this, () => {
+					 let tt = new view.dialog.PlayerTagDialog();
+					 tt.popup(true);
+					 tt.setData(i)
+					
+				})
+			}
+
 		}
 
 		/**
