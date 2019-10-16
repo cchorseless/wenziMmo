@@ -177,19 +177,21 @@ module ProtoCmd {
     /********************************弟子信息界面***************** */
 
     //弟子面板
-    export const JS_HeroBaseInfo = 'HeroBaseInfo';
-
+    export const Hero_HeroBaseInfo = 'HeroBaseInfo';
     // 激活第一个弟子
-    export const JS_firstGenHero = 'firstGenHero';
-
+    export const Hero_firstGenHero = 'firstGenHero';
+    // 激活第二第三个弟子
+    export const Hero_HeroJiHuo2and3 = 'HeroJiHuo2and3';
+    // 转生面板
+    export const Hero_zhuanShengPanel = 'zhuanShengPanel';
+    // 转生
+    export const Hero_zhuanSheng = 'zhuanSheng';
+    // 获取修为面板
+    export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';
+    // 兑换修为面板
+    export const Hero_exchangeXiuWei = 'exchangeXiuWei';
     /*********************************资质天赋******************** */
-    // // 善缘-官印
-    // // 激活善缘
-    // export const JS_SHANYUAN_Active = 'activeOfficialSeal';
-    // // 善缘界面
-    // export const JS_SHANYUAN_Panel = 'OfficialSealPanel';
-    // // 升级善缘
-    // export const JS_SHANGYUAN_LVUP = 'upgradeOfficialSeal';
+
     // 拉取天赋+性格随机结果
     export const JS_sendTianFuZiZhi = 'sendTianFuZiZhi';
     // 随机性格
@@ -470,7 +472,7 @@ module ProtoCmd {
         zongnum: number
     }
 
-    /**********************************角色信息************************* */
+    /**********************************弟子信息************************* */
     /**
      * 弟子基本信息
      */
@@ -479,7 +481,22 @@ module ProtoCmd {
         JOB: number//职业
         STATE: number//状态 0未激活1可激活2已激活
     }
-
+    export interface itf_Hero_ZhuanShengInfo {
+        afterlvl: number//转生前等级
+        beforelvl: number//转生后等级
+        effid: number//效果id
+        maxxw: number//最大修为
+        xw: number//当前修为
+        xwlvl: number//修为等级
+    }
+    export interface itf_Hero_XiuWeiInfo {
+        count: number//每日兑换次数
+        exp: number//所需经验
+        gold: number//金币数量
+        pill: number//修为丹
+        superpill: number//超级修为丹
+        xw: number//上述条件可兑换的修为
+    }
     /***********************************副本接口**************************** */
     /**
     * 拉取主线副本信息
