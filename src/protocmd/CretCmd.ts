@@ -351,7 +351,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwLevel', PacketBase.TYPE_INT);		//当前等级
-
+            
             this.addProperty('i64NowExp', PacketBase.TYPE_INT64);	//当前经验
             this.addProperty('i64MaxExp', PacketBase.TYPE_INT64);	//最大经验
 
@@ -387,6 +387,7 @@ module ProtoCmd {
             this.addProperty('dwBindRmb', PacketBase.TYPE_DWORD);//绑定元宝，弃用
 
             this.addProperty("i64MaxHeroExp", PacketBase.TYPE_INT64);//英雄最大经验
+
             this.addProperty('nHealth', PacketBase.TYPE_DWORD); //健康
             this.addProperty('nSpirte', PacketBase.TYPE_DWORD); //精神
             this.addProperty('nTili', PacketBase.TYPE_DWORD); //体力

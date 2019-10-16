@@ -13,11 +13,11 @@ module view.juese {
 			this.hasInit = true;
 			let player = GameApp.MainPlayer;
 			// 年龄
-			this.lbl_age.text = '' + player.createTime;
+			this.lbl_age.text = '' + player.age + '岁';
 			// 姓名
 			this.lbl_name.text = '' + player.objName;
 			// 出身
-			this.lbl_job.text = '' + player.job;
+			this.lbl_job.text = '' + LangConfig.jobDes[player.job];
 			// 公会名称
 			this.lbl_guild.text = '' + (player.guildInfo.szName || '暂无帮派');
 			// 健康
@@ -33,9 +33,9 @@ module view.juese {
 			// 角色形象
 			this.img_avatar.skin = '' + player.allAvatarPic;
 			//个人标签
-			for(let i = 1;i < 9;i++){
+			for (let i = 1; i < 9; i++) {
 				let o = GameApp.MainPlayer.xingGeInfo[i].id
-				this["lab_tag" + i ].text = SheetConfig.Label.getInstance(null).NAME(o);
+				this["lab_tag" + i].text = SheetConfig.Label.getInstance(null).NAME(o);
 			}
 			// 拉取声望
 			this.getShengWangInfo();
@@ -50,7 +50,6 @@ module view.juese {
 				new view.juese.PersonBirthDialog().popup(true);
 			})
 			this.btn_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
-
 				new view.juese.PersonNameDialog().popup(true);
 
 			})
@@ -62,9 +61,9 @@ module view.juese {
 			})
 			for (let i = 1; i < 9; i++) {
 				this["img_tag" + i].on(Laya.UIEvent.CLICK, this, () => {
-					 let tt = new view.dialog.PlayerTagDialog();
-					 tt.popup(true);
-					 tt.setData(i)
+					let tt = new view.dialog.PlayerTagDialog();
+					tt.popup(true);
+					tt.setData(i)
 				})
 			}
 
@@ -76,7 +75,13 @@ module view.juese {
 		public getShengWangInfo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
-
+				//我的声望头衔
+				for (let i = 0; jsonData.titletab[i]; i++) {
+					if (jsonData.prestigeid == i) {
+						this.lbl_shengWang.text = '' + jsonData.titletab[i].name;
+						break;
+					}
+				}
 			})
 			lcp.send(pkt);
 		}

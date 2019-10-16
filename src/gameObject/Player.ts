@@ -25,11 +25,14 @@ module GameObject {
          * 年龄
          */
         public get age(): number {
-            return
+            let span = GameApp.MainPlayer.createTime - GameApp.GameEngine.openDay;
+            let span_day = span / 86400;
+            return 18 + Math.floor(span_day / 24); //出生年
 
         }
 
-
+        // 玩家出生信息
+        public playerBirthData: ProtoCmd.itf_Guild_birthdateAndCompellation = null;
         // 天赋
         public talentInfo;
         // 性格
@@ -65,8 +68,7 @@ module GameObject {
         /******************BOSS积分************ */
         public bossCoin: number = 0;
 
-        //
-        public playerBirthData:ProtoCmd.itf_Guild_birthdateAndCompellation = null;
+
 
 
 
@@ -162,6 +164,7 @@ module GameObject {
         }
         // 颜值
         public changenYanZhi(srcID: number) {
+            console.log('颜值====', srcID);
             this.nYanZhi = srcID
         }
         // 体力

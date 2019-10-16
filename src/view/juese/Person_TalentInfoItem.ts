@@ -62,8 +62,6 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeOfficialSeal;
 				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
 				this.TalentInfo();
-
-
 			});
 			//身法
 			this.btn_top3.on(Laya.UIEvent.CLICK, this, () => {

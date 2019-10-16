@@ -350,7 +350,7 @@ class ServerListener extends SingletonClass {
                 break;
             // 英雄
             case EnumData.CRET_TYPE.CRET_HERO:
-            
+
                 break;
 
         }
@@ -759,6 +759,7 @@ class ServerListener extends SingletonClass {
                 break;
             //颜值
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PRETTY:
+                console.log('颜值改变了' + nowExp);
                 GameApp.MainPlayer.changenYanZhi(nowExp);
                 break;
             //心情
@@ -864,7 +865,7 @@ class ServerListener extends SingletonClass {
         player.changeNowFame(msg.getValue('i64Fame'));//当前声望
         player.changeMaxTotalFame(msg.getValue('i64TotalFame'));//累计声望
         player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
-        player.changeFight(msg.getValue('nFight'));//战斗力
+        player.changeFight(msg.getValue('nFight'));// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
         player.changenSpirte(msg.getValue('nSpirte'));// 精神
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
