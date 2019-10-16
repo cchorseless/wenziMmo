@@ -46,7 +46,6 @@ module view.hero {
 				if (jsonData[j].STATE == 2) {
 					this.viw_dizi.selectedIndex = 1;
 				}
-				console.log('====>弟子状态', jsonData)
 			})
 		}
 		public Dispose(): void {
