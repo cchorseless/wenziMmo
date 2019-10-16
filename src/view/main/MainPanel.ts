@@ -426,7 +426,8 @@ module view.main {
 		private getPlayerBirthData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
 				(data: ProtoCmd.itf_Guild_birthdateAndCompellation) => {
-					GameApp.GameEngine.playerBirthData = data
+					GameApp.GameEngine.mainPlayer.playerBirthData = data
+					GameApp.GameEngine.openDay = data.openday
 				});
 			lcp.send(pkt);
 		}

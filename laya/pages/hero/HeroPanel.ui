@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":30,
-    "selecteID":85,
+    "selecteID":127,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -94,7 +94,7 @@
                     "child":[
                         ],
                     "$LOCKED":true,
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -145,24 +145,24 @@
                     "x":30,
                     "type":"UIView",
                     "source":"hero/Hero_GangQiItem.ui",
-                    "props":{"y":0,"x":0,"name":"item4"},
+                    "props":{"y":0,"x":0,"var":"ui_gangqi","runtime":"view.hero.Hero_GangQiItem","name":"item4"},
                     "nodeParent":30,
-                    "label":"UIView(item4)",
+                    "label":"UIView(ui_gangqi)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":127,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"hero/Hero_SanGongItem.ui",
-                    "props":{"name":"item5"},
+                    "props":{"var":"ui_sangong","runtime":"view.hero.Hero_SanGongItem","name":"item5"},
                     "nodeParent":30,
-                    "label":"UIView(item5)",
+                    "label":"UIView(ui_sangong)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,

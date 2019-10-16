@@ -7,7 +7,7 @@ module view.juese {
 		]
 		constructor() {
 			super();
-			this.tempData = GameApp.GameEngine.playerBirthData;
+			this.tempData = GameApp.GameEngine.mainPlayer.playerBirthData;
 			this.panel_birth.vScrollBarSkin = "";
 			this.setData();
 			this.addEvent();

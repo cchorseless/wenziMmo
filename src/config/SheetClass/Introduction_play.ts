@@ -1,6 +1,6 @@
 module SheetConfig {
     export class Introduction_play {
-        public data; public _instance; public constructor(data) { this.data = data; }
+        private data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): Introduction_play { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
         /**
          *  名字
@@ -43,14 +43,13 @@ module SheetConfig {
          */
         public ICON(configID: string): string { return this.data[configID][9] }
         /**
-         * 全部数据
-         */
+    * 全部数据
+    */
         public GETDATALIST(typeKey): any {
             this.data;
             let tempDate = [];
             for (let i in this.data) {
-                if(this.data[i][1] == typeKey)
-                {
+                if (this.data[i][1] == typeKey)  {
                     let base = this.data[i]
                     tempDate.push(base)
                 }
@@ -58,6 +57,4 @@ module SheetConfig {
             return tempDate;
         }
     }
-
-
 }
