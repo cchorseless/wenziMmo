@@ -407,14 +407,23 @@ module view.main {
 
 			// 拉取性格天赋数据
 			this.loadXingGeTalentData();
-
+			//拉取生辰八字四格九宫
 			this.getPlayerBirthData();
-			
+			//拉取路引数据
+			this.getLuYinData();
+
 
 		}
-		public getPlayerBirthData() {
-			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
+		private getLuYinData() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.openChuangSongRecord, [GameApp.GameEngine.luyinTabID], 0, this,
 				(data) => {
+					GameApp.GameEngine["luyinData" + [GameApp.GameEngine.luyinTabID]] = data
+				});
+			lcp.send(pkt);
+		}
+		private getPlayerBirthData() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
+				(data: ProtoCmd.itf_Guild_birthdateAndCompellation) => {
 					GameApp.GameEngine.playerBirthData = data
 				});
 			lcp.send(pkt);
@@ -649,9 +658,9 @@ module view.main {
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JS_sendTianFuZiZhi, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
 				console.log(jsonData);
-				// 天赋
+				// 资质
 				GameApp.MainPlayer.talentInfo = jsonData.zztab;
-				// 性格
+				// 性格、标签
 				GameApp.MainPlayer.xingGeInfo = jsonData.tftab;
 			});
 			lcp.send(pkt1);

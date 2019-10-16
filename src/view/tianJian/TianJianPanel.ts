@@ -3,7 +3,6 @@ module view.tianJian {
 	export class TianJianPanel extends ui.tianJian.TianJianPanelUI {
 		public tempData = null;
 		private touchStartTime;
-		private touchMoveTime;
 		private isTouch: boolean = false;
 		private activateID: number = 0;
 		constructor() {
@@ -60,7 +59,6 @@ module view.tianJian {
 		}
 		private onTouchStart(e) {
 			this.isTouch = true;
-			this.touchStartTime = new Date().getTime();
 			Laya.timer.once(500, this, () => {
 				if (this.isTouch) {
 					this.onShowShuXing(false);

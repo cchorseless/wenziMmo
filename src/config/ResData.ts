@@ -197,6 +197,8 @@ module ResData {
             { url: 'json/characters.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.characters },
             // 八字介绍表
             { url: 'json/troduce.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.troduce },
+             // 个人标签表
+            { url: 'json/Label.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Label }
         ];
     }
 
