@@ -19,7 +19,7 @@ module view.zhiNan {
 		}
 		//设置地域数据
 		public setData() {
-			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(4);
+			this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(5);
 			this.list_diyu.vScrollBarSkin = "";
 			this.list_diyu.itemRender = view.zhiNan.ZhiNan_listdiyuItem;
 			this.list_diyu.array = this.data;

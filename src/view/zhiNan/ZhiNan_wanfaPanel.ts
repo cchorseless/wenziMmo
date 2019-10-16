@@ -1,6 +1,5 @@
 /**Created by the LayaAirIDE*/
 var serverData = {};//key从1开始,所以在使用的时候，传的参数需要+1
-var lockState = [1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 module view.zhiNan {
 	export class ZhiNan_wanfaPanel extends ui.zhiNan.ZhiNan_wanfaPanelUI {
 		private data;
@@ -36,7 +35,7 @@ module view.zhiNan {
 				} else {
 					cell.btn_itemIcon.selected = false;
 				}
-				if (lockState[cell.itemID] == 1) {
+				if (serverData[cell.itemID + 1] == 1) {
 					cell.img_redPoint.visible = true;
 				}
 				else {
@@ -45,19 +44,20 @@ module view.zhiNan {
 			}
 			this.tempData = this.data[0];
 			console.log("&&&&&&&&&&&")
-			this.upDataView(this.tempData, lockState[0], 1);  //正式使用的时候需要用 serverData  替换
+			this.upDataView(this.tempData, serverData[1], 1);  //正式使用的时候需要用 serverData  替换
 			this.checkObjIndex = 0;
 			this.reViewListCells(0);
 		}
 		//选择的子项事件的响应事件
 		public onChooseItem(index) {
 			this.tempData = this.data[index];
-			this.upDataView(this.tempData, lockState[index], index + 1);  //正式使用的时候需要用 serverData  替换
+			this.upDataView(this.tempData, serverData[index + 1], index + 1);  //正式使用的时候需要用 serverData  替换
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
 		//更新显示
 		public upDataView(data, islock: number, index) {
+			console.log("是否解锁了:",islock)
 			this.lab_unLock.text = data[2].toString();
 			this.lab_location.text = data[4];
 			this.lab_available.text = data[5];
@@ -75,7 +75,6 @@ module view.zhiNan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionReward, [1, index], 0, this,
 						() => {
 							serverData[index] = 2;
-							lockState[index - 1] = 2;
 							this.setData();
 						});
 					lcp.send(pkt);

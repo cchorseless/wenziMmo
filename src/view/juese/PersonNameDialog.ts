@@ -11,7 +11,7 @@ module view.juese {
 			this.addEvent()
 		}
 		public setData(): void {
-			this.playerNameMessage = GameApp.GameEngine.playerBirthData.compellation[1];
+			this.playerNameMessage = GameApp.GameEngine.mainPlayer.playerBirthData.compellation[1];
 			this.upDateView();
 		}
 		public addEvent() {

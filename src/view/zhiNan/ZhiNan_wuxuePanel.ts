@@ -78,7 +78,7 @@ module view.zhiNan {
 			if (boo) {
 				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3);
 			} else {
-				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3); //后续根据配表修改3051-3100 ？
+				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(4); //后续根据配表修改3051-3100 ？
 			}
 			this.list_wuxue.vScrollBarSkin = "";
 			this.list_wuxue.itemRender = view.zhiNan.ZhiNan_listwuxueItem;

@@ -12,7 +12,7 @@ module view.zhiNan {
 			this.lab_itemName.text = data[0];
 			this.lab_itemDemand.text = data[2];
 			this.itemID = index;
-			let p = lockState[this.itemID];
+			let p = serverData[this.itemID + 1];
 			if (p > 0){
 				this.islock = true;
 				this.lock.visible = false;

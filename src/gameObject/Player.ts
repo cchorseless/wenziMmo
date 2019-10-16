@@ -55,6 +55,9 @@ module GameObject {
         /******************BOSS积分************ */
         public bossCoin: number = 0;
 
+        //
+        public playerBirthData:ProtoCmd.itf_Guild_birthdateAndCompellation = null;
+
 
 
         constructor() {
