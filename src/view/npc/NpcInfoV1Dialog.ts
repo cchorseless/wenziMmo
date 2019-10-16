@@ -124,7 +124,6 @@ module view.npc {
 			// 战斗能力
 			this.lbl_npcDes2.text = this.battleDes[0]
 			// 气血状态
-			console.log(this.item.ability);
 			let ability = this.item.ability;
 			this.img_hp.width = this.img_hpBg.width * ability.nowHP / ability.nMaxHP;
 			this.lbl_hpCount.text = '' + ability.nowHP + '/' + ability.nMaxHP;
@@ -144,7 +143,10 @@ module view.npc {
 
 				}
 			}
-
+			this.btn_task.visible = (this.vbox_task.numChildren > 0);
+			if (this.btn_task.visible) {
+				GameUtil.addEffectButton(this.btn_task);
+			}
 		}
 	}
 }

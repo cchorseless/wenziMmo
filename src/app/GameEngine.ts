@@ -41,7 +41,6 @@ class GameEngine extends SingletonClass {
     /******************************************************** */
 
     /*************************用户本地数据******************** */
-
     public chatData = {};           //聊天缓存信息
     public chatDataSingleMax = 100; //单个频道聊天缓存信息最大条数
     public chatDataAllMax = 500;    //全部频道缓存的信息最大条数目
@@ -65,9 +64,12 @@ class GameEngine extends SingletonClass {
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
+    /***********************新手引导数据********* */
+    public questBoolData: Laya.Byte = null;
+
+
     public isReady: boolean = false;
     public isLogin: boolean = false;
-
     public loginsvrIdType: number;//登陆服务器ID
     public gamesvrIdType: number;
     public tokenCheck: number;
@@ -75,7 +77,6 @@ class GameEngine extends SingletonClass {
 
     //玩家出生信息
     public playerBirthData = null;
-
     //当前玩家路引信息
     public luyinData1;
     public luyinData2;

@@ -2,6 +2,10 @@
  * 调用服务器lua
  */
 module ProtoCmd {
+
+    /*******************************新手引导进度设置************ */
+    // 设置新手引导进度
+    export const playerBubble = 'PlayerBubble';// 1-256*8
     /********************************新玩家进入****** */
     // 游戏触发第一个主线任务
     export const NEW_PLAYER_WelcomeDialog = 'welcomedialog';
@@ -168,8 +172,16 @@ module ProtoCmd {
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
     export const JS_playerWingPanel = 'playerWingPanel';
-     // 罡气进阶
+    // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
+    /********************************弟子信息界面***************** */
+
+    //弟子面板
+    export const JS_HeroBaseInfo = 'HeroBaseInfo';
+
+    // 激活第一个弟子
+    export const JS_firstGenHero = 'firstGenHero';
+
     /*********************************资质天赋******************** */
     // // 善缘-官印
     // // 激活善缘
@@ -202,13 +214,13 @@ module ProtoCmd {
     export const JS_ShieldPanel = 'ShieldPanel';
     // 臂力激活
     export const JS_activeShield = 'activeShield';
-     // 臂力升级
+    // 臂力升级
     export const JS_upgradeShield = 'upgradeShield';
     // 身法=血玉
     export const JS_BloodJadePanel = 'BloodJadePanel';
     // 身法激活
     export const JS_activeBloodJade = 'activeBloodJade';
-     // 身法升级
+    // 身法升级
     export const JS_upgradeBloodJade = 'upgradeBloodJade';
     // 根骨-勋章
     export const JS_MedalPanel = 'MedalPanel';
@@ -241,10 +253,10 @@ module ProtoCmd {
     /**
      * 路引数据
      */
-    export interface itf_Guild_openChuangSongRecord{
-        open:boolean;
-        datatab:Object
-        
+    export interface itf_Guild_openChuangSongRecord {
+        open: boolean;
+        datatab: Object
+
     }
 
     /**
@@ -257,20 +269,20 @@ module ProtoCmd {
     /**
      * 天鉴数据
      */
-    export interface itf_Guild_SpecialRingPanel{
-        cfgtab:{[index:number]:Object};  //详细数据
-        status:{[index:number]:number}   //解锁情况
+    export interface itf_Guild_SpecialRingPanel {
+        cfgtab: { [index: number]: Object };  //详细数据
+        status: { [index: number]: number }   //解锁情况
     };
 
     /**
      * 四格，9宫 数据
      */
-    export interface itf_Guild_birthdateAndCompellation{
-        brithdata_one:{[index:number]:Object};  //八字_1
-        brithdata_two:{[index:number]:Object};  //八字_2
-        compellation:{[index:number]:Object};  //四格9宫
-        descID:number   //介绍ID
-        openday:number   //开服日期
+    export interface itf_Guild_birthdateAndCompellation {
+        brithdata_one: { [index: number]: Object };  //八字_1
+        brithdata_two: { [index: number]: Object };  //八字_2
+        compellation: { [index: number]: Object };  //四格9宫
+        descID: number   //介绍ID
+        openday: number   //开服日期
     };
 
     /**
@@ -458,7 +470,15 @@ module ProtoCmd {
         zongnum: number
     }
 
-
+    /**********************************角色信息************************* */
+    /**
+     * 弟子基本信息
+     */
+    export interface itf_Hero_BaseInfo {
+        DJS: number//倒计时
+        JOB: number//职业
+        STATE: number//状态 0未激活1可激活2已激活
+    }
 
     /***********************************副本接口**************************** */
     /**

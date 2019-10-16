@@ -746,7 +746,7 @@ module ProtoCmd {
     }
 
     /**
-     * 新手引导进度
+     * 服务器推送，新手引导进度
      */
     export class SUBCMD_QUESTBOOLDATA extends Packet {
         public static msgID: number = 0x02B5; // 181

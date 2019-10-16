@@ -197,6 +197,7 @@ module view.beiBao {
 					}
 					this.ui_cangKu.addItem(obj);
 					break;
+
 			}
 		}
 

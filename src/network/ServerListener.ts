@@ -22,6 +22,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
+        // 新手引导进度
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SUBCMD_QUESTBOOLDATA), this, this.updateQuestBoolData);
         // 玩家改变地图ID 201
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.PlayerChangeMap), this, this.playerChangeMap);
         // 地图创建怪物和NPC 202
@@ -127,6 +129,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.QuestServerDataRet), this, this.questServerDataRet);
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
+        /***********************************弟子相关信息********************************* */
+        // 是否有弟子
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdatePlayerInfo), this, this.haveDizi);
+
         /***********************************任务信息*************************************** */
         // 监听任务信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stQuestLoginRet), this, this.updateTaskInfo);
@@ -263,6 +269,17 @@ class ServerListener extends SingletonClass {
         TipsManage.showTips(cbpkt.tipmsg);
         cbpkt.clear();
         cbpkt = null;
+    }
+
+    /**
+     * 新手引导存储数据
+     * @param data 
+     */
+    public updateQuestBoolData(data): void {
+        let pkt = new ProtoCmd.SUBCMD_QUESTBOOLDATA(data);
+        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer);
+        pkt.clear();
+        pkt = null;
     }
 
     /**
@@ -959,6 +976,8 @@ class ServerListener extends SingletonClass {
             // 身上穿戴的
             case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
                 _bag = GameApp.GameEngine.equipDB;
+                // 身上穿的装备要同步位置
+                GameApp.GameEngine.equipDBIndex[msg.item.location.btIndex] = idx;
                 break;
             // 背包里面的
             case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
@@ -976,10 +995,11 @@ class ServerListener extends SingletonClass {
             _bag[idx].clone(msg.item.data);
         }
         else {
-            let item = new ProtoCmd.ItemBase(null);
+            let item = new ProtoCmd.ItemBase();
             item.clone(msg.item.data);
             _bag[idx] = item;
         }
+
         Log.trace('===>获得了道具' + idx);
         PanelManage.BeiBao && PanelManage.BeiBao.addItem(bagType, _bag[idx]);
         msg.clear();
@@ -1173,8 +1193,6 @@ class ServerListener extends SingletonClass {
                         delete GameApp.GameEngine.bagItemDB[i64ItemId];
                         TipsManage.showTips('装备穿戴成功');
                         break;
-
-
                 }
             } else {
                 TipsManage.showTips('找不到对应的装备itemBase');
@@ -1521,6 +1539,13 @@ class ServerListener extends SingletonClass {
     public clientSetData(data: any): void {
 
     }
+    /**
+     * 
+     * 是否有弟子     */
+    public haveDizi(): void {
+
+    }
+
     /**
      * 打开界面
      * @param data 
