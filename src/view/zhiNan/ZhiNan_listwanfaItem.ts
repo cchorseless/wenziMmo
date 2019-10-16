@@ -24,6 +24,7 @@ module view.zhiNan {
 			}
 				
 		}
+		//自身点击后调用panel的对应方法
 		private addEvent() {
 			EventManage.onWithEffect(this.btn_item, Laya.UIEvent.CLICK, this, () => {
 				if (!this.islock) {

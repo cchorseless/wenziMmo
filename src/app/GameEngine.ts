@@ -17,7 +17,7 @@ class GameEngine extends SingletonClass {
     public connectPort: string = '8001';
     public trueZoneid: number = 1;
     public zoneid: number = 1001;//区号
-    public tradeid:number = 1;
+    public tradeid: number = 1;
     public svrIndex: number = 0;//服号
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';
@@ -75,6 +75,13 @@ class GameEngine extends SingletonClass {
 
     //玩家出生信息
     public playerBirthData = null;
+
+    //当前玩家路引信息
+    public luyinData1;
+    public luyinData2;
+    public luyinData3;
+    public luyinData4;
+    public luyinTabID: number = 1;
 
 
 

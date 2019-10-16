@@ -234,12 +234,52 @@ module ProtoCmd {
     export const activeSpecialRing = "activeSpecialRing";
     //四格，9宫
     export const birthdateAndCompellation = "birthdateAndCompellation";
+    //路引界面数据
+    export const openChuangSongRecord = "openChuangSongRecord";
+    //路引增加
+    export const addChuangSongRecord = "addChuangSongRecord";
+    //路引删除
+    export const delChuangSongRecord = "delChuangSongRecord";
 }
 
 /**
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 路引数据
+     */
+    export interface itf_Guild_openChuangSongRecord{
+        open:boolean;
+        datatab:Object
+        
+    }
+
+    /**
+     * 请求介绍手册的解锁状态   返回数据结构 {[index:number]:number}    
+     */
+    export interface itf_Guild_getIntroductionInfo {
+
+    };
+
+    /**
+     * 天鉴数据
+     */
+    export interface itf_Guild_SpecialRingPanel{
+        cfgtab:{[index:number]:Object};  //详细数据
+        status:{[index:number]:number}   //解锁情况
+    };
+
+    /**
+     * 四格，9宫 数据
+     */
+    export interface itf_Guild_birthdateAndCompellation{
+        brithdata_one:{[index:number]:Object};  //八字_1
+        brithdata_two:{[index:number]:Object};  //八字_2
+        compellation:{[index:number]:Object};  //四格9宫
+        descID:number   //介绍ID
+        openday:number   //开服日期
+    };
 
     /**
      * 号角信息
@@ -394,8 +434,8 @@ module ProtoCmd {
     }
     /**********************************角色信息************************* */
     export interface itf_JS_talentXingGeInfo {
-        zztab: any,//性格
-        tftab: any,//天赋
+        zztab: any,//资质
+        tftab: any,//性格、标签
         TotalZiZhiPoint: number,//天赋总数
     }
 

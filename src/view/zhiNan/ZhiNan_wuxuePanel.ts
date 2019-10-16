@@ -35,6 +35,7 @@ module view.zhiNan {
 				this.list_wuxue.scrollTo(1);
 			});
 		}
+		//更改按钮状态
 		private changeButtonState(boo: boolean) {
 			if (boo) {
 				this.btn_waigong.selected = true;
@@ -63,6 +64,7 @@ module view.zhiNan {
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
+		//更新显示
 		public upDataView(data, index: number) {
 			// this.img_skillIcon.skin = data[5];
 			this.lab_creater.text = data[3];
@@ -71,6 +73,7 @@ module view.zhiNan {
 			this.lab_detail.text = data[8];
 
 		}
+		//更新功法的说明
 		public upDataGongFaListView(boo: boolean) {
 			if (boo) {
 				this.data = SheetConfig.Introduction_play.getInstance(null).GETDATALIST(3);
@@ -92,6 +95,7 @@ module view.zhiNan {
 				}
 			}
 		}
+		//重置list中子项显示
 		public reViewListCells(index) {
 			for (let i = 0; i < this.list_wuxue.cells.length - 1; i++) {
 				if (this.list_wuxue.cells[i].itemID == index) {

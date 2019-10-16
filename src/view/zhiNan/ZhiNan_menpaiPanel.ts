@@ -38,12 +38,14 @@ module view.zhiNan {
 			this.checkObjIndex = 0;
 			this.reViewListCells(0);
 		}
+		//选择的子项事件的响应事件
 		public onChooseItem(index) {
 			this.tempData = this.data[index];
 			this.upDataView(this.tempData, index)
 			this.checkObjIndex = index;
 			this.reViewListCells(index);
 		}
+		//更新显示
 		public upDataView(data, index: number) {
 			this.lab_Detail.text = data[8];
 			this.lab_level.text = data[3];
@@ -53,6 +55,7 @@ module view.zhiNan {
 			// this.btn_menpaiIcon.skin =data[9];
 
 		}
+		//重置list中子项显示
 		public reViewListCells(index) {
 			for (let i = 0; i < this.list_menpai.cells.length - 1; i++) {
 				if (this.list_menpai.cells[i].itemID == index) {
