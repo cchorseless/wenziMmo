@@ -7,12 +7,11 @@ module view.juese {
 
 		public setData(): void {
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_player.getChildAt(index)['setData']();
+				(this.viw_player.getChildAt(index) as any).setData();
 				this.viw_player.selectedIndex = index;
-				this.cloud(index);
-				
+				this.img_cloud.visible = index == 1;
 			}, null, false);
-			
+
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -27,14 +26,6 @@ module view.juese {
 					PanelManage.openDiZiPanel();
 					PanelManage.DiZi.ui_diziInfo.baseInfo(i);
 				})
-			}
-		}
-		public cloud(index):void{
-			if(index==1){
-				this.img_cloud.visible=true;
-			}
-			else{
-				this.img_cloud.visible=false;
 			}
 		}
 	}

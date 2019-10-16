@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":216,
-    "selecteID":261,
+    "selectedBox":222,
+    "selecteID":239,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -290,14 +290,13 @@
                     "props":{"y":12,"x":16,"name":"item0"},
                     "nodeParent":222,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":216,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"x":25},
                             "nodeParent":216,
@@ -434,7 +433,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":52,"x":27},
                             "nodeParent":216,
@@ -617,7 +615,6 @@
                             "$HIDDEN":true
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":235,"x":47,"width":466,"height":34},
                             "nodeParent":216,
@@ -671,7 +668,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":327,"x":24,"width":371,"var":"panel_wupin","height":120},
                             "nodeParent":216,
@@ -697,7 +693,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":293,"x":48,"width":95,"text":"获取途径：","strokeColor":"#000000","height":29,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":216,
@@ -710,7 +705,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":295,"x":148,"width":305,"text":"XXXXX|XXXXXX|XXXXX|XXXXXX","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":216,
@@ -723,7 +717,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":457,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":216,
@@ -735,7 +728,6 @@
                             "compId":257,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":23,"text":"下阶预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":257,
@@ -751,7 +743,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":497,"x":-2,"width":544,"var":"panel_talent","height":120},
                             "nodeParent":216,
@@ -763,7 +754,6 @@
                             "compId":253,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"HBox",
                                     "props":{"var":"hbox_talent","top":0,"bottom":0},
                                     "nodeParent":253,
@@ -778,7 +768,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":366,"x":413,"var":"btn_up","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"升级"},
                             "nodeParent":216,
@@ -790,7 +779,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

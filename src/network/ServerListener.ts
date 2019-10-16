@@ -338,14 +338,21 @@ class ServerListener extends SingletonClass {
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
         switch (type) {
+            // npc
             case EnumData.CRET_TYPE.CRET_NPC:
                 obj = new GameObject.Npc();
                 obj.objName = obj.filterName(szShowName);
                 break;
+            // 怪物
             case EnumData.CRET_TYPE.CRET_MONSTER:
                 obj = new GameObject.Monster();
                 obj.objName = obj.filterName(szShowName);
                 break;
+            // 英雄
+            case EnumData.CRET_TYPE.CRET_HERO:
+            
+                break;
+
         }
         // feature 信息
         obj.feature.clone(msgData.feature.data);

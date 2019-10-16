@@ -404,7 +404,6 @@ module view.main {
 		public initData(): void {
 			// 更新数据
 			this.loadJuQingData();
-
 			// 拉取性格天赋数据
 			this.loadXingGeTalentData();
 			//拉取生辰八字四格九宫
@@ -421,6 +420,9 @@ module view.main {
 				});
 			lcp.send(pkt);
 		}
+		/**
+		 * 拉取玩家出生信息
+		 */
 		private getPlayerBirthData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
 				(data: ProtoCmd.itf_Guild_birthdateAndCompellation) => {

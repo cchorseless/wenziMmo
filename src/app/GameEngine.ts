@@ -67,7 +67,6 @@ class GameEngine extends SingletonClass {
     /***********************新手引导数据********* */
     public questBoolData: Laya.Byte = null;
 
-
     public isReady: boolean = false;
     public isLogin: boolean = false;
     public loginsvrIdType: number;//登陆服务器ID
@@ -76,7 +75,7 @@ class GameEngine extends SingletonClass {
     public logintoken: Laya.Byte;
 
     //玩家出生信息
-    public playerBirthData = null;
+    public playerBirthData: ProtoCmd.itf_Guild_birthdateAndCompellation = null;
     //当前玩家路引信息
     public luyinData1;
     public luyinData2;
