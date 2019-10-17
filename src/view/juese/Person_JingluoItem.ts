@@ -50,9 +50,10 @@ module view.juese {
 				}
 			})
 		}
-		public Dispose(): void {
+		
+		public destroy(bool): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_shuxingxitong_minabandakai, this);
-			PopUpManager.Dispose(this);
+			super.destroy(bool);
 		}
 
 		//经络拉取发包

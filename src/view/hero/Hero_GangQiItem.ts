@@ -11,12 +11,12 @@ module view.hero {
 			this.wingInfo();
 			this.addEvent();
 		}
-			public wingInfo(): void {
+		public wingInfo(): void {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
-				this.init_gangqi();	
+				this.init_gangqi();
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -34,7 +34,7 @@ module view.hero {
 				this.init_upLevel();
 			})
 		}
-			//激活
+		//激活
 		public init_JiHuo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_activeHeroWing, null, null, this, (jsonData) => {
@@ -43,7 +43,7 @@ module view.hero {
 			lcp.send(pkt);
 
 		}
-			public init_Info(data: ProtoCmd.ItemBase): void {
+		public init_Info(data: ProtoCmd.ItemBase): void {
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {
@@ -95,9 +95,9 @@ module view.hero {
 			//拉取我的罡气物品信息
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
-				console.log('=====》弟子罡气',jsonData)
+				console.log('=====》弟子罡气', jsonData)
 				//升星所需消耗的金币数量
-				this.lbl_use.text=''+jsonData.gold;
+				this.lbl_use.text = '' + jsonData.gold;
 			})
 			this.init_GangQIInfo();
 		}

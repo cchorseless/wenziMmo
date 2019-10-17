@@ -13,6 +13,7 @@ module view.juese {
 		private index;
 		//天赋升级类型
 		private upLevelType;
+		public eventList = [ProtoCmd.JS_DragonSoulPanel, ProtoCmd.JS_ShieldPanel, ProtoCmd.JS_OfficialSealPanel, ProtoCmd.JS_BloodJadePanel, ProtoCmd.JS_MedalPanel]
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.panel_talent.hScrollBarSkin = '';
@@ -37,7 +38,6 @@ module view.juese {
 			// 	this.downX = e.stageX;
 			// });
 			//升级
-		
 			//悟性
 			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_DragonSoulPanel;
@@ -46,6 +46,7 @@ module view.juese {
 				this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 				this.TalentInfo();
 			});
+
 			//臂力
 			this.btn_top1.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_ShieldPanel;
@@ -53,8 +54,8 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeShield;
 				this.upLevelType = ProtoCmd.JS_upgradeShield;
 				this.TalentInfo();
-
 			});
+
 			//善緣
 			this.btn_top2.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_OfficialSealPanel;
@@ -63,6 +64,7 @@ module view.juese {
 				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
 				this.TalentInfo();
 			});
+
 			//身法
 			this.btn_top3.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_BloodJadePanel;
@@ -70,8 +72,8 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeBloodJade;
 				this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
 				this.TalentInfo();
-
 			});
+
 			//根骨
 			this.btn_top4.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_MedalPanel;
@@ -79,29 +81,27 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeMedal;
 				this.upLevelType = ProtoCmd.JS_upgradeMedal;
 				this.TalentInfo();
-
 			});
-				this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
-				this.lvUpTalent();
-			})
-		}
 
-
-		/**
-		 * 激活天赋
-		 * @param index 
-		 */
-		public activeTalent(): void {
+			// 开启
 			this.btn_jiHuo.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(this.index, null, null, this, (jsonData) => {
+					console.log(jsonData);
 					this.TalentInfo()
-
 				})
 				lcp.send(pkt);
 			})
 
+			// 升级
+			this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
+				this.lvUpTalent();
+			})
+
+			this.addLcpEvent();
 		}
+
+
 		/**
 		 * 刷新天赋界面
 		 * 
@@ -109,63 +109,68 @@ module view.juese {
 		public TalentInfo(): void {
 			if (this.getItemInfo()) {
 				this.viw_0.selectedIndex = 0;
-				this.init_talent();
 				this.zhuangbeiInfo(this.getItemInfo());
 				this.init_laqu();
-
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
-				this.activeTalent();
 			}
-
 		}
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(this.type)
 		}
 
 
-		public init_talent(): void {
+		public addLcpEvent(): void {
 			// 拉取天賦
-			GameApp.LListener.on(this.talent, this, (jsonData) => {
-				this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
-				this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
-				let keys = Object.keys(jsonData.itemtab);
-				console.log('===>物品id',jsonData )
-				this.hbox_wupin.removeChildren();
-				for (let key of keys) {
-					let data = jsonData.itemtab[key];
-					let _itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo = new ProtoCmd.ItemBase();
-					let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
-					itemInfo.dwBaseID = data.index;
-					itemInfo.dwCount = num;
-					
-					//经验值
-					_itemUI.img_exp.visible = true;
-					_itemUI.lbl_exp.visible = true;
-					_itemUI.lbl_exp.text = jsonData.score;
-					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
-					this.hbox_wupin.addChild(_itemUI)
-									
-				}
-			})
+			for (let event of this.eventList) {
+				GameApp.LListener.on(event, this, (jsonData) => {
+					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
+					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
+					let keys = Object.keys(jsonData.itemtab);
+					console.log('===>物品id', jsonData)
+					this.hbox_wupin.removeChildren();
+					for (let key of keys) {
+						let data = jsonData.itemtab[key];
+						let _itemUI = new view.compart.DaoJuWithNameItem();
+						let itemInfo = new ProtoCmd.ItemBase();
+						let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
+						itemInfo.dwBaseID = data.index;
+						itemInfo.dwCount = num;
+						//经验值
+						_itemUI.img_exp.visible = true;
+						_itemUI.lbl_exp.visible = true;
+						_itemUI.lbl_exp.text = jsonData.score;
+						_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
+						this.hbox_wupin.addChild(_itemUI)
+					}
+				})
+			}
+
 		}
-		public Dispose(): void {
-			GameApp.LListener.offCaller(this.talent, this);
-			PopUpManager.Dispose(this);
+
+		public destroy(isbool): void {
+			for (let event of this.eventList) {
+				GameApp.LListener.offCaller(event, this);
+			}
+
+			super.destroy(isbool);
 		}
+
+		/**
+		 * 拉取界面信息
+		 */
 		public init_laqu(): void {
-			let pkt = new ProtoCmd.QuestClientData;
+			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(this.talent)
 			lcp.send(pkt);
 		}
 		/**
-	  * 升级天赋
-	  * @param index 
-	  */
+	  	 * 升级天赋
+	  	 * @param index 
+	  	 */
 		public lvUpTalent(): void {
-			let pkt = new ProtoCmd.QuestClientData;
+			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(this.upLevelType)
 			lcp.send(pkt);
 		}

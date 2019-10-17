@@ -11,7 +11,6 @@ module view.juese {
 				this.viw_player.selectedIndex = index;
 				this.img_cloud.visible = index == 1;
 			}, null, false);
-
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -27,6 +26,10 @@ module view.juese {
 					PanelManage.DiZi.ui_diziInfo.baseInfo(i);
 				})
 			}
+		}
+		public Dispose(): void {
+			console.log(1111111111,'PersonPanel')
+			PopUpManager.Dispose(this)
 		}
 	}
 }
