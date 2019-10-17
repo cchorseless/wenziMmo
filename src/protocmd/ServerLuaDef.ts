@@ -527,6 +527,18 @@ module ProtoCmd {
         state: any;//BOss信息
         totalcnt: number;//总层数
     }
+
+    export interface itf_FB_MainFBjindu {
+        ceng: number,
+        curcnt: number,
+        item: any
+        sec: number,
+        star: number,
+        tiaojian: string,// 完成条件
+        totalcnt: number,
+        totalsec: number,
+    }
+
     /**
      * 心魔副本信息
      */

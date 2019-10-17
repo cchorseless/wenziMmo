@@ -31,12 +31,21 @@ module view.juese {
 
 
 		public downX;
+		public upX;
+		public posList = [new Laya.Point(262, 156), new Laya.Point(398, 102), new Laya.Point(348, 82), new Laya.Point(170, 86), new Laya.Point(81, 137)];
+		public scalList = [1,];
 		// 根骨
 		public curIndex = EnumData.emEquipPosition.EQUIP_MEDAL;
 		public addEvent(): void {
-			// this.box_0.on(Laya.UIEvent.MOUSE_DOWN, this, (e: Laya.Event) => {
-			// 	this.downX = e.stageX;
-			// });
+			this.box_0.on(Laya.UIEvent.MOUSE_DOWN, this, (e: Laya.Event) => {
+				this.downX = e.stageX;
+			});
+			this.box_0.on(Laya.UIEvent.MOUSE_UP, this, (e: Laya.Event) => {
+				this.upX = e.stageX;
+				if (this.upX - this.downX > 100) {
+
+				}
+			});
 			//升级
 			//悟性
 			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
@@ -150,10 +159,10 @@ module view.juese {
 		}
 
 		public destroy(isbool): void {
+			console.log('xxxxxxxxxxxxx')
 			for (let event of this.eventList) {
 				GameApp.LListener.offCaller(event, this);
 			}
-
 			super.destroy(isbool);
 		}
 

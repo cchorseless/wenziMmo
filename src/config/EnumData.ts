@@ -165,6 +165,7 @@ module EnumData {
         EQUIP_KNEE,						// 膝
         EQUIP_PENDANT,					// 吊坠
         EQUIP_FACE = 69,				// 脸
+        
         EQUIP_MAX_COUNT,				// 总数
     };
 
