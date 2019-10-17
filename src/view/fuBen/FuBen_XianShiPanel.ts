@@ -39,7 +39,6 @@ module view.fuBen {
 		public init_xianshi(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_LimitActivities, null, null, this, (jsonData) => {
-				console.log('=====>限时活动', jsonData)
 				let keys=Object.keys(jsonData.state);
 				this.vbox_xianshi.removeChildren();
 				for (let key of keys) {

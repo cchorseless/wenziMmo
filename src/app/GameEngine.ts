@@ -75,7 +75,7 @@ class GameEngine extends SingletonClass {
     public tokenCheck: number;
     public logintoken: Laya.Byte;
 
-    //玩家出生信息
+    //服务器开服信息
     public openDay = null;
     //当前玩家路引信息
     public luyinData1;

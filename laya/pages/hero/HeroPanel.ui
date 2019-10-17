@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":30,
-    "selecteID":127,
+    "selecteID":126,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -115,24 +115,24 @@
                     "x":30,
                     "type":"UIView",
                     "source":"hero/Hero_WuXueItem.ui",
-                    "props":{"y":0,"x":0,"name":"item2"},
+                    "props":{"y":0,"x":0,"var":"ui_wuxue","runtime":"view.hero.Hero_WuXueItem","name":"item2"},
                     "nodeParent":30,
-                    "label":"UIView(item2)",
+                    "label":"UIView(ui_wuxue)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":126,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"hero/Hero_TalentInfoItem.ui",
-                    "props":{"y":0,"x":0,"name":"item3"},
+                    "props":{"y":0,"x":0,"var":"ui_talent","runtime":"view.hero.Hero_TalentInfoItem","name":"item3"},
                     "nodeParent":30,
-                    "label":"UIView(item3)",
+                    "label":"UIView(ui_talent)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -154,7 +154,7 @@
                     "compId":127,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

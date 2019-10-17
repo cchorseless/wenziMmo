@@ -3,24 +3,45 @@ module view.hero {
 	export class Hero_TalentInfoItem extends ui.hero.Hero_TalentInfoItemUI {
 		constructor() {
 			super();
-			this.addEvent();
+			this.setData();
 		}
+		public client_func_index = 54;
 		public setData(): void {
-
+			this.panel_talent.vScrollBarSkin = '';
+			this.vbox_talent['sortItem'] = items => { };
+			this.addEvent();
+			this.activation();
+			
 		}
 		public addEvent(): void {
-			this.box_jineng01.on(Laya.UIEvent.CLICK, this, () => {
-				new view.hero.HeroTalentDialog().popup(true);
+			this.btn_activation.on(Laya.UIEvent.CLICK, this, () => {
+				GameUtil.setServerData(this.client_func_index);
+				this.activation();
 			})
-			this.box_jineng02.on(Laya.UIEvent.CLICK, this, () => {
-				new view.hero.HeroTalentDialog().popup(true);
+		}
+		public activation(): void {
+			//判断是否激活
+			if (GameUtil.getServerData(this.client_func_index)) {
+				this.viw_talent.selectedIndex = 1;
+				this.init_talentNum();
+			}
+			else {
+				this.viw_talent.selectedIndex = 0;
+			}
+		}
+		public init_talentNum(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_heroAllGeniusLvl, null, null, this, (jsonData) => {
+				let keys = Object.keys(jsonData.lvltab);
+				for (let key of keys) {
+					let data = jsonData.lvltab[key];
+					this.vbox_talent.addChild(new view.hero.Hero_TalentInfoFloorItem().setData(key, data))
+				}
 			})
-			this.box_jineng03.on(Laya.UIEvent.CLICK, this, () => {
-				new view.hero.HeroTalentDialog().popup(true);
-			})
-			this.box_jineng04.on(Laya.UIEvent.CLICK, this, () => {
-				new view.hero.HeroTalentDialog().popup(true);
-			})
+			lcp.send(pkt);
+		}
+		public init_talentData(data: ProtoCmd.itf_Hero_TalentInfo): void {
+			this.lbl_talentMagic.text = '' + data.gssecore;
 		}
 	}
 }

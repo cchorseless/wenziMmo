@@ -4,14 +4,12 @@ module view.juese {
 		constructor() {
 			super();
 		}
-		// public hasInit = false;// 初始化自己
+
 		public setData(): void {
-			// 	if (this.hasInit) { return };
-			// this.hasInit = true;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
-			this.wingInfo();
 			this.addEvent();
+			this.wingInfo();
 		}
 
 		public wingInfo(): void {
@@ -20,16 +18,15 @@ module view.juese {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
 				this.init_gangqi();
-				
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
 			}
-
 		}
+
 		//查找自己身上的翅膀
 		public getItemInfo(): ProtoCmd.ItemBase {
-			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_WING)
+			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_WING);
 		}
 
 		public addEvent(): void {
@@ -39,6 +36,36 @@ module view.juese {
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_upLevel();
 			})
+			this.addLcpEvent();
+		}
+
+		public addLcpEvent(): void {
+			//拉取我的罡气物品信息
+			GameApp.LListener.on(ProtoCmd.JS_playerWingPanel, this, (jsonData) => {
+				let keys = Object.keys(jsonData)
+				let i = 0;
+				for (let key of keys) {
+					let data = jsonData[key];
+					i = i + 1;
+					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let itemInfo = new ProtoCmd.ItemBase();
+					let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
+					itemInfo.dwBaseID = parseInt(key);
+					itemInfo.dwCount = num;
+					//经验值
+					_itemUI.img_exp.visible = true;
+					_itemUI.lbl_exp.visible = true;
+					_itemUI.lbl_exp.text = data.exp;
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
+					this['box_gangqi' + i].addChild(_itemUI);
+				}
+				this.init_GangQIInfo();
+			})
+		}
+
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
+			super.destroy(isbool);
 		}
 
 		//激活
@@ -48,8 +75,8 @@ module view.juese {
 				this.wingInfo();
 			})
 			lcp.send(pkt);
-
 		}
+
 		//罡气界面信息
 		public init_Info(data: ProtoCmd.ItemBase): void {
 			//罡气星级
@@ -65,7 +92,6 @@ module view.juese {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
-
 			//当前属性生命
 			let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
 			this.lbl_mylife.text = '' + life;
@@ -101,34 +127,8 @@ module view.juese {
 			let xminprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + xiajieID);
 			let xmaxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + xiajieID);
 			this.lbl_xiajieProtectm.text = xminprotectmofa + '-' + xmaxprotectmofa;
-			//拉取我的罡气物品信息
-			let pkt = new ProtoCmd.QuestClientData();
-			GameApp.LListener.on(ProtoCmd.JS_playerWingPanel, this, (jsonData) => {
-				let keys = Object.keys(jsonData)
-				let i = 0;
-				for (let key of keys) {
-					let data = jsonData[key];
-					i = i + 1;
-					let _itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo = new ProtoCmd.ItemBase();
-					let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
-					itemInfo.dwBaseID = parseInt(key);
-					itemInfo.dwCount = num;
-					//经验值
-					_itemUI.img_exp.visible = true;
-					_itemUI.lbl_exp.visible = true;
-					_itemUI.lbl_exp.text = data.exp;
-					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
-					this['box_gangqi' + i].addChild(_itemUI)
+		}
 
-				}
-				this.init_GangQIInfo();
-			})
-		}
-		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
-			PopUpManager.Dispose(this);
-		}
 		/**
 		 * 罡气下阶预览
 		 */
@@ -138,12 +138,14 @@ module view.juese {
 				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));
 			}
 		}
+
 		//罡气信息拉取发包
 		public init_gangqi(): void {
-			let pkt = new ProtoCmd.QuestClientData;
+			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_playerWingPanel)
 			lcp.send(pkt);
 		}
+		
 		/**
 		 * 罡气进阶
 		 */

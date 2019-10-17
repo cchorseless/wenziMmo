@@ -175,7 +175,6 @@ module ProtoCmd {
     // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
     /********************************弟子信息界面***************** */
-
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
     // 激活第一个弟子
@@ -190,6 +189,19 @@ module ProtoCmd {
     export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';
     // 兑换修为面板
     export const Hero_exchangeXiuWei = 'exchangeXiuWei';
+    // 弟子罡气激活
+    export const Hero_activeHeroWing = 'activeHeroWing';
+    // 弟子罡气面板
+    export const Hero_heroWingPanel = 'heroWingPanel';//(gold:升级所需消耗的金币数量)
+    // 弟子罡气升级
+    export const Hero_advanceHeroWing = 'advanceHeroWing';
+    // 弟子所有天赋等级
+    export const Hero_heroAllGeniusLvl = 'heroAllGeniusLvl';//(lvltab：天赋等级)
+    // 弟子天赋重数面板
+    export const Hero_heroGeniusPanel = 'heroGeniusPanel';//
+    // 弟子武功招式
+    export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
+
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
@@ -506,6 +518,13 @@ module ProtoCmd {
         pill: number//修为丹
         superpill: number//超级修为丹
         xw: number//上述条件可兑换的修为
+    }
+    export interface itf_Hero_TalentInfo {
+        consumetab: any//所有组天赋的效果id
+        curduplicate: number//当前重id
+        gssecore: number//天赋魔力
+        lvltab: any//所有组天赋状态
+        maxduplicate: number//当前已开启的最大重数
     }
     /***********************************副本接口**************************** */
     /**

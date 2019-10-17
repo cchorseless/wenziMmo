@@ -5,8 +5,13 @@ module view.hero {
 			super();
 			this.setData();
 		}
+		//当前经验-最大经验
+		public exp;
+		public client_func_index = 53;
 		public setData(): void {
 			this.addEvent();
+			this.activation();
+
 		}
 		public addEvent(): void {
 			//转生突破
@@ -17,27 +22,44 @@ module view.hero {
 			this.btn_xiuwei.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
-			this.init_zhuansheng();
-			this.init_zhuangshengPanel();
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				GameUtil.setServerData(this.client_func_index);
+				this.activation();
+			})
+
+		}
+		public activation(): void {
+			//判断是否激活
+			if (GameUtil.getServerData(this.client_func_index)) {
+				this.viw_sangong.selectedIndex = 1;
+				this.addLcpEvent();
+				this.init_zhuangshengPanel();
+			}
+			else {
+				this.viw_sangong.selectedIndex = 0;
+			}
 		}
 		/**
 		 * 转生面板
 		 */
-		public init_zhuansheng(): void {
+		public addLcpEvent(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel,this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
+			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
+				let exp = jsonData.xw - jsonData.maxxw;
+				this.exp = exp;
 				if (jsonData.xw <= jsonData.maxxw) {
-					this.lbl_progress.text =  jsonData.xw + '/' + jsonData.maxxw;
+					this.lbl_progress.text = jsonData.xw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472 * jsonData.xw / jsonData.maxxw;
 				}
-				else { 
-					this.lbl_progress.text = ''  +  jsonData.maxxw + '/' +jsonData.maxxw;
-					this.img_progress.width = 472 ;
+				else {
+					this.lbl_progress.text = '' + jsonData.maxxw + '/' + jsonData.maxxw;
+					this.img_progress.width = 472;
 				}
 				if (jsonData.effid !== 0) {
 					/**
-					 * 当前属性
-					 */
+					  * 当前属性
+					  */
 					//最大生命
 					let HP1 = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + jsonData.effid);
 					this.lbl_maxHP1.text = '' + HP1;
@@ -66,8 +88,8 @@ module view.hero {
 					let toughness1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + jsonData.effid);
 					this.lbl_toughness1.text = '' + toughness1;
 					/**
-					 * 下级属性
-					 */
+					  * 下级属性
+					  */
 					//下级效果ID
 					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
 					//最大生命
@@ -99,24 +121,30 @@ module view.hero {
 					this.lbl_toughness2.text = '' + toughness2;
 				}
 
-			})	
+			})
 			let bpkt = new ProtoCmd.QuestClientData();
 			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData) => {
 				console.log('====>弟子修为面板', jsonData)
 			})
 			lcp.send(bpkt);
 		}
-			public Dispose(): void {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 		/**
 		 * 突破转生
 		 */
 		public init_UpLevel(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_zhuanSheng, [1])
-			lcp.send(pkt);
+			if (this.exp >= 0) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.Hero_zhuanSheng, [1])
+				lcp.send(pkt);
+			}
+			else {
+				TipsManage.showTips('当前经验不足');
+			}
+
 		}
 		/**
 		 * 转生面板发协议
