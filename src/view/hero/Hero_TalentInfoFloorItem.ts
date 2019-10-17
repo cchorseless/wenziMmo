@@ -95,8 +95,6 @@ module view.hero {
 						}
 					}
 				})
-
-
 			}
 		}
 		public init_talentType(): void {

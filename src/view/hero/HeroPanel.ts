@@ -7,6 +7,9 @@ module view.hero {
 		public setData(): void {
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_left.selectedIndex = index;
+				if (index == 0) {
+					this.img_bg.visible = true;
+				}
 			}, null, false);
 			this.addEvent();
 		}
