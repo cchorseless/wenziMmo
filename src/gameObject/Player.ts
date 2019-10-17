@@ -68,6 +68,33 @@ module GameObject {
             this.feature = new ProtoCmd.PlayerFeature();
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
         }
+             /**
+         * 年龄 字符串
+         */
+        public get age_str(): string {
+            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
+            let span_day = span / 60 / 60 / 24;
+            let year = 17 + Math.ceil(span_day / 24);
+            let month = Math.ceil(span_day % 24);
+            let str = '';
+            if (month == 0) {
+                str = year + '岁' + '整';
+            }
+            else {
+                str = year + '岁' + month + '个月';
+            }
+            return str //出生年
+        }
+        /**
+         * 年龄 数字
+         */
+        public get age_number(): number {
+            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
+            let span_day = span / 60 / 60 / 24;
+            let year = 17 + Math.ceil(span_day / 24);
+            let month = Math.ceil(span_day % 24);
+            return year //出生年
+        }
         /**
          * 修改金币
          * @param gold 
