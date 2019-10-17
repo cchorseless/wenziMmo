@@ -5,6 +5,8 @@ module view.juese {
 			super();
 		}
 		public hasInit = false;// 初始化自己
+		//当前经验-最大经验
+		public exp;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -28,10 +30,19 @@ module view.juese {
 				this.lbl_huifu.text = '' + jsonData.nghf;
 				//内功值
 				this.lbl_neigong.text = '' + jsonData.dangqianneigong;
-				//当前内功值进度
-				this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
-				//当前内功值进度条
-				this.img_progress.width = 390 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
+				let exp = jsonData.dangqianneigong - jsonData.xiaohaoitem;
+				this.exp = exp;
+				if (exp < 0) {
+					//当前内功值进度
+					this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
+					//当前内功值进度条
+					this.img_progress.width = 390 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
+				} else {
+					//当前内功值进度
+					this.lbl_value.text = jsonData.xiaohaoitem + '/' + jsonData.xiaohaoitem;
+					//当前内功值进度条
+					this.img_progress.width = 390;
+				}
 				//内功抵抗
 				this.lbl_dikang.text = jsonData.dangqianshuxing.split('=')[0] + "%";
 				let neigong = jsonData.dangqiandengji % 10;
@@ -50,9 +61,10 @@ module view.juese {
 				}
 			})
 		}
-		public Dispose(): void {
+		
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_shuxingxitong_minabandakai, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 
 		//经络拉取发包
@@ -66,9 +78,14 @@ module view.juese {
 		 * 经络升级发包
 		 */
 		public init_ShengJiInfo(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_shuxingxitong_shengji)
-			lcp.send(pkt);
+			if (this.exp >= 0) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.JS_shuxingxitong_shengji)
+				lcp.send(pkt);
+			} else {
+				TipsManage.showTips('当前经验不足');
+			}
+
 		}
 	}
 }

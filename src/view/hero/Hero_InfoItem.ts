@@ -48,9 +48,9 @@ module view.hero {
 				}
 			})
 		}
-		public Dispose(): void {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 		//弟子基本信息发协议
 		public haveDizi(): void {

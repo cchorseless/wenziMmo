@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":222,
-    "selecteID":223,
+    "selectedBox":1,
+    "selecteID":214,
     "props":{"width":567,"sceneColor":"#a66b6a","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -15,9 +15,9 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":49,"x":-5,"selectedIndex":1},
+            "props":{"y":49,"x":-5,"var":"viw_talent","selectedIndex":1},
             "nodeParent":1,
-            "label":"ViewStack",
+            "label":"ViewStack(viw_talent)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -67,7 +67,7 @@
                             "props":{"x":175,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
                             "nodeParent":205,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -75,7 +75,7 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":6,"x":54,"text":"罡气护体","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                                    "props":{"y":6,"x":54,"text":"资质天赋","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":208,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -90,9 +90,9 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":554,"x":216,"width":139,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                            "props":{"y":554,"x":216,"width":139,"var":"btn_activation","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":205,
-                            "label":"Button",
+                            "label":"Button(btn_activation)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -124,7 +124,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -132,19 +132,18 @@
                     "props":{"name":"item1"},
                     "nodeParent":214,
                     "label":"Box(item1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":213,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":742,"x":0},
                             "nodeParent":213,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -192,9 +191,9 @@
                                 },
                                 {
                                     "type":"Label",
-                                    "props":{"y":81,"x":224,"text":"8888888888","strokeColor":"#000000","stroke":5,"fontSize":24,"font":"FZHL","color":"#FFD700"},
+                                    "props":{"y":81,"x":224,"width":158,"var":"lbl_talentMagic","text":"0","strokeColor":"#000000","stroke":5,"height":24,"fontSize":24,"font":"FZHL","color":"#FFD700","align":"center"},
                                     "nodeParent":219,
-                                    "label":"Label",
+                                    "label":"Label(lbl_talentMagic)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -231,7 +230,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":0,"width":575,"var":"panel_talent","height":753},
                             "nodeParent":213,
@@ -243,7 +241,6 @@
                             "compId":222,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_talent"},
                                     "nodeParent":222,
@@ -255,7 +252,8 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":true
                 }]
         },
         {

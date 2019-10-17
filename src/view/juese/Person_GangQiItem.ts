@@ -4,7 +4,8 @@ module view.juese {
 		constructor() {
 			super();
 		}
-
+		//当前经验-最大经验
+		public exp;
 		public setData(): void {
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
@@ -16,7 +17,7 @@ module view.juese {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.init_Info(this.getItemInfo());
+				this.addLcpEvent(this.getItemInfo());
 				this.init_gangqi();
 			}
 			else {
@@ -48,17 +49,27 @@ module view.juese {
 
 		}
 		//罡气界面信息
-		public init_Info(data: ProtoCmd.ItemBase): void {
+		public addLcpEvent(data: ProtoCmd.ItemBase): void {
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
-			//当前经验/最大经验
-			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
-			//经验进度
-			this.img_progress.width = 470 * data.nValue / data.nMaxValue;
+			let exp = data.nValue - data.nMaxValue;
+			this.exp = exp;
+			if (exp < 0) {
+				//当前经验/最大经验
+				this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
+				//经验进度
+				this.img_progress.width = 470 * data.nValue / data.nMaxValue;
+			} else {
+				//当前经验/最大经验
+				this.lbl_value.text = data.nMaxValue + '/' + data.nMaxValue;
+				//经验进度
+				this.img_progress.width = 470;
+			}
+
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
@@ -120,9 +131,9 @@ module view.juese {
 				this.init_GangQIInfo();
 			})
 		}
-		public Dispose(): void {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 		/**
 		 * 罡气下阶预览
@@ -143,9 +154,15 @@ module view.juese {
 		 * 罡气进阶
 		 */
 		public init_upLevel(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_advancePlayerWing)
-			lcp.send(pkt);
+			if (this.exp >= 0) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.JS_advancePlayerWing)
+				lcp.send(pkt);
+			}
+			else {
+				TipsManage.showTips('当前经验不足');
+			}
+
 		}
 	}
 }

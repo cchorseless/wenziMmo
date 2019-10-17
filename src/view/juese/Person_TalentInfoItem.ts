@@ -13,6 +13,8 @@ module view.juese {
 		private index;
 		//天赋升级类型
 		private upLevelType;
+		//经验值
+		public exp;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.panel_talent.hScrollBarSkin = '';
@@ -37,7 +39,7 @@ module view.juese {
 			// 	this.downX = e.stageX;
 			// });
 			//升级
-		
+
 			//悟性
 			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
 				this.talent = ProtoCmd.JS_DragonSoulPanel;
@@ -81,7 +83,7 @@ module view.juese {
 				this.TalentInfo();
 
 			});
-				this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
 				this.lvUpTalent();
 			})
 		}
@@ -96,7 +98,6 @@ module view.juese {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(this.index, null, null, this, (jsonData) => {
 					this.TalentInfo()
-
 				})
 				lcp.send(pkt);
 			})
@@ -109,7 +110,7 @@ module view.juese {
 		public TalentInfo(): void {
 			if (this.getItemInfo()) {
 				this.viw_0.selectedIndex = 0;
-				this.init_talent();
+				this.addLcpEvent();
 				this.zhuangbeiInfo(this.getItemInfo());
 				this.init_laqu();
 
@@ -125,13 +126,26 @@ module view.juese {
 		}
 
 
-		public init_talent(): void {
+		public addLcpEvent(): void {
 			// 拉取天賦
 			GameApp.LListener.on(this.talent, this, (jsonData) => {
-				this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
-				this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
+				//经验条
+				let exp = jsonData.curscore - jsonData.score;
+				this.exp = exp;
+				if (exp < 0) {
+					//当前内功值进度
+					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
+					//当前内功值进度条
+					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
+				} else {
+					//当前内功值进度
+					this.lbl_jindu.text = jsonData.score + '/' + jsonData.score;
+					//当前内功值进度条
+					this.img_progress.width = 472 ;
+				}
+
 				let keys = Object.keys(jsonData.itemtab);
-				console.log('===>物品id',jsonData )
+				console.log('===>物品id', jsonData)
 				this.hbox_wupin.removeChildren();
 				for (let key of keys) {
 					let data = jsonData.itemtab[key];
@@ -140,20 +154,19 @@ module view.juese {
 					let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
 					itemInfo.dwBaseID = data.index;
 					itemInfo.dwCount = num;
-					
 					//经验值
 					_itemUI.img_exp.visible = true;
 					_itemUI.lbl_exp.visible = true;
 					_itemUI.lbl_exp.text = jsonData.score;
 					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
 					this.hbox_wupin.addChild(_itemUI)
-									
+
 				}
 			})
 		}
-		public Dispose(): void {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(this.talent, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 		public init_laqu(): void {
 			let pkt = new ProtoCmd.QuestClientData;
@@ -165,10 +178,16 @@ module view.juese {
 	  * @param index 
 	  */
 		public lvUpTalent(): void {
-			let pkt = new ProtoCmd.QuestClientData;
-			pkt.setString(this.upLevelType)
-			lcp.send(pkt);
+			if (this.exp >= 0) {
+				let pkt = new ProtoCmd.QuestClientData;
+				pkt.setString(this.upLevelType)
+				lcp.send(pkt);
+			}
+			else{
+				TipsManage.showTips('当前经验不足')
+			}
 		}
+
 		/**
 		 * 当前属性与星级
 		 * @param data 当前天赋
