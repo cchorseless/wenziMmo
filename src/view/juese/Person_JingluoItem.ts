@@ -5,17 +5,33 @@ module view.juese {
 			super();
 		}
 		public hasInit = false;// 初始化自己
+		private client_func_index=15;// 功能ID编号
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
 			this.addEvent();
-			this.init_jingluo();
+			this.activation();
+
 		}
 		public addEvent(): void {
 			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_ShengJiInfo();
-			})
-			this.addLcpEvent();
+			});
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				GameUtil.setServerData(this.client_func_index);
+				this.activation();
+			});
+		}
+		public activation(): void {
+			//判断是否激活
+			if (GameUtil.getServerData(this.client_func_index)) {
+				this.viw_jingluo.selectedIndex = 1;
+				this.addLcpEvent();
+				this.init_jingluo();
+			}
+			else {
+				this.viw_jingluo.selectedIndex = 0;
+			}
 		}
 		/**
 		 * 经络信息拉取
@@ -23,17 +39,18 @@ module view.juese {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JS_shuxingxitong_minabandakai, this, (jsonData: ProtoCmd.itf_JS_NeiGongInfo) => {
 				//经络重数
-				this.clip_chongshu.value = '' + Math.ceil(jsonData.dangqiandengji);
+				this.clip_chongshu.value = '' + Math.ceil(jsonData.dangqiandengji / 10);
 				//内功恢复
 				this.lbl_huifu.text = '' + jsonData.nghf;
+				let data=jsonData.dangqianshuxing.split('=')
 				//内功值
-				this.lbl_neigong.text = '' + jsonData.dangqianneigong;
+				this.lbl_neigong.text = '' + data[1];
+				//内功抵抗
+				this.lbl_dikang.text = data[0] + "%";
 				//当前内功值进度
 				this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
 				//当前内功值进度条
 				this.img_progress.width = 390 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
-				//内功抵抗
-				this.lbl_dikang.text = jsonData.dangqianshuxing.split('=')[0] + "%";
 				let neigong = jsonData.dangqiandengji % 10;
 				let line = neigong - 1;
 				//穴位点亮
@@ -50,7 +67,7 @@ module view.juese {
 				}
 			})
 		}
-		
+
 		public destroy(bool): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_shuxingxitong_minabandakai, this);
 			super.destroy(bool);

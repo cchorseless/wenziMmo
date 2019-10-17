@@ -14,7 +14,7 @@ module view.hero {
 			
 		}
 		public addEvent(): void {
-			this.btn_activation.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				GameUtil.setServerData(this.client_func_index);
 				this.activation();
 			})

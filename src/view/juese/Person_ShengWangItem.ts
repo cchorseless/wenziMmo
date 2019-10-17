@@ -5,16 +5,32 @@ module view.juese {
 			super();
 		}
 		public hasInit = false;// 初始化自己
+		private client_func_index = 18;// 功能ID编号
 		public setData(): void {
 			this.panel_shengWang.hScrollBarSkin = '';
 			this.hbox_shengWang['sortItem'] = (items) => { };
 			if (this.hasInit) { return };
 			this.hasInit = true;
 			this.addEvent();
-			this.getShengWangInfo();
+			this.activation();
 		}
 		public addEvent(): void {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				GameUtil.setServerData(this.client_func_index);
+				this.activation();
+			})
 
+		}
+		public activation(): void {
+			//判断是否激活
+			if (GameUtil.getServerData(this.client_func_index)) {
+				this.viw_shengwang.selectedIndex = 1;
+				this.getShengWangInfo();
+			}
+			else {
+				this.viw_shengwang.selectedIndex = 0;
+			}
 		}
 		/**
 		 * 获取江湖声望信息

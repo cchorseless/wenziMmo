@@ -11,6 +11,7 @@ module view.juese {
 			this.initUI();
 			this.addEvent();
 			this.getEquipMasterInfo();
+			this.getEquipBackground();
 		}
 		public addEvent(): void {
 
@@ -78,7 +79,15 @@ module view.juese {
 				console.log(jsonData)
 			})
 			lcp.send(pkt);
-
+		}
+		/**
+		 * 初始化装备背景
+		 */
+		public getEquipBackground(): void {
+			for (let i = 0; i < 10; i++) {
+				this['ui_item' + i].img_bg.visible=true;
+				this['ui_item' + i].img_bg.skin='image/common/daoju/itemicon_bg_'+i+'.png';
+			}
 		}
 	}
 }

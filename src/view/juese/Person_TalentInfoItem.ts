@@ -13,6 +13,8 @@ module view.juese {
 		private index;
 		//天赋升级类型
 		private upLevelType;
+		//天赋当前值类型
+		private dangqianNum;
 		public eventList = [ProtoCmd.JS_DragonSoulPanel, ProtoCmd.JS_ShieldPanel, ProtoCmd.JS_OfficialSealPanel, ProtoCmd.JS_BloodJadePanel, ProtoCmd.JS_MedalPanel]
 		public setData(): void {
 			if (this.hasInit) { return };
@@ -24,28 +26,13 @@ module view.juese {
 			this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 			this.index = ProtoCmd.JS_activeDragonSoul;
 			this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
+			this.dangqianNum = 2;
 			this.hasInit = true;
 			this.addEvent();
 			this.TalentInfo();
+
 		}
-
-
-		public downX;
-		public upX;
-		public posList = [new Laya.Point(262, 156), new Laya.Point(398, 102), new Laya.Point(348, 82), new Laya.Point(170, 86), new Laya.Point(81, 137)];
-		public scalList = [1,];
-		// 根骨
-		public curIndex = EnumData.emEquipPosition.EQUIP_MEDAL;
 		public addEvent(): void {
-			this.box_0.on(Laya.UIEvent.MOUSE_DOWN, this, (e: Laya.Event) => {
-				this.downX = e.stageX;
-			});
-			this.box_0.on(Laya.UIEvent.MOUSE_UP, this, (e: Laya.Event) => {
-				this.upX = e.stageX;
-				if (this.upX - this.downX > 100) {
-
-				}
-			});
 			//升级
 			//悟性
 			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
@@ -53,6 +40,7 @@ module view.juese {
 				this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 				this.index = ProtoCmd.JS_activeDragonSoul;
 				this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
+				this.dangqianNum = 2;
 				this.TalentInfo();
 			});
 
@@ -62,6 +50,7 @@ module view.juese {
 				this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
 				this.index = ProtoCmd.JS_activeShield;
 				this.upLevelType = ProtoCmd.JS_upgradeShield;
+				this.dangqianNum = 4;
 				this.TalentInfo();
 			});
 
@@ -71,6 +60,7 @@ module view.juese {
 				this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
 				this.index = ProtoCmd.JS_activeOfficialSeal;
 				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
+				this.dangqianNum = 5;
 				this.TalentInfo();
 			});
 
@@ -80,6 +70,7 @@ module view.juese {
 				this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
 				this.index = ProtoCmd.JS_activeBloodJade;
 				this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
+				this.dangqianNum = 3;
 				this.TalentInfo();
 			});
 
@@ -89,10 +80,11 @@ module view.juese {
 				this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
 				this.index = ProtoCmd.JS_activeMedal;
 				this.upLevelType = ProtoCmd.JS_upgradeMedal;
+				this.dangqianNum = 1;
 				this.TalentInfo();
 			});
 
-			// 开启
+			// 激活
 			this.btn_jiHuo.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(this.index, null, null, this, (jsonData) => {
@@ -123,6 +115,7 @@ module view.juese {
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
+				this.lbl_dangqian.text = '' + GameApp.MainPlayer.talentInfo[this.dangqianNum];
 			}
 		}
 		public getItemInfo(): ProtoCmd.ItemBase {
@@ -137,7 +130,6 @@ module view.juese {
 					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
 					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
 					let keys = Object.keys(jsonData.itemtab);
-					console.log('===>物品id', jsonData)
 					this.hbox_wupin.removeChildren();
 					for (let key of keys) {
 						let data = jsonData.itemtab[key];
@@ -159,10 +151,10 @@ module view.juese {
 		}
 
 		public destroy(isbool): void {
-			console.log('xxxxxxxxxxxxx')
 			for (let event of this.eventList) {
 				GameApp.LListener.offCaller(event, this);
 			}
+
 			super.destroy(isbool);
 		}
 
@@ -286,14 +278,19 @@ module view.juese {
 		 * @param id 查找下阶物品id
 		 */
 		public init_xiajie(id): void {
-			let xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + id)
+			// let xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + id)
+			// this.hbox_talent.removeChildren();
+			// while (xiajieID > 0) {
+			// 	xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + xiajieID);
+			// 	if (xiajieID == 0) {
+			// 		break;
+			// 	}
+			// 	this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(xiajieID));
+			// }
+			console.log('======>天赋十二个',id)
 			this.hbox_talent.removeChildren();
-			while (xiajieID > 0) {
-				xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + xiajieID);
-				if (xiajieID == 0) {
-					break;
-				}
-				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(xiajieID));
+			for (let i = 1; i < 13; i++) {
+				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(i,this.dangqianNum));
 			}
 		}
 		/**
