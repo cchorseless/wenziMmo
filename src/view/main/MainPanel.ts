@@ -193,6 +193,26 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { });
 			// 玩家战斗属性
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_ABILITY, this, () => { });
+			// 
+			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
+				if (jsonData.errorcode == 0) {
+					// 清空视野
+					GameApp.MainPlayer.clearViewObj();
+					// 更新房间数据
+					GameApp.MainPlayer.roomId = jsonData.curmapid;
+					// 上下左右房间的信息
+					GameApp.GameEngine.smallMapData = jsonData.dstmap;
+					console.log(jsonData.dstmap);
+					console.log('进入了' + jsonData.curmapid);
+					// 更新主场景
+					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
+					this.updateUiScene(mapType);
+					// 更新场景信息
+					this.updateSceneView('进入了' + jsonData.curmapid);
+					// 更新小地图
+					this.updateSmallMap();
+				}
+			});
 		}
 
 		//界面切换时控制那些部分不变
@@ -411,8 +431,17 @@ module view.main {
 			this.getPlayerBirthData();
 			//拉取路引数据
 			this.getLuYinData();
+			//获取强化信息
+			this.getIntensifyMessage();
 
 
+		}
+		private getIntensifyMessage() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
+				(data) => {
+					GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
+				});
+			lcp.send(pkt);
 		}
 		private getLuYinData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.openChuangSongRecord, [GameApp.GameEngine.luyinTabID], 0, this,
@@ -423,7 +452,7 @@ module view.main {
 		}
 		private getPlayerBirthData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.birthdateAndCompellation, null, 0, this,
-				(data: ProtoCmd.itf_Guild_birthdateAndCompellation) => {
+				(data: ProtoCmd.itf_JS_birthdateAndCompellation) => {
 					GameApp.GameEngine.mainPlayer.playerBirthData = data
 					GameApp.GameEngine.openDay = data.openday
 				});
@@ -600,25 +629,7 @@ module view.main {
 				return
 			}
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.MAP_MOVE, [roomid], null, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
-				if (jsonData.errorcode == 0) {
-					// 清空视野
-					GameApp.MainPlayer.clearViewObj();
-					// 更新房间数据
-					GameApp.MainPlayer.roomId = jsonData.curmapid;
-					// 上下左右房间的信息
-					GameApp.GameEngine.smallMapData = jsonData.dstmap;
-					console.log(jsonData.dstmap);
-					console.log('进入了' + jsonData.curmapid);
-					// 更新主场景
-					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
-					this.updateUiScene(mapType);
-					// 更新场景信息
-					this.updateSceneView('进入了' + jsonData.curmapid);
-					// 更新小地图
-					this.updateSmallMap();
-				}
-			});
+			pkt.setString(ProtoCmd.MAP_MOVE, [roomid])
 			lcp.send(pkt);
 		}
 

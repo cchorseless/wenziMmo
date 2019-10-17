@@ -30,7 +30,7 @@ module view.juQingMode {
 			// 剧情进度
 			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-					(data:ProtoCmd.itf_Guild_getIntroductionInfo) => {
+					(data:ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
 						// console.log("从服务器获取的数据：", data)
 						serverData = data;
 						for (let i in data) {
@@ -61,7 +61,7 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
 
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
-					(data:ProtoCmd.itf_Guild_SpecialRingPanel) => {
+					(data:ProtoCmd.itf_TianJian_SpecialRingPanel) => {
 						console.log("从服务器获取的数据：", data)
 						PanelManage.openTianJianPanel(data);
 					});

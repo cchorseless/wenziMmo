@@ -21,7 +21,8 @@ module view.main {
 				this.close();
 			})
 		}
-		public setData(handle:Laya.Handler) {
+		public setData(handle:Laya.Handler,str:string) {
+			this.lab_text.text = str;
 			this.handle = handle;
 		}
 

@@ -246,6 +246,8 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+    //玩家装备强化信息
+    export const sendEquipIntensify ="sendEquipIntensify";
 }
 
 /**
@@ -253,9 +255,17 @@ module ProtoCmd {
  */
 module ProtoCmd {
     /**
+     * 装备强化信息
+     */
+    export interface itf_JS_equipIntensifyMessage{
+        herojson:Object;
+        playerjson:Object;
+        sooulchaintab:Object
+    }
+    /**
      * 路引数据
      */
-    export interface itf_Guild_openChuangSongRecord {
+    export interface itf_Main_openChuangSongRecord {
         open: boolean;
         datatab: Object
 
@@ -264,14 +274,14 @@ module ProtoCmd {
     /**
      * 请求介绍手册的解锁状态   返回数据结构 {[index:number]:number}    
      */
-    export interface itf_Guild_getIntroductionInfo {
+    export interface itf_ZhiNan_getIntroductionInfo {
 
     };
 
     /**
      * 天鉴数据
      */
-    export interface itf_Guild_SpecialRingPanel {
+    export interface itf_TianJian_SpecialRingPanel {
         cfgtab: { [index: number]: Object };  //详细数据
         status: { [index: number]: number }   //解锁情况
     };
@@ -279,7 +289,7 @@ module ProtoCmd {
     /**
      * 四格，9宫 数据
      */
-    export interface itf_Guild_birthdateAndCompellation {
+    export interface itf_JS_birthdateAndCompellation {
         brithdata_one: { [index: number]: Object };  //八字_1
         brithdata_two: { [index: number]: Object };  //八字_2
         compellation: { [index: number]: Object };  //四格9宫

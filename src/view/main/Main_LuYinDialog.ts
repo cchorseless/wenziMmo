@@ -44,27 +44,36 @@ module view.main {
 						this.deleteTabID = GameApp.GameEngine.luyinTabID;
 						this["btn_delete" + i].visible = false;
 						this.changeLuYinState(i, false, null);
-						if (this.deleteStr == "") {
-							this.deleteStr = i.toString();
-						}
-						else {
-							this.deleteStr += "+" + i;
-						}
+						let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.delChuangSongRecord, [this.deleteTabID, i.toString()])
+						lcp.send(pk);
+						this.deleteStr = "";
+						this.getNewLuYinData();
 					})
-					o.setData(p);
+					o.setData(p,"是否确定删除？");
 					o.show();
 				})
 			}
-			EventManage.onWithEffect(this.btn_add, Laya.UIEvent.CLICK, this, () => {
-				for (let i = 1; i < 10; i++) {
-					if (this["box_guide" + i].visible == false) {
-						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addChuangSongRecord, [GameApp.GameEngine.luyinTabID, i])
-						lcp.send(pkt);
-						this.getNewLuYinData();
-						break;
-					}
-				}
-			});
+			for (let i = 1; i < 10; i++) {
+				this["box_guide" + i].on(Laya.UIEvent.CLICK, this, () => {
+					let o = new view.main.Main_ConfirmDelete();
+					let p = Laya.Handler.create(this, () => {
+						let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.tempData.datatab[i].roomID, GameApp.GameEngine.luyinTabID])
+						lcp.send(pk);
+					})
+					o.setData(p,"是否确定前往？");
+					o.show();
+				})
+			}
+			// EventManage.onWithEffect(this.btn_add, Laya.UIEvent.CLICK, this, () => {
+			// 	for (let i = 1; i < 10; i++) {
+			// 		if (this["box_guide" + i].visible == false) {
+			// 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addChuangSongRecord, [GameApp.GameEngine.luyinTabID, i])
+			// 			lcp.send(pkt);
+			// 			this.getNewLuYinData();
+			// 			break;
+			// 		}
+			// 	}
+			// });
 			EventManage.onWithEffect(this.btn_delete, Laya.UIEvent.CLICK, this, () => {
 				this.isDelete = !this.isDelete;
 				this.onShowDelete(this.isDelete);
@@ -78,6 +87,12 @@ module view.main {
 		}
 
 		public onShowDelete(boo: boolean) {
+			if(boo){
+				this.btn_delete.label = "完  成"
+			}
+			else{
+				this.btn_delete.label = "删  除"
+			}
 			for (let i = 1; i < 10; i++) {
 				if (this["box_guide" + i].visible == true) {
 					this["btn_delete" + i].visible = this.isDelete;
@@ -98,11 +113,6 @@ module view.main {
 		}
 		//删除  路引数据并发送到服务器
 		public deleteData() {
-
-			let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.delChuangSongRecord, [this.deleteTabID, this.deleteStr])
-			lcp.send(pk);
-			this.deleteStr = "";
-			this.getNewLuYinData();
 		}
 		//刷新界面
 		public upDataView() {
@@ -118,6 +128,7 @@ module view.main {
 			}
 			else {
 				this.tab_luyin.selectedIndex = this.touchID
+				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
 				TipsManage.showTips('升级VIP获取');
 			}
 		}
@@ -126,11 +137,14 @@ module view.main {
 			this["box_guide" + id].visible = state;
 			this["btn_add" + id].visible = !state;
 			if (data) {
-				let str = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME(data) + "-" + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(data);
-				this["lab_locationName" + id].text = str;
+				// let str = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME(data) + "-" + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(data);
+				// this["lab_locationName" + id].text = str;
+				this["lab_locationName" + id + "_1"].text = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME(data);
+				this["lab_locationName" + id + "_2"].text = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(data);
+				// lab_locationName7_1
 			}
 		}
-		//根据数据显示相应的结果
+		//根据数据显示相应的结果  
 		public onShowView() {
 			let baseData = this.tempData.datatab
 			for (let i in baseData) {

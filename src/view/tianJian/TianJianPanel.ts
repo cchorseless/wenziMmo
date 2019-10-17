@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.tianJian {
 	export class TianJianPanel extends ui.tianJian.TianJianPanelUI {
+		public imgSkin = {1:"huanyun",2:"bingpo",3:"xinghe",4:"jiaoyue",5:"lianhua",6:"fenyang",7:"yizhen",8:"jiuyou",9:"liangyi",}
 		public tempData = null;
 		private touchStartTime;
 		private isTouch: boolean = false;
@@ -51,9 +52,9 @@ module view.tianJian {
 					});
 				lcp.send(pkt);
 			}else if(status == 0){
-				TipsManage.showTips('暂时不可解锁');
+				TipsManage.showTips('暂时不可激活');
 			}else{
-				TipsManage.showTips('您已经解锁');
+				TipsManage.showTips('您已经激活');
 			}
 
 		}
@@ -108,11 +109,19 @@ module view.tianJian {
 					this["btn_tianjian" + i].selected = false;
 					this["lab_tianjian" + i].visible = false;
 				}
-				if (arr[i] > 0) {
-					this["btn_tianjian" + i].gray = false;
-				}
-				else {
+				if (arr[i] == 0) {
 					this["btn_tianjian" + i].gray = true;
+					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "0.png"
+					this["lab_canActive" +i].visible = false;
+				}
+				else if(arr[i] == 1){
+					this["btn_tianjian" + i].gray = true;
+					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "0.png"
+					this["lab_canActive" +i].visible = true;
+				}else if(arr[i] == 2){
+					this["btn_tianjian" + i].gray = false;
+					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "2.png"
+					this["lab_canActive" +i].visible = false;
 				}
 			}
 		}
