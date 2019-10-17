@@ -13,7 +13,7 @@ module view.juese {
 			this.hasInit = true;
 			let player = GameApp.MainPlayer;
 			// 年龄
-			this.lbl_age.text = '' + player.age + '岁';
+			this.lbl_age.text = '' + player.age_str;
 			// 姓名
 			this.lbl_name.text = '' + player.objName;
 			// 出身

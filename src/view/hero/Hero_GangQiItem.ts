@@ -5,8 +5,6 @@ module view.hero {
 			super();
 			this.setData();
 		}
-		//当前经验-最大经验
-		public exp;
 		public setData(): void {
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
@@ -17,7 +15,7 @@ module view.hero {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.addLcpEvent(this.getItemInfo());
+				this.init_Info(this.getItemInfo());
 				this.init_gangqi();
 			}
 			else {
@@ -45,26 +43,17 @@ module view.hero {
 			lcp.send(pkt);
 
 		}
-		public addLcpEvent(data: ProtoCmd.ItemBase): void {
+		public init_Info(data: ProtoCmd.ItemBase): void {
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
-			let exp = data.nValue - data.nMaxValue;
-			this.exp = exp;
-			if (exp < 0) {
-				//当前经验/最大经验
-				this.lbl_progress.text = data.nValue + '/' + data.nMaxValue;
-				//经验进度
-				this.img_progress.width = 470 * data.nValue / data.nMaxValue;
-			} else {
-				//当前经验/最大经验
-				this.lbl_progress.text = data.nMaxValue + '/' + data.nMaxValue;
-				//经验进度
-				this.img_progress.width = 470;
-			}
+			//当前经验/最大经验
+			this.lbl_progress.text = data.nValue + '/' + data.nMaxValue;
+			//经验进度
+			this.img_progress.width = 470 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
@@ -138,9 +127,6 @@ module view.hero {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_advanceHeroWing)
 			lcp.send(pkt);
-			if (this.exp < 0) {
-			TipsManage.showTips('正在培养中');
-			}
 		}
 	}
 }
