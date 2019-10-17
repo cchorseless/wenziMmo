@@ -20,37 +20,6 @@ module GameObject {
         public set sex(srcID: EnumData.SEX_TYPE) {
             this.feature.simpleFeature.sex = srcID;
         }
-
-        /**
-         * 年龄 字符串
-         */
-        public get age_str(): string {
-            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
-            let span_day = span / 60 / 60 / 24;
-            let year = 17 + Math.ceil(span_day / 24);
-            let month = Math.ceil(span_day % 24);
-            let str = '';
-            if (month == 0) {
-                str = year + '岁' + '整';
-            }
-            else {
-                str = year + '岁' + month + '个月';
-            }
-            return str //出生年
-        }
-        /**
-         * 年龄 数字
-         */
-        public get age_number(): number {
-            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
-            let span_day = span / 60 / 60 / 24;
-            let year = 17 + Math.ceil(span_day / 24);
-            let month = Math.ceil(span_day % 24);
-            return year //出生年
-        }
-
-        // 玩家出生信息
-        public playerBirthData: ProtoCmd.itf_Guild_birthdateAndCompellation = null;
         // 天赋
         public talentInfo;
         // 性格
@@ -86,7 +55,10 @@ module GameObject {
         /******************BOSS积分************ */
         public bossCoin: number = 0;
 
-
+        //玩家出生信息、八字、4格、9宫
+        public playerBirthData:ProtoCmd.itf_JS_birthdateAndCompellation = null;
+        //玩家强化信息
+        public playerEquipIntensify:ProtoCmd.itf_JS_equipIntensifyMessage = null;
 
 
 
@@ -95,6 +67,33 @@ module GameObject {
             this.wealth = new Wealth();
             this.feature = new ProtoCmd.PlayerFeature();
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
+        }
+             /**
+         * 年龄 字符串
+         */
+        public get age_str(): string {
+            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
+            let span_day = span / 60 / 60 / 24;
+            let year = 17 + Math.ceil(span_day / 24);
+            let month = Math.ceil(span_day % 24);
+            let str = '';
+            if (month == 0) {
+                str = year + '岁' + '整';
+            }
+            else {
+                str = year + '岁' + month + '个月';
+            }
+            return str //出生年
+        }
+        /**
+         * 年龄 数字
+         */
+        public get age_number(): number {
+            let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
+            let span_day = span / 60 / 60 / 24;
+            let year = 17 + Math.ceil(span_day / 24);
+            let month = Math.ceil(span_day % 24);
+            return year //出生年
         }
         /**
          * 修改金币
@@ -182,7 +181,6 @@ module GameObject {
         }
         // 颜值
         public changenYanZhi(srcID: number) {
-            console.log('颜值====', srcID);
             this.nYanZhi = srcID
         }
         // 体力

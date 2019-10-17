@@ -3,7 +3,7 @@ public static getInstance(data): Label { let Class:any=this;if(!Class._instance)
 /**
  *  标签名称
  */
- public NAME(configID:string):string { return this.data[configID][0]}
+ public NAME(configID):string { return this.data[configID][0]}
 /**
  *  标签分类
  */
