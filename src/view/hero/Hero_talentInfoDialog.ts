@@ -1,8 +1,108 @@
 /**Created by the LayaAirIDE*/
-module view.hero{
-	export class Hero_talentInfoDialog extends ui.hero.Hero_talentInfoDialogUI{
-		constructor(){
+module view.hero {
+	export class Hero_talentInfoDialog extends ui.hero.Hero_talentInfoDialogUI {
+		constructor() {
 			super();
 		}
+		public item1;
+		public item2;
+		public sum;
+		public setData(index, i, data: ProtoCmd.itf_Hero_TalentInfo, key): Hero_talentInfoDialog {
+			//data.consumetab[index][i]效果ID
+			let sum = data.lvltab[0] + data.lvltab[1] + data.lvltab[2] + data.lvltab[3];
+			this.sum = sum;
+			this.judgeEvent(data, index, i, key);
+			this.judgeType(data, index, i);
+			this.addEvent();
+			return this;
+		}
+		public addEvent(): void {
+			this.btn_save.on(Laya.UIEvent.CLICK, this, () => {
+				this.saveData();
+				this.close();
+			})
+			this.btn_cancel.on(Laya.UIEvent.CLICK, this, () => {
+				this.cancelData();
+				this.close();
+			})
+		}
+		/**
+		 * 判断view_talent.selectedIndex状态
+		 */
+		public judgeType(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
+			let light = data.lvltab[index]
+			let canlight = light + 1;
+			console.log('=====>弹窗弹窗天赋', i, canlight, light);
+			if (index == 0 && i == 1) {
+				this.view_talent.selectedIndex = 1;
+			}
+
+			if (index !== 0 && i == 1) {
+				if (data.lvltab[0] == 5) {
+					this.view_talent.selectedIndex = 1;
+				}
+				else {
+					this.view_talent.visible = false;
+				}
+			}
+			if (i > 1) {
+				if (i == canlight) {
+					this.view_talent.selectedIndex = 1;
+				}
+				if (i <= light) {
+					this.view_talent.selectedIndex = 0;
+				}
+				if (i > canlight) {
+					this.view_talent.visible = false;
+				}
+			}
+		}
+		/**
+		 * 
+		 * 发协议时的所发数据
+		 *
+		 */
+		public judgeEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i, key): void {
+			let data0 = data.lvltab[0];
+			let data1 = data.lvltab[1];
+			let data2 = data.lvltab[2];
+			let data3 = data.lvltab[3];
+			switch (index) {
+				case 0:
+					this.item1 = [key, i, data1, data2, data3];
+					this.item2 = [key, 0, i];
+					break;
+				case 1:
+					this.item1 = [key, data0, i, data2, data3];
+					this.item2 = [key, 1, i];
+					break;
+				case 2:
+					this.item1 = [key, data0, data1, i, data3];
+					this.item2 = [key, 2, i];
+					break;
+				case 3:
+					this.item1 = [key, data0, data1, data2, i];
+					this.item2 = [key, 3, i];
+					break;
+			}
+		}
+		//保存天赋点发协议
+		public saveData(): void {
+			if (this.sum < 10) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.Hero_saveGenius, this.item1)
+				lcp.send(pkt);
+			}
+			else {
+				TipsManage.showTips('当前重数天赋魔力已满！')
+			}
+		}
+		//取消天赋点发包协议
+		public cancelData(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_cancelGenius, this.item2)
+			lcp.send(pkt);
+		}
+
 	}
 }
