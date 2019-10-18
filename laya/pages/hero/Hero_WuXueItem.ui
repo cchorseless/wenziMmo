@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":289,
-    "selecteID":290,
+    "selectedBox":290,
+    "selecteID":257,
     "referenceLines":[
         {
             "value":254,
@@ -121,18 +121,19 @@
                     "props":{"name":"item1"},
                     "nodeParent":289,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":290,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":0,"width":569,"height":510},
                             "nodeParent":290,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -624,116 +625,7 @@
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Box",
-                            "props":{"y":519,"x":-24,"width":562,"height":144},
-                            "nodeParent":290,
-                            "label":"Box",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":168,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":0,"x":23,"skin":"image/common/bottom_smalltitle.png"},
-                                    "nodeParent":168,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":193,
-                                    "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":1,"x":35,"width":104,"text":"内息养成","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":26,"font":"FZXK","color":"#fff4ce"},
-                                            "nodeParent":193,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":194,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":87,"width":96,"text":"内功抵抗","height":24,"fontSize":24,"font":"FZHL"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":195,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":66,"x":112,"text":"100","fontSize":24,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":196,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":267,"text":"内功值","fontSize":24,"font":"FZHL"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":197,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":66,"x":280,"text":"100","fontSize":24,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":198,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":423,"text":"内功恢复","fontSize":24,"font":"FZHL"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":199,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":66,"x":448,"text":"100","fontSize":24,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":168,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":200,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":83,"x":-14,"width":158,"stateNum":"2","skin":"image/juese/skill_small_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"36","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"灵狐步","height":150},
                             "nodeParent":290,
@@ -747,6 +639,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":790,"x":391,"width":144,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"一键激活","height":59},
                             "nodeParent":290,
@@ -760,6 +653,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":83,"x":426,"width":158,"stateNum":"2","skin":"image/juese/skill_small_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"36","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"灵狐步","height":150},
                             "nodeParent":290,
@@ -772,6 +666,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":344,"x":-14,"width":158,"stateNum":"2","skin":"image/juese/skill_small_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"36","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"灵狐步","height":150},
                             "nodeParent":290,
@@ -785,6 +680,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":344,"x":426,"width":158,"stateNum":"2","skin":"image/juese/skill_small_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"36","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"灵狐步","height":150},
                             "nodeParent":290,
@@ -797,6 +693,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":768,"x":4,"width":371,"height":120},
                             "nodeParent":290,
@@ -822,6 +719,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":617,"x":0,"width":567,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"28,11,18,22","height":142},
                             "nodeParent":290,
@@ -835,6 +733,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":655,"x":-2,"width":38,"skin":"image/common/title_ConfederationDeclaration.png","rotation":-90,"height":125},
                             "nodeParent":290,
@@ -846,6 +745,7 @@
                             "compId":257,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":8,"x":35,"text":"属性","strokeColor":"#000000","stroke":4,"rotation":90,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":257,
@@ -860,6 +760,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":662,"x":26,"text":"韧性：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -872,6 +773,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":661,"x":80,"text":"18","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -884,6 +786,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":695,"x":26,"text":"闪避：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -897,6 +800,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":694,"x":80,"text":"18","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -910,6 +814,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":729,"x":26,"text":"暴击：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -923,6 +828,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":728,"x":80,"text":"18","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -936,6 +842,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":625,"x":152,"text":"生命：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -949,6 +856,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":624,"x":206,"text":"1062","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -962,6 +870,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":662,"x":152,"text":"准确：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -975,6 +884,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":661,"x":206,"text":"18","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -987,6 +897,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":696,"x":152,"text":"闪避","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -1000,6 +911,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":695,"x":206,"text":"18","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -1012,6 +924,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":729,"x":153,"text":"物理攻击：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -1025,6 +938,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":728,"x":257,"text":"65-99","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -1037,6 +951,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":625,"x":365,"text":"生命恢复：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -1050,6 +965,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":625,"x":471,"text":"403","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -1062,6 +978,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":661,"x":366,"text":"物理防御：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -1075,6 +992,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":660,"x":470,"text":"65-99","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -1087,6 +1005,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":696,"x":367,"text":"魔法防御：","fontSize":24,"font":"FZHL"},
                             "nodeParent":290,
@@ -1100,6 +1019,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":695,"x":471,"text":"65-99","fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":290,
@@ -1561,7 +1481,7 @@
                             "props":{"y":55,"x":172,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
                             "nodeParent":348,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
