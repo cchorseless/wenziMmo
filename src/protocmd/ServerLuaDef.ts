@@ -201,6 +201,10 @@ module ProtoCmd {
     export const Hero_heroGeniusPanel = 'heroGeniusPanel';//
     // 弟子武功招式
     export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
+     // 弟子天赋保存
+    export const Hero_saveGenius = 'saveGenius';
+     // 弟子天赋取消
+    export const Hero_cancelGenius = 'cancelGenius';
 
     /*********************************资质天赋******************** */
 
