@@ -199,12 +199,20 @@ module ProtoCmd {
     export const Hero_heroAllGeniusLvl = 'heroAllGeniusLvl';//(lvltab：天赋等级)
     // 弟子天赋重数面板
     export const Hero_heroGeniusPanel = 'heroGeniusPanel';//
-    // 弟子武功招式
-    export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
-     // 弟子天赋保存
+    // 弟子天赋保存
     export const Hero_saveGenius = 'saveGenius';
-     // 弟子天赋取消
+    // 弟子天赋取消
     export const Hero_cancelGenius = 'cancelGenius';
+     // 弟子武功招式
+    export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
+     // 弟子武功招式一键激活
+    export const Hero_activeJingMai = 'activeJingMai';
+     // 弟子武功招式真气面板
+    export const Hero_getHeroRealGasPanel = 'getHeroRealGasPanel';
+     // 弟子武功招式点真气球满了获取真气
+    export const Hero_exchangeRealGasByFakeGas = 'exchangeRealGasByFakeGas';
+     // 弟子武功招式返璞归真
+    export const Hero_exchangeRealGas = 'exchangeRealGas';
 
     /*********************************资质天赋******************** */
 
@@ -263,7 +271,7 @@ module ProtoCmd {
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
     //玩家装备强化信息
-    export const sendEquipIntensify ="sendEquipIntensify";
+    export const sendEquipIntensify = "sendEquipIntensify";
 }
 
 /**
@@ -273,10 +281,10 @@ module ProtoCmd {
     /**
      * 装备强化信息
      */
-    export interface itf_JS_equipIntensifyMessage{
-        herojson:Object;
-        playerjson:Object;
-        sooulchaintab:Object
+    export interface itf_JS_equipIntensifyMessage {
+        herojson: Object;
+        playerjson: Object;
+        sooulchaintab: Object
     }
     /**
      * 路引数据
@@ -529,6 +537,17 @@ module ProtoCmd {
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
         maxduplicate: number//当前已开启的最大重id
+    }
+    export interface itf_Hero_WuXueInfo {
+        effid: number//效果ID
+        fakeGas: number//当前圆球里真气值
+        gas: number//最大真气值
+        gold: number//金币数量
+        jingMaiLvl: number//经脉等级
+        maxfakegas: number//圆球里最大真气值
+        nextid: number//下级效果ID
+        realGas: number//当前真气值
+        skilltab:any //（key为技能id,skilltab[key]为技能开关状态0开1关）
     }
     /***********************************副本接口**************************** */
     /**
