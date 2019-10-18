@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":163,
+    "selectedBox":114,
+    "selecteID":112,
     "referenceLines":[
         {
             "value":18,
@@ -48,14 +48,13 @@
                             "props":{},
                             "nodeParent":164,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":130,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"skin":"image/juese/img_common_10.png"},
                                     "nodeParent":130,
@@ -70,7 +69,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":55,"x":114,"skin":"image/juese/img_common_11.png","alpha":0.5},
                                     "nodeParent":130,
@@ -85,7 +83,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":117,"x":158},
                                     "nodeParent":130,
@@ -216,7 +213,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":89,"x":261,"stateNum":"2","skin":"image/juese/img_common_13_finish.png","labelSize":24,"labelColors":"#ffffff,#ffffff"},
                                     "nodeParent":130,
@@ -243,7 +239,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":162,"x":260,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -270,7 +265,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":194,"x":204,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -297,7 +291,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":286,"x":149,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -324,7 +317,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":254,"x":258,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -351,7 +343,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":280,"x":369,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -378,7 +369,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":326,"x":256,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -405,7 +395,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":359,"x":133,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -432,7 +421,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":392,"x":256,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -459,7 +447,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":360,"x":382,"stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":130,
@@ -554,7 +541,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -562,24 +549,26 @@
                     "props":{"y":0,"x":0,"name":"item1"},
                     "nodeParent":163,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":120,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"x":4},
                             "nodeParent":120,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":62,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"skin":"image/juese/img_common_10.png"},
                                     "nodeParent":62,
@@ -594,6 +583,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":55,"x":114,"skin":"image/juese/img_common_11.png","alpha":0.5},
                                     "nodeParent":62,
@@ -608,17 +598,19 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":117,"x":158},
                                     "nodeParent":62,
                                     "label":"Box",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":114,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"x":137.69401889735522,"width":60,"var":"btn_xueweiLine9 ","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":90},
                                             "nodeParent":114,
@@ -632,6 +624,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":89,"x":64.69401889735522,"width":60,"var":"btn_xueweiLine8","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-32},
                                             "nodeParent":114,
@@ -645,6 +638,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":188,"x":2.694018897355221,"width":100,"var":"btn_xueweiLine7","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-60},
                                             "nodeParent":114,
@@ -658,6 +652,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":181,"x":15.694018897355221,"width":102,"var":"btn_xueweiLine6","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-17},
                                             "nodeParent":114,
@@ -671,6 +666,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":151,"x":132.69401889735522,"width":100,"var":"btn_xueweiLine5","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":15},
                                             "nodeParent":114,
@@ -684,6 +680,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":218,"x":120.69401889735522,"width":111,"var":"btn_xueweiLine4","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-20},
                                             "nodeParent":114,
@@ -697,6 +694,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":252,"x":0.694018897355221,"width":120,"var":"btn_xueweiLine3","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-15},
                                             "nodeParent":114,
@@ -710,6 +708,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":258,"x":5.694018897355221,"width":115,"var":"btn_xueweiLine2","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":15},
                                             "nodeParent":114,
@@ -723,6 +722,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":288,"x":125,"width":116,"var":"btn_xueweiLine1","stateNum":"2","skin":"image/juese/line_neixijingluo.png","rotation":-15},
                                             "nodeParent":114,
@@ -738,6 +738,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":89,"x":261,"var":"btn_xuewei10","stateNum":"2","skin":"image/juese/img_common_13_finish.png","labelSize":24,"labelColors":"#ffffff,#ffffff"},
                                     "nodeParent":62,
@@ -764,6 +765,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":162,"x":260,"var":"btn_xuewei9","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -790,6 +792,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":194,"x":204,"var":"btn_xuewei8","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -816,6 +819,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":286,"x":149,"var":"btn_xuewei7","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -842,6 +846,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":254,"x":258,"var":"btn_xuewei6","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -868,6 +873,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":280,"x":369,"var":"btn_xuewei5","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -894,6 +900,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":326,"x":256,"var":"btn_xuewei4","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -920,6 +927,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":359,"x":133,"var":"btn_xuewei3","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -946,6 +954,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":392,"x":256,"var":"btn_xuewei2","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -972,6 +981,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":360,"x":382,"var":"btn_xuewei1","stateNum":"2","skin":"image/juese/img_common_13_finish.png"},
                                     "nodeParent":62,
@@ -998,6 +1008,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":71,"x":20,"skin":"image/common/bottom_diyizhang.png"},
                                     "nodeParent":62,
@@ -1035,6 +1046,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":478,"x":84},
                                     "nodeParent":62,
@@ -1087,6 +1099,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":517,"x":229,"var":"btn_lvUp","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"升级"},
                                     "nodeParent":62,
@@ -1102,6 +1115,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":585,"x":4,"width":566,"skin":"image/juese/line_juese.png"},
                             "nodeParent":120,
@@ -1116,6 +1130,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":611},
                             "nodeParent":120,
@@ -1227,6 +1242,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":797,"x":434},
                             "nodeParent":120,
@@ -1303,7 +1319,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {
