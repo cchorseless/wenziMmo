@@ -65,7 +65,7 @@ class GameEngine extends SingletonClass {
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
     /***********************新手引导数据********* */
-    public questBoolData: Laya.Byte = null;
+    public questBoolData: Uint8Array = null;
 
 
     public isReady: boolean = false;

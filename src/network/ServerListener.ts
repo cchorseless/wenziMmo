@@ -277,7 +277,7 @@ class ServerListener extends SingletonClass {
      */
     public updateQuestBoolData(data): void {
         let pkt = new ProtoCmd.SUBCMD_QUESTBOOLDATA(data);
-        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer);
+        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer).getUint8Array(0, 256);
         pkt.clear();
         pkt = null;
     }
