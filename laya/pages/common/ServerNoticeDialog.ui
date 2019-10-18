@@ -1,11 +1,12 @@
 {
     "x":0,
-    "type":"View",
-    "selectedBox":2,
-    "selecteID":3,
-    "props":{"width":640,"sceneColor":"#000000","height":1136},
+    "type":"Dialog",
+    "selectedBox":9,
+    "selecteID":11,
+    "referenceLines":null,
+    "props":{"width":500,"sceneColor":"#000000","height":600},
     "nodeParent":-1,
-    "label":"View",
+    "label":"Dialog",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -15,20 +16,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"var":"img_bg","top":0,"skin":"image/common/default/img_blackBg.png","right":0,"left":0,"bottom":0,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Image(img_bg)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":272,"x":76,"width":487,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,43,81,44","height":592},
+            "props":{"y":4,"x":6,"width":487,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,43,81,44","height":592},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -51,16 +39,42 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"TextArea",
-                            "props":{"y":62,"x":23,"width":451,"type":"text","text":"这是游戏公告","multiline":true,"height":508,"fontSize":25,"font":"Microsoft YaHei","editable":false},
+                            "type":"Panel",
+                            "props":{"y":52,"x":38,"width":428,"var":"panel_0","height":513},
                             "nodeParent":2,
-                            "label":"TextArea",
-                            "isDirectory":false,
+                            "label":"Panel(panel_0)",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":3,
+                            "hasChild":true,
+                            "compId":9,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"VBox",
+                                    "props":{"var":"vbox_0","right":0,"left":0,"align":"center"},
+                                    "nodeParent":9,
+                                    "label":"VBox(vbox_0)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":11,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"HTMLDivElement",
+                                            "props":{"y":6,"x":2,"width":418,"var":"div_0","innerHTML":"htmlText","height":0},
+                                            "nodeParent":11,
+                                            "label":"HTMLDivElement(div_0)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":10,
+                                            "child":[
+                                                ]
+                                        }]
+                                }]
                         }]
                 },
                 {
@@ -93,7 +107,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":249,"x":505,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":-8,"x":446,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
