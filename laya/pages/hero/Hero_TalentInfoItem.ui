@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":205,
-    "selecteID":206,
+    "selectedBox":1,
+    "selecteID":213,
     "props":{"width":567,"sceneColor":"#a66b6a","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -30,14 +30,13 @@
                     "props":{"y":161,"name":"item0"},
                     "nodeParent":214,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":205,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":8,"x":44,"stateNum":"1","skin":"image/juese/img_wuxing.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce"},
                             "nodeParent":205,
@@ -64,7 +63,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":175,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
                             "nodeParent":205,
@@ -76,7 +74,6 @@
                             "compId":208,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"x":54,"text":"资质天赋","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":208,
@@ -92,7 +89,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":554,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":205,
@@ -105,7 +101,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":451,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
                             "nodeParent":205,
@@ -129,7 +124,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -137,13 +132,14 @@
                     "props":{"name":"item1"},
                     "nodeParent":214,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":213,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":742,"x":0},
                             "nodeParent":213,
@@ -155,6 +151,7 @@
                             "compId":219,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":49,"x":31,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"属性统计"},
                                     "nodeParent":219,
@@ -168,6 +165,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":50,"x":438,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":22,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"玩法获取"},
                                     "nodeParent":219,
@@ -181,6 +179,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":41,"x":160,"width":262,"skin":"image/common/bottom_prompt.png","height":81,"alpha":0.7},
                                     "nodeParent":219,
@@ -195,6 +194,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":81,"x":224,"width":158,"var":"lbl_talentMagic","text":"0","strokeColor":"#000000","stroke":5,"height":24,"fontSize":24,"font":"FZHL","color":"#FFD700","align":"center"},
                                     "nodeParent":219,
@@ -207,6 +207,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":51,"x":229,"text":"拥有天赋魔力","strokeColor":"#2d1c05","stroke":4,"padding":"-2","fontSize":20,"font":"FZHL","color":"#f3edd3"},
                                     "nodeParent":219,
@@ -220,6 +221,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"x":166,"text":"遗忘返还50%的天赋魔力","padding":"-1","fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":219,
@@ -235,6 +237,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":0,"width":575,"var":"panel_talent","height":753},
                             "nodeParent":213,
@@ -246,6 +249,7 @@
                             "compId":222,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_talent"},
                                     "nodeParent":222,
@@ -258,7 +262,7 @@
                                         ]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {

@@ -23,20 +23,20 @@ module view.hero {
 			if (this.sum !== 0) {
 				this.box_skill1.on(Laya.UIEvent.CLICK, this, () => {
 					this.box_skill1.gray = false;
-					this.init_talentSkillType();
+					
 				})
 				if (this.point == 5) {
 					this.box_warrior1.on(Laya.UIEvent.CLICK, this, () => {
 						this.box_skill1.gray = false;
-						this.init_talentType();
+						
 					})
 					this.box_master1.on(Laya.UIEvent.CLICK, this, () => {
 						this.box_skill1.gray = false;
-						this.init_talentType();
+						
 					})
 					this.box_Taoist1.on(Laya.UIEvent.CLICK, this, () => {
 						this.box_skill1.gray = false;
-						this.init_talentType();
+			
 					})
 				}
 			}
@@ -80,62 +80,8 @@ module view.hero {
 			})
 			lcp.send(pkt)
 		}
-		public init_talentSkillType(): void {
-			for (let i = 1; i < 6; i++) {
-				this["box_skill" + i].on(Laya.UIEvent.CLICK, this, () => {
-					if (i !== 1) {
-						let b = i - 1;
-						if (this.skill != b) {
-							TipsManage.showTips("不能点亮")
-						} else {
-							//点亮
-							this["box_skill" + i].gray = false;
-							this.skill = i;
-							this.type = this["box_skill" + i].gray;
-						}
-					}
-				})
-			}
-		}
-		public init_talentType(): void {
-			for (let i = 1; i < 6; i++) {
-				this["box_warrior" + i].on(Laya.UIEvent.CLICK, this, () => {
-					if (i !== 1) {
-						let b = i - 1;
-						if (this.skill != b) {
-							TipsManage.showTips("不能点亮")
-						} else {
-							//点亮
-							this["box_warrior" + i].gray = false;
-							this.warrior = i;
-						}
-					}
-				})
-				this["box_master" + i].on(Laya.UIEvent.CLICK, this, () => {
-					if (i !== 1) {
-						let b = i - 1;
-						if (this.skill != b) {
-							TipsManage.showTips("不能点亮")
-						} else {
-							//点亮
-							this["box_master" + i].gray = false;
-							this.master = i;
-						}
-					}
-				})
-				this["box_Taoist" + i].on(Laya.UIEvent.CLICK, this, () => {
-					if (i !== 1) {
-						let b = i - 1;
-						if (this.skill != b) {
-							TipsManage.showTips("不能点亮")
-						} else {
-							//点亮
-							this["box_Taoist" + i].gray = false;
-							this.taoist = i;
-						}
-					}
-				})
-			}
-		}
+	
+		
+
 	}
 }

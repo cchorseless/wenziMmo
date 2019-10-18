@@ -38,6 +38,7 @@ module view.hero {
 					this.btn_jihuo.gray = true;
 					this.viw_dizi.selectedIndex = 0;
 				}
+
 				if (jsonData[j].STATE == 1) {
 					this.btn_jihuo.label = '可激活';
 

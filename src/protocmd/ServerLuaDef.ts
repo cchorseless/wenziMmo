@@ -524,7 +524,7 @@ module ProtoCmd {
         curduplicate: number//当前重id
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
-        maxduplicate: number//当前已开启的最大重数
+        maxduplicate: number//当前已开启的最大重id
     }
     /***********************************副本接口**************************** */
     /**
