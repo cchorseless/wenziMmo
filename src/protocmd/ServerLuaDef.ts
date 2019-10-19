@@ -203,15 +203,15 @@ module ProtoCmd {
     export const Hero_saveGenius = 'saveGenius';
     // 弟子天赋取消
     export const Hero_cancelGenius = 'cancelGenius';
-     // 弟子武功招式
+    // 弟子武功招式
     export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
-     // 弟子武功招式一键激活
+    // 弟子武功招式一键激活
     export const Hero_activeJingMai = 'activeJingMai';
-     // 弟子武功招式真气面板
+    // 弟子武功招式真气面板
     export const Hero_getHeroRealGasPanel = 'getHeroRealGasPanel';
-     // 弟子武功招式点真气球满了获取真气
+    // 弟子武功招式点真气球满了获取真气
     export const Hero_exchangeRealGasByFakeGas = 'exchangeRealGasByFakeGas';
-     // 弟子武功招式返璞归真
+    // 弟子武功招式返璞归真
     export const Hero_exchangeRealGas = 'exchangeRealGas';
 
     /*********************************资质天赋******************** */
@@ -270,6 +270,10 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
 
 
     //玩家装备强化信息（所有Item）
@@ -296,9 +300,12 @@ module ProtoCmd {
     export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
     
 
+<<<<<<< HEAD
     // //玩家装备强化信息
     // export const sendEquipIntensify = "sendEquipIntensify";
 // >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
+=======
+>>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
 }
 
 /**
@@ -335,6 +342,7 @@ module ProtoCmd {
     /**
      * 装备强化信息
      */
+<<<<<<< HEAD
 // <<<<<<< HEAD
 
     export interface itf_JS_equipIntensifyMessage {
@@ -342,7 +350,15 @@ module ProtoCmd {
         playerjson: Object;
         sooulchaintab: Object
 // >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
+=======
+
+    export interface itf_JS_equipIntensifyMessage{
+        herojson:Object;
+        playerjson:{[index:number]:number};
+        sooulchaintab:Object
+>>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
     }
+
     /**
      * 路引数据
      */
@@ -553,7 +569,6 @@ module ProtoCmd {
     * 拉取内息经络
     */
     export interface itf_JS_NeiGongInfo {
-
         dangqiandengji: number//当前等级
         dangqianneigong: number//当前内功
         dangqianshuxing: string//“内功抵抗=当前属性”
@@ -561,6 +576,16 @@ module ProtoCmd {
         xiajishuxing: string//下级属性
         xiaohaoitem: number//当前属性的最大内功
         zongnum: number
+    }
+    /**
+  * 拉取角色天赋
+  */
+    export interface itf_JS_TalentInfo {
+        curscore: number//当前天赋经验值
+        isfull: number//是否已满
+        itemid: number//天赋id
+        itemtab: any//升级天赋所需物品
+        score: number//最大天赋经验值
     }
 
     /**********************************弟子信息************************* */
@@ -572,6 +597,9 @@ module ProtoCmd {
         JOB: number//职业
         STATE: number//状态 0未激活1可激活2已激活
     }
+    /**
+     * 弟子散功转生面板
+     */
     export interface itf_Hero_ZhuanShengInfo {
         afterlvl: number//转生前等级
         beforelvl: number//转生后等级
@@ -580,6 +608,9 @@ module ProtoCmd {
         xw: number//当前修为
         xwlvl: number//修为等级
     }
+    /**
+     * 弟子散功修为面板
+     */
     export interface itf_Hero_XiuWeiInfo {
         count: number//每日兑换次数
         exp: number//所需经验
@@ -588,13 +619,19 @@ module ProtoCmd {
         superpill: number//超级修为丹
         xw: number//上述条件可兑换的修为
     }
+    /**
+     * 弟子天赋面板
+     */
     export interface itf_Hero_TalentInfo {
-        consumetab: any//所有组天赋的效果id
+        consumetab: any//消耗的天赋魔力
         curduplicate: number//当前重id
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
         maxduplicate: number//当前已开启的最大重id
     }
+    /**
+     * 弟子武学面板
+     */
     export interface itf_Hero_WuXueInfo {
         effid: number//效果ID
         fakeGas: number//当前圆球里真气值
@@ -604,7 +641,18 @@ module ProtoCmd {
         maxfakegas: number//圆球里最大真气值
         nextid: number//下级效果ID
         realGas: number//当前真气值
-        skilltab:any //（key为技能id,skilltab[key]为技能开关状态0开1关）
+        skilltab: any //（key为技能id,skilltab[key]为技能开关状态0开1关）
+    }
+    /**
+     * 弟子武学兑换真气面板
+     */
+    export interface itf_Hero_WuXueGasInfo {
+        count: number//兑换次数
+        exp: number//所需经验
+        gas: number//兑换真气值
+        gold: number//所需金币
+        oneid: number//所需道具ID1
+        twoid: number//所需道具ID2
     }
     /***********************************副本接口**************************** */
     /**

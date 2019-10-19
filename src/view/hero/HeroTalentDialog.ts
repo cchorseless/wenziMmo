@@ -9,7 +9,7 @@ module view.hero{
 			
 		}
 		public addEvent():void{
-			this.btn_heroTalentClose.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
 		}

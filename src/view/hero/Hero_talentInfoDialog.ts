@@ -13,14 +13,18 @@ module view.hero {
 			this.sum = sum;
 			this.judgeEvent(data, index, i, key);
 			this.judgeType(data, index, i);
-			this.addEvent();
+			this.addEvent(data, index, i);
 			return this;
 		}
-		public addEvent(): void {
-			this.btn_save.on(Laya.UIEvent.CLICK, this, () => {
-				this.saveData();
-				this.close();
-			})
+		public addEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
+			if (data.gssecore >= data.consumetab[index][i]) {
+				this.btn_save.on(Laya.UIEvent.CLICK, this, () => {
+					this.saveData();
+					this.close();
+				})
+			} else {
+				TipsManage.showTips('当前天赋魔力不足')
+			}
 			this.btn_cancel.on(Laya.UIEvent.CLICK, this, () => {
 				this.cancelData();
 				this.close();
@@ -32,18 +36,24 @@ module view.hero {
 		public judgeType(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
 			let light = data.lvltab[index]
 			let canlight = light + 1;
-			console.log('=====>弹窗弹窗天赋', i, canlight, light);
 			if (index == 0 && i == 1) {
 				this.view_talent.selectedIndex = 1;
 			}
 
 			if (index !== 0 && i == 1) {
-				if (data.lvltab[0] == 5) {
+				if (data.lvltab[0] == 5 && data.lvltab[index] == 0) {
 					this.view_talent.selectedIndex = 1;
 				}
-				else {
+				if (data.lvltab[0] == 5 && data.lvltab[index] == 1) {
+					this.view_talent.selectedIndex = 0;
+				}
+				if (data.lvltab[0] == 5 && data.lvltab[index] > 1) {
 					this.view_talent.visible = false;
 				}
+				if (data.lvltab[0] < 5) {
+					this.view_talent.visible = false;
+				}
+
 			}
 			if (i > 1) {
 				if (i == canlight) {

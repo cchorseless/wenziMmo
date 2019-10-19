@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":193,
-    "selecteID":18,
+    "selectedBox":10,
+    "selecteID":206,
     "referenceLines":[
         {
             "value":149,
@@ -63,7 +63,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":177,"x":0,"skin":"image/common/line_yeqian.png"},
+            "props":{"y":177,"x":0,"skin":"image/common/login/line_yeqian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -170,7 +170,7 @@
                             "props":{"y":22,"x":12,"width":599,"var":"panel_guild","height":760},
                             "nodeParent":206,
                             "label":"Panel(panel_guild)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -220,7 +220,7 @@
                             "props":{"y":789,"x":214,"width":198,"height":42},
                             "nodeParent":206,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -301,7 +301,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -309,14 +309,13 @@
                     "props":{"y":-70,"x":0,"var":"box_createGuild","name":"item1"},
                     "nodeParent":10,
                     "label":"Box(box_createGuild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":194,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{},
                             "nodeParent":194,
@@ -328,7 +327,6 @@
                             "compId":193,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/guild/img_chuangjianbanghui.png"},
                                     "nodeParent":193,
@@ -342,7 +340,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":151,"x":279,"var":"img_createItem","skin":"image/guild/icon_gonghui02.png"},
                                     "nodeParent":193,
@@ -356,7 +353,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":451,"x":126},
                                     "nodeParent":193,
@@ -368,7 +364,6 @@
                                     "compId":19,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-92,"x":-3,"skin":"image/common/bottom_kouhao.png"},
                                             "nodeParent":19,
@@ -380,7 +375,6 @@
                                             "compId":20,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":6,"x":4,"width":107,"text":"帮派名称：","strokeColor":"#000000","stroke":2,"height":25,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                                     "nodeParent":20,
@@ -396,7 +390,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":-62,"x":-8,"width":405,"var":"input_bangPaiName","text":"文字江湖","skin":"image/guild/Inputbox_2.png","padding":"0,0,6,20","height":65,"fontSize":18,"font":"FZHL","color":"#000000","bold":true},
                                             "nodeParent":19,
@@ -410,7 +403,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-4,"x":-3,"skin":"image/common/bottom_kouhao.png"},
                                             "nodeParent":19,
@@ -422,7 +414,6 @@
                                             "compId":22,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":5,"x":1,"width":57,"text":"口号：","strokeColor":"#000000","stroke":2,"height":23,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                                     "nodeParent":22,
@@ -439,7 +430,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"TextInput",
                                     "props":{"y":468,"x":109,"width":416,"var":"input_bangPaiSlogan","text":"义，大义凛然之义，替天行道之义","skin":"image/guild/Inputbox_3.png","padding":"-15,0,6,28","height":113,"fontSize":18,"font":"FZHL","bold":true},
                                     "nodeParent":193,
@@ -453,7 +443,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":600,"x":264,"var":"btn_create","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"创建"},
                                     "nodeParent":193,
@@ -468,7 +457,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":280,"x":228,"var":"btn_createItemBuy","stateNum":"1","skin":"image/common/botton_100.png"},
                                     "nodeParent":193,
@@ -480,7 +468,6 @@
                                     "compId":202,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":18,"x":31,"text":"添加道具","strokeColor":"#2d1c05","stroke":4,"fontSize":30,"font":"FZXK","color":"#f3edd3"},
                                             "nodeParent":202,
@@ -497,7 +484,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":697,"x":5,"width":629,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"22,27,28,25","height":162},
                             "nodeParent":194,
@@ -509,7 +495,6 @@
                             "compId":31,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":20,"skin":"image/common/title_ConfederationDeclaration.png"},
                                     "nodeParent":31,
@@ -521,7 +506,6 @@
                                     "compId":190,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":10,"x":17,"wordWrap":true,"width":26,"text":"说 明","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":190,
@@ -536,7 +520,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":12,"x":105,"wordWrap":true,"width":487,"text":"剑仙城里练过武，寻梦港里吃过苦，天下英雄皆入土，浪漫男儿就是虎，依竹村里吹过风，兰若寺里撞过钟，万山揽遍此为峰，浪漫男儿就是冲，浪漫满屋欢迎热血青年加入。","height":104,"fontSize":23,"font":"FZHL","color":"#404040"},
                                     "nodeParent":31,
@@ -551,7 +534,7 @@
                             "$LOCKED":false,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

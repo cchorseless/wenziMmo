@@ -728,6 +728,8 @@ module view.common {
 				selector.setValue("btmapsubline", 1);
 				lcp.send(selector, this, this.selectPlayerRet)
 				GameApp.GameEngine.isLogin = true;
+
+				GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'))
 			}
 			else {
 				let strmsg: string;

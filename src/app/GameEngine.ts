@@ -1,7 +1,8 @@
 
 class GameEngine extends SingletonClass {
 
-    public IsDebug = true;
+    public IsDebug = true;      //tru 日志打印 false 去日志打印
+    public IsSDKLogin = true;   //true SDK登录 false 内部登录
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
@@ -16,6 +17,7 @@ class GameEngine extends SingletonClass {
     public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
     public trueZoneid: number = 1;
+    public serverName: string = '测试服'
     public zoneid: number = 1001;//区号
     public tradeid: number = 1;
     public svrIndex: number = 0;//服号

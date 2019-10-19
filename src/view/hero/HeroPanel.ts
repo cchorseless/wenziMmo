@@ -23,10 +23,10 @@ module view.hero {
 			this.btn_player.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJueSePanel();
 			});
-
 			for (let i = 0; i < 3; i++) {
 				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
 					PanelManage.openDiZiPanel();
+					PanelManage.DiZi.ui_diziInfo.baseInfo(i);
 				})
 			}
 		}

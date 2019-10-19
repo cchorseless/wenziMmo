@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":85,
-    "selecteID":87,
+    "selectedBox":99,
+    "selecteID":198,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -56,24 +56,26 @@
             "props":{"y":132,"x":23,"width":593,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"9,13,20,24","height":221},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":202,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-6,"x":77},
                     "nodeParent":202,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":99,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":-38,"stateNum":"2","skin":"image/juese/Internal-strength_small_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"冲钰剑法"},
                             "nodeParent":99,
@@ -86,6 +88,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":102,"stateNum":"2","skin":"image/juese/Internal-strength_small_02.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"伏魔阵"},
                             "nodeParent":99,
@@ -98,6 +101,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":235,"stateNum":"2","skin":"image/juese/Internal-strength_small_03.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"五行六合掌"},
                             "nodeParent":99,
@@ -110,6 +114,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":14,"x":375,"stateNum":"2","skin":"image/juese/Internal-strength_small_04.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"金刚般若掌"},
                             "nodeParent":99,
@@ -122,6 +127,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":113,"x":26,"stateNum":"2","skin":"image/juese/Internal-strength_small_05.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"金雁功"},
                             "nodeParent":99,
@@ -134,6 +140,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":113,"x":167,"stateNum":"2","skin":"image/juese/Internal-strength_small_06.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"化功大法"},
                             "nodeParent":99,
@@ -146,6 +153,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":113,"x":305,"stateNum":"2","skin":"image/juese/Internal-strength_small_07.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":18,"labelPadding":"32","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"奇门五转"},
                             "nodeParent":99,
@@ -167,14 +175,13 @@
             "props":{"y":375,"x":27,"width":594,"height":155},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":85,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":0,"width":594,"skin":"image/common/bottom_ConfederationDeclaration.png","height":149},
                     "nodeParent":85,
@@ -188,7 +195,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"x":21,"skin":"image/common/title_ConfederationDeclaration.png"},
                     "nodeParent":85,
@@ -202,9 +208,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":23,"x":107,"wordWrap":true,"width":432,"text":"依序使用疾风如劲、凤鸣鹤唳、疾风骤雨后可使用本招，中远距离前方直线多段攻击。","strokeColor":"#000000","height":63,"fontSize":22,"font":"FZHL","color":"#404040","bold":false},
+                    "props":{"y":23,"x":107,"wordWrap":true,"width":446,"text":"依序使用疾风如劲、凤鸣鹤唳、疾风骤雨后可使用本招，中远距离前方直线多段攻击。","strokeColor":"#000000","height":84,"fontSize":22,"font":"FZHL","color":"#404040","bold":false},
                     "nodeParent":85,
                     "label":"Label",
                     "isDirectory":false,
@@ -216,7 +221,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":111,"x":373,"skin":"image/juese/bottom_jiesuotiaojian.png"},
                     "nodeParent":85,
@@ -230,7 +234,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":25,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":85,
@@ -244,7 +247,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":37,"x":51,"wordWrap":true,"width":25,"text":"名称","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":85,
@@ -258,7 +260,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":113,"x":394,"text":"解锁条件：特戒11","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":85,
@@ -278,14 +279,13 @@
             "props":{"y":20,"x":20,"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":155,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":61,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":155,
@@ -325,7 +325,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":171,"var":"btn_waiGong","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":155,
@@ -365,7 +364,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":277,"var":"btn_neiGong","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":155,
@@ -404,7 +402,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":385,"var":"btn_heDao","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":155,
@@ -444,7 +441,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":500,"var":"btn_lifeSkill","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":155,
@@ -484,7 +480,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":155,

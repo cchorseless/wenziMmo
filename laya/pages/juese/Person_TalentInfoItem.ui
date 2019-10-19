@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":222,
-    "selecteID":239,
+    "selectedBox":224,
+    "selecteID":225,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -277,7 +277,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":12,"x":16,"name":"item0"},
+                    "props":{"y":12,"x":12,"name":"item0"},
                     "nodeParent":222,
                     "label":"Box(item0)",
                     "isOpen":false,
@@ -769,7 +769,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -855,20 +855,21 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":451,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
+                            "props":{"y":432,"x":0,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
                             "nodeParent":239,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":224,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
+                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":224,
-                                    "label":"Label",
+                                    "label":"Label(lbl_detail)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -877,8 +878,36 @@
                                         ]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":529,"x":139,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
+                            "nodeParent":239,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":262,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":530,"x":245,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
+                            "nodeParent":239,
+                            "label":"Label(lbl_condition)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":263,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

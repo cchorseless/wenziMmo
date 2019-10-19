@@ -31,10 +31,7 @@ module view.wuXue {
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueHeDaoPanel();
 			});
-			//内功更换
-			this.btn_neigongChange.on(Laya.UIEvent.CLICK, this, () => {
-				new view.wuXue.WuXueNeigongDialog().popup(true);
-			})
+
 		}
 	}
 }

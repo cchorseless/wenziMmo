@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":455,"sceneColor":"#000000","height":480},
+    "selectedBox":2,
+    "selecteID":18,
+    "props":{"width":564,"sceneColor":"#e8c4c3","height":595},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":455,"skin":"image/common/fram_common_20.png","sizeGrid":"23,18,21,24","height":480},
+            "props":{"y":0,"x":0,"width":564,"skin":"image/common/bottom_Pop-ups_small.png","sizeGrid":"23,18,21,24","height":595},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":105,"text":"英雄天赋属性加成统计","strokeColor":"#efbf26","fontSize":24,"color":"\t#D2691E","bold":true},
+                    "props":{"y":49,"x":105,"text":"英雄天赋属性加成统计","strokeColor":"#efbf26","fontSize":24,"color":"\t#D2691E","bold":true},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":77,"x":30,"text":"对英雄得加成","strokeColor":"#efbf26","fontSize":22,"color":"#DAA520","bold":true},
+                    "props":{"y":81,"x":45,"text":"对英雄加成","strokeColor":"#efbf26","fontSize":22,"color":"#DAA520","bold":true},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -52,341 +52,242 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":110,"x":48},
+                    "type":"Label",
+                    "props":{"y":110,"x":48,"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "label":"Label",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":23,
+                    "hasChild":false,
+                    "compId":21,
                     "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":23,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":21,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":23,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":22,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":140,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":24,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":24,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":25,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":24,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":26,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":170,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":27,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":27,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":28,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":27,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":29,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":200,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":30,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":30,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":31,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":30,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":32,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":230,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":33,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":33,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":34,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":33,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":35,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":260,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":36,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":36,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":37,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":36,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":38,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":290,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":39,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":39,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":40,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":39,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":41,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":320,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":42,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":42,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":43,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":42,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":44,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":351,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":45,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":45,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":46,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":45,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":47,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":390,"x":30,"text":"对英雄得加成","strokeColor":"#efbf26","fontSize":22,"color":"#DAA520","bold":true},
+                    "props":{"y":110,"x":165,"var":"lbl_maxHP","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_maxHP)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":140,"x":48,"text":"韧    性：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":25,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":140,"x":165,"var":"lbl_toughness","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_toughness)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":26,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":170,"x":48,"text":"闪    避：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":170,"x":165,"var":"lbl_dodge","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_dodge)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":200,"x":48,"text":"受暴击伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":31,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":200,"x":200,"var":"lbl_critReduction","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_critReduction)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":32,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":230,"x":48,"text":"准    确：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":34,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":230,"x":165,"var":"lbl_accuracy","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_accuracy)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":35,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":260,"x":48,"text":"暴    击：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":37,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":260,"x":165,"var":"lbl_crit","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_crit)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":38,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":290,"x":48,"text":"受合击伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":40,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":290,"x":200,"var":"lbl_attackReduce","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_attackReduce)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":41,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":320,"x":48,"text":"对战士伤害增加：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":43,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":320,"x":200,"var":"lbl_increase","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_increase)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":44,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":351,"x":48,"text":"对战士伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":46,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":351,"x":200,"var":"lbl_warriorReduce","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_warriorReduce)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":47,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":436,"x":44,"text":"对主角加成","strokeColor":"#efbf26","fontSize":22,"color":"#DAA520","bold":true},
                     "nodeParent":2,
                     "label":"Label",
                     "isDirectory":false,
@@ -398,51 +299,118 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":420,"x":48},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":48,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"text":"生命上限：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":48,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":49,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"x":117,"text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
-                            "nodeParent":48,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":50,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":382,"var":"btn_heroTalentClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":19,"x":484,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,
-                    "label":"Button(btn_heroTalentClose)",
+                    "label":"Button(btn_close)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":18,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":380,"x":48,"text":"对法师伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":51,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":380,"x":200,"var":"lbl_masterReduce","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_masterReduce)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":52,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":407,"x":48,"text":"对道士伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":53,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":407,"x":200,"var":"lbl_TaoistReduce","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_TaoistReduce)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":54,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":466,"x":48,"text":"受暴击伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":58,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":466,"x":200,"var":"lbl_personCrit","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_personCrit)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":59,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":500,"x":48,"text":"受合击伤害减少：","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":60,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":500,"x":200,"var":"lbl_personAttack","text":"4141","fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_personAttack)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":61,
                     "child":[
                         ]
                 }]
