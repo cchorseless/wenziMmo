@@ -39,19 +39,9 @@ module view.fuBen {
 			}
 			// 挑战BOSS
 			EventManage.onWithEffect(this.btn_battle, Laya.UIEvent.CLICK, this, this.enterFuBen);
-			this.addLcpEvent();
 		}
 
-		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, this.updateInFuBenInfo)
 
-		}
-
-		public Diapose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
-			PopUpManager.Dispose(this);
-
-		}
 
 		public initUI(): void {
 			this.panel_0.vScrollBarSkin = '';
@@ -262,13 +252,6 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
 			lcp.send(pkt);
-		}
-		/**
-		 * 更新副本进度
-		 * @param jsondata 
-		 */
-		public updateInFuBenInfo(jsondata): void {
-			console.log(jsondata);
 		}
 	}
 }

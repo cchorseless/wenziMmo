@@ -12,7 +12,7 @@ module view.scene {
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_1['sortItem'] = (items) => { };
 			this.hbox_2['sortItem'] = (items) => { };
-			
+
 			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
 			ui_monsterGroup.changeToBig();
 			this.hbox_2.addChild(ui_monsterGroup);
@@ -38,8 +38,32 @@ module view.scene {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.FB_ChuMoLeave);
 				lcp.send(pkt);
+			});
+
+			this.addLcpEvent();
+		}
+
+		public addLcpEvent() {
+			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
+				console.log(jsonData);
+				this.lbl_leftTime.text = '' + jsonData.sec + '秒';
+				this.lbl_tongGuanTiaoJian.text = '' + jsonData.tiaojian + '(' + jsonData.curcnt + '/' + jsonData.totalcnt + ')';
+				if (this.vbox_0.numChildren > 0) {
+					for (let i = 0; jsonData.item[i]; i++) {
+						let itemBase = new ProtoCmd.ItemBase();
+						let new_ui = new view.compart.DaoJuWithNameItem();
+						new_ui.setData(itemBase);
+						this.vbox_0.addChild(new_ui);
+					}
+				}
 			})
 		}
+
+		public Dispose() {
+			GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
+			PopUpManager.Dispose(this);
+		}
+
 
 		public updateUI(): void {
 			this.clearMonster();
@@ -48,9 +72,15 @@ module view.scene {
 			// 更新角色
 			this.updateSelfPlayer();
 			// 更新地图
-			// this.updateMapInfo();
+			this.updateMapInfo();
 		}
 
+		/**
+		 * 刷新地图
+		 */
+		public updateMapInfo(): void {
+
+		}
 
 
 		/**

@@ -13,7 +13,7 @@ module view.hero {
 		}
 		public addEvent(): void {
 			//激活弟子
-			this.btn_jihuo1.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.num == 1) {
 					//激活弟子1
 					this.proto = ProtoCmd.Hero_firstGenHero;
@@ -35,11 +35,12 @@ module view.hero {
 				let j = i + 1;
 				this.num = j
 				if (jsonData[j].STATE == 0) {
-					this.btn_jihuo1.gray = true;
+					this.btn_jihuo.gray = true;
 					this.viw_dizi.selectedIndex = 0;
 				}
+
 				if (jsonData[j].STATE == 1) {
-					this.btn_jihuo1.label = '可激活';
+					this.btn_jihuo.label = '可激活';
 
 					this.viw_dizi.selectedIndex = 0;
 				}

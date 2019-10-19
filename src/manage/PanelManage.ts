@@ -35,7 +35,6 @@ module PanelManage {
     export let GM: view.common.GmPanel;                                                  //GM界面
     export let Login: view.common.LoginPanel;                                            //登陆界面
     export let ChooseServer: view.common.ChooseServerPanel;                              //选择服务器界面
-    export let ServerNotice: view.common.ServerNoticePanel;                              //服务器公告界面
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
     export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
     export let Main: view.main.MainPanel;                                                //主界面                                              
@@ -205,20 +204,6 @@ module PanelManage {
         })
     }
 
-    // 服务器公告界面
-    export function openServerNoticePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ServerNotice) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ServerNotice);
-        ResManage.loadResource(ResData.PanelRes.ServerNotice, () => {
-            PanelManage.ServerNotice = new view.common.ServerNoticePanel();
-            PanelManage.ServerNotice['LCP_skin'] = ResData.PanelRes.ServerList;
-            PanelManage.ServerNotice.setData();
-            PanelManage.ServerNotice.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ServerNotice, 4);
-        })
-    }
     /**
      * 显示主界面
      */

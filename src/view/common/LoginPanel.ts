@@ -22,6 +22,7 @@ module view.common {
 		}
 
 		public setData(): void {
+			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			// 登陆组隐藏
 			this.stack_login.selectedIndex = 0;
 			let oldAccountName = Laya.LocalStorage.getItem('account');
@@ -36,20 +37,17 @@ module view.common {
 		}
 
 		public addEvent() {
-			this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
-			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
+			EventManage.onWithEffect(this.btn_Login, Laya.UIEvent.CLICK, this, this.loginGame);
 		}
 
 
 		public loginGame(): void {
 			if (this.input_account.text == '') {
 				TipsManage.showTips('账号不能为空');
-				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				return
 			}
 			if (this.input_password.text == '') {
 				TipsManage.showTips('密码不能为空');
-				this.btn_Login.once(Laya.UIEvent.CLICK, this, this.loginGame);
 				return
 			}
 			Laya.LocalStorage.setItem('account', this.input_account.text);

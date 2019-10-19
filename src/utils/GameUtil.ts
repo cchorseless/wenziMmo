@@ -35,8 +35,7 @@ module GameUtil {
      */
     export function getServerData(index: number): Boolean {
         if (GameApp.GameEngine.questBoolData) {
-            GameApp.GameEngine.questBoolData.pos = index;
-            return GameApp.GameEngine.questBoolData.getUint8() > 0;
+            return GameApp.GameEngine.questBoolData[index] > 0;
         }
         return false
     }
@@ -50,8 +49,7 @@ module GameUtil {
         pkt.setString(ProtoCmd.playerBubble, [index * 8]);
         lcp.send(pkt);
         // 维护本地数据，玩家上线后会重新
-        GameApp.GameEngine.questBoolData.pos = index;
-        GameApp.GameEngine.questBoolData.writeUint8(1);
+        GameApp.GameEngine.questBoolData[index] = 1;
     }
 
 

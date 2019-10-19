@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":297,
-    "selecteID":298,
+    "selectedBox":242,
+    "selecteID":292,
     "props":{"width":567,"sceneColor":"#f4dedd","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -297,6 +297,34 @@
                             "child":[
                                 ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":343,"x":190,"skin":"image/common/zi_zhanli.png"},
+                    "nodeParent":141,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":301,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"FontClip",
+                    "props":{"y":351,"x":275,"width":107,"value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+                    "nodeParent":141,
+                    "label":"FontClip",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":302,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -354,7 +382,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":25,"x":42,"text":"血","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":25,"x":32,"text":"气血","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -525,7 +553,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":25,"x":316,"text":"气","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":25,"x":306,"text":"内力","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -539,7 +567,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":65,"x":42,"text":"耐","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":65,"x":32,"text":"耐力","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -552,7 +580,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":65,"x":316,"text":"攻","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":65,"x":306,"text":"攻击","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -565,7 +593,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":105,"x":42,"text":"抗","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":105,"x":32,"text":"卸力","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -578,7 +606,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":105,"x":316,"text":"化","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":105,"x":306,"text":"化劲","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -591,7 +619,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":145,"x":42,"text":"准","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":145,"x":32,"text":"准确","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -604,7 +632,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":145,"x":316,"text":"躲","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":145,"x":306,"text":"闪避","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -617,7 +645,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":185,"x":42,"text":"巧","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":185,"x":32,"text":"会心","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -630,7 +658,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":185,"x":316,"text":"狠","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":185,"x":306,"text":"重击","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -643,7 +671,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":225,"x":42,"text":"幸","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":225,"x":32,"text":"幸运","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,
@@ -656,7 +684,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":225,"x":316,"text":"韧","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                            "props":{"y":225,"x":306,"text":"韧性","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":242,
                             "label":"Label",
                             "isDirectory":false,

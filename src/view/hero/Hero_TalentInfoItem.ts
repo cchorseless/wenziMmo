@@ -14,7 +14,7 @@ module view.hero {
 			
 		}
 		public addEvent(): void {
-			this.btn_activation.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				GameUtil.setServerData(this.client_func_index);
 				this.activation();
 			})
@@ -35,7 +35,7 @@ module view.hero {
 				let keys = Object.keys(jsonData.lvltab);
 				for (let key of keys) {
 					let data = jsonData.lvltab[key];
-					this.vbox_talent.addChild(new view.hero.Hero_TalentInfoFloorItem().setData(key, data))
+					this.vbox_talent.addChild(new view.hero.Hero_TalentInfoFloorItem().setData(key))
 				}
 			})
 			lcp.send(pkt);

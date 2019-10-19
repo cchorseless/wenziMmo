@@ -277,7 +277,7 @@ class ServerListener extends SingletonClass {
      */
     public updateQuestBoolData(data): void {
         let pkt = new ProtoCmd.SUBCMD_QUESTBOOLDATA(data);
-        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer);
+        GameApp.GameEngine.questBoolData = new Laya.Byte(pkt.getValue('value').buffer).getUint8Array(0, 256);
         pkt.clear();
         pkt = null;
     }
@@ -1549,8 +1549,25 @@ class ServerListener extends SingletonClass {
     }
     /**
      * 
-     * 是否有弟子     */
-    public haveDizi(): void {
+     * 弟子相关     */
+    public haveDizi(data: any): void {
+        let msg = new ProtoCmd.UpdatePlayerInfo(data);
+        //GM等级
+        GameApp.GameEngine.GMlvl = msg.getValue("btGmLv");
+        //英雄职业
+        GameApp.GameEngine.heroJob = msg.getValue("btHeroJob");
+        //英雄性别
+        GameApp.GameEngine.heroSex = msg.getValue("btHeroSex");
+        //角色转生等级
+        GameApp.GameEngine.jueseZhuanShengLvl = msg.getValue("btMainRlvl");
+        //英雄转生等级
+        GameApp.GameEngine.heroZhuanShengLvl = msg.getValue("btHeroRlvl");
+        //英雄等级
+        GameApp.GameEngine.heroLvl = msg.getValue("wHeroLvl");
+        //英雄状态
+        GameApp.GameEngine.heroType = msg.getValue("btHeroState");
+        //英雄转生时间戳
+        GameApp.GameEngine.heroLifeTime = msg.getValue("dwReliveTime");
 
     }
 

@@ -9,7 +9,7 @@ class GameEngine extends SingletonClass {
     public token: string = "";                                                    //微信登陆成功的密匙，使用此内容login
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
     public serverid: string = "";
-    public version: string = "";//版本号
+    public version: string = "1.0.0";//版本号
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
@@ -61,11 +61,20 @@ class GameEngine extends SingletonClass {
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
+    /************************弟子信息************ */
+    public GMlvl = {};//GM等级
+    public heroJob = {};//弟子职业
+    public heroSex = {};//弟子性别
+    public jueseZhuanShengLvl = {};//角色转生等级
+    public heroZhuanShengLvl = {};//弟子转生等级
+    public heroLvl = {};//英雄等级
+    public heroType = {};      //英雄状态
+    public heroLifeTime = {};   //英雄复活时间戳
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
     /***********************新手引导数据********* */
-    public questBoolData: Laya.Byte = null;
+    public questBoolData: Uint8Array = null;
 
 
     public isReady: boolean = false;

@@ -33,8 +33,12 @@ module view.common {
 		}
 
 		public addEvent(): void {
-			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
+
+			EventManage.onWithEffect(this.btn_notice, Laya.UIEvent.CLICK, this, () => {
+				new view.common.ServerNoticeDialog().setData().show(true);
+			});
+
+			EventManage.onWithEffect(this.btn_startGame, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.ChooseServer.startGame();
 			});
 		}
