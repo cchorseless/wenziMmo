@@ -6,6 +6,7 @@ module view.common {
 		}
 		public setData(): ChooseServerPanel {
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
+			
 			this.addEvent();
 			return this;
 		}

@@ -97,7 +97,7 @@ module PanelManage {
     export let ZhiNan_WuXuePanel: view.zhiNan.ZhiNan_wuxuePanel;//游戏武学界面
     export let ZhiNan_ShuXingPanel: view.zhiNan.ZhiNan_shuxingPanel;//游戏武学界面
     export let ZhiNan_DiYuPanel: view.zhiNan.ZhiNan_diyuPanel;//游戏武学界面
-    
+
     /*****************************通用方法************************************* */
 
     // 游戏开始的资源加载界面
@@ -130,6 +130,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Main, 0);
             // 为了避免黑屏，这里特殊化处理一下销毁StartLoadingPanel
             PopUpManager.checkPanel(PanelManage.StartLoading, true, 2);
+
         });
     }
     // GM工具
@@ -158,6 +159,7 @@ module PanelManage {
             PanelManage.Login.setData();
             PanelManage.Login.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.Login, 1);
+            GameApp.SDKManager.login();
         })
     }
 
@@ -877,7 +879,7 @@ module PanelManage {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_WuXuePanel) {
             return
         }
-         PopUpManager.checkPanel(PanelManage.ZhiNan_WuXuePanel);
+        PopUpManager.checkPanel(PanelManage.ZhiNan_WuXuePanel);
         ResManage.loadResource(ResData.PanelRes.ZhiNan_WuXue, () => {
             PanelManage.ZhiNan_WuXuePanel = new view.zhiNan.ZhiNan_wuxuePanel();
             PanelManage.ZhiNan_WuXuePanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
@@ -886,14 +888,14 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.ZhiNan_WuXuePanel, 3, 0, 0);
         })
     }
-     /**
-     * 游戏属性界面
-     */
+    /**
+    * 游戏属性界面
+    */
     export function openZhiNanShuXingPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_ShuXingPanel) {
             return
         }
-         PopUpManager.checkPanel(PanelManage.ZhiNan_ShuXingPanel);
+        PopUpManager.checkPanel(PanelManage.ZhiNan_ShuXingPanel);
         ResManage.loadResource(ResData.PanelRes.ZhiNan_ShuXing, () => {
             PanelManage.ZhiNan_ShuXingPanel = new view.zhiNan.ZhiNan_shuxingPanel();
             PanelManage.ZhiNan_ShuXingPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
@@ -909,7 +911,7 @@ module PanelManage {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_DiYuPanel) {
             return
         }
-         PopUpManager.checkPanel(PanelManage.ZhiNan_DiYuPanel);
+        PopUpManager.checkPanel(PanelManage.ZhiNan_DiYuPanel);
         ResManage.loadResource(ResData.PanelRes.ZhiNan_DiYu, () => {
             PanelManage.ZhiNan_DiYuPanel = new view.zhiNan.ZhiNan_diyuPanel();
             PanelManage.ZhiNan_DiYuPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
@@ -918,7 +920,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.ZhiNan_DiYuPanel, 3, 0, 0);
         })
     }
-    
+
 
 
     /**
@@ -1093,7 +1095,7 @@ module PanelManage {
     /**
     * 天鉴界面
     */
-    export function openTianJianPanel(data:any): void {
+    export function openTianJianPanel(data: any): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TianJian) {
             return
         }

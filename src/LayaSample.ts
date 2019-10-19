@@ -8,6 +8,7 @@ class GameMain {
         Laya.MiniAdpter.init();
         this.initGame();
         this.createGameScene();
+        GameApp.SDKManager.init(true); //参数设为 true 时 可开启调试模式
         PanelManage.openStartLoadingPanel();
     }
 

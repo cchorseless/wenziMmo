@@ -3,22 +3,6 @@ module view.common {
 	export class LoginPanel extends ui.common.LoginPanelUI {
 		constructor() {
 			super();
-
-			let h = 'name=historyZoneList&tradeId=1&account=1';
-			let str = 'name=zoneList&tradeId=1&minId=1&maxId=100';
-			GameApp.HttpManager.get(str, (res) => {
-				console.log('get response=', res);
-			});
-
-			// GameApp.HttpManager.post('test text string', (res) => {
-			// 	console.log('post text response=', res)
-			// });
-
-			// GameApp.HttpManager.postJson({ name: 'playerLogin', emil: 'email@email.com' }, (res) => {
-			// 	console.log('post json response=', res);
-			// 	let data = JSON.parse(res);
-			// 	console.log(data);
-			// });
 		}
 
 		public setData(): void {

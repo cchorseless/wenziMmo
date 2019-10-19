@@ -795,6 +795,8 @@ class ServerListener extends SingletonClass {
         }
         msg.clear();
         msg = null;
+
+        GameApp.SDKManager.upgradeRole();
     }
 
 
@@ -873,6 +875,8 @@ class ServerListener extends SingletonClass {
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         msg.clear();
         msg = null;
+
+        GameApp.SDKManager.loginRole();
     }
 
 

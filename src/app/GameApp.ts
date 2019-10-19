@@ -50,6 +50,10 @@ class GameApp {
     public static get DomUtil(): DomUtil {
         return DomUtil.getInstance();
     }
+
+    public static get SDKManager() : SDKManager {
+        return SDKManager.getInstance();
+    }
     // /**
     //  * 服务器返回的消息处理中心
     //  * @type {MessageCenter}
