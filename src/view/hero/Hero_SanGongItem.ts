@@ -7,7 +7,11 @@ module view.hero {
 		}
 		//当前经验-最大经验
 		public exp;
-		public client_func_index = 53;
+		public client_func_index = 56;
+		//开启所需等级总数
+		private sum;
+		//玩家等级总数
+		private mySum;
 		public setData(): void {
 			this.addEvent();
 			this.activation();
@@ -22,12 +26,18 @@ module view.hero {
 			this.btn_xiuwei.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
-			//开启
-			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				GameUtil.setServerData(this.client_func_index);
-				this.activation();
-			})
-
+			if (this.mySum >= this.sum) {
+				//开启
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					GameUtil.setServerData(this.client_func_index);
+					this.activation();
+				})
+			}
+			else {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					TipsManage.showTips('您当前等级不足，暂时不能开启')
+				});
+			}
 		}
 		public activation(): void {
 			//判断是否激活
@@ -38,7 +48,21 @@ module view.hero {
 			}
 			else {
 				this.viw_sangong.selectedIndex = 0;
+				this.notActivation();
 			}
+		}
+		/**
+	  * 未激活时
+	  */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + id);
+			let zsLvl = Math.floor(activationLvl / 1000);
+			let lvl = activationLvl % 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			this.sum = zsLvl * 1000 + lvl;
+			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		/**
 		 * 转生面板
@@ -123,8 +147,26 @@ module view.hero {
 
 			})
 			let bpkt = new ProtoCmd.QuestClientData();
-			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData) => {
+			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
 				console.log('====>弟子修为面板', jsonData)
+				//所需经验
+				this.lbl_exp.text = '' + jsonData.exp;
+				//所需金币
+				this.lbl_gold.text = '' + jsonData.gold;
+				//可兑换的修为
+				this.lbl_exchange.text = '' + jsonData.xw;
+				//道具1
+				let _itemUI1 = new view.compart.DaoJuWithNameItem();
+				let itemInfo1 = new ProtoCmd.ItemBase();
+				itemInfo1.dwBaseID = jsonData.pill;
+				_itemUI1.setData(itemInfo1);
+				this.box_1.addChild(_itemUI1);
+				//道具2
+				let _itemUI2 = new view.compart.DaoJuWithNameItem();
+				let itemInfo2 = new ProtoCmd.ItemBase();
+				itemInfo2.dwBaseID = jsonData.superpill;
+				_itemUI2.setData(itemInfo2);
+				this.box_2.addChild(_itemUI2)
 			})
 			lcp.send(bpkt);
 		}
@@ -160,7 +202,6 @@ module view.hero {
 		public init_UpXiuWei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
-				console.log('====>弟子修为获取', jsonData)
 			})
 			lcp.send(pkt);
 		}

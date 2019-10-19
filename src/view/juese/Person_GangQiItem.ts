@@ -4,7 +4,7 @@ module view.juese {
 		constructor() {
 			super();
 		}
-
+		private client_func_index = 16;// 功能ID编号
 		public setData(): void {
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
@@ -21,9 +21,18 @@ module view.juese {
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
+				this.notActivation();
 			}
 		}
+		/**
+		  * 未激活时
+		  */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 
+		}
 		//查找自己身上的翅膀
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_WING);
@@ -145,7 +154,7 @@ module view.juese {
 			pkt.setString(ProtoCmd.JS_playerWingPanel)
 			lcp.send(pkt);
 		}
-		
+
 		/**
 		 * 罡气进阶
 		 */

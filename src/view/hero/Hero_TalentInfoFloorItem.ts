@@ -4,12 +4,11 @@ module view.hero {
 		constructor() {
 			super();
 		}
-		public skill = 1;
-		public warrior = 1;
-		public master = 1;
-		public taoist = 1;
 		public data: ProtoCmd.itf_Hero_TalentInfo;
+		//组别索引
 		public index;
+		//天赋魔力
+		public gssecore;
 		public setData(key): Hero_TalentInfoFloorItem {
 			let floor = parseInt(key) + 1;
 			this.lbl_fool.text = '第' + floor + '重'
@@ -90,13 +89,14 @@ module view.hero {
 		}
 		public init_panel(key): void {
 			GameApp.LListener.on(ProtoCmd.Hero_heroGeniusPanel, this, (jsonData: ProtoCmd.itf_Hero_TalentInfo) => {
-				console.log('========>弟子天赋', jsonData);
-				let sum = jsonData.lvltab[0] + jsonData.lvltab[1] + jsonData.lvltab[2] + jsonData.lvltab[3];
-				this.lbl_talentPoint.text = sum + '/10';
-				this.data = jsonData;
-				PanelManage.DiZi.ui_talent.init_talentData(jsonData);
-				if (key ==jsonData.curduplicate){
+				console.log('=====>天赋魔力2', jsonData)
+				if (key == jsonData.curduplicate) {
 					this.init_type(jsonData.lvltab);
+					//天赋点数
+					let sum = jsonData.lvltab[0] + jsonData.lvltab[1] + jsonData.lvltab[2] + jsonData.lvltab[3];
+					this.lbl_talentPoint.text = sum + '/10';
+					this.data = jsonData;
+					PanelManage.DiZi.ui_talent.init_talentData(jsonData);
 				}
 
 			})
@@ -105,6 +105,9 @@ module view.hero {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_heroGeniusPanel, this);
 			super.destroy(isbool);
 		}
+		/**
+		  * 弟子天赋重数面板
+		  */
 		public sendData(key): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_heroGeniusPanel, [key])

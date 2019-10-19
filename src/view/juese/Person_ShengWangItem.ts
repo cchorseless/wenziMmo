@@ -6,6 +6,10 @@ module view.juese {
 		}
 		public hasInit = false;// 初始化自己
 		private client_func_index = 18;// 功能ID编号
+		//开启所需等级总数
+		private sum;
+		//玩家等级总数
+		private mySum;
 		public setData(): void {
 			this.panel_shengWang.hScrollBarSkin = '';
 			this.hbox_shengWang['sortItem'] = (items) => { };
@@ -16,11 +20,17 @@ module view.juese {
 		}
 		public addEvent(): void {
 			//开启
-			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				GameUtil.setServerData(this.client_func_index);
-				this.activation();
-			})
-
+			if (this.mySum >= this.sum) {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					GameUtil.setServerData(this.client_func_index);
+					this.activation();
+				})
+			}
+			else {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					TipsManage.showTips('您当前等级不足，暂时不能开启')
+				});
+			}
 		}
 		public activation(): void {
 			//判断是否激活
@@ -30,7 +40,21 @@ module view.juese {
 			}
 			else {
 				this.viw_shengwang.selectedIndex = 0;
+				this.notActivation();
 			}
+		}
+		/**
+	  * 未激活时
+	  */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + id);
+			let zsLvl = Math.floor(activationLvl / 1000);
+			let lvl = activationLvl % 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			this.sum = zsLvl * 1000 + lvl;
+			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		/**
 		 * 获取江湖声望信息

@@ -5,7 +5,12 @@ module view.juese {
 			super();
 		}
 		public hasInit = false;// 初始化自己
-		private client_func_index=15;// 功能ID编号
+		private client_func_index = 15;// 功能ID编号
+		private value;
+		//开启所需等级总数
+		private sum;
+		//玩家等级总数
+		private mySum;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -17,10 +22,17 @@ module view.juese {
 			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_ShengJiInfo();
 			});
-			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				GameUtil.setServerData(this.client_func_index);
-				this.activation();
-			});
+			if (this.mySum >= this.sum) {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					GameUtil.setServerData(this.client_func_index);
+					this.activation();
+				});
+			}
+			else {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					TipsManage.showTips('您当前等级不足，暂时不能开启')
+				});
+			}
 		}
 		public activation(): void {
 			//判断是否激活
@@ -31,7 +43,21 @@ module view.juese {
 			}
 			else {
 				this.viw_jingluo.selectedIndex = 0;
+				this.notActivation();
 			}
+		}
+		/**
+		 * 未激活时
+		 */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + id);
+			let zsLvl = Math.floor(activationLvl / 1000);
+			let lvl = activationLvl % 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			this.sum = zsLvl * 1000 + lvl;
+			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		/**
 		 * 经络信息拉取
@@ -42,15 +68,25 @@ module view.juese {
 				this.clip_chongshu.value = '' + Math.ceil(jsonData.dangqiandengji / 10);
 				//内功恢复
 				this.lbl_huifu.text = '' + jsonData.nghf;
-				let data=jsonData.dangqianshuxing.split('=')
+				let data = jsonData.dangqianshuxing.split('=')
 				//内功值
 				this.lbl_neigong.text = '' + data[1];
 				//内功抵抗
 				this.lbl_dikang.text = data[0] + "%";
-				//当前内功值进度
-				this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
-				//当前内功值进度条
-				this.img_progress.width = 390 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
+				let value = jsonData.dangqianneigong - jsonData.xiaohaoitem;
+				this.value = value;
+				if (value < 0) {
+					//当前内功值进度
+					this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
+					//当前内功值进度条
+					this.img_progress.width = 390 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
+				} else {
+					//当前内功值进度
+					this.lbl_value.text = jsonData.xiaohaoitem + '/' + jsonData.xiaohaoitem;
+					//当前内功值进度条
+					this.img_progress.width = 390;
+				}
+
 				let neigong = jsonData.dangqiandengji % 10;
 				let line = neigong - 1;
 				//穴位点亮
@@ -84,9 +120,14 @@ module view.juese {
 		 * 经络升级发包
 		 */
 		public init_ShengJiInfo(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_shuxingxitong_shengji)
-			lcp.send(pkt);
+			if (this.value >= 0) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.JS_shuxingxitong_shengji)
+				lcp.send(pkt);
+			}
+			else {
+				TipsManage.showTips('当前经验不足，无法升级')
+			}
 		}
 	}
 }

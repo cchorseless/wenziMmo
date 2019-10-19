@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":114,
+    "selectedBox":115,
+    "selecteID":130,
     "referenceLines":[
         {
             "value":11,
@@ -86,13 +86,14 @@
                     "props":{"y":112,"x":7,"name":"item0"},
                     "nodeParent":128,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":115,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-161,"x":-2},
                             "nodeParent":115,
@@ -167,11 +168,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-106,"x":198,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":115,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -193,8 +195,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":554,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                            "props":{"y":587,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":115,
                             "label":"Button(btn_jihuo)",
                             "isDirectory":false,
@@ -205,21 +208,23 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":405,"x":0,"width":562,"skin":"image/juese/bottom_common_001.png","height":142},
+                            "props":{"y":405,"x":4,"width":562,"skin":"image/juese/bottom_common_001.png","height":142},
                             "nodeParent":115,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":120,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
+                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":120,
-                                    "label":"Label",
+                                    "label":"Label(lbl_detail)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -227,6 +232,34 @@
                                     "child":[
                                         ]
                                 }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":561,"x":138,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
+                            "nodeParent":115,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":129,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":562,"x":244,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
+                            "nodeParent":115,
+                            "label":"Label(lbl_condition)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":130,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },

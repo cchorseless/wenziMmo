@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":18,
-    "selecteID":30,
+    "selecteID":31,
     "props":{"width":529,"sceneColor":"#000000","height":522},
     "nodeParent":-1,
     "label":"Dialog",
@@ -83,7 +83,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":75,"x":160,"width":196,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":30,"labelPadding":",10","labelFont":"FZXK","labelColors":"#000000,#000000","label":"BOSS之家","height":59},
+                    "props":{"y":75,"x":160,"width":196,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":30,"labelPadding":",10","labelFont":"FZXK","labelColors":"#000000,#000000","label":"BOSS之家","height":59},
                     "nodeParent":3,
                     "label":"Button",
                     "isOpen":null,
@@ -112,15 +112,16 @@
                     "props":{"y":147,"x":44,"width":429,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"-45,50,0,83","height":237},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":12,"x":16,"skin":"image/main/img_zhuangshi_03.png"},
+                            "props":{"y":12,"x":16,"skin":"image/common/login/img_zhuangshi_03.png"},
                             "nodeParent":10,
                             "label":"Image",
                             "isDirectory":false,
@@ -131,8 +132,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":12,"x":407,"skin":"image/main/img_zhuangshi_03.png","scaleX":-1},
+                            "props":{"y":12,"x":407,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1},
                             "nodeParent":10,
                             "label":"Image",
                             "isDirectory":false,
@@ -143,6 +145,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":164,"text":"组队等级","fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":10,
@@ -155,6 +158,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":89,"x":93,"text":"转生等级：","fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":10,
@@ -167,6 +171,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":139,"x":141,"text":"等级：","fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":10,
@@ -179,6 +184,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
                             "props":{"y":80,"x":212,"width":116,"type":"text","skin":"image/common/frame_chat.png","promptColor":"#404040","padding":"0,,0,16","maxChars":50,"height":44,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":10,
@@ -191,6 +197,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"TextInput",
                             "props":{"y":129,"x":212,"width":116,"type":"text","skin":"image/common/frame_chat.png","promptColor":"#404040","padding":"0,,0,16","maxChars":50,"height":44,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":10,
@@ -202,7 +209,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -219,7 +226,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":36,"x":17,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":36,"x":17,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -233,7 +240,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":36,"x":157,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":36,"x":157,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -247,7 +254,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":36,"x":298,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":36,"x":298,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -261,7 +268,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":86,"x":17,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":86,"x":17,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -275,7 +282,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":86,"x":157,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":86,"x":157,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -289,7 +296,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":86,"x":298,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":86,"x":298,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -303,7 +310,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":140,"x":17,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":140,"x":17,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -317,7 +324,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":140,"x":157,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":140,"x":157,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -331,7 +338,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":140,"x":298,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":140,"x":298,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -345,7 +352,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":193,"x":17,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":193,"x":17,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -359,7 +366,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":193,"x":157,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":193,"x":157,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
@@ -373,7 +380,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":193,"x":298,"width":120,"stateNum":"2","skin":"image/team/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
+                            "props":{"y":193,"x":298,"width":120,"stateNum":"2","skin":"image/common/login/button_tianfu_normal.png","labelSize":24,"labelFont":"FZXK","labelColors":"#000000,#000000","label":"世界BOSS","height":40},
                             "nodeParent":18,
                             "label":"Button",
                             "isDirectory":false,
