@@ -199,8 +199,20 @@ module ProtoCmd {
     export const Hero_heroAllGeniusLvl = 'heroAllGeniusLvl';//(lvltab：天赋等级)
     // 弟子天赋重数面板
     export const Hero_heroGeniusPanel = 'heroGeniusPanel';//
-    // 弟子武功招式
+    // 弟子天赋保存
+    export const Hero_saveGenius = 'saveGenius';
+    // 弟子天赋取消
+    export const Hero_cancelGenius = 'cancelGenius';
+     // 弟子武功招式
     export const Hero_heroJingMaiPanel = 'heroJingMaiPanel';
+     // 弟子武功招式一键激活
+    export const Hero_activeJingMai = 'activeJingMai';
+     // 弟子武功招式真气面板
+    export const Hero_getHeroRealGasPanel = 'getHeroRealGasPanel';
+     // 弟子武功招式点真气球满了获取真气
+    export const Hero_exchangeRealGasByFakeGas = 'exchangeRealGasByFakeGas';
+     // 弟子武功招式返璞归真
+    export const Hero_exchangeRealGas = 'exchangeRealGas';
 
     /*********************************资质天赋******************** */
 
@@ -258,8 +270,32 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+<<<<<<< HEAD
+
+
+    //玩家装备强化信息（所有Item）
+    export const sendEquipIntensify ="sendEquipIntensify";   //无参数
+    //玩家装备强化面板信息（单个Item）
+    export const IntensifyPanel ="IntensifyPanel";           //参数 type(0:人 1英雄), pos(位置0-9)
+    //开始强化
+    export const equipIntensify = "equipIntensify"           //参数type(0:人 1英雄), pos(位置0-9) flag(强化15之后，花元宝必定成功)
+
+
+    //玩家装备  魂石升阶信息（所有Item）
+    export const soulStoneLevel ="soulStoneLevel";           //无参数
+    //玩家装备  魂石升阶面板信息（单个Item） 
+    export const soulStonePanel ="soulStonePanel";           //ntype, pos, step   (1-6球)
+    //玩家装备  魂石升阶界面  升级按钮点击时发送
+    export const upgradeSoulStone ="upgradeSoulStone";       //ntype, pos, step, flag(0 经验升级，1道具升级)
+    //玩家装备  魂石升阶界面  激活按钮点击时发送
+    export const SoulStoneActive ="SoulStoneActive";         //ntype,pos,flag(0元宝激活 1道具激活)
+
+    export const updateSoulStoneLevel = "updateSoulStoneLevel";
+    
+=======
     //玩家装备强化信息
-    export const sendEquipIntensify ="sendEquipIntensify";
+    export const sendEquipIntensify = "sendEquipIntensify";
+>>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
 }
 
 /**
@@ -267,12 +303,40 @@ module ProtoCmd {
  */
 module ProtoCmd {
     /**
+     * soulStoneLevel 升阶所有信息
+     */
+    export interface itf_JS_soulStoneLevel{
+        herolvl:{[index:number]:Object};
+        openlvl:{[index:number]:Object};  //pbj  玩家的解锁状态  hbj  弟子的解锁状态  item:index 解锁需要的道具ID  num 解锁需要的道具数量   yuanbao  解锁需要的元宝数
+        playerlvl:{[index:number]:Object};
+        soulchaintab:{[index:number]:Object}
+    }
+
+    /**
+     * 单个装备面板的信息
+     */
+    export interface itf_JS_equipPanelMsg{
+        count:number;    //升级需要的数量
+        curexp:number;   //当前幸运值经验
+        maxexp:number;   //升级所需的经验
+        gold:number;     //强化所需要的金币数
+        itemid:number;   //强化所需要的消耗品ID
+        lvl:number      //当前装备等级：星星的数量根据等级来定，1级 = 1星 
+    }
+    /**
      * 装备强化信息
      */
+<<<<<<< HEAD
     export interface itf_JS_equipIntensifyMessage{
         herojson:Object;
-        playerjson:Object;
+        playerjson:{[index:number]:number};
         sooulchaintab:Object
+=======
+    export interface itf_JS_equipIntensifyMessage {
+        herojson: Object;
+        playerjson: Object;
+        sooulchaintab: Object
+>>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
     }
     /**
      * 路引数据
@@ -525,6 +589,17 @@ module ProtoCmd {
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
         maxduplicate: number//当前已开启的最大重id
+    }
+    export interface itf_Hero_WuXueInfo {
+        effid: number//效果ID
+        fakeGas: number//当前圆球里真气值
+        gas: number//最大真气值
+        gold: number//金币数量
+        jingMaiLvl: number//经脉等级
+        maxfakegas: number//圆球里最大真气值
+        nextid: number//下级效果ID
+        realGas: number//当前真气值
+        skilltab:any //（key为技能id,skilltab[key]为技能开关状态0开1关）
     }
     /***********************************副本接口**************************** */
     /**

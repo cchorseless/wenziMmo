@@ -35,7 +35,7 @@ module view.hero {
 				let keys = Object.keys(jsonData.lvltab);
 				for (let key of keys) {
 					let data = jsonData.lvltab[key];
-					this.vbox_talent.addChild(new view.hero.Hero_TalentInfoFloorItem().setData(key, data))
+					this.vbox_talent.addChild(new view.hero.Hero_TalentInfoFloorItem().setData(key))
 				}
 			})
 			lcp.send(pkt);

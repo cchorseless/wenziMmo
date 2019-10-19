@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":33,
-    "selecteID":32,
+    "selectedBox":1,
+    "selecteID":27,
     "props":{"width":640,"sceneColor":"#cccccc","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -41,21 +41,8 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":40,"x":471,"width":168,"text":"版本:1.0.0","strokeColor":"#000000","stroke":4,"height":40,"fontSize":30,"font":"Microsoft YaHei","color":"#ffffff","bold":true},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Button",
-            "props":{"y":22,"x":23,"var":"btn_notice","stateNum":"2","skin":"image/common/login/icon_gonggao.png"},
+            "props":{"y":50,"x":59,"var":"btn_notice","stateNum":"2","skin":"image/common/login/icon_gonggao.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_notice)",
             "isOpen":true,
@@ -106,9 +93,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":8,"x":224,"text":"切换账号","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZHL","color":"#eeebde"},
+                    "props":{"y":26,"x":293,"width":138,"var":"lbl_changeAccount","valign":"middle","text":"切换账号","strokeColor":"#000000","stroke":4,"height":51,"fontSize":30,"font":"FZHL","color":"#eeebde","anchorY":0.5,"anchorX":0.5,"align":"center"},
                     "nodeParent":33,
-                    "label":"Label",
+                    "label":"Label(lbl_changeAccount)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -133,7 +120,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":8,"x":223,"var":"btn_changeServer","text":"点击换区","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZHL","color":"#eeebde"},
+                    "props":{"y":27,"x":288,"width":131,"var":"btn_changeServer","valign":"middle","text":"点击换区","strokeColor":"#000000","stroke":4,"height":49,"fontSize":30,"font":"FZHL","color":"#eeebde","anchorY":0.5,"anchorX":0.5,"align":"center"},
                     "nodeParent":20,
                     "label":"Label(btn_changeServer)",
                     "isDirectory":false,
@@ -162,7 +149,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":989,"x":212,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/img_tarujianghu.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff"},
+            "props":{"y":986,"x":320,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/img_tarujianghu.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_startGame)",
             "isDirectory":false,
@@ -173,6 +160,19 @@
                 ],
             "$LOCKED":false,
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":44,"x":472,"width":168,"var":"lbl_versionInfo","text":"版本:1.0.0","strokeColor":"#000000","stroke":4,"height":40,"fontSize":30,"font":"FZHL","color":"#ffffff"},
+            "nodeParent":1,
+            "label":"Label(lbl_versionInfo)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":34,
+            "child":[
+                ]
         }],
     "animations":[
         {

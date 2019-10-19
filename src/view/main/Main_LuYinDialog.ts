@@ -49,18 +49,21 @@ module view.main {
 						this.deleteStr = "";
 						this.getNewLuYinData();
 					})
-					o.setData(p,"是否确定删除？");
+					o.setData(p, "是否确定删除？");
 					o.show();
 				})
 			}
 			for (let i = 1; i < 10; i++) {
 				this["box_guide" + i].on(Laya.UIEvent.CLICK, this, () => {
+					if (this.tempData.datatab[i].roomID == GameApp.MainPlayer.roomId) {
+						return;
+					}
 					let o = new view.main.Main_ConfirmDelete();
 					let p = Laya.Handler.create(this, () => {
 						let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.tempData.datatab[i].roomID, GameApp.GameEngine.luyinTabID])
 						lcp.send(pk);
 					})
-					o.setData(p,"是否确定前往？");
+					o.setData(p, "是否确定前往？");
 					o.show();
 				})
 			}
@@ -87,10 +90,10 @@ module view.main {
 		}
 
 		public onShowDelete(boo: boolean) {
-			if(boo){
+			if (boo) {
 				this.btn_delete.label = "完  成"
 			}
-			else{
+			else {
 				this.btn_delete.label = "删  除"
 			}
 			for (let i = 1; i < 10; i++) {
@@ -141,6 +144,8 @@ module view.main {
 				// this["lab_locationName" + id].text = str;
 				this["lab_locationName" + id + "_1"].text = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME(data);
 				this["lab_locationName" + id + "_2"].text = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(data);
+				this["img_location" + id].skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC(data) + '.png';
+;
 				// lab_locationName7_1
 			}
 		}

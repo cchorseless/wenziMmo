@@ -5,6 +5,7 @@ module view.common {
 			super();
 		}
 		public setData(): ChooseServerPanel {
+			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
 			
 			this.addEvent();
@@ -12,11 +13,22 @@ module view.common {
 		}
 		public addEvent(): void {
 			// 公告
-			this.btn_notice.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openServerNoticePanel() });
+			EventManage.onWithEffect(this.btn_notice, Laya.UIEvent.CLICK, this, () => {
+				new view.common.ServerNoticeDialog().setData().show(true);
+			});
+
 			//打开服务器列表
-			this.btn_changeServer.on(Laya.UIEvent.CLICK, this, () => { new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup() });
+			EventManage.onWithEffect(this.btn_changeServer, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup()
+			});
+
+			// 切换账号
+			EventManage.onWithEffect(this.lbl_changeAccount, Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.Dispose(this);
+			});
+
 			// 開始游戲
-			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_startGame, Laya.UIEvent.CLICK, this, () => {
 				// 初始化客户端
 				GameApp.GameEngine.init(Laya.Handler.create(this, () => {
 					if (GameApp.GameEngine.isReady != true) {

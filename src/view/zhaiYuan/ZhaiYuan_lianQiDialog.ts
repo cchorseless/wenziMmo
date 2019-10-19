@@ -1,30 +1,402 @@
 /**Created by the LayaAirIDE*/
 module view.zhaiYuan {
 	export class ZhaiYuan_lianQiDialog extends ui.zhaiYuan.ZhaiYuan_lianQiDialogUI {
+		private curPage = 0;      //   (0/1/2)强化、升阶、传世
+		private type = 0;         //   (0/1)player、hero
+		private TouchID = 0;      //   (0-9)ItemID
+		private allData;//下面的面板十个item数据
+		private msgData;//上面的面板的详细信息数 
+
+		//强化相关的数据
+		private lvNum = 3;//当前显示强化等级 详细信息
+		private canIntensify: boolean = false; //能否强化
+
+
+		//魂石相关数据
+		private canActive: boolean = false;  //能否激活
+		private statAllSoulStoneLv = [];     //所有魂石的  不同lv总和  分阶段的effID的数组
+		private curSoulStoneLv: number = 0;  //当前魂石的等级总和；
+		private curOneOfSoulStoneLv:number = 0;
+		private curSoulStoneID: number = 1;  //当前是第几颗魂石
+		private curSoulStoneIDChooseArr = [1, 2, 3, 1, 2, 3, 1, 2, 3, 4, 4, 4, 1, 2, 3, 4, 5, 5, 5, 5, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+
 		constructor() {
 			super();
+			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
+			this.msgData = GameApp.GameEngine.equipPanelMsg;
 			this.setData();
-		}
-		public setData(): ZhaiYuan_lianQiDialog {			
 			this.addEvent();
-			return this
+		}
+		public setData() {
+			this.upDateView(0, 0, 0);
 		}
 		public addEvent(): void {
+			//上面tab的切换事件  1：发送请求重新获取下面10个item的信息allData / GameApp.GameEngine.mainPlayer.playerEquipIntensify     
+			// 继而获取上面面板的详细信息msgData / GameApp.GameEngine.equipPanelMsg  
+			//2：根据获取的下面的数据刷新下面的数据allData  根据获取的上面的数据刷新上面的数据msgData
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				this.vstack_top.selectedIndex = index;
-					if(index==2){
-					this.tab_down.visible=false;
-				}
-				else{
-					this.tab_down.visible=true;
-				}
+
+				this.curPage = this.tab_top.selectedIndex;
+				this.type = 0;
+				this.TouchID = 0;
+				this.allData = null;
+				this.msgData = null;
+				this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
+
 			}, null, false);
+
+			this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
+				this.type = this.tab_down.selectedIndex;
+				this.TouchID = 0;
+				this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
+			})
+			//下面tab的切换事件  1：发送请求重新获取上面面板的详细信息msgData / GameApp.GameEngine.equipPanelMsg 
+			//2:根据获取的msgData数据 刷新上面的数据
 			this.tab_down.selectHandler = Laya.Handler.create(this, (index) => {
-				this.vstack_down.selectedIndex = index;
-			
+				// this.vstack_down.selectedIndex = index;
+
 			}, null, false);
-			
-			this.btn_close.on(Laya.UIEvent.CLICK, this, this.close)
+			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, this.close);
+
+			this.tab_top.on(Laya.UIEvent.CLICK, this, () => {
+				this.curPage = this.tab_top.selectedIndex;
+			})
+			for (let i = 0; i < 10; i++) {
+				this["ui_equip" + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.TouchID = i;
+					// this.chooseItem();
+					this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
+				})
+			}
+			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
+				this.sendIntensify();
+			});
+			GameApp.LListener.on(ProtoCmd.soulStoneLevel, this, (data: ProtoCmd.itf_JS_soulStoneLevel) => {
+				this.statAllSoulStoneLv = [];
+				this.curSoulStoneLv = 0;
+				GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
+				this.allData = GameApp.GameEngine.mainPlayer.playersoulStoneLevel;
+				// curSoulStoneIDChooseArr
+				let baselvldata = null;
+				this.curOneOfSoulStoneLv = 0;
+				if (this.type == 0) {
+					baselvldata = this.allData.playerlvl
+				} else {
+					baselvldata = this.allData.herolvl
+				}
+				for (let i = 1; i < 7; i++) {
+					this.curOneOfSoulStoneLv  += baselvldata[this.TouchID][i]
+				}
+				this.curSoulStoneID = this.curSoulStoneIDChooseArr[this.curOneOfSoulStoneLv];
+				this.getData_EquipPanelMsg(this.curPage, this.TouchID);
+				for (let i = 1; i < 13; i++) {
+					this.statAllSoulStoneLv.push(this.allData.soulchaintab[i].effid)
+				}
+			})
+
+
 		}
+
+		//更新界面显示  page 当前界面0、1、2；  type 类型 0、1 玩家、弟子  touchID  第几个item被点击了
+		private upDateView(page: number, type: number, touchID: number) {
+
+			//确定ICON后放开注释  是个item的图标
+			// for (let i = 0; i < 10; i++) {
+			// 	this["ui_equip" + i].img_icon.skin = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(baseData.playerjson[i]);
+			// }
+			//升级/强化          所需要消耗的道具
+			let curCostNum;
+			let costName;
+			let costCount;
+			let arr = ["强化", "激活", "升阶"]
+			this.btn_intensify.label = arr[page];
+			if (page == 0) {
+				curCostNum = GameUtil.findItemInBag(this.msgData.itemid, GameApp.GameEngine.bagItemDB);
+				costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.itemid.toString())
+				costCount = this.msgData.count;
+				if (curCostNum >= costCount) {
+					this.canIntensify = true
+				}
+				else {
+					this.canIntensify = false;
+				}
+				this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
+
+			} else if (page == 1) {
+				for (let i in this.allData.openlvl) {
+					if (type == 0) {
+						if (this.allData.openlvl[i].pbj == 0) {
+							this["ui_equip" + i].btn_icon.gray = true;
+						}
+						else {
+							this["ui_equip" + i].btn_icon.gray = false;
+						}
+					}
+					else if (type == 1) {
+						if (this.allData.openlvl[i].hbj == 0) {
+							this["ui_equip" + i].btn_icon.gray = true;
+						}
+						else {
+							this["ui_equip" + i].btn_icon.gray = false;
+						}
+					}
+
+				}
+				curCostNum == GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
+				costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.allData.openlvl[this.TouchID].item.index.toString())
+				costCount = this.allData.openlvl[this.TouchID].item.num;
+				if (curCostNum >= costCount) {
+					this.canActive = true
+				}
+				else {
+					this.canActive = false;
+				}
+
+				this.lab_cost_forge.text = "激活消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
+				if (this["ui_equip" + this.TouchID].btn_icon.gray == false) {
+					this.btn_intensify.label = arr[2];
+					this.lab_cost_forge.text = "升阶消耗：" + "(" + this.msgData.curexp + "/" + this.msgData.needexp + ")";
+				}
+				let baseLvData;
+				if (this.type == 0) {
+					baseLvData = this.allData.playerlvl;
+				} else {
+					baseLvData = this.allData.herolvl;
+				}
+				for (let i in baseLvData) {
+					for (let o in baseLvData[i]) {
+						this.curSoulStoneLv += baseLvData[i][o];
+					}
+				}
+				let k = Math.floor(this.curSoulStoneLv / 60);
+				this.lab_jieduan.text = "(" + this.curSoulStoneLv + "/" + (k + 1) * 60 + ")"
+				//根据K获取effid     this.statAllSoulStoneLv
+			}
+
+			//升级;             所需要的金币消耗
+			// this.lab_goldCost.text = "消耗金币：" + this.msgData.gold;
+			//选中时;           item金色的框是否显示 --选中状态            
+			for (let i = 0; i < 10; i++) {
+				if (i == touchID) {
+					this["ui_equip" + i].img_circle.visible = true
+				} else {
+					this["ui_equip" + i].img_circle.visible = false;
+				}
+			}
+
+
+			//更新   上面面板的详细信息
+			this.upDataViewContent();
+		}
+		//更新   上面面板的详细信息
+		private upDataViewContent() {
+			//是否显示type选择tab
+			if (this.curPage != 2) {
+				this.tab_down.visible = true;
+			}
+			else {
+				this.tab_down.visible = false;
+			}
+			this.vstack_top.selectedIndex = this.curPage;
+			if (this.curPage == 0) {
+				this.onPageContent0();
+			} else if (this.curPage == 1) {
+				this.onPageContent1();
+			} else if (this.curPage == 2) {
+				this.onPageContent2()
+			}
+
+		}
+		//强化
+		public onPageContent0() {
+			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
+			this.lab_showForgeLevel_1.text = "";
+			this.lab_1_increase.text = "";
+			this.lab_luckyText.text = "当前成功率：";
+
+			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
+			// this.btn_equipContent.skin = ""
+			// this.panel_1_UI.btn_icon.skin = ""
+			this.panel_1_UI.img_circle.visible = false;
+			for (let i = 0; i < 5; i++) {
+				let aa = Math.floor(this.msgData.lvl / 5);
+				let ss = this.msgData.lvl % 5;
+				this["btn_Star" + i].skin = starSkin[aa];
+				if (ss > i) {
+					this["btn_Star" + i].disabled = false;
+					this["btn_Star" + i].selected = true;
+				} else {
+					this["btn_Star" + i].disabled = true;
+					this["btn_Star" + i].selected = false;
+				}
+			}
+		}
+		//升阶
+		public onPageContent1() {
+			let arr;
+			if (this.type == 0) {
+				arr = this.allData.playerlvl;
+			} else {
+				arr = this.allData.herolvl;
+			}
+
+			let aa = arr[this.TouchID];
+			if (this.curOneOfSoulStoneLv < 9) {
+				this.setSoulStoneState(3)
+			} else if (this.curOneOfSoulStoneLv > 8&&this.curOneOfSoulStoneLv < 16) {
+				this.setSoulStoneState(4)
+			}
+			else if (this.curOneOfSoulStoneLv > 15&&this.curOneOfSoulStoneLv < 25) {
+				this.setSoulStoneState(5)
+			} else if (this.curOneOfSoulStoneLv > 24){
+				this.setSoulStoneState(6)
+			}
+
+
+		}
+		//传世
+		public onPageContent2() {
+		}
+		//page2 上面面板的显示状态
+		private setSoulStoneState(id: number) {
+			for (let i = 3; i < 7; i++) {
+				if (i == id) {
+					this["box_hunshi" + i].visible = true;
+				}else{
+					this["box_hunshi" + i].visible = false;
+				}
+			}
+			// this.img_hunshi3_1
+			// this.lab_hunshi3_lv1
+			let baseData;
+			if (this.type == 0) {
+				baseData = this.allData.playerlvl[this.TouchID];
+			} else {
+				baseData = this.allData.herolvl[this.TouchID]
+			}
+			for (let i = 1; i < id + 1; i++) {
+				// this["img_hunshi" + id + "_" + i].skin = ""
+				let str = baseData[i];
+				this["lab_hunshi" + id + "_lv" + i].text = str + "阶"
+			}
+		}
+
+
+
+		private onShowIntensifyNum(): number {
+			let aa;
+			let lv3 = 0;
+			let lv5 = 0;
+			if (this.type == 1) {
+				aa = this.allData.herojson;
+			}
+			else {
+				aa = this.allData.playerjson;
+			}
+			for (let i in aa) {
+				if (aa[i] >= 3) {
+					lv3++;
+					if (aa[i] >= 5) {
+						lv5++
+					}
+				}
+			}
+			if (lv5 == 10) {
+				this.lvNum = 5;
+				return lv5;
+			}
+			else {
+				this.lvNum = 3;
+				return lv3;
+			}
+		}
+
+
+
+
+
+		//下面十个 item 数据   index  0:强化  1：升阶（魂石）  2：传世
+		private getData_PlayerEquipMsg(pageID: number, touchID) {
+			if (pageID == 0) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
+					(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
+						GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
+						this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
+						this.getData_EquipPanelMsg(pageID, this.TouchID)
+					});
+				lcp.send(pkt);
+			} else if (pageID == 1) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null)
+				lcp.send(pkt);
+
+			} else if (pageID == 2) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
+					(data) => {
+						GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
+						this.getData_EquipPanelMsg(1, this.TouchID)
+					});
+				lcp.send(pkt);
+			}
+		}
+		//上面板子content的数据  id: 面板ID
+		private getData_EquipPanelMsg(pageID: number, itemID: number) {
+			if (pageID == 0) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.IntensifyPanel, [this.type, itemID], 0, this,
+					(data: ProtoCmd.itf_JS_equipPanelMsg) => {
+						GameApp.GameEngine.equipPanelMsg = data;
+						this.msgData = GameApp.GameEngine.equipPanelMsg;
+						this.upDateView(this.curPage, this.type, this.TouchID);
+					});
+				lcp.send(pkt);
+			} else if (pageID == 1) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStonePanel, [this.type, this.TouchID, this.curSoulStoneID], 0, this,
+					(data) => {
+						// GameApp.GameEngine.equipPanelMsg = data;
+						this.msgData = data;
+						this.upDateView(this.curPage, this.type, this.TouchID);
+					});
+				lcp.send(pkt);
+				// this.upDateView(this.curPage, this.type, this.TouchID);
+
+			} else if (pageID == 2) {
+
+			}
+		}
+		//强化、升阶
+		private sendIntensify() {
+			if (this.curPage == 0) {
+				if (!this.canIntensify) {
+					TipsManage.showTips("资源不足，无法强化！")
+					return;
+				}
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.equipIntensify, [this.type, this.TouchID, 0], 0,
+					this, (data) => {
+						// @makeitem baseid=200 count=200000
+						// GameApp.GameEngine.equipPanelMsg = data;
+						// this.msgData = data;
+						// let msg = data;
+						TipsManage.showTips("强化成功")
+						this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
+
+					});
+				lcp.send(pkt);
+			}
+			else if (this.curPage == 1) {
+				if (this.btn_intensify.label == "激活") {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SoulStoneActive, [this.type, this.TouchID, 0]);
+					lcp.send(pkt);
+
+				} else if (this.btn_intensify.label == "升阶") {
+					// curSoulStone
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSoulStone, [this.type, this.TouchID, this.curSoulStoneID, 0])
+					lcp.send(pkt);
+				}
+
+			} else if (this.curPage == 2) {
+
+			}
+		}
+
+
 	}
 }

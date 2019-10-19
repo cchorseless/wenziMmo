@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":167,
-    "selecteID":157,
+    "selectedBox":1,
+    "selecteID":94,
     "props":{"width":640,"sceneColor":"#000000","name":"TianJian","height":1136},
     "nodeParent":-1,
     "label":"View(TianJian)",
@@ -72,7 +72,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":375,"x":323,"var":"btn_center","stateNum":"1","skin":"image/juQingMode/btn_jihuo.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":60,"labelPadding":"80","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":375,"x":323,"width":300,"var":"btn_center","stateNum":"1","skin":"image/juQingMode/btn_jihuo.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":60,"labelPadding":"80","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活","height":300,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_center)",
             "isOpen":true,
@@ -91,14 +91,13 @@
             "props":{"y":101,"x":52,"mouseThrough":true},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":158,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":76,"x":198,"var":"box_1","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -110,7 +109,6 @@
                     "compId":159,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":0,"var":"btn_tianjian1","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":159,
@@ -125,7 +123,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian1","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":159,
@@ -138,7 +135,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":31,"x":33,"var":"img_tianjian1","skin":"image/juQingMode/icon_huanyun0.png"},
                             "nodeParent":159,
@@ -152,7 +148,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":65,"x":40,"var":"lab_canActive1","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":159,
@@ -166,7 +161,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":69,"x":343,"var":"box_2","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -178,7 +172,6 @@
                     "compId":160,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"var":"btn_tianjian2","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":160,
@@ -193,7 +186,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian2","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":160,
@@ -206,7 +198,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":36,"x":40,"var":"img_tianjian2","skin":"image/juQingMode/icon_bingpo0.png"},
                             "nodeParent":160,
@@ -220,7 +211,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":67,"x":39,"var":"lab_canActive2","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":160,
@@ -234,7 +224,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":170,"x":456,"var":"box_3","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -246,7 +235,6 @@
                     "compId":161,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":0,"x":0,"var":"btn_tianjian3","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":161,
@@ -261,7 +249,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":-21,"x":10,"width":120,"var":"lab_tianjian3","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":161,
@@ -275,7 +262,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":21,"x":40,"var":"img_tianjian3","skin":"image/juQingMode/icon_xinghe0.png"},
                             "nodeParent":161,
@@ -289,7 +275,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":44,"x":38,"var":"lab_canActive3","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":161,
@@ -303,7 +288,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":297,"x":483,"var":"box_4","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -315,7 +299,6 @@
                     "compId":162,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"x":0,"var":"btn_tianjian4","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":162,
@@ -330,7 +313,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian4","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":162,
@@ -343,7 +325,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":31,"x":44,"var":"img_tianjian4","skin":"image/juQingMode/icon_jiaoyue0.png"},
                             "nodeParent":162,
@@ -357,7 +338,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":65,"x":37,"var":"lab_canActive4","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":162,
@@ -372,7 +352,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":420,"x":414,"var":"box_5","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -384,7 +363,6 @@
                     "compId":163,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":12,"var":"btn_tianjian5","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":163,
@@ -399,7 +377,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian5","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":163,
@@ -412,7 +389,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":35,"x":28,"var":"img_tianjian5","skin":"image/juQingMode/icon_lianhua0.png"},
                             "nodeParent":163,
@@ -426,7 +402,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":56,"x":38,"var":"lab_canActive5","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":163,
@@ -440,7 +415,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":466,"x":282,"var":"box_6","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -452,7 +426,6 @@
                     "compId":164,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"x":0,"var":"btn_tianjian6","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":164,
@@ -467,7 +440,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian6","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":164,
@@ -480,7 +452,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":38,"x":29,"var":"img_tianjian6","skin":"image/juQingMode/icon_fenyang0.png"},
                             "nodeParent":164,
@@ -494,7 +465,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":65,"x":38,"var":"lab_canActive6","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":164,
@@ -508,7 +478,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":419,"x":150,"var":"box_7","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -520,7 +489,6 @@
                     "compId":165,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"x":0,"var":"btn_tianjian7","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":165,
@@ -535,7 +503,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian7","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":165,
@@ -548,7 +515,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"x":6,"var":"img_tianjian7","skin":"image/juQingMode/icon_yizhen0.png"},
                             "nodeParent":165,
@@ -562,7 +528,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":75,"x":39,"var":"lab_canActive7","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":165,
@@ -576,7 +541,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":305,"x":79,"var":"box_8","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -588,7 +552,6 @@
                     "compId":166,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"x":0,"var":"btn_tianjian8","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":166,
@@ -603,7 +566,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian8","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":166,
@@ -616,7 +578,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":36,"x":38,"var":"img_tianjian8","skin":"image/juQingMode/icon_jiuyou0.png"},
                             "nodeParent":166,
@@ -630,7 +591,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":65,"x":38,"var":"lab_canActive8","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":166,
@@ -644,7 +604,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":169,"x":96,"var":"box_9","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":158,
@@ -656,7 +615,6 @@
                     "compId":167,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":21,"x":0,"var":"btn_tianjian9","stateNum":"2","skin":"image/juQingMode/btn_tianjian.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelPadding":"58,3","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","alpha":0.5},
                             "nodeParent":167,
@@ -671,7 +629,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":10,"width":120,"var":"lab_tianjian9","text":"焚阳天鉴","strokeColor":"#000000","stroke":2,"height":30,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":167,
@@ -684,7 +641,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"x":33,"var":"img_tianjian9","skin":"image/juQingMode/icon_liangyi0.png"},
                             "nodeParent":167,
@@ -698,7 +654,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":65,"x":38,"var":"lab_canActive9","text":"可激活","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZXK","color":"#f5e08e"},
                             "nodeParent":167,
@@ -719,14 +674,13 @@
             "props":{"y":680,"x":7,"width":625,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"28,27,20,14","height":387},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":105,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":74,"x":20,"wordWrap":true,"width":581,"var":"lab_tianjianDetail","text":"        天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍","leading":2,"height":103,"fontSize":22,"font":"FZHL","color":"#000000"},
                     "nodeParent":105,
@@ -739,7 +693,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":17,"x":226,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":105,
@@ -751,7 +704,6 @@
                     "compId":107,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":23,"text":"天鉴介绍","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":107,
@@ -767,7 +719,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":210,"x":5,"width":614,"height":183},
                     "nodeParent":105,
@@ -779,7 +730,6 @@
                     "compId":109,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":614,"skin":"image/juQingMode/fram_common_5.png","sizeGrid":"5,80,6,18","height":37,"alpha":0.65},
                             "nodeParent":109,
@@ -793,7 +743,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":15,"text":"天鉴属性","strokeColor":"#404040","stroke":2,"fontSize":28,"font":"FZXK","color":"#fde5c8"},
                             "nodeParent":109,
@@ -807,7 +756,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":16,"x":169,"width":44,"skin":"image/juQingMode/line_bianzhuangmulu.png","scaleX":-1,"height":7},
                             "nodeParent":109,
@@ -822,7 +770,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":246,"x":27},
                     "nodeParent":105,
@@ -834,7 +781,6 @@
                     "compId":110,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":0,"var":"box_skillIcon"},
                             "nodeParent":110,
@@ -846,7 +792,6 @@
                             "compId":135,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":15,"skin":"image/common/img_jinengkuang_01.png","alpha":0.7},
                                     "nodeParent":135,
@@ -861,7 +806,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":15,"x":32,"var":"img_shuxingIcon","skin":"image/common/icon_jineng_01.png"},
                                     "nodeParent":135,
@@ -875,7 +819,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":93,"x":0,"width":148,"skin":"image/common/bottom_prompt.png","height":37},
                                     "nodeParent":135,
@@ -887,7 +830,6 @@
                                     "compId":114,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":30,"var":"lab_shuxingName","text":"技能名称","strokeColor":"#000000","stroke":3,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                             "nodeParent":114,
@@ -904,7 +846,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":4,"x":158,"width":428,"var":"box_shuxing","height":123},
                             "nodeParent":110,
@@ -1073,7 +1014,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":158,"wordWrap":true,"width":428,"var":"lab_shuxingdetail","text":"        天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍","leading":2,"height":123,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":110,
