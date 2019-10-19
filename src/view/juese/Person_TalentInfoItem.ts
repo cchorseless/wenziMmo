@@ -15,6 +15,7 @@ module view.juese {
 		private upLevelType;
 		//天赋当前值类型
 		private dangqianNum;
+		private client_func_index = 14;// 功能ID编号
 		public eventList = [ProtoCmd.JS_DragonSoulPanel, ProtoCmd.JS_ShieldPanel, ProtoCmd.JS_OfficialSealPanel, ProtoCmd.JS_BloodJadePanel, ProtoCmd.JS_MedalPanel]
 		public setData(): void {
 			if (this.hasInit) { return };
@@ -88,7 +89,6 @@ module view.juese {
 			this.btn_jiHuo.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(this.index, null, null, this, (jsonData) => {
-					console.log(jsonData);
 					this.TalentInfo()
 				})
 				lcp.send(pkt);
@@ -116,7 +116,17 @@ module view.juese {
 			else {
 				this.viw_0.selectedIndex = 1;
 				this.lbl_dangqian.text = '' + GameApp.MainPlayer.talentInfo[this.dangqianNum];
+				this.notActivation();
 			}
+		}
+			/**
+	  * 未激活时
+	  */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			
 		}
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(this.type)
@@ -126,7 +136,8 @@ module view.juese {
 		public addLcpEvent(): void {
 			// 拉取天賦
 			for (let event of this.eventList) {
-				GameApp.LListener.on(event, this, (jsonData) => {
+				GameApp.LListener.on(event, this, (jsonData:ProtoCmd.itf_JS_TalentInfo) => {
+					console.log('======>天赋啊1',jsonData)
 					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
 					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
 					let keys = Object.keys(jsonData.itemtab);
@@ -141,10 +152,11 @@ module view.juese {
 						//经验值
 						_itemUI.img_exp.visible = true;
 						_itemUI.lbl_exp.visible = true;
-						_itemUI.lbl_exp.text = jsonData.score;
+						_itemUI.lbl_exp.text = ''+jsonData.score;
 						_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
 						this.hbox_wupin.addChild(_itemUI)
 					}
+					this.init_xiajie(jsonData.itemid);
 				})
 			}
 
@@ -270,7 +282,7 @@ module view.juese {
 					this.lbl_shuxing4.text = '受英雄伤害减少：' + hero_reduce;
 					break;
 			}
-			this.init_xiajie(data.dwBaseID);
+			
 			this.init_xiajeshuxing(data.dwEffId);
 		}
 		/**
@@ -278,20 +290,15 @@ module view.juese {
 		 * @param id 查找下阶物品id
 		 */
 		public init_xiajie(id): void {
-			// let xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + id)
-			// this.hbox_talent.removeChildren();
-			// while (xiajieID > 0) {
-			// 	xiajieID = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + xiajieID);
-			// 	if (xiajieID == 0) {
-			// 		break;
-			// 	}
-			// 	this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(xiajieID));
-			// }
-			console.log('======>天赋十二个',id)
 			this.hbox_talent.removeChildren();
-			for (let i = 1; i < 13; i++) {
-				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(i,this.dangqianNum));
-			}
+			this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(id))
+			while (id > 0) {
+				id = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVUPID('' + id);
+				if (id == 0) {
+					break;
+				}
+				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(id));
+			}	
 		}
 		/**
 		 * 下阶属性

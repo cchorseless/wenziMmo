@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":193,
-    "selecteID":198,
+    "selecteID":205,
     "referenceLines":[
         {
             "value":488,
@@ -160,7 +160,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":554,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                            "props":{"y":580,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":193,
                             "label":"Button(btn_jihuo)",
                             "isDirectory":false,
@@ -176,17 +176,18 @@
                             "props":{"y":405,"x":0,"width":562,"skin":"image/juese/bottom_common_001.png","height":142},
                             "nodeParent":193,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":199,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
+                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":199,
-                                    "label":"Label",
+                                    "label":"Label(lbl_detail)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -194,8 +195,36 @@
                                     "child":[
                                         ]
                                 }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":551,"x":138,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
+                            "nodeParent":193,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":204,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":552,"x":244,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
+                            "nodeParent":193,
+                            "label":"Label(lbl_condition)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":205,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

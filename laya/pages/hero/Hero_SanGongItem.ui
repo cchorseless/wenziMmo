@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":341,
-    "selecteID":62,
+    "selecteID":354,
     "props":{"width":567,"sceneColor":"#ca6665","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -80,14 +80,13 @@
                     "props":{"y":132,"x":3,"name":"item0"},
                     "nodeParent":350,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":342,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":8,"x":44,"stateNum":"1","skin":"image/juese/img_wuxing.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce"},
                             "nodeParent":342,
@@ -114,7 +113,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":175,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
                             "nodeParent":342,
@@ -126,7 +124,6 @@
                             "compId":345,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"x":54,"text":"散功修心","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":345,
@@ -142,9 +139,8 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
-                            "props":{"y":554,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                            "props":{"y":588,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":342,
                             "label":"Button(btn_jihuo)",
                             "isDirectory":false,
@@ -155,12 +151,11 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":451,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
                             "nodeParent":342,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -168,9 +163,9 @@
                             "child":[
                                 {
                                     "type":"Label",
-                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
+                                    "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":348,
-                                    "label":"Label",
+                                    "label":"Label(lbl_detail)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -178,6 +173,32 @@
                                     "child":[
                                         ]
                                 }]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":561,"x":138,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
+                            "nodeParent":342,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":351,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":562,"x":244,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
+                            "nodeParent":342,
+                            "label":"Label(lbl_condition)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":352,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":true
                 },
@@ -199,7 +220,7 @@
                             "props":{"x":271,"width":298,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"15,9,11,12","height":315},
                             "nodeParent":341,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -236,9 +257,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":153,"x":150,"width":105,"text":"151515","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":153,"x":150,"width":105,"var":"lbl_exchange","text":"151515","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":62,
-                                    "label":"Label",
+                                    "label":"Label(lbl_exchange)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -264,9 +285,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":81,"x":150,"width":124,"text":"99999999","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":81,"x":150,"width":124,"var":"lbl_exp","text":"99999999","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":62,
-                                    "label":"Label",
+                                    "label":"Label(lbl_exp)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -319,9 +340,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":116,"x":150,"width":124,"text":"99999999","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":116,"x":150,"width":124,"var":"lbl_gold","text":"99999999","strokeColor":"#000000","height":27,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":62,
-                                    "label":"Label",
+                                    "label":"Label(lbl_gold)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -345,72 +366,6 @@
                                     "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":777,"x":58},
-                            "nodeParent":341,
-                            "label":"Box",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":111,
-                            "child":[
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuItem.ui",
-                                    "props":{"x":375,"scaleY":1.22,"scaleX":1.22},
-                                    "nodeParent":111,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":112,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuItem.ui",
-                                    "props":{"x":125,"scaleY":1.22,"scaleX":1.22},
-                                    "nodeParent":111,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":113,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuItem.ui",
-                                    "props":{"x":250,"scaleY":1.22,"scaleX":1.22},
-                                    "nodeParent":111,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":114,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"UIView",
-                                    "source":"compart/DaoJuItem.ui",
-                                    "props":{"scaleY":1.22,"scaleX":1.22},
-                                    "nodeParent":111,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":115,
-                                    "child":[
-                                        ]
-                                }]
                         },
                         {
                             "x":45,
@@ -984,29 +939,31 @@
                         },
                         {
                             "x":45,
-                            "type":"Panel",
-                            "props":{"y":761,"x":54,"width":477,"height":120},
+                            "type":"Box",
+                            "props":{"y":762,"x":48,"width":110,"var":"box_1","height":115},
                             "nodeParent":341,
-                            "label":"Panel",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "label":"Box(box_1)",
+                            "isOpen":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":309,
+                            "hasChild":false,
+                            "compId":353,
                             "child":[
-                                {
-                                    "type":"HBox",
-                                    "props":{"top":0,"bottom":0},
-                                    "nodeParent":309,
-                                    "label":"HBox",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":310,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":762,"x":201,"width":110,"var":"box_2","height":115},
+                            "nodeParent":341,
+                            "label":"Box(box_2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":354,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":false
                 }]

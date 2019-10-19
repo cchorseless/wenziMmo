@@ -5,17 +5,28 @@ module view.hero {
 			super();
 			this.setData();
 		}
-		public client_func_index = 56;
+		public client_func_index = 53;
+		//开启所需等级总数
+		private sum;
+		//玩家等级总数
+		private mySum;
 		public setData(): void {
 			this.activation();
 			this.addEvent();
 		}
 		public addEvent(): void {
-			//开启
-			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				GameUtil.setServerData(this.client_func_index);
-				this.activation();
-			})
+			if (this.mySum >= this.sum) {
+				//开启
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					GameUtil.setServerData(this.client_func_index);
+					this.activation();
+				})
+			}
+			else {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					TipsManage.showTips('您当前等级不足，暂时不能开启')
+				});
+			}
 			//一键激活
 			this.btn_allActivation.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_activation();
@@ -40,14 +51,30 @@ module view.hero {
 			}
 			else {
 				this.viw_zhaoshi.selectedIndex = 0;
+				this.notActivation();
 			}
+		}
+		/**
+			 * 未激活时
+			 */
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + id);
+			let zsLvl = Math.floor(activationLvl / 1000);
+			let lvl = activationLvl % 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			this.sum = zsLvl * 1000 + lvl;
+			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		public init_wuxuePanel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroJingMaiPanel, this, (jsonData: ProtoCmd.itf_Hero_WuXueInfo) => {
-				console.log('===========>武学招式招式', jsonData)
+				//GameApp.GameEngine.heroJob为1战士
+				console.log('====>真气真气', jsonData.effid)
 				this.lbl_gas.text = '消耗真气：' + jsonData.realGas + '/' + jsonData.gas;
 				this.lbl_gold.text = '消耗金币：' + jsonData.gold;
+				this.lbl_ballValue.text = jsonData.fakeGas + '/' + jsonData.maxfakegas;
 				let line = jsonData.jingMaiLvl - 1;
 				//穴位点亮
 				for (let i = 0; i < jsonData.jingMaiLvl; i++) {
@@ -94,8 +121,25 @@ module view.hero {
 		 */
 		public init_getRealGasData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_getHeroRealGasPanel, null, null, this, (jsonData) => {
-				console.log('====>真气真气', jsonData)
+			pkt.setString(ProtoCmd.Hero_getHeroRealGasPanel, null, null, this, (jsonData: ProtoCmd.itf_Hero_WuXueGasInfo) => {
+				//兑换所需经验
+				this.lbl_exp.text = '' + jsonData.exp;
+				//兑换所需金币
+				this.lbl_neddGold.text = '' + jsonData.gold;
+				//一次可兑换的真气值
+				this.lbl_Realgas.text = '' + jsonData.gas;
+				//道具1
+				let _itemUI1 = new view.compart.DaoJuWithNameItem();
+				let itemInfo1 = new ProtoCmd.ItemBase();
+				itemInfo1.dwBaseID = jsonData.oneid;
+				_itemUI1.setData(itemInfo1);
+				this.box_01.addChild(_itemUI1);
+				//道具2
+				let _itemUI2 = new view.compart.DaoJuWithNameItem();
+				let itemInfo2 = new ProtoCmd.ItemBase();
+				itemInfo2.dwBaseID = jsonData.twoid;
+				_itemUI2.setData(itemInfo2);
+				this.box_02.addChild(_itemUI2)
 			})
 			lcp.send(pkt);
 		}
@@ -105,7 +149,7 @@ module view.hero {
 		public init_getRealGasBallData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_exchangeRealGasByFakeGas, null, null, this, (jsonData) => {
-				console.log('====>真气真气球', jsonData)
+
 			})
 			lcp.send(pkt);
 		}

@@ -1,10 +1,10 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":9,
-    "selecteID":11,
+    "selectedBox":1,
+    "selecteID":9,
     "referenceLines":null,
-    "props":{"width":500,"sceneColor":"#000000","height":600},
+    "props":{"width":632,"sceneColor":"#fde6e5","height":782},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -16,89 +16,50 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":4,"x":6,"width":487,"skin":"image/common/fram_common_bg_01.png","sizeGrid":"62,43,81,44","height":592},
+            "props":{"y":0,"x":0,"width":632,"skin":"image/common/bottom_Pop-ups_small.png","sizeGrid":"62,43,81,44","height":782},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":106,"x":62,"width":507,"var":"panel_0","height":570},
+            "nodeParent":1,
+            "label":"Panel(panel_0)",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":6,
+            "compId":9,
             "child":[
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-9,"x":-6,"width":498,"skin":"image/common/fram_common_17.png","sizeGrid":"58,74,68,63","height":610},
-                    "nodeParent":6,
-                    "label":"Image",
+                    "type":"VBox",
+                    "props":{"var":"vbox_0","right":0,"left":0,"align":"center"},
+                    "nodeParent":9,
+                    "label":"VBox(vbox_0)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":2,
+                    "compId":11,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Panel",
-                            "props":{"y":52,"x":38,"width":428,"var":"panel_0","height":513},
-                            "nodeParent":2,
-                            "label":"Panel(panel_0)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":9,
-                            "child":[
-                                {
-                                    "x":60,
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_0","right":0,"left":0,"align":"center"},
-                                    "nodeParent":9,
-                                    "label":"VBox(vbox_0)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":11,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"HTMLDivElement",
-                                            "props":{"y":6,"x":2,"width":418,"var":"div_0","innerHTML":"htmlText","height":0},
-                                            "nodeParent":11,
-                                            "label":"HTMLDivElement(div_0)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":10,
-                                            "child":[
-                                                ]
-                                        }]
-                                }]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-33,"x":135,"width":217,"skin":"image/common/title_common_01.png","height":84},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":7,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":24,"x":71,"width":76,"text":"公告","height":41,"fontSize":40,"font":"FZXK"},
-                            "nodeParent":7,
-                            "label":"Label",
+                            "type":"HTMLDivElement",
+                            "props":{"y":6,"x":2,"width":418,"var":"div_0","innerHTML":"htmlText","height":0},
+                            "nodeParent":11,
+                            "label":"HTMLDivElement(div_0)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":8,
+                            "compId":10,
                             "child":[
                                 ]
                         }]
@@ -107,7 +68,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":-8,"x":446,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":13,"x":547,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -116,6 +77,32 @@
             "compId":5,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":17,"x":164,"skin":"image/common/bottom_title.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":13,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":4,"x":97,"text":"公告","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":13,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

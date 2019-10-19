@@ -9,7 +9,7 @@ module view.hero {
 		private proto;
 		public setData(): void {
 			this.addEvent();
-			this.haveDizi();
+
 		}
 		public addEvent(): void {
 			//激活弟子
@@ -24,7 +24,6 @@ module view.hero {
 					this.proto = ProtoCmd.Hero_HeroJiHuo2and3;
 					this.init_JiHuo();
 				}
-
 			})
 		}
 		/**
@@ -48,6 +47,7 @@ module view.hero {
 					this.viw_dizi.selectedIndex = 1;
 				}
 			})
+			this.haveDizi();
 		}
 		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);

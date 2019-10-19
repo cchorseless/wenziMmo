@@ -32,7 +32,7 @@ module view.wuXue {
 				PanelManage.openWuXueHeDaoPanel();
 			});
 			//内功更换
-			this.btn_neigongChange.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_neiGong.on(Laya.UIEvent.CLICK, this, () => {
 				new view.wuXue.WuXueNeigongDialog().popup(true);
 			})
 		}
