@@ -56,7 +56,7 @@ module view.zhaiYuan {
 
 			// 炼器
 			EventManage.onWithEffect(this.box_lianQi, Laya.UIEvent.CLICK, this, () => {
-				new view.zhaiYuan.ZhaiYuan_lianQiDialog().setData().popup(true);
+				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
 			});
 		}
 	}

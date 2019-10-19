@@ -7,6 +7,7 @@ module view.common {
 		public setData(): ChooseServerPanel {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
+			
 			this.addEvent();
 			return this;
 		}

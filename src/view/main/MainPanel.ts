@@ -437,14 +437,24 @@ module view.main {
 		}
 		private getIntensifyMessage() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
-				(data) => {
+				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
 					GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
+					this.getEquipPanelMsg()
+
 				});
 			lcp.send(pkt);
 		}
+		private getEquipPanelMsg() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.IntensifyPanel, [0, 0], 0, this,
+				(data:ProtoCmd.itf_JS_equipPanelMsg) => {
+					GameApp.GameEngine.equipPanelMsg = data;
+				});
+			lcp.send(pkt);
+
+		}
 		private getLuYinData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.openChuangSongRecord, [GameApp.GameEngine.luyinTabID], 0, this,
-				(data) => {
+				(data: ProtoCmd.itf_Main_openChuangSongRecord) => {
 					GameApp.GameEngine["luyinData" + [GameApp.GameEngine.luyinTabID]] = data
 				});
 			lcp.send(pkt);

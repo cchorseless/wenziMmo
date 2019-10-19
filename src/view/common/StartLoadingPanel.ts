@@ -18,6 +18,7 @@ module view.common {
 					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => {
 						PanelManage.openMainPanel();
 						PanelManage.openLoginPanel();
+						
 					},
 						(data) => {
 							this.lbl_progress.text = '加载配置表过程中';
