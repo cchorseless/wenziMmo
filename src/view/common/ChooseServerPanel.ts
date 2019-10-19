@@ -7,7 +7,7 @@ module view.common {
 		public setData(): ChooseServerPanel {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
-			
+
 			this.addEvent();
 			return this;
 		}
@@ -28,7 +28,8 @@ module view.common {
 			});
 
 			// 開始游戲
-			EventManage.onWithEffect(this.btn_startGame, Laya.UIEvent.CLICK, this, () => {
+			this.btn_startGame.on(Laya.UIEvent.CLICK, this, () => {
+				console.warn('登陆中------------------')
 				// 初始化客户端
 				GameApp.GameEngine.init(Laya.Handler.create(this, () => {
 					if (GameApp.GameEngine.isReady != true) {
@@ -37,7 +38,7 @@ module view.common {
 					}
 					// 登陆前验证
 					if (GameApp.Socket.isConnecting) {
-						lcp.send(ProtoCmd.UserPreLogin.create(), this, this.userRetPreLogin);
+						lcp.send(new ProtoCmd.UserPreLogin(), this, this.userRetPreLogin);
 					}
 					else {
 						GameApp.Socket.connect();

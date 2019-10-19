@@ -7,6 +7,10 @@ module view.common {
 
 		public setData(): void {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
+			// 判断是否SDK登录
+			if (GameApp.GameEngine.IsSDKLogin) {
+				this.stack_login.visible = false;
+			}
 			// 登陆组隐藏
 			this.stack_login.selectedIndex = 0;
 			let oldAccountName = Laya.LocalStorage.getItem('account');
