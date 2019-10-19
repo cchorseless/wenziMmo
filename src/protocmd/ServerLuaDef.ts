@@ -270,7 +270,6 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
-<<<<<<< HEAD
 
 
     //玩家装备强化信息（所有Item）
@@ -290,18 +289,28 @@ module ProtoCmd {
     //玩家装备  魂石升阶界面  激活按钮点击时发送
     export const SoulStoneActive ="SoulStoneActive";         //ntype,pos,flag(0元宝激活 1道具激活)
 
-    export const updateSoulStoneLevel = "updateSoulStoneLevel";
+
+    export const legednEquipPanel = "legednEquipPanel";      //传世装备面板信息    pos(位置0-9)
+    export const activeLegendEquip = "activeLegendEquip";    //传世装备激活        pos(位置0-9)
+    export const advanceLegendEquip = "advanceLegendEquip";  //传世装备进阶        pos(0-9)
+    export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
     
-=======
-    //玩家装备强化信息
-    export const sendEquipIntensify = "sendEquipIntensify";
->>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
+
+    // //玩家装备强化信息
+    // export const sendEquipIntensify = "sendEquipIntensify";
+// >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
 }
 
 /**
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 传世面板信息
+     */
+    export interface itf_JS_legednEquipPanel{
+
+    }
     /**
      * soulStoneLevel 升阶所有信息
      */
@@ -326,17 +335,13 @@ module ProtoCmd {
     /**
      * 装备强化信息
      */
-<<<<<<< HEAD
-    export interface itf_JS_equipIntensifyMessage{
-        herojson:Object;
-        playerjson:{[index:number]:number};
-        sooulchaintab:Object
-=======
+// <<<<<<< HEAD
+
     export interface itf_JS_equipIntensifyMessage {
         herojson: Object;
         playerjson: Object;
         sooulchaintab: Object
->>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
+// >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
     }
     /**
      * 路引数据

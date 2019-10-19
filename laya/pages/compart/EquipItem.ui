@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
+    "selecteID":4,
     "props":{"width":75,"sceneColor":"#000000","height":75},
     "nodeParent":-1,
     "label":"View",
@@ -39,6 +39,19 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":10,"x":9,"var":"img_icon"},
+            "nodeParent":1,
+            "label":"Image(img_icon)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":4,
+            "child":[
+                ]
         }],
     "animations":[
         {

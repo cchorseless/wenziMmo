@@ -16,9 +16,13 @@ module view.zhaiYuan {
 		private canActive: boolean = false;  //能否激活
 		private statAllSoulStoneLv = [];     //所有魂石的  不同lv总和  分阶段的effID的数组
 		private curSoulStoneLv: number = 0;  //当前魂石的等级总和；
-		private curOneOfSoulStoneLv:number = 0;
+		private curOneOfSoulStoneLv: number = 0;
 		private curSoulStoneID: number = 1;  //当前是第几颗魂石
 		private curSoulStoneIDChooseArr = [1, 2, 3, 1, 2, 3, 1, 2, 3, 4, 4, 4, 1, 2, 3, 4, 5, 5, 5, 5, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+
+		//传世相关数据
+		private curHasActive: boolean = false;
+		private curHasEquip: boolean = false
 
 		constructor() {
 			super();
@@ -42,7 +46,6 @@ module view.zhaiYuan {
 				this.allData = null;
 				this.msgData = null;
 				this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
-
 			}, null, false);
 
 			this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
@@ -85,7 +88,7 @@ module view.zhaiYuan {
 					baselvldata = this.allData.herolvl
 				}
 				for (let i = 1; i < 7; i++) {
-					this.curOneOfSoulStoneLv  += baselvldata[this.TouchID][i]
+					this.curOneOfSoulStoneLv += baselvldata[this.TouchID][i]
 				}
 				this.curSoulStoneID = this.curSoulStoneIDChooseArr[this.curOneOfSoulStoneLv];
 				this.getData_EquipPanelMsg(this.curPage, this.TouchID);
@@ -100,6 +103,8 @@ module view.zhaiYuan {
 		//更新界面显示  page 当前界面0、1、2；  type 类型 0、1 玩家、弟子  touchID  第几个item被点击了
 		private upDateView(page: number, type: number, touchID: number) {
 
+			// image/common/daoju/itemicon_bg_0.png			
+
 			//确定ICON后放开注释  是个item的图标
 			// for (let i = 0; i < 10; i++) {
 			// 	this["ui_equip" + i].img_icon.skin = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(baseData.playerjson[i]);
@@ -108,9 +113,16 @@ module view.zhaiYuan {
 			let curCostNum;
 			let costName;
 			let costCount;
-			let arr = ["强化", "激活", "升阶"]
+			let arr = ["强化", "激活", "升阶", "进阶", "获取"]
 			this.btn_intensify.label = arr[page];
+			for (let i = 0; i < 10; i++) {
+				this["ui_equip" + i].btn_icon.gray = false;
+				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + i + ".png";
+			}
+
 			if (page == 0) {
+				this.panel_1_UI.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+				this.panel_1_UI.img_circle.visible = false;
 				curCostNum = GameUtil.findItemInBag(this.msgData.itemid, GameApp.GameEngine.bagItemDB);
 				costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.itemid.toString())
 				costCount = this.msgData.count;
@@ -123,6 +135,9 @@ module view.zhaiYuan {
 				this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
 
 			} else if (page == 1) {
+				this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+				this.ui_centerIcon.img_circle.visible = false;
+				this.ui_jieduan.img_circle.visible = false;
 				for (let i in this.allData.openlvl) {
 					if (type == 0) {
 						if (this.allData.openlvl[i].pbj == 0) {
@@ -172,12 +187,58 @@ module view.zhaiYuan {
 				this.lab_jieduan.text = "(" + this.curSoulStoneLv + "/" + (k + 1) * 60 + ")"
 				//根据K获取effid     this.statAllSoulStoneLv
 			}
+			else if (page == 2) {
+				this.curHasActive = false;
+				let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+				let useID = baseArr[this.TouchID]
+				if (useID == 15) {
+					useID = 14;
+				}
+				else if (useID == 17) {
+					useID = 16;
+				}
+				let stateArr = {}
+
+				for (let i in this.allData) {
+					let o = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(this.allData[i].toString())
+					stateArr[o] = GameUtil.findItemInBag(this.allData[i], GameApp.GameEngine.bagItemDB)
+				}
+				let tempData = GameUtil.findEquipInPlayer(useID);
+				if (tempData) {
+					this.curHasEquip = true
+					this.curHasActive = true;
+				} else if (!tempData) {
+					if (stateArr[useID] > 0) {
+						this.curHasEquip = true
+						this.curHasActive = false;
+					} else if (stateArr[useID] <= 0) {
+						this.curHasEquip = false
+					}
+				}
+
+				if (this.curHasEquip) {
+					if (this.curHasActive) {
+						this.btn_intensify.label = arr[3];
+						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+						this.img_chuanshi_equip.btn_icon.gray = false;
+					} else {
+						this.btn_intensify.label = arr[1];
+						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+						this.img_chuanshi_equip.btn_icon.gray = true;
+					}
+				} else if (!this.curHasEquip) {
+					this.btn_intensify.label = arr[4];
+					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+					this.img_chuanshi_equip.btn_icon.gray = true;
+				}
+
+			}
 
 			//升级;             所需要的金币消耗
 			// this.lab_goldCost.text = "消耗金币：" + this.msgData.gold;
 			//选中时;           item金色的框是否显示 --选中状态            
 			for (let i = 0; i < 10; i++) {
-				if (i == touchID) {
+				if (i == this.TouchID) {
 					this["ui_equip" + i].img_circle.visible = true
 				} else {
 					this["ui_equip" + i].img_circle.visible = false;
@@ -243,12 +304,12 @@ module view.zhaiYuan {
 			let aa = arr[this.TouchID];
 			if (this.curOneOfSoulStoneLv < 9) {
 				this.setSoulStoneState(3)
-			} else if (this.curOneOfSoulStoneLv > 8&&this.curOneOfSoulStoneLv < 16) {
+			} else if (this.curOneOfSoulStoneLv > 8 && this.curOneOfSoulStoneLv < 16) {
 				this.setSoulStoneState(4)
 			}
-			else if (this.curOneOfSoulStoneLv > 15&&this.curOneOfSoulStoneLv < 25) {
+			else if (this.curOneOfSoulStoneLv > 15 && this.curOneOfSoulStoneLv < 25) {
 				this.setSoulStoneState(5)
-			} else if (this.curOneOfSoulStoneLv > 24){
+			} else if (this.curOneOfSoulStoneLv > 24) {
 				this.setSoulStoneState(6)
 			}
 
@@ -262,7 +323,7 @@ module view.zhaiYuan {
 			for (let i = 3; i < 7; i++) {
 				if (i == id) {
 					this["box_hunshi" + i].visible = true;
-				}else{
+				} else {
 					this["box_hunshi" + i].visible = false;
 				}
 			}
@@ -330,12 +391,13 @@ module view.zhaiYuan {
 				lcp.send(pkt);
 
 			} else if (pageID == 2) {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
-					(data) => {
-						GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
-						this.getData_EquipPanelMsg(1, this.TouchID)
-					});
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.legednEquipBaseid, null, 0, this, (data) => {
+					this.allData = data;
+					this.getData_EquipPanelMsg(2, this.TouchID)
+				})
 				lcp.send(pkt);
+
+
 			}
 		}
 		//上面板子content的数据  id: 面板ID
@@ -359,7 +421,7 @@ module view.zhaiYuan {
 				// this.upDateView(this.curPage, this.type, this.TouchID);
 
 			} else if (pageID == 2) {
-
+				this.upDateView(this.curPage, this.type, this.TouchID);
 			}
 		}
 		//强化、升阶
@@ -393,6 +455,20 @@ module view.zhaiYuan {
 				}
 
 			} else if (this.curPage == 2) {
+				if (this.btn_intensify.label == "激活") {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.activeLegendEquip, [this.TouchID], 0, this, (data) => {
+						let a = data;
+					})
+					lcp.send(pkt);
+				} else if (this.btn_intensify.label == "获取") {
+
+				} else if (this.btn_intensify.label == "进阶") {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.advanceLegendEquip, [this.TouchID], 0, this, (data) => {
+						let a = data;
+					})
+					lcp.send(pkt);
+				}
+
 
 			}
 		}
