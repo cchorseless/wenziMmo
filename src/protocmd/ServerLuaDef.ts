@@ -270,10 +270,7 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
-<<<<<<< HEAD
-=======
 
->>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
 
 
     //玩家装备强化信息（所有Item）
@@ -300,12 +297,7 @@ module ProtoCmd {
     export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
     
 
-<<<<<<< HEAD
-    // //玩家装备强化信息
-    // export const sendEquipIntensify = "sendEquipIntensify";
-// >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
-=======
->>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
+
 }
 
 /**
@@ -342,21 +334,12 @@ module ProtoCmd {
     /**
      * 装备强化信息
      */
-<<<<<<< HEAD
-// <<<<<<< HEAD
+
 
     export interface itf_JS_equipIntensifyMessage {
         herojson: Object;
         playerjson: Object;
         sooulchaintab: Object
-// >>>>>>> ca5ca71458f485e3b7809a5ff4c0ff2b5d79b777
-=======
-
-    export interface itf_JS_equipIntensifyMessage{
-        herojson:Object;
-        playerjson:{[index:number]:number};
-        sooulchaintab:Object
->>>>>>> 5ca228c3efe895a51f739299aa4255a4649e1f6e
     }
 
     /**
