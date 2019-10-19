@@ -59,6 +59,8 @@ module GameObject {
         public playerBirthData:ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
         public playerEquipIntensify:ProtoCmd.itf_JS_equipIntensifyMessage = null;
+        //玩家强化信息
+        public playersoulStoneLevel:ProtoCmd.itf_JS_soulStoneLevel = null;
 
 
 

@@ -82,7 +82,9 @@ class GameEngine extends SingletonClass {
     public luyinData2;
     public luyinData3;
     public luyinData4;
-    public luyinTabID: number = 1;
+    public luyinTabID: number = 1; 
+    //单个装备panel信息
+    public equipPanelMsg:ProtoCmd.itf_JS_equipPanelMsg;
 
 
 
