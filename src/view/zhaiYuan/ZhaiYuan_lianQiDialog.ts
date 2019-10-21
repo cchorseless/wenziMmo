@@ -22,10 +22,14 @@ module view.zhaiYuan {
 
 		//传世相关数据
 		private curHasActive: boolean = false;
-		private curHasEquip: boolean = false
+		private curHasEquip: boolean = false;
+		private canUpLvCS0: boolean = false;
+		private canUpLvCS1: boolean = false;
+		private tempItemData = null
 
 		constructor() {
 			super();
+			this.group = 'ZhaiYuan_lianQiDialog';
 			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
 			this.msgData = GameApp.GameEngine.equipPanelMsg;
 			this.setData();
@@ -96,8 +100,15 @@ module view.zhaiYuan {
 					this.statAllSoulStoneLv.push(this.allData.soulchaintab[i].effid)
 				}
 			})
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this, () => {
+				this.getData_PlayerEquipMsg(this.curPage, this.TouchID);
+			})
 
 
+		}
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.soulStoneLevel, this);
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this)
 		}
 
 		//更新界面显示  page 当前界面0、1、2；  type 类型 0、1 玩家、弟子  touchID  第几个item被点击了
@@ -198,12 +209,15 @@ module view.zhaiYuan {
 					useID = 16;
 				}
 				let stateArr = {}
+				let equipArr = {};
 
 				for (let i in this.allData) {
 					let o = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(this.allData[i].toString())
 					stateArr[o] = GameUtil.findItemInBag(this.allData[i], GameApp.GameEngine.bagItemDB)
+					equipArr[o] = this.allData[i]
 				}
-				let tempData = GameUtil.findEquipInPlayer(useID);
+				let tempData = GameUtil.findEquipInPlayer(baseArr[this.TouchID]);
+				this.tempItemData = GameUtil.findItemInfoInBag(equipArr[useID], GameApp.GameEngine.bagItemDB)
 				if (tempData) {
 					this.curHasEquip = true
 					this.curHasActive = true;
@@ -221,6 +235,20 @@ module view.zhaiYuan {
 						this.btn_intensify.label = arr[3];
 						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
 						this.img_chuanshi_equip.btn_icon.gray = false;
+						let basePos = baseArr[this.TouchID]
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.legednEquipPanel, [basePos], 0, this, (data) => {
+							this.msgData = data;
+							this.showCSPanel();
+						})
+						lcp.send(pkt);
+						let bid = baseArr[this.TouchID]
+						if (bid == 15) {
+							bid = 14
+						}
+						if (bid == 17) {
+							bid = 16
+						}
+						this.lab_itemName3.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(equipArr[useID].toString())
 					} else {
 						this.btn_intensify.label = arr[1];
 						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
@@ -231,6 +259,9 @@ module view.zhaiYuan {
 					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
 					this.img_chuanshi_equip.btn_icon.gray = true;
 				}
+				this.lab_cost_forge.text = ""
+
+
 
 			}
 
@@ -266,6 +297,28 @@ module view.zhaiYuan {
 			} else if (this.curPage == 2) {
 				this.onPageContent2()
 			}
+
+		}
+		private showCSPanel() {
+
+			let costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.drillid.toString())
+			let curCostNum = GameUtil.findItemInBag(this.msgData.drillid, GameApp.GameEngine.bagItemDB);
+			let costName1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.soulid.toString())
+			let curCostNum1 = GameUtil.findItemInBag(this.msgData.soulid, GameApp.GameEngine.bagItemDB);
+			let costCount = this.msgData.drillnum;
+			let costCount1 = this.msgData.soulnum;
+			if (curCostNum >= costCount) {
+				this.canUpLvCS0 = true;
+			}
+			if (curCostNum1 >= costCount1) {
+				this.canUpLvCS1 = true;
+			}
+			if (costCount1 <= 0) {
+				this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + " / " + costCount + ")";
+			} else {
+				this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + " / " + costCount + ";" + costName + ":" + curCostNum1 + " / " + costCount1 + ")";
+			}
+
 
 		}
 		//强化
@@ -421,6 +474,7 @@ module view.zhaiYuan {
 				// this.upDateView(this.curPage, this.type, this.TouchID);
 
 			} else if (pageID == 2) {
+
 				this.upDateView(this.curPage, this.type, this.TouchID);
 			}
 		}
@@ -455,22 +509,76 @@ module view.zhaiYuan {
 				}
 
 			} else if (this.curPage == 2) {
+				let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
 				if (this.btn_intensify.label == "激活") {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.activeLegendEquip, [this.TouchID], 0, this, (data) => {
-						let a = data;
-					})
-					lcp.send(pkt);
+					this.dressEquip(this.tempItemData)
 				} else if (this.btn_intensify.label == "获取") {
 
 				} else if (this.btn_intensify.label == "进阶") {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.advanceLegendEquip, [this.TouchID], 0, this, (data) => {
-						let a = data;
-					})
-					lcp.send(pkt);
+					if (GameApp.GameEngine.mainPlayer.zslevel < this.msgData.zslvl) {
+						TipsManage.showTips("未达到传世等级");
+						return
+					} else if (!this.canUpLvCS0 || !this.canUpLvCS1) {
+
+						TipsManage.showTips("资源数量不足");
+
+						return;
+					} else {
+						let basePos = baseArr[this.TouchID]
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.advanceLegendEquip, [basePos], 0, this, (data) => {
+							let a = data;
+							this.allData = null;
+							this.msgData = null;
+							this.getData_PlayerEquipMsg(this.curPage, this.TouchID)
+
+						})
+						lcp.send(pkt);
+					}
+
 				}
 
 
 			}
+		}
+		private dressEquip(obj) {
+			let packet = new ProtoCmd.CretProcessingItem();
+			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
+			packet.setValue('i64ItemId', obj.i64ItemID);
+			packet.srcLocation = obj.location;
+			packet.destLocation.btLocation = EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP;
+			// 双手镯双戒指可以通用位置需要特殊处理
+
+			let itemPosition = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + obj.dwBaseID);
+			switch (itemPosition) {
+				// 左边
+				case EnumData.emEquipPosition.EQUIP_LEGEND_BRACELET_LEFT:
+
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition + 1]) {
+						itemPosition += 1;
+					}
+					break;
+				// 右边
+				case EnumData.emEquipPosition.EQUIP_LEGEND_BRACELET_RIGHT:		//传说右手镯
+
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition - 1]) {
+						itemPosition -= 1;
+					}
+					break;
+				case EnumData.emEquipPosition.EQUIP_LEGEND_RING_LEFT:		//传说左戒指
+
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition + 1]) {
+						itemPosition += 1;
+					}
+					break;
+				case EnumData.emEquipPosition.EQUIP_LEGEND_RING_RIGHT:		//传说右戒指
+
+					if (GameApp.GameEngine.equipDBIndex[itemPosition] && !GameApp.GameEngine.equipDBIndex[itemPosition - 1]) {
+						itemPosition -= 1;
+					}
+					break;
+			}
+			packet.destLocation.btIndex = itemPosition;
+			lcp.send(packet);
 		}
 
 

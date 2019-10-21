@@ -3326,4 +3326,18 @@ module ProtoCmd {
             }
         }
     }
+
+    // 履历
+    export class ExperienceLog extends PacketBase {
+        constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('id', PacketBase.TYPE_BYTE);       //日志ID
+            this.addProperty('type', PacketBase.TYPE_BYTE);		//日志类型
+            this.addProperty('time', PacketBase.TYPE_DWORD);	//时间截
+            this.addProperty('desc', PacketBase.VALUE_TYPE_STRING, Packet._MAX_NAME_LEN);	//日志
+            if (data) {
+                data.pos += this.read(data);	//修改偏移
+            }
+        }
+    }
 }

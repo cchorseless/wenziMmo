@@ -153,7 +153,7 @@ module view.dialog {
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
 			packet.srcLocation = this.itemObj.location;
-			packet.destLocation.setValue('btLocation', EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP);
+			packet.destLocation.btLocation= EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP;
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
 			if (data === 'hero') {

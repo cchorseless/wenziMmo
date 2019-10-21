@@ -367,6 +367,10 @@ module view.main {
 				case EnumData.CRET_TYPE.CRET_PLAYER:
 					this.ui_scene.addPlayer(obj);
 					break;
+				// 英雄
+				case EnumData.CRET_TYPE.CRET_HERO:
+					this.ui_scene.addHero(obj);
+					break;
 				// 怪物
 				case EnumData.CRET_TYPE.CRET_MONSTER:
 					this.ui_scene.addMonster(obj);
@@ -374,7 +378,7 @@ module view.main {
 				// NPC
 				case EnumData.CRET_TYPE.CRET_NPC:
 					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
-					npcIcon.setData(obj)
+					npcIcon.setData(obj);
 					this.vbox_npc.addChild(npcIcon);
 					break;
 				default:
@@ -446,7 +450,7 @@ module view.main {
 		}
 		private getEquipPanelMsg() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.IntensifyPanel, [0, 0], 0, this,
-				(data:ProtoCmd.itf_JS_equipPanelMsg) => {
+				(data: ProtoCmd.itf_JS_equipPanelMsg) => {
 					GameApp.GameEngine.equipPanelMsg = data;
 				});
 			lcp.send(pkt);
