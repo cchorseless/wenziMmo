@@ -24,6 +24,7 @@ module view.juese {
 				this.notActivation();
 			}
 		}
+
 		/**
 		  * 未激活时
 		  */
@@ -33,6 +34,7 @@ module view.juese {
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 
 		}
+		
 		//查找自己身上的翅膀
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_WING);

@@ -332,8 +332,8 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public mapCreateCret(data: any): void {
-        // let msgData = new ProtoCmd.MapCreateCret(data);
-        let msgData = ProtoCmd.MapCreateCret.create(data);
+        let msgData = new ProtoCmd.MapCreateCret(data);
+        // let msgData = ProtoCmd.MapCreateCret.create(data);
         let type = msgData.feature.getValue('btCretType');
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
@@ -350,7 +350,8 @@ class ServerListener extends SingletonClass {
                 break;
             // 英雄
             case EnumData.CRET_TYPE.CRET_HERO:
-
+                obj = new GameObject.Hero();
+                obj.objName = obj.filterName(szShowName);
                 break;
 
         }

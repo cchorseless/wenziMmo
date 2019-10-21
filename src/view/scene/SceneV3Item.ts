@@ -68,7 +68,7 @@ module view.scene {
 		 */
 		public changeToBig(): void {
 			Laya.Tween.to(this, { width: 640 }, 500, null, null, null, true);
-			// Laya.Tween.to(this.panel_monster, { left: 10 }, 500, null, null, null, true);
+			Laya.Tween.to(this.hbox_player, { space: 50 }, 500, null, null, null, true);
 			for (let item of this.hbox_monster._childs) {
 				(item as view.scene.MonsterGroupInSceneItem).changeToBig();
 			}
@@ -79,6 +79,7 @@ module view.scene {
 		 */
 		public changeToSmall(): void {
 			Laya.Tween.to(this, { width: 545 }, 500, null, null, null, true);
+			Laya.Tween.to(this.hbox_player, { space: 5 }, 500, null, null, null, true);
 			for (let item of this.hbox_monster._childs) {
 				(item as view.scene.MonsterGroupInSceneItem).changeToSmall();
 			}
@@ -93,13 +94,11 @@ module view.scene {
 			if (selfPlayerUI == null) {
 				let _uiItem = new view.scene.PlayerInSceneItem();
 				_uiItem.setData(GameApp.MainPlayer);
-				_uiItem.scale(0.8, 0.8);
 				_uiItem.centerX = _uiItem.centerY = 0;
 				this.box_self.addChild(_uiItem);
 			}
 			else {
 				selfPlayerUI.updateUI();
-				selfPlayerUI.scale(0.7, 0.7);
 				selfPlayerUI.centerX = selfPlayerUI.centerY = 0;
 				this.box_self.addChild(selfPlayerUI);
 			}
@@ -109,10 +108,25 @@ module view.scene {
 		 * 初始化弟子
 		 */
 		public updateDiziPlayer(): void {
-			let _uiItem = new view.scene.PlayerInSceneItem();
-			_uiItem.setData(GameApp.MainPlayer);
-			_uiItem.scale(0.6, 0.6);
-			this.box_diZi.addChild(_uiItem);
+			let selfHero = GameApp.MainPlayer.curHero;
+			// 判断自己有没有英雄
+			if (selfHero) {
+				let selfHeroUI: view.scene.HeroInSceneItem = selfHero.ui_item;
+				if (selfHeroUI == null) {
+					let _uiItem = new view.scene.HeroInSceneItem();
+					_uiItem.setData(selfHero);
+					// _uiItem.scale(0.8, 0.8);
+					_uiItem.centerX = _uiItem.centerY = 0;
+					this.box_diZi.addChild(_uiItem);
+				}
+				else {
+					selfHeroUI.updateUI();
+					// selfPlayerUI.scale(0.7, 0.7);
+					selfHeroUI.centerX = selfHeroUI.centerY = 0;
+					this.box_diZi.addChild(selfHeroUI);
+				}
+			}
+
 		}
 
 		/**
@@ -128,7 +142,6 @@ module view.scene {
 				monster = new view.scene.MonsterInSceneItem();
 				monster.setData(obj);
 			}
-
 			for (let _ui of this.hbox_monster._childs) {
 				// 添加成功
 				if ((_ui as view.scene.MonsterGroupInSceneItem).addMonster(monster)) {
@@ -139,6 +152,29 @@ module view.scene {
 			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
 			ui_monsterGroup.addMonster(monster);
 			this.hbox_monster.addChild(ui_monsterGroup);
+		}
+
+
+		/**
+		 * 添加英雄
+		 */
+		public addHero(obj: GameObject.Hero): void {
+			let masterTempID = obj.feature.dwMasterTmpID;
+			// 判断是否是自己
+			if (masterTempID == GameApp.MainPlayer.tempId) {
+				this.box_diZi.removeChildren();
+				let ui_hero: view.scene.HeroInSceneItem = new view.scene.HeroInSceneItem();
+				ui_hero.setData(obj);
+				ui_hero.centerX = ui_hero.centerY = 0;
+				this.box_diZi.addChild(ui_hero);
+			}
+			else {
+				// 找到主人
+				let masterObj = GameApp.MainPlayer.findViewObj(masterTempID, EnumData.CRET_TYPE.CRET_PLAYER);
+				if (masterObj && masterObj.ui_item) {
+					(masterObj.ui_item as view.scene.PlayerAndHeroInSceneV0Item).setHero(obj);
+				}
+			}
 		}
 
 
@@ -161,9 +197,9 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addPlayer(obj): void {
-			let playerUI: view.scene.PlayerInSceneItem = new view.scene.PlayerInSceneItem();
-			playerUI.setData(obj);
-			playerUI.scale(0.7, 0.7);
+			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
+			playerUI.setMaster(obj);
+			// playerUI.scale(0.7, 0.7);
 			this.hbox_player.addChild(playerUI);
 		}
 

@@ -11,7 +11,7 @@ module view.scene {
 		 */
 		public changeToBig(): void {
 			Laya.Tween.to(this, { width: 640 }, 500, Laya.Ease.bounceOut);
-			Laya.Tween.to(this.hbox_0, { space: 19 }, 500, null, null, null, true);
+			// Laya.Tween.to(this.hbox_0, { space: 19 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_1, { space: 23 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_2, { space: 31 }, 500, null, null, null, true);
 		}
@@ -21,7 +21,7 @@ module view.scene {
 		 */
 		public changeToSmall(): void {
 			Laya.Tween.to(this, { width: 545 }, 500, Laya.Ease.bounceOut);
-			Laya.Tween.to(this.hbox_0, { space: 0 }, 500, null, null, null, true);
+			// Laya.Tween.to(this.hbox_0, { space: 0 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_1, { space: 0 }, 500, null, null, null, true);
 			Laya.Tween.to(this.hbox_2, { space: 0 }, 500, null, null, null, true);
 		}
@@ -49,7 +49,7 @@ module view.scene {
 			}
 
 
-			for (let i = 0; i < 12; i++) {
+			for (let i = 0; i < 7; i++) {
 				if (this['box_' + i].numChildren == 0) {
 					// 第一排
 					if (i < 3) {
@@ -58,10 +58,6 @@ module view.scene {
 					// 第二排
 					else if (i >= 3 && i < 7) {
 						monster.scale(0.6, 0.6);
-					}
-					// 第三排
-					else {
-						monster.scale(0.5, 0.5);
 					}
 					monster.centerY = 0;
 					monster.centerX = 0;
@@ -76,7 +72,7 @@ module view.scene {
 		public clearAllMonster(): void {
 			this.box_only.removeChildren();
 			this.box_only.visible = true;
-			for (let i = 0; i < 12; i++) {
+			for (let i = 0; i < 7; i++) {
 				(this['box_' + i] as Laya.Box).removeChildren();
 			}
 		}

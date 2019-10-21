@@ -26,11 +26,18 @@ module GameObject {
         public xingGeInfo;
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
+        /**
+         * 等级和
+         */
+        public get lvlCount(): number {
+            return this.zslevel * 1000 + this.level
+        }
         public viplvl: number;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物
         private _allNpc = {};//所有的NPC
+        private _allHero = {};// 所有的英雄
         public allItem = {};//所有的掉落宝物
         public wealth: Wealth;//财富
         public feature: ProtoCmd.PlayerFeature;//外显
@@ -56,23 +63,24 @@ module GameObject {
         public bossCoin: number = 0;
 
         //玩家出生信息、八字、4格、9宫
-        public playerBirthData:ProtoCmd.itf_JS_birthdateAndCompellation = null;
+        public playerBirthData: ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
-        public playerEquipIntensify:ProtoCmd.itf_JS_equipIntensifyMessage = null;
+        public playerEquipIntensify: ProtoCmd.itf_JS_equipIntensifyMessage = null;
         //玩家强化信息
-        public playersoulStoneLevel:ProtoCmd.itf_JS_soulStoneLevel = null;
+        public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
 
 
-
+        /*******************弟子**************** */
+        public curHero: GameObject.Hero;// 当前的弟子
         constructor() {
             super();
             this.wealth = new Wealth();
             this.feature = new ProtoCmd.PlayerFeature();
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
         }
-             /**
-         * 年龄 字符串
-         */
+        /**
+    * 年龄 字符串
+    */
         public get age_str(): string {
             let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
             let span_day = span / 60 / 60 / 24;
@@ -273,6 +281,7 @@ module GameObject {
          * @param type 
          */
         public addViewObj(obj: Creature, type: EnumData.CRET_TYPE): void {
+
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._allPlayer[obj.tempId] = obj;
@@ -282,6 +291,17 @@ module GameObject {
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
                     this._allNpc[obj.tempId] = obj;
+                    break;
+                case EnumData.CRET_TYPE.CRET_HERO:
+                    this._allHero[obj.tempId] = obj;
+                    // 角色和弟子互相绑定
+                    let masterID = obj.feature.dwMasterTmpID;
+                    if (this._allPlayer[masterID]) {
+                        this._allPlayer[masterID].curHero = obj;
+                    }
+                    else {
+                        console.warn('没有找到英雄绑定')
+                    }
                     break;
                 default:
                     break;
@@ -339,6 +359,8 @@ module GameObject {
                     return this._allMonster[tempId]
                 case EnumData.CRET_TYPE.CRET_NPC:
                     return this._allNpc[tempId]
+                case EnumData.CRET_TYPE.CRET_HERO:
+                    return this._allNpc[tempId]
                 default:
                     for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId]]) {
                         if (obj) return obj;
@@ -366,6 +388,12 @@ module GameObject {
             return this._allNpc;
         }
 
+        /**
+         * 是业内所有的英雄
+         */
+        public get allHero() {
+            return this._allHero;
+        }
 
         /**
          * 清除视野内所有的对象
@@ -386,6 +414,11 @@ module GameObject {
                 this._allNpc[tempId] = null;
             }
             this._allNpc = {};
+            for (let tempId in this._allHero) {
+                this._allHero[tempId].clear();
+                this._allHero[tempId] = null;
+            }
+            this._allHero = {};
             if (PanelManage.Main) {
                 PanelManage.Main.clearViewUI();
             }

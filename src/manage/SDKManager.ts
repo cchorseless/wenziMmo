@@ -33,6 +33,7 @@ class SDKManager extends SingletonClass {
         if (!GameApp.GameEngine.IsSDKLogin) {
             return;
         }
+        console.log(this.SDK)
         this.SDK.init(debug)
     }
 
@@ -111,7 +112,7 @@ class SDKManager extends SingletonClass {
     // 切换账号
     switchAccount() {
         let self = this;
-        self.SDK.switchAccount(function () {
+        self.SDK.switchAccount(() => {
             // CP 清理⽤户环境
             // ...
             // ... （代码忽略)

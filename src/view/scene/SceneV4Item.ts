@@ -25,7 +25,12 @@ module view.scene {
 		public clearMonster(): void {
 
 		}
+		/**
+		 * 添加英雄
+		 */
+		public addHero(): void {
 
+		}
 
 	}
 }
