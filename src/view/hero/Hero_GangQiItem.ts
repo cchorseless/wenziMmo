@@ -106,16 +106,16 @@ module view.hero {
 			//拉取我的罡气物品信息
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
-				console.log('=====》弟子罡气', jsonData)
 				//升星所需消耗的金币数量
 				this.lbl_use.text = '' + jsonData.gold;
 			})
 			this.init_GangQIInfo();
 		}
-		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
-			PopUpManager.Dispose(this);
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_heroWingPanel, this);
+			super.destroy(isbool);
 		}
+		
 		/**
 		 * 罡气下阶预览
 		 */

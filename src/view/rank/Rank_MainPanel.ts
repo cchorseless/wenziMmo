@@ -195,7 +195,7 @@ module view.rank {
 			//显示我的排行榜奖励
 			let pktr = new ProtoCmd.QuestClientData();
 			pktr.setString(ProtoCmd.Rank_rankShowRewardByRankType, [btType], null, this, (jsonData: { any }) => {
-
+				console.log('====>排名奖励',jsonData)
 			})
 			lcp.send(pktr);
 		}

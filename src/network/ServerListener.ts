@@ -810,7 +810,6 @@ class ServerListener extends SingletonClass {
         let ability = msg.ability;
         let dwType = msg.getValue('dwType');
         let fightPower = msg.getValue('fightPower');
-
         let player = GameApp.MainPlayer;
         if (dwTempId == player.tempId) {
             switch (dwType) {
@@ -823,15 +822,20 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄战士
                 case 1:
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
+                    // GameApp.MainPlayer.warriorAbility=ability;
+                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
                     break;
                 // 英雄法师
                 case 2:
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
+                // player.changeAbility(ability);
+                    //  GameApp.MainPlayer.masterAbility=ability;
+                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
                     break;
                 // 英雄道士
                 case 3:
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
+                // player.changeAbility(ability);
+                    //  GameApp.MainPlayer.TaoistAbility=ability;
+                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
                     break;
             }
         }

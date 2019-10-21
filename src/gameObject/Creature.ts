@@ -70,7 +70,7 @@ module GameObject {
         public nAtkReduceBoss = 0;//受BOSS伤害减少
         public nAtkAddHero = 0;//增加对英雄伤害
         public nAtkReduceHero = 0;//减少受英雄伤害
-        
+
         public nInnerRestore = 0;//内功恢复
         public nInnerResi = 0;//内功抵伤
         public nFinalDamageAdd = 0;//最终伤害增加
@@ -174,7 +174,6 @@ module GameObject {
         public mapName: string;// 地图名字
         public roomId: number;//房间ID
         public dir: number;//8方向朝向
-
         public ability: Ability;//能力信息
         public feature;//外观特征
         public location: ProtoCmd.CretLocation;//位置信息

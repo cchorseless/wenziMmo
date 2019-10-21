@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":22,
+    "selectedBox":22,
+    "selecteID":23,
     "referenceLines":[
         {
             "value":-222,
@@ -24,15 +24,16 @@
             "props":{"y":7,"x":17,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":22,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":3,"x":44,"text":"仓库","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                    "props":{"y":1,"x":21,"text":"仓库","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":22,
                     "label":"Label",
                     "isDirectory":false,
@@ -44,8 +45,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":152,"var":"lbl_maxCount","text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "props":{"y":6,"x":125,"var":"lbl_maxCount","text":"80","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":22,
                     "label":"Label(lbl_maxCount)",
                     "isDirectory":false,
@@ -57,8 +59,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":142,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "props":{"y":6,"x":115,"text":"/","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":22,
                     "label":"Label",
                     "isDirectory":false,
@@ -70,8 +73,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":128,"var":"lbl_itemCount","text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
+                    "props":{"y":6,"x":101,"var":"lbl_itemCount","text":"0","strokeColor":"#603d22","stroke":4,"padding":"-1","fontSize":20,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":22,
                     "label":"Label(lbl_itemCount)",
                     "isDirectory":false,

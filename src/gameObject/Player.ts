@@ -56,23 +56,23 @@ module GameObject {
         public bossCoin: number = 0;
 
         //玩家出生信息、八字、4格、9宫
-        public playerBirthData:ProtoCmd.itf_JS_birthdateAndCompellation = null;
+        public playerBirthData: ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
-        public playerEquipIntensify:ProtoCmd.itf_JS_equipIntensifyMessage = null;
+        public playerEquipIntensify: ProtoCmd.itf_JS_equipIntensifyMessage = null;
         //玩家强化信息
-        public playersoulStoneLevel:ProtoCmd.itf_JS_soulStoneLevel = null;
+        public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
 
-
-
+        /******************英雄********** */
+       
         constructor() {
             super();
             this.wealth = new Wealth();
             this.feature = new ProtoCmd.PlayerFeature();
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
         }
-             /**
-         * 年龄 字符串
-         */
+        /**
+    * 年龄 字符串
+    */
         public get age_str(): string {
             let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
             let span_day = span / 60 / 60 / 24;
