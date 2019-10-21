@@ -72,6 +72,8 @@ module GameObject {
 
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子
+
+
         constructor() {
             super();
             this.wealth = new Wealth();
@@ -274,17 +276,22 @@ module GameObject {
             this._skeBoneRes = srcID;
         }
 
-
+        public _tmpHeroList = {};
         /**
          * 将游戏对象添加到视野
          * @param obj 
          * @param type 
          */
-        public addViewObj(obj: Creature, type: EnumData.CRET_TYPE): void {
+        public addViewObj(obj: any, type: EnumData.CRET_TYPE): void {
 
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._allPlayer[obj.tempId] = obj;
+                    // 角色和弟子互相绑定
+                    if (this._tmpHeroList[obj.tempId]) {
+                        obj.curHero = this._tmpHeroList[obj.tempId]
+                        delete this._tmpHeroList[obj.tempId];
+                    }
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this._allMonster[obj.tempId] = obj;
@@ -292,6 +299,7 @@ module GameObject {
                 case EnumData.CRET_TYPE.CRET_NPC:
                     this._allNpc[obj.tempId] = obj;
                     break;
+
                 case EnumData.CRET_TYPE.CRET_HERO:
                     this._allHero[obj.tempId] = obj;
                     // 角色和弟子互相绑定
@@ -299,8 +307,9 @@ module GameObject {
                     if (this._allPlayer[masterID]) {
                         this._allPlayer[masterID].curHero = obj;
                     }
+                    // 玩家还没进来的情况
                     else {
-                        console.warn('没有找到英雄绑定')
+                        this._tmpHeroList[masterID] = obj;
                     }
                     break;
                 default:

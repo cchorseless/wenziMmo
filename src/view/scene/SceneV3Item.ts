@@ -159,6 +159,7 @@ module view.scene {
 		 * 添加英雄
 		 */
 		public addHero(obj: GameObject.Hero): void {
+			console.log('----------添加弟子-----------')
 			let masterTempID = obj.feature.dwMasterTmpID;
 			// 判断是否是自己
 			if (masterTempID == GameApp.MainPlayer.tempId) {
@@ -201,6 +202,9 @@ module view.scene {
 			playerUI.setMaster(obj);
 			// playerUI.scale(0.7, 0.7);
 			this.hbox_player.addChild(playerUI);
+			if (obj.curHero) {
+				this.addHero(obj.curHero)
+			}
 		}
 
 
