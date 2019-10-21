@@ -54,7 +54,17 @@ module view.juese {
 
 			})
 			this.btn_shengpingEnter.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.PersonShengPingDialog().popup(true);
+				let ui = new view.juese.PersonShengPingDialog();
+				let pkt = new ProtoCmd.ExperienceLogCmd();
+				lcp.send(pkt, this, (data) => {
+					let cbpkt = new ProtoCmd.ExperienceLogCmdRet(data);
+					let baseData = cbpkt.logs;
+					ui.popup();
+					ui.setData(baseData)
+					cbpkt.clear();
+					cbpkt = null;
+				})
+
 			})
 			this.img_tag1.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.PlayerTagDialog().popup(true);

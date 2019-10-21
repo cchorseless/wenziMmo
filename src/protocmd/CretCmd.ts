@@ -763,6 +763,7 @@ module ProtoCmd {
      */
     export class ExperienceLogCmd extends Packet {
         public static msgID: number = 0x02BB; // 187
+        public cbPacket = ExperienceLogCmdRet;
         public constructor() {
             super();
             this.cmd = 0x02BB;
@@ -775,9 +776,10 @@ module ProtoCmd {
     export class ExperienceLogCmdRet extends Packet {
         public static msgID: number = 0x02BC; // 188
         public logs: Array<ExperienceLog> = [];
-        public constructor() {
+        public constructor(data: Laya.Byte) {
             super();
             this.addProperty('count', PacketBase.TYPE_INT);
+            this.read(data);
         }
 
         public read(data: Laya.Byte): number {
