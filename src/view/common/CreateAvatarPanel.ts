@@ -588,7 +588,17 @@ module view.common {
 
 		// 随机角色姓名
 		private randomName(): void {
-			this.input_name.text = RandomUtils.randomName(8);
+			let index = RandomUtils.randomInt(1, 101);
+			let index2 = RandomUtils.randomInt(1, 101);
+			let xingShi = SheetConfig.randomNameSheet.getInstance(null).SURNAME('' + index);
+			let mingZi = '';
+			if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+				mingZi = SheetConfig.randomNameSheet.getInstance(null).BOYNAME('' + index);
+			}
+			else {
+				mingZi = SheetConfig.randomNameSheet.getInstance(null).GIRLNAME('' + index);
+			}
+			this.input_name.text = xingShi + mingZi;
 		}
 
 		/**

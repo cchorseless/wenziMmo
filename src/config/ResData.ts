@@ -197,8 +197,10 @@ module ResData {
             { url: 'json/characters.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.characters },
             // 八字介绍表
             { url: 'json/troduce.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.troduce },
-             // 个人标签表
-            { url: 'json/Label.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Label }
+            // 个人标签表
+            { url: 'json/Label.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Label },
+            // 随机姓名表
+            { url: 'json/randomNameSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.randomNameSheet },
         ];
     }
 
