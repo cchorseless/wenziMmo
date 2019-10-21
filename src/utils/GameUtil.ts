@@ -15,6 +15,20 @@ module GameUtil {
         }
         return count;
     }
+     /**
+     * 查找背包内道具信息
+     * @param itemID 
+     * @param bag 
+     */
+    export function findItemInfoInBag(itemID, bag): ProtoCmd.ItemBase {
+        let keys = Object.keys(bag);
+        for (let _key of keys) {
+            let _item: ProtoCmd.ItemBase = bag[_key]
+            if (_item.dwBaseID === itemID) {
+                return _item
+            }
+        }
+    }
 
     /**
      * 查找背包内道具信息

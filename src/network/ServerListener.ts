@@ -1094,6 +1094,7 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public itemLocationChange(data: any): void {
+
         let msg = new ProtoCmd.CretProcessingItem(data);
         let errorcode = msg.getValue('nErrorCode');
         let i64ItemId = msg.getValue('i64ItemId').toString();
@@ -1197,14 +1198,24 @@ class ServerListener extends SingletonClass {
                         else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT) {
                             updateTabIndex = 3;
                         }
-                        if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == updateTabIndex) {
-                            PanelManage.BeiBao.ui_equipInfo.updateUI();
+
+                        if (PopUpManager.curPanel == PanelManage.BeiBao) {
+                            if (PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex == updateTabIndex) {
+                                PanelManage.BeiBao.ui_equipInfo.updateUI();
+                            }
+                            else {
+                                PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
+                            }
+
                         }
-                        else {
-                            PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
+                        if (Laya.Dialog.getDialogsByGroup('ZhaiYuan_lianQiDialog').length > 0) {
+                            GameApp.LListener.event(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI);
                         }
+
+
                         delete GameApp.GameEngine.bagItemDB[i64ItemId];
                         TipsManage.showTips('装备穿戴成功');
+
                         break;
                 }
             } else {

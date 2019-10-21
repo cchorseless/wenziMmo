@@ -290,8 +290,13 @@ module ProtoCmd {
     //玩家装备  魂石升阶界面  激活按钮点击时发送
     export const SoulStoneActive ="SoulStoneActive";         //ntype,pos,flag(0元宝激活 1道具激活)
 
-    export const updateSoulStoneLevel = "updateSoulStoneLevel";
+
+    export const legednEquipPanel = "legednEquipPanel";      //传世装备面板信息    pos(位置0-9)
+    export const activeLegendEquip = "activeLegendEquip";    //传世装备激活        pos(位置0-9)
+    export const advanceLegendEquip = "advanceLegendEquip";  //传世装备进阶        pos(0-9)
+    export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
     
+
 
 }
 
@@ -299,6 +304,12 @@ module ProtoCmd {
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 传世面板信息
+     */
+    export interface itf_JS_legednEquipPanel{
+
+    }
     /**
      * soulStoneLevel 升阶所有信息
      */
@@ -324,10 +335,11 @@ module ProtoCmd {
      * 装备强化信息
      */
 
-    export interface itf_JS_equipIntensifyMessage{
-        herojson:Object;
-        playerjson:{[index:number]:number};
-        sooulchaintab:Object
+
+    export interface itf_JS_equipIntensifyMessage {
+        herojson: Object;
+        playerjson: Object;
+        sooulchaintab: Object
     }
 
     /**

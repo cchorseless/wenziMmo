@@ -351,7 +351,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('dwLevel', PacketBase.TYPE_INT);		//当前等级
-            
+
             this.addProperty('i64NowExp', PacketBase.TYPE_INT64);	//当前经验
             this.addProperty('i64MaxExp', PacketBase.TYPE_INT64);	//最大经验
 
@@ -755,6 +755,50 @@ module ProtoCmd {
             super();
             this.addProperty('value', PacketBase.TYPE_BYTES, 256);
             this.read(data)
+        }
+    }
+
+    /**
+     * 请求履历
+     */
+    export class ExperienceLogCmd extends Packet {
+        public static msgID: number = 0x02BB; // 187
+        public constructor() {
+            super();
+            this.cmd = 0x02BB;
+        }
+    }
+
+    /**
+    * 请求履历返回
+    */
+    export class ExperienceLogCmdRet extends Packet {
+        public static msgID: number = 0x02BC; // 188
+        public logs: Array<ExperienceLog> = [];
+        public constructor() {
+            super();
+            this.addProperty('count', PacketBase.TYPE_INT);
+        }
+
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            let count = this.getValue('count');
+            if (count > 0) {
+                for (let i: number = 0; i < count; ++i) {
+                    this.logs.push(new ExperienceLog(data));
+                }
+            }
+            return 0;
+        }
+
+        public clear(): void {
+            super.clear();
+            for (let i: number = 0; i < this.logs.length; ++i) {
+                this.logs[i].clear();
+                this.logs[i] = null;
+            }
+            this.logs.length = 0;
+            this.logs = null;
         }
     }
 }
