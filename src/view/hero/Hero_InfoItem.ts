@@ -7,6 +7,7 @@ module view.hero {
 		}
 		private num;
 		private proto;
+		public job;
 		public setData(): void {
 			this.addEvent();
 
@@ -25,6 +26,10 @@ module view.hero {
 					this.init_JiHuo();
 				}
 			})
+			//符文套装
+			this.btn_rune.on(Laya.UIEvent.CLICK, this, () => {
+				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
+			})
 		}
 		/**
 		 * 弟子基本信息
@@ -32,6 +37,7 @@ module view.hero {
 		public baseInfo(i): void {
 			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
 				let j = i + 1;
+				this.job=jsonData[j].JOB;
 				this.num = j
 				if (jsonData[j].STATE == 0) {
 					this.btn_jihuo.gray = true;

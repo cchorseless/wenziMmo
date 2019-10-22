@@ -15,11 +15,11 @@ module GameUtil {
         }
         return count;
     }
-     /**
-     * 查找背包内道具信息
-     * @param itemID 
-     * @param bag 
-     */
+    /**
+    * 查找背包内道具信息
+    * @param itemID 
+    * @param bag 
+    */
     export function findItemInfoInBag(itemID, bag): ProtoCmd.ItemBase {
         let keys = Object.keys(bag);
         for (let _key of keys) {
@@ -42,7 +42,23 @@ module GameUtil {
         }
     }
 
-
+    /**
+     * 查找背包的符文
+     */
+    export function findFuWenInBag(): Array<ProtoCmd.ItemBase> {
+        let bag = GameApp.GameEngine.bagItemDB;
+        let keys = Object.keys(bag);
+        let result = [];
+        for (let key of keys) {
+            let _itemBase: ProtoCmd.ItemBase = bag[key];
+            let position = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + _itemBase.dwBaseID);
+            let type = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + _itemBase.dwBaseID);
+            if (type == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP && position >= EnumData.emEquipPosition.EQUIP_RUNE_UP && position <= EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT) {
+                result.push(_itemBase);
+            }
+        }
+        return result
+    }
 
     /**
      * 获取云服务器设置的新手引导数据
