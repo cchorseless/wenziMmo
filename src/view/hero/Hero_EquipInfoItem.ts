@@ -7,6 +7,7 @@ module view.hero {
 		}
 		private HEADDRESS;
 		private BELT;
+		private job;
 		public setData(): void {
 			this.addEvent();
 			this.getEquipBackground();
@@ -47,6 +48,7 @@ module view.hero {
 			let j = i + 1
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_HeroBaseInfo, null, null, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
+				this.job = jsonData[j].JOB;
 				switch (jsonData[j].JOB) {
 					case 1:
 						this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
@@ -81,52 +83,51 @@ module view.hero {
 			pkt.setValue('btJob', j);
 			lcp.send(pkt);
 			let data;
-			// switch (j) {
-			// 	case 1:
-			// 		data = GameApp.MainPlayer.changeAbility;
-			// 		break;
-			// 	case 2:
-			// 		data = GameApp.MainPlayer.changeAbility;
-			// 		break;
-			// 	case 3:
-			// 		data = GameApp.MainPlayer.changeAbility;
-			// 		break;
-			// }
-			// console.log('===>能力信息',ability)
-			// // 血-生命值
-			// this.lbl_Hp.text = '' + ability.nowHP + '/' + ability.nMaxHP;
-			// // 气-魔法值
-			// this.lbl_Mp.text = '' + ability.nowMP + '/' + ability.nMaxMP;
-			// // 耐-内功值
-			// this.lbl_neiGong.text = '' + ability.nowInnerValue + '/' + ability.nInnerValue;
-			// // 攻-攻击
-			// switch (player.job) {
-			// 	case EnumData.JOB_TYPE.JOB_WARRIOR:
-			// 		this.lbl_atk.text = '' + ability.nMinDC + '-' + ability.nMaxDC;
-			// 		break;
-			// 	case EnumData.JOB_TYPE.JOB_MAGE:
-			// 		this.lbl_atk.text = '' + ability.nMinMC + '-' + ability.nMaxMC;
-			// 		break;
-			// 	case EnumData.JOB_TYPE.JOB_MONK:
-			// 		this.lbl_atk.text = '' + ability.nMinSC + '-' + ability.nMaxSC;
-			// 		break;
-			// }
-			// // 抗-物理防御
-			// this.lbl_phyDef.text = '' + ability.nMinAC + '-' + ability.nMaxAC;
-			// // 化-魔法防御
-			// this.lbl_migDef.text = '' + ability.nMinMAC + '-' + ability.nMaxMAC;
-			// // 准-准确
-			// this.lbl_zhunQue.text = '' + ability.nHit;
-			// // 躲-闪避
-			// this.lbl_shanbi.text = '' + ability.nJuck;
-			// // 巧-暴击
-			// this.lbl_baoJi.text = '' + ability.nCrit;
-			// // 狠-爆伤
-			// this.lbl_baoShang.text = '' + ability.nAtkCrit;
-			// // 幸-幸运
-			// this.lbl_xingYun.text = '' + ability.nLucky;
-			// // 韧-韧性
-			// this.lbl_renxing.text = '' + ability.nCritResi;
+			switch (j) {
+				case 1:
+					data = GameApp.GameEngine.warriorAbility;
+					break;
+				case 2:
+					data = GameApp.GameEngine.masterAbility;
+					break;
+				case 3:
+					data = GameApp.GameEngine.taoistAbility;
+					break;
+			}
+			// 血-生命值
+			this.lbl_Hp.text = '' + data.nowHP + '/' + data.nMaxHP;
+			// 气-魔法值
+			this.lbl_Mp.text = '' + data.nowMP + '/' + data.nMaxMP;
+			// 耐-内功值
+			this.lbl_neiGong.text = '' + data.nowInnerValue + '/' + data.nInnerValue;
+			// 攻-攻击
+			switch (this.job) {
+				case EnumData.JOB_TYPE.JOB_WARRIOR:
+					this.lbl_atk.text = '' + data.nMinDC + '-' + data.nMaxDC;
+					break;
+				case EnumData.JOB_TYPE.JOB_MAGE:
+					this.lbl_atk.text = '' + data.nMinMC + '-' + data.nMaxMC;
+					break;
+				case EnumData.JOB_TYPE.JOB_MONK:
+					this.lbl_atk.text = '' + data.nMinSC + '-' + data.nMaxSC;
+					break;
+			}
+			// 抗-物理防御
+			this.lbl_phyDef.text = '' + data.nMinAC + '-' + data.nMaxAC;
+			// 化-魔法防御
+			this.lbl_migDef.text = '' + data.nMinMAC + '-' + data.nMaxMAC;
+			// 准-准确
+			this.lbl_zhunQue.text = '' + data.nHit;
+			// 躲-闪避
+			this.lbl_shanbi.text = '' + data.nJuck;
+			// 巧-暴击
+			this.lbl_baoJi.text = '' + data.nCrit;
+			// 狠-爆伤
+			this.lbl_baoShang.text = '' + data.nAtkCrit;
+			// 幸-幸运
+			this.lbl_xingYun.text = '' + data.nLucky;
+			// 韧-韧性
+			this.lbl_renxing.text = '' + data.nCritResi;
 		}
 	}
 }

@@ -52,7 +52,7 @@ module GameObject {
         /******************技能******************** */
         public skillInfo = {};
         /******************UI****************** */
-        public ui_item: view.scene.PlayerInSceneItem;
+        public ui_item;
         /******************生活属性************ */
         public nHealth: number = 0;// 健康
         public nSpirte: number = 0;// 精神
@@ -61,7 +61,6 @@ module GameObject {
         public nXinQing: number = 0;// 心情
         /******************BOSS积分************ */
         public bossCoin: number = 0;
-
         //玩家出生信息、八字、4格、9宫
         public playerBirthData: ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
@@ -548,11 +547,11 @@ module GameObject {
                 // this.ui_item.stopPlayAni();
                 // 自动攻击
                 if (this.completeAtkHandle) {
-                    this.ui_item.playAni(0, false, true, this.completeAtkHandle);
+                    // this.ui_item.playAni(0, false, true, this.completeAtkHandle);
                 }
                 // 手动攻击
                 else {
-                    this.ui_item.playAni();
+                    // this.ui_item.playAni();
                 }
             }
         }
@@ -571,7 +570,7 @@ module GameObject {
          */
         public goDie(): void {
             TipsManage.showTips(this.objName + '死亡了');
-            this.ui_item && this.ui_item.playAni(3, false)
+            // this.ui_item && this.ui_item.playAni(3, false)
         }
 
 

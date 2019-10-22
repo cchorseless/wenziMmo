@@ -72,6 +72,10 @@ class GameEngine extends SingletonClass {
     public heroLvl = {};//英雄等级
     public heroType = {};      //英雄状态
     public heroLifeTime = {};   //英雄复活时间戳
+    /************************弟子属性************ */
+    public warriorAbility: GameObject.Ability = new GameObject.Ability();//战士能力信息
+    public masterAbility: GameObject.Ability = new GameObject.Ability();//法师能力信息
+    public taoistAbility: GameObject.Ability = new GameObject.Ability();//道士能力信息
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
@@ -93,9 +97,9 @@ class GameEngine extends SingletonClass {
     public luyinData2;
     public luyinData3;
     public luyinData4;
-    public luyinTabID: number = 1; 
+    public luyinTabID: number = 1;
     //单个装备panel信息
-    public equipPanelMsg:ProtoCmd.itf_JS_equipPanelMsg;
+    public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
 
 
 

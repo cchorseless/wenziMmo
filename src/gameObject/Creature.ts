@@ -215,63 +215,75 @@ module GameObject {
          * 修改战斗属性
          * @param ArpgAbility 
          */
-        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility): void {
-            this.ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
-            this.ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量
-            this.ability.nMaxAttack = ArpgAbility.getValue('nMaxAttack');//攻击上限
-            this.ability.nMinAttack = ArpgAbility.getValue('nMinAttack');//攻击下限
-            this.ability.nMaxDC = ArpgAbility.getValue('nMaxDC'); //物理攻击上限值
-            this.ability.nMinDC = ArpgAbility.getValue('nMinDC'); //物理攻击下限值
-            this.ability.nMaxMC = ArpgAbility.getValue('nMaxMC'); //自然魔法攻击上限值
-            this.ability.nMinMC = ArpgAbility.getValue('nMinMC'); //自然魔法攻击下限值
-            this.ability.nMaxSC = ArpgAbility.getValue('nMaxSC'); //灵魂魔法攻击上限值
-            this.ability.nMinSC = ArpgAbility.getValue('nMinSC'); //灵魂魔法攻击下限值
-            this.ability.nMaxAC = ArpgAbility.getValue('nMaxAC'); //物理防御上限值
-            this.ability.nMinAC = ArpgAbility.getValue('nMinAC'); //物理防御下限值
-            this.ability.nMaxMAC = ArpgAbility.getValue('nMaxMAC'); //全系法术防御上限值
-            this.ability.nMinMAC = ArpgAbility.getValue('nMinMAC'); //全系法术防御下限值
-            this.ability.nHit = ArpgAbility.getValue('nHit'); //命中
-            this.ability.nHitRatio = ArpgAbility.getValue('nHitRatio');//命中率
-            this.ability.nJuck = ArpgAbility.getValue('nJuck'); //闪避
-            this.ability.nJuckRatio = ArpgAbility.getValue('nJuckRatio');//闪避率
-            this.ability.nCrit = ArpgAbility.getValue('nCrit'); //暴击
-            this.ability.nCritRatio = ArpgAbility.getValue('nCritRatio');//暴击率
-            this.ability.nCritResi = ArpgAbility.getValue('nCritResi'); //暴抗
-            this.ability.nCritResiRatio = ArpgAbility.getValue('nCritResiRatio');//暴抗率
-            this.ability.nAtkCrit = ArpgAbility.getValue('nAtkCrit'); //暴击伤害,每次暴击额外增加的伤害
-            this.ability.nLucky = ArpgAbility.getValue('nLucky'); //幸运
-            this.ability.nRestoreHp = ArpgAbility.getValue('nRestoreHp'); //每次恢复血量，正负
-            this.ability.nRestoreMp = ArpgAbility.getValue('nRestoreMp'); //每次恢复蓝量，正负
-            this.ability.nMoveSpeed = ArpgAbility.getValue('nMoveSpeed');//移动速度
-            this.ability.nPalsyRatio = ArpgAbility.getValue('nPalsyRatio');//麻痹几率
-            this.ability.nPalsyResiRatio = ArpgAbility.getValue('nPalsyResiRatio');//抗麻痹几率
-            this.ability.nCoAtkPower = ArpgAbility.getValue('nCoAtkPower');//合击威力
-            this.ability.nAtkAdd1 = ArpgAbility.getValue('nAtkAdd1');//对战士伤害增加
-            this.ability.nAtkReduce1 = ArpgAbility.getValue('nAtkReduce1');//受战士伤害减少
-            this.ability.nAtkAdd2 = ArpgAbility.getValue('nAtkAdd2');	//对法师伤害增加
-            this.ability.nAtkReduce2 = ArpgAbility.getValue('nAtkReduce2');//受法师伤害减少
-            this.ability.nAtkAdd3 = ArpgAbility.getValue('nAtkAdd3');//对道士伤害增加
-            this.ability.nAtkReduce3 = ArpgAbility.getValue('nAtkReduce3');//受道士伤害减少
-            this.ability.nAtkAddMon = ArpgAbility.getValue('nAtkAddMon');	//对怪物伤害增加
-            this.ability.nAtkReduceMon = ArpgAbility.getValue('nAtkReduceMon');	//受怪物伤害减少
-            this.ability.nAtkAddBoss = ArpgAbility.getValue('nAtkAddBoss');//对BOSS伤害增加
-            this.ability.nAtkReduceBoss = ArpgAbility.getValue('nAtkReduceBoss');//受BOSS伤害减少
-            this.ability.nAtkAddHero = ArpgAbility.getValue('nAtkAddHero');//增加对英雄伤害
-            this.ability.nAtkReduceHero = ArpgAbility.getValue('nAtkReduceHero');//减少受英雄伤害
-            this.ability.nInnerValue = ArpgAbility.getValue('nInnerValue');//内功值
-            this.ability.nInnerRestore = ArpgAbility.getValue('nInnerRestore');//内功恢复
-            this.ability.nInnerResi = ArpgAbility.getValue('nInnerResi');//内功抵伤
-            this.ability.nFinalDamageAdd = ArpgAbility.getValue('nFinalDamageAdd');//最终伤害增加
-            this.ability.nFinalDamageReduce = ArpgAbility.getValue('nFinalDamageReduce');//最终伤害减免
-            this.ability.nCritAdd2BOSS = ArpgAbility.getValue('nCritAdd2BOSS');//增加对BOSS的暴击
-            this.ability.nAtkCritAdd2BOSS = ArpgAbility.getValue('nAtkCritAdd2BOSS');//增加对BOSS的爆伤
-            this.ability.nCoAtkReduce = ArpgAbility.getValue('nCoAtkReduce');//受合击伤害减少
-            this.ability.nCritReduce = ArpgAbility.getValue('nCritReduce');//受暴击伤害减少
-            this.ability.nRestoreAnger = ArpgAbility.getValue('nRestoreAnger');//怒气恢复(万分比)	
-            this.ability.nCoAtt2Monster = ArpgAbility.getValue('nCoAtt2Monster');//合击对怪物增伤率
-            this.ability.nCoAtt2Player = ArpgAbility.getValue('nCoAtt2Player');//合击对怪物增伤害
-            this.ability.nCoAttLvl = ArpgAbility.getValue('nCoAttLvl');//合击技能等级
-            this.ability.nHpPer = ArpgAbility.getValue('nHpPer');//生命万分比
+        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility, type: number = 0): void {
+            let ability = this.ability;
+            switch (type) {
+                case 1:
+                    ability = GameApp.GameEngine.warriorAbility;
+                    break;
+                case 2:
+                    ability = GameApp.GameEngine.masterAbility;
+                    break;
+                case 3:
+                    ability = GameApp.GameEngine.taoistAbility;
+                    break;
+            }
+            ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
+            ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量
+            ability.nMaxAttack = ArpgAbility.getValue('nMaxAttack');//攻击上限
+            ability.nMinAttack = ArpgAbility.getValue('nMinAttack');//攻击下限
+            ability.nMaxDC = ArpgAbility.getValue('nMaxDC'); //物理攻击上限值
+            ability.nMinDC = ArpgAbility.getValue('nMinDC'); //物理攻击下限值
+            ability.nMaxMC = ArpgAbility.getValue('nMaxMC'); //自然魔法攻击上限值
+            ability.nMinMC = ArpgAbility.getValue('nMinMC'); //自然魔法攻击下限值
+            ability.nMaxSC = ArpgAbility.getValue('nMaxSC'); //灵魂魔法攻击上限值
+            ability.nMinSC = ArpgAbility.getValue('nMinSC'); //灵魂魔法攻击下限值
+            ability.nMaxAC = ArpgAbility.getValue('nMaxAC'); //物理防御上限值
+            ability.nMinAC = ArpgAbility.getValue('nMinAC'); //物理防御下限值
+            ability.nMaxMAC = ArpgAbility.getValue('nMaxMAC'); //全系法术防御上限值
+            ability.nMinMAC = ArpgAbility.getValue('nMinMAC'); //全系法术防御下限值
+            ability.nHit = ArpgAbility.getValue('nHit'); //命中
+            ability.nHitRatio = ArpgAbility.getValue('nHitRatio');//命中率
+            ability.nJuck = ArpgAbility.getValue('nJuck'); //闪避
+            ability.nJuckRatio = ArpgAbility.getValue('nJuckRatio');//闪避率
+            ability.nCrit = ArpgAbility.getValue('nCrit'); //暴击
+            ability.nCritRatio = ArpgAbility.getValue('nCritRatio');//暴击率
+            ability.nCritResi = ArpgAbility.getValue('nCritResi'); //暴抗
+            ability.nCritResiRatio = ArpgAbility.getValue('nCritResiRatio');//暴抗率
+            ability.nAtkCrit = ArpgAbility.getValue('nAtkCrit'); //暴击伤害,每次暴击额外增加的伤害
+            ability.nLucky = ArpgAbility.getValue('nLucky'); //幸运
+            ability.nRestoreHp = ArpgAbility.getValue('nRestoreHp'); //每次恢复血量，正负
+            ability.nRestoreMp = ArpgAbility.getValue('nRestoreMp'); //每次恢复蓝量，正负
+            ability.nMoveSpeed = ArpgAbility.getValue('nMoveSpeed');//移动速度
+            ability.nPalsyRatio = ArpgAbility.getValue('nPalsyRatio');//麻痹几率
+            ability.nPalsyResiRatio = ArpgAbility.getValue('nPalsyResiRatio');//抗麻痹几率
+            ability.nCoAtkPower = ArpgAbility.getValue('nCoAtkPower');//合击威力
+            ability.nAtkAdd1 = ArpgAbility.getValue('nAtkAdd1');//对战士伤害增加
+            ability.nAtkReduce1 = ArpgAbility.getValue('nAtkReduce1');//受战士伤害减少
+            ability.nAtkAdd2 = ArpgAbility.getValue('nAtkAdd2');	//对法师伤害增加
+            ability.nAtkReduce2 = ArpgAbility.getValue('nAtkReduce2');//受法师伤害减少
+            ability.nAtkAdd3 = ArpgAbility.getValue('nAtkAdd3');//对道士伤害增加
+            ability.nAtkReduce3 = ArpgAbility.getValue('nAtkReduce3');//受道士伤害减少
+            ability.nAtkAddMon = ArpgAbility.getValue('nAtkAddMon');	//对怪物伤害增加
+            ability.nAtkReduceMon = ArpgAbility.getValue('nAtkReduceMon');	//受怪物伤害减少
+            ability.nAtkAddBoss = ArpgAbility.getValue('nAtkAddBoss');//对BOSS伤害增加
+            ability.nAtkReduceBoss = ArpgAbility.getValue('nAtkReduceBoss');//受BOSS伤害减少
+            ability.nAtkAddHero = ArpgAbility.getValue('nAtkAddHero');//增加对英雄伤害
+            ability.nAtkReduceHero = ArpgAbility.getValue('nAtkReduceHero');//减少受英雄伤害
+            ability.nInnerValue = ArpgAbility.getValue('nInnerValue');//内功值
+            ability.nInnerRestore = ArpgAbility.getValue('nInnerRestore');//内功恢复
+            ability.nInnerResi = ArpgAbility.getValue('nInnerResi');//内功抵伤
+            ability.nFinalDamageAdd = ArpgAbility.getValue('nFinalDamageAdd');//最终伤害增加
+            ability.nFinalDamageReduce = ArpgAbility.getValue('nFinalDamageReduce');//最终伤害减免
+            ability.nCritAdd2BOSS = ArpgAbility.getValue('nCritAdd2BOSS');//增加对BOSS的暴击
+            ability.nAtkCritAdd2BOSS = ArpgAbility.getValue('nAtkCritAdd2BOSS');//增加对BOSS的爆伤
+            ability.nCoAtkReduce = ArpgAbility.getValue('nCoAtkReduce');//受合击伤害减少
+            ability.nCritReduce = ArpgAbility.getValue('nCritReduce');//受暴击伤害减少
+            ability.nRestoreAnger = ArpgAbility.getValue('nRestoreAnger');//怒气恢复(万分比)	
+            ability.nCoAtt2Monster = ArpgAbility.getValue('nCoAtt2Monster');//合击对怪物增伤率
+            ability.nCoAtt2Player = ArpgAbility.getValue('nCoAtt2Player');//合击对怪物增伤害
+            ability.nCoAttLvl = ArpgAbility.getValue('nCoAttLvl');//合击技能等级
+            ability.nHpPer = ArpgAbility.getValue('nHpPer');//生命万分比
         }
 
         /**
