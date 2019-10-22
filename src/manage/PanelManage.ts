@@ -253,7 +253,7 @@ module PanelManage {
     /**
     * 弟子界面
     */
-    export function openDiZiPanel(): void {
+    export function openDiZiPanel(index): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.DiZi) {
             return
         }
@@ -261,7 +261,7 @@ module PanelManage {
         ResManage.loadResource(ResData.PanelRes.DiZi, () => {
             PanelManage.DiZi = new view.hero.HeroPanel();
             PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.JueSe;
-            PanelManage.DiZi.setData();
+            PanelManage.DiZi.setData(index);
             PanelManage.DiZi.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.DiZi, 1, 0, 2);
         })

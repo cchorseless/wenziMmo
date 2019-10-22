@@ -291,6 +291,21 @@ module ProtoCmd {
         }
     }
 
+
+    /**0x024E
+     * 请求弟子数据信息
+     */
+    export class SUBCMD_HERO_ABILITY extends Packet {
+        public static msgID: number = 0x034E;// 78
+        public cbPacket = CretAbility;
+        public constructor() {
+            super();
+            this.addProperty('btJob', PacketBase.TYPE_BYTE);//  1战士 2法师 3道士
+            this.cmd = 0x024E;
+        }
+    }
+
+
     //场景内角色 属性通知
     export class CretAbility extends Packet {
         public static msgID: number = 0x023B;
@@ -763,6 +778,7 @@ module ProtoCmd {
      */
     export class ExperienceLogCmd extends Packet {
         public static msgID: number = 0x02BB; // 187
+        public cbPacket = ExperienceLogCmdRet;
         public constructor() {
             super();
             this.cmd = 0x02BB;
@@ -775,9 +791,10 @@ module ProtoCmd {
     export class ExperienceLogCmdRet extends Packet {
         public static msgID: number = 0x02BC; // 188
         public logs: Array<ExperienceLog> = [];
-        public constructor() {
+        public constructor(data: Laya.Byte) {
             super();
             this.addProperty('count', PacketBase.TYPE_INT);
+            this.read(data);
         }
 
         public read(data: Laya.Byte): number {

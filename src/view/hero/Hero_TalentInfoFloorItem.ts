@@ -89,7 +89,6 @@ module view.hero {
 		}
 		public init_panel(key): void {
 			GameApp.LListener.on(ProtoCmd.Hero_heroGeniusPanel, this, (jsonData: ProtoCmd.itf_Hero_TalentInfo) => {
-				console.log('=====>天赋魔力2', jsonData)
 				if (key == jsonData.curduplicate) {
 					this.init_type(jsonData.lvltab);
 					//天赋点数

@@ -7,6 +7,7 @@ module view.hero {
 		}
 		//当前经验-最大经验
 		public exp;
+		//功能编号
 		public client_func_index = 56;
 		//开启所需等级总数
 		private sum;
@@ -148,7 +149,6 @@ module view.hero {
 			})
 			let bpkt = new ProtoCmd.QuestClientData();
 			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
-				console.log('====>弟子修为面板', jsonData)
 				//所需经验
 				this.lbl_exp.text = '' + jsonData.exp;
 				//所需金币

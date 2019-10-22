@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":341,
-    "selecteID":354,
+    "selectedBox":355,
+    "selecteID":178,
     "props":{"width":567,"sceneColor":"#ca6665","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -370,21 +370,22 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":481,"x":52},
+                            "props":{"y":477,"x":19},
                             "nodeParent":341,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":169,
+                            "compId":355,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-4,"x":-19,"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
-                                    "nodeParent":169,
+                                    "props":{"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
+                                    "nodeParent":355,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -598,11 +599,12 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":1,"x":272,"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
-                                    "nodeParent":169,
+                                    "props":{"x":291,"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
+                                    "nodeParent":355,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -815,9 +817,10 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":69,"x":226,"skin":"image/common/state_right.png"},
-                                    "nodeParent":169,
+                                    "props":{"y":73,"x":245,"skin":"image/common/state_right.png"},
+                                    "nodeParent":355,
                                     "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
@@ -828,9 +831,10 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":69,"x":244,"skin":"image/common/state_right.png"},
-                                    "nodeParent":169,
+                                    "props":{"y":73,"x":263,"skin":"image/common/state_right.png"},
+                                    "nodeParent":355,
                                     "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
@@ -839,8 +843,7 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
-                                }],
-                            "$HIDDEN":false
+                                }]
                         },
                         {
                             "x":45,

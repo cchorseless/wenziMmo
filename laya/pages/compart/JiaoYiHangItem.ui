@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":72,
-    "selecteID":8,
+    "selectedBox":1,
+    "selecteID":5,
     "referenceLines":[
         {
             "value":378,
@@ -60,7 +60,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":9,"x":24,"text":"物品","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":9,"x":24,"text":"物品","fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":72,
                             "label":"Label",
                             "isDirectory":false,
@@ -74,7 +74,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":9,"x":146,"text":"等级","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":9,"x":146,"text":"等级","fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":72,
                             "label":"Label",
                             "isDirectory":false,
@@ -87,7 +87,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":9,"x":256,"text":"价格","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":9,"x":256,"text":"价格","fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":72,
                             "label":"Label",
                             "isDirectory":false,
@@ -100,7 +100,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":9,"x":371,"text":"剩余时间","fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                            "props":{"y":9,"x":371,"text":"剩余时间","fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":72,
                             "label":"Label",
                             "isDirectory":false,
@@ -156,7 +156,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":-3,"width":143,"var":"tab_type","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleX":0.84,"labels":"全部类型,头盔,项链,衣服,武器,手镯,戒指,鞋子,腰带,药剂,强化道具,其他物品","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#63491a,#63491a","height":447,"direction":"vertical"},
+                    "props":{"y":0,"x":-3,"width":143,"var":"tab_type","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleX":0.84,"labels":"全部类型,头盔,项链,衣服,武器,手镯,戒指,鞋子,腰带,药剂,强化道具,其他物品","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"FZHL","labelColors":"#63491a,#63491a","height":447,"direction":"vertical"},
                     "nodeParent":11,
                     "label":"Tab(tab_type)",
                     "isDirectory":false,
@@ -184,7 +184,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":0,"width":140,"var":"tab_job","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleX":0.84,"labels":"全部职业,战士,法师,道士","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#63491a,#63491a","height":154,"direction":"vertical"},
+                    "props":{"y":0,"x":0,"width":140,"var":"tab_job","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleX":0.84,"labels":"全部职业,战士,法师,道士","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"FZHL","labelColors":"#63491a,#63491a","height":154,"direction":"vertical"},
                     "nodeParent":13,
                     "label":"Tab(tab_job)",
                     "isDirectory":false,
@@ -211,7 +211,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":0,"x":-5,"width":144,"var":"tab_level","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleY":1,"scaleX":0.84,"labels":"全部等级,1-60级,70级,80级,1-2转,3-4转,5-6转,7-8转","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#63491a,#63491a","height":300,"direction":"vertical"},
+                    "props":{"y":0,"x":-5,"width":144,"var":"tab_level","stateNum":2,"space":-5,"skin":"image/bag/btn_common_08_finish.png","selectedIndex":0,"scaleY":1,"scaleX":0.84,"labels":"全部等级,1-60级,70级,80级,1-2转,3-4转,5-6转,7-8转","labelStrokeColor":"#000000","labelSize":20,"labelPadding":"-2","labelFont":"FZHL","labelColors":"#63491a,#63491a","height":300,"direction":"vertical"},
                     "nodeParent":15,
                     "label":"Tab(tab_level)",
                     "isDirectory":false,
@@ -226,7 +226,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":192,"var":"btn_type","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZXK","labelColors":"#404040,#63491a","label":"全部类型"},
+            "props":{"y":20,"x":192,"var":"btn_type","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"全部类型"},
             "nodeParent":1,
             "label":"Button(btn_type)",
             "isOpen":true,
@@ -252,7 +252,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":311,"var":"btn_job","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelSize":24,"labelFont":"FZXK","labelColors":"#404040,#63491a","label":"全部职业"},
+            "props":{"y":20,"x":311,"var":"btn_job","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelSize":24,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"全部职业"},
             "nodeParent":1,
             "label":"Button(btn_job)",
             "isOpen":true,
@@ -279,7 +279,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":431,"var":"btn_level","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZXK","labelColors":"#404040,#63491a","label":"全部等级"},
+            "props":{"y":20,"x":431,"var":"btn_level","stateNum":"2","skin":"image/common/btn_common_04_finish.png","scaleX":1.06,"labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"全部等级"},
             "nodeParent":1,
             "label":"Button(btn_level)",
             "isOpen":true,

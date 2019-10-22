@@ -63,7 +63,7 @@ module view.zhaiYuan {
 				// this.vstack_down.selectedIndex = index;
 
 			}, null, false);
-			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, this.close);
+			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, this.onclose);
 
 			this.tab_top.on(Laya.UIEvent.CLICK, this, () => {
 				this.curPage = this.tab_top.selectedIndex;
@@ -108,7 +108,8 @@ module view.zhaiYuan {
 		}
 		public onclose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.soulStoneLevel, this);
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this)
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this);
+			this.close()
 		}
 
 		//更新界面显示  page 当前界面0、1、2；  type 类型 0、1 玩家、弟子  touchID  第几个item被点击了
