@@ -213,7 +213,6 @@ module ProtoCmd {
     export const Hero_exchangeRealGasByFakeGas = 'exchangeRealGasByFakeGas';
     // 弟子武功招式返璞归真
     export const Hero_exchangeRealGas = 'exchangeRealGas';
-
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
@@ -705,11 +704,7 @@ module ProtoCmd {
    * 天山血狱
    */
     export interface itf_FB_XueYuInfo {
-        mapid: number;//地图ID
-        vip: number;//vip等级
-        alive1: number;//普通层存活率
-        alive2: number;//vip层存活率
-        bossid: number;//bossID
+        //bossID为key值
     }
     /**
  * 阴葵门

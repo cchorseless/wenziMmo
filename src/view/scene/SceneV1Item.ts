@@ -192,11 +192,18 @@ module view.scene {
 				}
 			}
 		}
+		/**
+		 * 添加英雄
+		 */
+		public addHero(): void {
 
+		}
 
 		public addPlayer(obj): void {
+
 		}
 		public clearPlayer(): void {
+			
 		}
 	}
 }

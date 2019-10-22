@@ -41,7 +41,7 @@ module view.common {
 			playerUI.setData(playerObj);
 			playerUI.scale(1, 1);
 			playerUI.centerX = playerUI.centerY = 0;
-			playerUI.box_info.visible = false;
+			// playerUI.box_info.visible = false;
 			this.box_self.addChild(playerUI);
 			// 加载过长动画
 			let cg = new SkeletonUtil.SkeletonGroup();

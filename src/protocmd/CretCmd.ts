@@ -291,6 +291,21 @@ module ProtoCmd {
         }
     }
 
+
+    /**0x024E
+     * 请求弟子数据信息
+     */
+    export class SUBCMD_HERO_ABILITY extends Packet {
+        public static msgID: number = 0x034E;// 78
+        public cbPacket = CretAbility;
+        public constructor() {
+            super();
+            this.addProperty('btJob', PacketBase.TYPE_BYTE);//  1战士 2法师 3道士
+            this.cmd = 0x024E;
+        }
+    }
+
+
     //场景内角色 属性通知
     export class CretAbility extends Packet {
         public static msgID: number = 0x023B;

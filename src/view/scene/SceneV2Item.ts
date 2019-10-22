@@ -15,6 +15,14 @@ module view.scene {
 		public addPlayer(obj): void {
 
 		}
+
+		/**
+  		 * 添加英雄
+  		 */
+		public addHero(): void {
+
+		}
+		
 		/**
 		 * 清除所有玩家
 		 */

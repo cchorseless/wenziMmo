@@ -22,13 +22,12 @@ module view.juese {
 			});
 			for (let i = 0; i < 3; i++) {
 				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
-					PanelManage.openDiZiPanel();
-					PanelManage.DiZi.ui_diziInfo.baseInfo(i);
+					PanelManage.openDiZiPanel(i);
 				})
 			}
 		}
 		public Dispose(): void {
-			console.log(1111111111,'PersonPanel')
+			console.log(1111111111, 'PersonPanel')
 			PopUpManager.Dispose(this)
 		}
 	}

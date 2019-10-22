@@ -4,13 +4,15 @@ module view.hero {
 		constructor() {
 			super();
 		}
-		public setData(): void {
+		public setData(index): void {
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_left.selectedIndex = index;
 				if (index == 0) {
 					this.img_bg.visible = true;
 				}
 			}, null, false);
+			this.ui_diziInfo.baseInfo(index);
+			this.ui_equipProps.baseInfo(index);
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -25,8 +27,9 @@ module view.hero {
 			});
 			for (let i = 0; i < 3; i++) {
 				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
-					PanelManage.openDiZiPanel();
-					PanelManage.DiZi.ui_diziInfo.baseInfo(i);
+					PanelManage.openDiZiPanel(i);
+					this.ui_diziInfo.baseInfo(i);
+					this.ui_equipProps.baseInfo(i);
 				})
 			}
 		}

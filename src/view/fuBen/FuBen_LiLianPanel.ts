@@ -79,11 +79,14 @@ module view.fuBen {
 		  */
 		public init_bossHome(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData: { any }) => {
+			pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData) => {
+				console.log('=====>天山血狱',jsonData)
 				let keys = Object.keys(jsonData);
+				let i=0;
 				for (let key of keys) {
+					i=i+1;
 					let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
-					this.vbox_1.addChild(new view.fuBen.FuBenLiLianV1Item().setData(key, data));
+					this.vbox_1.addChild(new view.fuBen.FuBenLiLianV1Item().setData(key, data,i));
 				}
 
 			})
