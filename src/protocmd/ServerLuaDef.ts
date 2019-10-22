@@ -213,6 +213,8 @@ module ProtoCmd {
     export const Hero_exchangeRealGasByFakeGas = 'exchangeRealGasByFakeGas';
     // 弟子武功招式返璞归真
     export const Hero_exchangeRealGas = 'exchangeRealGas';
+    // 弟子符文面板
+    export const Hero_openActiveRunePanel = 'openActiveRunePanel';//score符文积分viewtab符文碎片
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
