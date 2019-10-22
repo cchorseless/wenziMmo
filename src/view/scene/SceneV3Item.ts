@@ -59,6 +59,8 @@ module view.scene {
 			this.clearPlayer();
 			// 更新角色
 			this.updateSelfPlayer();
+			// 更新弟子
+			this.updateDiziPlayer();
 			// 更新地图
 			this.updateMapInfo();
 		}
@@ -159,7 +161,6 @@ module view.scene {
 		 * 添加英雄
 		 */
 		public addHero(obj: GameObject.Hero): void {
-			console.log('----------添加弟子-----------')
 			let masterTempID = obj.feature.dwMasterTmpID;
 			// 判断是否是自己
 			if (masterTempID == GameApp.MainPlayer.tempId) {
@@ -200,7 +201,6 @@ module view.scene {
 		public addPlayer(obj): void {
 			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
 			playerUI.setMaster(obj);
-			// playerUI.scale(0.7, 0.7);
 			this.hbox_player.addChild(playerUI);
 			if (obj.curHero) {
 				this.addHero(obj.curHero)

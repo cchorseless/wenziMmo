@@ -5,6 +5,7 @@ module view.beiBao {
 			super();
 			// 添加事件
 			this.addEvent();
+			GameApp.GameEngine.mainPlayer.playerORHero = 0;
 		}
 		public setData(): void {
 			// 初始化背包
@@ -62,6 +63,14 @@ module view.beiBao {
 			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
+			this.ui_equipInfo.tab_0.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.GameEngine.mainPlayer.playerORHero = this.ui_equipInfo.tab_0.selectedIndex;
+			});
+			this.ui_equipInfo.btn_lvBuff.on(Laya.UIEvent.CLICK, this, () => {
+				let o = new view.juese.Person_Equip_SoulContentDialog()
+				o.setData(0)
+				o.popup();
+			});
 		}
 
 		public addLcpEvent(): void {

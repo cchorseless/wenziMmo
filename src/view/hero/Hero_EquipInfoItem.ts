@@ -14,6 +14,22 @@ module view.hero {
 
 		}
 		public addEvent(): void {
+			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
+				let o = new  view.juese.Person_Equip_SoulContentDialog()
+				o.setData(0)
+				o.popup();
+
+			})
+			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
+				let o = new  view.juese.Person_IntensifyContentDialog()
+				o.setData()
+				o.popup();
+			})
+			EventManage.onWithEffect(this.btn_soul, Laya.UIEvent.CLICK, this, () => {
+				let o = new  view.juese.Person_Equip_SoulContentDialog()
+				o.setData(1)
+				o.popup();
+			})
 
 		}
 		/**

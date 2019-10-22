@@ -4,9 +4,11 @@ module view.scene {
 		constructor() {
 			super();
 		}
+		
 		public masterItem: GameObject.Player;
 		public setMaster(obj: GameObject.Player): void {
 			this.masterItem = obj;
+			obj.ui_item = this;
 			this.img_heroAva.visible = false;
 			this.img_playerAva.visible = false;
 			this.img_playerAvaBig.visible = true;
@@ -22,12 +24,18 @@ module view.scene {
 
 		public heroItem: GameObject.Hero;
 		public setHero(obj: GameObject.Hero) {
-			console.log('---------添加了弟子-------------')
+			console.log('---------添加了弟子---------');
 			this.heroItem = obj;
 			this.masterItem.curHero = obj;
 			this.img_heroAva.visible = true;
 			this.img_playerAva.visible = true;
 			this.img_playerAvaBig.visible = false;
 		}
+
+		public addEvent (){
+
+
+		}
+
 	}
 }

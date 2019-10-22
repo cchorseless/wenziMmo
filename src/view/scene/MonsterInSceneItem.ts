@@ -17,8 +17,8 @@ module view.scene {
 			let configID = '' + this.item.feature.dwCretTypeId;
 			// 半身像
 			let skePath = SheetConfig.mydb_monster_tbl.getInstance(null).SKERES('' + configID);
-			if(skePath=='0'){
-				skePath='BOSS_dingmian'
+			if (skePath == '0') {
+				skePath = 'BOSS_dingmian'
 			}
 			// 龙骨资源
 			this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
@@ -39,6 +39,16 @@ module view.scene {
 				switch (skePath) {
 					// 收集道具
 					case EnumData.emMonsterType._MON_TYPE_COLLECT_:
+						if (this.collectHander) {
+							this.collectHander.run()
+						}
+						else {
+							let closerHander = Laya.Handler.create(this, () => { player.startHandAtk(this.item); }, null, false);
+							PanelManage.Main.addNpcPregressItem(this.item, closerHander);
+						}
+						break;
+					// 传送门
+					case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
 						if (this.collectHander) {
 							this.collectHander.run()
 						}

@@ -30,6 +30,7 @@ module view.hero {
 					PanelManage.openDiZiPanel(i);
 					this.ui_diziInfo.baseInfo(i);
 					this.ui_equipProps.baseInfo(i);
+					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
 				})
 			}
 		}
