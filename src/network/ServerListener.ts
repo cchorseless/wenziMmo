@@ -823,19 +823,17 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄战士
                 case 1:
-                    // GameApp.MainPlayer.warriorAbility=ability;
+                    player.changeAbility(ability, dwType);
                     // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
                     break;
                 // 英雄法师
                 case 2:
-                // player.changeAbility(ability);
-                    //  GameApp.MainPlayer.masterAbility=ability;
+                    player.changeAbility(ability, dwType);
                     // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
                     break;
                 // 英雄道士
                 case 3:
-                // player.changeAbility(ability);
-                    //  GameApp.MainPlayer.TaoistAbility=ability;
+                    player.changeAbility(ability, dwType);
                     // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
                     break;
             }

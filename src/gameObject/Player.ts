@@ -61,7 +61,6 @@ module GameObject {
         public nXinQing: number = 0;// 心情
         /******************BOSS积分************ */
         public bossCoin: number = 0;
-
         //玩家出生信息、八字、4格、9宫
         public playerBirthData: ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
