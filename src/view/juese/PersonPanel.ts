@@ -3,6 +3,7 @@ module view.juese {
 	export class PersonPanel extends ui.juese.PersonPanelUI {
 		constructor() {
 			super();
+			GameApp.GameEngine.mainPlayer.playerORHero = 0;
 		}
 
 		public setData(): void {
@@ -23,8 +24,13 @@ module view.juese {
 			for (let i = 0; i < 3; i++) {
 				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
 					PanelManage.openDiZiPanel(i);
+					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
 				})
+
 			}
+			this.btn_self.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.GameEngine.mainPlayer.playerORHero = 0;
+			})
 		}
 		public Dispose(): void {
 			console.log(1111111111, 'PersonPanel')

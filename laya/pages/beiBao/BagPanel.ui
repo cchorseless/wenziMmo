@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":447,
-    "selecteID":448,
+    "selectedBox":350,
+    "selecteID":445,
     "props":{"width":640,"sceneColor":"#000000","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -59,13 +59,14 @@
             "props":{"y":131,"x":0,"var":"viw_BagViewChange"},
             "nodeParent":1,
             "label":"ViewStack(viw_BagViewChange)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":417,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"name":"item0"},
                     "nodeParent":417,
@@ -77,6 +78,7 @@
                     "compId":416,
                     "child":[
                         {
+                            "x":45,
                             "type":"Tab",
                             "props":{"y":-9,"x":191,"var":"tab_bag","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
                             "nodeParent":416,
@@ -89,6 +91,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":65,"x":116,"width":510,"skin":"image/bag/fram_commom_09.png","sizeGrid":"8,7,6,7","height":448},
                             "nodeParent":416,
@@ -215,6 +218,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":44,"x":0,"skin":"image/common/fram_common_04new.png","sizeGrid":"58,35,64,45","height":872},
                             "nodeParent":416,
@@ -315,6 +319,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"ViewStack",
                             "props":{"y":520,"x":118,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
                             "nodeParent":416,
@@ -326,6 +331,7 @@
                             "compId":350,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_equipInfoItem.ui",
                                     "props":{"var":"ui_equipInfo","top":0,"runtime":"view.beiBao.Bag_equipInfoItem","name":"item0","left":0},
@@ -339,6 +345,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_HuiShouItem.ui",
                                     "props":{"var":"ui_huiShou","top":0,"runtime":"view.beiBao.Bag_HuiShouItem","name":"item1","left":0},
@@ -353,6 +360,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_CangKuItem.ui",
                                     "props":{"x":-11,"var":"ui_cangKu","top":0,"runtime":"view.beiBao.Bag_CangKuItem","name":"item2"},
@@ -368,6 +376,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_BaiTanItem.ui",
                                     "props":{"var":"ui_tanWei","top":0,"runtime":"view.beiBao.Bag_BaiTanItem","name":"item3","left":0},
@@ -386,6 +395,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/JiaoYiHangItem.ui",
                     "props":{"var":"ui_jiaoyihang","top":-28,"runtime":"view.compart.JiaoYiHangItem","name":"item1","left":0},

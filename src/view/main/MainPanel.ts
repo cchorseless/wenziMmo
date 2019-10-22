@@ -436,9 +436,19 @@ module view.main {
 			this.getLuYinData();
 			//获取强化信息
 			this.getIntensifyMessage();
+			//魂石升阶信息
+			this.getSoulStoneMessage();
 
 
 		}
+		private getSoulStoneMessage() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
+				(data: ProtoCmd.itf_JS_soulStoneLevel) => {
+					GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
+				});
+			lcp.send(pkt);
+		}
+
 		private getIntensifyMessage() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
 				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {

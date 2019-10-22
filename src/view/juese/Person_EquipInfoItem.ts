@@ -14,6 +14,22 @@ module view.juese {
 			this.getEquipBackground();
 		}
 		public addEvent(): void {
+			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
+				let o = new Person_Equip_SoulContentDialog()
+				o.setData(0)
+				o.popup();
+
+			})
+			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
+				let o = new Person_IntensifyContentDialog()
+				o.setData()
+				o.popup();
+			})
+			EventManage.onWithEffect(this.btn_soul, Laya.UIEvent.CLICK, this, () => {
+				let o = new Person_Equip_SoulContentDialog()
+				o.setData(1)
+				o.popup();
+			})
 
 		}
 
@@ -85,8 +101,8 @@ module view.juese {
 		 */
 		public getEquipBackground(): void {
 			for (let i = 0; i < 10; i++) {
-				this['ui_item' + i].img_bg.visible=true;
-				this['ui_item' + i].img_bg.skin='image/common/daoju/itemicon_bg_'+i+'.png';
+				this['ui_item' + i].img_bg.visible = true;
+				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + i + '.png';
 			}
 		}
 	}
