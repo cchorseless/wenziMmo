@@ -16,6 +16,7 @@ module view.dialog {
 		private godTabTouchState: boolean = false;  //是否是点击装备  即子面板
 		private godTouchID = 0;         //子面板中的    显示3、5、7、9、11阶选项、 实际值0、1、2、3、4
 		// private godLvID = this.godLvArr[this.godTouchID];   //阶段数 3、5、7、9、11 
+		public notChange = false;
 
 		//热血装备合成参数
 		private fireTabID = 0;    //神热血:0     圣热血:1     英雄 神:2     英雄 圣:3
@@ -32,7 +33,7 @@ module view.dialog {
 
 		}
 		public setData(type: number) {
-
+			this.list_mix.scrollTo(1);
 			this.curType = type;
 			this.setBoxShow(type);
 			if (this.curType == 0) {
@@ -46,11 +47,13 @@ module view.dialog {
 				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.lvTabID, null)
 			} else if (this.curType == 1) {
 				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.godTabID + 3, this.godTouchID + 1)
+				this.godEquipBtnState()
 			}
 			else if (type == 2) {
 				this.data = SheetConfig.Synthesis.getInstance(null).BLvEquipAlldata(type + 1, this.fireTabID + 6, null)
+				this.changeBtnState();
 			}
-			this.list_mix.scrollTo(1);
+
 			this.list_mix.array = this.data;
 			this.list_mix.renderHandler = new laya.utils.Handler(this, updataPetItem);
 			this.list_mix.selectEnable = true;
@@ -92,18 +95,24 @@ module view.dialog {
 
 					this.godTabTouchState = !this.godTabTouchState;
 					this.godEquipBtnState()
-					this.setData(this.curType)
+					this.notChange = false
+					this.setData(this.curType);
 				});
 			}
-			for (let i = 0; i < 5; i++) {
+			for (let i = 0; i < 7; i++) {
 				this["btn_Relive" + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.godTouchID = i;
 					this.godTouchState();
+					this.notChange = true
+					this.setData(this.curType);
+
 				});
 			}
 			for (let i = 0; i < 6; i++) {
 				this["btn_god_fire" + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.fireTabID = i;
+					this.changeBtnState();
+					this.setData(this.curType);
 				});
 			}
 			EventManage.onWithEffect(this.btn_mixUp, Laya.UIEvent.CLICK, this, () => {
@@ -111,6 +120,14 @@ module view.dialog {
 				lcp.send(pkt);
 			});
 
+		}
+		private changeBtnState() {
+			for (let i = 0; i < 6; i++) {
+				this["btn_god_fire" + i].selected =false;
+				if(i == this.fireTabID){
+					this["btn_god_fire" + i].selected =true;
+				}
+			}
 		}
 		public godTouchState() {
 			for (let i = 0; i < 7; i++) {
@@ -135,7 +152,7 @@ module view.dialog {
 					yNum = (this.btn_god_tab0.height + 2) * (this.godTabID + 1);
 					Laya.Tween.to(this.box_god_second, { y: yNum }, 10, Laya.Ease.elasticOut, Laya.Handler.create(this, function () {
 						this.box_god_second.visible = true;
-						this.btn_god_tab1.y = this.box_god_second.y + this.box_god_second.height;
+						this.btn_god_tab1.y = this.box_god_second.y + this.box_god_second.height + this.btn_god_tab1.height / 2;
 						this.btn_god_tab2.y = this.btn_god_tab1.y + this.btn_god_tab1.height + 2;
 
 					}), 10);
@@ -150,7 +167,7 @@ module view.dialog {
 					Laya.Tween.to(this.box_god_second, { y: yNum }, 10, Laya.Ease.elasticOut, Laya.Handler.create(this, function () {
 						this.box_god_second.visible = true;
 						this.btn_god_tab1.y = this.btn_god_tab0.y + this.btn_god_tab0.height + 2;
-						this.btn_god_tab2.y = this.box_god_second.y + this.box_god_second.height;
+						this.btn_god_tab2.y = this.box_god_second.y + this.box_god_second.height + this.btn_god_tab1.height / 2;
 					}), 10);
 				} else {
 					this.box_god_second.visible = false;
@@ -181,7 +198,12 @@ module view.dialog {
 				this.box_level.visible = false;
 				this.box_God.visible = true;
 				this.box_fire.visible = false;
-				this.box_god_second.visible = false;
+				if (this.notChange) {
+					this.box_god_second.visible = true;
+				} else {
+					this.box_god_second.visible = false;
+				}
+
 			}
 			else if (type == 2) {
 				this.box_level.visible = false;
@@ -206,7 +228,7 @@ module view.dialog {
 			// this.ui_show1.img_icon.skin = resultSkin + "";
 			if (this.curType != 0) {
 				this.mixID = needID;
-			}else{
+			} else {
 				this.mixID == resultID;
 			}
 		}

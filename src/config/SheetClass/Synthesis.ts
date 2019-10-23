@@ -33,7 +33,7 @@ module SheetConfig {
             let baseData = [];
             for (let i in this.data) {
                 if (lv) {
-                    if (this.data[i][0] == configID && this.data[i][1] == tab&&this.data[configID][2] == lv) {
+                    if (this.data[i][0] == configID && this.data[i][1] == tab&&this.data[i][2] == lv) {
                         let base = this.data[i]
                         baseData.push(base)
                     }
