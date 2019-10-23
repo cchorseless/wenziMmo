@@ -32,7 +32,7 @@ module view.fuBen {
 							let itemInfo = new ProtoCmd.ItemBase();
 							itemInfo.dwBaseID = jsonData[i].award[g];
 							_itemUI.setData(itemInfo);
-							this.hbox_jiangli.addChild(_itemUI)
+							this.hbox_jiangli.addChild(_itemUI);
 						}
 						this.timeEvent(jsonData[i].time, time)
 					}
