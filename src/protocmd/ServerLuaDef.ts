@@ -295,6 +295,8 @@ module ProtoCmd {
     export const advanceLegendEquip = "advanceLegendEquip";  //传世装备进阶        pos(0-9)
     export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
 
+    export const rxEquipCompound = "rxEquipCompound";        //装备合成（要合成的id）
+
 
 
 }

@@ -25,7 +25,6 @@ module view.zhiNan {
 			this.list_diyu.array = this.data;
 			this.list_diyu.renderHandler = new laya.utils.Handler(this, updataPetItem);
 			this.list_diyu.selectEnable = true;
-			// this.list_diyu.viewport
 			function updataPetItem(cell: view.zhiNan.ZhiNan_listdiyuItem, index: number) {
 				var data: Object = this.data[index];
 				cell.setData(data, index)
