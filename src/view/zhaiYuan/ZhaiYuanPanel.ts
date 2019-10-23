@@ -61,7 +61,7 @@ module view.zhaiYuan {
 			// 磨石  合成装备
 			EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
 				let o  = new view.dialog.EquipMixUp();
-				o.setData(0)
+				o.setData(1)
 				o.popup(true);
 			});
 			

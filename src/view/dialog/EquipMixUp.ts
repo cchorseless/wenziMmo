@@ -92,6 +92,7 @@ module view.dialog {
 
 					this.godTabTouchState = !this.godTabTouchState;
 					this.godEquipBtnState()
+					this.setData(this.curType)
 				});
 			}
 			for (let i = 0; i < 5; i++) {
