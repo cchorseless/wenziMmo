@@ -494,7 +494,7 @@ module view.common {
 				}
 				else {
 					// 对白停止
-					if (this.curTalkInfo['stop']) {
+					if (this.curTalkInfo && this.curTalkInfo['stop']) {
 						return
 					}
 					this.parseTalkList(this.curMap);
@@ -549,24 +549,26 @@ module view.common {
 		public updateTalkLabel(): void {
 			if (!this.curTalkContext) {
 				this.btn_jumpTalk.text = '【点击继续】';
-				// 弹窗
-				if (this.curTalkInfo['showDialog'] != null) {
-					this.showDialog(true);
-				}
-				// 更新任务信息
-				if (this.curTalkInfo['updateTask'] != null) {
-					this.lbl_tipsDes.text = '' + this.curTalkInfo['updateTask'];
-				};
-				// 点击提示
-				let btn = this.curTalkInfo['showTips'];
-				let mode = this.curTalkInfo['showTipsMode'];
-				if (btn != null) {
-					this.showTipsImage(this[btn], mode);
-				};
-				// 停止
-				let stop = this.curTalkInfo['stop'];
-				if (stop) {
-					this.box_npcTalk.visible = false;
+				if (this.curTalkInfo) {
+					// 弹窗
+					if (this.curTalkInfo['showDialog'] != null) {
+						this.showDialog(true);
+					}
+					// 更新任务信息
+					if (this.curTalkInfo['updateTask'] != null) {
+						this.lbl_tipsDes.text = '' + this.curTalkInfo['updateTask'];
+					};
+					// 点击提示
+					let btn = this.curTalkInfo['showTips'];
+					let mode = this.curTalkInfo['showTipsMode'];
+					if (btn != null) {
+						this.showTipsImage(this[btn], mode);
+					};
+					// 停止
+					let stop = this.curTalkInfo['stop'];
+					if (stop) {
+						this.box_npcTalk.visible = false;
+					}
 				}
 				Laya.timer.clear(this, this.updateTalkLabel);
 				return

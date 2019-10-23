@@ -46,11 +46,11 @@ module view.wuXue {
 				this.init_UpXiuWei();
 			})
 			// if (this.mySum >= this.sum) {
-				//开启
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-					GameUtil.setServerData(this.client_func_index);
-					this.activation();
-				})
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				GameUtil.setServerData(this.client_func_index);
+				this.activation();
+			})
 			// }
 			// else {
 			// 	this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
@@ -63,6 +63,7 @@ module view.wuXue {
 			if (GameUtil.getServerData(this.client_func_index)) {
 				this.viw_heDao.selectedIndex = 1;
 				this.addLcpEvent();
+				this.init_xiuWei();
 				this.init_zhuangshengPanel();
 			}
 			else {
@@ -84,7 +85,6 @@ module view.wuXue {
 			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		public addLcpEvent(): void {
-			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
 				let exp = jsonData.xw - jsonData.maxxw;
 				this.exp = exp;
@@ -162,8 +162,21 @@ module view.wuXue {
 				}
 
 			})
+		}
+
+
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
+			super.destroy(isbool);
+		}
+
+		/**
+		 * 获取修为面板
+		 */
+		public init_xiuWei(): void {
 			let bpkt = new ProtoCmd.QuestClientData();
 			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
+				if (Object.keys(jsonData).length == 0) { return };
 				//所需经验
 				this.lbl_exp.text = '' + jsonData.exp;
 				//所需金币
@@ -185,10 +198,7 @@ module view.wuXue {
 			})
 			lcp.send(bpkt);
 		}
-		public destroy(isbool): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
-			super.destroy(isbool);
-		}
+
 		/**
 		 * 转生面板发协议
 		 */
@@ -197,12 +207,16 @@ module view.wuXue {
 			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
 			lcp.send(pkt);
 		}
+
+
+
 		/**
-	  * 兑换修为
-	  */
+	  	 * 兑换修为
+	  	 */
 		public init_UpXiuWei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+
 			})
 			lcp.send(pkt);
 		}
