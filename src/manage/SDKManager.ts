@@ -116,7 +116,6 @@ class SDKManager extends SingletonClass {
             // CP 清理⽤户环境
             // ...
             // ... （代码忽略)
-
             // 显示登录
             self.login();
         });
