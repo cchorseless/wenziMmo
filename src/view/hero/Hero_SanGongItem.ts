@@ -46,6 +46,7 @@ module view.hero {
 				this.viw_sangong.selectedIndex = 1;
 				this.addLcpEvent();
 				this.init_zhuangshengPanel();
+				this.init_xiuwei();
 			}
 			else {
 				this.viw_sangong.selectedIndex = 0;
@@ -69,7 +70,6 @@ module view.hero {
 		 * 转生面板
 		 */
 		public addLcpEvent(): void {
-			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
 				let exp = jsonData.xw - jsonData.maxxw;
 				this.exp = exp;
@@ -147,8 +147,15 @@ module view.hero {
 				}
 
 			})
-			let bpkt = new ProtoCmd.QuestClientData();
-			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
+
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
+			super.destroy(isbool);
+		}
+		public init_xiuwei(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
 				//所需经验
 				this.lbl_exp.text = '' + jsonData.exp;
 				//所需金币
@@ -168,11 +175,7 @@ module view.hero {
 				_itemUI2.setData(itemInfo2);
 				this.box_2.addChild(_itemUI2)
 			})
-			lcp.send(bpkt);
-		}
-		public destroy(isbool): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
-			super.destroy(isbool);
+			lcp.send(pkt);
 		}
 		/**
 		 * 突破转生

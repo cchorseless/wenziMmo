@@ -75,183 +75,6 @@
         },
         {
             "x":15,
-            "type":"ViewStack",
-            "props":{"y":254,"x":0,"width":640,"visible":false,"var":"vstack_guild","height":711},
-            "nodeParent":1,
-            "label":"ViewStack(vstack_guild)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":10,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":-67,"x":10,"var":"box_guildList"},
-                    "nodeParent":10,
-                    "label":"Box(box_guildList)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":206,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"width":623,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"9,5,8,4","height":836},
-                            "nodeParent":206,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":90,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":22,"x":12,"width":599,"var":"panel_guild","height":760},
-                            "nodeParent":206,
-                            "label":"Panel(panel_guild)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":44,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":1,"var":"vbox_guild","right":0,"pivotY":1,"pivotX":5,"left":0,"align":"center"},
-                                    "nodeParent":44,
-                                    "label":"VBox(vbox_guild)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":45,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":803,"x":497,"width":120,"text":"只看符合条件","strokeColor":"#000000","stroke":2,"height":27,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":206,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":47,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"CheckBox",
-                            "props":{"y":799,"x":-8,"var":"check_01","stateNum":"2","skin":"image/common/frame_choose_finish.png","right":140},
-                            "nodeParent":206,
-                            "label":"CheckBox(check_01)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":48,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Box",
-                            "props":{"y":789,"x":214,"width":198,"height":42},
-                            "nodeParent":206,
-                            "label":"Box",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":125,
-                            "child":[
-                                {
-                                    "type":"Image",
-                                    "props":{"y":-2,"x":-45,"skin":"image/common/img_common_13.png"},
-                                    "nodeParent":125,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":205,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":4,"x":59,"width":33,"var":"lbl_curPage","text":"1","strokeColor":"#000000","stroke":4,"height":32,"fontSize":28,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                                    "nodeParent":125,
-                                    "label":"Label(lbl_curPage)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":126,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":3,"x":201,"var":"btn_addPage","stateNum":"2","skin":"image/common/btn_common_09_finish.png","scaleX":-1},
-                                    "nodeParent":125,
-                                    "label":"Button(btn_addPage)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":127,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Button",
-                                    "props":{"y":3,"x":-11,"var":"btn_reducePage","stateNum":"2","skin":"image/common/btn_common_09_finish.png"},
-                                    "nodeParent":125,
-                                    "label":"Button(btn_reducePage)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":128,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":1,"x":83,"width":16,"text":"/","strokeColor":"#000000","stroke":4,"height":39,"fontSize":30,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                                    "nodeParent":125,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":129,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":8,"x":96,"width":34,"var":"lbl_allPage","text":"13","strokeColor":"#000000","stroke":4,"height":29,"fontSize":28,"color":"#ffffff","bold":false,"align":"center"},
-                                    "nodeParent":125,
-                                    "label":"Label(lbl_allPage)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":130,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                }],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
             "type":"Box",
             "props":{"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
@@ -554,13 +377,14 @@
             "props":{"y":189,"x":12},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":244,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":616,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"21,81,23,26","height":124},
                     "nodeParent":244,
@@ -574,6 +398,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":14,"width":65,"skin":"image/common/title_ConfederationDeclaration.png","height":115},
                     "nodeParent":244,
@@ -587,6 +412,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":6,"x":14,"wordWrap":true,"width":30,"text":"门派","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -599,6 +425,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":37,"x":42,"wordWrap":true,"width":30,"text":"收徒","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -611,6 +438,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":3,"x":81,"width":517,"height":112},
                     "nodeParent":244,
@@ -622,16 +450,73 @@
                     "compId":245,
                     "child":[
                         {
+                            "x":45,
                             "type":"HBox",
                             "props":{"top":0,"bottom":0},
                             "nodeParent":245,
                             "label":"HBox",
-                            "isDirectory":false,
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
+                            "hasChild":true,
                             "compId":246,
                             "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"UIView",
+                                    "source":"guild/GuildSelectItem.ui",
+                                    "props":{"y":5,"x":396},
+                                    "nodeParent":246,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":268,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"UIView",
+                                    "source":"guild/GuildSelectItem.ui",
+                                    "props":{"y":5,"x":0},
+                                    "nodeParent":246,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":271,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"UIView",
+                                    "source":"guild/GuildSelectItem.ui",
+                                    "props":{"y":5,"x":132},
+                                    "nodeParent":246,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":272,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"UIView",
+                                    "source":"guild/GuildSelectItem.ui",
+                                    "props":{"y":5,"x":264},
+                                    "nodeParent":246,
+                                    "label":"UIView",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":273,
+                                    "child":[
+                                        ]
+                                }]
                         }]
                 }]
         },
@@ -686,25 +571,117 @@
                         ]
                 },
                 {
-                    "type":"Panel",
-                    "props":{"y":3,"x":81,"width":517,"height":252},
+                    "type":"List",
+                    "props":{"y":25,"x":76,"width":530,"spaceX":10,"repeatY":2,"repeatX":4,"height":220},
                     "nodeParent":247,
-                    "label":"Panel",
-                    "isOpen":true,
+                    "label":"List",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":252,
+                    "compId":274,
                     "child":[
                         {
-                            "type":"HBox",
-                            "props":{"top":0,"bottom":0},
-                            "nodeParent":252,
-                            "label":"HBox",
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{},
+                            "nodeParent":274,
+                            "label":"UIView",
                             "isDirectory":false,
-                            "isAniNode":true,
+                            "isAniNode":false,
                             "hasChild":false,
-                            "compId":253,
+                            "compId":275,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":111,"x":1},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":277,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":4,"x":131},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":278,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":113,"x":132},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":279,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":5,"x":269},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":280,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":114,"x":270},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":281,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":6,"x":398},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":282,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"UIView",
+                            "source":"guild/GuildSelectItem.ui",
+                            "props":{"y":115,"x":399},
+                            "nodeParent":274,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":false,
+                            "hasChild":false,
+                            "compId":283,
                             "child":[
                                 ]
                         }]
