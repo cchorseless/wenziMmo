@@ -202,7 +202,9 @@ module ResData {
             // 随机姓名表
             { url: 'json/randomNameSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.randomNameSheet },
             // 生平履历
-            { url: 'json/resume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.resume }
+            { url: 'json/resume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.resume },
+            // 装备合成
+            { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis }
             
         ];
     }
