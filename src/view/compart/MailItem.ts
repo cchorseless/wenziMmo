@@ -5,58 +5,61 @@ module view.compart {
 			super();
 		}
 		public mailItem: ProtoCmd.stMailSummaryBase;
-		public setData(item: ProtoCmd.stMailSummaryBase): void {
+		public setData(item: ProtoCmd.stMailSummaryBase): MailItem {
 			this.mailItem = item;
 			// 邮件标题
 			this.lbl_mailTitle.text = '' + this.mailItem.szTitle;
 			// 发件人
-			this.lbl_from.text = '' + this.mailItem.szSenderName;
+			if (item.boSystem) {
+				this.lbl_from.text = '来自系统';
+			}
+			else {
+				this.lbl_from.text = '' + this.mailItem.szSenderName;
+			}
 			// 发送时间
 			this.lbl_timeLeft.text = '' + TimeUtils.getFormatBySecond(this.mailItem.sendTime - new Date().getTime() / 1000, 4);
 			this.updateUI();
 			this.addEvent()
+			return this;
 		}
 
 		public addEvent(): void {
 			// 查看详情
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.stMailQueryDetailEncoder();
-				pkt.setValue('dwMailID', this.mailItem.getValue('dwMailID'))
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.stMailQueryDetailRetDecoder(data);
-					let mailDetail = new ProtoCmd.stMailDetailBase();
-					mailDetail.clone(cbpkt.MailDetail.data);
-					new view.dialog.MailGetDialog().setData(mailDetail).popup(false);
-					cbpkt.clear();
-					cbpkt = null;
-				})
+				new view.dialog.MailGetDialog().setData(this.mailItem.dwMailID).popup(false);
 			})
-
 		}
-
 		public updateUI(): void {
 			// todo 有无附件应该区分，是否阅读应该区分
 			// 有附件
-			if (this.mailItem.boAccessory) {
-				this.btn_mailIcon.skin = 'image/common/fram_common_28.png';
+			if (this.mailItem.boAccessory == 1 && this.mailItem.boRead == 0) {
+				this.btn_mailIcon.skin = 'image/main/icon_mailGift.png';
+
 			}
-			else {
-				this.btn_mailIcon.skin = 'image/common/fram_common_28.png';
+			if (this.mailItem.boAccessory == 1 && this.mailItem.boRead == 1) {
+				this.btn_mailIcon.skin = 'image/main/icon_mailGiftOpen.png';
+
 			}
-			// 是否已读
-			this.btn_mailIcon.selected = Boolean(this.mailItem.boRead);
+			if (this.mailItem.boAccessory == 0 && this.mailItem.boRead == 0) {
+				this.btn_mailIcon.skin = 'image/main/icon_mail.png';
+
+			}
+			if (this.mailItem.boAccessory == 0 && this.mailItem.boRead == 1) {
+				this.btn_mailIcon.skin = 'image/main/icon_mailOpen.png';
+
+			}
 		}
 
 		/**
 		 * 领取道具
 		 */
-		public getAllItem(): void {
+		public getAllItem(mailUI): void {
 			// 无附件
-			if (!this.mailItem.boAccessory) {
+			if (mailUI._childs.length == 0 || mailUI.mailItem.boAccessory == 0) {
 				return
 			}
 			let pkt = new ProtoCmd.stMailGetItemEncoder();
-			pkt.setValue('dwMailID', this.mailItem.getValue('dwMailID'));
+			pkt.setValue('dwMailID', mailUI.mailItem.dwMailID);
 			let byte: Laya.Byte = new Laya.Byte();
 			byte.writeInt32(0);
 			byte.writeInt32(-1);

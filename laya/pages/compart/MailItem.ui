@@ -1,15 +1,15 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":3,
+    "selectedBox":10,
+    "selecteID":13,
     "referenceLines":[
         {
             "value":50,
             "type":1,
             "id":1
         }],
-    "props":{"width":410,"sceneColor":"#000000","height":90},
+    "props":{"width":495,"sceneColor":"#000000","height":87},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -21,59 +21,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":410,"skin":"image/common/fram_common_28.png","sizeGrid":"0,34,22,46","height":90},
+            "props":{"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"10,21,9,21","height":87},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":10,
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":27,"x":155,"width":130,"var":"lbl_mailTitle","text":"热更新邮件","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_mailTitle)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":31,"x":305,"width":92,"var":"lbl_timeLeft","text":"51分钟前","height":25,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                    "nodeParent":2,
-                    "label":"Label(lbl_timeLeft)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":27,"x":90,"width":56,"var":"lbl_from","text":"系统","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_from)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":15,"x":17,"var":"btn_mailIcon","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png"},
-                    "nodeParent":2,
+                    "props":{"y":1,"x":16,"width":85,"var":"btn_mailIcon","stateNum":"1","skin":"image/main/icon_mail.png","height":85},
+                    "nodeParent":10,
                     "label":"Button(btn_mailIcon)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -81,7 +42,47 @@
                     "compId":7,
                     "child":[
                         ]
-                }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":43,"x":88,"width":195,"var":"lbl_mailTitle","text":"热更新邮件","height":30,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
+                    "nodeParent":10,
+                    "label":"Label(lbl_mailTitle)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":12,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":31,"x":370,"width":94.359375,"var":"lbl_timeLeft","text":"51分钟前","height":25,"fontSize":22,"font":"FZHL","color":"#404040"},
+                    "nodeParent":10,
+                    "label":"Label(lbl_timeLeft)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":13,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":16,"x":119,"width":144,"var":"lbl_from","text":"来自远方的你","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":10,
+                    "label":"Label(lbl_from)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {
