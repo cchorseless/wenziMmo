@@ -64,7 +64,7 @@ module view.dialog {
 						pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.BP_GouMaiCreateItem, null, 0, this,
 							(data: { tips: string }) => {
 								TipsManage.showTips(data.tips);
-								PanelManage.GuildSelect && PanelManage.GuildSelect.updateCreateUI();
+								// PanelManage.GuildSelect && PanelManage.GuildSelect.updateCreateUI();
 							});
 						lcp.send(pkt);
 						break;
