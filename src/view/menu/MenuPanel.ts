@@ -9,26 +9,26 @@ module view.menu {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			//图鉴
-			this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openTuJianJuesePanel();
-			})
-			//签到
-			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuQiandaoDialog().popup(true);
-			})
-			//邮件
-			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.MailDialog().popup(true);
-			})
-			//排名
-			this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuPaiHangDialog().popup(true);
-			})
-			//成就
-			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuChengJiuDialog().popup(true);
-			})
+			// //图鉴
+			// this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openTuJianJuesePanel();
+			// })
+			// //签到
+			// this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.menu.MenuQiandaoDialog().popup(true);
+			// })
+			// //邮件
+			// this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.dialog.MailDialog().popup(true);
+			// })
+			// //排名
+			// this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.menu.MenuPaiHangDialog().popup(true);
+			// })
+			// //成就
+			// this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.menu.MenuChengJiuDialog().popup(true);
+			// })
 			// 菜单活动
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_active.selected = !this.btn_active.selected;

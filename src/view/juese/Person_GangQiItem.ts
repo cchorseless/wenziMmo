@@ -144,6 +144,7 @@ module view.juese {
 		 * 罡气下阶预览
 		 */
 		public init_GangQIInfo(): void {
+			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
 				let j = i + 1;
 				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));
