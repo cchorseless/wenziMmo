@@ -16,6 +16,7 @@ module view.common {
 			GameApp.MainPlayer.level = nlevel;
 			GameApp.MainPlayer.zslevel = zslevel;
 			GameApp.MainPlayer.viplvl = viplvl;
+			console.log('-----viplvl----', viplvl);
 			GameApp.MainPlayer.sex = playerInfo.feature.getValue('sex');
 			GameApp.MainPlayer.job = playerInfo.feature.getValue('job');
 			// 角色图片
@@ -28,7 +29,6 @@ module view.common {
 			this.lbl_level0.text = '' + zslevel + '转';
 			// VIP等级
 			this.vip_level.value = '' + viplvl;
-
 			this.addEvent();
 		}
 

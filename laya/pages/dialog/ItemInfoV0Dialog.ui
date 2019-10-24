@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":19,
-    "selecteID":20,
+    "selectedBox":1,
+    "selecteID":18,
     "referenceLines":null,
     "props":{"width":520,"sceneColor":"#89504f","height":520},
     "nodeParent":-1,
@@ -123,7 +123,7 @@
             "props":{"x":39,"width":435,"var":"viw_model","selectedIndex":0,"height":78,"bottom":60},
             "nodeParent":1,
             "label":"ViewStack(viw_model)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -135,14 +135,13 @@
                     "props":{"y":10,"x":0,"width":432,"name":"item0","height":58},
                     "nodeParent":18,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":-1,"x":300,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"使用"},
                             "nodeParent":19,
@@ -155,7 +154,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":-1,"x":20,"var":"btn_destroy","stateNum":"2","skin":"image/common/button_qianwang_red.png","left":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"销毁"},
                             "nodeParent":19,
@@ -167,7 +165,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -261,7 +259,8 @@
                     "child":[
                         ],
                     "$HIDDEN":true
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
