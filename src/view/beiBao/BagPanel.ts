@@ -61,6 +61,11 @@ module view.beiBao {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
+			// 打开商店
+			this.btn_shop.on(Laya.UIEvent.CLICK, this, () => {
+				let o = new Bag_Recharge();
+				o.popup(true);
+			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
 			this.ui_equipInfo.tab_0.on(Laya.UIEvent.CLICK, this, () => {

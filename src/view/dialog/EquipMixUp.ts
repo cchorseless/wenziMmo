@@ -116,7 +116,7 @@ module view.dialog {
 				});
 			}
 			EventManage.onWithEffect(this.btn_mixUp, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.legednEquipPanel, [this.mixID])
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.rxEquipCompound, [this.mixID])
 				lcp.send(pkt);
 			});
 
@@ -229,7 +229,7 @@ module view.dialog {
 			if (this.curType != 0) {
 				this.mixID = needID;
 			} else {
-				this.mixID == resultID;
+				this.mixID = resultID;
 			}
 		}
 		//重置list中子项的点击状态
