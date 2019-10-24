@@ -291,43 +291,43 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
 /**
  *  怪物与NPC聊天语言1
  */
- public CHAT_LANGUAGE1(configID:string):number { return this.data[configID][72]}
+ public CHAT_LANGUAGE1(configID:string):string { return this.data[configID][72]}
 /**
  *  怪物与NPC聊天语言2
  */
- public CHAT_LANGUAGE2(configID:string):number { return this.data[configID][73]}
+ public CHAT_LANGUAGE2(configID:string):string { return this.data[configID][73]}
 /**
  *  怪物与NPC聊天语言3
  */
- public CHAT_LANGUAGE3(configID:string):number { return this.data[configID][74]}
+ public CHAT_LANGUAGE3(configID:string):string { return this.data[configID][74]}
 /**
  *  怪物与NPC聊天语言4
  */
- public CHAT_LANGUAGE4(configID:string):number { return this.data[configID][75]}
+ public CHAT_LANGUAGE4(configID:string):string { return this.data[configID][75]}
 /**
  *  怪物与NPC聊天语言5
  */
- public CHAT_LANGUAGE5(configID:string):number { return this.data[configID][76]}
+ public CHAT_LANGUAGE5(configID:string):string { return this.data[configID][76]}
 /**
  *  战将聊天语言1
  */
- public GENERAL_CHAT1(configID:string):number { return this.data[configID][77]}
+ public GENERAL_CHAT1(configID:string):string { return this.data[configID][77]}
 /**
  *  战将聊天语言2
  */
- public GENERAL_CHAT2(configID:string):number { return this.data[configID][78]}
+ public GENERAL_CHAT2(configID:string):string { return this.data[configID][78]}
 /**
  *  战将聊天语言3
  */
- public GENERAL_CHAT3(configID:string):number { return this.data[configID][79]}
+ public GENERAL_CHAT3(configID:string):string { return this.data[configID][79]}
 /**
  *  战将聊天语言4
  */
- public GENERAL_CHAT4(configID:string):number { return this.data[configID][80]}
+ public GENERAL_CHAT4(configID:string):string { return this.data[configID][80]}
 /**
  *  战将聊天语言5
  */
- public GENERAL_CHAT5(configID:string):number { return this.data[configID][81]}
+ public GENERAL_CHAT5(configID:string):string { return this.data[configID][81]}
 /**
  *  怪物显示
  */
@@ -393,7 +393,11 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
  */
  public SKERES(configID:string):string { return this.data[configID][97]}
 /**
- *  怪物文本描述
+ *  BOSS描述
  */
  public MONSTERDES(configID:string):string { return this.data[configID][98]}
+/**
+ *  传送房间
+ */
+ public TRANSFER_ROOM(configID:string):number { return this.data[configID][99]}
 }}

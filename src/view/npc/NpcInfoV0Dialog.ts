@@ -25,29 +25,35 @@ module view.npc {
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				itemUI.setData(_itembase);
-				this.hbox_0.addChild(itemUI);
+				if (_itemId) {
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					itemUI.setData(_itembase);
+					this.hbox_0.addChild(itemUI);
+				}
 			}
 			// 装备
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let _itemId of equipItem) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				itemUI.setData(_itembase);
-				this.hbox_1.addChild(itemUI);
+				if (_itemId) {
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					itemUI.setData(_itembase);
+					this.hbox_1.addChild(itemUI);
+				}
 			}
 			// 宝物
 			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
 			for (let _itemId of BAOWUItem) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				itemUI.setData(_itembase);
-				this.hbox_2.addChild(itemUI);
+				if (_itemId) {
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					itemUI.setData(_itembase);
+					this.hbox_2.addChild(itemUI);
+				}
 			}
 
 			this.addEvent();
