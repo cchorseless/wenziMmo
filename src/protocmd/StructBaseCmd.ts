@@ -1018,14 +1018,34 @@ module ProtoCmd {
 
 
     /**
-     * 极品属性
+     * 极品属性 对应效果表
      */
     export class Nonpareil {
-        public btNpFrom: number;
-        public btNpType: number;
-        public dwNpNum: number;
-        public constructor() {
+        public btNpFrom: number; // 位置 枚举 emItemNpFrom
+        public btNpType: number; // 类型 枚举 emNonpareilType
+        public dwNpNum: number;  // 数值 属性数值
+        /**
+         * 获取属性描述
+         */
+        public get btdes(): string {
+            if (this.btNpType) {
+                return LangConfig.NpPropertyDes[this.btNpType] + ':' + this.dwNpNum;
+            }
         }
+        /**
+         * 获取战斗分数
+         */
+        public get battleScore(): Array<number> {
+            if (this.btNpType) {
+                let tmp = GameObject.AbilityWorth[this.btNpType]
+                let result = [];
+                for (let i = 0; i < 3; i++) {
+                    result.push(tmp[i] * this.dwNpNum)
+                }
+                return result
+            }
+        }
+
     }
 
 
@@ -1037,6 +1057,8 @@ module ProtoCmd {
         public ExtensionProperty: Laya.Byte;		// 预留 10字节，做扩充
         public defaultName: string;
         private _itemType;//物品类型
+        private _stNpPropertyDes: Array<string> = [];// 极品属性描述
+        private _stNpProperty: Array<Nonpareil> = [];// 极品属性对象
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {
@@ -1060,7 +1082,7 @@ module ProtoCmd {
             this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
             this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);//过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
-            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60);
+            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60); //
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
             if (data) { data.pos += this.read(data); }
         }
@@ -1270,7 +1292,7 @@ module ProtoCmd {
         }
 
         /**
-         * 1极品属性条目数--55
+         * 极品属性条目数--55
          */
         public get btNpPropertyCount(): number {
             return this.getValue('btNpPropertyCount');
@@ -1281,23 +1303,131 @@ module ProtoCmd {
         }
 
         /**
-         * 属性
+         * 极品属性
          */
         public get stNpProperty(): Array<Nonpareil> {
-            let result = [];
-            if (this.btNpPropertyCount > 0) {
-                let npdata: Laya.Byte = new Laya.Byte();;
-                npdata.endian = Laya.Byte.LITTLE_ENDIAN;
-                npdata = this.getValue('UnionData');
-                for (let j = 0; j < this.btNpPropertyCount; j++) {
-                    let np = new Nonpareil();
-                    np.btNpFrom = npdata.getUint8();
-                    np.btNpType = npdata.getUint8();
-                    np.dwNpNum = npdata.getUint32();
-                    result.push(np);
+            if (this._stNpProperty.length == 0) {
+                if (this.btNpPropertyCount > 0) {
+                    let npdata: Laya.Byte = new Laya.Byte();
+                    npdata = this.getValue('UnionData');
+                    for (let j = 0; j < this.btNpPropertyCount; j++) {
+                        let np = new Nonpareil();
+                        np.btNpFrom = npdata.getUint8();
+                        np.btNpType = npdata.getUint8();
+                        np.dwNpNum = npdata.getUint32();
+                        this._stNpProperty.push(np);
+                    }
                 }
             }
-            return result;
+            // 按照位置排序
+            // 先根据 条目位置排序
+            // 再根据 条目枚举排序
+            return this._stNpProperty.sort((a, b) => { return a.btNpFrom - b.btNpFrom }).sort((a, b) => { return a.btNpType - b.btNpType });
+        }
+
+        /**
+         * 极品属性描述
+         */
+        public get stNpPropertyString(): Array<string> {
+            if (this._stNpPropertyDes.length == 0) {
+                // let _stNpProperty = this.stNpProperty;
+                // let tmpObj = {};
+                // let tmpDes = {};
+                // for (let obj of _stNpProperty) {
+                //     let str = obj.btdes;
+                //     // 两条合一条
+                //     if (obj.btNpType >= 3 && obj.btNpType <= 14) {
+                //         tmpObj[obj.btNpType] = obj;
+                //         // 数字描述
+                //         let str_num = '' + Math.min(obj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(obj.dwNpNum, firstObj.dwNpNum);
+                //         switch (obj.btNpType) {
+                //             case 3:
+
+                //             case 4:
+                //                 str = '攻击:' + str_num
+                //                 break;
+                //             case 5:
+                //             case 6:
+                //                 str = '凌厉攻击:' + str_num
+                //                 break;
+                //             case 7:
+                //             case 8:
+                //                 str = '灵巧攻击:' + str_num
+                //                 break;
+                //             case 9:
+                //             case 10:
+                //                 str = '灵巧攻击:' + str_num
+                //                 break;
+                //             case 11:
+                //             case 12:
+                //                 str = '物理防御:' + str_num
+                //                 break;
+                //             case 13:
+                //             case 14:
+                //                 str = '法术防御:' + str_num
+                //                 break;
+                //         }
+
+
+
+                //     }
+
+                //     if (tmpObj[obj.btNpType]) {
+                //         let firstObj: Nonpareil = tmpObj[obj.btNpFrom];
+                //         // 数字描述
+                //         let str_num = '' + Math.min(obj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(obj.dwNpNum, firstObj.dwNpNum);
+                //         switch (firstObj.btNpType) {
+                //             case 3:
+                //             case 4:
+                //                 str = '攻击:' + str_num
+                //                 break;
+                //             case 5:
+                //             case 6:
+                //                 str = '凌厉攻击:' + str_num
+                //                 break;
+                //             case 7:
+                //             case 8:
+                //                 str = '灵巧攻击:' + str_num
+                //                 break;
+                //             case 9:
+                //             case 10:
+                //                 str = '灵巧攻击:' + str_num
+                //                 break;
+                //             case 11:
+                //             case 12:
+                //                 str = '物理防御:' + str_num
+                //                 break;
+                //             case 13:
+                //             case 14:
+                //                 str = '法术防御:' + str_num
+                //                 break;
+                //         }
+                //     }
+                //     tmpObj[obj.btNpType] = obj;
+                //     tmpDes[obj.btNpType] = str;
+                // }
+                // let keys = Object.keys(tmpDes).sort();
+                // for (let key of keys) {
+                //     this._stNpPropertyDes.push(tmpDes[key]);
+                // }
+            }
+            return this._stNpPropertyDes;
+        }
+
+        /**
+         * 装备的战力,3个职业的数组
+         */
+        public get battleScore(): Array<number> {
+            let _stNpProperty = this.stNpProperty;
+            let r0 = 0;
+            let r1 = 0;
+            let r2 = 0;
+            for (let _st of _stNpProperty) {
+                r0 += _st.battleScore[0];
+                r1 += _st.battleScore[1];
+                r2 += _st.battleScore[2];
+            }
+            return [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         }
 
 
@@ -1313,6 +1443,7 @@ module ProtoCmd {
          * 清理数据，删除UI组件
          */
         public clear(): void {
+            this._stNpProperty = null;
             this.recoverUI();
             super.clear();
         }

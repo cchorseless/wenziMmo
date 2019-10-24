@@ -73,14 +73,17 @@ module view.dialog {
 			// 帮会回收贡献值
 			this.lbl_guildRecover.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE(dwBaseID);
 			// 道具类型
-			this.lbl_type.text = ['头盔', '项链', '衣服', '武器', '手镯', '手镯', '戒指', '戒指', '鞋子', '腰带'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
+			this.lbl_type.text = LangConfig.equipPosDes[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
 			// 道具职业
-			this.lbl_job.text = ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
+			let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)
+			this.lbl_job.text = LangConfig.jobDes[jobLimit];
 			// 道具等级，使用等级
 			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
 			this.lbl_level.text = (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID) + '级';
 			// 道具性别
-			this.lbl_sex.text = ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
+			this.lbl_sex.text = LangConfig.sexDes[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
+			// 战斗评分
+			this.lbl_sorce.text = '评分:' + this.itemObj.battleScore[jobLimit];
 			// 道具ICON信息赋值
 			this.ui_item.initUI(obj);
 			// 添加监听
@@ -153,7 +156,7 @@ module view.dialog {
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
 			packet.setValue('i64ItemId', this.itemObj.i64ItemID);
 			packet.srcLocation = this.itemObj.location;
-			packet.destLocation.btLocation= EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP;
+			packet.destLocation.btLocation = EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP;
 			// 给英雄穿戴装备需要加上位置偏移
 			let offset = 0;
 			if (data === 'hero') {
