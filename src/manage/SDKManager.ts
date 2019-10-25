@@ -30,7 +30,7 @@ class SDKManager extends SingletonClass {
      * @param debug //参数设为 true 时 可开启调试模式
      */
     init(debug: any) {
-        if (!GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
             return;
         }
         console.log(this.SDK)
@@ -38,21 +38,22 @@ class SDKManager extends SingletonClass {
     }
 
     login() {
-        if (!GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
             return;
         }
+        let self = this;
         this.SDK.login(function (data) {
             var openid = data.openid;
             var timestamp = data.timestamp;
             var sign = data.sign;
             var identity_status = data.identity_status;
-            if (identity_status == XipuSDK.IDENTITY_UNVERIFIED) {
+            if (identity_status == self.SDK.IDENTITY_UNVERIFIED) {
                 console.log('未实名认证');
             }
-            if (identity_status == XipuSDK.IDENTITY_KIDS) {
+            if (identity_status == self.SDK.IDENTITY_KIDS) {
                 console.log('未成年');
             }
-            if (identity_status == XipuSDK.IDENTITY_ADULT) {
+            if (identity_status == self.SDK.IDENTITY_ADULT) {
                 console.log('已成年');
             }
 
@@ -86,6 +87,9 @@ class SDKManager extends SingletonClass {
 
     // 创建⻆⾊
     createRole(role_id: any, role_name: any, role_level: any = '-1', vip_level: any = '-1', remainder: any = '-1') {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+            return;
+        }
         this._sdkRole.server_id = GameApp.GameEngine.trueZoneid.toString();
         this._sdkRole.server_id = GameApp.GameEngine.serverName;
         this._sdkRole.role_id = role_id
@@ -99,18 +103,27 @@ class SDKManager extends SingletonClass {
 
     // ⻆⾊登陆
     loginRole() {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+            return;
+        }
         this.updateRoleInfo();
         this.SDK.loginRole(this._sdkRole);
     }
 
     // ⻆⾊升级
     upgradeRole() {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+            return;
+        }
         this.updateRoleInfo();
         this.SDK.upgradeRole(this._sdkRole);
     }
 
     // 切换账号
     switchAccount() {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+            return;
+        }
         let self = this;
         self.SDK.switchAccount(() => {
             // CP 清理⽤户环境
@@ -120,5 +133,44 @@ class SDKManager extends SingletonClass {
             // 显示登录
             self.login();
         });
+    }
+
+    /**
+     * 
+     * @param amount 元
+     */
+    pay(amount: number) {
+        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+            return;
+        }
+        this.updateRoleInfo();
+        let amountMin = amount * 10 * 10;
+        let self = this;
+        GameApp.HttpManager.postJson("name=cashOrderNo",
+            {
+                trueZoneId: GameApp.GameEngine.trueZoneid,
+                account: GameApp.GameEngine.mainPlayer.playerAccount,
+                username: GameApp.GameEngine.mainPlayer.objName,
+                amount: amount,
+            },
+            (res) => {
+                let jsonData = JSON.parse(res);
+
+                if (jsonData.errorCode == 0) {
+                    self.SDK.pay(amountMin.toString(), self._sdkRole, jsonData.orderNo, function (data) {
+                        if (data.status == self.SDK.PAY_SUCCESS) {
+                            console.warn(data);
+                            console.warn('⽀付结果：⽀付成功!');
+                            GameApp.HttpManager.postJson("name=cashCompleted", {}, (res) => {
+
+                            })
+                        } else if (data.status == self.SDK.PAY_CANCEL) {
+                            console.warn('⽀付结果：⽀付取消!');
+                        }
+                    }, 'extendString');
+                } else {
+                    console.error("error->>>");
+                }
+            })
     }
 }
