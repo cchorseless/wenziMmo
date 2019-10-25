@@ -41,6 +41,7 @@ module view.common {
 				this.box_self.addChild(skePlayer);
 				skePlayer.scale(1, 1);
 				skePlayer.play(0, true);
+				this.changeMap(1);
 			});
 			// 加载过长动画
 			let cg = new SkeletonUtil.SkeletonGroup();
@@ -53,7 +54,6 @@ module view.common {
 					playIndex += 1;
 					if (playIndex >= 6) {
 						this.addEvent();
-						this.changeMap(1);
 						Laya.Tween.to(this.img_cg, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => { this.img_cg.destroy(true) }));
 						Laya.Tween.to(this, { alpha: 1 }, 1000);
 					}
