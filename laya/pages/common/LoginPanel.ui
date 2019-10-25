@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":55,
+    "selectedBox":37,
+    "selecteID":29,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/login/img_beijing.png","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"top":0,"skin":"image/common/login/img_login_bg.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":120,"skin":"image/common/startLoad/img_logo.png","centerX":-160},
+            "props":{"y":193,"skin":"image/common/login/img_login_title.png","centerX":34},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,

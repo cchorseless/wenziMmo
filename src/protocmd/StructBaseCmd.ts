@@ -180,8 +180,11 @@ module ProtoCmd {
                     this._list[element]._obj.clone(this._bytes, this._list[element]._len);
                 }
             }
-            // 读取数据
-            if (this.data) { this.read(this.data) };
+            // // 读取数据
+            if (this.data) {
+                s.pos = 0;
+                this.read(s)
+            };
         }
 
         public addProperty(name: string, type: number, len: number = 0, obj: any = null): void {
@@ -2547,6 +2550,9 @@ module ProtoCmd {
         public get wReveivedItem(): number {
             return this.getValue("wReveivedItem");
         }
+        public get boRead(): number {
+            return this.getValue("boRead");
+        }
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {
@@ -2604,6 +2610,13 @@ module ProtoCmd {
         public get szTitle(): string {
             return this.getValue("szTitle");
         }
+        public get dwMailID(): string {
+            return this.getValue("dwMailID");
+        }
+         public get boSystem(): string {
+            return this.getValue("boSystem");
+        }
+
     }
     export class stToClientItemAndCountBase extends PacketBase {
         public constructor(data: Laya.Byte = null) {
