@@ -215,6 +215,9 @@ module ProtoCmd {
     export const Hero_exchangeRealGas = 'exchangeRealGas';
     // 弟子符文面板
     export const Hero_openActiveRunePanel = 'openActiveRunePanel';//score符文积分viewtab符文碎片
+     // 弟子符文面板
+    export const Hero_runeRecycle = 'runeRecycle';//score符文积分viewtab符文碎片
+    
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
@@ -296,6 +299,8 @@ module ProtoCmd {
     export const activeLegendEquip = "activeLegendEquip";    //传世装备激活        pos(位置0-9)
     export const advanceLegendEquip = "advanceLegendEquip";  //传世装备进阶        pos(0-9)
     export const legednEquipBaseid = "legednEquipBaseid";    //传世装备ID
+
+    export const rxEquipCompound = "rxEquipCompound";        //装备合成（要合成的id）
 
 
 

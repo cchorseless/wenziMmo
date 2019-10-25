@@ -200,86 +200,86 @@ module view.juese {
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
-					//暴击率
-					let baojilv = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT_RATE('' + data.dwEffId);
-					this.lbl_shuxing1.text = '暴击率：' + baojilv;
-					//暴击伤害
-					let baoji = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRITICAL_DAMAGE('' + data.dwEffId);
-					this.lbl_shuxing2.text = '暴击伤害：' + baoji;
-					//增加对BOSS的暴击
-					this.lbl_shuxing3.visible = true;
-					let increase = SheetConfig.mydb_effect_base_tbl.getInstance(null).INJURY_INCREASE('' + data.dwEffId);
-					this.lbl_shuxing3.text = '增加对BOSS的暴击：' + increase;
-					// 减少对BOSS的暴击
-					this.lbl_shuxing4.visible = true;
-					let reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).REDUCE_INJURY('' + data.dwEffId);
-					this.lbl_shuxing4.text = '减少对BOSS的暴击：' + reduce;
+					// //暴击率
+					// let baojilv = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT_RATE('' + data.dwEffId);
+					// this.lbl_shuxing1.text = '暴击率：' + baojilv;
+					// //暴击伤害
+					// let baoji = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRITICAL_DAMAGE('' + data.dwEffId);
+					// this.lbl_shuxing2.text = '暴击伤害：' + baoji;
+					// //增加对BOSS的暴击
+					// this.lbl_shuxing3.visible = true;
+					// let increase = SheetConfig.mydb_effect_base_tbl.getInstance(null).INJURY_INCREASE('' + data.dwEffId);
+					// this.lbl_shuxing3.text = '增加对BOSS的暴击：' + increase;
+					// // 减少对BOSS的暴击
+					// this.lbl_shuxing4.visible = true;
+					// let reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).REDUCE_INJURY('' + data.dwEffId);
+					// this.lbl_shuxing4.text = '减少对BOSS的暴击：' + reduce;
 					break;
 				//臂力
 				case EnumData.emEquipPosition.EQUIP_SHIELD:
-					//物理防御
-					let minwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + data.dwEffId);
-					let maxwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + data.dwEffId);
-					this.lbl_shuxing1.text = '物理防御：' + minwulif + '-' + maxwulif;
-					//魔法防御
-					let minmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + data.dwEffId);
-					let maxmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + data.dwEffId);
-					this.lbl_shuxing2.text = '魔法防御：' + minmofa + '-' + maxmofa;
-					//韧性
-					this.lbl_shuxing3.visible = true;
-					let renxing = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + data.dwEffId);
-					this.lbl_shuxing3.text = '韧性：' + renxing;
-					// 内功值
-					this.lbl_shuxing4.visible = true;
-					let neigong = SheetConfig.mydb_effect_base_tbl.getInstance(null).INTERNAL('' + data.dwEffId);
-					this.lbl_shuxing4.text = '内功值：' + neigong;
+					// //物理防御
+					// let minwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + data.dwEffId);
+					// let maxwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + data.dwEffId);
+					// this.lbl_shuxing1.text = '物理防御：' + minwulif + '-' + maxwulif;
+					// //魔法防御
+					// let minmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + data.dwEffId);
+					// let maxmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + data.dwEffId);
+					// this.lbl_shuxing2.text = '魔法防御：' + minmofa + '-' + maxmofa;
+					// //韧性
+					// this.lbl_shuxing3.visible = true;
+					// let renxing = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + data.dwEffId);
+					// this.lbl_shuxing3.text = '韧性：' + renxing;
+					// // 内功值
+					// this.lbl_shuxing4.visible = true;
+					// let neigong = SheetConfig.mydb_effect_base_tbl.getInstance(null).INTERNAL('' + data.dwEffId);
+					// this.lbl_shuxing4.text = '内功值：' + neigong;
 					break;
 				//善缘				
 				case EnumData.emEquipPosition.EQUIP_OFFICIALSEAL:
-					//生命上限
-					let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
-					this.lbl_shuxing1.text = '生命上限：' + life;
-					//物理攻击
-					let minwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
-					let maxwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
-					this.lbl_shuxing2.text = '物理攻击：' + minwulig + '-' + maxwulig;
-					//对英雄伤害增加
-					this.lbl_shuxing3.visible = true;
-					let heroIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_INCREASE('' + data.dwEffId);
-					this.lbl_shuxing3.text = '对英雄伤害增加：' + heroIncrease;
-					// 对boss伤害增加
-					this.lbl_shuxing4.visible = true;
-					let bossIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_INCREASE('' + data.dwEffId);
-					this.lbl_shuxing4.text = '对boss伤害增加：' + bossIncrease;
+					// //生命上限
+					// let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
+					// this.lbl_shuxing1.text = '生命上限：' + life;
+					// //物理攻击
+					// let minwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
+					// let maxwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
+					// this.lbl_shuxing2.text = '物理攻击：' + minwulig + '-' + maxwulig;
+					// //对英雄伤害增加
+					// this.lbl_shuxing3.visible = true;
+					// let heroIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_INCREASE('' + data.dwEffId);
+					// this.lbl_shuxing3.text = '对英雄伤害增加：' + heroIncrease;
+					// // 对boss伤害增加
+					// this.lbl_shuxing4.visible = true;
+					// let bossIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_INCREASE('' + data.dwEffId);
+					// this.lbl_shuxing4.text = '对boss伤害增加：' + bossIncrease;
 					break;
 				//身法
 				case EnumData.emEquipPosition.EQUIP_BLOODJADE:
-					//生命上限
-					let maxHP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
-					this.lbl_shuxing1.text = '生命上限：' + maxHP;
-					//魔法上限
-					let maxMP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_MP('' + data.dwEffId);
-					this.lbl_shuxing2.text = '魔法上限：' + maxMP;
-					this.lbl_shuxing3.visible = false;
-					this.lbl_shuxing4.visible = false;
+					// //生命上限
+					// let maxHP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
+					// this.lbl_shuxing1.text = '生命上限：' + maxHP;
+					// //魔法上限
+					// let maxMP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_MP('' + data.dwEffId);
+					// this.lbl_shuxing2.text = '魔法上限：' + maxMP;
+					// this.lbl_shuxing3.visible = false;
+					// this.lbl_shuxing4.visible = false;
 					break;
 				//根骨
 				case EnumData.emEquipPosition.EQUIP_MEDAL:
-					//生命上限
-					let maxlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
-					this.lbl_shuxing1.text = '生命上限：' + maxlife;
-					//物理攻击
-					let minwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
-					let maxwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
-					this.lbl_shuxing2.text = '物理攻击：' + minwulig1 + '-' + maxwulig1;
-					//受BOSS伤害减少
-					this.lbl_shuxing3.visible = true;
-					let bossIncrease1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_REDUCE('' + data.dwEffId);
-					this.lbl_shuxing3.text = '受BOSS伤害减少：' + bossIncrease1;
-					// 受英雄伤害减少
-					this.lbl_shuxing4.visible = true;
-					let hero_reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_REDUCE('' + data.dwEffId);
-					this.lbl_shuxing4.text = '受英雄伤害减少：' + hero_reduce;
+					// //生命上限
+					// let maxlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
+					// this.lbl_shuxing1.text = '生命上限：' + maxlife;
+					// //物理攻击
+					// let minwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
+					// let maxwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
+					// this.lbl_shuxing2.text = '物理攻击：' + minwulig1 + '-' + maxwulig1;
+					// //受BOSS伤害减少
+					// this.lbl_shuxing3.visible = true;
+					// let bossIncrease1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_REDUCE('' + data.dwEffId);
+					// this.lbl_shuxing3.text = '受BOSS伤害减少：' + bossIncrease1;
+					// // 受英雄伤害减少
+					// this.lbl_shuxing4.visible = true;
+					// let hero_reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_REDUCE('' + data.dwEffId);
+					// this.lbl_shuxing4.text = '受英雄伤害减少：' + hero_reduce;
 					break;
 			}
 			
@@ -310,86 +310,86 @@ module view.juese {
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
-					//暴击率
-					let baojilv = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT_RATE('' + id);
-					this.lbl_xiajie1.text = '暴击率：' + baojilv;
-					//暴击伤害
-					let baoji = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRITICAL_DAMAGE('' + id);
-					this.lbl_xiajie2.text = '暴击伤害：' + baoji;
-					//增加对BOSS的暴击
-					this.lbl_xiajie3.visible = true;
-					let increase = SheetConfig.mydb_effect_base_tbl.getInstance(null).INJURY_INCREASE('' + id);
-					this.lbl_xiajie3.text = '增加对BOSS的暴击：' + increase;
-					// 减少对BOSS的暴击
-					this.lbl_xiajie4.visible = true;
-					let reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).REDUCE_INJURY('' + id);
-					this.lbl_xiajie4.text = '减少对BOSS的暴击：' + reduce;
+					// //暴击率
+					// let baojilv = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT_RATE('' + id);
+					// this.lbl_xiajie1.text = '暴击率：' + baojilv;
+					// //暴击伤害
+					// let baoji = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRITICAL_DAMAGE('' + id);
+					// this.lbl_xiajie2.text = '暴击伤害：' + baoji;
+					// //增加对BOSS的暴击
+					// this.lbl_xiajie3.visible = true;
+					// let increase = SheetConfig.mydb_effect_base_tbl.getInstance(null).INJURY_INCREASE('' + id);
+					// this.lbl_xiajie3.text = '增加对BOSS的暴击：' + increase;
+					// // 减少对BOSS的暴击
+					// this.lbl_xiajie4.visible = true;
+					// let reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).REDUCE_INJURY('' + id);
+					// this.lbl_xiajie4.text = '减少对BOSS的暴击：' + reduce;
 					break;
 				//臂力
 				case EnumData.emEquipPosition.EQUIP_SHIELD:
-					//物理防御
-					let minwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + id);
-					let maxwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + id);
-					this.lbl_xiajie1.text = '物理防御：' + minwulif + '-' + maxwulif;
-					//魔法防御
-					let minmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + id);
-					let maxmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + id);
-					this.lbl_xiajie2.text = '魔法防御：' + minmofa + '-' + maxmofa;
-					//韧性
-					this.lbl_xiajie3.visible = true;
-					let renxing = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + id);
-					this.lbl_xiajie3.text = '韧性：' + renxing;
-					// 内功值
-					this.lbl_xiajie4.visible = true;
-					let neigong = SheetConfig.mydb_effect_base_tbl.getInstance(null).INTERNAL('' + id);
-					this.lbl_xiajie4.text = '内功值：' + neigong;
+					// //物理防御
+					// let minwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + id);
+					// let maxwulif = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + id);
+					// this.lbl_xiajie1.text = '物理防御：' + minwulif + '-' + maxwulif;
+					// //魔法防御
+					// let minmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + id);
+					// let maxmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + id);
+					// this.lbl_xiajie2.text = '魔法防御：' + minmofa + '-' + maxmofa;
+					// //韧性
+					// this.lbl_xiajie3.visible = true;
+					// let renxing = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + id);
+					// this.lbl_xiajie3.text = '韧性：' + renxing;
+					// // 内功值
+					// this.lbl_xiajie4.visible = true;
+					// let neigong = SheetConfig.mydb_effect_base_tbl.getInstance(null).INTERNAL('' + id);
+					// this.lbl_xiajie4.text = '内功值：' + neigong;
 					break;
 				//善缘				
 				case EnumData.emEquipPosition.EQUIP_OFFICIALSEAL:
-					//生命上限
-					let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
-					this.lbl_xiajie1.text = '生命上限：' + life;
-					//物理攻击
-					let minwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + id);
-					let maxwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + id);
-					this.lbl_xiajie2.text = '物理攻击：' + minwulig + '-' + maxwulig;
-					//对英雄伤害增加
-					this.lbl_shuxing3.visible = true;
-					let heroIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_INCREASE('' + id);
-					this.lbl_xiajie3.text = '对英雄伤害增加：' + heroIncrease;
-					// 对boss伤害增加
-					this.lbl_xiajie4.visible = true;
-					let bossIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_INCREASE('' + id);
-					this.lbl_xiajie4.text = '对boss伤害增加：' + bossIncrease;
+					// //生命上限
+					// let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
+					// this.lbl_xiajie1.text = '生命上限：' + life;
+					// //物理攻击
+					// let minwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + id);
+					// let maxwulig = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + id);
+					// this.lbl_xiajie2.text = '物理攻击：' + minwulig + '-' + maxwulig;
+					// //对英雄伤害增加
+					// this.lbl_shuxing3.visible = true;
+					// let heroIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_INCREASE('' + id);
+					// this.lbl_xiajie3.text = '对英雄伤害增加：' + heroIncrease;
+					// // 对boss伤害增加
+					// this.lbl_xiajie4.visible = true;
+					// let bossIncrease = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_INCREASE('' + id);
+					// this.lbl_xiajie4.text = '对boss伤害增加：' + bossIncrease;
 					break;
 				//身法
 				case EnumData.emEquipPosition.EQUIP_BLOODJADE:
-					//生命上限
-					let maxHP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
-					this.lbl_xiajie1.text = '生命上限：' + maxHP;
-					//魔法上限
-					let maxMP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_MP('' + id);
-					this.lbl_xiajie2.text = '魔法上限：' + maxMP;
-					this.lbl_xiajie3.visible = false;
-					this.lbl_xiajie4.visible = false;
+					// //生命上限
+					// let maxHP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
+					// this.lbl_xiajie1.text = '生命上限：' + maxHP;
+					// //魔法上限
+					// let maxMP = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_MP('' + id);
+					// this.lbl_xiajie2.text = '魔法上限：' + maxMP;
+					// this.lbl_xiajie3.visible = false;
+					// this.lbl_xiajie4.visible = false;
 					break;
 				//根骨
 				case EnumData.emEquipPosition.EQUIP_MEDAL:
-					//生命上限
-					let maxlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
-					this.lbl_xiajie1.text = '生命上限：' + maxlife;
-					//物理攻击
-					let minwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + id);
-					let maxwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + id);
-					this.lbl_xiajie2.text = '物理攻击：' + minwulig1 + '-' + maxwulig1;
-					//受BOSS伤害减少
-					this.lbl_xiajie3.visible = true;
-					let bossIncrease1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_REDUCE('' + id);
-					this.lbl_xiajie3.text = '受BOSS伤害减少：' + bossIncrease1;
-					// 受英雄伤害减少
-					this.lbl_xiajie4.visible = true;
-					let hero_reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_REDUCE('' + id);
-					this.lbl_xiajie4.text = '受英雄伤害减少：' + hero_reduce;
+					// //生命上限
+					// let maxlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
+					// this.lbl_xiajie1.text = '生命上限：' + maxlife;
+					// //物理攻击
+					// let minwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + id);
+					// let maxwulig1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + id);
+					// this.lbl_xiajie2.text = '物理攻击：' + minwulig1 + '-' + maxwulig1;
+					// //受BOSS伤害减少
+					// this.lbl_xiajie3.visible = true;
+					// let bossIncrease1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).BOSS_REDUCE('' + id);
+					// this.lbl_xiajie3.text = '受BOSS伤害减少：' + bossIncrease1;
+					// // 受英雄伤害减少
+					// this.lbl_xiajie4.visible = true;
+					// let hero_reduce = SheetConfig.mydb_effect_base_tbl.getInstance(null).HERO_REDUCE('' + id);
+					// this.lbl_xiajie4.text = '受英雄伤害减少：' + hero_reduce;
 					break;
 			}
 

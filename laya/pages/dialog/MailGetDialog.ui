@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":42,
-    "props":{"width":490,"sceneColor":"#000000","height":750},
+    "selecteID":55,
+    "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,13 +15,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-10,"x":-2,"width":477,"top":0,"skin":"image/common/fram_common_20.png","height":760},
+            "props":{"width":622,"skin":"image/common/bottom_bigPopup.png","height":928},
             "nodeParent":1,
             "label":"Image",
+            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":47,
             "child":[
                 ],
             "$HIDDEN":false
@@ -29,22 +30,61 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":150,"x":26,"width":421,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":523},
+            "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":48,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":22,"x":93,"text":"邮 件","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":48,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":50,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":182,"x":55,"width":510,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":635},
+            "nodeParent":1,
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":49,
             "child":[
                 ],
             "$HIDDEN":false
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":16,"x":541,"var":"btn_mailGetClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "nodeParent":1,
+            "label":"Button(btn_mailGetClose)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":5,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":163,"x":42,"text":"亲爱的玩家：","fontSize":24,"font":"Microsoft YaHei","color":"#353535"},
+            "props":{"y":199,"x":71,"text":"亲爱的玩家：","fontSize":30,"font":"FZXK","color":"#353535"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -57,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":206,"x":53,"wordWrap":true,"width":383,"var":"lbl_mailDetail","text":"请查收无尽之塔新服福利活动延迟开放的补偿，冒险者协会感谢您的支持！","height":140,"fontSize":20,"font":"Microsoft YaHei","color":"#353535"},
+            "props":{"y":238,"x":71,"wordWrap":true,"width":487,"var":"lbl_mailDetail","text":"          请查收无尽之塔新服福利活动延迟开放的补偿，冒险者协会感谢您的支持！","height":140,"fontSize":22,"font":"FZHL","color":"#353535"},
             "nodeParent":1,
             "label":"Label(lbl_mailDetail)",
             "isDirectory":false,
@@ -65,203 +105,92 @@
             "hasChild":false,
             "compId":22,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":25,"x":-3,"width":477,"skin":"image/common/fram_common_17.png","sizeGrid":"47,51,52,51","height":730},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":4,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-27,"x":87,"skin":"image/common/title_common_01.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":10,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":20,"x":108,"text":"邮件","padding":"-2","fontSize":40,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                            "nodeParent":10,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ]
-                        }]
-                }],
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":4,"x":427,"var":"btn_mailGetClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":96,"x":81,"width":85,"stateNum":"1","skin":"image/main/img_mail.png","height":85},
             "nodeParent":1,
-            "label":"Button(btn_mailGetClose)",
+            "label":"Button",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":5,
+            "compId":51,
             "child":[
                 ]
         },
         {
             "x":15,
-            "type":"Box",
-            "props":{"y":94,"x":39},
+            "type":"Label",
+            "props":{"y":126,"x":170,"width":195,"var":"lbl_mailDetailTitle","text":"热更新邮件","height":30,"fontSize":30,"font":"FZXK","color":"#000000"},
             "nodeParent":1,
-            "label":"Box",
-            "isOpen":false,
-            "isDirectory":true,
+            "label":"Label(lbl_mailDetailTitle)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":33,
+            "hasChild":false,
+            "compId":52,
             "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":12,"x":100,"width":130,"var":"lbl_mailDetailTitle","text":"热更新邮件","height":37,"fontSize":26,"font":"Microsoft YaHei","color":"#000000"},
-                    "nodeParent":33,
-                    "label":"Label(lbl_mailDetailTitle)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":15,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":16,"x":305,"width":92,"var":"lbl_mailDeatilTime","text":"51分钟前","height":25,"fontSize":22,"font":"Microsoft YaHei","color":"#000000","bold":false},
-                    "nodeParent":33,
-                    "label":"Label(lbl_mailDeatilTime)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"skin":"image/menu/icon_mail1.png"},
-                    "nodeParent":33,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ]
-                }]
+                ]
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":679,"x":181,"width":127,"var":"img_delete","skin":"image/common/fram_common_09.png","height":43},
+            "type":"Label",
+            "props":{"y":129,"x":450,"width":94.359375,"var":"lbl_mailDeatilTime","text":"51分钟前","height":25,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
             "nodeParent":1,
-            "label":"Image(img_delete)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Label(lbl_mailDeatilTime)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":35,
+            "hasChild":false,
+            "compId":53,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":7,"x":22,"width":83,"valign":"bottom","text":"删除","padding":"-10","height":21,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                    "nodeParent":35,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":36,
-                    "child":[
-                        ]
-                }],
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":827,"x":240,"width":145,"var":"btn_delete","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"删除","height":58},
+            "nodeParent":1,
+            "label":"Button(btn_delete)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":55,
+            "child":[
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":679,"x":181,"width":127,"var":"img_getDaoju","skin":"image/common/fram_common_09.png","height":43},
+            "type":"Button",
+            "props":{"y":827,"x":240,"width":145,"var":"btn_getDaoju","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"领取","height":58},
             "nodeParent":1,
-            "label":"Image(img_getDaoju)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Button(btn_getDaoju)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":6,
+            "hasChild":false,
+            "compId":54,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":7,"x":22,"width":83,"valign":"bottom","text":"领取","padding":"-10","height":21,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                    "nodeParent":6,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                }],
+                ],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":516,"x":31,"var":"box_hasGeted"},
+            "props":{"y":651,"x":95,"var":"box_hasGeted"},
             "nodeParent":1,
             "label":"Box(box_hasGeted)",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":42,
             "child":[
                 {
-                    "type":"Image",
-                    "props":{"x":27,"var":"img_getJiangLi","skin":"image/menu/img_title_di.png"},
-                    "nodeParent":42,
-                    "label":"Image(img_getJiangLi)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":24,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":0,"x":130,"text":"领取奖励","strokeColor":"#000000","stroke":5,"fontSize":24,"font":"Microsoft YaHei","color":"#ffffff"},
-                            "nodeParent":24,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":34,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"y":66,"width":412,"var":"panel_mailGet","height":72},
+                    "props":{"y":27,"x":48,"width":348,"var":"panel_mailGet","height":114},
                     "nodeParent":42,
                     "label":"Panel(panel_mailGet)",
                     "isOpen":true,
@@ -271,6 +200,7 @@
                     "compId":37,
                     "child":[
                         {
+                            "x":45,
                             "type":"HBox",
                             "props":{"width":1,"var":"hbox_mailGet","top":0,"space":15,"bottom":0,"align":"middle"},
                             "nodeParent":37,
@@ -284,6 +214,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":41,"x":141,"var":"img_geted","skin":"image/menu/img_geted.png"},
                     "nodeParent":42,
@@ -294,6 +225,56 @@
                     "compId":41,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":-14,"x":-5,"var":"box_getJiangLi"},
+                    "nodeParent":42,
+                    "label":"Box(box_getJiangLi)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":59,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":10,"x":0,"skin":"image/common/login/img_zhuangshi_03.png"},
+                            "nodeParent":59,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":9,"x":440,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1},
+                            "nodeParent":59,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":57,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":160,"text":"领取奖励","fontSize":32,"font":"FZXK","color":"#000000"},
+                            "nodeParent":59,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":34,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

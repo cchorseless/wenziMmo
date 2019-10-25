@@ -292,7 +292,7 @@ module ProtoCmd {
     }
 
 
-    /**0x024E
+    /**0x034E
      * 请求弟子数据信息
      */
     export class SUBCMD_HERO_ABILITY extends Packet {
@@ -301,7 +301,7 @@ module ProtoCmd {
         public constructor() {
             super();
             this.addProperty('btJob', PacketBase.TYPE_BYTE);//  1战士 2法师 3道士
-            this.cmd = 0x024E;
+            this.cmd = 0x034E;
         }
     }
 

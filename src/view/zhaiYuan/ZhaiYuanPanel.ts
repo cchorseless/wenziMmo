@@ -58,6 +58,13 @@ module view.zhaiYuan {
 			EventManage.onWithEffect(this.box_lianQi, Laya.UIEvent.CLICK, this, () => {
 				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
 			});
+			// 磨石  合成装备
+			EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
+				let o  = new view.dialog.EquipMixUp();
+				o.setData(0)
+				o.popup(true);
+			});
+			
 		}
 	}
 }

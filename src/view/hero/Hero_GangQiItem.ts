@@ -68,41 +68,41 @@ module view.hero {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
-			//当前属性生命
-			let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
-			this.lbl_hp1.text = '' + life;
-			//当前属性攻击值
-			let minkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
-			let maxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
-			this.lbl_attack1.text = minkill + '-' + maxkill;
-			//当前物理防御值
-			let minprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + data.dwEffId);
-			let maxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + data.dwEffId);
-			this.lbl_physicsDefense1.text = minprotect + '-' + maxprotect;
-			//当前魔法防御值
-			let minprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + data.dwEffId);
-			let maxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + data.dwEffId);
-			this.lbl_magicDefense1.text = minprotectmofa + '-' + maxprotectmofa;
-			//下阶属性ID
-			let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
-			//下阶罡气名
-			let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
-			this.lbl_name2.text = '' + xgangqiName;
-			//下阶属性生命
-			let xlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + xiajieID);
-			this.lbl_hp2.text = '' + xlife;
-			//下阶属性攻击值
-			let xminkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + xiajieID);
-			let xmaxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + xiajieID);
-			this.lbl_attack2.text = xminkill + '-' + xmaxkill;
-			//下阶物理防御值
-			let xminprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + xiajieID);
-			let xmaxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + xiajieID);
-			this.lbl_physicsDefense2.text = xminprotect + '-' + xmaxprotect;
-			//下阶魔法防御值
-			let xminprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + xiajieID);
-			let xmaxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + xiajieID);
-			this.lbl_magicDefense2.text = xminprotectmofa + '-' + xmaxprotectmofa;
+			// //当前属性生命
+			// let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
+			// this.lbl_hp1.text = '' + life;
+			// //当前属性攻击值
+			// let minkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
+			// let maxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
+			// this.lbl_attack1.text = minkill + '-' + maxkill;
+			// //当前物理防御值
+			// let minprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + data.dwEffId);
+			// let maxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + data.dwEffId);
+			// this.lbl_physicsDefense1.text = minprotect + '-' + maxprotect;
+			// //当前魔法防御值
+			// let minprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + data.dwEffId);
+			// let maxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + data.dwEffId);
+			// this.lbl_magicDefense1.text = minprotectmofa + '-' + maxprotectmofa;
+			// //下阶属性ID
+			// let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
+			// //下阶罡气名
+			// let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
+			// this.lbl_name2.text = '' + xgangqiName;
+			// //下阶属性生命
+			// let xlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + xiajieID);
+			// this.lbl_hp2.text = '' + xlife;
+			// //下阶属性攻击值
+			// let xminkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + xiajieID);
+			// let xmaxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + xiajieID);
+			// this.lbl_attack2.text = xminkill + '-' + xmaxkill;
+			// //下阶物理防御值
+			// let xminprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + xiajieID);
+			// let xmaxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + xiajieID);
+			// this.lbl_physicsDefense2.text = xminprotect + '-' + xmaxprotect;
+			// //下阶魔法防御值
+			// let xminprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + xiajieID);
+			// let xmaxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + xiajieID);
+			// this.lbl_magicDefense2.text = xminprotectmofa + '-' + xmaxprotectmofa;
 			//拉取我的罡气物品信息
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
@@ -115,11 +115,12 @@ module view.hero {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_heroWingPanel, this);
 			super.destroy(isbool);
 		}
-		
+
 		/**
 		 * 罡气下阶预览
 		 */
 		public init_GangQIInfo(): void {
+			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
 				let j = i + 1;
 				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));

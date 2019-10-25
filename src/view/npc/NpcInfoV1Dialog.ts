@@ -97,30 +97,35 @@ module view.npc {
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				itemUI.setData(_itembase);
-				this.hbox_xiHao.addChild(itemUI);
+				if (_itemId) {
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					itemUI.setData(_itembase);
+					this.hbox_xiHao.addChild(itemUI);
+				}
+
 			}
 			// 装备
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let _itemId of equipItem) {
+						if (_itemId) {
 				let itemUI = new view.compart.DaoJuWithNameItem();
 				let _itembase = new ProtoCmd.ItemBase();
 				_itembase.dwBaseID = _itemId;
 				itemUI.setData(_itembase);
 				this.hbox_equip.addChild(itemUI);
-			}
+			}}
 			// 宝物
 			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
 			for (let _itemId of BAOWUItem) {
+						if (_itemId) {
 				let itemUI = new view.compart.DaoJuWithNameItem();
 				let _itembase = new ProtoCmd.ItemBase();
 				_itembase.dwBaseID = _itemId;
 				itemUI.setData(_itembase);
 				this.hbox_baoWu.addChild(itemUI);
-			}
+			}}
 			// 战斗能力
 			this.lbl_npcDes2.text = this.battleDes[0]
 			// 气血状态

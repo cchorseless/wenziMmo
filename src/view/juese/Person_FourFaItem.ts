@@ -18,18 +18,18 @@ module view.juese {
 			this.activation();
 		}
 		public addEvent(): void {
-			if (this.mySum >= this.sum) {
+			// if (this.mySum >= this.sum) {
 				//开启
 				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
 				})
-			}
-			else {
+			// }
+			// else {
 				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
 				});
-			}
+			// }
 		}
 		public activation(): void {
 			//判断是否激活
