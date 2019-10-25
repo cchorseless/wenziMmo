@@ -1333,86 +1333,110 @@ module ProtoCmd {
          */
         public get stNpPropertyString(): Array<string> {
             if (this._stNpPropertyDes.length == 0) {
-                // let _stNpProperty = this.stNpProperty;
-                // let tmpObj = {};
-                // let tmpDes = {};
-                // for (let obj of _stNpProperty) {
-                //     let str = obj.btdes;
-                //     // 两条合一条
-                //     if (obj.btNpType >= 3 && obj.btNpType <= 14) {
-                //         tmpObj[obj.btNpType] = obj;
-                //         // 数字描述
-                //         let str_num = '' + Math.min(obj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(obj.dwNpNum, firstObj.dwNpNum);
-                //         switch (obj.btNpType) {
-                //             case 3:
+                let _stNpProperty = this.stNpProperty;
+                let tmpObj = {};
+                let tmpDes = {};
+                let strDes = {};
+                for (let obj of _stNpProperty) {
+                    let str = obj.btdes;
+                    if (strDes[obj.btNpFrom] == null) {
+                        strDes[obj.btNpFrom] = [];
+                    }
+                    // 两条合一条
+                    if (obj.btNpType >= 3 && obj.btNpType <= 14) {
+                        tmpObj[obj.btNpType] = obj;
+                        let firstObj;
+                        let secondObj;
+                        let key;
+                        switch (obj.btNpType) {
+                            case 3:
+                            case 4:
+                                key = '' + obj.btNpFrom + '_3_4'
+                                firstObj = tmpObj[3];
+                                secondObj = tmpObj[4];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 5:
+                            case 6:
+                                key = '' + obj.btNpFrom + '_5_6'
+                                firstObj = tmpObj[5];
+                                secondObj = tmpObj[6];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '蛮力攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 7:
+                            case 8:
+                                key = '' + obj.btNpFrom + '_7_8'
+                                firstObj = tmpObj[7];
+                                secondObj = tmpObj[8];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '灵巧攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 9:
+                            case 10:
+                                key = '' + obj.btNpFrom + '_9_10'
+                                firstObj = tmpObj[9];
+                                secondObj = tmpObj[10];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '灵巧攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 11:
+                            case 12:
+                                key = '' + obj.btNpFrom + '_11_12'
+                                firstObj = tmpObj[11];
+                                secondObj = tmpObj[12];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '蛮力防御:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 13:
+                            case 14:
+                                key = '' + obj.btNpFrom + '_13_14'
+                                firstObj = tmpObj[13];
+                                secondObj = tmpObj[14];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '灵巧防御:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                        }
+                    }
+                    else {
+                        strDes[obj.btNpFrom].push(str);
+                    }
 
-                //             case 4:
-                //                 str = '攻击:' + str_num
-                //                 break;
-                //             case 5:
-                //             case 6:
-                //                 str = '凌厉攻击:' + str_num
-                //                 break;
-                //             case 7:
-                //             case 8:
-                //                 str = '灵巧攻击:' + str_num
-                //                 break;
-                //             case 9:
-                //             case 10:
-                //                 str = '灵巧攻击:' + str_num
-                //                 break;
-                //             case 11:
-                //             case 12:
-                //                 str = '物理防御:' + str_num
-                //                 break;
-                //             case 13:
-                //             case 14:
-                //                 str = '法术防御:' + str_num
-                //                 break;
-                //         }
-
-
-
-                //     }
-
-                //     if (tmpObj[obj.btNpType]) {
-                //         let firstObj: Nonpareil = tmpObj[obj.btNpFrom];
-                //         // 数字描述
-                //         let str_num = '' + Math.min(obj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(obj.dwNpNum, firstObj.dwNpNum);
-                //         switch (firstObj.btNpType) {
-                //             case 3:
-                //             case 4:
-                //                 str = '攻击:' + str_num
-                //                 break;
-                //             case 5:
-                //             case 6:
-                //                 str = '凌厉攻击:' + str_num
-                //                 break;
-                //             case 7:
-                //             case 8:
-                //                 str = '灵巧攻击:' + str_num
-                //                 break;
-                //             case 9:
-                //             case 10:
-                //                 str = '灵巧攻击:' + str_num
-                //                 break;
-                //             case 11:
-                //             case 12:
-                //                 str = '物理防御:' + str_num
-                //                 break;
-                //             case 13:
-                //             case 14:
-                //                 str = '法术防御:' + str_num
-                //                 break;
-                //         }
-                //     }
-                //     tmpObj[obj.btNpType] = obj;
-                //     tmpDes[obj.btNpType] = str;
-                // }
-                // let keys = Object.keys(tmpDes).sort();
-                // for (let key of keys) {
-                //     this._stNpPropertyDes.push(tmpDes[key]);
-                // }
+                }
+                let keys = Object.keys(tmpDes);
+                for (let key of keys) {
+                    let btNpFrom = key.split('_')[0];
+                    strDes[btNpFrom].push(tmpDes[key]);
+                }
+                let keys2 = Object.keys(strDes).sort();
+                for (let key2 of keys2) {
+                    this._stNpPropertyDes = this._stNpPropertyDes.concat(strDes[key2]);
+                }
             }
             return this._stNpPropertyDes;
         }
@@ -2613,7 +2637,7 @@ module ProtoCmd {
         public get dwMailID(): string {
             return this.getValue("dwMailID");
         }
-         public get boSystem(): string {
+        public get boSystem(): string {
             return this.getValue("boSystem");
         }
 

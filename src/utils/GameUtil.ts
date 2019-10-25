@@ -63,13 +63,96 @@ module GameUtil {
     /**
      * 解析效果ID
      */
-    export function parseEffectidToString(): void {
+    export function parseEffectidToString(effectID: string): { des: Array<string>, battle: Array<number> } {
+        let sheetInfo = SheetConfig.mydb_effect_base_tbl.getInstance(null).data[effectID];
+        let strDes = [];// 描述
+        let r0 = 0; // 战力
+        let r1 = 0; // 战力
+        let r2 = 0; // 战力
+        if (sheetInfo) {
+            let startIndex = 3;
+            let length = sheetInfo.length - startIndex;
+            let tmpDes = {};
+            for (let i = 0; i < length; i++) {
+                let dataIndex = i + startIndex;
+                let desIndex = i + 1;
+                let data = sheetInfo[dataIndex];
+                let key;
+                if (data != 0) {
+                    let des = LangConfig.NpPropertyDes[desIndex];
+                    if (dataIndex >= 5 && dataIndex <= 16) {
+                        switch (dataIndex) {
+                            // 攻击
+                            case 5:
+                            case 6:
+                                key = '5_6';
+                                if (tmpDes[key]) {
+                                    des = '攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                            // 物理攻击
+                            case 7:
+                            case 8:
+                                key = '7_8';
+                                if (tmpDes[key]) {
+                                    des = '物理攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                            // 灵巧攻击
+                            case 9:
+                            case 10:
+                                key = '9_10';
+                                if (tmpDes[key]) {
+                                    des = '灵巧攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                            // 灵魂攻击
+                            case 11:
+                            case 12:
+                                key = '11_12';
+                                if (tmpDes[key]) {
+                                    des = '灵魂攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                            // 物理防御
+                            case 13:
+                            case 14:
+                                key = '13_14';
+                                if (tmpDes[key]) {
+                                    des = '物理防御:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                            // 法术防御
+                            case 15:
+                            case 16:
+                                key = '15_16';
+                                if (tmpDes[key]) {
+                                    des = '法术防御:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                }
+                                break;
+                        }
+                        tmpDes[key] = [des, data]
+                    }
+                    else {
+                        strDes.push(des + data);
+                    };
 
+                    // 战力计算
+                    let tmp = GameObject.AbilityWorth[desIndex];
+                    r0 += tmp[0] * data;
+                    r1 += tmp[1] * data;
+                    r2 += tmp[2] * data;
+                }
+            }
+            let keys3 = Object.keys(tmpDes);
+            for (let key3 of keys3) {
+                strDes.push(tmpDes[key3][0]);
+            }
+        }
 
-
-
-
-
+        // 战力 ： 通用战力 战士战力 道士战力 法师战力
+        let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
+        return { des: strDes, battle: battleDes }
     }
 
     /**

@@ -389,16 +389,22 @@ module EnumData {
         NONPAREIL_TYPE_MAXMP,	 //最大蓝量
         NONPAREIL_TYPE_MAXATK,	 //物理/魔法/道术攻击上限全部
         NONPAREIL_TYPE_MINATK,	 //物理/魔法/道术攻击下限全部
+        
         NONPAREIL_TYPE_MAXDC,	 //物理攻击上限值,攻击力上限，影响所有职业普通攻击和战士技能的最大伤害。
         NONPAREIL_TYPE_MINDC,	 //物理攻击下限值,攻击力下限，影响所有职业普通攻击和战士技能的最小伤害。
+
         NONPAREIL_TYPE_MAXMC,	 //自然魔法攻击上限值,魔法攻击上限，影响法师技能的最大伤害。
         NONPAREIL_TYPE_MINMC,	 //自然魔法攻击下限值,魔法攻击下限，影响法师技能的最小伤害。
+
         NONPAREIL_TYPE_MAXSC,	 //灵魂魔法攻击上限值,道士攻击上限，影响法师技能的最大伤害。
         NONPAREIL_TYPE_MINSC,	 //灵魂魔法攻击下限值.道术攻击下限，影响法师技能的最小伤害。
+
         NONPAREIL_TYPE_MAXAC,	 //物理防御上限值,防御上限，影响受到物理攻击时可以降低的伤害。
         NONPAREIL_TYPE_MINAC,	 //物理防御下限值,防御下限，影响受到物理攻击时可以降低的伤害。
+
         NONPAREIL_TYPE_MAXMAC,	 //全系法术防御上限值,魔法防御上限，影响受到魔法和道术攻击时可以降低的伤害。
         NONPAREIL_TYPE_MINMAC,	 //全系法术防御下限值,魔法防御下限，影响受到魔法和道术攻击时可以降低的伤害。
+
         NONPAREIL_TYPE_HIT,	 //命中(准确),在攻击时，增加命中目标的几率。当自身准确大于目标闪避时，目标不能闪避攻击
         NONPAREIL_TYPE_HITRATE,	 //命中的概率，准确值折算成命中率
         NONPAREIL_TYPE_JUCK,	 //闪避,影响受到所有攻击可以闪避的概率
