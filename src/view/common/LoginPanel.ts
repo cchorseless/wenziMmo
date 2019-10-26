@@ -26,6 +26,9 @@ module view.common {
 
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_Login, Laya.UIEvent.CLICK, this, this.loginGame);
+			this.btn_text.on(Laya.UIEvent.CLICK, this, () => {
+				TipsManage.showTxt('1111111111111');
+			});
 		}
 
 

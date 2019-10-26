@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":37,
-    "selecteID":29,
+    "selectedBox":56,
+    "selecteID":53,
     "props":{"width":640,"sceneColor":"#000000","name":"LoginPanel","height":1136},
     "nodeParent":-1,
     "label":"View(LoginPanel)",
@@ -133,9 +133,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":213,"x":0,"stateNum":"2","skin":"image/common/login/btn_lv.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"微信登陆"},
+                            "props":{"y":213,"x":0,"var":"btn_text","stateNum":"2","skin":"image/common/login/btn_lv.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"微信登陆"},
                             "nodeParent":56,
-                            "label":"Button",
+                            "label":"Button(btn_text)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
