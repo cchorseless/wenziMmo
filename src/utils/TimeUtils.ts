@@ -313,7 +313,6 @@ module TimeUtils {
         var oneDay: number = 3600 * 24;
         var oneHourst: number = 3600;
         var oneMinst: number = 60;
-
         var days = Math.floor(time / oneDay);
         var hourst: number = Math.floor((time - days * oneDay) / oneHourst)
         var minst: number = Math.floor((time - hourst * oneHourst - days * oneDay) / oneMinst)
@@ -329,7 +328,6 @@ module TimeUtils {
             else {
                 str += hourst + "小时";
             }
-
         }
         else if (hourst >= 10) {
             str += hourst + "小时";
@@ -414,7 +412,6 @@ module TimeUtils {
         } else if (type == 2) {
             return Year + Month + Day + hour + ":" + minute + ":" + second;
         }
-
 
     }
 }

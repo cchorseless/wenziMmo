@@ -30,6 +30,14 @@ module view.menu {
 			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.MenuChengJiuDialog().popup(true);
 			})
+			//祈福
+			this.btn_Blessing.on(Laya.UIEvent.CLICK, this, () => {
+				new view.menu.Menu_BlessingDialog().popup(true);
+			})
+			//抽奖
+			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openLuckDrawPanel();
+			})
 			// 菜单活动
 			// this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.btn_active.selected = !this.btn_active.selected;
@@ -52,18 +60,6 @@ module view.menu {
 			// 	else {
 			// 		this.box_menuMain.visible = true;
 			// 		this.ui_cuxiao.visible = false
-			// 	}
-			// })
-			// // 菜单抽奖
-			// this.btn_choujiang.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_choujiang.selected = !this.btn_choujiang.selected;
-			// 	if (this.btn_choujiang.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_choujiang.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_choujiang.visible = false
 			// 	}
 			// })
 			// // 菜单商城

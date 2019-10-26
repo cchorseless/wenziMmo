@@ -215,9 +215,9 @@ module ProtoCmd {
     export const Hero_exchangeRealGas = 'exchangeRealGas';
     // 弟子符文面板
     export const Hero_openActiveRunePanel = 'openActiveRunePanel';//score符文积分viewtab符文碎片
-     // 弟子符文面板
+    // 弟子符文面板
     export const Hero_runeRecycle = 'runeRecycle';//score符文积分viewtab符文碎片
-    
+
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
@@ -274,9 +274,21 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
-
-
-
+    /*********************************菜单******************** */
+    //菜单祈福面板
+    export const Menu_QiFuClientOpen = "QiFuClientOpen";
+    //祈福功能
+    export const Menu_QiFu = "QiFu";
+    /*********************************藏宝阁抽奖******************** */
+    //抽奖面板
+    export const LD_chouJiangPanel = "chouJiangPanel";
+    //藏宝阁
+    export const LD_cangbaogeopen = "cangbaogeopen";
+    //藏宝阁奖励记录
+    export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//(record全服奖励记录myrecord我的奖励记录)
+    //藏宝阁抽奖
+    export const LD_CangbaotuBuy = "CangbaotuBuy";
+    /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数
     //玩家装备强化面板信息（单个Item）
@@ -805,5 +817,35 @@ module ProtoCmd {
         status: any//任务状态 -1是未接||0新接||1进行中||2已完成||3已结束||4放弃
         szquestrewards: string//任务奖励(id:奖励id，co：奖励数量)
         statustab: any
+    }
+    /***********************************菜单接口**************************** */
+    /**
+     * 菜单祈福
+     */
+    export interface itf_Menu_blessInfo {
+        GetGoldNum: number//可得到金币数量
+        GetLiJuanNum: number//可得到礼券数量
+        GoldCnt: number//金币祈福当前次数
+        GoldCritLeftNum: number//金币祈福暴击倍数
+        GoldMaxCnt: number//金币祈福最大次数
+        GoldNeedYuanBao: number//金币祈福所需元宝
+        GoldNum: number////获得金币总数
+        LiJuanCnt: number//礼券祈福当前次数
+        LiJuanCritLeftNum: number//礼券祈福暴击数
+        LiJuanMaxCnt: number//礼券祈福最大次数
+        LiJuanNeedYuanBao: number//礼券祈福所需元宝
+        LiJuanNum: number//获得礼券总数
+    }
+    /***********************************抽奖接口**************************** */
+    export interface itf_LD_Info {
+        id: number//抽奖活动ID
+        name: string//抽奖活动名称
+    }
+    export interface itf_LD_CangBaoGeInfo {
+        middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
+        score: number//宝藏积分
+        sideItem: any//12个物品id
+        tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
+
     }
 }
