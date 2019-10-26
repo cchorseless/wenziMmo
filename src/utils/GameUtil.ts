@@ -154,6 +154,8 @@ module GameUtil {
         return { des: strDes, battle: battleDes }
     }
 
+
+
     /**
      * 获取云服务器设置的新手引导数据
      * @param index 

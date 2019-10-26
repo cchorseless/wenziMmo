@@ -10,7 +10,14 @@ module LangConfig {
      * @param lvl 等级
      */
     export function getLevelDes(zs_level, lvl): string {
-        return (zs_level == 0 ? '' : '' + zs_level + '转') + lvl + '级';
+        let str = '';
+        if (zs_level > 0) {
+            str += zs_level + '转'
+        }
+        if (lvl > 0) {
+            str += lvl + '级'
+        }
+        return str;
     }
 
     /**

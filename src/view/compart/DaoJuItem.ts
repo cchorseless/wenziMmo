@@ -17,13 +17,27 @@ module view.compart {
 			this.item = item;
 			item.recoverUI();
 			item.ui_item = this;
+			let dwBaseID = '' + item.dwBaseID;
+			let player = GameApp.MainPlayer;
 			// 是否有能力提升的提示
-			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + item.dwBaseID);
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
 			// 
 			this.btn_isStronger.visible = false;
-			// 在角色
-			if (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP && item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
-				this.updateIsStronger();
+			// 在角色身上
+			if (item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+				// 装备查看是否可以战力增加的提示
+				if (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP) {
+					this.updateIsStronger();
+				}
+				// 使用等级提示
+				let ZS_LEVEL = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
+				let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
+				if (player.zslevel * 1000 + player.level < ZS_LEVEL * 1000 + lvl) {
+					this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
+				}
+				else {
+					this.img_bg.filters = null;
+				}
 			}
 			this.initUI(item, model);
 		}
@@ -120,16 +134,7 @@ module view.compart {
 			else {
 				this.lbl_count.text = '';
 			}
-			// 使用等级
-			let ZS_LEVEL = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
-			let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
 
-			if (player.zslevel * 1000 + player.level < ZS_LEVEL * 1000 + lvl) {
-				this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
-			}
-			else {
-				this.img_bg.filters = null;
-			}
 		}
 
 		/**

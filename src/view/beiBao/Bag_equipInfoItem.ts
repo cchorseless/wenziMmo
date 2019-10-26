@@ -7,15 +7,21 @@ module view.beiBao {
 		}
 		public setData(): void {
 			this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
+			for (let i = 0; i < 10; i++) {
+				this['ui_item' + i].img_bg.visible = true;
+				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + i + '.png';
+			}
+
+
 			this.updateUI();
 			this.addEvent();
 		}
 
-		public addEvent():void{
+		public addEvent(): void {
 			this.addLcpEvent();
 		}
 
-		public addLcpEvent():void{
+		public addLcpEvent(): void {
 			// GameApp.LListener.on( )
 		}
 

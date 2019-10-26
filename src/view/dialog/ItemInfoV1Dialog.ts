@@ -65,7 +65,8 @@ module view.dialog {
 			}
 			let dwBaseID = '' + obj.dwBaseID;
 			// 物品名称
-			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
+			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID).split('_')[0];
+			this.lbl_itemName.color = ColorUtils.nameColor[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID)];
 			// 物品描述
 			this.div_itemDes.innerHTML = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(dwBaseID);
 			// 玩家回收经验
@@ -147,7 +148,7 @@ module view.dialog {
 						this.viw_prop0.selectedIndex = 2;
 						break;
 				}
-			}, null, false)
+			}, null, false);
 			// 道具ICON信息赋值
 			this.ui_item.initUI(obj);
 			// 添加监听

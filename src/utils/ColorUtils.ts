@@ -19,6 +19,21 @@ module ColorUtils {
 	export const white = "#ffffff";
 
 	/**
+	 * 名字的颜色
+	 */
+	export const nameColor = {
+		0: '#ffffff',
+		1: '#ffffff',
+		2: '#04eb3d',
+		3: '#00e4ff',
+		4: '#ff49f4',
+		5: '#ff0000',
+		6: '#fecb00',
+		7: "#ffff00"
+	}
+
+
+	/**
 	 * 红色的颜色滤镜
 	 */
 	export const redFilters =
