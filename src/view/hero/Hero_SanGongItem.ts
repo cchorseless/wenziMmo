@@ -3,7 +3,6 @@ module view.hero {
 	export class Hero_SanGongItem extends ui.hero.Hero_SanGongItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 		//当前经验-最大经验
 		public exp;
@@ -13,10 +12,14 @@ module view.hero {
 		private sum;
 		//玩家等级总数
 		private mySum;
-		public setData(): void {
+		//判断是第几个弟子
+		private index;
+		public setData(index): void {
+			this.index = index+1;
+			this.vbox_left['sortItem'] = (items) => { };
+			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.activation();
-
 		}
 		public addEvent(): void {
 			//转生突破
@@ -82,6 +85,28 @@ module view.hero {
 					this.img_progress.width = 472;
 				}
 				if (jsonData.effid !== 0) {
+					let job = GameApp.GameEngine.HeroInfo[this.index].JOB;
+					//当前属性
+					let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
+					let attribute1 = shuxing1.des;
+					let battle1 = shuxing1.battle[job];
+					this.clip_power1.value = '' + battle1;
+					let keys1 = Object.keys(attribute1)
+					this.vbox_left.removeChildren();
+					for (let key of keys1) {
+						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+					}
+					//下级属性
+					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
+					let shuxing2 = GameUtil.parseEffectidToString('' + id)
+					let attribute2 = shuxing2.des;
+					let battle2 = shuxing2.battle[job];
+					this.clip_power2.value = '' + battle2;
+					let keys2 = Object.keys(attribute2)
+					this.vbox_right.removeChildren();
+					for (let key of keys2) {
+						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+					}
 					/**
 					  * 当前属性
 					  */
@@ -116,7 +141,7 @@ module view.hero {
 					  * 下级属性
 					  */
 					//下级效果ID
-					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
+					
 					// //最大生命
 					// let HP2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
 					// this.lbl_maxHP2.text = '' + HP2;

@@ -6,8 +6,8 @@ module view.juese {
 		}
 		public hasInit = false;// 初始化自己
 		private client_func_index = 18;// 功能ID编号
-
-
+		//角色职业
+		private job = GameApp.MainPlayer.job;
 		public setData(): void {
 			this.panel_shengWang.hScrollBarSkin = '';
 			this.hbox_shengWang['sortItem'] = (items) => { };
@@ -75,26 +75,30 @@ module view.juese {
 				this.lbl_one.text = '声望第一：' + jsonData.rank[1];
 				this.lbl_two.text = '声望第二：' + jsonData.rank[2];
 				this.lbl_three.text = '声望第三：' + jsonData.rank[3];
-				//当前属性
-				// let hp = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + jsonData.effid);
-				// this.lbl_hp.text = '' + hp;
-				// let minfight = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_NATURAL('' + jsonData.effid);
-				// let maxfight = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_NATURAL('' + jsonData.effid);
-				// this.lbl_magic.text = minfight + '-' + maxfight;
-				// //预览属性
-				// let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
-				// if (id !== 0) {
-				// 	let hp1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
-				// 	this.lbl_hp1.text = '' + hp1;
-				// 	let minfight1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_NATURAL('' + id);
-				// 	let maxfight1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_NATURAL('' + id);
-				// 	this.lbl_magic1.text = minfight1 + '-' + maxfight1;
-				// }
-				// else {
-				// 	this.lbl_hp1.text = '无';
-				// 	this.lbl_magic1.text = '无';
-
-				// }
+				// //当前属性
+				let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
+				let attribute1 = shuxing1.des;
+				let battle1 = shuxing1.battle[this.job];
+				this.clip_power1.value = '' + battle1;
+				let keys1 = Object.keys(attribute1)
+				this.vbox_left.removeChildren();
+				for (let key of keys1) {
+					this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+				}
+				//下级属性
+				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
+				if (id !== 0) {
+					let shuxing2 = GameUtil.parseEffectidToString('' + id)
+					let attribute2 = shuxing1.des;
+					let battle = shuxing1.battle[this.job];
+					this.clip_power2.value = '' + battle;
+					let battle2 = shuxing1.battle[this.job];
+					let keys2 = Object.keys(attribute1)
+					this.vbox_right.removeChildren();
+					for (let key of keys2) {
+						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+					}
+				}
 				//声望经验值进度条
 				this.img_progress.width = 211 * jsonData.damage;
 				for (let i = 0; jsonData.titletab[i]; i++) {

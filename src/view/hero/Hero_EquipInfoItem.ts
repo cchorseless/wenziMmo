@@ -47,9 +47,8 @@ module view.hero {
 			}
 			let j = i + 1
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_HeroBaseInfo, null, null, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
-				this.job = jsonData[j].JOB;
-				switch (jsonData[j].JOB) {
+				this.job = GameApp.GameEngine.HeroInfo[j].JOB;
+				switch (this.job) {
 					case 1:
 						this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
 						this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
@@ -75,7 +74,6 @@ module view.hero {
 						(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
 					}
 				}
-			})
 			this.initUI(j);
 		}
 		public initUI(j): void {

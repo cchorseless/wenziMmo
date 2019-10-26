@@ -4,6 +4,8 @@ module view.hero {
 		constructor() {
 			super();
 		}
+		//弟子索引
+		public index;
 		public setData(index): void {
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_left.selectedIndex = index;
@@ -11,9 +13,12 @@ module view.hero {
 					this.img_bg.visible = true;
 				}
 			}, null, false);
+			this.index = index;
+			this.addEvent();
 			this.ui_diziInfo.baseInfo(index);
 			this.ui_equipProps.baseInfo(index);
-			this.addEvent();
+			this.ui_gangqi.setData(index);
+			this.ui_sangong.setData(index);
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
@@ -30,9 +35,12 @@ module view.hero {
 					PanelManage.openDiZiPanel(i);
 					this.ui_diziInfo.baseInfo(i);
 					this.ui_equipProps.baseInfo(i);
+					this.ui_gangqi.setData(i);
+					this.ui_sangong.setData(i);
 					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
 				})
 			}
 		}
+	
 	}
 }
