@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":8,
+    "selectedBox":36,
+    "selecteID":39,
     "referenceLines":[
         {
             "value":1127,
@@ -150,13 +150,14 @@
                     "props":{"y":42,"x":97,"width":428,"skin":"image/main/fram_common_03.png","height":36},
                     "nodeParent":129,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":36,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":2,"x":23,"var":"lbl_playerName","text":"名字超多六字","strokeColor":"#000000","stroke":4,"mouseThrough":true,"fontSize":28,"font":"FZXK","color":"#f9e596","align":"center"},
                             "nodeParent":36,
@@ -170,6 +171,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":2,"x":200,"skin":"image/common/zi_zhanli.png"},
                             "nodeParent":36,
@@ -183,6 +185,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"FontClip",
                             "props":{"y":10,"x":285,"width":107,"var":"clip_power","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
                             "nodeParent":36,
@@ -273,14 +276,13 @@
                     "props":{"y":2,"x":2,"var":"box_head"},
                     "nodeParent":129,
                     "label":"Box(box_head)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":4,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":12,"x":10,"width":100,"skin":"image/main/img_zhujiedi.png","height":100},
                             "nodeParent":4,
@@ -321,11 +323,10 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":9,"x":94,"var":"img_VIP","skin":"image/main/img_vipdi.png"},
+                            "props":{"y":9,"x":94,"skin":"image/main/img_vipdi.png"},
                             "nodeParent":4,
-                            "label":"Image(img_VIP)",
+                            "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -336,7 +337,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "props":{"width":16,"var":"font_vipLevel","value":"4","spaceX":-10,"skin":"image/common/number/zi_shuzi01.png","sheet":"0123456789","height":23,"centerY":-36,"centerX":52},
                             "nodeParent":4,
@@ -350,7 +350,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":11,"x":101,"skin":"image/common/zi_vip_01.png"},
                             "nodeParent":4,

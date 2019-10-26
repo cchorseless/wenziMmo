@@ -32,7 +32,6 @@ module PanelManage {
     export let netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
     export let resloading: view.common.ResLoadingPanel;                                  //游戏中加载资源切换场景界面
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
-    export let GM: view.common.GmPanel;                                                  //GM界面
     export let Login: view.common.LoginPanel;                                            //登陆界面
     export let ChooseServer: view.common.ChooseServerPanel;                              //选择服务器界面
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
@@ -83,6 +82,7 @@ module PanelManage {
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
@@ -133,20 +133,7 @@ module PanelManage {
 
         });
     }
-    // GM工具
-    export function openGmPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GM) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GM);
-        ResManage.loadResource(ResData.PanelRes.GM, () => {
-            PanelManage.GM = new view.common.GmPanel();
-            PanelManage.GM['LCP_skin'] = ResData.PanelRes.GM;
-            PanelManage.GM.setData();
-            PanelManage.GM.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GM, 99, 0, ShowType.BOTTOM);
-        })
-    }
+
     // 登陆界面
     export function openLoginPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Login) {
@@ -616,6 +603,22 @@ module PanelManage {
             PanelManage.Menu.setData();
             PanelManage.Menu.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.Menu, 99, 0, 2);
+        })
+    }
+    /**
+   * 抽奖界面
+   */
+    export function openLuckDrawPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LuckDraw) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.LuckDraw);
+        ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
+            PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
+            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.LuckDraw.setData();
+            PanelManage.LuckDraw.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
     /**

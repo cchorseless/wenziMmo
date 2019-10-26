@@ -29,6 +29,25 @@ module EnumData {
         DEFAULT = 30,
 
     }
+    /**
+     * 创建角色枚举
+     */
+    export enum createPlayerError {
+        _CREATEPLAYER_RET_SUCCESS_ = 0,
+        _CREATEPLAYER_RET_LIMITSTR_ = -10,		    //有非法字符 	
+        _CREATEPLAYER_RET_HASMAXPLAYER_ = -11,		//角色超过规定数量 
+        _CREATEPLAYER_RET_STATEERROR_ = -12,		//正在游戏 
+        _CREATEPLAYER_RET_OTHERZONEHASPLAYER_ = -13,//其他区还有角色 
+        _CREATEPLAYER_RET_NAMECHECKFAIL_ = -14,		//角色名检查没通过
+        _CREATEPLAYER_RET_NAMENUMBERCHECKFAIL_ = -15,//角色名不能超过4个以上的数字 
+        _CREATEPLAYER_RET_SERVERDOWN_ = -16,		//当前服务器正在维护  	
+        _CREATEPLAYER_RET_NAMEREPEAT_ = -70,		//角色重名
+        _CREATEPLAYER_RET_ONLYIDERROR_ = -71,		//onlyid分配失败  
+        _CREATEPLAYER_RET_NAMECHECKSVRASSERT_ = -21,//角色名检查服务器没有开启  
+        _CREATEPLAYER_RET_DBCONNECTERROR_ = -31,	//数据库连接失败 
+        _CREATEPLAYER_RET_DBINSERTERROR_ = -32,		//插入失败 
+        _CREATEPLAYER_RET_COUNTRYERROR_ = -33,		//国家信息没有找到 
+    };
 
     /**
      * 确认界面场景模式
@@ -63,6 +82,7 @@ module EnumData {
      * 职业
      */
     export enum JOB_TYPE {
+        JOB_NONE = 0,//通用
         JOB_WARRIOR = 1,// 战士
         JOB_MAGE = 2,// 法师
         JOB_MONK = 3,// 道士
@@ -72,6 +92,7 @@ module EnumData {
      * 性别
      */
     export enum SEX_TYPE {
+        SEX_NONE = 0,
         SEX_MAN = 1,
         SEX_WOMEN = 2
     }
@@ -165,7 +186,7 @@ module EnumData {
         EQUIP_KNEE,						// 膝
         EQUIP_PENDANT,					// 吊坠
         EQUIP_FACE = 69,				// 脸
-        
+
         EQUIP_MAX_COUNT,				// 总数
     };
 
@@ -267,16 +288,16 @@ module EnumData {
     export enum emItemNpFrom {
         NP_ALL = 0,				//无来源
         NP_MONSTERDROP = 1,		//掉落生成
-        NP_GMCREATE = 2,			//GM生成
+        NP_GMCREATE = 2,		//GM生成
         NP_STRENGPROPERTY = 3,	//武器强化
         NP_QUESTREWARD = 4,		//任务奖励
-        NP_SCRIPTCREATE = 5,      //脚本生成
+        NP_SCRIPTCREATE = 5,    //脚本生成
 
         NP_QUENCHING_POS_ONE = 6,	//第一条淬炼
         NP_QUENCHING_POS_TWO = 7,	//第二条淬炼
         NP_QUENCHING_POS_THREE = 8,	//第三条淬炼
 
-        NP_POS_0_1 = 10,		//
+        NP_POS_0_1 = 10,		// 符文属性
         NP_POS_1_1,
         NP_POS_2_1,
         NP_POS_3_1,
@@ -364,66 +385,129 @@ module EnumData {
     }
 
     /**
+     * 道具操作错误枚举
+     */
+    export enum emItemErrorCode {
+        ITEM_SUCCESS,	   //成功操作',
+        ITEM_FAIL_NOITEM,	    //没有物品',
+        ITEM_FAIL_NOTENOUGH,    //物品数量不足以拆分',
+        ITEM_FAIL_NOSPACE,	    //没有剩余的空间', 
+        ITEM_FAIL_NOT_ENOUGH_GOLD, //人物金币不足', 
+        ITEM_FAIL_MAX_CARRY_GOLD,  //人物金币已达上限值', 	
+        ITEM_FAIL_SAVE_NOT_ENOUGH_GOLD, //仓库金币不足', 
+        ITEM_FAIL_SAVE_MAX_CARRY_GOLD, //仓库已达上限值', 
+        ITEM_FAIL_FULL,         //已满', 
+        ITEM_FAIL_WRONGSTORAGE,//仓库编号错误', 
+        ITEM_FAIL_WRONGBAG,//包裹编号错误', 
+        ITEM_FAIL_NOTOPENED,//未开放', 
+        ITEM_FAIL_LOWLEVEL,//等级不足', 
+        ITEM_FAIL_WRONG_POSITION,//佩戴位置错误', 
+        ITEM_FAIL_WRONG_TYPE,//物品操作类型错误', 
+        ITEM_FAIL_WRONG_SEX,//物品性别错误', 	
+        ITEM_FAIL_NOT_IDENT, //未鉴定', 
+        ITEM_FAIL_NOTFIND_TARGET,//未找到使用目标', 
+        ITEM_FAIL_NONEED,//不需要使用 
+        ITEM_USER_DIE, //用户已死亡 
+        ITEM_FAIL_FIGHT,//战斗中无法使用 
+        ITEM_FAIL_UKNOWN,//未知错误 
+        ITEM_FAIL_LOCKED, //装备已锁定 
+        ITEM_FAIL_NOTLOCKED,//装备已锁定 
+        ITEM_FAIL_BAG_FULL,//包裹满  
+        ITEM_SKILL_STUDY,	//技能已学习(技能存档结构修改后)
+        ITEM_SKILL_NOMAGIC,	//没有技能的下一等级 
+        ITEM_SKILL_NOITEM,	//没有该技能书 
+        ITEM_FAIL_NOJOB,	//职业不符合  
+        ITEM_DRUG_NODRUG,	//药品没有 
+        ITEM_DRUG_NOBUFF,	//药品使用不成功  
+        ITEM_FAIL_NOCDTIME,	//物品没有冷却 
+        ITEM_FORSAKE_NOITEM,	//物品不存在 	
+        ITEM_FORSAKE_BINDING,	//物品绑定 
+        ITEM_FORSAKE_NOMOVE,	//物品不能移出包裹 
+        ITEM_FORSAKE_NOMAP,		//不能地面创建物品  
+        ITEM_FAIL_NOPUTSTORAGE,	//不能放入仓库  
+        ITEM_MARRIED_BINDING,	//结婚戒指被绑定,不能摘下和替换 
+        ITEM_FAIL_DESTORY,		//不能摧毁  
+        ITEM_FAIL_NORESORTSTORAGE,	//不能整理仓库  
+        ITEM_FAIL_TMPPACKETNOREPLACE,//临时包裹有东西时不能替换 	
+        ITEM_FAIL_NOFAME,			//物品所需声望不足 
+        ITEM_FAIL_USELOWLEVEL,		//物品使用等级不足 
+        ITEM_FAIL_TREASURESTONE,	//勋章和印不是luacall 
+        ITEM_FAIL_SAMERUNEPROPERTY,	//已佩戴相同属性兽魂 
+        ITEM_FAIL_EATANIMALSOUL,	//兽魂吞噬失败 
+        ITEM_FAIL_CROSSSVR,			//跨服不能丢弃 
+        ITEM_FAIL_ZHUANSHENGLV,		//转生等级不足 
+        ITEM_FAIL_LEGEND_BINDING,	//传世装备绑定，不能取下、替换 
+    };
+
+
+
+
+    /**
      * 属性类型
      */
     export enum emNonpareilType {
-        NONPAREIL_TYPE_NULL,			        //没有极品
-        NONPAREIL_TYPE_MaxHP,                   //最大血量
-        NONPAREIL_TYPE_MaxMP,                   //最大蓝量
-        NONPAREIL_TYPE_MaxAtk,                  //物理/魔法/道术攻击上限全部
-        NONPAREIL_TYPE_MinAtk,                  //物理/魔法/道术攻击下限全部
-        NONPAREIL_TYPE_MaxDC,                   //物理攻击上限值,攻击力上限，影响所有职业普通攻击和战士技能的最大伤害。
-        NONPAREIL_TYPE_MinDC,                   //物理攻击下限值,攻击力下限，影响所有职业普通攻击和战士技能的最小伤害。
-        NONPAREIL_TYPE_MaxMC,                   //自然魔法攻击上限值,魔法攻击上限，影响法师技能的最大伤害。
-        NONPAREIL_TYPE_MinMC,                   //自然魔法攻击下限值,魔法攻击下限，影响法师技能的最小伤害。
-        NONPAREIL_TYPE_MaxSC,                   //灵魂魔法攻击上限值,道士攻击上限，影响法师技能的最大伤害。
-        NONPAREIL_TYPE_MinSC,                   //灵魂魔法攻击下限值,道术攻击下限，影响法师技能的最小伤害。
-        NONPAREIL_TYPE_MaxAC,                   //物理防御上限值,防御上限，影响受到物理攻击时可以降低的伤害。
-        NONPAREIL_TYPE_MinAC,                   //物理防御下限值,防御下限，影响受到物理攻击时可以降低的伤害。
-        NONPAREIL_TYPE_MaxMAC,                  //全系法术防御上限值,魔法防御上限，影响受到魔法和道术攻击时可以降低的伤害。
-        NONPAREIL_TYPE_MinMAC,                  //全系法术防御下限值,魔法防御下限，影响受到魔法和道术攻击时可以降低的伤害。
-        NONPAREIL_TYPE_Hit,                     //命中(准确),在攻击时，增加命中目标的几率。当自身准确大于目标闪避时，目标不能闪避攻击
-        NONPAREIL_TYPE_HitRate,                 //命中的概率，准确值折算成命中率
-        NONPAREIL_TYPE_Juck,                    //闪避,影响受到所有攻击可以闪避的概率
-        NONPAREIL_TYPE_JuckRate,                //闪避的概率，闪避值折算成闪避率
-        NONPAREIL_TYPE_Crit,                    //暴击,在攻击时，增加暴击的几率。每160点暴击增加1%的暴击率
-        NONPAREIL_TYPE_CritRate,                //暴击率, 暴击的概率
-        NONPAREIL_TYPE_Toughness,               //韧性(暴抗),受攻击时，减少被暴击的几率。每160点韧性抵消对方1%的暴击率
-        NONPAREIL_TYPE_ToughnessRate,           //(韧性率)抗暴率, 抵抗暴击的概率
-        NONPAREIL_TYPE_AtkCrit,                 //暴击伤害,暴击时，暴伤越高，可以造成更多的额外伤害
-        NONPAREIL_TYPE_Lucky,                   //幸运,幸运值越高，出现攻击（所有）上限的几率越大，为9时必出
-        NONPAREIL_TYPE_RestoreHp,               //每次恢复血量，正负,每N秒自动回复生命//生命恢复是英雄抗怪能力最重要的指标。
-        NONPAREIL_TYPE_RestoreMp,               //每次恢复蓝量，正负,每N秒自动回复法力
-        NONPAREIL_TYPE_MoveSpeed,               //增加人物行走时的移动速度
-        NONPAREIL_TYPE_PalsyRate,               //麻痹概率
-        NONPAREIL_TYPE_PalsyResi,               //抗麻痹概率
-        NONPAREIL_TYPE_UnionAtkRate,            //合击威力
-        NONPAREIL_TYPE_IncAtkWarrior,           //对战士伤害增加
-        NONPAREIL_TYPE_DecAtkWarrior,           //受战士伤害减少
-        NONPAREIL_TYPE_IncAtkMage,              //对法师伤害增加
-        NONPAREIL_TYPE_DecAtkMage,              //受法师伤害减少
-        NONPAREIL_TYPE_IncAtkMonk,              //对道士伤害增加
-        NONPAREIL_TYPE_DecAtkMonk,              //受道士伤害减少
-        NONPAREIL_TYPE_IncAtkMonster,           //对怪物伤害增加
-        NONPAREIL_TYPE_DecAtkMonster,           //受怪物伤害减少
-        NONPAREIL_TYPE_IncAtkBoss,              //对BOSS伤害增加
-        NONPAREIL_TYPE_DecAtkBoss,              //受BOSS伤害减少
-        NONPAREIL_TYPE_IncAtkHero,              //增加对英雄伤害
-        NONPAREIL_TYPE_DecAtkHero,              //减少受英雄伤害
-        NONPAREIL_TYPE_Energy,                  //内功值(能量)，护盾能量最大值
-        NONPAREIL_TYPE_RestoreEnergy,           //恢复内功值
-        NONPAREIL_TYPE_EnergyResi,              //内功抵消伤害比例
-        NONPAREIL_TYPE_IncDamage,               //增伤,提高攻击时可以造成的伤害（百分比）
-        NONPAREIL_TYPE_DecDamage,               //减伤,降低受到的所有伤害（百分比）
-        NONPAREIL_TYPE_IncBossCrit,				//增加对BOSS的暴击
-        NONPAREIL_TYPE_IncBossAtkCrit,			//增加对BOSS的暴伤
-        NONPAREIL_TYPE_DecUnionAtkDamage,		//受合击伤害减少
-        NONPAREIL_TYPE_DecAtkCritDamage,		//受暴击伤害减少
-        NONPAREIL_TYPE_RestoreAnger,			//怒气恢复率
-        NONPAREIL_TYPE_UAToMonster,				//合击对怪增伤率
-        NONPAREIL_TYPE_UAToPlayer,				//合击对人增伤率
+        NONPAREIL_TYPE_NULL,	 //没有极品
+        NONPAREIL_TYPE_MAXHP,	 //最大血量
+        NONPAREIL_TYPE_MAXMP,	 //最大蓝量
+        NONPAREIL_TYPE_MAXATK,	 //物理/魔法/道术攻击上限全部
+        NONPAREIL_TYPE_MINATK,	 //物理/魔法/道术攻击下限全部
+        NONPAREIL_TYPE_MAXDC,	 //物理攻击上限值,攻击力上限，影响所有职业普通攻击和战士技能的最大伤害。
+        NONPAREIL_TYPE_MINDC,	 //物理攻击下限值,攻击力下限，影响所有职业普通攻击和战士技能的最小伤害。
+        NONPAREIL_TYPE_MAXMC,	 //自然魔法攻击上限值,魔法攻击上限，影响法师技能的最大伤害。
+        NONPAREIL_TYPE_MINMC,	 //自然魔法攻击下限值,魔法攻击下限，影响法师技能的最小伤害。
 
-        NONPAREIL_TYPE_MAXCOUNT,				//最大
+        NONPAREIL_TYPE_MAXSC,	 //灵魂魔法攻击上限值,道士攻击上限，影响法师技能的最大伤害。
+        NONPAREIL_TYPE_MINSC,	 //灵魂魔法攻击下限值.道术攻击下限，影响法师技能的最小伤害。
+
+        NONPAREIL_TYPE_MAXAC,	 //物理防御上限值,防御上限，影响受到物理攻击时可以降低的伤害。
+        NONPAREIL_TYPE_MINAC,	 //物理防御下限值,防御下限，影响受到物理攻击时可以降低的伤害。
+
+        NONPAREIL_TYPE_MAXMAC,	 //全系法术防御上限值,魔法防御上限，影响受到魔法和道术攻击时可以降低的伤害。
+        NONPAREIL_TYPE_MINMAC,	 //全系法术防御下限值,魔法防御下限，影响受到魔法和道术攻击时可以降低的伤害。
+
+        NONPAREIL_TYPE_HIT,	 //命中(准确),在攻击时，增加命中目标的几率。当自身准确大于目标闪避时，目标不能闪避攻击
+        NONPAREIL_TYPE_HITRATE,	 //命中的概率，准确值折算成命中率
+        NONPAREIL_TYPE_JUCK,	 //闪避,影响受到所有攻击可以闪避的概率
+        NONPAREIL_TYPE_JUCKRATE,	 //闪避的概率，闪避值折算成闪避率
+        NONPAREIL_TYPE_CRIT,	 //暴击,在攻击时，增加暴击的几率。每160点暴击增加1%的暴击率
+        NONPAREIL_TYPE_CRITRATE,	 //暴击率, 暴击的概率
+        NONPAREIL_TYPE_TOUGHNESS,	 //韧性(暴抗),受攻击时，减少被暴击的几率。每160点韧性抵消对方1%的暴击率
+        NONPAREIL_TYPE_TOUGHNESSRATE,	 //(韧性率)抗暴率, 抵抗暴击的概率
+        NONPAREIL_TYPE_ATKCRIT,	 //暴击伤害,暴击时，暴伤越高，可以造成更多的额外伤害
+        NONPAREIL_TYPE_LUCKY,	 //幸运,幸运值越高，出现攻击（所有）上限的几率越大，为9时必出
+        NONPAREIL_TYPE_RESTOREHP,	 //每次恢复血量，正负,每N秒自动回复生命//生命恢复是英雄抗怪能力最重要的指标。
+        NONPAREIL_TYPE_RESTOREMP,	 //每次恢复蓝量，正负,每N秒自动回复法力
+        NONPAREIL_TYPE_MOVESPEED,	 //增加人物行走时的移动速度
+        NONPAREIL_TYPE_PALSYRATE,	 //麻痹概率
+        NONPAREIL_TYPE_PALSYRESI,	 //抗麻痹概率
+        NONPAREIL_TYPE_UNIONATKRATE,	 //合击威力
+        NONPAREIL_TYPE_INCATKWARRIOR,	 //对战士伤害增加
+        NONPAREIL_TYPE_DECATKWARRIOR,	 //受战士伤害减少
+        NONPAREIL_TYPE_INCATKMAGE,	 //对法师伤害增加
+        NONPAREIL_TYPE_DECATKMAGE,	 //受法师伤害减少
+        NONPAREIL_TYPE_INCATKMONK,	 //对道士伤害增加
+        NONPAREIL_TYPE_DECATKMONK,	 //受道士伤害减少
+        NONPAREIL_TYPE_INCATKMONSTER,	 //对怪物伤害增加
+        NONPAREIL_TYPE_DECATKMONSTER,	 //受怪物伤害减少
+        NONPAREIL_TYPE_INCATKBOSS,	 //对BOSS伤害增加
+        NONPAREIL_TYPE_DECATKBOSS,	 //受BOSS伤害减少
+        NONPAREIL_TYPE_INCATKHERO,	 //增加对英雄伤害
+        NONPAREIL_TYPE_DECATKHERO,	 //减少受英雄伤害
+        NONPAREIL_TYPE_ENERGY,	 //内功值(能量)，护盾能量最大值
+        NONPAREIL_TYPE_RESTOREENERGY,	 //恢复内功值
+        NONPAREIL_TYPE_ENERGYRESI,	 //内功抵消伤害比例
+        NONPAREIL_TYPE_INCDAMAGE,	 //增伤,提高攻击时可以造成的伤害（百分比）
+        NONPAREIL_TYPE_DECDAMAGE,	 //减伤,降低受到的所有伤害（百分比）
+        NONPAREIL_TYPE_INCBOSSCRIT,	             //增加对BOSS的暴击
+        NONPAREIL_TYPE_INCBOSSATKCRIT,	          //增加对BOSS的暴伤
+        NONPAREIL_TYPE_DECUNIONATKDAMAGE,	       //受合击伤害减少
+        NONPAREIL_TYPE_DECATKCRITDAMAGE,	        //受暴击伤害减少
+        NONPAREIL_TYPE_RESTOREANGER,	            //怒气恢复率
+        NONPAREIL_TYPE_UATOMONSTER,	             //合击对怪增伤率
+        NONPAREIL_TYPE_UATOPLAYER,	              //合击对人增伤率
+        NONPAREIL_TYPE_UPCOMBOSKILLLEVEL,	// 合计技能提升等级
+        NONPAREIL_TYPE_MAXCOUNT,	                //最大
+
     };
 
     /**
@@ -844,6 +928,10 @@ module EnumData {
         MAP_FENG_DU = 5001,// 酆都
         MAP_FU_ZHOU_CHENG = 5002,// 福州城
         MAP_HUA_SHAN_PAI = 5003,// 华山派
+
+
+
+
     }
 
 

@@ -35,14 +35,14 @@ module view.common {
 			this.alpha = 0;
 			this.box_npcTalk.visible = false;
 			// 加载动作
-			let playerObj = new GameObject.Player();
-			playerObj.skeBoneRes = 'sk/player/ZJ_GH.sk';
-			let playerUI = new view.scene.PlayerInSceneItem();
-			playerUI.setData(playerObj);
-			playerUI.scale(1, 1);
-			playerUI.centerX = playerUI.centerY = 0;
-			// playerUI.box_info.visible = false;
-			this.box_self.addChild(playerUI);
+			let skePlayer = new SkeletonUtil.SkeletonGroup();
+			skePlayer.loadRes(['sk/player/ZJ_GH.sk'], () => {
+				skePlayer.pos(this.box_self.width / 2, this.box_self.height / 2)
+				this.box_self.addChild(skePlayer);
+				skePlayer.scale(1, 1);
+				skePlayer.play(0, true);
+				this.changeMap(1);
+			});
 			// 加载过长动画
 			let cg = new SkeletonUtil.SkeletonGroup();
 			cg.loadRes(['sk/new/MH.sk'], () => {
@@ -54,7 +54,6 @@ module view.common {
 					playIndex += 1;
 					if (playIndex >= 6) {
 						this.addEvent();
-						this.changeMap(1);
 						Laya.Tween.to(this.img_cg, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => { this.img_cg.destroy(true) }));
 						Laya.Tween.to(this, { alpha: 1 }, 1000);
 					}
@@ -210,7 +209,6 @@ module view.common {
 			// 更新小地图自己的标识
 			let _btn_fengDu = this.ui_fengDu['btn_900' + index];
 			this.ui_fengDu.img_selfOn.pos(_btn_fengDu.x, _btn_fengDu.y);
-
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].gray = (i != index);
 			}
@@ -328,7 +326,6 @@ module view.common {
 				}, null, false);
 				this.box_boss.addChild(monsterUI);
 			}
-
 		}
 
 		public addEvent(): void {
@@ -342,7 +339,6 @@ module view.common {
 				else {
 					this.playerName = this.input_name.text;
 					this.lbl_playerName.text = this.input_name.text;
-					console.log('=========>', this.playerName);
 					// 确定了人物形象
 					// 名字
 					this.lbl_finaName.text = this.playerName;
@@ -729,7 +725,6 @@ module view.common {
 		public createPlayerRet(data: any): void {
 			let msg = new ProtoCmd.CreatePlayerRet(data);
 			let errorcode = msg.getValue('errorcode');
-			console.log('==========errorcode', errorcode)
 			if (errorcode == 0) {
 				// 创建账号成功
 				this.showDialog(false);
@@ -740,32 +735,11 @@ module view.common {
 				selector.setValue("btmapsubline", 1);
 				lcp.send(selector, this, this.selectPlayerRet)
 				GameApp.GameEngine.isLogin = true;
-
 				GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'))
 			}
 			else {
-				let strmsg: string;
-				switch (errorcode) {
-					case -10:
-						strmsg = '有非法字符';
-						break;
-					case -14:
-						strmsg = '昵称名检查没通过';
-						break;
-					case -15:
-						strmsg = '昵称名不能超过4个以上的数字';
-						break;
-					case -16:
-						strmsg = '当前服务器正在维护';
-						break;
-					case -70:
-						strmsg = '昵称重复';
-						break;
-					default:
-						strmsg = '昵称重复';
-						break;
-				}
-				TipsManage.showTips(strmsg);
+				let strmsg: string = LangConfig.createPlayerErrorDes[EnumData.createPlayerError[errorcode]];
+				TipsManage.showTips(strmsg + errorcode);
 			}
 			msg.clear();
 			msg = null;

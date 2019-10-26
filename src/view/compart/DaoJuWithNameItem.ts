@@ -6,7 +6,8 @@ module view.compart {
 		}
 
 		public setData(item: ProtoCmd.ItemBase, mode = EnumData.ItemInfoModel.SHOW_IN_MAIL): void {
-			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.dwBaseID);
+			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.dwBaseID).split('_')[0];
+			this.lbl_itemName.color = ColorUtils.nameColor[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID)];
 			this.ui_item.setData(item, mode);
 		}
 		public removeSelf() {

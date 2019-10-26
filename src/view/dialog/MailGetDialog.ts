@@ -20,30 +20,41 @@ module view.dialog {
 			pkt.setValue('dwMailID', mailID)
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stMailQueryDetailRetDecoder(data);
-				console.log('=====>邮件我的', cbpkt.MailDetail.items.length, cbpkt.MailDetail)
-				// 是否有道具
-				this.box_hasGeted.visible = (cbpkt.MailDetail.nCount !== 0);
-				// 附件是否领取
-				this.btn_getDaoju.visible = Boolean(cbpkt.MailDetail.wReveivedItem);
-				if (cbpkt.MailDetail.nCount == 0 && cbpkt.MailDetail.boRead == 1) {
-					this.btn_delete.visible = true;
-				}
-				//邮件发送时间
-				this.lbl_mailDeatilTime.text = '' + TimeUtils.getFormatBySecond(cbpkt.MailDetail.tSendTime - new Date().getTime() / 1000, 4);
-				// 邮件标题
-				this.lbl_mailDetailTitle.text = '' + cbpkt.MailDetail.szTitle;
-				// 邮件文本内容
-				this.lbl_mailDetail.text = '' + cbpkt.MailDetail.szNotice;
-				// 道具
-				this.hbox_mailGet.removeChildren()
-				let keys = Object.keys(cbpkt.MailDetail.items);
-				for (let key of keys) {
-					let ui_gift = new view.compart.DaoJuWithNameItem;
-					let item = new ProtoCmd.ItemBase;
-					item.dwBaseID = cbpkt.MailDetail.items[key].dwBaseID;
-					item.dwCount = cbpkt.MailDetail.items[key].dwCount;
-					ui_gift.setData(item)
-					this.hbox_mailGet.addChild(ui_gift);
+				if (cbpkt.getValue('bterrorcode') == 0) {
+					// 是否有道具
+					this.box_hasGeted.visible = (cbpkt.MailDetail.nCount !== 0);
+					// 附件是否领取
+					this.btn_getDaoju.visible = Boolean(cbpkt.MailDetail.wReveivedItem);
+					if (cbpkt.MailDetail.nCount == 0 && cbpkt.MailDetail.boRead == 1) {
+						this.btn_delete.visible = true;
+					}
+					//邮件发送时间
+					this.lbl_mailDeatilTime.text = '' + TimeUtils.getFormatBySecond(new Date().getTime() / 1000 - cbpkt.MailDetail.tSendTime, 4);
+					// 邮件标题
+					this.lbl_mailDetailTitle.text = '' + cbpkt.MailDetail.szTitle;
+					// 邮件文本内容
+					this.lbl_mailDetail.text = '' + cbpkt.MailDetail.szNotice;
+					// 道具
+					this.hbox_mailGet.removeChildren()
+					let keys = Object.keys(cbpkt.MailDetail.items);
+					for (let key of keys) {
+						let ui_gift = new view.compart.DaoJuWithNameItem;
+						let item = new ProtoCmd.ItemBase;
+						item.dwBaseID = cbpkt.MailDetail.items[key].dwBaseID;
+						item.dwCount = cbpkt.MailDetail.items[key].dwCount;
+						ui_gift.setData(item)
+						this.hbox_mailGet.addChild(ui_gift);
+					}
+					//发件人
+					if (cbpkt.MailDetail.boSystem == 1) {
+						this.lbl_send.text = '来自系统';
+					}
+					else {
+						this.lbl_send.text = '' + cbpkt.MailDetail.szSenderName;
+					}
+					//读取后刷新
+					let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
+					MailDialog && MailDialog.updataBoRead(cbpkt.MailDetail);
 				}
 			})
 		}
@@ -91,6 +102,10 @@ module view.dialog {
 				this.btn_getDaoju.visible = false;
 				//邮件附件被领取后，显示已领取
 				this.img_geted.visible = true;
+				if (cbpkt.getValue('bterrorcode') == 0) {
+					let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
+					MailDialog && MailDialog.GetCacheData(cbpkt);
+				}
 			})
 		}
 	}

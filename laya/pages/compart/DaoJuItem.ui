@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
+    "selecteID":12,
     "props":{"width":75,"sceneColor":"#973d3b","height":74},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":0,"var":"img_bg","skin":"image/common/daoju/quality_2.png"},
+            "props":{"x":0,"width":75,"var":"img_bg","skin":"image/common/daoju/quality_2.png","height":74},
             "nodeParent":1,
             "label":"Image(img_bg)",
             "isDirectory":false,
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":4,"x":54,"visible":false,"var":"btn_isStronger","stateNum":"2","skin":"image/common/up_1_finish.png"},
+            "props":{"y":4,"x":54,"visible":false,"var":"btn_isStronger","stateNum":"2","skin":"image/common/up_1_finish.png","mouseEnabled":false},
             "nodeParent":1,
             "label":"Button(btn_isStronger)",
             "isDirectory":false,
@@ -80,7 +80,7 @@
             "compId":12,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

@@ -1021,14 +1021,34 @@ module ProtoCmd {
 
 
     /**
-     * 极品属性
+     * 极品属性 对应效果表
      */
     export class Nonpareil {
-        public btNpFrom: number;
-        public btNpType: number;
-        public dwNpNum: number;
-        public constructor() {
+        public btNpFrom: number; // 位置 枚举 emItemNpFrom
+        public btNpType: number; // 类型 枚举 emNonpareilType
+        public dwNpNum: number;  // 数值 属性数值
+        /**
+         * 获取属性描述
+         */
+        public get btdes(): string {
+            if (this.btNpType) {
+                return LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[this.btNpType]] + ':' + this.dwNpNum;
+            }
         }
+        /**
+         * 获取战斗分数
+         */
+        public get battleScore(): Array<number> {
+            if (this.btNpType) {
+                let tmp = GameObject.AbilityWorth[this.btNpType]
+                let result = [];
+                for (let i = 0; i < 3; i++) {
+                    result.push(tmp[i] * this.dwNpNum)
+                }
+                return result
+            }
+        }
+
     }
 
 
@@ -1040,6 +1060,8 @@ module ProtoCmd {
         public ExtensionProperty: Laya.Byte;		// 预留 10字节，做扩充
         public defaultName: string;
         private _itemType;//物品类型
+        private _stNpPropertyDes: Array<string> = [];// 极品属性描述
+        private _stNpProperty: Array<Nonpareil> = [];// 极品属性对象
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {
@@ -1063,7 +1085,7 @@ module ProtoCmd {
             this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
             this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);//过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
-            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60);
+            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60); //
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
             if (data) { data.pos += this.read(data); }
         }
@@ -1273,7 +1295,7 @@ module ProtoCmd {
         }
 
         /**
-         * 1极品属性条目数--55
+         * 极品属性条目数--55
          */
         public get btNpPropertyCount(): number {
             return this.getValue('btNpPropertyCount');
@@ -1284,23 +1306,163 @@ module ProtoCmd {
         }
 
         /**
-         * 属性
+         * 极品属性
          */
         public get stNpProperty(): Array<Nonpareil> {
-            let result = [];
-            if (this.btNpPropertyCount > 0) {
-                let npdata: Laya.Byte = new Laya.Byte();;
-                npdata.endian = Laya.Byte.LITTLE_ENDIAN;
-                npdata = this.getValue('UnionData');
-                for (let j = 0; j < this.btNpPropertyCount; j++) {
-                    let np = new Nonpareil();
-                    np.btNpFrom = npdata.getUint8();
-                    np.btNpType = npdata.getUint8();
-                    np.dwNpNum = npdata.getUint32();
-                    result.push(np);
+            if (this._stNpProperty.length == 0) {
+                if (this.btNpPropertyCount > 0) {
+                    let npdata: Laya.Byte = new Laya.Byte();
+                    npdata = this.getValue('UnionData');
+                    for (let j = 0; j < this.btNpPropertyCount; j++) {
+                        let np = new Nonpareil();
+                        np.btNpFrom = npdata.getUint8();
+                        np.btNpType = npdata.getUint8();
+                        np.dwNpNum = npdata.getUint32();
+                        this._stNpProperty.push(np);
+                    }
                 }
             }
-            return result;
+            // 按照位置排序
+            // 先根据 条目位置排序
+            // 再根据 条目枚举排序
+            return this._stNpProperty.sort((a, b) => { return a.btNpFrom - b.btNpFrom }).sort((a, b) => { return a.btNpType - b.btNpType });
+        }
+
+        /**
+         * 极品属性描述
+         */
+        public get stNpPropertyString(): Array<string> {
+            if (this._stNpPropertyDes.length == 0) {
+                let _stNpProperty = this.stNpProperty;
+                let tmpObj = {};
+                let tmpDes = {};
+                let strDes = {};
+                for (let obj of _stNpProperty) {
+                    let str = obj.btdes;
+                    if (strDes[obj.btNpFrom] == null) {
+                        strDes[obj.btNpFrom] = [];
+                    }
+                    // 两条合一条
+                    if (obj.btNpType >= 3 && obj.btNpType <= 14) {
+                        tmpObj[obj.btNpType] = obj;
+                        let firstObj;
+                        let secondObj;
+                        let key;
+                        switch (obj.btNpType) {
+                            case 3:
+                            case 4:
+                                key = '' + obj.btNpFrom + '_3_4'
+                                firstObj = tmpObj[3];
+                                secondObj = tmpObj[4];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 5:
+                            case 6:
+                                key = '' + obj.btNpFrom + '_5_6'
+                                firstObj = tmpObj[5];
+                                secondObj = tmpObj[6];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '力道:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 7:
+                            case 8:
+                                key = '' + obj.btNpFrom + '_7_8'
+                                firstObj = tmpObj[7];
+                                secondObj = tmpObj[8];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '柔劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 9:
+                            case 10:
+                                key = '' + obj.btNpFrom + '_9_10'
+                                firstObj = tmpObj[9];
+                                secondObj = tmpObj[10];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '刚劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 11:
+                            case 12:
+                                key = '' + obj.btNpFrom + '_11_12'
+                                firstObj = tmpObj[11];
+                                secondObj = tmpObj[12];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '卸力:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                            case 13:
+                            case 14:
+                                key = '' + obj.btNpFrom + '_13_14'
+                                firstObj = tmpObj[13];
+                                secondObj = tmpObj[14];
+                                if (firstObj && secondObj) {
+                                    tmpDes[key] = '化劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                }
+                                else {
+                                    tmpDes[key] = str;
+                                }
+                                break;
+                        }
+                    }
+                    else {
+                        strDes[obj.btNpFrom].push(str);
+                    }
+
+                }
+                let keys = Object.keys(tmpDes);
+                for (let key of keys) {
+                    let btNpFrom = key.split('_')[0];
+                    strDes[btNpFrom].push(tmpDes[key]);
+                }
+                let keys2 = Object.keys(strDes).sort();
+                for (let key2 of keys2) {
+                    this._stNpPropertyDes = this._stNpPropertyDes.concat(strDes[key2]);
+                }
+            }
+            return this._stNpPropertyDes;
+        }
+
+        /**
+         * 装备的战力,3个职业的数组
+         */
+        public get battleScore(): Array<number> {
+            let _stNpProperty = this.stNpProperty;
+            let r0 = 0;
+            let r1 = 0;
+            let r2 = 0;
+            // 极品属性战力
+            for (let _st of _stNpProperty) {
+                r0 += _st.battleScore[0];
+                r1 += _st.battleScore[1];
+                r2 += _st.battleScore[2];
+            }
+            // 基本属性战力
+            let effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + this.dwBaseID);
+            let effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + this.dwBaseID);
+            let effid2 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + this.dwBaseID);
+            r0 += GameUtil.parseEffectidToString('' + effid0).battle[1];
+            r1 += GameUtil.parseEffectidToString('' + effid1).battle[2];
+            r2 += GameUtil.parseEffectidToString('' + effid2).battle[3];
+            return [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         }
 
 
@@ -1316,6 +1478,7 @@ module ProtoCmd {
          * 清理数据，删除UI组件
          */
         public clear(): void {
+            this._stNpProperty = null;
             this.recoverUI();
             super.clear();
         }
@@ -2422,6 +2585,15 @@ module ProtoCmd {
         public get boRead(): number {
             return this.getValue("boRead");
         }
+        public get dwMailID(): number {
+            return this.getValue("dwMailID");
+        }
+         public get boSystem(): number {
+            return this.getValue("boSystem");
+        }
+         public get szSenderName(): number {
+            return this.getValue("szSenderName");
+        }
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {
@@ -2482,7 +2654,7 @@ module ProtoCmd {
         public get dwMailID(): string {
             return this.getValue("dwMailID");
         }
-         public get boSystem(): string {
+        public get boSystem(): string {
             return this.getValue("boSystem");
         }
 

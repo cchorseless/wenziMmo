@@ -1188,14 +1188,17 @@ class ServerListener extends SingletonClass {
                         if (nowIndex >= EnumData.emEquipPosition.EQUIP_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_BELT) {
                             updateTabIndex = 0;
                         }
+
                         // 英雄战士
                         else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT) {
                             updateTabIndex = 1;
                         }
+
                         // 英雄法师
                         else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT) {
                             updateTabIndex = 2;
                         }
+
                         // 英雄道士
                         else if (nowIndex >= EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS && nowIndex <= EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT) {
                             updateTabIndex = 3;
@@ -1208,16 +1211,14 @@ class ServerListener extends SingletonClass {
                             else {
                                 PanelManage.BeiBao.ui_equipInfo.tab_0.selectedIndex = updateTabIndex;
                             }
-
                         }
+
                         if (Laya.Dialog.getDialogsByGroup('ZhaiYuan_lianQiDialog').length > 0) {
                             GameApp.LListener.event(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI);
                         }
 
-
                         delete GameApp.GameEngine.bagItemDB[i64ItemId];
                         TipsManage.showTips('装备穿戴成功');
-
                         break;
                 }
             } else {
@@ -1225,7 +1226,8 @@ class ServerListener extends SingletonClass {
             }
         }
         else {
-            TipsManage.showTips('装备操作失败(server ' + errorcode + ')');
+            let errDes = LangConfig.emItemErrorCodeDes[EnumData.emItemErrorCode[errorcode]]
+            TipsManage.showTips(errDes + errorcode);
         }
         msg.clear();
         msg = null;
@@ -1551,7 +1553,8 @@ class ServerListener extends SingletonClass {
 
         }
         catch (e) {
-            console.error(e)
+            console.warn
+                (e)
         }
 
         msg.clear();
