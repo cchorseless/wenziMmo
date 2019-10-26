@@ -2585,6 +2585,15 @@ module ProtoCmd {
         public get boRead(): number {
             return this.getValue("boRead");
         }
+        public get dwMailID(): number {
+            return this.getValue("dwMailID");
+        }
+         public get boSystem(): number {
+            return this.getValue("boSystem");
+        }
+         public get szSenderName(): number {
+            return this.getValue("szSenderName");
+        }
         public read(data: Laya.Byte): number {
             data.pos = super.read(data);
             for (var i: number = 0; i < this.getValue('nCount'); i++) {

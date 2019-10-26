@@ -16,7 +16,7 @@ module view.hero {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.init_Info(this.getItemInfo());
+				this.addLcpEvent(this.getItemInfo());
 				this.init_gangqi();
 			}
 			else {
@@ -54,7 +54,7 @@ module view.hero {
 			lcp.send(pkt);
 
 		}
-		public init_Info(data: ProtoCmd.ItemBase): void {
+		public addLcpEvent(data: ProtoCmd.ItemBase): void {
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {

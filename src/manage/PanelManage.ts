@@ -82,6 +82,7 @@ module PanelManage {
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
@@ -601,6 +602,22 @@ module PanelManage {
             PanelManage.Menu.setData();
             PanelManage.Menu.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.Menu, 99, 0, 2);
+        })
+    }
+    /**
+   * 抽奖界面
+   */
+    export function openLuckDrawPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LuckDraw) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.LuckDraw);
+        ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
+            PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
+            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.LuckDraw.setData();
+            PanelManage.LuckDraw.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
     /**

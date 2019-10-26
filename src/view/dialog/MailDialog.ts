@@ -6,6 +6,7 @@ module view.dialog {
 			this.group = 'MailDialog';
 			this.setData();
 		}
+		public data;
 		public setData(): void {
 			this.panel_mail.vScrollBarSkin = '';
 			this.vbox_mail['sortItem'] = (items) => { };
@@ -17,7 +18,7 @@ module view.dialog {
 			// 一键领取
 			this.btn_allGet.on(Laya.UIEvent.CLICK, this, () => {
 				for (let mailUI of this.vbox_mail._childs) {
-						(mailUI as view.compart.MailItem).getAllItem(mailUI);
+					(mailUI as view.compart.MailItem).getAllItem(mailUI);
 				}
 			})
 			// 一键删除邮件
@@ -39,7 +40,6 @@ module view.dialog {
 			//更新邮件列表，已领取附件的邮件移除
 			this.vbox_mail.removeChildren();
 			let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
-			console.log('=====>邮件信息', cbpkt)
 			//邮件数量
 			this.lbl_mailCount.text = '' + cbpkt.mails.length;
 			let keys = Object.keys(cbpkt.mails)
@@ -49,6 +49,21 @@ module view.dialog {
 			}
 			cbpkt.clear();
 			cbpkt = null;
+		}
+		/**
+		 * 
+		 * @param data 领取邮件刷新
+		 */
+		public GetCacheData(data: ProtoCmd.stMailGetItemRetDecoder): void {
+			let id = data.getValue('dwMailID')
+			for (let mailUI of this.vbox_mail._childs) {
+				(mailUI as view.compart.MailItem).init_type(id, data);
+			}
+		}
+		public updataBoRead(data: ProtoCmd.stMailDetailBase): void {
+			for (let mailUI of this.vbox_mail._childs) {
+				(mailUI as view.compart.MailItem).init_boRead(data);
+			}
 		}
 	}
 }
