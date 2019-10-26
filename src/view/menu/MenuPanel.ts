@@ -38,6 +38,14 @@ module view.menu {
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openLuckDrawPanel();
 			})
+			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
+				let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null,0,this,function(data){
+					PanelManage.openActivePanel(data);
+				})
+				lcp.send(pkt32);
+				
+			})
+
 			// 菜单活动
 			// this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.btn_active.selected = !this.btn_active.selected;

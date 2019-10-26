@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":14,
-    "selecteID":7,
+    "selectedBox":1,
+    "selecteID":16,
     "props":{"width":500,"sceneColor":"#954e4d","height":400},
     "nodeParent":-1,
     "label":"Dialog",
@@ -51,19 +51,6 @@
                         ]
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":96,"x":90,"width":309,"text":"天赋能力","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
         },
         {
             "x":15,
@@ -174,6 +161,19 @@
                     "$HIDDEN":true
                 }],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"VBox",
+            "props":{"y":65,"x":51,"width":300,"var":"vbox_talent","height":200},
+            "nodeParent":1,
+            "label":"VBox(vbox_talent)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":16,
+            "child":[
+                ]
         }],
     "animations":[
         {

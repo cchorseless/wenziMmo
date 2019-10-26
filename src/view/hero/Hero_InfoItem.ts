@@ -35,35 +35,25 @@ module view.hero {
 		 * 弟子基本信息
 		 */
 		public baseInfo(i): void {
-			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
+			let info=GameApp.GameEngine.HeroInfo;
+		
 				let j = i + 1;
-				this.job=jsonData[j].JOB;
+				this.job=info[j].JOB;
 				this.num = j
-				if (jsonData[j].STATE == 0) {
+				if (info[j].STATE == 0) {
 					this.btn_jihuo.gray = true;
 					this.viw_dizi.selectedIndex = 0;
 				}
 
-				if (jsonData[j].STATE == 1) {
+				if (info[j].STATE == 1) {
 					this.btn_jihuo.label = '可激活';
 
 					this.viw_dizi.selectedIndex = 0;
 				}
-				if (jsonData[j].STATE == 2) {
+				if (info[j].STATE == 2) {
 					this.viw_dizi.selectedIndex = 1;
 				}
-			})
-			this.haveDizi();
-		}
-		public destroy(isbool): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);
-			super.destroy(isbool);
-		}
-		//弟子基本信息发协议
-		public haveDizi(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_HeroBaseInfo)
-			lcp.send(pkt);
+			
 		}
 		//激活第一个弟子
 		public init_JiHuo(): void {

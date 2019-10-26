@@ -21,19 +21,19 @@ module view.hero {
 			for (let i = 1; i < 6; i++) {
 				this['box_skill' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.index = 0;
-					new view.hero.Hero_talentInfoDialog().setData(this.index, i, this.data, key).popup(true);
+					new view.hero.Hero_TalentInfoDialog().setData(this.index, i, this.data, key).popup(true);
 				})
 				this['box_warrior' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.index = 1;
-					new view.hero.Hero_talentInfoDialog().setData(this.index, i, this.data, key).popup(true);
+					new view.hero.Hero_TalentInfoDialog().setData(this.index, i, this.data, key).popup(true);
 				})
 				this['box_master' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.index = 2;
-					new view.hero.Hero_talentInfoDialog().setData(this.index, i, this.data, key).popup(true);
+					new view.hero.Hero_TalentInfoDialog().setData(this.index, i, this.data, key).popup(true);
 				})
 				this['box_Taoist' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.index = 3;
-					new view.hero.Hero_talentInfoDialog().setData(this.index, i, this.data, key).popup(true);
+					new view.hero.Hero_TalentInfoDialog().setData(this.index, i, this.data, key).popup(true);
 				})
 			}
 		}

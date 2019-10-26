@@ -71,7 +71,7 @@ module view.hero {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroJingMaiPanel, this, (jsonData: ProtoCmd.itf_Hero_WuXueInfo) => {
 				//GameApp.GameEngine.heroJob为1战士
-				console.log('====>真气真气', jsonData.effid)
+				console.log('====>真气真气', GameApp.GameEngine.heroJob)
 				this.lbl_gas.text = '消耗真气：' + jsonData.realGas + '/' + jsonData.gas;
 				this.lbl_gold.text = '消耗金币：' + jsonData.gold;
 				this.lbl_ballValue.text = jsonData.fakeGas + '/' + jsonData.maxfakegas;

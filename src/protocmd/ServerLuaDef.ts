@@ -321,6 +321,36 @@ module ProtoCmd {
 
     export const rxEquipCompound = "rxEquipCompound";        //装备合成（要合成的id）
 
+    export const JingCaiSendShow = "JingCaiSendShow";        //精彩活动面板;
+    export const Active1 = "EverydayBuyPanel";     //每日必买      面板        其他接口：购买
+    export const Active2 = "CZJJ_OpenPlane";       //超值理财      面板        其他接口：购买、领取
+    export const Active3 = "ChaoZhiLC_Open";       //成长基金      面板        其他接口：购买、领取
+    export const Active4 = "ConsumeOpen";          //消费排行      面板
+    export const Active7 = "RechargeOpen";         //充值排行        面板
+    export const Active12 = "ComposeEquipPanel";    //装备箱合成      面板        其他接口：领奖
+    export const Active13 = "ContinueRechargePanel";//连续/累计充值   面板        其他接口：领取
+    export const Active15 = "FLZP_Plane";           //福利转盘        面板        其他接口：转动、领取次数奖励
+    export const Active16 = "MeiRiChongZhiOpen";    //每日充值        面板        其他接口：领取
+    export const Active17 = "MRLQ_Plane";           //每日领取        面板        其他接口：领取
+    export const Active18 = "ConsumeGiftPanel";     //消费豪礼        面板        其他接口：领奖
+    export const Active19 = "NationalResourcePanel";//全民官印/资源线  面板        其他接口：领奖
+    export const Active24 = "ResourceGiftPanel";    //官印、资源线好礼 面板        其他接口
+    export const Active32 = "ExchangePointPanel";   //积分兑换         面板       其他接口：领奖
+    export const Active34 = "FuDaiOpen";            //福袋抽奖、档次    面板       其他接口：额外奖励、抽奖、领取额外奖励
+    export const Active35 = "QuanMingLiBaoOpen";    //全民礼包         面板        其他接口：领取
+    export const Active38 = "ZXCJ_Plane";           //在线抽奖、转盘    面板       其他接口：转盘、领取、领取档次奖励
+    export const Active39 = "OneDayRechargePanel";  //单日充值         面板        其他接口：领取
+    export const Active40 = "LimitTimePanicBuyPanel"; //限时抢购       面板        其他接口：购买
+    export const Active41 = "MeiRiShouChongOpen";      //每日首充      面板         其他接口：领取
+
+    export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
+    export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
+    export const LimitTimePanicBuy = "LimitTimePanicBuy"  //限时购买 购买
+    export const GetExchangePointAward = "GetExchangePointAward"  //积分兑换  兑换
+    export const GetComposeEquipAward = "GetComposeEquipAward" //装备合成 合成
+    export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
+    export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
+    
 
 
 }
@@ -329,6 +359,13 @@ module ProtoCmd {
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 活动面板
+     */
+    export interface itf_ACT_JingCaiSendShow {
+        id: number;
+        name: string
+    }
     /**
      * 传世面板信息
      */

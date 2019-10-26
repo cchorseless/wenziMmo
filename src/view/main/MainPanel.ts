@@ -165,6 +165,7 @@ module view.main {
 				}
 
 			});
+
 			this.addLcpEvent();
 		}
 
