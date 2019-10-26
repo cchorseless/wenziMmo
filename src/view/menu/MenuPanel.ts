@@ -30,6 +30,13 @@ module view.menu {
 			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.MenuChengJiuDialog().popup(true);
 			})
+			EventManage.onWithEffect(this.btn_active, Laya.UIEvent.CLICK, this, function () {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null, 0, this,
+					(data:ProtoCmd.itf_ACT_JingCaiSendShow) => {
+						PanelManage.openActivePanel(data);
+					});
+				lcp.send(pkt);
+			})
 			// 菜单活动
 			// this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.btn_active.selected = !this.btn_active.selected;

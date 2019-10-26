@@ -89,6 +89,7 @@ module PanelManage {
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
+    export let Activity: view.activity.ActivityPanel;//天鉴界面
 
 
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
@@ -1091,6 +1092,22 @@ module PanelManage {
             PanelManage.TianJian.setData(data);
             PanelManage.TianJian.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 0);
+        })
+    }
+    /**
+    * 活动界面
+    */
+    export function openActivePanel(data: any): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Activity) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Activity);
+        ResManage.loadResource(ResData.PanelRes.Activity, () => {
+            PanelManage.Activity = new view.activity.ActivityPanel();
+            PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
+            PanelManage.Activity.setData(data);
+            PanelManage.Activity.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Activity, 2, 0, 2);
         })
     }
 
