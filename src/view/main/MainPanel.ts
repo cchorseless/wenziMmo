@@ -165,9 +165,7 @@ module view.main {
 				}
 
 			});
-			this.img_VIP.on(Laya.UIEvent.CLICK,this,function(){
-				
-			})
+
 			this.addLcpEvent();
 		}
 
