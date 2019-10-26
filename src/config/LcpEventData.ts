@@ -62,7 +62,7 @@ module LcpEvent {
     export const UPDATE_UI_HERO_ABILITY1: string = 'UPDATE_UI_HERO_ABILITY1';//更新玩家战斗属性
     export const UPDATE_UI_HERO_ABILITY2: string = 'UPDATE_UI_HERO_ABILITY2';//更新玩家战斗属性
     export const UPDATE_UI_HERO_ABILITY3: string = 'UPDATE_UI_HERO_ABILITY3';//更新玩家战斗属性
-    export const UPDATE_UI_LIANQI_CHUANSHI_UI:string = 'UPDATE_UI_LIANQI_CHUANSHI_UI';//炼器传世武器界面更新
+    export const UPDATE_UI_LIANQI_CHUANSHI_UI:string = 'UPDATE_UI_LIANQI_CHUANSHI_UI';//更新装备界面
 
 
 }

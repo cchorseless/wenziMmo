@@ -52,9 +52,10 @@ module view.dialog {
 			this.div_itemDes.innerHTML = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(dwBaseID);
 			// 使用等级
 			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
-			this.lbl_useLevel.text = '使用等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).LVNEED(dwBaseID) + '级';
+			this.lbl_useLevel.text = '使用等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID) + '级';
 			// 使用职业
-			this.lbl_jobNeed.text = '职业要求:' + LangConfig.jobDes[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
+			let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)
+			this.lbl_jobNeed.text = '职业要求:' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[jobLimit]];
 			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
 			let ban_model =
 				[EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU,
@@ -85,7 +86,6 @@ module view.dialog {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			});
-
 			switch (this.model) {
 				// 背包-装备
 				// 背包-回收

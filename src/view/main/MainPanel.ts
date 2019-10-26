@@ -51,7 +51,7 @@ module view.main {
 			// 绑定元宝
 			this.lbl_yuanBaolock.text = '' + _player.wealth.yuanBao_lock;
 			// 战斗力
-			this.clip_power.value = '' + _player.ability.nFight;
+			this.clip_power.value = LangConfig.getBigNumberDes(_player.ability.nFight);
 			// 头像
 			this.img_avatarIcon.skin = '' + _player.iconAvatarPic;
 			// 节气
@@ -177,7 +177,7 @@ module view.main {
 			// 绑定元宝
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAOLOCK, this, () => { this.lbl_yuanBaolock.text = '' + _player.wealth.yuanBao_lock; });
 			// 战力
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.clip_power.value = '' + _player.ability.nFight; });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.clip_power.value = LangConfig.getBigNumberDes(_player.ability.nFight); });
 			// 等级
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => {
 				if (_player.zslevel == null || _player.zslevel == 0) {

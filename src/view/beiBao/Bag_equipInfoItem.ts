@@ -8,7 +8,18 @@ module view.beiBao {
 		public setData(): void {
 			this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
 			this.updateUI();
+			this.addEvent();
 		}
+
+		public addEvent():void{
+			this.addLcpEvent();
+		}
+
+		public addLcpEvent():void{
+			// GameApp.LListener.on( )
+		}
+
+
 		public updateUI(): void {
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
@@ -20,14 +31,12 @@ module view.beiBao {
 				case 0:
 					big_index = EnumData.emEquipPosition.EQUIP_BELT;
 					small_index = EnumData.emEquipPosition.EQUIP_HEADDRESS;
-
 					break;
 
 				// 大弟子
 				case 1:
 					big_index = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
 					small_index = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
-
 					break;
 
 				// 二弟子
@@ -41,6 +50,7 @@ module view.beiBao {
 					big_index = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
 					small_index = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
 					break;
+
 			}
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
 			for (let key of allKey) {

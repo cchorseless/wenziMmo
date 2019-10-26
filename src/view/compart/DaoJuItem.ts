@@ -17,8 +17,15 @@ module view.compart {
 			this.item = item;
 			item.recoverUI();
 			item.ui_item = this;
+			// 是否有能力提升的提示
+			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + item.dwBaseID);
+			// 
+			this.btn_isStronger.visible = false;
+			// 在角色
+			if (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP && item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
+				this.updateIsStronger();
+			}
 			this.initUI(item, model);
-
 		}
 
 		public addEvent(): void {
@@ -98,12 +105,14 @@ module view.compart {
 		 */
 		public initUI(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			this.model = model;
+			let dwBaseID = '' + item.dwBaseID;
+			let player = GameApp.MainPlayer;
 			// 是否绑定
 			this.img_lock.visible = Boolean(item.dwBinding);
 			// 物品ICON
-			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID('' + item.dwBaseID) + '.png';
+			this.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(dwBaseID) + '.png';
 			// 底图
-			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID) + '.png';
+			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
 			// 物品数量
 			if (item.dwCount && item.dwCount > 1) {
 				this.lbl_count.text = '' + item.dwCount;
@@ -111,11 +120,15 @@ module view.compart {
 			else {
 				this.lbl_count.text = '';
 			}
-			// 是否有能力提升的提示
-			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + item.dwBaseID);
-			this.btn_isStronger.visible = (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP);
-			if (this.btn_isStronger.visible) {
-				this.updateIsStronger();
+			// 使用等级
+			let ZS_LEVEL = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
+			let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
+
+			if (player.zslevel * 1000 + player.level < ZS_LEVEL * 1000 + lvl) {
+				this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
+			}
+			else {
+				this.img_bg.filters = null;
 			}
 		}
 
@@ -145,26 +158,40 @@ module view.compart {
 		 * 更新战力提升提示
 		 */
 		public updateIsStronger(): void {
-			// 优先对比角色
+			let player = GameApp.MainPlayer;
+			// 穿戴位置
+			let pos = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + this.item.dwBaseID);
+			let index_hero = [
+				pos,
+				pos + EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS,
+				pos + EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS,
+				pos + EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS];
+			// 穿戴职业
+			let canJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.item.dwBaseID);
+			// 穿戴性别
+			let canSex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX('' + this.item.dwBaseID);
 
 
-			// 再对比弟子
-
-		}
-
-		/**
-		 * 获取装备评分
-		 */
-		public get eQuipScore(): number {
-			let score = 0;
-			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.dwBaseID);
-			// 确定是装备，需要计算积分
-			if (itemType == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP) {
-				
-
+			for (let i = 0; i < index_hero.length; i++) {
+				let index = index_hero[i];
+				let itemInfo = GameUtil.findEquipInPlayer(index);
+				// 优先对比角色
+				let index_player = i || GameApp.MainPlayer.job;
+				// 分数小于本装备
+				if (itemInfo) {
+					if (itemInfo.battleScore[index_player] < this.item.battleScore[index_player]) {
+						this.btn_isStronger.visible = true;
+						this.btn_isStronger.selected = Boolean(i);
+						return
+					}
+				}
+				// 没有装备
+				else {
+					this.btn_isStronger.visible = true;
+					this.btn_isStronger.selected = Boolean(i);
+					return
+				}
 			}
-			return score;
 		}
-
 	}
 }
