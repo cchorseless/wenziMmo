@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":62,
-    "selecteID":40,
+    "selectedBox":63,
+    "selecteID":64,
     "props":{"width":638,"sceneColor":"#e2d9d9","height":883},
     "nodeParent":-1,
     "label":"View",
@@ -561,17 +561,30 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":47,"x":23,"wordWrap":true,"width":237,"var":"lbl_allRecord","text":"我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录我的记录","padding":"15","height":183,"fontSize":22,"font":"FZHL","color":"#000000"},
+                    "type":"Panel",
+                    "props":{"y":47,"x":23,"width":237,"var":"panel_allRecord","height":183},
                     "nodeParent":41,
-                    "label":"Label(lbl_allRecord)",
-                    "isDirectory":false,
+                    "label":"Panel(panel_allRecord)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":43,
+                    "hasChild":true,
+                    "compId":63,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"var":"vbox_allRecord","right":0,"left":0},
+                            "nodeParent":63,
+                            "label":"VBox(vbox_allRecord)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":64,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         },

@@ -4,11 +4,33 @@ module view.luckDraw {
 		constructor() {
 			super();
 		}
-		public setData(data): LuckDraw_RecordItem {
-			this.lbl_record.text='';
+		public setData(): void {
+			
+		}
+		/**
+		 * 
+		 * @param data 我的抽奖奖励记录
+		 */
+		public init_myRecord(data):LuckDraw_RecordItem{
 			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.i)
 			let cout = '' + data.n;
-			this.lbl_record.text =  GameApp.MainPlayer.objName + '获得了' + cout + '个' + itemName;
+			this.lbl_record.text = GameApp.MainPlayer.objName + '获得了' + cout + '个' + itemName;
+			return this;
+		}
+		/**
+		 * 
+		 * @param allRecord 全服抽奖奖励记录
+		 */
+		public init_allRecord(allRecord): LuckDraw_RecordItem {
+			let item = allRecord.split('=')
+			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item[1])
+			this.lbl_record.text = item[0] + '获得了' + itemName;
+			return this;
+		}
+		public init_jifenRecord(name,item): LuckDraw_RecordItem {
+			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item)
+			this.lbl_record.text = name + '兑换了' + itemName;
+			console.log('===>物品名字拆分',name,item)
 			return this;
 		}
 	}

@@ -604,9 +604,9 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Menu, 99, 0, 2);
         })
     }
-     /**
-    * 抽奖界面
-    */
+    /**
+   * 抽奖界面
+   */
     export function openLuckDrawPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LuckDraw) {
             return

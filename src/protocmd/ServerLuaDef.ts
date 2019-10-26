@@ -288,6 +288,13 @@ module ProtoCmd {
     export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//(record全服奖励记录myrecord我的奖励记录)
     //藏宝阁抽奖
     export const LD_CangbaotuBuy = "CangbaotuBuy";
+    //积分兑换面板
+    export const LD_BZ_SendPlaneMsg = "BZ_SendPlaneMsg";
+    //积分兑换记录积分
+    export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//(jifen:抽奖积分record:兑换记录)
+    //积分兑换
+    export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
+
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数

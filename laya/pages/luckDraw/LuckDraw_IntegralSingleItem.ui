@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
+    "selecteID":6,
     "props":{"width":595,"sceneColor":"#000000","height":93},
     "nodeParent":-1,
     "label":"View",
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":33,"x":249,"text":"消耗：","fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
+            "props":{"y":9,"x":249,"text":"消耗：","fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -71,27 +71,13 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":33,"x":307,"width":146.90625,"var":"lbl_use","text":"屠龙+50积分","height":24,"fontSize":24,"font":"FZHL","color":"#63491a","align":"center"},
+            "props":{"y":9,"x":307,"wordWrap":true,"width":147,"var":"lbl_use","text":"屠龙+50积分","height":70,"fontSize":24,"font":"FZHL","color":"#63491a","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_use)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":15,"x":471,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"兑换"},
-            "nodeParent":1,
-            "label":"Button(btn_exchange)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
             "child":[
                 ],
             "$HIDDEN":false
@@ -106,6 +92,20 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":8,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":15,"x":471,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"兑换"},
+            "nodeParent":1,
+            "label":"Button(btn_exchange)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
             "child":[
                 ],
             "$HIDDEN":false

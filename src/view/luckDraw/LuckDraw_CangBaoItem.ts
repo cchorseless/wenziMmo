@@ -8,6 +8,8 @@ module view.luckDraw {
 		public setData(): void {
 			this.panel_myRecord.vScrollBarSkin = '';
 			this.vbox_myRecord['sortItem'] = items => { };
+			this.panel_allRecord.vScrollBarSkin = '';
+			this.vbox_allRecord['sortItem'] = items => { };
 			this.addEvent();
 			this.init_CangBaoGeData();
 			this.init_Record();
@@ -15,11 +17,11 @@ module view.luckDraw {
 		public addEvent(): void {
 			//返回菜单界面
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(PanelManage.LuckDraw, true, 4);
+				PopUpManager.checkPanel(PanelManage.LuckDraw, true);
 			})
 			//积分兑换
 			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.LuckDraw.box_item.addChild(new view.luckDraw.LuckDraw_IntegralItem())
+				new view.luckDraw.LuckDraw_IntegralDialog().setData(this.lbl_score.text).show()
 			})
 			for (let i = 1; i < 4; i++) {
 				this['btn_tanBao' + i].on(Laya.UIEvent.CLICK, this, () => {
@@ -38,7 +40,6 @@ module view.luckDraw {
 				itemsInfo.dwBaseID = jsonData.middleItem.index;
 				itemsInfo.dwCount = jsonData.middleItem.num;
 				this.ui_CangBaoItem.setData(itemsInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				// this.ui_CangBaoItem.img_bg.skin = 'image/common/daoju/quality_3.png';
 				//12个宝物
 				let keys = Object.keys(jsonData.sideItem)
 				for (let i = 1; i < 10; i++) {
@@ -50,7 +51,6 @@ module view.luckDraw {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jsonData.sideItem[key];
 					ui_cangbao.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					// ui_cangbao.img_bg.skin = 'image/common/daoju/quality_2.png';
 					this['box_' + key].addChild(ui_cangbao)
 				}
 				//宝藏信息
@@ -72,12 +72,17 @@ module view.luckDraw {
 		public init_Record(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.LD_cangbaoge_getrecord, null, null, this, (jsonData) => {
-				console.log('=====>藏宝阁奖励', jsonData)
-				this.lbl_allRecord.text = '' + jsonData.record;
+				//全服奖励记录
+				let single = jsonData.record.split('+')
+				let singleKeys = Object.keys(single)
+				for (let key of singleKeys) {
+					this.vbox_allRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().init_allRecord(single[key]))
+				}
+				//我的奖励记录
 				let keys = Object.keys(jsonData.myrecord);
 				this.vbox_myRecord.removeChildren();
 				for (let key of keys) {
-					this.vbox_myRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().setData(jsonData.myrecord[key]))
+					this.vbox_myRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().init_myRecord(jsonData.myrecord[key]))
 				}
 			})
 			lcp.send(pkt);
@@ -97,7 +102,6 @@ module view.luckDraw {
 		public addLcpEvent(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.LD_CangbaotuBuy, this, (jsonData) => {
-				console.log('=====>藏宝阁抽奖', GameObject)
 				this.lbl_score.text = '' + jsonData.score;
 			})
 		}
