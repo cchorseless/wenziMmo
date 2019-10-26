@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":4,
-    "props":{"width":110,"sceneColor":"#883e3c","height":115},
+    "selecteID":10,
+    "props":{"width":587,"sceneColor":"#000000","height":93},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,56 +14,53 @@
     "child":[
         {
             "x":15,
-            "type":"UIView",
-            "source":"compart/DaoJuItem.ui",
-            "props":{"y":1,"x":17,"var":"ui_item","top":1,"runtime":"view.compart.DaoJuItem"},
-            "nodeParent":1,
-            "label":"UIView(ui_item)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":74,"var":"lbl_itemName","text":"道具名称名称","strokeColor":"#000000","stroke":4,"right":0,"left":0,"height":27,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_itemName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":92,"x":11,"width":27,"visible":false,"var":"img_exp","skin":"image/common/icon_exp_02.png","height":24},
+            "props":{"y":0,"x":0,"width":587,"skin":"image/common/fram_common_11.png","height":93},
             "nodeParent":1,
-            "label":"Image(img_exp)",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":8,
+            "compId":2,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":93,"x":39,"width":62,"visible":false,"var":"lbl_exp","text":"99w","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+            "props":{"y":29,"x":9,"width":60,"var":"lab_rank","valign":"middle","text":"1","stroke":3,"height":35,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
             "nodeParent":1,
-            "label":"Label(lbl_exp)",
+            "label":"Label(lab_rank)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":10,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":30,"x":322,"width":132,"var":"lab_name","valign":"middle","text":"好名字六个字","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_name)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":30,"x":481,"width":98,"var":"lab_num","valign":"middle","text":"500000","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_num)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":14,
             "child":[
                 ]
         }],

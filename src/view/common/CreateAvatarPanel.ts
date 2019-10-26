@@ -725,7 +725,6 @@ module view.common {
 		public createPlayerRet(data: any): void {
 			let msg = new ProtoCmd.CreatePlayerRet(data);
 			let errorcode = msg.getValue('errorcode');
-			console.log('==========errorcode', errorcode)
 			if (errorcode == 0) {
 				// 创建账号成功
 				this.showDialog(false);
@@ -739,34 +738,7 @@ module view.common {
 				GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'))
 			}
 			else {
-				let strmsg: string;
-				switch (errorcode) {
-					case -10:
-						strmsg = '有非法字符';
-						break;
-					case -11:
-						strmsg = '角色超过规定数量';
-						break;
-					case -14:
-						strmsg = '昵称名检查没通过';
-						break;
-
-					case -15:
-						strmsg = '昵称名不能超过4个以上的数字';
-						break;
-
-					case -16:
-						strmsg = '当前服务器正在维护';
-						break;
-
-					case -70:
-						strmsg = '昵称重复';
-						break;
-
-					default:
-						strmsg = '创角失败';
-						break;
-				}
+				let strmsg: string = LangConfig.createPlayerErrorDes[EnumData.createPlayerError[errorcode]];
 				TipsManage.showTips(strmsg + errorcode);
 			}
 			msg.clear();

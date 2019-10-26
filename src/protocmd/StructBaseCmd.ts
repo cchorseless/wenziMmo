@@ -1032,7 +1032,7 @@ module ProtoCmd {
          */
         public get btdes(): string {
             if (this.btNpType) {
-                return LangConfig.NpPropertyDes[this.btNpType] + ':' + this.dwNpNum;
+                return LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[this.btNpType]] + ':' + this.dwNpNum;
             }
         }
         /**
@@ -1367,7 +1367,7 @@ module ProtoCmd {
                                 firstObj = tmpObj[5];
                                 secondObj = tmpObj[6];
                                 if (firstObj && secondObj) {
-                                    tmpDes[key] = '蛮力攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                    tmpDes[key] = '力道:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
                                 }
                                 else {
                                     tmpDes[key] = str;
@@ -1379,7 +1379,7 @@ module ProtoCmd {
                                 firstObj = tmpObj[7];
                                 secondObj = tmpObj[8];
                                 if (firstObj && secondObj) {
-                                    tmpDes[key] = '灵巧攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                    tmpDes[key] = '柔劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
                                 }
                                 else {
                                     tmpDes[key] = str;
@@ -1391,7 +1391,7 @@ module ProtoCmd {
                                 firstObj = tmpObj[9];
                                 secondObj = tmpObj[10];
                                 if (firstObj && secondObj) {
-                                    tmpDes[key] = '灵巧攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                    tmpDes[key] = '刚劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
                                 }
                                 else {
                                     tmpDes[key] = str;
@@ -1403,7 +1403,7 @@ module ProtoCmd {
                                 firstObj = tmpObj[11];
                                 secondObj = tmpObj[12];
                                 if (firstObj && secondObj) {
-                                    tmpDes[key] = '蛮力防御:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                    tmpDes[key] = '卸力:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
                                 }
                                 else {
                                     tmpDes[key] = str;
@@ -1415,7 +1415,7 @@ module ProtoCmd {
                                 firstObj = tmpObj[13];
                                 secondObj = tmpObj[14];
                                 if (firstObj && secondObj) {
-                                    tmpDes[key] = '灵巧防御:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
+                                    tmpDes[key] = '化劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
                                 }
                                 else {
                                     tmpDes[key] = str;
@@ -1449,11 +1449,19 @@ module ProtoCmd {
             let r0 = 0;
             let r1 = 0;
             let r2 = 0;
+            // 极品属性战力
             for (let _st of _stNpProperty) {
                 r0 += _st.battleScore[0];
                 r1 += _st.battleScore[1];
                 r2 += _st.battleScore[2];
             }
+            // 基本属性战力
+            let effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + this.dwBaseID);
+            let effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + this.dwBaseID);
+            let effid2 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + this.dwBaseID);
+            r0 += GameUtil.parseEffectidToString('' + effid0).battle[1];
+            r1 += GameUtil.parseEffectidToString('' + effid1).battle[2];
+            r2 += GameUtil.parseEffectidToString('' + effid2).battle[3];
             return [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         }
 
