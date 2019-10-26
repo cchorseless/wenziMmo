@@ -1551,7 +1551,8 @@ class ServerListener extends SingletonClass {
 
         }
         catch (e) {
-            console.error(e)
+            console.warn
+            (e)
         }
 
         msg.clear();

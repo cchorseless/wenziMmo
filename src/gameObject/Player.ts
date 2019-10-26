@@ -32,7 +32,7 @@ module GameObject {
         public get lvlCount(): number {
             return this.zslevel * 1000 + this.level
         }
-        public viplvl: number;//Vip等级
+        public viplvl: number = 0;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物

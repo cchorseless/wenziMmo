@@ -32,7 +32,6 @@ module PanelManage {
     export let netLoading: view.common.NetLoadingPanel;                                  //服务器网络数据加载界面
     export let resloading: view.common.ResLoadingPanel;                                  //游戏中加载资源切换场景界面
     export let serverError: view.common.ServerErrorPanel;                                //服务器意外失去连接界面
-    export let GM: view.common.GmPanel;                                                  //GM界面
     export let Login: view.common.LoginPanel;                                            //登陆界面
     export let ChooseServer: view.common.ChooseServerPanel;                              //选择服务器界面
     export let CreateAvatar: view.common.CreateAvatarPanel;                              //创角界面
@@ -133,20 +132,7 @@ module PanelManage {
 
         });
     }
-    // GM工具
-    export function openGmPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GM) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GM);
-        ResManage.loadResource(ResData.PanelRes.GM, () => {
-            PanelManage.GM = new view.common.GmPanel();
-            PanelManage.GM['LCP_skin'] = ResData.PanelRes.GM;
-            PanelManage.GM.setData();
-            PanelManage.GM.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.GM, 99, 0, ShowType.BOTTOM);
-        })
-    }
+
     // 登陆界面
     export function openLoginPanel(): void {
         if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Login) {
