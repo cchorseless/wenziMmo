@@ -78,12 +78,18 @@ module view.luckDraw {
 				for (let key of singleKeys) {
 					this.vbox_allRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().init_allRecord(single[key]))
 				}
+				Laya.timer.frameOnce(1, this, () => {
+					this.panel_allRecord.scrollTo(0, this.vbox_allRecord.height);
+				})
 				//我的奖励记录
 				let keys = Object.keys(jsonData.myrecord);
 				this.vbox_myRecord.removeChildren();
 				for (let key of keys) {
 					this.vbox_myRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().init_myRecord(jsonData.myrecord[key]))
 				}
+				Laya.timer.frameOnce(1, this, () => {
+					this.panel_myRecord.scrollTo(0, this.vbox_myRecord.height);
+				})
 			})
 			lcp.send(pkt);
 		}
@@ -103,6 +109,7 @@ module view.luckDraw {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.LD_CangbaotuBuy, this, (jsonData) => {
 				this.lbl_score.text = '' + jsonData.score;
+				this.init_Record()
 			})
 		}
 		public destroy(isbool): void {

@@ -89,10 +89,10 @@ module view.juese {
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
 				if (id !== 0) {
 					let shuxing2 = GameUtil.parseEffectidToString('' + id)
-					let attribute2 = shuxing1.des;
-					let battle = shuxing1.battle[this.job];
+					let attribute2 = shuxing2.des;
+					let battle = shuxing2.battle[this.job];
 					this.clip_power2.value = '' + battle;
-					let battle2 = shuxing1.battle[this.job];
+					let battle2 = shuxing2.battle[this.job];
 					let keys2 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
