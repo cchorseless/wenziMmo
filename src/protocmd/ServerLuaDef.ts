@@ -295,9 +295,9 @@ module ProtoCmd {
     //积分兑换
     export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
     /*********************************菜单福利******************** */
-     //菜单福利回收面板
+    //菜单福利回收面板
     export const FuLi_ZiYuanZhaoHui_Open = "ZiYuanZhaoHui_Open";
-     //菜单福利回收领取
+    //菜单福利回收领取
     export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
 
     /*********************************装备相关******************** */
@@ -355,6 +355,9 @@ module ProtoCmd {
     export const GetComposeEquipAward = "GetComposeEquipAward" //装备合成 合成
     export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
     export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
+
+    export const cashPanel = "cashPanel";     //充值panel;
+    export const test_sendrmb = "test_sendrmb";     //充值Button;
 
 
 
