@@ -8,11 +8,16 @@ module view.activity {
 		public touchTabID = 1;  //当前点击的tab是第几个从1开始  对应tabData中的key
 		public static self: ActivityPanel;
 		public buttonBJ = 0; f
-
+		public hasInitArr: { [index: number]: number } = { 1: 0, 2: 0, 3: 0, 4: 0, 7: 0, 12: 0, 13: 0, 15: 0, 16: 0, 17: 0, 18: 0, 19: 0, 24: 0, 32: 0, 34: 0, 35: 0, 38: 0, 39: 0, 40: 0, 41: 0 };
+		// public activeData
 		public activeID = 1;   //当前活动id  服务器用的id
 
+		public hasTimeNum = 0;
 		constructor() {
 			super();
+			for (let i = 1; i < 50; i++) {
+				this["activeData" + i] = null
+			}
 			ActivityPanel.self = this;
 			this.panle_info.vScrollBarSkin = ""
 
@@ -31,6 +36,7 @@ module view.activity {
 				this.panel_tab.addChild(o)
 			}
 			this.activeID = this.tabData[this.touchTabID].id
+
 			this.changeTabState()
 			this.getActiveInfoData();
 
@@ -41,137 +47,123 @@ module view.activity {
 			// this.activeID = 7;
 			switch (this.activeID) {
 				case 4:
-					let pkt4 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active4, null);
-					lcp.send(pkt4);
-					GameApp.LListener.on(ProtoCmd.Active4, this, (data) => {
-						this.box_rank.visible = true
-						if (data.leftsec >= 0) {
-							this.leftTime = data.leftsec;
-						} if (data.yuanbao >= 0) {
-							this.curConsume = data.yuanbao;
-						}
-						this.lab_rules.text = data.introduce;
-						this.showRank(data.item, data.rank)
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData4(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData4(data);
+						})
+					}
 					break;
 				case 7:
-					let pkt7 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active7, null);
-					lcp.send(pkt7);
-					GameApp.LListener.on(ProtoCmd.Active7, this, (data) => {
-						this.box_rank.visible = true
-						if (data.leftsec >= 0) {
-							this.leftTime = data.leftsec;
-						} if (data.yuanbao >= 0) {
-							this.curConsume = data.yuanbao;
-						}
-						this.lab_rules.text = data.introduce;
-						this.showRank(data.item, data.rank)
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData4(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData4(data);
+						})
+					}
 					break;
 				case 12:
-					let pkt12 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active12, null);
-					lcp.send(pkt12);
-					GameApp.LListener.on(ProtoCmd.Active12, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.rmb >= 0) {
-							this.curConsume = data.rmb;
-						}
-						this.lab_rules.text = data.introduce;
-						this.infoData = data.itemtab
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData12(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData12(data);
+						})
+					}
 					break;
 				case 16:
-					let pkt16 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active16, null);
-					lcp.send(pkt16);
-					GameApp.LListener.on(ProtoCmd.Active16, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.rmb >= 0) {
-							this.curConsume = data.rmb;
-						}
-						this.lab_rules.text = data.introduce;
-						this.infoData = data.itemtab
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData16(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData16(data);
+						})
+					}
 					break;
 				case 18:
-					let pkt18 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active18, null);
-					lcp.send(pkt18);
-					GameApp.LListener.on(ProtoCmd.Active18, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.achieve >= 0) {
-							this.curConsume = data.achieve;
-						}
-						this.lab_rules.text = data.introduce;
-						this.infoData = data.itemtab
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData18(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData18(data);
+						})
+					}
 					break;
 				case 19:
-					let pkt19 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active19, null);
-					lcp.send(pkt19);
-					GameApp.LListener.on(ProtoCmd.Active19, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.achieve >= 0) {
-							this.curConsume = data.achieve;
-						}
-						this.lab_rules.text = data.introduce;
-						this.infoData = data.itemtab
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData19(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData19(data);
+						})
+					}
 					break;
 
 				case 32:
-					let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active32, null);
-					lcp.send(pkt32);
-					GameApp.LListener.on(ProtoCmd.Active32, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.achieve >= 0) {
-							this.curConsume = data.achieve;
-						}
-						this.lab_rules.text = data.introduce;
-						this.infoData = data.itemtab
-						this.upDateView()
-					})
-
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData32(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData32(data);
+						})
+					}
 					break;
 				case 40:
-					let pkt40 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active40, null);
-					lcp.send(pkt40);
-					GameApp.LListener.on(ProtoCmd.Active40, this, (data) => {
-						if (data.lefttime >= 0) {
-							this.leftTime = data.lefttime;
-						} if (data.achieve >= 0) {
-							this.curConsume = data.achieve;
-						}
-						delete (data["lefttime"])
-						delete data["lefttime"]
-						// this.lab_rules.text = data.introduce;
-						this.infoData = data
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData40(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData40(data);
+						})
+					}
 					break;
 				case 41:
-					let pkt41 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active41, null);
-					lcp.send(pkt41);
-					GameApp.LListener.on(ProtoCmd.Active41, this, (data) => {
-						this.box_EveryDayRecharge.visible = true;
-						if (data.leftsec >= 0) {
-							this.leftTime = data.leftsec;
-						} if (data.yuanbao >= 0) {
-							this.curConsume = data.yuanbao;
-						}
-						// this.lab_rules.text = data.introduce;
-						this.showEveryDayRecharge(data.item, data.bj)
-						this.upDateView()
-					})
+					if (this.hasInitArr[this.activeID] == 1 && this["activeData" + this.activeID] != null) {
+						this.useData41(this["activeData" + this.activeID]);
+					} else {
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd["Active" + this.activeID], null);
+						lcp.send(pkt);
+						GameApp.LListener.on(ProtoCmd["Active" + this.activeID], this, (data) => {
+							this.hasInitArr[this.activeID] = 1;
+							this["activeData" + this.activeID] = data
+							this.useData41(data);
+						})
+					}
+
 					break;
 
 			}
@@ -195,6 +187,93 @@ module view.activity {
 			})
 
 		}
+		public useData4(data) {
+			this.box_rank.visible = true
+			if (data.leftsec >= 0) {
+				this.leftTime = data.leftsec;
+			} if (data.yuanbao >= 0) {
+				this.curConsume = data.yuanbao;
+			}
+			this.lab_rules.text = data.introduce;
+			this.showRank(data.item, data.rank)
+			this.upDateView()
+		}
+		public useData12(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.rmb >= 0) {
+				this.curConsume = data.rmb;
+			}
+			this.lab_rules.text = data.introduce;
+			this.infoData = data.itemtab
+			this.upDateView()
+		}
+		public useData16(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.rmb >= 0) {
+				this.curConsume = data.rmb;
+			}
+			// this.lab_rules.text = data.introduce;
+			this.lab_rules.text = "参加活动赢得奖励"
+			this.infoData = data.itemtab
+			this.upDateView()
+		}
+		public useData18(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.achieve >= 0) {
+				this.curConsume = data.achieve;
+			}
+			this.lab_rules.text = data.introduce;
+			this.infoData = data.itemtab
+			this.upDateView()
+
+		}
+		public useData19(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.achieve >= 0) {
+				this.curConsume = data.achieve;
+			}
+			this.lab_rules.text = data.introduce;
+			this.infoData = data.itemtab
+			this.upDateView()
+		}
+		public useData32(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.achieve >= 0) {
+				this.curConsume = data.achieve;
+			}
+			this.lab_rules.text = data.introduce;
+			this.infoData = data.itemtab
+			this.upDateView()
+		}
+		public useData40(data) {
+			if (data.lefttime >= 0) {
+				this.leftTime = data.lefttime;
+			} if (data.achieve >= 0) {
+				this.curConsume = data.achieve;
+			}
+			delete (data["lefttime"])
+			delete data["lefttime"]
+			// this.lab_rules.text = data.introduce;
+			this.infoData = data
+			this.upDateView()
+		}
+		public useData41(data) {
+			this.box_EveryDayRecharge.visible = true;
+			if (data.leftsec >= 0) {
+				this.leftTime = data.leftsec;
+			} if (data.yuanbao >= 0) {
+				this.curConsume = data.yuanbao;
+			}
+			// this.lab_rules.text = data.introduce;
+			this.showEveryDayRecharge(data.item, data.bj)
+			this.upDateView()
+		}
+
 
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
@@ -326,8 +405,10 @@ module view.activity {
 
 		public upDateView() {
 			//通用
+			this.leftTime -=this.hasTimeNum; 
 			if (this.leftTime > 0) {
-				let aa = TimeUtils.getFormatBySecond(this.leftTime, 5)
+				
+				let aa = TimeUtils.getFormatBySecond(this.leftTime, 6)
 				this.html_curTime.style.align = "center";
 				this.html_curTime.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>" + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
 				this.onshowTime()
@@ -376,10 +457,11 @@ module view.activity {
 		public onshowTime() {
 			// this.leftTime = 10;
 			if (this.leftTime > 0) {
-				Laya.timer.loop(1000, this, function () {
-					this.leftTime--;
+				Laya.timer.frameLoop(60, this, function () {
+					ActivityPanel.self.hasTimeNum++
+					ActivityPanel.self.leftTime --;;
 					if (this.leftTime > 0) {
-						let aa = TimeUtils.getFormatBySecond(this.leftTime, 5)
+						let aa = TimeUtils.getFormatBySecond(this.leftTime, 6)
 						this.html_curTime.style.align = "center";
 						this.html_curTime.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>" + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
 					}
