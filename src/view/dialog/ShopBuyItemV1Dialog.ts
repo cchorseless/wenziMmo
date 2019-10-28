@@ -7,42 +7,19 @@ module view.dialog {
 		public item: ProtoCmd.itf_Shop_ShopItem;
 		public setData(item: ProtoCmd.itf_Shop_ShopItem, model: EnumData.ShopBuyPanelType): ShopBuyItemV1Dialog {
 			this.item = item;
+			let _itemBase = new ProtoCmd.ItemBase();
+			_itemBase.dwBaseID = item.itemid;
+			_itemBase.dwCount = item.num;
+			_itemBase.dwBinding = item.binding;
+			this.ui_item.setData(_itemBase);
 			// 道具ID
 			let dwBaseID = '' + item.itemid;
 			// 消耗货币描述
-			this.lbl_coinDes.text = '' + '消耗' + ['', '元宝', '礼券', '金币', '荣誉', '帮贡'][item.pricetype];
+			this.lbl_coinDes.text = '' + '消耗' + LangConfig.CoinTypeDes[EnumData.CoinType[item.pricetype]];
 			// 消耗货币ICON
-			this.img_coinPic.skin = 'image/main/icon_coin_' + item.pricetype + '.png';
-			// 是否绑定
-			this.lbl_isLock.visible = Boolean(item.binding);
-			// 物品名称
-			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID);
-			// 物品描述
-			this.div_itemDes.innerHTML = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(dwBaseID);
-			// 玩家回收经验
-			this.lbl_playerRecover.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(dwBaseID);
-			// 帮会回收贡献值
-			this.lbl_guildRecover.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE(dwBaseID);
-			// 道具类型
-			this.lbl_type.text = '部位:' + ['头盔', '项链', '衣服', '武器', '手镯', '手镯', '戒指', '戒指', '鞋字', '腰带'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID)];
-			// 道具职业
-			this.lbl_job.text = '职业:' + ['通用', '战士', '法师', '道士'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)];
-			// 道具等级，使用等级
-			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
-			this.lbl_level.text = '等级:' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).LVNEED(dwBaseID) + '级';
-			// 道具性别
-			this.lbl_sex.text = '性别:' + ['通用', '男', '女'][SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)];
-			// 是否绑定
-			this.ui_item.img_lock.visible = Boolean(item.binding);
-			// 物品ICON
-			this.ui_item.img_item.skin = 'image/common/daoju/itemicon_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(dwBaseID) + '.png';
-			// 底图
-			this.ui_item.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
-			// 物品数量
-			this.ui_item.lbl_count.text = '' + item.num;
+			this.img_coinPic.skin = LangConfig.getCoinImagePicSkin(item.pricetype);
 			// 花费总价
 			this.lbl_coinPrice.text = '' + Math.ceil(item.price * item.discount / 10);
-
 			this.addEvent();
 			return this;
 		}
@@ -53,7 +30,17 @@ module view.dialog {
 		}
 
 		public buyItem(): void {
-
+			let wealth = GameApp.MainPlayer.wealth
+			let allcoin = ['', wealth.yuanBao, wealth.yuanBao_lock, wealth.gold, wealth.honorNum, wealth.guildDedication];
+			if (allcoin[this.item.pricetype] < parseInt(this.lbl_coinPrice.text)) {
+				TipsManage.showTips('货币不足');
+				return;
+			}
+			this.close();
+			let pkt = new ProtoCmd.QuestClientData();
+			let data = [this.item.type, this.item.subtype, this.item.index, this.item.num];
+			pkt.setString(ProtoCmd.SHOP_BuyItem, data);
+			lcp.send(pkt);
 		}
 	}
 }

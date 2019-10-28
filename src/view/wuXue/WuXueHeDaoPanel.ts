@@ -35,7 +35,7 @@ module view.wuXue {
 			});
 			// 生活技能
 			this.btn_lifeSkill.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openWuXueLifeSkillPanel();
+				// PanelManage.openWuXueLifeSkillPanel();
 			});
 			//转生突破
 			this.btn_zhuanSheng.on(Laya.UIEvent.CLICK, this, () => {

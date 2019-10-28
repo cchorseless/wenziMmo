@@ -21,7 +21,6 @@ module view.compart {
 			let player = GameApp.MainPlayer;
 			// 是否有能力提升的提示
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
-			// 
 			this.btn_isStronger.visible = false;
 			// 在角色身上
 			if (item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
@@ -117,8 +116,8 @@ module view.compart {
 		 * @param item 
 		 * @param model 
 		 */
-		public initUI(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
-			this.model = model;
+		public initUI(item: ProtoCmd.ItemBase, mode: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+			this.model = mode;
 			let dwBaseID = '' + item.dwBaseID;
 			let player = GameApp.MainPlayer;
 			// 是否绑定
@@ -134,7 +133,6 @@ module view.compart {
 			else {
 				this.lbl_count.text = '';
 			}
-
 		}
 
 		/**
@@ -175,7 +173,6 @@ module view.compart {
 			let canJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + this.item.dwBaseID);
 			// 穿戴性别
 			let canSex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX('' + this.item.dwBaseID);
-
 
 			for (let i = 0; i < index_hero.length; i++) {
 				let index = index_hero[i];

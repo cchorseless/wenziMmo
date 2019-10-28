@@ -43,7 +43,6 @@ module PanelManage {
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
     export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
-    export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
@@ -319,22 +318,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
         })
     }
-    /**
-    * 武学生活技能界面
-    */
-    export function openWuXueLifeSkillPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LifeSkill) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.LifeSkill);
-        ResManage.loadResource(ResData.PanelRes.LifeSkill, () => {
-            PanelManage.LifeSkill = new view.wuXue.WuXueLifeSkillPanel();
-            PanelManage.LifeSkill['LCP_skin'] = ResData.PanelRes.LifeSkill;
-            PanelManage.LifeSkill.setData();
-            PanelManage.LifeSkill.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.LifeSkill, 1, 0, 2);
-        })
-    }
+
 
 
 

@@ -359,6 +359,9 @@ module ProtoCmd {
  * 返回结构体
  */
 module ProtoCmd {
+
+
+
     /**
      * 活动面板
      */
