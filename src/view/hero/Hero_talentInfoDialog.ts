@@ -1,19 +1,20 @@
 /**Created by the LayaAirIDE*/
 module view.hero {
-	export class Hero_talentInfoDialog extends ui.hero.Hero_talentInfoDialogUI {
+	export class Hero_TalentInfoDialog extends ui.hero.Hero_TalentInfoDialogUI {
 		constructor() {
 			super();
 		}
 		public item1;
 		public item2;
 		public sum;
-		public setData(index, i, data: ProtoCmd.itf_Hero_TalentInfo, key): Hero_talentInfoDialog {
-			//data.consumetab[index][i]效果ID
+		public setData(index, i, data: ProtoCmd.itf_Hero_TalentInfo, key): Hero_TalentInfoDialog {
+			this.vbox_talent['sortItem'] = (items) => { }; 
 			let sum = data.lvltab[0] + data.lvltab[1] + data.lvltab[2] + data.lvltab[3];
 			this.sum = sum;
 			this.judgeEvent(data, index, i, key);
 			this.judgeType(data, index, i);
 			this.addEvent(data, index, i);
+			this.init_view(data.effidtab,i,index)
 			return this;
 		}
 		public addEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
@@ -31,6 +32,21 @@ module view.hero {
 			})
 		}
 		/**
+		 * 属性显示
+		 * @param i 效果id
+		 */
+		public init_view(idArray,i,index): void {
+			let num=i*(index+1);
+			let shuxing = GameUtil.parseEffectidToString('' + idArray[num])
+			let attribute = shuxing.des;
+			let keys = Object.keys(attribute)
+			this.vbox_talent.removeChildren();
+			for (let key of keys) {
+				this.vbox_talent.addChild(new view.juese.Person_LableItem().setData(attribute[key]))
+			}
+		}
+
+		/**
 		 * 判断view_talent.selectedIndex状态
 		 */
 		public judgeType(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
@@ -40,13 +56,16 @@ module view.hero {
 				this.view_talent.selectedIndex = 1;
 			}
 
+
 			if (index !== 0 && i == 1) {
 				if (data.lvltab[0] == 5 && data.lvltab[index] == 0) {
 					this.view_talent.selectedIndex = 1;
 				}
+
 				if (data.lvltab[0] == 5 && data.lvltab[index] == 1) {
 					this.view_talent.selectedIndex = 0;
 				}
+
 				if (data.lvltab[0] == 5 && data.lvltab[index] > 1) {
 					this.view_talent.visible = false;
 				}
@@ -59,6 +78,7 @@ module view.hero {
 				if (i == canlight) {
 					this.view_talent.selectedIndex = 1;
 				}
+
 				if (i <= light) {
 					this.view_talent.selectedIndex = 0;
 				}
@@ -103,6 +123,7 @@ module view.hero {
 				pkt.setString(ProtoCmd.Hero_saveGenius, this.item1)
 				lcp.send(pkt);
 			}
+
 			else {
 				TipsManage.showTips('当前重数天赋魔力已满！')
 			}
@@ -113,6 +134,7 @@ module view.hero {
 			pkt.setString(ProtoCmd.Hero_cancelGenius, this.item2)
 			lcp.send(pkt);
 		}
+
 
 	}
 }

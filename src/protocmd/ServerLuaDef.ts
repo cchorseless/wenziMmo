@@ -669,6 +669,7 @@ module ProtoCmd {
      */
     export interface itf_Hero_TalentInfo {
         consumetab: any//消耗的天赋魔力
+        effidtab:any//效果id
         curduplicate: number//当前重id
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
