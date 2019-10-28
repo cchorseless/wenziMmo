@@ -784,13 +784,14 @@ module EnumData {
      * 商店类型枚举
      */
     export enum ShopType {
-        SHOP_TYPE_TUIJIAN = 1,//推荐商店
+        SHOP_TYPE_TUIJIAN = 1,//热销商店
         SHOP_TYPE_YUANBAOLOCK = 2,//礼券商店
         SHOP_TYPE_SKILL = 3,//技能商店
         SHOP_TYPE_HONOR = 4,//荣誉商店
-        SHOP_TYPE_BAG_HOT = 5,//背包热销商店
+        SHOP_TYPE_BAG_HOT = 5,//背包随机商店
         SHOP_TYPE_GUILD = 6,//行会商店
-        SHOP_TYPE_GUILD_HOT = 7,//帮会热销
+        SHOP_TYPE_GUILD_HOT = 7,//帮会随机商店
+        SHOP_TYPE_LIMITED = 8,//限购商店
 
     }
     /**
