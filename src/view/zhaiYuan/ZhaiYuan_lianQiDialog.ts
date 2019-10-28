@@ -26,6 +26,8 @@ module view.zhaiYuan {
 		private canUpLvCS0: boolean = false;
 		private canUpLvCS1: boolean = false;
 		private tempItemData = null
+		private useDataID = 13;
+		private curEquipDataCS = 0;
 
 		constructor() {
 			super();
@@ -202,12 +204,12 @@ module view.zhaiYuan {
 			else if (page == 2) {
 				this.curHasActive = false;
 				let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
-				let useID = baseArr[this.TouchID]
-				if (useID == 15) {
-					useID = 14;
+				this.useDataID = baseArr[this.TouchID]
+				if (this.useDataID == 15) {
+					this.useDataID = 14;
 				}
-				else if (useID == 17) {
-					useID = 16;
+				else if (this.useDataID == 17) {
+					this.useDataID = 16;
 				}
 				let stateArr = {}
 				let equipArr = {};
@@ -218,19 +220,19 @@ module view.zhaiYuan {
 					equipArr[o] = this.allData[i]
 				}
 				let tempData = GameUtil.findEquipInPlayer(baseArr[this.TouchID]);
-				this.tempItemData = GameUtil.findItemInfoInBag(equipArr[useID], GameApp.GameEngine.bagItemDB)
+				this.curEquipDataCS = equipArr[this.useDataID]
+				this.tempItemData = GameUtil.findItemInfoInBag(equipArr[this.useDataID], GameApp.GameEngine.bagItemDB)
 				if (tempData) {
 					this.curHasEquip = true
 					this.curHasActive = true;
 				} else if (!tempData) {
-					if (stateArr[useID] > 0) {
+					if (stateArr[this.useDataID] > 0) {
 						this.curHasEquip = true
 						this.curHasActive = false;
-					} else if (stateArr[useID] <= 0) {
+					} else if (stateArr[this.useDataID] <= 0) {
 						this.curHasEquip = false
 					}
 				}
-
 				if (this.curHasEquip) {
 					if (this.curHasActive) {
 						this.btn_intensify.label = arr[3];
@@ -249,7 +251,7 @@ module view.zhaiYuan {
 						if (bid == 17) {
 							bid = 16
 						}
-						this.lab_itemName3.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(equipArr[useID].toString())
+						this.lab_itemName3.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(equipArr[this.useDataID].toString())
 					} else {
 						this.btn_intensify.label = arr[1];
 						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
@@ -261,9 +263,6 @@ module view.zhaiYuan {
 					this.img_chuanshi_equip.btn_icon.gray = true;
 				}
 				this.lab_cost_forge.text = ""
-
-
-
 			}
 
 			//升级;             所需要的金币消耗
@@ -324,14 +323,44 @@ module view.zhaiYuan {
 		}
 		//强化
 		public onPageContent0() {
+			let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+			let useID = baseArr[this.TouchID]
 			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
 			this.lab_showForgeLevel_1.text = "";
 			this.lab_1_increase.text = "";
 			this.lab_luckyText.text = "当前成功率：";
 
 			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
-			// this.btn_equipContent.skin = ""
-			// this.panel_1_UI.btn_icon.skin = ""
+
+
+			let effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+			let effData0 = GameUtil.parseEffectidToString(effid0 + "")
+			let effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+			let effData1 = GameUtil.parseEffectidToString(effid1 + "")
+			this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
+			this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
+			if (effData0.des.length > 0) {
+				for (let i = 0; i < effData0.des.length; i++) {
+					let str = effData0.des[i];
+					let loc = str.indexOf(":")
+					let str1 = str.substring(0, loc + 1);
+					let str2 = str.substring(loc + 1, str.length)
+					this["html_0_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+				}
+			}
+			if (effData1.des.length > 0) {
+				for (let i = 0; i < effData1.des.length; i++) {
+					let str = effData1.des[i];
+					let loc = str.indexOf(":")
+					let str1 = str.substring(0, loc + 1);
+					let str2 = str.substring(loc + 1, str.length)
+					this["html_1_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+				}
+			}
+
+
+
+
 			this.panel_1_UI.img_circle.visible = false;
 			for (let i = 0; i < 5; i++) {
 				let aa = Math.floor(this.msgData.lvl / 5);
@@ -366,11 +395,65 @@ module view.zhaiYuan {
 			} else if (this.curOneOfSoulStoneLv > 24) {
 				this.setSoulStoneState(6)
 			}
+			for (let i = 1; i < 7; i++) {
+				this["html_soul_" + i].innerHTML = "";
+			}
+			this.lab_attact.text = "";
+			let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+			let useID = baseArr[this.TouchID];
+			let attackNum = 0;
+			if (this.type == 0) {
+				for (let i = 1; i < 7; i++) {
+					let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
+					if (soul_oneOf_Lv > 0) {
+						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
+						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+						let effData = GameUtil.parseEffectidToString(effid0 + "");
+						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
+						let str = effData.des[0];
+						let loc = str.indexOf(":")
+						let str1 = str.substring(0, loc + 1);
+						let str2 = str.substring(loc + 1, str.length)
+						if (soul_oneOf_Lv >= 12) {
+							this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
+								+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
+						} else {
+							let effData1 = GameUtil.parseEffectidToString(this.allData.SoulStoneTab[i] + soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1 + "")
+							let span = parseInt(effData1.des[0].substring(loc + 1, effData1.des[0].length)) - parseInt(str2);
+							this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
+								+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
+								+ "<span style='color:#179a0d;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + "+" + span + "</span>";
 
+						}
 
+					}
+				}
+			}
+			this.lab_attact.text = attackNum.toString();
 		}
 		//传世
 		public onPageContent2() {
+			let effid;
+			for (let i = 1; i < 6; i++) {
+				// this.html_3_1
+				this["html_3_" + i].innerHTML = "";
+			}
+			if (GameApp.GameEngine.mainPlayer.job == 1) {
+				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(this.curEquipDataCS.toString())
+			} else if (GameApp.GameEngine.mainPlayer.job == 2) {
+				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID(this.curEquipDataCS.toString())
+			} else if (GameApp.GameEngine.mainPlayer.job == 3) {
+				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(this.curEquipDataCS.toString())
+			}
+			let effData = GameUtil.parseEffectidToString(effid + "")
+			for (let i = 0; i < effData.des.length; i++) {
+				let str = effData.des[i];
+				let loc = str.indexOf(":")
+				let str1 = str.substring(0, loc + 1);
+				let str2 = str.substring(loc + 1, str.length)
+				this["html_3_" +( i + 1)].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:1;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+			}
+
 		}
 		//page2 上面面板的显示状态
 		private setSoulStoneState(id: number) {

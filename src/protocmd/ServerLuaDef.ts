@@ -351,8 +351,10 @@ module ProtoCmd {
     export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
     export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
     
+    export const cashPanel = "cashPanel";     //充值panel;
+    export const test_sendrmb = "test_sendrmb";     //充值Button;
 
-
+ 
 }
 
 /**
@@ -401,6 +403,7 @@ module ProtoCmd {
     export interface itf_JS_equipIntensifyMessage {
         herojson: Object;
         playerjson: Object;
+        ISPosEffidTab:Object;
         sooulchaintab: Object
     }
 
