@@ -38,7 +38,7 @@ module view.activity {
 		}
 
 		public getActiveInfoData() {
-			this.activeID = 7;
+			// this.activeID = 7;
 			switch (this.activeID) {
 				case 4:
 					let pkt4 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active4, null);
