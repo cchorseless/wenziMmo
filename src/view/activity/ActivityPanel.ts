@@ -38,12 +38,27 @@ module view.activity {
 		}
 
 		public getActiveInfoData() {
-			// this.activeID = 4
+			this.activeID = 7;
 			switch (this.activeID) {
 				case 4:
 					let pkt4 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active4, null);
 					lcp.send(pkt4);
 					GameApp.LListener.on(ProtoCmd.Active4, this, (data) => {
+						this.box_rank.visible = true
+						if (data.leftsec >= 0) {
+							this.leftTime = data.leftsec;
+						} if (data.yuanbao >= 0) {
+							this.curConsume = data.yuanbao;
+						}
+						this.lab_rules.text = data.introduce;
+						this.showRank(data.item, data.rank)
+						this.upDateView()
+					})
+					break;
+				case 7:
+					let pkt7 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active7, null);
+					lcp.send(pkt7);
+					GameApp.LListener.on(ProtoCmd.Active7, this, (data) => {
 						this.box_rank.visible = true
 						if (data.leftsec >= 0) {
 							this.leftTime = data.leftsec;
@@ -111,7 +126,7 @@ module view.activity {
 						this.upDateView()
 					})
 					break;
-					
+
 				case 32:
 					let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active32, null);
 					lcp.send(pkt32);
@@ -183,6 +198,7 @@ module view.activity {
 
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active7, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active18, this)
@@ -328,7 +344,7 @@ module view.activity {
 			}
 
 			if (this.infoData) {
-				if (this.activeID == 16 || this.activeID == 18 || this.activeID == 32||this.activeID == 19) {
+				if (this.activeID == 16 || this.activeID == 18 || this.activeID == 32 || this.activeID == 19) {
 					for (let i in this.infoData) {
 						let o = new Active_listInfoItem();
 						o.setData(this.infoData[i], i);

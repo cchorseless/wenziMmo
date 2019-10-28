@@ -39,11 +39,15 @@ module view.menu {
 				PanelManage.openLuckDrawPanel();
 			})
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null,0,this,function(data){
+				let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null, 0, this, function (data) {
 					PanelManage.openActivePanel(data);
 				})
 				lcp.send(pkt32);
-				
+
+			})
+			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new view.beiBao.Bag_Recharge();
+				o.popup(true);
 			})
 
 			// 菜单活动

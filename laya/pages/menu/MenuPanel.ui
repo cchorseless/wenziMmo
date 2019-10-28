@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":81,
-    "selecteID":71,
+    "selectedBox":65,
+    "selecteID":55,
     "referenceLines":[
         {
             "value":595,
@@ -110,13 +110,14 @@
             "props":{"y":143,"x":32},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":65,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-15,"x":6,"skin":"image/menu/img_xuanchuang_01.png"},
                     "nodeParent":65,
@@ -144,6 +145,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":154,"x":316,"skin":"image/menu/img_common_28.png"},
                     "nodeParent":65,
@@ -158,6 +160,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":154,"x":335,"skin":"image/menu/img_common_28.png"},
                     "nodeParent":65,
@@ -172,6 +175,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":154,"x":354,"skin":"image/menu/img_common_28.png"},
                     "nodeParent":65,
@@ -186,6 +190,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":154,"x":374,"skin":"image/menu/img_common_28down.png"},
                     "nodeParent":65,
@@ -200,6 +205,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":154,"x":393,"skin":"image/menu/img_common_28.png"},
                     "nodeParent":65,
@@ -214,10 +220,11 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":-11,"x":475,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"充值"},
+                    "props":{"y":-11,"x":475,"var":"btn_recharge","stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"充值"},
                     "nodeParent":65,
-                    "label":"Button",
+                    "label":"Button(btn_recharge)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -225,6 +232,7 @@
                     "compId":55,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":14,"x":13,"skin":"image/menu/icon_chongzhi.png","alpha":0.7},
                             "nodeParent":55,
@@ -242,6 +250,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":89,"x":475,"var":"btn_menuGonglve","stateNum":"2","skin":"image/common/bottom_shuxing.png"},
                     "nodeParent":65,
