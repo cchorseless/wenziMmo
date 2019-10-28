@@ -38,6 +38,7 @@ module view.menu {
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openLuckDrawPanel();
 			})
+			//活动
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null, 0, this, function (data) {
 					PanelManage.openActivePanel(data);
@@ -50,66 +51,14 @@ module view.menu {
 				o.popup(true);
 			})
 
-			// 菜单活动
-			// this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_active.selected = !this.btn_active.selected;
-			// 	if (this.btn_active.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_active.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_active.visible = false
-			// 	}
-			// })
-			// 菜单促销
-			// this.btn_cuxiao.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_cuxiao.selected = !this.btn_cuxiao.selected;
-			// 	if (this.btn_cuxiao.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_cuxiao.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_cuxiao.visible = false
-			// 	}
-			// })
-			// // 菜单商城
-			// this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_mall.selected = !this.btn_mall.selected;
-			// 	if (this.btn_mall.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_mall.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_mall.visible = false
-			// 	}
-			// })
-			// // 菜单福利
-			// this.btn_fuli.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_fuli.selected = !this.btn_fuli.selected;
-			// 	if (this.btn_fuli.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_fuli.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_fuli.visible = false
-			// 	}
-			// })
-			// // 菜单玩法攻略
-			// this.btn_menuGonglve.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_menuGonglve.selected = !this.btn_menuGonglve.selected;
-			// 	if (this.btn_menuGonglve.selected) {
-			// 		this.box_menuMain.visible = false;
-			// 		this.ui_gonglve.visible = true;
-			// 	}
-			// 	else {
-			// 		this.box_menuMain.visible = true;
-			// 		this.ui_gonglve.visible = false
-			// 	}
-			// })
+			// 商城
+			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openShopMallPanel();
+			})
+			// 福利
+			this.btn_fuli.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openFuLiPanel();
+			})
 		}
 	}
 }

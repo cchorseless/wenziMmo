@@ -294,6 +294,11 @@ module ProtoCmd {
     export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//(jifen:抽奖积分record:兑换记录)
     //积分兑换
     export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
+    /*********************************菜单福利******************** */
+     //菜单福利回收面板
+    export const FuLi_ZiYuanZhaoHui_Open = "ZiYuanZhaoHui_Open";
+     //菜单福利回收领取
+    export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
 
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
@@ -350,7 +355,7 @@ module ProtoCmd {
     export const GetComposeEquipAward = "GetComposeEquipAward" //装备合成 合成
     export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
     export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
-    
+
 
 
 }
@@ -483,7 +488,15 @@ module ProtoCmd {
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
         items: { itf_Shop_ShopItem };//刷新道具
-        pricetype: number;//刷新货币类型
+        pricetype: number;//购买货币类型
+        binding: number//是否绑定
+        curcnt: number//当前购买次数
+        limitcnt: number//最大购买次数
+        discount: number//折扣
+        itemid: number//物品id
+        num: number//每组数量
+        price: number//价格
+        show: number//(是否显示，0为不显示，1为显示)
     }
 
 
@@ -669,7 +682,7 @@ module ProtoCmd {
      */
     export interface itf_Hero_TalentInfo {
         consumetab: any//消耗的天赋魔力
-        effidtab:any//效果id
+        effidtab: any//效果id
         curduplicate: number//当前重id
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态

@@ -83,6 +83,8 @@ module PanelManage {
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
+    export let ShopMall: view.shopMall.ShopMall_MainPanel;//商城界面
+    export let FuLi: view.fuli.FuLi_MainPanel;//商城界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
@@ -615,12 +617,45 @@ module PanelManage {
         PopUpManager.checkPanel(PanelManage.LuckDraw);
         ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
             PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
-            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.LuckDraw;
             PanelManage.LuckDraw.setData();
             PanelManage.LuckDraw.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
+    /**
+* 商城界面
+*/
+    export function openShopMallPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ShopMall) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.ShopMall);
+        ResManage.loadResource(ResData.PanelRes.ShopMall, () => {
+            PanelManage.ShopMall = new view.shopMall.ShopMall_MainPanel();
+            PanelManage.ShopMall['LCP_skin'] = ResData.PanelRes.ShopMall;
+            PanelManage.ShopMall.setData();
+            PanelManage.ShopMall.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ShopMall, 100, 0, 2);
+        })
+    }
+    /**
+* 福利界面
+*/
+    export function openFuLiPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuLi) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.FuLi);
+        ResManage.loadResource(ResData.PanelRes.FuLi, () => {
+            PanelManage.FuLi = new view.fuli.FuLi_MainPanel();
+            PanelManage.FuLi['LCP_skin'] = ResData.PanelRes.FuLi;
+            PanelManage.FuLi.setData();
+            PanelManage.FuLi.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuLi, 100, 0, 2);
+        })
+    }
+
     /**
      * 背包界面
      */
@@ -1110,7 +1145,7 @@ module PanelManage {
             PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
             PanelManage.Activity.setData(data);
             PanelManage.Activity.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Activity,100, 0, 2);
+            PopUpManager.addPanel(PanelManage.Activity, 100, 0, 2);
         })
     }
 

@@ -30,7 +30,6 @@ module view.beiBao {
 					this["ui_reward" + i].btn_icon.gray = true;
 				}
 			}
-
 			this.list_recharge.array = this.data;
 			this.list_recharge.renderHandler = new laya.utils.Handler(this, updataPetItem);
 			this.list_recharge.selectEnable = true;

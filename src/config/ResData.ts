@@ -137,6 +137,10 @@ module ResData {
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];
         //抽奖界面
         public static LuckDraw =null;
+        //商城界面
+        public static ShopMall =null;
+        //福利界面
+        public static FuLi =null;
         // 图鉴道具界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴角色界面
