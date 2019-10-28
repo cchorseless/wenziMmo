@@ -215,9 +215,9 @@ module ProtoCmd {
     export const Hero_exchangeRealGas = 'exchangeRealGas';
     // 弟子符文面板
     export const Hero_openActiveRunePanel = 'openActiveRunePanel';//score符文积分viewtab符文碎片
-     // 弟子符文面板
+    // 弟子符文面板
     export const Hero_runeRecycle = 'runeRecycle';//score符文积分viewtab符文碎片
-    
+
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果
@@ -274,9 +274,28 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+    /*********************************菜单******************** */
+    //菜单祈福面板
+    export const Menu_QiFuClientOpen = "QiFuClientOpen";
+    //祈福功能
+    export const Menu_QiFu = "QiFu";
+    /*********************************藏宝阁抽奖******************** */
+    //抽奖面板
+    export const LD_chouJiangPanel = "chouJiangPanel";
+    //藏宝阁
+    export const LD_cangbaogeopen = "cangbaogeopen";
+    //藏宝阁奖励记录
+    export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//(record全服奖励记录myrecord我的奖励记录)
+    //藏宝阁抽奖
+    export const LD_CangbaotuBuy = "CangbaotuBuy";
+    //积分兑换面板
+    export const LD_BZ_SendPlaneMsg = "BZ_SendPlaneMsg";
+    //积分兑换记录积分
+    export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//(jifen:抽奖积分record:兑换记录)
+    //积分兑换
+    export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
 
-
-
+    /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数
     //玩家装备强化面板信息（单个Item）
@@ -302,6 +321,36 @@ module ProtoCmd {
 
     export const rxEquipCompound = "rxEquipCompound";        //装备合成（要合成的id）
 
+    export const JingCaiSendShow = "JingCaiSendShow";        //精彩活动面板;
+    export const Active1 = "EverydayBuyPanel";     //每日必买      面板        其他接口：购买
+    export const Active2 = "CZJJ_OpenPlane";       //超值理财      面板        其他接口：购买、领取
+    export const Active3 = "ChaoZhiLC_Open";       //成长基金      面板        其他接口：购买、领取
+    export const Active4 = "ConsumeOpen";          //消费排行      面板
+    export const Active7 = "RechargeOpen";         //充值排行        面板
+    export const Active12 = "ComposeEquipPanel";    //装备箱合成      面板        其他接口：领奖
+    export const Active13 = "ContinueRechargePanel";//连续/累计充值   面板        其他接口：领取
+    export const Active15 = "FLZP_Plane";           //福利转盘        面板        其他接口：转动、领取次数奖励
+    export const Active16 = "MeiRiChongZhiOpen";    //每日充值        面板        其他接口：领取
+    export const Active17 = "MRLQ_Plane";           //每日领取        面板        其他接口：领取
+    export const Active18 = "ConsumeGiftPanel";     //消费豪礼        面板        其他接口：领奖
+    export const Active19 = "NationalResourcePanel";//全民官印/资源线  面板        其他接口：领奖
+    export const Active24 = "ResourceGiftPanel";    //官印、资源线好礼 面板        其他接口
+    export const Active32 = "ExchangePointPanel";   //积分兑换         面板       其他接口：领奖
+    export const Active34 = "FuDaiOpen";            //福袋抽奖、档次    面板       其他接口：额外奖励、抽奖、领取额外奖励
+    export const Active35 = "QuanMingLiBaoOpen";    //全民礼包         面板        其他接口：领取
+    export const Active38 = "ZXCJ_Plane";           //在线抽奖、转盘    面板       其他接口：转盘、领取、领取档次奖励
+    export const Active39 = "OneDayRechargePanel";  //单日充值         面板        其他接口：领取
+    export const Active40 = "LimitTimePanicBuyPanel"; //限时抢购       面板        其他接口：购买
+    export const Active41 = "MeiRiShouChongOpen";      //每日首充      面板         其他接口：领取
+
+    export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
+    export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
+    export const LimitTimePanicBuy = "LimitTimePanicBuy"  //限时购买 购买
+    export const GetExchangePointAward = "GetExchangePointAward"  //积分兑换  兑换
+    export const GetComposeEquipAward = "GetComposeEquipAward" //装备合成 合成
+    export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
+    export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
+    
 
 
 }
@@ -310,6 +359,13 @@ module ProtoCmd {
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 活动面板
+     */
+    export interface itf_ACT_JingCaiSendShow {
+        id: number;
+        name: string
+    }
     /**
      * 传世面板信息
      */
@@ -613,6 +669,7 @@ module ProtoCmd {
      */
     export interface itf_Hero_TalentInfo {
         consumetab: any//消耗的天赋魔力
+        effidtab:any//效果id
         curduplicate: number//当前重id
         gssecore: number//天赋魔力
         lvltab: any//所有组天赋状态
@@ -805,5 +862,35 @@ module ProtoCmd {
         status: any//任务状态 -1是未接||0新接||1进行中||2已完成||3已结束||4放弃
         szquestrewards: string//任务奖励(id:奖励id，co：奖励数量)
         statustab: any
+    }
+    /***********************************菜单接口**************************** */
+    /**
+     * 菜单祈福
+     */
+    export interface itf_Menu_blessInfo {
+        GetGoldNum: number//可得到金币数量
+        GetLiJuanNum: number//可得到礼券数量
+        GoldCnt: number//金币祈福当前次数
+        GoldCritLeftNum: number//金币祈福暴击倍数
+        GoldMaxCnt: number//金币祈福最大次数
+        GoldNeedYuanBao: number//金币祈福所需元宝
+        GoldNum: number////获得金币总数
+        LiJuanCnt: number//礼券祈福当前次数
+        LiJuanCritLeftNum: number//礼券祈福暴击数
+        LiJuanMaxCnt: number//礼券祈福最大次数
+        LiJuanNeedYuanBao: number//礼券祈福所需元宝
+        LiJuanNum: number//获得礼券总数
+    }
+    /***********************************抽奖接口**************************** */
+    export interface itf_LD_Info {
+        id: number//抽奖活动ID
+        name: string//抽奖活动名称
+    }
+    export interface itf_LD_CangBaoGeInfo {
+        middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
+        score: number//宝藏积分
+        sideItem: any//12个物品id
+        tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
+
     }
 }

@@ -82,12 +82,14 @@ module PanelManage {
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
+    export let Activity: view.activity.ActivityPanel;//天鉴界面
 
 
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
@@ -604,6 +606,22 @@ module PanelManage {
         })
     }
     /**
+   * 抽奖界面
+   */
+    export function openLuckDrawPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LuckDraw) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.LuckDraw);
+        ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
+            PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
+            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.LuckDraw.setData();
+            PanelManage.LuckDraw.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
+        })
+    }
+    /**
      * 背包界面
      */
     export function openBeiBaoPanel(): void {
@@ -1077,6 +1095,22 @@ module PanelManage {
             PanelManage.TianJian.setData(data);
             PanelManage.TianJian.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.TianJian, 2, 0, 0);
+        })
+    }
+    /**
+    * 活动界面
+    */
+    export function openActivePanel(data: any): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Activity) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Activity);
+        ResManage.loadResource(ResData.PanelRes.Activity, () => {
+            PanelManage.Activity = new view.activity.ActivityPanel();
+            PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
+            PanelManage.Activity.setData(data);
+            PanelManage.Activity.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Activity,100, 0, 2);
         })
     }
 

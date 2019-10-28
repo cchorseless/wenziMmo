@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":355,
-    "selecteID":178,
+    "selecteID":361,
     "props":{"width":567,"sceneColor":"#ca6665","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -385,13 +385,14 @@
                                     "props":{"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
                                     "nodeParent":355,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":170,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":9,"x":67,"text":"当前属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":170,
@@ -404,197 +405,19 @@
                                                 ]
                                         },
                                         {
-                                            "type":"Label",
-                                            "props":{"y":59,"x":119,"width":94,"var":"lbl_maxHP1","text":"攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
+                                            "x":75,
+                                            "type":"VBox",
+                                            "props":{"y":64,"x":17,"width":200,"var":"vbox_left","height":200},
                                             "nodeParent":170,
-                                            "label":"Label(lbl_maxHP1)",
+                                            "label":"VBox(vbox_left)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":171,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":84,"x":119,"width":94,"var":"lbl_physicsAttack1","text":"攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_physicsAttack1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":173,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":108,"x":119,"width":94,"var":"lbl_physicsDefense1","text":"攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_physicsDefense1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":175,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":133,"x":119,"width":94,"var":"lbl_magicDefense1","text":"166","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_magicDefense1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":172,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":158,"x":75,"width":94,"var":"lbl_accuracy1","text":"166","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_accuracy1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":174,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":183,"x":75,"width":94,"var":"lbl_dodge1","text":"166","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_dodge1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":176,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":207,"x":75,"width":94,"var":"lbl_crit1","text":"攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_crit1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":299,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":232,"x":75,"width":94,"var":"lbl_toughness1","text":"攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label(lbl_toughness1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":300,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":59,"x":9,"width":94,"text":"生命上限:","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":325,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":84,"x":9,"width":94,"text":"物理攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":327,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":108,"x":9,"width":94,"text":"物理防御：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":329,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":133,"x":9,"width":94,"text":"魔法防御：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":326,
+                                            "compId":356,
                                             "child":[
                                                 ],
                                             "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":158,"x":9,"width":60,"text":"准确：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":328,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":183,"x":9,"width":60,"text":"闪避：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":330,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":207,"x":9,"width":60,"text":"暴击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":331,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":232,"x":9,"width":60,"text":"韧性：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":170,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":332,
-                                            "child":[
-                                                ]
                                         }],
                                     "$HIDDEN":false
                                 },
@@ -604,13 +427,14 @@
                                     "props":{"x":291,"width":239,"skin":"image/juese/fram_common_21.png","sizeGrid":"53,14,16,26","height":273},
                                     "nodeParent":355,
                                     "label":"Image",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":178,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":8,"x":67,"text":"下级属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":178,
@@ -623,197 +447,76 @@
                                                 ]
                                         },
                                         {
-                                            "type":"Label",
-                                            "props":{"y":59,"x":9,"width":94,"text":"生命上限:","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
+                                            "x":75,
+                                            "type":"VBox",
+                                            "props":{"y":64,"x":17,"width":200,"var":"vbox_right","height":200},
                                             "nodeParent":178,
-                                            "label":"Label",
+                                            "label":"VBox(vbox_right)",
+                                            "isOpen":true,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
-                                            "compId":301,
+                                            "compId":357,
                                             "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":84,"x":9,"width":94,"text":"物理攻击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":303,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":108,"x":9,"width":94,"text":"物理防御：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":305,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":133,"x":9,"width":94,"text":"魔法防御：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":302,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":158,"x":9,"width":60,"text":"准确：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":304,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":183,"x":9,"width":60,"text":"闪避：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":306,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":207,"x":9,"width":60,"text":"暴击：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":307,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":232,"x":9,"width":60,"text":"韧性：","height":22,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":308,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":59,"x":119,"width":94,"var":"lbl_maxHP2","text":"生命上限:","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_maxHP2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":315,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":84,"x":119,"width":94,"var":"lbl_physicsAttack2","text":"物理攻击","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_physicsAttack2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":316,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":108,"x":119,"width":94,"var":"lbl_physicsDefense2","text":"物理攻击","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_physicsDefense2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":317,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":133,"x":119,"width":94,"var":"lbl_magicDefense2","text":"物理攻击","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_magicDefense2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":318,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":158,"x":75,"width":94,"var":"lbl_accuracy2","text":"啊","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_accuracy2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":319,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":183,"x":75,"width":94,"var":"lbl_dodge2","text":"啊","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_dodge2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":320,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":207,"x":75,"width":94,"var":"lbl_crit2","text":"啊","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_crit2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":321,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":232,"x":75,"width":94,"var":"lbl_toughness2","text":"啊","height":22,"fontSize":22,"font":"FZHL","color":"#179a0d","align":"left"},
-                                            "nodeParent":178,
-                                            "label":"Label(lbl_toughness2)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":322,
-                                            "child":[
-                                                ]
+                                                ],
+                                            "$HIDDEN":false
                                         }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"FontClip",
+                                    "props":{"y":-33,"x":421,"width":107,"var":"clip_power2","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+                                    "nodeParent":355,
+                                    "label":"FontClip(clip_power2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":361,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-41,"x":336,"skin":"image/common/zi_zhanli.png"},
+                                    "nodeParent":355,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":360,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"FontClip",
+                                    "props":{"y":-33,"x":90,"width":107,"var":"clip_power1","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+                                    "nodeParent":355,
+                                    "label":"FontClip(clip_power1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":359,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-41,"x":5,"skin":"image/common/zi_zhanli.png"},
+                                    "nodeParent":355,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":358,
+                                    "child":[
+                                        ],
                                     "$HIDDEN":false
                                 },
                                 {
@@ -943,7 +646,7 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":762,"x":48,"width":110,"var":"box_1","height":115},
+                            "props":{"y":762,"x":150,"width":110,"var":"box_1","height":115},
                             "nodeParent":341,
                             "label":"Box(box_1)",
                             "isOpen":true,
@@ -957,7 +660,7 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":762,"x":201,"width":110,"var":"box_2","height":115},
+                            "props":{"y":762,"x":303,"width":110,"var":"box_2","height":115},
                             "nodeParent":341,
                             "label":"Box(box_2)",
                             "isOpen":true,

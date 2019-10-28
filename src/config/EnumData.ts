@@ -29,7 +29,9 @@ module EnumData {
         DEFAULT = 30,
 
     }
-
+    /**
+     * 创建角色枚举
+     */
     export enum createPlayerError {
         _CREATEPLAYER_RET_SUCCESS_ = 0,
         _CREATEPLAYER_RET_LIMITSTR_ = -10,		    //有非法字符 	
@@ -80,6 +82,7 @@ module EnumData {
      * 职业
      */
     export enum JOB_TYPE {
+        JOB_NONE = 0,//通用
         JOB_WARRIOR = 1,// 战士
         JOB_MAGE = 2,// 法师
         JOB_MONK = 3,// 道士
@@ -89,6 +92,7 @@ module EnumData {
      * 性别
      */
     export enum SEX_TYPE {
+        SEX_NONE = 0,
         SEX_MAN = 1,
         SEX_WOMEN = 2
     }
@@ -381,6 +385,64 @@ module EnumData {
     }
 
     /**
+     * 道具操作错误枚举
+     */
+    export enum emItemErrorCode {
+        ITEM_SUCCESS,	   //成功操作',
+        ITEM_FAIL_NOITEM,	    //没有物品',
+        ITEM_FAIL_NOTENOUGH,    //物品数量不足以拆分',
+        ITEM_FAIL_NOSPACE,	    //没有剩余的空间', 
+        ITEM_FAIL_NOT_ENOUGH_GOLD, //人物金币不足', 
+        ITEM_FAIL_MAX_CARRY_GOLD,  //人物金币已达上限值', 	
+        ITEM_FAIL_SAVE_NOT_ENOUGH_GOLD, //仓库金币不足', 
+        ITEM_FAIL_SAVE_MAX_CARRY_GOLD, //仓库已达上限值', 
+        ITEM_FAIL_FULL,         //已满', 
+        ITEM_FAIL_WRONGSTORAGE,//仓库编号错误', 
+        ITEM_FAIL_WRONGBAG,//包裹编号错误', 
+        ITEM_FAIL_NOTOPENED,//未开放', 
+        ITEM_FAIL_LOWLEVEL,//等级不足', 
+        ITEM_FAIL_WRONG_POSITION,//佩戴位置错误', 
+        ITEM_FAIL_WRONG_TYPE,//物品操作类型错误', 
+        ITEM_FAIL_WRONG_SEX,//物品性别错误', 	
+        ITEM_FAIL_NOT_IDENT, //未鉴定', 
+        ITEM_FAIL_NOTFIND_TARGET,//未找到使用目标', 
+        ITEM_FAIL_NONEED,//不需要使用 
+        ITEM_USER_DIE, //用户已死亡 
+        ITEM_FAIL_FIGHT,//战斗中无法使用 
+        ITEM_FAIL_UKNOWN,//未知错误 
+        ITEM_FAIL_LOCKED, //装备已锁定 
+        ITEM_FAIL_NOTLOCKED,//装备已锁定 
+        ITEM_FAIL_BAG_FULL,//包裹满  
+        ITEM_SKILL_STUDY,	//技能已学习(技能存档结构修改后)
+        ITEM_SKILL_NOMAGIC,	//没有技能的下一等级 
+        ITEM_SKILL_NOITEM,	//没有该技能书 
+        ITEM_FAIL_NOJOB,	//职业不符合  
+        ITEM_DRUG_NODRUG,	//药品没有 
+        ITEM_DRUG_NOBUFF,	//药品使用不成功  
+        ITEM_FAIL_NOCDTIME,	//物品没有冷却 
+        ITEM_FORSAKE_NOITEM,	//物品不存在 	
+        ITEM_FORSAKE_BINDING,	//物品绑定 
+        ITEM_FORSAKE_NOMOVE,	//物品不能移出包裹 
+        ITEM_FORSAKE_NOMAP,		//不能地面创建物品  
+        ITEM_FAIL_NOPUTSTORAGE,	//不能放入仓库  
+        ITEM_MARRIED_BINDING,	//结婚戒指被绑定,不能摘下和替换 
+        ITEM_FAIL_DESTORY,		//不能摧毁  
+        ITEM_FAIL_NORESORTSTORAGE,	//不能整理仓库  
+        ITEM_FAIL_TMPPACKETNOREPLACE,//临时包裹有东西时不能替换 	
+        ITEM_FAIL_NOFAME,			//物品所需声望不足 
+        ITEM_FAIL_USELOWLEVEL,		//物品使用等级不足 
+        ITEM_FAIL_TREASURESTONE,	//勋章和印不是luacall 
+        ITEM_FAIL_SAMERUNEPROPERTY,	//已佩戴相同属性兽魂 
+        ITEM_FAIL_EATANIMALSOUL,	//兽魂吞噬失败 
+        ITEM_FAIL_CROSSSVR,			//跨服不能丢弃 
+        ITEM_FAIL_ZHUANSHENGLV,		//转生等级不足 
+        ITEM_FAIL_LEGEND_BINDING,	//传世装备绑定，不能取下、替换 
+    };
+
+
+
+
+    /**
      * 属性类型
      */
     export enum emNonpareilType {
@@ -389,10 +451,8 @@ module EnumData {
         NONPAREIL_TYPE_MAXMP,	 //最大蓝量
         NONPAREIL_TYPE_MAXATK,	 //物理/魔法/道术攻击上限全部
         NONPAREIL_TYPE_MINATK,	 //物理/魔法/道术攻击下限全部
-        
         NONPAREIL_TYPE_MAXDC,	 //物理攻击上限值,攻击力上限，影响所有职业普通攻击和战士技能的最大伤害。
         NONPAREIL_TYPE_MINDC,	 //物理攻击下限值,攻击力下限，影响所有职业普通攻击和战士技能的最小伤害。
-
         NONPAREIL_TYPE_MAXMC,	 //自然魔法攻击上限值,魔法攻击上限，影响法师技能的最大伤害。
         NONPAREIL_TYPE_MINMC,	 //自然魔法攻击下限值,魔法攻击下限，影响法师技能的最小伤害。
 

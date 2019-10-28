@@ -3,12 +3,16 @@ module view.hero {
 	export class Hero_GangQiItem extends ui.hero.Hero_GangQiItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 		private client_func_index = 55;// 功能ID编号
-		public setData(): void {
+		//判断是第几个弟子
+		private index;
+		public setData(i): void {
+			this.index = i+1;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
+			this.vbox_left['sortItem'] = (items) => { };
+			this.vbox_right['sortItem'] = (items) => { };
 			this.wingInfo();
 			this.addEvent();
 		}
@@ -16,7 +20,7 @@ module view.hero {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.init_Info(this.getItemInfo());
+				this.addLcpEvent(this.getItemInfo());
 				this.init_gangqi();
 			}
 			else {
@@ -54,7 +58,7 @@ module view.hero {
 			lcp.send(pkt);
 
 		}
-		public init_Info(data: ProtoCmd.ItemBase): void {
+		public addLcpEvent(data: ProtoCmd.ItemBase): void {
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {
@@ -68,41 +72,31 @@ module view.hero {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
-			// //当前属性生命
-			// let life = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + data.dwEffId);
-			// this.lbl_hp1.text = '' + life;
-			// //当前属性攻击值
-			// let minkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + data.dwEffId);
-			// let maxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + data.dwEffId);
-			// this.lbl_attack1.text = minkill + '-' + maxkill;
-			// //当前物理防御值
-			// let minprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + data.dwEffId);
-			// let maxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + data.dwEffId);
-			// this.lbl_physicsDefense1.text = minprotect + '-' + maxprotect;
-			// //当前魔法防御值
-			// let minprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + data.dwEffId);
-			// let maxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + data.dwEffId);
-			// this.lbl_magicDefense1.text = minprotectmofa + '-' + maxprotectmofa;
-			// //下阶属性ID
-			// let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
-			// //下阶罡气名
-			// let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
-			// this.lbl_name2.text = '' + xgangqiName;
-			// //下阶属性生命
-			// let xlife = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + xiajieID);
-			// this.lbl_hp2.text = '' + xlife;
-			// //下阶属性攻击值
-			// let xminkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + xiajieID);
-			// let xmaxkill = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + xiajieID);
-			// this.lbl_attack2.text = xminkill + '-' + xmaxkill;
-			// //下阶物理防御值
-			// let xminprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + xiajieID);
-			// let xmaxprotect = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + xiajieID);
-			// this.lbl_physicsDefense2.text = xminprotect + '-' + xmaxprotect;
-			// //下阶魔法防御值
-			// let xminprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + xiajieID);
-			// let xmaxprotectmofa = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + xiajieID);
-			// this.lbl_magicDefense2.text = xminprotectmofa + '-' + xmaxprotectmofa;
+			let job=GameApp.GameEngine.HeroInfo[this.index].JOB;
+			//当前属性
+			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
+			let attribute1 = shuxing1.des;
+			let battle1 = shuxing1.battle[job];
+			this.clip_power1.value = '' + battle1;
+			let keys1 = Object.keys(attribute1)
+			this.vbox_left.removeChildren();
+			for (let key of keys1) {
+				this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+			}
+			//下级属性
+			let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
+			//下阶罡气名
+			let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
+			this.lbl_name2.text = '' + xgangqiName;
+			let shuxing2 = GameUtil.parseEffectidToString('' + xiajieID)
+			let attribute2 = shuxing2.des;
+			let battle2 = shuxing2.battle[job];
+			this.clip_power2.value = '' + battle2;
+			let keys2 = Object.keys(attribute2)
+			this.vbox_right.removeChildren();
+			for (let key of keys2) {
+				this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+			}
 			//拉取我的罡气物品信息
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {

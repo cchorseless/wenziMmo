@@ -17,7 +17,7 @@ module view.juese {
 			// 姓名
 			this.lbl_name.text = '' + player.objName;
 			// 出身
-			this.lbl_job.text = '' + LangConfig.jobDes[player.job];
+			this.lbl_job.text = '' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
 			// 公会名称
 			this.lbl_guild.text = '' + (player.guildInfo.szName || '暂无帮派');
 			// 健康

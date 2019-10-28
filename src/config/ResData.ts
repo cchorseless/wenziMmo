@@ -126,25 +126,29 @@ module ResData {
         ];;
         // 南陆地图
         public static SouthMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/map/southland.atlas", type: Laya.Loader.ATLAS },];;
+        { url: "res/atlas/image/map/southland.atlas", type: Laya.Loader.ATLAS },];
         // 东陆地图
-        public static EastMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
+        public static EastMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];
         // 世界地图界面
-        public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];;
+        public static WorldMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS }];
         // 剧情对白界面
-        public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];;
+        public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];
         // 菜单界面
-        public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];;
+        public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];
+        //抽奖界面
+        public static LuckDraw =null;
         // 图鉴道具界面
-        public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+        public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴角色界面
-        public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+        public static TuJianJuese = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴事件界面
-        public static TuJianEvent = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];;
+        public static TuJianEvent = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴地理界面
         public static TuJianPlace = null;
         // 天鉴界面
         public static TianJian = null;
+        //活动界面
+        public static Activity = null;
 
     };
     /**
@@ -205,7 +209,7 @@ module ResData {
             { url: 'json/resume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.resume },
             // 装备合成
             { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis }
-            
+
         ];
     }
 

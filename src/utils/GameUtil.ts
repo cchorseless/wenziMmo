@@ -79,7 +79,7 @@ module GameUtil {
                 let data = sheetInfo[dataIndex];
                 let key;
                 if (data != 0) {
-                    let des = LangConfig.NpPropertyDes[desIndex];
+                    let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
                     if (dataIndex >= 5 && dataIndex <= 16) {
                         switch (dataIndex) {
                             // 攻击
@@ -95,7 +95,7 @@ module GameUtil {
                             case 8:
                                 key = '7_8';
                                 if (tmpDes[key]) {
-                                    des = '物理攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    des = '力道:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
                                 }
                                 break;
                             // 灵巧攻击
@@ -103,7 +103,7 @@ module GameUtil {
                             case 10:
                                 key = '9_10';
                                 if (tmpDes[key]) {
-                                    des = '灵巧攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    des = '柔劲:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
                                 }
                                 break;
                             // 灵魂攻击
@@ -111,7 +111,7 @@ module GameUtil {
                             case 12:
                                 key = '11_12';
                                 if (tmpDes[key]) {
-                                    des = '灵魂攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    des = '刚劲:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
                                 }
                                 break;
                             // 物理防御
@@ -119,7 +119,7 @@ module GameUtil {
                             case 14:
                                 key = '13_14';
                                 if (tmpDes[key]) {
-                                    des = '物理防御:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    des = '卸力:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
                                 }
                                 break;
                             // 法术防御
@@ -127,7 +127,7 @@ module GameUtil {
                             case 16:
                                 key = '15_16';
                                 if (tmpDes[key]) {
-                                    des = '法术防御:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    des = '化劲:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
                                 }
                                 break;
                         }
@@ -149,11 +149,12 @@ module GameUtil {
                 strDes.push(tmpDes[key3][0]);
             }
         }
-
         // 战力 ： 通用战力 战士战力 道士战力 法师战力
         let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         return { des: strDes, battle: battleDes }
     }
+
+
 
     /**
      * 获取云服务器设置的新手引导数据
