@@ -21,26 +21,26 @@ module view.hero {
 			this.ui_sangong.setData(index);
 		}
 		public addEvent(): void {
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
-			});
-			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
+			})
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
-			});
-			this.btn_player.on(Laya.UIEvent.CLICK, this, () => {
+			})
+			EventManage.onWithEffect(this.btn_player, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJueSePanel();
-			});
+			})
 			for (let i = 0; i < 3; i++) {
-				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
-					PanelManage.openDiZiPanel(i);
-					this.ui_diziInfo.baseInfo(i);
-					this.ui_equipProps.baseInfo(i);
-					this.ui_gangqi.setData(i);
-					this.ui_sangong.setData(i);
-					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
-				})
-			}
+				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
+						PanelManage.openDiZiPanel(i);
+						this.ui_diziInfo.baseInfo(i);
+						this.ui_equipProps.baseInfo(i);
+						this.ui_gangqi.setData(i);
+						this.ui_sangong.setData(i);
+						GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
+					})
+				}
 		}
-	
+
+		}
 	}
-}

@@ -14,7 +14,7 @@ module view.hero {
 			this.judgeEvent(data, index, i, key);
 			this.judgeType(data, index, i);
 			this.addEvent(data, index, i);
-			this.init_view(data.consumetab[index][i];)
+			this.init_view(data.effidtab,i,index)
 			return this;
 		}
 		public addEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
@@ -35,8 +35,9 @@ module view.hero {
 		 * 属性显示
 		 * @param i 效果id
 		 */
-		public init_view(id): void {
-			let shuxing = GameUtil.parseEffectidToString('' + id)
+		public init_view(idArray,i,index): void {
+			let num=i*(index+1);
+			let shuxing = GameUtil.parseEffectidToString('' + idArray[num])
 			let attribute = shuxing.des;
 			let keys = Object.keys(attribute)
 			this.vbox_talent.removeChildren();
@@ -57,31 +58,31 @@ module view.hero {
 
 
 			if (index !== 0 && i == 1) {
-				if data.lvltab[0] == 5 && data.lvltab[index] == 0) {
+				if (data.lvltab[0] == 5 && data.lvltab[index] == 0) {
 					this.view_talent.selectedIndex = 1;
 				}
 
-				if data.lvltab[0] == 5 && data.lvltab[index] == 1) {
+				if (data.lvltab[0] == 5 && data.lvltab[index] == 1) {
 					this.view_talent.selectedIndex = 0;
 				}
 
-				if data.lvltab[0] == 5 && data.lvltab[index] > 1) {
+				if (data.lvltab[0] == 5 && data.lvltab[index] > 1) {
 					this.view_talent.visible = false;
 				}
-				if data.lvltab[0] < 5) {
+				if (data.lvltab[0] < 5) {
 					this.view_talent.visible = false;
 				}
 
 			}
 			if (i > 1) {
-				if i == canlight) {
+				if (i == canlight) {
 					this.view_talent.selectedIndex = 1;
 				}
 
-				if i <= light) {
+				if (i <= light) {
 					this.view_talent.selectedIndex = 0;
 				}
-				if i > canlight) {
+				if (i > canlight) {
 					this.view_talent.visible = false;
 				}
 			}

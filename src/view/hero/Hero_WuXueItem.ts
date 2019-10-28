@@ -11,6 +11,9 @@ module view.hero {
 		//玩家等级总数
 		private mySum;
 		public setData(): void {
+			this.vbox_1['sortItem'] = (items) => { };
+			this.vbox_2['sortItem'] = (items) => { };
+			this.vbox_3['sortItem'] = (items) => { };
 			this.activation();
 			this.addEvent();
 		}
@@ -71,6 +74,20 @@ module view.hero {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroJingMaiPanel, this, (jsonData: ProtoCmd.itf_Hero_WuXueInfo) => {
 				//GameApp.GameEngine.heroJob为1战士
+				let shuxing = GameUtil.parseEffectidToString('' + jsonData.effid)
+				let attribute = shuxing.des;
+				this.vbox_1.removeChildren();
+				for (let i=0;i<3;i++) {
+					this.vbox_1.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
+				}
+				this.vbox_2.removeChildren();
+				for (let i=3;i<7;i++) {
+					this.vbox_2.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
+				}
+				this.vbox_3.removeChildren();
+				for (let i=7;i<11;i++) {
+					this.vbox_2.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
+				}
 				console.log('====>真气真气', GameApp.GameEngine.heroJob)
 				this.lbl_gas.text = '消耗真气：' + jsonData.realGas + '/' + jsonData.gas;
 				this.lbl_gold.text = '消耗金币：' + jsonData.gold;

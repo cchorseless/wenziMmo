@@ -135,6 +135,8 @@ module ResData {
         public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];
+        //抽奖界面
+        public static LuckDraw =null;
         // 图鉴道具界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴角色界面
@@ -207,7 +209,7 @@ module ResData {
             { url: 'json/resume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.resume },
             // 装备合成
             { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis }
-            
+
         ];
     }
 

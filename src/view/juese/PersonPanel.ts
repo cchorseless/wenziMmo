@@ -17,20 +17,20 @@ module view.juese {
 			this.addLcpEvent();
 		}
 		public addEvent(): void {
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
-			});
-			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel();
-			});
+			})
+			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openJuQingModePanel()
+			})
 			for (let i = 0; i < 3; i++) {
-				this['btn_dizi' + i].on(Laya.UIEvent.CLICK, this, () => {
+				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
 					PanelManage.openDiZiPanel(i);
 					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
 				})
 
 			}
-			this.btn_self.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.btn_self, Laya.UIEvent.CLICK, this, () => {
 				GameApp.GameEngine.mainPlayer.playerORHero = 0;
 			})
 		}

@@ -5,7 +5,12 @@ module view.juese {
 			super();
 		}
 		public setData(data): Person_LableItem {
-			this.lbl_shuxing.text=''+data;
+			if (data == undefined) {
+				this.lbl_shuxing.text = '';
+			}
+			else {
+				this.lbl_shuxing.text = '' + data;
+			}
 			return this;
 		}
 	}
