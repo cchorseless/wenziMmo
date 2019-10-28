@@ -106,7 +106,8 @@ module view.main {
 					PanelManage.openMenuPanel()
 				}
 				else {
-					PopUpManager.Dispose(PanelManage.Menu);
+					PopUpManager.showPanel(PanelManage.Menu);
+					PopUpManager.checkPanel(PanelManage.Menu);
 				}
 			});
 
