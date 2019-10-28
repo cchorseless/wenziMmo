@@ -266,7 +266,7 @@ class ServerListener extends SingletonClass {
      */
     public showTips(data): void {
         let cbpkt = new ProtoCmd.TipMsg(data);
-        TipsManage.showTips(cbpkt.tipmsg);
+        TipsManage.showTxt(cbpkt.tipmsg);
         cbpkt.clear();
         cbpkt = null;
     }
@@ -718,7 +718,7 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.AvatarguildJiFenDecoder(data);
         let player = GameApp.MainPlayer;
         player.changeGuildDedication(msg.getValue('dwJiFen'));
-        TipsManage.showTips('公会贡献改变了' + msg.getValue('nChanged'));
+        TipsManage.showTxt('公会贡献改变了' + msg.getValue('nChanged'));
         msg.clear();
         msg = null;
 

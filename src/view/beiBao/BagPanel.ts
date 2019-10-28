@@ -63,8 +63,7 @@ module view.beiBao {
 			});
 			// 打开商店
 			this.btn_shop.on(Laya.UIEvent.CLICK, this, () => {
-				let o = new Bag_Recharge();
-				o.popup(true);
+
 			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
