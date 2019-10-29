@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.wuXue {
-	export class WuXueLife_FishDialog extends ui.wuXue.WuXueLife_FishDialogUI {
+module view.zhaiYuan {
+	export class ZhaiYuan_Life_FishPreVDialog extends ui.zhaiYuan.ZhaiYuan_Life_FishPreVDialogUI {
 		constructor() {
 			super();
 			this.setData();

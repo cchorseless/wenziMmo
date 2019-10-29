@@ -26,6 +26,7 @@ module view.juese {
 			let curNum0 = 0;
 			let curNum1 = 0;
 			let equpLvNumArr = [];
+			let showLvNumArr = [];
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 
 			for (let i = 0; i < 10; i++) {
@@ -50,17 +51,10 @@ module view.juese {
 				}
 
 				equpLvNumArr.push(lvNum);
+				showLvNumArr.push(lvNum);
 			}
-			for (let i = 0; i < 10; i++) {
-				if (equpLvNumArr[i] >= this.baseLv) {
-					curNum0++;
-					this["lab_equip0_" + i].color = "#6dd041";
-				}
-				if (equpLvNumArr[i] >= this.baseLv + 10) {
-					curNum1++;
-					this["lab_equip1_" + i].color = "#6dd041";
-				}
-			}
+
+
 			let temp = equpLvNumArr.sort(function (a, b) {
 				return b - a;
 			});
@@ -74,9 +68,19 @@ module view.juese {
 			}
 			this.lab_equip1_num.text = (10 + this.baseLv).toString();
 			this.lab_equip0_num.text = this.baseLv.toString();
+			for (let i = 0; i < 10; i++) {
+				if (showLvNumArr[i] >= this.baseLv) {
+					curNum0++;
+					this["lab_equip0_" + i].color = "#6dd041";
+				}
+				if (showLvNumArr[i] >= this.baseLv + 10) {
+					curNum1++;
+					this["lab_equip1_" + i].color = "#6dd041";
+				}
+			}
 
-			this.lab_equipTab0.text = "全套装备达到    " + "级(" + curNum0 + "/8)"
-			this.lab_equipTab1.text = "全套装备达到    " + "级(" + curNum1 + "/8)"
+			this.lab_equipTab0.text = "全套装备达到    " + "级(" + curNum0 + "/10)"
+			this.lab_equipTab1.text = "全套装备达到    " + "级(" + curNum1 + "/10)"
 
 
 		}

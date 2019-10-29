@@ -784,13 +784,14 @@ module EnumData {
      * 商店类型枚举
      */
     export enum ShopType {
-        SHOP_TYPE_TUIJIAN = 1,//推荐商店
+        SHOP_TYPE_TUIJIAN = 1,//热销商店
         SHOP_TYPE_YUANBAOLOCK = 2,//礼券商店
         SHOP_TYPE_SKILL = 3,//技能商店
         SHOP_TYPE_HONOR = 4,//荣誉商店
-        SHOP_TYPE_BAG_HOT = 5,//背包热销商店
+        SHOP_TYPE_BAG_HOT = 5,//背包随机商店
         SHOP_TYPE_GUILD = 6,//行会商店
-        SHOP_TYPE_GUILD_HOT = 7,//帮会热销
+        SHOP_TYPE_GUILD_HOT = 7,//帮会随机商店
+        SHOP_TYPE_LIMITED = 8,//限购商店
 
     }
     /**
@@ -808,8 +809,8 @@ module EnumData {
         COIN_TYPE_GOLD = 3,        //金币
         COIN_TYPE_HONOR = 4,       //荣誉
         COIN_TYPE_GUILDSORCE = 5,  //帮贡
-        COIN_TYPE_PLAYER_EXP = 20001,//玩家经验
-        COIN_TYPE_HERO_EXP = 20024,//英雄经验
+        COIN_TYPE_PLAYER_EXP = 20001,//阅历-玩家经验
+        COIN_TYPE_HERO_EXP = 20024,//默契-英雄经验
     }
 
     /**

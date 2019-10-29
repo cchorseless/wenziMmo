@@ -43,7 +43,6 @@ module PanelManage {
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
     export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
-    export let LifeSkill: view.wuXue.WuXueLifeSkillPanel;//武学生活技能
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
@@ -83,6 +82,8 @@ module PanelManage {
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
     export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
+    export let ShopMall: view.shopMall.ShopMall_MainPanel;//商城界面
+    export let FuLi: view.fuli.FuLi_MainPanel;//商城界面
     export let DiZi: view.hero.HeroPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
@@ -319,22 +320,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
         })
     }
-    /**
-    * 武学生活技能界面
-    */
-    export function openWuXueLifeSkillPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LifeSkill) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.LifeSkill);
-        ResManage.loadResource(ResData.PanelRes.LifeSkill, () => {
-            PanelManage.LifeSkill = new view.wuXue.WuXueLifeSkillPanel();
-            PanelManage.LifeSkill['LCP_skin'] = ResData.PanelRes.LifeSkill;
-            PanelManage.LifeSkill.setData();
-            PanelManage.LifeSkill.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.LifeSkill, 1, 0, 2);
-        })
-    }
+
 
 
 
@@ -615,12 +601,45 @@ module PanelManage {
         PopUpManager.checkPanel(PanelManage.LuckDraw);
         ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
             PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
-            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.Menu;
+            PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.LuckDraw;
             PanelManage.LuckDraw.setData();
             PanelManage.LuckDraw.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
+    /**
+* 商城界面
+*/
+    export function openShopMallPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ShopMall) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.ShopMall);
+        ResManage.loadResource(ResData.PanelRes.ShopMall, () => {
+            PanelManage.ShopMall = new view.shopMall.ShopMall_MainPanel();
+            PanelManage.ShopMall['LCP_skin'] = ResData.PanelRes.ShopMall;
+            PanelManage.ShopMall.setData();
+            PanelManage.ShopMall.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ShopMall, 100, 0, 2);
+        })
+    }
+    /**
+* 福利界面
+*/
+    export function openFuLiPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuLi) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.FuLi);
+        ResManage.loadResource(ResData.PanelRes.FuLi, () => {
+            PanelManage.FuLi = new view.fuli.FuLi_MainPanel();
+            PanelManage.FuLi['LCP_skin'] = ResData.PanelRes.FuLi;
+            PanelManage.FuLi.setData();
+            PanelManage.FuLi.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuLi, 100, 0, 2);
+        })
+    }
+
     /**
      * 背包界面
      */
@@ -1110,7 +1129,7 @@ module PanelManage {
             PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
             PanelManage.Activity.setData(data);
             PanelManage.Activity.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Activity,100, 0, 2);
+            PopUpManager.addPanel(PanelManage.Activity, 100, 0, 2);
         })
     }
 

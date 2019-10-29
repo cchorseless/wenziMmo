@@ -62,7 +62,7 @@ module view.juQingMode {
 
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
 					(data:ProtoCmd.itf_TianJian_SpecialRingPanel) => {
-						console.log("从服务器获取的数据：", data)
+						// console.log("从服务器获取的数据：", data)
 						PanelManage.openTianJianPanel(data);
 					});
 				lcp.send(pkt);

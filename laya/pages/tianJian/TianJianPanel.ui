@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":94,
+    "selectedBox":136,
+    "selecteID":181,
     "props":{"width":640,"sceneColor":"#000000","name":"TianJian","height":1136},
     "nodeParent":-1,
     "label":"View(TianJian)",
@@ -674,13 +674,14 @@
             "props":{"y":680,"x":7,"width":625,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"28,27,20,14","height":387},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":105,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":74,"x":20,"wordWrap":true,"width":581,"var":"lab_tianjianDetail","text":"        天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍","leading":2,"height":103,"fontSize":22,"font":"FZHL","color":"#000000"},
                     "nodeParent":105,
@@ -693,11 +694,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":17,"x":226,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":105,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -719,11 +721,12 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":210,"x":5,"width":614,"height":183},
                     "nodeParent":105,
                     "label":"Box",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -770,6 +773,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":246,"x":27},
                     "nodeParent":105,
@@ -781,11 +785,12 @@
                     "compId":110,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"x":0,"var":"box_skillIcon"},
                             "nodeParent":110,
                             "label":"Box(box_skillIcon)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -846,19 +851,21 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":4,"x":158,"width":428,"var":"box_shuxing","height":123},
                             "nodeParent":110,
                             "label":"Box(box_shuxing)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":136,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"x":1,"width":100,"text":"    战斗力：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"right"},
+                                    "props":{"y":0,"x":22,"width":79,"text":"战斗力：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
                                     "nodeParent":136,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -870,6 +877,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"x":106,"width":105,"var":"lab_fight","text":"999999","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#63491a"},
                                     "nodeParent":136,
@@ -883,110 +891,7 @@
                                         ]
                                 },
                                 {
-                                    "type":"Label",
-                                    "props":{"x":219,"width":100,"text":"防御攻击：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000"},
-                                    "nodeParent":136,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":118,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"x":323,"width":105,"var":"lab_defense","text":"999999","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":136,
-                                    "label":"Label(lab_defense)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":119,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":36,"x":4,"width":100,"text":"生命上限：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"right"},
-                                    "nodeParent":136,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":120,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":36,"x":107,"width":105,"var":"lab_health","text":"999999","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":136,
-                                    "label":"Label(lab_health)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":121,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":36,"x":219,"width":100,"text":"魔法攻击：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000"},
-                                    "nodeParent":136,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":122,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":36,"x":322,"width":105,"var":"lab_magicAttack","text":"999999","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":136,
-                                    "label":"Label(lab_magicAttack)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":123,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":71,"x":4,"width":100,"text":"物理攻击：","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#000000"},
-                                    "nodeParent":136,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":124,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":71,"x":107,"width":105,"var":"lab_physicalAttack","text":"999999","strokeColor":"#000000","height":25,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                                    "nodeParent":136,
-                                    "label":"Label(lab_physicalAttack)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":125,
-                                    "child":[
-                                        ]
-                                },
-                                {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":99,"text":"条件：","strokeColor":"#000000","fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":136,
@@ -997,9 +902,11 @@
                                     "compId":126,
                                     "child":[
                                         ],
+                                    "$LOCKED":true,
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":103,"x":61,"var":"lab_term","text":"参与世界BOSS获得","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                                     "nodeParent":136,
@@ -1009,11 +916,65 @@
                                     "hasChild":false,
                                     "compId":127,
                                     "child":[
+                                        ],
+                                    "$LOCKED":true
+                                },
+                                {
+                                    "x":60,
+                                    "type":"HTMLDivElement",
+                                    "props":{"y":38,"x":22,"width":173,"var":"html_text1","innerHTML":"htmlText","height":23},
+                                    "nodeParent":136,
+                                    "label":"HTMLDivElement(html_text1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":178,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"HTMLDivElement",
+                                    "props":{"y":73,"x":22,"width":177,"var":"html_text2","innerHTML":"htmlText","height":23},
+                                    "nodeParent":136,
+                                    "label":"HTMLDivElement(html_text2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":179,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"HTMLDivElement",
+                                    "props":{"y":38,"x":227,"width":200,"var":"html_text4","innerHTML":"htmlText","height":23},
+                                    "nodeParent":136,
+                                    "label":"HTMLDivElement(html_text4)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":180,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"HTMLDivElement",
+                                    "props":{"y":3,"x":227,"width":194,"var":"html_text3","innerHTML":"htmlText","height":23},
+                                    "nodeParent":136,
+                                    "label":"HTMLDivElement(html_text3)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":181,
+                                    "child":[
                                         ]
                                 }],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":158,"wordWrap":true,"width":428,"var":"lab_shuxingdetail","text":"        天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍天鉴介绍","leading":2,"height":123,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":110,
@@ -1025,6 +986,7 @@
                             "compId":137,
                             "child":[
                                 ],
+                            "$LOCKED":true,
                             "$HIDDEN":true
                         }]
                 }],

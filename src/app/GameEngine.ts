@@ -78,6 +78,12 @@ class GameEngine extends SingletonClass {
     public warriorAbility: GameObject.Ability = new GameObject.Ability();//战士能力信息
     public masterAbility: GameObject.Ability = new GameObject.Ability();//法师能力信息
     public taoistAbility: GameObject.Ability = new GameObject.Ability();//道士能力信息
+    /************************商城相关信息************ */
+    public rexiao={};//热销商店
+    public liquan={};//礼券商店
+    public jineng={};//技能商店
+    public rongyu={};//荣誉商店
+    public xiangou={};//限购商店
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
