@@ -96,7 +96,13 @@ module view.zhaiYuan {
 				for (let i = 1; i < 7; i++) {
 					this.curOneOfSoulStoneLv += baselvldata[this.TouchID][i]
 				}
-				this.curSoulStoneID = this.curSoulStoneIDChooseArr[this.curOneOfSoulStoneLv];
+				if (this.curOneOfSoulStoneLv == 72) {
+					this.curSoulStoneID = 1
+				} else {
+					this.curSoulStoneID = this.curSoulStoneIDChooseArr[this.curOneOfSoulStoneLv];
+				}
+
+
 				this.getData_EquipPanelMsg(this.curPage, this.TouchID);
 				for (let i = 1; i < 13; i++) {
 					this.statAllSoulStoneLv.push(this.allData.soulchaintab[i].effid)
@@ -451,7 +457,7 @@ module view.zhaiYuan {
 				let loc = str.indexOf(":")
 				let str1 = str.substring(0, loc + 1);
 				let str2 = str.substring(loc + 1, str.length)
-				this["html_3_" +( i + 1)].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:1;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+				this["html_3_" + (i + 1)].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:1;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
 			}
 
 		}
@@ -480,11 +486,16 @@ module view.zhaiYuan {
 		}
 
 
-
+		//获取当前强化阶段3、5、7、9、11、13、15
 		private onShowIntensifyNum(): number {
 			let aa;
 			let lv3 = 0;
 			let lv5 = 0;
+			let lv7 = 0;
+			let lv9 = 0;
+			let lv11 = 0;
+			let lv13 = 0;
+			let lv15 = 0;
 			if (this.type == 1) {
 				aa = this.allData.herojson;
 			}
@@ -495,15 +506,52 @@ module view.zhaiYuan {
 				if (aa[i] >= 3) {
 					lv3++;
 					if (aa[i] >= 5) {
-						lv5++
+						lv5++;
+						if (aa[i] >= 7) {
+							lv7++;
+							if (aa[i] >= 9) {
+								lv9++;
+								if (aa[i] >= 11) {
+									lv11++;
+									if (aa[i] >= 13) {
+										lv13++;
+										if (aa[i] >= 15) {
+											lv15++;
+										}
+									}
+								}
+							}
+						}
 					}
+
+
 				}
 			}
-			if (lv5 == 10) {
+			if (lv15 == 10) {
+				this.lvNum = 15;
+				return lv15;
+			}
+			else if (lv13 == 10) {
+				this.lvNum = 13;
+				return lv13;
+			}
+			else if (lv11 == 10) {
+				this.lvNum = 11;
+				return lv11;
+			}
+			else if (lv9 == 10) {
+				this.lvNum = 9;
+				return lv9;
+			}
+			else if (lv7 == 7) {
+				this.lvNum = 7;
+				return lv7;
+			}
+			else if (lv5 == 10) {
 				this.lvNum = 5;
 				return lv5;
 			}
-			else {
+			else if (lv3 <= 10) {
 				this.lvNum = 3;
 				return lv3;
 			}
