@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":3,
+    "selectedBox":1,
+    "selecteID":9,
     "props":{"width":167,"sceneColor":"#000000","height":178},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":15,"x":16,"var":"lbl_name","text":"道具名称六字","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#f5dd71"},
+                    "props":{"y":12,"x":16,"var":"lbl_name","text":"道具名称六字","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#f5dd71"},
                     "nodeParent":2,
                     "label":"Label(lbl_name)",
                     "isDirectory":false,
@@ -41,7 +41,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
-                    "props":{"y":52,"x":45,"var":"ui_daoju","runtime":"view.compart.DaoJuItem"},
+                    "props":{"y":41,"x":45,"var":"ui_daoju","runtime":"view.compart.DaoJuItem"},
                     "nodeParent":2,
                     "label":"UIView(ui_daoju)",
                     "isDirectory":false,
@@ -54,7 +54,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":130,"x":5,"width":40,"var":"img_huobi","skin":"image/main/icon_tongqiansuo.png","height":33},
+                    "props":{"y":116,"x":5,"width":40,"var":"img_huobi","skin":"image/main/icon_tongqiansuo.png","height":33},
                     "nodeParent":2,
                     "label":"Image(img_huobi)",
                     "isDirectory":false,
@@ -67,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":135,"x":34,"width":114,"skin":"image/common/bottom_gouyu.png","height":25},
+                    "props":{"y":121,"x":34,"width":114,"skin":"image/common/bottom_gouyu.png","height":25},
                     "nodeParent":2,
                     "label":"Image",
                     "isOpen":true,
@@ -91,6 +91,32 @@
                         }]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":-3,"x":-3,"width":50,"var":"img_zheKou","skin":"image/common/img_1zhe.png","height":35},
+            "nodeParent":1,
+            "label":"Image(img_zheKou)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":8,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":147,"x":35,"width":90.234375,"var":"lbl_xiangou","text":"限购1次","height":20,"fontSize":20,"font":"FZHL","color":"#179a0d","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lbl_xiangou)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
         }],
     "animations":[
         {

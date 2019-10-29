@@ -4,67 +4,35 @@ module view.shopMall {
 		constructor() {
 			super();
 		}
-		//商店类型
-		private type;
-		public mall0 = false;
-		public mall1 = false;
-		public mall2 = false;
-		public mall3 = false;
-		public mall4 = false;
+
+		public allType = [EnumData.ShopType.SHOP_TYPE_TUIJIAN,
+		EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK,
+		EnumData.ShopType.SHOP_TYPE_SKILL,
+		EnumData.ShopType.SHOP_TYPE_HONOR,
+		EnumData.ShopType.SHOP_TYPE_LIMITED
+		]
 		public setData(): void {
-			//商店类型
-			this.type = EnumData.ShopType.SHOP_TYPE_TUIJIAN;
 			this.panel_shop.hScrollBarSkin = '';
 			this.lbl_rongyu.text = '' + GameApp.MainPlayer.wealth.honorNum;
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				if (this['list_shop' + (index + 1)] == null || this['list_shop' + (index + 1)].length == 0) {
+					this.updateHotShop(this.allType[index]);
+				}
 				this.viw_shop.selectedIndex = index;
-					if (this['mall' + index] == true) {
-						this.init_Initialization();
-					}
-					else {
-						switch (this.viw_shop.selectedIndex) {
-							case 0:
-								this.mall0 = true;
-								this.type = EnumData.ShopType.SHOP_TYPE_TUIJIAN;
-							case 1:
-								this.mall1 = true;
-								this.type = EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK;
-								break;
-							case 2:
-								this.mall2 = true;
-								this.type = EnumData.ShopType.SHOP_TYPE_SKILL;
-								break;
-							case 3:
-								this.mall3 = true;
-								this.type = EnumData.ShopType.SHOP_TYPE_HONOR;
-								break;
-							case 4:
-								this.mall4 = true;
-								this.type = EnumData.ShopType.SHOP_TYPE_LIMITED;
-								break;
-						}
-						this.updateHotShop();
-					}
-
-				
 			}, null, false);
-			if (this.mall0 == false) {
-				this.updateHotShop();
-			} else {
-				this.init_Initialization();
-			}
 			this.addEvent();
-			this.addLcpEvent();
+			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN);
 		}
 		public addEvent(): void {
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
-			})
+			});
+			this.addLcpEvent();
+
 		}
 		public addLcpEvent(): void {
 			// 热销
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_TUIJIAN, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				GameApp.GameEngine.rexiao = jsonData;
 				this.list_shop1.vScrollBarSkin = '';
 				let keys = Object.keys(jsonData.items)
 				this.list_shop1.array = [];
@@ -82,7 +50,7 @@ module view.shopMall {
 			});
 			//礼券
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				GameApp.GameEngine.liquan = jsonData;
+
 				this.list_shop2.vScrollBarSkin = '';
 				let keys = Object.keys(jsonData.items)
 				this.list_shop2.array = [];
@@ -100,7 +68,7 @@ module view.shopMall {
 			});
 			//技能
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_SKILL, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				GameApp.GameEngine.jineng = jsonData;
+
 				this.list_shop3.vScrollBarSkin = '';
 				let keys = Object.keys(jsonData.items)
 				this.list_shop3.array = [];
@@ -118,7 +86,7 @@ module view.shopMall {
 			});
 			//荣誉
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_HONOR, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				GameApp.GameEngine.rongyu = jsonData;
+
 				this.list_shop4.vScrollBarSkin = '';
 				let keys = Object.keys(jsonData.items)
 				this.list_shop4.array = [];
@@ -132,11 +100,11 @@ module view.shopMall {
 				this.list_shop4.itemRender = view.shopMall.ShopItemV2Item;
 				this.list_shop4.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
-				}, null, false)
+				}, null, false);
 			});
 			//限购
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_LIMITED, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-				GameApp.GameEngine.xiangou = jsonData;
+
 				this.list_shop5.vScrollBarSkin = '';
 				let keys = Object.keys(jsonData.items)
 				this.list_shop5.array = [];
@@ -159,52 +127,21 @@ module view.shopMall {
 
 
 		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + this.type, this);
+			for (let _type of this.allType) {
+				GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + _type, this);
+			}
 			PopUpManager.Dispose(this);
 		}
-		/**
-	  *拉取商店信息
-	  */
-		public updateHotShop(): void {
 
+		/**
+	  	 *拉取商店信息
+	  	 */
+		public updateHotShop(type): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			let data = [this.type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
-			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, this.type);
+			let data = [type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
+			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, type);
 			lcp.send(pkt);
 		}
-		public init_Initialization(): void {
-			let data;
-			switch (this.viw_shop.selectedIndex) {
-				case 0:
-					data=GameApp.GameEngine.rexiao;
-				case 1:
-					data=GameApp.GameEngine.liquan;
-					break;
-				case 2:
-					data=GameApp.GameEngine.jineng;
-					break;
-				case 3:
-					data=GameApp.GameEngine.rongyu;
-					break;
-				case 4:
-					data=GameApp.GameEngine.xiangou;
-					break;
-			}
-			let index = this.viw_shop.selectedIndex + 1;
-			this['list_shop'+index].vScrollBarSkin = '';
-			let keys = Object.keys(data.items)
-			this['list_shop'+index].array = [];
-			for (let i = 1; i < keys.length + 1; i++) {
-				if (data.items[i]) {
-					if (data.items[i].show == 1) {
-						this['list_shop'+index].array.push(data.items[i])
-					}
-				}
-			}
-			this['list_shop'+index].itemRender = view.shopMall.ShopMall_DaojuItem;
-			this['list_shop'+index].renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
-				cell.setData(cell.dataSource);
-			}, null, false)
-		}
+
 	}
 }
