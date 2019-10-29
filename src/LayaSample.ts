@@ -40,6 +40,7 @@ class GameMain {
         // tips层
         let tipsLayer = this.createPanel();
         Laya.stage.addChild(tipsLayer);
+
         PanelManage.euiLayer = euiLayer;
         PanelManage.tipsLayer = tipsLayer;
         PanelManage.tipsLayer.mouseThrough = false;
@@ -50,7 +51,13 @@ class GameMain {
      */
     private createPanel(): Laya.Box {
         let box = new Laya.Box();
-        box.bottom = box.top = box.left = box.right = 0;
+        let offY = 0;
+        let aspectRatio = Laya.Browser.height / Laya.Browser.width;
+        if (aspectRatio > 1.9) {
+            offY = 50;
+        }
+        box.bottom = box.top = offY;
+        box.left = box.right = 0;
         box.autoSize = true;
         return box
     }

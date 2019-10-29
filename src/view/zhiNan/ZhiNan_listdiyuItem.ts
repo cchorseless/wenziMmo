@@ -16,6 +16,7 @@ module view.zhiNan {
 		private addEvent() {
 			EventManage.onWithEffect(this.btn_item, Laya.UIEvent.CLICK, this, () => {
 				ZhiNan_diyuPanel.self.onChooseItem(this.itemID);
+				
 			})
 		}
 	}
