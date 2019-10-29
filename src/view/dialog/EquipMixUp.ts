@@ -36,6 +36,10 @@ module view.dialog {
 			this.list_mix.scrollTo(1);
 			this.curType = type;
 			this.setBoxShow(type);
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.EquipSoulChain, null, 0, this, (data) => {
+				let lvl_baseData = data;
+			})
+			lcp.send(pkt)
 			if (this.curType == 0) {
 				if (this.lvTabID == 1) {
 					this.btn_60lv.selected = true;
@@ -123,9 +127,9 @@ module view.dialog {
 		}
 		private changeBtnState() {
 			for (let i = 0; i < 6; i++) {
-				this["btn_god_fire" + i].selected =false;
-				if(i == this.fireTabID){
-					this["btn_god_fire" + i].selected =true;
+				this["btn_god_fire" + i].selected = false;
+				if (i == this.fireTabID) {
+					this["btn_god_fire" + i].selected = true;
 				}
 			}
 		}
@@ -230,6 +234,43 @@ module view.dialog {
 				this.mixID = needID;
 			} else {
 				this.mixID = resultID;
+			}
+			data[3]
+			let effid0;
+			let effid1;
+			if (GameApp.GameEngine.mainPlayer.job == 1) {
+				effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[3].toString())
+				effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[4].toString())
+			} else if (GameApp.GameEngine.mainPlayer.job == 2) {
+				effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID(data[3].toString())
+				effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[4].toString())
+			} else if (GameApp.GameEngine.mainPlayer.job == 3) {
+				effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(data[3].toString())
+				effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[4].toString())
+			}
+			let effData0 = GameUtil.parseEffectidToString(effid0.toString());
+			let effData1 = GameUtil.parseEffectidToString(effid0.toString());
+			for(let i = 0;i<8;i++){
+				this["lab_name0_" + i].text = ""
+				this["lab_data0_" + i].text = ""
+				this["lab_name1_" + i].text = ""
+				this["lab_data1_" + i].text = ""
+			}
+			for (let i = 0; i < effData0.des.length; i++) {
+				let str = effData0.des[i];
+				let loc = str.indexOf(":")
+				let str1 = str.substring(0, loc + 1);
+				let str2 = str.substring(loc + 1, str.length)
+				this["lab_name0_" + i].text = str1
+				this["lab_data0_" + i].text = str2
+			}
+			for (let i = 0; i < effData1.des.length; i++) {
+				let str = effData0.des[i];
+				let loc = str.indexOf(":")
+				let str1 = str.substring(0, loc + 1);
+				let str2 = str.substring(loc + 1, str.length)
+				this["lab_name1_" + i].text = str1
+				this["lab_data1_" + i].text = str2
 			}
 		}
 		//重置list中子项的点击状态
