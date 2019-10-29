@@ -75,8 +75,8 @@ module view.shopMall {
 						}
 					}
 				}
-				this.list_shop1.itemRender = view.shopMall.ShopMall_DaojuItem;
-				this.list_shop1.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
+				this.list_shop1.itemRender = view.shopMall.ShopItemV2Item;
+				this.list_shop1.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
 			});
@@ -93,8 +93,8 @@ module view.shopMall {
 						}
 					}
 				}
-				this.list_shop2.itemRender = view.shopMall.ShopMall_DaojuItem;
-				this.list_shop2.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
+				this.list_shop2.itemRender = view.shopMall.ShopItemV2Item;
+				this.list_shop2.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
 			});
@@ -111,8 +111,8 @@ module view.shopMall {
 						}
 					}
 				}
-				this.list_shop3.itemRender = view.shopMall.ShopMall_DaojuItem;
-				this.list_shop3.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
+				this.list_shop3.itemRender = view.shopMall.ShopItemV2Item;
+				this.list_shop3.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
 			});
@@ -129,8 +129,8 @@ module view.shopMall {
 						}
 					}
 				}
-				this.list_shop4.itemRender = view.shopMall.ShopMall_DaojuItem;
-				this.list_shop4.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
+				this.list_shop4.itemRender = view.shopMall.ShopItemV2Item;
+				this.list_shop4.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
 			});
@@ -147,8 +147,8 @@ module view.shopMall {
 						}
 					}
 				}
-				this.list_shop5.itemRender = view.shopMall.ShopMall_DaojuItem;
-				this.list_shop5.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopMall_DaojuItem, index) => {
+				this.list_shop5.itemRender = view.shopMall.ShopItemV2Item;
+				this.list_shop5.renderHandler = Laya.Handler.create(this, (cell: view.shopMall.ShopItemV2Item, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
 				console.log('=====》商城商城', jsonData)

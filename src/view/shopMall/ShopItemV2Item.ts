@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.shopMall {
-	export class ShopMall_DaojuItem extends ui.shopMall.ShopMall_DaojuItemUI {
+	export class ShopItemV2Item extends ui.shopMall.ShopItemV2ItemUI {
 		constructor() {
 			super();
 		}

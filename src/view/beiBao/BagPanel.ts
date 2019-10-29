@@ -24,7 +24,7 @@ module view.beiBao {
 			this.panel_sellHot.vScrollBarSkin = '';
 			this.vbox_sellHot['sortItem'] = (items) => { };
 			for (let i = 0; i < 5; i++) {
-				this.vbox_sellHot.addChild(new view.compart.ShopHotItem());
+				this.vbox_sellHot.addChild(new view.shopMall.ShopItemV0Item());
 			}
 			// 初始化背包
 			this.initUI();
@@ -96,7 +96,7 @@ module view.beiBao {
 						sellItemInfo.subtype = EnumData.ShopSubType.SHOP_SUBTYPE_NONE;
 						// 商品条目索引
 						sellItemInfo.index = key;
-						let ui_item = new view.compart.ShopHotItem();
+						let ui_item = new view.shopMall.ShopItemV1Item();
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
 

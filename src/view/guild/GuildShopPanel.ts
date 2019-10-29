@@ -43,7 +43,7 @@ module view.guild {
 						sellItemInfo.subtype = this.tab_guildShop.selectedIndex + 1;
 						// 商品条目索引
 						sellItemInfo.index = key;
-						let ui_item = new view.compart.ShopItemV0Item();
+						let ui_item = new view.shopMall.ShopItemV0Item();
 						ui_item.setData(sellItemInfo, EnumData.ShopBuyPanelType.SHOP_BUY_GUILD_PANEL);
 						// 添加道具
 						if (vbox.numChildren == 0) {
