@@ -359,6 +359,8 @@ module ProtoCmd {
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
+    export const EquipSoulChain ="EquipSoulChain";  //装备等级套装Effid
+
 
 
 }
