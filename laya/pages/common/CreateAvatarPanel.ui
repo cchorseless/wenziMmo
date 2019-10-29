@@ -1,7 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
+    "selectedBox":297,
+    "selecteID":294,
     "referenceLines":null,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
@@ -18,12 +19,37 @@
             "props":{"top":0,"skin":"image/main/fram_common_02a.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":2,
             "child":[
-                ],
+                {
+                    "type":"Image",
+                    "props":{"width":640,"skin":"image/main/img_common_02.png","right":0,"left":0,"bottom":0},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":453,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"skin":"image/createplayer/img_fengyin.png","right":0,"left":0,"bottom":0},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":452,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         },
         {
@@ -43,7 +69,7 @@
                     "props":{"y":39,"right":0,"left":0,"height":595},
                     "nodeParent":268,
                     "label":"Panel",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -184,6 +210,176 @@
                                 ]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":313,"x":-95,"width":640,"var":"box_npcTalk","right":0,"left":0,"height":364},
+                    "nodeParent":341,
+                    "label":"Box(box_npcTalk)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":297,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"top":0,"skin":"image/common/bottom_black.png","right":0,"left":0,"bottom":0,"alpha":0.1},
+                            "nodeParent":297,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":304,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":-2,"x":-2,"var":"box_npcAvatar"},
+                            "nodeParent":297,
+                            "label":"Box(box_npcAvatar)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":300,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"width":193,"var":"img_npcHalf","skin":"image/common/npc/npc_half_1001.png","height":204},
+                                    "nodeParent":300,
+                                    "label":"Image(img_npcHalf)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":292,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":170,"x":145,"width":127,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":2,"height":35,"fontSize":30,"font":"FZXK","color":"#77eb03"},
+                                    "nodeParent":300,
+                                    "label":"Label(lbl_npcName)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":293,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":-15,"var":"box_selfAvatar","right":-30},
+                            "nodeParent":297,
+                            "label":"Box(box_selfAvatar)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":301,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":5,"x":-7,"width":231,"skin":"image/common/npc/npc_half_self.png","height":237},
+                                    "nodeParent":301,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":302,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":182,"x":-40,"width":136,"var":"lbl_playerName","text":"你自己","strokeColor":"#000000","stroke":2,"height":35,"fontSize":30,"font":"FZXK","color":"#77eb03","align":"right"},
+                                    "nodeParent":301,
+                                    "label":"Label(lbl_playerName)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":349,
+                                    "child":[
+                                        ]
+                                }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":203,"x":0,"width":640,"skin":"image/createplayer/frame_duihua.png","right":0,"left":0,"height":161,"bottom":0},
+                            "nodeParent":297,
+                            "label":"Image",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":294,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":20,"wordWrap":true,"var":"lbl_napSay","text":"        安帝既不惠，帝每侍左右，消息温凉寝食之节，以恭谨闻，时人称焉。","strokeColor":"#000000","stroke":2,"right":20,"left":20,"height":120,"fontSize":24,"font":"FZHL","color":"#f9e596"},
+                                    "nodeParent":294,
+                                    "label":"Label(lbl_napSay)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":295,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Box",
+                                    "props":{"y":124,"x":407,"width":138,"right":0,"height":37,"bottom":0},
+                                    "nodeParent":294,
+                                    "label":"Box",
+                                    "isOpen":null,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":451,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":18,"x":75,"width":121,"var":"btn_jumpTalk","text":"点击继续","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
+                                            "nodeParent":451,
+                                            "label":"Label(btn_jumpTalk)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":296,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "type":"Image",
+                                            "props":{"skin":"image/createplayer/icon_dianjijixu.png"},
+                                            "nodeParent":451,
+                                            "label":"Image",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":450,
+                                            "child":[
+                                                ]
+                                        }]
+                                }],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 }]
         },
         {
@@ -236,7 +432,7 @@
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":18,"x":74,"wordWrap":true,"width":256,"var":"lbl_tipsDes","valign":"middle","text":"一缕魂魄，现在你在地府","strokeColor":"#000000","height":41,"fontSize":20,"font":"FZHL","color":"#1f8e35","align":"center"},
+                            "props":{"y":16,"x":74,"wordWrap":true,"width":256,"var":"lbl_tipsDes","valign":"middle","text":"一缕魂魄，现在你在地府","strokeColor":"#000000","stroke":2,"height":41,"fontSize":25,"font":"FZHL","color":"#fdcb05","align":"center"},
                             "nodeParent":276,
                             "label":"Label(lbl_tipsDes)",
                             "isDirectory":false,
@@ -421,7 +617,7 @@
                                     "props":{"y":0,"width":312,"var":"panel_0","right":0,"name":"item0","left":0,"height":214},
                                     "nodeParent":336,
                                     "label":"Panel(panel_0)",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -446,7 +642,7 @@
                                     "props":{"y":0,"width":312,"var":"panel_1","right":0,"name":"item1","left":0,"height":209},
                                     "nodeParent":336,
                                     "label":"Panel(panel_1)",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -471,7 +667,7 @@
                 },
                 {
                     "type":"Tab",
-                    "props":{"y":22,"var":"tab_0","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":1,"left":0,"labels":"人\\n间,地\\n府","labelStrokeColor":"#000000","labelStroke":6,"labelSize":32,"labelFont":"FZXK","labelColors":"#ffffff,#ffce00","direction":"vertical"},
+                    "props":{"y":34,"x":0,"var":"tab_0","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":1,"left":0,"labels":"人\\n间,地\\n府","labelStrokeColor":"#000000","labelStroke":6,"labelSize":32,"labelFont":"FZXK","labelColors":"#ffffff,#ffce00","direction":"vertical"},
                     "nodeParent":333,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,
@@ -486,451 +682,18 @@
         },
         {
             "x":15,
-            "type":"Box",
-            "props":{"y":1040,"x":0,"width":643,"left":0,"height":96,"bottom":0},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":357,
-            "child":[
-                {
-                    "type":"Button",
-                    "props":{"y":53,"x":46,"var":"btn_1","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_1)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":358,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":55,"x":13,"text":"姓名","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":358,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":360,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":31,"x":88,"skin":"image/common/state_right.png"},
-                            "nodeParent":358,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":393,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":15,"x":21,"width":48,"text":"壹","strokeColor":"#010101","stroke":6,"height":40,"fontSize":50,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":358,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":394,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":53,"x":156,"var":"btn_2","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_2)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":395,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":55,"x":13,"text":"性别","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":395,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":396,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":31,"x":88,"skin":"image/common/state_right.png"},
-                            "nodeParent":395,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":397,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":15,"x":21,"width":48,"text":"贰","strokeColor":"#010101","stroke":6,"height":40,"fontSize":50,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":395,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":398,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":53,"x":266,"var":"btn_3","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_3)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":399,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":55,"x":13,"text":"出身","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":399,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":400,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":31,"x":88,"skin":"image/common/state_right.png"},
-                            "nodeParent":399,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":401,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":15,"x":21,"width":48,"text":"叁","strokeColor":"#010101","stroke":6,"height":40,"fontSize":50,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":399,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":402,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":53,"x":375,"var":"btn_4","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_4)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":403,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":55,"x":13,"text":"性格","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":403,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":404,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":31,"x":88,"skin":"image/common/state_right.png"},
-                            "nodeParent":403,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":405,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":15,"x":21,"width":48,"text":"肆","strokeColor":"#010101","stroke":6,"height":40,"fontSize":50,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":403,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":406,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":53,"x":485,"var":"btn_5","stateNum":"2","skin":"image/main/icon_beijing.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_5)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":407,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":55,"x":13,"text":"资质","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":407,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":408,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":31,"x":88,"skin":"image/common/state_right.png"},
-                            "nodeParent":407,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":409,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":15,"x":21,"width":48,"text":"伍","strokeColor":"#010101","stroke":6,"height":40,"fontSize":50,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":407,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":410,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":50,"x":591,"var":"btn_6","stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":357,
-                    "label":"Button(btn_6)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":373,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":58,"x":2,"text":"人世间","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":373,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":374,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "props":{"y":797,"x":0,"width":641,"var":"box_npcTalk","height":339,"bottom":0},
-            "nodeParent":1,
-            "label":"Box(box_npcTalk)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":297,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"top":0,"skin":"image/common/bottom_black.png","right":0,"left":0,"bottom":0,"alpha":0.5},
-                    "nodeParent":297,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":304,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"width":641,"skin":"image/main/bottom_duihua.png","right":0,"left":0,"height":185,"bottom":0},
-                    "nodeParent":297,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":294,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":230,"x":23,"wordWrap":true,"width":594,"var":"lbl_napSay","text":"        安帝既不惠，帝每侍左右，消息温凉寝食之节，以恭谨闻，时人称焉。","strokeColor":"#000000","stroke":2,"height":81,"fontSize":24,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":297,
-                    "label":"Label(lbl_napSay)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":295,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":319,"x":575,"width":121,"var":"btn_jumpTalk","text":"【点击继续】","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#9b2f2f","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":297,
-                    "label":"Label(btn_jumpTalk)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":296,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":12,"x":0,"var":"box_npcAvatar"},
-                    "nodeParent":297,
-                    "label":"Box(box_npcAvatar)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":300,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"width":193,"var":"img_npcHalf","skin":"image/common/npc/npc_half_1001.png","height":204},
-                            "nodeParent":300,
-                            "label":"Image(img_npcHalf)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":292,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":179,"x":134,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":2,"height":35,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":300,
-                            "label":"Label(lbl_npcName)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":293,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":9,"x":451,"var":"box_selfAvatar"},
-                    "nodeParent":297,
-                    "label":"Box(box_selfAvatar)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":301,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":5,"x":-14,"width":231,"skin":"image/common/npc/npc_half_self.png","height":237},
-                            "nodeParent":301,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":302,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":179,"x":-39,"width":146,"var":"lbl_playerName","text":"你自己","strokeColor":"#000000","stroke":2,"height":35,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":301,
-                            "label":"Label(lbl_playerName)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":349,
-                            "child":[
-                                ]
-                        }]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"Panel",
-            "props":{"width":640,"var":"panel_scene","top":0,"right":0,"left":0,"height":112},
+            "props":{"y":1010,"x":27,"width":640,"var":"panel_scene","height":112},
             "nodeParent":1,
             "label":"Panel(panel_scene)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":298,
             "child":[
                 {
+                    "x":30,
                     "type":"VBox",
                     "props":{"var":"vbox_scene","top":10,"space":5,"right":20,"left":20,"align":"left"},
                     "nodeParent":298,
@@ -950,14 +713,13 @@
             "props":{"y":0,"x":0,"visible":false,"var":"img_dialog","top":0,"skin":"image/common/bottom_black.png","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image(img_dialog)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":305,
             "child":[
                 {
-                    "x":30,
                     "type":"ViewStack",
                     "props":{"y":568,"x":320,"width":640,"var":"viw_0","height":1136,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":305,
@@ -2796,7 +2558,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"var":"img_cg","top":0,"skin":"image/common/default/img_blackBg.png","right":0,"left":0,"bottom":0},
+            "props":{"var":"img_cg","top":-20,"skin":"image/common/default/img_blackBg.png","right":-20,"left":-20,"bottom":-20},
             "nodeParent":1,
             "label":"Image(img_cg)",
             "isDirectory":false,
