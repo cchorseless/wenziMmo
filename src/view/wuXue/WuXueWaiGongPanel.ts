@@ -25,7 +25,7 @@ module view.wuXue {
 			});
 			// 生活技能
 			this.btn_lifeSkill.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openWuXueLifeSkillPanel();
+				// PanelManage.openWuXueLifeSkillPanel();
 			});
 			// 合道
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {

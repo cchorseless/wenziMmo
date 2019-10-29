@@ -33,6 +33,14 @@ module LangConfig {
     }
 
     /**
+     * 获取货币图片路径
+     * @param coinType 
+     */
+    export function getCoinImagePicSkin(coinType: EnumData.CoinType): string {
+        return 'image/main/icon_coin_' + coinType + '.png';
+    }
+
+    /**
      * 职业
      */
     export const JOB_TYPEDES = {
@@ -215,6 +223,22 @@ module LangConfig {
         ITEM_FAIL_ZHUANSHENGLV: '转生等级不足 ',
         ITEM_FAIL_LEGEND_BINDING: '传世装备绑定，不能取下替换 ',
     }
+
+
+
+    /**
+     * 货币枚举描述
+     */
+    export const CoinTypeDes = {
+        COIN_TYPE_YUANBAO: '元宝',
+        COIN_TYPE_YUANBAOLOCK: '礼券',
+        COIN_TYPE_GOLD: '金币',
+        COIN_TYPE_HONOR: '荣誉',
+        COIN_TYPE_GUILDSORCE: '帮贡',
+        COIN_TYPE_PLAYER_EXP: '阅历',//-玩家经验
+        COIN_TYPE_HERO_EXP: '默契',//-英雄经验
+    }
+
 }
 
 

@@ -809,8 +809,8 @@ module EnumData {
         COIN_TYPE_GOLD = 3,        //金币
         COIN_TYPE_HONOR = 4,       //荣誉
         COIN_TYPE_GUILDSORCE = 5,  //帮贡
-        COIN_TYPE_PLAYER_EXP = 20001,//玩家经验
-        COIN_TYPE_HERO_EXP = 20024,//英雄经验
+        COIN_TYPE_PLAYER_EXP = 20001,//阅历-玩家经验
+        COIN_TYPE_HERO_EXP = 20024,//默契-英雄经验
     }
 
     /**

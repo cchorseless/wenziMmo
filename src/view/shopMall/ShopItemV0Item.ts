@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class ShopItemV0Item extends ui.compart.ShopItemV0ItemUI {
+module view.shopMall {
+	export class ShopItemV0Item extends ui.shopMall.ShopItemV0ItemUI {
 		constructor() {
 			super();
 		}
@@ -42,34 +42,34 @@ module view.compart {
 				return
 			}
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
-			let itemInfoDialog: view.dialog.ShopBuyItemV0Dialog | view.dialog.ShopBuyItemV1Dialog;
-			// 根据物品类型显示不同界面
-			switch (itemType) {
-				// 材料
-				case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
-					itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
-					break;
-				// 装备
-				case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
-					itemInfoDialog = new view.dialog.ShopBuyItemV1Dialog();
-					break;
-				// 消耗品
-				case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
-				case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
-				case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
-				case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
-					itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
-					break;
-				// 任务物品
-				case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
-					itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
-					break;
-				// 默认
-				default:
-					itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
-					break;
-			}
-			itemInfoDialog.setData(this.item, this.model).show(true);
+			// let itemInfoDialog: view.dialog.ShopBuyItemV0Dialog | view.dialog.ShopBuyItemV1Dialog;
+			// // 根据物品类型显示不同界面
+			// switch (itemType) {
+			// 	// 材料
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
+			// 		itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+			// 		break;
+			// 	// 装备
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
+			// 		itemInfoDialog = new view.dialog.ShopBuyItemV1Dialog();
+			// 		break;
+			// 	// 消耗品
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
+			// 		itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+			// 		break;
+			// 	// 任务物品
+			// 	case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
+			// 		itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+			// 		break;
+			// 	// 默认
+			// 	default:
+			// 		itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+			// 		break;
+			// }
+			// itemInfoDialog.setData(this.item, this.model).show(true);
 		}
 	}
 }

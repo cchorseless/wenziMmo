@@ -37,35 +37,20 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_CANGKU:
 					this.viw_model.selectedIndex = 3;
 					break;
-				// 角色身上
 				// 邮件内,无操作按钮，所以需要缩短界面高度
 				default:
 					this.viw_model.visible = false;
 					this.height -= this.viw_model.height;
 					break;
 			}
-			let dwBaseID = '' + obj.dwBaseID;
-			// 物品名称
-			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(dwBaseID).split('_')[0];
-			this.lbl_itemName.color = ColorUtils.nameColor[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID)];
-			// 物品描述
-			this.div_itemDes.style.fontSize = 25;
-			this.div_itemDes.innerHTML = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES(dwBaseID);
-			// 使用等级
-			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
-			this.lbl_useLevel.text = '使用等级：' + (zs_level == 0 ? '' : '' + zs_level + '转') + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID) + '级';
-			// 使用职业
-			let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)
-			this.lbl_jobNeed.text = '职业要求:' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[jobLimit]];
-			// 使用性别
-			let sexLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID)
-			this.lbl_jobNeed.text = '性别限制:' + LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sexLimit]];
-			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏,商店中隐藏
+
+			// 物品数量,数量小于1应该隐藏 或者 背包-仓库,道具不能拆分放入仓库，所以隐藏
 			let ban_model =
 				[EnumData.ItemInfoModel.SHOW_IN_BAG_CANGKU,
 				EnumData.ItemInfoModel.SHOW_IN_CANGKU,
 				EnumData.ItemInfoModel.SHOW_IN_MAIL
 				];
+
 			if (this.itemObj.dwCount === 1 || ban_model.indexOf(this.model) != -1) {
 				this.box_count.visible = false;
 				this.height -= this.box_count.height;
@@ -80,8 +65,7 @@ module view.dialog {
 					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * value;
 				}, null, false)
 			}
-			// 道具ICON信息赋值
-			this.ui_item.initUI(obj);
+			this.ui_item.setData(obj);
 			this.addEvent();
 			return this;
 		}
@@ -185,7 +169,7 @@ module view.dialog {
 		 */
 		public goToSell(): void {
 			this.close();
-			if (this.ui_item.isNotCanSell) {
+			if (this.ui_item.ui_item.isNotCanSell) {
 				TipsManage.showTips('绑定物品不能交易');
 				return
 			}
