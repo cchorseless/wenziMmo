@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.juese {
 	export class Person_Equip_SoulContentDialog extends ui.juese.Person_Equip_SoulContentDialogUI {
-		public arr = ["头盔", "项链", "衣服", "武器", "手镯", "手镯", "戒指", "戒指", "鞋", "腰带"];
+		public arr = ["头盔", "项链", "手镯", "手镯", "戒指", "戒指", "鞋", "腰带"];
 		public allData;
 		public baseLv = 60; //装备等级
 		public curSoulStoneLv = 0;
@@ -28,9 +28,11 @@ module view.juese {
 			let equpLvNumArr = [];
 			let showLvNumArr = [];
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
+			let item;
+			let lvNum;
 
 
-			for (let i = 0; i < 10; i++) {
+			for (let i = 0; i < 8; i++) {
 				this["lab_equip0_" + i].text = this.arr[i];
 				this["lab_equip1_" + i].text = this.arr[i];
 				this["lab_equip0_" + i].color = "#000000";
@@ -38,21 +40,36 @@ module view.juese {
 				let equipID;
 				if (type == 0) {
 					equipID = i
+					if (equipID != 2 || equipID != 3) {
+						item = GameUtil.findEquipInPlayer(equipID);
+						lvNum
+						if (item) {
+							lvNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(item.dwBaseID.toString());
+						} else {
+							lvNum = 0;
+						}
+
+						equpLvNumArr.push(lvNum);
+						showLvNumArr.push(lvNum);
+					}
 				}
 				else {
 					equipID = i + 18 + type * 10
+					if (equipID != 20 + type * 10 || equipID != 21 + type * 10) {
+						item = GameUtil.findEquipInPlayer(equipID);
+						lvNum
+						if (item) {
+							lvNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(item.dwBaseID.toString());
+						} else {
+							lvNum = 0;
+						}
+
+						equpLvNumArr.push(lvNum);
+						showLvNumArr.push(lvNum);
+					}
 				}
 
-				let item = GameUtil.findEquipInPlayer(equipID);
-				let lvNum
-				if (item) {
-					lvNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(item.dwBaseID.toString());
-				} else {
-					lvNum = 0;
-				}
 
-				equpLvNumArr.push(lvNum);
-				showLvNumArr.push(lvNum);
 			}
 
 
@@ -69,7 +86,7 @@ module view.juese {
 			}
 			this.lab_equip1_num.text = (10 + this.baseLv).toString();
 			this.lab_equip0_num.text = this.baseLv.toString();
-			for (let i = 0; i < 10; i++) {
+			for (let i = 0; i < 8; i++) {
 				if (showLvNumArr[i] >= this.baseLv) {
 					curNum0++;
 					this["lab_equip0_" + i].color = "#6dd041";
@@ -114,8 +131,8 @@ module view.juese {
 
 
 
-			this.lab_equipTab0.text = "全套装备达到    " + "级(" + curNum0 + "/10)"
-			this.lab_equipTab1.text = "全套装备达到    " + "级(" + curNum1 + "/10)"
+			this.lab_equipTab0.text = "全套装备达到    " + "级(" + curNum0 + "/8)"
+			this.lab_equipTab1.text = "全套装备达到    " + "级(" + curNum1 + "/8)"
 
 		}
 		public soulView() {
