@@ -120,9 +120,9 @@ module view.main {
 				new view.dialog.SeasonDialog().setData(null).popup(true);
 			});
 			// 换头像界面
-			this.box_head.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_playerInfoDialog().popup(true);
-			});
+			// this.box_head.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.main.Main_playerInfoDialog().popup(true);
+			// });
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
 				new view.main.Main_LuYinDialog().popup(true);

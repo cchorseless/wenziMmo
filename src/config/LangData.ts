@@ -73,6 +73,31 @@ module LangConfig {
         EQUIP_RING_RIGHT: '戒指',
         EQUIP_SHOES: '鞋子',
         EQUIP_BELT: '腰带',
+
+        EQUIP_LEGEND_HEADDRESS: '传说帽子',
+        EQUIP_LEGEND_NECKLACE: '传说项链',
+        EQUIP_LEGEND_CLOTHES: '传说衣服',
+        EQUIP_LEGEND_WEAPONS: '传说武器',
+        EQUIP_LEGEND_BRACELET_LEFT: '传说左手镯',
+        EQUIP_LEGEND_BRACELET_RIGHT: '传说右手镯',
+        EQUIP_LEGEND_RING_LEFT: '传说左戒指',
+        EQUIP_LEGEND_RING_RIGHT: '传说右戒指',
+        EQUIP_LEGEND_SHOES: '传说鞋',
+        EQUIP_LEGEND_BELT: '传说腰带',
+
+        EQUIP_RUNE_UP: '过往-1',
+        EQUIP_RUNE_UPRIGHT: '过往-2',
+        EQUIP_RUNE_RIGHT: '过往-3',
+        EQUIP_RUNE_DOWNRIGHT: '过往-4',
+        EQUIP_RUNE_DOWN: '过往-5',
+        EQUIP_RUNE_DOWNLEFT: '过往-6',
+        EQUIP_RUNE_LEFT: '过往-7',
+        EQUIP_RUNE_UPLEFT: '过往-8',
+
+        EQUIP_SHOULDER: '肩',
+        EQUIP_KNEE: '膝',
+        EQUIP_PENDANT: '吊坠',
+        EQUIP_FACE: '脸',
     }
 
 
