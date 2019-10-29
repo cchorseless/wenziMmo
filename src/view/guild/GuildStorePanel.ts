@@ -95,7 +95,7 @@ module view.guild {
 						// 商品条目索引
 						sellItemInfo.index = key;
 						console.log(sellItemInfo);
-						let ui_item = new view.compart.ShopHotItem();
+						let ui_item = new view.shopMall.ShopItemV1Item();
 						ui_item.setData(sellItemInfo);
 						this.vbox_sellHot.addChild(ui_item);
 					}

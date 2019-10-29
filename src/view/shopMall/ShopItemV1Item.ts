@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class ShopHotItem extends ui.compart.ShopHotItemUI {
+module view.shopMall {
+	export class ShopItemV1Item extends ui.shopMall.ShopItemV1ItemUI {
 		constructor() {
 			super();
 		}
@@ -34,31 +34,31 @@ module view.compart {
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
-				let itemInfoDialog: view.dialog.ShopBuyItemV0Dialog | view.dialog.ShopBuyItemV1Dialog;
+				let itemInfoDialog: view.shopMall.ShopBuyItemV0Dialog | view.shopMall.ShopBuyItemV1Dialog;
 				// 根据物品类型显示不同界面
 				switch (itemType) {
 					// 材料
 					case EnumData.ItemTypeDef.ITEM_TYPE_NORMAL:
-						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+						itemInfoDialog = new view.shopMall.ShopBuyItemV0Dialog();
 						break;
 					// 装备
 					case EnumData.ItemTypeDef.ITEM_TYPE_EQUIP:
-						itemInfoDialog = new view.dialog.ShopBuyItemV1Dialog();
+						itemInfoDialog = new view.shopMall.ShopBuyItemV1Dialog();
 						break;
 					// 消耗品
 					case EnumData.ItemTypeDef.ITEM_TYPE_DRUG:
 					case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
 					case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
 					case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
-						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+						itemInfoDialog = new view.shopMall.ShopBuyItemV0Dialog();
 						break;
 					// 任务物品
 					case EnumData.ItemTypeDef.ITEM_TYPE_TASK:
-						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+						itemInfoDialog = new view.shopMall.ShopBuyItemV0Dialog();
 						break;
 					// 默认
 					default:
-						itemInfoDialog = new view.dialog.ShopBuyItemV0Dialog();
+						itemInfoDialog = new view.shopMall.ShopBuyItemV0Dialog();
 						break;
 				}
 				itemInfoDialog.setData(this.item, EnumData.ShopBuyPanelType.SHOP_BUY_HOT_PANEL).show(true);

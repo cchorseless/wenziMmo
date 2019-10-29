@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.dialog {
-	export class ShopBuyItemV1Dialog extends ui.dialog.ShopBuyItemV1DialogUI {
+module view.shopMall {
+	export class ShopBuyItemV1Dialog extends ui.shopMall.ShopBuyItemV1DialogUI {
 		constructor() {
 			super();
 		}
