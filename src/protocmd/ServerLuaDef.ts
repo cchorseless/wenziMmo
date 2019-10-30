@@ -524,7 +524,8 @@ module ProtoCmd {
      */
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
-        items: { itf_Shop_ShopItem };//刷新道具
+        items: { [index: string]: itf_Shop_ShopItem };//刷新道具
+
         pricetype: number;//购买货币类型
         binding: number//是否绑定
         curcnt: number//当前购买次数
@@ -951,7 +952,7 @@ module ProtoCmd {
         item: any//物品信息
     }
     export interface itf_LD_OnLineDrawInfo {
-        exitem:any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
+        exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
         idx: number//抽到的物品索引
         lefttime: number//活动倒计时
         cnt: number//可抽奖次数
@@ -959,7 +960,7 @@ module ProtoCmd {
         introduce2: string//活动介绍2
         max: number//最大抽奖次数
         item: any//物品信息
-        zaixiantime:number//在线时长
-        used:number//已抽奖次数
+        zaixiantime: number//在线时长
+        used: number//已抽奖次数
     }
 }
