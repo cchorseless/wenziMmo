@@ -7,12 +7,21 @@ module view.zhaiYuan {
 		public setData(): void {
 			this.panel_shiWai.hScrollBarSkin = '';
 			this.panel_yiLou.hScrollBarSkin = '';
+			this.initUI();
 			// 延时两帧滚动
 			Laya.timer.frameOnce(2, this, () => { this.panel_shiWai.scrollTo(640, 0) });
 			this.initSkeBone();
+
 			this.addEvent();
 		}
 
+
+		public initUI(): void {
+			let getScaleY = PanelManage.getScaleY();
+			this.box_heHuaChi.scaleY = getScaleY;
+			this.box_back.scaleY = getScaleY;
+			this.box_back.y = this.box_back.y * getScaleY;
+		}
 		public initSkeBone(): void {
 			let birdSke = new SkeletonUtil.SkeletonGroup();
 			birdSke.loadRes(['sk/zhaiyuan_niao/CJ_NIAO_1.sk'], () => {
@@ -60,11 +69,11 @@ module view.zhaiYuan {
 			});
 			// 磨石  合成装备
 			EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
-				let o  = new view.dialog.EquipMixUp();
+				let o = new view.dialog.EquipMixUp();
 				o.setData(2)
 				o.popup(true);
 			});
-			
+
 		}
 	}
 }

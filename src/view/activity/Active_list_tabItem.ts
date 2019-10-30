@@ -1,19 +1,19 @@
 /**Created by the LayaAirIDE*/
 module view.activity {
 	export class Active_list_tabItem extends ui.activity.Active_list_tabItemUI {
-		public itemID;
+		public item;
 		constructor() {
 			super();
-			this.addEvent();
 		}
-		public setData(data, index) {
-			this.itemID = index;
+		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
+			this.item = data;
 			this.lab_name.text = data.name;
 			this.btn_icon;
+			this.addEvent();
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_icon, Laya.UIEvent.CLICK, this, () => {
-				ActivityPanel.self.onChooseTabItem(this.itemID);
+				PanelManage.Activity.onChooseTabItem(this.item);
 			})
 		}
 	}
