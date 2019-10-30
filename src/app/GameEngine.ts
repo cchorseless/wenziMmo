@@ -105,8 +105,6 @@ class GameEngine extends SingletonClass {
     public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
 
 
-
-
     public constructor() {
         super();
         this.packetBytes = new Laya.Byte();

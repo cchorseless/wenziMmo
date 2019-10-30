@@ -3,6 +3,7 @@ module view.scene {
 	export class SceneV3Item extends ui.scene.SceneV3ItemUI implements itf.SceneItem {
 		constructor() {
 			super();
+			this.top = this.bottom = this.right = 0;
 			this.name = 'SceneV3Item';
 		}
 		public setData(): void {
@@ -69,8 +70,8 @@ module view.scene {
 		 * 展开
 		 */
 		public changeToBig(): void {
-			Laya.Tween.to(this, { width: 640 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_player, { space: 50 }, 500, null, null, null, true);
+			Laya.Tween.to(this, { width: 640 }, 300, null, null, null, true);
+			Laya.Tween.to(this.hbox_player, { space: 50 }, 300, null, null, null, true);
 			for (let item of this.hbox_monster._childs) {
 				(item as view.scene.MonsterGroupInSceneItem).changeToBig();
 			}
@@ -80,8 +81,8 @@ module view.scene {
 		 * 缩小
 		 */
 		public changeToSmall(): void {
-			Laya.Tween.to(this, { width: 545 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_player, { space: 5 }, 500, null, null, null, true);
+			Laya.Tween.to(this, { width: 545 }, 300, null, null, null, true);
+			Laya.Tween.to(this.hbox_player, { space: 5 }, 300, null, null, null, true);
 			for (let item of this.hbox_monster._childs) {
 				(item as view.scene.MonsterGroupInSceneItem).changeToSmall();
 			}

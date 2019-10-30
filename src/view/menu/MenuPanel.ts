@@ -5,10 +5,17 @@ module view.menu {
 			super();
 		}
 		public setData(): void {
-			this.panel_menu.vScrollBarSkin = '';
-			this.vbox_menu['sortItem'] = (items) => { };
+			this.initUI();
 			this.addEvent();
 		}
+		
+
+		public initUI(): void {
+			let getScaleY = PanelManage.getScaleY();
+			this.img_bg.scaleY = getScaleY;
+			this.box_bottom.scaleY = getScaleY;
+		}
+
 		public addEvent(): void {
 			//图鉴
 			this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
@@ -48,13 +55,13 @@ module view.menu {
 			})
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new view.beiBao.Bag_Recharge();
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.cashPanel, null, 0, this,function (data) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.cashPanel, null, 0, this, function (data) {
 					let base = data;
 					o.setData(data);
 					o.popup(true);
 				});
 				lcp.send(pkt);
-				
+
 			})
 
 			// 商城

@@ -25,6 +25,21 @@ module PanelManage {
         B2T = 6
     }
 
+    /**
+     * 获取纵向缩放因数
+     */
+    export function getScaleY(): number {
+        return PanelManage.euiLayer.displayHeight / 1136;
+    }
+
+    /**
+     * 获取横向缩放因数
+     */
+    export function getScaleX(): number {
+        return PanelManage.euiLayer.displayWidth / 640;
+    }
+
+
     /**********************************界面层************************************ */
     export let tipsLayer: Laya.Box;                                                      //文字气泡提示
     export let euiLayer: Laya.Box;                                                       //界面弹窗提示
