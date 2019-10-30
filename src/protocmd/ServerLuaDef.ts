@@ -302,6 +302,25 @@ module ProtoCmd {
     export const LD_cangbaoge_lingqu = "cangbaoge_lingqu";
     //仓库物品刷新
     export const LD_storeRefresh = "Refresh";
+    //幸运抽奖面板
+    export const LD_LuckyDrawOpen = "LuckyDrawOpen";
+    //在线转盘面板
+    export const LD_ZXCJ_Plane = "ZXCJ_Plane";
+    //在线转盘抽奖
+    export const LD_ZXCJ_Start = "ZXCJ_Start";
+    //在线转盘全服记录
+    export const LD_ZXCJ_list = "ZXCJ_list";
+    //在线转盘领取抽奖奖励
+    export const LD_ZXCJ_LingQu = "ZXCJ_LingQu";
+    //在线转盘领取宝箱
+    export const LD_ZXCJ_LingQu2 = "ZXCJ_LingQu2";
+    //福利转盘面板
+    export const LD_FLZP_Plane = "FLZP_Plane";
+    //福利转盘抽奖
+    export const LD_FLZP_Start = "FLZP_Start";
+    //福利转盘领取奖励
+    export const LD_FLZP_LinQu = "FLZP_LinQu";
+    
 
     /*********************************菜单福利******************** */
     //菜单福利回收面板
@@ -368,7 +387,7 @@ module ProtoCmd {
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
-    export const EquipSoulChain ="EquipSoulChain";  //装备等级套装Effid
+    export const EquipSoulChain = "EquipSoulChain";  //装备等级套装Effid
 
 
 
@@ -922,5 +941,33 @@ module ProtoCmd {
         sideItem: any//12个物品id
         tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
 
+    }
+    export interface itf_LD_LuckDrawInfo {
+        extab: any//( exitem: {binding:是否绑定 1index: 物品IDnum: 数量rnd: 500}, leftcnt: 279, needcnt: 10 )
+        item: any//物品信息{binding:是否绑定 1index: 物品IDnum: 数量rnd: 500}
+        leftsec: number//
+        text: string//抽奖规则
+    }
+    export interface itf_LD_OnLineDrawInfo {
+        idx:number//抽到奖励的索引
+        cnt: number//可抽奖次数
+        lefttime: number//活动倒计时
+        exitem: any// {num: 1, index: 531, bind: 1}
+        flag: number//是否可领取
+        need: number//领宝箱须抽奖次数
+        introduce: string//规则介绍1
+        introduce2: string//规则介绍2
+        item: any//物品信息{num: 2, index: 405, bind: 1}
+        used: number// 当前抽奖次数
+        max: number//最大抽奖次数
+        zaixiantime: number//在线时间
+    }
+    export interface itf_LD_fuliTurnTableInfo {
+        idx:number//抽到奖励的索引
+        desc:string//转盘介绍
+        cnt: number//已转转盘次数
+        item: any//物品信息{bind: 1index: num:}
+        lefttime: number//活动倒计时
+        max: number//最大转盘次数
     }
 }

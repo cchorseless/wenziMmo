@@ -12,13 +12,14 @@ module view.dialog {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = item[i].index;
-				itemInfo.dwCount =  item[i].num;
+				itemInfo.dwCount = item[i].num;
 				_itemUI.setData(itemInfo);
 				this.hbox_baoxiang.addChild(_itemUI)
 			}
 			this.addEvent();
 			return this;
 		}
+	
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();

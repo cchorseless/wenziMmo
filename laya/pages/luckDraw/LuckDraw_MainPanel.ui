@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":11,
-    "selecteID":91,
+    "selectedBox":76,
+    "selecteID":95,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -88,7 +88,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -170,6 +170,62 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":79,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":-253,"x":-1,"width":638,"name":"item1","height":883},
+                    "nodeParent":76,
+                    "label":"Box(item1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":96,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"luckDraw/LuckDraw_TurntableItem.ui",
+                    "props":{"y":0,"x":0,"var":"ui_tumtable","runtime":"view.luckDraw.LuckDraw_TurntableItem","name":"item2"},
+                    "nodeParent":76,
+                    "label":"UIView(ui_tumtable)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":95,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":-243,"x":9,"width":638,"name":"item3","height":883},
+                    "nodeParent":76,
+                    "label":"Box(item3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":97,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"luckDraw/LuckDraw_OnLineDrawItem.ui",
+                    "props":{"y":2,"x":1,"var":"ui_onLineDraw","runtime":"view.luckDraw.LuckDraw_OnLineDrawItem","name":"item4"},
+                    "nodeParent":76,
+                    "label":"UIView(ui_onLineDraw)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":93,
                     "child":[
                         ],
                     "$HIDDEN":false
