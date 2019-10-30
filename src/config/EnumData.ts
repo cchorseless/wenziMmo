@@ -819,6 +819,7 @@ module EnumData {
     export enum ShopBuyPanelType {
         SHOP_BUY_HOT_PANEL = 0,// 热卖商店购买界面,单次购买一组
         SHOP_BUY_GUILD_PANEL = 1,// 公会商店购买界面
+        SHOP_BUY_OTHER = 2,// 公会商店购买界面
     }
 
     // *************************************任务相关******************************************
@@ -930,11 +931,15 @@ module EnumData {
         MAP_FU_ZHOU_CHENG = 5002,// 福州城
         MAP_HUA_SHAN_PAI = 5003,// 华山派
 
+    }
+
+
+    export enum ActiveityType{
+        
 
 
 
     }
-
 
     /******************************************************战斗模块********************* */
 

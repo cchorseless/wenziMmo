@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":112,
+    "selectedBox":110,
+    "selecteID":111,
     "props":{"width":520,"sceneColor":"#f3ecec","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -128,14 +128,13 @@
                     "props":{"y":58,"x":23,"var":"box_empty"},
                     "nodeParent":78,
                     "label":"Box(box_empty)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":117,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":36,"x":69,"width":161,"skin":"image/common/img_duihuakuang.png","height":67},
                             "nodeParent":117,
@@ -161,7 +160,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":94,"skin":"image/common/img_cat.png","height":92},
                             "nodeParent":117,
@@ -172,7 +170,8 @@
                             "compId":114,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -180,52 +179,15 @@
                     "props":{"y":4,"var":"panel_a","right":4,"left":4,"height":224},
                     "nodeParent":78,
                     "label":"Panel(panel_a)",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "isOpen":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":79,
                     "child":[
-                        {
-                            "type":"VBox",
-                            "props":{"x":0,"width":80,"var":"vbox_huishou0"},
-                            "nodeParent":79,
-                            "label":"VBox(vbox_huishou0)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":80,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"VBox",
-                            "props":{"y":0,"width":80,"var":"vbox_huishou1","centerX":0},
-                            "nodeParent":79,
-                            "label":"VBox(vbox_huishou1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":108,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"VBox",
-                            "props":{"y":0,"width":80,"var":"vbox_huishou2","right":0},
-                            "nodeParent":79,
-                            "label":"VBox(vbox_huishou2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":109,
-                            "child":[
-                                ]
-                        }]
-                }]
+                        ]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -362,7 +324,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":279,"x":284,"skin":"image/common/icon_exp_02.png"},
+            "props":{"y":282,"x":194,"skin":"image/common/icon_exp_02.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -374,14 +336,42 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":12,"x":74,"width":140,"var":"lbl_expHuiShou","text":"0","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                    "props":{"y":12,"x":74,"width":140,"var":"lbl_expHuiShou0","text":"0","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":110,
-                    "label":"Label(lbl_expHuiShou)",
+                    "label":"Label(lbl_expHuiShou0)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":111,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":282,"x":338,"skin":"image/common/icon_exp_02.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":118,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":12,"x":74,"width":140,"var":"lbl_expHuiShou1","text":"0","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                    "nodeParent":118,
+                    "label":"Label(lbl_expHuiShou1)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":119,
                     "child":[
                         ],
                     "$HIDDEN":false
