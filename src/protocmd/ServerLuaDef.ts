@@ -361,6 +361,8 @@ module ProtoCmd {
 
     export const EquipSoulChain ="EquipSoulChain";  //装备等级套装Effid
 
+    export const zhuangbeihuishousys ="zhuangbeihuishousys";   //回收装备
+
 
 
 }
