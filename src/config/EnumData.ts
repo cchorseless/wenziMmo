@@ -819,6 +819,7 @@ module EnumData {
     export enum ShopBuyPanelType {
         SHOP_BUY_HOT_PANEL = 0,// 热卖商店购买界面,单次购买一组
         SHOP_BUY_GUILD_PANEL = 1,// 公会商店购买界面
+        SHOP_BUY_OTHER = 2,// 公会商店购买界面
     }
 
     // *************************************任务相关******************************************
