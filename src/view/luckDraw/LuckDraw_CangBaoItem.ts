@@ -5,6 +5,7 @@ module view.luckDraw {
 			super();
 			this.setData();
 		}
+		public storeData;
 		public setData(): void {
 			this.panel_myRecord.vScrollBarSkin = '';
 			this.vbox_myRecord['sortItem'] = items => { };
@@ -13,6 +14,7 @@ module view.luckDraw {
 			this.addEvent();
 			this.init_CangBaoGeData();
 			this.init_Record();
+			this.addLcpEvent();
 		}
 		public addEvent(): void {
 			//返回菜单界面
@@ -23,10 +25,14 @@ module view.luckDraw {
 			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
 				new view.luckDraw.LuckDraw_IntegralDialog().setData(this.lbl_score.text).show()
 			})
+			//宝藏仓库
+			this.btn_store.on(Laya.UIEvent.CLICK, this, () => {
+				new view.luckDraw.LuckDraw_StoreDialog().setData(this.storeData).show();
+			})
 			for (let i = 1; i < 4; i++) {
 				this['btn_tanBao' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.init_bless(i);
-					this.addLcpEvent();
+
 				})
 			}
 
@@ -74,7 +80,9 @@ module view.luckDraw {
 			pkt.setString(ProtoCmd.LD_cangbaoge_getrecord, null, null, this, (jsonData) => {
 				//全服奖励记录
 				let single = jsonData.record.split('+')
+				console.log(jsonData.record)
 				let singleKeys = Object.keys(single)
+				this.vbox_allRecord.removeChildren();
 				for (let key of singleKeys) {
 					this.vbox_allRecord.addChild(new view.luckDraw.LuckDraw_RecordItem().init_allRecord(single[key]))
 				}
@@ -109,7 +117,10 @@ module view.luckDraw {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.LD_CangbaotuBuy, this, (jsonData) => {
 				this.lbl_score.text = '' + jsonData.score;
+				this.storeData = jsonData.item;
 				this.init_Record()
+				GameApp.LListener.event(ProtoCmd.LD_storeRefresh, this.storeData);
+
 			})
 		}
 		public destroy(isbool): void {

@@ -90,7 +90,7 @@ module PanelManage {
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
-    export let Activity: view.activity.ActivityPanel;//天鉴界面
+    export let Activity: view.activity.ActivityPanel;//活动界面
 
 
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面

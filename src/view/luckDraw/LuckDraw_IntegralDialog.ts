@@ -7,8 +7,6 @@ module view.luckDraw{
 				public score;
 		public setData(score): LuckDraw_IntegralDialog {
 			this.score = score;
-			this.panel_top.hScrollBarSkin = '';
-			this.hbox_top['sortItem'] = (items) => { };
 			this.panel_integral.vScrollBarSkin = '';
 			this.vbox_integral['sortItem'] = (items) => { };
 			this.panel_record.vScrollBarSkin = '';

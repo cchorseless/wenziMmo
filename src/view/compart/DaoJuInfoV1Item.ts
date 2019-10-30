@@ -17,17 +17,17 @@ module view.compart {
 			this.lbl_guildRecover.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).CONTRIBUTIONVALUE(dwBaseID);
 			// 道具类型
 			let pos = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(dwBaseID);
-			this.lbl_type.text = LangConfig.emEquipPositionDes[EnumData.emEquipPosition[pos]];
+			this.lbl_type.text = '部位:' + LangConfig.emEquipPositionDes[EnumData.emEquipPosition[pos]];
 			// 道具职业
 			let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID)
-			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[jobLimit]];
+			this.lbl_job.text = '出身:' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[jobLimit]];
 			// 道具等级，使用等级
 			let zs_level = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
 			let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
-			this.lbl_level.text = LangConfig.getLevelDes(zs_level, lvl);
+			this.lbl_level.text = '等级:' + LangConfig.getLevelDes(zs_level, lvl);
 			// 道具性别
 			let sex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
-			this.lbl_sex.text = LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sex]];
+			this.lbl_sex.text = '性别:' + LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sex]];
 			// 战斗评分
 			this.lbl_sorce.text = '评分:' + obj.battleScore[jobLimit];
 			// 装备属性
