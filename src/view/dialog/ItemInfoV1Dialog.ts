@@ -207,7 +207,7 @@ module view.dialog {
 		 * 放入熔炉
 		 */
 		public putToHuiShou(): void {
-			this.itemObj.ui_item.disabled = true;
+			// this.itemObj.ui_item.disabled = true;
 			PanelManage.BeiBao.ui_huiShou.putInOneItem(this.itemObj.i64ItemID)
 			this.close();
 		}
@@ -216,7 +216,7 @@ module view.dialog {
 		 * 取出熔炉
 		 */
 		public putBackHuiShou(): void {
-			this.itemObj.ui_item.disabled = false;
+			// this.itemObj.ui_item.disabled = false;
 			PanelManage.BeiBao.ui_huiShou.takeOutOneItem(this.itemObj.i64ItemID)
 			this.close();
 
