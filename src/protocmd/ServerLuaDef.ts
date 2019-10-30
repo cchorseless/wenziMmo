@@ -294,6 +294,15 @@ module ProtoCmd {
     export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//(jifen:抽奖积分record:兑换记录)
     //积分兑换
     export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
+    //仓库回收
+    export const LD_caobaogehuishousys = "caobaogehuishousys";
+    //仓库经验丹使用
+    export const LD_cangbaogeusejinyan = "cangbaogeusejinyan";
+    //仓库全部领取
+    export const LD_cangbaoge_lingqu = "cangbaoge_lingqu";
+    //仓库物品刷新
+    export const LD_storeRefresh = "Refresh";
+
     /*********************************菜单福利******************** */
     //菜单福利回收面板
     export const FuLi_ZiYuanZhaoHui_Open = "ZiYuanZhaoHui_Open";
@@ -360,6 +369,8 @@ module ProtoCmd {
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
     export const EquipSoulChain ="EquipSoulChain";  //装备等级套装Effid
+
+    export const zhuangbeihuishousys ="zhuangbeihuishousys";   //回收装备
 
 
 

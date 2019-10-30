@@ -6,24 +6,29 @@ module view.luckDraw {
 		}
 		public setData(): void {
 			this.panel_top.hScrollBarSkin = '';
-			this.hbox_top['sortItem'] = (items) => { };
+			this.tab_top.labels='';
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				this.viw_luckDraw.selectedIndex = index;
+			}, null, false);
 			this.addEvent();
 			this.init_getData();
-			this.box_item.addChild(new view.luckDraw.LuckDraw_CangBaoItem())
 		}
 		public addEvent(): void {
 		}
 		public init_getData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
+			//获取页签
 			pkt.setString(ProtoCmd.LD_chouJiangPanel, null, null, this, (jsonData: ProtoCmd.itf_LD_Info) => {
 				let keys = Object.keys(jsonData)
-				this.hbox_top.removeChildren();
+				let luckDrawData=[];
 				for (let key of keys) {
 					let data = jsonData[key];
-					this.hbox_top.addChild(new view.luckDraw.LuckDraw_TitleBtnItem().setData(data))
+					luckDrawData.push(data.name)	
 				}
+				this.tab_top.labels=''+luckDrawData;
 			})
 			lcp.send(pkt);
 		}
+
 	}
 }
