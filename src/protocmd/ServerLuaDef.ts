@@ -336,6 +336,7 @@ module ProtoCmd {
     export const rxEquipCompound = "rxEquipCompound";        //装备合成（要合成的id）
 
     export const JingCaiSendShow = "JingCaiSendShow";        //精彩活动面板;
+
     export const Active1 = "EverydayBuyPanel";     //每日必买      面板        其他接口：购买
     export const Active2 = "CZJJ_OpenPlane";       //超值理财      面板        其他接口：购买、领取
     export const Active3 = "ChaoZhiLC_Open";       //成长基金      面板        其他接口：购买、领取
@@ -368,9 +369,9 @@ module ProtoCmd {
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
-    export const EquipSoulChain ="EquipSoulChain";  //装备等级套装Effid
+    export const EquipSoulChain = "EquipSoulChain";  //装备等级套装Effid
 
-    export const zhuangbeihuishousys ="zhuangbeihuishousys";   //回收装备
+    export const zhuangbeihuishousys = "zhuangbeihuishousys";   //回收装备
 
 
 
@@ -388,7 +389,8 @@ module ProtoCmd {
      */
     export interface itf_ACT_JingCaiSendShow {
         id: number;
-        name: string
+        name: string;
+        index?: number;
     }
     /**
      * 传世面板信息
