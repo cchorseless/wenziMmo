@@ -207,16 +207,13 @@ module view.dialog {
 		 * 放入熔炉
 		 */
 		public putToHuiShou(): void {
-			this.itemObj.ui_item.disabled = true;
-			PanelManage.BeiBao.ui_huiShou.addItem(this.itemObj)
-			this.close();
+
 		}
 
 		/**
 		 * 取出熔炉
 		 */
 		public putBackHuiShou(): void {
-
 
 		}
 

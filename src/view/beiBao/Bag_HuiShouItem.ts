@@ -10,9 +10,6 @@ module view.beiBao {
 		public hasInit = false;
 		public setData(): void {
 			this.panel_a.vScrollBarSkin = '';
-			// this.vbox_huishou0['sortItem'] = (items) => { };
-			// this.vbox_huishou1['sortItem'] = (items) => { };
-			// this.vbox_huishou2['sortItem'] = (items) => { };
 			if (this.hasInit) return;
 			this.hasInit = true;
 			this.initUI();
@@ -22,7 +19,6 @@ module view.beiBao {
 		public initUI(): void {
 			this.img_showSelect.scale(0, 0);
 			this.img_showSelect.visible = false;
-
 		}
 		//回收规则  1：89级一下   2：1-2转   3：3-4转    4：5-6转    5：7-8转    6：全部装备
 		public curSelect: number = 1;
@@ -42,7 +38,6 @@ module view.beiBao {
 					Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
 						this.img_showSelect.visible = false;
 					}));
-
 				})
 
 			}
@@ -64,7 +59,7 @@ module view.beiBao {
 		}
 		public putInMap: { [index: string]: ProtoCmd.ItemBase } = {};
 		public takeOutMap = {};
-		public recycleMap = {};
+
 		public onPutIn() {
 			this.onTakeOut();
 			switch (this.curSelect) {
@@ -129,7 +124,6 @@ module view.beiBao {
 					break;
 			}
 			this.box_empty.visible = false;
-
 			for (let i in this.putInMap) {
 				if (this.putInMap[i]) {
 					if (this.putInMap[i]) {
@@ -145,7 +139,7 @@ module view.beiBao {
 					itemBaseData.i64ItemID = this.baseItemmap[i].i64ItemID;
 					itemBaseData.dwBinding = this.baseItemmap[i].dwBinding;
 					itemBaseData.btQuality = this.baseItemmap[i].btQuality;
-					this.baseItemmap[i].ui_item.gray = true;
+					this.baseItemmap[i].ui_item.disabled = true;
 					o.setData(itemBaseData, EnumData.ItemInfoModel.SHOW_IN_HUI_SHOU_LU);
 					o.y = Math.floor(i / 3) * (o.height + 10)
 					o.x = (i % 3) * (o.width + 10) + 5
@@ -162,11 +156,10 @@ module view.beiBao {
 
 		}
 		public onTakeOut() {
-
 			if (this.putInMap) {
 				this.takeOutMap = this.putInMap;
 				for (let i in this.takeOutMap) {
-					this.takeOutMap[i].ui_item.gray = false;
+					this.takeOutMap[i].ui_item.disabled = false;
 				}
 			}
 			this.exp0 = this.exp1 = 0;
@@ -218,37 +211,8 @@ module view.beiBao {
 			this.lbl_expHuiShou0.text = "" + this.exp0;
 			this.lbl_expHuiShou1.text = "" + this.exp1;
 		}
-		public allHuiShouItem = {};
-		/**
-		 * 添加熔炼道具
-		 * @param item 
-		 */
-		public addItem(item: ProtoCmd.ItemBase): void {
-			this.box_empty.visible = false;
-			let _itemBase = new ProtoCmd.ItemBase();
-			_itemBase.clone(item.data);
-			let ui_item = new view.compart.DaoJuItem();
-			ui_item.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_HUI_SHOU_LU);
-			// 添加到本地缓存中
-			this.allHuiShouItem[_itemBase.i64ItemID.toString()] = _itemBase;
-			// 添加UI
-			// let numCount0 = this.vbox_huishou0.numChildren;
-			// let numCount1 = this.vbox_huishou1.numChildren;
-			// let numCount2 = this.vbox_huishou2.numChildren;
-			// 第一个数量最少
-			// if (numCount0 <= numCount1 && numCount0 <= numCount2) {
-			// 	this.vbox_huishou0.addChild(ui_item);
-			// }
-			// // 第二个数量最少
-			// else if (numCount1 < numCount0 && numCount1 <= numCount2) {
-			// 	this.vbox_huishou1.addChild(ui_item);
-			// }
-			// // 第三个数量最少
-			// else {
-			// 	this.vbox_huishou2.addChild(ui_item);
-			// }
-			// this.jiSuanExp();
-		}
+
+
 
 		/**
 		 * 计算经验值

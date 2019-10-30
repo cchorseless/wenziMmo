@@ -4,6 +4,7 @@ module view.activity {
 		constructor() {
 			super();
 		}
+
 		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
 			console.log(data);
 			this.panel_tab.hScrollBarSkin = "";
