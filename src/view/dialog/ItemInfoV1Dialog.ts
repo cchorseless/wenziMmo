@@ -208,7 +208,7 @@ module view.dialog {
 		 */
 		public putToHuiShou(): void {
 			this.itemObj.ui_item.disabled = true;
-			PanelManage.BeiBao.ui_huiShou.addItem(this.itemObj)
+			PanelManage.BeiBao.ui_huiShou.putInOneItem(this.itemObj.i64ItemID)
 			this.close();
 		}
 
@@ -216,7 +216,9 @@ module view.dialog {
 		 * 取出熔炉
 		 */
 		public putBackHuiShou(): void {
-
+			this.itemObj.ui_item.disabled = false;
+			PanelManage.BeiBao.ui_huiShou.takeOutOneItem(this.itemObj.i64ItemID)
+			this.close();
 
 		}
 

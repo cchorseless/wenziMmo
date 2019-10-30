@@ -391,6 +391,7 @@ module ProtoCmd {
         id: number;
         name: string;
         index?: number;
+        
     }
     /**
      * 传世面板信息
