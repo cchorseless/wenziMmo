@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":9,
-    "props":{"width":75,"sceneColor":"#973d3b","height":74},
+    "selecteID":7,
+    "props":{"width":638,"sceneColor":"#d6bfbf","height":883},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,72 +15,69 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"x":0,"width":75,"var":"img_bg","skin":"image/common/daoju/quality_2.png","height":74},
+            "props":{"y":-255,"x":-79,"skin":"image/menu/菜单-在线转盘.png","alpha":0.5},
             "nodeParent":1,
-            "label":"Image(img_bg)",
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":2,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":7,"x":18,"width":600,"skin":"image/common/bottom_ConfederationDeclaration.png","height":110,"alpha":0.5},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":5,
+            "child":[
+                ],
+            "$LOCKED":true,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":9,"x":39,"skin":"image/common/title_ConfederationDeclaration.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":13,"x":42,"skin":"image/guild/font_gonghuixuanyan.png"},
+            "nodeParent":1,
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
             "child":[
-                ],
-            "$HIDDEN":false
+                ]
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":7,"x":7,"width":60,"var":"img_item","skin":"image/common/daoju/itemicon_1122003.png","height":60},
+            "type":"Label",
+            "props":{"y":33,"x":134,"wordWrap":true,"width":431,"text":"够爷们你就来，来了就是兄弟。兄弟带你闯天下，一起霸气满天下。","strokeColor":"#000000","height":95,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
             "nodeParent":1,
-            "label":"Image(img_item)",
+            "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":8,
             "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"width":62,"var":"lbl_count","text":"99999","strokeColor":"#000000","stroke":4,"right":7,"height":20,"fontSize":15,"font":"FZHL","color":"#48f604","bottom":1,"align":"right"},
-            "nodeParent":1,
-            "label":"Label(lbl_count)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":1,"visible":false,"var":"img_lock","skin":"image/main/icon_common_shuo01.png"},
-            "nodeParent":1,
-            "label":"Image(img_lock)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":4,"x":54,"visible":false,"var":"btn_isStronger","stateNum":"2","skin":"image/common/up_1_finish.png","mouseEnabled":false},
-            "nodeParent":1,
-            "label":"Button(btn_isStronger)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ],
-            "$HIDDEN":false
+                ]
         }],
     "animations":[
         {
