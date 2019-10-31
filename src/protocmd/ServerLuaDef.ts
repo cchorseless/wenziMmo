@@ -192,11 +192,11 @@ module ProtoCmd {
     // 弟子罡气激活
     export const Hero_activeHeroWing = 'activeHeroWing';
     // 弟子罡气面板
-    export const Hero_heroWingPanel = 'heroWingPanel';//(gold:升级所需消耗的金币数量)
+    export const Hero_heroWingPanel = 'heroWingPanel';//得到数据(gold:升级所需消耗的金币数量)
     // 弟子罡气升级
     export const Hero_advanceHeroWing = 'advanceHeroWing';
     // 弟子所有天赋等级
-    export const Hero_heroAllGeniusLvl = 'heroAllGeniusLvl';//(lvltab：天赋等级)
+    export const Hero_heroAllGeniusLvl = 'heroAllGeniusLvl';//得到数据(lvltab：天赋等级)
     // 弟子天赋重数面板
     export const Hero_heroGeniusPanel = 'heroGeniusPanel';//
     // 弟子天赋保存
@@ -214,9 +214,9 @@ module ProtoCmd {
     // 弟子武功招式返璞归真
     export const Hero_exchangeRealGas = 'exchangeRealGas';
     // 弟子符文面板
-    export const Hero_openActiveRunePanel = 'openActiveRunePanel';//score符文积分viewtab符文碎片
+    export const Hero_openActiveRunePanel = 'openActiveRunePanel';//得到数据score符文积分viewtab符文碎片
     // 弟子符文面板
-    export const Hero_runeRecycle = 'runeRecycle';//score符文积分viewtab符文碎片
+    export const Hero_runeRecycle = 'runeRecycle';//得到数据score符文积分viewtab符文碎片
 
     /*********************************资质天赋******************** */
 
@@ -235,7 +235,7 @@ module ProtoCmd {
     // 善緣升级
     export const JS_upgradeOfficialSeal = 'upgradeOfficialSeal';
     // 悟性=龙魂
-    export const JS_DragonSoulPanel = 'DragonSoulPanel';//curscore：当前经验 isfull:是否满级 score: 最大经验
+    export const JS_DragonSoulPanel = 'DragonSoulPanel';//得到数据curscore：当前经验 isfull:是否满级 score: 最大经验
     // 悟性激活
     export const JS_activeDragonSoul = 'activeDragonSoul';
     // 悟性升级
@@ -279,19 +279,19 @@ module ProtoCmd {
     export const Menu_QiFuClientOpen = "QiFuClientOpen";
     //祈福功能
     export const Menu_QiFu = "QiFu";
-    /*********************************藏宝阁抽奖******************** */
+    /*********************************抽奖******************** */
     //抽奖面板
     export const LD_chouJiangPanel = "chouJiangPanel";
     //藏宝阁
     export const LD_cangbaogeopen = "cangbaogeopen";
     //藏宝阁奖励记录
-    export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//(record全服奖励记录myrecord我的奖励记录)
+    export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//得到数据(record全服奖励记录myrecord我的奖励记录)
     //藏宝阁抽奖
     export const LD_CangbaotuBuy = "CangbaotuBuy";
     //积分兑换面板
     export const LD_BZ_SendPlaneMsg = "BZ_SendPlaneMsg";
     //积分兑换记录积分
-    export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//(jifen:抽奖积分record:兑换记录)
+    export const LD_DuiHuanSysRecord = "DuiHuanSysRecord";//得到数据(jifen:抽奖积分record:兑换记录)
     //积分兑换
     export const LD_BZ_DuiHuanSys = "BZ_DuiHuanSys";
     //仓库回收
@@ -318,12 +318,24 @@ module ProtoCmd {
     export const LD_ZXCJ_LingQu = "ZXCJ_LingQu";
     //在线抽奖领取宝箱
     export const LD_ZXCJ_LingQu2 = "ZXCJ_LingQu2";
+    //幸运抽奖面板
+    export const LD_LuckyDrawOpen = "LuckyDrawOpen";
+    //幸运抽奖抽取奖励
+    export const LD_LuckyDrawGet = "LuckyDrawGet";
+    //幸运抽奖领取奖励
+    export const LD_Lucky_LinQu = "Lucky_LinQu";
+    //幸运抽奖自动抽奖
+    export const LD_LuckyDrawGetAll = "LuckyDrawGetAll";
+    //幸运抽奖领取标准奖奖励
+    export const LD_LuckyDrawExGet = "LuckyDrawExGet";
+
     /*********************************菜单福利******************** */
     //菜单福利回收面板
     export const FuLi_ZiYuanZhaoHui_Open = "ZiYuanZhaoHui_Open";
     //菜单福利回收领取
     export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
-
+    //菜单福利在线奖励
+    export const FuLi_zaixiangjiangli_minbandakai = "zaixiangjiangli_minbandakai";//参数(0:openpanel -->getreward:1 2 3 4 5:yuanbao)
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数
@@ -974,4 +986,22 @@ module ProtoCmd {
         zaixiantime: number//在线时长
         used: number//已抽奖次数
     }
+    export interface itf_LD_LuckDrawInfo {
+        idx: number//抽到的物品索引
+        extab: any//可领的达标奖相关信息(exitem:any leftcnt:number needcnt: number获得标准奖励还需要的次数)
+        item: any//可抽奖的奖励信息
+        leftsec: number//活动时间
+        showtab: any//达标奖励预览
+        text: string//抽奖活动介绍
+    }
+
+    /***********************************福利接口**************************** */
+    export interface itf_Fuli_OnLineRewardInfo {
+        benzhouyuanbao: number//本周累计元宝
+        itemtab: any//宝箱1234相关（ btnStatus: 宝箱状态itemtab：宝箱奖励信息times: 领取时间）
+        shangzhouyuanbao: number//下周累计元宝
+        status: number//本周在线时长兑换状态
+        zaixianshijian: number//今日在线时长
+    }
+
 }

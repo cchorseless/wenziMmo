@@ -17,17 +17,18 @@ module view.luckDraw {
 			let itemID3 = parseInt(wupin[2].split('-')[1]);
 			let itemnum3 = wupin[3].split('+')[0];
 			//可兑换的物品
-			let itemInfo = new ProtoCmd.ItemBase;
-			itemInfo.dwBaseID = itemID1;
-			itemInfo.dwCount = itemnum1;
-			this.ui_daoju.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
-			//可兑换物品名称
-			let itemName1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemID1)
-			this.lbl_name.text = '' + itemName1;
-			//消耗的物品信息
-			let itemName2 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemID2)
+			let itemInfo1 = new ProtoCmd.ItemBase;
+			itemInfo1.dwBaseID = itemID1;
+			itemInfo1.dwCount = itemnum1;
+			this.ui_daoju.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
+			//消耗的物品
+			let itemInfo2 = new ProtoCmd.ItemBase;
+			itemInfo2.dwBaseID = itemID2;
+			itemInfo2.dwCount = itemnum2;
+			this.ui_use.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL)
+			//消耗的藏宝阁积分
 			let itemName3 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemID3)
-			this.lbl_use.text = itemnum2 + itemName2 + '+' + itemnum3 + itemName3;
+			this.lbl_use.text =   itemnum3 + itemName3;
 			let count1 = GameUtil.findItemInBag(itemID2, GameApp.GameEngine.bagItemDB)
 			//判断是否满足兑换条件
 			if (count1 >= parseInt(itemnum2) && parseInt(score) >= parseInt(itemnum3)) {
@@ -47,7 +48,7 @@ module view.luckDraw {
 		}
 		public init_exchange(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.LD_BZ_DuiHuanSys,[this.id,this.lable])
+			pkt.setString(ProtoCmd.LD_BZ_DuiHuanSys, [this.id, this.lable])
 			lcp.send(pkt)
 		}
 	}

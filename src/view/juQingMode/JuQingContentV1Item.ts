@@ -22,7 +22,7 @@ module view.juQingMode {
 			// 自己的头像
 			this.ui_item.lbl_zuoBiao.visible = false;
 			this.ui_item.img_tips.visible = false;
-			this.ui_item.img_avatarPic.skin = GameApp.MainPlayer.iconAvatarPic;
+			this.ui_item.img_avatarPic.skin =LangConfig.getPlayerIconSkin();
 			this.ui_item.lbl_npcName.text = GameApp.MainPlayer.objName;
 		}
 

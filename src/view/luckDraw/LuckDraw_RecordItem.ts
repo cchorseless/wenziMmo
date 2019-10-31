@@ -14,7 +14,7 @@ module view.luckDraw {
 		public init_myRecord(data): LuckDraw_RecordItem {
 			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.i)
 			let cout = '' + data.n;
-			this.lbl_record.text = GameApp.MainPlayer.objName + ' 获得:' + itemName+'x'+cout;
+			this.lbl_record.text = GameApp.MainPlayer.objName + ' 获得:' + itemName + 'x' + cout;
 			return this;
 		}
 		/**
@@ -38,9 +38,24 @@ module view.luckDraw {
 			console.log('===>物品名字拆分', name, item)
 			return this;
 		}
+		/**
+		 * 在线抽奖记录
+		 * @param name 
+		 * @param index 
+		 * @param num 
+		 */
 		public init_onLineDraw(name, index, num): LuckDraw_RecordItem {
 			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + index)
-			this.lbl_record.text = name + ' 获得:' + itemName+'x'+num;
+			this.lbl_record.text = name + ' 获得:' + itemName + 'x' + num;
+			return this;
+		}
+		/**
+		 * 幸运抽奖全服记录
+		 * @param data 
+		 */
+		public init_LuckDraw(data): LuckDraw_RecordItem {
+			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.i)
+			this.lbl_record.text = data.c + ' 获得:' + itemName + 'x' + data.n;
 			return this;
 		}
 	}
