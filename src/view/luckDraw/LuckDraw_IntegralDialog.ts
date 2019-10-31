@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
-module view.luckDraw{
-	export class LuckDraw_IntegralDialog extends ui.luckDraw.LuckDraw_IntegralDialogUI{
-		constructor(){
+module view.luckDraw {
+	export class LuckDraw_IntegralDialog extends ui.luckDraw.LuckDraw_IntegralDialogUI {
+		constructor() {
 			super();
 		}
-				public score;
+		public score;
 		public setData(score): LuckDraw_IntegralDialog {
 			this.score = score;
 			this.panel_integral.vScrollBarSkin = '';
@@ -66,7 +66,7 @@ module view.luckDraw{
 				this.vbox_record.removeChildren();
 				for (let i = 0; singleInfo[i]; i++) {
 					if (i % 2 == 0) {
-						let j=i+1
+						let j = i + 1
 						this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_jifenRecord(singleInfo[i], singleInfo[j]))
 					}
 				}

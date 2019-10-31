@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":76,
-    "selecteID":95,
+    "selecteID":93,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -185,7 +185,8 @@
                     "hasChild":false,
                     "compId":96,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -204,16 +205,18 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-243,"x":9,"width":638,"name":"item3","height":883},
+                    "type":"UIView",
+                    "source":"luckDraw/LuckDraw_LuckDrawItem.ui",
+                    "props":{"var":"ui_luckDraw","runtime":"view.luckDraw.LuckDraw_LuckDrawItem","name":"item3"},
                     "nodeParent":76,
-                    "label":"Box(item3)",
+                    "label":"UIView(ui_luckDraw)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":97,
+                    "compId":98,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

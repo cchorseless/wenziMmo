@@ -150,7 +150,6 @@ module view.luckDraw {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.LD_ZXCJ_LingQu);
 			lcp.send(pkt)
-			this.drawItem = 0;
 		}
 		/**
 	  * 领取宝箱

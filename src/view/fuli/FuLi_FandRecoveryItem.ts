@@ -61,12 +61,12 @@ module view.fuli{
 				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.DaoJuItem, index) => {
 					cell.setData(cell.dataSource, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				}, null, false)
-				console.log('====>福利资源找回找回', jsonData)
+				
 			})
 		}
-		public Dispose(): void {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.FuLi_ZiYuanZhaoHui_Open, this);
-			PopUpManager.Dispose(this);
+			super.destroy(isbool);
 		}
 		/**
 		 * 回收面板

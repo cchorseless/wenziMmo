@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":10,
-    "props":{"width":110,"sceneColor":"#883e3c","height":115},
+    "selecteID":2,
+    "props":{"width":621,"sceneColor":"#ffffff","height":789},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,16 +14,14 @@
     "child":[
         {
             "x":15,
-            "type":"UIView",
-            "source":"compart/DaoJuItem.ui",
-            "props":{"y":1,"x":17,"var":"ui_item","top":1,"runtime":"view.compart.DaoJuItem"},
+            "type":"Image",
+            "props":{"y":0,"x":-1,"width":245,"skin":"image/common/img_duizhang.png","height":71},
             "nodeParent":1,
-            "label":"UIView(ui_item)",
-            "isOpen":true,
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":3,
             "child":[
                 ],
             "$HIDDEN":false
@@ -31,9 +29,22 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":74,"var":"lbl_itemName","text":"道具名称名称","strokeColor":"#000000","stroke":4,"right":0,"left":0,"height":27,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
+            "props":{"y":32,"x":22,"text":"已签到","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
             "nodeParent":1,
-            "label":"Label(lbl_itemName)",
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":4,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":29,"x":147,"text":"天","strokeColor":"#000000","stroke":4,"fontSize":35,"font":"FZXK","color":"#ffffff"},
+            "nodeParent":1,
+            "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -43,27 +54,14 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":92,"x":11,"width":27,"visible":false,"var":"img_exp","skin":"image/common/icon_exp_02.png","height":24},
-            "nodeParent":1,
-            "label":"Image(img_exp)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"y":93,"x":39,"width":62,"visible":false,"var":"lbl_exp","text":"99w","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"left"},
+            "props":{"y":29,"x":123,"text":"4","strokeColor":"#000000","stroke":4,"fontSize":35,"font":"FZHL","color":"#f9e596"},
             "nodeParent":1,
-            "label":"Label(lbl_exp)",
+            "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":10,
+            "compId":6,
             "child":[
                 ]
         }],

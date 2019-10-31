@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":4,
+    "selecteID":12,
     "props":{"width":515,"sceneColor":"#000000","height":93},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":515,"skin":"image/common/fram_common_11.png","height":93},
+            "props":{"y":0,"x":0,"width":515,"skin":"image/common/fram_common_11.png","height":111},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -29,49 +29,8 @@
         },
         {
             "x":15,
-            "type":"UIView",
-            "source":"compart/DaoJuItem.ui",
-            "props":{"y":10,"x":9,"var":"ui_daoju","runtime":"view.compart.DaoJuItem"},
-            "nodeParent":1,
-            "label":"UIView(ui_daoju)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"y":9,"x":86,"width":144,"var":"lbl_name","text":"道具名称六字","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b"},
-            "nodeParent":1,
-            "label":"Label(lbl_name)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":33,"x":83,"text":"消耗：","fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":33,"x":141,"wordWrap":true,"width":147,"var":"lbl_use","text":"屠龙+50积分","height":55,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
+            "props":{"y":33,"x":278,"wordWrap":true,"width":103,"var":"lbl_use","text":"50积分","height":26,"fontSize":22,"font":"FZHL","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_use)",
             "isDirectory":false,
@@ -106,6 +65,62 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuWithNameItem.ui",
+            "props":{"y":8,"x":3,"var":"ui_daoju","runtime":"view.compart.DaoJuWithNameItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_daoju)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuWithNameItem.ui",
+            "props":{"y":8,"x":148,"var":"ui_use","runtime":"view.compart.DaoJuWithNameItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_use)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":33,"x":119,"wordWrap":true,"text":"=","height":26,"fontSize":22,"font":"FZHL","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":33,"x":244,"wordWrap":true,"text":"+","height":26,"fontSize":22,"font":"FZHL","color":"#000000","bold":true},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
             "child":[
                 ],
             "$HIDDEN":false
