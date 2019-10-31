@@ -192,7 +192,7 @@ module view.activity {
 						let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetExchangePointAward, [this.order])
 						lcp.send(pkt32);
 						break;
-					case 40:
+					case 14:
 						let pkt40 = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetExchangeGiftAward, [this.order])
 						lcp.send(pkt40);
 						break;
@@ -200,7 +200,7 @@ module view.activity {
 						let pkt13 = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetContinueRechargeAward, [this.order])
 						lcp.send(pkt13);
 						break;
-					case 42:
+					case 36:
 						let pkt42 = new ProtoCmd.QuestClientData().setString(ProtoCmd.MZJJ_LingQu, [this.order])
 						lcp.send(pkt42);
 						break;

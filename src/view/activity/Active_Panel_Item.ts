@@ -103,7 +103,7 @@ module view.activity {
 		}
 		private timerEnd() {
 			Laya.timer.clearAll(this)
-			TipsManage.showTips("活动已结束")
+			// TipsManage.showTips("活动已结束")
 			// PopUpManager.checkPanel(this);
 		}
 	}
