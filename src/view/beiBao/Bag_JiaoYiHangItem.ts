@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class JiaoYiHangItem extends ui.compart.JiaoYiHangItemUI {
+module view.beiBao {
+	export class Bag_JiaoYiHangItem extends ui.beiBao.Bag_JiaoYiHangItemUI {
 		constructor() {
 			super();
 		}

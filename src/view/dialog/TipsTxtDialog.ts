@@ -51,6 +51,7 @@ module view.dialog {
 		 * 關閉回收
 		 */
 		public onClosed(): void {
+			this.alpha = 1;
 			Laya.Pool.recover(TipsManage.TipsTxt, this);
 		}
 	}

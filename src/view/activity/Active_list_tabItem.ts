@@ -8,7 +8,7 @@ module view.activity {
 		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
 			this.item = data;
 			this.lab_name.text = data.name;
-			this.btn_icon;
+			this.img_icon.skin = "image/activity/active_icon" + data.id + ".png"
 			this.addEvent();
 		}
 		public addEvent() {

@@ -65,7 +65,7 @@ module view.main {
 			// 战斗力
 			this.clip_power.value = LangConfig.getBigNumberDes(_player.ability.nFight);
 			// 头像
-			this.img_avatarIcon.skin = '' + _player.iconAvatarPic;
+			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
 			// 节气
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰

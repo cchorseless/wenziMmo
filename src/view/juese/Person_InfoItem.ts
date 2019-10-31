@@ -31,7 +31,7 @@ module view.juese {
 			// 心情
 			this.lbl_xinQing.text = '' + player.nXinQing + '/100';
 			// 角色形象
-			this.img_avatar.skin = '' + player.allAvatarPic;
+			this.img_avatar.skin = '' + LangConfig.getPlayerAvatarSkin();
 			//个人标签
 			for (let i = 1; i < 9; i++) {
 				let o = GameApp.MainPlayer.xingGeInfo[i].id
