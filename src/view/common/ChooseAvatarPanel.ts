@@ -20,7 +20,7 @@ module view.common {
 			GameApp.MainPlayer.sex = playerInfo.feature.getValue('sex');
 			GameApp.MainPlayer.job = playerInfo.feature.getValue('job');
 			// 角色图片
-			this.img_heroPic.skin = GameApp.MainPlayer.halfAvatarPic;
+			this.img_heroPic.skin = LangConfig.getPlayerAvatarHalfSkin();
 			// 角色名称
 			this.lbl_playerName.text = szName;
 			// 角色等级
