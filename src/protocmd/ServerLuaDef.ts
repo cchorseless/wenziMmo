@@ -302,7 +302,22 @@ module ProtoCmd {
     export const LD_cangbaoge_lingqu = "cangbaoge_lingqu";
     //仓库物品刷新
     export const LD_storeRefresh = "Refresh";
-
+    //福利转盘面板
+    export const LD_FLZP_Plane = "FLZP_Plane";
+    //福利转盘抽奖
+    export const LD_FLZP_Start = "FLZP_Start";
+    //福利转盘领取
+    export const LD_FLZP_LinQu = "FLZP_LinQu";
+    //在线抽奖面板
+    export const LD_ZXCJ_Plane = "ZXCJ_Plane";
+    //在线抽奖开始抽奖
+    export const LD_ZXCJ_Start = "ZXCJ_Start";
+    //在线抽奖全服记录
+    export const LD_ZXCJ_list = "ZXCJ_list";
+    //在线抽奖领取奖励
+    export const LD_ZXCJ_LingQu = "ZXCJ_LingQu";
+    //在线抽奖领取宝箱
+    export const LD_ZXCJ_LingQu2 = "ZXCJ_LingQu2";
     /*********************************菜单福利******************** */
     //菜单福利回收面板
     export const FuLi_ZiYuanZhaoHui_Open = "ZiYuanZhaoHui_Open";
@@ -520,7 +535,8 @@ module ProtoCmd {
      */
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
-        items: { itf_Shop_ShopItem };//刷新道具
+        items: { [index: string]: itf_Shop_ShopItem };//刷新道具
+
         pricetype: number;//购买货币类型
         binding: number//是否绑定
         curcnt: number//当前购买次数
@@ -937,6 +953,25 @@ module ProtoCmd {
         score: number//宝藏积分
         sideItem: any//12个物品id
         tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
-
+    }
+    export interface itf_LD_fuliTurnTableInfo {
+        idx: number//抽到的物品索引
+        lefttime: number//活动倒计时
+        cnt: number//可抽奖次数
+        desc: string//活动介绍
+        max: number//最大抽奖次数
+        item: any//物品信息
+    }
+    export interface itf_LD_OnLineDrawInfo {
+        exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
+        idx: number//抽到的物品索引
+        lefttime: number//活动倒计时
+        cnt: number//可抽奖次数
+        introduce: string//活动介绍1
+        introduce2: string//活动介绍2
+        max: number//最大抽奖次数
+        item: any//物品信息
+        zaixiantime: number//在线时长
+        used: number//已抽奖次数
     }
 }
