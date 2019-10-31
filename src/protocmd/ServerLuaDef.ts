@@ -341,9 +341,11 @@ module ProtoCmd {
     export const Active2 = "CZJJ_OpenPlane";       //超值理财      面板        其他接口：购买、领取
     export const Active3 = "ChaoZhiLC_Open";       //成长基金      面板        其他接口：购买、领取
     export const Active4 = "ConsumeOpen";          //消费排行      面板
+    export const Active5 = "LimitTimePanicBuyPanel"; //限时抢购       面板        其他接口：购买
     export const Active7 = "RechargeOpen";         //充值排行        面板
+    export const Active10 = "RechargeGiftPanel"       //累计充值       面板         其他接口：领取
     export const Active12 = "ComposeEquipPanel";    //装备箱合成      面板        其他接口：领奖
-    export const Active13 = "ContinueRechargePanel";//连续/累计充值   面板        其他接口：领取
+    export const Active13 = "ContinueRechargePanel";//连续充值        面板        其他接口：领取
     export const Active15 = "FLZP_Plane";           //福利转盘        面板        其他接口：转动、领取次数奖励
     export const Active16 = "MeiRiChongZhiOpen";    //每日充值        面板        其他接口：领取
     export const Active17 = "MRLQ_Plane";           //每日领取        面板        其他接口：领取
@@ -355,8 +357,11 @@ module ProtoCmd {
     export const Active35 = "QuanMingLiBaoOpen";    //全民礼包         面板        其他接口：领取
     export const Active38 = "ZXCJ_Plane";           //在线抽奖、转盘    面板       其他接口：转盘、领取、领取档次奖励
     export const Active39 = "OneDayRechargePanel";  //单日充值         面板        其他接口：领取
-    export const Active40 = "LimitTimePanicBuyPanel"; //限时抢购       面板        其他接口：购买
+    export const Active14 = "ExchangeGiftPanel"          //兑换豪礼      面板         其他接口：领取
     export const Active41 = "MeiRiShouChongOpen";      //每日首充      面板         其他接口：领取
+    export const Active33 = "MeiRiTeHuiPanel"          //每日特惠      面板         其他接口：领取
+    export const Active36 = "MZJJ_OpenPlane"           //每周基金      面板         其他接口：领取
+    
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
     export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
@@ -365,6 +370,10 @@ module ProtoCmd {
     export const GetComposeEquipAward = "GetComposeEquipAward" //装备合成 合成
     export const MeiRiShouChongGet = "MeiRiShouChongGet";     //每日首充
     export const GetNationalResourceAward = "GetNationalResourceAward";     //全民资源线
+    export const GetExchangeGiftAward = "GetExchangeGiftAward";     //领取兑换豪礼
+    export const GetContinueRechargeAward = "GetContinueRechargeAward"; //连续充值领奖
+    export const MZJJ_LingQu = "MZJJ_LingQu"; //每周基金领取
+
 
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
@@ -372,6 +381,8 @@ module ProtoCmd {
     export const EquipSoulChain = "EquipSoulChain";  //装备等级套装Effid
 
     export const zhuangbeihuishousys = "zhuangbeihuishousys";   //回收装备
+
+    export const GetMeiRiTeHuiAward = "GetMeiRiTeHuiAward"      //每日特惠领取
 
 
 
@@ -391,7 +402,7 @@ module ProtoCmd {
         id: number;
         name: string;
         index?: number;
-        
+
     }
     /**
      * 传世面板信息

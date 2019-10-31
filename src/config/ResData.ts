@@ -152,7 +152,7 @@ module ResData {
         // 天鉴界面
         public static TianJian = null;
         //活动界面
-        public static Activity = null;
+        public static Activity = [{ url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }];
 
     };
     /**
