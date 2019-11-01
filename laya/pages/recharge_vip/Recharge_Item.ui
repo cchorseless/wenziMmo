@@ -1,11 +1,11 @@
 {
     "x":0,
-    "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":32,
-    "props":{"width":622,"sceneColor":"#000000","height":928},
+    "type":"View",
+    "selectedBox":2,
+    "selecteID":14,
+    "props":{"y":0,"x":0,"width":501,"sceneColor":"#000000","height":723},
     "nodeParent":-1,
-    "label":"Dialog",
+    "label":"View",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -14,104 +14,66 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bottom_bigPopup.png"},
+            "type":"Box",
+            "props":{"y":0,"x":0,"width":500,"height":723},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ],
-            "$LOCKED":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":13,"x":539,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$LOCKED":true,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":20,"x":161,"skin":"image/common/bottom_title1.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
+            "label":"Box",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":4,
+            "compId":2,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":18,"x":100,"width":100,"text":"充值","strokeColor":"#404040","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":4,
-                    "label":"Label",
+                    "x":30,
+                    "type":"Image",
+                    "props":{"width":500,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"5,3,3,4","height":527},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":529,"x":39,"width":422,"var":"textFlow","height":30},
+                    "nodeParent":2,
+                    "label":"HTMLDivElement(textFlow)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":692,"x":250,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":2,
+                    "label":"Button(btn_get)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":5,
                     "child":[
-                        ]
-                }],
-            "$LOCKED":true
-        },
-        {
-            "x":15,
-            "type":"ViewStack",
-            "props":{"y":175,"x":61,"width":501,"var":"ViewS_show","height":723},
-            "nodeParent":1,
-            "label":"ViewStack(ViewS_show)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":32,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Tab",
-            "props":{"y":126,"x":60,"var":"tab_div","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"月卡,充值,VIP福利","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
-            "nodeParent":1,
-            "label":"Tab(tab_div)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":34,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "props":{"y":176,"x":61,"width":500,"height":750},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":31,
-            "child":[
+                        ],
+                    "$LOCKED":true
+                },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"width":500,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"5,3,3,4","height":527},
-                    "nodeParent":31,
+                    "props":{"y":561,"x":70,"width":360,"skin":"image/common/bag_hscroll.png","height":40},
+                    "nodeParent":2,
                     "label":"Image",
-                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -121,51 +83,95 @@
                     "$LOCKED":true
                 },
                 {
-                    "type":"HTMLDivElement",
-                    "props":{"y":529,"x":39,"width":422,"var":"textFlow","height":30},
-                    "nodeParent":31,
-                    "label":"HTMLDivElement(textFlow)",
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":25,"var":"ui_reward0"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward0)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":100,"var":"ui_reward1"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":175,"var":"ui_reward2"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":250,"var":"ui_reward3"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward3)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":10,
                     "child":[
-                        ],
-                    "$LOCKED":true,
-                    "$HIDDEN":false
+                        ]
                 },
                 {
-                    "type":"Button",
-                    "props":{"y":692,"x":250,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":31,
-                    "label":"Button(btn_get)",
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":325,"var":"ui_reward4"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward4)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":11,
                     "child":[
-                        ],
-                    "$LOCKED":true
+                        ]
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":561,"x":70,"width":360,"skin":"image/common/bag_hscroll.png","height":40},
-                    "nodeParent":31,
-                    "label":"Image",
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/RechargeItem.ui",
+                    "props":{"y":589,"x":400,"var":"ui_reward5"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_reward5)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":27,
+                    "compId":12,
                     "child":[
-                        ],
-                    "$LOCKED":true
+                        ]
                 },
                 {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":25,"var":"ui_reward0"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward0)",
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":577,"x":70,"width":150,"var":"img_progressBar","skin":"image/common/Progressbar_gang_top.png","height":10},
+                    "nodeParent":2,
+                    "label":"Image(img_progressBar)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -174,109 +180,34 @@
                         ]
                 },
                 {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":100,"var":"ui_reward1"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":175,"var":"ui_reward2"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":250,"var":"ui_reward3"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":20,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":325,"var":"ui_reward4"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward4)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":21,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":400,"var":"ui_reward5"},
-                    "nodeParent":31,
-                    "label":"UIView(ui_reward5)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":22,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":577,"x":70,"width":150,"var":"img_progressBar","skin":"image/common/Progressbar_gang_top.png","height":10},
-                    "nodeParent":31,
-                    "label":"Image(img_progressBar)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":566,"x":197,"width":105,"var":"lab_progressText","valign":"bottom","text":"50/60","stroke":3,"height":18,"fontSize":18,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":31,
+                    "nodeParent":2,
                     "label":"Label(lab_progressText)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":28,
+                    "compId":14,
                     "child":[
                         ]
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"y":17,"x":14,"width":484,"var":"list_recharge","vScrollBarSkin":"image/common/Progressbar_gang_top.png","spaceY":15,"spaceX":6,"repeatY":3,"repeatX":3,"height":500},
-                    "nodeParent":31,
+                    "nodeParent":2,
                     "label":"List(list_recharge)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":12,
+                    "compId":15,
                     "child":[
                         ],
                     "$LOCKED":true
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

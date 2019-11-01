@@ -42,7 +42,7 @@ module TipsManage {
      * @param str 
      */
     export function showTips(str): void {
-        console.log(str)
+        console.log("收到了吗？",str)
         let show: view.dialog.TipsDialog = Laya.Pool.getItemByClass(TipsPanel, view.dialog.TipsDialog);
         show.setData(str).show()
     }

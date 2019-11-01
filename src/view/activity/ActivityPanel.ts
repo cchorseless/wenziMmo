@@ -5,7 +5,6 @@ module view.activity {
 			super();
 		}
 		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
-			console.log(data);
 			this.panel_tab.hScrollBarSkin = "";
 			this.hbox_tab['sortItem'] = (items) => { };
 			for (let i in data) {
@@ -65,7 +64,7 @@ module view.activity {
 					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换
 					  * 5 限时抢购  14 兑换豪礼   36每周基金 
 					  */
-					case 5: case 12: case 13: case 14: case 16: case 18: case 19: case 32: case 36: 
+					case 5: case 12: case 13: case 14: case 16: case 18: case 19: case 32: case 36:
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Panel_Item()
@@ -75,16 +74,37 @@ module view.activity {
 						let pkt12 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt12);
 						break;
-					case 33:   //每日特惠 （因服务器未下发该活动ID只有功能，没有入口）
+					case 33:   //每日特惠
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_EveryDayRecharge_Item()
 							o.setData(data)
 							box.addChild(o);
 						})
-						let pkt41 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
-						lcp.send(pkt41);
+						let pkt33 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt33);
 						break;
+					case 39:   //单日充值
+						GameApp.LListener.on(pcmdString, this, (data) => {
+							box.removeChildren()
+							let o = new Active_OneDayRecharge()
+							o.setData(data)
+							box.addChild(o);
+						})
+						let pkt39 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt39);
+						break;
+					case 9://神秘商店
+						GameApp.LListener.on(pcmdString, this, (data) => {
+							box.removeChildren()
+							let o = new Active_Mysteryshop()
+							o.setData(data)
+							box.addChild(o);
+						})
+						let pkt9 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt9);
+						break;
+
 				}
 			}
 			this.viewS_main.selectedIndex = item.index;
@@ -98,6 +118,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active5, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active7, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active9, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active13, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
@@ -107,6 +128,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active33, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
 			Laya.timer.clearAll(this)
 			PopUpManager.Dispose(this)
 		}
