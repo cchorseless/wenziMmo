@@ -8,7 +8,7 @@ module view.menu {
 			this.initUI();
 			this.addEvent();
 		}
-		
+
 
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
@@ -54,14 +54,9 @@ module view.menu {
 
 			})
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
-				let o = new view.beiBao.Bag_Recharge();
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.cashPanel, null, 0, this, function (data) {
-					let base = data;
-					o.setData(data);
-					o.popup(true);
-				});
-				lcp.send(pkt);
-
+				let o = new view.recharge_vip.Recharge_VipDialog();
+				o.setData(1);
+				o.popup(true);
 			})
 
 			// 商城

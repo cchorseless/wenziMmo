@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.beiBao{
-	export class Bag_RechargeItem extends ui.beiBao.Bag_RechargeItemUI{
+module view.recharge_vip{
+	export class Recharge_Item extends ui.recharge_vip.Recharge_ItemUI{
 		private needNum = 60;
 		private curNum = 50;
 		private data = null

@@ -13,7 +13,7 @@ class SDKManager extends SingletonClass {
         remainder: "-1",            // 剩余元宝
     }
 
-    private _SDK = XipuSDK;//默认喜扑网络SDK
+    private _SDK = false;//默认喜扑网络SDK
     constructor() {
         super();
     }
