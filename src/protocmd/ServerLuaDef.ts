@@ -174,6 +174,9 @@ module ProtoCmd {
     export const JS_playerWingPanel = 'playerWingPanel';
     // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
+    /********************************武学界面***************** */
+    // 武学合道戾气
+    export const WX_warSoulPanel = 'warSoulPanel';
     /********************************弟子信息界面***************** */
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
@@ -279,6 +282,15 @@ module ProtoCmd {
     export const Menu_QiFuClientOpen = "QiFuClientOpen";
     //祈福功能
     export const Menu_QiFu = "QiFu";
+    //菜单签到面板
+    export const Menu_QianDao_DaKai = "QianDao_DaKai";
+    //菜单签到
+    export const Menu_QianDao_ZengJia = "QianDao_ZengJia";
+    //菜单签到补签
+    export const Menu_qiandao_buqian = "qiandao_buqian";
+    //领取签到奖励
+    export const Menu_qiandaolingqu = "qiandaolingqu";
+
     /*********************************抽奖******************** */
     //抽奖面板
     export const LD_chouJiangPanel = "chouJiangPanel";
@@ -336,6 +348,8 @@ module ProtoCmd {
     export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
     //菜单福利在线奖励
     export const FuLi_zaixiangjiangli_minbandakai = "zaixiangjiangli_minbandakai";//参数(0:openpanel -->getreward:1 2 3 4 5:yuanbao)
+
+
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数
@@ -388,7 +402,7 @@ module ProtoCmd {
     export const Active41 = "MeiRiShouChongOpen";      //每日首充      面板         其他接口：领取
     export const Active33 = "MeiRiTeHuiPanel"          //每日特惠      面板         其他接口：领取
     export const Active36 = "MZJJ_OpenPlane"           //每周基金      面板         其他接口：领取
-    
+
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
     export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
@@ -774,6 +788,15 @@ module ProtoCmd {
         oneid: number//所需道具ID1
         twoid: number//所需道具ID2
     }
+    /**
+     * 武学合道戾气（战魂）
+     */
+    export interface itf_WX_LiQiInfo {
+        curexp: number//经验条当前值
+        exchangetab:any//兑换信息 { soul: 可兑换魂力, gold: 兑换魂力所需金币, exp: 兑换魂力所需经验}
+        needexp: number//经验条最大值
+        wstab: any//八个魂力球信息（addpro: 0curexp: 0lvl: 0）
+    }
     /***********************************副本接口**************************** */
     /**
     * 拉取主线副本信息
@@ -787,11 +810,11 @@ module ProtoCmd {
     }
 
     export interface itf_FB_MainFBjindu {
-        ceng: number,
-        curcnt: number,
-        item: any
-        sec: number,
-        star: number,
+        ceng: number// 层数
+        curcnt: number
+        item: any//物品信息
+        sec: number
+        star: number
         tiaojian: string,// 完成条件
         totalcnt: number,
         totalsec: number,
@@ -955,17 +978,35 @@ module ProtoCmd {
         LiJuanNeedYuanBao: number//礼券祈福所需元宝
         LiJuanNum: number//获得礼券总数
     }
+    /**
+     * 菜单签到
+     */
+    export interface itf_Menu_signInfo {
+        curtimetab: any//当前日期 { 1: 2019年份, 2: 11月份, 3: 1 日}
+        firstlogindate: number//第一次登陆时间
+        history: string//历史签到记录
+        itemtab: any//签到可获得奖励
+        qiandao: number//今日签到状态0没签到1已签到
+        qiandaonum: number//签到总次数
+        qiaodaoday: number//本月签到总天数
+    }
     /***********************************抽奖接口**************************** */
     export interface itf_LD_Info {
         id: number//抽奖活动ID
         name: string//抽奖活动名称
     }
+    /**
+     * 藏宝阁
+     */
     export interface itf_LD_CangBaoGeInfo {
         middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
         score: number//宝藏积分
         sideItem: any//12个物品id
         tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
     }
+    /**
+     * 福利转盘
+     */
     export interface itf_LD_fuliTurnTableInfo {
         idx: number//抽到的物品索引
         lefttime: number//活动倒计时
@@ -974,6 +1015,9 @@ module ProtoCmd {
         max: number//最大抽奖次数
         item: any//物品信息
     }
+    /**
+     * 在线抽奖
+     */
     export interface itf_LD_OnLineDrawInfo {
         exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
         idx: number//抽到的物品索引
@@ -986,6 +1030,9 @@ module ProtoCmd {
         zaixiantime: number//在线时长
         used: number//已抽奖次数
     }
+    /**
+     * 幸运抽奖
+     */
     export interface itf_LD_LuckDrawInfo {
         idx: number//抽到的物品索引
         extab: any//可领的达标奖相关信息(exitem:any leftcnt:number needcnt: number获得标准奖励还需要的次数)
