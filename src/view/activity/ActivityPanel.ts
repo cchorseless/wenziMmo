@@ -94,15 +94,15 @@ module view.activity {
 						let pkt39 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt39);
 						break;
-					case 35://神秘商店（因服务器未下发该活动ID只有功能，没有入口  故：借用<全民礼包>入口）
-						GameApp.LListener.on(ProtoCmd.Active50, this, (data) => {
+					case 9://神秘商店（因服务器未下发该活动ID只有功能，没有入口  故：借用<全民礼包>入口）
+						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Mysteryshop()
 							o.setData(data)
 							box.addChild(o);
 						})
-						let pkt35 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active50, null)
-						lcp.send(pkt35);
+						let pkt9 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt9);
 						break;
 
 				}
@@ -118,6 +118,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active5, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active7, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active9, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active13, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
@@ -127,6 +128,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active33, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
 			Laya.timer.clearAll(this)
 			PopUpManager.Dispose(this)
 		}

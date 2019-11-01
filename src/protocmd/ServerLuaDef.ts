@@ -388,7 +388,7 @@ module ProtoCmd {
     export const Active41 = "MeiRiShouChongOpen";   //每日首充      面板         其他接口：领取
     export const Active33 = "MeiRiTeHuiPanel"       //每日特惠      面板         其他接口：领取
     export const Active36 = "MZJJ_OpenPlane"        //每周基金      面板         其他接口：领取
-    export const Active50 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
+    export const Active9 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
     
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
