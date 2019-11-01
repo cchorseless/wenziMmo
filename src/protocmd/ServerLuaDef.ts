@@ -408,13 +408,13 @@ module ProtoCmd {
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
-    export const VIP_OpenPlane = "VIP_OpenPlane";    //VIP福利
-
     export const EquipSoulChain = "EquipSoulChain";  //装备等级套装Effid
 
     export const zhuangbeihuishousys = "zhuangbeihuishousys";   //回收装备
 
     export const GetMeiRiTeHuiAward = "GetMeiRiTeHuiAward"      //每日特惠领取
+
+    export const VIP_OpenPlane = "VIP_OpenPlane";    //VIP特权
 
 
 

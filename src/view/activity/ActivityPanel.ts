@@ -94,7 +94,7 @@ module view.activity {
 						let pkt39 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt39);
 						break;
-					case 9://神秘商店（因服务器未下发该活动ID只有功能，没有入口  故：借用<全民礼包>入口）
+					case 9://神秘商店
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Mysteryshop()

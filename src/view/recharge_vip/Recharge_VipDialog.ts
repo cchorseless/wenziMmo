@@ -41,6 +41,11 @@ module view.recharge_vip {
 				let pkt1 = new ProtoCmd.QuestClientData().setString(ProtoCmd.cashPanel, null)
 				lcp.send(pkt1);
 			} else if (id == 2) {
+				GameApp.LListener.on(ProtoCmd.VIP_OpenPlane, this, (data) => {
+					box.removeChildren();
+					let o = new Recharge_VipWelfare()
+					o.setData(data)
+				})
 				let pkt2 = new ProtoCmd.QuestClientData().setString(ProtoCmd.VIP_OpenPlane, null)
 				lcp.send(pkt2);
 			}
