@@ -434,6 +434,13 @@ module ProtoCmd {
     export const GetMeiRiTeHuiAward = "GetMeiRiTeHuiAward"      //每日特惠领取
 
     export const VIP_OpenPlane = "VIP_OpenPlane";    //VIP特权
+    export const VIP_LingQu = "VIP_LingQu";    //VIP特权  领取奖励
+    export const VIP_ChangePlane = "VIP_ChangePlane";    //VIP特权  切页
+
+    export const ZGTQ_Open = "ZGTQ_Open";    //月卡界面
+    export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
+    export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
+
 
 
 

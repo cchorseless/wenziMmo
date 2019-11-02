@@ -134,13 +134,15 @@ module ResData {
         // 剧情对白界面
         public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];
         // 菜单界面
-        public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS }];
+        public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
+        ];
         //抽奖界面
-        public static LuckDraw =null;
+        public static LuckDraw = null;
         //商城界面
-        public static ShopMall =null;
+        public static ShopMall = null;
         //福利界面
-        public static FuLi =null;
+        public static FuLi = null;
         // 图鉴道具界面
         public static TuJianDaoju = [{ url: "res/atlas/image/tujian.atlas", type: Laya.Loader.ATLAS }];
         // 图鉴角色界面
@@ -212,7 +214,9 @@ module ResData {
             // 生平履历
             { url: 'json/resume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.resume },
             // 装备合成
-            { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis }
+            { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis },
+            // Vip描述
+            { url: 'json/VIP_Content.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.VIP_Content }
 
         ];
     }
