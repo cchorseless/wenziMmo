@@ -41,7 +41,7 @@ module view.recharge_vip {
 				let spanExp = this.nextCash - this.curCash;
 				this.html_text1.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>再充值</span>" + "<span style='color:#ffffff;font-family:FZHuaLi-M14S;fontSize:28;stroke:2;strokeColor:#000000'>" + spanExp + "</span>"
 					+ "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>元宝</span>";
-				this.html_text2.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>即可成为</span>" + "<span style='color:#efe4a0;font-family:FZHuaLi-M14S;fontSize:30;stroke:2;strokeColor:#000000'>" + "VIP" + this.vipLv + "</span>";
+				this.html_text2.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>即可成为</span>" + "<span style='color:#efe4a0;font-family:FZHuaLi-M14S;fontSize:30;stroke:2;strokeColor:#000000'>" + "VIP" + (this.vipLv + 1) + "</span>";
 			}
 			else{
 				this.html_text2.style.align = "center"

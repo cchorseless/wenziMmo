@@ -104,7 +104,21 @@ module view.activity {
 						let pkt9 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt9);
 						break;
-
+					case 24://资源线豪礼  即：龙魂排行
+						GameApp.LListener.on(pcmdString, this, (data) => {
+							box.removeChildren()
+							let o = new Active_DragonSoul()
+							o.setData(data)
+							box.addChild(o);
+						})
+						let pkt24 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt24);
+						break;
+					case 34://福袋抽奖
+						box.removeChildren()
+						let o = new Active_LuckBagDraw()
+						box.addChild(o);
+						break;
 				}
 			}
 			this.viewS_main.selectedIndex = item.index;
@@ -121,14 +135,19 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active9, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active13, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active18, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active19, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active24, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active32, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active33, this)
-			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active34, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
+
+			// GameApp.LListener.offCaller(ProtoCmd.SendExItemPlane, this)    //额外奖励面板
+
 			Laya.timer.clearAll(this)
 			PopUpManager.Dispose(this)
 		}

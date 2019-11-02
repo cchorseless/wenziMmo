@@ -8,6 +8,7 @@ module view.recharge_vip {
 		constructor() {
 			super();
 			this.addEvent();
+			this.panel_item.hScrollBarSkin = "";
 		}
 		public setData(data) {
 			this.data = data;

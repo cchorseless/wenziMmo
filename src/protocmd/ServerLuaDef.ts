@@ -418,6 +418,13 @@ module ProtoCmd {
     export const ShenMi_Buy = "ShenMi_Buy"          //神秘商店购买
     export const GetOneDayRechargeAward = "GetOneDayRechargeAward"  //单日充值领取
 
+    export const FuDaiChouJiang = "FuDaiChouJiang";   //福袋抽奖开启按钮
+    export const SendExItemPlane = "SendExItemPlane";   //福袋抽奖额外奖励面板
+    export const FuDaiGet = "FuDaiGet";   //福袋抽奖额外奖励    领取
+
+
+
+
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
