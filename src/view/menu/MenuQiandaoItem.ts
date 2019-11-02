@@ -23,7 +23,6 @@ module view.menu {
 			else {
 				if (data < num) {
 					this.img_qiandao.visible = true;
-					this.img_qiandao.skin = 'image/menu/zi_yiqiandao.png'
 				}
 			}
 			this.addEvent();
@@ -35,11 +34,25 @@ module view.menu {
 						this.init_sign();
 					}
 				}
+				if (this.day.indexOf('' + this.data) == -1&&this.data < this.num) {
+					this.init_buqian();
+				}
 			})
 		}
+		/**
+		 * 签到
+		 */
 		public init_sign(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Menu_QianDao_ZengJia)
+			lcp.send(pkt);
+		}
+		/**
+	  * 补签
+	  */
+		public init_buqian(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Menu_qiandao_buqian,[this.data]);
 			lcp.send(pkt);
 		}
 	}

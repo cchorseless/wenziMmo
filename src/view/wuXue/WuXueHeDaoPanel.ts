@@ -10,13 +10,18 @@ module view.wuXue {
 		private sum;
 		//玩家等级总数
 		private mySum;
+		public wstab;
+		public index;
 		public setData(): void {
 			this.tab_zhuansheng.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_zhuansheng.selectedIndex = index;
 			}, null, false);
+			let index = 1;
 			this.addEvent();
 			this.activation();
 			this.init_liqiEvent();
+			this.init_soulUpPanel(index);
+			this.addLiQiUpLcpEvent();
 		}
 		public addEvent(): void {
 			// 模式切换
@@ -59,12 +64,25 @@ module view.wuXue {
 			// 		TipsManage.showTips('您当前等级不足，暂时不能开启')
 			// 	});
 			// }
+			//戾气兑换魂力
+			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_exchangeSoul();
+			})
+			this.btn_lvlUp.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_soulUp();
+			})
+			for (let i = 1; i < 9; i++) {
+				this['btn_liqi' + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.init_soulUpPanel(i);
+				})
+			}
+			this.addLcpEvent();
+			this.addLiQiLcpEvent();
 		}
 		public activation(): void {
 			//判断是否激活
 			if (GameUtil.getServerData(this.client_func_index)) {
 				this.viw_heDao.selectedIndex = 1;
-				this.addLcpEvent();
 				this.init_xiuWei();
 				this.init_zhuangshengPanel();
 
@@ -90,7 +108,7 @@ module view.wuXue {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
 				let exp = jsonData.xw - jsonData.maxxw;
-				if (exp<0) {
+				if (exp < 0) {
 					this.lbl_progress.text = jsonData.xw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472 * jsonData.xw / jsonData.maxxw;
 				}
@@ -120,11 +138,6 @@ module view.wuXue {
 
 			})
 		}
-		public destroy(isbool): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
-			super.destroy(isbool);
-		}
-
 		/**
 		 * 获取修为面板
 		 */
@@ -173,34 +186,239 @@ module view.wuXue {
 			lcp.send(pkt);
 		}
 		/**
-		 * 戾气
+		 * 戾气面板回调
 		 */
-		public init_liqiEvent(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.WX_warSoulPanel, null, null, this, (jsonData) => {
-				console.log('=====>戾气戾气', jsonData)
+		public addLiQiLcpEvent(): void {
+			GameApp.LListener.on(ProtoCmd.WX_warSoulPanel, this, (jsonData) => {
+				this.wstab = jsonData.wstab;
 				//第一个魂力球的经验进度
-				this.lbl_liqiprogress.text=jsonData.wstab[1].curexp+'/'+jsonData.wstab[1].maxexp;
-					let exp =jsonData.wstab[1].curexp - jsonData.wstab[1].maxexp;
-				if (exp<0) {
-					this.lbl_liqiprogress.text = jsonData.wstab[1].curexp + '/' +jsonData.wstab[1].maxexp;
+				let exp = jsonData.wstab[1].curexp - jsonData.wstab[1].maxexp;
+				if (exp < 0) {
+					this.lbl_liqiprogress.text = jsonData.wstab[1].curexp + '/' + jsonData.wstab[1].maxexp;
 					this.img_liqiprogress.width = 550 * jsonData.wstab[1].curexp / jsonData.wstab[1].maxexp;
 				}
 				else {
-					this.lbl_liqiprogress.text = '' + jsonData.wstab[1].maxexp + '/' + jsonData.wstab[1].maxexp;
+					this.lbl_liqiprogress.text = jsonData.wstab[1].curexp + '/' + jsonData.wstab[1].maxexp;
 					this.img_liqiprogress.width = 550;
 				}
 				//当前魂力
-				this.lbl_hunli.text=''+jsonData.curexp;
+				this.lbl_hunli.text = '' + jsonData.curexp;
 				//兑换魂力所需经验
-				this.lbl_needexp.text=''+jsonData.exchangetab.exp;
+				this.lbl_needexp.text = '' + jsonData.exchangetab.exp;
 				//兑换魂力所需金币
-				this.lbl_needgold.text=''+jsonData.exchangetab.gold;
+				this.lbl_needgold.text = '' + jsonData.exchangetab.gold;
 				//满足条件可兑换的魂力数量
-				this.lbl_addhunli.text=''+jsonData.exchangetab.soul;
+				this.lbl_addhunli.text = '' + jsonData.exchangetab.soul;
+				//根据魂力等级排序
+				let keys = Object.keys(jsonData.wstab)
+				let lvlArray = [];
+				for (let key of keys) {
+					lvlArray.push(jsonData.wstab[key]);
+					this['btn_liqi' + key].label = 'lv.' + jsonData.wstab[key].lvl;
+					//魂力球按钮状态
+					if (jsonData.wstab[key].lvl == 999) {
+						this['btn_liqi' + key].mouseEnabled = false;
+					}
+					else {
+						this['btn_liqi' + key].mouseEnabled = true;
+					}
+				}
+				function compare(property) {
+					return function (a, b) {
+						var value1 = a[property];
+						var value2 = b[property];
+						return value1 - value2;
+					}
+				}
+				//进阶说明
+				let array = lvlArray.sort(compare('lvl'))
+				if (array[0].lvl >= 0 && array[0].lvl <= 10) {
+					this.lbl_introduce.text = '黄阶战魂全部到    级,可进阶为玄阶';
+					this.lbl_introduceLvl.text = '10';
+					this.lbl_jieshu.text = '黄阶';
+					this.lbl_jie.text = '-黄阶';
+				}
+				if (array[0].lvl > 10 && array[0].lvl <= 20) {
+					this.lbl_introduce.text = '玄阶战魂全部到    级,可进阶为地阶';
+					this.lbl_introduceLvl.text = '20';
+					this.lbl_jieshu.text = '玄阶';
+					this.lbl_jie.text = '-玄阶';
+				}
+				if (array[0].lvl > 20 && array[0].lvl <= 30) {
+					this.lbl_introduce.text = '地阶战魂全部到    级,可进阶为天阶';
+					this.lbl_introduceLvl.text = '30';
+					this.lbl_jieshu.text = '地阶';
+					this.lbl_jie.text = '-地阶';
+				}
+				if (array[0].lvl > 30 && array[0].lvl <= 40) {
+					this.lbl_introduce.text = '天阶战魂全部到    级,可进阶为神阶';
+					this.lbl_introduceLvl.text = '40';
+					this.lbl_jieshu.text = '天阶';
+					this.lbl_jie.text = '-天阶';
+				}
+				if (array[0].lvl > 40 && array[0].lvl <= 50) {
+					this.lbl_introduce.text = '神阶战魂全部到    级,可进阶为圣阶';
+					this.lbl_introduceLvl.text = '50';
+					this.lbl_jieshu.text = '神阶';
+					this.lbl_jie.text = '-神阶';
+				}
+				console.log('=====>戾气戾气', jsonData, array)
+				this.init_shuxing();
+			})
+		}
+		/**
+		 * 戾气升级面板回调
+		 */
+		public addLiQiUpLcpEvent(): void {
+			GameApp.LListener.on(ProtoCmd.WX_updateWarSoulPanel, this, (jsonData: ProtoCmd.itf_WX_LiQiUpPanelInfo) => {
+				console.log('=====>戾气升级升级', jsonData)
+				this.lbl_hunli.text = '' + jsonData.cursoul;
+				for (let i = 1; i < 9; i++) {
+					this['btn_liqi' + i].selected = false;
+				}
+				this['btn_liqi' + jsonData.pos].selected = true;
+				let exp = jsonData.curexp - jsonData.maxexp;
+				if (exp < 0) {
+					this.lbl_liqiprogress.text = jsonData.curexp + '/' + jsonData.maxexp;
+					this.img_liqiprogress.width = 550 * jsonData.curexp / jsonData.maxexp;
+				}
+				else {
+					this.lbl_liqiprogress.text = jsonData.curexp + '/' + jsonData.maxexp;
+					this.img_liqiprogress.width = 550;
+				}
+				//增加属性百分比
+				if (jsonData.addpro == NaN) {
+					this.lbl_Percentage.text = '';
+				}
+				else {
+					this.lbl_Percentage.text = (jsonData.addpro * 100).toFixed(2) + '%';
+				}
+				//更新战魂等级
+				this['btn_liqi' + jsonData.pos].label = 'lv.' + jsonData.lvl;
+				//更新战魂点击状态
+				this['btn_liqi' + jsonData.pos].mouseEnabled = true;
+				//消耗的魂力
+				this.lbl_use.text = '' + jsonData.needexp;
+				this.wstab[jsonData.pos].addpro = jsonData.addpro;
+				this.wstab[jsonData.pos].lvl = jsonData.lvl;
+				let index = this.wstab[jsonData.pos].realpos;
+				switch (index) {
+					case EnumData.emEquipPosition.EQUIP_HEADDRESS:
+						this.lbl_pos.text = '帽子';
+						break;
+					case EnumData.emEquipPosition.EQUIP_NECKLACE:
+						this.lbl_pos.text = '项链';
+						break;
+					case EnumData.emEquipPosition.EQUIP_CLOTHES:
+						this.lbl_pos.text = '衣服';
+						break;
+					case EnumData.emEquipPosition.EQUIP_WEAPONS:
+						this.lbl_pos.text = '武器';
+						break;
+					case EnumData.emEquipPosition.EQUIP_BRACELET_LEFT:
+						this.lbl_pos.text = '左手镯';
+						break;
+					case EnumData.emEquipPosition.EQUIP_RING_LEFT:
+						this.lbl_pos.text = '左戒指';
+						break;
+					case EnumData.emEquipPosition.EQUIP_SHOES:
+						this.lbl_pos.text = '鞋';
+						break;
+					case EnumData.emEquipPosition.EQUIP_BELT:
+						this.lbl_pos.text = '腰带';
+						break;
+				}
 
 			})
+		}
+		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
+			GameApp.LListener.offCaller(ProtoCmd.WX_warSoulPanel, this);
+			GameApp.LListener.offCaller(ProtoCmd.WX_updateWarSoulPanel, this);
+			PopUpManager.Dispose(this);
+		}
+		/**
+		 * 戾气面板
+		 */
+		public init_liqiEvent(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.WX_warSoulPanel)
 			lcp.send(pkt);
+		}
+		/**
+		 * 兑换魂力
+		 */
+		public init_exchangeSoul(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.WX_exchangeWarSoulExp)
+			lcp.send(pkt);
+		}
+		/**
+		 * 戾气升级面板
+		 */
+		public init_soulUpPanel(index): void {
+			//index的排序对应戾气面板的jsonData.wstab排序
+			let pkt = new ProtoCmd.QuestClientData();
+			this.index = index;
+			pkt.setString(ProtoCmd.WX_updateWarSoulPanel, [index])
+			lcp.send(pkt);
+		}
+		/**
+		 * 升级
+		 */
+		public init_soulUp(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.WX_upgradeWarSoul)
+			lcp.send(pkt);
+		}
+		public init_shuxing(): void {
+			// let type;
+			// let magicKill = 0;
+			// let magicProtect = 0;
+			// let wuliProtect = 0;
+			// let maxmagicKill = 0;
+			// let maxmagicProtect = 0;
+			// let maxwuliProtect = 0;
+			for (let i = 1; i < 9; i++) {
+				//属性增加的百分比
+				let addpro = this.wstab[i].addpro;
+				if (this.wstab[i].lvl !== 999) {
+					let item = GameUtil.findEquipInPlayer(this.wstab[i].realpos);
+					if (item !== undefined) {
+						let id = item.dwBaseID;
+						let effid;
+						switch (GameApp.MainPlayer.job) {
+							case 1:
+								effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + id);
+								break;
+							case 2:
+								effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + id);
+								break;
+							case 3:
+								effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + id);
+								break;
+						}
+						// //魔法攻击z最小值
+						// magicKill = magicProtect + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXSC('' + effid) * addpro
+						// //魔法防御最小值
+						// magicProtect = magicProtect + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXMAC('' + effid) * addpro
+						// //物理防御最小值
+						// wuliProtect = wuliProtect + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXAC('' + effid) * addpro
+						// //魔法攻击最大值
+						// maxmagicKill = maxmagicKill + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXSC('' + effid) * addpro
+						// //魔法防御最大值
+						// maxmagicProtect = maxmagicProtect + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXMAC('' + effid) * addpro
+						// //物理防御最大值
+						// maxwuliProtect = maxwuliProtect + SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_MAXAC('' + effid) * addpro
+					}
+				}
+			}
+			// //魔法攻击值
+			// this.lbl_mofaKill.text = magicKill.toFixed(0) + '-' + maxmagicKill.toFixed(0);
+			// //魔法防御值
+			// this.lbl_mofa.text = magicProtect.toFixed(0) + '-' + maxmagicProtect.toFixed(0);
+			// //物理防御值
+			// this.lbl_wuli.text = wuliProtect.toFixed(0) + '-' + maxwuliProtect.toFixed(0);
 		}
 	}
 }
