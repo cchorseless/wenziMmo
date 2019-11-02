@@ -177,6 +177,12 @@ module ProtoCmd {
     /********************************武学界面***************** */
     //武学戾气面板
     export const WX_warSoulPanel = 'warSoulPanel';
+    //武学戾气兑换魂力
+    export const WX_exchangeWarSoulExp = 'exchangeWarSoulExp';
+    //武学戾气炼魂
+    export const WX_upgradeWarSoul = 'upgradeWarSoul';
+    //武学戾气升级面板
+    export const WX_updateWarSoulPanel = 'updateWarSoulPanel';
 
     /********************************弟子信息界面***************** */
     //弟子面板
@@ -791,6 +797,18 @@ module ProtoCmd {
         gold: number//所需金币
         oneid: number//所需道具ID1
         twoid: number//所需道具ID2
+    }
+    /**
+     * 武学戾气升级面板
+     */
+    export interface itf_WX_LiQiUpPanelInfo {
+        addpro: number//属性增加数值
+        curexp: number//当前经验
+        cursoul: number//当前魂力
+        lvl: number//魂力等级
+        maxexp: number//最大经验
+        needexp: number//所需消耗经验
+        pos: number//魂力穿戴位置
     }
     /***********************************副本接口**************************** */
     /**
