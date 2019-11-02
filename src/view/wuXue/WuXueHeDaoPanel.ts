@@ -4,8 +4,6 @@ module view.wuXue {
 		constructor() {
 			super();
 		}
-		//当前经验-最大经验
-		public exp;
 		//功能编号
 		public client_func_index = 21;
 		//开启所需等级总数
@@ -13,8 +11,12 @@ module view.wuXue {
 		//玩家等级总数
 		private mySum;
 		public setData(): void {
+			this.tab_zhuansheng.selectHandler = Laya.Handler.create(this, (index) => {
+				this.viw_zhuansheng.selectedIndex = index;
+			}, null, false);
 			this.addEvent();
 			this.activation();
+			this.init_liqiEvent();
 		}
 		public addEvent(): void {
 			// 模式切换
@@ -65,6 +67,7 @@ module view.wuXue {
 				this.addLcpEvent();
 				this.init_xiuWei();
 				this.init_zhuangshengPanel();
+
 			}
 			else {
 				this.viw_heDao.selectedIndex = 0;
@@ -87,8 +90,7 @@ module view.wuXue {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
 				let exp = jsonData.xw - jsonData.maxxw;
-				this.exp = exp;
-				if (jsonData.xw <= jsonData.maxxw) {
+				if (exp<0) {
 					this.lbl_progress.text = jsonData.xw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472 * jsonData.xw / jsonData.maxxw;
 				}
@@ -96,75 +98,28 @@ module view.wuXue {
 					this.lbl_progress.text = '' + jsonData.maxxw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472;
 				}
-				// if (jsonData.effid !== 0) {
-				/**
-				    * 当前属性
-				    */
-				// 	//最大生命
-				// 	let HP1 = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + jsonData.effid);
-				// 	this.lbl_maxHP1.text = '' + HP1;
-				// 	//物理攻击
-				// 	let minPhysicsAttack1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + jsonData.effid);
-				// 	let maxPhysicsAttack1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + jsonData.effid);
-				// 	this.lbl_physicsAttack1.text = '' + minPhysicsAttack1 + '-' + maxPhysicsAttack1;
-				// 	//物理防御
-				// 	let minPhysicsDefense1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + jsonData.effid);
-				// 	let maxPhysicsDefense1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + jsonData.effid);
-				// 	this.lbl_physicsDefense1.text = '' + minPhysicsDefense1 + '-' + maxPhysicsDefense1;
-				// 	//魔法防御
-				// 	let minMagicDefense1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + jsonData.effid);
-				// 	let maxMagicDefense1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + jsonData.effid);
-				// 	this.lbl_magicDefense1.text = '' + minMagicDefense1 + '-' + maxMagicDefense1;
-				// 	//准确
-				// 	let accuracy1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).ACCURACY('' + jsonData.effid);
-				// 	this.lbl_accuracy1.text = '' + accuracy1;
-				// 	//闪避
-				// 	let dodge1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).DODGE('' + jsonData.effid);
-				// 	this.lbl_dodge1.text = '' + dodge1;
-				// 	//暴击
-				// 	let crit1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT('' + jsonData.effid);
-				// 	this.lbl_crit1.text = '' + crit1;
-				// 	//韧性
-				// 	let toughness1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + jsonData.effid);
-				// 	this.lbl_toughness1.text = '' + toughness1;
-				// 	/**
-				// 	  * 下级属性
-				// 	  */
-				// 	//下级效果ID
-				// 	let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
-				// 	//最大生命
-				// 	let HP2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_HP('' + id);
-				// 	this.lbl_maxHP2.text = '' + HP2;
-				// 	//物理攻击
-				// 	let minPhysicsAttack2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_ATTACK('' + id);
-				// 	let maxPhysicsAttack2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_ATTACK('' + id);
-				// 	this.lbl_physicsAttack2.text = '' + minPhysicsAttack2 + '-' + maxPhysicsAttack2;
-				// 	//物理防御
-				// 	let minPhysicsDefense2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_PHYSICAL('' + id);
-				// 	let maxPhysicsDefense2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_PHYSICAL('' + id);
-				// 	this.lbl_physicsDefense2.text = '' + minPhysicsDefense2 + '-' + maxPhysicsDefense2;
-				// 	//魔法防御
-				// 	let minMagicDefense2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MIN_SPELLS('' + id);
-				// 	let maxMagicDefense2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).MAX_SPELLS('' + id);
-				// 	this.lbl_magicDefense2.text = '' + minMagicDefense2 + '-' + maxMagicDefense2;
-				// 	//准确
-				// 	let accuracy2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).ACCURACY('' + id);
-				// 	this.lbl_accuracy2.text = '' + accuracy2;
-				// 	//闪避
-				// 	let dodge2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).DODGE('' + id);
-				// 	this.lbl_dodge2.text = '' + dodge2;
-				// 	//暴击
-				// 	let crit2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).CRIT('' + id);
-				// 	this.lbl_crit2.text = '' + crit2;
-				// 	//韧性
-				// 	let toughness2 = SheetConfig.mydb_effect_base_tbl.getInstance(null).TOUGHNESS('' + id);
-				// 	this.lbl_toughness2.text = '' + toughness2;
-				// }
+				if (jsonData.effid !== 0) {
+					//当前属性
+					let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
+					let attribute1 = shuxing1.des;
+					let keys1 = Object.keys(attribute1)
+					this.vbox_left.removeChildren();
+					for (let key of keys1) {
+						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+					}
+					//下级属性
+					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
+					let shuxing2 = GameUtil.parseEffectidToString('' + id)
+					let attribute2 = shuxing2.des;
+					let keys2 = Object.keys(attribute2)
+					this.vbox_right.removeChildren();
+					for (let key of keys2) {
+						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+					}
+				}
 
 			})
 		}
-
-
 		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
 			super.destroy(isbool);
@@ -184,16 +139,16 @@ module view.wuXue {
 				//可兑换的修为
 				this.lbl_exchange.text = '' + jsonData.xw;
 				//道具1
-				let _itemUI1 = new view.compart.DaoJuWithNameItem();
+				let _itemUI1 = new view.compart.DaoJuItem();
 				let itemInfo1 = new ProtoCmd.ItemBase();
 				itemInfo1.dwBaseID = jsonData.pill;
-				_itemUI1.setData(itemInfo1);
+				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_1.addChild(_itemUI1);
 				//道具2
-				let _itemUI2 = new view.compart.DaoJuWithNameItem();
+				let _itemUI2 = new view.compart.DaoJuItem();
 				let itemInfo2 = new ProtoCmd.ItemBase();
 				itemInfo2.dwBaseID = jsonData.superpill;
-				_itemUI2.setData(itemInfo2);
+				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_2.addChild(_itemUI2)
 			})
 			lcp.send(bpkt);
@@ -207,15 +162,42 @@ module view.wuXue {
 			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
 			lcp.send(pkt);
 		}
-
-
-
 		/**
 	  	 * 兑换修为
 	  	 */
 		public init_UpXiuWei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+
+			})
+			lcp.send(pkt);
+		}
+		/**
+		 * 戾气
+		 */
+		public init_liqiEvent(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.WX_warSoulPanel, null, null, this, (jsonData) => {
+				console.log('=====>戾气戾气', jsonData)
+				//第一个魂力球的经验进度
+				this.lbl_liqiprogress.text=jsonData.wstab[1].curexp+'/'+jsonData.wstab[1].maxexp;
+					let exp =jsonData.wstab[1].curexp - jsonData.wstab[1].maxexp;
+				if (exp<0) {
+					this.lbl_liqiprogress.text = jsonData.wstab[1].curexp + '/' +jsonData.wstab[1].maxexp;
+					this.img_liqiprogress.width = 550 * jsonData.wstab[1].curexp / jsonData.wstab[1].maxexp;
+				}
+				else {
+					this.lbl_liqiprogress.text = '' + jsonData.wstab[1].maxexp + '/' + jsonData.wstab[1].maxexp;
+					this.img_liqiprogress.width = 550;
+				}
+				//当前魂力
+				this.lbl_hunli.text=''+jsonData.curexp;
+				//兑换魂力所需经验
+				this.lbl_needexp.text=''+jsonData.exchangetab.exp;
+				//兑换魂力所需金币
+				this.lbl_needgold.text=''+jsonData.exchangetab.gold;
+				//满足条件可兑换的魂力数量
+				this.lbl_addhunli.text=''+jsonData.exchangetab.soul;
 
 			})
 			lcp.send(pkt);

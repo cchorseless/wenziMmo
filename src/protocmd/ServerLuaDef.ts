@@ -174,6 +174,10 @@ module ProtoCmd {
     export const JS_playerWingPanel = 'playerWingPanel';
     // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
+    /********************************武学界面***************** */
+    //武学戾气面板
+    export const WX_warSoulPanel = 'warSoulPanel';
+
     /********************************弟子信息界面***************** */
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
@@ -279,6 +283,15 @@ module ProtoCmd {
     export const Menu_QiFuClientOpen = "QiFuClientOpen";
     //祈福功能
     export const Menu_QiFu = "QiFu";
+    //签到面板
+    export const Menu_QianDao_DaKai = "QianDao_DaKai";
+    //签到面板补签
+    export const Menu_qiandao_buqian = "qiandao_buqian";
+    //累计签到领取
+    export const Menu_qiandaolingqu = "qiandaolingqu";
+    //签到
+    export const Menu_QianDao_ZengJia = "QianDao_ZengJia";
+
     /*********************************抽奖******************** */
     //抽奖面板
     export const LD_chouJiangPanel = "chouJiangPanel";

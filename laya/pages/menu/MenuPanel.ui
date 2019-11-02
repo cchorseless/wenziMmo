@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":290,
+    "selectedBox":290,
+    "selecteID":154,
     "referenceLines":[
         {
             "value":595,
@@ -1157,13 +1157,14 @@
             "props":{"x":22,"var":"box_bottom","bottom":5},
             "nodeParent":1,
             "label":"Box(box_bottom)",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":290,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":5,"x":538,"width":57,"stateNum":"2","skin":"image/menu/icon_kefu_01down_finish.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":26,"labelPadding":"25","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"客服","height":65},
                     "nodeParent":290,
@@ -1177,8 +1178,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":441,"stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"设置"},
+                    "props":{"y":7,"x":441,"stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelPadding":"25","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"设置"},
                     "nodeParent":290,
                     "label":"Button",
                     "isDirectory":false,
@@ -1191,6 +1193,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":407,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"9,9,15,9","height":74},
                     "nodeParent":290,

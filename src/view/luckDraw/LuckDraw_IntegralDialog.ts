@@ -51,12 +51,20 @@ module view.luckDraw {
 		public init_Integral(i): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.LD_BZ_SendPlaneMsg, [i], null, this, (jsonData) => {
-				let jifenInfo = jsonData.wupinnum.split('+')
-				let keys = Object.keys(jifenInfo)
-				this.vbox_integral.removeChildren();
-				for (let key of keys) {
-					this.vbox_integral.addChild(new view.luckDraw.LuckDraw_IntegralSingleItem().setData(jifenInfo[key], this.score))
+				if (jsonData.wupinnum == '') {
+					this.vbox_integral.removeChildren();
+					this.box_none.visible = true;
 				}
+				else {
+					let jifenInfo = jsonData.wupinnum.split('+')
+					let keys = Object.keys(jifenInfo)
+					this.vbox_integral.removeChildren();
+					for (let key of keys) {
+						this.vbox_integral.addChild(new view.luckDraw.LuckDraw_IntegralSingleItem().setData(jifenInfo[key], this.score,i))
+					}
+					this.box_none.visible = false;
+				}
+
 			})
 			lcp.send(pkt);
 		}
