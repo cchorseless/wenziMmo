@@ -12,15 +12,6 @@ module view.luckDraw {
 			this.panel_store.vScrollBarSkin = '';
 			this.vbox_store['sortItem'] = items => { };
 			this.data = data;
-			//刷新弹窗物品
-			GameApp.LListener.on(ProtoCmd.LD_storeRefresh, this, (jsonData) => {
-				console.log('====>转生转生装备', jsonData)
-				this.vbox_store.removeChildren();
-				this.data = jsonData;
-				this.init_store();
-				this.addEvent();
-				this.init_dataEvent();
-			})
 			this.init_store();
 			this.addEvent();
 			this.init_dataEvent();
@@ -62,6 +53,21 @@ module view.luckDraw {
 				if (this.data !== '') {
 					this.init_allGet();
 				}
+			})
+			this.addLcpEvent();
+		}
+		/**
+		 * 监听data数据的变化
+		 */
+		public addLcpEvent(): void {
+			//刷新弹窗物品
+			GameApp.LListener.on(ProtoCmd.LD_storeRefresh, this, (jsonData) => {
+				console.log('====>转生转生装备', jsonData)
+				this.vbox_store.removeChildren();
+				this.data = jsonData;
+				this.init_store();
+				this.addEvent();
+				this.init_dataEvent();
 			})
 		}
 		/**

@@ -27,10 +27,10 @@ module view.shopMall {
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
 			});
-				this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
-				new view.beiBao.Bag_Recharge().popup();
+			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
+				// new view.beiBao.Bag_Recharge().popup();
 			});
-			
+
 			this.addLcpEvent();
 
 		}
@@ -42,6 +42,7 @@ module view.shopMall {
 				this.list_shop1.array = [];
 				for (let i = 1; i < keys.length + 1; i++) {
 					if (jsonData.items[i]) {
+						jsonData.items[i].index = '' + i;
 						if (jsonData.items[i].show == 1) {
 							this.list_shop1.array.push(jsonData.items[i])
 						}
@@ -60,6 +61,7 @@ module view.shopMall {
 				this.list_shop2.array = [];
 				for (let i = 1; i < keys.length + 1; i++) {
 					if (jsonData.items[i]) {
+						jsonData.items[i].index = '' + i;
 						if (jsonData.items[i].show == 1) {
 							this.list_shop2.array.push(jsonData.items[i])
 						}
@@ -78,6 +80,7 @@ module view.shopMall {
 				this.list_shop3.array = [];
 				for (let i = 1; i < keys.length + 1; i++) {
 					if (jsonData.items[i]) {
+						jsonData.items[i].index = '' + i;
 						if (jsonData.items[i].show == 1) {
 							this.list_shop3.array.push(jsonData.items[i])
 						}
@@ -96,6 +99,7 @@ module view.shopMall {
 				this.list_shop4.array = [];
 				for (let i = 1; i < keys.length + 1; i++) {
 					if (jsonData.items[i]) {
+						jsonData.items[i].index = '' + i;
 						if (jsonData.items[i].show == 1) {
 							this.list_shop4.array.push(jsonData.items[i])
 						}
@@ -114,6 +118,7 @@ module view.shopMall {
 				this.list_shop5.array = [];
 				for (let i = 1; i < keys.length + 1; i++) {
 					if (jsonData.items[i]) {
+						jsonData.items[i].index = '' + i;
 						if (jsonData.items[i].show == 1) {
 							this.list_shop5.array.push(jsonData.items[i])
 						}

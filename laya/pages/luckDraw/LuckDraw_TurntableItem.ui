@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
-    "props":{"width":638,"sceneColor":"#d6bfbf","height":883},
+    "selecteID":38,
+    "props":{"width":638,"sceneColor":"#efd9d9","height":883},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,61 +15,120 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-255,"x":-79,"skin":"image/menu/菜单-在线转盘.png","alpha":0.5},
+            "props":{"y":0,"x":8,"skin":"image/menu/bg_zhuanpan.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":7,"x":18,"width":600,"skin":"image/common/bottom_ConfederationDeclaration.png","height":110,"alpha":0.5},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
+            "compId":3,
             "child":[
                 ],
-            "$LOCKED":true,
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":9,"x":39,"skin":"image/common/title_ConfederationDeclaration.png"},
+            "props":{"y":101,"x":76,"skin":"image/menu/img_zhuanpan.png"},
             "nodeParent":1,
             "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":4,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":7,"x":18,"width":600,"skin":"image/common/bottom_ConfederationDeclaration.png","height":110},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":5,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":2,"x":19,"width":65,"skin":"image/common/title_ConfederationDeclaration.png","height":101},
+                    "nodeParent":5,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":19,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":11,"x":103,"wordWrap":true,"width":431,"var":"lbl_rule","text":"活动期间好笑元宝达到指定额度且上榜的玩家可获得超值奖励，排行榜整点刷新","strokeColor":"#000000","height":52,"fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":5,
+                    "label":"Label(lbl_rule)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":12,"x":32,"wordWrap":true,"width":36,"text":"规则","strokeColor":"#000000","stroke":4,"height":60,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":5,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":12,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":826,"x":217,"text":"活动时间:","fontSize":24,"font":"FZHL","color":"#55453a"},
+            "nodeParent":1,
+            "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":13,"x":42,"skin":"image/guild/font_gonghuixuanyan.png"},
+            "type":"Label",
+            "props":{"y":826,"x":319,"width":149.34375,"var":"lbl_time","text":"1天13时13分","height":22,"fontSize":24,"font":"FZHL","color":"#a53232","align":"left"},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Label(lbl_time)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":33,"x":134,"wordWrap":true,"width":431,"text":"够爷们你就来，来了就是兄弟。兄弟带你闯天下，一起霸气满天下。","strokeColor":"#000000","height":95,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
+            "props":{"y":617,"x":191,"text":"当前剩余抽奖次数:","fontSize":24,"font":"FZHL","color":"#010101"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -77,7 +136,244 @@
             "hasChild":false,
             "compId":8,
             "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":617,"x":440,"width":44,"var":"lbl_maxnum","text":"/ 10","height":24,"fontSize":24,"font":"FZHL","color":"#010101","align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_maxnum)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":36,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":617,"x":407,"width":30.9375,"var":"lbl_num","text":"01","height":24,"fontSize":24,"font":"FZHL","color":"#a53232","align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_num)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":35,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":674,"x":252,"width":141,"var":"btn_luckDraw","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"抽奖","height":59},
+            "nodeParent":1,
+            "label":"Button(btn_luckDraw)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":183,"x":228,"var":"ui_item1","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item1)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":21,
+            "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":183,"x":333,"var":"ui_item2","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item2)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":22,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":259,"x":406,"var":"ui_item3","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item3)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":23,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":354,"x":406,"var":"ui_item4","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item4)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":24,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":430,"x":333,"var":"ui_item5","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item5)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":25,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":430,"x":228,"var":"ui_item6","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item6)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":26,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":354,"x":155,"var":"ui_item7","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item7)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":27,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuItem.ui",
+            "props":{"y":259,"x":155,"var":"ui_item8","runtime":"view.compart.DaoJuItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item8)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":28,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"compart/DaoJuWithNameItem.ui",
+            "props":{"y":292,"x":248,"var":"ui_item0","scaleY":1.26,"scaleX":1.26,"runtime":"view.compart.DaoJuWithNameItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":29,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":835,"x":63,"var":"btn_return","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+            "nodeParent":1,
+            "label":"Button(btn_return)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":17,
+            "child":[
+                {
+                    "type":"Button",
+                    "props":{"y":14,"x":41,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
+                    "nodeParent":17,
+                    "label":"Button",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":49,"x":37,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":31,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":126,"x":13,"text":"抽奖次数:","fontSize":24,"font":"FZHL","color":"#010101"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":37,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":126,"x":122,"width":30.9375,"var":"lbl_kechou","text":"01","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#ffffff","align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_kechou)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":38,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {

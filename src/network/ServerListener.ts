@@ -267,6 +267,7 @@ class ServerListener extends SingletonClass {
     public showTips(data): void {
         let cbpkt = new ProtoCmd.TipMsg(data);
         TipsManage.showTxt(cbpkt.tipmsg);
+        console.log(cbpkt.tipmsg)
         cbpkt.clear();
         cbpkt = null;
     }

@@ -216,46 +216,6 @@ module GameObject {
         }
         /*******************************************************************get************************************* */
 
-        /**
-         * 获取头像
-         */
-        public get iconAvatarPic(): string {
-            let path;
-            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-                path = 'image/common/icon_nan';
-            }
-            else {
-                path = 'image/common/icon_nv';
-            }
-            return path + '0' + this.job + '.png';
-        }
-        /**
-         * 获取半身像
-         */
-        public get halfAvatarPic(): string {
-            let path;
-            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-                path = 'image/common/nan';
-            }
-            else {
-                path = 'image/common/nv';
-            }
-            return path + '0' + this.job + '_half.png';
-        }
-        /**
-         * 获取全身像
-         */
-        public get allAvatarPic(): string {
-            let path;
-            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
-                path = 'image/common/nan';
-            }
-            else {
-                path = 'image/common/nv';
-            }
-            return path + '0' + this.job + '.png';
-        }
-
         public _skeBoneRes;
         /**
          * 获取角色龙骨资源

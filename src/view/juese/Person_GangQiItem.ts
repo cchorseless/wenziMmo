@@ -7,7 +7,10 @@ module view.juese {
 		private client_func_index = 16;// 功能ID编号
 		//角色职业
 		private job = GameApp.MainPlayer.job;
+		private hasInit = false;
 		public setData(): void {
+			if (this.hasInit) { return };
+			this.hasInit = true;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
@@ -78,7 +81,7 @@ module view.juese {
 			})
 		}
 
-		public destroy(isbool): void {
+		public destroy(isbool = true): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
 			super.destroy(isbool);
 		}

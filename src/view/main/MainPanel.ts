@@ -28,9 +28,21 @@ module view.main {
 				}
 			}, null, false);
 			this.tab_task.selectedIndex = 1;
+			this.initUI();
 			this.addEvent();
 			this.visible = false;
 		}
+
+		/**
+		 * 适配处理
+		 */
+		public initUI(): void {
+			let getScaleY = PanelManage.getScaleY();
+			this.img_bottomPartInfoBg.scaleY = getScaleY;
+			this.img_npc.scaleY = getScaleY;
+			this.box_uiScene0.scaleY = getScaleY;
+		}
+
 
 		public updateUI(): void {
 			// 界面赋值
@@ -53,7 +65,7 @@ module view.main {
 			// 战斗力
 			this.clip_power.value = LangConfig.getBigNumberDes(_player.ability.nFight);
 			// 头像
-			this.img_avatarIcon.skin = '' + _player.iconAvatarPic;
+			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
 			// 节气
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
@@ -232,15 +244,15 @@ module view.main {
 		// 界面展示NPC列表
 		public showGroupNpcList(show: boolean): void {
 			if (show) {
-				Laya.Tween.to(this.img_npc, { scaleX: 0 }, 500, Laya.Ease.bounceOut, Laya.Handler.create(this, () => {
+				Laya.Tween.to(this.img_npc, { scaleX: 0 }, 300, null, Laya.Handler.create(this, () => {
 					this.img_npc.visible = false;
 				}));
-				Laya.Tween.to(this.box_uiScene0, { left: 0 }, 500, Laya.Ease.bounceOut);
+				Laya.Tween.to(this.box_uiScene0, { left: 0 }, 300);
 			}
 			else {
 				this.img_npc.visible = true;
-				Laya.Tween.to(this.img_npc, { scaleX: 1 }, 500, Laya.Ease.bounceOut);
-				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 500, Laya.Ease.bounceOut);
+				Laya.Tween.to(this.img_npc, { scaleX: 1 }, 300);
+				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 300);
 			}
 		}
 		/**

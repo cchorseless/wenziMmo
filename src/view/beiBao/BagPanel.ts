@@ -23,9 +23,6 @@ module view.beiBao {
 			// 左边热卖商店
 			this.panel_sellHot.vScrollBarSkin = '';
 			this.vbox_sellHot['sortItem'] = (items) => { };
-			for (let i = 0; i < 5; i++) {
-				this.vbox_sellHot.addChild(new view.shopMall.ShopItemV0Item());
-			}
 			// 初始化背包
 			this.initUI();
 			// 拉取热销商店数据

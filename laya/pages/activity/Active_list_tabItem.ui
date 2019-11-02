@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":103,"sceneColor":"#000000","height":100},
+    "selecteID":4,
+    "props":{"width":130,"sceneColor":"#000000","height":100},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":50,"x":50,"var":"btn_icon","stateNum":"2","skin":"image/common/bottom_shuxing.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":50,"x":66.5,"var":"btn_icon","stateNum":"2","skin":"image/common/bottom_shuxing.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_icon)",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":13,"x":14,"var":"img_icon","skin":"image/guild/icon_shilipaihang.png","scaleY":0.7,"scaleX":0.7},
+            "props":{"y":13,"x":30.5,"width":106,"var":"img_icon","skin":"image/guild/icon_shilipaihang.png","scaleY":0.7,"scaleX":0.7,"height":107},
             "nodeParent":1,
             "label":"Image(img_icon)",
             "isDirectory":false,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":70,"x":0,"width":104,"var":"lab_name","text":"名字名字","stroke":3,"height":30,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
+            "props":{"y":70,"x":16.5,"width":104,"var":"lab_name","text":"名字名字","stroke":3,"height":30,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,

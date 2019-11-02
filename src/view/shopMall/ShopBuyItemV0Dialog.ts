@@ -7,6 +7,7 @@ module view.shopMall {
 
 		public item: ProtoCmd.itf_Shop_ShopItem;
 		public setData(item: ProtoCmd.itf_Shop_ShopItem, model: EnumData.ShopBuyPanelType): ShopBuyItemV0Dialog {
+			console.log('---------', item);
 			this.item = item;
 			let _itemBase = new ProtoCmd.ItemBase();
 			_itemBase.dwBaseID = item.itemid;
@@ -32,16 +33,18 @@ module view.shopMall {
 					// 是否多个显示单价和滑竿
 					// 购买次数==1不显示
 					let maxLimit = Math.max(item.limitcnt - item.curcnt, 1);
-					// 最大购买数量
-					this.hsbar_count.max = maxLimit;
+					console.log('---------', maxLimit);
 					this.hsbar_count.value = this.hsbar_count.min = 1;
 					// 不限购
-					if (item.limitcnt > 0) {
+					if (item.limitcnt <= 0) {
 						this.box_count.visible = this.box_danJia.visible = true;
+						// 最大购买数量
+						this.hsbar_count.max = 999;
 					}
 					// 限购
 					else {
 						this.box_count.visible = this.box_danJia.visible = (maxLimit > 1);
+						this.hsbar_count.max = maxLimit;
 					}
 					// 单价
 					this.lbl_price.text = '' + Math.ceil(item.price * item.discount / 10);
@@ -53,7 +56,7 @@ module view.shopMall {
 					}, null, false);
 					break;
 			}
-			if (!this.box_count.viewport) {
+			if (!this.box_count.visible) {
 				this.height -= this.box_count.height
 			}
 			this.addEvent();

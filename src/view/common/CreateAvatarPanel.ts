@@ -15,8 +15,6 @@ module view.common {
 		public job = 1;// 职业
 		public sex = 1;// 性别
 		public setData(): void {
-			this.panel_scene.vScrollBarSkin = '';
-			this.vbox_scene['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
 			this.panel_0.vScrollBarSkin = '';
 			this.panel_1.vScrollBarSkin = '';
@@ -25,13 +23,18 @@ module view.common {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_talk.selectedIndex = index;
 			}, null, false);
-			this.box_bigMap.scale(0, 0);
 			this.addDiFuTalk();
 			this.addRenJianTalk();
 			this.initSelf();
 		}
 
 		public initSelf(): void {
+			// 适配处理
+			let getScaleY = PanelManage.getScaleY();
+			this.img_bottomBg.scaleY = getScaleY;
+			this.img_npcBg.scaleY = getScaleY;
+			this.box_uiScene0.scaleY = getScaleY;
+			// 先隐藏
 			this.alpha = 0;
 			this.box_npcTalk.visible = false;
 			// 加载动作
@@ -46,7 +49,7 @@ module view.common {
 			// 加载过长动画
 			let cg = new SkeletonUtil.SkeletonGroup();
 			cg.loadRes(['sk/new/MH.sk'], () => {
-				cg.pos(Laya.stage.width / 2, Laya.stage.height / 2);
+				cg.pos(this.img_cg.displayWidth / 2, this.img_cg.displayHeight / 2);
 				this.img_cg.addChild(cg);
 				let playIndex = 0;
 				cg.play(playIndex, false, false, null, 0.5);
@@ -73,57 +76,58 @@ module view.common {
 		// 场景对白
 		public sceneConfigList = [
 			null,
-			['你感觉身体轻飘飘的，感觉周围阴冷无比，你睁开眼睛环顾四周。',
-				'不远处两名身穿官服的男子，不时传出咯咯咯的冷笑。',
-				'身穿白色官服的人满面笑容，身材高瘦，面色惨白，口吐长舌，其头上官帽写有"一见生财"四字。',
-				'身穿黑色官服的面容凶悍，身宽体胖，个小面黑，官帽上写有"天下太平"四字',
-				'这时你才看清眼前是一座阴气森森的鬼府大门，随着你的寻问，大门逐渐打开。',
-				'露出一片青黑色的符砖地面，整个空间黑雾缭绕，雾中不断传出冷笑。',
-				'白无常语气平和，说出来的话有着让人平静下来的魔力。',
-				'黑无常一边说着，一边拿笔在一本小册子上写着。',
-				'白无常说完，轻轻推了你一下，你就走进了这条黄泉路。',
-				'当你再一回头，不要说黑白无常，就连鬼门关都消失了。',
+			[
+				{ des: '你感觉身体轻飘飘的，感觉周围阴冷无比，你睁开眼睛环顾四周。', delay: 60 },
+				{ des: '不远处两名身穿官服的男子，不时传出咯咯咯的冷笑。', delay: 60 },
+				{ des: '身穿白色官服的人满面笑容，身材高瘦，面色惨白，口吐长舌，其头上官帽写有"一见生财"四字。', delay: 60 },
+				{ des: '身穿黑色官服的面容凶悍，身宽体胖，个小面黑，官帽上写有"天下太平"四字', delay: 60 },
+				{ des: '这时你才看清眼前是一座阴气森森的鬼府大门，随着你的寻问，大门逐渐打开。', delay: 60 },
+				{ des: '露出一片青黑色的符砖地面，整个空间黑雾缭绕，雾中不断传出冷笑。', delay: 60 },
+				{ des: '白无常语气平和，说出来的话有着让人平静下来的魔力。', delay: 60 },
+				{ des: '黑无常一边说着，一边拿笔在一本小册子上写着。', delay: 60 },
+				{ des: '白无常说完，轻轻推了你一下，你就走进了这条黄泉路。', delay: 60 },
+				{ des: '当你再一回头，不要说黑白无常，就连鬼门关都消失了。', delay: 60 },
 			],
 			[
-				'刚出这鬼门关，踏上黄泉路，眼前出现了两个鬼卒。',
-				'一个鬼卒牛首人身，长相憨厚，手持一条黑色锁链，专门羁押恶鬼',
-				'一个鬼卒马面人身，一头白发，身材较矮，手持一柄斩马刀，喜欢咧嘴傻笑',
-				'你点了点头走上了自己应该走的道路，这个时候黄泉路的全貌才显现出来。',
-				'万鬼咆哮的黄泉路，一条不见尽头的漆黑通道。',
-				'犹如浓墨晕染，唯一的亮色便是道旁盛开的彼岸花。',
-				'此花猩红如血，在黄泉路中显得妖艳无比。',
-				'你情不自禁的采了几朵，就在这时你忽然想起之前牛头的叮嘱。',
-				'将采好的花收起来，抵住诱惑向着幽冥殿前进'
+				{ des: '刚出这鬼门关，踏上黄泉路，眼前出现了两个鬼卒。' },
+				{ des: '一个鬼卒牛首人身，长相憨厚，手持一条黑色锁链，专门羁押恶鬼' },
+				{ des: '一个鬼卒马面人身，一头白发，身材较矮，手持一柄斩马刀，喜欢咧嘴傻笑' },
+				{ des: '你点了点头走上了自己应该走的道路，这个时候黄泉路的全貌才显现出来。' },
+				{ des: '万鬼咆哮的黄泉路，一条不见尽头的漆黑通道。' },
+				{ des: '犹如浓墨晕染，唯一的亮色便是道旁盛开的彼岸花。' },
+				{ des: '此花猩红如血，在黄泉路中显得妖艳无比。' },
+				{ des: '你情不自禁的采了几朵，就在这时你忽然想起之前牛头的叮嘱。' },
+				{ des: '将采好的花收起来，抵住诱惑向着幽冥殿前进' },
 			],
 			[
-				'不知走了多久，眼前忽然出现了一座巍峨的宫殿.还未等他反应过来，一人来到他面前。',
-				'雄伟庄严的鬼都王殿，远远看去，通体青黑，表面有光华流转不定。',
-				'散发着强大而又恐怖的气息，沿着石阶拾级而上。',
-				'便可看到六根高可参天的石柱矗立殿前，殿内鬼影密布，雾气森森，依稀可见几尊庞大如魔神般的身影。',
-				'眼前出现一男子身着冥府官服，手持一枚阴令。',
+				{ des: '不知走了多久，眼前忽然出现了一座巍峨的宫殿.还未等他反应过来，一人来到他面前。' },
+				{ des: '雄伟庄严的鬼都王殿，远远看去，通体青黑，表面有光华流转不定。' },
+				{ des: '散发着强大而又恐怖的气息，沿着石阶拾级而上。' },
+				{ des: '便可看到六根高可参天的石柱矗立殿前，殿内鬼影密布，雾气森森，依稀可见几尊庞大如魔神般的身影。' },
+				{ des: '眼前出现一男子身着冥府官服，手持一枚阴令。' },
 			],
 			[
-				'忘川河上唯一一座桥，桥面略低于水面。',
-				'边是由骨头搭建的扶栏，在幽碧如渊的忘川河水映衬下。',
-				'奈何桥显得尤其弱小可怜，仿佛随时桥面就会坍塌。',
-				'来到奈何桥边，孟婆单手拿着碗静静的等待着。',
-				'跟着孟婆来到一口锅前，锅中汤发出咕嘟咕嘟的声音，你好奇的往锅里一看。',
-				'却看到锅中竟映出自己生前的所有事情，从出生到死去。',
-
+				{ des: '忘川河上唯一一座桥，桥面略低于水面。' },
+				{ des: '边是由骨头搭建的扶栏，在幽碧如渊的忘川河水映衬下。' },
+				{ des: '奈何桥显得尤其弱小可怜，仿佛随时桥面就会坍塌。' },
+				{ des: '来到奈何桥边，孟婆单手拿着碗静静的等待着。' },
+				{ des: '跟着孟婆来到一口锅前，锅中汤发出咕嘟咕嘟的声音，你好奇的往锅里一看。' },
+				{ des: '却看到锅中竟映出自己生前的所有事情，从出生到死去。' },
 			],
 			[
-				'一座形似远古祭坛的石台，石台连通六道石门，',
-				'分别对应不同的轮回通道，正中央坐着一尊神色悲悯的大佛。',
-				'往前走了几步才看到眼前是一个宽额大耳，满眼慈悲，身上袈裟光华流转不定。',
-				'地藏王菩萨周身缠满恶鬼，无尽的戾气让其看起来似魔似佛',
-				'你被地藏王菩萨掌心的一颗金色的光球所吸引，呆呆的看着它。',
-				'还未等你说话，只见地藏王菩萨一挥手，眼前泛起耀眼的白光。',
-				'而你只感觉天旋地转，直接晕了过去。',
+				{ des: '一座形似远古祭坛的石台，石台连通六道石门，' },
+				{ des: '分别对应不同的轮回通道，正中央坐着一尊神色悲悯的大佛。' },
+				{ des: '往前走了几步才看到眼前是一个宽额大耳，满眼慈悲，身上袈裟光华流转不定。' },
+				{ des: '地藏王菩萨周身缠满恶鬼，无尽的戾气让其看起来似魔似佛' },
+				{ des: '你被地藏王菩萨掌心的一颗金色的光球所吸引，呆呆的看着它。' },
+				{ des: '还未等你说话，只见地藏王菩萨一挥手，眼前泛起耀眼的白光。' },
+				{ des: '而你只感觉天旋地转，直接晕了过去。' },
 			],
 			null
 		]
 		// 剧情对白
-		public talkConfigList = [null,
+		public talkConfigList = [
+			null,
 			// 鬼门关
 			[
 				{ 1: '这是哪里？？？你好，有人吗？ 有人吗？', 'delay': 30 },
@@ -195,8 +199,8 @@ module view.common {
 				{ 1: '谢谢菩萨，我已经选好了。（把命盘递给了菩萨）' },
 				{ 1009: '（菩萨偷偷瞄了一眼你的命数盘，一脸的笑容）好好好，果然是有趣之人！你且去吧，跳入轮回之海开始你的另一段故事！！！', 'showTips': 'box_boss', 'showTipsMode': 1, 'stop': true },
 			],
-
-			null];
+			null
+		];
 
 		/**
 		 * 切换场景
@@ -206,16 +210,9 @@ module view.common {
 			this.btn_mapUp.disabled = true;
 			this.box_boss.disabled = true;
 			this.curMap = index;
-			// 更新小地图自己的标识
-			let _btn_fengDu = this.ui_fengDu['btn_900' + index];
-			this.ui_fengDu.img_selfOn.pos(_btn_fengDu.x, _btn_fengDu.y);
-			for (let i = 1; i < 6; i++) {
-				this['btn_' + i].gray = (i != index);
-			}
 			// 场景描写
+			this.img_sceneTalk.alpha = 0;
 			this.addSceneTalk();
-			// 剧情对白
-			this.parseTalkList(this.curMap);
 			// 背景图
 			this.img_sceneBg.skin = 'image/common/scene/zdmap_icon_' + this.sceneBgList[index] + '.png';
 			// 清地图
@@ -426,11 +423,7 @@ module view.common {
 				})
 				lcp.send(pkt);
 			});
-			// 地图展开
-			this.btn_showMap.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_showMap.selected = !this.btn_showMap.selected;
-				this.showBigMap(this.btn_showMap.selected);
-			});
+
 			// 性格资质确定
 			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
 				this.showDialog(false);
@@ -649,27 +642,36 @@ module view.common {
 		 * 添加场景对话
 		 */
 		public addSceneTalk(): void {
-			Laya.timer.frameOnce(60, this, () => {
-				let sceneInfo = this.sceneConfigList[this.curMap];
-				if (sceneInfo && sceneInfo.length > 0) {
-					let box = new Laya.Box();
-					box.left = box.right = 0;
-					let div = new Laya.HTMLDivElement();
-					div.style.width = 640;
-					div.style.leading = 5;
-					div.style.fontSize = 20;
-					box.height = 40;
-					div.innerHTML = sceneInfo.shift();
-					box.addChild(div);
-					this.vbox_scene.addChild(box);
-					Laya.timer.frameOnce(1, this, () => {
-						this.panel_scene.scrollTo(0, this.vbox_scene.height);
+			let sceneInfo = this.sceneConfigList[this.curMap];
+			if (sceneInfo && sceneInfo.length > 0) {
+				let info = sceneInfo.shift();
+				if (info['delay']) {
+					Laya.timer.frameOnce(info['delay'], this, () => {
+						this.showSceneTalk(info.des);
 					})
-					this.addSceneTalk();
 				}
-			})
-
+				else {
+					this.showSceneTalk(info.des);
+				}
+			}
+			else {
+				this.img_sceneTalk.alpha = 0;
+				// 剧情对白
+				this.parseTalkList(this.curMap);
+			}
 		}
+
+		/**
+		 * 显示场景对话
+		 * @param des 
+		 */
+		public showSceneTalk(des): void {
+			this.lbl_sceneTalk.text = des;
+			Laya.Tween.to(this.img_sceneTalk, { alpha: 1 }, 300, null, Laya.Handler.create(this, () => {
+				this.addSceneTalk();
+			}))
+		}
+
 
 		/**
 		 * 显示对话框
@@ -787,22 +789,6 @@ module view.common {
 			}
 
 
-		}
-
-		/**
-		 * 展示地图
-		 * @param isShow 
-		 */
-		public showBigMap(isShow): void {
-			if (isShow) {
-				this.box_bigMap.visible = true;
-				Laya.Tween.to(this.box_bigMap, { scaleX: 1, scaleY: 1 }, 300)
-			}
-			else {
-				Laya.Tween.to(this.box_bigMap, { scaleX: 0, scaleY: 0 }, 300, null, Laya.Handler.create(this, () => {
-					this.box_bigMap.visible = false;
-				}))
-			}
 		}
 	}
 }

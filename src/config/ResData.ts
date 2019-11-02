@@ -20,7 +20,7 @@ module ResData {
         // 服务器公告界面
         public static ServerNotice = null;
         // 创建角色界面
-        public static CreateAvatar = null;
+        public static CreateAvatar = [{ url: "res/atlas/image/createplayer.atlas", type: Laya.Loader.ATLAS },];;
         // 选择角色界面
         public static ChooseAvatar = null;
         // 通用素材
@@ -152,7 +152,7 @@ module ResData {
         // 天鉴界面
         public static TianJian = null;
         //活动界面
-        public static Activity = null;
+        public static Activity = [{ url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }];
 
     };
     /**

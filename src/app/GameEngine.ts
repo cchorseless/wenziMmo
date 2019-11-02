@@ -78,7 +78,8 @@ class GameEngine extends SingletonClass {
     public warriorAbility: GameObject.Ability = new GameObject.Ability();//战士能力信息
     public masterAbility: GameObject.Ability = new GameObject.Ability();//法师能力信息
     public taoistAbility: GameObject.Ability = new GameObject.Ability();//道士能力信息
-    /************************商城相关信息************ */
+    /************************抽奖相关信息************ */
+    public luckDrawType: boolean = false//幸运抽奖自动抽奖状态
     /************************对白信息************ */
     public talkInfo = {};// 所有对白信息
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
@@ -103,8 +104,6 @@ class GameEngine extends SingletonClass {
     public luyinTabID: number = 1;
     //单个装备panel信息
     public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
-
-
 
 
     public constructor() {

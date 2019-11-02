@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
-module view.luckDraw{
-	export class LuckDraw_IntegralDialog extends ui.luckDraw.LuckDraw_IntegralDialogUI{
-		constructor(){
+module view.luckDraw {
+	export class LuckDraw_IntegralDialog extends ui.luckDraw.LuckDraw_IntegralDialogUI {
+		constructor() {
 			super();
 		}
-				public score;
+		public score;
 		public setData(score): LuckDraw_IntegralDialog {
 			this.score = score;
 			this.panel_integral.vScrollBarSkin = '';
@@ -51,12 +51,20 @@ module view.luckDraw{
 		public init_Integral(i): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.LD_BZ_SendPlaneMsg, [i], null, this, (jsonData) => {
-				let jifenInfo = jsonData.wupinnum.split('+')
-				let keys = Object.keys(jifenInfo)
-				this.vbox_integral.removeChildren();
-				for (let key of keys) {
-					this.vbox_integral.addChild(new view.luckDraw.LuckDraw_IntegralSingleItem().setData(jifenInfo[key], this.score))
+				if (jsonData.wupinnum == '') {
+					this.vbox_integral.removeChildren();
+					this.box_none.visible = true;
 				}
+				else {
+					let jifenInfo = jsonData.wupinnum.split('+')
+					let keys = Object.keys(jifenInfo)
+					this.vbox_integral.removeChildren();
+					for (let key of keys) {
+						this.vbox_integral.addChild(new view.luckDraw.LuckDraw_IntegralSingleItem().setData(jifenInfo[key], this.score,i))
+					}
+					this.box_none.visible = false;
+				}
+
 			})
 			lcp.send(pkt);
 		}
@@ -66,7 +74,7 @@ module view.luckDraw{
 				this.vbox_record.removeChildren();
 				for (let i = 0; singleInfo[i]; i++) {
 					if (i % 2 == 0) {
-						let j=i+1
+						let j = i + 1
 						this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_jifenRecord(singleInfo[i], singleInfo[j]))
 					}
 				}

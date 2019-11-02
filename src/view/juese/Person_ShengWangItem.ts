@@ -9,10 +9,10 @@ module view.juese {
 		//角色职业
 		private job = GameApp.MainPlayer.job;
 		public setData(): void {
-			this.panel_shengWang.hScrollBarSkin = '';
-			this.hbox_shengWang['sortItem'] = (items) => { };
 			if (this.hasInit) { return };
 			this.hasInit = true;
+			this.panel_shengWang.hScrollBarSkin = '';
+			this.hbox_shengWang['sortItem'] = (items) => { };
 			this.addEvent();
 			this.activation();
 		}

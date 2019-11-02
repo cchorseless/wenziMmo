@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":15,
-    "selecteID":174,
+    "selectedBox":1,
+    "selecteID":177,
     "props":{"width":640,"sceneColor":"#925a59","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/juQingMode/img_zhinan_top.png"},
+            "props":{"top":0,"skin":"image/juQingMode/img_zhinan_top.png","right":0,"left":0,"height":129},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -24,19 +24,6 @@
             "hasChild":true,
             "compId":176,
             "child":[
-                {
-                    "type":"Button",
-                    "props":{"y":49,"x":55,"var":"btn_back","stateNum":"2","skin":"image/common/btn_fanhui_02_finish.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":176,
-                    "label":"Button(btn_back)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":163,
-                    "child":[
-                        ]
-                },
                 {
                     "type":"Image",
                     "props":{"y":29,"x":178,"skin":"image/common/bottom_title.png"},
@@ -67,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1019,"x":0,"width":640,"skin":"image/juQingMode/img_zhinan_deep.png","height":115},
+            "props":{"skin":"image/juQingMode/img_zhinan_deep.png","right":0,"left":0,"height":115,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -82,7 +69,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":125,"x":0,"width":640,"var":"panel_zhinan","height":896},
+            "props":{"var":"panel_zhinan","top":125,"right":0,"left":0,"bottom":113},
             "nodeParent":1,
             "label":"Panel(panel_zhinan)",
             "isOpen":true,
@@ -118,6 +105,20 @@
                         }],
                     "$HIDDEN":false
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"width":101,"var":"btn_back","stateNum":"2","skin":"image/common/btn_fanhui_02_finish.png","left":0,"height":102,"bottom":0,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_back)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":163,
+            "child":[
+                ]
         }],
     "animations":[
         {
