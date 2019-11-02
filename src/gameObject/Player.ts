@@ -50,7 +50,8 @@ module GameObject {
         public charpterName: string;// 章节名字
         public pianZhangName: string;// 篇章名字
         /******************技能******************** */
-        public skillInfo = {};
+        public skillInfo = {};// 所有技能信息
+        public skillShotButton = {};// 所有技能快捷键信息
         /******************UI****************** */
         public ui_item;
         /******************生活属性************ */
@@ -67,9 +68,6 @@ module GameObject {
         public playerEquipIntensify: ProtoCmd.itf_JS_equipIntensifyMessage = null;
         //玩家强化信息
         public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
-
-
-
 
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子

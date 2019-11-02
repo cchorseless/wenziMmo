@@ -169,7 +169,6 @@ module GameObject {
         public nowFame = 0;
         public maxTotalFame = 0;
 
-
     }
 
     export class Creature {
