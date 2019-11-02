@@ -32,7 +32,7 @@ module view.menu {
 
 		}
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData: ProtoCmd.itf_Menu_signInfo) => {
+			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData) => {
 				let date = jsonData.history.split('+')
 				//已签到天数
 				if (jsonData.history == '') {

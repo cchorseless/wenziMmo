@@ -177,7 +177,7 @@ module view.wuXue {
 		 */
 		public init_liqiEvent(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.WX_warSoulPanel, null, null, this, (jsonData:ProtoCmd.itf_WX_LiQiInfo) => {
+			pkt.setString(ProtoCmd.WX_warSoulPanel, null, null, this, (jsonData) => {
 				console.log('=====>戾气戾气', jsonData)
 				//第一个魂力球的经验进度
 				this.lbl_liqiprogress.text=jsonData.wstab[1].curexp+'/'+jsonData.wstab[1].maxexp;
