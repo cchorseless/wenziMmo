@@ -10,9 +10,9 @@ module view.wuXue {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			// this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.close();
+			// })
 
 		}
 	}

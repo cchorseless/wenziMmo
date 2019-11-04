@@ -6,6 +6,7 @@ module view.menu {
 			this.setData();
 		}
 		public WupinArray;
+		public idx;
 		public setData(): void {
 			this.list_sign.vScrollBarSkin = '';
 			this.tab_sign.selectHandler = Laya.Handler.create(this, (index) => {
@@ -20,10 +21,6 @@ module view.menu {
 			this.btn_qiandaoClose.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
-			//补签
-			this.btn_buqian.on(Laya.UIEvent.CLICK, this, () => {
-				this.init_buqian();
-			})
 			//领取签到累计奖励
 			this.btn_get.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_get();
@@ -33,6 +30,9 @@ module view.menu {
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData) => {
+				console.log('=====>签到签到', jsonData)
+				//可补签次数
+				this.lbl_buqian.text = '' + jsonData.buQianNum;
 				let date = jsonData.history.split('+')
 				//已签到天数
 				if (jsonData.history == '') {
@@ -77,19 +77,12 @@ module view.menu {
 			lcp.send(pkt);
 		}
 		/**
-		 * 补签
-		 */
-		public init_buqian(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Menu_qiandao_buqian);
-			lcp.send(pkt);
-		}
-		/**
 		 * 领取
 		 */
 		public init_get(): void {
+			let type = this.tab_sign.selectedIndex;
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Menu_qiandaolingqu);
+			pkt.setString(ProtoCmd.Menu_qiandaolingqu, [this.idx]);
 			lcp.send(pkt);
 		}
 		public init_jiangli(): void {
@@ -126,11 +119,24 @@ module view.menu {
 					this['hbox_sign' + i].addChild(ui_item)
 				}
 				let btntype = this.tab_sign.selectedIndex;
-				if (array[btntype].status == 0) {
-					this.btn_get.gray = true;
-					this.btn_get.mouseEnabled = false;
+				this.idx = array[btntype].idx;
+				switch (array[btntype].status) {
+					case 0:
+						this.btn_get.gray = true;
+						this.btn_get.mouseEnabled = false;
+						this.btn_get.label = '领取';
+						break;
+					case 1:
+						this.btn_get.gray = false;
+						this.btn_get.mouseEnabled = true;
+						this.btn_get.label = '领取';
+						break;
+					case 2:
+						this.btn_get.gray = true;
+						this.btn_get.mouseEnabled = false;
+						this.btn_get.label = '已领取';
+						break;
 				}
-				console.log('=====>签到签到', array[i])
 			}
 			this.tab_sign.labels = '' + tabLable;
 		}

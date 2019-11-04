@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":14,
+    "selecteID":15,
     "props":{"y":0,"x":0,"width":501,"sceneColor":"#000000","height":723},
     "nodeParent":-1,
     "label":"View",
@@ -84,90 +84,6 @@
                 },
                 {
                     "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":25,"var":"ui_reward0"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward0)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":100,"var":"ui_reward1"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":175,"var":"ui_reward2"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":250,"var":"ui_reward3"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":325,"var":"ui_reward4"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward4)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"compart/RechargeItem.ui",
-                    "props":{"y":589,"x":400,"var":"ui_reward5"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_reward5)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":577,"x":70,"width":150,"var":"img_progressBar","skin":"image/common/Progressbar_gang_top.png","height":10},
                     "nodeParent":2,
@@ -195,7 +111,7 @@
                 {
                     "x":30,
                     "type":"List",
-                    "props":{"y":17,"x":14,"width":484,"var":"list_recharge","vScrollBarSkin":"image/common/Progressbar_gang_top.png","spaceY":15,"spaceX":6,"repeatY":3,"repeatX":3,"height":500},
+                    "props":{"y":17,"x":7,"width":484,"var":"list_recharge","spaceY":15,"spaceX":6,"repeatY":3,"repeatX":3,"height":500},
                     "nodeParent":2,
                     "label":"List(list_recharge)",
                     "isOpen":true,
@@ -206,6 +122,19 @@
                     "child":[
                         ],
                     "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":590,"x":30,"width":445,"var":"panel_item","height":75},
+                    "nodeParent":2,
+                    "label":"Panel(panel_item)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],

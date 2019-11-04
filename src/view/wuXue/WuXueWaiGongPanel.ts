@@ -32,9 +32,9 @@ module view.wuXue {
 				PanelManage.openWuXueHeDaoPanel();
 			});
 			//技能更换
-			this.btn_waigongChange.on(Laya.UIEvent.CLICK, this, () => {
-				new view.wuXue.WuXueWaigongDialog().popup(true);
-			})
+			// this.btn_waigongChange.on(Laya.UIEvent.CLICK, this, () => {
+			// 	new view.wuXue.WuXueWaigongDialog().popup(true);
+			// })
 		}
 	}
 }

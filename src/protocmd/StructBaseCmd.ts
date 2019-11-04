@@ -2588,10 +2588,10 @@ module ProtoCmd {
         public get dwMailID(): number {
             return this.getValue("dwMailID");
         }
-         public get boSystem(): number {
+        public get boSystem(): number {
             return this.getValue("boSystem");
         }
-         public get szSenderName(): number {
+        public get szSenderName(): number {
             return this.getValue("szSenderName");
         }
         public read(data: Laya.Byte): number {
@@ -3450,6 +3450,13 @@ module ProtoCmd {
             }
         }
         /**
+         * 技能配置表ID
+         */
+        public get configID(): string {
+            return '' + (this.skillid * 100 + this.level)
+        }
+
+        /**
          * 技能ID
          */
         public get skillid(): number {
@@ -3499,6 +3506,62 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 单条快捷键结构体
+     */
+
+    export class stShortCuts extends PacketBase {
+        public static SHORTCUTS_ITEM: number = 0; ////物品
+        public static SHORTCUTS_MAGIC: number = 1; ////魔法
+        public constructor(data: Laya.Byte = null) {
+            super()
+            this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品I64ID或者技能表ID
+            this.addProperty('emShortCuts', PacketBase.TYPE_INT);//快捷键类型
+            this.addProperty('btShortCuts', PacketBase.TYPE_BYTE);//快捷键值
+            this.addProperty('btRow', PacketBase.TYPE_BYTE);//快捷键行	-1为取消
+            this.addProperty('btCol', PacketBase.TYPE_BYTE);//快捷键列	-1为取消
+            this.addProperty('btPlan', PacketBase.TYPE_BYTE);//方案
+            this.read(data);
+        }
+
+        public set i64Id(bytes: Laya.Byte) {
+            this.setValue('i64Id', bytes);
+        }
+        public get i64Id(): Laya.Byte {
+            return this.getValue('i64Id');
+        }
+        public set emShortCuts(value: number) {
+            this.setValue('emShortCuts', value);
+        }
+        public get emShortCuts(): number {
+            return this.getValue('emShortCuts');
+        }
+        public set btShortCuts(value: number) {
+            this.setValue('btShortCuts', value);
+        }
+        public get btShortCuts(): number {
+            return this.getValue('btShortCuts');
+        }
+
+        public set btRow(value: number) {
+            this.setValue('btRow', value);
+        }
+        public get btRow(): number {
+            return this.getValue('btRow');
+        }
+        public set btCol(value: number) {
+            this.setValue('btCol', value);
+        }
+        public get btCol(): number {
+            return this.getValue('btCol');
+        }
+        public set btPlan(value: number) {
+            this.setValue('btPlan', value);
+        }
+        public get btPlan(): number {
+            return this.getValue('btPlan');
+        }
+    }
     // *****************************服务器 type key value 通用存档值*******************************************
     export class TypeKeyValue extends PacketBase {
         constructor(data: Laya.Byte = null) {

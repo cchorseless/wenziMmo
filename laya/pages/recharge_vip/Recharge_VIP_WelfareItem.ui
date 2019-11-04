@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":10,
+    "selecteID":6,
     "props":{"width":500,"sceneColor":"#000000","height":80},
     "nodeParent":-1,
     "label":"View",
@@ -28,26 +28,13 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":20,"x":6,"width":226,"var":"lab_VIPName","valign":"middle","text":"VIP离线经验额外获得：","height":40,"fontSize":26,"font":"FZXK","color":"#000000","align":"center"},
+            "props":{"y":20,"x":8,"width":484,"var":"lab_VIPName","valign":"middle","text":"BOSS之家增加13%的概率掉落","height":40,"fontSize":26,"font":"FZXK","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_VIPName)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":20,"x":270,"width":226,"var":"lab_VIPEffect","valign":"middle","text":"概率获得双倍经验","height":40,"fontSize":26,"font":"FZXK","color":"#619e54","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lab_VIPEffect)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
             "child":[
                 ]
         }],

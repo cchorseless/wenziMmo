@@ -177,6 +177,12 @@ module ProtoCmd {
     /********************************武学界面***************** */
     //武学戾气面板
     export const WX_warSoulPanel = 'warSoulPanel';
+    //武学戾气兑换魂力
+    export const WX_exchangeWarSoulExp = 'exchangeWarSoulExp';
+    //武学戾气炼魂
+    export const WX_upgradeWarSoul = 'upgradeWarSoul';
+    //武学戾气升级面板
+    export const WX_updateWarSoulPanel = 'updateWarSoulPanel';
 
     /********************************弟子信息界面***************** */
     //弟子面板
@@ -418,6 +424,13 @@ module ProtoCmd {
     export const ShenMi_Buy = "ShenMi_Buy"          //神秘商店购买
     export const GetOneDayRechargeAward = "GetOneDayRechargeAward"  //单日充值领取
 
+    export const FuDaiChouJiang = "FuDaiChouJiang";   //福袋抽奖开启按钮
+    export const SendExItemPlane = "SendExItemPlane";   //福袋抽奖额外奖励面板
+    export const FuDaiGet = "FuDaiGet";   //福袋抽奖额外奖励    领取
+
+
+
+
     export const cashPanel = "cashPanel";     //充值panel;
     export const test_sendrmb = "test_sendrmb";     //充值Button;
 
@@ -428,6 +441,13 @@ module ProtoCmd {
     export const GetMeiRiTeHuiAward = "GetMeiRiTeHuiAward"      //每日特惠领取
 
     export const VIP_OpenPlane = "VIP_OpenPlane";    //VIP特权
+    export const VIP_LingQu = "VIP_LingQu";    //VIP特权  领取奖励
+    export const VIP_ChangePlane = "VIP_ChangePlane";    //VIP特权  切页
+
+    export const ZGTQ_Open = "ZGTQ_Open";    //月卡界面
+    export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
+    export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
+
 
 
 
@@ -791,6 +811,18 @@ module ProtoCmd {
         gold: number//所需金币
         oneid: number//所需道具ID1
         twoid: number//所需道具ID2
+    }
+    /**
+     * 武学戾气升级面板
+     */
+    export interface itf_WX_LiQiUpPanelInfo {
+        addpro: number//属性增加数值
+        curexp: number//当前经验
+        cursoul: number//当前魂力
+        lvl: number//魂力等级
+        maxexp: number//最大经验
+        needexp: number//所需消耗经验
+        pos: number//魂力穿戴位置
     }
     /***********************************副本接口**************************** */
     /**
