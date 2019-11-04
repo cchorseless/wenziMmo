@@ -934,8 +934,8 @@ module EnumData {
     }
 
 
-    export enum ActiveityType{
-        
+    export enum ActiveityType {
+
 
 
 
@@ -1006,6 +1006,23 @@ module EnumData {
         FAR_ATTACK,			//远程
         SELF_ATTACK,		//自身
     };
+
+    /**
+     * 技能槽位枚举
+     */
+    export enum emSkillShotButtonType {
+        WaiGong_1 = 1,// 外功
+        WaiGong_2 = 2,
+        WaiGong_3 = 3,
+        WaiGong_4 = 4,
+        ZhaoJia_1 = 5,// 招架
+        ShenFa_1 = 6,// 身法
+        NeiGong_1 = 7,// 内功
+        NeiGong_2 = 8,
+        NeiGong_3 = 9,
+        NeiGong_4 = 10,
+    }
+
 
     //图鉴类型枚举
     export enum emSaveKeyValueType {

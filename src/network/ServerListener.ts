@@ -65,6 +65,11 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarMagicColdRet), this, this.updateSkillCold);
         // 推送技能更改状态
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSkillAddDecoderRet), this, this.updateSkillState);
+        // 拉取设置技能快捷键信息 0295
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSetSkillShortCutsEnDeCoder), this, this.addSkillShortButton);
+        // 删除技能快捷键信息 0296
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarDelSkillShortCutsEnDeCoder), this, this.delSkillShortButton);
+
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
@@ -616,6 +621,43 @@ class ServerListener extends SingletonClass {
         cbpkt.clear();
         cbpkt = null;
     }
+
+    /**
+     * 添加技能快捷键信息
+     * @param data 
+     */
+    public addSkillShortButton(data): void {
+        let cbpkt = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder(data);
+        if (cbpkt.getValue('ErrorCode')) {
+            // console.log('===========',cbpkt);
+            let shot = new ProtoCmd.stShortCuts();
+            shot.clone(cbpkt.shortcuts.data);
+            // 存储技能快捷键
+            GameApp.MainPlayer.skillShotButton[shot.btRow] = shot;
+        }
+        else {
+            TipsManage.showTips('技能快捷键失败')
+        }
+        cbpkt.clear();
+    }
+
+    /**
+     * 删除技能快捷键
+     * @param data 
+     */
+    public delSkillShortButton(data): void {
+        let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
+        if (cbpkt.getValue('ErrorCode')) {
+            delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
+        }
+        else {
+            TipsManage.showTips('删除失败')
+        }
+        cbpkt.clear();
+    }
+
+
+
     /*************************************同步玩家属性************************************ */
 
     //0x0234

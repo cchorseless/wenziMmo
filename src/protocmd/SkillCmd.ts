@@ -58,4 +58,43 @@ module ProtoCmd {
             this.skilllvl = null;
         }
     }
+
+    // 0x029a
+    // 添加技能快捷键
+    export class AvatarSetSkillShortCutsEnDeCoder extends Packet {
+        public cbPacket = AvatarSetSkillShortCutsEnDeCoder;
+        public static msgID: number = 0x029a;
+        public shortcuts: stShortCuts = new stShortCuts(null);
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('ErrorCode', PacketBase.TYPE_BYTE); //0 成功
+            this.addProperty('shortcuts', PacketBase.TYPE_BYTES, this.shortcuts.size(), this.shortcuts);
+            this.addProperty('oldrow', PacketBase.TYPE_BYTE);// 技能快捷键坐标X 最大255
+            this.addProperty('oldcol', PacketBase.TYPE_BYTE); // 技能快捷键坐标Y  最大255
+            this.read(data);
+            this.cmd = 0x029a;
+        }
+        public clear(): void {
+            super.clear();
+            this.shortcuts = null;
+        }
+    }
+
+    // 0x029b
+    // 删除技能快捷键
+    export class AvatarDelSkillShortCutsEnDeCoder extends Packet {
+        public static msgID: number = 0x029b;
+        public shortcuts: stShortCuts = new stShortCuts(null);
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('ErrorCode', PacketBase.TYPE_BYTE);
+            this.addProperty('shortcuts', PacketBase.TYPE_BYTES, this.shortcuts.size(), this.shortcuts);
+            this.read(data);
+            this.cmd = 0x029b;
+        }
+        public clear(): void {
+            super.clear();
+            this.shortcuts = null;
+        }
+    }
 }
