@@ -62,9 +62,9 @@ module view.activity {
 						break;
 					/**
 					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换
-					  * 5 限时抢购  14 兑换豪礼   36每周基金 
+					  * 5 限时抢购  14 兑换豪礼   36每周基金  17每日领取  13连续充值  1每日必买
 					  */
-					case 5: case 12: case 13: case 14: case 16: case 18: case 19: case 32: case 36:
+					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18: case 19: case 32: case 36:
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Panel_Item()
@@ -119,6 +119,16 @@ module view.activity {
 						let o = new Active_LuckBagDraw()
 						box.addChild(o);
 						break;
+					case 2://限时礼包
+						GameApp.LListener.on(ProtoCmd.Active100, this, (data) => {
+							box.removeChildren()
+							let o = new Active_Panel_Item()
+							o.setData(data,100)
+							box.addChild(o);
+						})
+						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active100, null)
+						lcp.send(pkt100);
+						break;
 				}
 			}
 			this.viewS_main.selectedIndex = item.index;
@@ -129,6 +139,7 @@ module view.activity {
 			})
 		}
 		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.Active1, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active5, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active7, this)
@@ -137,6 +148,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active13, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active17, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active18, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active19, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active24, this)
@@ -145,6 +157,9 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active34, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
+
+
+			GameApp.LListener.offCaller(ProtoCmd.Active100, this)
 
 			// GameApp.LListener.offCaller(ProtoCmd.SendExItemPlane, this)    //额外奖励面板
 

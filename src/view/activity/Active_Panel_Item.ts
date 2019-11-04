@@ -19,7 +19,7 @@ module view.activity {
 						this.panel_ui.addChild(o)
 					}
 					break;
-				case 16: case 18: case 19: case 32: case 14: case 13: case 36:
+				case 16: case 18: case 19: case 32: case 14: case 13: case 36: case 17: case 1: case 100:
 					for (let i in infoData) {
 						let o = new Active_listInfoItem();
 						o.setData(infoData[i], i, id);
@@ -49,17 +49,20 @@ module view.activity {
 				leftTime = data.lefttime;
 				yuanbao = data.rmb
 
-			} else if (id == 18 || id == 19 || id == 32 || id == 5 || id == 14 || id == 13 || id == 36) {
+			} else if (id == 18 || id == 19 || id == 32 || id == 5 || id == 14 || id == 13 || id == 36 || id == 17 || id == 1|| id == 100) {
 				if (data.lefttime >= 0) {
 					leftTime = data.lefttime;
-				} if (data.achieve >= 0) {
+				} if (data.achieve >= 0 && data.achieve) {
 					yuanbao = data.achieve;
 				}
 			}
 
 			if (data.introduce) {
 				this.lab_rules.text = data.introduce;
-			} else {
+			}else if(data.context){
+				this.lab_rules.text = data.context;
+			} 
+			else {
 				this.lab_rules.text = "参加活动赢得奖励"
 			}
 
@@ -77,6 +80,11 @@ module view.activity {
 			}
 			else {
 				this.html_cost.innerHTML = "";
+			}
+			if (id == 17) {
+				this.html_cost.style.align = "center";
+				this.html_cost.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>登录天数：</span>"
+					+ "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.cnt + "</span>";
 			}
 			if (id == 36) {
 				this.html_time.style.align = "center";
