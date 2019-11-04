@@ -297,7 +297,23 @@ module ProtoCmd {
     export const Menu_qiandaolingqu = "qiandaolingqu";
     //签到
     export const Menu_QianDao_ZengJia = "QianDao_ZengJia";
-
+    //膜拜城主面板
+    export const Menu_WorShipOpen = "WorShipOpen";
+    //膜拜城主膜拜or鄙视
+    export const Menu_WorshipGetWard = "WorshipGetWard";
+    //膜拜城主刷新
+    export const Menu_RefreshWard = "RefreshWard";
+    /*********************************新服活动******************** */
+    //新服活动面板
+    export const NS_XinFuClientOpen = "XinFuClientOpen";
+    //开服竞技
+    export const NS_KaiFuJingJiOpen = "KaiFuJingJiOpen";
+    //开服竞技领取
+    export const NS_KaiFuJingJiGet = "KaiFuJingJiGet";
+    //全民boss面板
+    export const NS_QuanMingBoss = "QuanMingBoss";
+    //全民boss领取
+    export const NS_TeHuiClientOpen = "TeHuiClientOpen";
     /*********************************抽奖******************** */
     //抽奖面板
     export const LD_chouJiangPanel = "chouJiangPanel";
@@ -1005,6 +1021,18 @@ module ProtoCmd {
         LiJuanNeedYuanBao: number//礼券祈福所需元宝
         LiJuanNum: number//获得礼券总数
     }
+    export interface itf_Menu_MoBaiInfo {
+        guildid: number//膜拜行会ID
+        maxcnt: number//最大膜拜次数
+        maxmultiple: number//最大倍数
+        multab: any//倍数信息 {beishu: 倍数, exp: 当前倍数所获得的经验}
+        multiple: number//当前倍数
+        name: string//城主名称
+        needgold: number//所需金币
+        scorn: number//鄙视率
+        support: number//膜拜率
+        worshipcnt: number//当前膜拜次数
+    }
     /***********************************抽奖接口**************************** */
     export interface itf_LD_Info {
         id: number//抽奖活动ID
@@ -1053,5 +1081,25 @@ module ProtoCmd {
         status: number//本周在线时长兑换状态
         zaixianshijian: number//今日在线时长
     }
-
+    /***********************************新服活动接口**************************** */
+    export interface itf_NS_sportsInfo {
+        item: any//全服排名奖励{1：bind:绑定index:物品IDnum:物品数量,2,3}
+        join: any//下方是否达成活动奖励条件{bj:（0没达到1达到了）, lv:等级, item: 奖励物品信息}
+        leftsec: number//活动时间
+        opendays: number//天数
+        rank: any//当前排名{flag:达到条件（0达到了1没达到） 0name: 玩家姓名score:玩家等级}
+        ranktype: number//排行榜类型
+        str: string//说明
+    }
+    export interface itf_NS_AllBossInfo {
+        bj: number// 达成状态 0未达成1已达成2已领取
+        boss: any//boss相关信息
+        item: any//奖励信息
+        name: string//boss分类
+        // 1: { bj: 0, boss: {bj, bossid}, item: {num: 数量, index: 物品id, bind: 是否绑定 }，name：boss分类 }
+        // 2: { bj: 0, boss: { … }, item: { … }，name }
+        // 3: { bj: 0, boss: { … }, item: { … }，name }
+        // 4: { bj: 0, boss: { … }, item: { … } ，name}
+        // leftsec: number 活动时间
+    }
 }

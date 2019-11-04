@@ -137,6 +137,8 @@ module ResData {
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
         ];
+        //新服活动
+        public static NewServerActive = null;
         //抽奖界面
         public static LuckDraw = null;
         //商城界面

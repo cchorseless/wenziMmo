@@ -96,6 +96,7 @@ module PanelManage {
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let NewServerActive: view.newServer.NewServer_MainPanel;//新服活动界面
     export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let ShopMall: view.shopMall.ShopMall_MainPanel;//商城界面
     export let FuLi: view.fuli.FuLi_MainPanel;//商城界面
@@ -106,8 +107,6 @@ module PanelManage {
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
     export let Activity: view.activity.ActivityPanel;//活动界面
-
-
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
     export let ZhiNan_MenPaiPanel: view.zhiNan.ZhiNan_menpaiPanel;//游戏门派界面
     export let ZhiNan_WuXuePanel: view.zhiNan.ZhiNan_wuxuePanel;//游戏武学界面
@@ -607,6 +606,22 @@ module PanelManage {
         })
     }
     /**
+* 新服活动
+*/
+    export function openNewServer_MainPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NewServerActive) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.NewServerActive);
+        ResManage.loadResource(ResData.PanelRes.NewServerActive, () => {
+            PanelManage.NewServerActive = new view.newServer.NewServer_MainPanel();
+            PanelManage.NewServerActive['LCP_skin'] = ResData.PanelRes.NewServerActive;
+            PanelManage.NewServerActive.setData();
+            PanelManage.NewServerActive.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.NewServerActive, 100, 0, 2);
+        })
+    }
+    /**
    * 抽奖界面
    */
     export function openLuckDrawPanel(): void {
@@ -622,6 +637,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
+
     /**
 * 商城界面
 */
