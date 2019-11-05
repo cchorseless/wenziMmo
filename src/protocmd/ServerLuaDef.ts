@@ -489,6 +489,11 @@ module ProtoCmd {
     export const TeHuiBuy = "TeHuiBuy";       //特惠礼包   购买
 
 
+    export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
+    export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
+    
+
+
 
 
 }

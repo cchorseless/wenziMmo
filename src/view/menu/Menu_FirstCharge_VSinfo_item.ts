@@ -1,14 +1,15 @@
 /**Created by the LayaAirIDE*/
-module view.promotion {
-	export class Promotion_Special_VSinfo_Itembox extends ui.promotion.Promotion_Special_VSinfo_ItemboxUI {
+module view.menu {
+	export class Menu_FirstCharge_VSinfo_item extends ui.menu.Menu_FirstCharge_VSinfo_itemUI {
 		constructor() {
 			super();
 		}
 		public setData(data) {
+			this.lab_content.text = data.str;
 			let o = new view.compart.DaoJuItem();
 			let itemBase = new ProtoCmd.ItemBase()
 			itemBase.dwBaseID = parseInt(data.index);
-			itemBase.dwCount =data.num;
+			itemBase.dwCount = data.num;
 			itemBase.dwBinding = data.bind;
 			o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 			this.box_item.addChild(o);

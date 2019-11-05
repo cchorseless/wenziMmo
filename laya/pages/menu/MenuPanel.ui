@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":258,
-    "selecteID":260,
+    "selectedBox":240,
+    "selecteID":243,
     "referenceLines":[
         {
             "value":595,
@@ -920,9 +920,9 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":36,"x":262,"width":74,"var":"btn_guess","stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "props":{"y":36,"x":262,"width":74,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
                                     "nodeParent":252,
-                                    "label":"Button(btn_guess)",
+                                    "label":"Button",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
@@ -946,7 +946,7 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":48,"x":0,"width":80,"text":"全民竞猜","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "props":{"y":48,"x":0,"width":80,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":258,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -1012,13 +1012,14 @@
                             "props":{"y":10,"skin":"image/menu/fram_caidan_02.png"},
                             "nodeParent":289,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":240,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-10,"x":3,"width":194,"skin":"image/common/img_duizhang.png","height":50},
                                     "nodeParent":240,
@@ -1047,10 +1048,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":36,"x":108,"width":74,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "props":{"y":73,"x":145,"width":74,"var":"btn_FirstCharge","stateNum":"2","skin":"image/common/bottom_shuxing.png","pivotY":37,"pivotX":37,"labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
                                     "nodeParent":240,
-                                    "label":"Button",
+                                    "label":"Button(btn_FirstCharge)",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
@@ -1058,6 +1060,7 @@
                                     "compId":243,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":2,"x":10,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
                                             "nodeParent":243,
@@ -1071,8 +1074,9 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":48,"x":0,"width":80,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "props":{"y":48,"x":0,"width":80,"text":"首充有礼","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":243,
                                             "label":"Label",
                                             "isDirectory":false,
@@ -1087,6 +1091,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":36,"x":262,"width":74,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
                                     "nodeParent":240,
@@ -1098,6 +1103,7 @@
                                     "compId":246,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":2,"x":10,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
                                             "nodeParent":246,
@@ -1111,6 +1117,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":48,"x":0,"width":80,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":246,
@@ -1127,6 +1134,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":36,"x":419,"width":74,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
                                     "nodeParent":240,
@@ -1138,6 +1146,7 @@
                                     "compId":249,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":2,"x":10,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
                                             "nodeParent":249,
@@ -1151,6 +1160,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":48,"x":0,"text":"每日必做","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                                             "nodeParent":249,

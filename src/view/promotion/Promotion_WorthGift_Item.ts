@@ -88,7 +88,7 @@ module view.promotion {
 					o.setData(1);
 					o.popup(true);
 				} else if (this.bj == 1) {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ChaoZhiBuy, [1])
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ChaoZhiBuy, null)
 					lcp.send(pkt);
 				}
 
