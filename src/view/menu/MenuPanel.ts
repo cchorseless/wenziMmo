@@ -68,8 +68,13 @@ module view.menu {
 			this.btn_cuxiao.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openPromotionPanel();
 			})
-			
-			
+			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {
+				let o = new view.menu.Menu_FirstChargeDialog();
+				// o.setData(0);
+				o.popup(true);
+
+			})
+
 
 			// 商城
 			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
