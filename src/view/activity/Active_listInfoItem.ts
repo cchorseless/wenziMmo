@@ -141,9 +141,58 @@ module view.activity {
 						this.panel_allItem.addChild(o)
 					}
 					break;
+				case 17:
+					this.btnState = this.data.state
+					str = this.data.name
+					this.order = data.order;
+					for (let i in data.items) {
+						let o = new view.compart.DaoJuItem();
+						let itemBase = new ProtoCmd.ItemBase()
+						itemBase.dwBaseID = parseInt(data.items[i].index);
+						itemBase.dwCount = data.items[i].num;
+						itemBase.dwBinding = data.items[i].bind;
+						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						o.x = (o.width + 24) * (parseInt(i) - 1)
+						this.panel_allItem.addChild(o)
+					}
+					break;
+				case 1:
+					this.btnState = this.data.leftcnt
+					str = this.data.name
+					this.order = data.index;
+					this.lab_lastRMB.text = "原价" + data.oldrmb + "元宝";
+					this.lab_curRMB.text = data.rmb + "元宝";
+					for (let i in data.items) {
+						let o = new view.compart.DaoJuItem();
+						let itemBase = new ProtoCmd.ItemBase()
+						itemBase.dwBaseID = parseInt(data.items[i].itemid);
+						itemBase.dwCount = data.items[i].num;
+						itemBase.dwBinding = data.items[i].bind;
+						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						o.x = (o.width + 24) * (parseInt(i) - 1)
+						this.panel_allItem.addChild(o)
+					}
+					break;
+				case 100:
+					this.btnState = this.data.leftcnt
+					str = "礼包" + data.index;
+					this.order = data.index;
+					this.lab_lastRMB.text = "原价" + data.oldrmb + "元宝";
+					this.lab_curRMB.text = data.rmb + "元宝";
+					for (let i in data.items) {
+						let o = new view.compart.DaoJuItem();
+						let itemBase = new ProtoCmd.ItemBase()
+						itemBase.dwBaseID = parseInt(data.items[i].index);
+						itemBase.dwCount = data.items[i].num;
+						itemBase.dwBinding = data.items[i].bind;
+						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						o.x = (o.width + 24) * (parseInt(i) - 1)
+						this.panel_allItem.addChild(o)
+					}
+					break;
 			}
 
-			this.onShowBtnState()
+			this.onShowBtnState(tabid)
 			this.lab_infoName.text = str
 			if (this.htmlText) {
 				this.html_curTimes.style.align = "center";
@@ -157,17 +206,26 @@ module view.activity {
 
 
 		}
-		public onShowBtnState() {
+		public onShowBtnState(id) {
 			if (this.btnState == 0) {
 				this.btn_get.gray = true;
 				this.btn_get.label = "未领取";
+				if (id == 1 || id == 100) {
+					this.btn_get.label = "已购买";
+				}
 			}
 			else if (this.btnState == 1) {
 				this.btn_get.gray = false;
 				this.btn_get.label = "领取";
+				if (id == 1 || id == 100) {
+					this.btn_get.label = "购买";
+				}
 			} else if (this.btnState == 2) {
 				this.btn_get.gray = true;
 				this.btn_get.label = "已领取";
+				if (id == 1 || id == 100) {
+					this.btn_get.label = "购买";
+				}
 			}
 		}
 		private addEvent() {
@@ -203,6 +261,18 @@ module view.activity {
 					case 36:
 						let pkt42 = new ProtoCmd.QuestClientData().setString(ProtoCmd.MZJJ_LingQu, [this.order])
 						lcp.send(pkt42);
+						break;
+					case 17:
+						let pkt17 = new ProtoCmd.QuestClientData().setString(ProtoCmd.MRLQ_LingQu, [this.order])
+						lcp.send(pkt17);
+						break;
+					case 1:
+						let pkt1 = new ProtoCmd.QuestClientData().setString(ProtoCmd.EverydayBuyPacks, [this.order])
+						lcp.send(pkt1);
+						break;
+					case 100:
+						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.BuyLimitTimeGiftBag, [this.order])
+						lcp.send(pkt100);
 						break;
 				}
 

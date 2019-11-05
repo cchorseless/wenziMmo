@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":30,
+    "selectedBox":132,
+    "selecteID":133,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"x":0,"skin":"image/main/img_common_02.png","right":0,"left":0,"bottom":0},
+                    "props":{"x":0,"skin":"image/main/img_common_02.png","right":0,"left":0,"bottom":-4},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -201,36 +201,34 @@
             "child":[
                 {
                     "x":30,
+                    "type":"Image",
+                    "props":{"y":12,"skin":"image/common/btn_backdi.png"},
+                    "nodeParent":107,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":131,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":51,"x":61,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+                    "props":{"y":24,"x":12,"var":"btn_back","stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                     "nodeParent":107,
                     "label":"Button(btn_back)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":108,
+                    "compId":109,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":14,"x":41,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
-                            "nodeParent":108,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":109,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":108,
+                            "props":{"y":35,"x":-4,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":109,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -256,7 +254,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"stateNum":"2","skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
+                            "props":{"y":2,"x":5,"stateNum":"2","skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":111,
                             "label":"Button",
                             "isOpen":true,
@@ -271,7 +269,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"玩家","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":49,"x":13,"text":"玩家","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":111,
                             "label":"Label",
                             "isDirectory":false,
@@ -298,7 +296,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":114,
                             "label":"Button",
                             "isOpen":true,
@@ -313,7 +311,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":24,"text":"大弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":49,"x":-3,"text":"大弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":114,
                             "label":"Label",
                             "isDirectory":false,
@@ -339,7 +337,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":117,
                             "label":"Button",
                             "isOpen":true,
@@ -354,7 +352,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":24,"text":"二弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":49,"x":-3,"text":"二弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":117,
                             "label":"Label",
                             "isDirectory":false,
@@ -381,7 +379,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/common/icon_neigong.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":120,
                             "label":"Button",
                             "isOpen":true,
@@ -396,7 +394,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":24,"text":"三弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":49,"x":-3,"text":"三弟子","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":120,
                             "label":"Label",
                             "isDirectory":false,
@@ -410,30 +408,43 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
+                    "type":"Image",
+                    "props":{"y":-5,"x":525,"skin":"image/common/icon_beijing_teshu.png"},
                     "nodeParent":107,
-                    "label":"Button(btn_changeMode)",
+                    "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":123,
+                    "compId":132,
                     "child":[
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":54,"x":18,"text":"小说","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":123,
-                            "label":"Label",
-                            "isDirectory":false,
+                            "type":"Button",
+                            "props":{"y":51,"x":60,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":132,
+                            "label":"Button(btn_changeMode)",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":124,
+                            "hasChild":true,
+                            "compId":133,
                             "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":66,"x":18,"text":"小说","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                                    "nodeParent":133,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":134,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
+                        }]
                 }],
             "$HIDDEN":false
         }],

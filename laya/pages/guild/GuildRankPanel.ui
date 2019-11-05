@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":86,
+    "selecteID":168,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -26,7 +26,7 @@
             "child":[
                 {
                     "type":"Image",
-                    "props":{"x":0,"skin":"image/main/img_common_02.png","left":0,"bottom":0},
+                    "props":{"x":0,"skin":"image/main/img_common_02.png","left":0,"bottom":-4},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -529,45 +529,43 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":147,
+            "compId":168,
             "child":[
                 {
                     "x":30,
+                    "type":"Image",
+                    "props":{"y":12,"skin":"image/common/btn_backdi.png"},
+                    "nodeParent":168,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":169,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":51,"x":61,"stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                    "nodeParent":147,
+                    "props":{"y":24,"x":12,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
+                    "nodeParent":168,
                     "label":"Button",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":148,
+                    "compId":170,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":14,"x":41,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
-                            "nodeParent":148,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":149,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":148,
+                            "props":{"y":35,"x":-4,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":170,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":150,
+                            "compId":171,
                             "child":[
                                 ]
                         }],
@@ -577,25 +575,25 @@
                     "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":171,"stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                    "nodeParent":147,
+                    "nodeParent":168,
                     "label":"Button",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":151,
+                    "compId":172,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"stateNum":"2","skin":"image/guild/icon_bangpai2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
-                            "nodeParent":151,
+                            "props":{"y":2,"x":5,"stateNum":"2","skin":"image/guild/icon_bangpai2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
+                            "nodeParent":172,
                             "label":"Button",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":152,
+                            "compId":173,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -603,13 +601,13 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"帮派","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":151,
+                            "props":{"y":49,"x":13,"text":"帮派","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":172,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":153,
+                            "compId":174,
                             "child":[
                                 ]
                         }],
@@ -619,25 +617,25 @@
                     "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":277,"stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                    "nodeParent":147,
+                    "nodeParent":168,
                     "label":"Button",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":154,
+                    "compId":175,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/guild/icon_zhudui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                            "nodeParent":154,
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/guild/icon_zhudui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":175,
                             "label":"Button",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":155,
+                            "compId":176,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -645,13 +643,13 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"组队","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":154,
+                            "props":{"y":49,"x":13,"text":"组队","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":175,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":156,
+                            "compId":177,
                             "child":[
                                 ]
                         }]
@@ -660,25 +658,25 @@
                     "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":385,"stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                    "nodeParent":147,
+                    "nodeParent":168,
                     "label":"Button",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":157,
+                    "compId":178,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/guild/icon_haoyou.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                            "nodeParent":157,
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/guild/icon_haoyou.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":178,
                             "label":"Button",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":158,
+                            "compId":179,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -686,15 +684,54 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":37,"text":"好友","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":157,
+                            "props":{"y":49,"x":13,"text":"好友","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":178,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":159,
+                            "compId":180,
                             "child":[
                                 ]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-5,"x":525,"skin":"image/common/icon_beijing_teshu.png"},
+                    "nodeParent":168,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":181,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"y":51,"x":60,"stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":181,
+                            "label":"Button",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":182,
+                            "child":[
+                                {
+                                    "type":"Label",
+                                    "props":{"y":66,"x":18,"text":"小说","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                                    "nodeParent":182,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":183,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
@@ -702,25 +739,25 @@
                     "x":30,
                     "type":"Button",
                     "props":{"y":51,"x":500,"stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                    "nodeParent":147,
+                    "nodeParent":168,
                     "label":"Button",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":160,
+                    "compId":184,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":2,"x":30,"width":84,"stateNum":2,"skin":"image/guild/icon_haogandu.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
-                            "nodeParent":160,
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/guild/icon_haogandu.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "nodeParent":184,
                             "label":"Button",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":161,
+                            "compId":185,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -728,40 +765,13 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":49,"x":25,"text":"排行榜","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":160,
+                            "props":{"y":49,"x":-3,"text":"排行榜","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":184,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":162,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":50,"x":599,"stateNum":"2","skin":"image/main/icon_xiaoshuo_01.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":147,
-                    "label":"Button",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":163,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":54,"x":18,"text":"小说","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":163,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":164,
+                            "compId":186,
                             "child":[
                                 ]
                         }],

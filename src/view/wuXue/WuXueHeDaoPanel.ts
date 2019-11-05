@@ -52,18 +52,18 @@ module view.wuXue {
 			this.btn_xiuwei.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
-			// if (this.mySum >= this.sum) {
+			if (this.mySum >= this.sum) {
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				GameUtil.setServerData(this.client_func_index);
 				this.activation();
 			})
-			// }
-			// else {
-			// 	this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-			// 		TipsManage.showTips('您当前等级不足，暂时不能开启')
-			// 	});
-			// }
+			}
+			else {
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					TipsManage.showTips('您当前等级不足，暂时不能开启')
+				});
+			}
 			//戾气兑换魂力
 			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_exchangeSoul();
@@ -263,7 +263,6 @@ module view.wuXue {
 					this.lbl_jieshu.text = '神阶';
 					this.lbl_jie.text = '-神阶';
 				}
-				console.log('=====>戾气戾气', jsonData, array)
 				this.init_shuxing();
 			})
 		}
@@ -272,7 +271,6 @@ module view.wuXue {
 		 */
 		public addLiQiUpLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.WX_updateWarSoulPanel, this, (jsonData: ProtoCmd.itf_WX_LiQiUpPanelInfo) => {
-				console.log('=====>戾气升级升级', jsonData)
 				this.lbl_hunli.text = '' + jsonData.cursoul;
 				for (let i = 1; i < 9; i++) {
 					this['btn_liqi' + i].selected = false;
@@ -329,7 +327,51 @@ module view.wuXue {
 						this.lbl_pos.text = '腰带';
 						break;
 				}
-
+				//根据魂力等级排序
+				let keys = Object.keys(this.wstab)
+				let lvlArray = [];
+				for (let key of keys) {
+					lvlArray.push(this.wstab[key]);	
+				}
+				function compare(property) {
+					return function (a, b) {
+						var value1 = a[property];
+						var value2 = b[property];
+						return value1 - value2;
+					}
+				}
+				//进阶说明
+				let array = lvlArray.sort(compare('lvl'))
+				if (array[0].lvl >= 0 && array[0].lvl <= 10) {
+					this.lbl_introduce.text = '黄阶战魂全部到    级,可进阶为玄阶';
+					this.lbl_introduceLvl.text = '10';
+					this.lbl_jieshu.text = '黄阶';
+					this.lbl_jie.text = '-黄阶';
+				}
+				if (array[0].lvl > 10 && array[0].lvl <= 20) {
+					this.lbl_introduce.text = '玄阶战魂全部到    级,可进阶为地阶';
+					this.lbl_introduceLvl.text = '20';
+					this.lbl_jieshu.text = '玄阶';
+					this.lbl_jie.text = '-玄阶';
+				}
+				if (array[0].lvl > 20 && array[0].lvl <= 30) {
+					this.lbl_introduce.text = '地阶战魂全部到    级,可进阶为天阶';
+					this.lbl_introduceLvl.text = '30';
+					this.lbl_jieshu.text = '地阶';
+					this.lbl_jie.text = '-地阶';
+				}
+				if (array[0].lvl > 30 && array[0].lvl <= 40) {
+					this.lbl_introduce.text = '天阶战魂全部到    级,可进阶为神阶';
+					this.lbl_introduceLvl.text = '40';
+					this.lbl_jieshu.text = '天阶';
+					this.lbl_jie.text = '-天阶';
+				}
+				if (array[0].lvl > 40 && array[0].lvl <= 50) {
+					this.lbl_introduce.text = '神阶战魂全部到    级,可进阶为圣阶';
+					this.lbl_introduceLvl.text = '50';
+					this.lbl_jieshu.text = '神阶';
+					this.lbl_jie.text = '-神阶';
+				}
 			})
 		}
 		public Dispose(): void {

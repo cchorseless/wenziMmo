@@ -20,6 +20,9 @@ module view.recharge_vip {
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, () => {
+				GameApp.LListener.offCaller(ProtoCmd.ZGTQ_Open, this)
+				GameApp.LListener.offCaller(ProtoCmd.cashPanel, this)
+				GameApp.LListener.offCaller(ProtoCmd.VIP_OpenPlane, this)
 				this.close();
 			})
 

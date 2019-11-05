@@ -28,7 +28,9 @@ module view.shopMall {
 				PopUpManager.checkPanel(this)
 			});
 			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
-				// new view.beiBao.Bag_Recharge().popup();
+				let o = new view.recharge_vip.Recharge_VipDialog();
+					o.setData(1);
+					o.popup(true);
 			});
 
 			this.addLcpEvent();
