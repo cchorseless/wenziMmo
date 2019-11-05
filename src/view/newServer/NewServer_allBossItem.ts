@@ -5,8 +5,11 @@ module view.newServer {
 			super();
 			this.setData();
 		}
+		//怪物类型索引
 		public num = 1;
 		public data = null;
+		//是否达成任务条件0未达成1已达成2已领取
+		public bj:number;
 		public setData(): void {
 			this.panel_boss.hScrollBarSkin = '';
 			this.hbox_boss['sortItem'] = (items) => { };
@@ -17,16 +20,22 @@ module view.newServer {
 		public addEvent(): void {
 			//前一页
 			this.btn_last.on(Laya.UIEvent.CLICK, this, () => {
-				this.num = this.num - 1;
-				if (this.num !== 0) {
+				if (this.num > 1) {
+					this.num = this.num - 1;
 					this.init_clickEvent();
 				}
 			})
 			//后一页
 			this.btn_next.on(Laya.UIEvent.CLICK, this, () => {
-				this.num = this.num + 1;
-				if (this.num !== 5) {
+				if (this.num < 4) {
+					this.num = this.num + 1;
 					this.init_clickEvent();
+				}
+			})
+			//领取
+			this.btn_kill.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.bj == 1) {
+					this.init_get()
 				}
 			})
 			this.addLcpEvent();
@@ -57,7 +66,7 @@ module view.newServer {
 		 */
 		public init_get(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.NS_TeHuiClientOpen)
+			pkt.setString(ProtoCmd.NS_TeHuiClientOpen,[this.num])
 			lcp.send(pkt)
 		}
 		/**
@@ -65,12 +74,43 @@ module view.newServer {
 		 */
 		public init_clickEvent(): void {
 			if (this.data !== null) {
+				//boss类型
 				this.lbl_type.text = this.data[this.num].name;
+				//boss相关
 				let keys = Object.keys(this.data[this.num].boss)
 				this.hbox_boss.removeChildren();
 				for (let key of keys) {
 					let id = this.data[this.num].boss[key].bossid
-					this.hbox_boss.addChild(new view.compart.NpcIconItem())
+					this.hbox_boss.addChild(new view.compart.NpcIconItem().newServer_AllBoss(id))
+				}
+				//奖励
+				let itemKeys = Object.keys(this.data[this.num].item)
+				for (let itemkey of itemKeys) {
+					let itemData = this.data[this.num].item[itemkey];
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = itemData.index;
+					itemInfo.dwCount = itemData.num;
+					itemInfo.dwBinding = itemData.bind;
+					this['ui_item' + itemkey].setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				}
+				this.bj = this.data[this.num].bj;
+				//判断奖励是否可领取
+				switch (this.data[this.num].bj) {
+					case 0:
+						this.btn_kill.gray = false;
+						this.btn_kill.mouseEnabled = true;
+						this.btn_kill.label = '前往击杀';
+						break;
+					case 1:
+						this.btn_kill.gray = false;
+						this.btn_kill.mouseEnabled = true;
+						this.btn_kill.label = '可领取';
+						break;
+					case 2:
+						this.btn_kill.gray = true;
+						this.btn_kill.mouseEnabled = false;
+						this.btn_kill.label = '已领取';
+						break;
 				}
 			}
 		}
