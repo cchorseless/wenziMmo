@@ -50,8 +50,21 @@ module GameObject {
         public charpterName: string;// 章节名字
         public pianZhangName: string;// 篇章名字
         /******************技能******************** */
-        public skillInfo = {};// 所有技能信息
-        public skillShotButton = {};// 所有技能快捷键信息
+        public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
+        public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
+        /**
+         * 判断技能是否已经装备上了
+         * @param skillID 
+         */
+        public checkSkillHadDress(skillID): number {
+            for (let btow in this.skillShotButton) {
+                let skillBase = this.skillShotButton[btow];
+                if (skillBase.i64Id.int64ToNumber() == skillID) {
+                    return parseInt(btow)
+                }
+            }
+            return 0
+        }
         /******************UI****************** */
         public ui_item;
         /******************生活属性************ */
@@ -82,8 +95,17 @@ module GameObject {
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
         }
         /**
-    * 年龄 字符串
-    */
+         * 返回默认技能ID
+         */
+        public get default_skill(): string {
+            return ['99901', '200201', '300201'][this.job - 1];
+        }
+
+
+
+        /**
+         * 年龄 字符串
+         */
         public get age_str(): string {
             let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
             let span_day = span / 60 / 60 / 24;

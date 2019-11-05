@@ -628,7 +628,7 @@ class ServerListener extends SingletonClass {
      */
     public addSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder(data);
-        if (cbpkt.getValue('ErrorCode')) {
+        if (cbpkt.getValue('ErrorCode') == 0) {
             // console.log('===========',cbpkt);
             let shot = new ProtoCmd.stShortCuts();
             shot.clone(cbpkt.shortcuts.data);

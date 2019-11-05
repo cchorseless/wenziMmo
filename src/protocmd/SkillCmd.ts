@@ -65,7 +65,7 @@ module ProtoCmd {
         public cbPacket = AvatarSetSkillShortCutsEnDeCoder;
         public static msgID: number = 0x029a;
         public shortcuts: stShortCuts = new stShortCuts(null);
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('ErrorCode', PacketBase.TYPE_BYTE); //0 成功
             this.addProperty('shortcuts', PacketBase.TYPE_BYTES, this.shortcuts.size(), this.shortcuts);
@@ -85,7 +85,7 @@ module ProtoCmd {
     export class AvatarDelSkillShortCutsEnDeCoder extends Packet {
         public static msgID: number = 0x029b;
         public shortcuts: stShortCuts = new stShortCuts(null);
-        public constructor(data: Laya.Byte) {
+        public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('ErrorCode', PacketBase.TYPE_BYTE);
             this.addProperty('shortcuts', PacketBase.TYPE_BYTES, this.shortcuts.size(), this.shortcuts);

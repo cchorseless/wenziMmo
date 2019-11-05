@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":260,"sceneColor":"#844241","height":120},
+    "selectedBox":2,
+    "selecteID":20,
+    "props":{"width":280,"sceneColor":"#844241","height":120},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -26,52 +26,53 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":14,"x":125,"text":"等级描述","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
+                    "type":"Image",
+                    "props":{"y":48,"x":112,"width":156,"var":"img_expBg","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":17},
                     "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
+                    "label":"Image(img_expBg)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
+                    "hasChild":true,
+                    "compId":20,
                     "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":42,"x":123,"text":"威力描述","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"width":100,"var":"img_exp","skin":"image/common/Progressbar_gang_top2.png","sizeGrid":"5,11,5,5","height":17},
+                            "nodeParent":20,
+                            "label":"Image(img_exp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":21,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":-4,"var":"lbl_exp","text":"10000/18000","strokeColor":"#2d1c05","stroke":4,"right":0,"left":0,"height":18,"fontSize":18,"font":"FZXK","color":"#f3edd3","align":"center"},
+                            "nodeParent":20,
+                            "label":"Label(lbl_exp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"UIView",
-            "source":"wuXue/WuXue_logoItem.ui",
-            "props":{"y":29,"x":13},
-            "nodeParent":1,
-            "label":"UIView",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":15,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":-11,"x":-1,"width":77,"skin":"image/common/img_duizhang.png","height":37},
+            "props":{"y":-11,"x":-1,"width":77,"var":"img_isUse","skin":"image/common/img_duizhang.png","height":37},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_isUse)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -96,15 +97,108 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":70,"x":140,"width":101,"stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"详情","height":47},
+            "props":{"y":70,"x":159,"width":101,"var":"btn_info","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"详情","height":47},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_info)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":18,
             "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"wuXue/WuXue_logoWithNameItem.ui",
+            "props":{"y":28,"x":19,"var":"ui_item","runtime":"view.wuXue.WuXue_logoWithNameItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_item)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":10,"x":103,"mouseEnabled":false},
+            "nodeParent":1,
+            "label":"Box",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":31,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"x":67,"width":30,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":30},
+                    "nodeParent":31,
+                    "label":"Button(btn_3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"width":30,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":30},
+                    "nodeParent":31,
+                    "label":"Button(btn_1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":27,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"x":33,"width":30,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":30},
+                    "nodeParent":31,
+                    "label":"Button(btn_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"x":100,"width":30,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":30},
+                    "nodeParent":31,
+                    "label":"Button(btn_4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"x":133,"width":30,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png","height":30},
+                    "nodeParent":31,
+                    "label":"Button(btn_5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

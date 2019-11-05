@@ -116,7 +116,7 @@ module view.wuXue {
 					this.lbl_progress.text = '' + jsonData.maxxw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472;
 				}
-				if (jsonData.effid !== 0) {
+				if (jsonData.effid != 0) {
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
 					let attribute1 = shuxing1.des;
@@ -190,6 +190,7 @@ module view.wuXue {
 		 */
 		public addLiQiLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.WX_warSoulPanel, this, (jsonData) => {
+				console.log(jsonData);
 				this.wstab = jsonData.wstab;
 				//第一个魂力球的经验进度
 				let exp = jsonData.wstab[1].curexp - jsonData.wstab[1].maxexp;
@@ -287,7 +288,7 @@ module view.wuXue {
 					this.img_liqiprogress.width = 550;
 				}
 				//增加属性百分比
-				if (jsonData.addpro == NaN) {
+				if (jsonData.addpro == 0) {
 					this.lbl_Percentage.text = '';
 				}
 				else {
