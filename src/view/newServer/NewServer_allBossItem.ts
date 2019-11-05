@@ -66,8 +66,8 @@ module view.newServer {
 		 */
 		public init_get(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.NS_TeHuiClientOpen,[this.num])
-			lcp.send(pkt)
+			pkt.setString(ProtoCmd.NS_QuanMingBossGet,[this.num])
+			lcp.send(pkt);
 		}
 		/**
 		 * 拉取boss数据

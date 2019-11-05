@@ -53,22 +53,29 @@ module view.newServer {
 			this.init_addBox();
 		}
 		public init_addBox(): void {
+			this.box_time.visible = false
 			this.box_newServer.removeChildren();
 			if (this.data !== null) {
 				switch (this.data[this.index].id) {
 					case 10:
 						this.box_newServer.addChild(new view.newServer.NewServer_sportsItem())
 						break;
-						case 2:
+					case 2:
 						this.box_newServer.addChild(new view.newServer.NewServer_allBossItem())
 						break;
+					case 3:
+						this.box_newServer.addChild(new view.newServer.NewServer_DragonItem())
+						break;
 				}
-
 			}
 			else {
 				this.box_newServer.addChild(new view.newServer.NewServer_sportsItem())
 			}
 
+		}
+		public init_time(time:string): void {
+				this.box_time.visible = true;
+				this.lbl_time.text = time;
 		}
 	}
 }
