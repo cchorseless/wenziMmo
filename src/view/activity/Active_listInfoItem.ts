@@ -190,6 +190,35 @@ module view.activity {
 						this.panel_allItem.addChild(o)
 					}
 					break;
+				case 10:
+					this.btnState = this.data.state
+					str = this.data.name
+					this.order = data.order;
+					for (let i in data.items) {
+						let o = new view.compart.DaoJuItem();
+						let itemBase = new ProtoCmd.ItemBase()
+						itemBase.dwBaseID = parseInt(data.items[i].index);
+						itemBase.dwCount = data.items[i].num;
+						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						o.x = (o.width + 24) * (parseInt(i) - 1)
+						this.panel_allItem.addChild(o)
+					}
+					break;
+				case 35:
+					this.btnState = this.data.bj
+					str = this.data.str
+					this.order = data.index;
+					for (let i in data.item) {
+						let o = new view.compart.DaoJuItem();
+						let itemBase = new ProtoCmd.ItemBase()
+						itemBase.dwBaseID = parseInt(data.item[i].index);
+						itemBase.dwCount = data.item[i].num;
+						itemBase.dwBinding = data.item[i].binding;
+						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						o.x = (o.width + 24) * (parseInt(i) - 1)
+						this.panel_allItem.addChild(o)
+					}
+					break;
 			}
 
 			this.onShowBtnState(tabid)
@@ -273,6 +302,14 @@ module view.activity {
 					case 100:
 						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.BuyLimitTimeGiftBag, [this.order])
 						lcp.send(pkt100);
+						break;
+					case 10:
+						let pkt10 = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetRechargeGiftAward, [this.order])
+						lcp.send(pkt10);
+						break;
+					case 35:
+						let pkt35 = new ProtoCmd.QuestClientData().setString(ProtoCmd.QuanMingLiBaoGet, [this.order])
+						lcp.send(pkt35);
 						break;
 				}
 

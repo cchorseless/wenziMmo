@@ -64,7 +64,8 @@ module view.activity {
 					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换
 					  * 5 限时抢购  14 兑换豪礼   36每周基金  17每日领取  13连续充值  1每日必买
 					  */
-					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18: case 19: case 32: case 36:
+					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18:
+					case 19: case 32: case 36: case 10: case 35: case 3:
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Panel_Item()
@@ -123,7 +124,7 @@ module view.activity {
 						GameApp.LListener.on(ProtoCmd.Active100, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Panel_Item()
-							o.setData(data,100)
+							o.setData(data, 100)
 							box.addChild(o);
 						})
 						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active100, null)

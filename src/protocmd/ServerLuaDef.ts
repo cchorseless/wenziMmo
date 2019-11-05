@@ -426,7 +426,7 @@ module ProtoCmd {
     export const Active9 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
 
     export const Active100 = "LimitTimeGiftBagPanel"  //限时礼包   面板         其他接口：购买
-
+    // export const Active
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
     export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
@@ -444,6 +444,14 @@ module ProtoCmd {
     export const MRLQ_LingQu = "MRLQ_LingQu";     //每日领取  领取
     export const EverydayBuyPacks = "EverydayBuyPacks";     //每日必买  购买
     export const BuyLimitTimeGiftBag = "BuyLimitTimeGiftBag";     //限时礼包  购买
+    export const GetRechargeGiftAward = "GetRechargeGiftAward";     //累计充值  领取
+    export const QuanMingLiBaoGet = "QuanMingLiBaoGet";     //全民礼包  领取
+
+    export const ChaoZhiLC_LingQu = "ChaoZhiLC_LingQu";     //成长基金  领取
+    export const ChaoZhiLC_Buy = "ChaoZhiLC_Buy";     //成长基金  购买
+
+
+
 
 
     export const FuDaiChouJiang = "FuDaiChouJiang";   //福袋抽奖开启按钮
@@ -480,7 +488,7 @@ module ProtoCmd {
 
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
-    
+
 
 
 
