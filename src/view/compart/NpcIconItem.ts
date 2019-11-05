@@ -56,5 +56,18 @@ module view.compart {
 			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId) + '.png';
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
+		/**
+		 * 新服活动-全民BOSS
+		 */
+		public newServer_AllBoss(id): NpcIconItem {
+			//boss头像
+			let img_allBoss = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + id);
+			this.img_avatarPic.skin='image/common/npc/npc_icon_'+img_allBoss+'.png';
+			let name=SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
+			this.lbl_npcName.text=''+name;
+			this.img_tips.visible=false;
+			this.lbl_zuoBiao.visible=false;
+			return this;
+		}
 	}
 }
