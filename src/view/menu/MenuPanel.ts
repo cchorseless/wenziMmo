@@ -41,6 +41,14 @@ module view.menu {
 			this.btn_Blessing.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.Menu_BlessingDialog().popup(true);
 			})
+			//膜拜城主
+			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {
+				new view.menu.MenuMoBaiDialog().popup(true);
+			})
+			//新服活动
+			this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openNewServer_MainPanel();
+			})
 			//抽奖
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openLuckDrawPanel();
@@ -51,7 +59,6 @@ module view.menu {
 					PanelManage.openActivePanel(data);
 				})
 				lcp.send(pkt32);
-
 			})
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new view.recharge_vip.Recharge_VipDialog();

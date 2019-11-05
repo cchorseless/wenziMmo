@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.fuli {
-	export class FuLi_OnlineReward extends ui.fuli.FuLi_OnlineRewardUI {
+	export class FuLi_OnlineRewardItem extends ui.fuli.FuLi_OnlineRewardItemUI {
 		constructor() {
 			super();
 			this.setData();

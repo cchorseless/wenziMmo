@@ -6,11 +6,12 @@ module view.compart {
 		}
 
 		public item: GameObject.Npc;
-		public setData(obj: GameObject.Npc): void {
+		public setData(obj: GameObject.Npc): NpcIconItem {
 			this.item = obj;
 			this.item.ui_item = this;
 			this.initUI();
 			this.addEvent();
+			return this;
 		}
 
 		public addEvent(): void {
