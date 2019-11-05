@@ -454,6 +454,13 @@ module ProtoCmd {
     export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
     export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
 
+    export const chaozhiopen = "chaozhiopen";         //超值礼包(促销)      面板
+    export const ChaoZhiBuy = "ChaoZhiBuy"        //超值礼包(促销)      领取
+
+    export const TeHuiIndex = "TeHuiIndex";       //特惠礼包   面板
+    export const TeHuiClientOpen = "TeHuiClientOpen";       //特惠礼包   选择其中一个显示    面板
+    export const TeHuiBuy = "TeHuiBuy";       //特惠礼包   购买
+
 
 
 
