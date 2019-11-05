@@ -65,6 +65,11 @@ module view.menu {
 				o.setData(1);
 				o.popup(true);
 			})
+			this.btn_cuxiao.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openPromotionPanel();
+			})
+			
+			
 
 			// 商城
 			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
