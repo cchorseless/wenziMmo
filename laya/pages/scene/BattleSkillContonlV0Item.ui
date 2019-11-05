@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":4,
+    "selectedBox":16,
+    "selecteID":25,
     "props":{"width":190,"sceneColor":"#a8504e","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -144,7 +144,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":213,"width":40,"var":"btn_show0","stateNum":"1","skin":"image/main/icon_002.png","right":-2,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":32,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":213,"var":"btn_show0","stateNum":"1","skin":"image/main/icon_002.png","right":-8,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":2,
                             "label":"Button(btn_show0)",
                             "isOpen":true,
@@ -164,13 +164,14 @@
                     "props":{"y":0,"x":0,"top":0,"right":0,"name":"item1","left":0,"bottom":0},
                     "nodeParent":30,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":16,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":148,"x":155,"width":48,"stateNum":"1","skin":"image/main/img_zhandou.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动攻击","height":46,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":16,
@@ -185,8 +186,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":200,"width":40,"var":"btn_show1","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","right":2,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"展开","height":32,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":219,"x":172,"var":"btn_show1","stateNum":"1","skin":"image/main/icon_002.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":16,
                             "label":"Button(btn_show1)",
                             "isOpen":true,
@@ -199,8 +201,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":206,"x":97,"width":49,"stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"设置","height":41,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":206,"x":97,"stateNum":"2","skin":"image/main/icon_shezhi_01.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"设置","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":16,
                             "label":"Button",
                             "isOpen":true,
@@ -212,7 +215,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[
