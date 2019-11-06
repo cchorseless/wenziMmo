@@ -437,7 +437,7 @@ module ProtoCmd {
 
 
     export const Active100 = "LimitTimeGiftBagPanel"  //限时礼包   面板         其他接口：购买
-    export const Active200 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
+    export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
     // export const Active
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
@@ -461,6 +461,8 @@ module ProtoCmd {
 
     export const ChaoZhiLC_LingQu = "ChaoZhiLC_LingQu";     //成长基金  领取
     export const ChaoZhiLC_Buy = "ChaoZhiLC_Buy";     //成长基金  购买
+
+    export const DBCZ_LingQu = "DBCZ_LingQu";         //单笔充值   领取
 
 
 

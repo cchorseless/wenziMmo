@@ -27,7 +27,7 @@ module view.activity {
 					}
 					break;
 				case 16: case 18: case 19: case 32: case 14: case 13: case 36: case 17: case 1: case 100:
-				case 10: case 35:
+				case 10: case 35: case 30:
 					for (let i in infoData) {
 						let o = new Active_listInfoItem();
 						o.setData(infoData[i], i, id);
@@ -82,7 +82,7 @@ module view.activity {
 				leftTime = data.lefttime;
 				yuanbao = data.rmb
 
-			} else if (id == 18 || id == 19 || id == 32 || id == 5 || id == 14 || id == 13 || id == 36 || id == 17 || id == 1 || id == 100 || id == 10 || id == 35) {
+			} else if (id == 18 || id == 19 || id == 32 || id == 5 || id == 14 || id == 13 || id == 36 || id == 17 || id == 1 || id == 100 || id == 10 || id == 35 || id == 30) {
 				if (data.lefttime >= 0) {
 					leftTime = data.lefttime;
 				} if (data.achieve >= 0) {
@@ -94,7 +94,12 @@ module view.activity {
 			}
 
 			if (data.introduce) {
-				this.lab_rules.text = data.introduce;
+				if (id == 30) {
+					this.lab_rules.text = data.introduce + "\n" + data.introduce2
+				} else {
+					this.lab_rules.text = data.introduce;
+				}
+
 			} else if (data.context) {
 				this.lab_rules.text = data.context;
 			}
