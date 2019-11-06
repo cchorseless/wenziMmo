@@ -93,7 +93,6 @@ class SDKManager extends SingletonClass {
         this._sdkRole.role_level = role_level
         this._sdkRole.vip_level = vip_level
         this._sdkRole.remainder = remainder
-
         this.SDK.createRole(this._sdkRole);
     }
 

@@ -651,12 +651,12 @@ module EnumData {
      * 行会职位枚举
      */
     export enum emGuildMemberPowerLvl {
-        _GUILDMEMBER_POWERLVL_NULL,				//帮会成员
-        _GUILDMEMBER_POWERLVL_ELDERS,			//长老
-        _GUILDMEMBER_POWERLVL_FITMASTER,		//副帮主
-        _GUILDMEMBER_POWERLVL_MASTER,			//帮主
-        _GUILDMEMBER_POWERLVL_ELITISM,			//精英
-        _GUILDMEMBER_POWERLVL_ADMIRAL,			//大将
+        _GUILDMEMBER_POWERLVL_NULL,				//帮会成员-入门弟子
+        _GUILDMEMBER_POWERLVL_ELDERS,			//长老-首席弟子
+        _GUILDMEMBER_POWERLVL_FITMASTER,		//副帮主-副掌门
+        _GUILDMEMBER_POWERLVL_MASTER,			//帮主-掌门
+        _GUILDMEMBER_POWERLVL_ELITISM,			//精英-内门弟子
+        _GUILDMEMBER_POWERLVL_ADMIRAL,			//大将-核心弟子
     };
 
 
@@ -997,6 +997,52 @@ module EnumData {
         STATE_YUANSHEN4 = 0x100000,
         STATE_YUANSHEN5 = 0x200000,
         STATE_HANBINGPINGZHANG = 0x400000,
+    };
+
+
+    export enum emMagicStateType {
+        MAGICSTATE_NULL,				//没有状态
+        MAGICSTATE_HP,					// 血相关,包括蓝
+        MAGICSTATE_MP,					// 蓝相关
+        MAGICSTATE_RELIVE,				//复活
+        MAGICSTATE_SPEEDSLOW,			//减速
+        MAGICSTATE_DIZZY,				// 晕眩
+        MAGICSTATE_PETRIFACTION,		// 石化
+        MAGICSTATE_ABI,					//属性相关
+        MAGICSTATE_LIEHUO,				// 烈火
+        MAGICSTATE_XINYUE,				//新月剑法
+        MAGICSTATE_LINGKONGZHAN,		//凌空斩
+        MAGICSTATE_LIANYUE,				//莲月剑法
+        MAGICSTATE_MOFADUN,				// 魔法盾
+        MAGICSTATE_SHENGYAN,			//圣言术
+        MAGICSTATE_YINSHEN,				//隐身
+        MAGICSTATE_CISHA,				//刺杀
+        MAGICSTATE_COLLISION,			//冲撞
+        MAGICSTATE_REVERSE,				//倒退
+        MAGICSTATE_POISONING,			// 施毒类，百分比当前掉血，每次计算伤害
+        MAGICSTATE_KAITIAN,				//开天
+        MAGICSTATE_NOHPDRUG,			// 不准吃红药
+        MAGICSTATE_COFHP2MP,			//百分比血蓝相关(人物最终属性)
+        MAGICSTATE_ABI_PERCENT,			//(属性百分比)
+        MAGICSTATE_BAN,					// 禁
+        MAGICSTATE_PAUSE,				//停顿
+        MAGICSTATE_CANTRUN,				//不能跑
+        MAGICSTATE_MUTITIMESEXP,		// 多倍经验
+        MAGICSTATE_BAFANZHAN,			//八方斩
+        MAGICSTATE_TREATMENT,			// 治疗术
+        MAGICSTATE_TIANSHANXUELIAN,		//天山雪莲
+        MAGICSTATE_WINE,				//酒
+        MAGICSTATE_YUNSHI,				//陨石
+        MAGICSTATE_ABI_TITLE,			//属性称号
+        MAGICSTATE_SEEPUP,				//加速
+        MAGICSTATE_DAMAGE,				// 减伤
+        MAGICSTATE_FEEDBACK,			// 反弹
+        MAGICSTATE_INVINCIBLE,			// 无敌
+        MAGICSTATE_MOOR,				//沼泽
+        MAGICSTATE_PERCENT_POISONING,	// 毒（百分比真实伤害）
+        MAGICSTATE_SUCKBLOOD,			//生命恢复
+        MAGICSTATE_PERCENT_POISONING_INC,	//毒（百分比真实伤害,百分比增伤）
+        MAGICSTATE_MAXCOUNT,			//最大状态值
     };
 
 
