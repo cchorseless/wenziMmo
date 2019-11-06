@@ -90,7 +90,7 @@ module view.activity {
 				}
 			}
 			else if (id == 3) {
-				leftTime == data.daojishi
+				leftTime = data.daojishi
 			}
 
 			if (data.introduce) {

@@ -436,7 +436,9 @@ module ProtoCmd {
     export const Active36 = "MZJJ_OpenPlane"        //每周基金      面板         其他接口：领取
     export const Active9 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
 
+
     export const Active100 = "LimitTimeGiftBagPanel"  //限时礼包   面板         其他接口：购买
+    export const Active200 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
     // export const Active
 
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
@@ -1087,107 +1089,107 @@ module ProtoCmd {
      * 全民竞猜获奖情况
      */
     export interface itf_Menu_GetSituationInfo {
-        tab:any// 1: {name: "无玩家", num: 0 }     
-}
-/***********************************抽奖接口**************************** */
-/**
- * 抽奖面板
- */
-export interface itf_LD_Info {
-    id: number//抽奖活动ID
-    name: string//抽奖活动名称
-}
-/**
- * 藏宝阁
- */
-export interface itf_LD_CangBaoGeInfo {
-    middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
-    score: number//宝藏积分
-    sideItem: any//12个物品id
-    tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
-}
-/**
- * 福利转盘
- */
-export interface itf_LD_fuliTurnTableInfo {
-    idx: number//抽到的物品索引
-    lefttime: number//活动倒计时
-    cnt: number//可抽奖次数
-    desc: string//活动介绍
-    max: number//最大抽奖次数
-    item: any//物品信息
-}
-/**
- * 在线抽奖
- */
-export interface itf_LD_OnLineDrawInfo {
-    exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
-    idx: number//抽到的物品索引
-    lefttime: number//活动倒计时
-    cnt: number//可抽奖次数
-    introduce: string//活动介绍1
-    introduce2: string//活动介绍2
-    max: number//最大抽奖次数
-    item: any//物品信息
-    zaixiantime: number//在线时长
-    used: number//已抽奖次数
-}
-/**
- * 幸运抽奖
- */
-export interface itf_LD_LuckDrawInfo {
-    idx: number//抽到的物品索引
-    extab: any//可领的达标奖相关信息(exitem:any leftcnt:number needcnt: number获得标准奖励还需要的次数)
-    item: any//可抽奖的奖励信息
-    leftsec: number//活动时间
-    showtab: any//达标奖励预览
-    text: string//抽奖活动介绍
-}
+        tab: any// 1: {name: "无玩家", num: 0 }     
+    }
+    /***********************************抽奖接口**************************** */
+    /**
+     * 抽奖面板
+     */
+    export interface itf_LD_Info {
+        id: number//抽奖活动ID
+        name: string//抽奖活动名称
+    }
+    /**
+     * 藏宝阁
+     */
+    export interface itf_LD_CangBaoGeInfo {
+        middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
+        score: number//宝藏积分
+        sideItem: any//12个物品id
+        tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
+    }
+    /**
+     * 福利转盘
+     */
+    export interface itf_LD_fuliTurnTableInfo {
+        idx: number//抽到的物品索引
+        lefttime: number//活动倒计时
+        cnt: number//可抽奖次数
+        desc: string//活动介绍
+        max: number//最大抽奖次数
+        item: any//物品信息
+    }
+    /**
+     * 在线抽奖
+     */
+    export interface itf_LD_OnLineDrawInfo {
+        exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
+        idx: number//抽到的物品索引
+        lefttime: number//活动倒计时
+        cnt: number//可抽奖次数
+        introduce: string//活动介绍1
+        introduce2: string//活动介绍2
+        max: number//最大抽奖次数
+        item: any//物品信息
+        zaixiantime: number//在线时长
+        used: number//已抽奖次数
+    }
+    /**
+     * 幸运抽奖
+     */
+    export interface itf_LD_LuckDrawInfo {
+        idx: number//抽到的物品索引
+        extab: any//可领的达标奖相关信息(exitem:any leftcnt:number needcnt: number获得标准奖励还需要的次数)
+        item: any//可抽奖的奖励信息
+        leftsec: number//活动时间
+        showtab: any//达标奖励预览
+        text: string//抽奖活动介绍
+    }
 
-/***********************************福利接口**************************** */
-/**
- * 在线奖励
- */
-export interface itf_Fuli_OnLineRewardInfo {
-    benzhouyuanbao: number//本周累计元宝
-    itemtab: any//宝箱1234相关（ btnStatus: 宝箱状态itemtab：宝箱奖励信息times: 领取时间）
-    shangzhouyuanbao: number//下周累计元宝
-    status: number//本周在线时长兑换状态
-    zaixianshijian: number//今日在线时长
-}
-/***********************************新服活动接口**************************** */
-/**
- * 开服竞技
- */
-export interface itf_NS_sportsInfo {
-    item: any//全服排名奖励{1：bind:绑定index:物品IDnum:物品数量,2,3}
-    join: any//下方是否达成活动奖励条件{bj:（0没达到1达到了）, lv:等级, item: 奖励物品信息}
-    leftsec: number//活动时间
-    opendays: number//天数
-    rank: any//当前排名{flag:达到条件（0达到了1没达到） 0name: 玩家姓名score:玩家等级}
-    ranktype: number//排行榜类型
-    str: string//说明
-}
-/**
- * 全民boss
- */
-export interface itf_NS_AllBossInfo {
-    bj: number// 达成状态 0未达成1已达成2已领取
-    boss: any//boss相关信息
-    item: any//奖励信息
-    name: string//boss分类
-    // 1: { bj: 0, boss: {bj, bossid}, item: {num: 数量, index: 物品id, bind: 是否绑定 }，name：boss分类 }
-    // 2: { bj: 0, boss: { … }, item: { … }，name }
-    // 3: { bj: 0, boss: { … }, item: { … }，name }
-    // 4: { bj: 0, boss: { … }, item: { … } ，name}
-    // leftsec: number 活动时间
-}
-/**
- * 龙城争霸
- */
-export interface itf_NS_DragonInfo {
-    Bj: number//是否可领取0不可1可领取2已领取
-    Item: any //{num: 数量, index: 物品id, bind: 是否绑定 }
-    leftsec: number//活动时间
-}
+    /***********************************福利接口**************************** */
+    /**
+     * 在线奖励
+     */
+    export interface itf_Fuli_OnLineRewardInfo {
+        benzhouyuanbao: number//本周累计元宝
+        itemtab: any//宝箱1234相关（ btnStatus: 宝箱状态itemtab：宝箱奖励信息times: 领取时间）
+        shangzhouyuanbao: number//下周累计元宝
+        status: number//本周在线时长兑换状态
+        zaixianshijian: number//今日在线时长
+    }
+    /***********************************新服活动接口**************************** */
+    /**
+     * 开服竞技
+     */
+    export interface itf_NS_sportsInfo {
+        item: any//全服排名奖励{1：bind:绑定index:物品IDnum:物品数量,2,3}
+        join: any//下方是否达成活动奖励条件{bj:（0没达到1达到了）, lv:等级, item: 奖励物品信息}
+        leftsec: number//活动时间
+        opendays: number//天数
+        rank: any//当前排名{flag:达到条件（0达到了1没达到） 0name: 玩家姓名score:玩家等级}
+        ranktype: number//排行榜类型
+        str: string//说明
+    }
+    /**
+     * 全民boss
+     */
+    export interface itf_NS_AllBossInfo {
+        bj: number// 达成状态 0未达成1已达成2已领取
+        boss: any//boss相关信息
+        item: any//奖励信息
+        name: string//boss分类
+        // 1: { bj: 0, boss: {bj, bossid}, item: {num: 数量, index: 物品id, bind: 是否绑定 }，name：boss分类 }
+        // 2: { bj: 0, boss: { … }, item: { … }，name }
+        // 3: { bj: 0, boss: { … }, item: { … }，name }
+        // 4: { bj: 0, boss: { … }, item: { … } ，name}
+        // leftsec: number 活动时间
+    }
+    /**
+     * 龙城争霸
+     */
+    export interface itf_NS_DragonInfo {
+        Bj: number//是否可领取0不可1可领取2已领取
+        Item: any //{num: 数量, index: 物品id, bind: 是否绑定 }
+        leftsec: number//活动时间
+    }
 }
