@@ -1,4 +1,5 @@
 module GameUtil {
+
     /**
      * 查找背包内道具的数量
      * @param itemID 
@@ -58,6 +59,37 @@ module GameUtil {
             }
         }
         return result
+    }
+    /**
+     * 显示倒计时
+     * @param second 时间戳
+     * @param ui 需要显示的html组件
+     */
+    export function timeCountDown(second: number, ui: laya.html.dom.HTMLDivElement): void {
+        if (second >= 60) {
+            let aa = TimeUtils.getFormatBySecond(second, 6)
+            ui.style.align = "center";
+            ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>"
+                + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
+        } else {
+            ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+            return;
+        }
+
+        Laya.timer.loop(60000, ui, round);
+        function round() {
+            second -= 60;
+            if (second >= 60) {
+                let time = TimeUtils.getFormatBySecond(second, 6)
+                ui.style.align = "center";
+                ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>"
+                    + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + time + "</span>";
+            }
+            else {
+                ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+                Laya.timer.clear(ui, round)
+            }
+        }
     }
 
     export class EffectIDStruct {
@@ -634,5 +666,6 @@ module GameUtil {
                 }
             });
         }
+
     }
 }
