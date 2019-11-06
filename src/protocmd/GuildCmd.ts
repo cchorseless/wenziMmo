@@ -65,7 +65,7 @@ module ProtoCmd {
 		public cbPacket = stGlobalGuildGetListRet;
 		public constructor(data: Laya.Byte = null) {
 			super();
-			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0新人查看 1外交界面列表
+			this.addProperty("btType", PacketBase.TYPE_BYTE);		//0新人查看 1外交界面列表 2系统行会
 			this.addProperty("dwPageNum", PacketBase.TYPE_DWORD);   // 页数 从1开始
 			if (data) {
 				data.pos += this.read(data);

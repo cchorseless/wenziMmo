@@ -60,6 +60,14 @@ module GameUtil {
         return result
     }
 
+    export class EffectIDStruct {
+        public min;
+        public max;
+        public des;
+        public index;
+    }
+
+
     /**
      * 解析效果ID，返回字符串描述
      */
@@ -175,6 +183,7 @@ module GameUtil {
                 let key;
                 if (data != 0) {
                     let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
+                    let obj = new GameUtil.EffectIDStruct();
                     if (dataIndex >= 5 && dataIndex <= 16) {
                         switch (dataIndex) {
                             // 攻击
@@ -183,6 +192,11 @@ module GameUtil {
                                 key = '5_6';
                                 if (tmpDes[key]) {
                                     des = '攻击:' + Math.min(tmpDes[key][1], data) + '-' + Math.max(tmpDes[key][1], data);
+                                    obj.min = Math.min(tmpDes[key][1], data);
+                                    obj.max = Math.max(tmpDes[key][1], data);
+                                    obj.des = '攻击:';
+                                    // obj['index'] =
+                                    // todo
                                 }
                                 break;
                             // 物理攻击

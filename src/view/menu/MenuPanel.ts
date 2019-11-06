@@ -45,6 +45,10 @@ module view.menu {
 			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.MenuMoBaiDialog().popup(true);
 			})
+			//竞猜
+			this.btn_guess.on(Laya.UIEvent.CLICK, this, () => {
+				new view.menu.MenuGuessDialog().popup(true);
+			})
 			//新服活动
 			this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openNewServer_MainPanel();

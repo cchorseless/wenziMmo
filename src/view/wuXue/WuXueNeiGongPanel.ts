@@ -5,7 +5,9 @@ module view.wuXue {
 			super();
 		}
 
+
 		public setData(): void {
+			this.initUI();
 			this.addEvent();
 		}
 
@@ -32,6 +34,27 @@ module view.wuXue {
 				PanelManage.openWuXueHeDaoPanel();
 			});
 
+		}
+
+		public initUI(): void {
+			this.ui_item7.lbl_buWei.text = '内功武学';
+			this.ui_item8.lbl_buWei.text = '内功武学';
+			this.ui_item9.lbl_buWei.text = '内功武学';
+			this.ui_item10.lbl_buWei.text = '内功武学';
+			// 动画
+			this.changeWidthTw();
+			
+		}
+
+		/**
+		 * 动画
+		 */
+		public changeWidthTw(): void {
+			Laya.Tween.to(this.img_exp, { width: this.img_expBg.width }, 3000, null,
+				Laya.Handler.create(this, () => {
+					this.img_exp.width = 0;
+					this.changeWidthTw();
+				}));
 		}
 	}
 }

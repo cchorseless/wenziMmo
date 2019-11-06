@@ -35,13 +35,13 @@ module view.newServer {
 					itemInfo1.dwBaseID = data_left[1].index;
 					itemInfo1.dwCount = data_left[1].num;
 					itemInfo1.dwBinding = data_left[1].bind;
-					this['ui_allServer_' + key_left + '1'].setData(itemInfo1)
+					this['ui_allServer_' + key_left + '1'].setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//第二个物品
 					let itemInfo2 = new ProtoCmd.ItemBase();
 					itemInfo2.dwBaseID = data_left[2].index;
 					itemInfo2.dwCount = data_left[2].num;
 					itemInfo2.dwBinding = data_left[2].bind;
-					this['ui_allServer_' + key_left + '2'].setData(itemInfo2)
+					this['ui_allServer_' + key_left + '2'].setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				}
 				//竞技活动
 				let keys_down = Object.keys(jsonData.join)
@@ -72,13 +72,13 @@ module view.newServer {
 					itemInfo1.dwBaseID = data_down.item[1].index;
 					itemInfo1.dwCount = data_down.item[1].num;
 					itemInfo1.dwBinding = data_down.item[1].bind;
-					this['ui_get_' + key_down + '1'].setData(itemInfo1)
+					this['ui_get_' + key_down + '1'].setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//第二个物品
 					let itemInfo2 = new ProtoCmd.ItemBase();
 					itemInfo2.dwBaseID = data_down.item[2].index;
 					itemInfo2.dwCount = data_down.item[2].num;
 					itemInfo2.dwBinding = data_down.item[2].bind;
-					this['ui_get_' + key_down + '2'].setData(itemInfo2)
+					this['ui_get_' + key_down + '2'].setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//等级
 					this['lbl_lvl' + key_down].text = '' + data_down.lv;
 				}

@@ -1008,6 +1008,29 @@ module EnumData {
     };
 
     /**
+     * 技能类型
+     */
+    export enum enSkillType {
+        ZhaoShi = 1,
+        ZhaoJia = 2,
+        ShenFa = 3,
+        NeiGong = 4,
+        combatSkill = 5,
+        HeroSkill = 6,
+    }
+
+    /**
+     * 技能五行属性
+     */
+    export enum emSkillWuXingProp {
+        jin = 1,
+        mu,
+        shui,
+        huo,
+        tu
+    }
+
+    /**
      * 技能槽位枚举
      */
     export enum emSkillShotButtonType {
