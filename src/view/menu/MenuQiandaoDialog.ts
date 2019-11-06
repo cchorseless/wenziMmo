@@ -3,11 +3,11 @@ module view.menu {
 	export class MenuQiandaoDialog extends ui.menu.MenuQiandaoDialogUI {
 		constructor() {
 			super();
-			this.setData();
+
 		}
 		public WupinArray;
 		public idx;
-		public setData(): void {
+		public setData(): MenuQiandaoDialog {
 			this.list_sign.vScrollBarSkin = '';
 			this.tab_sign.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_sign.selectedIndex = index;
@@ -15,6 +15,7 @@ module view.menu {
 			}, null, false);
 			this.addEvent();
 			this.init_signPanel();
+			return this
 		}
 		public addEvent(): void {
 			//关闭弹窗
@@ -26,11 +27,11 @@ module view.menu {
 				this.init_get();
 			})
 			this.addLcpEvent();
-
 		}
+
+
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData) => {
-				console.log('=====>签到签到', jsonData)
 				//可补签次数
 				this.lbl_buqian.text = '' + jsonData.buQianNum;
 				let date = jsonData.history.split('+')
@@ -61,13 +62,18 @@ module view.menu {
 				this.list_sign.itemRender = view.menu.MenuQiandaoItem;
 				this.list_sign.renderHandler = Laya.Handler.create(this, (cell: view.menu.MenuQiandaoItem, index) => {
 					cell.setData(cell.dataSource, date, jsonData.curtimetab[3]);
-
 				}, null, false)
 				this.WupinArray = jsonData.itemtab;
 				this.init_jiangli();
 			})
 
 		}
+
+		public onClosed(s): void {
+			GameApp.LListener.offCaller(ProtoCmd.Menu_QianDao_DaKai, this)
+		}
+
+
 		/**
 		 * 签到面板
 		 */

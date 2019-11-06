@@ -114,7 +114,6 @@ module view.luckDraw {
 	  * 藏宝阁抽奖
 	  */
 		public addLcpEvent(): void {
-			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.LD_CangbaotuBuy, this, (jsonData) => {
 				this.lbl_score.text = '' + jsonData.score;
 				this.storeData = jsonData.item;
