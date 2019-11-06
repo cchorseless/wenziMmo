@@ -18,6 +18,11 @@ module view.recharge_vip {
 
 		}
 		public upDataView() {
+			if(this.data.state !=1){
+				this.lab_giftName.text = "首次激活大礼包"
+			}else{
+				this.lab_giftName.text = "每日福利"
+			}
 			if (this.data.yuanbao >0) {
 				
 				this.box_isTiyan.visible = true;
