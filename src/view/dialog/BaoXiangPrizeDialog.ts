@@ -15,7 +15,7 @@ module view.dialog {
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = item[i].index;
 				itemInfo.dwCount = item[i].num;
-				_itemUI.setData(itemInfo);
+				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_baoxiang.addChild(_itemUI)
 			}
 			return this;
@@ -38,7 +38,7 @@ module view.dialog {
 				itemInfo.dwBaseID = itemData.item.index;
 				itemInfo.dwCount = itemData.item.num;
 				itemInfo.dwBinding = itemData.item.binding;
-				_itemUI.setData(itemInfo);
+				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				_itemUI.lbl_exp.visible = true;
 				//获得奖励条件
 				_itemUI.lbl_exp.x = 6;

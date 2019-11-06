@@ -4,7 +4,8 @@ module view.juese{
 		constructor(){
 			super();
 		}
-		public setData(data):Person_ShengWangQiZiItem{
+		public setData(data,i):Person_ShengWangQiZiItem{
+			this.img_shengwang.skin='image/common/img_qizi'+(i+1)+'.png'
 			this.lbl_title.text=''+data.name;
 			return this;
 		}

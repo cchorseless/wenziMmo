@@ -22,6 +22,7 @@ module view.activity {
 			})
 			EventManage.onWithEffect(this.btn_recharge, Laya.UIEvent.CLICK, this, function () {
 				//打开充值界面
+				// GameUtil.timeCountDown(70,this.html_time)
 			})
 		}
 		public setData(data) {

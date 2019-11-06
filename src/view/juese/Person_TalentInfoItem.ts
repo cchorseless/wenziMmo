@@ -114,11 +114,13 @@ module view.juese {
 		public TalentInfo(): void {
 			if (this.getItemInfo()) {
 				this.viw_0.selectedIndex = 0;
+				this.img_jieshu.visible=true;
 				this.zhuangbeiInfo(this.getItemInfo());
 				this.init_laqu();
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
+				this.img_jieshu.visible=false;
 				this.lbl_dangqian.text = '' + GameApp.MainPlayer.talentInfo[this.dangqianNum];
 				this.notActivation();
 			}

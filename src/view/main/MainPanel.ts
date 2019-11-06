@@ -178,6 +178,12 @@ module view.main {
 				}
 
 			});
+			//vip界面
+			this.img_vip.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new view.recharge_vip.Recharge_VipDialog();
+				o.setData(1);
+				o.popup(true);
+			})
 
 			this.addLcpEvent();
 		}

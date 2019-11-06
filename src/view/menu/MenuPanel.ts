@@ -23,7 +23,7 @@ module view.menu {
 			})
 			//签到
 			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuQiandaoDialog().setData().popup(true);
+				new view.menu.MenuQiandaoDialog().popup(true);
 			})
 			//邮件
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {
@@ -74,11 +74,10 @@ module view.menu {
 			})
 			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {
 				let o = new view.menu.Menu_FirstChargeDialog();
+				// o.setData(0);
 				o.popup(true);
 
 			})
-
-
 			// 商城
 			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openShopMallPanel();
@@ -86,6 +85,10 @@ module view.menu {
 			// 福利
 			this.btn_fuli.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuLiPanel();
+			})
+			//设置
+			this.btn_setUp.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.SetUpDialog().popup(true);
 			})
 		}
 	}

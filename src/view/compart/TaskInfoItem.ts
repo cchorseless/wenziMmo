@@ -82,7 +82,7 @@ module view.compart {
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = id[i];
 				itemInfo.dwCount = num[i];
-				_itemUI.setData(itemInfo);
+				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_task.addChild(_itemUI)
 			}
 		}

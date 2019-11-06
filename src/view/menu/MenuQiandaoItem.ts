@@ -11,11 +11,12 @@ module view.menu {
 		public day;
 		//当前日期
 		public num;
-
-		public setData(data, day: Array<string>, num): void {
+		public buqianNum;
+		public setData(data, day: Array<string>, num, buqianNum: number): void {
 			this.data = data;
 			this.day = day;
 			this.num = num;
+			this.buqianNum = buqianNum;
 			this.lbl_date.text = data + '天';
 			this.img_qiandao.visible = false;
 			if (day.indexOf('' + data) > -1) {
@@ -27,7 +28,6 @@ module view.menu {
 					this.img_qiandao.visible = true;
 				}
 			}
-
 		}
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
@@ -37,7 +37,11 @@ module view.menu {
 					}
 				}
 				if (this.day.indexOf('' + this.data) == -1 && this.data < this.num) {
-					this.init_buqian();
+					if (this.buqianNum > 0) {
+						this.init_buqian();
+					}else{
+						TipsManage.showTips('补签次数不足')
+					}
 				}
 			})
 		}
@@ -50,8 +54,8 @@ module view.menu {
 			lcp.send(pkt);
 		}
 		/**
-	   	 * 补签
-	  	 */
+	  * 补签
+	  */
 		public init_buqian(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Menu_qiandao_buqian, [this.data]);

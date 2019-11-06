@@ -35,6 +35,8 @@ module view.recharge_vip {
 		}
 		private upDataView() {
 			this.lab_progressText.text = this.curCash + "/" + this.nextCash;
+			this.lab_curVIPLV.text = "当前:\nVIP" + this.vipLv;
+			this.lab_WelfareText.text = "VIP" + this.curPage + "特权"
 			if (this.vipLv != 12) {
 				this.html_text1.style.align = "center"
 				this.html_text2.style.align = "center"

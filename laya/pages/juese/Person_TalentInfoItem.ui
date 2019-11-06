@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":222,
-    "selecteID":239,
+    "selectedBox":239,
+    "selecteID":234,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -18,24 +18,26 @@
             "props":{"y":56,"x":24,"var":"box_0"},
             "nodeParent":1,
             "label":"Box(box_0)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":215,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":175,"skin":"image/common/bottom_smalltitle.png"},
+                    "props":{"y":0,"x":175,"var":"img_jieshu","skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":215,
-                    "label":"Image",
-                    "isOpen":false,
+                    "label":"Image(img_jieshu)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":201,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":27,"var":"lbl_des","text":"根骨四阶","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":201,
@@ -51,6 +53,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":68,"x":-28,"var":"btn_top4","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
@@ -89,6 +92,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":30,"x":82,"var":"btn_top3","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
@@ -127,6 +131,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":69,"x":188,"var":"btn_top0","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
@@ -165,6 +170,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":28,"x":304,"var":"btn_top2","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
@@ -203,6 +209,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":69,"x":411,"var":"btn_top1","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
@@ -777,7 +784,7 @@
                     "props":{"y":19,"x":3,"name":"item1"},
                     "nodeParent":222,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -800,15 +807,16 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":88,"x":221,"width":123,"skin":"image/common/daoju/itemicon_123001.png","height":121},
+                            "props":{"y":88,"x":221,"width":123,"var":"img_type","skin":"image/common/daoju/itemicon_123001.png","height":121},
                             "nodeParent":239,
-                            "label":"Image",
+                            "label":"Image(img_type)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":293,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -839,9 +847,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":6,"x":32,"text":"先天悟性资质","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                                    "props":{"y":6,"x":32,"var":"lbl_type","text":"先天悟性资质","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":218,
-                                    "label":"Label",
+                                    "label":"Label(lbl_type)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -923,7 +931,7 @@
                         }],
                     "$HIDDEN":false
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

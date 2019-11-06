@@ -32,7 +32,7 @@ module view.newServer {
 					itemInfo.dwBaseID = data.index;
 					itemInfo.dwCount = data.num;
 					itemInfo.dwBinding = data.bind;
-					this['ui_item' + key].setData(itemInfo)
+					this['ui_item' + key].setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				}
 				//按钮状态
 				this.bj = jsonData.Bj;

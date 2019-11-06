@@ -472,6 +472,8 @@ module ProtoCmd {
     export const SendExItemPlane = "SendExItemPlane";   //福袋抽奖额外奖励面板
     export const FuDaiGet = "FuDaiGet";   //福袋抽奖额外奖励    领取
 
+    export const leijidenglu_minbandakai = "leijidenglu_minbandakai"  //累计登录(0:打开面板 ，大于0，代表ID并领取)
+
 
 
 

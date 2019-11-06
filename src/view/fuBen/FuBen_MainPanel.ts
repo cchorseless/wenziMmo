@@ -124,7 +124,7 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_1.addChild(_itemUI);
 				}
 			}
@@ -200,7 +200,7 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_2.addChild(_itemUI);
 				};
 				if (jsonData.lv) {
