@@ -47,9 +47,11 @@ module ResData {
         // 武学 外功
         public static WaiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 内功
-        public static NeiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static NeiGong = null;
         // 武学 合道
-        public static HeDao = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static HeDao = null;
+        // 武学 闭关
+        public static CloseDoor = null;
         // 武学 生活技能
         public static LifeSkill = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 宅院界面

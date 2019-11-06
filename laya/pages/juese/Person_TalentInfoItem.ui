@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":215,
+    "selectedBox":222,
+    "selecteID":239,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -24,19 +24,6 @@
             "hasChild":true,
             "compId":215,
             "child":[
-                {
-                    "type":"Image",
-                    "props":{"y":122,"skin":"image/juese/img_common_yinyang.png"},
-                    "nodeParent":215,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":188,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
                 {
                     "type":"Image",
                     "props":{"y":0,"x":175,"skin":"image/common/bottom_smalltitle.png"},
@@ -65,126 +52,193 @@
                 },
                 {
                     "type":"Button",
-                    "props":{"y":87,"x":217,"width":105,"var":"btn_top0","stateNum":"1","skin":"image/juese/icon_wuxing_big.png","height":104},
-                    "nodeParent":215,
-                    "label":"Button(btn_top0)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":46,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":107,"x":17,"text":"悟 性","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":46,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":229,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":51,"x":142,"width":55,"var":"btn_top3","stateNum":"2","skin":"image/juese/icon_shenfan01_finish.png","scaleY":1.4,"scaleX":1.4,"height":57},
-                    "nodeParent":215,
-                    "label":"Button(btn_top3)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":89,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":45,"x":3,"text":"身 法","strokeColor":"#000000","stroke":4,"fontSize":18,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":89,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":227,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":94,"x":49,"width":67,"var":"btn_top4","stateNum":"2","skin":"image/juese/icon_gengu01_finish.png","scaleY":1.3,"scaleX":1.3,"height":68},
+                    "props":{"y":68,"x":-28,"var":"btn_top4","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
                     "label":"Button(btn_top4)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":74,
+                    "compId":279,
                     "child":[
                         {
+                            "type":"Image",
+                            "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_160001.png"},
+                            "nodeParent":279,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":280,
+                            "child":[
+                                ]
+                        },
+                        {
                             "type":"Label",
-                            "props":{"y":55,"x":8,"text":"根 骨","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":74,
+                            "props":{"y":118,"x":33,"text":"根 骨","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":279,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":230,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
                     "type":"Button",
-                    "props":{"y":46,"x":319,"width":57,"var":"btn_top2","stateNum":"2","skin":"image/juese/icon_shanyuan01_finish.png","scaleY":1.4,"scaleX":1.4,"height":59},
+                    "props":{"y":30,"x":82,"var":"btn_top3","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
-                    "label":"Button(btn_top2)",
-                    "isOpen":true,
+                    "label":"Button(btn_top3)",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":84,
+                    "compId":281,
                     "child":[
                         {
+                            "type":"Image",
+                            "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_121001.png"},
+                            "nodeParent":281,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":282,
+                            "child":[
+                                ]
+                        },
+                        {
                             "type":"Label",
-                            "props":{"y":49,"x":15,"text":"善缘","strokeColor":"#000000","stroke":4,"fontSize":18,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":84,
+                            "props":{"y":118,"x":33,"text":"身 法","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":281,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":228,
+                            "compId":283,
                             "child":[
-                                ]
-                        }]
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "type":"Button",
-                    "props":{"y":94,"x":398,"width":64,"var":"btn_top1","stateNum":"2","skin":"image/juese/icon_bili01_finish.png","scaleY":1.3,"scaleX":1.3,"height":66},
+                    "props":{"y":69,"x":188,"var":"btn_top0","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "nodeParent":215,
+                    "label":"Button(btn_top0)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":284,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_123001.png"},
+                            "nodeParent":284,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":285,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":118,"x":33,"text":"悟 性","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":284,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":286,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":28,"x":304,"var":"btn_top2","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "nodeParent":215,
+                    "label":"Button(btn_top2)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":287,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_124001.png"},
+                            "nodeParent":287,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":288,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":118,"x":33,"text":"善 缘","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":287,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":289,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":69,"x":411,"var":"btn_top1","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
                     "nodeParent":215,
                     "label":"Button(btn_top1)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":79,
+                    "compId":290,
                     "child":[
                         {
+                            "type":"Image",
+                            "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_122001.png"},
+                            "nodeParent":290,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":291,
+                            "child":[
+                                ]
+                        },
+                        {
                             "type":"Label",
-                            "props":{"y":56,"x":9,"text":"臂 力","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":79,
+                            "props":{"y":118,"x":33,"text":"臂 力","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":290,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":226,
+                            "compId":292,
                             "child":[
-                                ]
-                        }]
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
@@ -730,6 +784,7 @@
                     "compId":239,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":66,"x":2,"skin":"image/juese/img_zizhitianfu_02.png"},
                             "nodeParent":239,
@@ -743,6 +798,20 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":88,"x":221,"width":123,"skin":"image/common/daoju/itemicon_123001.png","height":121},
+                            "nodeParent":239,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":293,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":274,"x":229,"width":92.8125,"var":"lbl_dangqian","text":"99","strokeColor":"#52331e","stroke":6,"italic":true,"height":72,"fontSize":72,"font":"FZHL","color":"#fff4ce","align":"center"},
                             "nodeParent":239,
@@ -756,8 +825,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":11,"x":155,"width":244,"skin":"image/common/bottom_smalltitle.png","height":46},
+                            "props":{"y":9,"x":161,"width":244,"skin":"image/common/bottom_smalltitle.png","height":46},
                             "nodeParent":239,
                             "label":"Image",
                             "isOpen":true,
@@ -767,6 +837,7 @@
                             "compId":218,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"x":32,"text":"先天悟性资质","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":218,
@@ -782,8 +853,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":555,"x":208,"width":139,"var":"btn_jiHuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
+                            "props":{"y":555,"x":214,"width":139,"var":"btn_jiHuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":239,
                             "label":"Button(btn_jiHuo)",
                             "isDirectory":false,
@@ -795,6 +867,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":434,"x":-1,"width":568,"skin":"image/juese/bottom_common_001.png","height":96},
                             "nodeParent":239,
@@ -806,6 +879,7 @@
                             "compId":224,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":224,
@@ -820,6 +894,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":532,"x":139,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":239,
@@ -833,6 +908,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":532,"x":246,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
                             "nodeParent":239,
@@ -847,7 +923,7 @@
                         }],
                     "$HIDDEN":false
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         }],
     "animations":[
         {
