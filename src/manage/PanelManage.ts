@@ -57,7 +57,8 @@ module PanelManage {
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
-    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
+    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学合道界面
+    export let CloseDoor: view.wuXue.WuXueCloseDoorPanel;//武学闭关界面
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
@@ -336,7 +337,22 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
         })
     }
-
+    /**
+      * 武学闭关界面
+      */
+    export function openWuXueCloseDoorPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CloseDoor) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.CloseDoor);
+        ResManage.loadResource(ResData.PanelRes.CloseDoor, () => {
+            PanelManage.CloseDoor = new view.wuXue.WuXueCloseDoorPanel();
+            PanelManage.CloseDoor['LCP_skin'] = ResData.PanelRes.CloseDoor;
+            PanelManage.CloseDoor.setData();
+            PanelManage.CloseDoor.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.CloseDoor, 1, 0, 2);
+        })
+    }
 
 
 

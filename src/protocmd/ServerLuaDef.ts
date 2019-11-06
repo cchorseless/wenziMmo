@@ -164,10 +164,6 @@ module ProtoCmd {
     export const JS_PrestigePanel = 'prestigePanel';
     // 强化大师(强化、装备等级、升级大师)
     export const JS_SoulNecklacePanel = 'SoulNecklacePanel';// (type:0是玩家1是英雄)
-    // 内功经络
-    export const JS_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
-    // 内功经络升级
-    export const JS_shuxingxitong_shengji = 'shuxingxitong_shengji';
     // 罡气护体激活
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
@@ -183,7 +179,10 @@ module ProtoCmd {
     export const WX_upgradeWarSoul = 'upgradeWarSoul';
     //武学戾气升级面板
     export const WX_updateWarSoulPanel = 'updateWarSoulPanel';
-
+    // /武学内功
+    export const WX_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
+    // /武学内功升级
+    export const WX_shuxingxitong_shengji = 'shuxingxitong_shengji';
     /********************************弟子信息界面***************** */
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
@@ -779,18 +778,7 @@ module ProtoCmd {
         rank: any;// 排行榜
         titletab: any//声望头衔信息
     }
-    /**
-    * 拉取内息经络
-    */
-    export interface itf_JS_NeiGongInfo {
-        dangqiandengji: number//当前等级
-        dangqianneigong: number//当前内功
-        dangqianshuxing: string//“内功抵抗=当前属性”
-        nghf: number//内功恢复
-        xiajishuxing: string//下级属性
-        xiaohaoitem: number//当前属性的最大内功
-        zongnum: number
-    }
+
     /**
   * 拉取角色天赋
   */
@@ -880,6 +868,18 @@ module ProtoCmd {
         maxexp: number//最大经验
         needexp: number//所需消耗经验
         pos: number//魂力穿戴位置
+    }
+    /**
+  * 武学内息经络
+  */
+    export interface itf_WX_NeiGongInfo {
+        dangqiandengji: number//当前等级
+        dangqianneigong: number//当前内功
+        dangqianshuxing: string//“内功抵抗=当前属性”
+        nghf: number//内功恢复
+        xiajishuxing: string//下级属性
+        xiaohaoitem: number//当前属性的最大内功
+        zongnum: number
     }
     /***********************************副本接口**************************** */
     /**

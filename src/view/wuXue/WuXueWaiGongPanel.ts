@@ -86,9 +86,9 @@ module view.wuXue {
 			this.btn_neiGong.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueNeiGongPanel()
 			});
-			// 生活技能
-			this.btn_lifeSkill.on(Laya.UIEvent.CLICK, this, () => {
-				// PanelManage.openWuXueLifeSkillPanel();
+			// 闭关
+			this.btn_closeDoor.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openWuXueCloseDoorPanel();
 			});
 			// 合道
 			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {

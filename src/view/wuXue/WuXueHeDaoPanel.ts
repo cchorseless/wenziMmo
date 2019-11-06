@@ -40,9 +40,9 @@ module view.wuXue {
 			this.btn_neiGong.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueNeiGongPanel()
 			});
-			// 生活技能
-			this.btn_lifeSkill.on(Laya.UIEvent.CLICK, this, () => {
-				// PanelManage.openWuXueLifeSkillPanel();
+			// 闭关
+			this.btn_closeDoor.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openWuXueCloseDoorPanel();
 			});
 			//转生突破
 			this.btn_zhuanSheng.on(Laya.UIEvent.CLICK, this, () => {
@@ -53,11 +53,11 @@ module view.wuXue {
 				this.init_UpXiuWei();
 			})
 			if (this.mySum >= this.sum) {
-			//开启
-			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				GameUtil.setServerData(this.client_func_index);
-				this.activation();
-			})
+				//开启
+				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+					GameUtil.setServerData(this.client_func_index);
+					this.activation();
+				})
 			}
 			else {
 				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
@@ -331,7 +331,7 @@ module view.wuXue {
 				let keys = Object.keys(this.wstab)
 				let lvlArray = [];
 				for (let key of keys) {
-					lvlArray.push(this.wstab[key]);	
+					lvlArray.push(this.wstab[key]);
 				}
 				function compare(property) {
 					return function (a, b) {
