@@ -219,24 +219,12 @@ module PanelManage {
         if (PanelManage.Main) {
             PanelManage.Main.updateUI()
             PopUpManager.showPanel(PanelManage.Main);
+            PanelManage.Main.view_scene.selectedIndex = 0;
         }
         else {
             PanelManage.loadMainPanel();
         }
     }
-    // /**
-    //  * 显示剧情界面
-    //  */
-    // export function openJuQingModePanel(): void {
-
-    //     if (PanelManage.JuQingMode) {
-    //         PopUpManager.showPanel(PanelManage.JuQingMode);
-    //     }
-    //     else {
-    //         PanelManage.loadJuQingModePanel();
-    //     }
-
-    // }
 
     /******************************游戏界面************************************* */
     /**
@@ -1067,20 +1055,24 @@ module PanelManage {
 
 
     /**
-     * 剧情模式界面
+     * 剧情模式界面(特殊处理了)
      */
     export function openJuQingModePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingMode) {
-            return
+        PanelManage.openMainPanel();
+        if (PanelManage.Main.view_scene.numChildren == 1) {
+            ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
+                PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
+                PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
+                PanelManage.JuQingMode.setData();
+                PanelManage.JuQingMode.mouseEnabled = true;
+                PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
+                PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
+                PanelManage.Main.view_scene.selectedIndex = 1;
+            })
         }
-        PopUpManager.checkPanel(PanelManage.JuQingMode);
-        ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
-            PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
-            PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
-            PanelManage.JuQingMode.setData();
-            PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 1);
-        })
+        else {
+            PanelManage.Main.view_scene.selectedIndex = 1;
+        }
     }
 
 

@@ -88,16 +88,15 @@ module ProtoCmd {
         }
 
         public static numberToInt64(num): Int64 {
-            let aa = new ArrayBuffer(8);
+            let aa = new Uint8Array(8);
             aa[7] = 0;
             aa[6] = 0;
             aa[5] = 0;
             aa[4] = 0;
-            aa[3] = (num & 0xff0000) >> 24;
+            aa[3] = (num & 0xff000000) >> 24;
             aa[2] = (num & 0xff0000) >> 16;
             aa[1] = (num & 0xff00) >> 8;
             aa[0] = num & 0xff;
-            console.log('1111111', aa);
             return new Int64(new Laya.Byte(aa));
         }
     }

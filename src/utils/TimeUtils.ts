@@ -4,6 +4,8 @@
 module TimeUtils {
 
 
+
+
     /**
      * 根据秒数格式化字符串
      * @param second 秒数

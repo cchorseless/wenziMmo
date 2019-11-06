@@ -29,7 +29,7 @@ module view.zhiNan {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.showPanel(PanelManage.JuQingMode);
+				PanelManage.openJuQingModePanel()
 			});
 			// EventManage.onWithEffect(this.btn_modeChange, Laya.UIEvent.CLICK, this, () => {
 			// 	PanelManage.openMainPanel();

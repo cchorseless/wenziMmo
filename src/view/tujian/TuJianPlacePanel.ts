@@ -19,7 +19,7 @@ module view.tujian {
 		public addEvent(): void {
 
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.showPanel(PanelManage.JuQingMode);
+			PanelManage.openJuQingModePanel()
 			});
 			this.btn_shiJianTJ.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianEventPanel()
