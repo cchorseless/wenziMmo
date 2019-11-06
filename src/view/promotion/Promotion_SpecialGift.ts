@@ -16,7 +16,7 @@ module view.promotion {
 				o.setData(data[i]);
 				o.x = (o.width + 25) * index + 15;
 				this.hbox_tab.addChild(o);
-				// 添加view_stack
+
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
 				this.viewS_main.addItem(box);
@@ -26,10 +26,10 @@ module view.promotion {
 			this.onChooseTabItem(data[1]);
 		}
 		public addEvent() {
-
 		}
 		public onChooseTabItem(item) {
 			this.changeTabState(item.id);
+			this.viewS_main.selectedIndex = item.id;
 			this.getActiveInfoData(item);
 		}
 		private changeTabState(index) {
@@ -43,6 +43,7 @@ module view.promotion {
 			}
 		}
 		public getActiveInfoData(item) {
+			
 			let box = this.viewS_main.getChildAt(item.id);
 			if (box.numChildren <= 0) {
 				let index = item.id + 1;
@@ -54,10 +55,10 @@ module view.promotion {
 				})
 				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.TeHuiClientOpen, [index])
 				lcp.send(pkt0);
-
 			}
+			
 		}
-		public destroy(e) {
+		public destroy(e=true) {
 			GameApp.LListener.offCaller(ProtoCmd.TeHuiClientOpen, this)
 			super.destroy(e)
 		}

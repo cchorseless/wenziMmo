@@ -76,7 +76,7 @@ module view.menu {
 			}
 			this.html_need.style.align = "center";
 			this.html_need.innerHTML = "<span style='color:#010101;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + need + "</span>"
-				+ "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>可领取</span>"
+				+ "<span style='color:#179a0d;font-family:STLiti-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>可领取</span>"
 
 
 		}

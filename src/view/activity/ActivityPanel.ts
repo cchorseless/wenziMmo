@@ -130,6 +130,16 @@ module view.activity {
 						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active100, null)
 						lcp.send(pkt100);
 						break;
+					case 29:    //单笔充值
+						GameApp.LListener.on(ProtoCmd.Active200, this, (data) => {
+							box.removeChildren()
+							let o = new Active_Panel_Item()
+							o.setData(data, 200)
+							box.addChild(o);
+						})
+						let pkt200 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active200, null)
+						lcp.send(pkt200);
+						break;
 				}
 			}
 			this.viewS_main.selectedIndex = item.index;
@@ -141,10 +151,12 @@ module view.activity {
 		}
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Active1, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active3, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active4, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active5, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active7, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active9, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active10, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active13, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
@@ -156,11 +168,13 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active32, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active33, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active34, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active35, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
 
 
 			GameApp.LListener.offCaller(ProtoCmd.Active100, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active200, this)
 
 			// GameApp.LListener.offCaller(ProtoCmd.SendExItemPlane, this)    //额外奖励面板
 
