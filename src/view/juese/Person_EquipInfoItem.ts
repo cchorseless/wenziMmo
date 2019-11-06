@@ -42,6 +42,7 @@ module view.juese {
 			if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
 				sexName = 'nv';
 			}
+			LangConfig.getPlayerAvatarSkin( )
 			this.img_avatarPic.skin='image/common/'+sexName+'0'+GameApp.MainPlayer.job+'_half.png'
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
 			for (let key of allKey) {
