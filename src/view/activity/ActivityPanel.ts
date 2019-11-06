@@ -65,7 +65,7 @@ module view.activity {
 					  * 5 限时抢购  14 兑换豪礼   36每周基金  17每日领取  13连续充值  1每日必买
 					  */
 					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18:
-					case 19: case 32: case 36: case 10: case 35: case 3:
+					case 19: case 32: case 36: case 10: case 35: case 3: case 30:
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_Panel_Item()
@@ -130,16 +130,6 @@ module view.activity {
 						let pkt100 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active100, null)
 						lcp.send(pkt100);
 						break;
-					case 29:    //单笔充值
-						GameApp.LListener.on(ProtoCmd.Active200, this, (data) => {
-							box.removeChildren()
-							let o = new Active_Panel_Item()
-							o.setData(data, 200)
-							box.addChild(o);
-						})
-						let pkt200 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active200, null)
-						lcp.send(pkt200);
-						break;
 				}
 			}
 			this.viewS_main.selectedIndex = item.index;
@@ -174,7 +164,7 @@ module view.activity {
 
 
 			GameApp.LListener.offCaller(ProtoCmd.Active100, this)
-			GameApp.LListener.offCaller(ProtoCmd.Active200, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active30, this)
 
 			// GameApp.LListener.offCaller(ProtoCmd.SendExItemPlane, this)    //额外奖励面板
 

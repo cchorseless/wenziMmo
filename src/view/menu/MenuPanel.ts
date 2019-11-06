@@ -74,7 +74,6 @@ module view.menu {
 			})
 			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {
 				let o = new view.menu.Menu_FirstChargeDialog();
-				// o.setData(0);
 				o.popup(true);
 
 			})

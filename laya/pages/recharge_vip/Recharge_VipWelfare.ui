@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":39,
+    "selecteID":40,
     "props":{"width":500,"sceneColor":"#ffffff","height":723},
     "nodeParent":-1,
     "label":"View",
@@ -12,6 +12,22 @@
     "hasChild":true,
     "compId":1,
     "child":[
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":500,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"5,3,3,4","height":540},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":40,
+            "child":[
+                ],
+            "$LOCKED":true,
+            "$HIDDEN":false
+        },
         {
             "x":15,
             "type":"Image",
