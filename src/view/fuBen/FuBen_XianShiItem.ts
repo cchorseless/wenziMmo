@@ -31,7 +31,7 @@ module view.fuBen {
 							let _itemUI = new view.compart.DaoJuWithNameItem();
 							let itemInfo = new ProtoCmd.ItemBase();
 							itemInfo.dwBaseID = jsonData[i].award[g];
-							_itemUI.setData(itemInfo);
+							_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 							this.hbox_jiangli.addChild(_itemUI);
 						}
 						this.timeEvent(jsonData[i].time, time)

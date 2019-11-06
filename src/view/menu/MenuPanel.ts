@@ -78,8 +78,6 @@ module view.menu {
 				o.popup(true);
 
 			})
-
-
 			// 商城
 			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openShopMallPanel();
@@ -87,6 +85,10 @@ module view.menu {
 			// 福利
 			this.btn_fuli.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuLiPanel();
+			})
+			//设置
+			this.btn_setUp.on(Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.SetUpDialog().popup(true);
 			})
 		}
 	}

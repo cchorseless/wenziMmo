@@ -33,7 +33,10 @@ module view.dialog {
 					// 邮件标题
 					this.lbl_mailDetailTitle.text = '' + cbpkt.MailDetail.szTitle;
 					// 邮件文本内容
-					this.lbl_mailDetail.text = '' + cbpkt.MailDetail.szNotice;
+					this.div_mail.style.leading = 5;
+					this.div_mail.style.fontSize = 30;
+					this.div_mail.style.wordWrap = true;
+					this.div_mail.innerHTML = '' + cbpkt.MailDetail.szNotice;
 					// 道具
 					this.hbox_mailGet.removeChildren()
 					let keys = Object.keys(cbpkt.MailDetail.items);
@@ -42,7 +45,7 @@ module view.dialog {
 						let item = new ProtoCmd.ItemBase;
 						item.dwBaseID = cbpkt.MailDetail.items[key].dwBaseID;
 						item.dwCount = cbpkt.MailDetail.items[key].dwCount;
-						ui_gift.setData(item)
+						ui_gift.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 						this.hbox_mailGet.addChild(ui_gift);
 					}
 					//发件人
@@ -52,11 +55,10 @@ module view.dialog {
 					else {
 						this.lbl_send.text = '' + cbpkt.MailDetail.szSenderName;
 					}
-					//读取后刷新
-					let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
-					MailDialog && MailDialog.updataBoRead(cbpkt.MailDetail);
 				}
 			})
+			let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
+			MailDialog && MailDialog.initUI();
 		}
 		public addEvent(): void {
 			this.btn_mailGetClose.on(Laya.UIEvent.CLICK, this, () => {
@@ -69,6 +71,7 @@ module view.dialog {
 			// 领取附件
 			this.btn_getDaoju.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_get();
+				this.close();
 			})
 		}
 		/**
@@ -104,7 +107,7 @@ module view.dialog {
 				this.img_geted.visible = true;
 				if (cbpkt.getValue('bterrorcode') == 0) {
 					let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
-					MailDialog && MailDialog.GetCacheData(cbpkt);
+					MailDialog && MailDialog.initUI();
 				}
 			})
 		}

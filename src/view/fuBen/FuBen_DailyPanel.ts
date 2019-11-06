@@ -99,7 +99,7 @@ module view.fuBen {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = jiangli[i];
-				_itemUI.setData(itemInfo);
+				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_xinMo1.addChild(_itemUI)
 			}
 

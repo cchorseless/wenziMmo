@@ -44,6 +44,7 @@ module view.juese {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
 				GameApp.GameEngine.HeroInfo = jsonData;
+				this.init_event();
 			})
 		}
 		public DisposeHero(): void {
@@ -55,6 +56,26 @@ module view.juese {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_HeroBaseInfo)
 			lcp.send(pkt);
+		}
+		/**
+		 * 初始化ICON
+		 */
+		public init_event(): void {
+			let sex = GameApp.MainPlayer.sex;
+			let sexName;
+			let diziSex;
+			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+				sexName = 'nan';
+				diziSex = 'nv';
+			}
+			if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+				sexName = 'nv';
+				diziSex = 'nan';
+			}
+			this.img_my.skin = 'image/common/icon_' + sexName + '0' + GameApp.MainPlayer.job + '.png'
+			for (let i = 1; i < 4; i++) {
+				this['img_di'+i].skin='image/common/icon_'+diziSex+'0'+GameApp.GameEngine.HeroInfo[i].JOB+'.png'
+			}
 		}
 	}
 }

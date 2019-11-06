@@ -10,6 +10,7 @@ module view.dialog {
 		public setData(): void {
 			this.panel_mail.vScrollBarSkin = '';
 			this.vbox_mail['sortItem'] = (items) => { };
+			this.box_null.visible = false;
 			this.initUI();
 			this.addEvent();
 		}
@@ -30,7 +31,7 @@ module view.dialog {
 				})
 			})
 		}
-		//获得邮件列表
+		//获得邮件列表&&刷新
 		public initUI(): void {
 			let pkt = new ProtoCmd.stMailQueryEncoder();
 			lcp.send(pkt, this, this.updateUI);
@@ -42,28 +43,32 @@ module view.dialog {
 			let cbpkt = new ProtoCmd.stMailQueryRetDecoder(data);
 			//邮件数量
 			this.lbl_mailCount.text = '' + cbpkt.mails.length;
+			function compare(property) {
+				return function (a, b) {
+					var value1 = a[property];
+					var value2 = b[property];
+					return value1 - value2;
+				}
+			}
 			let keys = Object.keys(cbpkt.mails)
-			for (let key of keys) {
-				let data = cbpkt.mails[key];
-				this.vbox_mail.addChild(new view.compart.MailItem().setData(data))
+			if (keys.length == 0) {
+				this.box_null.visible = true;
+			} else {
+				this.box_null.visible = false;
+				let mailArray = []
+				for (let key of keys) {
+					let data = cbpkt.mails[key];
+					mailArray.push(data);
+				}
+				let array = mailArray.sort(compare('boRead'))
+				let keys1 = Object.keys(array)
+				for (let key1 of keys1) {
+					let data = array[key1];
+					this.vbox_mail.addChild(new view.compart.MailItem().setData(data));
+				}
 			}
 			cbpkt.clear();
 			cbpkt = null;
-		}
-		/**
-		 * 
-		 * @param data 领取邮件刷新
-		 */
-		public GetCacheData(data: ProtoCmd.stMailGetItemRetDecoder): void {
-			let id = data.getValue('dwMailID')
-			for (let mailUI of this.vbox_mail._childs) {
-				(mailUI as view.compart.MailItem).init_type(id, data);
-			}
-		}
-		public updataBoRead(data: ProtoCmd.stMailDetailBase): void {
-			for (let mailUI of this.vbox_mail._childs) {
-				(mailUI as view.compart.MailItem).init_boRead(data);
-			}
 		}
 	}
 }

@@ -117,7 +117,7 @@ module view.fuBen {
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_yinkui.addChild(_itemUI)
 				}
 				//BOSS地图
@@ -177,7 +177,7 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jsonData.reward[i].index;
 					itemInfo.dwCount = jsonData.reward[i].num;
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_world.addChild(_itemUI)
 				}
 			})

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":192,
-    "selecteID":209,
+    "selectedBox":3,
+    "selecteID":174,
     "referenceLines":[
         {
             "value":488,
@@ -276,13 +276,14 @@
                             "props":{"x":268,"width":269,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"23,25,25,24","height":254},
                             "nodeParent":192,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":3,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":62,"x":21,"wordWrap":false,"width":226,"var":"lbl_one","text":"声望第一：","strokeColor":"#000000","stroke":0,"height":32,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":3,
@@ -296,6 +297,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":25,"x":14,"text":"我的威望排名：","strokeColor":"#000000","stroke":4,"fontSize":23,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":3,
@@ -309,10 +311,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":24,"x":166,"text":"10991名","strokeColor":"#000000","stroke":4,"fontSize":23,"font":"FZHL","color":"#ffffff"},
+                                    "props":{"y":24,"x":166,"var":"lbl_myRank","text":"10991名","strokeColor":"#000000","stroke":4,"fontSize":23,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":3,
-                                    "label":"Label",
+                                    "label":"Label(lbl_myRank)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -322,6 +325,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":92,"x":21,"wordWrap":false,"width":226,"var":"lbl_two","text":"声望第一：","strokeColor":"#000000","stroke":0,"height":32,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":3,
@@ -335,6 +339,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":122,"x":21,"wordWrap":false,"width":226,"var":"lbl_three","text":"声望第一：","strokeColor":"#000000","stroke":0,"height":32,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":3,
@@ -532,13 +537,14 @@
                             "props":{"y":569,"x":68,"width":423,"var":"panel_shengWang","height":125},
                             "nodeParent":192,
                             "label":"Panel(panel_shengWang)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":41,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"HBox",
                                     "props":{"x":-1,"var":"hbox_shengWang","top":-16,"space":12,"bottom":0,"align":"middle"},
                                     "nodeParent":41,

@@ -33,7 +33,7 @@ module view.fuBen {
 					let _itemUI = new view.compart.DaoJuItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					ui_box =this['box_1' + j];
 					ui_box.addChild(_itemUI);
 					// console.log('===>通缉通缉',this['box1' + j].width)
@@ -65,7 +65,7 @@ module view.fuBen {
 					let _itemUI = new view.compart.DaoJuItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					ui_box =this['box_2' + j];
 					ui_box.addChild(_itemUI);
 					// console.log('===>通缉通缉',this['box1' + j].width)
@@ -96,7 +96,7 @@ module view.fuBen {
 					let _itemUI = new view.compart.DaoJuItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo);
+					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					ui_box =this['box_3' + j];
 					ui_box.addChild(_itemUI);
 					// console.log('===>通缉通缉',this['box1' + j].width)

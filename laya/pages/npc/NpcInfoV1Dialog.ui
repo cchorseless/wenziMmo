@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":88,
-    "selecteID":31,
+    "selectedBox":1,
+    "selecteID":6,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -30,7 +30,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":35,"x":574,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png","right":24,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":26,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png","right":0,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":59,"x":45,"width":164,"var":"img_npcBg","skin":"image/main/bottom_role.png","height":188},
+            "props":{"y":59,"x":45,"width":164,"var":"img_npcBg","skin":"image/common/img_npv_di.png","height":188},
             "nodeParent":1,
             "label":"Image(img_npcBg)",
             "isOpen":true,
@@ -55,20 +55,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"top":0,"skin":"image/main/bottom_role2.png","right":0,"left":0,"bottom":0},
-                    "nodeParent":8,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":50,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"var":"img_npcPic","top":20,"skin":"image/common/npc/npc_half_1001.png","right":0,"left":0,"bottom":0},
+                    "props":{"y":20,"x":0,"var":"img_npcPic","top":20,"skin":"image/common/npc/npc_half_1001.png","right":0,"left":0,"bottom":0},
                     "nodeParent":8,
                     "label":"Image(img_npcPic)",
                     "isDirectory":false,
@@ -76,22 +63,50 @@
                     "hasChild":false,
                     "compId":51,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"width":164,"top":0,"skin":"image/common/img_npv_kuang.png","left":0,"height":188},
+                    "nodeParent":8,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":50,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":152,"x":12,"width":140,"skin":"image/main/img_common_02.png","height":27},
+                    "nodeParent":8,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":123,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":2,"x":37,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":123,
+                            "label":"Label(lbl_npcName)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":124,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":255,"x":77,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":4,"height":32,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-            "nodeParent":1,
-            "label":"Label(lbl_npcName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ],
             "$HIDDEN":false
         },
         {
@@ -232,15 +247,16 @@
                     "props":{"y":42,"x":41,"name":"item0"},
                     "nodeParent":28,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":63,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":73,"x":348,"var":"btn_task","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"任务"},
+                            "props":{"y":73,"x":348,"var":"btn_task","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"任务"},
                             "nodeParent":63,
                             "label":"Button(btn_task)",
                             "isDirectory":false,
@@ -251,8 +267,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"var":"btn_info","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"详细信息"},
+                            "props":{"var":"btn_info","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"详细信息"},
                             "nodeParent":63,
                             "label":"Button(btn_info)",
                             "isDirectory":false,
@@ -263,8 +280,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":73,"x":170,"var":"btn_touXi","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"偷袭"},
+                            "props":{"y":73,"x":174,"var":"btn_touXi","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"偷袭"},
                             "nodeParent":63,
                             "label":"Button(btn_touXi)",
                             "isDirectory":false,
@@ -275,8 +293,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"x":170,"var":"btn_talk","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"对话"},
+                            "props":{"y":0,"x":174,"var":"btn_talk","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"对话"},
                             "nodeParent":63,
                             "label":"Button(btn_talk)",
                             "isDirectory":false,
@@ -287,8 +306,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":0,"x":349,"var":"btn_touQie","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"偷窃"},
+                            "props":{"y":0,"x":349,"var":"btn_touQie","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"偷窃"},
                             "nodeParent":63,
                             "label":"Button(btn_touQie)",
                             "isDirectory":false,
@@ -299,8 +319,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":73,"var":"btn_battle","stateNum":"2","skin":"image/common/bottom_jiemengbanghui.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"切磋"},
+                            "props":{"y":73,"var":"btn_battle","stateNum":"2","skin":"image/common/btn_common_01.png","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"切磋"},
                             "nodeParent":63,
                             "label":"Button(btn_battle)",
                             "isDirectory":false,
@@ -310,7 +331,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -583,7 +604,7 @@
                             "$HIDDEN":false
                         }],
                     "$LOCKED":false,
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

@@ -38,6 +38,7 @@ module view.juese {
 			if (GameUtil.getServerData(this.client_func_index)) {
 				this.viw_shengwang.selectedIndex = 1;
 				this.getShengWangInfo();
+				this.init_myData();
 			}
 			else {
 				this.viw_shengwang.selectedIndex = 0;
@@ -101,12 +102,25 @@ module view.juese {
 				}
 				//声望经验值进度条
 				this.img_progress.width = 211 * jsonData.damage;
+				//威望预览
+				this.hbox_shengWang.removeChildren();
 				for (let i = 0; jsonData.titletab[i]; i++) {
-					this.hbox_shengWang.addChild(new view.juese.Person_ShengWangQiZiItem().setData(jsonData.titletab[i]))
+					this.hbox_shengWang.addChild(new view.juese.Person_ShengWangQiZiItem().setData(jsonData.titletab[i], i))
 				}
 			})
 			lcp.send(pkt);
 		}
-
+		public init_myData(): void {
+			let pkt = new ProtoCmd.stMyRankRequest();
+			pkt.setValue('rankType', EnumData.emRankType.Cret_Fame_Rank)
+			lcp.send(pkt, this, (data) => {
+				let bpkt = new ProtoCmd.stMyRankReturn(data);
+				if (bpkt.rank == undefined) {
+					this.lbl_myRank.text = '未上榜';
+				} else {
+					this.lbl_myRank.text = '' + bpkt.rank;
+				}
+			})
+		}
 	}
 }

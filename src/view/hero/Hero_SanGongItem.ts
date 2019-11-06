@@ -129,13 +129,13 @@ module view.hero {
 				let _itemUI1 = new view.compart.DaoJuWithNameItem();
 				let itemInfo1 = new ProtoCmd.ItemBase();
 				itemInfo1.dwBaseID = jsonData.pill;
-				_itemUI1.setData(itemInfo1);
+				_itemUI1.setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_1.addChild(_itemUI1);
 				//道具2
 				let _itemUI2 = new view.compart.DaoJuWithNameItem();
 				let itemInfo2 = new ProtoCmd.ItemBase();
 				itemInfo2.dwBaseID = jsonData.superpill;
-				_itemUI2.setData(itemInfo2);
+				_itemUI2.setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_2.addChild(_itemUI2)
 			})
 			lcp.send(pkt);

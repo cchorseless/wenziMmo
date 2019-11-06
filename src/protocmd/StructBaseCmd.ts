@@ -2588,10 +2588,10 @@ module ProtoCmd {
         public get tSendTime(): number {
             return this.getValue("tSendTime");
         }
-        public get szTitle(): number {
+        public get szTitle(): string {
             return this.getValue("szTitle");
         }
-        public get szNotice(): number {
+        public get szNotice(): string {
             return this.getValue("szNotice");
         }
         public get nCount(): number {
