@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":252,
-    "selecteID":258,
+    "selectedBox":240,
+    "selecteID":246,
     "referenceLines":[
         {
             "value":595,
@@ -1093,9 +1093,9 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":36,"x":262,"width":74,"stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "props":{"y":36,"x":262,"width":74,"var":"btn_Login","stateNum":"2","skin":"image/common/bottom_shuxing.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
                                     "nodeParent":240,
-                                    "label":"Button",
+                                    "label":"Button(btn_Login)",
                                     "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
@@ -1119,7 +1119,7 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":48,"x":0,"width":80,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "props":{"y":48,"x":0,"width":80,"text":"累计登录","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":246,
                                             "label":"Label",
                                             "isDirectory":false,

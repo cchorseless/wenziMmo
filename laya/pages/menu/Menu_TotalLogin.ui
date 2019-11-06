@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":5,
     "props":{"width":469,"sceneColor":"#ffffff","height":624},
     "nodeParent":-1,
     "label":"Dialog",
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":-25,"x":431,"stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
+            "props":{"y":-25,"x":431,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_close)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -43,9 +43,9 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":61,"x":19,"width":430,"height":438},
+            "props":{"y":79,"x":19,"width":430,"var":"panel_item","height":420},
             "nodeParent":1,
-            "label":"Panel",
+            "label":"Panel(panel_item)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -56,9 +56,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":558,"x":233,"stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":558,"x":233,"width":112,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","height":59,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_get)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -66,6 +66,32 @@
             "child":[
                 ],
             "$LOCKED":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":8,"x":11,"width":450,"skin":"image/common/title_tanchuang2.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":12,"x":34,"width":225,"text":"累计登录","stroke":4,"height":46,"fontSize":42,"font":"FZXK","color":"#ffffff"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":8,
+            "child":[
+                ]
         }],
     "animations":[
         {

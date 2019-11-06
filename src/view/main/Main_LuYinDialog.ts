@@ -18,10 +18,10 @@ module view.main {
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.GameEngine.luyinTabID = 1;
 				this.dialogClose();
 			})
 			this.tab_luyin.on(Laya.UIEvent.CLICK, this, () => {
-				this.tab_luyin.selectedIndex;
 				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
 
 				this.getNewLuYinData();
@@ -86,6 +86,7 @@ module view.main {
 		}
 		public async dialogClose() {
 			await this.deleteData();
+
 			this.close();
 		}
 
@@ -132,7 +133,17 @@ module view.main {
 			else {
 				this.tab_luyin.selectedIndex = this.touchID
 				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
-				TipsManage.showTips('升级VIP获取');
+				let str = ""
+				if (GameApp.GameEngine.luyinTabID == 2) {
+					str = "VIP2解锁存档"
+				}
+				else if (GameApp.GameEngine.luyinTabID == 3) {
+					str = "VIP4解锁存档"
+				}
+				else if (GameApp.GameEngine.luyinTabID == 4) {
+					str = "VIP6解锁存档"
+				}
+				TipsManage.showTips(str);
 			}
 		}
 		//根据服务器给的数据改变当前路引Item的显示状态和显示信息   单个数据
@@ -145,7 +156,7 @@ module view.main {
 				this["lab_locationName" + id + "_1"].text = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME(data);
 				this["lab_locationName" + id + "_2"].text = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME(data);
 				this["img_location" + id].skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC(data) + '.png';
-;
+				;
 				// lab_locationName7_1
 			}
 		}

@@ -75,8 +75,12 @@ module view.menu {
 			EventManage.onWithEffect(this.btn_FirstCharge, Laya.UIEvent.CLICK, this, function () {
 				let o = new view.menu.Menu_FirstChargeDialog();
 				o.popup(true);
-
 			})
+			EventManage.onWithEffect(this.btn_Login, Laya.UIEvent.CLICK, this, function () {
+				let o = new view.menu.Menu_TotalLogin();
+				o.popup(true);
+			})
+			
 
 
 			// 商城
