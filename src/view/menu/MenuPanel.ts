@@ -23,7 +23,7 @@ module view.menu {
 			})
 			//签到
 			this.btn_qiandao.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuQiandaoDialog().popup(true);
+				new view.menu.MenuQiandaoDialog().setData().popup(true);
 			})
 			//邮件
 			this.btn_mail.on(Laya.UIEvent.CLICK, this, () => {

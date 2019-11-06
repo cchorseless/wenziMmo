@@ -1264,7 +1264,8 @@ class ServerListener extends SingletonClass {
                         TipsManage.showTips('装备穿戴成功');
                         break;
                 }
-            } else {
+            } 
+            else {
                 TipsManage.showTips('找不到对应的装备itemBase');
             }
         }

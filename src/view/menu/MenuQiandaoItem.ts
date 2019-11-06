@@ -3,6 +3,7 @@ module view.menu {
 	export class MenuQiandaoItem extends ui.menu.MenuQiandaoItemUI {
 		constructor() {
 			super();
+			this.addEvent();
 		}
 		//签到Item索引
 		public data;
@@ -10,6 +11,7 @@ module view.menu {
 		public day;
 		//当前日期
 		public num;
+
 		public setData(data, day: Array<string>, num): void {
 			this.data = data;
 			this.day = day;
@@ -25,7 +27,7 @@ module view.menu {
 					this.img_qiandao.visible = true;
 				}
 			}
-			this.addEvent();
+
 		}
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
@@ -34,7 +36,7 @@ module view.menu {
 						this.init_sign();
 					}
 				}
-				if (this.day.indexOf('' + this.data) == -1&&this.data < this.num) {
+				if (this.day.indexOf('' + this.data) == -1 && this.data < this.num) {
 					this.init_buqian();
 				}
 			})
@@ -48,11 +50,11 @@ module view.menu {
 			lcp.send(pkt);
 		}
 		/**
-	  * 补签
-	  */
+	   	 * 补签
+	  	 */
 		public init_buqian(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Menu_qiandao_buqian,[this.data]);
+			pkt.setString(ProtoCmd.Menu_qiandao_buqian, [this.data]);
 			lcp.send(pkt);
 		}
 	}

@@ -14,7 +14,7 @@ module ResManage {
             Laya.Handler.create(this, onComplete.bind(this, comFunc)),
             Laya.Handler.create(this, onProgress.bind(this, proFunc), null, false));
         // 侦听加载失败
-        Laya.loader.on(Laya.Event.ERROR, this, onError.bind(this, errFunc));
+        Laya.loader.on(Laya.Event.ERROR, this, onError.bind(this, errFunc, res.toString()));
     }
     /**
      * 资源加载完成
