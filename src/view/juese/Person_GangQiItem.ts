@@ -97,6 +97,12 @@ module view.juese {
 
 		//罡气界面信息
 		public init_Info(data: ProtoCmd.ItemBase): void {
+			//获取途径
+			this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('1016')
+			//初始化星星
+			for (let i = 1; i < 11; i++) {
+				this['btn_xingxing' + i].selected = false;
+			}
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {

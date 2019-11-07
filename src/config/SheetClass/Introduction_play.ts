@@ -43,18 +43,23 @@ module SheetConfig {
          */
         public ICON(configID: string): string { return this.data[configID][9] }
         /**
-    * 全部数据
-    */
+         *  养成途径
+         */
+        public GROWUPDES(configID: string): string { return this.data[configID][10] }
+        /**
+          * 全部数据
+          */
         public GETDATALIST(typeKey): any {
             this.data;
             let tempDate = [];
             for (let i in this.data) {
-                if (this.data[i][1] == typeKey)  {
+                if (this.data[i][1] == typeKey) {
                     let base = this.data[i]
                     tempDate.push(base)
                 }
             }
             return tempDate;
         }
+
     }
 }

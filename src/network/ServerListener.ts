@@ -867,17 +867,20 @@ class ServerListener extends SingletonClass {
                 // 英雄战士
                 case 1:
                     player.changeAbility(ability, dwType);
-                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
+                    player.changeFight(fightPower, dwType);
                     break;
                 // 英雄法师
                 case 2:
                     player.changeAbility(ability, dwType);
-                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
+                    player.changeFight(fightPower, dwType);
                     break;
                 // 英雄道士
                 case 3:
                     player.changeAbility(ability, dwType);
-                    // GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
+                    player.changeFight(fightPower, dwType);
                     break;
             }
         }
@@ -1264,7 +1267,7 @@ class ServerListener extends SingletonClass {
                         TipsManage.showTips('装备穿戴成功');
                         break;
                 }
-            } 
+            }
             else {
                 // TipsManage.showTips('找不到对应的装备itemBase');
             }
