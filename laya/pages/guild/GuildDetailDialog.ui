@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":143,
-    "selecteID":174,
+    "selectedBox":1,
+    "selecteID":125,
     "props":{"width":601,"sceneColor":"#f69897","height":910},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bottom_bigPopup.png"},
+            "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,18 +28,30 @@
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":-4,"x":516,"var":"btn_guildDetailClose","stateNum":"2","skin":"image/common/icon_close.png"},
+            "nodeParent":1,
+            "label":"Button(btn_guildDetailClose)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":5,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Box",
-            "props":{"y":47,"x":62,"width":503,"height":149},
+            "props":{"y":47,"x":69,"width":503,"height":149},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":54,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":49,"x":175},
                     "nodeParent":54,
@@ -51,7 +63,6 @@
                     "compId":166,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"width":57,"text":"帮主：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":166,
@@ -65,7 +76,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"x":67,"width":124,"text":"獨尊、寵妃","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":166,
@@ -81,7 +91,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":73,"x":170},
                     "nodeParent":54,
@@ -93,7 +102,6 @@
                     "compId":161,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":6,"width":60,"text":"职位：","strokeColor":"#000000","height":26,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":161,
@@ -107,7 +115,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":72,"width":77,"text":"副帮主","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":161,
@@ -121,7 +128,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":250,"width":77,"text":"1554","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":161,
@@ -135,7 +141,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":183,"width":77,"text":"贡献：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":161,
@@ -150,7 +155,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":119,"x":173},
                     "nodeParent":54,
@@ -162,7 +166,6 @@
                     "compId":160,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":0,"x":68,"width":77,"text":"177942","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":160,
@@ -176,7 +179,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":0,"x":3,"width":77,"text":"资金：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":160,
@@ -190,7 +192,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":247,"width":77,"text":"59/60","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":160,
@@ -203,7 +204,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":179,"width":54,"text":"成员：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":160,
@@ -217,7 +217,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":46,"x":44,"stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":54,
@@ -229,7 +228,6 @@
                     "compId":163,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":6,"skin":"image/guild/icon_bangpai_normal.png"},
                             "nodeParent":163,
@@ -242,7 +240,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":75,"x":-18,"text":"公会名称123","strokeColor":"#000000","stroke":3,"height":35,"fontSize":24,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":163,
@@ -258,7 +255,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":37,"x":18,"skin":"image/guild/icon_buff.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":54,
@@ -272,7 +268,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":139,"x":19,"skin":"image/common/Progressbar_gang_bottom.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":54,
@@ -284,7 +279,6 @@
                     "compId":169,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":1,"width":133,"skin":"image/common/Progressbar_gang_top.png","height":7},
                             "nodeParent":169,
@@ -299,7 +293,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":131,"x":20,"text":"Lv.6","strokeColor":"#000000","stroke":3,"fontSize":18,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":54,
@@ -316,17 +309,16 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":209,"x":231},
+            "props":{"y":209,"x":238},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":157,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":12,"x":6,"width":58,"text":"战力：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":157,
@@ -339,7 +331,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":13,"x":73,"width":77,"text":"123456","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":157,
@@ -352,7 +343,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":15,"x":251,"width":77,"text":"10","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":157,
@@ -366,7 +356,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":14,"x":184,"text":"排名：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":157,
@@ -384,17 +373,16 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":256,"x":212},
+            "props":{"y":256,"x":219},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":158,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":92,"text":"3转170级","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":158,
@@ -408,7 +396,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":0,"x":26,"width":63,"text":"等级：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":158,
@@ -422,7 +409,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":269,"width":77,"text":"123456","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":158,
@@ -436,7 +422,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":0,"x":203,"text":"资金：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":158,
@@ -453,17 +438,16 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":287,"x":227},
+            "props":{"y":287,"x":234},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":159,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":256,"width":91,"text":"1234","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":159,
@@ -478,7 +462,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":188,"width":57,"text":"贡献：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":159,
@@ -492,7 +475,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":76,"text":"33天前在线","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#63491a"},
                     "nodeParent":159,
@@ -507,7 +489,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":12,"text":"状态：","strokeColor":"#000000","height":32,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":159,
@@ -524,17 +505,16 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":329,"x":70,"width":596,"scaleY":0.82,"scaleX":0.82,"height":147},
+            "props":{"y":329,"x":77,"width":596,"scaleY":0.82,"scaleX":0.82,"height":147},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":143,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":0,"width":594,"skin":"image/common/bottom_ConfederationDeclaration.png","height":149},
                     "nodeParent":143,
@@ -547,7 +527,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"x":21,"skin":"image/common/title_ConfederationDeclaration.png"},
                     "nodeParent":143,
@@ -560,7 +539,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":3,"x":25,"wordWrap":true,"width":26,"text":"公会","strokeColor":"#000000","stroke":4,"height":52,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":143,
@@ -573,7 +551,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":38,"x":49,"wordWrap":true,"width":26,"text":"宣言","strokeColor":"#000000","stroke":4,"height":52,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":143,
@@ -586,7 +563,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":27,"x":116,"wordWrap":true,"width":431,"text":"够爷们你就来，来了就是兄弟。兄弟带你闯天下，一起霸气满天下。","strokeColor":"#000000","height":95,"fontSize":22,"font":"FZHL","color":"#000000"},
                     "nodeParent":143,
@@ -603,7 +579,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":465,"x":63,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
+            "props":{"y":465,"x":70,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -679,7 +655,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":465,"x":321,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
+            "props":{"y":465,"x":328,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -755,7 +731,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":604,"x":63,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
+            "props":{"y":604,"x":70,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -831,7 +807,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":604,"x":321,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
+            "props":{"y":604,"x":328,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -906,31 +882,17 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":-13,"x":540,"var":"btn_guildDetailClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
-            "nodeParent":1,
-            "label":"Button(btn_guildDetailClose)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Box",
-            "props":{"y":211,"x":93,"scaleY":0.82,"scaleX":0.82},
+            "props":{"y":211,"x":100,"scaleY":0.82,"scaleX":0.82},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":148,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"x":5,"skin":"image/main/img_zhujiedi.png"},
                     "nodeParent":148,
@@ -943,7 +905,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":7,"skin":"image/common/icon_nv01.png"},
                     "nodeParent":148,
@@ -957,7 +918,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-2,"x":-2,"skin":"image/main/img_zhujiekuang.png"},
                     "nodeParent":148,
@@ -971,7 +931,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":99,"x":-14,"text":"名字超多六字","strokeColor":"#2d1c05 ","stroke":4,"fontSize":24,"font":"FZXK","color":"#f9e596"},
                     "nodeParent":148,
@@ -988,7 +947,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":18,"x":150,"skin":"image/common/bottom_title1.png"},
+            "props":{"y":18,"x":157,"skin":"image/common/bottom_title1.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -1014,7 +973,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":204,"x":48,"skin":"image/guild/line_Popup.png"},
+            "props":{"y":204,"x":55,"skin":"image/guild/line_Popup.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,

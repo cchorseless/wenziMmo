@@ -1,7 +1,7 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":3,
+    "selectedBox":1,
     "selecteID":49,
     "props":{"width":622,"sceneColor":"#ffffff","height":928},
     "nodeParent":-1,
@@ -15,389 +15,377 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bottom_bigPopup.png","sizeGrid":"55,42,67,40"},
+            "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png","sizeGrid":"55,42,67,40"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":3,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":167,"x":61,"width":519,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"17,7,13,11","height":726},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":49,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":24,"x":154,"skin":"image/common/bottom_title1.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":29,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":17,"x":38,"text":"服务器选择","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":29,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":113,"x":226,"width":208,"skin":"image/common/login/frame_zhangjie.png","height":48},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":3,
+            "compId":32,
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":167,"x":50,"width":519,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"17,7,13,11","height":726},
-                    "nodeParent":3,
-                    "label":"Image",
+                    "type":"Label",
+                    "props":{"y":7,"x":22,"text":"所有服务器","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":32,
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":49,
+                    "compId":33,
                     "child":[
-                        ]
-                },
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":183,"x":204,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":34,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":172,"x":301,"width":180,"text":"最近登陆","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":183,"x":580,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":35,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"VBox",
+            "props":{"y":236,"width":328,"var":"vbox_recently","space":20,"left":225,"height":100},
+            "nodeParent":1,
+            "label":"VBox(vbox_recently)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":183,"x":62,"var":"tab_left","stateNum":2,"space":12,"skin":"image/common/login/btn_server.png","selectedIndex":0,"scaleX":1.2,"labels":"0-100","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","direction":"vertical"},
+            "nodeParent":1,
+            "label":"Tab(tab_left)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":14,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":394,"x":580,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":37,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":384,"x":301,"width":180,"text":"服务器列表","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":394,"x":204,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":36,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":414,"x":200,"width":368,"var":"vstack_left","selectedIndex":0,"height":369},
+            "nodeParent":1,
+            "label":"ViewStack(vstack_left)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":15,
+            "child":[
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":24,"x":154,"skin":"image/common/bottom_title1.png"},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isOpen":false,
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_0","name":"item0","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_0)",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":29,
+                    "compId":16,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"y":17,"x":38,"text":"服务器选择","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":29,
-                            "label":"Label",
+                            "type":"VBox",
+                            "props":{"y":2,"var":"vbox_0","space":20,"right":0,"left":0},
+                            "nodeParent":16,
+                            "label":"VBox(vbox_0)",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":30,
+                            "compId":17,
                             "child":[
                                 ]
-                        }],
-                    "$HIDDEN":false
+                        }]
                 },
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":113,"x":218,"width":208,"skin":"image/common/login/frame_zhangjie.png","height":48},
-                    "nodeParent":3,
-                    "label":"Image",
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_1","name":"item1","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_1)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":32,
+                    "compId":18,
                     "child":[
                         {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":7,"x":22,"text":"所有服务器","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                            "nodeParent":32,
-                            "label":"Label",
+                            "type":"VBox",
+                            "props":{"var":"vbox_1","space":20,"right":0,"left":0},
+                            "nodeParent":18,
+                            "label":"VBox(vbox_1)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":33,
+                            "compId":19,
                             "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
+                                ]
+                        }]
                 },
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":183,"x":196,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":34,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":172,"x":293,"width":180,"text":"最近登陆","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
-                    "nodeParent":3,
-                    "label":"Label",
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_2","name":"item2","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_2)",
                     "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":183,"x":572,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":35,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"VBox",
-                    "props":{"y":236,"x":212,"width":328,"var":"vbox_recently","space":20,"left":217,"height":100},
-                    "nodeParent":3,
-                    "label":"VBox(vbox_recently)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":183,"x":54,"var":"tab_left","stateNum":2,"space":12,"skin":"image/common/login/btn_server.png","selectedIndex":0,"scaleX":1.2,"labels":"0-100","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","direction":"vertical"},
-                    "nodeParent":3,
-                    "label":"Tab(tab_left)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":394,"x":572,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":37,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":384,"x":293,"width":180,"text":"服务器列表","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
-                    "nodeParent":3,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":394,"x":196,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":36,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"ViewStack",
-                    "props":{"y":414,"x":192,"width":368,"var":"vstack_left","selectedIndex":0,"height":369},
-                    "nodeParent":3,
-                    "label":"ViewStack(vstack_left)",
-                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":15,
+                    "compId":20,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_0","name":"item0","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_0)",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "type":"VBox",
+                            "props":{"var":"vbox_2","space":20,"right":0,"left":0},
+                            "nodeParent":20,
+                            "label":"VBox(vbox_2)",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":16,
+                            "hasChild":false,
+                            "compId":21,
                             "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":2,"var":"vbox_0","space":20,"right":0,"left":0},
-                                    "nodeParent":16,
-                                    "label":"VBox(vbox_0)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":17,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_1","name":"item1","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_1)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":18,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_1","space":20,"right":0,"left":0},
-                                    "nodeParent":18,
-                                    "label":"VBox(vbox_1)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":19,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_2","name":"item2","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_2)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":20,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_2","space":20,"right":0,"left":0},
-                                    "nodeParent":20,
-                                    "label":"VBox(vbox_2)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":21,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_3","name":"item3","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_3)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":22,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_3","space":20,"right":0,"left":0},
-                                    "nodeParent":22,
-                                    "label":"VBox(vbox_3)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":23,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_4","name":"item4","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_4)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":24,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_4","space":20,"right":0,"left":0},
-                                    "nodeParent":24,
-                                    "label":"VBox(vbox_4)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":25,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Panel",
-                            "props":{"y":12,"x":20,"width":328,"var":"panel_5","name":"item5","height":348},
-                            "nodeParent":15,
-                            "label":"Panel(panel_5)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":26,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"var":"vbox_5","space":20,"right":0,"left":0},
-                                    "nodeParent":26,
-                                    "label":"VBox(vbox_5)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":27,
-                                    "child":[
-                                        ]
-                                }]
-                        }],
-                    "$HIDDEN":false
+                                ]
+                        }]
                 },
                 {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":19,"x":537,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
-                    "nodeParent":3,
-                    "label":"Button(btn_close)",
-                    "isDirectory":false,
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_3","name":"item3","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_3)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
+                    "hasChild":true,
+                    "compId":22,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "type":"VBox",
+                            "props":{"var":"vbox_3","space":20,"right":0,"left":0},
+                            "nodeParent":22,
+                            "label":"VBox(vbox_3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":176,"x":184,"width":700,"skin":"image/common/login/line_yeqian.png","rotation":90},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_4","name":"item4","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_4)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":46,
+                    "hasChild":true,
+                    "compId":24,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "type":"VBox",
+                            "props":{"var":"vbox_4","space":20,"right":0,"left":0},
+                            "nodeParent":24,
+                            "label":"VBox(vbox_4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":819,"x":488,"skin":"image/common/login/decoration_tanchuang.png"},
-                    "nodeParent":3,
-                    "label":"Image",
-                    "isDirectory":false,
+                    "type":"Panel",
+                    "props":{"y":12,"x":20,"width":328,"var":"panel_5","name":"item5","height":348},
+                    "nodeParent":15,
+                    "label":"Panel(panel_5)",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":50,
+                    "hasChild":true,
+                    "compId":26,
                     "child":[
-                        ]
+                        {
+                            "type":"VBox",
+                            "props":{"var":"vbox_5","space":20,"right":0,"left":0},
+                            "nodeParent":26,
+                            "label":"VBox(vbox_5)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        }]
                 }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":176,"x":192,"width":700,"skin":"image/common/login/line_yeqian.png","rotation":90},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":46,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":-5,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
+            "child":[
+                ],
             "$HIDDEN":false
         }],
     "animations":[
