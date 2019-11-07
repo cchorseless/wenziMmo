@@ -31,6 +31,7 @@ module ResData {
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/battle.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/skill.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
