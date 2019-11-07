@@ -570,7 +570,8 @@ module ProtoCmd {
      */
     export interface itf_Main_openChuangSongRecord {
         open: boolean;
-        datatab: Object
+        datatab: Object;
+        recordtab:Object
 
     }
 

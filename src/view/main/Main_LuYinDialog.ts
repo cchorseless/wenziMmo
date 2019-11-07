@@ -120,6 +120,20 @@ module view.main {
 		}
 		//刷新界面
 		public upDataView() {
+			let arr = [];
+			for(let i = 1;i<5;i++){
+				let o = GameApp.GameEngine.mainPlayer.viplvl;
+				let s = "";
+				if(o >= this.tempData.recordtab[i].viplvl){
+					// this.tab_luyin.labels = 
+					s = "存档" + i;
+				}else{
+					s = "VIP" + this.tempData.recordtab[i].viplvl + "解锁";
+				}
+				arr.push(s);
+			}
+			let p = arr.join(',')
+			this.tab_luyin.labels = p;
 			if (this.tempData.open) {
 				this.touchID = this.tab_luyin.selectedIndex;
 				//充值显示的9个Item状态 为初始状态
@@ -135,13 +149,13 @@ module view.main {
 				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
 				let str = ""
 				if (GameApp.GameEngine.luyinTabID == 2) {
-					str = "VIP2解锁存档"
+					str = "VIP1解锁存档"
 				}
 				else if (GameApp.GameEngine.luyinTabID == 3) {
-					str = "VIP4解锁存档"
+					str = "VIP3解锁存档"
 				}
 				else if (GameApp.GameEngine.luyinTabID == 4) {
-					str = "VIP6解锁存档"
+					str = "VIP10解锁存档"
 				}
 				TipsManage.showTips(str);
 			}
