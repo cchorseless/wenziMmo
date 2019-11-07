@@ -76,7 +76,11 @@ module view.menu {
 				let o = new view.menu.Menu_FirstChargeDialog();
 				// o.setData(0);
 				o.popup(true);
-
+			})
+			EventManage.onWithEffect(this.btn_totalLogin, Laya.UIEvent.CLICK, this, function () {
+				let o = new view.menu.Menu_TotalLogin();
+				// o.setData(0);
+				o.popup(true);
 			})
 			// 商城
 			this.btn_mall.on(Laya.UIEvent.CLICK, this, () => {
