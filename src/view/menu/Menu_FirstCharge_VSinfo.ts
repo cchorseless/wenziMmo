@@ -92,7 +92,7 @@ module view.menu {
 				});
 			}
 		}
-		public destory(e){
+		public destory(e =true){
 			this.panel_info.scrollTo(1)
 			super.destroy(e)
 		}

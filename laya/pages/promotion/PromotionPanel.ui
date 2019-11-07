@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":16,
-    "selecteID":18,
+    "selectedBox":1,
+    "selecteID":3,
     "props":{"width":640,"visible":true,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":79,"width":140,"var":"btn_promotion_0","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"超值礼包","height":60},
+            "props":{"y":216,"x":79,"width":140,"visible":false,"var":"btn_promotion_0","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"超值礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_0)",
             "isDirectory":false,
@@ -103,12 +103,13 @@
             "hasChild":false,
             "compId":12,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":233,"width":140,"var":"btn_promotion_1","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"特惠礼包","height":60},
+            "props":{"y":216,"x":233,"width":140,"visible":false,"var":"btn_promotion_1","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"特惠礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_1)",
             "isDirectory":false,
@@ -116,7 +117,8 @@
             "hasChild":false,
             "compId":13,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -202,7 +204,7 @@
                 {
                     "x":30,
                     "type":"HBox",
-                    "props":{"y":0,"x":0,"var":"hbox_tab","height":72},
+                    "props":{"y":0,"x":0,"var":"hbox_tab","space":15,"height":72},
                     "nodeParent":16,
                     "label":"HBox(hbox_tab)",
                     "isDirectory":false,
@@ -211,21 +213,8 @@
                     "compId":17,
                     "child":[
                         ]
-                },
-                {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":0,"x":0,"width":212,"var":"tab_htab","stateNum":2,"skin":"image/main/btn_haoyou.png","scaleY":1.2,"scaleX":1.2,"labelSize":24,"labelFont":"FZXK","height":56},
-                    "nodeParent":16,
-                    "label":"Tab(tab_htab)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }]
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {

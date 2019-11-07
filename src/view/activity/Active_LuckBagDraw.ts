@@ -46,7 +46,7 @@ module view.activity {
 			})
 		}
 
-		public destroy(e) {
+		public destroy(e = true) {
 			GameApp.LListener.offCaller(ProtoCmd.Active34, this)
 			super.destroy(e)
 		}

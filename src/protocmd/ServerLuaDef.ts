@@ -501,6 +501,9 @@ module ProtoCmd {
     export const TeHuiClientOpen = "TeHuiClientOpen";       //特惠礼包   选择其中一个显示    面板
     export const TeHuiBuy = "TeHuiBuy";       //特惠礼包   购买
 
+    export const WorthGiftBagPanel = "WorthGiftBagPanel";  //特惠礼包2    面板
+    export const BuyWorthGiftBag = "BuyWorthGiftBag";      //特惠礼包2    购买
+
 
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
