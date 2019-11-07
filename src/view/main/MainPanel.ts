@@ -239,8 +239,9 @@ module view.main {
 		public showGroupTop(panel: Laya.View): void {
 			this.box_mainTop.visible = true;
 			if (panel == this) {
-				this.box_main.addChild(this.box_mainTop);
-			} else {
+				this.box_main.addChildAt(this.box_mainTop, 2);
+			}
+			else {
 				panel.addChild(this.box_mainTop);
 			}
 
@@ -250,7 +251,7 @@ module view.main {
 		public showGroupBottom(panel: Laya.View): void {
 			this.box_mainBottom.visible = true;
 			if (panel == this) {
-				this.box_main.addChild(this.box_mainBottom);
+				this.box_main.addChildAt(this.box_mainBottom, 5);
 			}
 			else {
 				panel.addChild(this.box_mainBottom);
