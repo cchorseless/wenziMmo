@@ -43,37 +43,101 @@ module view.main {
 			this.box_uiScene0.scaleY = getScaleY;
 		}
 
-
+		/**
+		 * 切换界面时刷新数据
+		 */
 		public updateUI(): void {
 			// 界面赋值
-			let _player = GameApp.MainPlayer;
-			// 名字
-			this.lbl_playerName.text = _player.objName;
-			// 等级
-			if (_player.zslevel == null || _player.zslevel == 0) {
-				this.lbl_level.text = '' + _player.level + '级';
-			}
-			else {
-				this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
-			}
-			if (_player.wealth.gold > 100000) {
-
-			}
-			// 金币
-			this.lbl_gold.text = '' + LangConfig.getBigNumberDes(_player.wealth.gold);
-			// 元宝
-			this.lbl_yuanBao.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
-			// 绑定元宝
-			this.lbl_yuanBaolock.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao_lock);
-			// 战斗力
-			this.clip_power.value = ''+LangConfig.getBigNumberDes(_player.ability.nFight);
-			// 头像
-			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
+			this.updateUI_name();
+			this.updateUI_avatarIcon();
+			this.updateUI_exp()
+			this.updateUI_lv()
+			this.updateUI_gold()
+			this.updateUI_yuanBao()
+			this.updateUI_yuanBaolock()
+			this.updateUI_power()
+			this.updateUI_vipLv();
 			// 节气
 			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 		}
+
+		/**
+		 * 更新名字
+		 */
+		public updateUI_name(): void {
+			let _player = GameApp.MainPlayer;		// 名字
+			this.lbl_playerName.text = _player.objName;
+		}
+		/**
+		 * 更新经验
+		 */
+		public updateUI_exp(): void {
+			let _player = GameApp.MainPlayer;
+			// 经验比例
+			let expBiLi = Math.ceil(_player.ability.nowexp / _player.ability.maxexp * 100);
+			this.img_exp.width = this.img_expBg.width * expBiLi;
+
+		}
+		/**
+		 * 更新等级
+		 */
+		public updateUI_lv(): void {
+			let _player = GameApp.MainPlayer;
+			// 等级
+			let expBiLi = Math.ceil(_player.ability.nowexp / _player.ability.maxexp * 100);
+			this.lbl_level.text = '' + LangConfig.getLevelDes(_player.zslevel, _player.level) + '(' + expBiLi + '%)'
+		}
+		/**
+		 * 更新金币
+		 */
+		public updateUI_gold(): void {
+			let _player = GameApp.MainPlayer;
+			// 金币
+			this.lbl_gold.text = '' + LangConfig.getBigNumberDes(_player.wealth.gold);
+		}
+		/**
+		 * 更新元宝
+		 */
+		public updateUI_yuanBao(): void {
+			let _player = GameApp.MainPlayer;
+			// 元宝
+			this.lbl_yuanBao.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
+		}
+		/**
+		 * 更新绑定元宝
+		 */
+		public updateUI_yuanBaolock(): void {
+			let _player = GameApp.MainPlayer;
+			// 绑定元宝
+			this.lbl_yuanBaolock.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao_lock);
+		}
+		/**
+		 * 更新战力
+		 */
+		public updateUI_power(): void {
+			let _player = GameApp.MainPlayer;
+			// 战斗力
+			this.clip_power.value = '' + LangConfig.getBigNumberDes(_player.ability.nFight);
+		}
+		/**
+		 * 更新头像
+		 */
+		public updateUI_avatarIcon(): void {
+			let _player = GameApp.MainPlayer;
+			// 头像
+			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
+		}
+		/**
+		 * 更新VIP等级
+		 */
+		public updateUI_vipLv(): void {
+			let _player = GameApp.MainPlayer;
+			this.font_vipLevel.value = '' + _player.viplvl;
+		}
+
+
 		public addEvent(): void {
 			// 模式切换
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -194,29 +258,20 @@ module view.main {
 		public addLcpEvent(): void {
 			let _player = GameApp.MainPlayer;
 			// 金币
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.lbl_gold.text = '' +LangConfig.getBigNumberDes(_player.wealth.gold)});
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_gold() });
 			// 元宝
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAO, this, () => { this.lbl_yuanBao.text = '' +LangConfig.getBigNumberDes(_player.wealth.yuanBao);});
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAO, this, () => { this.updateUI_yuanBao() });
 			// 绑定元宝
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAOLOCK, this, () => { this.lbl_yuanBaolock.text = '' +LangConfig.getBigNumberDes(_player.wealth.yuanBao_lock) ; });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAOLOCK, this, () => { this.updateUI_yuanBaolock() });
 			// 战力
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.clip_power.value = LangConfig.getBigNumberDes(_player.ability.nFight); });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.updateUI_power() });
 			// 等级
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => {
-				if (_player.zslevel == null || _player.zslevel == 0) {
-					this.lbl_level.text = '' + _player.level + '级';
-				}
-				else {
-					this.lbl_level.text = '' + _player.zslevel + '转' + _player.level + '级';
-				}
-			});
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => { this.updateUI_lv() });
 			// vip等级 todo
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.font_vipLevel.value = '' + _player.viplvl; });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_vipLv() });
 			// 经验
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { });
-			// 玩家战斗属性
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_ABILITY, this, () => { });
-			// 
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
+			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
 					// 清空视野
@@ -473,8 +528,19 @@ module view.main {
 			//魂石升阶信息
 			this.getSoulStoneMessage();
 
-
 		}
+
+		/**
+		 * 拉取弟子信息
+		 */
+		private getHeroInfoMessage() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
+				(data: ProtoCmd.itf_JS_soulStoneLevel) => {
+					GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
+				});
+			lcp.send(pkt);
+		}
+
 		private getSoulStoneMessage() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
 				(data: ProtoCmd.itf_JS_soulStoneLevel) => {

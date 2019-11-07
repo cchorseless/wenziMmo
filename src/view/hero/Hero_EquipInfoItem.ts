@@ -53,19 +53,19 @@ module view.hero {
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
 					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.warriorzhanli);
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.warriorAbility.nFight);
 					break;
 				case 2:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT;
 					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.masterzhanli);
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.masterAbility.nFight);
 					break;
 				case 3:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
 					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.taoistzhanli);
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.taoistAbility.nFight);
 					break;
 			}
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);

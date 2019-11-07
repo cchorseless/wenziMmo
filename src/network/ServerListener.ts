@@ -858,26 +858,26 @@ class ServerListener extends SingletonClass {
         if (dwTempId == player.tempId) {
             switch (dwType) {
                 // 玩家
-                case 0:
+                case EnumData.PlayerAndHeroType.Player:
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
                     player.changeFight(fightPower);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_POWER);
                     break;
                 // 英雄战士
-                case 1:
+                case EnumData.PlayerAndHeroType.Hero1:
                     player.changeAbility(ability, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
                     player.changeFight(fightPower, dwType);
                     break;
                 // 英雄法师
-                case 2:
+                case EnumData.PlayerAndHeroType.Hero2:
                     player.changeAbility(ability, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
                     player.changeFight(fightPower, dwType);
                     break;
                 // 英雄道士
-                case 3:
+                case EnumData.PlayerAndHeroType.Hero3:
                     player.changeAbility(ability, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
                     player.changeFight(fightPower, dwType);
@@ -892,7 +892,10 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public cretPlayerAbility(data: any): void {
-
+        let cbpkt = new ProtoCmd.CretPlayerAbility(data);
+        GameApp.MainPlayer.changeAbility(cbpkt.ability);
+        cbpkt.clear();
+        cbpkt = null;
     }
 
     /**
@@ -924,7 +927,6 @@ class ServerListener extends SingletonClass {
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         msg.clear();
         msg = null;
-
         GameApp.SDKManager.loginRole();
     }
 
@@ -1142,7 +1144,6 @@ class ServerListener extends SingletonClass {
      * @param data 
      */
     public itemLocationChange(data: any): void {
-
         let msg = new ProtoCmd.CretProcessingItem(data);
         let errorcode = msg.getValue('nErrorCode');
         let i64ItemId = msg.getValue('i64ItemId').toString();

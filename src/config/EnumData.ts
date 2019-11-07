@@ -50,6 +50,16 @@ module EnumData {
     };
 
     /**
+     * 玩家和弟子对象枚举
+     */
+    export enum PlayerAndHeroType {
+        Player = 0,// 玩家
+        Hero1,// 战士弟子
+        Hero2,// 道士弟子
+        Hero3,// 法师弟子
+    }
+
+    /**
      * 确认界面场景模式
      */
     export enum SureCanelModel {

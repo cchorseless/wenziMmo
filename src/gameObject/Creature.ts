@@ -12,6 +12,7 @@ module GameObject {
         public nMaxMP: number = 0;
         // 经验
         public nowexp: number = 0;
+        // 经验条上限
         public maxexp: number = 0;
 
         // 防御
@@ -406,13 +407,13 @@ module GameObject {
                         this.ability.nFight = fight;
                         break;
                     case 1:
-                        GameApp.GameEngine.warriorzhanli = fight;
+                        GameApp.GameEngine.warriorAbility.nFight = fight;
                         break;
                     case 2:
-                        GameApp.GameEngine.masterzhanli = fight;
+                        GameApp.GameEngine.masterAbility.nFight = fight;
                         break;
                     case 3:
-                        GameApp.GameEngine.taoistzhanli = fight;
+                        GameApp.GameEngine.taoistAbility.nFight = fight;
                         break;
                 }
 

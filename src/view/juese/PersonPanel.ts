@@ -27,7 +27,7 @@ module view.juese {
 				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
 					PanelManage.openDiZiPanel(i);
 					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
-					PanelManage.DiZi.tab_left.selectedIndex=PanelManage.DiZi.viw_left.selectedIndex=0;
+					PanelManage.DiZi.tab_left.selectedIndex = PanelManage.DiZi.viw_left.selectedIndex = 0;
 				})
 
 			}
@@ -44,6 +44,7 @@ module view.juese {
 		 */
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: ProtoCmd.itf_Hero_BaseInfo) => {
+				console.log(jsonData)
 				GameApp.GameEngine.HeroInfo = jsonData;
 				this.init_event();
 			})
@@ -73,7 +74,7 @@ module view.juese {
 				heroSex = EnumData.SEX_TYPE.SEX_MAN;
 			}
 			for (let i = 1; i < 4; i++) {
-				this['img_di' + i].skin = LangConfig.getPlayerIconSkin(heroSex,GameApp.GameEngine.HeroInfo[i].JOB);
+				this['img_di' + i].skin = LangConfig.getPlayerIconSkin(heroSex, GameApp.GameEngine.HeroInfo[i].JOB);
 			}
 		}
 	}
