@@ -16,7 +16,7 @@ module TipsManage {
      * @param props 文本属性
      */
     export function showTxt(str: string): void {
-        var show: view.dialog.TipsTxtDialog = Laya.Pool.getItemByClass(TipsTxt, view.dialog.TipsTxtDialog)
+        var show: view.dialog.TipsTxtDialog = new view.dialog.TipsTxtDialog();
         show.setData(str).show(false, false)
     }
     /**

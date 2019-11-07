@@ -20,9 +20,7 @@ module view.menu {
 		}
 		public addEvent(): void {
 			//关闭弹窗
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_close.on(Laya.UIEvent.CLICK, this, this.onclose)
 			//金币祈福
 			this.btn_gold.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.goldNum < this.maxgoldNum) {
@@ -68,7 +66,7 @@ module view.menu {
 				this.lbl_maxGoldnum.text = '/ ' + jsonData.GoldMaxCnt;
 				this.maxgoldNum = jsonData.GoldMaxCnt;
 				if (this.goldNum == this.maxgoldNum) {
-					this.img_goldiBless.skin='image/common/icon_bigbaoxiang_4open.png'
+					this.img_goldiBless.skin = 'image/common/icon_bigbaoxiang_4open.png'
 				}
 				//今日获得礼券总数
 				this.lbl_get2.text = '' + jsonData.LiJuanNum;
@@ -90,9 +88,13 @@ module view.menu {
 				this.lbl_maxLiQuannum.text = '/ ' + jsonData.LiJuanMaxCnt;
 				this.maxliquanNum = jsonData.LiJuanMaxCnt;
 				if (this.liquanNum == this.maxliquanNum) {
-					this.img_liquanBless.skin='image/common/icon_bigbaoxiang_4open.png'
+					this.img_liquanBless.skin = 'image/common/icon_bigbaoxiang_4open.png'
 				}
 			})
+		}
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.Menu_QiFuClientOpen, this);
+			this.close();
 		}
 		/**
 		 * 祈福面板发协议

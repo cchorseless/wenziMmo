@@ -47,9 +47,11 @@ module ResData {
         // 武学 外功
         public static WaiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 武学 内功
-        public static NeiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static NeiGong = null;
         // 武学 合道
-        public static HeDao = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static HeDao = null;
+        // 武学 闭关
+        public static CloseDoor = null;
         // 武学 生活技能
         public static LifeSkill = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
         // 宅院界面
@@ -137,6 +139,8 @@ module ResData {
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
         ];
+        //新服活动
+        public static NewServerActive = null;
         //抽奖界面
         public static LuckDraw = null;
         //商城界面
@@ -155,6 +159,8 @@ module ResData {
         public static TianJian = null;
         //活动界面
         public static Activity = [{ url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }];
+        //促销界面
+        public static Promotion = [{ url: "res/atlas/image/promotion.atlas", type: Laya.Loader.ATLAS }];
 
     };
     /**

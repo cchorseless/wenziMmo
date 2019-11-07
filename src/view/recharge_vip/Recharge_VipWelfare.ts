@@ -35,6 +35,8 @@ module view.recharge_vip {
 		}
 		private upDataView() {
 			this.lab_progressText.text = this.curCash + "/" + this.nextCash;
+			this.lab_curVIPLV.text = "当前:\nVIP" + this.vipLv;
+			this.lab_WelfareText.text = "VIP" + this.curPage + "特权"
 			if (this.vipLv != 12) {
 				this.html_text1.style.align = "center"
 				this.html_text2.style.align = "center"
@@ -49,14 +51,14 @@ module view.recharge_vip {
 			}
 			let span = Math.floor((this.curCash / this.nextCash) * 360)
 			this.img_progressBar.width = span;
-
+			let infoNum = -1;
 			for (let i = 0; i < 15; i++) {
 				let str = SheetConfig.VIP_Content.getInstance(null)["PRIVILEGE" + i]((this.curPage - 1).toString());
-				console.log(str + "|||||" + i)
 				if (str != "0") {
+					infoNum++
 					let o = new Recharge_VIP_WelfareItem;
 					o.lab_VIPName.text = str;
-					o.y = i * (o.height + 8)
+					o.y = infoNum * (o.height + 8)
 					this.panel_content.addChild(o)
 				} else {
 					continue;

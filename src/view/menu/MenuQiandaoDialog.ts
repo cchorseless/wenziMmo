@@ -5,7 +5,9 @@ module view.menu {
 			super();
 			this.setData();
 		}
+		//累计签到奖励组
 		public WupinArray;
+		//button索引
 		public idx;
 		public setData(): void {
 			this.list_sign.vScrollBarSkin = '';
@@ -18,9 +20,7 @@ module view.menu {
 		}
 		public addEvent(): void {
 			//关闭弹窗
-			this.btn_qiandaoClose.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_qiandaoClose.on(Laya.UIEvent.CLICK, this, this.onclose)
 			//领取签到累计奖励
 			this.btn_get.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_get();
@@ -60,13 +60,17 @@ module view.menu {
 				}
 				this.list_sign.itemRender = view.menu.MenuQiandaoItem;
 				this.list_sign.renderHandler = Laya.Handler.create(this, (cell: view.menu.MenuQiandaoItem, index) => {
-					cell.setData(cell.dataSource, date, jsonData.curtimetab[3]);
+					cell.setData(cell.dataSource, date, jsonData.curtimetab[3], jsonData.buQianNum);
 
 				}, null, false)
 				this.WupinArray = jsonData.itemtab;
 				this.init_jiangli();
 			})
 
+		}
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.Menu_QianDao_DaKai, this);
+			this.close();
 		}
 		/**
 		 * 签到面板

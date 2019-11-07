@@ -24,7 +24,7 @@ module view.fuBen {
 					_itemData.dwBaseID = jsonData.jiangli[key].index;
 					_itemData.dwCount = jsonData.jiangli[key].num;
 					let _itemUI = new view.compart.DaoJuWithNameItem();
-					_itemUI.setData(_itemData);
+					_itemUI.setData(_itemData,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_ziyuan.addChild(_itemUI);
 				};
 

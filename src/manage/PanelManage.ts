@@ -57,7 +57,8 @@ module PanelManage {
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
-    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学和道界面
+    export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学合道界面
+    export let CloseDoor: view.wuXue.WuXueCloseDoorPanel;//武学闭关界面
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
@@ -96,6 +97,7 @@ module PanelManage {
     export let GuildShop: view.guild.GuildShopPanel;//帮派商店界面
     export let GuildRank: view.guild.GuildRankPanel;//帮派实力排行界面
     export let Menu: view.menu.MenuPanel;//菜单界面
+    export let NewServerActive: view.newServer.NewServer_MainPanel;//新服活动界面
     export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let ShopMall: view.shopMall.ShopMall_MainPanel;//商城界面
     export let FuLi: view.fuli.FuLi_MainPanel;//商城界面
@@ -106,7 +108,7 @@ module PanelManage {
     export let TuJianPlace: view.tujian.TuJianPlacePanel;//图鉴地理界面
     export let TianJian: view.tianJian.TianJianPanel;//天鉴界面
     export let Activity: view.activity.ActivityPanel;//活动界面
-
+    export let Promotion: view.promotion.PromotionPanel;//活动界面
 
     export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
     export let ZhiNan_MenPaiPanel: view.zhiNan.ZhiNan_menpaiPanel;//游戏门派界面
@@ -217,24 +219,12 @@ module PanelManage {
         if (PanelManage.Main) {
             PanelManage.Main.updateUI()
             PopUpManager.showPanel(PanelManage.Main);
+            PanelManage.Main.view_scene.selectedIndex = 0;
         }
         else {
             PanelManage.loadMainPanel();
         }
     }
-    // /**
-    //  * 显示剧情界面
-    //  */
-    // export function openJuQingModePanel(): void {
-
-    //     if (PanelManage.JuQingMode) {
-    //         PopUpManager.showPanel(PanelManage.JuQingMode);
-    //     }
-    //     else {
-    //         PanelManage.loadJuQingModePanel();
-    //     }
-
-    // }
 
     /******************************游戏界面************************************* */
     /**
@@ -335,7 +325,22 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
         })
     }
-
+    /**
+      * 武学闭关界面
+      */
+    export function openWuXueCloseDoorPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CloseDoor) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.CloseDoor);
+        ResManage.loadResource(ResData.PanelRes.CloseDoor, () => {
+            PanelManage.CloseDoor = new view.wuXue.WuXueCloseDoorPanel();
+            PanelManage.CloseDoor['LCP_skin'] = ResData.PanelRes.CloseDoor;
+            PanelManage.CloseDoor.setData();
+            PanelManage.CloseDoor.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.CloseDoor, 1, 0, 2);
+        })
+    }
 
 
 
@@ -607,6 +612,22 @@ module PanelManage {
         })
     }
     /**
+* 新服活动
+*/
+    export function openNewServer_MainPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NewServerActive) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.NewServerActive);
+        ResManage.loadResource(ResData.PanelRes.NewServerActive, () => {
+            PanelManage.NewServerActive = new view.newServer.NewServer_MainPanel();
+            PanelManage.NewServerActive['LCP_skin'] = ResData.PanelRes.NewServerActive;
+            PanelManage.NewServerActive.setData();
+            PanelManage.NewServerActive.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.NewServerActive, 100, 0, 2);
+        })
+    }
+    /**
    * 抽奖界面
    */
     export function openLuckDrawPanel(): void {
@@ -622,6 +643,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.LuckDraw, 100, 0, 2);
         })
     }
+
     /**
 * 商城界面
 */
@@ -1033,20 +1055,24 @@ module PanelManage {
 
 
     /**
-     * 剧情模式界面
+     * 剧情模式界面(特殊处理了)
      */
     export function openJuQingModePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingMode) {
-            return
+        PanelManage.openMainPanel();
+        if (PanelManage.Main.view_scene.numChildren == 1) {
+            ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
+                PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
+                PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
+                PanelManage.JuQingMode.setData();
+                PanelManage.JuQingMode.mouseEnabled = true;
+                PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
+                PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
+                PanelManage.Main.view_scene.selectedIndex = 1;
+            })
         }
-        PopUpManager.checkPanel(PanelManage.JuQingMode);
-        ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
-            PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
-            PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
-            PanelManage.JuQingMode.setData();
-            PanelManage.JuQingMode.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingMode, 1);
-        })
+        else {
+            PanelManage.Main.view_scene.selectedIndex = 1;
+        }
     }
 
 
@@ -1147,6 +1173,21 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Activity, 100, 0, 2);
         })
     }
-
+    /**
+     * 促销
+     */
+    export function openPromotionPanel(): void {
+        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Promotion) {
+            return
+        }
+        PopUpManager.checkPanel(PanelManage.Promotion);
+        ResManage.loadResource(ResData.PanelRes.Promotion, () => {
+            PanelManage.Promotion = new view.promotion.PromotionPanel();
+            PanelManage.Promotion['LCP_skin'] = ResData.PanelRes.Promotion;
+            PanelManage.Promotion.setData();
+            PanelManage.Promotion.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.Promotion, 100, 0, 2);
+        })
+    }
 
 }

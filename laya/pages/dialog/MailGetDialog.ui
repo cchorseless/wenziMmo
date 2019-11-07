@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":37,
-    "selecteID":40,
+    "selectedBox":1,
+    "selecteID":18,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -83,27 +83,14 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":199,"x":71,"text":"亲爱的玩家：","fontSize":30,"font":"FZXK","color":"#353535"},
+            "type":"HTMLDivElement",
+            "props":{"y":233,"x":69,"width":488,"var":"div_mail","innerHTML":"          请查收无尽之塔新服福利活动延迟开放的补偿，冒险者协会感谢您的支持！","height":397},
             "nodeParent":1,
-            "label":"Label",
+            "label":"HTMLDivElement(div_mail)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":18,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":238,"x":71,"wordWrap":true,"width":487,"var":"lbl_mailDetail","text":"          请查收无尽之塔新服福利活动延迟开放的补偿，冒险者协会感谢您的支持！","height":140,"fontSize":22,"font":"FZHL","color":"#353535"},
-            "nodeParent":1,
-            "label":"Label(lbl_mailDetail)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":22,
+            "compId":60,
             "child":[
                 ],
             "$HIDDEN":false

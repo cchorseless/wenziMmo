@@ -628,7 +628,7 @@ class ServerListener extends SingletonClass {
      */
     public addSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder(data);
-        if (cbpkt.getValue('ErrorCode')) {
+        if (cbpkt.getValue('ErrorCode') == 0) {
             // console.log('===========',cbpkt);
             let shot = new ProtoCmd.stShortCuts();
             shot.clone(cbpkt.shortcuts.data);
@@ -1264,8 +1264,9 @@ class ServerListener extends SingletonClass {
                         TipsManage.showTips('装备穿戴成功');
                         break;
                 }
-            } else {
-                TipsManage.showTips('找不到对应的装备itemBase');
+            } 
+            else {
+                // TipsManage.showTips('找不到对应的装备itemBase');
             }
         }
         else {

@@ -50,10 +50,8 @@ module view.compart {
 			}
 			if (this.mailItem.boAccessory == 0 && this.mailItem.boRead == 1) {
 				this.btn_mailIcon.skin = 'image/main/icon_mailOpen.png';
-
 			}
 		}
-
 		/**
 		 * 领取道具
 		 */
@@ -74,35 +72,11 @@ module view.compart {
 				let id = cbpkt.getValue('dwMailID')
 				// todo 需要弹出奖励
 				// todo 需要刷新邮件界面
-				this.init_type(id, cbpkt)
+				// //读取后刷新
+				let MailDialog: view.dialog.MailDialog = Laya.Dialog.getDialogsByGroup('MailDialog')[0];
+				MailDialog && MailDialog.initUI();
 			})
 		}
-		/**
-		 * 刷新领取邮件ICON
-		 */
-		public init_type(id, data): void {
-			if (this.mailItem.dwMailID == id) {
-				if (data.getValue('wReveivedItem') > 0) {
-					this.btn_mailIcon.skin = 'image/main/icon_mail.png';
-				}
-				else {
-					this.btn_mailIcon.skin = 'image/main/icon_mailOpen.png';
-				}
-			}
-		}
-		/**
-		 * 
-		 * @param data 刷新已读邮件
-		 */
-		public init_boRead(data: ProtoCmd.stMailDetailBase): void {
-			if (parseInt(this.mailItem.dwMailID) == data.dwMailID) {
-				if (data.wReveivedItem > 0) {
-					this.btn_mailIcon.skin = 'image/main/icon_mailGiftOpen.png';
-				}
-				else {
-					this.btn_mailIcon.skin = 'image/main/icon_mailOpen.png';
-				}
-			}
-		}
+		
 	}
 }

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":12,
+    "selecteID":203,
     "props":{"width":640,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -495,29 +495,41 @@
                         }]
                 },
                 {
-                    "type":"Button",
-                    "props":{"y":50,"x":599,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing_01.png","anchorY":0.5,"anchorX":0.5},
+                    "type":"Image",
+                    "props":{"y":-5,"x":525,"skin":"image/common/icon_beijing_teshu.png"},
                     "nodeParent":104,
-                    "label":"Button(btn_changeMode)",
+                    "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":140,
+                    "compId":204,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"y":58,"x":18,"text":"场景","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":140,
-                            "label":"Label",
-                            "isDirectory":false,
+                            "type":"Button",
+                            "props":{"y":51,"x":60,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing_01.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":204,
+                            "label":"Button(btn_changeMode)",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":158,
+                            "hasChild":true,
+                            "compId":205,
                             "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                                {
+                                    "type":"Label",
+                                    "props":{"y":66,"x":18,"text":"场景","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                                    "nodeParent":205,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":206,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
+                        }]
                 }],
             "$HIDDEN":false
         },

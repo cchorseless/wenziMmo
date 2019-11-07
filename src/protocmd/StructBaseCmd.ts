@@ -34,7 +34,7 @@ module ProtoCmd {
     export class Int64 {
         private _bytes: Laya.Byte;
         private _id: string = "";
-        public constructor(data: any) {
+        public constructor(data: Laya.Byte) {
             this._bytes = new Laya.Byte;
             this._bytes.endian = Laya.Byte.LITTLE_ENDIAN;
             this._bytes.writeArrayBuffer(data.buffer, data.pos, 8);
@@ -85,6 +85,19 @@ module ProtoCmd {
             }
             this._bytes.pos = 0;
             return num;
+        }
+
+        public static numberToInt64(num): Int64 {
+            let aa = new Uint8Array(8);
+            aa[7] = 0;
+            aa[6] = 0;
+            aa[5] = 0;
+            aa[4] = 0;
+            aa[3] = (num & 0xff000000) >> 24;
+            aa[2] = (num & 0xff0000) >> 16;
+            aa[1] = (num & 0xff00) >> 8;
+            aa[0] = num & 0xff;
+            return new Int64(new Laya.Byte(aa));
         }
     }
 
@@ -1966,6 +1979,10 @@ module ProtoCmd {
             this.addProperty("btMasterSex", PacketBase.TYPE_BYTE);// 会长性别
             this.addProperty("btMasterJob", PacketBase.TYPE_BYTE);// 会长职业
             this.addProperty("btRelation", PacketBase.TYPE_BYTE);// 本帮与此帮会的关系 0：正常  1：宣战 2:结盟
+            this.addProperty("btSystemGuild", PacketBase.TYPE_BYTE);// 系统行会
+            this.addProperty("btJoinSex", PacketBase.TYPE_BYTE);// 加入性别
+            this.addProperty("btJoinJob", PacketBase.TYPE_BYTE);// 加入职业
+            this.addProperty("btJoinRare", PacketBase.TYPE_BYTE);// 加入天赋
             if (data) {
                 data.pos += this.read(data);
             }
@@ -2570,10 +2587,10 @@ module ProtoCmd {
         public get tSendTime(): number {
             return this.getValue("tSendTime");
         }
-        public get szTitle(): number {
+        public get szTitle(): string {
             return this.getValue("szTitle");
         }
-        public get szNotice(): number {
+        public get szNotice(): string {
             return this.getValue("szNotice");
         }
         public get nCount(): number {
@@ -3511,12 +3528,11 @@ module ProtoCmd {
      */
 
     export class stShortCuts extends PacketBase {
-        public static SHORTCUTS_ITEM: number = 0; ////物品
-        public static SHORTCUTS_MAGIC: number = 1; ////魔法
+
         public constructor(data: Laya.Byte = null) {
             super()
             this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品I64ID或者技能表ID
-            this.addProperty('emShortCuts', PacketBase.TYPE_INT);//快捷键类型
+            this.addProperty('emShortCuts', PacketBase.TYPE_INT);//快捷键类型0物品1技能
             this.addProperty('btShortCuts', PacketBase.TYPE_BYTE);//快捷键值
             this.addProperty('btRow', PacketBase.TYPE_BYTE);//快捷键行	-1为取消
             this.addProperty('btCol', PacketBase.TYPE_BYTE);//快捷键列	-1为取消
@@ -3524,12 +3540,15 @@ module ProtoCmd {
             this.read(data);
         }
 
-        public set i64Id(bytes: Laya.Byte) {
-            this.setValue('i64Id', bytes);
-        }
-        public get i64Id(): Laya.Byte {
+
+        public get i64Id(): Int64 {
             return this.getValue('i64Id');
         }
+
+        public set i64Id(v) {
+            this.setValue('i64Id', v);
+        }
+
         public set emShortCuts(value: number) {
             this.setValue('emShortCuts', value);
         }

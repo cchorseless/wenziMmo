@@ -1,5 +1,4 @@
 module ProtoCmd {
-
 	export class GetOtherPlayerInfoDecoder extends Packet {
 		public static msgID: number = 0x0313;
 		public items: Array<ItemBase> = [];         //装备列表
@@ -67,8 +66,6 @@ module ProtoCmd {
 		public get type(): number {
 			return this.getValue("btType");
 		}
-
-
 		// public read(data: Laya.Byte): number {
 		// 	data.pos = super.read(data);
 		// 	var nCount: number = this.getValue('dwCount');
@@ -125,38 +122,36 @@ module ProtoCmd {
 			this.items.splice(0);
 		}
 	}
+	export class GetOtherPlayerInfoEncoder extends Packet {
+		public static  REQUEST_TYPE_ROLE: number = 0;
+		public static  REQUEST_TYPE_HERO1: number = 1;
+		public static  REQUEST_TYPE_HERO2: number = 2;
+		public static  REQUEST_TYPE_HERO3: number = 3;
+		/**查看他人角色面板调用*/
+		public static  REQUEST_ORIGIN_LOOK: number = 0;
+		/**威名面板调用*/
+		public static  REQUEST_ORIGIN_FAME: number = 1;
+		/**膜拜城主面板*/
+		public static  REQUEST_ORIGIN_WORSHIP: number = 2;
+		public cbPacket = GetOtherPlayerInfoDecoder;
+		public constructor(data: Laya.Byte = null) {
+			super();
+		this.addProperty('btType', PacketBase.TYPE_BYTE);//请求类型:0主角,1战士英雄,2法师英雄,3道士英雄
+		this.addProperty('szName', PacketBase.TYPE_STRING,Packet. _MAX_NAME_LEN);
+		this.addProperty("clientFlag",PacketBase. TYPE_BYTE);//用作前端标记,比如哪个面板调用的
+		this.cmd = 0x0312;
+	}
 
+	public  set clientFlag(value:number) {
+		this.setValue("clientFlag",value);
+	}
 
-	// export class GetOtherPlayerInfoEncoder extends Packet {
-	// 	public static const REQUEST_TYPE_ROLE: number = 0;
-	// 	public static const REQUEST_TYPE_HERO1: number = 1;
-	// 	public static const REQUEST_TYPE_HERO2: number = 2;
-	// 	public static const REQUEST_TYPE_HERO3: number = 3;
+	public  set requestType(value:number) {
+		this.setValue("btType",value);
+	}
 
-	// 	/**查看他人角色面板调用*/
-	// 	public static const REQUEST_ORIGIN_LOOK: number = 0;
-	// 	/**威名面板调用*/
-	// 	public static const REQUEST_ORIGIN_FAME: number = 1;
-	// 	/**膜拜城主面板*/
-	// 	public static const REQUEST_ORIGIN_WORSHIP: number = 2;
-	// 	public constructor(data: Laya.Byte = null) {
-	// 		super();
-	// 	this.addProperty('btType', PacketBase.TYPE_BYTE);//请求类型:0主角,1战士英雄,2法师英雄,3道士英雄
-	// 	this.addProperty('szName', PacketBase.TYPE_STRING,Packet. _MAX_NAME_LEN);
-	// 	this.addProperty("clientFlag",PacketBase. TYPE_BYTE);//用作前端标记,比如哪个面板调用的
-	// 	this.cmd = 0x0312;
-	// }
-
-	// public  set clientFlag(value:number):void {
-	// 	this.setValue("clientFlag",value);
-	// }
-
-	// public  set requestType(value:number):void {
-	// 	this.setValue("btType",value);
-	// }
-
-	// public function set name(value:String):void {
-	// 	this.setValue("szName",value);
-	// }
-	// }
+	public  set name(value:String) {
+		this.setValue("szName",value);
+	}
+	}
 }

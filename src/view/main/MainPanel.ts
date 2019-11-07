@@ -178,6 +178,12 @@ module view.main {
 				}
 
 			});
+			//vip界面
+			this.img_vip.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new view.recharge_vip.Recharge_VipDialog();
+				o.setData(1);
+				o.popup(true);
+			})
 
 			this.addLcpEvent();
 		}
@@ -232,13 +238,23 @@ module view.main {
 		//界面切换时控制那些部分不变
 		public showGroupTop(panel: Laya.View): void {
 			this.box_mainTop.visible = true;
-			panel.addChild(this.box_mainTop);
+			if (panel == this) {
+				this.box_main.addChild(this.box_mainTop);
+			} else {
+				panel.addChild(this.box_mainTop);
+			}
+
 		}
 
 		// 界面切换时控制那些部分不变
 		public showGroupBottom(panel: Laya.View): void {
 			this.box_mainBottom.visible = true;
-			panel.addChild(this.box_mainBottom);
+			if (panel == this) {
+				this.box_main.addChild(this.box_mainBottom);
+			}
+			else {
+				panel.addChild(this.box_mainBottom);
+			}
 		}
 
 		// 界面展示NPC列表

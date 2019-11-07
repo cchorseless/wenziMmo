@@ -164,10 +164,6 @@ module ProtoCmd {
     export const JS_PrestigePanel = 'prestigePanel';
     // 强化大师(强化、装备等级、升级大师)
     export const JS_SoulNecklacePanel = 'SoulNecklacePanel';// (type:0是玩家1是英雄)
-    // 内功经络
-    export const JS_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
-    // 内功经络升级
-    export const JS_shuxingxitong_shengji = 'shuxingxitong_shengji';
     // 罡气护体激活
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
@@ -183,7 +179,10 @@ module ProtoCmd {
     export const WX_upgradeWarSoul = 'upgradeWarSoul';
     //武学戾气升级面板
     export const WX_updateWarSoulPanel = 'updateWarSoulPanel';
-
+    // /武学内功
+    export const WX_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
+    // /武学内功升级
+    export const WX_shuxingxitong_shengji = 'shuxingxitong_shengji';
     /********************************弟子信息界面***************** */
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
@@ -297,7 +296,34 @@ module ProtoCmd {
     export const Menu_qiandaolingqu = "qiandaolingqu";
     //签到
     export const Menu_QianDao_ZengJia = "QianDao_ZengJia";
+    //膜拜城主面板
+    export const Menu_WorShipOpen = "WorShipOpen";
+    //膜拜城主膜拜or鄙视
+    export const Menu_WorshipGetWard = "WorshipGetWard";
+    //膜拜城主刷新
+    export const Menu_RefreshWard = "RefreshWard";
+    //全民竞猜面板
+    export const Menu_JingCaiClientOpen = "JingCaiClientOpen";
+    //全民竞猜参与竞猜
+    export const Menu_JingCai = "JingCai";
+    //全民竞猜获奖情况
+    export const Menu_JingCaiClientOpenEx = "JingCaiClientOpenEx";
 
+    /*********************************新服活动******************** */
+    //新服活动面板
+    export const NS_XinFuClientOpen = "XinFuClientOpen";
+    //开服竞技
+    export const NS_KaiFuJingJiOpen = "KaiFuJingJiOpen";
+    //开服竞技领取
+    export const NS_KaiFuJingJiGet = "KaiFuJingJiGet";
+    //全民boss面板
+    export const NS_QuanMingBoss = "QuanMingBoss";
+    //全民boss领取
+    export const NS_QuanMingBossGet = "QuanMingBossGet";
+    //龙城争霸面板
+    export const NS_LongChengClientOpen = "LongChengClientOpen";
+    //龙城争霸领取
+    export const NS_LongChengGet = "LongChengGet";
     /*********************************抽奖******************** */
     //抽奖面板
     export const LD_chouJiangPanel = "chouJiangPanel";
@@ -410,6 +436,10 @@ module ProtoCmd {
     export const Active9 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
 
 
+    export const Active100 = "LimitTimeGiftBagPanel"  //限时礼包   面板         其他接口：购买
+    export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
+    // export const Active
+
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
     export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
     export const LimitTimePanicBuy = "LimitTimePanicBuy"  //限时购买 购买
@@ -423,10 +453,26 @@ module ProtoCmd {
     export const ShenMi_ShuaXin = "ShenMi_ShuaXin"  //神秘商店刷新
     export const ShenMi_Buy = "ShenMi_Buy"          //神秘商店购买
     export const GetOneDayRechargeAward = "GetOneDayRechargeAward"  //单日充值领取
+    export const MRLQ_LingQu = "MRLQ_LingQu";     //每日领取  领取
+    export const EverydayBuyPacks = "EverydayBuyPacks";     //每日必买  购买
+    export const BuyLimitTimeGiftBag = "BuyLimitTimeGiftBag";     //限时礼包  购买
+    export const GetRechargeGiftAward = "GetRechargeGiftAward";     //累计充值  领取
+    export const QuanMingLiBaoGet = "QuanMingLiBaoGet";     //全民礼包  领取
+
+    export const ChaoZhiLC_LingQu = "ChaoZhiLC_LingQu";     //成长基金  领取
+    export const ChaoZhiLC_Buy = "ChaoZhiLC_Buy";     //成长基金  购买
+
+    export const DBCZ_LingQu = "DBCZ_LingQu";         //单笔充值   领取
+
+
+
+
 
     export const FuDaiChouJiang = "FuDaiChouJiang";   //福袋抽奖开启按钮
     export const SendExItemPlane = "SendExItemPlane";   //福袋抽奖额外奖励面板
     export const FuDaiGet = "FuDaiGet";   //福袋抽奖额外奖励    领取
+
+    export const leijidenglu_minbandakai = "leijidenglu_minbandakai"  //累计登录(0:打开面板 ，大于0，代表ID并领取)
 
 
 
@@ -447,6 +493,18 @@ module ProtoCmd {
     export const ZGTQ_Open = "ZGTQ_Open";    //月卡界面
     export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
     export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
+
+    export const chaozhiopen = "chaozhiopen";         //超值礼包(促销)      面板
+    export const ChaoZhiBuy = "ChaoZhiBuy"        //超值礼包(促销)      领取
+
+    export const TeHuiIndex = "TeHuiIndex";       //特惠礼包   面板
+    export const TeHuiClientOpen = "TeHuiClientOpen";       //特惠礼包   选择其中一个显示    面板
+    export const TeHuiBuy = "TeHuiBuy";       //特惠礼包   购买
+
+
+    export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
+    export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
+
 
 
 
@@ -722,18 +780,7 @@ module ProtoCmd {
         rank: any;// 排行榜
         titletab: any//声望头衔信息
     }
-    /**
-    * 拉取内息经络
-    */
-    export interface itf_JS_NeiGongInfo {
-        dangqiandengji: number//当前等级
-        dangqianneigong: number//当前内功
-        dangqianshuxing: string//“内功抵抗=当前属性”
-        nghf: number//内功恢复
-        xiajishuxing: string//下级属性
-        xiaohaoitem: number//当前属性的最大内功
-        zongnum: number
-    }
+
     /**
   * 拉取角色天赋
   */
@@ -823,6 +870,18 @@ module ProtoCmd {
         maxexp: number//最大经验
         needexp: number//所需消耗经验
         pos: number//魂力穿戴位置
+    }
+    /**
+  * 武学内息经络
+  */
+    export interface itf_WX_NeiGongInfo {
+        dangqiandengji: number//当前等级
+        dangqianneigong: number//当前内功
+        dangqianshuxing: string//“内功抵抗=当前属性”
+        nghf: number//内功恢复
+        xiajishuxing: string//下级属性
+        xiaohaoitem: number//当前属性的最大内功
+        zongnum: number
     }
     /***********************************副本接口**************************** */
     /**
@@ -1005,17 +1064,57 @@ module ProtoCmd {
         LiJuanNeedYuanBao: number//礼券祈福所需元宝
         LiJuanNum: number//获得礼券总数
     }
+    /**
+     * 膜拜城主
+     */
+    export interface itf_Menu_MoBaiInfo {
+        guildid: number//膜拜行会ID
+        maxcnt: number//最大膜拜次数
+        maxmultiple: number//最大倍数
+        multab: any//倍数信息 {beishu: 倍数, exp: 当前倍数所获得的经验}
+        multiple: number//当前倍数
+        name: string//城主名称
+        needgold: number//所需金币
+        scorn: number//鄙视率
+        support: number//膜拜率
+        worshipcnt: number//当前膜拜次数
+    }
+    /**
+     * 全民竞猜面板
+     */
+    export interface itf_Menu_GuessInfo {
+        day: number//活动的天数
+        jingcai: number//我的竞猜值
+        leftsec: number//活动时间
+        num: number//参与竞猜人数
+        vip: number//我的vip值
+    }
+    /**
+     * 全民竞猜获奖情况
+     */
+    export interface itf_Menu_GetSituationInfo {
+        tab: any// 1: {name: "无玩家", num: 0 }     
+    }
     /***********************************抽奖接口**************************** */
+    /**
+     * 抽奖面板
+     */
     export interface itf_LD_Info {
         id: number//抽奖活动ID
         name: string//抽奖活动名称
     }
+    /**
+     * 藏宝阁
+     */
     export interface itf_LD_CangBaoGeInfo {
         middleItem: any//中间大宝箱信息（binding: 是否绑定, index: 物品ID, num: 物品数量
         score: number//宝藏积分
         sideItem: any//12个物品id
         tips: any//探宝的相关信息( addjifen: 增加积分 cnt: 藏宝图数量huobi_type: 货币类型 need: 所需货币数量)
     }
+    /**
+     * 福利转盘
+     */
     export interface itf_LD_fuliTurnTableInfo {
         idx: number//抽到的物品索引
         lefttime: number//活动倒计时
@@ -1024,6 +1123,9 @@ module ProtoCmd {
         max: number//最大抽奖次数
         item: any//物品信息
     }
+    /**
+     * 在线抽奖
+     */
     export interface itf_LD_OnLineDrawInfo {
         exitem: any//宝箱信息（flag:宝箱状态0未开1可开2已开，need：打开宝箱所需抽奖次数）
         idx: number//抽到的物品索引
@@ -1036,6 +1138,9 @@ module ProtoCmd {
         zaixiantime: number//在线时长
         used: number//已抽奖次数
     }
+    /**
+     * 幸运抽奖
+     */
     export interface itf_LD_LuckDrawInfo {
         idx: number//抽到的物品索引
         extab: any//可领的达标奖相关信息(exitem:any leftcnt:number needcnt: number获得标准奖励还需要的次数)
@@ -1046,6 +1151,9 @@ module ProtoCmd {
     }
 
     /***********************************福利接口**************************** */
+    /**
+     * 在线奖励
+     */
     export interface itf_Fuli_OnLineRewardInfo {
         benzhouyuanbao: number//本周累计元宝
         itemtab: any//宝箱1234相关（ btnStatus: 宝箱状态itemtab：宝箱奖励信息times: 领取时间）
@@ -1053,5 +1161,39 @@ module ProtoCmd {
         status: number//本周在线时长兑换状态
         zaixianshijian: number//今日在线时长
     }
-
+    /***********************************新服活动接口**************************** */
+    /**
+     * 开服竞技
+     */
+    export interface itf_NS_sportsInfo {
+        item: any//全服排名奖励{1：bind:绑定index:物品IDnum:物品数量,2,3}
+        join: any//下方是否达成活动奖励条件{bj:（0没达到1达到了）, lv:等级, item: 奖励物品信息}
+        leftsec: number//活动时间
+        opendays: number//天数
+        rank: any//当前排名{flag:达到条件（0达到了1没达到） 0name: 玩家姓名score:玩家等级}
+        ranktype: number//排行榜类型
+        str: string//说明
+    }
+    /**
+     * 全民boss
+     */
+    export interface itf_NS_AllBossInfo {
+        bj: number// 达成状态 0未达成1已达成2已领取
+        boss: any//boss相关信息
+        item: any//奖励信息
+        name: string//boss分类
+        // 1: { bj: 0, boss: {bj, bossid}, item: {num: 数量, index: 物品id, bind: 是否绑定 }，name：boss分类 }
+        // 2: { bj: 0, boss: { … }, item: { … }，name }
+        // 3: { bj: 0, boss: { … }, item: { … }，name }
+        // 4: { bj: 0, boss: { … }, item: { … } ，name}
+        // leftsec: number 活动时间
+    }
+    /**
+     * 龙城争霸
+     */
+    export interface itf_NS_DragonInfo {
+        Bj: number//是否可领取0不可1可领取2已领取
+        Item: any //{num: 数量, index: 物品id, bind: 是否绑定 }
+        leftsec: number//活动时间
+    }
 }

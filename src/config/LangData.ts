@@ -4,6 +4,31 @@
  */
 module LangConfig {
 
+    export function getRealName(name: string): string {
+        return name.split('_')[0]
+    }
+
+    /**
+     * 技能类型描述
+     */
+    export const enSkillTypeDes = {
+        ZhaoShi: '招式武学',//招式
+        ZhaoJia: '招架武学',//招架
+        ShenFa: '身法武学',// 身法
+        NeiGong: '内功武学',// 内功
+        combatSkill: '合击武学',
+        HeroSkill: '弟子武学',
+    }
+
+
+    /**
+     * 五行描述
+     * @param index 
+     */
+    export function getWuXingDes(index): string {
+        return ['金', '木', '水', '火', '土'][index]
+    }
+
     /**
      * 获取等级描述
      * @param zs_level 转生等级
@@ -89,6 +114,18 @@ module LangConfig {
         return path + '0' + job + '_half.png';
     }
 
+
+    /**
+     * 技能五行属性
+     */
+    export const emSkillWuXingPropDes = {
+        jin: '金',
+        mu: '木',
+        shui: '水',
+        huo: '火',
+        tu: '土'
+
+    }
 
 
     /**

@@ -6,11 +6,12 @@ module view.compart {
 		}
 
 		public item: GameObject.Npc;
-		public setData(obj: GameObject.Npc): void {
+		public setData(obj: GameObject.Npc): NpcIconItem {
 			this.item = obj;
 			this.item.ui_item = this;
 			this.initUI();
 			this.addEvent();
+			return this;
 		}
 
 		public addEvent(): void {
@@ -54,6 +55,19 @@ module view.compart {
 			let configId = this.item.feature.dwCretTypeId;
 			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId) + '.png';
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
+		}
+		/**
+		 * 新服活动-全民BOSS
+		 */
+		public newServer_AllBoss(id): NpcIconItem {
+			//boss头像
+			let img_allBoss = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + id);
+			this.img_avatarPic.skin='image/common/npc/npc_icon_'+img_allBoss+'.png';
+			let name=SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
+			this.lbl_npcName.text=''+name;
+			this.img_tips.visible=false;
+			this.lbl_zuoBiao.visible=false;
+			return this;
 		}
 	}
 }

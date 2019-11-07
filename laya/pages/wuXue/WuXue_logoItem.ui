@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":5,
     "props":{"width":80,"sceneColor":"#000000","height":80},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-6,"x":0,"width":80,"skin":"image/main/img_zhujiedi.png","height":80},
+            "props":{"y":0,"x":0,"width":80,"skin":"image/main/img_zhujiedi.png","height":80},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -52,34 +52,21 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-4,"x":-7,"wordWrap":true,"width":36,"var":"lbl_shuXing","text":"金","strokeColor":"#2d1c05","stroke":4,"height":34,"fontSize":30,"font":"FZXK","color":"#f3edd3","align":"center"},
+                    "nodeParent":2,
+                    "label":"Label(lbl_shuXing)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":65,"x":-37,"wordWrap":true,"width":166,"text":"名称名称名称","strokeColor":"#2d1c05","stroke":4,"height":22,"fontSize":20,"font":"FZXK","color":"#f3edd3","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":-10,"x":-7,"wordWrap":true,"width":36,"text":"金","strokeColor":"#2d1c05","stroke":4,"height":34,"fontSize":30,"font":"FZXK","color":"#f3edd3","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
-            "child":[
-                ]
         }],
     "animations":[
         {

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":39,
+    "selecteID":42,
     "props":{"width":500,"sceneColor":"#ffffff","height":723},
     "nodeParent":-1,
     "label":"View",
@@ -12,6 +12,22 @@
     "hasChild":true,
     "compId":1,
     "child":[
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":500,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"5,3,3,4","height":540},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":40,
+            "child":[
+                ],
+            "$LOCKED":true,
+            "$HIDDEN":false
+        },
         {
             "x":15,
             "type":"Image",
@@ -225,7 +241,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":132,"x":0,"width":500,"var":"panel_content","height":407},
+            "props":{"y":162,"x":0,"width":500,"var":"panel_content","height":377},
             "nodeParent":1,
             "label":"Panel(panel_content)",
             "isOpen":true,
@@ -246,6 +262,32 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":39,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":19,"x":15,"wordWrap":true,"width":69,"var":"lab_curVIPLV","text":"当前:\\nVIP12","stroke":2,"height":66,"fontSize":24,"font":"FZXK","color":"#f4d304","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_curVIPLV)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":41,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":126,"x":139,"width":222,"var":"lab_WelfareText","text":"VIP15特权","stroke":1,"height":35,"fontSize":28,"font":"FZXK","color":"#a53232","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_WelfareText)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":42,
             "child":[
                 ]
         }],

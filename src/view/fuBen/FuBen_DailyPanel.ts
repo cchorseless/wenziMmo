@@ -21,7 +21,7 @@ module view.fuBen {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.showPanel(PanelManage.JuQingMode);
+			PanelManage.openJuQingModePanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -99,7 +99,7 @@ module view.fuBen {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = jiangli[i];
-				_itemUI.setData(itemInfo);
+				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_xinMo1.addChild(_itemUI)
 			}
 
