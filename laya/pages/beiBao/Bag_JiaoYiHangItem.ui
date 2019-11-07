@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":76,
-    "selecteID":78,
+    "selectedBox":1,
+    "selecteID":21,
     "referenceLines":[
         {
             "value":378,
@@ -406,30 +406,30 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":83,
+            "compId":87,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
-                    "nodeParent":83,
+                    "props":{"y":20,"x":27,"width":158,"skin":"image/common/img_common_title.png","height":37},
+                    "nodeParent":87,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":84,
+                    "compId":88,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":30,"width":120,"text":"交易行","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":84,
+                            "props":{"y":3,"x":32,"width":93,"text":"交易行","strokeColor":"#765f42","stroke":4,"height":30,"fontSize":29,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":88,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":85,
+                            "compId":89,
                             "child":[
                                 ]
                         }]
@@ -438,12 +438,25 @@
                     "x":30,
                     "type":"Button",
                     "props":{"y":-7,"x":-6,"stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png"},
-                    "nodeParent":83,
+                    "nodeParent":87,
                     "label":"Button",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":86,
+                    "compId":90,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":19,"x":138,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                    "nodeParent":87,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":91,
                     "child":[
                         ]
                 }],

@@ -99,13 +99,13 @@ class SDKManager extends SingletonClass {
     // ⻆⾊登陆
     loginRole() {
         this.updateRoleInfo();
-        this.SDK.loginRole(this._sdkRole);
+        // this.SDK.loginRole(this._sdkRole);
     }
 
     // ⻆⾊升级
     upgradeRole() {
         this.updateRoleInfo();
-        this.SDK.upgradeRole(this._sdkRole);
+        // this.SDK.upgradeRole(this._sdkRole);
     }
 
     // 切换账号

@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":622,"skin":"image/common/bottom_bigPopup.png","height":928},
+            "props":{"width":622,"skin":"image/common/bottom_tanchuang_big.png","height":928},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -56,8 +56,21 @@
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":50,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png","anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Image",
-            "props":{"y":103,"x":49,"width":541,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"29,18,18,18","height":782},
+            "props":{"y":103,"x":51,"width":541,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"29,18,18,18","height":782},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -71,7 +84,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":734,"x":51,"width":520,"skin":"image/common/login/line_yeqian.png"},
+            "props":{"y":734,"x":53,"width":520,"skin":"image/common/login/line_yeqian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -84,7 +97,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":746,"x":90,"text":"回收:","fontSize":30,"font":"FZHL","color":"#000000"},
+            "props":{"y":746,"x":92,"text":"回收:","fontSize":30,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -97,7 +110,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":745,"x":182,"width":162,"var":"btn_nozhuan","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"非转生装备","height":59},
+            "props":{"y":745,"x":184,"width":162,"var":"btn_nozhuan","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"非转生装备","height":59},
             "nodeParent":1,
             "label":"Button(btn_nozhuan)",
             "isDirectory":false,
@@ -110,7 +123,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":745,"x":362,"width":162,"var":"btn_zhaun","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"1-2转装备","height":59},
+            "props":{"y":745,"x":364,"width":162,"var":"btn_zhaun","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"1-2转装备","height":59},
             "nodeParent":1,
             "label":"Button(btn_zhaun)",
             "isDirectory":false,
@@ -123,7 +136,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":813,"x":182,"width":162,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"经验丹使用","height":59},
+            "props":{"y":813,"x":184,"width":162,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"经验丹使用","height":59},
             "nodeParent":1,
             "label":"Button(btn_use)",
             "isDirectory":false,
@@ -136,7 +149,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":813,"x":362,"width":162,"var":"btn_allGet","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"全部领取","height":59},
+            "props":{"y":813,"x":364,"width":162,"var":"btn_allGet","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"39,58,16,26","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"全部领取","height":59},
             "nodeParent":1,
             "label":"Button(btn_allGet)",
             "isDirectory":false,
@@ -149,21 +162,8 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":48,"x":569,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Panel",
-            "props":{"y":114,"x":61,"width":505,"var":"panel_store","height":614},
+            "props":{"y":114,"x":63,"width":505,"var":"panel_store","height":614},
             "nodeParent":1,
             "label":"Panel(panel_store)",
             "isOpen":true,
@@ -185,20 +185,6 @@
                     "child":[
                         ]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":820,"x":489,"skin":"image/common/login/decoration_tanchuang.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":23,
-            "child":[
-                ],
-            "$HIDDEN":false
         }],
     "animations":[
         {

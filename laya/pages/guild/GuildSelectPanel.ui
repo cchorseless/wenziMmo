@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":285,
+    "selecteID":288,
     "referenceLines":[
         {
             "value":149,
@@ -131,14 +131,13 @@
                     "props":{"y":51,"x":171,"var":"btn_guild","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
                     "nodeParent":208,
                     "label":"Button(btn_guild)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":212,
                     "child":[
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":2,"x":5,"stateNum":"2","skin":"image/guild/icon_bangpai2.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                             "nodeParent":212,
@@ -153,7 +152,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":37,"text":"帮派","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":212,
@@ -339,40 +337,57 @@
             "props":{"y":114,"x":5},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":230,
+            "compId":288,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
-                    "nodeParent":230,
+                    "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
+                    "nodeParent":288,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":231,
+                    "compId":289,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":30,"width":120,"text":"江湖小帮","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":231,
+                            "props":{"y":9,"x":30,"text":"江湖小帮","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
+                            "nodeParent":289,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":232,
+                            "compId":290,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                    "nodeParent":288,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":292,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":3,"stateNum":"1","skin":"image/guild/icon_bangpai_normal.png"},
-                    "nodeParent":230,
+                    "nodeParent":288,
                     "label":"Button",
                     "isOpen":true,
                     "isDirectory":false,
@@ -404,14 +419,13 @@
             "props":{"y":189,"x":12},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":244,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"width":616,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"21,81,23,26","height":124},
                     "nodeParent":244,
@@ -425,7 +439,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":14,"width":65,"skin":"image/common/title_ConfederationDeclaration.png","height":115},
                     "nodeParent":244,
@@ -439,7 +452,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":6,"x":14,"wordWrap":true,"width":30,"text":"门派","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -452,7 +464,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":37,"x":42,"wordWrap":true,"width":30,"text":"收徒","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -465,7 +476,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"y":3,"x":81,"width":517,"height":112},
                     "nodeParent":244,
@@ -477,7 +487,6 @@
                     "compId":245,
                     "child":[
                         {
-                            "x":45,
                             "type":"HBox",
                             "props":{"top":0,"bottom":0},
                             "nodeParent":245,
@@ -489,7 +498,6 @@
                             "compId":246,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"guild/GuildSelectItem.ui",
                                     "props":{"y":5,"x":396},
@@ -503,7 +511,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"guild/GuildSelectItem.ui",
                                     "props":{"y":5,"x":0},
@@ -517,7 +524,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"guild/GuildSelectItem.ui",
                                     "props":{"y":5,"x":132},
@@ -531,7 +537,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"guild/GuildSelectItem.ui",
                                     "props":{"y":5,"x":264},

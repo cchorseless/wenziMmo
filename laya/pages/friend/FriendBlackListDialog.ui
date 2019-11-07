@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":28,
-    "selecteID":29,
+    "selectedBox":17,
+    "selecteID":28,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"skin":"image/common/bottom_bigPopup.png"},
+            "props":{"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -52,21 +52,8 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":101,"x":42,"width":541,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"29,18,18,18","height":732},
-                    "nodeParent":17,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":30,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":19,"x":540,"var":"btn_blackListClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":-4,"x":516,"var":"btn_blackListClose","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":17,
                     "label":"Button(btn_blackListClose)",
                     "isDirectory":false,
@@ -79,8 +66,21 @@
                 },
                 {
                     "x":30,
+                    "type":"Image",
+                    "props":{"y":101,"x":49,"width":541,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"29,18,18,18","height":732},
+                    "nodeParent":17,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":30,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Box",
-                    "props":{"y":844,"x":206,"width":198,"height":42},
+                    "props":{"y":844,"x":213,"width":198,"height":42},
                     "nodeParent":17,
                     "label":"Box",
                     "isOpen":false,
@@ -167,7 +167,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":110,"x":58,"width":512,"var":"panel_black","height":709},
+                    "props":{"y":110,"x":65,"width":512,"var":"panel_black","height":709},
                     "nodeParent":17,
                     "label":"Panel(panel_black)",
                     "isOpen":true,

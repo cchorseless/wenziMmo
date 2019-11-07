@@ -2,28 +2,52 @@
 module view.promotion {
 	export class PromotionPanel extends ui.promotion.PromotionPanelUI {
 		public static self: PromotionPanel;
+		public tabNameArr = ["超值礼包", "特惠礼包", "特选礼包"];
 		public btnState = 0;
 		constructor() {
 			super();
 			PromotionPanel.self = this;
-			this.addEvent();
+
+			this.panel_tab.hScrollBarSkin = "";
 		}
 		public setData() {
-			for (let i = 0; i < 3; i++) {
+			this.hbox_tab['sortItem'] = (items) => { };
+
+			for (let i = 0; i < this.tabNameArr.length; i++) {
+				let o = new laya.ui.Button();
+				o.label = this.tabNameArr[i];
+				o.width = 140;
+				o.height = 60;
+				o.labelFont = "FZXK";
+				o.labelSize = 28;
+				o.skin = "image/main/btn_haoyou.png"
+				o.stateNum = 2;
+				this.hbox_tab.addChild(o);
+				// 添加view_stack
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
 				this.View_S.addItem(box);
 			}
+
+
+
+			// for (let i = 0; i < 3; i++) {
+			// 	let box = new Laya.Box();
+			// 	box.top = box.bottom = box.right = box.left = 0;
+			// 	this.View_S.addItem(box);
+			// }
 			this.View_S.selectedIndex = this.btnState;
 			this.getActiveInfoData(this.btnState);
+			this.addEvent();
 		}
 
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			})
-			for (let i = 0; i < 3; i++) {
-				this["btn_promotion_" + i].on(Laya.UIEvent.CLICK, this, function () {
+			for (let i = 0; i < this.tabNameArr.length; i++) {
+				let p: any = this.hbox_tab.getChildAt(i);
+				p.on(Laya.UIEvent.CLICK, this, function () {
 					this.btnState = i;
 					this.View_S.selectedIndex = this.btnState;
 					this.getActiveInfoData(this.btnState);
@@ -48,14 +72,21 @@ module view.promotion {
 					GameApp.LListener.on(ProtoCmd.TeHuiIndex, this, (data) => {
 						box.removeChildren();
 						let o = new Promotion_SpecialGift()
-						o.setData(data)
+						o.setData(data,1)
 						box.addChild(o);
 					})
 					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.TeHuiIndex, null)
 					lcp.send(pkt0);
 
 				} else if (id == 2) {
-
+					GameApp.LListener.on(ProtoCmd.WorthGiftBagPanel, this, (data) => {
+						box.removeChildren();
+						let o = new Promotion_SpecialGift()
+						o.setData(data,2)
+						box.addChild(o);
+					})
+					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.WorthGiftBagPanel, null)
+					lcp.send(pkt0);
 				}
 			}
 		}
@@ -71,7 +102,7 @@ module view.promotion {
 		public Dispose() {
 			GameApp.LListener.offCaller(ProtoCmd.chaozhiopen, this)
 			GameApp.LListener.offCaller(ProtoCmd.TeHuiIndex, this)
-
+			GameApp.LListener.offCaller(ProtoCmd.WorthGiftBagPanel, this)
 
 
 			Laya.timer.clearAll(this)
