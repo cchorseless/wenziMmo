@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":293,
+    "selectedBox":297,
+    "selecteID":298,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -539,44 +539,58 @@
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":288,
+            "compId":296,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":27,"skin":"image/common/box_txt.png"},
-                    "nodeParent":288,
+                    "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
+                    "nodeParent":296,
                     "label":"Image",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":289,
+                    "compId":297,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":3,"x":34,"text":"组  队","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":289,
+                            "props":{"y":9,"x":30,"text":"  组    队","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
+                            "nodeParent":297,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":290,
+                            "compId":298,
                             "child":[
                                 ]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":3,"width":64,"skin":"image/juese/icon_renwuzhi.png"},
-                    "nodeParent":288,
+                    "props":{"y":3,"skin":"image/juese/icon_renwuzhi.png"},
+                    "nodeParent":296,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":291,
+                    "compId":299,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                    "nodeParent":296,
+                    "label":"Button",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":300,
                     "child":[
                         ]
                 }],
