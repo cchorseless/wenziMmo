@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":174,
+    "selectedBox":192,
+    "selecteID":216,
     "referenceLines":[
         {
             "value":488,
@@ -236,13 +236,14 @@
                             "props":{"y":-5,"x":10},
                             "nodeParent":192,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":7,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":24,"x":17,"skin":"image/juese/icon_shengmingbuxian.png"},
                                     "nodeParent":7,
@@ -256,6 +257,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":199,"x":57,"var":"lbl_title","text":"声明不显","strokeColor":"#000000","stroke":5,"fontSize":30,"font":"FZHL","color":"#fed85a"},
                                     "nodeParent":7,
@@ -264,6 +266,20 @@
                                     "isAniNode":true,
                                     "hasChild":false,
                                     "compId":6,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":262,"x":5,"wordWrap":false,"width":226,"var":"lbl_use","text":"每日消耗5点声望值","strokeColor":"#000000","stroke":0,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
+                                    "nodeParent":7,
+                                    "label":"Label(lbl_use)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":212,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
@@ -299,7 +315,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":25,"x":14,"text":"我的威望排名：","strokeColor":"#000000","stroke":4,"fontSize":23,"font":"FZHL","color":"#ffffff"},
+                                    "props":{"y":25,"x":8,"text":"我的威望排名：","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":3,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -357,7 +373,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":199,"x":310,"width":183,"valign":"bottom","text":"威望效果","strokeColor":"#2d1c05","stroke":4,"height":30,"fontSize":30,"font":"FZHL","color":"#f3edd3","align":"center"},
+                            "props":{"y":151,"x":280,"valign":"bottom","text":"威望效果：","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":192,
                             "label":"Label",
                             "isDirectory":false,
@@ -366,6 +382,46 @@
                             "compId":38,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":176,"x":277,"skin":"image/juese/icon_jn_kuangxiao.png"},
+                            "nodeParent":192,
+                            "label":"Image",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":214,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":0,"x":0,"skin":"image/main/icon_jn_linghubu.png"},
+                                    "nodeParent":214,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":215,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":183,"x":357,"wordWrap":true,"width":168,"var":"lbl_xiaoguo","text":"威慑\\n 攻击威望值低于自己的玩家","strokeColor":"#000000","stroke":0,"height":60,"fontSize":20,"font":"FZHL","color":"#000000"},
+                            "nodeParent":192,
+                            "label":"Label(lbl_xiaoguo)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":216,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,

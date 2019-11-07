@@ -398,12 +398,28 @@ module GameObject {
          * 战力
          * @param fight 
          */
-        public changeFight(fight: number) {
-            this.ability.nFight = fight;
+        public changeFight(fight: number, type = 0) {
             if (this.isMainPlayer) {
                 ////GameApp.MainPanel.atkBtn.text = '战力:' + this.ability.nMaxAttack;
+                switch (type) {
+                    case 0:
+                        this.ability.nFight = fight;
+                        break;
+                    case 1:
+                        GameApp.GameEngine.warriorzhanli = fight;
+                        break;
+                    case 2:
+                        GameApp.GameEngine.masterzhanli = fight;
+                        break;
+                    case 3:
+                        GameApp.GameEngine.taoistzhanli = fight;
+                        break;
+                }
+
+
             }
         }
+
 
 
         /**

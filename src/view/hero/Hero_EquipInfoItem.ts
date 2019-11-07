@@ -15,18 +15,18 @@ module view.hero {
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
-				let o = new  view.juese.Person_Equip_SoulContentDialog()
+				let o = new view.juese.Person_Equip_SoulContentDialog()
 				o.setData(0)
 				o.popup();
 
 			})
 			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
-				let o = new  view.juese.Person_IntensifyContentDialog()
+				let o = new view.juese.Person_IntensifyContentDialog()
 				o.setData()
 				o.popup();
 			})
 			EventManage.onWithEffect(this.btn_soul, Laya.UIEvent.CLICK, this, () => {
-				let o = new  view.juese.Person_Equip_SoulContentDialog()
+				let o = new view.juese.Person_Equip_SoulContentDialog()
 				o.setData(1)
 				o.popup();
 			})
@@ -47,33 +47,48 @@ module view.hero {
 			}
 			let j = i + 1
 			let pkt = new ProtoCmd.QuestClientData();
-				this.job = GameApp.GameEngine.HeroInfo[j].JOB;
-				switch (this.job) {
-					case 1:
-						this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
-						this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
-						break;
-					case 2:
-						this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
-						this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT;
-						break;
-					case 3:
-						this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
-						this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
-						break;
+			this.job = GameApp.GameEngine.HeroInfo[j].JOB;
+			switch (this.job) {
+				case 1:
+					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
+					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
+					//战力
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.warriorzhanli);
+					break;
+				case 2:
+					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
+					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT;
+					//战力
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.masterzhanli);
+					break;
+				case 3:
+					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
+					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
+					//战力
+					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.taoistzhanli);
+					break;
+			}
+			let allKey = Object.keys(GameApp.GameEngine.equipDB);
+			for (let key of allKey) {
+				let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
+				let btLocation = _itemBase.location.getValue('btLocation');
+				let btIndex = _itemBase.location.getValue('btIndex');
+				// 筛选合适的装备
+				if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= this.BELT && btIndex >= this.HEADDRESS) {
+					let itemUI = new view.compart.DaoJuItem();
+					itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_PLAYER);
+					(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
 				}
-				let allKey = Object.keys(GameApp.GameEngine.equipDB);
-				for (let key of allKey) {
-					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
-					let btLocation = _itemBase.location.getValue('btLocation');
-					let btIndex = _itemBase.location.getValue('btIndex');
-					// 筛选合适的装备
-					if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= this.BELT && btIndex >= this.HEADDRESS) {
-						let itemUI = new view.compart.DaoJuItem();
-						itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_PLAYER);
-						(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
-					}
-				}
+			}
+			//弟子半身像
+			let heroSex;
+			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+				heroSex = EnumData.SEX_TYPE.SEX_WOMEN;
+			}
+			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+				heroSex = EnumData.SEX_TYPE.SEX_MAN;
+			}
+			this.img_hero.skin = LangConfig.getPlayerAvatarHalfSkin(heroSex, this.job)
 			this.initUI(j);
 		}
 		public initUI(j): void {
