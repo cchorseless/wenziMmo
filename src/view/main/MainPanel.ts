@@ -118,21 +118,19 @@ module view.main {
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
 				if (this.btn_menu.selected) {
+					this.btn_menu.skin='image/main/btn_caidan_01down_close.png';
 					PanelManage.openMenuPanel()
 				}
 				else {
+					this.btn_menu.skin='image/main/btn_caidan_01down_finish.png';
 					PopUpManager.showPanel(PanelManage.Menu);
 					PopUpManager.checkPanel(PanelManage.Menu);
 				}
 			});
 
-			// 时辰界面
-			this.lbl_shiChen.on(Laya.UIEvent.CLICK, this, () => {
+			// 时辰&&节气界面
+			this.btn_time.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.TimeDialog().setData(null).popup(true);
-			});
-			// 节气界面
-			this.lbl_jieQi.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.SeasonDialog().setData(null).popup(true);
 			});
 			// 换头像界面
 			// this.box_head.on(Laya.UIEvent.CLICK, this, () => {
