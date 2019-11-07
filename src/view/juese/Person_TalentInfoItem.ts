@@ -13,14 +13,19 @@ module view.juese {
 		private index;
 		//天赋升级类型
 		private upLevelType;
+		//天赋名称
+		public title = '悟性';
 		//天赋当前值类型
 		private dangqianNum;
+		//资质天赋功能ID
+		private id = 7003;
 		//角色职业
 		private job = GameApp.MainPlayer.job;
 		private client_func_index = 14;// 功能ID编号
 		public eventList = [ProtoCmd.JS_DragonSoulPanel, ProtoCmd.JS_ShieldPanel, ProtoCmd.JS_OfficialSealPanel, ProtoCmd.JS_BloodJadePanel, ProtoCmd.JS_MedalPanel]
 		public setData(): void {
 			if (this.hasInit) { return };
+			this.hasInit = true;
 			this.panel_talent.hScrollBarSkin = '';
 			this.hbox_talent['sortItem'] = (items) => { };
 			this.panel_wupin.hScrollBarSkin = '';
@@ -32,7 +37,7 @@ module view.juese {
 			this.index = ProtoCmd.JS_activeDragonSoul;
 			this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 			this.dangqianNum = 2;
-			this.hasInit = true;
+			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.addEvent();
 			this.TalentInfo();
 
@@ -46,6 +51,9 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeDragonSoul;
 				this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 				this.dangqianNum = 2;
+				this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
+				this.title = '悟性';
+				this.id = 7003;
 				this.TalentInfo();
 			});
 
@@ -56,6 +64,9 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeShield;
 				this.upLevelType = ProtoCmd.JS_upgradeShield;
 				this.dangqianNum = 4;
+				this.img_type.skin = 'image/common/daoju/itemicon_122001.png';
+				this.title = '臂力';
+				this.id = 7005;
 				this.TalentInfo();
 			});
 
@@ -66,6 +77,9 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeOfficialSeal;
 				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
 				this.dangqianNum = 5;
+				this.img_type.skin = 'image/common/daoju/itemicon_124001.png';
+				this.title = '善缘';
+				this.id = 7004;
 				this.TalentInfo();
 			});
 
@@ -76,6 +90,9 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeBloodJade;
 				this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
 				this.dangqianNum = 3;
+				this.img_type.skin = 'image/common/daoju/itemicon_121001.png';
+				this.title = '身法';
+				this.id = 7002;
 				this.TalentInfo();
 			});
 
@@ -86,6 +103,9 @@ module view.juese {
 				this.index = ProtoCmd.JS_activeMedal;
 				this.upLevelType = ProtoCmd.JS_upgradeMedal;
 				this.dangqianNum = 1;
+				this.img_type.skin = 'image/common/daoju/itemicon_160001.png';
+				this.title = '根骨';
+				this.id = 7001;
 				this.TalentInfo();
 			});
 
@@ -102,7 +122,6 @@ module view.juese {
 			this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
 				this.lvUpTalent();
 			})
-
 			this.addLcpEvent();
 		}
 
@@ -114,13 +133,13 @@ module view.juese {
 		public TalentInfo(): void {
 			if (this.getItemInfo()) {
 				this.viw_0.selectedIndex = 0;
-				this.img_jieshu.visible=true;
+				this.img_jieshu.visible = true;
 				this.zhuangbeiInfo(this.getItemInfo());
 				this.init_laqu();
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
-				this.img_jieshu.visible=false;
+				this.img_jieshu.visible = false;
 				this.lbl_dangqian.text = '' + GameApp.MainPlayer.talentInfo[this.dangqianNum];
 				this.notActivation();
 			}
@@ -130,9 +149,9 @@ module view.juese {
     */
 		public notActivation(): void {
 			let id = this.client_func_index + 1000;
-			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + this.id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
-
+			this.lbl_type.text = '先天' + this.title + '资质';
 		}
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(this.type)
@@ -143,10 +162,11 @@ module view.juese {
 			// 拉取天賦
 			for (let event of this.eventList) {
 				GameApp.LListener.on(event, this, (jsonData: ProtoCmd.itf_JS_TalentInfo) => {
-					console.log('======>天赋啊1', jsonData)
+					//进度条
 					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
 					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
 					let keys = Object.keys(jsonData.itemtab);
+					//升级天赋所需物品
 					this.hbox_wupin.removeChildren();
 					for (let key of keys) {
 						let data = jsonData.itemtab[key];
@@ -167,7 +187,6 @@ module view.juese {
 			}
 
 		}
-
 		public destroy(isbool): void {
 			for (let event of this.eventList) {
 				GameApp.LListener.offCaller(event, this);
@@ -198,11 +217,17 @@ module view.juese {
 		 * @param data 当前天赋
 		 */
 		public zhuangbeiInfo(data: ProtoCmd.ItemBase): void {
+			//获取途径
+			this.lbl_from.text=SheetConfig.Introduction_play.getInstance(null).GROWUPDES(''+this.id)
+			//初始化星星
+			for (let i = 1; i < 11; i++) {
+				this['btn_' + i].selected = false;
+			}
 			//星级
 			for (let i = 0; i < data.dwLevel; i++) {
 				let j = i + 1
 				this['btn_' + j].selected = true;
-			}
+			};
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
@@ -265,7 +290,8 @@ module view.juese {
 					}
 					break;
 			}
-
+			let array = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+			this.lbl_des.text = this.title + array[data.dwLevel] + '阶';
 			this.init_xiajeshuxing(data.dwEffId);
 		}
 		/**

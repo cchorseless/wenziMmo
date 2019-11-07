@@ -767,12 +767,11 @@ module ProtoCmd {
         tftab: any,//性格、标签
         TotalZiZhiPoint: number,//天赋总数
     }
-
     /**
      * 拉取声望信息
      */
     export interface itf_JS_ShengWangInfo {
-        damage: number;// 百分比 
+        damage: number;// 威望效果伤害百分比 
         daydelexp: number;// 每日衰减经验
         effid: number;// 效果ID
         maxexp: number;// 最大声望值

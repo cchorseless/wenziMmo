@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":8,
-    "selecteID":10,
+    "selectedBox":1,
+    "selecteID":27,
     "props":{"width":622,"sceneColor":"#000000","height":928},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bottom_bigPopup.png"},
+            "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -55,7 +55,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":20,"x":0,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png","right":25},
+            "props":{"y":-4,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -68,7 +68,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":137,"x":65,"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"15,17,14,28","height":333},
+            "props":{"y":137,"x":72,"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"15,17,14,28","height":333},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -277,7 +277,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":478,"x":65,"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"15,17,14,28","height":333},
+            "props":{"y":478,"x":72,"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"15,17,14,28","height":333},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,

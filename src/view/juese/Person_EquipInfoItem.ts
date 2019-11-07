@@ -34,16 +34,10 @@ module view.juese {
 		}
 
 		public initUI(): void {
-			let sex = GameApp.MainPlayer.sex;
-			let sexName;
-			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-				sexName = 'nan';
-			}
-			if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
-				sexName = 'nv';
-			}
-			LangConfig.getPlayerAvatarSkin( )
-			this.img_avatarPic.skin='image/common/'+sexName+'0'+GameApp.MainPlayer.job+'_half.png'
+			//战力
+			this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.MainPlayer.ability.nFight);
+			//玩家半身像
+			this.img_avatarPic.skin = LangConfig.getPlayerAvatarHalfSkin()
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
 			for (let key of allKey) {
 				let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];

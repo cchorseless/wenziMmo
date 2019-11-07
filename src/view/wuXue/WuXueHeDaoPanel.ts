@@ -14,14 +14,11 @@ module view.wuXue {
 		public index;
 		public setData(): void {
 			this.tab_zhuansheng.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_zhuansheng.selectedIndex = index;
+				this.viw_heDao.selectedIndex = index;
+				// this.init_event();
 			}, null, false);
-			let index = 1;
+			this.init_event();
 			this.addEvent();
-			this.activation();
-			this.init_liqiEvent();
-			this.init_soulUpPanel(index);
-			this.addLiQiUpLcpEvent();
 		}
 		public addEvent(): void {
 			// 模式切换
@@ -77,18 +74,36 @@ module view.wuXue {
 				})
 			}
 			this.addLcpEvent();
-			this.addLiQiLcpEvent();
+		}
+		/**
+		 * 初始化转生和戾气是否激活
+		 */
+		public init_event(): void {
+			if (this.tab_zhuansheng.selectedIndex == 0) {
+				this.activation();
+			}
+			else {
+				if (GameApp.MainPlayer.zslevel >= 7) {
+					this.viw_liqi.selectedIndex = 1;
+					this.init_liqiEvent();
+					let index = 1;
+					this.init_soulUpPanel(index);
+				}
+				else {
+					this.viw_liqi.selectedIndex = 0;
+					this.lbl_liqiIntroduce.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + 6013);
+				}
+			}
 		}
 		public activation(): void {
 			//判断是否激活
 			if (GameUtil.getServerData(this.client_func_index)) {
-				this.viw_heDao.selectedIndex = 1;
+				this.viw_zhuansheng.selectedIndex = 1;
 				this.init_xiuWei();
 				this.init_zhuangshengPanel();
-
 			}
 			else {
-				this.viw_heDao.selectedIndex = 0;
+				this.viw_zhuansheng.selectedIndex = 0;
 				this.notActivation();
 			}
 		}
@@ -106,7 +121,9 @@ module view.wuXue {
 			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		public addLcpEvent(): void {
+			//转生面板
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
+				console.log('=====>转生面板', jsonData);
 				let exp = jsonData.xw - jsonData.maxxw;
 				if (exp < 0) {
 					this.lbl_progress.text = jsonData.xw + '/' + jsonData.maxxw;
@@ -137,60 +154,11 @@ module view.wuXue {
 				}
 
 			})
-		}
-		/**
-		 * 获取修为面板
-		 */
-		public init_xiuWei(): void {
-			let bpkt = new ProtoCmd.QuestClientData();
-			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
-				if (Object.keys(jsonData).length == 0) { return };
-				//所需经验
-				this.lbl_exp.text = '' + jsonData.exp;
-				//所需金币
-				this.lbl_gold.text = '' + jsonData.gold;
-				//可兑换的修为
-				this.lbl_exchange.text = '' + jsonData.xw;
-				//道具1
-				let _itemUI1 = new view.compart.DaoJuItem();
-				let itemInfo1 = new ProtoCmd.ItemBase();
-				itemInfo1.dwBaseID = jsonData.pill;
-				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.box_1.addChild(_itemUI1);
-				//道具2
-				let _itemUI2 = new view.compart.DaoJuItem();
-				let itemInfo2 = new ProtoCmd.ItemBase();
-				itemInfo2.dwBaseID = jsonData.superpill;
-				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.box_2.addChild(_itemUI2)
-			})
-			lcp.send(bpkt);
-		}
-
-		/**
-		 * 转生面板发协议
-		 */
-		public init_zhuangshengPanel(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
-			lcp.send(pkt);
-		}
-		/**
-	  	 * 兑换修为
-	  	 */
-		public init_UpXiuWei(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
-
-			})
-			lcp.send(pkt);
-		}
-		/**
-		 * 戾气面板回调
-		 */
-		public addLiQiLcpEvent(): void {
+			/**
+	  * 戾气面板回调
+	  */
 			GameApp.LListener.on(ProtoCmd.WX_warSoulPanel, this, (jsonData) => {
-				console.log(jsonData);
+				console.log('=====>戾气面板', jsonData);
 				this.wstab = jsonData.wstab;
 				//第一个魂力球的经验进度
 				let exp = jsonData.wstab[1].curexp - jsonData.wstab[1].maxexp;
@@ -265,12 +233,11 @@ module view.wuXue {
 				}
 				this.init_shuxing();
 			})
-		}
-		/**
+			/**
 		 * 戾气升级面板回调
 		 */
-		public addLiQiUpLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.WX_updateWarSoulPanel, this, (jsonData: ProtoCmd.itf_WX_LiQiUpPanelInfo) => {
+				console.log('=====>升级面板', jsonData);
 				this.lbl_hunli.text = '' + jsonData.cursoul;
 				for (let i = 1; i < 9; i++) {
 					this['btn_liqi' + i].selected = false;
@@ -298,41 +265,6 @@ module view.wuXue {
 				this['btn_liqi' + jsonData.pos].mouseEnabled = true;
 				//消耗的魂力
 				this.lbl_use.text = '' + jsonData.needexp;
-				this.wstab[jsonData.pos].addpro = jsonData.addpro;
-				this.wstab[jsonData.pos].lvl = jsonData.lvl;
-				let index = this.wstab[jsonData.pos].realpos;
-				switch (index) {
-					case EnumData.emEquipPosition.EQUIP_HEADDRESS:
-						this.lbl_pos.text = '帽子';
-						break;
-					case EnumData.emEquipPosition.EQUIP_NECKLACE:
-						this.lbl_pos.text = '项链';
-						break;
-					case EnumData.emEquipPosition.EQUIP_CLOTHES:
-						this.lbl_pos.text = '衣服';
-						break;
-					case EnumData.emEquipPosition.EQUIP_WEAPONS:
-						this.lbl_pos.text = '武器';
-						break;
-					case EnumData.emEquipPosition.EQUIP_BRACELET_LEFT:
-						this.lbl_pos.text = '左手镯';
-						break;
-					case EnumData.emEquipPosition.EQUIP_RING_LEFT:
-						this.lbl_pos.text = '左戒指';
-						break;
-					case EnumData.emEquipPosition.EQUIP_SHOES:
-						this.lbl_pos.text = '鞋';
-						break;
-					case EnumData.emEquipPosition.EQUIP_BELT:
-						this.lbl_pos.text = '腰带';
-						break;
-				}
-				//根据魂力等级排序
-				let keys = Object.keys(this.wstab)
-				let lvlArray = [];
-				for (let key of keys) {
-					lvlArray.push(this.wstab[key]);
-				}
 				function compare(property) {
 					return function (a, b) {
 						var value1 = a[property];
@@ -340,39 +272,125 @@ module view.wuXue {
 						return value1 - value2;
 					}
 				}
-				//进阶说明
-				let array = lvlArray.sort(compare('lvl'))
-				if (array[0].lvl >= 0 && array[0].lvl <= 10) {
-					this.lbl_introduce.text = '黄阶战魂全部到    级,可进阶为玄阶';
-					this.lbl_introduceLvl.text = '10';
-					this.lbl_jieshu.text = '黄阶';
-					this.lbl_jie.text = '-黄阶';
+				if (this.wstab !== undefined) {
+					this.wstab[jsonData.pos].addpro = jsonData.addpro;
+					this.wstab[jsonData.pos].lvl = jsonData.lvl;
+					let index = this.wstab[jsonData.pos].realpos;
+
+					switch (index) {
+						case EnumData.emEquipPosition.EQUIP_HEADDRESS:
+							this.lbl_pos.text = '帽子';
+							break;
+						case EnumData.emEquipPosition.EQUIP_NECKLACE:
+							this.lbl_pos.text = '项链';
+							break;
+						case EnumData.emEquipPosition.EQUIP_CLOTHES:
+							this.lbl_pos.text = '衣服';
+							break;
+						case EnumData.emEquipPosition.EQUIP_WEAPONS:
+							this.lbl_pos.text = '武器';
+							break;
+						case EnumData.emEquipPosition.EQUIP_BRACELET_LEFT:
+							this.lbl_pos.text = '左手镯';
+							break;
+						case EnumData.emEquipPosition.EQUIP_RING_LEFT:
+							this.lbl_pos.text = '左戒指';
+							break;
+						case EnumData.emEquipPosition.EQUIP_SHOES:
+							this.lbl_pos.text = '鞋';
+							break;
+						case EnumData.emEquipPosition.EQUIP_BELT:
+							this.lbl_pos.text = '腰带';
+							break;
+					}
+					//根据魂力等级排序
+					let keys = Object.keys(this.wstab)
+					let lvlArray = [];
+					for (let key of keys) {
+						lvlArray.push(this.wstab[key]);
+					}
+					//进阶说明
+					let array = lvlArray.sort(compare('lvl'))
+					if (array[0].lvl >= 0 && array[0].lvl <= 10) {
+						this.lbl_introduce.text = '黄阶战魂全部到    级,可进阶为玄阶';
+						this.lbl_introduceLvl.text = '10';
+						this.lbl_jieshu.text = '黄阶';
+						this.lbl_jie.text = '-黄阶';
+					}
+					if (array[0].lvl > 10 && array[0].lvl <= 20) {
+						this.lbl_introduce.text = '玄阶战魂全部到    级,可进阶为地阶';
+						this.lbl_introduceLvl.text = '20';
+						this.lbl_jieshu.text = '玄阶';
+						this.lbl_jie.text = '-玄阶';
+					}
+					if (array[0].lvl > 20 && array[0].lvl <= 30) {
+						this.lbl_introduce.text = '地阶战魂全部到    级,可进阶为天阶';
+						this.lbl_introduceLvl.text = '30';
+						this.lbl_jieshu.text = '地阶';
+						this.lbl_jie.text = '-地阶';
+					}
+					if (array[0].lvl > 30 && array[0].lvl <= 40) {
+						this.lbl_introduce.text = '天阶战魂全部到    级,可进阶为神阶';
+						this.lbl_introduceLvl.text = '40';
+						this.lbl_jieshu.text = '天阶';
+						this.lbl_jie.text = '-天阶';
+					}
+					if (array[0].lvl > 40 && array[0].lvl <= 50) {
+						this.lbl_introduce.text = '神阶战魂全部到    级,可进阶为圣阶';
+						this.lbl_introduceLvl.text = '50';
+						this.lbl_jieshu.text = '神阶';
+						this.lbl_jie.text = '-神阶';
+					}
 				}
-				if (array[0].lvl > 10 && array[0].lvl <= 20) {
-					this.lbl_introduce.text = '玄阶战魂全部到    级,可进阶为地阶';
-					this.lbl_introduceLvl.text = '20';
-					this.lbl_jieshu.text = '玄阶';
-					this.lbl_jie.text = '-玄阶';
-				}
-				if (array[0].lvl > 20 && array[0].lvl <= 30) {
-					this.lbl_introduce.text = '地阶战魂全部到    级,可进阶为天阶';
-					this.lbl_introduceLvl.text = '30';
-					this.lbl_jieshu.text = '地阶';
-					this.lbl_jie.text = '-地阶';
-				}
-				if (array[0].lvl > 30 && array[0].lvl <= 40) {
-					this.lbl_introduce.text = '天阶战魂全部到    级,可进阶为神阶';
-					this.lbl_introduceLvl.text = '40';
-					this.lbl_jieshu.text = '天阶';
-					this.lbl_jie.text = '-天阶';
-				}
-				if (array[0].lvl > 40 && array[0].lvl <= 50) {
-					this.lbl_introduce.text = '神阶战魂全部到    级,可进阶为圣阶';
-					this.lbl_introduceLvl.text = '50';
-					this.lbl_jieshu.text = '神阶';
-					this.lbl_jie.text = '-神阶';
-				}
+
 			})
+		}
+		/**
+		 * 获取修为面板
+		 */
+		public init_xiuWei(): void {
+			let bpkt = new ProtoCmd.QuestClientData();
+			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
+				if (Object.keys(jsonData).length == 0) { return };
+				//所需经验
+				this.lbl_exp.text = '' + jsonData.exp;
+				//所需金币
+				this.lbl_gold.text = '' + jsonData.gold;
+				//可兑换的修为
+				this.lbl_exchange.text = '' + jsonData.xw;
+				//道具1
+				let _itemUI1 = new view.compart.DaoJuItem();
+				let itemInfo1 = new ProtoCmd.ItemBase();
+				itemInfo1.dwBaseID = jsonData.pill;
+				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				this.box_1.addChild(_itemUI1);
+				//道具2
+				let _itemUI2 = new view.compart.DaoJuItem();
+				let itemInfo2 = new ProtoCmd.ItemBase();
+				itemInfo2.dwBaseID = jsonData.superpill;
+				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				this.box_2.addChild(_itemUI2)
+			})
+			lcp.send(bpkt);
+		}
+
+		/**
+		 * 转生面板发协议
+		 */
+		public init_zhuangshengPanel(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
+			lcp.send(pkt);
+		}
+		/**
+	  	 * 兑换修为
+	  	 */
+		public init_UpXiuWei(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+
+			})
+			lcp.send(pkt);
 		}
 		public Dispose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
