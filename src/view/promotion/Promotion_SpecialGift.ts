@@ -8,6 +8,7 @@ module view.promotion {
 			super();
 			Promotion_SpecialGift.self = this;
 		}
+		//data  是数据用来设置tab              id  是用来判断是特惠礼包1\2  
 		public setData(data, id) {
 			this.SpecialGiftType = id
 			this.panel_tab.hScrollBarSkin = "";
@@ -18,7 +19,7 @@ module view.promotion {
 					let index = parseInt(i) - 1;
 					data[i].id = index;
 					o.setData(data[i].id, data[i].name);
-					o.x = (o.width + 25) * index + 15;
+					// o.x = (o.width + 25) * index + 15;
 					this.hbox_tab.addChild(o);
 					let box = new Laya.Box();
 					box.top = box.bottom = box.right = box.left = 0;
@@ -33,7 +34,7 @@ module view.promotion {
 					let index = parseInt(i) - 1;
 					data.itemtab[i].id = index;
 					o.setData(data.itemtab[i].id, "神秘礼包");
-					o.x = (o.width + 25) * index + 15;
+					// o.x = (o.width + 25) * index + 15;
 					this.hbox_tab.addChild(o);
 					let box = new Laya.Box();
 					box.top = box.bottom = box.right = box.left = 0;
