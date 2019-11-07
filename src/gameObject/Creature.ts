@@ -222,8 +222,10 @@ module GameObject {
          * @param ArpgAbility 
          */
         public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility, type: number = 0): void {
-            let ability = this.ability;
+            let ability;
             switch (type) {
+                case 0:
+                    ability = this.ability;
                 case 1:
                     ability = GameApp.GameEngine.warriorAbility;
                     break;
