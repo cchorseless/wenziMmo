@@ -3,6 +3,8 @@
  * SDK 管理器
  */
 class SDKManager extends SingletonClass {
+    private _SDK = null;//默认喜扑网络SDK
+    private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_NULL;
     private _sdkRole = {
         server_id: "-1",            // 区服ID
         server_name: "测试服",       // 区服名称
@@ -13,9 +15,22 @@ class SDKManager extends SingletonClass {
         remainder: "-1",            // 剩余元宝
     }
 
-    private _SDK = false;//默认喜扑网络SDK
+
     constructor() {
         super();
+
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this._SDK = Laya.PlatformClass.createClass("SDKUnityApi");
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                this._SDK = null;
+                break;
+        }
     }
 
     get SDK(): any {
@@ -34,7 +49,19 @@ class SDKManager extends SingletonClass {
             return;
         }
         console.log(this.SDK)
-        this.SDK.init(debug)
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                this.SDK.init(debug)
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this.SDK.call("doAction:", "init", {})
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                console.warn("平台设置不正确, 请注意...");
+                break;
+        }
     }
 
     login() {
@@ -42,36 +69,49 @@ class SDKManager extends SingletonClass {
             return;
         }
         let self = this;
-        this.SDK.login(function (data) {
-            var openid = data.openid;
-            var timestamp = data.timestamp;
-            var sign = data.sign;
-            var identity_status = data.identity_status;
-            if (identity_status == self.SDK.IDENTITY_UNVERIFIED) {
-                console.log('未实名认证');
-            }
-            if (identity_status == self.SDK.IDENTITY_KIDS) {
-                console.log('未成年');
-            }
-            if (identity_status == self.SDK.IDENTITY_ADULT) {
-                console.log('已成年');
-            }
+
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                this.SDK.login(function (data) {
+                    var openid = data.openid;
+                    var timestamp = data.timestamp;
+                    var sign = data.sign;
+                    var identity_status = data.identity_status;
+                    if (identity_status == self.SDK.IDENTITY_UNVERIFIED) {
+                        console.log('未实名认证');
+                    }
+                    if (identity_status == self.SDK.IDENTITY_KIDS) {
+                        console.log('未成年');
+                    }
+                    if (identity_status == self.SDK.IDENTITY_ADULT) {
+                        console.log('已成年');
+                    }
 
 
-            GameApp.HttpManager.postJson('name=verify', { openid: openid, timestamp: timestamp, sign: sign }, (res) => {
-                let jsonData = JSON.parse(res);
-                if (jsonData.errorCode != 0) {
-                    console.error('登⼊失败，签名检验失败！')
-                    return;
-                }
-                console.log('登录成功！');
-                GameApp.MainPlayer.playerAccount = data.openid + '@' + GameApp.GameEngine.zoneid
-                Laya.LocalStorage.setItem('account', data.openid);
-                Laya.LocalStorage.setItem('password', data.openid);
-                PanelManage.openChooseServerPanel();
-            })
+                    GameApp.HttpManager.postJson('name=verify', { openid: openid, timestamp: timestamp, sign: sign }, (res) => {
+                        let jsonData = JSON.parse(res);
+                        if (jsonData.errorCode != 0) {
+                            console.error('登⼊失败，签名检验失败！')
+                            return;
+                        }
+                        console.log('登录成功！');
+                        GameApp.MainPlayer.playerAccount = data.openid + '@' + GameApp.GameEngine.zoneid
+                        Laya.LocalStorage.setItem('account', data.openid);
+                        Laya.LocalStorage.setItem('password', data.openid);
+                        PanelManage.openChooseServerPanel();
+                    })
 
-        });
+                });
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this.SDK.call("doAction:", "login", {})
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                console.warn("平台设置不正确, 请注意...");
+                break;
+        }
     }
 
     // 更新当前sdkrole信息
@@ -98,7 +138,24 @@ class SDKManager extends SingletonClass {
         this._sdkRole.vip_level = vip_level
         this._sdkRole.remainder = remainder
 
-        this.SDK.createRole(this._sdkRole);
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                this.SDK.createRole(this._sdkRole);
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this.SDK.call("doAction:", "createrole",
+                    {
+                        rId: this._sdkRole.role_id,
+                        rName: this._sdkRole.role_name,
+                        rLevel: this._sdkRole.role_level
+                    })
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                break;
+        }
+
     }
 
     // ⻆⾊登陆
@@ -107,7 +164,26 @@ class SDKManager extends SingletonClass {
             return;
         }
         this.updateRoleInfo();
-        this.SDK.loginRole(this._sdkRole);
+
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                this.SDK.loginRole(this._sdkRole);
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this.SDK.call("doAction:", "loginrole",
+                    {
+                        rId: this._sdkRole.role_id,
+                        rName: this._sdkRole.role_name,
+                        rLevel: this._sdkRole.role_level,
+                        cTime: Date.now()
+                    })
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                break;
+        }
+
     }
 
     // ⻆⾊升级
@@ -116,7 +192,25 @@ class SDKManager extends SingletonClass {
             return;
         }
         this.updateRoleInfo();
-        this.SDK.upgradeRole(this._sdkRole);
+
+        switch (this._platform) {
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                this.SDK.upgradeRole(this._sdkRole);
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                this.SDK.call("doAction:", "levelup",
+                    {
+                        rId: this._sdkRole.role_id,
+                        rName: this._sdkRole.role_name,
+                        rLevel: this._sdkRole.role_level,
+                        cTime: Date.now()
+                    })
+                break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                break;
+            default:
+                break;
+        }
     }
 
     // 切换账号
