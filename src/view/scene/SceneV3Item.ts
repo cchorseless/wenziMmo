@@ -40,10 +40,12 @@ module view.scene {
 			EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
 				this.btn_changSize.selected = !this.btn_changSize.selected;
 				if (this.btn_changSize.selected) {
+					this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
 					PanelManage.Main.showGroupNpcList(true);
 					this.changeToBig();
 				}
 				else {
+					this.btn_changSize.skin = 'image/main/btn_common_02.png'
 					PanelManage.Main.showGroupNpcList(false);
 					this.changeToSmall();
 				}

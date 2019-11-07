@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":92,
-    "selecteID":98,
+    "selectedBox":129,
+    "selecteID":165,
     "referenceLines":[
         {
             "value":1127,
@@ -168,31 +168,16 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":47,"x":343,"skin":"image/main/btn_shicheng.png"},
-                                    "nodeParent":129,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":164,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
                                     "props":{"y":40,"x":96,"width":428,"skin":"image/main/fram_common_03.png","height":36},
                                     "nodeParent":129,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":36,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":2,"x":23,"var":"lbl_playerName","text":"名字超多六字","strokeColor":"#000000","stroke":4,"mouseThrough":true,"fontSize":28,"font":"FZXK","color":"#f9e596","align":"center"},
                                             "nodeParent":36,
@@ -206,7 +191,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":4,"x":192,"skin":"image/common/zi_zongzhanli.png"},
                                             "nodeParent":36,
@@ -220,7 +204,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"FontClip",
                                             "props":{"y":8,"x":302,"width":107,"var":"clip_power","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
                                             "nodeParent":36,
@@ -237,18 +220,56 @@
                                 },
                                 {
                                     "x":60,
+                                    "type":"Button",
+                                    "props":{"y":82,"x":353,"var":"btn_time","stateNum":"2","skin":"image/main/btn_shicheng.png"},
+                                    "nodeParent":129,
+                                    "label":"Button(btn_time)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":165,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":-2,"x":26,"var":"lbl_jieQi","text":"大雪","strokeColor":"#835934","stroke":6,"fontSize":32,"font":"FZXK","color":"#fffbdd"},
+                                            "nodeParent":165,
+                                            "label":"Label(lbl_jieQi)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":140,
+                                            "child":[
+                                                ]
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":-2,"x":97,"var":"lbl_shiChen","text":"末时","strokeColor":"#835934","stroke":6,"fontSize":32,"font":"FZXK","color":"#fffbdd"},
+                                            "nodeParent":165,
+                                            "label":"Label(lbl_shiChen)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":141,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":5,"x":175,"width":465,"skin":"image/main/fram_common_02.png","height":29},
                                     "nodeParent":129,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":25,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":-7,"x":-23},
                                             "nodeParent":25,
@@ -260,7 +281,6 @@
                                             "compId":47,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"y":6,"x":-4,"skin":"image/main/icon_tongqian.png"},
                                                     "nodeParent":47,
@@ -273,7 +293,6 @@
                                                         ]
                                                 },
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":8,"x":44,"width":75,"var":"lbl_gold","text":"90万","strokeColor":"#000000","stroke":4,"italic":true,"fontSize":25,"font":"FZLB","color":"#f9e596","bold":true,"align":"left"},
                                                     "nodeParent":47,
@@ -288,7 +307,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":-7,"x":137},
                                             "nodeParent":25,
@@ -326,7 +344,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":-2,"x":312},
                                             "nodeParent":25,
@@ -374,14 +391,13 @@
                                     "props":{"y":83,"x":60,"width":300,"skin":"image/main/fram_common_03.png","height":20},
                                     "nodeParent":129,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":40,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":3,"x":-4,"var":"img_exp","skin":"image/main/img_exp_05.png","sizeGrid":"5,0,5,10"},
                                             "nodeParent":40,
@@ -395,7 +411,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-1,"x":47,"width":21,"valign":"top","text":"Lv.","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"color":"#ffffff","align":"left"},
                                             "nodeParent":40,
@@ -409,7 +424,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-2,"x":77,"width":21,"var":"lbl_level","valign":"top","text":"97","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"color":"#ffffff","align":"left"},
                                             "nodeParent":40,
@@ -508,34 +522,8 @@
                                 },
                                 {
                                     "x":60,
-                                    "type":"Label",
-                                    "props":{"y":80,"x":375,"var":"lbl_jieQi","text":"大雪","strokeColor":"#835934","stroke":6,"fontSize":32,"font":"FZXK","color":"#fffbdd"},
-                                    "nodeParent":129,
-                                    "label":"Label(lbl_jieQi)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":140,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Label",
-                                    "props":{"y":80,"x":461,"var":"lbl_shiChen","text":"末时","strokeColor":"#835934","stroke":6,"fontSize":32,"font":"FZXK","color":"#fffbdd"},
-                                    "nodeParent":129,
-                                    "label":"Label(lbl_shiChen)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":141,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":77,"x":584,"var":"btn_menu","stateNum":"2","skin":"image/main/btn_caidan_01down_finish.png","anchorY":0.5,"anchorX":0.5},
+                                    "props":{"y":77,"x":584,"var":"btn_menu","stateNum":"1","skin":"image/main/btn_caidan_01down_finish.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":129,
                                     "label":"Button(btn_menu)",
                                     "isDirectory":false,

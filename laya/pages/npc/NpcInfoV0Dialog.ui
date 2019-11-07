@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":4,
     "props":{"width":627,"sceneColor":"#844544","height":610},
     "nodeParent":-1,
     "label":"Dialog",
@@ -28,6 +28,34 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":5,"x":14,"skin":"image/common/title_tanchuang2.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":54,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":1,"x":19,"width":222,"var":"lbl_npcName","text":"NPC","strokeColor":"#000000","stroke":4,"height":48,"fontSize":48,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "nodeParent":54,
+                    "label":"Label(lbl_npcName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":55,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Button",
             "props":{"y":0,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png","right":4},
             "nodeParent":1,
@@ -42,7 +70,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":94,"x":64,"width":150,"var":"img_npcBg","skin":"image/common/img_npv_di.png","height":193},
+            "props":{"y":85,"x":45,"width":150,"var":"img_npcBg","skin":"image/common/img_npv_di.png","height":193},
             "nodeParent":1,
             "label":"Image(img_npcBg)",
             "isOpen":true,
@@ -78,230 +106,204 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                },
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":378,"x":12,"width":602,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":216,"alpha":0.7},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":37,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Tab",
+            "props":{"y":326,"x":252,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelSize":26,"labelPadding":"5","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"height":52,"direction":"horizontal"},
+            "nodeParent":1,
+            "label":"Tab(tab_0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":377,"x":55,"width":520,"skin":"image/common/login/line_yeqian.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":51,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":260,"x":218,"width":350,"skin":"image/common/line_guild.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":203,"x":219,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_npcDes1)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":170,"x":224,"width":350,"skin":"image/common/line_guild.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":116,"x":220,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_npcDes0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":378,"x":46,"width":525,"var":"viw_0","selectedIndex":0,"height":132},
+            "nodeParent":1,
+            "label":"ViewStack(viw_0)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":18,
+            "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":161,"x":5,"width":140,"skin":"image/main/img_common_02.png","height":27},
-                    "nodeParent":4,
-                    "label":"Image",
+                    "type":"Panel",
+                    "props":{"y":5,"x":5,"var":"panel_0","top":5,"right":5,"name":"item0","left":5,"bottom":5},
+                    "nodeParent":18,
+                    "label":"Panel(panel_0)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":53,
+                    "compId":46,
                     "child":[
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":2,"x":37,"var":"lbl_npcName","text":"司马德","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":53,
-                            "label":"Label(lbl_npcName)",
+                            "type":"HBox",
+                            "props":{"var":"hbox_0","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                            "nodeParent":46,
+                            "label":"HBox(hbox_0)",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":5,
+                            "compId":19,
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":22,"x":156,"wordWrap":true,"width":349,"var":"lbl_npcDes0","text":"（人设描述）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":58,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
-                    "nodeParent":4,
-                    "label":"Label(lbl_npcDes0)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ],
+                        }],
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":76,"x":160,"width":350,"skin":"image/common/line_guild.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":109,"x":155,"wordWrap":true,"width":349,"var":"lbl_npcDes1","text":"（外貌描写）司马德（386年——421年，字德文，即晋恭帝最后一位皇帝。）","height":60,"fontSize":18,"font":"FZHL","color":"#63491a","align":"left"},
-                    "nodeParent":4,
-                    "label":"Label(lbl_npcDes1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":166,"x":154,"width":350,"skin":"image/common/line_guild.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":283,"x":-9,"width":520,"skin":"image/common/login/line_yeqian.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":51,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":232,"x":188,"var":"tab_0","stateNum":2,"space":-10,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"喜好,宝物,装备","labelSize":26,"labelPadding":"5","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"height":52,"direction":"horizontal"},
-                    "nodeParent":4,
-                    "label":"Tab(tab_0)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":17,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":284,"x":-18,"width":525,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"26,19,29,21","height":140},
-                    "nodeParent":4,
-                    "label":"Image",
+                    "type":"Panel",
+                    "props":{"y":10,"x":10,"var":"panel_1","top":5,"right":5,"name":"item1","left":5,"bottom":5},
+                    "nodeParent":18,
+                    "label":"Panel(panel_1)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":37,
+                    "compId":49,
                     "child":[
                         {
                             "x":45,
-                            "type":"ViewStack",
-                            "props":{"width":525,"var":"viw_0","top":0,"selectedIndex":0,"right":0,"left":0,"height":200,"bottom":0},
-                            "nodeParent":37,
-                            "label":"ViewStack(viw_0)",
+                            "type":"HBox",
+                            "props":{"var":"hbox_1","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                            "nodeParent":49,
+                            "label":"HBox(hbox_1)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":18,
+                            "hasChild":false,
+                            "compId":44,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Panel",
-                                    "props":{"var":"panel_0","top":5,"right":5,"name":"item0","left":5,"bottom":5},
-                                    "nodeParent":18,
-                                    "label":"Panel(panel_0)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":46,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"HBox",
-                                            "props":{"var":"hbox_0","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
-                                            "nodeParent":46,
-                                            "label":"HBox(hbox_0)",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":19,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Panel",
-                                    "props":{"y":10,"x":10,"var":"panel_1","top":5,"right":5,"name":"item1","left":5,"bottom":5},
-                                    "nodeParent":18,
-                                    "label":"Panel(panel_1)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":49,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"HBox",
-                                            "props":{"var":"hbox_1","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
-                                            "nodeParent":49,
-                                            "label":"HBox(hbox_1)",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":44,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Panel",
-                                    "props":{"y":20,"x":20,"var":"panel_2","top":5,"right":5,"name":"item2","left":5,"bottom":5},
-                                    "nodeParent":18,
-                                    "label":"Panel(panel_2)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":50,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"HBox",
-                                            "props":{"var":"hbox_2","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
-                                            "nodeParent":50,
-                                            "label":"HBox(hbox_2)",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":45,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                }]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Panel",
+                    "props":{"y":20,"x":20,"var":"panel_2","top":5,"right":5,"name":"item2","left":5,"bottom":5},
+                    "nodeParent":18,
+                    "label":"Panel(panel_2)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":50,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"HBox",
+                            "props":{"var":"hbox_2","top":5,"space":5,"left":5,"bottom":5,"align":"middle"},
+                            "nodeParent":50,
+                            "label":"HBox(hbox_2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":45,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                }]
         },
         {
             "x":15,
