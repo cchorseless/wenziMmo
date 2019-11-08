@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":216,
-    "selecteID":70,
+    "selectedBox":215,
+    "selecteID":287,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"y":56,"x":24,"var":"box_0"},
             "nodeParent":1,
             "label":"Box(box_0)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":215,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":175,"var":"img_jieshu","skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":215,
@@ -36,6 +37,7 @@
                     "compId":201,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":27,"var":"lbl_des","text":"根骨四阶","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":201,
@@ -51,8 +53,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":68,"x":-28,"var":"btn_top4","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "props":{"y":68,"x":-28,"var":"btn_top4","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"根 骨","alpha":0.5},
                     "nodeParent":215,
                     "label":"Button(btn_top4)",
                     "isOpen":true,
@@ -62,6 +65,7 @@
                     "compId":279,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_160001.png"},
                             "nodeParent":279,
@@ -72,25 +76,13 @@
                             "compId":280,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":118,"x":33,"text":"根 骨","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":279,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":230,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":30,"x":82,"var":"btn_top3","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "props":{"y":30,"x":82,"var":"btn_top3","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"身 法","alpha":0.5},
                     "nodeParent":215,
                     "label":"Button(btn_top3)",
                     "isOpen":true,
@@ -100,6 +92,7 @@
                     "compId":281,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_121001.png"},
                             "nodeParent":281,
@@ -110,25 +103,13 @@
                             "compId":282,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":118,"x":33,"text":"身 法","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":281,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":283,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":69,"x":188,"var":"btn_top0","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "props":{"y":69,"x":188,"var":"btn_top0","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"悟 性","alpha":0.5},
                     "nodeParent":215,
                     "label":"Button(btn_top0)",
                     "isOpen":true,
@@ -138,6 +119,7 @@
                     "compId":284,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_123001.png"},
                             "nodeParent":284,
@@ -148,25 +130,13 @@
                             "compId":285,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":118,"x":33,"text":"悟 性","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":284,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":286,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":28,"x":304,"var":"btn_top2","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "props":{"y":28,"x":304,"var":"btn_top2","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"善 缘","alpha":0.5},
                     "nodeParent":215,
                     "label":"Button(btn_top2)",
                     "isOpen":true,
@@ -176,6 +146,7 @@
                     "compId":287,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_124001.png"},
                             "nodeParent":287,
@@ -186,25 +157,13 @@
                             "compId":288,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":118,"x":33,"text":"善 缘","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":287,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":289,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":69,"x":411,"var":"btn_top1","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png"},
+                    "props":{"y":69,"x":411,"var":"btn_top1","stateNum":"2","skin":"image/juese/img_zizhitianfu_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"臂 力","alpha":0.5},
                     "nodeParent":215,
                     "label":"Button(btn_top1)",
                     "isOpen":true,
@@ -214,6 +173,7 @@
                     "compId":290,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":20,"x":19,"skin":"image/common/daoju/itemicon_122001.png"},
                             "nodeParent":290,
@@ -224,19 +184,6 @@
                             "compId":291,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":118,"x":33,"text":"臂 力","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":290,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":292,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 }],

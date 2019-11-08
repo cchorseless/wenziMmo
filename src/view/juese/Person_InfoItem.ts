@@ -73,7 +73,7 @@ module view.juese {
 			})
 			for (let i = 1; i < 9; i++) {
 				this["img_tag" + i].on(Laya.UIEvent.CLICK, this, () => {
-					let tt = new view.dialog.PlayerTagDialog();
+					let tt = new view.dialog.PlayerTagDialog();	
 					tt.popup(true);
 					tt.setData(i)
 				})

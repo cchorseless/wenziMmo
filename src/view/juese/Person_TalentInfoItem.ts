@@ -32,82 +32,27 @@ module view.juese {
 			this.hbox_wupin['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
 			this.vbox_right['sortItem'] = (items) => { };
+			//初始化
 			this.talent = ProtoCmd.JS_DragonSoulPanel
 			this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 			this.index = ProtoCmd.JS_activeDragonSoul;
 			this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
 			this.dangqianNum = 2;
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
+			this.btn_top0.selected = true;
+			this.btn_top0.alpha = 1;
+			this.btn_top0.scaleX=this.btn_top0.scaleY=1.1;
 			this.addEvent();
 			this.TalentInfo();
 
 		}
 		public addEvent(): void {
-			//升级
-			//悟性
-			this.btn_top0.on(Laya.UIEvent.CLICK, this, () => {
-				this.talent = ProtoCmd.JS_DragonSoulPanel;
-				this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
-				this.index = ProtoCmd.JS_activeDragonSoul;
-				this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
-				this.dangqianNum = 2;
-				this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
-				this.title = '悟性';
-				this.id = 7003;
-				this.TalentInfo();
-			});
-
-			//臂力
-			this.btn_top1.on(Laya.UIEvent.CLICK, this, () => {
-				this.talent = ProtoCmd.JS_ShieldPanel;
-				this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
-				this.index = ProtoCmd.JS_activeShield;
-				this.upLevelType = ProtoCmd.JS_upgradeShield;
-				this.dangqianNum = 4;
-				this.img_type.skin = 'image/common/daoju/itemicon_122001.png';
-				this.title = '臂力';
-				this.id = 7005;
-				this.TalentInfo();
-			});
-
-			//善緣
-			this.btn_top2.on(Laya.UIEvent.CLICK, this, () => {
-				this.talent = ProtoCmd.JS_OfficialSealPanel;
-				this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
-				this.index = ProtoCmd.JS_activeOfficialSeal;
-				this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
-				this.dangqianNum = 5;
-				this.img_type.skin = 'image/common/daoju/itemicon_124001.png';
-				this.title = '善缘';
-				this.id = 7004;
-				this.TalentInfo();
-			});
-
-			//身法
-			this.btn_top3.on(Laya.UIEvent.CLICK, this, () => {
-				this.talent = ProtoCmd.JS_BloodJadePanel;
-				this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
-				this.index = ProtoCmd.JS_activeBloodJade;
-				this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
-				this.dangqianNum = 3;
-				this.img_type.skin = 'image/common/daoju/itemicon_121001.png';
-				this.title = '身法';
-				this.id = 7002;
-				this.TalentInfo();
-			});
-
-			//根骨
-			this.btn_top4.on(Laya.UIEvent.CLICK, this, () => {
-				this.talent = ProtoCmd.JS_MedalPanel;
-				this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
-				this.index = ProtoCmd.JS_activeMedal;
-				this.upLevelType = ProtoCmd.JS_upgradeMedal;
-				this.dangqianNum = 1;
-				this.img_type.skin = 'image/common/daoju/itemicon_160001.png';
-				this.title = '根骨';
-				this.id = 7001;
-				this.TalentInfo();
-			});
+			for (let i = 0; i < 5; i++) {
+				this['btn_top' + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.init_Initialization(i);
+					this.btn_top0.scaleX
+				});
+			}
 
 			// 激活
 			this.btn_jiHuo.on(Laya.UIEvent.CLICK, this, () => {
@@ -124,8 +69,76 @@ module view.juese {
 			})
 			this.addLcpEvent();
 		}
-
-
+		/**
+		 * 控制参数变化
+		 */
+		public init_Initialization(i): void {
+			for (let j = 0; j < 5; j++) {
+				this['btn_top' + j].selected = false;
+				this['btn_top' + j].alpha = 0.5;
+				this['btn_top' + j].scaleX=this['btn_top' + j].scaleY=1;
+			}
+			this['btn_top' + i].selected = true;
+			this['btn_top' + i].alpha = 1;
+			this['btn_top' + i].scaleX=this['btn_top' + i].scaleY=1.1;
+			switch (i) {
+				case 0:
+					this.talent = ProtoCmd.JS_DragonSoulPanel;
+					this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
+					this.index = ProtoCmd.JS_activeDragonSoul;
+					this.upLevelType = ProtoCmd.JS_upgradeDragonSoul;
+					this.dangqianNum = 2;
+					this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
+					this.title = '悟性';
+					this.id = 7003;
+					this.TalentInfo();
+					break;
+				case 1:
+					this.talent = ProtoCmd.JS_ShieldPanel;
+					this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
+					this.index = ProtoCmd.JS_activeShield;
+					this.upLevelType = ProtoCmd.JS_upgradeShield;
+					this.dangqianNum = 4;
+					this.img_type.skin = 'image/common/daoju/itemicon_122001.png';
+					this.title = '臂力';
+					this.id = 7005;
+					this.TalentInfo();
+					break;
+				case 2:
+					this.talent = ProtoCmd.JS_OfficialSealPanel;
+					this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
+					this.index = ProtoCmd.JS_activeOfficialSeal;
+					this.upLevelType = ProtoCmd.JS_upgradeOfficialSeal;
+					this.dangqianNum = 5;
+					this.img_type.skin = 'image/common/daoju/itemicon_124001.png';
+					this.title = '善缘';
+					this.id = 7004;
+					this.TalentInfo();
+					break;
+				case 3:
+					this.talent = ProtoCmd.JS_BloodJadePanel;
+					this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
+					this.index = ProtoCmd.JS_activeBloodJade;
+					this.upLevelType = ProtoCmd.JS_upgradeBloodJade;
+					this.dangqianNum = 3;
+					this.img_type.skin = 'image/common/daoju/itemicon_121001.png';
+					this.title = '身法';
+					this.id = 7002;
+					this.TalentInfo();
+					break;
+				case 4:
+					this.talent = ProtoCmd.JS_MedalPanel;
+					this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
+					this.index = ProtoCmd.JS_activeMedal;
+					this.upLevelType = ProtoCmd.JS_upgradeMedal;
+					this.dangqianNum = 1;
+					this.img_type.skin = 'image/common/daoju/itemicon_160001.png';
+					this.title = '根骨';
+					this.id = 7001;
+					this.TalentInfo();
+					break;
+			}
+		}
 		/**
 		 * 刷新天赋界面
 		 * 
@@ -218,7 +231,7 @@ module view.juese {
 		 */
 		public zhuangbeiInfo(data: ProtoCmd.ItemBase): void {
 			//获取途径
-			this.lbl_from.text=SheetConfig.Introduction_play.getInstance(null).GROWUPDES(''+this.id)
+			this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + this.id)
 			//初始化星星
 			for (let i = 1; i < 11; i++) {
 				this['btn_' + i].selected = false;
