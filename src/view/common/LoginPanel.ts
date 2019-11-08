@@ -8,7 +8,7 @@ module view.common {
 		public setData(): void {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			// 判断是否SDK登录
-			if (GameApp.GameEngine.IsSDKLogin) {
+			if (GameApp.SDKManager.SDK) {
 				this.stack_login.visible = false;
 			}
 			// 登陆组隐藏

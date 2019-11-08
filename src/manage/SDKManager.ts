@@ -18,6 +18,10 @@ class SDKManager extends SingletonClass {
 
     constructor() {
         super();
+        if (Laya.Browser.onIOS) {
+            // IOS
+            this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
+        }
 
         switch (this._platform) {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
@@ -26,6 +30,8 @@ class SDKManager extends SingletonClass {
                 this._SDK = Laya.PlatformClass.createClass("SDKUnityApi");
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                //需要完整的类路径，注意与iOS的不同
+                this._SDK = Laya.PlatformClass.createClass("demo.JSBridge");
                 break;
             default:
                 this._SDK = null;
@@ -45,7 +51,7 @@ class SDKManager extends SingletonClass {
      * @param debug //参数设为 true 时 可开启调试模式
      */
     init(debug: any) {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         console.log(this.SDK)
@@ -54,8 +60,16 @@ class SDKManager extends SingletonClass {
                 this.SDK.init(debug)
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this.SDK.call("doAction:", "init", {})
-                break;
+                {
+                    let data = {
+                        type: 'action',
+                        data: {
+                            id: 'init',
+                            value: ''
+                        }
+                    }
+                    this.SDK.call("_doAction:", JSON.stringify(data))
+                } break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 break;
             default:
@@ -65,7 +79,7 @@ class SDKManager extends SingletonClass {
     }
 
     login() {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         let self = this;
@@ -73,39 +87,20 @@ class SDKManager extends SingletonClass {
         switch (this._platform) {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.login(function (data) {
-                    var openid = data.openid;
-                    var timestamp = data.timestamp;
-                    var sign = data.sign;
-                    var identity_status = data.identity_status;
-                    if (identity_status == self.SDK.IDENTITY_UNVERIFIED) {
-                        console.log('未实名认证');
-                    }
-                    if (identity_status == self.SDK.IDENTITY_KIDS) {
-                        console.log('未成年');
-                    }
-                    if (identity_status == self.SDK.IDENTITY_ADULT) {
-                        console.log('已成年');
-                    }
-
-
-                    GameApp.HttpManager.postJson('name=verify', { openid: openid, timestamp: timestamp, sign: sign }, (res) => {
-                        let jsonData = JSON.parse(res);
-                        if (jsonData.errorCode != 0) {
-                            console.error('登⼊失败，签名检验失败！')
-                            return;
-                        }
-                        console.log('登录成功！');
-                        GameApp.MainPlayer.playerAccount = data.openid + '@' + GameApp.GameEngine.zoneid
-                        Laya.LocalStorage.setItem('account', data.openid);
-                        Laya.LocalStorage.setItem('password', data.openid);
-                        PanelManage.openChooseServerPanel();
-                    })
-
+                    SDKManager.loginCallback(data.openid + '`' + data.timestamp + '`' + data.sign + '`' + data.identity_status);
                 });
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this.SDK.call("doAction:", "login", {})
-                break;
+                {
+                    let data = {
+                        type: 'action',
+                        data: {
+                            id: 'login',
+                            value: ''
+                        }
+                    }
+                    this.SDK.call("_doAction:", JSON.stringify(data))
+                } break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 break;
             default:
@@ -114,10 +109,47 @@ class SDKManager extends SingletonClass {
         }
     }
 
+    /**
+     * IOS层 会回调此函数
+     * @param params openid`timestamp`sign`identity_status
+     */
+    public static loginCallback(params) {
+        let paramArr = params.split('`');
+        // console.log("--->>>>>>>>>>>", params);
+
+        var openid = paramArr[0];
+        var timestamp = paramArr[1];
+        var sign = paramArr[2];
+        var identity_status = paramArr[3];
+        if (identity_status == 0) {
+            console.log('未实名认证');
+        }
+        if (identity_status == 1) {
+            console.log('未成年');
+        }
+        if (identity_status == 2) {
+            console.log('已成年');
+        }
+
+
+        GameApp.HttpManager.postJson('name=verify', { openid: openid, timestamp: timestamp, sign: sign }, (res) => {
+            let jsonData = JSON.parse(res);
+            if (jsonData.errorCode != 0) {
+                console.error('登⼊失败，签名检验失败！')
+                return;
+            }
+            console.log('登录成功！');
+            GameApp.MainPlayer.playerAccount = openid + '@' + GameApp.GameEngine.zoneid
+            Laya.LocalStorage.setItem('account', openid);
+            Laya.LocalStorage.setItem('password', openid);
+            PanelManage.openChooseServerPanel();
+        })
+    }
+
     // 更新当前sdkrole信息
     updateRoleInfo() {
         this._sdkRole.server_id = GameApp.GameEngine.trueZoneid.toString();
-        this._sdkRole.server_id = GameApp.GameEngine.serverName;
+        this._sdkRole.server_name = GameApp.GameEngine.serverName;
         this._sdkRole.role_id = GameApp.GameEngine.mainPlayer.onlyId.toString();
         this._sdkRole.role_name = GameApp.GameEngine.mainPlayer.objName;
         this._sdkRole.role_level = GameApp.GameEngine.mainPlayer.level.toString();
@@ -127,11 +159,11 @@ class SDKManager extends SingletonClass {
 
     // 创建⻆⾊
     createRole(role_id: any, role_name: any, role_level: any = '-1', vip_level: any = '-1', remainder: any = '-1') {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         this._sdkRole.server_id = GameApp.GameEngine.trueZoneid.toString();
-        this._sdkRole.server_id = GameApp.GameEngine.serverName;
+        this._sdkRole.server_name = GameApp.GameEngine.serverName;
         this._sdkRole.role_id = role_id
         this._sdkRole.role_name = role_name
         this._sdkRole.role_level = role_level
@@ -143,13 +175,23 @@ class SDKManager extends SingletonClass {
                 this.SDK.createRole(this._sdkRole);
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this.SDK.call("doAction:", "createrole",
-                    {
-                        rId: this._sdkRole.role_id,
-                        rName: this._sdkRole.role_name,
-                        rLevel: this._sdkRole.role_level
-                    })
-                break;
+                {
+                    let data = {
+                        type: 'action',
+                        data: {
+                            id: 'createrole',
+                            value: '',
+                            serverId: this._sdkRole.server_id,
+                            serverName: this._sdkRole.server_name,
+                            roleId: this._sdkRole.role_id,
+                            roleName: this._sdkRole.role_name,
+                            roleLevel: this._sdkRole.role_level,
+                            vipLevel: this._sdkRole.vip_level,
+                            remainder: this._sdkRole.remainder
+                        }
+                    }
+                    this.SDK.call("_doAction:", JSON.stringify(data))
+                } break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 break;
             default:
@@ -160,7 +202,7 @@ class SDKManager extends SingletonClass {
 
     // ⻆⾊登陆
     loginRole() {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         this.updateRoleInfo();
@@ -170,14 +212,23 @@ class SDKManager extends SingletonClass {
                 this.SDK.loginRole(this._sdkRole);
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this.SDK.call("doAction:", "loginrole",
-                    {
-                        rId: this._sdkRole.role_id,
-                        rName: this._sdkRole.role_name,
-                        rLevel: this._sdkRole.role_level,
-                        cTime: Date.now()
-                    })
-                break;
+                {
+                    let data = {
+                        type: 'action',
+                        data: {
+                            id: 'loginrole',
+                            value: '',
+                            serverId: this._sdkRole.server_id,
+                            serverName: this._sdkRole.server_name,
+                            roleId: this._sdkRole.role_id,
+                            roleName: this._sdkRole.role_name,
+                            roleLevel: this._sdkRole.role_level,
+                            vipLevel: this._sdkRole.vip_level,
+                            remainder: this._sdkRole.remainder
+                        }
+                    }
+                    this.SDK.call("_doAction:", JSON.stringify(data))
+                } break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 break;
             default:
@@ -188,7 +239,7 @@ class SDKManager extends SingletonClass {
 
     // ⻆⾊升级
     upgradeRole() {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         this.updateRoleInfo();
@@ -198,14 +249,23 @@ class SDKManager extends SingletonClass {
                 this.SDK.upgradeRole(this._sdkRole);
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this.SDK.call("doAction:", "levelup",
-                    {
-                        rId: this._sdkRole.role_id,
-                        rName: this._sdkRole.role_name,
-                        rLevel: this._sdkRole.role_level,
-                        cTime: Date.now()
-                    })
-                break;
+                {
+                    let data = {
+                        type: 'action',
+                        data: {
+                            id: 'levelup',
+                            value: '',
+                            serverId: this._sdkRole.server_id,
+                            serverName: this._sdkRole.server_name,
+                            roleId: this._sdkRole.role_id,
+                            roleName: this._sdkRole.role_name,
+                            roleLevel: this._sdkRole.role_level,
+                            vipLevel: this._sdkRole.vip_level,
+                            remainder: this._sdkRole.remainder
+                        }
+                    }
+                    this.SDK.call("_doAction:", JSON.stringify(data))
+                } break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 break;
             default:
@@ -215,7 +275,7 @@ class SDKManager extends SingletonClass {
 
     // 切换账号
     switchAccount() {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         let self = this;
@@ -233,13 +293,13 @@ class SDKManager extends SingletonClass {
      * @param amount 元
      */
     pay(amount: number) {
-        if (!this.SDK || !GameApp.GameEngine.IsSDKLogin) {
+        if (!this.SDK) {
             return;
         }
         this.updateRoleInfo();
         let amountMin = amount * 10 * 10;
         let self = this;
-        GameApp.HttpManager.postJson("name=cashOrderNo",
+        GameApp.HttpManager.postJson("name=cashOrderNo",+
             {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
                 account: GameApp.GameEngine.mainPlayer.playerAccount,
