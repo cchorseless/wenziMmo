@@ -18,7 +18,7 @@ class SDKManager extends SingletonClass {
 
     constructor() {
         super();
-        if (Laya.Browser.onIOS) {
+        if (Laya.PlatformClass && Laya.Browser.onIOS) {
             // IOS
             this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
         }
@@ -27,7 +27,7 @@ class SDKManager extends SingletonClass {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
-                this._SDK = Laya.PlatformClass.createClass("SDKUnityApi");
+                this._SDK = Laya.PlatformClass.createClass("SDKGameApi");
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 //需要完整的类路径，注意与iOS的不同
