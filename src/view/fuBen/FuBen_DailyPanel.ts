@@ -5,6 +5,7 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
+			this.btn_daily.selected=true;
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);

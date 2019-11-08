@@ -8,6 +8,7 @@ module view.rank {
 		public maxpage: number = 0;
 		public type;
 		public setData(): void {
+			this.btn_paihang.selected=true;
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;

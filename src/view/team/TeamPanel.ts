@@ -5,6 +5,7 @@ module view.team {
 			super();
 		}
 		public setData(): void {
+			this.btn_team.selected=true;
 			this.addEvent();
 			this.updateNearbyList();
 			this.myTeam();

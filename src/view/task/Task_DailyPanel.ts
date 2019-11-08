@@ -6,6 +6,7 @@ module view.task {
 		}
 
 		public setData(): void {
+			this.btn_dailyTask.selected=true;
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
 			this.panel_1.vScrollBarSkin = '';

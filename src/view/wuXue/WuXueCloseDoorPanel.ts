@@ -5,6 +5,7 @@ module view.wuXue {
 			super();
 		}
 		public setData(): void {
+			this.btn_closeDoor.selected=true;
 			this.addEvent();
 		}
 		public addEvent(): void {

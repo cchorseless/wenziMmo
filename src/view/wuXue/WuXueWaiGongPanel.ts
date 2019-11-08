@@ -6,6 +6,7 @@ module view.wuXue {
 		}
 
 		public setData(): void {
+			this.btn_waiGong.selected=true;
 			this.initUI();
 			this.addEvent();
 		}

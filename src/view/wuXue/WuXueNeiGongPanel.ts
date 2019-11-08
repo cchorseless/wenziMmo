@@ -6,6 +6,7 @@ module view.wuXue {
 		}
 		private value;
 		public setData(): void {
+			this.btn_neiGong.selected=true;
 			this.initUI();
 			this.addEvent();
 			this.init_jingluo();
