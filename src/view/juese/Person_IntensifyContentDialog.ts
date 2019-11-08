@@ -8,24 +8,22 @@ module view.juese {
 			super();
 		}
 		public setData() {
-
 			let arr = ["头盔", "项链", "衣服", "武器", "手镯", "手镯", "戒指", "戒指", "鞋", "腰带"]
 			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
 			let lv = this.onLvIntensify();
-			this.lab_intensifyNum.text = "+" + this.curEquipLv;
 			for (let i = 0; i < 10; i++) {
-				this["lab_equip" + i].text = arr[i]
-				this["lab_equip" + i].color = "#000000";
+				this['btn_equip' + i].label = arr[i];
+				this['btn_equip' + i].selected = false;
 			}
-			this.lab_result_intensify.text = "所有装备位强化:  " + "(" + this.onShowIntensifyNum() + "/10)";
+			this.lab_result_intensify.text = "所有装备位强化:"+this.curEquipLv + "(" + this.onShowIntensifyNum() + "/10)";
 			let effid: number;
 			for (let i in this.allData.sooulchaintab) {
 				if (lv >= this.allData.sooulchaintab[i].minlvl && lv >= this.allData.sooulchaintab[i].maxlvl) {
 					effid = this.allData.sooulchaintab[i].effid
 				}
 			}
-			let effData =GameUtil.parseEffectidToString(effid + "")
-			for(let i = 0; i < effData.des.length; i++) {
+			let effData = GameUtil.parseEffectidToString(effid + "")
+			for (let i = 0; i < effData.des.length; i++) {
 				let str = effData.des[i];
 				let loc = str.indexOf(":")
 				let str1 = str.substring(0, loc + 1);
@@ -76,27 +74,27 @@ module view.juese {
 
 				}
 			}
-			if (lv15 >= 10&&lv13>=10) {
+			if (lv15 >= 10 && lv13 >= 10) {
 				this.lvNum = 15;
 				return lv15;
 			}
-			else if (lv13 <= 10&&lv11>=10) {
+			else if (lv13 <= 10 && lv11 >= 10) {
 				this.lvNum = 13;
 				return lv13;
 			}
-			else if (lv11 <= 10&&lv9>=10) {
+			else if (lv11 <= 10 && lv9 >= 10) {
 				this.lvNum = 11;
 				return lv11;
 			}
-			else if (lv9 <= 10&&lv7>=10) {
+			else if (lv9 <= 10 && lv7 >= 10) {
 				this.lvNum = 9;
 				return lv9;
 			}
-			else if (lv7 <= 10&&lv5>=10) {
+			else if (lv7 <= 10 && lv5 >= 10) {
 				this.lvNum = 7;
 				return lv7;
 			}
-			else if (lv5 <= 10&&lv3>=10) {
+			else if (lv5 <= 10 && lv3 >= 10) {
 				this.lvNum = 5;
 				return lv5;
 			}
@@ -119,7 +117,7 @@ module view.juese {
 
 			for (let i in aa) {
 				if (aa[i] >= 3) {
-					this["lab_equip" + i].color = "#6dd041";
+					// this["btn_equip" + i].selected = true;
 					lv3++;
 					if (aa[i] >= 5) {
 						lv5++

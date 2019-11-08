@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":215,
-    "selecteID":279,
+    "selectedBox":50,
+    "selecteID":267,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -363,16 +363,17 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":52,"x":29,"width":199,"skin":"image/juese/fram_common_21.png","height":172},
+                            "props":{"y":52,"x":0,"width":228,"skin":"image/juese/fram_common_21.png","height":172},
                             "nodeParent":216,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":49,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":9,"x":47,"text":"当前属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":49,
@@ -386,8 +387,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"VBox",
-                                    "props":{"y":57,"x":7,"width":185,"var":"vbox_left","height":107},
+                                    "props":{"y":57,"x":7,"width":215,"var":"vbox_left","height":107},
                                     "nodeParent":49,
                                     "label":"VBox(vbox_left)",
                                     "isOpen":true,
@@ -431,16 +433,17 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":53,"x":312,"skin":"image/juese/fram_common_21.png"},
+                            "props":{"y":53,"x":312,"width":228,"skin":"image/juese/fram_common_21.png","height":172},
                             "nodeParent":216,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":50,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":9,"x":47,"text":"下级属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":50,
@@ -453,8 +456,9 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"VBox",
-                                    "props":{"y":57,"x":7,"width":185,"var":"vbox_right","height":107},
+                                    "props":{"y":57,"x":7,"width":215,"var":"vbox_right","height":107},
                                     "nodeParent":50,
                                     "label":"VBox(vbox_right)",
                                     "isOpen":true,
