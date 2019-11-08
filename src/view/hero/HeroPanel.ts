@@ -7,6 +7,7 @@ module view.hero {
 		//弟子索引
 		public index;
 		public setData(index): void {
+			this['btn_dizi' + index].selected = true;
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_left.selectedIndex = index;
 				if (index == 0) {
@@ -29,17 +30,25 @@ module view.hero {
 				PanelManage.openJuQingModePanel();
 			})
 			EventManage.onWithEffect(this.btn_player, Laya.UIEvent.CLICK, this, () => {
+				for (let j = 0; j < 3; j++) {
+					this['btn_dizi' + j].selected = false;
+				}
+				this.btn_player.selected = true;
 				PanelManage.openJueSePanel();
 			})
 			for (let i = 0; i < 3; i++) {
 				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
+					for (let j = 0; j < 3; j++) {
+						this['btn_dizi' + j].selected = false;
+					}
+					this['btn_dizi' + i].selected = true;
 					PanelManage.openDiZiPanel(i);
 					this.ui_diziInfo.baseInfo(i);
 					this.ui_equipProps.baseInfo(i);
 					this.ui_gangqi.setData(i);
 					this.ui_sangong.setData(i);
 					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
-					this.tab_left.selectedIndex=this.viw_left.selectedIndex = 0;
+					this.tab_left.selectedIndex = this.viw_left.selectedIndex = 0;
 				})
 			}
 		}

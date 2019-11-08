@@ -6,6 +6,7 @@ module view.friend {
 		}
 		public setData(): void {
 			this.panel_friend0.vScrollBarSkin = '';
+			this.btn_friend.selected=true;
 			this.vbox_friend0['sortItem'] = (items) => { };
 			this.updateFriendList();
 			this.addEvent();

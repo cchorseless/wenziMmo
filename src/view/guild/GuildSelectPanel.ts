@@ -6,6 +6,7 @@ module view.guild {
 		}
 		public setData(): void {
 			this.img_notFind.visible=false;
+			this.btn_guild.selected=true;
 			// 是否只显示满足条件帮会
 			this.addEvent();
 		}
