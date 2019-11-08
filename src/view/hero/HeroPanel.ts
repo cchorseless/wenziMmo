@@ -39,6 +39,7 @@ module view.hero {
 					this.ui_gangqi.setData(i);
 					this.ui_sangong.setData(i);
 					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
+					this.tab_left.selectedIndex=this.viw_left.selectedIndex = 0;
 				})
 			}
 		}
@@ -46,20 +47,19 @@ module view.hero {
         * 初始化ICON
         */
 		public init_event(): void {
-			let sex = GameApp.MainPlayer.sex;
-			let sexName;
-			let diziSex;
-			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-				sexName = 'nan';
-				diziSex = 'nv';
+			//我的头像
+			this.img_my.skin = LangConfig.getPlayerIconSkin()
+			//弟子头像
+			let heroSex;
+			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+				heroSex = EnumData.SEX_TYPE.SEX_WOMEN;
 			}
-			if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
-				sexName = 'nv';
-				diziSex = 'nan';
+			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+				heroSex = EnumData.SEX_TYPE.SEX_MAN;
 			}
-			this.img_my.skin = 'image/common/icon_' + sexName + '0' + GameApp.MainPlayer.job + '.png'
 			for (let i = 1; i < 4; i++) {
-				this['img_di' + i].skin = 'image/common/icon_' + diziSex + '0' + GameApp.GameEngine.HeroInfo[i].JOB + '.png'
+				this['img_di' + i].skin = LangConfig.getPlayerIconSkin(heroSex, GameApp.GameEngine.HeroInfo[i].JOB);
+
 			}
 		}
 

@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":22,
-    "selecteID":42,
-    "props":{"width":622,"sceneColor":"#000000","height":928},
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,17 +15,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"skin":"image/common/bottom_bigPopup.png"},
+            "props":{"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":22,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":163,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":22,
@@ -37,7 +36,6 @@
                     "compId":23,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":17,"x":60,"text":"搜寻好友","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":23,
@@ -52,9 +50,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":19,"x":540,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":-5,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":22,
                     "label":"Button(btn_close)",
                     "isDirectory":false,
@@ -66,7 +63,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":844,"x":206,"width":198,"height":42},
                     "nodeParent":22,
@@ -153,7 +149,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"TextInput",
                     "props":{"y":103,"width":379,"var":"input_playName","valign":"middle","type":"text","skin":"image/common/frame_chat.png","promptColor":"#404040","prompt":"输入玩家名称/ID：","padding":"0,,0,16","maxChars":50,"left":78,"height":44,"fontSize":20,"font":"FZHL","color":"#000000"},
                     "nodeParent":22,
@@ -167,7 +162,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":103,"x":466,"width":85,"var":"btn_findPlayer","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"搜索","height":43},
                     "nodeParent":22,
@@ -181,9 +175,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":206,"x":44,"width":537,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"26,15,14,28","height":624},
+                    "props":{"y":206,"x":52,"width":537,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"26,15,14,28","height":624},
                     "nodeParent":22,
                     "label":"Image",
                     "isDirectory":false,
@@ -194,9 +187,8 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":205,"x":45,"width":530,"skin":"image/common/login/line_yeqian.png"},
+                    "props":{"y":205,"x":54,"width":530,"skin":"image/common/login/line_yeqian.png"},
                     "nodeParent":22,
                     "label":"Image",
                     "isDirectory":false,
@@ -207,9 +199,8 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
-                    "props":{"y":154,"x":75,"stateNum":"2","skin":"image/common/btn_common_04_finish.png","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"label":"列表"},
+                    "props":{"y":154,"x":82,"stateNum":"2","skin":"image/common/btn_common_04_finish.png","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"label":"列表"},
                     "nodeParent":22,
                     "label":"Button",
                     "isDirectory":false,
@@ -221,9 +212,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":210,"x":59,"width":512,"var":"panel_nearby","height":612},
+                    "props":{"y":210,"x":66,"width":512,"var":"panel_nearby","height":612},
                     "nodeParent":22,
                     "label":"Panel(panel_nearby)",
                     "isOpen":true,
@@ -233,7 +223,6 @@
                     "compId":40,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_nearby","right":0,"left":0},
                             "nodeParent":40,

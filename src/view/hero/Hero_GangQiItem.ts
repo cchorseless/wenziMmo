@@ -8,7 +8,7 @@ module view.hero {
 		//判断是第几个弟子
 		private index;
 		public setData(i): void {
-			this.index = i+1;
+			this.index = i + 1;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
@@ -20,8 +20,9 @@ module view.hero {
 			//判断翅膀是否存在（存在则已激活）
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.addLcpEvent(this.getItemInfo());
+				this.init_baseInfo(this.getItemInfo());
 				this.init_gangqi();
+				this.addLcpEvent();
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -53,12 +54,19 @@ module view.hero {
 		public init_JiHuo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_activeHeroWing, null, null, this, (jsonData) => {
+
 				this.wingInfo();
 			})
 			lcp.send(pkt);
 
 		}
-		public addLcpEvent(data: ProtoCmd.ItemBase): void {
+		public init_baseInfo(data: ProtoCmd.ItemBase): void {
+			//获取途径
+			this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('1055')
+			//初始化星星
+			for (let i = 1; i < 11; i++) {
+				this['btn_xingxing' + i].selected = false;
+			}
 			//罡气星级
 			let xing = data.dwLevel % 10
 			for (let i = 0; i < xing; i++) {
@@ -72,7 +80,7 @@ module view.hero {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
-			let job=GameApp.GameEngine.HeroInfo[this.index].JOB;
+			let job = GameApp.GameEngine.HeroInfo[this.index].JOB;
 			//当前属性
 			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
 			let attribute1 = shuxing1.des;
@@ -97,8 +105,9 @@ module view.hero {
 			for (let key of keys2) {
 				this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
 			}
+		}
+		public addLcpEvent(): void {
 			//拉取我的罡气物品信息
-			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
 				//升星所需消耗的金币数量
 				this.lbl_use.text = '' + jsonData.gold;

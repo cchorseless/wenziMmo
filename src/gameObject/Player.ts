@@ -81,13 +81,12 @@ module GameObject {
         public playerEquipIntensify: ProtoCmd.itf_JS_equipIntensifyMessage = null;
         //玩家强化信息
         public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
-
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子
+        public 
+        
         //当前选择的是玩家或是弟子  0玩家  1弟子
         public playerORHero: number = 0
-
-
         constructor() {
             super();
             this.wealth = new Wealth();

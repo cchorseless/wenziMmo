@@ -29,14 +29,12 @@ module view.juese {
 			this.lab_di_wuxing.text = this.wuXing[this.playerNameMessage[2].pro];
 			this.lab_ren_wuxing.text = this.wuXing[this.playerNameMessage[3].pro];
 			this.lab_zong_wuxing.text = this.wuXing[this.playerNameMessage[4].pro];
-			this.lab_name.text =  GameApp.MainPlayer.objName;
-			this.lab_effect.text = SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[1].id, this.playerNameMessage[1].pro) +
-				"的一种人，" + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[2].id, this.playerNameMessage[2].pro) +
-				"生活中" + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[3].id, this.playerNameMessage[3].pro) + "、" + 
-				SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[4].id, this.playerNameMessage[4].pro
-				);
-
+			this.lab_name.text = GameApp.MainPlayer.objName;
+			this.lbl_tiange.text = "[天格] " + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[1].id, this.playerNameMessage[1].pro) + "的一种人"
+			this.lbl_dige.text = "[地格] " + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[2].id, this.playerNameMessage[2].pro);
+			this.lbl_renge.text = "[人格] 生活中" + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[3].id, this.playerNameMessage[3].pro);
+			this.lbl_zongge.text = "[总格] " + SheetConfig.Palace.getInstance(null).TYPE(this.playerNameMessage[4].id, this.playerNameMessage[4].pro
+			);
 		}
-
 	}
 }

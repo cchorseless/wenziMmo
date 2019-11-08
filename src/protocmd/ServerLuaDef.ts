@@ -501,6 +501,9 @@ module ProtoCmd {
     export const TeHuiClientOpen = "TeHuiClientOpen";       //特惠礼包   选择其中一个显示    面板
     export const TeHuiBuy = "TeHuiBuy";       //特惠礼包   购买
 
+    export const WorthGiftBagPanel = "WorthGiftBagPanel";  //特惠礼包2    面板
+    export const BuyWorthGiftBag = "BuyWorthGiftBag";      //特惠礼包2    购买
+
 
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
@@ -570,7 +573,8 @@ module ProtoCmd {
      */
     export interface itf_Main_openChuangSongRecord {
         open: boolean;
-        datatab: Object
+        datatab: Object;
+        recordtab:Object
 
     }
 
@@ -766,12 +770,11 @@ module ProtoCmd {
         tftab: any,//性格、标签
         TotalZiZhiPoint: number,//天赋总数
     }
-
     /**
      * 拉取声望信息
      */
     export interface itf_JS_ShengWangInfo {
-        damage: number;// 百分比 
+        damage: number;// 威望效果伤害百分比 
         daydelexp: number;// 每日衰减经验
         effid: number;// 效果ID
         maxexp: number;// 最大声望值

@@ -28,10 +28,7 @@ module view.juese {
 				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启');
 				}
-
 			});
-
-
 		}
 		public activation(): void {
 			//判断是否激活
@@ -55,7 +52,6 @@ module view.juese {
 			let lvl = activationLvl % 1000;
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
-
 		}
 		/**
 		 * 获取江湖声望信息
@@ -64,6 +60,8 @@ module view.juese {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
 				console.log('=====>声望声望', jsonData)
+				this.lbl_use.text='每日消耗'+jsonData.daydelexp+'点声望值';
+				this.lbl_xiaoguo.text='威慑\n 攻击威望值低于自己的玩家'+jsonData.damage;
 				//我的声望头衔
 				for (let i = 0; jsonData.titletab[i]; i++) {
 					if (jsonData.prestigeid == i) {

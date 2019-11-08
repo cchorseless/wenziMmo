@@ -3,7 +3,7 @@
     "type":"View",
     "selectedBox":1,
     "selecteID":69,
-    "props":{"y":0,"x":0,"width":640,"sceneColor":"#eacbcb","runtime":"view.main.Main_DownMapItem","height":700},
+    "props":{"y":0,"x":0,"width":640,"sceneColor":"#eacbcb","runtime":"view.main.Main_DownMapItem","height":800},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,21 +15,34 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":-25,"skin":"image/map/smallMap/img_01.png","sizeGrid":"49,33,60,34","right":-20,"left":-10,"bottom":-20},
+            "props":{"top":0,"skin":"image/main/img_ditu.png","sizeGrid":"49,33,60,34","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":2,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-20,"x":-13,"width":38,"skin":"image/main/img_juanzhou.png","height":829},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":70,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":0,"x":0,"width":640,"var":"panel_0","height":685},
+            "props":{"y":16,"x":19,"width":621,"var":"panel_0","height":765},
             "nodeParent":1,
             "label":"Panel(panel_0)",
             "isOpen":true,

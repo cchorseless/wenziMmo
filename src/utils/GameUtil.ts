@@ -33,7 +33,7 @@ module GameUtil {
 
 
 
-    
+
     /**
      * 查找玩家身上的装备信息
      * @param index 
@@ -329,6 +329,13 @@ module GameUtil {
      */
     export function loopFuncTask(toDoList, finishHander = null) {
         let curName = PopUpManager.curPanel.name;
+        let curPanel = PopUpManager.curPanel;
+        if (curName == 'Main') {
+            if (PanelManage.Main.view_scene.selectedIndex == 1) {
+                curName = 'JuQingMode';
+                curPanel = PanelManage.Main.view_scene.getChildAt(1) as Laya.View;
+            }
+        }
         if (curName && toDoList[curName]) {
             let btn_name: string = (toDoList[curName] as Array<any>).shift()
             if (btn_name) {
@@ -337,7 +344,7 @@ module GameUtil {
                 if (btn_name.indexOf('=') != -1) {
                     let list = btn_name.split('=');
                     let biaoZhi = list[0];
-                    let spr = PopUpManager.curPanel[biaoZhi];
+                    let spr = curPanel[biaoZhi];
 
                     // tab
                     if (biaoZhi.indexOf('tab') != -1) {
@@ -403,7 +410,7 @@ module GameUtil {
                 }
                 // 界面内按钮
                 else {
-                    btn = PopUpManager.curPanel[btn_name]
+                    btn = curPanel[btn_name]
                 }
                 // 找到了BUTTON
                 if (btn) {

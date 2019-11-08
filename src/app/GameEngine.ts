@@ -63,8 +63,9 @@ class GameEngine extends SingletonClass {
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
     /************************弟子基本信息************ */
-    public HeroInfo = {};
+
     /************************当前出战弟子信息************ */
+    public HeroInfo = {};
     public GMlvl = {};//GM等级
     public heroJob = {};//弟子职业
     public heroSex = {};//弟子性别
@@ -84,8 +85,7 @@ class GameEngine extends SingletonClass {
     public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
     /***********************新手引导数据********* */
     public questBoolData: Uint8Array = null;
-
-
+    // 客户端登录状态
     public isReady: boolean = false;
     public isLogin: boolean = false;
     public loginsvrIdType: number;//登陆服务器ID

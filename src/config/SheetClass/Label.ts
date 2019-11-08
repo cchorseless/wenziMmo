@@ -3,17 +3,21 @@ public static getInstance(data): Label { let Class:any=this;if(!Class._instance)
 /**
  *  标签名称
  */
- public NAME(configID):string { return this.data[configID][0]}
+ public NAME(configID:string):string { return this.data[configID][0]}
 /**
  *  标签分类
  */
  public TYPE(configID:string):number { return this.data[configID][1]}
 /**
+ *  品质
+ */
+ public GRADE(configID:string):number { return this.data[configID][2]}
+/**
  *  BUFFID
  */
- public BUFFID(configID:string):number { return this.data[configID][2]}
+ public BUFFID(configID:string):number { return this.data[configID][3]}
 /**
  *  标签介绍
  */
- public INTRODUCE(configID:string):string { return this.data[configID][3]}
+ public INTRODUCE(configID:string):string { return this.data[configID][4]}
 }}

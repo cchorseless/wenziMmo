@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":622,"sceneColor":"#e0c2c2","height":928},
+    "selecteID":2,
+    "props":{"width":618,"sceneColor":"#e0c2c2","height":932},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"skin":"image/common/bottom_bigPopup.png"},
+            "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -48,61 +48,57 @@
                                 ]
                         }],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":18,"x":538,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":96,"x":54,"width":516,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,22,19,17","height":762,"alpha":0.2},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":110,"x":53,"width":516,"var":"panel_shengping","height":732},
-            "nodeParent":1,
-            "label":"Panel(panel_shengping)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
+                },
                 {
-                    "x":30,
-                    "type":"VBox",
-                    "props":{"var":"vbox_shengping","right":0,"left":0},
-                    "nodeParent":8,
-                    "label":"VBox(vbox_shengping)",
+                    "type":"Button",
+                    "props":{"y":-2,"x":507,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "nodeParent":2,
+                    "label":"Button(btn_close)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":9,
+                    "compId":3,
                     "child":[
                         ]
-                }]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":96,"x":54,"width":516,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,22,19,17","height":762,"alpha":0.2},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Panel",
+                    "props":{"y":110,"x":53,"width":516,"var":"panel_shengping","height":732},
+                    "nodeParent":2,
+                    "label":"Panel(panel_shengping)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":8,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"var":"vbox_shengping","right":0,"left":0},
+                            "nodeParent":8,
+                            "label":"VBox(vbox_shengping)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":9,
+                            "child":[
+                                ]
+                        }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

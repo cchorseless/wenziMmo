@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
+    "selecteID":3,
     "props":{"width":640,"visible":true,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":79,"width":140,"var":"btn_promotion_0","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"超值礼包","height":60},
+            "props":{"y":216,"x":79,"width":140,"visible":false,"var":"btn_promotion_0","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"超值礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_0)",
             "isDirectory":false,
@@ -103,12 +103,13 @@
             "hasChild":false,
             "compId":12,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":233,"width":140,"var":"btn_promotion_1","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"特惠礼包","height":60},
+            "props":{"y":216,"x":233,"width":140,"visible":false,"var":"btn_promotion_1","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"特惠礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_1)",
             "isDirectory":false,
@@ -116,7 +117,8 @@
             "hasChild":false,
             "compId":13,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -152,14 +154,13 @@
             "props":{"y":1070,"x":68,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
             "nodeParent":1,
             "label":"Button(btn_back)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":15,"x":15,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                     "nodeParent":8,
@@ -174,7 +175,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":49,"x":13,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":8,
@@ -188,6 +188,33 @@
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":182,"x":31,"width":580,"var":"panel_tab","height":72},
+            "nodeParent":1,
+            "label":"Panel(panel_tab)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":16,
+            "child":[
+                {
+                    "x":30,
+                    "type":"HBox",
+                    "props":{"y":0,"x":0,"var":"hbox_tab","space":15,"height":72},
+                    "nodeParent":16,
+                    "label":"HBox(hbox_tab)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":true
         }],
     "animations":[
         {

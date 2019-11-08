@@ -15,16 +15,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":631,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"52,70,84,53","height":858},
+            "props":{"y":0,"x":0,"width":631,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"52,70,84,53","height":858},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":66,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":738,"x":375,"width":192,"skin":"image/common/bottom_prompt.png","height":46},
                     "nodeParent":66,
@@ -36,6 +37,7 @@
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":33,"width":95,"text":"最多人推荐 ","strokeColor":"#404040","stroke":4,"height":23,"fontSize":18,"font":"Microsoft YaHei","color":"#f3edd3"},
                             "nodeParent":4,
@@ -49,6 +51,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":35,"x":132,"stateNum":"1","skin":"image/common/icon_left.png","rotation":-90},
                             "nodeParent":4,
@@ -63,6 +66,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":751,"x":59,"text":"123456条意见","fontSize":20,"color":"#000000"},
                     "nodeParent":66,
@@ -76,6 +80,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":140,"x":37,"width":544,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"20,15,20,24","height":585},
                     "nodeParent":66,
@@ -89,6 +94,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":142,"x":57,"width":511,"var":"panel_pinglun","height":582},
                     "nodeParent":66,
@@ -100,6 +106,7 @@
                     "compId":15,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_pinglun","space":9,"right":0,"left":0},
                             "nodeParent":15,
@@ -178,6 +185,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":67,"x":464,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"评论"},
                     "nodeParent":66,
@@ -191,6 +199,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"TextInput",
                     "props":{"y":76,"x":46,"width":413,"skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#63491a","prompt":" 请输入您的评论","padding":"-1","height":50,"fontSize":22,"font":"Microsoft YaHei","align":"left"},
                     "nodeParent":66,
@@ -204,8 +213,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":3,"x":546,"var":"btn_pinglunClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":8,"x":562,"var":"btn_pinglunClose","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
                     "nodeParent":66,
                     "label":"Button(btn_pinglunClose)",
                     "isDirectory":false,

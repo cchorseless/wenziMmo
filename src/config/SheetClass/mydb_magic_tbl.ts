@@ -127,7 +127,7 @@ public static getInstance(data): mydb_magic_tbl { let Class:any=this;if(!Class._
 /**
  *  BUFFID
  */
- public BUFFID(configID:string):Array<number> { return this.data[configID][31]}
+ public BUFFID(configID:string):string { return this.data[configID][31]}
 /**
  *  公式编号
  */
@@ -236,4 +236,16 @@ public static getInstance(data): mydb_magic_tbl { let Class:any=this;if(!Class._
  *  技能品质
  */
  public SKILLQUALITY(configID:string):number { return this.data[configID][58]}
+/**
+ *  内功效率
+ */
+ public INTERNALCOUNT(configID:string):number { return this.data[configID][59]}
+/**
+ *  技能效果
+ */
+ public SKILLEFFECT(configID:string):string { return this.data[configID][60]}
+/**
+ *  技能学习门派职位
+ */
+ public SKILLLEARNGUILDLVNEED(configID:string):number { return this.data[configID][61]}
 }}
