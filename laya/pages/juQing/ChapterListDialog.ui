@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":25,
     "referenceLines":[
         {
             "value":105,
@@ -44,7 +44,7 @@
             "type":1,
             "id":8
         }],
-    "props":{"width":622,"sceneColor":"#f6a7a5","height":928},
+    "props":{"width":618,"sceneColor":"#f6a7a5","height":932},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -56,17 +56,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"skin":"image/common/bottom_tanchuang_big.png"},
+            "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":25,
@@ -78,7 +77,6 @@
                     "compId":27,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":17,"x":60,"text":"篇章目录","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":27,
@@ -91,47 +89,45 @@
                                 ]
                         }],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":134,"x":69,"width":503,"var":"panel_chapterList","height":712},
-            "nodeParent":1,
-            "label":"Panel(panel_chapterList)",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":6,
-            "child":[
+                },
                 {
-                    "type":"VBox",
-                    "props":{"y":1,"var":"vbox_chapterList","space":-3,"right":0,"left":0},
-                    "nodeParent":6,
-                    "label":"VBox(vbox_chapterList)",
-                    "isOpen":true,
+                    "type":"Panel",
+                    "props":{"y":134,"x":69,"width":503,"var":"panel_chapterList","height":712},
+                    "nodeParent":25,
+                    "label":"Panel(panel_chapterList)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":6,
+                    "child":[
+                        {
+                            "type":"VBox",
+                            "props":{"y":1,"var":"vbox_chapterList","space":-3,"right":0,"left":0},
+                            "nodeParent":6,
+                            "label":"VBox(vbox_chapterList)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":7,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":-5,"x":516,"var":"btn_chapterListClose","stateNum":"2","skin":"image/common/icon_close.png"},
+                    "nodeParent":25,
+                    "label":"Button(btn_chapterListClose)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":7,
+                    "compId":11,
                     "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":-5,"x":516,"var":"btn_chapterListClose","stateNum":"2","skin":"image/common/icon_close.png"},
-            "nodeParent":1,
-            "label":"Button(btn_chapterListClose)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ],
+                        ],
+                    "$HIDDEN":false
+                }],
             "$HIDDEN":false
         }],
     "animations":[
