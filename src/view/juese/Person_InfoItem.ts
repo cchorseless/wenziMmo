@@ -36,6 +36,8 @@ module view.juese {
 			for (let i = 1; i < 9; i++) {
 				let o = GameApp.MainPlayer.xingGeInfo[i].id
 				this["lab_tag" + i].text = SheetConfig.Label.getInstance(null).NAME(o);
+				let imgRes=SheetConfig.Label.getInstance(null).GRADE(o);
+				this['img_tag'+i].skin='image/juese/tab_rw_0'+imgRes+'.png'
 			}
 			// 拉取声望
 			this.getShengWangInfo();

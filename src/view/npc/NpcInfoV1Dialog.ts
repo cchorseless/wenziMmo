@@ -92,7 +92,7 @@ module view.npc {
 			this.lbl_npcDes1.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES2(configId);
 			let nickName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_NICKNAME(configId);
 			let commonName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(configId);
-			this.lbl_npcName.text = commonName;
+			this.lbl_npcName.text = commonName.split('_')[0];
 			if (nickName != '0') { this.lbl_nickname.text = '(' + nickName + ')'; }
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":129,
-    "selecteID":165,
+    "selecteID":40,
     "referenceLines":[
         {
             "value":1127,
@@ -388,16 +388,17 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":83,"x":60,"width":300,"skin":"image/main/fram_common_03.png","height":20},
+                                    "props":{"y":83,"x":60,"width":300,"var":"img_expBg","skin":"image/main/fram_common_03.png","height":20},
                                     "nodeParent":129,
-                                    "label":"Image",
-                                    "isOpen":false,
+                                    "label":"Image(img_expBg)",
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":40,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":3,"x":-4,"var":"img_exp","skin":"image/main/img_exp_05.png","sizeGrid":"5,0,5,10"},
                                             "nodeParent":40,
@@ -411,6 +412,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-1,"x":47,"width":21,"valign":"top","text":"Lv.","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"color":"#ffffff","align":"left"},
                                             "nodeParent":40,
@@ -424,6 +426,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-2,"x":77,"width":21,"var":"lbl_level","valign":"top","text":"97","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"color":"#ffffff","align":"left"},
                                             "nodeParent":40,
