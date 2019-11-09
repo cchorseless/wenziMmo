@@ -2,6 +2,9 @@ module GameObject {
 
     export class Player extends Creature {
         public playerAccount: string;
+        /****************************基本信息****************** */
+        public wealth: Wealth;//财富
+        public feature: ProtoCmd.PlayerFeature;//外显
         /**
          * 职业
          */
@@ -20,6 +23,8 @@ module GameObject {
         public set sex(srcID: EnumData.SEX_TYPE) {
             this.feature.simpleFeature.sex = srcID;
         }
+
+
         // 天赋
         public talentInfo;
         // 性格
@@ -34,13 +39,13 @@ module GameObject {
         }
         public viplvl: number = 0;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
+        /******************视图信息************************ */
         private _allPlayer = {};//所有的玩家
         private _allMonster = {};//所有的怪物
         private _allNpc = {};//所有的NPC
         private _allHero = {};// 所有的英雄
         public allItem = {};//所有的掉落宝物
-        public wealth: Wealth;//财富
-        public feature: ProtoCmd.PlayerFeature;//外显
+
         // ****************行会********************
         public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
         // *****************剧情*******************
@@ -83,15 +88,39 @@ module GameObject {
         public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子
-        public 
-        
-        //当前选择的是玩家或是弟子  0玩家  1弟子
-        public playerORHero: number = 0
+        public hero1: GameObject.Hero;// 战士弟子
+        public hero2: GameObject.Hero;// 法师弟子
+        public hero3: GameObject.Hero;// 道士弟子
+
+        /**
+         * 弟子性别
+         */
+        public get heroSex(): EnumData.SEX_TYPE {
+            if (this.sex == EnumData.SEX_TYPE.SEX_MAN) {
+                return EnumData.SEX_TYPE.SEX_WOMEN;
+            }
+            else {
+                return EnumData.SEX_TYPE.SEX_MAN;
+            }
+        }
+        /**
+         * 获取弟子对象
+         * @param job 
+         */
+        public heroObj(job): GameObject.Hero {
+            return this['hero' + job] as GameObject.Hero;
+        }
+
+        //当前选择的是玩家或是弟子  0玩家  1
+        public playerORHero: EnumData.PlayerAndHeroType = EnumData.PlayerAndHeroType.Player;
         constructor() {
             super();
             this.wealth = new Wealth();
             this.feature = new ProtoCmd.PlayerFeature();
             this.guildInfo = new ProtoCmd.stSingleGuildinfoBase();
+            this.hero1 = new GameObject.Hero();
+            this.hero2 = new GameObject.Hero();
+            this.hero3 = new GameObject.Hero();
         }
         /**
          * 返回默认技能ID
@@ -99,8 +128,6 @@ module GameObject {
         public get default_skill(): string {
             return ['99901', '200201', '300201'][this.job - 1];
         }
-
-
 
         /**
          * 年龄 字符串
@@ -119,6 +146,7 @@ module GameObject {
             }
             return str //出生年
         }
+
         /**
          * 年龄 数字
          */
@@ -265,7 +293,6 @@ module GameObject {
          * @param type 
          */
         public addViewObj(obj: any, type: EnumData.CRET_TYPE): void {
-
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
                     this._allPlayer[obj.tempId] = obj;

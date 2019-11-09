@@ -176,8 +176,8 @@ module ProtoCmd {
     }
 
 
-    //更新角色信息
-    export class UpdatePlayerInfo extends Packet {
+    //切换弟子。更新弟子信息
+    export class UpdateCurHeroInfo extends Packet {
         public static msgID: number = 0x022a;
         public constructor(data: Laya.Byte) {
             super();
@@ -297,7 +297,6 @@ module ProtoCmd {
      */
     export class SUBCMD_HERO_ABILITY extends Packet {
         public static msgID: number = 0x034E;// 78
-        public cbPacket = CretAbility;
         public constructor() {
             super();
             this.addProperty('btJob', PacketBase.TYPE_BYTE);//  1战士 2法师 3道士
@@ -411,6 +410,38 @@ module ProtoCmd {
 
             this.read(data);
         }
+        /**
+         * 当前经验
+         */
+        public get i64NowExp(): Int64 {
+            return this.getValue('i64NowExp')
+        }
+
+        /**
+         * 最大经验
+         */
+        public get i64MaxExp(): Int64 {
+            return this.getValue('i64MaxExp')
+        }
+        /**
+         * 当前声望
+         */
+        public get i64Fame(): Int64 {
+            return this.getValue('i64Fame')
+        }
+        /**
+         * 最大声望
+         */
+        public get i64TotalFame(): Int64 {
+            return this.getValue('i64TotalFame')
+        }
+        /**
+         * 最大英雄经验
+         */
+        public get i64MaxHeroExp(): Int64 {
+            return this.getValue('i64MaxHeroExp')
+        }
+
     }
 
 

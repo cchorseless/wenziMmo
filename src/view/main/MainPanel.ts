@@ -182,11 +182,11 @@ module view.main {
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
 				if (this.btn_menu.selected) {
-					this.btn_menu.skin='image/main/btn_caidan_01down_close.png';
+					this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
 					PanelManage.openMenuPanel()
 				}
 				else {
-					this.btn_menu.skin='image/main/btn_caidan_01down_finish.png';
+					this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
 					PopUpManager.showPanel(PanelManage.Menu);
 					PopUpManager.checkPanel(PanelManage.Menu);
 				}
@@ -525,17 +525,19 @@ module view.main {
 			this.getIntensifyMessage();
 			//魂石升阶信息
 			this.getSoulStoneMessage();
-
+			// 声望信息
+			this.getShengWangInfo();
 		}
 
 		/**
-		 * 拉取弟子信息
+		 * 获取江湖声望信息
 		 */
-		private getHeroInfoMessage() {
-			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
-				(data: ProtoCmd.itf_JS_soulStoneLevel) => {
-					GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
-				});
+		public getShengWangInfo(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
+				// 更新声望等级描述
+				LangConfig.Fametitletab = jsonData.titletab;
+			})
 			lcp.send(pkt);
 		}
 

@@ -3,16 +3,13 @@ module view.hero {
 	export class Hero_EquipInfoItem extends ui.hero.Hero_EquipInfoItemUI {
 		constructor() {
 			super();
-			this.setData();
+			this.getEquipBackground();
+			this.addEvent();
 		}
 		private HEADDRESS;
 		private BELT;
 		private job;
-		public setData(): void {
-			this.addEvent();
-			this.getEquipBackground();
 
-		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
 				let o = new view.juese.Person_Equip_SoulContentDialog()
@@ -30,7 +27,23 @@ module view.hero {
 				o.setData(1)
 				o.popup();
 			})
+			this.addLcpEvent();
+		}
 
+		public addLcpEvent() {
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_ABILITY, this, (job) => {
+				this.updateProps(job);
+			});
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_POWER, this, (job) => {
+				this.updateFight(job);
+			});
+
+		}
+
+		public destroy(isbool) {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_ABILITY, this);
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_POWER, this);
+			super.destroy(isbool);
 		}
 		/**
 		 * 初始化装备背景
@@ -41,31 +54,33 @@ module view.hero {
 				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + i + '.png';
 			}
 		}
-		public baseInfo(i): void {
+		public setData(job): void {
+			this.job = job;
+			console.log(this.job)
+			// 判断是否解锁
+			if (GameApp.MainPlayer.heroObj(this.job).lockState != 2) { return };
+			// 拉取弟子属性信息
+			let pkt = new ProtoCmd.SUBCMD_HERO_ABILITY();
+			pkt.setValue('btJob', this.job);
+			lcp.send(pkt);
+			//弟子半身像
+			this.img_hero.skin = LangConfig.getPlayerAvatarHalfSkin(GameApp.MainPlayer.heroSex, this.job)
+			// 装备
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
 			}
-			let j = i + 1
-			let pkt = new ProtoCmd.QuestClientData();
-			this.job = GameApp.GameEngine.HeroInfo[j].JOB;
 			switch (this.job) {
 				case 1:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
-					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.warriorAbility.nFight);
 					break;
 				case 2:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT;
-					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.masterAbility.nFight);
 					break;
 				case 3:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
-					//战力
-					this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.GameEngine.taoistAbility.nFight);
 					break;
 			}
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
@@ -80,33 +95,14 @@ module view.hero {
 					(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
 				}
 			}
-			//弟子半身像
-			let heroSex;
-			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
-				heroSex = EnumData.SEX_TYPE.SEX_WOMEN;
-			}
-			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_WOMEN) {
-				heroSex = EnumData.SEX_TYPE.SEX_MAN;
-			}
-			this.img_hero.skin = LangConfig.getPlayerAvatarHalfSkin(heroSex, this.job)
-			this.initUI(j);
 		}
-		public initUI(j): void {
-			let pkt = new ProtoCmd.SUBCMD_HERO_ABILITY();
-			pkt.setValue('btJob', j);
-			lcp.send(pkt);
-			let data;
-			switch (j) {
-				case 1:
-					data = GameApp.GameEngine.warriorAbility;
-					break;
-				case 2:
-					data = GameApp.GameEngine.masterAbility;
-					break;
-				case 3:
-					data = GameApp.GameEngine.taoistAbility;
-					break;
-			}
+		/**
+		 * 更新战斗属性
+		 */
+		public updateProps(job): void {
+			if (job != this.job) return;
+			console.log('更新了战力+' + job)
+			let data = GameApp.MainPlayer.heroObj(this.job).ability;
 			// 血-生命值
 			this.lbl_Hp.text = '' + data.nowHP + '/' + data.nMaxHP;
 			// 气-魔法值
@@ -141,6 +137,15 @@ module view.hero {
 			this.lbl_xingYun.text = '' + data.nLucky;
 			// 韧-韧性
 			this.lbl_renxing.text = '' + data.nCritResi;
+		}
+
+		/**
+		 * 更新战力
+		 */
+		public updateFight(job) {
+			//战力
+			if (job != this.job) return;
+			this.lbl_zhanli.value = '' + LangConfig.getBigNumberDes(GameApp.MainPlayer.heroObj(this.job).ability.nFight);
 		}
 	}
 }

@@ -88,7 +88,7 @@ module view.hero {
 				for (let i=7;i<11;i++) {
 					this.vbox_2.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
 				}
-				console.log('====>真气真气', GameApp.GameEngine.heroJob)
+				// console.log('====>真气真气', GameApp.GameEngine.heroJob)
 				this.lbl_gas.text = '消耗真气：' + jsonData.realGas + '/' + jsonData.gas;
 				this.lbl_gold.text = '消耗金币：' + jsonData.gold;
 				this.lbl_ballValue.text = jsonData.fakeGas + '/' + jsonData.maxfakegas;

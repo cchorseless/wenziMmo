@@ -254,10 +254,10 @@ module PanelManage {
         PopUpManager.checkPanel(PanelManage.DiZi);
         ResManage.loadResource(ResData.PanelRes.DiZi, () => {
             PanelManage.DiZi = new view.hero.HeroPanel();
-            PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.JueSe;
+            PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.DiZi;
             PanelManage.DiZi.setData(index);
             PanelManage.DiZi.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.DiZi, 1, 0, 2);
+            PopUpManager.addPanel(PanelManage.DiZi, 2, 0, 2);
         })
     }
 

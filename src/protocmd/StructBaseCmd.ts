@@ -738,7 +738,7 @@ module ProtoCmd {
             super()
             this.addProperty('dwMonsterAudioId', PacketBase.TYPE_DWORD);// 怪物声音类型
             this.addProperty("dwRefreshTime", PacketBase.TYPE_DWORD);//BOSS刷新时间
-            this.addProperty('dwMasterTmpID', PacketBase.TYPE_DWORD);//主人ID;
+            this.addProperty('dwMasterTmpID', PacketBase.TYPE_DWORD);//主人临时ID;
             this.addProperty('dwCretTypeId', PacketBase.TYPE_INT);//NPC 怪物基本表格ID  
         }
         /**

@@ -148,6 +148,34 @@ module LangConfig {
     }
 
     /**
+     * 声望等级描述,热更的数据
+     */
+    export let Fametitletab = {
+        0: { name: "默默无闻", fame: 0 },
+        1: { name: "声名不显", fame: 30000 },
+        2: { name: "小有名气", fame: 120000 },
+        3: { name: "声名鹊起", fame: 250000 },
+        4: { name: "名噪一时", fame: 500000 },
+        5: { name: "赫赫有名", fame: 850000 },
+        6: { name: "闻名遐迩", fame: 1300000 },
+        7: { name: "大名鼎鼎", fame: 1850000 },
+        8: { name: "威名远播", fame: 2500000 },
+        9: { name: "名震四海", fame: 3250000 },
+        10: { name: "震古烁今", fame: 4000000 }
+    }
+    /**
+     * 获取声望描述
+     * @param nowfame 当前声望
+     */
+    export function getFameDes(nowfame): string {
+        for (let i = 0; LangConfig.Fametitletab[i]; i++) {
+            if (LangConfig.Fametitletab[i].fame > nowfame) {
+                return LangConfig.Fametitletab[i - 1].name
+            }
+        }
+    }
+
+    /**
      * 装备部位描述
      */
     export const emEquipPositionDes = {
