@@ -9,14 +9,9 @@ module view.scene {
 		public setData(item: GameObject.Player): void {
 			this.item = item;
 			this.item.ui_item = this;
-
 			this.lbl_name.text = this.item.objName;
-			if (this.item.guildInfo.szName) {
-				this.lbl_guildName.text = '' + this.item.guildInfo.szName;
-			}
-			else {
-				this.img_guildName.visible = false;
-			}
+			this.lbl_guildName.text = '' + this.item.guildInfo.szName;
+			this.img_playerAva.skin = LangConfig.getPlayerAvatarSkin();
 			// this._skeGroup.loadRes([this.item.skeBoneRes], () => {
 			// 	this.spr_pos.addChild(this._skeGroup);
 			// 	this._skeGroup.play(0, true);

@@ -5,21 +5,20 @@ module view.scene {
 			super();
 		}
 		
-		public masterItem: GameObject.Player;
-		public setMaster(obj: GameObject.Player): void {
+		public masterItem: GameObject.OtherPlayer;
+		public setMaster(obj: GameObject.OtherPlayer): void {
 			this.masterItem = obj;
 			obj.ui_item = this;
 			this.img_heroAva.visible = false;
 			this.img_playerAva.visible = false;
 			this.img_playerAvaBig.visible = true;
-
 			this.lbl_name.text = '' + this.masterItem.objName;
-			if (this.masterItem.guildInfo.szName) {
-				this.lbl_guildName.text = '' + this.masterItem.guildInfo.szName;
-			}
-			else {
-				this.img_guildInfo.visible = false;
-			}
+			// if (this.masterItem.guildInfo.szName) {
+			// 	this.lbl_guildName.text = '' + this.masterItem.guildInfo.szName;
+			// }
+			// else {
+			// 	this.img_guildInfo.visible = false;
+			// }
 		}
 
 		public heroItem: GameObject.Hero;

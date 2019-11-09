@@ -3,16 +3,16 @@
 */
 module GameObject {
 	export class Hero extends Creature {
+
+		public static MaxExp: number = 0;
+		public static zslevel = 0;
+		public static level = 0;
 		public feature: ProtoCmd.AnimalFeature;
 		public ui_item: view.scene.HeroInSceneItem;
 		constructor() {
 			super();
 			this.feature = new ProtoCmd.AnimalFeature();
 		}
-
-		public hasInit = false;
-
-		public zslevel = 0;
 
 		// 复活倒计时
 		public rebornLeftTime = 0;

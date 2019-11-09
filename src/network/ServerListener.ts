@@ -347,12 +347,10 @@ class ServerListener extends SingletonClass {
             // npc
             case EnumData.CRET_TYPE.CRET_NPC:
                 obj = new GameObject.Npc();
-                obj.objName = obj.filterName(szShowName);
                 break;
             // 怪物
             case EnumData.CRET_TYPE.CRET_MONSTER:
                 obj = new GameObject.Monster();
-                obj.objName = obj.filterName(szShowName);
                 break;
             // 英雄
             case EnumData.CRET_TYPE.CRET_HERO:
@@ -378,10 +376,10 @@ class ServerListener extends SingletonClass {
                 // 其他玩家需要创建
                 else {
                     obj = new GameObject.Hero();
-                    obj.objName = obj.filterName(szShowName);
                 }
                 break;
         }
+        obj.objName = obj.filterName(szShowName);
         // feature 信息
         obj.feature.clone(msgData.feature.data);
         // 位置  信息
@@ -429,14 +427,14 @@ class ServerListener extends SingletonClass {
         let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
 
-        let player: GameObject.Player;
+        let player;
         // 玩家自己
         if (GameApp.MainPlayer.tempId == tempId) {
             player = GameApp.MainPlayer;
         }
         // 其他玩家
         else {
-            player = new GameObject.Player();
+            player = new GameObject.OtherPlayer();
         }
         // 更新其他信息
         player.tempId = tempId;
@@ -457,7 +455,6 @@ class ServerListener extends SingletonClass {
         // 这里可以拉取数据
         if (player.isMainPlayer) {
             console.log('====自己进入了地图====');
-
         }
         // 其他玩家进入地图，添加到玩家视野中,不包括自己
         else {
@@ -950,6 +947,7 @@ class ServerListener extends SingletonClass {
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
+        player.changeHeroMaxExp(msg.getValue('i64MaxHeroExp'));// 英雄最大经验
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();
@@ -980,12 +978,12 @@ class ServerListener extends SingletonClass {
         }
         if (GameApp.MainPlayer.curHero) {
             //英雄转生等级
-            GameApp.MainPlayer.curHero.zslevel = msg.getValue("btHeroRlvl");
+            GameObject.Hero.zslevel = msg.getValue("btHeroRlvl");
             //英雄等级
-            GameApp.MainPlayer.curHero.level = msg.getValue("wHeroLvl");
+            GameObject.Hero.level = msg.getValue("wHeroLvl");
             //英雄状态
             GameApp.MainPlayer.curHero.lifestate = msg.getValue("btHeroState");
-            //英雄转生时间戳
+            //英雄复活时间戳
             GameApp.MainPlayer.curHero.rebornLeftTime = msg.getValue("dwReliveTime");
         }
         //角色转生等级

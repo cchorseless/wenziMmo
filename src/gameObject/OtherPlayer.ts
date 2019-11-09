@@ -24,7 +24,8 @@ module GameObject {
 		}
 		public zslevel: number = 0;//转生等级
 		public viplvl: number = 0;//Vip等级
-		public ui_item;
+		public ui_item: view.scene.PlayerAndHeroInSceneV0Item;
 		public curHero: GameObject.Hero;// 当前的弟子
+		public guildInfo
 	}
 }
