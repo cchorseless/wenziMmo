@@ -223,7 +223,7 @@ module GameObject {
          * 修改战斗属性
          * @param ArpgAbility 
          */
-        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility, ): void {
+        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility ): void {
             let ability = this.ability;
             ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
             ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量

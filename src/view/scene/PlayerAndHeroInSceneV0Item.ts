@@ -21,10 +21,8 @@ module view.scene {
 			// }
 		}
 
-		public heroItem: GameObject.Hero;
 		public setHero(obj: GameObject.Hero) {
 			console.log('---------添加了弟子---------');
-			this.heroItem = obj;
 			this.masterItem.curHero = obj;
 			this.img_heroAva.visible = true;
 			this.img_playerAva.visible = true;

@@ -791,12 +791,12 @@ class ServerListener extends SingletonClass {
     public cretExpChange(data: any): void {
         let msg = new ProtoCmd.CretExpChange(data);
         let type: EnumData.eEXP_VALUE_TYPE = msg.getValue('nType');
-        let nowExp = msg.getValue('i64Exp');
+        let nowExp = msg.getValue('i64Exp').int64ToNumber();;
         let addExp = (msg.getValue('dwAdd') as ProtoCmd.Int64).int64ToNumber();
         switch (type) {
             // 更新角色经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PLAYER:
-                GameApp.MainPlayer.changeExp(nowExp);
+                GameApp.MainPlayer.changeExp(nowExp.int64ToNumber());
                 TipsManage.showTxt('主角经验改变了' + addExp);
                 break;
             // 更新英雄经验
@@ -841,8 +841,8 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretLevelUp(data);
         let dwTempId = msg.getValue('dwTempId');
         let level = msg.getValue('dwLevel');
-        let i64LeftExp = msg.getValue('i64LeftExp');
-        let i64MaxExp = msg.getValue('i64MaxExp');
+        let i64LeftExp = msg.getValue('i64LeftExp').int64ToNumber();;
+        let i64MaxExp = msg.getValue('i64MaxExp').int64ToNumber();;
         let player: GameObject.Player;
         // 玩家等级改变
         if (GameApp.MainPlayer.tempId == dwTempId) {

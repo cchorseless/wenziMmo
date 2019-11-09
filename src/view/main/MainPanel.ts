@@ -77,7 +77,8 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 经验比例
 			let expBiLi = Math.ceil(_player.ability.nowexp / _player.ability.maxexp * 100);
-			this.img_exp.width = this.img_expBg.width * expBiLi;
+			this.img_exp.width = this.img_expBg.width * expBiLi / 100;
+			this.lbl_level.text = '' + LangConfig.getLevelDes(_player.zslevel, _player.level) + '(' + expBiLi + '%)'
 
 		}
 		/**
@@ -119,7 +120,11 @@ module view.main {
 		public updateUI_power(): void {
 			let _player = GameApp.MainPlayer;
 			// 战斗力
-			this.clip_power.value = '' + LangConfig.getBigNumberDes(_player.ability.nFight);
+			let fight = _player.ability.nFight;
+			if (GameApp.MainPlayer.curHero) {
+				fight += GameApp.MainPlayer.curHero.ability.nFight;
+			}
+			this.clip_power.value = '' + LangConfig.getBigNumberDes(fight);
 		}
 		/**
 		 * 更新头像
@@ -263,6 +268,7 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_YUANBAOLOCK, this, () => { this.updateUI_yuanBaolock() });
 			// 战力
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => { this.updateUI_power() });
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_POWER, this, () => { this.updateUI_power() });
 			// 等级
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_LEVEL, this, () => { this.updateUI_lv() });
 			// vip等级 todo
