@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":10,
+    "selecteID":6,
     "props":{"width":110,"sceneColor":"#883e3c","height":115},
     "nodeParent":-1,
     "label":"View",
@@ -31,7 +31,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":74,"var":"lbl_itemName","text":"道具名称名称","strokeColor":"#000000","stroke":4,"right":0,"left":0,"height":27,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
+            "props":{"y":76,"width":110,"var":"lbl_itemName","text":"道具名称名称","strokeColor":"#000000","stroke":4,"right":0,"left":0,"height":21,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_itemName)",
             "isDirectory":false,
@@ -43,27 +43,14 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":92,"x":11,"width":27,"visible":false,"var":"img_exp","skin":"image/common/icon_exp_02.png","height":24},
-            "nodeParent":1,
-            "label":"Image(img_exp)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Label",
-            "props":{"y":93,"x":39,"width":62,"visible":false,"var":"lbl_exp","text":"99w","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"left"},
+            "props":{"y":93,"width":110,"var":"lbl_des","strokeColor":"#000000","stroke":4,"right":0,"left":1,"height":21,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
             "nodeParent":1,
-            "label":"Label(lbl_exp)",
+            "label":"Label(lbl_des)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":10,
+            "compId":6,
             "child":[
                 ]
         }],
