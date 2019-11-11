@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":68,
     "props":{"width":520,"sceneColor":"#000000","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":9,"x":270,"text":"    特权回收\\n格外+5%经验","strokeColor":"#603d22","padding":"-1","fontSize":18,"font":"Microsoft YaHei","color":"#63491a","bold":true},
+            "props":{"y":9,"x":270,"text":"    特权回收\\n格外+5%经验","strokeColor":"#603d22","padding":"-1","fontSize":20,"font":"FZHL","color":"#63491a","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -72,7 +72,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":48,"x":-15,"skin":"image/bag/img_lianhulu.png"},
+            "props":{"y":48,"x":-15,"width":256,"skin":"image/bag/img_lianhulu.png","height":277},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -129,26 +129,28 @@
                     "props":{"y":58,"x":23,"var":"box_empty"},
                     "nodeParent":78,
                     "label":"Box(box_empty)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":117,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":36,"x":69,"width":161,"skin":"image/common/img_duihuakuang.png","height":67},
                             "nodeParent":117,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":115,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":21,"x":24,"text":"熔炉空空如野","height":24,"fontSize":22,"font":"FZHL","color":"#55453e"},
+                                    "props":{"y":21,"x":24,"text":"熔炉空空如野","height":24,"fontSize":20,"font":"FZHL","color":"#55453e"},
                                     "nodeParent":115,
                                     "label":"Label",
                                     "isDirectory":false,
@@ -161,6 +163,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"width":94,"skin":"image/common/img_cat.png","height":92},
                             "nodeParent":117,
@@ -320,7 +323,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

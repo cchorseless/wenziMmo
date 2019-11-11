@@ -636,6 +636,20 @@ class ServerListener extends SingletonClass {
         let skill = new ProtoCmd.stSkillLvlBase();
         skill.clone(cbpkt.skilllvl.data);
         GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
+        let panelName = PopUpManager.curPanel.name;
+        switch (panelName) {
+            case "waigong":
+                GameApp.LListener.event(ProtoCmd.WX_upData_panel_waigong); //外功
+                break;
+            case "neigong":
+                GameApp.LListener.event(ProtoCmd.WX_upData_panel_neigong); //内功
+                break;
+            case "hedao":
+                break;
+            case "biguan":
+                break;
+        }
+
         cbpkt.clear();
         cbpkt = null;
     }
@@ -652,12 +666,24 @@ class ServerListener extends SingletonClass {
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
             GameApp.MainPlayer.skillShotButton[shot.btRow] = shot;
+            let panelName = PopUpManager.curPanel.name;
+            switch (panelName) {
+                case "waigong":
+                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
+                    break;
+                case "neigong":
+                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //内功
+                    break;
+                case "hedao":
+                    break;
+                case "biguan":
+                    break;
+            }
 
-            GameApp.LListener.event(ProtoCmd.WX_upData);
 
         }
         else {
-            TipsManage.showTips('技能快捷键失败')
+            TipsManage.showTips('技能快捷键失败');
         }
         cbpkt.clear();
     }
@@ -670,7 +696,19 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode')) {
             delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
-            GameApp.LListener.event(ProtoCmd.WX_upData);
+            let panelName = PopUpManager.curPanel.name;
+            switch (panelName) {
+                case "waigong":
+                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //内功
+                    break;
+                case "neigong":
+                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //外功
+                    break;
+                case "hedao":
+                    break;
+                case "biguan":
+                    break;
+            }
         }
         else {
             TipsManage.showTips('删除失败')

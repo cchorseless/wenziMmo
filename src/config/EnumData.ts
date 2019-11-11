@@ -144,7 +144,6 @@ module EnumData {
         EQUIP_LEGEND_RING_RIGHT,			//传说右戒指
         EQUIP_LEGEND_SHOES,					//传说鞋
         EQUIP_LEGEND_BELT = 19,				//传说腰带
-
         //符文八卦
         EQUIP_RUNE_UP = 20,
         EQUIP_RUNE_UPRIGHT,

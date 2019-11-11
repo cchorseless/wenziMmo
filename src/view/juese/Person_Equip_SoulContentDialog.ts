@@ -39,6 +39,8 @@ module view.juese {
 				this["btn_equip1_" + i].label = this.arr[i];
 				this["btn_equip0_" + i].selected = false;
 				this["btn_equip1_" + i].selected = false;
+				this["btn_equip0_" + i].disabled = true;
+				this["btn_equip1_" + i].disabled = true;
 				let equipID;
 				if (type == 0) {
 					equipID = i
@@ -87,10 +89,12 @@ module view.juese {
 				if (showLvNumArr[i] >= this.baseLv) {
 					curNum0++;
 					this["btn_equip0_" + i].selected = true;
+					this["btn_equip0_" + i].disabled = false;
 				}
 				if (showLvNumArr[i] >= this.baseLv + 10) {
 					curNum1++;
 					this["btn_equip1_" + i].selected = true;
+					this["btn_equip1_" + i].disabled = false;
 				}
 			}
 			let lvl_baseData;

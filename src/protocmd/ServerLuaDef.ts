@@ -171,8 +171,16 @@ module ProtoCmd {
     // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
     /********************************武学界面***************** */
-    //武学界面刷新
-    export const WX_upData = "WX_upData"
+    //武学界面刷新    快捷键   外功
+    export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
+    //武学界面刷新    面板     外功
+    export const WX_upData_panel_waigong = "WX_upData_panel_waigong"
+    //武学界面刷新    快捷键   内功
+    export const WX_upData_Hotkeys_neigong = "WX_upData_Hotkeys_neigong"
+    //武学界面刷新    面板     内功
+    export const WX_upData_panel_neigong = "WX_upData_panel_neigong"
+    //武学界面刷新    Dialog  
+    export const WX_upData_Dialog = "WX_upData_Dialog"
     //武学戾气面板
     export const WX_warSoulPanel = 'warSoulPanel';
     //武学戾气兑换魂力
@@ -185,6 +193,12 @@ module ProtoCmd {
     export const WX_shuxingxitong_minabandakai = 'shuxingxitong_minabandakai';
     // /武学内功升级
     export const WX_shuxingxitong_shengji = 'shuxingxitong_shengji';
+    // /武学升级
+    export const upgradeSkill = 'upgradeSkill';
+    //武学经验值增加
+    export const addSkillExp = 'addSkillExp';
+
+
     /********************************弟子信息界面***************** */
     //弟子面板
     export const Hero_HeroBaseInfo = 'HeroBaseInfo';
@@ -576,7 +590,7 @@ module ProtoCmd {
     export interface itf_Main_openChuangSongRecord {
         open: boolean;
         datatab: Object;
-        recordtab:Object
+        recordtab: Object
 
     }
 

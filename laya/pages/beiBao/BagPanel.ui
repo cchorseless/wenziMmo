@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":447,
-    "selecteID":448,
+    "selectedBox":449,
+    "selecteID":184,
     "props":{"width":640,"sceneColor":"#000000","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -247,7 +247,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-3,"x":0,"skin":"image/common/img_zhekou.png"},
+                                    "props":{"y":-4,"x":0,"skin":"image/common/img_zhekou.png"},
                                     "nodeParent":22,
                                     "label":"Image",
                                     "isOpen":true,
@@ -258,6 +258,19 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":4,"x":2,"width":87,"valign":"middle","text":"折扣","strokeColor":"#a9643b","stroke":2,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                                    "nodeParent":22,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":457,
+                                    "child":[
+                                        ]
                                 },
                                 {
                                     "x":60,
@@ -327,7 +340,7 @@
                                         {
                                             "x":75,
                                             "type":"Button",
-                                            "props":{"y":0,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
+                                            "props":{"y":0,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":2,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
                                             "nodeParent":449,
                                             "label":"Button(btn_refreshItem)",
                                             "isDirectory":false,

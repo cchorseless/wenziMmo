@@ -289,6 +289,7 @@ module PanelManage {
             PanelManage.WaiGong = new view.wuXue.WuXueWaiGongPanel();
             PanelManage.WaiGong['LCP_skin'] = ResData.PanelRes.WaiGong;
             PanelManage.WaiGong.setData();
+            PanelManage.WaiGong.name = "waigong"
             PanelManage.WaiGong.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.WaiGong, 1, 0, 2);
         })
@@ -305,6 +306,7 @@ module PanelManage {
             PanelManage.NeiGong = new view.wuXue.WuXueNeiGongPanel();
             PanelManage.NeiGong['LCP_skin'] = ResData.PanelRes.NeiGong;
             PanelManage.NeiGong.setData();
+            PanelManage.NeiGong.name = "neigong"
             PanelManage.NeiGong.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.NeiGong, 1, 0, 2);
         })
@@ -321,6 +323,7 @@ module PanelManage {
             PanelManage.HeDao = new view.wuXue.WuXueHeDaoPanel();
             PanelManage.HeDao['LCP_skin'] = ResData.PanelRes.HeDao;
             PanelManage.HeDao.setData();
+            PanelManage.HeDao.name = "hedao"
             PanelManage.HeDao.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.HeDao, 1, 0, 2);
         })
@@ -337,6 +340,7 @@ module PanelManage {
             PanelManage.CloseDoor = new view.wuXue.WuXueCloseDoorPanel();
             PanelManage.CloseDoor['LCP_skin'] = ResData.PanelRes.CloseDoor;
             PanelManage.CloseDoor.setData();
+            PanelManage.CloseDoor.name = "biguan"
             PanelManage.CloseDoor.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.CloseDoor, 1, 0, 2);
         })
