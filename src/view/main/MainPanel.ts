@@ -470,7 +470,7 @@ module view.main {
 					break;
 				// NPC
 				case EnumData.CRET_TYPE.CRET_NPC:
-					let npcIcon: view.compart.NpcIconItem = new view.compart.NpcIconItem();
+					let npcIcon: view.npc.NpcIconItem = new view.npc.NpcIconItem();
 					npcIcon.setData(obj);
 					this.vbox_npc.addChild(npcIcon);
 					break;

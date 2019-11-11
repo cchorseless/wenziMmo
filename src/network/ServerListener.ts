@@ -636,6 +636,8 @@ class ServerListener extends SingletonClass {
         let skill = new ProtoCmd.stSkillLvlBase();
         skill.clone(cbpkt.skilllvl.data);
         GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
+        GameApp.LListener.event(ProtoCmd.WX_upData_panel);
+        
         cbpkt.clear();
         cbpkt = null;
     }
@@ -653,7 +655,7 @@ class ServerListener extends SingletonClass {
             // 存储技能快捷键
             GameApp.MainPlayer.skillShotButton[shot.btRow] = shot;
 
-            GameApp.LListener.event(ProtoCmd.WX_upData);
+            GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys);
 
         }
         else {
@@ -670,7 +672,7 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode')) {
             delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
-            GameApp.LListener.event(ProtoCmd.WX_upData);
+            GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys);
         }
         else {
             TipsManage.showTips('删除失败')

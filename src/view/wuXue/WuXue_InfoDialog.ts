@@ -1,7 +1,8 @@
 /**Created by the LayaAirIDE*/
 module view.wuXue {
 	export class WuXue_InfoDialog extends ui.wuXue.WuXue_InfoDialogUI {
-		public canLvUp:boolean = false;
+		public canLvUp: boolean = false;
+		public skillID;
 		constructor() {
 			super();
 		}
@@ -9,10 +10,11 @@ module view.wuXue {
 		public setData(s: ProtoCmd.stSkillLvlBase): WuXue_InfoDialog {
 			this.item = s;
 			let configID = s.configID;
+			this.skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID);
 			// 技能类型
-			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(this.item.configID);
-			let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(this.item.configID);
-			let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(this.item.configID);
+			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
+			let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(configID);
+			let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(configID);
 
 			let o = new view.compart.DaoJuWithNameItem();
 			let itemBase = new ProtoCmd.ItemBase()
@@ -40,7 +42,7 @@ module view.wuXue {
 			let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
 			this.lbl_expDes.text = s.dwexp + '/' + expMax;
 			this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
-			if(s.dwexp >=expMax){
+			if (s.dwexp >= expMax) {
 				this.canLvUp = true;
 			}
 			// logo
@@ -65,12 +67,20 @@ module view.wuXue {
 			});
 			// 升级
 			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
-				// let expMax = SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(this.item.configID);
-				if(this.canLvUp){
-					
-				}
+				// if (this.canLvUp) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSkill, [this.skillID]);
+				lcp.send(pkt);
+				// }
 
 			});
+			/**
+			 * 测试技能经验值增加
+			 */
+			this.img_test.on(Laya.UIEvent.CLICK,this,function(){
+				
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID,20101,10]);
+				lcp.send(pkt);
+			})
 			// 穿戴或者卸下
 			this.btn_dress.on(Laya.UIEvent.CLICK, this, () => {
 				this.close()

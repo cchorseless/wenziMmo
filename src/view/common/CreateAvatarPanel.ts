@@ -246,7 +246,7 @@ module view.common {
 			// Npc
 			let npcList = this.npcConfigList[index];
 			for (let npcConfig of npcList) {
-				let npcUI = new view.compart.NpcIconItem();
+				let npcUI = new view.npc.NpcIconItem();
 				let npcObj = new GameObject.Npc();
 				// Npc 名字
 				npcObj.feature.dwCretTypeId = npcConfig;

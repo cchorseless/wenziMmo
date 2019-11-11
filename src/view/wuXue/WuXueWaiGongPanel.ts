@@ -6,13 +6,13 @@ module view.wuXue {
 		}
 
 		public setData(): void {
-			this.btn_waiGong.selected=true;
+			this.btn_waiGong.selected = true;
 			this.initUI();
 			this.addEvent();
 		}
 		public addEvent(): void {
-			//武学界面刷新
-			GameApp.LListener.on(ProtoCmd.WX_upData, this, function () {
+			//武学界面刷新  快捷键
+			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys, this, function () {
 				for (let i = 1; i < 7; i++) {
 					this["ui_item" + i].removeItem();
 					this["ui_item" + i].lbl_buWei.text = ""
@@ -69,8 +69,10 @@ module view.wuXue {
 			});
 			//技能更换
 
-
-
+			//刷新面板
+			GameApp.LListener.on(ProtoCmd.WX_upData_panel, this, function () {
+				this.initUI();
+			 })
 
 		}
 
