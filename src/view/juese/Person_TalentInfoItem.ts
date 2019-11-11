@@ -44,6 +44,7 @@ module view.juese {
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.btn_top0.selected = true;
 			this.btn_top0.alpha = 1;
+			this.img_xiaoguo0.visible = true;
 			this.btn_top0.scaleX = this.btn_top0.scaleY = 1.1;
 			this.addEvent();
 			this.TalentInfo();

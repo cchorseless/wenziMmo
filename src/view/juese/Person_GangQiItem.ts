@@ -108,7 +108,7 @@ module view.juese {
 			//当前经验/最大经验
 			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
 			//经验进度
-			this.img_progress.width = 470 * data.nValue / data.nMaxValue;
+			this.img_progress.height = 101 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
