@@ -27,6 +27,13 @@ module view.beiBao {
 		public curSelect: number = 1;
 
 		public addEvent(): void {
+			// this.on(Laya.UIEvent.CLICK, this, function () {
+			// 	if (this.img_showSelect.visible == true) {
+			// 		Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
+			// 			this.img_showSelect.visible = false;
+			// 		}));
+			// 	}
+			// })
 			this.btn_center.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.img_showSelect.visible) {
 					return
@@ -43,8 +50,13 @@ module view.beiBao {
 					}));
 
 				})
-
 			}
+
+			this.img_showSelect.on(Laya.UIEvent.CLICK, this, function () {
+				Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
+					this.img_showSelect.visible = false;
+				}));
+			})
 			// 投入
 			this.btn_touRu.on(Laya.UIEvent.CLICK, this, () => {
 				this.onPutIn()

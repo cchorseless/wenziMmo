@@ -12,7 +12,10 @@ module view.wuXue {
 
 		public removeItem(): void {
 			this.img_bg.visible = true;
-			this.box_view.removeChildAt(1);
+			if (this.box_view.numChildren > 0) {
+				this.box_view.removeChildren();
+			}
+
 		}
 	}
 }

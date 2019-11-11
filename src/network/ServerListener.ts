@@ -652,6 +652,9 @@ class ServerListener extends SingletonClass {
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
             GameApp.MainPlayer.skillShotButton[shot.btRow] = shot;
+
+            GameApp.LListener.event(ProtoCmd.WX_upData);
+
         }
         else {
             TipsManage.showTips('技能快捷键失败')
@@ -667,6 +670,7 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode')) {
             delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
+            GameApp.LListener.event(ProtoCmd.WX_upData);
         }
         else {
             TipsManage.showTips('删除失败')

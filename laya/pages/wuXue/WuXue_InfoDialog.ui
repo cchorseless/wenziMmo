@@ -1,10 +1,10 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":168,
+    "selecteID":217,
     "referenceLines":null,
-    "props":{"width":618,"sceneColor":"#000000","height":932},
+    "props":{"width":601,"sceneColor":"#000000","height":910},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -16,408 +16,436 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
+            "props":{"y":4,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":2,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":27,"x":159,"skin":"image/common/bottom_title1.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":3,
             "child":[
                 {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":17,"x":60,"var":"lbl_skillType","text":"技能更换","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":3,
+                    "label":"Label(lbl_skillType)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":92,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":0,"x":516,"var":"btn_close","stateNum":2,"skin":"image/common/icon_close.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":167,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":117,"x":79,"width":480,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"41,31,25,18","height":487},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":190,
+            "child":[
+                {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":23,"x":159,"skin":"image/common/bottom_title1.png"},
-                    "nodeParent":2,
+                    "props":{"y":32,"x":230,"skin":"image/common/botton_100.png"},
+                    "nodeParent":190,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":3,
+                    "compId":192,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"var":"lbl_skillType","text":"技能更换","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":3,
-                            "label":"Label(lbl_skillType)",
+                            "props":{"y":17,"x":44,"var":"lbl_skillName","text":"灵狐步","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":192,
+                            "label":"Label(lbl_skillName)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":92,
+                            "compId":195,
                             "child":[
                                 ]
                         }]
                 },
                 {
-                    "type":"Button",
-                    "props":{"y":-4,"x":516,"var":"btn_close","stateNum":2,"skin":"image/common/icon_close.png"},
-                    "nodeParent":2,
-                    "label":"Button(btn_close)",
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":152,"x":105,"wordWrap":true,"width":347,"var":"lbl_skillDes","text":"技能文本描述 从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":157,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
+                    "nodeParent":190,
+                    "label":"Label(lbl_skillDes)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":167,
+                    "compId":194,
                     "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":113,"x":79,"width":480,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"41,31,25,18","height":487},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":190,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":32,"x":230,"skin":"image/common/botton_100.png"},
-                            "nodeParent":190,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":192,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":17,"x":44,"var":"lbl_skillName","text":"灵狐步","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":192,
-                                    "label":"Label(lbl_skillName)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":195,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":152,"x":105,"wordWrap":true,"width":347,"var":"lbl_skillDes","text":"技能文本描述 从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":157,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
-                            "nodeParent":190,
-                            "label":"Label(lbl_skillDes)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":194,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":93,"x":202,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
-                            "nodeParent":190,
-                            "label":"Button(btn_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":196,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":93,"x":248,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
-                            "nodeParent":190,
-                            "label":"Button(btn_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":203,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":93,"x":294,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
-                            "nodeParent":190,
-                            "label":"Button(btn_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":204,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":93,"x":340,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
-                            "nodeParent":190,
-                            "label":"Button(btn_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":205,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":93,"x":386,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
-                            "nodeParent":190,
-                            "label":"Button(btn_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":206,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":372,"x":82,"skin":"image/common/bottom_waigingzhanshi.png","alpha":0.5},
-                            "nodeParent":190,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":191,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoItem.ui",
-                            "props":{"y":47,"x":60,"var":"ui_item","runtime":"view.wuXue.WuXue_logoItem"},
-                            "nodeParent":190,
-                            "label":"UIView(ui_item)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":210,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":157,"x":15,"skin":"image/common/title_ConfederationDeclaration.png"},
-                            "nodeParent":190,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":169,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":2,"x":4,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":169,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":170,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":34,"x":30,"wordWrap":true,"width":25,"text":"说明","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":169,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":171,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":344,"x":8,"skin":"image/common/title_ConfederationDeclaration.png"},
-                            "nodeParent":190,
-                            "label":"Image",
-                            "isOpen":null,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":178,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":2,"x":4,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":178,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":179,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":34,"x":30,"wordWrap":true,"width":25,"text":"效果","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":178,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":180,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":344,"x":99,"wordWrap":true,"width":374,"var":"lbl_skillEffectDes","text":"从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":144,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
-                            "nodeParent":190,
-                            "label":"Label(lbl_skillEffectDes)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":181,
-                            "child":[
-                                ]
-                        }],
+                        ],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":836,"x":252,"width":146,"var":"btn_dress","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"穿戴","height":59},
-                    "nodeParent":2,
-                    "label":"Button(btn_dress)",
+                    "props":{"y":93,"x":202,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
+                    "nodeParent":190,
+                    "label":"Button(btn_1)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":209,
+                    "compId":196,
                     "child":[
                         ]
                 },
                 {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":93,"x":248,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
+                    "nodeParent":190,
+                    "label":"Button(btn_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":203,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":93,"x":294,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
+                    "nodeParent":190,
+                    "label":"Button(btn_3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":204,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":93,"x":340,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
+                    "nodeParent":190,
+                    "label":"Button(btn_4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":205,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":93,"x":386,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
+                    "nodeParent":190,
+                    "label":"Button(btn_5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":206,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":606,"x":72,"width":493,"skin":"image/common/bottom_ConfederationDeclaration.png","height":225},
-                    "nodeParent":2,
+                    "props":{"y":372,"x":82,"skin":"image/common/bottom_waigingzhanshi.png","alpha":0.5},
+                    "nodeParent":190,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":191,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_logoItem.ui",
+                    "props":{"y":47,"x":60,"var":"ui_item","runtime":"view.wuXue.WuXue_logoItem"},
+                    "nodeParent":190,
+                    "label":"UIView(ui_item)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":210,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":157,"x":15,"skin":"image/common/title_ConfederationDeclaration.png"},
+                    "nodeParent":190,
                     "label":"Image",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":168,
+                    "compId":169,
                     "child":[
                         {
-                            "type":"Image",
-                            "props":{"y":20,"x":19,"skin":"image/juese/bottom_jiesuotiaojian.png"},
-                            "nodeParent":168,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":182,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":2,"x":17,"var":"lbl_lvlUpDes","text":"升级条件：特戒11","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":182,
-                                    "label":"Label(lbl_lvlUpDes)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":183,
-                                    "child":[
-                                        ]
-                                }]
-                        },
-                        {
                             "type":"Label",
-                            "props":{"y":168,"x":18,"wordWrap":true,"width":457,"var":"lbl_useDes","text":"使用获得1点熟练度\\n使用技能书刺杀剑术获得1000熟练度","strokeColor":"#000000","height":42,"fontSize":20,"font":"FZHL","color":"#000000","bold":false,"align":"center"},
-                            "nodeParent":168,
-                            "label":"Label(lbl_useDes)",
+                            "props":{"y":2,"x":4,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":169,
+                            "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":211,
+                            "compId":170,
                             "child":[
                                 ]
                         },
                         {
-                            "type":"Box",
-                            "props":{"y":62,"x":26,"width":285,"height":40},
-                            "nodeParent":168,
-                            "label":"Box",
+                            "type":"Label",
+                            "props":{"y":34,"x":30,"wordWrap":true,"width":25,"text":"说明","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":169,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":171,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":344,"x":8,"skin":"image/common/title_ConfederationDeclaration.png"},
+                    "nodeParent":190,
+                    "label":"Image",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":178,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":2,"x":4,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":178,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":179,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":34,"x":30,"wordWrap":true,"width":25,"text":"效果","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":178,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":180,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":344,"x":99,"wordWrap":true,"width":374,"var":"lbl_skillEffectDes","text":"从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":144,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
+                    "nodeParent":190,
+                    "label":"Label(lbl_skillEffectDes)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":181,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":840,"x":252,"width":146,"var":"btn_dress","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"穿戴","height":59},
+            "nodeParent":1,
+            "label":"Button(btn_dress)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":209,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":610,"x":72,"width":493,"skin":"image/common/bottom_ConfederationDeclaration.png","height":225},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":168,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":20,"x":19,"skin":"image/juese/bottom_jiesuotiaojian.png"},
+                    "nodeParent":168,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":182,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":2,"x":17,"var":"lbl_lvlUpDes","text":"升级条件：特戒11","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":182,
+                            "label":"Label(lbl_lvlUpDes)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":183,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":168,"x":18,"wordWrap":true,"width":457,"var":"lbl_useDes","text":"使用获得1点熟练度\\n使用技能书刺杀剑术获得1000熟练度","strokeColor":"#000000","height":42,"fontSize":20,"font":"FZHL","color":"#000000","bold":false,"align":"center"},
+                    "nodeParent":168,
+                    "label":"Label(lbl_useDes)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":211,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":62,"x":26,"width":285,"height":40},
+                    "nodeParent":168,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":212,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":13,"x":0,"width":255,"var":"img_expBg","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":17},
+                            "nodeParent":212,
+                            "label":"Image(img_expBg)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":212,
+                            "compId":213,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":13,"x":0,"width":255,"var":"img_expBg","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":17},
-                                    "nodeParent":212,
-                                    "label":"Image(img_expBg)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":213,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":0,"x":0,"width":100,"var":"img_exp","skin":"image/common/Progressbar_gang_top2.png","sizeGrid":"5,11,5,5","height":17},
-                                            "nodeParent":213,
-                                            "label":"Image(img_exp)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":214,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":10,"x":87,"var":"lbl_expDes","text":"2400/40000","strokeColor":"#000000","stroke":4,"height":26,"fontSize":18,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":212,
-                                    "label":"Label(lbl_expDes)",
+                                    "props":{"y":0,"x":0,"width":100,"var":"img_exp","skin":"image/common/Progressbar_gang_top2.png","sizeGrid":"5,11,5,5","height":17},
+                                    "nodeParent":213,
+                                    "label":"Image(img_exp)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":215,
+                                    "compId":214,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Button",
-                            "props":{"y":111,"x":97,"width":101,"var":"btn_lvUp","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"升级","height":47},
-                            "nodeParent":168,
-                            "label":"Button(btn_lvUp)",
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":10,"x":87,"var":"lbl_expDes","text":"2400/40000","strokeColor":"#000000","stroke":4,"height":26,"fontSize":18,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":212,
+                            "label":"Label(lbl_expDes)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":216,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"compart/DaoJuWithNameItem.ui",
-                            "props":{"y":42,"x":354},
-                            "nodeParent":168,
-                            "label":"UIView",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":217,
+                            "compId":215,
                             "child":[
                                 ]
                         }],
                     "$HIDDEN":false
-                }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":111,"x":97,"width":101,"var":"btn_lvUp","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"升级","height":47},
+                    "nodeParent":168,
+                    "label":"Button(btn_lvUp)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":216,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/DaoJuWithNameItem.ui",
+                    "props":{"y":42,"x":354,"var":"ui_needItem"},
+                    "nodeParent":168,
+                    "label":"UIView(ui_needItem)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":217,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {
