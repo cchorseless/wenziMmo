@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":172,
-    "selecteID":165,
+    "selectedBox":91,
+    "selecteID":194,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -56,13 +56,14 @@
             "props":{"y":116,"x":16,"width":608,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"41,31,25,18","height":397},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":91,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":433,"width":177,"skin":"image/juese/bottom_jineng.png","sizeGrid":"57,53,90,51","height":394},
                     "nodeParent":91,
@@ -102,11 +103,12 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":22,"x":155,"skin":"image/common/botton_100.png"},
+                    "props":{"y":-2,"x":152,"skin":"image/common/botton_100.png"},
                     "nodeParent":91,
                     "label":"Image",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -126,8 +128,9 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":132,"x":94,"wordWrap":true,"width":347,"var":"lbl_skillDes","text":"技能文本描述 从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":147,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
+                    "props":{"y":108,"x":91,"wordWrap":true,"width":341,"var":"lbl_skillDes","text":"技能文本描述 从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":155,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
                     "nodeParent":91,
                     "label":"Label(lbl_skillDes)",
                     "isDirectory":false,
@@ -139,8 +142,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":83,"x":136,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
+                    "props":{"y":59,"x":133,"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
                     "nodeParent":91,
                     "label":"Button(btn_1)",
                     "isDirectory":false,
@@ -148,11 +152,13 @@
                     "hasChild":false,
                     "compId":188,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":83,"x":182,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
+                    "props":{"y":59,"x":179,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
                     "nodeParent":91,
                     "label":"Button(btn_2)",
                     "isDirectory":false,
@@ -163,8 +169,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":83,"x":228,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
+                    "props":{"y":59,"x":225,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
                     "nodeParent":91,
                     "label":"Button(btn_3)",
                     "isDirectory":false,
@@ -175,8 +182,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":83,"x":274,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
+                    "props":{"y":59,"x":271,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
                     "nodeParent":91,
                     "label":"Button(btn_4)",
                     "isDirectory":false,
@@ -187,8 +195,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":83,"x":320,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
+                    "props":{"y":59,"x":317,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png","disabled":false},
                     "nodeParent":91,
                     "label":"Button(btn_5)",
                     "isDirectory":false,
@@ -199,9 +208,10 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"wuXue/WuXue_logoItem.ui",
-                    "props":{"y":31,"x":37,"var":"ui_skill","runtime":"view.wuXue.WuXue_logoItem"},
+                    "props":{"y":7,"x":33,"var":"ui_skill","runtime":"view.wuXue.WuXue_logoItem"},
                     "nodeParent":91,
                     "label":"UIView(ui_skill)",
                     "isDirectory":false,
@@ -212,8 +222,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":137,"x":14,"skin":"image/common/title_ConfederationDeclaration.png"},
+                    "props":{"y":113,"x":11,"skin":"image/common/title_ConfederationDeclaration.png"},
                     "nodeParent":91,
                     "label":"Image",
                     "isOpen":false,
@@ -246,6 +257,56 @@
                             "child":[
                                 ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":267,"x":11,"skin":"image/common/title_ConfederationDeclaration.png"},
+                    "nodeParent":91,
+                    "label":"Image",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":202,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":2,"x":4,"wordWrap":true,"width":25,"text":"招式","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":202,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":204,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":34,"x":30,"wordWrap":true,"width":25,"text":"效果","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":202,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":205,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":267,"x":91,"wordWrap":true,"width":342,"var":"lbl_skillEffectDes","text":"从空中召唤出一道雷电攻击一个目标造成","strokeColor":"#000000","height":125,"fontSize":22,"font":"FZHL","color":"#000000","bold":false},
+                    "nodeParent":91,
+                    "label":"Label(lbl_skillEffectDes)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":203,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },
@@ -517,7 +578,8 @@
                     "hasChild":false,
                     "compId":178,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

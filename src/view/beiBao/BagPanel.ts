@@ -18,7 +18,7 @@ module view.beiBao {
 			}
 			// 背包tab
 			this.tab_bag.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_bag.selectedIndex = index
+				this.viw_bag.selectedIndex = index;
 			}, null, false)
 			// 左边热卖商店
 			this.panel_sellHot.vScrollBarSkin = '';

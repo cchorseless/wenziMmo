@@ -12,11 +12,16 @@ module view.wuXue {
 			// 等级
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].selected = (i < s.level);
+				if (this['btn_' + i].selected == true) {
+					this['btn_' + i].disabled = false;
+				} else {
+					this['btn_' + i].disabled = true;
+				}
 			}
 			// 经验
 			let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
 			this.lbl_exp.text = s.dwexp + '/' + expMax;
-			this.img_exp.width = this.img_expBg.width * Math.max(s.dwexp / expMax, 1);
+			this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
 			// 使用中
 			this.img_isUse.visible = Boolean(GameApp.MainPlayer.skillShotButton[s.configID]);
 			// icon

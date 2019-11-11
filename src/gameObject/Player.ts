@@ -50,8 +50,8 @@ module GameObject {
         public charpterName: string;// 章节名字
         public pianZhangName: string;// 篇章名字
         /******************技能******************** */
-        public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
+        public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
         /**
          * 判断技能是否已经装备上了
          * @param skillID 

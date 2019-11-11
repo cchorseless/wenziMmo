@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.wuXue {
 	export class WuXue_InfoDialog extends ui.wuXue.WuXue_InfoDialogUI {
+		public canLvUp:boolean = false;
 		constructor() {
 			super();
 		}
@@ -10,19 +11,38 @@ module view.wuXue {
 			let configID = s.configID;
 			// 技能类型
 			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(this.item.configID);
+			let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(this.item.configID);
+			let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(this.item.configID);
+
+			let o = new view.compart.DaoJuWithNameItem();
+			let itemBase = new ProtoCmd.ItemBase()
+			//needItemID
+			itemBase.dwBaseID = 20101;
+			itemBase.dwCount = needItemNum
+			o.setData(itemBase)
+			this.ui_needItem.addChild(o)
 			this.lbl_skillType.text = '' + LangConfig.enSkillTypeDes[EnumData.enSkillType[skillType]];
 			// 技能名称
 			this.lbl_skillName.text = '' + SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID).split('_')[0];
 			// 技能描述
 			this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(configID);
+			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(configID);
 			this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = true;
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].selected = i < s.level;
+				if (this['btn_' + i].selected == true) {
+					this['btn_' + i].disabled = false;
+				} else {
+					this['btn_' + i].disabled = true;
+				}
 			}
 			// 经验
 			let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
 			this.lbl_expDes.text = s.dwexp + '/' + expMax;
-			this.img_exp.width = this.img_expBg.width * Math.max(s.dwexp / expMax, 1);
+			this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
+			if(s.dwexp >=expMax){
+				this.canLvUp = true;
+			}
 			// logo
 			this.ui_item.setData(configID);
 
@@ -45,7 +65,11 @@ module view.wuXue {
 			});
 			// 升级
 			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
-				let expMax = SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(this.item.configID);
+				// let expMax = SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(this.item.configID);
+				if(this.canLvUp){
+					
+				}
+
 			});
 			// 穿戴或者卸下
 			this.btn_dress.on(Laya.UIEvent.CLICK, this, () => {

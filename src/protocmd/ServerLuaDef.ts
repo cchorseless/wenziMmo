@@ -171,6 +171,8 @@ module ProtoCmd {
     // 罡气进阶
     export const JS_advancePlayerWing = 'advancePlayerWing';
     /********************************武学界面***************** */
+    //武学界面刷新
+    export const WX_upData = "WX_upData"
     //武学戾气面板
     export const WX_warSoulPanel = 'warSoulPanel';
     //武学戾气兑换魂力
