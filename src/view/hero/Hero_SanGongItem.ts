@@ -3,6 +3,7 @@ module view.hero {
 	export class Hero_SanGongItem extends ui.hero.Hero_SanGongItemUI {
 		constructor() {
 			super();
+			this.addEvent();
 		}
 		//当前经验-最大经验
 		public exp;
@@ -13,12 +14,13 @@ module view.hero {
 		//玩家等级总数
 		private mySum;
 		//判断是第几个弟子
-		private index;
-		public setData(index): void {
-			this.index = index+1;
+		private job;
+		public setData(job): void {
+			this.job = job;
+			let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
 			this.vbox_left['sortItem'] = (items) => { };
 			this.vbox_right['sortItem'] = (items) => { };
-			this.addEvent();
+
 			this.activation();
 		}
 		public addEvent(): void {
@@ -85,11 +87,10 @@ module view.hero {
 					this.img_progress.width = 472;
 				}
 				if (jsonData.effid !== 0) {
-					let job = GameApp.GameEngine.HeroInfo[this.index].JOB;
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
 					let attribute1 = shuxing1.des;
-					let battle1 = shuxing1.battle[job];
+					let battle1 = shuxing1.battle[this.job];
 					this.clip_power1.value = '' + battle1;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
@@ -100,7 +101,7 @@ module view.hero {
 					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
 					let shuxing2 = GameUtil.parseEffectidToString('' + id)
 					let attribute2 = shuxing2.des;
-					let battle2 = shuxing2.battle[job];
+					let battle2 = shuxing2.battle[this.job];
 					this.clip_power2.value = '' + battle2;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
@@ -129,13 +130,13 @@ module view.hero {
 				let _itemUI1 = new view.compart.DaoJuWithNameItem();
 				let itemInfo1 = new ProtoCmd.ItemBase();
 				itemInfo1.dwBaseID = jsonData.pill;
-				_itemUI1.setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_1.addChild(_itemUI1);
 				//道具2
 				let _itemUI2 = new view.compart.DaoJuWithNameItem();
 				let itemInfo2 = new ProtoCmd.ItemBase();
 				itemInfo2.dwBaseID = jsonData.superpill;
-				_itemUI2.setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_2.addChild(_itemUI2)
 			})
 			lcp.send(pkt);

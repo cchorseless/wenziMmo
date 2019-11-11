@@ -3,6 +3,16 @@
  */
 module EnumData {
     /**
+     * 平台类型
+     */
+     export enum PLATFORM_TYPE {
+        PLATFORM_TYPE_NULL      = 0,
+        PLATFORM_TYPE_WEB       = 1,
+        PLATFORM_TYPE_IOS       = 2,
+        PLATFORM_TYPE_ANDROID   = 3,
+     };
+
+    /**
     * 客户端枚举类型
     */
     export enum CLIENT_TYPE {

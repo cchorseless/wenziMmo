@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":22,
-    "selecteID":53,
+    "selectedBox":15,
+    "selecteID":21,
     "props":{"y":0,"x":0,"width":180,"sceneColor":"#c07a79","height":240},
     "nodeParent":-1,
     "label":"View",
@@ -66,7 +66,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","height":145,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                            "props":{"y":9,"x":-1,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","height":145,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
                             "nodeParent":15,
                             "label":"Label(lbl_name)",
                             "isDirectory":false,
@@ -104,31 +104,17 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":175,"x":20,"skin":"image/common/img_yinying.png"},
-                            "nodeParent":29,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":51,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Box",
-                            "props":{"y":-1,"x":113},
+                            "props":{"y":-1,"x":113,"width":38,"height":37},
                             "nodeParent":29,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":19,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":34,"x":5,"width":15,"skin":"image/common/battle/img_mpBg.png","height":30,"anchorY":1},
                                     "nodeParent":19,
@@ -141,7 +127,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":34,"x":5,"width":15,"var":"img_Mp","skin":"image/common/battle/img_mp.png","height":30,"anchorY":1},
                                     "nodeParent":19,
@@ -154,7 +139,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":4,"x":33,"width":15,"skin":"image/common/battle/img_neiLiBg.png","height":30,"anchorX":1},
                                     "nodeParent":19,
@@ -168,7 +152,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":34,"x":18,"width":15,"var":"img_neiGong","skin":"image/common/battle/img_neiLi.png","height":30,"anchorY":1},
                                     "nodeParent":19,
@@ -181,7 +164,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":1,"x":-1,"width":36,"skin":"image/common/battle/img_frame0.png","height":36},
                                     "nodeParent":19,
@@ -194,12 +176,13 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":25,"width":130,"var":"lbl_chengHao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
+                    "props":{"y":3,"x":25,"width":130,"var":"lbl_chengHao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
                     "nodeParent":22,
                     "label":"Label(lbl_chengHao)",
                     "isDirectory":false,
@@ -212,7 +195,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":57,"x":43,"var":"img_playerAva","skin":"image/common/nv01_small.png"},
+                    "props":{"y":56,"x":44,"width":93,"var":"img_playerAva","skin":"image/common/nv01_small.png","height":150},
                     "nodeParent":22,
                     "label":"Image(img_playerAva)",
                     "isDirectory":false,
@@ -247,6 +230,19 @@
                             "child":[
                                 ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":196,"x":36,"skin":"image/common/img_yinying.png"},
+                    "nodeParent":22,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":51,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],

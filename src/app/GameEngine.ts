@@ -2,7 +2,6 @@
 class GameEngine extends SingletonClass {
 
     public IsDebug = true;      //tru 日志打印 false 去日志打印
-    public IsSDKLogin = false;   //true SDK登录 false 内部登录
     /*********************用户基础信息**********************/
     public userInfo: any;                                                         //第三方登陆数据
     public name: string;                                                          //昵称
@@ -14,7 +13,7 @@ class GameEngine extends SingletonClass {
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
-    public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
+    public connectIP: string = (true) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
     public trueZoneid: number = 1;
     public serverName: string = '测试服'
@@ -64,20 +63,11 @@ class GameEngine extends SingletonClass {
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
     /************************弟子基本信息************ */
-    public HeroInfo = {};
+
     /************************当前出战弟子信息************ */
+    // public HeroInfo = {};
     public GMlvl = {};//GM等级
-    public heroJob = {};//弟子职业
-    public heroSex = {};//弟子性别
-    public jueseZhuanShengLvl = {};//角色转生等级
-    public heroZhuanShengLvl = {};//弟子转生等级
-    public heroLvl = {};//英雄等级
-    public heroType = {};      //英雄状态
-    public heroLifeTime = {};   //英雄复活时间戳
-    /************************弟子属性************ */
-    public warriorAbility: GameObject.Ability = new GameObject.Ability();//战士能力信息
-    public masterAbility: GameObject.Ability = new GameObject.Ability();//法师能力信息
-    public taoistAbility: GameObject.Ability = new GameObject.Ability();//道士能力信息
+    
     /************************抽奖相关信息************ */
     public luckDrawType: boolean = false//幸运抽奖自动抽奖状态
     /************************对白信息************ */

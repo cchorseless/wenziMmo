@@ -3,41 +3,42 @@ module view.hero {
 	export class Hero_GangQiItem extends ui.hero.Hero_GangQiItemUI {
 		constructor() {
 			super();
+			this.initUI();
+			this.addEvent();
 		}
 		private client_func_index = 55;// 功能ID编号
-		//判断是第几个弟子
-		private index;
-		public setData(i): void {
-			this.index = i + 1;
+
+		public initUI(): void {
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
 			this.vbox_right['sortItem'] = (items) => { };
+			this.init_GangQIInfo();
+		}
+
+		//判断是第几个弟子
+		private job;
+		public setData(job): void {
+			this.job = job;
+			// 判断是否解锁
+			if (GameApp.MainPlayer.heroObj(this.job).lockState != 2) { return };
 			this.wingInfo();
-			this.addEvent();
+
 		}
 		public wingInfo(): void {
 			//判断翅膀是否存在（存在则已激活）
-			if (this.getItemInfo()) {
+			let wing = this.getItemInfo();
+			if (wing) {
 				this.vstack_gangqi.selectedIndex = 1;
-				this.init_baseInfo(this.getItemInfo());
+				this.init_baseInfo(wing);
 				this.init_gangqi();
-				this.addLcpEvent();
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
 				this.notActivation();
 			}
 		}
-		/**
-	    * 未激活时
-	    */
-		public notActivation(): void {
-			let id = this.client_func_index + 1000;
-			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
-			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 
-		}
 		//查找自己身上的翅膀
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_HERO_WING)
@@ -49,6 +50,29 @@ module view.hero {
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_upLevel();
 			})
+			this.addLcpEvent();
+		}
+
+		public addLcpEvent(): void {
+			//拉取我的罡气物品信息
+			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
+				//升星所需消耗的金币数量
+				this.lbl_use.text = '' + jsonData.gold;
+			})
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_heroWingPanel, this);
+			super.destroy(isbool);
+		}
+
+		/**
+	* 未激活时
+	*/
+		public notActivation(): void {
+			let id = this.client_func_index + 1000;
+			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
+			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+
 		}
 		//激活
 		public init_JiHuo(): void {
@@ -80,11 +104,10 @@ module view.hero {
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
-			let job = GameApp.GameEngine.HeroInfo[this.index].JOB;
 			//当前属性
 			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
 			let attribute1 = shuxing1.des;
-			let battle1 = shuxing1.battle[job];
+			let battle1 = shuxing1.battle[this.job];
 			this.clip_power1.value = '' + battle1;
 			let keys1 = Object.keys(attribute1)
 			this.vbox_left.removeChildren();
@@ -98,25 +121,13 @@ module view.hero {
 			this.lbl_name2.text = '' + xgangqiName;
 			let shuxing2 = GameUtil.parseEffectidToString('' + xiajieID)
 			let attribute2 = shuxing2.des;
-			let battle2 = shuxing2.battle[job];
+			let battle2 = shuxing2.battle[this.job];
 			this.clip_power2.value = '' + battle2;
 			let keys2 = Object.keys(attribute2)
 			this.vbox_right.removeChildren();
 			for (let key of keys2) {
 				this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
 			}
-		}
-		public addLcpEvent(): void {
-			//拉取我的罡气物品信息
-			GameApp.LListener.on(ProtoCmd.Hero_heroWingPanel, this, (jsonData) => {
-				//升星所需消耗的金币数量
-				this.lbl_use.text = '' + jsonData.gold;
-			})
-			this.init_GangQIInfo();
-		}
-		public destroy(isbool): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_heroWingPanel, this);
-			super.destroy(isbool);
 		}
 
 		/**
@@ -125,8 +136,7 @@ module view.hero {
 		public init_GangQIInfo(): void {
 			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
-				let j = i + 1;
-				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));
+				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(i));
 			}
 		}
 		//罡气信息拉取发包

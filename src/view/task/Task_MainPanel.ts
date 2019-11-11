@@ -5,6 +5,7 @@ module view.task {
 			super();
 		}
 		public setData(): void {
+			this.btn_juQingTask.selected=true;
 			this.panel_zhiXian.vScrollBarSkin = '';
 			this.vbox_zhiXian['sortItem'] = (items) => { };
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {

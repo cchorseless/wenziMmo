@@ -6,6 +6,7 @@ module view.fuBen {
 		}
 
 		public setData(): void {
+			this.btn_xianShi.selected=true;
 			this.panel_xianshi.vScrollBarSkin = '';
 			this.vbox_xianshi['sortItem'] = (items) => { };
 			this.addEvent();

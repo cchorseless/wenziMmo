@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":2,
     "props":{"width":627,"sceneColor":"#844544","height":610},
     "nodeParent":-1,
     "label":"Dialog",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"58,59,70,54","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"top":0,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"58,59,70,54","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -70,17 +70,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":85,"x":45,"width":150,"var":"img_npcBg","skin":"image/common/img_npv_di.png","height":193},
+            "props":{"y":103,"x":45,"width":150,"var":"img_npcBg","skin":"image/common/img_npv_di.png","height":193},
             "nodeParent":1,
             "label":"Image(img_npcBg)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-4,"x":-3,"width":156,"skin":"image/common/img_npv_kuang.png","height":200},
                     "nodeParent":4,
@@ -94,7 +93,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":42,"x":2,"var":"img_npcPic","skin":"image/common/npc/npc_half_1001.png"},
                     "nodeParent":4,

@@ -21,7 +21,7 @@ module view.npc {
 			let nickName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_NICKNAME(configId);
 			if (nickName != '0') { this.lbl_nickname.text = '(' + nickName + ')'; }
 			let commonName = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME(configId);
-			this.lbl_npcName.text = commonName;
+			this.lbl_npcName.text = commonName.split('_')[0];
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {

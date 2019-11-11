@@ -148,6 +148,34 @@ module LangConfig {
     }
 
     /**
+     * 声望等级描述,热更的数据
+     */
+    export let Fametitletab = {
+        0: { name: "默默无闻", fame: 0 },
+        1: { name: "声名不显", fame: 30000 },
+        2: { name: "小有名气", fame: 120000 },
+        3: { name: "声名鹊起", fame: 250000 },
+        4: { name: "名噪一时", fame: 500000 },
+        5: { name: "赫赫有名", fame: 850000 },
+        6: { name: "闻名遐迩", fame: 1300000 },
+        7: { name: "大名鼎鼎", fame: 1850000 },
+        8: { name: "威名远播", fame: 2500000 },
+        9: { name: "名震四海", fame: 3250000 },
+        10: { name: "震古烁今", fame: 4000000 }
+    }
+    /**
+     * 获取声望描述
+     * @param nowfame 当前声望
+     */
+    export function getFameDes(nowfame): string {
+        for (let i = 0; LangConfig.Fametitletab[i]; i++) {
+            if (LangConfig.Fametitletab[i].fame > nowfame) {
+                return LangConfig.Fametitletab[i - 1].name
+            }
+        }
+    }
+
+    /**
      * 装备部位描述
      */
     export const emEquipPositionDes = {
@@ -279,6 +307,37 @@ module LangConfig {
         NONPAREIL_TYPE_UATOPLAYER: '合击对人增伤率:',
         NONPAREIL_TYPE_UPCOMBOSKILLLEVEL: ' 合计技能提升等级:',
         NONPAREIL_TYPE_MAXCOUNT: '生命百分比:',
+    }
+
+    /**
+     * 符文套装描述
+     */
+    export const emEffectFuWenDes = {
+        290103: '合击技能对怪物伤害<font color="#00ff00">+200%</font>',
+        290105: '合击技能对玩家和英雄伤害<font color="#00ff00">+20%</font>',
+        290108: '合击技能回满时间降至<font color="#00ff00">45秒</font>',
+        290203: '合击技能对怪物伤害<font color="#00ff00">+400%</font>',
+        290205: '合击技能对玩家和英雄伤害<font color="#00ff00">+40%</font>',
+        290208: '合击技能回满时间降至<font color="#00ff00">41秒</font>',
+        290303: '合击技能对怪物伤害<font color="#00ff00">+600%</font>',
+        290305: '合击技能对玩家和英雄伤害<font color="#00ff00">+60%</font>',
+        290308: '合击技能回满时间降至<font color="#00ff00">38秒</font>',
+        290403: '合击技能对怪物伤害<font color="#00ff00">+800%</font>',
+        290405: '合击技能对玩家和英雄伤害<font color="#00ff00">+80%</font>',
+        290408: '合击技能回满时间降至<font color="#00ff00">35秒</font>',
+        290503: '合击技能对怪物伤害<font color="#00ff00">+1000%</font>',
+        290505: '合击技能对玩家和英雄伤害<font color="#00ff00">+100%</font>',
+        290508: '合击技能回满时间降至<font color="#00ff00">33秒</font>',
+        290603: '合击技能对怪物伤害<font color="#00ff00">+1200%</font>',
+        290605: '合击技能对玩家和英雄伤害<font color="#00ff00">+120%</font>',
+        290608: '合击技能回满时间降至<font color="#00ff00">31秒</font>',
+        290703: '合击技能对怪物伤害<font color="#00ff00">+1400%</font>',
+        290705: '合击技能对玩家和英雄伤害<font color="#00ff00">+140%</font>',
+        290708: '合击技能回满时间降至<font color="#00ff00">29秒</font>',
+        290803: '合击技能对怪物伤害<font color="#00ff00">+1600%</font>',
+        290805: '合击技能对玩家和英雄伤害<font color="#00ff00">+160%</font>',
+        290808: '合击技能回满时间降至<font color="#00ff00">27秒</font>',
+
     }
 
 

@@ -66,9 +66,7 @@ module view.hero {
 
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_close.on(Laya.UIEvent.CLICK, this,this.onclose)
 			//符文交换卸下交换符文
 			this.box_exchange1.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.box_exchange1._childs.length > 0) {
@@ -105,7 +103,6 @@ module view.hero {
 			for (let i = 1; i < 9; i++) {
 				this['img_part_' + i].on(Laya.UIEvent.CLICK, this, () => {
 					new view.hero.Hero_RunePartDialog().setData().popup();
-
 				})
 			}
 			this.btn_all.on(Laya.UIEvent.CLICK, this, () => {
@@ -122,7 +119,12 @@ module view.hero {
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
 				let id3 = suitID + 8;
-				// let bossHurt1 = SheetConfig.mydb_effect_base_tbl.getInstance(null).SUIT_EFFICTID('' + id1);
+				let bossHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id1);
+				this.lbl_value1.text='合击对怪物伤害+'+bossHurt;
+				let personHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOPLAYER('' + id2);
+				this.lbl_value2.text='合击对玩家和弟子伤害+'+personHurt;
+				// let HurtTime = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id3);
+				// this.lbl_value2.text='合击技能回满时间降至'+personHurt;
 				console.log('======>效果id', suitID)
 				for (let j = 1; j < 9; j++) {
 					this['img_part_' + j].skin = 'image/common/daoju/itemicon_' + itemID + '.png';
@@ -130,14 +132,10 @@ module view.hero {
 				}
 			})
 		}
-		// public destroy(isbool): void {
-		// 	GameApp.LListener.offCaller(ProtoCmd.Hero_openActiveRunePanel, this);
-		// 	super.destroy(isbool);
-		// }
-		// public Dispose(): void {
-		// 	GameApp.LListener.offCaller(ProtoCmd.Hero_openActiveRunePanel, this);
-		// 	PopUpManager.Dispose(this);
-		// }
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_openActiveRunePanel, this);
+			this.close();
+		}
 		// 符文面板发协议
 		public init_ranePanel(): void {
 			let pkt = new ProtoCmd.QuestClientData;
@@ -153,8 +151,6 @@ module view.hero {
 			console.log('=====>装备装备', EquipIn)
 			let bag = GameUtil.findFuWenInBag();
 			let keys = Object.keys(bag);
-			// let sum = (bag.length + EquipIn.dwCount) / 6
-			// let group = Math.ceil(sum);
 			this.vbox_rune1.removeChildren();
 			this.vbox_rune2.removeChildren();
 			this.vbox_rune3.removeChildren();

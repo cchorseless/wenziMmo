@@ -4,23 +4,36 @@ module view.hero {
 		constructor() {
 			super();
 		}
-		//弟子索引
-		public index;
-		public setData(index): void {
+		//弟子职业
+		public curJob;
+		public setData(job): void {
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_left.selectedIndex = index;
-				if (index == 0) {
-					this.img_bg.visible = true;
-				}
+				this.img_bg.visible = (index == 0);
 			}, null, false);
-			this.index = index;
+			this.updateIcon();
+			this.updateUI(job);
 			this.addEvent();
-			this.init_event();
-			this.ui_diziInfo.baseInfo(index);
-			this.ui_equipProps.baseInfo(index);
-			this.ui_gangqi.setData(index);
-			this.ui_sangong.setData(index);
 		}
+
+		public updateUI(job: EnumData.JOB_TYPE) {
+			this.curJob = job;
+			for (let j = 1; j < 4; j++) {
+				this['btn_dizi' + j].selected = (job == j);
+			}
+			this.tab_left.selectedIndex = 0;
+			// 判断是否激活
+			// 是否已经激活
+			let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
+			this.tab_left.mouseEnabled = hasActive;
+			if (hasActive) {
+				this.ui_equipProps.setData(job);
+				this.ui_gangqi.setData(job);
+				this.ui_sangong.setData(job);
+			}
+			this.ui_diziInfo.setData(job);
+		}
+
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
@@ -31,36 +44,23 @@ module view.hero {
 			EventManage.onWithEffect(this.btn_player, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJueSePanel();
 			})
-			for (let i = 0; i < 3; i++) {
+
+			for (let i = 1; i < 4; i++) {
 				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
-					PanelManage.openDiZiPanel(i);
-					this.ui_diziInfo.baseInfo(i);
-					this.ui_equipProps.baseInfo(i);
-					this.ui_gangqi.setData(i);
-					this.ui_sangong.setData(i);
-					GameApp.GameEngine.mainPlayer.playerORHero = i + 1;
-					this.tab_left.selectedIndex=this.viw_left.selectedIndex = 0;
+					this.updateUI(i);
 				})
 			}
 		}
-		/**
-        * 初始化ICON
-        */
-		public init_event(): void {
-			//我的头像
-			this.img_my.skin = LangConfig.getPlayerIconSkin()
+		public updateIcon(): void {
+			this.img_my.skin = LangConfig.getPlayerIconSkin();
 			//弟子头像
-			let heroSex;
-			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
-				heroSex = EnumData.SEX_TYPE.SEX_WOMEN;
-			}
-			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_WOMEN) {
-				heroSex = EnumData.SEX_TYPE.SEX_MAN;
-			}
-			for (let i = 1; i < 4; i++) {
-				this['img_di' + i].skin = LangConfig.getPlayerIconSkin(heroSex, GameApp.GameEngine.HeroInfo[i].JOB);
-
-			}
+			let heroSex = GameApp.MainPlayer.heroSex;
+			// 战士
+			this.img_di1.skin = LangConfig.getPlayerIconSkin(heroSex, EnumData.JOB_TYPE.JOB_WARRIOR);
+			// 法师
+			this.img_di2.skin = LangConfig.getPlayerIconSkin(heroSex, EnumData.JOB_TYPE.JOB_MAGE);
+			// 道士
+			this.img_di3.skin = LangConfig.getPlayerIconSkin(heroSex, EnumData.JOB_TYPE.JOB_MONK);
 		}
 
 	}

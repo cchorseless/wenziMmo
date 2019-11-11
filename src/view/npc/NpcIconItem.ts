@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.compart {
-	export class NpcIconItem extends ui.compart.NpcIconItemUI {
+module view.npc {
+	export class NpcIconItem extends ui.npc.NpcIconItemUI {
 		constructor() {
 			super();
 		}

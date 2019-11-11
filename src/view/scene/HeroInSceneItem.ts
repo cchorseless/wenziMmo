@@ -8,10 +8,11 @@ module view.scene {
 		public item: GameObject.Hero;
 		public setData(item: GameObject.Hero): void {
 			this.item = item;
-			this.item.ui_item = this as any;
+			this.item.ui_item = this;
+			// 名字
 			this.lbl_name.text = this.item.objName;
-			// 绑定玩家与英雄
-			GameApp.MainPlayer.curHero = item;
+			// skin
+			this.img_heroAva.skin = LangConfig.getPlayerAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
 			// this._skeGroup.loadRes([item.skeBoneRes], () => {
 			// 	this.box_view.addChild(this._skeGroup);
 			// 	this._skeGroup.pos(this.width * 0.5, this.height * 0.5);

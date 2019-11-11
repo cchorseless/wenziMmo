@@ -87,6 +87,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretLevelUp), this, this.cretLevelUp);
         // 场景内角色战斗属性包 23b
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAbility), this, this.cretAbility);
+        // 更新弟子和角色属性
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateCurHeroInfo), this, this.updateHeroInfo);
         // 玩家战斗属性包 249
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPlayerAbility), this, this.cretPlayerAbility);
         // 玩家经济属性包 240
@@ -135,8 +137,7 @@ class ServerListener extends SingletonClass {
         // 客户端本地设置 2aa
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.ClientSetData), this, this.clientSetData);
         /***********************************弟子相关信息********************************* */
-        // 是否有弟子
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdatePlayerInfo), this, this.haveDizi);
+
 
         /***********************************任务信息*************************************** */
         // 监听任务信息
@@ -339,7 +340,6 @@ class ServerListener extends SingletonClass {
      */
     public mapCreateCret(data: any): void {
         let msgData = new ProtoCmd.MapCreateCret(data);
-        // let msgData = ProtoCmd.MapCreateCret.create(data);
         let type = msgData.feature.getValue('btCretType');
         let szShowName = msgData.getValue('szShowName');
         let obj: GameObject.Creature;
@@ -347,20 +347,39 @@ class ServerListener extends SingletonClass {
             // npc
             case EnumData.CRET_TYPE.CRET_NPC:
                 obj = new GameObject.Npc();
-                obj.objName = obj.filterName(szShowName);
                 break;
             // 怪物
             case EnumData.CRET_TYPE.CRET_MONSTER:
                 obj = new GameObject.Monster();
-                obj.objName = obj.filterName(szShowName);
                 break;
             // 英雄
             case EnumData.CRET_TYPE.CRET_HERO:
-                obj = new GameObject.Hero();
-                obj.objName = obj.filterName(szShowName);
+                // 判断是否是自己
+                let masterId = msgData.feature.dwMasterTmpID;
+                // 是自己不用创建
+                if (masterId == GameApp.MainPlayer.tempId) {
+                    switch (msgData.feature.simpleFeature.job) {
+                        // 战士
+                        case EnumData.JOB_TYPE.JOB_WARRIOR:
+                            obj = GameApp.MainPlayer.hero1;
+                            break;
+                        // 法师
+                        case EnumData.JOB_TYPE.JOB_MAGE:
+                            obj = GameApp.MainPlayer.hero2;
+                            break;
+                        // 道士
+                        case EnumData.JOB_TYPE.JOB_MONK:
+                            obj = GameApp.MainPlayer.hero3;
+                            break;
+                    }
+                }
+                // 其他玩家需要创建
+                else {
+                    obj = new GameObject.Hero();
+                }
                 break;
-
         }
+        obj.objName = obj.filterName(szShowName);
         // feature 信息
         obj.feature.clone(msgData.feature.data);
         // 位置  信息
@@ -408,14 +427,14 @@ class ServerListener extends SingletonClass {
         let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
 
-        let player: GameObject.Player;
+        let player;
         // 玩家自己
         if (GameApp.MainPlayer.tempId == tempId) {
             player = GameApp.MainPlayer;
         }
         // 其他玩家
         else {
-            player = new GameObject.Player();
+            player = new GameObject.OtherPlayer();
         }
         // 更新其他信息
         player.tempId = tempId;
@@ -436,7 +455,6 @@ class ServerListener extends SingletonClass {
         // 这里可以拉取数据
         if (player.isMainPlayer) {
             console.log('====自己进入了地图====');
-
         }
         // 其他玩家进入地图，添加到玩家视野中,不包括自己
         else {
@@ -777,12 +795,12 @@ class ServerListener extends SingletonClass {
     public cretExpChange(data: any): void {
         let msg = new ProtoCmd.CretExpChange(data);
         let type: EnumData.eEXP_VALUE_TYPE = msg.getValue('nType');
-        let nowExp = msg.getValue('i64Exp');
+        let nowExp = msg.getValue('i64Exp').int64ToNumber();;
         let addExp = (msg.getValue('dwAdd') as ProtoCmd.Int64).int64ToNumber();
         switch (type) {
             // 更新角色经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PLAYER:
-                GameApp.MainPlayer.changeExp(nowExp);
+                GameApp.MainPlayer.changeExp(nowExp.int64ToNumber());
                 TipsManage.showTxt('主角经验改变了' + addExp);
                 break;
             // 更新英雄经验
@@ -827,8 +845,8 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.CretLevelUp(data);
         let dwTempId = msg.getValue('dwTempId');
         let level = msg.getValue('dwLevel');
-        let i64LeftExp = msg.getValue('i64LeftExp');
-        let i64MaxExp = msg.getValue('i64MaxExp');
+        let i64LeftExp = msg.getValue('i64LeftExp').int64ToNumber();;
+        let i64MaxExp = msg.getValue('i64MaxExp').int64ToNumber();;
         let player: GameObject.Player;
         // 玩家等级改变
         if (GameApp.MainPlayer.tempId == dwTempId) {
@@ -859,6 +877,7 @@ class ServerListener extends SingletonClass {
         let dwType = msg.getValue('dwType');
         let fightPower = msg.getValue('fightPower');
         let player = GameApp.MainPlayer;
+        console.log('-cretAbility-', dwType, dwTempId);
         if (dwTempId == player.tempId) {
             switch (dwType) {
                 // 玩家
@@ -870,21 +889,24 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄战士
                 case EnumData.PlayerAndHeroType.Hero1:
-                    player.changeAbility(ability, dwType);
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER1);
-                    player.changeFight(fightPower, dwType);
+                    player.hero1.changeAbility(ability);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
+                    player.hero1.changeFight(fightPower);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄法师
                 case EnumData.PlayerAndHeroType.Hero2:
-                    player.changeAbility(ability, dwType);
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER2);
-                    player.changeFight(fightPower, dwType);
+                    player.hero2.changeAbility(ability);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
+                    player.hero2.changeFight(fightPower);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄道士
                 case EnumData.PlayerAndHeroType.Hero3:
-                    player.changeAbility(ability, dwType);
-                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER3);
-                    player.changeFight(fightPower, dwType);
+                    player.hero3.changeAbility(ability);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
+                    player.hero3.changeFight(fightPower);
+                    GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
             }
         }
@@ -909,7 +931,7 @@ class ServerListener extends SingletonClass {
     public cretCharBase(data: any): void {
         let msg = new ProtoCmd.CretCharBase(data);
         let player = GameApp.MainPlayer;
-        player.changeExp(msg.getValue('i64NowExp'), msg.getValue('i64MaxExp'));//经验
+        player.changeExp(msg.i64NowExp.int64ToNumber(), msg.i64MaxExp.int64ToNumber());//经验
         player.changeHp(msg.getValue('nNowHp'));//气血
         player.changeMp(msg.getValue('nNowMp'));//蓝量
         player.changeGold(msg.getValue('dwGold'));//金币
@@ -920,8 +942,8 @@ class ServerListener extends SingletonClass {
         player.changePkModel(msg.getValue('btPkModel'));//PK模式
         player.changeHonorNum(msg.getValue('dwHonorNum'));//荣誉积分
         player.changeGuildDedication(msg.getValue('dwGuildDedication'));//行会贡献值
-        player.changeNowFame(msg.getValue('i64Fame'));//当前声望
-        player.changeMaxTotalFame(msg.getValue('i64TotalFame'));//累计声望
+        player.changeNowFame(msg.i64Fame.int64ToNumber());//当前声望
+        player.changeMaxTotalFame(msg.i64TotalFame.int64ToNumber());//累计声望
         player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
         player.changeFight(msg.getValue('nFight'));// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
@@ -929,12 +951,48 @@ class ServerListener extends SingletonClass {
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
+        player.changeHeroMaxExp(msg.getValue('i64MaxHeroExp'));// 英雄最大经验
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();
     }
 
-
+    /**
+     * 切换弟子，更新弟子相关属性
+     * @param data 
+     */
+    public updateHeroInfo(data: any): void {
+        let msg = new ProtoCmd.UpdateCurHeroInfo(data);
+        //GM等级
+        GameApp.GameEngine.GMlvl = msg.getValue("btGmLv");
+        //英雄职业
+        let job = msg.getValue("btHeroJob");
+        //英雄性别
+        let sex = msg.getValue("btHeroSex");
+        switch (job) {
+            case EnumData.JOB_TYPE.JOB_WARRIOR:
+                GameApp.MainPlayer.curHero = GameApp.MainPlayer.hero1;
+                break;
+            case EnumData.JOB_TYPE.JOB_MAGE:
+                GameApp.MainPlayer.curHero = GameApp.MainPlayer.hero2;
+                break;
+            case EnumData.JOB_TYPE.JOB_MONK:
+                GameApp.MainPlayer.curHero = GameApp.MainPlayer.hero3;
+                break;
+        }
+        if (GameApp.MainPlayer.curHero) {
+            //英雄转生等级
+            GameObject.Hero.zslevel = msg.getValue("btHeroRlvl");
+            //英雄等级
+            GameObject.Hero.level = msg.getValue("wHeroLvl");
+            //英雄状态
+            GameApp.MainPlayer.curHero.lifestate = msg.getValue("btHeroState");
+            //英雄复活时间戳
+            GameApp.MainPlayer.curHero.rebornLeftTime = msg.getValue("dwReliveTime");
+        }
+        //角色转生等级
+        GameApp.MainPlayer.zslevel = msg.getValue("btMainRlvl");
+    }
 
 
     /*************************************聊天信息************************************ */
@@ -1619,29 +1677,8 @@ class ServerListener extends SingletonClass {
     public clientSetData(data: any): void {
 
     }
-    /**
-     * 
-     * 弟子相关     */
-    public haveDizi(data: any): void {
-        let msg = new ProtoCmd.UpdatePlayerInfo(data);
-        //GM等级
-        GameApp.GameEngine.GMlvl = msg.getValue("btGmLv");
-        //英雄职业
-        GameApp.GameEngine.heroJob = msg.getValue("btHeroJob");
-        //英雄性别
-        GameApp.GameEngine.heroSex = msg.getValue("btHeroSex");
-        //角色转生等级
-        GameApp.GameEngine.jueseZhuanShengLvl = msg.getValue("btMainRlvl");
-        //英雄转生等级
-        GameApp.GameEngine.heroZhuanShengLvl = msg.getValue("btHeroRlvl");
-        //英雄等级
-        GameApp.GameEngine.heroLvl = msg.getValue("wHeroLvl");
-        //英雄状态
-        GameApp.GameEngine.heroType = msg.getValue("btHeroState");
-        //英雄转生时间戳
-        GameApp.GameEngine.heroLifeTime = msg.getValue("dwReliveTime");
 
-    }
+
 
     /**
      * 打开界面

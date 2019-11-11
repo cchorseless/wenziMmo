@@ -56,12 +56,8 @@ module LcpEvent {
 
 
     export const UPDATE_UI_HERO_EXP: string = 'UPDATE_UI_HERO_EXP';//更新英雄经验
-    export const UPDATE_UI_HERO_POWER1: string = 'UPDATE_UI_HERO_POWER1';//更新英雄战力
-    export const UPDATE_UI_HERO_POWER2: string = 'UPDATE_UI_HERO_POWER2';//更新英雄战力
-    export const UPDATE_UI_HERO_POWER3: string = 'UPDATE_UI_HERO_POWER3';//更新英雄战力
-    export const UPDATE_UI_HERO_ABILITY1: string = 'UPDATE_UI_HERO_ABILITY1';//更新玩家战斗属性
-    export const UPDATE_UI_HERO_ABILITY2: string = 'UPDATE_UI_HERO_ABILITY2';//更新玩家战斗属性
-    export const UPDATE_UI_HERO_ABILITY3: string = 'UPDATE_UI_HERO_ABILITY3';//更新玩家战斗属性
+    export const UPDATE_UI_HERO_POWER: string = 'UPDATE_UI_HERO_POWER';//更新英雄战力
+    export const UPDATE_UI_HERO_ABILITY: string = 'UPDATE_UI_HERO_ABILITY';//更新玩家战斗属性
     export const UPDATE_UI_LIANQI_CHUANSHI_UI:string = 'UPDATE_UI_LIANQI_CHUANSHI_UI';//更新装备界面
 
 

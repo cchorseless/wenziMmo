@@ -5,6 +5,7 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
+			this.btn_juQing.selected=true;
 			this.initUI();
 			this.addEvent();
 		}

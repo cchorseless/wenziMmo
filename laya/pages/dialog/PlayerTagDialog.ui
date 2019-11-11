@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":4,
+    "selectedBox":3,
+    "selecteID":6,
     "props":{"width":480,"sceneColor":"#000000","height":360},
     "nodeParent":-1,
     "label":"Dialog",
@@ -42,9 +42,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":62,"text":"标签详解","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":5,"x":62,"var":"lbl_title","text":"标签详解","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":3,
-                    "label":"Label",
+                    "label":"Label(lbl_title)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":64,"x":448,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":39,"x":438,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,

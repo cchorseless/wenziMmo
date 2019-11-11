@@ -7,6 +7,7 @@ module view.guild {
 		public bp_id;//帮派ID
 		public setData(dwClanId): void {
 			this.bp_id = dwClanId;
+			this.btn_guild.selected=true;
 			this.panel_get.vScrollBarSkin = '';
 			this.vbox_get['sortItem'] = (items) => { };
 			this.tab_team.selectHandler = Laya.Handler.create(this, (index) => {

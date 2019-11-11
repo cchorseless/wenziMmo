@@ -5,6 +5,7 @@ module view.task {
 			super();
 		}
 		public setData(): void {
+			this.btn_achieveTask.selected=true;
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_chengjiu.selectedIndex = index;

@@ -5,6 +5,7 @@ module view.tujian {
 			super();
 		}
 		public setData(): void {
+			this.btn_jueSeTJ.selected=true;
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_top.selectedIndex = index;
 			}, null, false);

@@ -151,6 +151,7 @@ module GameObject {
 
     }
 
+
     export class Wealth {
         // 金币
         public _gold: number = 0;
@@ -222,21 +223,8 @@ module GameObject {
          * 修改战斗属性
          * @param ArpgAbility 
          */
-        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility, type: number = 0): void {
-            let ability;
-            switch (type) {
-                case 0:
-                    ability = this.ability;
-                case 1:
-                    ability = GameApp.GameEngine.warriorAbility;
-                    break;
-                case 2:
-                    ability = GameApp.GameEngine.masterAbility;
-                    break;
-                case 3:
-                    ability = GameApp.GameEngine.taoistAbility;
-                    break;
-            }
+        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility ): void {
+            let ability = this.ability;
             ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
             ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量
             ability.nMaxAttack = ArpgAbility.getValue('nMaxAttack');//攻击上限
@@ -399,26 +387,8 @@ module GameObject {
          * 战力
          * @param fight 
          */
-        public changeFight(fight: number, type = 0) {
-            if (this.isMainPlayer) {
-                ////GameApp.MainPanel.atkBtn.text = '战力:' + this.ability.nMaxAttack;
-                switch (type) {
-                    case 0:
-                        this.ability.nFight = fight;
-                        break;
-                    case 1:
-                        GameApp.GameEngine.warriorAbility.nFight = fight;
-                        break;
-                    case 2:
-                        GameApp.GameEngine.masterAbility.nFight = fight;
-                        break;
-                    case 3:
-                        GameApp.GameEngine.taoistAbility.nFight = fight;
-                        break;
-                }
-
-
-            }
+        public changeFight(fight: number) {
+            this.ability.nFight = fight;
         }
 
 

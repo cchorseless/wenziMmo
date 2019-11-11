@@ -36,9 +36,11 @@ module view.juese {
 			for (let i = 1; i < 9; i++) {
 				let o = GameApp.MainPlayer.xingGeInfo[i].id
 				this["lab_tag" + i].text = SheetConfig.Label.getInstance(null).NAME(o);
+				let imgRes = SheetConfig.Label.getInstance(null).GRADE(o);
+				this['img_tag' + i].skin = 'image/juese/tab_rw_0' + imgRes + '.png'
 			}
-			// 拉取声望
-			this.getShengWangInfo();
+			// 声望信息
+			this.lbl_shengWang.text = LangConfig.getFameDes(player.wealth.nowFame);
 			this.addEvent();
 
 		}
@@ -79,21 +81,6 @@ module view.juese {
 
 		}
 
-		/**
-		 * 获取江湖声望信息
-		 */
-		public getShengWangInfo(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
-				//我的声望头衔
-				for (let i = 0; jsonData.titletab[i]; i++) {
-					if (jsonData.prestigeid == i) {
-						this.lbl_shengWang.text = '' + jsonData.titletab[i].name;
-						break;
-					}
-				}
-			})
-			lcp.send(pkt);
-		}
+
 	}
 }
