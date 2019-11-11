@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":447,
-    "selecteID":448,
+    "selectedBox":350,
+    "selecteID":445,
     "props":{"width":640,"sceneColor":"#000000","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -247,7 +247,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-3,"x":0,"skin":"image/common/img_zhekou.png"},
+                                    "props":{"y":-4,"x":0,"skin":"image/common/img_zhekou.png"},
                                     "nodeParent":22,
                                     "label":"Image",
                                     "isOpen":true,
@@ -258,6 +258,19 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":4,"x":2,"width":87,"valign":"middle","text":"折扣","strokeColor":"#a9643b","stroke":2,"height":31,"fontSize":30,"font":"FZXK","color":"#ffffff","align":"center"},
+                                    "nodeParent":22,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":457,
+                                    "child":[
+                                        ]
                                 },
                                 {
                                     "x":60,
@@ -327,7 +340,7 @@
                                         {
                                             "x":75,
                                             "type":"Button",
-                                            "props":{"y":0,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
+                                            "props":{"y":0,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":2,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
                                             "nodeParent":449,
                                             "label":"Button(btn_refreshItem)",
                                             "isDirectory":false,
@@ -359,13 +372,14 @@
                             "props":{"y":520,"x":118,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
                             "nodeParent":416,
                             "label":"ViewStack(viw_bagBottom)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":350,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_equipInfoItem.ui",
                                     "props":{"var":"ui_equipInfo","top":0,"runtime":"view.beiBao.Bag_equipInfoItem","name":"item0","left":0},
@@ -376,9 +390,11 @@
                                     "hasChild":false,
                                     "compId":445,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_HuiShouItem.ui",
                                     "props":{"var":"ui_huiShou","top":0,"runtime":"view.beiBao.Bag_HuiShouItem","name":"item1","left":0},
@@ -393,6 +409,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_CangKuItem.ui",
                                     "props":{"x":-11,"var":"ui_cangKu","top":0,"runtime":"view.beiBao.Bag_CangKuItem","name":"item2"},
@@ -408,6 +425,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_BaiTanItem.ui",
                                     "props":{"var":"ui_tanWei","top":0,"runtime":"view.beiBao.Bag_BaiTanItem","name":"item3","left":0},
@@ -429,14 +447,13 @@
                             "props":{"y":-13,"x":5},
                             "nodeParent":416,
                             "label":"Box",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":446,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":20,"x":27,"width":158,"skin":"image/common/img_common_title.png","height":37},
                                     "nodeParent":446,
@@ -448,7 +465,6 @@
                                     "compId":447,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":3,"x":47,"width":103,"var":"lbl_bagLogolbl","text":"回收","strokeColor":"#765f42","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":447,
@@ -462,7 +478,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-7,"x":-6,"var":"btn_shop","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png"},
                                     "nodeParent":446,
@@ -475,7 +490,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":19,"x":138,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
                                     "nodeParent":446,

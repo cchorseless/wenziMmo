@@ -21,7 +21,10 @@ module view.juese {
 		private id = 7003;
 		//角色职业
 		private job = GameApp.MainPlayer.job;
+		//天赋阶数
+		public jieshu = 0;
 		private client_func_index = 14;// 功能ID编号
+		public talentName = ['悟性', '臂力', '善缘', '身法', '根骨']
 		public eventList = [ProtoCmd.JS_DragonSoulPanel, ProtoCmd.JS_ShieldPanel, ProtoCmd.JS_OfficialSealPanel, ProtoCmd.JS_BloodJadePanel, ProtoCmd.JS_MedalPanel]
 		public setData(): void {
 			if (this.hasInit) { return };
@@ -41,16 +44,17 @@ module view.juese {
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.btn_top0.selected = true;
 			this.btn_top0.alpha = 1;
-			this.btn_top0.scaleX=this.btn_top0.scaleY=1.1;
+			this.img_xiaoguo0.visible = true;
+			this.btn_top0.scaleX = this.btn_top0.scaleY = 1.1;
 			this.addEvent();
 			this.TalentInfo();
 
 		}
 		public addEvent(): void {
 			for (let i = 0; i < 5; i++) {
+				this['btn_top' + i].label = this.talentName[i]
 				this['btn_top' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.init_Initialization(i);
-					this.btn_top0.scaleX
 				});
 			}
 
@@ -75,12 +79,16 @@ module view.juese {
 		public init_Initialization(i): void {
 			for (let j = 0; j < 5; j++) {
 				this['btn_top' + j].selected = false;
+				this['img_xiaoguo' + j].visible = false;
 				this['btn_top' + j].alpha = 0.5;
-				this['btn_top' + j].scaleX=this['btn_top' + j].scaleY=1;
+				this['btn_top' + j].scaleX = this['btn_top' + j].scaleY = 1;
+				this['btn_top'+j].labelColors='#ffffff';
+				this['btn_top'+j].label=this.talentName[j];
 			}
 			this['btn_top' + i].selected = true;
 			this['btn_top' + i].alpha = 1;
-			this['btn_top' + i].scaleX=this['btn_top' + i].scaleY=1.1;
+			this['btn_top' + i].scaleX = this['btn_top' + i].scaleY = 1.1;
+			this['img_xiaoguo' + i].visible = true;
 			switch (i) {
 				case 0:
 					this.talent = ProtoCmd.JS_DragonSoulPanel;
@@ -177,7 +185,7 @@ module view.juese {
 				GameApp.LListener.on(event, this, (jsonData: ProtoCmd.itf_JS_TalentInfo) => {
 					//进度条
 					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
-					this.img_progress.width = 472 * jsonData.curscore / jsonData.score;
+					this.img_progress.height = 101 * jsonData.curscore / jsonData.score;
 					let keys = Object.keys(jsonData.itemtab);
 					//升级天赋所需物品
 					this.hbox_wupin.removeChildren();
@@ -188,10 +196,6 @@ module view.juese {
 						let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
 						itemInfo.dwBaseID = data.index;
 						itemInfo.dwCount = num;
-						//经验值
-						_itemUI.img_exp.visible = true;
-						_itemUI.lbl_exp.visible = true;
-						_itemUI.lbl_exp.text = '' + jsonData.score;
 						_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
 						this.hbox_wupin.addChild(_itemUI)
 					}
@@ -237,17 +241,19 @@ module view.juese {
 				this['btn_' + i].selected = false;
 			}
 			//星级
+			this.jieshu = data.dwLevel;
 			for (let i = 0; i < data.dwLevel; i++) {
 				let j = i + 1
 				this['btn_' + j].selected = true;
 			};
+
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
 					let wuxing = GameUtil.parseEffectidToString('' + data.dwEffId);
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
-					this.clip_power1.value = '' + battle1;
+					this.lbl_power1.text = '' + battle1;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
 					for (let key of keys1) {
@@ -259,7 +265,7 @@ module view.juese {
 					let bili = GameUtil.parseEffectidToString('' + data.dwEffId)
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
-					this.clip_power1.value = '' + battle2;
+					this.lbl_power1.text = '' + battle2;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_left.removeChildren();
 					for (let key of keys2) {
@@ -271,7 +277,7 @@ module view.juese {
 					let shanyuan = GameUtil.parseEffectidToString('' + data.dwEffId)
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
-					this.clip_power1.value = '' + battle3;
+					this.lbl_power1.text = '' + battle3;
 					let keys3 = Object.keys(attribute3)
 					this.vbox_left.removeChildren();
 					for (let key of keys3) {
@@ -283,7 +289,7 @@ module view.juese {
 					let shenfa = GameUtil.parseEffectidToString('' + data.dwEffId)
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
-					this.clip_power1.value = '' + battle4;
+					this.lbl_power1.text = '' + battle4;
 					let keys4 = Object.keys(attribute4)
 					this.vbox_left.removeChildren();
 					for (let key of keys4) {
@@ -295,7 +301,7 @@ module view.juese {
 					let gengu = GameUtil.parseEffectidToString('' + data.dwEffId)
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
-					this.clip_power1.value = '' + battle5;
+					this.lbl_power1.text = '' + battle5;
 					let keys5 = Object.keys(attribute5)
 					this.vbox_left.removeChildren();
 					for (let key of keys5) {
@@ -321,6 +327,32 @@ module view.juese {
 				}
 				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(id));
 			}
+			if (this.jieshu !== 0) {
+				let num;
+				switch (this.dangqianNum) {
+					case 1:
+						num = 4;
+						break;
+					case 2:
+						num = 0;
+						break;
+					case 3:
+						num = 3;
+						break;
+					case 4:
+						num = 1;
+						break;
+					case 5:
+						num = 2;
+						break;
+				}
+				let dangqian = this.jieshu - 1;
+				let jieshuID = this.hbox_talent._childs[dangqian].id;
+				let name = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + jieshuID);
+				this['btn_top'+num].labelColors='#f9e596';
+				this['btn_top'+num].label=name;
+				this['img_talent'+num].skin = 'image/common/daoju/itemicon_' + jieshuID + '.png';
+			}
 		}
 		/**
 		 * 下阶属性
@@ -335,7 +367,7 @@ module view.juese {
 					let wuxing = GameUtil.parseEffectidToString('' + id);
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
-					this.clip_power2.value = '' + battle1;
+					this.lbl_power2.text = '' + battle1;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
 					for (let key of keys1) {
@@ -347,7 +379,7 @@ module view.juese {
 					let bili = GameUtil.parseEffectidToString('' + id)
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
-					this.clip_power2.value = '' + battle2;
+					this.lbl_power2.text = '' + battle2;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
@@ -359,7 +391,7 @@ module view.juese {
 					let shanyuan = GameUtil.parseEffectidToString('' + id)
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
-					this.clip_power2.value = '' + battle3;
+					this.lbl_power2.text = '' + battle3;
 					let keys3 = Object.keys(attribute3)
 					this.vbox_right.removeChildren();
 					for (let key of keys3) {
@@ -371,7 +403,7 @@ module view.juese {
 					let shenfa = GameUtil.parseEffectidToString('' + id)
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
-					this.clip_power2.value = '' + battle4;
+					this.lbl_power2.text = '' + battle4;
 					let keys4 = Object.keys(attribute4)
 					this.vbox_right.removeChildren();
 					for (let key of keys4) {
@@ -383,7 +415,7 @@ module view.juese {
 					let gengu = GameUtil.parseEffectidToString('' + id)
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
-					this.clip_power2.value = '' + battle5;
+					this.lbl_power2.text = '' + battle5;
 					let keys5 = Object.keys(attribute5)
 					this.vbox_right.removeChildren();
 					for (let key of keys5) {

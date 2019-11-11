@@ -39,10 +39,10 @@ module view.dialog {
 				itemInfo.dwCount = itemData.item.num;
 				itemInfo.dwBinding = itemData.item.binding;
 				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				_itemUI.lbl_exp.visible = true;
+				_itemUI.lbl_des.visible = true;
 				//获得奖励条件
-				_itemUI.lbl_exp.x = 6;
-				_itemUI.lbl_exp.text = '累计抽' + itemData.cnt + '次可获得'
+				_itemUI.lbl_des.x = 6;
+				_itemUI.lbl_des.text = '累计抽' + itemData.cnt + '次可获得'
 				this.hbox_baoxiang.addChild(_itemUI)
 			}
 			return this;

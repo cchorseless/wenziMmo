@@ -137,11 +137,11 @@ module view.zhaiYuan {
 			this.btn_intensify.label = arr[page];
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].btn_icon.gray = false;
-				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + i + ".png";
+				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
 			}
 
 			if (page == 0) {
-				this.panel_1_UI.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+				this.panel_1_UI.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 				this.panel_1_UI.img_circle.visible = false;
 				curCostNum = GameUtil.findItemInBag(this.msgData.itemid, GameApp.GameEngine.bagItemDB);
 				costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.itemid.toString())
@@ -155,7 +155,7 @@ module view.zhaiYuan {
 				this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
 
 			} else if (page == 1) {
-				this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+				this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 				this.ui_centerIcon.img_circle.visible = false;
 				this.ui_jieduan.img_circle.visible = false;
 				for (let i in this.allData.openlvl) {
@@ -177,7 +177,7 @@ module view.zhaiYuan {
 					}
 
 				}
-				curCostNum == GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
+				curCostNum = GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
 				costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.allData.openlvl[this.TouchID].item.index.toString())
 				costCount = this.allData.openlvl[this.TouchID].item.num;
 				if (curCostNum >= costCount) {
@@ -209,7 +209,7 @@ module view.zhaiYuan {
 			}
 			else if (page == 2) {
 				this.curHasActive = false;
-				let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+				let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 				this.useDataID = baseArr[this.TouchID]
 				if (this.useDataID == 15) {
 					this.useDataID = 14;
@@ -242,7 +242,7 @@ module view.zhaiYuan {
 				if (this.curHasEquip) {
 					if (this.curHasActive) {
 						this.btn_intensify.label = arr[3];
-						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 						this.img_chuanshi_equip.btn_icon.gray = false;
 						let basePos = baseArr[this.TouchID]
 						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.legednEquipPanel, [basePos], 0, this, (data) => {
@@ -260,12 +260,12 @@ module view.zhaiYuan {
 						this.lab_itemName3.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(equipArr[this.useDataID].toString())
 					} else {
 						this.btn_intensify.label = arr[1];
-						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+						this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 						this.img_chuanshi_equip.btn_icon.gray = true;
 					}
 				} else if (!this.curHasEquip) {
 					this.btn_intensify.label = arr[4];
-					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + this.TouchID + ".png";
+					this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 					this.img_chuanshi_equip.btn_icon.gray = true;
 				}
 				this.lab_cost_forge.text = ""
@@ -329,7 +329,7 @@ module view.zhaiYuan {
 		}
 		//强化
 		public onPageContent0() {
-			let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID]
 			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
 			this.lab_showForgeLevel_1.text = "";
@@ -405,7 +405,7 @@ module view.zhaiYuan {
 				this["html_soul_" + i].innerHTML = "";
 			}
 			this.lab_attact.text = "";
-			let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID];
 			let attackNum = 0;
 			if (this.type == 0) {
@@ -641,7 +641,7 @@ module view.zhaiYuan {
 				}
 
 			} else if (this.curPage == 2) {
-				let baseArr = [13, 12, 11, 17, 16, 14, 15, 19, 18, 10]
+				let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 				if (this.btn_intensify.label == "激活") {
 					this.dressEquip(this.tempItemData)
 				} else if (this.btn_intensify.label == "获取") {

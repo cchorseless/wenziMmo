@@ -7,6 +7,7 @@ module view.juese {
 		public setData(j): Person_GangQiBtnItem {
 			//罡气
 			this.lbl_name.text = '' + j;
+			this.btn_gangqi.skin='image/juese/img_gangQi_0'+j+'.png'
 			this.addEvent(j);
 			return this;
 		}

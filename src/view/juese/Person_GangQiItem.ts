@@ -70,10 +70,6 @@ module view.juese {
 					let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
 					itemInfo.dwBaseID = parseInt(key);
 					itemInfo.dwCount = num;
-					//经验值
-					_itemUI.img_exp.visible = true;
-					_itemUI.lbl_exp.visible = true;
-					_itemUI.lbl_exp.text = data.exp;
 					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
 					this['box_gangqi' + i].addChild(_itemUI);
 				}
@@ -112,7 +108,7 @@ module view.juese {
 			//当前经验/最大经验
 			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
 			//经验进度
-			this.img_progress.width = 470 * data.nValue / data.nMaxValue;
+			this.img_progress.height = 101 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
@@ -120,7 +116,7 @@ module view.juese {
 			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
 			let attribute1 = shuxing1.des;
 			let battle1 = shuxing1.battle[this.job];
-			this.clip_power1.value = '' + battle1;
+			this.lbl_power1.text = '' + battle1;
 			let keys1 = Object.keys(attribute1)
 			this.vbox_left.removeChildren();
 			for (let key of keys1) {
@@ -134,7 +130,7 @@ module view.juese {
 			let shuxing2 = GameUtil.parseEffectidToString('' + xiajieID)
 			let attribute2 = shuxing2.des;
 			let battle2 = shuxing2.battle[this.job];
-			this.clip_power2.value = '' + battle2;
+			this.lbl_power2.text = '' + battle2;
 			let keys2 = Object.keys(attribute2)
 			this.vbox_right.removeChildren();
 			for (let key of keys2) {

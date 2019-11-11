@@ -94,6 +94,8 @@ class GameEngine extends SingletonClass {
     //单个装备panel信息
     public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
 
+    public wuxueDataID = -1;
+
 
     public constructor() {
         super();

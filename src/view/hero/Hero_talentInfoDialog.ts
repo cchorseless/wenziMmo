@@ -14,7 +14,7 @@ module view.hero {
 			this.judgeEvent(data, index, i, key);
 			this.judgeType(data, index, i);
 			this.addEvent(data, index, i);
-			this.init_view(data.effidtab,i,index)
+			this.init_view(data.effidtab,i,index);
 			return this;
 		}
 		public addEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
