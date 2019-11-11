@@ -62,7 +62,12 @@ module view.wuXue {
 		}
 
 		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.WX_upData_Dialog, this, function (data) {
+				this.setData(data)
+			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.GameEngine.wuxueDataID = -1;
+				GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog,this);
 				this.close();
 			});
 			// 升级
@@ -71,14 +76,13 @@ module view.wuXue {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSkill, [this.skillID]);
 				lcp.send(pkt);
 				// }
-
 			});
 			/**
 			 * 测试技能经验值增加
 			 */
-			this.img_test.on(Laya.UIEvent.CLICK,this,function(){
-				
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID,20101,10]);
+			this.img_test.on(Laya.UIEvent.CLICK, this, function () {
+
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID, 20101, 10]);
 				lcp.send(pkt);
 			})
 			// 穿戴或者卸下
@@ -119,7 +123,7 @@ module view.wuXue {
 							for (let i = 7; i < 11; i++) {
 								if (!GameApp.MainPlayer.skillShotButton[i]) {
 									btow = i;
-									break
+									break;
 								}
 							}
 							break;

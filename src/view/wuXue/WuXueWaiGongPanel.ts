@@ -9,25 +9,18 @@ module view.wuXue {
 			this.btn_waiGong.selected = true;
 			this.initUI();
 			this.addEvent();
+			this.tab_0.selectedIndex = 0
+			this.viw_0.selectedIndex = 0;
+		}
+		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.WX_upData_Hotkeys_waigong, this);
+			GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_waigong, this);
+			PopUpManager.Dispose(this);
 		}
 		public addEvent(): void {
 			//武学界面刷新  快捷键
-			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys, this, function () {
-				for (let i = 1; i < 7; i++) {
-					this["ui_item" + i].removeItem();
-					this["ui_item" + i].lbl_buWei.text = ""
-				}
-				let keys = Object.keys(GameApp.MainPlayer.skillShotButton);
-				if (keys.length > 0) {
-					for (let key in GameApp.MainPlayer.skillShotButton) {
-						let skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
-						this.updateSkilButton(parseInt(key), skill_key.toString());
-					}
-				}
-				else {
-					this.showDefaultSkillInfo();
-				}
-				this.initSkillInfo(keys)
+			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_waigong, this, function () {
+				this.initUI();
 			})
 			for (let i = 1; i < 7; i++) {
 				this["ui_item" + i].on(Laya.UIEvent.CLICK, this, function () {
@@ -70,19 +63,23 @@ module view.wuXue {
 			//技能更换
 
 			//刷新面板
-			GameApp.LListener.on(ProtoCmd.WX_upData_panel, this, function () {
+			GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
 				this.initUI();
-			 })
+				for (let key in GameApp.MainPlayer.skillInfo) {
+					//ProtoCmd.stSkillLvlBase
+					let configid = GameApp.MainPlayer.skillInfo[key].configID
+					if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
+						GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
+					}
+				}
+			})
 
 		}
-
 		public initUI(): void {
 			for (let i = 1; i < 7; i++) {
 				this["ui_item" + i].removeItem();
-				this["ui_item" + i].lbl_buWei.text = ""
+				// this["ui_item" + i].lbl_buWei.text = ""
 			}
-			this.tab_0.selectedIndex = 0
-			this.viw_0.selectedIndex = 0;
 			this.list_0.vScrollBarSkin = '';
 			this.list_1.vScrollBarSkin = '';
 			this.list_2.vScrollBarSkin = '';
@@ -94,12 +91,12 @@ module view.wuXue {
 				this['list_' + i].array = [];
 				this['list_' + i].repeatX = 2;
 			}
-			// this.ui_item1.lbl_buWei.text = '攻击武学';
-			// this.ui_item2.lbl_buWei.text = '攻击武学';
-			// this.ui_item3.lbl_buWei.text = '攻击武学';
-			// this.ui_item4.lbl_buWei.text = '攻击武学';
-			// this.ui_item5.lbl_buWei.text = '身法武学';
-			// this.ui_item6.lbl_buWei.text = '招架武学';
+			this.ui_item1.lbl_buWei.text = '攻击武学';
+			this.ui_item2.lbl_buWei.text = '攻击武学';
+			this.ui_item3.lbl_buWei.text = '攻击武学';
+			this.ui_item4.lbl_buWei.text = '攻击武学';
+			this.ui_item5.lbl_buWei.text = '身法武学';
+			this.ui_item6.lbl_buWei.text = '招架武学';
 			for (let key in GameApp.MainPlayer.skillInfo) {
 				let _skillBase = GameApp.MainPlayer.skillInfo[key];
 				let configID = _skillBase.configID;
@@ -152,7 +149,11 @@ module view.wuXue {
 			let showDetailID = (GameApp.MainPlayer.skillShotButton[useKey]).i64Id.int64ToNumber();
 			let configID = GameApp.MainPlayer.skillInfo[showDetailID.toString()].configID;
 			let lvNum = GameApp.MainPlayer.skillInfo[showDetailID.toString()].level;
-			this.changeSkillInfo(configID, lvNum)
+			let type = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
+			if (type == 1 || type == 2 || type == 3) {
+				this.changeSkillInfo(configID, lvNum)
+			}
+
 		}
 
 
@@ -215,7 +216,6 @@ module view.wuXue {
 				}
 			}
 			this.ui_skill.setData(config);
-
 		}
 
 		/**
