@@ -81,7 +81,7 @@ module view.newServer {
 				this.hbox_boss.removeChildren();
 				for (let key of keys) {
 					let id = this.data[this.num].boss[key].bossid
-					this.hbox_boss.addChild(new view.compart.NpcIconItem().newServer_AllBoss(id))
+					this.hbox_boss.addChild(new view.npc.NpcIconItem().newServer_AllBoss(id))
 				}
 				//奖励
 				let itemKeys = Object.keys(this.data[this.num].item)
