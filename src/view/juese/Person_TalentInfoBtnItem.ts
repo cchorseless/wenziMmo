@@ -7,8 +7,6 @@ module view.juese {
 		public id;
 		public setData(id): Person_TalentInfoBtnItem {
 			this.id = id;
-			//天赋名称
-			this.lbl_name.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + id);
 			//天赋效果
 			this.btn_talent.skin = 'image/common/daoju/itemicon_' + id + '.png';
 			this.addEvent();
