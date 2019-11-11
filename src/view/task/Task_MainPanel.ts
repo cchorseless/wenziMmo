@@ -5,7 +5,7 @@ module view.task {
 			super();
 		}
 		public setData(): void {
-			this.btn_juQingTask.selected=true;
+			this.btn_juQingTask.selected = true;
 			this.panel_zhiXian.vScrollBarSkin = '';
 			this.vbox_zhiXian['sortItem'] = (items) => { };
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
@@ -21,7 +21,7 @@ module view.task {
 		public addEvent(): void {
 
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-	PanelManage.openJuQingModePanel()
+				PanelManage.openJuQingModePanel()
 			});
 
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
@@ -50,20 +50,35 @@ module view.task {
 		public initUI(): void {
 			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			if (!zhuXianInfo) {
+				this.box_null.visible = true;
 				throw new Error('没有拉取到主线任务');
 			}
-			// 任务信息
-			let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
-			// // 开始任务NPC
+			else {
+				this.box_null.visible = false;
+				// 任务信息
+				let taskInfo: ProtoCmd.stQuestInfoBase = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
+				// 任务章节
+				this.lbl_taskCharpter.text = '任务章节' + taskInfo.questname;
+				//任务进度
+				this.div_progress.innerHTML = '' + taskInfo.taskJinDu;
+				
+				var str = taskInfo.jiangli;
+				var numArr = str.match(/\d+/g)
+				
+			}
+			// 开始任务NPC
 			// this.lbl_startNpc.text = '委托人:' + taskInfo.beginnpcname;
-			// // 结束任务NPC
+			// 结束任务NPC
 			// this.lbl_finishNpc.text = '交付NPC:' + taskInfo.endnpcname;
-			// // 任务章节
-			// this.lbl_taskCharpter.text = '任务章节' + taskInfo.questsection;
-			// // 任务描述
+			// 任务描述
 			// this.div_taskDes.innerHTML =  taskInfo.targetdes;
 			// 任务目标
 			// this.lbl_taskTarget.text = '任务目标:' + taskInfo.targetdes;
+			//任务说明
+			this.div_des.style.fontSize = 22;
+			this.div_des.style.color = '#63491a';
+			// this.div_des.innerHTML = '任务目标:' + taskInfo.targetdes;
+
 		}
 	}
 }
