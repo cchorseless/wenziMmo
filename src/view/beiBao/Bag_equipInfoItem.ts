@@ -6,11 +6,20 @@ module view.beiBao {
 			this.setData();
 		}
 		public setData(): void {
-			this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
+			// this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
 				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + i + '.png';
 			}
+			this.ui_tab0.img_icon.skin = 'image/common/icon_nan01.png';
+			this.ui_tab1.img_icon.skin = 'image/common/icon_nv01.png';
+			this.ui_tab2.img_icon.skin = 'image/common/icon_nv03.png';
+			this.ui_tab3.img_icon.skin = 'image/common/icon_nv02.png';
+			this.ui_tab0.img_circle.visible = true;
+			this.ui_tab1.img_circle.visible = false;
+			this.ui_tab2.img_circle.visible = false;
+			this.ui_tab3.img_circle.visible = false;
+
 
 
 			this.updateUI();
@@ -19,8 +28,21 @@ module view.beiBao {
 
 		public addEvent(): void {
 			this.addLcpEvent();
+			for (let i = 0; i < 4; i++) {
+				this["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.reSetState(i)
+					this.updateUI();
+				})
+			}
 		}
-
+		public reSetState(id) {
+			for (let i = 0; i < 4; i++) {
+				this["ui_tab" + i].img_circle.visible = false
+				if (i == id) {
+					this["ui_tab" + i].img_circle.visible = true
+				}
+			}
+		}
 		public addLcpEvent(): void {
 			// GameApp.LListener.on( )
 		}
@@ -32,7 +54,7 @@ module view.beiBao {
 			}
 			let small_index;
 			let big_index;
-			switch (this.tab_0.selectedIndex) {
+			switch (GameApp.GameEngine.mainPlayer.playerORHero) {
 				// 玩家自己
 				case 0:
 					big_index = EnumData.emEquipPosition.EQUIP_BELT;
