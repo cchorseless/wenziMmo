@@ -15,7 +15,7 @@ module view.juese {
 				this['btn_equip' + i].label = arr[i];
 				this['btn_equip' + i].selected = false;
 			}
-			this.lab_result_intensify.text = "所有装备位强化:"+this.curEquipLv + "(" + this.onShowIntensifyNum() + "/10)";
+			this.lab_result_intensify.text = "所有装备位强化:" + this.curEquipLv + "(" + this.onShowIntensifyNum() + "/10)";
 			let effid: number;
 			for (let i in this.allData.sooulchaintab) {
 				if (lv >= this.allData.sooulchaintab[i].minlvl && lv >= this.allData.sooulchaintab[i].maxlvl) {
@@ -31,6 +31,12 @@ module view.juese {
 				this["lab_name" + i].text = str1
 				this["lab_effect" + i].text = str2
 			}
+			this.addEvent();
+		}
+		public addEvent(): void {
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				this.close();
+			})
 		}
 		private onLvIntensify(): number {
 

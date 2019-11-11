@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":54,
+    "selecteID":70,
     "props":{"width":472,"sceneColor":"#ffffff","height":423,"alpha":1},
     "nodeParent":-1,
     "label":"Dialog",
@@ -173,6 +173,32 @@
         },
         {
             "x":15,
+            "type":"Button",
+            "props":{"y":192,"x":376,"width":80,"var":"btn_equip9","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
+            "nodeParent":1,
+            "label":"Button(btn_equip9)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":71,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":139,"x":376,"width":80,"var":"btn_equip4","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服","height":43},
+            "nodeParent":1,
+            "label":"Button(btn_equip4)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":70,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Image",
             "props":{"y":257,"x":12,"width":450,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"10,10,28,40","height":121,"alpha":0.7},
             "nodeParent":1,
@@ -260,32 +286,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":69,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":139,"x":376,"width":80,"var":"lab_equip4","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
-            "nodeParent":1,
-            "label":"Button(lab_equip4)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":70,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":192,"x":376,"width":80,"var":"lab_equip9","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
-            "nodeParent":1,
-            "label":"Button(lab_equip9)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":71,
             "child":[
                 ]
         },
