@@ -223,7 +223,9 @@ module ResData {
             // 装备合成
             { url: 'json/Synthesis.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Synthesis },
             // Vip描述
-            { url: 'json/VIP_Content.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.VIP_Content }
+            { url: 'json/VIP_Content.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.VIP_Content },
+            // 弟子信息描述
+            { url: 'json/HeroInfoSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.HeroInfoSheet },
 
         ];
     }
