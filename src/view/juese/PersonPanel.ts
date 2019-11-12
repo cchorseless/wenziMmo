@@ -28,14 +28,14 @@ module view.juese {
 					PanelManage.openDiZiPanel(job);
 				})
 			}
-			this.addLcpEvent();
+
 		}
 
-		/**
-		 * 初始化弟子基本信息
-		 */
-		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: { [v: string]: ProtoCmd.itf_Hero_BaseInfo }) => {
+
+		//弟子基本信息发协议
+		public init_Dizi(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_HeroBaseInfo, null, null, this, (jsonData: { [v: string]: ProtoCmd.itf_Hero_BaseInfo }) => {
 				// 更新弟子状态
 				for (let i = 1; i < 4; i++) {
 					switch (jsonData[i].JOB) {
@@ -50,16 +50,7 @@ module view.juese {
 							break;
 					}
 				}
-			})
-		}
-		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);
-			PopUpManager.Dispose(this);
-		}
-		//弟子基本信息发协议
-		public init_Dizi(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_HeroBaseInfo);
+			});
 			lcp.send(pkt);
 		}
 

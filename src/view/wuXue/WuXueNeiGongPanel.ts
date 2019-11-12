@@ -6,12 +6,26 @@ module view.wuXue {
 		}
 		private value;
 		public setData(): void {
-			this.btn_neiGong.selected=true;
+			this.btn_neiGong.selected = true;
 			this.initUI();
 			this.addEvent();
 			this.init_jingluo();
 		}
 		public addEvent(): void {
+			//刷新面板
+			GameApp.LListener.on(ProtoCmd.WX_upData_panel_neigong, this, function () {
+				this.initUI();
+				for (let key in GameApp.MainPlayer.skillInfo) {
+					//ProtoCmd.stSkillLvlBase
+					let configid = GameApp.MainPlayer.skillInfo[key].configID
+					if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
+						GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
+					}
+				}
+			})
+			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_neigong, this, function () {
+				this.initUI()
+			})
 			// 模式切换
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
@@ -39,13 +53,80 @@ module view.wuXue {
 		}
 
 		public initUI(): void {
+			for (let i = 7; i < 11; i++) {
+				this["ui_item" + i].removeItem();
+				// this["ui_item" + i].lbl_buWei.text = "";
+				this["lbl_des" + i].text = "效率:0点/min";
+			}
 			this.ui_item7.lbl_buWei.text = '内功武学';
 			this.ui_item8.lbl_buWei.text = '内功武学';
 			this.ui_item9.lbl_buWei.text = '内功武学';
 			this.ui_item10.lbl_buWei.text = '内功武学';
 			// 动画
 			this.changeWidthTw()
+			//list
+			this.list_0.vScrollBarSkin = '';
+			this.list_0.itemRender = view.wuXue.WuXue_InfoItem
+			this.list_0.array = [];
+			this.list_0.repeatX = 2;
+			for (let key in GameApp.MainPlayer.skillInfo) {
+				let _skillBase = GameApp.MainPlayer.skillInfo[key];
+				let configID = _skillBase.configID;
+				let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
+				switch (skillType) {
+					case EnumData.enSkillType.NeiGong:
+						this.list_0.array.push(_skillBase);
+						break;
+				}
+			}
+			(this.list_0 as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
+				cell.setData(cell.dataSource)
+			}, null, false)
+
+
+			let keys = Object.keys(GameApp.MainPlayer.skillShotButton);
+			if (keys.length > 0) {
+				for (let key in GameApp.MainPlayer.skillShotButton) {
+					let skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
+					this.updateSkilButton(parseInt(key), skill_key.toString());
+				}
+			}
+			else {
+				// this.showDefaultSkillInfo();
+			}
 		}
+		public updateSkilButton(btRow: number, skill_key: string): void {
+			let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
+			let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
+			if (_skillBase) {
+				let skill_ui = new view.wuXue.WuXue_logoItem();
+				skill_ui.setData(_skillBase.configID);
+				switch (btRow) {
+					case EnumData.emSkillShotButtonType.NeiGong_1:
+						this.ui_item7.addItem(skill_ui);
+						this.ui_item7.lbl_buWei.text = nameStr;
+						this.lbl_des7.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						break;
+					case EnumData.emSkillShotButtonType.NeiGong_2:
+						this.ui_item8.addItem(skill_ui);
+						this.ui_item8.lbl_buWei.text = nameStr;
+						this.lbl_des8.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						break;
+					case EnumData.emSkillShotButtonType.NeiGong_3:
+						this.ui_item9.addItem(skill_ui);
+						this.ui_item9.lbl_buWei.text = nameStr;
+						this.lbl_des9.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						break;
+					case EnumData.emSkillShotButtonType.NeiGong_4:
+						this.ui_item10.addItem(skill_ui);
+						this.ui_item10.lbl_buWei.text = nameStr;
+						this.lbl_des10.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min"
+						break;
+				}
+			}
+		}
+
+
 		/**
 		 * 经络信息拉取
 		 */
@@ -92,6 +173,8 @@ module view.wuXue {
 		}
 
 		public Dispose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.WX_upData_Hotkeys_neigong, this);
+			GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_neigong, this);
 			GameApp.LListener.offCaller(ProtoCmd.WX_shuxingxitong_minabandakai, this);
 			PopUpManager.Dispose(this);
 		}

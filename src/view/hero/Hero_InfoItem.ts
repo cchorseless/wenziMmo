@@ -6,7 +6,6 @@ module view.hero {
 			this.addEvent();
 		}
 		public job;
-
 		public addEvent(): void {
 			//激活弟子
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
@@ -22,8 +21,31 @@ module view.hero {
 			//符文套装
 			this.btn_rune.on(Laya.UIEvent.CLICK, this, () => {
 				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
+			});
+			this.addLcpEvent();
+		}
+
+		public addLcpEvent() {
+			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: { [v: string]: ProtoCmd.itf_Hero_BaseInfo }) => {
+				// 更新弟子状态
+				for (let i = 1; i < 4; i++) {
+					switch (jsonData[i].JOB) {
+						case EnumData.JOB_TYPE.JOB_WARRIOR:
+							GameApp.MainPlayer.hero1.lockState = jsonData[i].STATE;
+							break;
+						case EnumData.JOB_TYPE.JOB_MAGE:
+							GameApp.MainPlayer.hero2.lockState = jsonData[i].STATE;
+							break;
+						case EnumData.JOB_TYPE.JOB_MONK:
+							GameApp.MainPlayer.hero3.lockState = jsonData[i].STATE;
+							break;
+					}
+				}
+				// 激活弟子回包
+				this.setData(this.job);
 			})
 		}
+
 		/**
 		 * 弟子基本信息
 		 */

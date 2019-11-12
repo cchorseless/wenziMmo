@@ -91,6 +91,7 @@ module view.activity {
 			}
 			else if (id == 3) {
 				leftTime = data.daojishi
+				this.lab_rules.text = data.introduce;
 			}
 
 			if (data.introduce) {

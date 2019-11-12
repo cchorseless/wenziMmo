@@ -47,6 +47,7 @@ module view.hero {
 
 			for (let i = 1; i < 4; i++) {
 				EventManage.onWithEffect(this['btn_dizi' + i], Laya.UIEvent.CLICK, this, () => {
+					if (this['btn_dizi' + i].selected) { return }
 					this.updateUI(i);
 				})
 			}

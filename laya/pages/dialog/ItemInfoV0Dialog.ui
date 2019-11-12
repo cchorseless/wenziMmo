@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":65,
     "referenceLines":null,
     "props":{"width":520,"sceneColor":"#89504f","height":520},
     "nodeParent":-1,
@@ -24,7 +24,8 @@
             "hasChild":false,
             "compId":2,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -169,7 +170,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":0,"var":"btn_goSell","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架"},
+                            "props":{"y":5,"x":330,"var":"btn_goSell","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":20,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架"},
                             "nodeParent":43,
                             "label":"Button(btn_goSell)",
                             "isOpen":true,
@@ -239,6 +240,32 @@
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":6,"x":12,"skin":"image/common/title_tanchuang2.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":64,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":14,"x":20,"width":288,"var":"lab_Name","text":"超级修为丹","stroke":3,"height":40,"fontSize":40,"font":"FZXK","color":"#f5dd7b"},
+            "nodeParent":1,
+            "label":"Label(lab_Name)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":65,
+            "child":[
+                ]
         }],
     "animations":[
         {

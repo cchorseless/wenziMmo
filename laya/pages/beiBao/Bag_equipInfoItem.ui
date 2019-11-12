@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":19,
+    "selecteID":29,
     "props":{"width":520,"sceneColor":"#d7a3a2","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":66,"x":90,"skin":"image/common/img_taiji.png"},
+            "props":{"y":0,"x":115,"width":405,"skin":"image/common/bottom_normal.png","height":390,"alpha":0.8},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -23,12 +23,13 @@
             "hasChild":false,
             "compId":8,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":52,"x":141,"width":237,"var":"img_playerPic","skin":"image/common/nv01_half.png","height":383},
+            "props":{"y":0,"x":222,"var":"img_playerPic","skin":"image/common/role_half_reningying.png"},
             "nodeParent":1,
             "label":"Image(img_playerPic)",
             "isDirectory":false,
@@ -43,7 +44,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":92,"x":401,"var":"ui_item0","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":7,"x":433,"var":"ui_item0","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item0)",
             "isDirectory":false,
@@ -57,7 +58,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":175,"x":397,"var":"ui_item1","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":82,"x":433,"var":"ui_item1","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item1)",
             "isDirectory":false,
@@ -71,7 +72,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":182,"x":37,"var":"ui_item2","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":158,"x":431,"var":"ui_item2","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item2)",
             "isDirectory":false,
@@ -85,7 +86,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":156,"x":142,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":233,"x":334,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item4)",
             "isDirectory":false,
@@ -99,7 +100,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":85,"x":36,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":233,"x":430,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item3)",
             "isDirectory":false,
@@ -114,7 +115,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":157,"x":276,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":233,"x":239,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item5)",
             "isDirectory":false,
@@ -122,13 +123,14 @@
             "hasChild":false,
             "compId":15,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":253,"x":147,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":233,"x":143,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item6)",
             "isDirectory":false,
@@ -142,7 +144,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":291,"x":39,"var":"ui_item9","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":7,"x":143,"var":"ui_item9","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item9)",
             "isDirectory":false,
@@ -156,7 +158,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":286,"x":405,"var":"ui_item8","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":82,"x":143,"var":"ui_item8","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item8)",
             "isDirectory":false,
@@ -170,7 +172,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipInBodybgItem.ui",
-            "props":{"y":254,"x":276,"var":"ui_item7","runtime":"view.compart.EquipInBodybgItem"},
+            "props":{"y":158,"x":143,"var":"ui_item7","runtime":"view.compart.EquipInBodybgItem"},
             "nodeParent":1,
             "label":"UIView(ui_item7)",
             "isDirectory":false,
@@ -183,7 +185,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":4,"x":409,"width":103,"var":"btn_lvBuff","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"等级大师","height":50},
+            "props":{"y":347,"x":317,"var":"btn_lvBuff","stateNum":"2","skin":"image/common/but_huang_01.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"等级大师","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_lvBuff)",
             "isDirectory":false,
@@ -196,7 +198,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":1,"x":2,"var":"tab_0","stateNum":2,"space":-5,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleY":0.8,"scaleX":0.8,"labels":"玩家,大弟子,二弟子,三弟子","labelSize":22,"labelPadding":"5","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+            "props":{"y":1,"x":2,"visible":false,"var":"tab_0","stateNum":2,"space":-5,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"scaleY":0.8,"scaleX":0.8,"labels":"玩家,大弟子,二弟子,三弟子","labelSize":22,"labelPadding":"5","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
             "nodeParent":1,
             "label":"Tab(tab_0)",
             "isDirectory":false,
@@ -204,12 +206,13 @@
             "hasChild":false,
             "compId":21,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":339,"x":162,"skin":"image/common/zi_zhanli.png"},
+            "props":{"y":198,"x":218,"skin":"image/common/zi_zhanli.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -223,7 +226,7 @@
         {
             "x":15,
             "type":"FontClip",
-            "props":{"y":347,"x":247,"width":146,"var":"font_zhanLi","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
+            "props":{"y":206,"x":303,"width":146,"var":"font_zhanLi","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
             "nodeParent":1,
             "label":"FontClip(font_zhanLi)",
             "isDirectory":false,
@@ -233,6 +236,75 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":51,"x":104,"var":"img_div","skin":"image/common/img_jiantou_02.png","anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_div)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":24,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"beiBao/Bag_hero_playerItem.ui",
+            "props":{"y":49,"x":52,"width":85,"var":"ui_tab0","height":85,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"UIView(ui_tab0)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":26,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"beiBao/Bag_hero_playerItem.ui",
+            "props":{"y":146,"x":52,"width":85,"var":"ui_tab1","height":85,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"UIView(ui_tab1)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":27,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"beiBao/Bag_hero_playerItem.ui",
+            "props":{"y":241,"x":52,"width":85,"var":"ui_tab2","height":85,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"UIView(ui_tab2)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":28,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"beiBao/Bag_hero_playerItem.ui",
+            "props":{"y":339,"x":52,"width":85,"var":"ui_tab3","height":85,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"UIView(ui_tab3)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":29,
+            "child":[
+                ]
         }],
     "animations":[
         {
