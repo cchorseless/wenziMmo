@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.dialog {
-	export class EquipMixUp extends ui.dialog.EquipMixUpUI {
+	export class EquipMixUp extends ui.dialog.EquipMixUpDialogUI {
 		// private godLvArr = [3, 5, 7, 9, 11, 13, 15]
 		private data;
 		private curType = 0;  //当前打开的装备合成项目   0：60、70等级装备合成   1：神装合成    2：热血装备合成

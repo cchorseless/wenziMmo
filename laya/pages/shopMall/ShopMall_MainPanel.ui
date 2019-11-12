@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":44,
+    "selectedBox":40,
+    "selecteID":47,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -165,7 +165,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":1,"x":5,"var":"tab_top","stateNum":2,"space":23,"skin":"image/main/btn_haoyou.png","selectedIndex":0,"labels":"热销,礼券,技能,荣誉,限购","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a"},
+                    "props":{"y":1,"x":5,"var":"tab_top","stateNum":2,"space":23,"skin":"image/main/btn_haoyou.png","selectedIndex":0,"labels":"热销,礼券,技能,荣誉,限购,神秘","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a"},
                     "nodeParent":20,
                     "label":"Tab(tab_top)",
                     "isDirectory":false,
@@ -198,13 +198,14 @@
             "props":{"y":260,"x":21,"var":"viw_shop"},
             "nodeParent":1,
             "label":"ViewStack(viw_shop)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":40,
             "child":[
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"width":597,"var":"list_shop1","vScrollBarSkin":"     ","spaceY":30,"spaceX":45,"repeatY":4,"repeatX":3,"name":"item0","height":767},
                     "nodeParent":40,
@@ -220,6 +221,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"width":597,"var":"list_shop2","vScrollBarSkin":"    ","spaceY":30,"spaceX":45,"repeatY":4,"repeatX":3,"name":"item1","height":767},
                     "nodeParent":40,
@@ -235,6 +237,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"width":597,"var":"list_shop3","vScrollBarSkin":"    ","spaceY":30,"spaceX":45,"repeatY":4,"repeatX":3,"name":"item2","height":767},
                     "nodeParent":40,
@@ -250,6 +253,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"width":597,"var":"list_shop4","vScrollBarSkin":"    ","spaceY":30,"spaceX":45,"repeatY":4,"repeatX":3,"name":"item3","height":767},
                     "nodeParent":40,
@@ -265,6 +269,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"width":597,"var":"list_shop5","vScrollBarSkin":"   ","spaceY":30,"spaceX":45,"repeatY":4,"repeatX":3,"name":"item4","height":767},
                     "nodeParent":40,
@@ -278,6 +283,19 @@
                         ],
                     "$LOCKED":true,
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"width":597,"var":"shop6","name":"item5","height":767},
+                    "nodeParent":40,
+                    "label":"Box(shop6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":47,
+                    "child":[
+                        ]
                 }]
         },
         {

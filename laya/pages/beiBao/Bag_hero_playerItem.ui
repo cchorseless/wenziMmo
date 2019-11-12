@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
-    "props":{"width":85,"sceneColor":"#000000","height":85},
+    "selecteID":5,
+    "props":{"width":85,"sceneColor":"#000000","height":95},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -12,20 +12,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":2,"x":2,"width":80,"visible":false,"skin":"image/common/bottom_normal.png","height":80},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
         {
             "x":15,
             "type":"Image",
@@ -44,6 +30,35 @@
         {
             "x":15,
             "type":"Image",
+            "props":{"y":8,"x":8,"width":70,"visible":true,"var":"img_bg","skin":"image/common/frame_selected.png","height":70},
+            "nodeParent":1,
+            "label":"Image(img_bg)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":5,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-1,"x":-1,"width":72,"var":"img_icon","skin":"image/common/icon_nan01.png","height":72},
+                    "nodeParent":5,
+                    "label":"Image(img_icon)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
             "props":{"y":-5,"x":-5,"visible":false,"var":"img_circle","skin":"image/common/frame_selected_touxiang.png"},
             "nodeParent":1,
             "label":"Image(img_circle)",
@@ -57,14 +72,15 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":6.5,"x":6.5,"width":72,"var":"img_icon","height":72},
+            "type":"Label",
+            "props":{"y":68,"x":5,"width":77,"var":"lab_name","text":"玩家","stroke":2,"height":24,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
             "nodeParent":1,
-            "label":"Image(img_icon)",
+            "label":"Label(lab_name)",
+            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":7,
+            "compId":8,
             "child":[
                 ]
         }],
