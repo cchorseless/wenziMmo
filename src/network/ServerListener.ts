@@ -156,8 +156,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
 
         /**********************************服务器打开面板全局监听**************************** */
-        // 新玩家进入游戏打开欢迎界面
-        GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.openWelcomePanel);
         // 正常充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_OPEN_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_OPEN_chongzhidialog]);
         // 首次充值提示界面
@@ -1546,16 +1544,6 @@ class ServerListener extends SingletonClass {
         }
     }
 
-    /**
-     * 欢迎界面领取第一个主线任务
-     * @param data 
-     */
-    public openWelcomePanel(): void {
-        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
-        if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
-            new view.dialog.WelcomeDialog().setData().popup(true);
-        }
-    }
     /**
      * 服务器推送创建任务（已接任务）
      * @param data 

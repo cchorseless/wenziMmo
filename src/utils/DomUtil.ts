@@ -41,4 +41,9 @@ class DomUtil extends SingletonClass {
         return txt
     }
 
+
+    public changeToRichStr(str: string, color = null, size = null, font, bold, italic, ): string {
+
+        return
+    }
 }

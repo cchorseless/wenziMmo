@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.hero {
-	export class Hero_TalentInfoDialog extends ui.hero.Hero_talentInfoDialogUI {
+	export class Hero_TalentInfoDialog extends ui.hero.Hero_TalentInfoDialogUI {
 		constructor() {
 			super();
 		}

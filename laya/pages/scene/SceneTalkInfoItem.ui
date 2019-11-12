@@ -3,7 +3,7 @@
     "type":"View",
     "selectedBox":2,
     "selecteID":3,
-    "props":{"width":545,"sceneColor":"#a35857","height":200},
+    "props":{"width":545,"sceneColor":"#a35857","height":500},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,15 +27,28 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":30,"wordWrap":true,"width":505,"var":"lbl_sceneTalk","text":"        安帝既不惠，帝每侍左右，消息温凉寝食之节，以恭谨闻，时人称焉。","strokeColor":"#000000","stroke":2,"right":20,"left":20,"height":135,"fontSize":24,"font":"FZHL","color":"#f9e596"},
+                    "props":{"wordWrap":true,"width":505,"var":"lbl_sceneTalk","top":20,"strokeColor":"#000000","stroke":2,"right":20,"padding":"3,3,0,0","left":20,"layoutEnabled":true,"fontSize":26,"font":"FZHL","color":"#f9e596"},
                     "nodeParent":2,
                     "label":"Label(lbl_sceneTalk)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":3,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"width":505,"var":"img_mask","skin":"image/createplayer/frame_duihua.png","renderType":"mask","height":0},
+                            "nodeParent":3,
+                            "label":"Image(img_mask)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":7,
+                            "child":[
+                                ]
+                        }],
                     "$HIDDEN":false
                 },
                 {
@@ -44,15 +57,16 @@
                     "props":{"y":263,"x":407,"width":138,"var":"box_next","right":0,"height":37,"bottom":0},
                     "nodeParent":2,
                     "label":"Box(box_next)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":18,"x":75,"width":121,"text":"点击继续","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
+                            "props":{"y":18,"x":75,"width":121,"text":"我知道了","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#ffffff","anchorY":0.5,"anchorX":0.5,"align":"center"},
                             "nodeParent":4,
                             "label":"Label",
                             "isDirectory":false,
@@ -64,6 +78,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/createplayer/icon_dianjijixu.png"},
                             "nodeParent":4,

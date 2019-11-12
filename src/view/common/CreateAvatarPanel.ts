@@ -33,12 +33,13 @@ module view.common {
 				this.sex = SheetConfig.HeroInfoSheet.getInstance(null).SEX(configID);
 				this.lbl_jueSeName.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).NAME(configID);
 				this.lbl_jueSedes0.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).DES0(configID);
-				this.lbl_jueSedes1.text = '   ' + SheetConfig.HeroInfoSheet.getInstance(null).DES1(configID);
-				this.lbl_jueSedes2.text = '   ' + SheetConfig.HeroInfoSheet.getInstance(null).DES2(configID);
+				this.lbl_jueSedes1.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES1(configID);
+				this.lbl_jueSedes2.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES2(configID);
 				// 半身像
 				this.img_avatarPic0.skin = 'image/createplayer/role_half2_' + configID + '.png'
 
 			}, null, false);
+			this.tab_jobSelect.selectedIndex = 0;
 			this.addDiFuTalk();
 			this.addRenJianTalk();
 			this.initSelf();
@@ -99,8 +100,7 @@ module view.common {
 				{ des: '不远处两名身穿官服的男子，不时传出咯咯咯的冷笑。', },
 				{ des: '身穿白色官服的人满面笑容，身材高瘦，面色惨白，口吐长舌，其头上官帽写有"一见生财"四字。', },
 				{ des: '身穿黑色官服的面容凶悍，身宽体胖，个小面黑，官帽上写有"天下太平"四字', },
-				{ des: '这时你才看清眼前是一座阴气森森的鬼府大门，随着你的寻问，大门逐渐打开。', },
-				{ des: '露出一片青黑色的符砖地面，整个空间黑雾缭绕，雾中不断传出冷笑。', event: [['createPlayer_parseTalk', 1]] },
+				{ des: '这时你才看清眼前是一座阴气森森的鬼府大门，随着你的寻问，大门逐渐打开。', event: [['createPlayer_parseTalk', 1]] },
 			],
 
 			[
@@ -132,7 +132,7 @@ module view.common {
 				{ npcid: 1, des: '然后，Ummmmmmm~~~~卧槽，我记起来了，我是被陨石砸死的。' },
 				{ npcid: 1002, des: '既来此地，速去幽冥殿报道，盘算你前世因来世果。', event: [['createPlayer_updateTask', '去找幽冥殿盘算因果']] },
 				{ npcid: 1, des: '。。。。。。幽冥殿？等等，第一次来啊，要我怎么走？' },
-				{ npcid: 1002, des: '顺着黄泉路一直走就能看到幽冥殿了', event: [['createPlayer_showTips', 'btn_mapUp'],], },
+				{ npcid: 1002, des: '顺着黄泉路一直走就能看到幽冥殿了', event: [['createPlayer_showTips', 'btn_mapUp'],], stop: true },
 			],
 
 			// 幽冥殿
@@ -151,7 +151,7 @@ module view.common {
 				{ npcid: 1006, des: '属下遵命。' },
 				{ npcid: 1006, des: '此乃孽镜台，镜中的你就是转生之后的样子。你想清楚了再决定，出了这幽冥殿，你想改就难了。', event: [['createPlayer_showTips', 'box_boss']], stop: true },
 				{ npcid: 1, des: '我决定好了，请让我投胎转世吧！' },
-				{ npcid: 1005, des: '好！既然如此，功曹你带他去见地藏王菩萨吧。', event: [['createPlayer_showTips', 'btn_mapUp'], ['createPlayer_updateTask', '去找地藏王菩萨']] },
+				{ npcid: 1005, des: '好！既然如此，功曹你带他去见地藏王菩萨吧。', event: [['createPlayer_showTips', 'btn_mapUp'], ['createPlayer_updateTask', '去找地藏王菩萨']], stop: true },
 
 			],
 
@@ -253,14 +253,6 @@ module view.common {
 							progerUI.setData('轮回之门正在开启...', 3000);
 							progerUI.closeHandler = Laya.Handler.create(this, () => {
 								this.lbl_finaName.text = this.playerName;
-								// 拉取姓名九宫和生成八字
-								let pkt2 = new ProtoCmd.QuestClientData();
-								pkt2.setString(ProtoCmd.JS_birthdateAndCompellation, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
-									console.log(jsonData);
-									this.showDialog(5);
-								});
-								lcp.send(pkt2);
-
 							})
 							break;
 					};
@@ -273,8 +265,18 @@ module view.common {
 
 		public addEvent(): void {
 			// 随机名字
-			EventManage.onWithEffect(this.btn_randomName, Laya.UIEvent.CLICK, this, this.randomName);
-			EventManage.onWithEffect(this.btn_randomName2, Laya.UIEvent.CLICK, this, this.randomName);
+			EventManage.onWithEffect(this.btn_randomName, Laya.UIEvent.CLICK, this, () => {
+				let name = this.randomName();
+				this.input_name.text = name;
+				this.input_name2.text = name;
+				this.playerName = name;
+			});
+			EventManage.onWithEffect(this.btn_randomName2, Laya.UIEvent.CLICK, this, () => {
+				let name = this.randomName();
+				this.input_name.text = name;
+				this.input_name2.text = name;
+				this.playerName = name;
+			});
 			// 确定名字
 			this.btn_nameSure.on(Laya.UIEvent.CLICK, this, () => {
 				if (!this.input_name.text) {
@@ -383,7 +385,8 @@ module view.common {
 			GameApp.LListener.on('createPlayer_showDialog', this, (index) => {
 				this.showDialog(index);
 			})
-
+			// 新玩家进入游戏打开欢迎界面
+			GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.welcomeDialog);
 
 		}
 
@@ -407,7 +410,7 @@ module view.common {
 		}
 
 		// 随机角色姓名
-		private randomName(): void {
+		private randomName(): string {
 			let index = RandomUtils.randomInt(1, 101);
 			let index2 = RandomUtils.randomInt(1, 101);
 			let xingShi = SheetConfig.randomNameSheet.getInstance(null).SURNAME('' + index);
@@ -418,9 +421,8 @@ module view.common {
 			else {
 				mingZi = SheetConfig.randomNameSheet.getInstance(null).GIRLNAME('' + index);
 			}
-			this.input_name.text = xingShi + mingZi;
-			this.input_name2.text = xingShi + mingZi;
-			this.playerName = xingShi + mingZi;
+			return xingShi + mingZi
+
 		}
 
 		/**
@@ -430,12 +432,16 @@ module view.common {
 			Laya.timer.frameOnce(RandomUtils.randomInt(30, 80), this, () => {
 				let box = new Laya.Box();
 				box.width = 300;
-				box.height = 46;
+				box.height = 23;
 				let div = new Laya.HTMLDivElement();
 				div.style.width = 300;
 				div.style.leading = 5;
 				div.style.fontSize = 18;
-				div.innerHTML = '[系统]：' + RandomUtils.randomName(6) + '因作恶多端，轮回道畜生道。';
+				let des = ColorUtils.addColor('[系统]', ColorUtils.black) + ':恭喜';
+				des += ColorUtils.addColor(this.randomName(), ColorUtils.green);
+				des += '往生轮回至';
+				des += ColorUtils.addColor(RandomUtils.randomArray(['天人道', '人道', '饿鬼道', '地狱道', '畜生道']), ColorUtils.red);
+				div.innerHTML = des;
 				box.addChild(div);
 				this.vbox_1.addChild(box);
 				Laya.timer.frameOnce(1, this, () => {
@@ -453,12 +459,15 @@ module view.common {
 			Laya.timer.frameOnce(RandomUtils.randomInt(30, 80), this, () => {
 				let box = new Laya.Box();
 				box.width = 300;
-				box.height = 46;
+				box.height = 23;
 				let div = new Laya.HTMLDivElement();
 				div.style.width = 300;
 				div.style.leading = 5;
 				div.style.fontSize = 18;
-				div.innerHTML = '[世界]：' + RandomUtils.randomName(6) + '降生了，净重6斤二两8钱。';
+				let des = ColorUtils.addColor('[世界]:恭喜', ColorUtils.black);
+				des += ColorUtils.addColor(this.randomName(), ColorUtils.green);
+				des += '顺利降生人间';
+				div.innerHTML = des;
 				box.addChild(div);
 				this.vbox_0.addChild(box);
 				Laya.timer.frameOnce(1, this, () => {
@@ -592,6 +601,16 @@ module view.common {
 			// }
 
 
+		}
+
+		public welcomeDialog(): void {
+			// 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
+			if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
+				let des = '恭喜你\n成功转生到武侠世界。\n'
+				des += '您的出身：' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]] + '\n';
+				des += '您的性别：  ' + LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[this.sex]] + ' \n';
+				new view.dialog.WelcomeDialog().setData(des).popup(true);
+			}
 		}
 	}
 }

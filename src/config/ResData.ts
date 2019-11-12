@@ -237,6 +237,7 @@ module ResData {
         public static AllTTFData = [
             { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
             { url: 'fonts/FZHL.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZHL' },
+            { url: 'fonts/FZLB.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZLB' },
         ]
     }
 

@@ -37,7 +37,7 @@ module view.juese {
 				let o = GameApp.MainPlayer.xingGeInfo[i].id
 				this["lab_tag" + i].text = SheetConfig.Label.getInstance(null).NAME(o);
 				let imgRes = SheetConfig.Label.getInstance(null).GRADE(o);
-				this['img_tag' + i].skin = 'image/juese/tab_rw_0' + imgRes + '.png'
+				this['img_tag' + i].skin = 'image/common/tab_rw_0' + imgRes + '.png'
 			}
 			// 声望信息
 			this.lbl_shengWang.text = LangConfig.getFameDes(player.wealth.nowFame);
