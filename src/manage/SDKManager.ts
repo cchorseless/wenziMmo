@@ -289,7 +289,7 @@ class SDKManager extends SingletonClass {
     }
 
     /**
-     * 
+     * 支付接口
      * @param amount 元
      */
     pay(amount: number) {
@@ -299,7 +299,7 @@ class SDKManager extends SingletonClass {
         this.updateRoleInfo();
         let amountMin = amount * 10 * 10;
         let self = this;
-        GameApp.HttpManager.postJson("name=cashOrderNo",+
+        GameApp.HttpManager.postJson("name=cashOrderNo",
             {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
                 account: GameApp.GameEngine.mainPlayer.playerAccount,
@@ -310,20 +310,43 @@ class SDKManager extends SingletonClass {
                 let jsonData = JSON.parse(res);
 
                 if (jsonData.errorCode == 0) {
-                    self.SDK.pay(amountMin.toString(), self._sdkRole, jsonData.orderNo, function (data) {
-                        if (data.status == self.SDK.PAY_SUCCESS) {
-                            console.warn(data);
-                            console.warn('⽀付结果：⽀付成功!');
-                            GameApp.HttpManager.postJson("name=cashCompleted", {}, (res) => {
+                    switch (this._platform) {
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                            self.SDK.pay(amountMin.toString(), self._sdkRole, jsonData.orderNo, function (data) {
+                                if (data.status == self.SDK.PAY_SUCCESS) {
+                                    console.warn(data);
+                                    console.warn('⽀付结果：⽀付成功!');
+                                    GameApp.HttpManager.postJson("name=cashCompleted", {}, (res) => {
 
-                            })
-                        } else if (data.status == self.SDK.PAY_CANCEL) {
-                            console.warn('⽀付结果：⽀付取消!');
-                        }
-                    }, 'extendString');
+                                    })
+                                } else if (data.status == self.SDK.PAY_CANCEL) {
+                                    console.warn('⽀付结果：⽀付取消!');
+                                }
+                            }, 'extendString');
+                            break;
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                            {
+                                let data = {
+                                    type: 'action',
+                                    data: {
+                                        id: 'pay',
+                                        orderId: jsonData.orderNo,
+                                        price: amount
+                                    }
+                                }
+                                this.SDK.call("_doAction:", JSON.stringify(data))
+                            } break;
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                            break;
+                        default:
+                            console.warn("平台设置不正确, 请注意...");
+                            break;
+                    }
                 } else {
                     console.error("error->>>");
                 }
             })
     }
+
+
 }
