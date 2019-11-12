@@ -9,16 +9,22 @@ module view.beiBao {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
-				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + i + '.png';
+				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
 			}
-			this.ui_tab0.img_icon.skin = 'image/common/icon_nan01.png';
-			this.ui_tab1.img_icon.skin = 'image/common/icon_nv01.png';
-			this.ui_tab2.img_icon.skin = 'image/common/icon_nv03.png';
-			this.ui_tab3.img_icon.skin = 'image/common/icon_nv02.png';
+			console.log("背景，" + this.ui_tab0.img_bg.skin)
+			this.ui_tab0.img_icon.skin = 'image/common/role_Avatar_wanjia.png';
+			this.ui_tab1.img_icon.skin = 'image/common/role_Avatar_dadizinv.png';
+			this.ui_tab2.img_icon.skin = 'image/common/role_Avatar_sandizinv.png';
+			this.ui_tab3.img_icon.skin = 'image/common/role_Avatar_erdizinv.png';
+			// this.ui_tab0.img_icon.visible= false;
 			this.ui_tab0.img_circle.visible = true;
 			this.ui_tab1.img_circle.visible = false;
 			this.ui_tab2.img_circle.visible = false;
 			this.ui_tab3.img_circle.visible = false;
+			this.ui_tab0.lab_name.text = "玩家";
+			this.ui_tab1.lab_name.text = "大弟子";
+			this.ui_tab2.lab_name.text = "二弟子";
+			this.ui_tab3.lab_name.text = "三弟子";
 
 
 
