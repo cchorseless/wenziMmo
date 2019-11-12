@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":350,
-    "selecteID":445,
+    "selectedBox":447,
+    "selecteID":448,
     "props":{"width":640,"sceneColor":"#000000","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -81,7 +81,7 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"y":-9,"x":191,"var":"tab_bag","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
+                            "props":{"y":-9,"x":203,"var":"tab_bag","stateNum":2,"space":3,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":0,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
                             "nodeParent":416,
                             "label":"Tab(tab_bag)",
                             "isDirectory":false,
@@ -447,15 +447,16 @@
                             "props":{"y":-13,"x":5},
                             "nodeParent":416,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":446,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":20,"x":27,"width":158,"skin":"image/common/img_common_title.png","height":37},
+                                    "props":{"y":9,"x":-2,"width":187,"skin":"image/common/img_common_title.png","height":48},
                                     "nodeParent":446,
                                     "label":"Image",
                                     "isOpen":true,
@@ -465,10 +466,12 @@
                                     "compId":447,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":3,"x":47,"width":103,"var":"lbl_bagLogolbl","text":"回收","strokeColor":"#765f42","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                                            "props":{"y":7,"x":74,"width":70,"var":"lbl_bagLogolbl","text":"回收","strokeColor":"#765f42","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":447,
                                             "label":"Label(lbl_bagLogolbl)",
+                                            "isOpen":false,
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -478,8 +481,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":-7,"x":-6,"var":"btn_shop","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png"},
+                                    "props":{"y":-5,"x":2,"var":"btn_shop","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png","scaleY":0.8,"scaleX":0.8},
                                     "nodeParent":446,
                                     "label":"Button(btn_shop)",
                                     "isDirectory":false,
@@ -490,10 +494,11 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":19,"x":138,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                                    "props":{"y":10,"x":138,"var":"btn_help","stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
                                     "nodeParent":446,
-                                    "label":"Button",
+                                    "label":"Button(btn_help)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,

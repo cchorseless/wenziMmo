@@ -10,6 +10,7 @@ module view.dialog {
 		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV0Dialog {
 			this.itemObj = obj;
 			this.model = model;
+			this.lab_Name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(obj.dwBaseID.toString());
 			switch (this.model) {
 				// 背包-装备
 				// 背包-回收
