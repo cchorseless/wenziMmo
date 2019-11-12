@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":3,
+    "selecteID":29,
     "props":{"width":618,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,15 +18,16 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","sizeGrid":"55,42,67,40","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":3,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":167,"x":61,"width":519,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"17,7,13,11","height":726},
+                    "props":{"y":167,"x":49,"width":519,"skin":"image/common/login/fram_common_bg_02a.png","sizeGrid":"17,7,13,11","height":726},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -37,19 +38,21 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":24,"x":154,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":24,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":29,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":38,"text":"服务器选择","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":43,"text":"服务器选择","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":29,
                             "label":"Label",
                             "isDirectory":false,
@@ -62,6 +65,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":113,"x":226,"width":208,"skin":"image/common/login/frame_zhangjie.png","height":48},
                     "nodeParent":3,
@@ -73,6 +77,7 @@
                     "compId":32,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":7,"x":22,"text":"所有服务器","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":32,
@@ -88,8 +93,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":183,"x":204,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
+                    "props":{"y":183,"x":196,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -100,8 +106,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":172,"x":301,"width":180,"text":"最近登陆","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
+                    "props":{"y":172,"x":293,"width":180,"text":"最近登陆","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
                     "nodeParent":3,
                     "label":"Label",
                     "isOpen":true,
@@ -113,8 +120,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":183,"x":580,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
+                    "props":{"y":183,"x":572,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -125,8 +133,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"VBox",
-                    "props":{"y":236,"x":225,"width":328,"var":"vbox_recently","space":20,"left":225,"height":100},
+                    "props":{"y":236,"width":328,"var":"vbox_recently","space":20,"left":217,"height":100},
                     "nodeParent":3,
                     "label":"VBox(vbox_recently)",
                     "isOpen":true,
@@ -138,8 +147,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":183,"x":62,"var":"tab_left","stateNum":2,"space":12,"skin":"image/common/login/btn_server.png","selectedIndex":0,"scaleX":1.2,"labels":"0-100","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","direction":"vertical"},
+                    "props":{"y":183,"x":54,"var":"tab_left","stateNum":2,"space":12,"skin":"image/common/login/btn_server.png","selectedIndex":0,"scaleX":1.2,"labels":"0-100","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","direction":"vertical"},
                     "nodeParent":3,
                     "label":"Tab(tab_left)",
                     "isDirectory":false,
@@ -151,8 +161,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":394,"x":580,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
+                    "props":{"y":394,"x":572,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1,"height":14},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -163,8 +174,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":384,"x":301,"width":180,"text":"服务器列表","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
+                    "props":{"y":384,"x":293,"width":180,"text":"服务器列表","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
                     "nodeParent":3,
                     "label":"Label",
                     "isDirectory":false,
@@ -175,8 +187,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":394,"x":204,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
+                    "props":{"y":394,"x":196,"width":106,"skin":"image/common/login/img_zhuangshi_03.png","height":14},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -187,8 +200,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
-                    "props":{"y":414,"x":200,"width":368,"var":"vstack_left","selectedIndex":0,"height":369},
+                    "props":{"y":414,"x":192,"width":368,"var":"vstack_left","selectedIndex":0,"height":369},
                     "nodeParent":3,
                     "label":"ViewStack(vstack_left)",
                     "isOpen":false,
@@ -345,8 +359,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":176,"x":192,"width":700,"skin":"image/common/login/line_yeqian.png","rotation":90},
+                    "props":{"y":176,"x":184,"width":700,"skin":"image/common/login/line_yeqian.png","rotation":90},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,
@@ -358,6 +373,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-5,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":3,

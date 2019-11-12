@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":2,
+    "selecteID":4,
     "referenceLines":null,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
@@ -19,13 +19,14 @@
             "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-5,"x":539,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,
@@ -41,8 +42,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":161,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":142,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isOpen":true,
@@ -52,8 +54,9 @@
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":61,"width":179,"text":"首充有礼","strokeColor":"#404040","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "props":{"y":10,"x":66,"width":179,"text":"首充有礼","strokeColor":"#404040","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffeeb1","align":"center"},
                             "nodeParent":4,
                             "label":"Label",
                             "isDirectory":false,
@@ -66,8 +69,9 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":124,"x":60,"var":"tab_div","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":-1,"labels":"任意金额,充值10元,充值40元,充值100元","labelStrokeColor":"#000000","labelSize":20,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
+                    "props":{"y":124,"x":47,"var":"tab_div","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":-1,"labels":"任意金额,充值10元,充值40元,充值100元","labelStrokeColor":"#000000","labelSize":20,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
                     "nodeParent":2,
                     "label":"Tab(tab_div)",
                     "isDirectory":false,
@@ -79,8 +83,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
-                    "props":{"y":175,"x":61,"width":500,"var":"ViewS_show","height":723},
+                    "props":{"y":175,"x":48,"width":500,"var":"ViewS_show","height":723},
                     "nodeParent":2,
                     "label":"ViewStack(ViewS_show)",
                     "isOpen":true,

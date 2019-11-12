@@ -398,6 +398,9 @@ module view.main {
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
 					_chatMsg += '[世界]:' + data.chatMsg;
 					break;
+				default:
+					_chatMsg += '[系统]:' + data.chatMsg;
+					break;
 			}
 			_chatArray.push(_chatMsg);
 			// 更新到小窗
@@ -855,6 +858,7 @@ module view.main {
 				default:
 					progerUI.setData('东看看,西看看...', 3000);
 					break;
+
 			}
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面

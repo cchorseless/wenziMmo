@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":2,
+    "selecteID":172,
     "props":{"width":618,"sceneColor":"#f69897","height":804},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":804},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":516,"var":"btn_guildDetailClose","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":2,
@@ -37,6 +38,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":47,"x":69,"width":503,"height":149},
                     "nodeParent":2,
@@ -303,6 +305,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":209,"x":238},
                     "nodeParent":2,
@@ -366,6 +369,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":256,"x":219},
                     "nodeParent":2,
@@ -430,6 +434,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":287,"x":234},
                     "nodeParent":2,
@@ -496,6 +501,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":329,"x":77,"width":596,"scaleY":0.82,"scaleX":0.82,"height":147},
                     "nodeParent":2,
@@ -569,6 +575,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":465,"x":70,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":2,
@@ -644,6 +651,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":465,"x":328,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":2,
@@ -719,6 +727,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":604,"x":70,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":2,
@@ -794,6 +803,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":604,"x":328,"skin":"image/common/frame_gang_store.png","scaleY":0.82,"scaleX":0.82},
                     "nodeParent":2,
@@ -869,6 +879,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":211,"x":100,"scaleY":0.82,"scaleX":0.82},
                     "nodeParent":2,
@@ -932,8 +943,9 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":18,"x":157,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":18,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isOpen":true,
@@ -943,8 +955,9 @@
                     "compId":172,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"帮派信息","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"帮派信息","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":172,
                             "label":"Label",
                             "isDirectory":false,
@@ -956,6 +969,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":204,"x":55,"skin":"image/guild/line_Popup.png"},
                     "nodeParent":2,

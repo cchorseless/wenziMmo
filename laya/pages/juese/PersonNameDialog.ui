@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":36,
+    "selectedBox":36,
+    "selecteID":37,
     "props":{"width":618,"sceneColor":"#e0d4d4","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,26 +18,28 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":36,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":36,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":37,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":21,"x":55,"text":"姓名九宫","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"姓名九宫","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":37,
                             "label":"Label",
                             "isDirectory":false,
@@ -50,6 +52,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":81,"x":88,"width":349,"height":289},
                     "nodeParent":36,
@@ -76,6 +79,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":167,"x":396,"width":26,"var":"lab_di_wuxing","text":"土","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#a47347"},
                     "nodeParent":36,
@@ -89,6 +93,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":360,"x":205,"width":26,"var":"lab_ren_wuxing","text":"火","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#ff5411"},
                     "nodeParent":36,
@@ -101,6 +106,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":360,"x":396,"width":26,"var":"lab_zong_wuxing","text":"土","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#a47347"},
                     "nodeParent":36,
@@ -114,6 +120,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":167,"x":206,"width":26,"var":"lab_tian_wuxing","text":"木","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#8bc34a"},
                     "nodeParent":36,
@@ -126,6 +133,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":118,"x":76,"skin":"image/juese/bottom_01.png"},
                     "nodeParent":36,
@@ -166,6 +174,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":118,"x":450,"skin":"image/juese/bottom_01.png"},
                     "nodeParent":36,
@@ -205,6 +214,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":308,"x":76,"skin":"image/juese/bottom_01.png"},
                     "nodeParent":36,
@@ -244,6 +254,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":308,"x":450,"skin":"image/juese/bottom_01.png"},
                     "nodeParent":36,
@@ -283,6 +294,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":461,"x":118,"skin":"image/juese/frame_name.png"},
                     "nodeParent":36,
@@ -307,6 +319,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":534,"x":65,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":36,
@@ -334,6 +347,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":508,"var":"btn_nameClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":36,
@@ -346,6 +360,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":591,"x":80,"wordWrap":true,"width":462,"var":"lbl_tiange","text":"意识果断，自信满满，不容易服输。心性与思考模式较为隐藏，个性独立。","leading":10,"height":53,"fontSize":20,"font":"FZHL","color":"#404040"},
                     "nodeParent":36,
@@ -358,6 +373,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":659,"x":80,"wordWrap":true,"width":462,"var":"lbl_dige","text":"意识果断，自信满满，不容易服输。心性与思考模式较为隐藏，个性独立。","leading":10,"height":53,"fontSize":20,"font":"FZHL","color":"#404040"},
                     "nodeParent":36,
@@ -370,6 +386,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":727,"x":80,"wordWrap":true,"width":462,"var":"lbl_renge","text":"意识果断，自信满满，不容易服输。心性与思考模式较为隐藏，个性独立。","leading":10,"height":53,"fontSize":20,"font":"FZHL","color":"#404040"},
                     "nodeParent":36,
@@ -382,6 +399,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":796,"x":80,"wordWrap":true,"width":462,"var":"lbl_zongge","text":"意识果断，自信满满，不容易服输。心性与思考模式较为隐藏，个性独立。","leading":10,"height":53,"fontSize":20,"font":"FZHL","color":"#404040"},
                     "nodeParent":36,
