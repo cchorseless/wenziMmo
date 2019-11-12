@@ -2,7 +2,7 @@
 module view.promotion {
 	export class PromotionPanel extends ui.promotion.PromotionPanelUI {
 		public static self: PromotionPanel;
-		public tabNameArr = ["超值礼包", "特惠礼包", "特选礼包"];
+		public tabNameArr = ["超值礼包", "特惠礼包", "特选礼包","每日特惠"];
 		public btnState = 0;
 		constructor() {
 			super();
@@ -72,7 +72,7 @@ module view.promotion {
 					GameApp.LListener.on(ProtoCmd.TeHuiIndex, this, (data) => {
 						box.removeChildren();
 						let o = new Promotion_SpecialGift()
-						o.setData(data,1)
+						o.setData(data, 1)
 						box.addChild(o);
 					})
 					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.TeHuiIndex, null)
@@ -82,11 +82,21 @@ module view.promotion {
 					GameApp.LListener.on(ProtoCmd.WorthGiftBagPanel, this, (data) => {
 						box.removeChildren();
 						let o = new Promotion_SpecialGift()
-						o.setData(data,2)
+						o.setData(data, 2)
 						box.addChild(o);
 					})
 					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.WorthGiftBagPanel, null)
 					lcp.send(pkt0);
+				}
+				else if (id == 3) {
+					GameApp.LListener.on(ProtoCmd.Active33, this, (data) => {
+						box.removeChildren()
+						let o = new activity.Active_EveryDayRecharge_Item()
+						o.setData(data)
+						box.addChild(o);
+					})
+					let pkt33 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active33, null)
+					lcp.send(pkt33);
 				}
 			}
 		}
@@ -103,7 +113,7 @@ module view.promotion {
 			GameApp.LListener.offCaller(ProtoCmd.chaozhiopen, this)
 			GameApp.LListener.offCaller(ProtoCmd.TeHuiIndex, this)
 			GameApp.LListener.offCaller(ProtoCmd.WorthGiftBagPanel, this)
-
+			GameApp.LListener.offCaller(ProtoCmd.Active33, this)
 
 			Laya.timer.clearAll(this)
 			PopUpManager.Dispose(this)

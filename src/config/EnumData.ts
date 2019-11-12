@@ -811,6 +811,7 @@ module EnumData {
         SHOP_TYPE_GUILD = 6,//行会商店
         SHOP_TYPE_GUILD_HOT = 7,//帮会随机商店
         SHOP_TYPE_LIMITED = 8,//限购商店
+        SHOP_TYPE_MYSTERY = 9,//神秘商店
 
     }
     /**

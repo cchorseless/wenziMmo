@@ -47,7 +47,18 @@ module view.menu {
 			})
 			//竞猜
 			this.btn_guess.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuGuessDialog().popup(true);
+				let pkt = new ProtoCmd.QuestClientData();
+				let data = 0;
+				pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
+					data = jsonData;
+					if (data !== 0) {
+					new view.menu.MenuGuessDialog().popup(true);
+				}
+				});
+				lcp.send(pkt);
+				if (data == 0) {
+					TipsManage.showTips('活动未开启')
+				}
 			})
 			//新服活动
 			this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
@@ -69,6 +80,11 @@ module view.menu {
 				o.setData(1);
 				o.popup(true);
 			})
+			//玩法攻略
+			this.btn_menuGonglve.on(Laya.UIEvent.CLICK, this, function () {
+				 new view.menu.Menu_PlayWayDialog().popup();
+			})
+			
 			this.btn_cuxiao.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openPromotionPanel();
 			})

@@ -7,7 +7,6 @@ module view.hero {
 			this.addEvent();
 		}
 		private client_func_index = 55;// 功能ID编号
-
 		public initUI(): void {
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };

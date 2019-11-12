@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":4,
+    "selecteID":5,
     "props":{"width":618,"sceneColor":"#e0c2c2","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":2,
@@ -36,8 +37,9 @@
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":21,"x":55,"text":"生平履历","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"生平履历","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":4,
                             "label":"Label",
                             "isDirectory":false,
@@ -50,6 +52,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-2,"x":507,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,
@@ -62,6 +65,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":96,"x":54,"width":516,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"30,22,19,17","height":762,"alpha":0.2},
                     "nodeParent":2,
@@ -75,6 +79,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":110,"x":53,"width":516,"var":"panel_shengping","height":732},
                     "nodeParent":2,
@@ -86,6 +91,7 @@
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_shengping","right":0,"left":0},
                             "nodeParent":8,
