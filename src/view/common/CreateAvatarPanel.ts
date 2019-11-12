@@ -26,6 +26,19 @@ module view.common {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_talk.selectedIndex = index;
 			}, null, false);
+			this.tab_jobSelect.selectHandler = Laya.Handler.create(this, (index) => {
+				let configID = '' + (index + 101);
+				this.lbl_job.text = SheetConfig.HeroInfoSheet.getInstance(null).JOBDES(configID);
+				this.job = SheetConfig.HeroInfoSheet.getInstance(null).JOB(configID);
+				this.sex = SheetConfig.HeroInfoSheet.getInstance(null).SEX(configID);
+				this.lbl_jueSeName.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).NAME(configID);
+				this.lbl_jueSedes0.text = '' + SheetConfig.HeroInfoSheet.getInstance(null).DES0(configID);
+				this.lbl_jueSedes1.text = '   ' + SheetConfig.HeroInfoSheet.getInstance(null).DES1(configID);
+				this.lbl_jueSedes2.text = '   ' + SheetConfig.HeroInfoSheet.getInstance(null).DES2(configID);
+				// 半身像
+				this.img_avatarPic0.skin = 'image/createplayer/role_half2_' + configID + '.png'
+
+			}, null, false);
 			this.addDiFuTalk();
 			this.addRenJianTalk();
 			this.initSelf();
@@ -138,7 +151,7 @@ module view.common {
 				{ npcid: 1006, des: '属下遵命。' },
 				{ npcid: 1006, des: '此乃孽镜台，镜中的你就是转生之后的样子。你想清楚了再决定，出了这幽冥殿，你想改就难了。', event: [['createPlayer_showTips', 'box_boss']], stop: true },
 				{ npcid: 1, des: '我决定好了，请让我投胎转世吧！' },
-				{ npcid: 1005, des: '好！既然如此，功曹你带他去见地藏王菩萨吧。', event: [['createPlayer_sshowTips', 'btn_mapUp'], ['createPlayer_updateTask', '去找地藏王菩萨']] },
+				{ npcid: 1005, des: '好！既然如此，功曹你带他去见地藏王菩萨吧。', event: [['createPlayer_showTips', 'btn_mapUp'], ['createPlayer_updateTask', '去找地藏王菩萨']] },
 
 			],
 
@@ -146,11 +159,11 @@ module view.common {
 			[
 				{ npcid: 1009, des: '有缘人，你来了。' },
 				{ npcid: 1, des: '？？？。。。您就是传说中的地藏王菩萨？请问我该如何投胎转世呢？' },
-				{ npcid: 1009, des: '有缘人，来到此地一切皆是缘法。你再往前一步就是阳界。正所谓众生平等，这世间不会有全知全能的人，但总会有人在某些方面有着超乎常人的聪慧，这就是天赋。' },
-				{ npcid: 1, des: '我懂了！看来这里需要选择我的转世天赋！！！' },
-				{ npcid: 1009, des: '正是，正所谓千人千面，有短有长。你且过来，这就是你的六根五识盘，拿好了！！！', event: ['showDialog', 5], stop: true },
-				{ npcid: 1, des: '谢谢菩萨，我已经选好了。（把命盘递给了菩萨）' },
-				{ npcid: 1009, des: '（菩萨偷偷瞄了一眼你的命数盘，一脸的笑容）好好好，果然是有趣之人！你且去吧，跳入轮回之海开始你的另一段故事！！！', event: ['showTips', 'box_boss'], stop: true },
+				{ npcid: 1009, des: '有缘人，来到此地一切皆是缘法。你再往前一步就是阳界。正所谓众生平等，千人千面。首先你要选一下你的性格特质。', event: [['createPlayer_showDialog', 3]], stop: true },
+				{ npcid: 1, des: '好吧！我选好了，然后呢？？？' },
+				{ npcid: 1009, des: '正所谓千人千面，有短有长。你且过来,不会有全知全能的人，但总会有人在某些方面有着超乎常人的聪慧，这就是天赋。这就是你的六根五识盘，拿好了！！！', event: [['createPlayer_showDialog', 4]], stop: true },
+				{ npcid: 1, des: '哦哦，我决定好我的天赋了（把命盘递给了菩萨）。' },
+				{ npcid: 1009, des: '（菩萨偷偷瞄了一眼你的命数盘，一脸的笑容）好好好，果然是有趣之人！你且去吧，跳入轮回之海开始你的另一段故事！！！', event: [['createPlayer_showTips', 'box_boss']], stop: true },
 			],
 			null
 		];
@@ -232,7 +245,7 @@ module view.common {
 						// 孽冤镜
 						case 200003:
 							progerUI.setData('镜面上泛起涟漪...', 3000);
-							progerUI.closeHandler = Laya.Handler.create(this, () => { this.showDialog(3) })
+							progerUI.closeHandler = Laya.Handler.create(this, () => { this.showDialog(2) })
 							break;
 
 						// 轮回道
@@ -244,7 +257,7 @@ module view.common {
 								let pkt2 = new ProtoCmd.QuestClientData();
 								pkt2.setString(ProtoCmd.JS_birthdateAndCompellation, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
 									console.log(jsonData);
-									this.showDialog(6);
+									this.showDialog(5);
 								});
 								lcp.send(pkt2);
 
@@ -261,6 +274,7 @@ module view.common {
 		public addEvent(): void {
 			// 随机名字
 			EventManage.onWithEffect(this.btn_randomName, Laya.UIEvent.CLICK, this, this.randomName);
+			EventManage.onWithEffect(this.btn_randomName2, Laya.UIEvent.CLICK, this, this.randomName);
 			// 确定名字
 			this.btn_nameSure.on(Laya.UIEvent.CLICK, this, () => {
 				if (!this.input_name.text) {
@@ -270,8 +284,8 @@ module view.common {
 					this.playerName = this.input_name.text;
 					// 确定了人物形象
 					this.lbl_finaName.text = this.playerName;
+					this.input_name2.text = this.playerName;
 					this.showDialog(0);
-
 				}
 			});
 
@@ -295,7 +309,7 @@ module view.common {
 
 			// 性格资质确定
 			EventManage.onWithEffect(this.btn_xingGeSure, Laya.UIEvent.CLICK, this, () => {
-
+				this.showDialog(0);
 			});
 
 			// 随机天赋
@@ -311,14 +325,15 @@ module view.common {
 
 			// 确定天赋
 			EventManage.onWithEffect(this.btn_talentSure, Laya.UIEvent.CLICK, this, () => {
-				this.showDialog(false);
+				this.showDialog(0);
 			});
 
 			/**
 			 * 最终结束
 			 */
 			EventManage.onWithEffect(this.btn_finallySure, Laya.UIEvent.CLICK, this, () => {
-				this.showDialog(false);
+				// 销毁界面
+				this.showDialog(0);
 				// 睁眼动画
 				let cg = new SkeletonUtil.SkeletonGroup();
 				cg.loadRes(['sk/new/Zhenyan.sk'], () => {
@@ -374,8 +389,10 @@ module view.common {
 
 		public Dispose(isbool) {
 			GameApp.LListener.offCaller('createPlayer_parseTalk', this);
-
-
+			GameApp.LListener.offCaller('createPlayer_showTips', this);
+			GameApp.LListener.offCaller('createPlayer_updateTask', this);
+			GameApp.LListener.offCaller('createPlayer_showDialog', this);
+			PopUpManager.Dispose(this);
 		}
 
 		/**
@@ -402,6 +419,8 @@ module view.common {
 				mingZi = SheetConfig.randomNameSheet.getInstance(null).GIRLNAME('' + index);
 			}
 			this.input_name.text = xingShi + mingZi;
+			this.input_name2.text = xingShi + mingZi;
+			this.playerName = xingShi + mingZi;
 		}
 
 		/**
@@ -448,9 +467,6 @@ module view.common {
 				this.addRenJianTalk();
 			})
 		}
-
-
-
 
 
 		/**
@@ -512,7 +528,7 @@ module view.common {
 			let errorcode = msg.getValue('errorcode');
 			if (errorcode == 0) {
 				// 创建账号成功
-				this.showDialog(false);
+				this.showDialog(0);
 				// 单服单角色，这里可以扩展
 				let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
 				selector.setValue("nselectidx", 0);
@@ -555,21 +571,25 @@ module view.common {
 		public updateTalentXingGe(): void {
 			// 渲染人格界面
 			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
+			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
+			this.list_xingGe.array = [];
 			for (let i = 1; i < 9; i++) {
 				if (GameApp.MainPlayer.xingGeInfo[i]) {
-					this['btn_xingGe' + i].visible = true;
-					this['btn_xingGe' + i].label = '' + SheetConfig.attribute.getInstance(null).NAME('' + GameApp.MainPlayer.xingGeInfo[i].id);
-				}
-				else {
-					this['btn_xingGe' + i].visible = false;
+					let configID = '' + GameApp.MainPlayer.xingGeInfo[i].id;
+					this.list_xingGe.array.push(configID);
 				}
 			}
+			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
+				cell.setData(cell.dataSource);
+			}, null, false);
+
+
 			// 渲染天赋界面
-			for (let i = 1; i < 6; i++) {
-				let count = GameApp.MainPlayer.talentInfo[i];
-				// 阶数
-				this['lbl_jieShudes' + i].text = '' + count;
-			}
+			// for (let i = 1; i < 6; i++) {
+			// 	let count = GameApp.MainPlayer.talentInfo[i];
+			// 	// 阶数
+			// 	this['lbl_jieShudes' + i].text = '' + count;
+			// }
 
 
 		}
