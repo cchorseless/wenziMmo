@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":80,
+    "selectedBox":80,
+    "selecteID":81,
     "props":{"width":618,"sceneColor":"#e5d1d1","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,26 +18,28 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":80,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":80,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":81,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":21,"x":55,"text":"生辰八字","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"生辰八字","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":81,
                             "label":"Label",
                             "isDirectory":false,
@@ -50,6 +52,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":172,"x":278,"skin":"image/juese/img_rigu.png"},
                     "nodeParent":80,
@@ -62,6 +65,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":132,"x":61,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":80,
@@ -88,6 +92,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":201,"x":76,"skin":"image/common/bottom_02.png"},
                     "nodeParent":80,
@@ -114,6 +119,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":204,"x":208},
                     "nodeParent":80,
@@ -222,6 +228,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":274,"x":53,"skin":"image/juese/line_yeqian01.png"},
                     "nodeParent":80,
@@ -234,6 +241,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":291,"x":76,"skin":"image/common/bottom_02.png"},
                     "nodeParent":80,
@@ -260,6 +268,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":294,"x":208},
                     "nodeParent":80,
@@ -368,6 +377,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":383,"x":70,"width":489,"skin":"image/common/bottom_ConfederationDeclaration.png","height":123},
                     "nodeParent":80,
@@ -480,6 +490,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-3,"x":512,"var":"btn_birthClose","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":80,
@@ -492,6 +503,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":537,"x":61,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":80,
@@ -518,6 +530,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":590,"x":74,"width":477,"var":"panel_birth","height":237},
                     "nodeParent":80,
@@ -529,6 +542,7 @@
                     "compId":140,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":4,"x":7,"wordWrap":true,"width":462,"var":"lab_detail","text":"属于前方打头阵的人、主观，较倔强，自我意识强，意识果断，自信满满，不容易服输。心性与思考模式较为隐藏，个性独立。","leading":10,"fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":140,

@@ -7,6 +7,8 @@ module view.hero {
 		public item1;
 		public item2;
 		public sum;
+		
+
 		public setData(index, i, data: ProtoCmd.itf_Hero_TalentInfo, key): Hero_TalentInfoDialog {
 			this.vbox_talent['sortItem'] = (items) => { }; 
 			let sum = data.lvltab[0] + data.lvltab[1] + data.lvltab[2] + data.lvltab[3];

@@ -20,6 +20,10 @@ module view.activity {
 			}
 		}
 		public addEvent() {
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, function () {
+				PopUpManager.checkPanel(PanelManage.LuckDraw, true);
+			})
+
 			for (let i = 1; i < 6; i++) {
 				this["box_" + i].on(Laya.UIEvent.CLICK, this, function () {
 					let o = new Active_Luck_Gift_Dialog()
@@ -50,7 +54,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active34, this)
 			super.destroy(e)
 		}
-		
+
 		public getData() {
 			let pkt34 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active34, [this.giftType])
 			lcp.send(pkt34);

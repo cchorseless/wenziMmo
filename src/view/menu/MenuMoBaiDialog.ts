@@ -82,9 +82,9 @@ module view.menu {
 				//今日最大膜拜次数
 				this.lbl_maxCount.text = '/' + jsonData.maxcnt;
 				//膜拜率	
-				this.lbl_mobailv.text = '' + jsonData.support + '%';
+				this.lbl_mobailv.text = '' + jsonData.support*100 + '%';
 				//鄙视率
-				this.lbl_bishilv.text = '' + jsonData.scorn + '%';
+				this.lbl_bishilv.text = '' + jsonData.scorn*100 + '%';
 				if (jsonData.worshipcnt == jsonData.maxcnt) {
 					this.btn_get.mouseEnabled = false;
 					this.btn_get.gray = true;

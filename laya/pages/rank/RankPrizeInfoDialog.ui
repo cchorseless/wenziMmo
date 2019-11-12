@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":93,
+    "selectedBox":93,
+    "selecteID":94,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":93,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":252,"x":52,"skin":"image/common/icon_left.png"},
                     "nodeParent":93,
@@ -37,6 +38,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":252,"x":564,"skin":"image/common/icon_right.png"},
                     "nodeParent":93,
@@ -49,6 +51,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":516,"var":"btn_close","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":93,
@@ -62,8 +65,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":163,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":142,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":93,
                     "label":"Image",
                     "isOpen":true,
@@ -73,8 +77,9 @@
                     "compId":94,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":22,"x":50,"text":"排名奖励","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"排名奖励","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":94,
                             "label":"Label",
                             "isDirectory":false,
@@ -87,6 +92,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":113,"x":67,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"22,27,28,25"},
                     "nodeParent":93,
@@ -102,6 +108,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":117,"x":77,"width":58,"skin":"image/common/title_ConfederationDeclaration.png","height":103},
                     "nodeParent":93,
@@ -140,6 +147,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":177,"x":154,"width":383,"text":"2.每个排行榜排名奖励每日只能领取一次","height":32,"fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":93,
@@ -152,6 +160,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":145,"x":154,"width":383,"text":"1.排行榜上的排名2小时刷新一次","height":32,"fontSize":18,"font":"Microsoft YaHei","color":"#000000"},
                     "nodeParent":93,
@@ -165,6 +174,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":293,"x":45,"width":530,"skin":"image/common/login/line_yeqian.png"},
                     "nodeParent":93,
@@ -178,6 +188,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":242,"x":85,"width":470,"var":"panel_0","height":54},
                     "nodeParent":93,
@@ -203,6 +214,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"y":300,"x":67,"var":"vstack_0"},
                     "nodeParent":93,

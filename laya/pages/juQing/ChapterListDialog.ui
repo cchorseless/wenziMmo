@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":25,
+    "selectedBox":25,
+    "selecteID":27,
     "referenceLines":[
         {
             "value":105,
@@ -59,15 +59,16 @@
             "props":{"y":0,"x":0,"skin":"image/common/bottom_tanchuang_big.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":142,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":25,
                     "label":"Image",
                     "isOpen":true,
@@ -77,8 +78,9 @@
                     "compId":27,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"篇章目录","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"篇章目录","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":27,
                             "label":"Label",
                             "isDirectory":false,
@@ -91,8 +93,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"y":134,"x":69,"width":503,"var":"panel_chapterList","height":712},
+                    "props":{"y":134,"x":47,"width":503,"var":"panel_chapterList","height":712},
                     "nodeParent":25,
                     "label":"Panel(panel_chapterList)",
                     "isOpen":false,
@@ -116,6 +119,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-5,"x":516,"var":"btn_chapterListClose","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":25,

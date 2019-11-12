@@ -35,10 +35,12 @@ module ResData {
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
+        
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
         ];
         // 主界面 主界面资源通过同步加载
-        public static Main = null;
+        public static Main =  null;
         // 角色界面
         public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];
         // 弟子界面
@@ -226,6 +228,8 @@ module ResData {
             { url: 'json/VIP_Content.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.VIP_Content },
             // 弟子信息描述
             { url: 'json/HeroInfoSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.HeroInfoSheet },
+             // 玩法攻略
+            { url: 'json/Strategy.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Strategy },
 
         ];
     }

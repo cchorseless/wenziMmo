@@ -24,6 +24,7 @@ module view.compart {
 			this.lbl_sexNeed.text =  LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sexLimit]];
 			// 道具ICON信息赋值
 			this.ui_item.initUI(obj);
+			
 		}
 	}
 }
