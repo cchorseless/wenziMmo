@@ -70,6 +70,11 @@ module view.beiBao {
 			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, () => {
 				this.onRecycle();
 			});
+			this.btn_goVip.on(Laya.UIEvent.CLICK,this,function(){
+				let o = new recharge_vip.Recharge_VipDialog()
+				o.setData(0);
+				o.popup()
+			})
 
 
 		}

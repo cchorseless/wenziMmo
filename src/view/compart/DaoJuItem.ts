@@ -22,6 +22,25 @@ module view.compart {
 			// 是否有能力提升的提示
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
 			this.btn_isStronger.visible = false;
+
+			let needJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID);
+			let needsex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
+			let needlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
+			if (needsex == 0 || needsex == GameApp.GameEngine.mainPlayer.sex) {
+				if (needJob == GameApp.GameEngine.mainPlayer.job || needJob == 0) {
+					if (needlvl <= GameApp.GameEngine.mainPlayer.level) {
+						this.img_cantWear.visible = false;
+					}else {
+						this.img_cantWear.visible = true;
+					}
+				} else {
+					this.img_cantWear.visible = true;
+				}
+			} else {
+				this.img_cantWear.visible = true;
+			}
+
+
 			// 在角色身上
 			if (item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
 				// 装备查看是否可以战力增加的提示
@@ -38,6 +57,7 @@ module view.compart {
 					this.img_bg.filters = null;
 				}
 			}
+
 			this.initUI(item, model);
 		}
 
@@ -131,7 +151,7 @@ module view.compart {
 				if (item.dwCount > 10000) {
 					let num = item.dwCount / 10000;
 					if (num > 10000) {
-						let count=num/10000;
+						let count = num / 10000;
 						this.lbl_count.text = count + '亿';
 					}
 					else {
