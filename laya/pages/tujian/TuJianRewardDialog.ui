@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":74,
+    "selectedBox":74,
+    "selecteID":126,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":74,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":118,"x":74,"width":495,"skin":"image/common/fram_common_11.png","height":148},
                     "nodeParent":74,
@@ -138,6 +139,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":269,"x":74,"width":495,"skin":"image/common/fram_common_11.png","height":148},
                     "nodeParent":74,
@@ -252,6 +254,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":420,"x":74,"width":495,"skin":"image/common/fram_common_11.png","height":148},
                     "nodeParent":74,
@@ -365,6 +368,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":571,"x":74,"width":495,"skin":"image/common/fram_common_11.png","height":148},
                     "nodeParent":74,
@@ -478,6 +482,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":723,"x":74,"width":495,"skin":"image/common/fram_common_11.png","height":148},
                     "nodeParent":74,
@@ -591,6 +596,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":516,"var":"btn_tujianRewardClose","stateNum":"2","skin":"image/common/icon_close.png"},
                     "nodeParent":74,
@@ -603,8 +609,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":160,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":19,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":74,
                     "label":"Image",
                     "isOpen":true,
@@ -614,8 +621,9 @@
                     "compId":126,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"图鉴奖励","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"图鉴奖励","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":126,
                             "label":"Label",
                             "isDirectory":false,

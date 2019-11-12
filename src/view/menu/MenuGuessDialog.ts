@@ -5,8 +5,8 @@ module view.menu {
 			super();
 			this.setData();
 		}
-		public vip;
-		public jingcai;
+		public vip=0;
+		public jingcai=0;
 		public setData(): void {
 			this.addEvent();
 			this.init_GetData();

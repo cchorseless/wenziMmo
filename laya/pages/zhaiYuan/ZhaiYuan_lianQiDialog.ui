@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":233,
-    "selecteID":129,
+    "selectedBox":80,
+    "selecteID":81,
     "referenceLines":null,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
@@ -41,18 +41,19 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":164,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":80,
                     "label":"Image",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":81,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":83,"text":"炼器室","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":88,"text":"炼器室","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":81,
                             "label":"Label",
                             "isDirectory":false,
@@ -127,7 +128,6 @@
                             "compId":129,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":18,"x":16,"width":121,"skin":"image/common/img_common_016.png","height":132},
                                     "nodeParent":129,
@@ -187,7 +187,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/EquipItem.ui",
                                     "props":{"y":9,"x":221,"var":"panel_1_UI","scaleY":1.24,"scaleX":1.24},
@@ -201,7 +200,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":66,"x":137,"width":259,"skin":"image/common/bottom_waigingzhanshi.png","height":74,"alpha":0.3},
                                     "nodeParent":129,
@@ -214,7 +212,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":10,"text":"成功率额外增加：","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":129,
@@ -227,7 +224,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"x":453,"width":74,"var":"btn_equipContent","stateNum":2,"skin":"image/common/bottom_wanfa.png","height":71},
                                     "nodeParent":129,
@@ -252,7 +248,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":63,"x":439,"width":103,"var":"lab_equipText","valign":"bottom","text":"（4/10）","height":30,"fontSize":24,"font":"FZHL","color":"#404040","align":"center"},
                                     "nodeParent":129,
@@ -265,7 +260,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":192,"x":208,"skin":"image/common/bottom_shuliandu.png"},
                                     "nodeParent":129,
@@ -302,7 +296,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":318,"x":186,"var":"lab_luckyText","text":"当前成功率：80%","strokeColor":"#404040","stroke":4,"height":31,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":129,
@@ -315,7 +308,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":188,"x":329,"var":"box_afterLvUp"},
                                     "nodeParent":129,
@@ -327,7 +319,6 @@
                                     "compId":241,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"HTMLDivElement",
                                             "props":{"y":47,"x":16,"width":183,"var":"html_1_0","height":26},
                                             "nodeParent":241,
@@ -340,7 +331,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"HTMLDivElement",
                                             "props":{"y":94,"x":16,"width":183,"var":"html_1_1","height":26},
                                             "nodeParent":241,
@@ -353,7 +343,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":0,"x":16,"width":63,"valign":"bottom","text":"攻击：","height":29,"fontSize":26,"font":"FZHL","color":"#404040","align":"center"},
                                             "nodeParent":241,
@@ -366,7 +355,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":0,"x":81,"width":100,"var":"lab_attack1","valign":"bottom","text":"5-10","height":30,"fontSize":26,"font":"FZHL","color":"#63491a","align":"left"},
                                             "nodeParent":241,
@@ -380,7 +368,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":188,"x":15,"var":"box_beforeLvUp"},
                                     "nodeParent":129,
@@ -392,7 +379,6 @@
                                     "compId":242,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"HTMLDivElement",
                                             "props":{"y":47,"x":0,"width":183,"var":"html_0_0","height":26},
                                             "nodeParent":242,
@@ -405,7 +391,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"HTMLDivElement",
                                             "props":{"y":94,"x":0,"width":183,"var":"html_0_1","height":26},
                                             "nodeParent":242,
@@ -418,7 +403,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":0,"x":0,"width":63,"valign":"bottom","text":"攻击：","height":29,"fontSize":26,"font":"FZHL","color":"#404040","align":"center"},
                                             "nodeParent":242,
@@ -431,7 +415,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":0,"x":65,"width":100,"var":"lab_attack0","valign":"bottom","text":"5-10","height":30,"fontSize":26,"font":"FZHL","color":"#63491a","align":"left"},
                                             "nodeParent":242,
@@ -445,7 +428,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":164,"width":50,"var":"lab_1_increase","text":"8%","strokeColor":"#404040","stroke":2,"height":25,"fontSize":20,"font":"FZHL","color":"#179a0d","align":"left"},
                                     "nodeParent":129,
@@ -458,7 +440,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":111,"x":144},
                                     "nodeParent":129,
@@ -531,7 +512,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":150,"x":147},
                                     "nodeParent":129,
