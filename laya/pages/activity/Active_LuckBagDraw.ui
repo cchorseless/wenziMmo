@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":42,
-    "props":{"width":640,"sceneColor":"#000000","height":863},
+    "selecteID":72,
+    "props":{"width":640,"sceneColor":"#000000","height":883},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -541,6 +541,48 @@
                                 ],
                             "$LOCKED":true
                         }]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":835,"x":66,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+            "nodeParent":1,
+            "label":"Button(btn_back)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":72,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":15,"x":15,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
+                    "nodeParent":72,
+                    "label":"Button",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":73,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":49,"x":13,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
+                    "nodeParent":72,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":74,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],

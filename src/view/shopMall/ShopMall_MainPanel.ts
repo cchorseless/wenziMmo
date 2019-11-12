@@ -9,7 +9,8 @@ module view.shopMall {
 		EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK,
 		EnumData.ShopType.SHOP_TYPE_SKILL,
 		EnumData.ShopType.SHOP_TYPE_HONOR,
-		EnumData.ShopType.SHOP_TYPE_LIMITED
+		EnumData.ShopType.SHOP_TYPE_LIMITED,
+		EnumData.ShopType.SHOP_TYPE_MYSTERY
 		]
 		public setData(): void {
 			this.panel_shop.hScrollBarSkin = '';
@@ -23,14 +24,24 @@ module view.shopMall {
 			this.addEvent();
 			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN);
 		}
+		public aa() {
+			GameApp.LListener.on(ProtoCmd.Active9, this, (data) => {
+				this.shop6.removeChildren()
+				let o = new view.activity.Active_Mysteryshop()
+				o.setData(data)
+				this.shop6.addChild(o);
+			})
+			let pkt9 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active9, null)
+			lcp.send(pkt9);
+		}
 		public addEvent(): void {
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
 			});
 			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new view.recharge_vip.Recharge_VipDialog();
-					o.setData(1);
-					o.popup(true);
+				o.setData(1);
+				o.popup(true);
 			});
 
 			this.addLcpEvent();
@@ -141,6 +152,7 @@ module view.shopMall {
 			for (let _type of this.allType) {
 				GameApp.LListener.offCaller(ProtoCmd.SHOP_UpdateItemList + '_' + _type, this);
 			}
+			GameApp.LListener.offCaller(ProtoCmd.Active9, this);
 			PopUpManager.Dispose(this);
 		}
 
@@ -148,10 +160,15 @@ module view.shopMall {
 	  	 *拉取商店信息
 	  	 */
 		public updateHotShop(type): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			let data = [type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
-			pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, type);
-			lcp.send(pkt);
+			if (type != EnumData.ShopType.SHOP_TYPE_MYSTERY) {
+				let pkt = new ProtoCmd.QuestClientData();
+				let data = [type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
+				pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, type);
+				lcp.send(pkt);
+			}else{
+				this.aa();
+			}
+
 		}
 
 	}
