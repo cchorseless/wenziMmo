@@ -14,57 +14,17 @@
     "child":[
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":112,"x":150,"text":"性别：","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":80,"x":150,"text":"出身：","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":48,"x":150,"text":"等级：","height":22,"fontSize":22,"font":"FZHL"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":158,"x":-1,"width":503,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":135},
+            "props":{"y":151,"x":-1,"width":503,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"16,15,17,17","height":150},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":7,
             "child":[
                 {
-                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":10,"x":10,"width":418,"var":"div_itemDes","innerHTML":"htmlText","height":112},
                     "nodeParent":7,
@@ -79,56 +39,101 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":112,"x":208,"width":162,"var":"lbl_sexNeed","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
+            "type":"Box",
+            "props":{"y":42,"x":32},
             "nodeParent":1,
-            "label":"Label(lbl_sexNeed)",
-            "isDirectory":false,
+            "label":"Box",
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
+            "hasChild":true,
+            "compId":15,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":80,"x":208,"width":162,"var":"lbl_jobNeed","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_jobNeed)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":5,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":48,"x":208,"width":162,"var":"lbl_useLevel","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_useLevel)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"compart/DaoJuItem.ui",
-            "props":{"y":48,"x":24,"var":"ui_item","scaleY":1.2,"scaleX":1.2,"runtime":"view.compart.DaoJuItem"},
-            "nodeParent":1,
-            "label":"UIView(ui_item)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ]
+                {
+                    "type":"UIView",
+                    "source":"compart/DaoJuItem.ui",
+                    "props":{"var":"ui_item","scaleY":1.2,"scaleX":1.2,"runtime":"view.compart.DaoJuItem"},
+                    "nodeParent":15,
+                    "label":"UIView(ui_item)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":2,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":61,"x":122,"text":"性别：","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":15,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":29,"x":122,"text":"出身：","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":15,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"x":122,"text":"等级：","height":22,"fontSize":22,"font":"FZHL"},
+                    "nodeParent":15,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":59,"x":189,"width":162,"var":"lbl_sexNeed","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":15,
+                    "label":"Label(lbl_sexNeed)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":29,"x":189,"width":162,"var":"lbl_jobNeed","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":15,
+                    "label":"Label(lbl_jobNeed)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"x":189,"width":162,"var":"lbl_useLevel","text":"88级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":15,
+                    "label":"Label(lbl_useLevel)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
@@ -138,5 +143,6 @@
             "id":1,
             "frameRate":24,
             "action":0
-        }]
+        }],
+    "$HIDDEN":false
 }

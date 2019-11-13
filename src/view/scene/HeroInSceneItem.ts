@@ -9,23 +9,31 @@ module view.scene {
 		public setData(item: GameObject.Hero): void {
 			this.item = item;
 			this.item.ui_item = this;
-			// 名字
-			this.lbl_name.text = this.item.objName;
-			// skin
-			this.img_heroAva.skin = LangConfig.getPlayerAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
-			// this._skeGroup.loadRes([item.skeBoneRes], () => {
-			// 	this.box_view.addChild(this._skeGroup);
-			// 	this._skeGroup.pos(this.width * 0.5, this.height * 0.5);
-			// 	this._skeGroup.scale(0.5, 0.5)
-			// 	this._skeGroup.play(1, true);
-			// 	this.addEvent();
-			// });
+			this.img_heroAva.skin = LangConfig.getPlayerSmallAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
+			// 行会名字
+
 			this.updateUI();
 		}
 
 		public addEvent(): void {
 
 		}
+		/**
+		 * 刷新自己的UI
+		 */
+		public updateUI() {
+			this.updateHp();
+			this.updateZuoBiao();
+		}
+		/**
+		 * 更新血条
+		 */
+		public updateHp(): void {
+			this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
+		}
+
+
+
 
 		/**
 		 * 播放动画
@@ -37,7 +45,7 @@ module view.scene {
 		public stopPlayAni(): void {
 			// this._skeGroup.stopPlay();
 		}
-		public updateUI(): void {
+		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}

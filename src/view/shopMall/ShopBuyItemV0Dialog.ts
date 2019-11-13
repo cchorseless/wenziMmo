@@ -7,6 +7,7 @@ module view.shopMall {
 
 		public item: ProtoCmd.itf_Shop_ShopItem;
 		public setData(item: ProtoCmd.itf_Shop_ShopItem, model: EnumData.ShopBuyPanelType): ShopBuyItemV0Dialog {
+			this.lab_Name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME("" + item.itemid)
 			console.log('---------', item);
 			this.item = item;
 			let _itemBase = new ProtoCmd.ItemBase();

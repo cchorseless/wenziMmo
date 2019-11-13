@@ -3,6 +3,7 @@
 */
 module GameObject {
 	export class OtherPlayer extends Creature {
+		public feature: ProtoCmd.PlayerFeature;
 		constructor() {
 			super();
 			this.feature = new ProtoCmd.PlayerFeature();
@@ -26,6 +27,6 @@ module GameObject {
 		public viplvl: number = 0;//Vip等级
 		public ui_item: view.scene.PlayerAndHeroInSceneV0Item;
 		public curHero: GameObject.Hero;// 当前的弟子
-		public guildInfo
+
 	}
 }

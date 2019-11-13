@@ -253,6 +253,7 @@ module view.common {
 							progerUI.setData('轮回之门正在开启...', 3000);
 							progerUI.closeHandler = Laya.Handler.create(this, () => {
 								this.lbl_finaName.text = this.playerName;
+								 this.showDialog(5)
 							})
 							break;
 					};

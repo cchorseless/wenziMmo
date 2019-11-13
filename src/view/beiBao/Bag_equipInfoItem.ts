@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.beiBao {
 	export class Bag_equipInfoItem extends ui.beiBao.Bag_equipInfoItemUI {
+		public curCreater = 0;;
 		constructor() {
 			super();
 			this.setData();
@@ -14,8 +15,8 @@ module view.beiBao {
 			console.log("背景，" + this.ui_tab0.img_bg.skin)
 			this.ui_tab0.img_icon.skin = 'image/common/role_Avatar_wanjia.png';
 			this.ui_tab1.img_icon.skin = 'image/common/role_Avatar_dadizinv.png';
-			this.ui_tab2.img_icon.skin = 'image/common/role_Avatar_sandizinv.png';
-			this.ui_tab3.img_icon.skin = 'image/common/role_Avatar_erdizinv.png';
+			this.ui_tab2.img_icon.skin = 'image/common/role_Avatar_erdizinv.png';
+			this.ui_tab3.img_icon.skin = 'image/common/role_Avatar_sandizinv.png';
 			// this.ui_tab0.img_icon.visible= false;
 			this.ui_tab0.img_circle.visible = true;
 			this.ui_tab1.img_circle.visible = false;
@@ -25,6 +26,15 @@ module view.beiBao {
 			this.ui_tab1.lab_name.text = "大弟子";
 			this.ui_tab2.lab_name.text = "二弟子";
 			this.ui_tab3.lab_name.text = "三弟子";
+			this.setPlayerHalfSkin(0)
+			for (let i = 1; i < 4; i++) {
+				if (GameApp.GameEngine.mainPlayer["hero" + i].lockState != 2) {
+					this["ui_tab" + i].disabled = true;
+				}
+				else {
+					this["ui_tab" + i].disabled = false;
+				}
+			}
 
 
 
@@ -36,9 +46,41 @@ module view.beiBao {
 			this.addLcpEvent();
 			for (let i = 0; i < 4; i++) {
 				this["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.curCreater = i;
 					this.reSetState(i)
 					this.updateUI();
+					this.setPlayerHalfSkin(i)
+
 				})
+			}
+		}
+		public setPlayerHalfSkin(id) {
+			let mySex = GameApp.GameEngine.mainPlayer.sex;
+			let myJob = GameApp.GameEngine.mainPlayer.job;
+			let myPathSex;
+			let otherPathSex;
+			if (mySex == 1) {
+				myPathSex = "nan";
+				otherPathSex = "nv"
+			} else if (mySex == 2) {
+				myPathSex = "nv";
+				otherPathSex = "nan";
+			}
+			let myPathJob = "0" + myJob;
+
+			switch (id) {
+				case 0:
+					this.img_playerPic.skin = 'image/common/role_half_' + myPathSex + myPathJob + '.png';
+					break;
+				case 1:
+					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '01.png';
+					break;
+				case 2:
+					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '02.png';
+					break;
+				case 3:
+					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '03.png';
+					break;
 			}
 		}
 		public reSetState(id) {
@@ -58,6 +100,23 @@ module view.beiBao {
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
 			}
+			let power: string = "";
+			switch (this.curCreater) {
+				case 0:
+					power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
+					break;
+				case 1:
+					power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
+					break;
+				case 2:
+					power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
+					break;
+				case 3:
+					power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
+					break;
+			}
+			// this.curCreater
+			this.font_zhanLi.value = power;
 			let small_index;
 			let big_index;
 			switch (GameApp.GameEngine.mainPlayer.playerORHero) {

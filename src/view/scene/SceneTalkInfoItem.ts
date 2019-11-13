@@ -63,8 +63,8 @@ module view.scene {
 			this.img_mask.height = 0;
 			this.alpha = 0;
 			this.visible = true;
-			Laya.Tween.to(this, { alpha: 1 }, 1000, null, Laya.Handler.create(this, () => {
-				Laya.Tween.to(this.img_mask, { height: this.lbl_sceneTalk.displayHeight }, 15000, null, Laya.Handler.create(this, () => {
+			Laya.Tween.to(this, { alpha: 1 }, 2000, null, Laya.Handler.create(this, () => {
+				Laya.Tween.to(this.img_mask, { height: this.lbl_sceneTalk.displayHeight }, 10000, null, Laya.Handler.create(this, () => {
 					this.box_next.visible = true;
 				}))
 			}))
