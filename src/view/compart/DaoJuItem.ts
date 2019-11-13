@@ -51,7 +51,7 @@ module view.compart {
 				let ZS_LEVEL = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
 				let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
 				if (player.zslevel * 1000 + player.level < ZS_LEVEL * 1000 + lvl) {
-					this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
+					// this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
 				}
 				else {
 					this.img_bg.filters = null;

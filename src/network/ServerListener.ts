@@ -73,6 +73,8 @@ class ServerListener extends SingletonClass {
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
+        // 内功变化
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChuanNeigongUpdate), this, this.cretNeiGongChange);
         // 金币 236
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
         // 绑定金币 2b6
@@ -498,7 +500,7 @@ class ServerListener extends SingletonClass {
             obj.location.ncury = cbpkt.getValue('ncury');
             obj.location.ncurz = cbpkt.getValue('ncurz');
             // 刷新UI上的坐标
-            obj.ui_item && obj.ui_item.updateUI();
+            obj.ui_item && obj.ui_item.updateZuoBiao();
         }
         else {
             TipsManage.showTips('同步位置找不到玩家');
@@ -720,35 +722,35 @@ class ServerListener extends SingletonClass {
 
     //0x0234
     /**
-     * 玩家血蓝变化
+     * 场景内血蓝变化
      */
     public cretHealthChange(data: any): void {
         let msgData = new ProtoCmd.CretHealthChange(data);
         let nowhp = msgData.getValue('nNowHP');
         let maxhp = msgData.getValue('nMaxHP');
-        let onlyid = msgData.getValue('dwtempid');
-        if (onlyid == GameApp.GameEngine.mainPlayer.onlyId) {
-            let hp = msgData.getValue('nChangeHP');
-            if (hp < 0) {
-                ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
-            } else {
-                ////App.MainPanel.addSysChat('你掉了' + (-hp) + '血量');
-            }
-            // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
-            //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
-            GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
+        let tempId = msgData.getValue('dwtempid');
+        let nowmp = msgData.getValue('nChangeHP');
+        let maxmp = msgData.getValue('nChangeMP');
+        let obj = GameApp.MainPlayer.findViewObj(tempId);
+        if (obj) {
+            obj.changeHp(nowhp, maxhp);
+            obj.changeMp(nowmp, maxmp);
         }
-        // for (let v = 0; v < //App.MainPanel.objItemDB.length; ++v) {
-        //     if (//App.MainPanel.objItemDB[v].onlyid == onlyid) {
-        //         let db = //App.MainPanel.objItemDB[v];
-        //         db.nowhp = nowhp;
-        //         db.maxhp = maxhp;
-        //         let obj = //App.MainPanel.listView.getChildAt(v) as ObjItem;
-        //         //obj.blood.text = nowhp + '/' + maxhp;
-        //         obj.blood.text = "<font color='#00EE00'>(" + db.x + ',' + db.y + ")</font>" + db.nowhp + '/' + db.maxhp;
-        //         break;
-        //     }
-        // }
+        msgData.clear();
+        msgData = null;
+    }
+
+    /**
+     * 场景内内功改变
+     * @param data 
+     */
+    public cretNeiGongChange(data: any): void {
+        let msgData = new ProtoCmd.stCretChuanNeigongUpdate(data);
+        let tempId = msgData.getValue('dwtempid');
+        let obj = GameApp.MainPlayer.findViewObj(tempId);
+        if (obj) {
+            obj.changeNeigong(msgData.nValue, msgData.nMaxValue);
+        }
         msgData.clear();
         msgData = null;
     }
@@ -980,7 +982,7 @@ class ServerListener extends SingletonClass {
         player.changeGuildDedication(msg.getValue('dwGuildDedication'));//行会贡献值
         player.changeNowFame(msg.i64Fame.int64ToNumber());//当前声望
         player.changeMaxTotalFame(msg.i64TotalFame.int64ToNumber());//累计声望
-        player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
+        player.changeNeigong(msg.getValue('nNeigongMax') - msg.getValue('nNeigonguse'), msg.getValue('nNeigongMax'));//内功
         player.changeFight(msg.getValue('nFight'));// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
         player.changenSpirte(msg.getValue('nSpirte'));// 精神

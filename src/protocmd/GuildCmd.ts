@@ -1201,14 +1201,16 @@ module ProtoCmd {
 	//前端获取行会名字返回
 	export class stClientGetSingleGuildInfoRet extends Packet {
 		public static msgID: number = 0x2A55;
-		public constructor() {
+		public constructor(data) {
 			super();
 			this.addProperty("guildId", PacketBase.TYPE_DWORD);
 			this.addProperty("guildName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
 			this.cmd = 0x2A55;
+			this.read(data);
 		}
 
 	}
+
 
 	// 0x2A57
 	// 拉取行会日志界面相关信息

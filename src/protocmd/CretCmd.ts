@@ -194,7 +194,7 @@ module ProtoCmd {
     }
 
 
-    //血蓝改变通知,玩家自己
+    //血蓝改变通知
     export class CretHealthChange extends Packet {
         public static msgID: number = 0x0234;
         public constructor(data: Laya.Byte) {
@@ -319,6 +319,32 @@ module ProtoCmd {
         }
     }
 
+    /**
+     * 同步内功值
+     */
+    export class stCretChuanNeigongUpdate extends Packet {
+        public static msgID: number = 0x028F;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty("dwTempId", PacketBase.TYPE_DWORD);
+            this.addProperty('nNeigongmax', PacketBase.TYPE_INT);//内功总值
+            this.addProperty('nNeigongnum', PacketBase.TYPE_INT);//内功使用的值,(用最大值减去使用值才等于内功当前值)
+            this.read(data);
+        }
+
+
+        public get nValue(): number {
+            return this.getValue('nNeigongmax') - this.getValue('nNeigongnum');
+        }
+
+        public get nMaxValue(): number {
+            return this.getValue('nNeigongmax');
+        }
+
+        public get nUseValue(): number {
+            return this.getValue('nNeigongnum');
+        }
+    }
     //玩家 属性通知
     export class CretPlayerAbility extends Packet {
         public static msgID: number = 0x0249;
@@ -395,7 +421,7 @@ module ProtoCmd {
             this.addProperty('i64Diamond', PacketBase.TYPE_INT64);//累计声望，弃用
 
             this.addProperty('nNeigongMax', PacketBase.TYPE_INT);//总内功
-            this.addProperty('nNeigongnum', PacketBase.TYPE_INT);//内功
+            this.addProperty('nNeigonguse', PacketBase.TYPE_INT);//内功使用
 
             this.addProperty('nFight', PacketBase.TYPE_DWORD); //战斗力
             this.addProperty('dwBindRmb', PacketBase.TYPE_DWORD);//绑定元宝，弃用
@@ -443,6 +469,8 @@ module ProtoCmd {
         }
 
     }
+
+
 
 
     // 0x0228

@@ -82,6 +82,22 @@ module LangConfig {
     }
 
     /**
+     * 获取玩家头像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerIconSkinV1(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job, state = 1): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/iconV1_nan';
+        }
+        else {
+            path = 'image/common/iconV1_nv';
+        }
+        return path + '0' + job + '.png';
+    }
+
+    /**
      * 获取全身像路径
      * @param sex 
      * @param job 
@@ -95,6 +111,22 @@ module LangConfig {
             path = 'image/common/nv';
         }
         return path + '0' + job + '.png';
+    }
+
+    /**
+     * 获取全身small像
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerSmallAvatarSkin(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/nan';
+        }
+        else {
+            path = 'image/common/nv';
+        }
+        return path + '0' + job + '_small.png';
     }
 
 

@@ -391,9 +391,9 @@ module GameObject {
                 case EnumData.CRET_TYPE.CRET_NPC:
                     return this._allNpc[tempId]
                 case EnumData.CRET_TYPE.CRET_HERO:
-                    return this._allNpc[tempId]
+                    return this._allHero[tempId]
                 default:
-                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId]]) {
+                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId], this._allHero[tempId]]) {
                         if (obj) return obj;
                     }
                     break;

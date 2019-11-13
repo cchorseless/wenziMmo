@@ -223,7 +223,7 @@ module GameObject {
          * 修改战斗属性
          * @param ArpgAbility 
          */
-        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility ): void {
+        public changeAbility(ArpgAbility: ProtoCmd.ArpgAbility): void {
             let ability = this.ability;
             ability.nMaxHP = ArpgAbility.getValue('nMaxHP'); //最大血量
             ability.nMaxMP = ArpgAbility.getValue('nMaxMP'); //最大蓝量
@@ -267,7 +267,6 @@ module GameObject {
             ability.nAtkReduceBoss = ArpgAbility.getValue('nAtkReduceBoss');//受BOSS伤害减少
             ability.nAtkAddHero = ArpgAbility.getValue('nAtkAddHero');//增加对英雄伤害
             ability.nAtkReduceHero = ArpgAbility.getValue('nAtkReduceHero');//减少受英雄伤害
-            ability.nInnerValue = ArpgAbility.getValue('nInnerValue');//内功值
             ability.nInnerRestore = ArpgAbility.getValue('nInnerRestore');//内功恢复
             ability.nInnerResi = ArpgAbility.getValue('nInnerResi');//内功抵伤
             ability.nFinalDamageAdd = ArpgAbility.getValue('nFinalDamageAdd');//最终伤害增加
@@ -299,7 +298,7 @@ module GameObject {
                 this.ability.nowHP = nowHP;
             }
             if (this.ui_item) {
-                this.ui_item.updateUI();
+                this.ui_item.updateHp();
             }
         }
 
@@ -371,15 +370,13 @@ module GameObject {
         public changeNeigong(nowNeigong: number, maxNeigong: number = 0) {
             if (maxNeigong > 0) {
                 this.ability.nInnerValue = maxNeigong;
-                if (nowNeigong > 0) {
-                    this.ability.nInnerValue = nowNeigong;
-                }
+                console.log('-----内功上限-------', maxNeigong)
             }
-            else {
+            if (nowNeigong > 0) {
                 this.ability.nowInnerValue = nowNeigong;
             }
-            if (this.isMainPlayer) {
-                ////GameApp.MainPanel.bloodBtn.text = '血量:(' + this.ability.nowHP + '/' + this.ability.nMaxHP + ')';
+            if (this.ui_item) {
+                this.ui_item.updateNeiGong();
             }
         }
 

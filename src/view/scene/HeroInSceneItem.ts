@@ -10,21 +10,36 @@ module view.scene {
 			this.item = item;
 			this.item.ui_item = this;
 			// 名字
+			if (this.item.objName.length > 4) {
+				this.lbl_name.fontSize = 16
+			}
+			else {
+				this.lbl_name.fontSize = 18
+			}
 			this.lbl_name.text = this.item.objName;
+			this.img_nameBg.height = this.lbl_name.displayHeight + 25;
 			// skin
-			this.img_heroAva.skin = LangConfig.getPlayerAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
-			// this._skeGroup.loadRes([item.skeBoneRes], () => {
-			// 	this.box_view.addChild(this._skeGroup);
-			// 	this._skeGroup.pos(this.width * 0.5, this.height * 0.5);
-			// 	this._skeGroup.scale(0.5, 0.5)
-			// 	this._skeGroup.play(1, true);
-			// 	this.addEvent();
-			// });
+			this.img_heroAva.skin = LangConfig.getPlayerSmallAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
+			// 行会名字
+		
 			this.updateUI();
 		}
 
 		public addEvent(): void {
 
+		}
+		/**
+		 * 刷新自己的UI
+		 */
+		public updateUI() {
+			this.updateHp();
+			this.updateZuoBiao();
+		}
+		/**
+		 * 更新血条
+		 */
+		public updateHp(): void {
+			this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
 		}
 
 		/**
@@ -37,7 +52,7 @@ module view.scene {
 		public stopPlayAni(): void {
 			// this._skeGroup.stopPlay();
 		}
-		public updateUI(): void {
+		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
