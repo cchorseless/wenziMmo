@@ -6,6 +6,7 @@ module view.main {
 		public isDelete = false;
 		public deleteTabID = null;
 		public deleteStr = "";
+		public curTouch = 1;
 		constructor() {
 			super();
 			this.tempData = GameApp.GameEngine["luyinData" + [GameApp.GameEngine.luyinTabID]];
@@ -23,7 +24,7 @@ module view.main {
 			})
 			this.tab_luyin.on(Laya.UIEvent.CLICK, this, () => {
 				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
-
+				this.curTouch = this.tab_luyin.selectedIndex + 1;
 				this.getNewLuYinData();
 				if (this.deleteStr != "" && this.deleteTabID) {
 					this.deleteData();
@@ -67,16 +68,6 @@ module view.main {
 					o.show();
 				})
 			}
-			// EventManage.onWithEffect(this.btn_add, Laya.UIEvent.CLICK, this, () => {
-			// 	for (let i = 1; i < 10; i++) {
-			// 		if (this["box_guide" + i].visible == false) {
-			// 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addChuangSongRecord, [GameApp.GameEngine.luyinTabID, i])
-			// 			lcp.send(pkt);
-			// 			this.getNewLuYinData();
-			// 			break;
-			// 		}
-			// 	}
-			// });
 			EventManage.onWithEffect(this.btn_delete, Laya.UIEvent.CLICK, this, () => {
 				this.isDelete = !this.isDelete;
 				this.onShowDelete(this.isDelete);
@@ -121,13 +112,24 @@ module view.main {
 		//刷新界面
 		public upDataView() {
 			let arr = [];
-			for(let i = 1;i<5;i++){
+			// for (let i = 1; i < 5; i++) {
+			// 	let o = GameApp.GameEngine.mainPlayer.viplvl;
+			// 	let s = "";
+			// 	if (o >= this.tempData.recordtab[i].viplvl) {
+			// 		// this.tab_luyin.labels = 
+			// 		s = "存档" + i;
+			// 	} else {
+			// 		s = "VIP" + this.tempData.recordtab[i].viplvl + "解锁";
+			// 	}
+			// 	arr.push(s);
+			// }
+			for (let i in this.tempData.recordtab) {
 				let o = GameApp.GameEngine.mainPlayer.viplvl;
 				let s = "";
-				if(o >= this.tempData.recordtab[i].viplvl){
+				if (o >= this.tempData.recordtab[i].viplvl) {
 					// this.tab_luyin.labels = 
 					s = "存档" + i;
-				}else{
+				} else {
 					s = "VIP" + this.tempData.recordtab[i].viplvl + "解锁";
 				}
 				arr.push(s);
@@ -136,6 +138,7 @@ module view.main {
 			this.tab_luyin.labels = p;
 			if (this.tempData.open) {
 				this.touchID = this.tab_luyin.selectedIndex;
+				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
 				//充值显示的9个Item状态 为初始状态
 				for (let i = 1; i < 10; i++) {
 					this["btn_delete" + i].visible = false;
@@ -148,13 +151,13 @@ module view.main {
 				this.tab_luyin.selectedIndex = this.touchID
 				GameApp.GameEngine.luyinTabID = this.tab_luyin.selectedIndex + 1;
 				let str = ""
-				if (GameApp.GameEngine.luyinTabID == 2) {
+				if (this.curTouch  == 2) {
 					str = "VIP1解锁存档"
 				}
-				else if (GameApp.GameEngine.luyinTabID == 3) {
+				else if (this.curTouch == 3) {
 					str = "VIP3解锁存档"
 				}
-				else if (GameApp.GameEngine.luyinTabID == 4) {
+				else if (this.curTouch == 4) {
 					str = "VIP10解锁存档"
 				}
 				TipsManage.showTips(str);
