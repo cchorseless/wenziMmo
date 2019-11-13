@@ -28,11 +28,14 @@ module view.shopMall {
 			// 道具底图
 			this.ui_item.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.itemid) + '.png';
 			// 是否可以购买
-			this.disabled = (item.limitcnt <= item.curcnt);
+			// this.disabled = (item.limitcnt <= item.curcnt);
+			this.hasSale.visible = !(item.limitcnt <= item.curcnt);
+			this.isSellOut.visible = (item.limitcnt <= item.curcnt);
+			this.ui_item.disabled = (item.limitcnt <= item.curcnt);
 			this.addEvent()
 		}
 		public addEvent(): void {
-			this.on(Laya.UIEvent.CLICK, this, () => {
+			this.ui_item.on(Laya.UIEvent.CLICK, this, () => {
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
 				let itemInfoDialog: view.shopMall.ShopBuyItemV0Dialog | view.shopMall.ShopBuyItemV1Dialog;
 				// 根据物品类型显示不同界面

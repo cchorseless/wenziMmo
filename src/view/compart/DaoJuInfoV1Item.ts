@@ -29,7 +29,7 @@ module view.compart {
 			let sex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
 			this.lbl_sex.text = LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sex]];
 			// 战斗评分
-			this.lbl_sorce.text =obj.battleScore[jobLimit] + "";
+			this.lbl_sorce.value =obj.battleScore[jobLimit] + "";
 			// 装备属性
 
 			// 基本属性

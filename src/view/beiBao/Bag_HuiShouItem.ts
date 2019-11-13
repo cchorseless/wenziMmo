@@ -4,6 +4,7 @@ module view.beiBao {
 		public baseItemmap = [];  //顺序排序需要取出来的数据   用于添加 至回收面板使用
 		public exp0 = 0;
 		public exp1 = 0;
+		public maxCircleNum = 50;
 		constructor() {
 			super();
 		}
@@ -70,7 +71,7 @@ module view.beiBao {
 			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, () => {
 				this.onRecycle();
 			});
-			this.btn_goVip.on(Laya.UIEvent.CLICK,this,function(){
+			this.btn_goVip.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new recharge_vip.Recharge_VipDialog()
 				o.setData(0);
 				o.popup()
@@ -154,15 +155,18 @@ module view.beiBao {
 					this.takeOutMap[i].ui_item.disabled = false;
 				}
 			}
+			this.baseItemmap = [];
 			this.exp0 = this.exp1 = 0;
 			this.putInMap = {};
 			this.panel_a.removeChildren();
 			this.box_empty.visible = true;
+			this.lab_recircle.text = 0 + "/50"
 			this.onShowExp();
 		}
 		public onRecycle() {
 			let base64IDArr = [];
 			let str = "";
+			let freeMap = [];
 			if (this.baseItemmap.length > 0) {
 				for (let i = 0; i < this.baseItemmap.length; i++) {
 					if (i == 0) {
@@ -170,7 +174,6 @@ module view.beiBao {
 					} else {
 						str += "+" + this.baseItemmap[i].i64ItemID
 					}
-
 				}
 			}
 			if (str != "") {
@@ -180,6 +183,7 @@ module view.beiBao {
 						Laya.timer.once(1000, this, function () {
 							TipsManage.showTips("恭喜！获得英雄经验：" + data.heroexp)
 						})
+
 						this.onRecycleComplete();
 
 					})
@@ -197,10 +201,16 @@ module view.beiBao {
 			}
 
 			this.box_empty.visible = false;
+			let num = 0;
 			for (let i in this.putInMap) {
 				if (this.putInMap[i]) {
 					if (this.putInMap[i]) {
-						this.baseItemmap.push(this.putInMap[i])
+						if(num < this.maxCircleNum){
+							this.baseItemmap.push(this.putInMap[i])
+							num++;
+						}else{
+							break;
+						}
 					}
 				}
 			}
@@ -228,6 +238,7 @@ module view.beiBao {
 				}
 				this.box_empty.visible = true;
 			}
+			this.lab_recircle.text = this.baseItemmap.length + "/50"
 			this.onShowExp();
 		}
 		public onRecycleComplete() {
@@ -235,6 +246,7 @@ module view.beiBao {
 			this.panel_a.removeChildren();
 			this.box_empty.visible = true;
 			this.exp0 = this.exp1 = 0;
+			this.lab_recircle.text = 0 + "/50"
 			this.onShowExp();
 
 		}
