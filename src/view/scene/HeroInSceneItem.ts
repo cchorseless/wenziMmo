@@ -9,19 +9,9 @@ module view.scene {
 		public setData(item: GameObject.Hero): void {
 			this.item = item;
 			this.item.ui_item = this;
-			// 名字
-			if (this.item.objName.length > 4) {
-				this.lbl_name.fontSize = 16
-			}
-			else {
-				this.lbl_name.fontSize = 18
-			}
-			this.lbl_name.text = this.item.objName;
-			this.img_nameBg.height = this.lbl_name.displayHeight + 25;
-			// skin
 			this.img_heroAva.skin = LangConfig.getPlayerSmallAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
 			// 行会名字
-		
+
 			this.updateUI();
 		}
 
@@ -41,6 +31,9 @@ module view.scene {
 		public updateHp(): void {
 			this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
 		}
+
+
+
 
 		/**
 		 * 播放动画

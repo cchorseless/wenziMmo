@@ -290,11 +290,8 @@ module GameObject {
         public changeHp(nowHP: number, nMaxHP: number = 0) {
             if (nMaxHP > 0) {
                 this.ability.nMaxHP = nMaxHP;
-                if (nowHP > 0) {
-                    this.ability.nowHP = nowHP;
-                }
             }
-            else {
+            if (nowHP >= 0) {
                 this.ability.nowHP = nowHP;
             }
             if (this.ui_item) {
@@ -311,15 +308,13 @@ module GameObject {
         public changeMp(nowMP: number, nMaxMP: number = 0) {
             if (nMaxMP > 0) {
                 this.ability.nMaxMP = nMaxMP;
-                if (nowMP > 0) {
-                    this.ability.nowMP = nowMP;
-                }
+
             }
-            else {
+            if (nowMP > 0) {
                 this.ability.nowMP = nowMP;
             }
             if (this.isMainPlayer) {
-                ////GameApp.MainPanel.bloodBtn.text = '血量:(' + this.ability.nowHP + '/' + this.ability.nMaxHP + ')';
+              
             }
         }
 
@@ -336,7 +331,6 @@ module GameObject {
             if (this.isMainPlayer) {
                 GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_EXP);
             }
-
         }
 
         /**

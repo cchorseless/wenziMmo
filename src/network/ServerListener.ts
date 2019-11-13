@@ -729,8 +729,8 @@ class ServerListener extends SingletonClass {
         let nowhp = msgData.getValue('nNowHP');
         let maxhp = msgData.getValue('nMaxHP');
         let tempId = msgData.getValue('dwtempid');
-        let nowmp = msgData.getValue('nChangeHP');
-        let maxmp = msgData.getValue('nChangeMP');
+        let nowmp = msgData.getValue('nNowMP');
+        let maxmp = msgData.getValue('nMaxMP');
         let obj = GameApp.MainPlayer.findViewObj(tempId);
         if (obj) {
             obj.changeHp(nowhp, maxhp);
@@ -838,12 +838,13 @@ class ServerListener extends SingletonClass {
         switch (type) {
             // 更新角色经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PLAYER:
-                GameApp.MainPlayer.changeExp(nowExp.int64ToNumber());
-                TipsManage.showTxt('主角经验改变了' + addExp);
+                GameApp.MainPlayer.changeExp(nowExp);
+                TipsManage.showTxt('获取阅历:' + addExp);
                 break;
             // 更新英雄经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_HERO:
-                TipsManage.showTxt('英雄经验改变了' + addExp);
+                GameApp.MainPlayer.changeHeroExp(nowExp);
+                TipsManage.showTxt('获取默契:' + addExp);
                 break;
             // 更新BOSS积分
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_BOSS:
@@ -885,21 +886,13 @@ class ServerListener extends SingletonClass {
         let level = msg.getValue('dwLevel');
         let i64LeftExp = msg.getValue('i64LeftExp').int64ToNumber();;
         let i64MaxExp = msg.getValue('i64MaxExp').int64ToNumber();;
-        let player: GameObject.Player;
-        // 玩家等级改变
-        if (GameApp.MainPlayer.tempId == dwTempId) {
-            player = GameApp.MainPlayer;
-        }
-        else {
-            player = GameApp.MainPlayer.findViewObj(dwTempId, EnumData.CRET_TYPE.CRET_PLAYER) as GameObject.Player;
-        }
+        let player = GameApp.MainPlayer.findViewObj(dwTempId);
         if (player) {
             player.changeLevel(level);
             player.changeExp(i64LeftExp, i64MaxExp);
         }
         msg.clear();
         msg = null;
-
         GameApp.SDKManager.upgradeRole();
     }
 
@@ -989,7 +982,7 @@ class ServerListener extends SingletonClass {
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
-        player.changeHeroMaxExp(msg.getValue('i64MaxHeroExp'));// 英雄最大经验
+        player.changeHeroExp(0, msg.getValue('i64MaxHeroExp').int64ToNumber());// 英雄最大经验
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();

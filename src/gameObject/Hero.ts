@@ -4,6 +4,7 @@
 module GameObject {
 	export class Hero extends Creature {
 
+		public static NowExp: number = 0;
 		public static MaxExp: number = 0;
 		public static zslevel = 0;
 		public static level = 0;

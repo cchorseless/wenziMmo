@@ -96,8 +96,14 @@ module GameObject {
          * 更改英雄最大经验
          * @param maxExp 
          */
-        public changeHeroMaxExp(maxExp) {
-            Hero.MaxExp = maxExp;
+        public changeHeroExp(nowExp = 0, maxExp = 0) {
+            if (maxExp > 0) {
+                Hero.MaxExp = maxExp;
+            }
+            if (nowExp > 0) {
+                Hero.NowExp = nowExp;
+            }
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_EXP);
         }
 
         /**
@@ -380,8 +386,13 @@ module GameObject {
          * @param type 
          */
         public findViewObj(tempId: number, type?: EnumData.CRET_TYPE): Creature {
+            // 自己
             if (GameApp.MainPlayer.tempId == tempId) {
                 return GameApp.MainPlayer
+            }
+            // 自己的英雄
+            if (GameApp.MainPlayer.curHero && GameApp.MainPlayer.curHero.tempId == tempId) {
+                return GameApp.MainPlayer.curHero;
             }
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
