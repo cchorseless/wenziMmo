@@ -6,7 +6,7 @@ module view.rank {
 			this.setData();
 		}
 		public setData(): RankPrizeInfoDialog {
-			this.panel_0.vScrollBarSkin = '';
+			this.panel_0.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_0.selectedIndex = index;
 				this.RankGetItem();
@@ -43,53 +43,51 @@ module view.rank {
 			switch (rankMsg) {
 				//等级榜
 				case 0:
-					btType = EnumData.emRankType.Cret_Level_Rank;
+					btType = 8;
 					ui_rank_box = this.vbox_1;
 					break;
 				//战力榜
 				case 1:
-					btType = EnumData.emRankType.Cret_EquipScore_Rank;
-
+					btType = 1;
 					ui_rank_box = this.vbox_2;
 					break;
 				//英雄战力榜
 				case 2:
-					btType = EnumData.emRankType.Cret_Hero_Warrior_Score_Rank;
-
+					btType = 2;
 					ui_rank_box = this.vbox_3;
 					break;
 				//勋章榜
 				case 3:
-					btType = EnumData.emRankType.Cret_Medal_Rank;
-
+					btType = 3;
 					ui_rank_box = this.vbox_4;
 					break;
 				//官印榜
 				case 4:
-					btType = EnumData.emRankType.Cret_GuanZhiLv_Rank;
-
+					btType = 4;
 					ui_rank_box = this.vbox_5;
 					break;
 				//龙魂榜
 				case 5:
-					btType = EnumData.emRankType.Cret_LongHunLv_Rank;
-
-
+					btType = 5;
 					ui_rank_box = this.vbox_6;
 					break;
 				//强化榜
 				case 6:
-					btType = EnumData.emRankType.Cret_Intensify_Rank;
+					btType = 6;
 					ui_rank_box = this.vbox_7;
 					break;
 				//威望榜
 				case 7:
-					btType = EnumData.emRankType.Cret_Fame_Rank;
-
+					btType = 7;
 					ui_rank_box = this.vbox_8;
 					break;
 			}
-			
+			let rankData=SheetConfig.Ranking_List.getInstance(null).GETALLDATA(btType);
+			let keys=Object.keys(rankData);
+			ui_rank_box.removeChildren();
+			for(let key of keys){
+				ui_rank_box.addChild(new view.rank.RankGetItem().setData(rankData[key]));
+			}
 		}
 	}
 }

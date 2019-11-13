@@ -33,12 +33,16 @@ module view.juese {
 			// 角色形象
 			this.img_avatar.skin = '' + LangConfig.getPlayerAvatarSkin();
 			//个人标签
-			for (let i = 1; i < 9; i++) {
-				let o = GameApp.MainPlayer.xingGeInfo[i].id
-				this["lab_tag" + i].text = SheetConfig.Label.getInstance(null).NAME(o);
-				let imgRes = SheetConfig.Label.getInstance(null).GRADE(o);
-				this['img_tag' + i].skin = 'image/common/tab_rw_0' + imgRes + '.png'
+			this.list_label.array = [];
+			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
+			for (let key of keys) {
+				let id = GameApp.MainPlayer.xingGeInfo[key].id
+				this.list_label.array.push(id);
 			}
+			this.list_label.itemRender = view.juese.Person_SpeLabelItem;
+			this.list_label.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
+				cell.setData(cell.dataSource);
+			}, null, false)
 			// 声望信息
 			this.lbl_shengWang.text = LangConfig.getFameDes(player.wealth.nowFame);
 			this.addEvent();
@@ -68,19 +72,6 @@ module view.juese {
 				})
 
 			})
-			this.img_tag1.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.PlayerTagDialog().popup(true);
-			})
-			for (let i = 1; i < 9; i++) {
-				this["img_tag" + i].on(Laya.UIEvent.CLICK, this, () => {
-					let tt = new view.dialog.PlayerTagDialog();
-					tt.popup(true);
-					tt.setData(i)
-				})
-			}
-
 		}
-
-
 	}
 }

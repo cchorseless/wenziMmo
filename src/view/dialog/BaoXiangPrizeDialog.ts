@@ -25,6 +25,7 @@ module view.dialog {
 				this.close();
 			})
 		}
+		//幸运抽奖
 		public init_luckDrawView(data): BaoXiangPrizeDialog {
 			this.panel_baoxiang.hScrollBarSkin = '';
 			this.hbox_baoxiang['sortItem'] = (items) => { };

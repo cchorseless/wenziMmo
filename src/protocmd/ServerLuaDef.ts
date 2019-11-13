@@ -397,6 +397,8 @@ module ProtoCmd {
     export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
     //菜单福利在线奖励
     export const FuLi_zaixiangjiangli_minbandakai = "zaixiangjiangli_minbandakai";//参数(0:openpanel -->getreward:1 2 3 4 5:yuanbao)
+    //菜单福利邀请有礼激活
+    export const FuLi_xinshouka_other_shiyong = "xinshouka_other_shiyong";
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数

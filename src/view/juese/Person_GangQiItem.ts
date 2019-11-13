@@ -51,6 +51,7 @@ module view.juese {
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_JiHuo();
 			})
+			//角色罡气升级
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_upLevel();
 			})

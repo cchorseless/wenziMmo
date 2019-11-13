@@ -8,8 +8,6 @@ module view.hero {
 		public client_func_index = 53;
 		//开启所需等级总数
 		private sum;
-		//玩家等级总数
-		private mySum;
 		public setData(): void {
 			this.vbox_1['sortItem'] = (items) => { };
 			this.vbox_2['sortItem'] = (items) => { };
@@ -18,18 +16,16 @@ module view.hero {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			if (this.mySum >= this.sum) {
-				//开启
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.lvlCount >= this.sum) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
-				})
-			}
-			else {
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				}
+				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
-				});
-			}
+				}
+			})
 			//一键激活
 			this.btn_allActivation.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_activation();
@@ -68,7 +64,6 @@ module view.hero {
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 			this.sum = zsLvl * 1000 + lvl;
-			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		public init_wuxuePanel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
