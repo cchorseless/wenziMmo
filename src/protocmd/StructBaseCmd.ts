@@ -984,7 +984,7 @@ module ProtoCmd {
             this.addProperty("nAtkReduceBoss", PacketBase.TYPE_INT);//受BOSS伤害减少
             this.addProperty("nAtkAddHero", PacketBase.TYPE_INT);//增加对英雄伤害
             this.addProperty("nAtkReduceHero", PacketBase.TYPE_INT);//减少受英雄伤害
-            this.addProperty("nInnerValue", PacketBase.TYPE_INT);//内功值
+            this.addProperty("nInnerValue", PacketBase.TYPE_INT);//装备加成的内功值
             this.addProperty("nInnerRestore", PacketBase.TYPE_INT);//内功恢复
             this.addProperty("nInnerResi", PacketBase.TYPE_INT);//内功抵伤
             this.addProperty("nFinalDamageAdd", PacketBase.TYPE_INT);//最终伤害增加

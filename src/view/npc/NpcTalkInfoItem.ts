@@ -51,37 +51,9 @@ module view.npc {
 				Laya.timer.clear(this, this.updateTalkLabel);
 				return
 			}
-			// 对白结束，处理事件
+			// 对白结束
 			if (this.curTalkInfo.des == '') {
 				this.lbl_jumpTalk.text = '点击继续';
-				// 事件
-				let eventInfo = this.curTalkInfo.event;
-				if (eventInfo) {
-					for (let evet of eventInfo) {
-						GameApp.LListener.event(evet[0], evet[1])
-					}
-				}
-				// 暂停
-				if (this.curTalkInfo.stop) {
-					this.visible = false;
-				}
-				// if (this.curTalkInfo) {
-				// 	// 弹窗
-				// 	if (this.curTalkInfo['showDialog'] != null) {
-				// 		this.showDialog(true);
-				// 	}
-				// 	// 更新任务信息
-				// 	if (this.curTalkInfo['updateTask'] != null) {
-				// 		this.lbl_tipsDes.text = '' + this.curTalkInfo['updateTask'];
-				// 	};
-				// 	// 点击提示
-				// 	let btn = this.curTalkInfo['showTips'];
-				// 	let mode = this.curTalkInfo['showTipsMode'];
-				// 	if (btn != null) {
-				// 		this.showTipsImage(this[btn], mode);
-				// 	};
-
-				// }
 				Laya.timer.clear(this, this.updateTalkLabel);
 				return
 			}
@@ -92,23 +64,30 @@ module view.npc {
 
 		public addEvent() {
 			// 跳过对白
-			this.box_next.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.talkList.length == 0) {
-					this.visible = false
-					return
-				}
+			this.on(Laya.UIEvent.CLICK, this, () => {
+				// 有对白跳过对白
 				if (this.curTalkInfo.des) {
 					this.lbl_npcSay.text += this.curTalkInfo.des.substr(1);
 					this.curTalkInfo.des = '';
-					this.updateTalkLabel();
 				}
+				// 没有对白
 				else {
-					// 对白暂停
-					if (this.curTalkInfo && this.curTalkInfo.stop) {
+					// 暂停
+					if (this.curTalkInfo.stop) {
 						this.visible = false;
-						return
 					}
-					this.parseTalkList();
+					// 有事件抛出事件
+					if (this.curTalkInfo.event) {
+						// 事件
+						let eventInfo = this.curTalkInfo.event;
+						for (let evet of eventInfo) {
+							GameApp.LListener.event(evet[0], evet[1])
+						}
+						this.curTalkInfo.event = null;
+					}
+					else {
+						this.parseTalkList();
+					}
 				}
 			});
 		}
