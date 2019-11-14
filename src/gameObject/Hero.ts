@@ -23,7 +23,7 @@ module GameObject {
 			return GameApp.MainPlayer.curHero.feature.simpleFeature.job == this.feature.simpleFeature.job;
 		}
 		// 锁定状态 0未激活1可激活2已激活
-		public lockState;
+		public lockState = 0;
 
 	}
 }

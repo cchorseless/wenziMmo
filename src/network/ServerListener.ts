@@ -908,7 +908,6 @@ class ServerListener extends SingletonClass {
         let dwType = msg.getValue('dwType');
         let fightPower = msg.getValue('fightPower');
         let player = GameApp.MainPlayer;
-        console.log('-cretAbility-', dwType, dwTempId);
         if (dwTempId == player.tempId) {
             switch (dwType) {
                 // 玩家

@@ -9,6 +9,7 @@ module view.beiBao {
 		}
 		public setData(): void {
 			// 初始化背包
+			
 			for (let i = 0; i < 4; i++) {
 				this['panel_bag' + i].vScrollBarSkin = '';
 				this['vbox_bag' + i]['sortItem'] = (items) => { };
@@ -17,6 +18,7 @@ module view.beiBao {
 					this['vbox_bag' + i].addChild(new view.compart.DaoJuGroupItem());
 				}
 			}
+			this.panel_bag0.vScrollBarSkin = '';
 			// 背包tab
 			this.tab_bag.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_bag.selectedIndex = index;
@@ -213,6 +215,7 @@ module view.beiBao {
 							}
 						}
 					}
+					
 					break;
 				// 仓库
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
@@ -224,6 +227,7 @@ module view.beiBao {
 					break;
 
 			}
+			console.log("道具数量：",this.vbox_bag0.numChildren )
 		}
 
 		/**

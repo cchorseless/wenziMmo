@@ -592,10 +592,8 @@ module ProtoCmd {
      * 路引数据
      */
     export interface itf_Main_openChuangSongRecord {
-        open: boolean;
-        datatab: Object;
-        recordtab: Object
-
+        datatab: { [tabid: string]: { [index: number]: { idx: number, roomID: number } } };//房间信息{tabid:{index:roomid}} 1:{idx: 1, roomID: 10009}
+        recordtab: { [index: string]: { viplvl: number } }//解锁VIP等级{}
     }
 
     /**

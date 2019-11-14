@@ -72,7 +72,14 @@ module view.guild {
 				TipsManage.showTips('元宝不足');
 				return
 			}
-			new view.dialog.SureOrCanelDialog().setData('确花费1000元宝购买沃玛号角吗？', EnumData.SureCanelModel.BP_BUY_CREATEITEM).popup(true);
+			let sureHander = Laya.Handler.create(this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.BP_GouMaiCreateItem, null, 0, this,
+					(data: { tips: string }) => {
+						TipsManage.showTips(data.tips);
+					});
+				lcp.send(pkt);
+			})
+			new view.dialog.SureOrCanelDialog().setData('确花费1000元宝购买沃玛号角吗？', sureHander).popup(true);
 		}
 		/**
 			 * 更新创建公会UI

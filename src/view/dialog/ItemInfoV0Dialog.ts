@@ -96,7 +96,28 @@ module view.dialog {
 					});
 					// 丢弃\销毁物品
 					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
-						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', EnumData.SureCanelModel.DELET_ITEM, this.itemObj.i64ItemID).popup(true);
+						let sureHander = Laya.Handler.create(this, () => {
+							let pkt = new ProtoCmd.CretForsakeItem()
+							pkt.setValue('i64id', this.itemObj.i64ItemID)
+							lcp.send(pkt, this, (data) => {
+								let msg = new ProtoCmd.CretForsakeItem(data);
+								let errorcode = msg.getValue('btErrorCode');
+								switch (errorcode) {
+									case 0:
+										TipsManage.showTips('丢弃物品成功');
+										break;
+									case 33:
+										TipsManage.showTips('绑定物品不允许丢弃');
+										break;
+									default:
+										TipsManage.showTips('该物品不允许丢弃');
+										break;
+								}
+								msg.clear();
+								msg = null;
+							});
+						})
+						new view.dialog.SureOrCanelDialog().setData('确定要删除该物品吗？', sureHander).popup(true);
 					});
 					break;
 				// 背包-仓库,道具不能拆分放入仓库，所以隐藏
