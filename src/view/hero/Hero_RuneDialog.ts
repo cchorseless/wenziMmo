@@ -119,10 +119,10 @@ module view.hero {
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
 				let id3 = suitID + 8;
-				let bossHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id1);
-				this.lbl_value1.text='合击对怪物伤害+'+bossHurt;
-				let personHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOPLAYER('' + id2);
-				this.lbl_value2.text='合击对玩家和弟子伤害+'+personHurt;
+				// let bossHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id1);
+				// this.lbl_value1.text='合击对怪物伤害+'+bossHurt;
+				// let personHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOPLAYER('' + id2);
+				// this.lbl_value2.text='合击对玩家和弟子伤害+'+personHurt;
 				// let HurtTime = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id3);
 				// this.lbl_value2.text='合击技能回满时间降至'+personHurt;
 				console.log('======>效果id', suitID)

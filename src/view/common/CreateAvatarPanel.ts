@@ -159,9 +159,8 @@ module view.common {
 			[
 				{ npcid: 1009, des: '有缘人，你来了。' },
 				{ npcid: 1, des: '？？？。。。您就是传说中的地藏王菩萨？请问我该如何投胎转世呢？' },
-				{ npcid: 1009, des: '有缘人，来到此地一切皆是缘法。你再往前一步就是阳界。正所谓众生平等，千人千面。首先你要选一下你的性格特质。', event: [['createPlayer_showDialog', 3]], stop: true },
-				{ npcid: 1, des: '好吧！我选好了，然后呢？？？' },
-				{ npcid: 1009, des: '正所谓千人千面，有短有长。你且过来,不会有全知全能的人，但总会有人在某些方面有着超乎常人的聪慧，这就是天赋。这就是你的六根五识盘，拿好了！！！', event: [['createPlayer_showDialog', 4]], stop: true },
+				{ npcid: 1009, des: '有缘人，来到此地一切皆是缘法。你再往前一步就是阳界。正所谓众生平等，千人千面，有短有长。' },
+				{ npcid: 1009, des: '不会有全知全能的人，但总会有人在某些方面有着超乎常人的聪慧，这就是天赋。你靠近过来,这就是你的六根五识盘，拿好了！！！', event: [['createPlayer_showDialog', 3]], stop: true },
 				{ npcid: 1, des: '哦哦，我决定好我的天赋了（把命盘递给了菩萨）。' },
 				{ npcid: 1009, des: '（菩萨偷偷瞄了一眼你的命数盘，一脸的笑容）好好好，果然是有趣之人！你且去吧，跳入轮回之海开始你的另一段故事！！！', event: [['createPlayer_showTips', 'box_boss']], stop: true },
 			],
@@ -253,7 +252,7 @@ module view.common {
 							progerUI.setData('轮回之门正在开启...', 3000);
 							progerUI.closeHandler = Laya.Handler.create(this, () => {
 								this.lbl_finaName.text = this.playerName;
-								 this.showDialog(5)
+								this.showDialog(4)
 							})
 							break;
 					};
@@ -305,7 +304,7 @@ module view.common {
 				pkt.setString(ProtoCmd.JS_randomXingGeValue, null, null, this, (jsonData) => {
 					console.log(jsonData);
 					GameApp.MainPlayer.xingGeInfo = jsonData;
-					this.updateTalentXingGe();
+					this.updateXingGe();
 				})
 				lcp.send(pkt);
 			});
@@ -321,14 +320,9 @@ module view.common {
 				pkt.setString(ProtoCmd.JS_randomZiZhiValue, null, null, this, (jsonData) => {
 					console.log(jsonData);
 					GameApp.MainPlayer.talentInfo = jsonData;
-					this.updateTalentXingGe();
+					this.updateTalent();
 				})
 				lcp.send(pkt);
-			});
-
-			// 确定天赋
-			EventManage.onWithEffect(this.btn_talentSure, Laya.UIEvent.CLICK, this, () => {
-				this.showDialog(0);
 			});
 
 			/**
@@ -489,6 +483,15 @@ module view.common {
 				this.viw_0.selectedIndex = index - 1;
 				Laya.Tween.to(this.viw_0, { scaleX: 1, scaleY: 1 }, 200);
 				this.img_dialog.visible = true;
+				// 最终界面
+				if (index == 4) {
+					this.img_finallyavatar.skin = LangConfig.getPlayerAvatarSkin();
+					this.box_talent.addChild(this.box_talent0);
+					this.box_talent0.pos(0, 0);
+					this.box_xingGe.addChild(this.list_xingGe);
+					this.lbl_finaName.text = this.playerName;
+					this.lbl_job2.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
+				}
 			}
 			else {
 				Laya.Tween.to(this.viw_0, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(
@@ -578,30 +581,27 @@ module view.common {
 		/**
 		 * 更新天赋性格
 		 */
-		public updateTalentXingGe(): void {
-			// 渲染人格界面
-			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
-			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
-			this.list_xingGe.array = [];
-			for (let i = 1; i < 9; i++) {
-				if (GameApp.MainPlayer.xingGeInfo[i]) {
-					let configID = '' + GameApp.MainPlayer.xingGeInfo[i].id;
-					this.list_xingGe.array.push(configID);
-				}
+		public updateTalent(): void {
+			for (let i = 1; i < 6; i++) {
+				let count = GameApp.MainPlayer.talentInfo[i];
+				// 阶数
+				this['lbl_talent' + i].text = '' + count;
 			}
+		}
+
+
+		public updateXingGe(): void {
+			this.list_xingGe.repeatX = 4;
+			this.list_xingGe.array = [];
+			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
+			for (let key of keys) {
+				let id = GameApp.MainPlayer.xingGeInfo[key].id
+				this.list_xingGe.array.push(id);
+			}
+			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
 			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
 				cell.setData(cell.dataSource);
-			}, null, false);
-
-
-			// 渲染天赋界面
-			// for (let i = 1; i < 6; i++) {
-			// 	let count = GameApp.MainPlayer.talentInfo[i];
-			// 	// 阶数
-			// 	this['lbl_jieShudes' + i].text = '' + count;
-			// }
-
-
+			}, null, false)
 		}
 
 		public welcomeDialog(): void {
@@ -612,6 +612,20 @@ module view.common {
 				des += '您的性别：  ' + LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[this.sex]] + ' \n';
 				new view.dialog.WelcomeDialog().setData(des).popup(true);
 			}
+			// 进入了游戏
+			// 初始化性格天赋界面
+			let pkt1 = new ProtoCmd.QuestClientData();
+			pkt1.setString(ProtoCmd.JS_sendTianFuZiZhi, null, null, this, (jsonData: ProtoCmd.itf_JS_talentXingGeInfo) => {
+				this.lbl_talentAll.text = '' + jsonData.TotalZiZhiPoint;
+				// 资质
+				GameApp.MainPlayer.talentInfo = jsonData.zztab;
+				// 性格、标签
+				GameApp.MainPlayer.xingGeInfo = jsonData.tftab;
+				this.updateXingGe();
+				this.updateTalent();
+			});
+			lcp.send(pkt1);
+
 		}
 	}
 }

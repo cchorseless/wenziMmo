@@ -32,10 +32,8 @@ module view.wuXue {
 							let _skillBase = GameApp.MainPlayer.skillInfo[skill_key.toString()];
 							let skillLV = _skillBase.level;
 							let configID = _skillBase.configID;
-
 							this.changeSkillInfo(configID, skillLV)
 						}
-
 					}
 					// this.changeSkillInfo()
 				})
@@ -238,12 +236,10 @@ module view.wuXue {
 					this['btn_' + i].disabled = true;
 				}
 			}
-			// GameApp.MainPlayer.skillShotButton[1] = GameApp.MainPlayer.skillInfo[defaultConfigID];
 			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
 			let loc = defaultConfigID.indexOf("01")
 			let base = defaultConfigID.substring(0, loc);
 
-			// let base = defaultConfigID
 			this.updateSkilButton(1, base)
 		}
 	}
