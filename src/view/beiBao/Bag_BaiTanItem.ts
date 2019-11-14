@@ -48,6 +48,11 @@ module view.beiBao {
 			lcp.send(pkt1, this, (data) => {
 				let cbPkt1 = new ProtoCmd.stAuctionItemsRet(data);
 				let allItem = cbPkt1.items;
+				if (allItem.length > 0) {
+					this.lab_itemText.visible = false;
+				} else {
+					this.lab_itemText.visible = true;
+				}
 				for (let _item of allItem) {
 					let tanWeiItem = new view.beiBao.Bag_BaiTanSellItem();
 					let new_stAuctionItemBase = new ProtoCmd.stAuctionItemBase();
@@ -76,6 +81,11 @@ module view.beiBao {
 				this.vbox_sellRecord.removeChildren();
 				let cbPkt1 = new ProtoCmd.stConsignSellLogRet(data);
 				let alllog = cbPkt1.logs;
+				if (alllog.length > 0) {
+					this.lab_sellLog.visible = false;
+				} else {
+					this.lab_sellLog.visible = true;
+				}
 				for (let _log of alllog) {
 					// let logItem = new view.beiBao.Bag_BaITanLogItem();
 					let logItem = new Laya.Label();
