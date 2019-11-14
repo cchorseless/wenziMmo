@@ -10,4 +10,9 @@ module itf {
 		clearPlayer(): void;
 		clearMonster(): void;
 	}
+
+	export interface BattleItem {
+		updateUI(): void;
+
+	}
 }

@@ -3,19 +3,18 @@ module view.guild {
 	export class GuildManageMemberDialog extends ui.guild.GuildManageMemberDialogUI {
 		constructor() {
 			super();
-			this.group = 'GuildManageMemberDialog';
 		}
 
 		public ui_GuildMemberItem: view.guild.GuildMemberItem | view.guild.GuildMemberRankItem;
-		public zhiWei: string;
-		public setData(ui: view.guild.GuildMemberItem | view.guild.GuildMemberRankItem, zhiWei: string): GuildManageMemberDialog {
+		public zhiWei: EnumData.emGuildMemberPowerLvl;
+		public setData(ui: view.guild.GuildMemberItem | view.guild.GuildMemberRankItem, zhiWei: EnumData.emGuildMemberPowerLvl): GuildManageMemberDialog {
 			// 这里关联一下，方便移除
 			this.ui_GuildMemberItem = ui;
 			this.zhiWei = zhiWei;
 			this.lbl_lvl.text = '' + ui.item.dwLevel;
 			this.lbl_szName.text = '' + ui.item.szName;
-			this.lbl_zhiWei.text = '' + zhiWei;
-			this.btn_changeZhiWei.label = (zhiWei == '帮主') ? '投票罢黜' : '更改职位';
+			this.lbl_zhiWei.text = '' + LangConfig.emGuildMemberPowerLvlDes[EnumData.emGuildMemberPowerLvl[zhiWei]];
+			this.btn_changeZhiWei.label = (zhiWei == EnumData.emGuildMemberPowerLvl.MASTER) ? '投票罢黜' : '更改职位';
 			this.addEvent();
 			return this
 		}
@@ -24,6 +23,12 @@ module view.guild {
 			this.btn_sendMail.on(Laya.UIEvent.CLICK, this, this.sendMail);
 			this.btn_quitMember.on(Laya.UIEvent.CLICK, this, this.quitMember);
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => { this.close() });
+			this.btn_0.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [0]);
+			this.btn_1.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [1]);
+			this.btn_2.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [2]);
+			this.btn_3.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [5]);
+			this.btn_4.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [4]);
+			this.btn_5.on(Laya.UIEvent.CLICK, this, this.changeZhiWei, [5]);
 		}
 
 		/**
@@ -31,16 +36,40 @@ module view.guild {
 		 */
 		public changeZhiWei(): void {
 			// 投票罢免帮主
-			if (this.zhiWei == '帮主') {
+			if (this.zhiWei == EnumData.emGuildMemberPowerLvl.MASTER) {
 				if (GameApp.MainPlayer.checkSelfIsGuildMaster()) {
 					new view.guild.GuildQuitMasterDialog().setData(this.ui_GuildMemberItem.item).popup(false);
 				} else {
-					TipsManage.showTips('只有副会长才有权限');
+					TipsManage.showTips('只有副帮主才有权限');
 				}
 			}
 			// 改变职位
 			else {
-				new view.guild.GuildChangeZhiWeiDialog().setData(this.ui_GuildMemberItem.item, this.lbl_zhiWei.text).show(false);
+				// let zhiWeiInfo = ['帮会成员', '长老', '副帮主', '帮主', '精英', '大将'];
+				// if (zhiWeiInfo.indexOf(this.lbl_zhiWei.text) == i) {
+				// 	TipsManage.showTips('当前已经是' + this.lbl_zhiWei.text);
+				// 	return
+				// }
+				// // 自己的职位，只能提拔职位比自己低的
+				// let selfZhiWei = GameApp.MainPlayer.guildInfo.szAliaNames;
+				// let zhiWeiSort = ['帮主', '副帮主', '长老', '大将', '精英', '帮会成员'];
+				// let selfZhiWeiIndex = zhiWeiSort.indexOf(selfZhiWei);
+				// if (selfZhiWeiIndex >= zhiWeiSort.indexOf(this.lbl_zhiWei.text)) {
+				// 	TipsManage.showTips('无权限操作职位高于自己的成员');
+				// 	return
+				// }
+				// if (selfZhiWeiIndex >= zhiWeiSort.indexOf(zhiWeiInfo[i])) {
+				// 	TipsManage.showTips('无权限更改该职位');
+				// 	return
+				// }
+				// this.close();
+				// let sureHander = Laya.Handler.create(this, () => {
+				// 	let _dialog1: view.guild.GuildManageMemberDialog = Laya.Dialog.getDialogsByGroup('GuildManageMemberDialog')[0]
+				// 	_dialog1.changeZhiWeiCB(i);
+				// })
+				// let tips = '确定改变' + this.lbl_szName.text + '的职位为' + zhiWeiInfo[i] + '吗？';
+				// new view.dialog.SureOrCanelDialog().setData(tips, sureHander).popup(false);
+				// new view.guild.GuildChangeZhiWeiDialog().setData(this.ui_GuildMemberItem.item, this.lbl_zhiWei.text).show(false);
 			}
 			//  todo 帮派主动升级
 			//  TODO 帮派扩展人数
@@ -87,7 +116,10 @@ module view.guild {
 		 */
 		public quitMember(): void {
 			if (GameApp.MainPlayer.checkSelfIsGuildMaster()) {
-				new view.dialog.SureOrCanelDialog().setData('你确定要驱逐该成员吗？', EnumData.SureCanelModel.BP_QUIT_MEMBER).popup(false);
+				let sureHander = Laya.Handler.create(this, () => {
+					this.quitMemberCB();
+				})
+				new view.dialog.SureOrCanelDialog().setData('你确定要驱逐该成员吗？', sureHander).popup(false);
 			}
 			else {
 				TipsManage.showTips('只有会长和副会长才有权限');

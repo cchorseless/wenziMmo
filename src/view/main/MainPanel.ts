@@ -207,7 +207,7 @@ module view.main {
 			// });
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_LuYinDialog().popup(true);
+				new view.main.Main_LuYinDialog().setData().popup(true);
 			});
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
@@ -528,8 +528,6 @@ module view.main {
 			this.loadXingGeTalentData();
 			//拉取生辰八字四格九宫
 			this.getPlayerBirthData();
-			//拉取路引数据
-			this.getLuYinData();
 			//获取强化信息
 			this.getIntensifyMessage();
 			//魂石升阶信息
@@ -575,13 +573,7 @@ module view.main {
 			lcp.send(pkt);
 
 		}
-		private getLuYinData() {
-			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.openChuangSongRecord, [GameApp.GameEngine.luyinTabID], 0, this,
-				(data: ProtoCmd.itf_Main_openChuangSongRecord) => {
-					GameApp.GameEngine["luyinData" + [GameApp.GameEngine.luyinTabID]] = data
-				});
-			lcp.send(pkt);
-		}
+
 		/**
 		 * 拉取玩家出生信息
 		 */

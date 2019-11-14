@@ -70,7 +70,7 @@ module view.scene {
 			this.clearPlayer();
 			// 更新怪物
 			// 更新角色
-			this.updateSelfPlayer();
+			SceneManager.updateSelfPlayer(this);
 			// 更新地图
 			this.updateMapInfo();
 		}
@@ -81,39 +81,6 @@ module view.scene {
 		public updateMapInfo(): void {
 
 		}
-
-
-		/**
-  		* 刷新自己的角色
-  		*/
-		public updateSelfPlayer(): void {
-			let selfPlayerUI: view.scene.PlayerInSceneItem = GameApp.MainPlayer.ui_item;
-			if (selfPlayerUI == null) {
-				let _uiItem = new view.scene.PlayerInSceneItem();
-				_uiItem.setData(GameApp.MainPlayer);
-				_uiItem.scale(0.8, 0.8);
-				_uiItem.centerX = _uiItem.centerY = 0;
-				this.box_self.addChild(_uiItem);
-			}
-			else {
-				selfPlayerUI.updateUI();
-				selfPlayerUI.scale(0.7, 0.7);
-				selfPlayerUI.centerX = selfPlayerUI.centerY = 0;
-				this.box_self.addChild(selfPlayerUI);
-			}
-		}
-
-		/**
-		 * 初始化弟子
-		 */
-		public updateDiziPlayer(): void {
-			let _uiItem = new view.scene.PlayerInSceneItem();
-			_uiItem.setData(GameApp.MainPlayer);
-			_uiItem.scale(0.6, 0.6);
-			this.box_dizi.addChild(_uiItem);
-		}
-
-
 
 		/**
 		 * 添加怪物
@@ -203,7 +170,7 @@ module view.scene {
 
 		}
 		public clearPlayer(): void {
-			
+
 		}
 	}
 }

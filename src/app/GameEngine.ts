@@ -83,12 +83,7 @@ class GameEngine extends SingletonClass {
 
     //服务器开服信息
     public openDay = null;
-    //当前玩家路引信息
-    public luyinData1;
-    public luyinData2;
-    public luyinData3;
-    public luyinData4;
-    public luyinTabID: number = 1;
+
     //单个装备panel信息
     public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
 
