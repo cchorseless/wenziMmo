@@ -77,10 +77,36 @@ module view.beiBao {
 				let cbPkt1 = new ProtoCmd.stConsignSellLogRet(data);
 				let alllog = cbPkt1.logs;
 				for (let _log of alllog) {
-					let logItem = new view.beiBao.Bag_BaITanLogItem();
+					// let logItem = new view.beiBao.Bag_BaITanLogItem();
+					let logItem = new Laya.Label();
+					logItem.color = "#63491a";
+					logItem.font = "fzhl";
+					logItem.fontSize = 22;
+					logItem.align = "left";
+					logItem.wordWrap = true;
+					logItem.bold = true;
+					logItem.width = 120;
+					let box = new Laya.Box();
+					let line = new Laya.Label();
+					line.color = "#000000";
+					line.font = "fzhl";
+					line.fontSize = 22;
+					line.bold = true;
+					line.stroke = 2;
+					line.strokeColor = "#000000";
+					line.text = "-------"
+					box.width = line.width = 120;
+					// logItem.text = '' + TimeUtils.getFormatBySecond(_log.optime * 1000, 2) + '  ' + _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
+					logItem.text = _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
+					box.addChild(logItem)
+					logItem.x = logItem.y = 0;
+					line.x = 0;
+					line.y = logItem.height + 3;
+					box.addChild(line)
+
 					console.log(_log.optime);
-					logItem.lbl_des.text = '' + TimeUtils.getFormatBySecond(_log.optime * 1000, 2) + '  ' + _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
-					this.vbox_sellRecord.addChild(logItem);
+
+					this.vbox_sellRecord.addChild(box);
 				}
 				cbPkt1.clear();
 				cbPkt1 = null;
@@ -102,7 +128,11 @@ module view.beiBao {
 				})
 			});
 			this.btn_jiaoYiHang.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.BeiBao.showJiaoYiHang();
+				// PanelManage.BeiBao.showJiaoYiHang();
+				let o = new Bag_AuctioneerDialog();
+				o.setData();
+				o.popup();
+
 			});
 		}
 	}

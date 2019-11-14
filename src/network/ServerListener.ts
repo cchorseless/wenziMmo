@@ -1737,7 +1737,9 @@ class ServerListener extends SingletonClass {
      */
     public changePkModel(data: any): void {
         let msg = new ProtoCmd.CretPkModel(data);
+        GameApp.MainPlayer.pkModel=msg.getValue('pkModel');
         //   PanelManage.Main.ui_scene.pkModelChanged(msg.getValue('pkModel'));
+        PanelManage.Main.updateUI_pkModel();
         msg.clear();
     }
 }

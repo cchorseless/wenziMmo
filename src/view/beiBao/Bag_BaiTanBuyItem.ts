@@ -8,6 +8,29 @@ module view.beiBao {
 
 		public setData(item: ProtoCmd.stAuctionItemBase): void {
 			this.item = item;
+			let color = "";
+			let itemquality = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(item.dwBaseID.toString());
+			switch (itemquality) {
+				case 0:
+					color = "#ffffff";
+					break;
+				case 1:
+					color = "#b5e9c9";
+					break;
+				case 2:
+					color = "#cfd7f5";
+					break;
+				case 3:
+					color = "#c6a5eb";
+					break;
+				case 4:
+					color = "#f57b7b";
+					break;
+				case 6:
+					color = "#f5dd7b";
+					break;
+			}
+			this.lbl_itemName.color = color;
 			this.lbl_itemName.text = '' + this.item.szName;
 			this.lbl_leftTime.text = '' + TimeUtils.getFormatBySecond(this.item.overTime - new Date().getTime() / 1000, 7);
 			// 等级
