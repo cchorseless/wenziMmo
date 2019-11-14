@@ -81,7 +81,6 @@ module view.wuXue {
 			 * 测试技能经验值增加
 			 */
 			this.img_test.on(Laya.UIEvent.CLICK, this, function () {
-
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID, 20101, 10]);
 				lcp.send(pkt);
 			})

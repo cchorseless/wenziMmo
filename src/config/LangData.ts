@@ -146,6 +146,25 @@ module LangConfig {
         return path + '0' + job + '_half.png';
     }
 
+    /**
+     * 获取半身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerAvatarHalfSkinV2(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/role_half_nan';
+        }
+        else {
+            path = 'image/common/role_half_nv';
+        }
+        return path + '0' + job + '.png';
+    }
+
+
+
+
 
     /**
      * 技能五行属性
@@ -454,6 +473,25 @@ module LangConfig {
         FITMASTER: '副掌门',
         MASTER: '掌门'
     }
+
+    export const zhuanSheng = [
+        '曜神一层',
+        '曜神二层',
+        '曜神三层',
+        '凝魄一层',
+        '凝魄二层',
+        '凝魄三层',
+        '通幽一层',
+        '通幽二层',
+        '通幽三层',
+        '天醒一层',
+        '天醒二层',
+        '天醒三层',
+        '化道一层',
+        '化道二层',
+        '化道三层',
+    ]
+
 
 
 }

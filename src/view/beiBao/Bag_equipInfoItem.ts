@@ -12,11 +12,11 @@ module view.beiBao {
 				this['ui_item' + i].img_bg.visible = true;
 				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
 			}
-			console.log("背景，" + this.ui_tab0.img_bg.skin)
-			this.ui_tab0.img_icon.skin = 'image/common/role_Avatar_wanjia.png';
-			this.ui_tab1.img_icon.skin = 'image/common/role_Avatar_dadizinv.png';
-			this.ui_tab2.img_icon.skin = 'image/common/role_Avatar_erdizinv.png';
-			this.ui_tab3.img_icon.skin = 'image/common/role_Avatar_sandizinv.png';
+			let heroSex = GameApp.MainPlayer.heroSex;
+			this.ui_tab0.img_icon.skin = LangConfig.getPlayerIconSkinV1();
+			this.ui_tab1.img_icon.skin = LangConfig.getPlayerIconSkinV1(heroSex, EnumData.JOB_TYPE.JOB_WARRIOR);
+			this.ui_tab2.img_icon.skin = LangConfig.getPlayerIconSkinV1(heroSex, EnumData.JOB_TYPE.JOB_MAGE);
+			this.ui_tab3.img_icon.skin = LangConfig.getPlayerIconSkinV1(heroSex, EnumData.JOB_TYPE.JOB_MONK);
 			// this.ui_tab0.img_icon.visible= false;
 			this.ui_tab0.img_circle.visible = true;
 			this.ui_tab1.img_circle.visible = false;
@@ -55,31 +55,19 @@ module view.beiBao {
 			}
 		}
 		public setPlayerHalfSkin(id) {
-			let mySex = GameApp.GameEngine.mainPlayer.sex;
-			let myJob = GameApp.GameEngine.mainPlayer.job;
-			let myPathSex;
-			let otherPathSex;
-			if (mySex == 1) {
-				myPathSex = "nan";
-				otherPathSex = "nv"
-			} else if (mySex == 2) {
-				myPathSex = "nv";
-				otherPathSex = "nan";
-			}
-			let myPathJob = "0" + myJob;
-
+			let heroSex = GameApp.MainPlayer.heroSex;
 			switch (id) {
 				case 0:
-					this.img_playerPic.skin = 'image/common/role_half_' + myPathSex + myPathJob + '.png';
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV2();
 					break;
 				case 1:
-					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '01.png';
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV2(heroSex, EnumData.JOB_TYPE.JOB_WARRIOR);
 					break;
 				case 2:
-					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '02.png';
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV2(heroSex, EnumData.JOB_TYPE.JOB_MAGE);
 					break;
 				case 3:
-					this.img_playerPic.skin = 'image/common/role_half_' + otherPathSex + '03.png';
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV2(heroSex, EnumData.JOB_TYPE.JOB_MONK);
 					break;
 			}
 		}
