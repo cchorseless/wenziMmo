@@ -5,10 +5,10 @@ module view.compart {
 			super();
 		}
 
-		public setData(item: ProtoCmd.ItemBase, mode = EnumData.ItemInfoModel.SHOW_IN_MAIL): void {
+		public setData(item: ProtoCmd.ItemBase, mode = EnumData.ItemInfoModel.SHOW_IN_MAIL,type=0): void {
 			this.lbl_itemName.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.dwBaseID).split('_')[0];
 			this.lbl_itemName.color = ColorUtils.nameColor[SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY('' + item.dwBaseID)];
-			this.ui_item.setData(item, mode);
+			this.ui_item.setData(item, mode,type);
 		}
 		public removeSelf() {
 			let _item: ProtoCmd.ItemBase = this.ui_item.item;

@@ -3,6 +3,7 @@ module view.compart {
 	export class DaoJuItem extends ui.compart.DaoJuItemUI {
 		public item: ProtoCmd.ItemBase;
 		public model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE;
+		public type;//区分是普通消耗物品还是罡气消耗
 		constructor() {
 			super();
 			this.addEvent();
@@ -12,9 +13,11 @@ module view.compart {
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE,type=0): void {
 			// 双向绑定
 			this.item = item;
+			//区分是普通消耗物品还是罡气消耗
+			this.type=type;
 			item.recoverUI();
 			item.ui_item = this;
 			let dwBaseID = '' + item.dwBaseID;
@@ -120,10 +123,10 @@ module view.compart {
 									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
 									break;
 							}
-							itemInfoDialog.setData(this.item, model).show(false);
+							itemInfoDialog.setData(this.item, model,this.type).show(false);
 							break;
 						default:
-							itemInfoDialog.setData(this.item, this.model).show(false);
+							itemInfoDialog.setData(this.item, this.model,this.type).show(false);
 							break;
 					}
 				}

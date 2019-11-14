@@ -168,8 +168,10 @@ module ProtoCmd {
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
     export const JS_playerWingPanel = 'playerWingPanel';
-    // 罡气进阶
+    // 罡气使用物品
     export const JS_advancePlayerWing = 'advancePlayerWing';
+     // 罡气升阶
+    export const JS_upgradePlayerWing = 'upgradePlayerWing';
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
