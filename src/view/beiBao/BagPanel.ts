@@ -13,7 +13,7 @@ module view.beiBao {
 				this['panel_bag' + i].vScrollBarSkin = '';
 				this['vbox_bag' + i]['sortItem'] = (items) => { };
 				this['vbox_bag' + i].space = 10;
-				for (let j = 0; j < 6; j++) {
+				for (let j = 0; j < 5; j++) {
 					this['vbox_bag' + i].addChild(new view.compart.DaoJuGroupItem());
 				}
 			}
@@ -204,14 +204,23 @@ module view.beiBao {
 							break;
 					}
 					if (vbox_bag) {
+						let isFull = true;
+						let item = new view.compart.DaoJuItem();
+						item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
 						for (let child of vbox_bag._childs) {
 							if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
-								let item = new view.compart.DaoJuItem();
-								item.setData(obj, EnumData.ItemInfoModel.SHOW_IN_BAG);
 								child.addItem(item);
+								isFull = false
 								break;
 							}
 						}
+						// 5行格子满了 new 一个新的
+						if (isFull) {
+							let new_group = new view.compart.DaoJuGroupItem();
+							vbox_bag.addChild(new_group);
+							new_group.addItem(item);
+						}
+
 					}
 					break;
 				// 仓库

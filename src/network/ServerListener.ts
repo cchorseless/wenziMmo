@@ -694,7 +694,7 @@ class ServerListener extends SingletonClass {
      */
     public delSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
-        if (cbpkt.getValue('ErrorCode')) {
+        if (cbpkt.getValue('ErrorCode') == 0) {
             delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
