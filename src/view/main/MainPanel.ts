@@ -57,7 +57,6 @@ module view.main {
 			this.updateUI_yuanBaolock()
 			this.updateUI_power()
 			this.updateUI_vipLv();
-
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 		}
@@ -129,9 +128,16 @@ module view.main {
 		 * 更新头像
 		 */
 		public updateUI_avatarIcon(): void {
-			let _player = GameApp.MainPlayer;
 			// 头像
 			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
+		}
+		/**
+		 * 更新PK模式
+		 */
+		public updateUI_pkModel(): void {
+			let _player = GameApp.MainPlayer;
+			// pk模式
+			this.btn_BattleMode.skin = 'image/main/img_type' + _player.pkModel + '.png';
 		}
 		/**
 		 * 更新VIP等级
@@ -140,8 +146,6 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
-
-
 		public addEvent(): void {
 			// 模式切换
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -200,10 +204,10 @@ module view.main {
 			this.btn_time.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.TimeDialog().setData(this.lbl_jieQi.text, this.lbl_shiChen.text).popup(true);
 			});
-			// 换头像界面
-			// this.box_head.on(Laya.UIEvent.CLICK, this, () => {
-			// 	new view.main.Main_playerInfoDialog().popup(true);
-			// });
+			// 个人信息界面
+			this.img_head.on(Laya.UIEvent.CLICK, this, () => {
+				new view.main.Main_playerInfoDialog().setData().popup(true);
+			});
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
 				new view.main.Main_LuYinDialog().popup(true);
@@ -619,6 +623,7 @@ module view.main {
 					GameApp.GameEngine.openDay = data.openday
 					// 节气
 					this.lbl_jieQi.text = '' + this.getJieQi();
+					this.updateUI_pkModel();
 				});
 			lcp.send(pkt);
 		}
