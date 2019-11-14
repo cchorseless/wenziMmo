@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":216,
-    "selecteID":55,
+    "selecteID":43,
     "props":{"width":567,"sceneColor":"#e2a9a8","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -18,14 +18,13 @@
             "props":{"y":56,"x":24,"var":"box_0"},
             "nodeParent":1,
             "label":"Box(box_0)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":215,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":4,"x":175,"var":"img_jieshu","skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":215,
@@ -37,7 +36,6 @@
                     "compId":201,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":27,"var":"lbl_des","text":"根骨四阶","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                             "nodeParent":201,
@@ -53,7 +51,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":136,"x":40,"width":122,"var":"btn_top4","stateNum":"1","skin":"image/juese/fiam_bg_zizhitianfu.png","labelStrokeColor":"#52331e","labelStroke":4,"labelSize":26,"labelPadding":"55","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"根骨","height":122,"anchorY":0.5,"anchorX":0.5,"alpha":0.5},
                     "nodeParent":215,
@@ -65,7 +62,6 @@
                     "compId":279,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":9,"width":104,"var":"img_talent4","skin":"image/common/daoju/itemicon_160001.png","height":103},
                             "nodeParent":279,
@@ -79,7 +75,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":70,"x":-14,"width":150,"visible":false,"var":"img_xiaoguo4","skin":"image/common/img_zs_com01.png","height":69},
                             "nodeParent":279,
@@ -95,7 +90,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":109,"x":152,"width":122,"var":"btn_top3","stateNum":"1","skin":"image/juese/fiam_bg_zizhitianfu.png","labelStrokeColor":"#52331e","labelStroke":4,"labelSize":26,"labelPadding":"55","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"身法","height":122,"anchorY":0.5,"anchorX":0.5,"alpha":0.5},
                     "nodeParent":215,
@@ -107,7 +101,6 @@
                     "compId":281,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":9,"x":8,"width":104,"var":"img_talent3","skin":"image/common/daoju/itemicon_121001.png","height":103},
                             "nodeParent":281,
@@ -120,7 +113,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":70,"x":-14,"width":150,"visible":false,"var":"img_xiaoguo3","skin":"image/common/img_zs_com01.png","height":69},
                             "nodeParent":281,
@@ -136,7 +128,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":140,"x":257,"width":122,"var":"btn_top0","stateNum":"1","skin":"image/juese/fiam_bg_zizhitianfu.png","labelStrokeColor":"#52331e","labelStroke":4,"labelSize":26,"labelPadding":"55","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"悟性","height":122,"anchorY":0.5,"anchorX":0.5,"alpha":0.5},
                     "nodeParent":215,
@@ -148,7 +139,6 @@
                     "compId":284,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":9,"x":9,"width":104,"var":"img_talent0","skin":"image/common/daoju/itemicon_123001.png","height":103},
                             "nodeParent":284,
@@ -162,7 +152,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":70,"x":-14,"width":150,"visible":false,"var":"img_xiaoguo0","skin":"image/common/img_zs_com01.png","height":69},
                             "nodeParent":284,
@@ -178,7 +167,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":108,"x":371,"width":122,"var":"btn_top2","stateNum":"1","skin":"image/juese/fiam_bg_zizhitianfu.png","labelStrokeColor":"#52331e","labelStroke":4,"labelSize":26,"labelPadding":"55","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"善缘","height":122,"anchorY":0.5,"anchorX":0.5,"alpha":0.5},
                     "nodeParent":215,
@@ -190,7 +178,6 @@
                     "compId":287,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":9,"width":104,"var":"img_talent2","skin":"image/common/daoju/itemicon_124001.png","height":103},
                             "nodeParent":287,
@@ -203,7 +190,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":70,"x":-14,"width":150,"visible":false,"var":"img_xiaoguo2","skin":"image/common/img_zs_com01.png","height":69},
                             "nodeParent":287,
@@ -219,7 +205,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":139,"x":479,"width":122,"var":"btn_top1","stateNum":"1","skin":"image/juese/fiam_bg_zizhitianfu.png","labelStrokeColor":"#52331e","labelStroke":4,"labelSize":26,"labelPadding":"55","labelFont":"FZXK","labelColors":"#ffffff,#ffe171","label":"臂力","height":122,"anchorY":0.5,"anchorX":0.5,"alpha":0.5},
                     "nodeParent":215,
@@ -231,7 +216,6 @@
                     "compId":290,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":9,"x":11,"width":104,"var":"img_talent1","skin":"image/common/daoju/itemicon_122001.png","height":103},
                             "nodeParent":290,
@@ -244,7 +228,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":70,"x":-14,"width":150,"visible":false,"var":"img_xiaoguo1","skin":"image/common/img_zs_com01.png","height":69},
                             "nodeParent":290,
@@ -291,13 +274,14 @@
                             "props":{"y":-7,"x":20},
                             "nodeParent":216,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":43,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"var":"btn_1","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -311,6 +295,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":51,"var":"btn_2","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -324,6 +309,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":104,"var":"btn_3","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -337,6 +323,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":155,"var":"btn_4","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -349,6 +336,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":2,"x":207,"var":"btn_5","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -361,6 +349,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":259,"var":"btn_6","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -373,6 +362,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":311,"var":"btn_7","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -385,6 +375,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":361,"var":"btn_8","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -397,6 +388,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":416,"var":"btn_9","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -409,6 +401,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":467,"var":"btn_10","stateNum":"2","skin":"image/common/fram_common_22_finish.png"},
                                     "nodeParent":43,
@@ -793,34 +786,34 @@
                                         ]
                                 }],
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":565,"x":27,"skin":"image/common/icon_001.png","scaleX":-1},
+                            "nodeParent":216,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":318,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":565,"x":516,"skin":"image/common/icon_001.png"},
+                            "nodeParent":216,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":319,
+                            "child":[
+                                ]
                         }],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":563,"x":37,"skin":"image/common/icon_001.png","scaleX":-1},
-                    "nodeParent":222,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":312,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":563,"x":526,"skin":"image/common/icon_001.png"},
-                    "nodeParent":222,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":311,
-                    "child":[
-                        ]
                 },
                 {
                     "x":30,

@@ -168,8 +168,10 @@ module ProtoCmd {
     export const JS_activePlayerWing = 'activePlayerWing';
     // 罡气护体
     export const JS_playerWingPanel = 'playerWingPanel';
-    // 罡气进阶
+    // 罡气使用物品
     export const JS_advancePlayerWing = 'advancePlayerWing';
+     // 罡气升阶
+    export const JS_upgradePlayerWing = 'upgradePlayerWing';
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
@@ -397,6 +399,8 @@ module ProtoCmd {
     export const FuLi_ZiYuanZhaoHui = "ZiYuanZhaoHui";
     //菜单福利在线奖励
     export const FuLi_zaixiangjiangli_minbandakai = "zaixiangjiangli_minbandakai";//参数(0:openpanel -->getreward:1 2 3 4 5:yuanbao)
+    //菜单福利邀请有礼激活
+    export const FuLi_xinshouka_other_shiyong = "xinshouka_other_shiyong";
     /*********************************装备相关******************** */
     //玩家装备强化信息（所有Item）
     export const sendEquipIntensify = "sendEquipIntensify";   //无参数
@@ -588,10 +592,8 @@ module ProtoCmd {
      * 路引数据
      */
     export interface itf_Main_openChuangSongRecord {
-        open: boolean;
-        datatab: Object;
-        recordtab: Object
-
+        datatab: { [tabid: string]: { [index: number]: { idx: number, roomID: number } } };//房间信息{tabid:{index:roomid}} 1:{idx: 1, roomID: 10009}
+        recordtab: { [index: string]: { viplvl: number } }//解锁VIP等级{}
     }
 
     /**

@@ -167,7 +167,7 @@ module LangConfig {
         JOB_NONE: '不限',//通用
         JOB_WARRIOR: '隐门传人',
         JOB_MAGE: '奇侠怪盗',
-        JOB_MONK: '灭门孤儿'
+        JOB_MONK: '神秘孤儿'
     }
 
     /**
@@ -442,6 +442,19 @@ module LangConfig {
         COIN_TYPE_PLAYER_EXP: '阅历',//-玩家经验
         COIN_TYPE_HERO_EXP: '默契',//-英雄经验
     }
+
+    /**
+     * 帮会名称
+     */
+    export const emGuildMemberPowerLvlDes = {
+        NULL: '外门弟子',
+        ELITISM: '内门弟子',
+        DMIRAL: '核心弟子',
+        ELDERS: '首席大弟子',
+        FITMASTER: '副掌门',
+        MASTER: '掌门'
+    }
+
 
 }
 

@@ -8,6 +8,10 @@ module view.juese {
 		//角色职业
 		private job = GameApp.MainPlayer.job;
 		private hasInit = false;
+		//当前经验
+		private exp = null;
+		//所需经验
+		private needexp = null;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -17,6 +21,7 @@ module view.juese {
 			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.wingInfo();
+			this.init_gangqi();
 		}
 
 		public wingInfo(): void {
@@ -24,7 +29,7 @@ module view.juese {
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
-				this.init_gangqi();
+
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -51,8 +56,14 @@ module view.juese {
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_JiHuo();
 			})
+			//角色罡气升级
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
-				this.init_upLevel();
+				if (this.exp !== null && this.needexp !== null && this.exp > this.needexp) {
+					this.init_upLevel();
+				}
+				else{
+					TipsManage.showTips('罡气经验不足')
+				}
 			})
 			this.addLcpEvent();
 		}
@@ -70,10 +81,12 @@ module view.juese {
 					let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
 					itemInfo.dwBaseID = parseInt(key);
 					itemInfo.dwCount = num;
-					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
+					let type = 1;
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP, type);
 					this['box_gangqi' + i].addChild(_itemUI);
 				}
 				this.init_GangQIInfo();
+				this.wingInfo();
 			})
 		}
 
@@ -105,7 +118,9 @@ module view.juese {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
-			//当前经验/最大经验
+			//当前经验/所需经验
+			this.exp = data.nValue;
+			this.needexp = data.nMaxValue;
 			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
 			//经验进度
 			this.img_progress.height = 101 * data.nValue / data.nMaxValue;
@@ -161,7 +176,7 @@ module view.juese {
 		 */
 		public init_upLevel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_advancePlayerWing)
+			pkt.setString(ProtoCmd.JS_upgradePlayerWing)
 			lcp.send(pkt);
 		}
 	}

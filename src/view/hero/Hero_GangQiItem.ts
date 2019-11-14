@@ -43,9 +43,11 @@ module view.hero {
 			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_HERO_WING)
 		}
 		public addEvent(): void {
+			//激活
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_JiHuo();
 			})
+			//培养
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_upLevel();
 			})
@@ -151,6 +153,7 @@ module view.hero {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_advanceHeroWing)
 			lcp.send(pkt);
+			this.wingInfo();
 		}
 	}
 }

@@ -472,8 +472,8 @@ module GameObject {
          */
         public checkSelfIsGuildMaster(): boolean {
             // 会长 副会长可以
-            let canDoArray = [EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_FITMASTER,
-            EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_MASTER]
+            let canDoArray = [EnumData.emGuildMemberPowerLvl.FITMASTER,
+            EnumData.emGuildMemberPowerLvl.MASTER]
             // 职位
             let self_zhiWei = this.feature.btClanMaster;
             return canDoArray.indexOf(self_zhiWei) != -1;

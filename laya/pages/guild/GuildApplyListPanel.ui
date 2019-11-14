@@ -1,8 +1,6 @@
 {
-    "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":97,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -13,7 +11,6 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "props":{"y":10,"x":0,"width":640,"top":0,"skin":"image/main/fram_common_02a.png","bottom":0},
             "nodeParent":1,
@@ -25,7 +22,6 @@
             "compId":2,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"skin":"image/main/img_common_02.png","left":0,"bottom":-4},
                     "nodeParent":2,
@@ -39,7 +35,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
                     "nodeParent":2,
@@ -55,7 +50,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Button",
             "props":{"y":120,"x":2,"var":"btn_guildApplyReturn","stateNum":"2","skin":"image/common/btn_fanhui_02_finish.png"},
             "nodeParent":1,
@@ -68,7 +62,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":125,"x":228,"skin":"image/common/frame_title.png","sizeGrid":"24,26,24,23"},
             "nodeParent":1,
@@ -80,7 +73,6 @@
             "compId":93,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":5,"x":11,"text":"帮派申请","strokeColor":"#000000","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":93,
@@ -95,7 +87,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Image",
             "props":{"y":182,"x":8,"width":625,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":798},
             "nodeParent":1,
@@ -109,7 +100,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":182,"x":2},
             "nodeParent":1,
@@ -148,7 +138,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":182,"x":8,"width":630,"var":"box_guildNoApply","height":857},
             "nodeParent":1,
@@ -197,7 +186,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"y":997,"x":215},
             "nodeParent":1,
@@ -283,7 +271,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"Label",
             "props":{"y":150,"x":535,"width":91,"text":"共120条","padding":"-1","height":24,"fontSize":22,"font":"FZHL","color":"#63491a","align":"right"},
             "nodeParent":1,
@@ -296,7 +283,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "props":{"width":643,"left":0,"height":96,"bottom":0},
             "nodeParent":1,
@@ -512,7 +498,7 @@
                     "child":[
                         {
                             "type":"Button",
-                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/guild/icon_haogandu.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
+                            "props":{"y":2,"x":3,"width":84,"stateNum":2,"skin":"image/common/icon_rank.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84},
                             "nodeParent":113,
                             "label":"Button",
                             "isOpen":true,

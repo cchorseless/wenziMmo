@@ -58,7 +58,12 @@ module view.beiBao {
 				return
 			}
 			// 元宝消耗确认框
-			new view.dialog.SureOrCanelDialog().setData('确定花费' + price + '元宝购买该道具吗？', EnumData.SureCanelModel.JYH_BUY_ITEM, this.item).popup(true);
+			let sureHander = Laya.Handler.create(this, () => {
+				let pkt = new ProtoCmd.stAuctionBuyItem();
+				pkt.dwIndex = this.item.dwIndex;
+				lcp.send(pkt);
+			});
+			new view.dialog.SureOrCanelDialog().setData('确定花费' + price + '元宝购买该道具吗？', sureHander).popup(true);
 		}
 
 

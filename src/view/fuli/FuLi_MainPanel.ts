@@ -14,9 +14,6 @@ module view.fuli {
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			})
-		
 		}
-	
-
 	}
 }
