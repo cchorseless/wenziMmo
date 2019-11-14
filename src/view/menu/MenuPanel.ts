@@ -3,6 +3,7 @@ module view.menu {
 	export class MenuPanel extends ui.menu.MenuPanelUI {
 		constructor() {
 			super();
+			this.panel_mission.vScrollBarSkin = '';
 		}
 		public setData(): void {
 			this.initUI();
