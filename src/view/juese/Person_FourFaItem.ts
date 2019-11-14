@@ -9,27 +9,23 @@ module view.juese {
 		public hasInit = false;// 初始化自己
 		//开启所需等级总数
 		private sum;
-		//玩家等级总数
-		private mySum;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
-			this.addEvent();
 			this.activation();
+			this.addEvent();
 		}
 		public addEvent(): void {
-			// if (this.mySum >= this.sum) {
-				//开启
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.lvlCount >= this.sum) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
-				})
-			// }
-			// else {
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				}
+				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
-				});
-			// }
+				}
+			})
 		}
 		public activation(): void {
 			//判断是否激活
@@ -53,7 +49,6 @@ module view.juese {
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 			this.sum = zsLvl * 1000 + lvl;
-			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 	}
 }

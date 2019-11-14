@@ -6,9 +6,12 @@ module view.rank {
 		}
 		public page: number = 1;
 		public maxpage: number = 0;
+		//排行榜类型
 		public type;
+		//我的奖励
+		public reward = null;
 		public setData(): void {
-			this.btn_paihang.selected=true;
+			this.btn_paihang.selected = true;
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
@@ -55,9 +58,11 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_guild, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildSelectPanel();
 			});
+			//奖励预览
 			this.btn_rankPrize.on(Laya.UIEvent.CLICK, this, () => {
 				new view.rank.RankPrizeInfoDialog().popup();
 			})
+			//领取奖励
 			this.btn_get.on(Laya.UIEvent.CLICK, this, () => {
 				this.myjiangliGet();
 			})
@@ -66,7 +71,6 @@ module view.rank {
 				}
 
 			})
-
 			this.btn_nextPage.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.page < this.maxpage) {
 					this.page = this.page + 1;
@@ -86,7 +90,12 @@ module view.rank {
 				}
 
 			})
-
+			//查看宝箱奖励
+			this.img_baoxiang.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.reward !== null && this.reward !== undefined) {
+					new view.dialog.BaoXiangPrizeDialog().setData(this.reward).popup();
+				}
+			})
 		}
 		public rankList(): void {
 			let rankMsg = this.tab_0.selectedIndex;
@@ -112,7 +121,7 @@ module view.rank {
 					break;
 				//英雄战力榜
 				case 2:
-					btType = EnumData.emRankType.Cret_Hero_Warrior_Score_Rank;
+					btType = EnumData.emRankType.Cret_Hero_Score_Rank;
 					myLevel = 'heroPower1';
 					this.lbl_rankTitle.text = '英雄战力';
 					this.lbl_title.text = '英雄战力';
@@ -195,8 +204,17 @@ module view.rank {
 			})
 			//显示我的排行榜奖励
 			let pktr = new ProtoCmd.QuestClientData();
-			pktr.setString(ProtoCmd.Rank_rankShowRewardByRankType, [btType], null, this, (jsonData: { any }) => {
-				console.log('====>排名奖励',jsonData)
+			pktr.setString(ProtoCmd.Rank_rankShowRewardByRankType, [btType], null, this, (jsonData) => {
+				console.log('====>排名奖励', jsonData)
+				this.reward = jsonData.rewardtab;
+				if (jsonData.status == 0) {
+					this.img_baoxiang.skin = 'image/common/icon_baoxiang1_light.png'
+					this.btn_get.disabled = false;
+				}
+				if (jsonData.status == 1) {
+					this.img_baoxiang.skin = 'image/common/icon_baoxiang1_open.png'
+					this.btn_get.disabled = true;
+				}
 			})
 			lcp.send(pktr);
 		}
@@ -205,7 +223,12 @@ module view.rank {
 		 */
 		public myjiangliGet(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Rank_getRankRewardByRankType, [this.type], null, this, (jsonData: { any }) => {
+			pkt.setString(ProtoCmd.Rank_getRankRewardByRankType, [this.type], null, this, (jsonData) => {
+				console.log('====>领取领取', jsonData)
+				if (jsonData.status == 1) {
+					this.img_baoxiang.skin = 'image/common/icon_baoxiang1_open.png'
+					this.btn_get.disabled = true;
+				}
 			})
 			lcp.send(pkt);
 		}

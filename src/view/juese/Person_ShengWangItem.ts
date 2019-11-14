@@ -19,7 +19,6 @@ module view.juese {
 		public addEvent(): void {
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-
 				let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + (this.client_func_index + 1000));
 				if (GameApp.MainPlayer.lvlCount >= activationLvl) {
 					GameUtil.setServerData(this.client_func_index);

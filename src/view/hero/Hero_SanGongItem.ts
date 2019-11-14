@@ -3,7 +3,7 @@ module view.hero {
 	export class Hero_SanGongItem extends ui.hero.Hero_SanGongItemUI {
 		constructor() {
 			super();
-			this.addEvent();
+
 		}
 		//当前经验-最大经验
 		public exp;
@@ -11,8 +11,6 @@ module view.hero {
 		public client_func_index = 56;
 		//开启所需等级总数
 		private sum;
-		//玩家等级总数
-		private mySum;
 		//判断是第几个弟子
 		private job;
 		public setData(job): void {
@@ -20,8 +18,8 @@ module view.hero {
 			let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
 			this.vbox_left['sortItem'] = (items) => { };
 			this.vbox_right['sortItem'] = (items) => { };
-
 			this.activation();
+			this.addEvent();
 		}
 		public addEvent(): void {
 			//转生突破
@@ -32,18 +30,16 @@ module view.hero {
 			this.btn_xiuwei.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
-			if (this.mySum >= this.sum) {
-				//开启
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.lvlCount >= this.sum) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
-				})
-			}
-			else {
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				}
+				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
-				});
-			}
+				}
+			})
 		}
 		public activation(): void {
 			//判断是否激活
@@ -69,7 +65,6 @@ module view.hero {
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 			this.sum = zsLvl * 1000 + lvl;
-			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		/**
 		 * 转生面板
@@ -109,9 +104,7 @@ module view.hero {
 						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
 					}
 				}
-
 			})
-
 		}
 		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
@@ -120,24 +113,26 @@ module view.hero {
 		public init_xiuwei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
-				//所需经验
-				this.lbl_exp.text = '' + jsonData.exp;
-				//所需金币
-				this.lbl_gold.text = '' + jsonData.gold;
-				//可兑换的修为
-				this.lbl_exchange.text = '' + jsonData.xw;
-				//道具1
-				let _itemUI1 = new view.compart.DaoJuWithNameItem();
-				let itemInfo1 = new ProtoCmd.ItemBase();
-				itemInfo1.dwBaseID = jsonData.pill;
-				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.box_1.addChild(_itemUI1);
-				//道具2
-				let _itemUI2 = new view.compart.DaoJuWithNameItem();
-				let itemInfo2 = new ProtoCmd.ItemBase();
-				itemInfo2.dwBaseID = jsonData.superpill;
-				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.box_2.addChild(_itemUI2)
+				if (jsonData.exp !== undefined) {
+					//所需经验
+					this.lbl_exp.text = '' + jsonData.exp;
+					//所需金币
+					this.lbl_gold.text = '' + jsonData.gold;
+					//可兑换的修为
+					this.lbl_exchange.text = '' + jsonData.xw;
+					//道具1
+					let _itemUI1 = new view.compart.DaoJuWithNameItem();
+					let itemInfo1 = new ProtoCmd.ItemBase();
+					itemInfo1.dwBaseID = jsonData.pill;
+					_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					this.box_1.addChild(_itemUI1);
+					//道具2
+					let _itemUI2 = new view.compart.DaoJuWithNameItem();
+					let itemInfo2 = new ProtoCmd.ItemBase();
+					itemInfo2.dwBaseID = jsonData.superpill;
+					_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					this.box_2.addChild(_itemUI2)
+				}
 			})
 			lcp.send(pkt);
 		}

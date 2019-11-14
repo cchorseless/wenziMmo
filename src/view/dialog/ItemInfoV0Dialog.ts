@@ -7,9 +7,12 @@ module view.dialog {
 		}
 		public itemObj: ProtoCmd.ItemBase;
 		public model = 0;
-		public setData(obj: ProtoCmd.ItemBase, model = 0): ItemInfoV0Dialog {
+		public type;//区分是普通消耗物品还是罡气消耗
+		public setData(obj: ProtoCmd.ItemBase, model = 0, type = 0): ItemInfoV0Dialog {
 			this.itemObj = obj;
 			this.model = model;
+			//区分是普通消耗物品还是罡气消耗
+			this.type = type;
 			this.lab_Name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(obj.dwBaseID.toString());
 			switch (this.model) {
 				// 背包-装备
@@ -81,7 +84,16 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
 					// 物品使用
-					this.btn_use.on(Laya.UIEvent.CLICK, this, this.useItem);
+					this.btn_use.on(Laya.UIEvent.CLICK, this, () => {
+						//普通物品类型
+						if (this.type == 0) {
+							this.useItem();
+						}
+						//罡气物品类型
+						if (this.type == 1) {
+							this.init_JS_gangqi();
+						}
+					});
 					// 丢弃\销毁物品
 					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
 						let sureHander = Laya.Handler.create(this, () => {
@@ -154,8 +166,6 @@ module view.dialog {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ITEM_LoopUseItem, data);
 				lcp.send(pkt);
 			}
-
-
 		}
 
 		/**
@@ -220,6 +230,16 @@ module view.dialog {
 				TipsManage.showTips('摊位已满无法上架');
 			}
 		}
-
+		/**
+		 * 角色罡气使用物品
+		 */
+		public init_JS_gangqi(): void {
+			let itemCount = this.hsbar_count.value;
+			// 使用
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JS_advancePlayerWing, [this.itemObj.dwBaseID, itemCount])
+			lcp.send(pkt);
+			this.close();
+		}
 	}
 }

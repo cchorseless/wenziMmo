@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.beiBao {
 	export class Bag_equipInfoItem extends ui.beiBao.Bag_equipInfoItemUI {
+		public curCreater = 0;;
 		constructor() {
 			super();
 			this.setData();
@@ -26,6 +27,14 @@ module view.beiBao {
 			this.ui_tab2.lab_name.text = "二弟子";
 			this.ui_tab3.lab_name.text = "三弟子";
 			this.setPlayerHalfSkin(0)
+			for (let i = 1; i < 4; i++) {
+				if (GameApp.GameEngine.mainPlayer["hero" + i].lockState != 2) {
+					this["ui_tab" + i].disabled = true;
+				}
+				else {
+					this["ui_tab" + i].disabled = false;
+				}
+			}
 
 
 
@@ -37,6 +46,7 @@ module view.beiBao {
 			this.addLcpEvent();
 			for (let i = 0; i < 4; i++) {
 				this["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.curCreater = i;
 					this.reSetState(i)
 					this.updateUI();
 					this.setPlayerHalfSkin(i)
@@ -90,6 +100,23 @@ module view.beiBao {
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
 			}
+			let power: string = "";
+			switch (this.curCreater) {
+				case 0:
+					power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
+					break;
+				case 1:
+					power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
+					break;
+				case 2:
+					power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
+					break;
+				case 3:
+					power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
+					break;
+			}
+			// this.curCreater
+			this.font_zhanLi.value = power;
 			let small_index;
 			let big_index;
 			switch (GameApp.GameEngine.mainPlayer.playerORHero) {

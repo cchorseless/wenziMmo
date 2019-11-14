@@ -7,27 +7,28 @@ module view.hero {
 		public item1;
 		public item2;
 		public sum;
-		
+
 
 		public setData(index, i, data: ProtoCmd.itf_Hero_TalentInfo, key): Hero_TalentInfoDialog {
-			this.vbox_talent['sortItem'] = (items) => { }; 
+			this.vbox_talent['sortItem'] = (items) => { };
 			let sum = data.lvltab[0] + data.lvltab[1] + data.lvltab[2] + data.lvltab[3];
 			this.sum = sum;
 			this.judgeEvent(data, index, i, key);
 			this.judgeType(data, index, i);
 			this.addEvent(data, index, i);
-			this.init_view(data.effidtab,i,index);
+			this.init_view(data.effidtab, i, index);
 			return this;
 		}
 		public addEvent(data: ProtoCmd.itf_Hero_TalentInfo, index, i): void {
-			if (data.gssecore >= data.consumetab[index][i]) {
-				this.btn_save.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_save.on(Laya.UIEvent.CLICK, this, () => {
+				if (data.gssecore >= data.consumetab[index][i]) {
 					this.saveData();
 					this.close();
-				})
-			} else {
-				TipsManage.showTips('当前天赋魔力不足')
-			}
+				}
+				else {
+					TipsManage.showTips('当前天赋魔力不足')
+				}
+			})
 			this.btn_cancel.on(Laya.UIEvent.CLICK, this, () => {
 				this.cancelData();
 				this.close();
@@ -37,8 +38,8 @@ module view.hero {
 		 * 属性显示
 		 * @param i 效果id
 		 */
-		public init_view(idArray,i,index): void {
-			let num=i*(index+1);
+		public init_view(idArray, i, index): void {
+			let num = i * (index + 1);
 			let shuxing = GameUtil.parseEffectidToString('' + idArray[num])
 			let attribute = shuxing.des;
 			let keys = Object.keys(attribute)
@@ -57,8 +58,6 @@ module view.hero {
 			if (index == 0 && i == 1) {
 				this.view_talent.selectedIndex = 1;
 			}
-
-
 			if (index !== 0 && i == 1) {
 				if (data.lvltab[0] == 5 && data.lvltab[index] == 0) {
 					this.view_talent.selectedIndex = 1;
@@ -136,7 +135,5 @@ module view.hero {
 			pkt.setString(ProtoCmd.Hero_cancelGenius, this.item2)
 			lcp.send(pkt);
 		}
-
-
 	}
 }
