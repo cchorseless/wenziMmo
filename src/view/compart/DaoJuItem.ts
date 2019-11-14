@@ -187,7 +187,8 @@ module view.compart {
 		public canGoToSell(isNotCanSell: boolean): void {
 			this.isNotCanSell = isNotCanSell && Boolean(this.item.dwBinding);
 			// 不能上架
-			this.disabled = this.isNotCanSell;
+			// this.disabled = this.isNotCanSell;
+			this.visible = !this.isNotCanSell;
 		}
 
 		/**
