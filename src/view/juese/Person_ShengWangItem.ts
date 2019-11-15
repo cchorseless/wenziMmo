@@ -59,8 +59,8 @@ module view.juese {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
 				console.log('=====>声望声望', jsonData)
-				this.lbl_use.text = '每日消耗' + jsonData.daydelexp + '点声望值';
-				this.lbl_xiaoguo.text = '威慑\n 攻击威望值低于自己的玩家' + jsonData.damage;
+				this.lbl_use.text='每日消耗'+jsonData.daydelexp+'点声望值';
+				this.lbl_xiaoguo.text='威慑\n 攻击威望值低于自己的玩家'+jsonData.damage;
 				//我的声望头衔
 				for (let i = 0; jsonData.titletab[i]; i++) {
 					if (jsonData.prestigeid == i) {
@@ -74,7 +74,7 @@ module view.juese {
 				this.lbl_two.text = '声望第二：' + jsonData.rank[2];
 				this.lbl_three.text = '声望第三：' + jsonData.rank[3];
 				// //当前属性
-				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid]);
+				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 				let attribute1 = shuxing1.des;
 				let battle1 = shuxing1.battle[this.job];
 				this.clip_power1.value = '' + battle1;
