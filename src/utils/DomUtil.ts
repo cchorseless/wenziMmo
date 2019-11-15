@@ -14,7 +14,10 @@ class DomUtil extends SingletonClass {
         return this._dom.parseFromString(str, 'text/xml')
     }
 
-
+    /**
+     * 剧情对白解析
+     * @param txt 
+     */
     public dealWithTalkTxt(txt): string {
         txt = txt.replace(/‘/g, "'").replace(/’/g, "'")
         // 处理名字
@@ -37,7 +40,6 @@ class DomUtil extends SingletonClass {
         // 处理超链接
         txt = txt.replace(/【a/g, "<a href=");
         txt = txt.replace(/a】/g, "</a>");
-        console.log(txt);
         return txt
     }
 
@@ -66,9 +68,12 @@ class DomUtil extends SingletonClass {
         if (obj.bold) {
             s += 'font-weight:bold;'
         }
-        s += str + '\'>';
+        s += '\'>' + str + '</span>';
         return s
     }
+
+    // public 
+
 }
 /**
  * 富文本属性接口给
