@@ -102,7 +102,8 @@ module ProtoCmd {
     export const JQ_GET_JQ_readJuQing = 'readJuQing';
 
     // VIP跳剧情:章节ID
-    export const JQ_GET_JQ_vipSkipJuQing = 'vipSkipJuQing';
+    export const JQ_GET_JQ_vipSkipJuQing = 'vipSkipJuQing';   //id  章节ID  
+    //talkid  是当前的id
 
 
     // 领取剧情奖励:章节ID
