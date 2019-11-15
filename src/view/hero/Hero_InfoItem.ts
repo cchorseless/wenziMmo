@@ -70,7 +70,16 @@ module view.hero {
 					this.init_rune();
 					break;
 			}
-
+			//弟子出战状态
+			if (GameApp.MainPlayer.curHero == undefined) {
+				this.img_battle.disabled = true;
+			} else {
+				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle) {
+					this.img_battle.disabled = false;
+				} else {
+					this.img_battle.disabled = true;
+				}
+			}
 		}
 		//激活弟子
 		public init_JiHuo(proto): void {
@@ -87,10 +96,10 @@ module view.hero {
 				index = index + 1;
 				let rune = GameUtil.findEquipInPlayer(i);
 				if (rune) {
-					this['img_rune' + index].visible=true;
-					this['img_rune' + index].skin='image/common/daoju/itemicon_'+rune.dwBaseID+'.png'
-				}else{
-					this['img_rune' + index].visible=false;
+					this['img_rune' + index].visible = true;
+					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
+				} else {
+					this['img_rune' + index].visible = false;
 				}
 			}
 		}

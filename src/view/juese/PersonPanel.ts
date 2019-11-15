@@ -30,8 +30,6 @@ module view.juese {
 			}
 
 		}
-
-
 		//弟子基本信息发协议
 		public init_Dizi(): void {
 			let pkt = new ProtoCmd.QuestClientData();
