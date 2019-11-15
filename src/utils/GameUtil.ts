@@ -206,6 +206,7 @@ module GameUtil {
      */
     export function parseEffectidToObj(effectList: Array<string>): { des: Array<EffectIDStruct>, battle: Array<number> } {
         let ObjList = [];// 描述
+        let ObjListMap = {};
         let r0 = 0; // 战力
         let r1 = 0; // 战力
         let r2 = 0; // 战力
@@ -269,9 +270,25 @@ module GameUtil {
                             obj.des = des + ' ' + data;
                         };
                         if (obj.finish) {
+                            let tmpObj = ObjListMap[obj.index];
                             // 合并对象
-                            // for(let )
-                            ObjList.push(obj);
+                            if (tmpObj) {
+                                tmpObj.min += obj.min;
+                                tmpObj.max += obj.max;
+                                tmpObj.value += obj.value;
+                                if (tmpObj.onlyValue) {
+                                    tmpObj.des = tmpObj.label + tmpObj.value;
+                                }
+                                else {
+                                    tmpObj.des = tmpObj.label + tmpObj.min + '-' + tmpObj.max;
+                                }
+
+                            }
+                            // 没有添加对象
+                            else {
+                                ObjList.push(obj);
+                                ObjListMap[obj.index] = obj;
+                            }
                         }
                         // 战力计算
                         let tmp = GameObject.AbilityWorth[desIndex];
@@ -285,7 +302,6 @@ module GameUtil {
 
         // 战力 ： 通用战力 战士战力 道士战力 法师战力
         let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)];
-
         return { des: ObjList, battle: battleDes }
 
     }
