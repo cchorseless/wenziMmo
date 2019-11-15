@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":303,
-    "selecteID":264,
+    "selectedBox":288,
+    "selecteID":70,
     "referenceLines":[
         {
             "value":595,
@@ -316,13 +316,14 @@
                     "props":{"y":229,"x":2},
                     "nodeParent":233,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":288,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"width":625,"skin":"image/common/img_tongji01.png","sizeGrid":"0,35,-2,86","height":21},
                             "nodeParent":288,
@@ -336,6 +337,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-14,"x":19,"width":109,"var":"btn_fuli","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"福\\n利","height":262},
                             "nodeParent":288,
@@ -347,6 +349,7 @@
                             "compId":69,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"width":76,"top":52,"skin":"image/menu/icon_fuli_01.png","left":19,"height":77},
                                     "nodeParent":69,
@@ -364,6 +367,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-14,"x":139,"width":109,"var":"btn_mall","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"商\\n城","height":260},
                             "nodeParent":288,
@@ -375,6 +379,7 @@
                             "compId":70,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"width":74,"top":52,"skin":"image/menu/icon_shangcheng_01.png","left":19,"height":76},
                                     "nodeParent":70,
@@ -392,8 +397,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-14,"x":257,"var":"btn_luckDraw","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"抽\\n奖"},
+                            "props":{"y":-14,"x":257,"width":109,"var":"btn_luckDraw","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"抽\\n奖","height":260},
                             "nodeParent":288,
                             "label":"Button(btn_luckDraw)",
                             "isOpen":true,
@@ -403,6 +409,7 @@
                             "compId":71,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"width":73,"top":52,"skin":"image/menu/icon_choujiang_01.png","left":19,"height":75},
                                     "nodeParent":71,
@@ -420,8 +427,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-14,"x":379,"var":"btn_cuxiao","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"促\\n销"},
+                            "props":{"y":-14,"x":379,"width":109,"var":"btn_cuxiao","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"促\\n销","height":260},
                             "nodeParent":288,
                             "label":"Button(btn_cuxiao)",
                             "isOpen":true,
@@ -431,6 +439,7 @@
                             "compId":72,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"top":52,"stateNum":"2","skin":"image/common/icon_baitan.png","left":19},
                                     "nodeParent":72,
@@ -446,8 +455,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-14,"x":499,"var":"btn_active","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"活\\n动"},
+                            "props":{"y":-14,"x":499,"width":109,"var":"btn_active","strokeColors":"#ffffff,#fffff,#765f42","stateNum":"2","skin":"image/menu/img_common_30_finish.png","labelStrokeColor":"#765f42","labelStroke":2,"labelSize":30,"labelPadding":"42","labelFont":"FZXK","labelColors":"#765f42,#ffffff","label":"活\\n动","height":260},
                             "nodeParent":288,
                             "label":"Button(btn_active)",
                             "isOpen":true,
@@ -457,6 +467,7 @@
                             "compId":73,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"width":74,"top":56,"skin":"image/menu/img_gift.png","left":19,"height":76},
                                     "nodeParent":73,
@@ -480,14 +491,13 @@
                     "props":{"y":465,"x":10,"width":615,"var":"panel_mission","height":454},
                     "nodeParent":233,
                     "label":"Panel(panel_mission)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":303,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":358,"x":4,"width":608,"skin":"image/menu/fram_caidan_02.png","height":111},
                             "nodeParent":303,
@@ -651,7 +661,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":241,"x":4,"skin":"image/menu/fram_caidan_02.png"},
                             "nodeParent":303,
@@ -814,7 +823,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":123,"x":4,"skin":"image/menu/fram_caidan_02.png"},
                             "nodeParent":303,
@@ -977,7 +985,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":3,"x":4,"width":608,"skin":"image/menu/fram_caidan_02.png","height":111},
                             "nodeParent":303,
