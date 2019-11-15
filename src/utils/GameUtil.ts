@@ -204,85 +204,92 @@ module GameUtil {
      * 解析效果ID，返回数组描述
      * @param effectID 
      */
-    export function parseEffectidToObj(effectID: string): { des: Array<EffectIDStruct>, battle: Array<number> } {
-        let sheetInfo = SheetConfig.mydb_effect_base_tbl.getInstance(null).data[effectID];
+    export function parseEffectidToObj(effectList: Array<string>): { des: Array<EffectIDStruct>, battle: Array<number> } {
         let ObjList = [];// 描述
         let r0 = 0; // 战力
         let r1 = 0; // 战力
         let r2 = 0; // 战力
-        if (sheetInfo) {
-            let startIndex = 3;
-            let length = sheetInfo.length - startIndex;
-            let tmpDes = {};
-            let keyMap = {
-                // 攻击
-                5: { key: '5_6', label: '攻击+' },
-                6: { key: '5_6', label: '攻击+' },
-                // 物理攻击
-                7: { key: '7_8', label: '力道+' },
-                8: { key: '7_8', label: '力道+' },
-                // 灵巧攻击
-                9: { key: '9_10', label: '柔劲+' },
-                10: { key: '9_10', label: '柔劲+' },
-                // 灵魂攻击
-                11: { key: '11_12', label: '刚劲+' },
-                12: { key: '11_12', label: '刚劲+' },
-                // 物理防御
-                13: { key: '13_14', label: '卸力+' },
-                14: { key: '13_14', label: '卸力+' },
-                // 法术防御
-                15: { key: '15_16', label: '化劲+' },
-                16: { key: '15_16', label: '化劲+' },
-            }
-            for (let i = 0; i < length; i++) {
-                let dataIndex = i + startIndex;
-                let desIndex = i + 1;
-                let data = sheetInfo[dataIndex];
-                if (data != 0) {
-                    let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
-                    let obj = new GameUtil.EffectIDStruct();
-                    if (dataIndex >= 5 && dataIndex <= 16) {
-                        // 标记有两个值
-                        obj.onlyValue = false;
-                        let key = keyMap[dataIndex].key;
-                        let old_obj = tmpDes[key];
-                        if (old_obj) {
-                            old_obj.finish = true;
-                            obj = old_obj;
+        for (let effectID of effectList) {
+            let sheetInfo = SheetConfig.mydb_effect_base_tbl.getInstance(null).data[effectID];
+            if (sheetInfo) {
+                let startIndex = 3;
+                let length = sheetInfo.length - startIndex;
+                let tmpDes = {};
+                let keyMap = {
+                    // 攻击
+                    5: { key: '5_6', label: '攻击+' },
+                    6: { key: '5_6', label: '攻击+' },
+                    // 物理攻击
+                    7: { key: '7_8', label: '力道+' },
+                    8: { key: '7_8', label: '力道+' },
+                    // 灵巧攻击
+                    9: { key: '9_10', label: '柔劲+' },
+                    10: { key: '9_10', label: '柔劲+' },
+                    // 灵魂攻击
+                    11: { key: '11_12', label: '刚劲+' },
+                    12: { key: '11_12', label: '刚劲+' },
+                    // 物理防御
+                    13: { key: '13_14', label: '卸力+' },
+                    14: { key: '13_14', label: '卸力+' },
+                    // 法术防御
+                    15: { key: '15_16', label: '化劲+' },
+                    16: { key: '15_16', label: '化劲+' },
+                }
+                for (let i = 0; i < length; i++) {
+                    let dataIndex = i + startIndex;
+                    let desIndex = i + 1;
+                    let data = sheetInfo[dataIndex];
+                    if (data != 0) {
+                        let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
+                        let obj = new GameUtil.EffectIDStruct();
+                        if (dataIndex >= 5 && dataIndex <= 16) {
+                            // 标记有两个值
+                            obj.onlyValue = false;
+                            let key = keyMap[dataIndex].key;
+                            let old_obj = tmpDes[key];
+                            if (old_obj) {
+                                old_obj.finish = true;
+                                obj = old_obj;
+                            }
+                            else {
+                                obj.finish = false;
+                                obj.value = data;
+                                obj.label = keyMap[dataIndex].label;
+                            }
+                            obj.min = Math.min(obj.value, data);
+                            obj.max = Math.max(obj.value, data);
+                            obj.des = obj.label + obj.min + '-' + obj.max;
+                            obj.index = key;
+                            tmpDes[key] = obj;
                         }
                         else {
-                            obj.finish = false;
+                            obj.index = dataIndex;
+                            obj.label = des;
                             obj.value = data;
-                            obj.label = keyMap[dataIndex].label;
+                            obj.des = des + ' ' + data;
+                        };
+                        if (obj.finish) {
+                            // 合并对象
+                            // for(let )
+                            ObjList.push(obj);
                         }
-                        obj.min = Math.min(obj.value, data);
-                        obj.max = Math.max(obj.value, data);
-                        obj.des = obj.label + obj.min + '-' + obj.max;
-                        obj.index = key;
-                        tmpDes[key] = obj;
+                        // 战力计算
+                        let tmp = GameObject.AbilityWorth[desIndex];
+                        r0 += tmp[0] * data;
+                        r1 += tmp[1] * data;
+                        r2 += tmp[2] * data;
                     }
-                    else {
-                        obj.index = dataIndex;
-                        obj.label = des;
-                        obj.value = data;
-                        obj.des = des + data;
-                    };
-                    if (obj.finish) {
-                        ObjList.push(obj);
-                    }
-                    // 战力计算
-                    let tmp = GameObject.AbilityWorth[desIndex];
-                    r0 += tmp[0] * data;
-                    r1 += tmp[1] * data;
-                    r2 += tmp[2] * data;
                 }
             }
         }
+
         // 战力 ： 通用战力 战士战力 道士战力 法师战力
-        let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
+        let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)];
+
         return { des: ObjList, battle: battleDes }
 
     }
+
 
     /**
      * 获取云服务器设置的新手引导数据
