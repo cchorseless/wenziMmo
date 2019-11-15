@@ -19,6 +19,8 @@ module ResData {
         public static ServerList = null
         // 服务器公告界面
         public static ServerNotice = null;
+        // 断线界面
+        public static serverError = null;
         // 创建角色界面
         public static CreateAvatar = [{ url: "res/atlas/image/createplayer.atlas", type: Laya.Loader.ATLAS },];;
         // 选择角色界面
@@ -35,7 +37,9 @@ module ResData {
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
+
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
         ];
         // 主界面 主界面资源通过同步加载
         public static Main = null;
@@ -226,8 +230,12 @@ module ResData {
             { url: 'json/VIP_Content.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.VIP_Content },
             // 弟子信息描述
             { url: 'json/HeroInfoSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.HeroInfoSheet },
-             // 玩法攻略
+            // 玩法攻略
             { url: 'json/Strategy.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Strategy },
+            // 排行榜奖励预览
+            { url: 'json/Ranking_List.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Ranking_List },
+            //时辰节气
+            { url: 'json/Solarterms.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Solarterms },
 
         ];
     }
@@ -239,6 +247,7 @@ module ResData {
         public static AllTTFData = [
             { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
             { url: 'fonts/FZHL.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZHL' },
+            { url: 'fonts/FZLB.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZLB' },
         ]
     }
 

@@ -3,6 +3,7 @@ module view.menu {
 	export class MenuPanel extends ui.menu.MenuPanelUI {
 		constructor() {
 			super();
+			this.panel_mission.vScrollBarSkin = '';
 		}
 		public setData(): void {
 			this.initUI();
@@ -31,7 +32,7 @@ module view.menu {
 			})
 			//排名
 			this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuPaiHangDialog().popup(true);
+				
 			})
 			//成就
 			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {

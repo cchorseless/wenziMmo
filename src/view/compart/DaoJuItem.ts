@@ -3,6 +3,7 @@ module view.compart {
 	export class DaoJuItem extends ui.compart.DaoJuItemUI {
 		public item: ProtoCmd.ItemBase;
 		public model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE;
+		public type;//区分是普通消耗物品还是罡气消耗
 		constructor() {
 			super();
 			this.addEvent();
@@ -12,9 +13,11 @@ module view.compart {
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
+		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE,type=0): void {
 			// 双向绑定
 			this.item = item;
+			//区分是普通消耗物品还是罡气消耗
+			this.type=type;
 			item.recoverUI();
 			item.ui_item = this;
 			let dwBaseID = '' + item.dwBaseID;
@@ -22,6 +25,25 @@ module view.compart {
 			// 是否有能力提升的提示
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
 			this.btn_isStronger.visible = false;
+
+			let needJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID);
+			let needsex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
+			let needlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
+			if (needsex == 0 || needsex == GameApp.GameEngine.mainPlayer.sex) {
+				if (needJob == GameApp.GameEngine.mainPlayer.job || needJob == 0) {
+					if (needlvl <= GameApp.GameEngine.mainPlayer.level) {
+						this.img_cantWear.visible = false;
+					}else {
+						this.img_cantWear.visible = true;
+					}
+				} else {
+					this.img_cantWear.visible = true;
+				}
+			} else {
+				this.img_cantWear.visible = true;
+			}
+
+
 			// 在角色身上
 			if (item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
 				// 装备查看是否可以战力增加的提示
@@ -32,12 +54,13 @@ module view.compart {
 				let ZS_LEVEL = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(dwBaseID);
 				let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
 				if (player.zslevel * 1000 + player.level < ZS_LEVEL * 1000 + lvl) {
-					this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
+					// this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
 				}
 				else {
 					this.img_bg.filters = null;
 				}
 			}
+
 			this.initUI(item, model);
 		}
 
@@ -100,10 +123,10 @@ module view.compart {
 									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
 									break;
 							}
-							itemInfoDialog.setData(this.item, model).show(false);
+							itemInfoDialog.setData(this.item, model,this.type).show(false);
 							break;
 						default:
-							itemInfoDialog.setData(this.item, this.model).show(false);
+							itemInfoDialog.setData(this.item, this.model,this.type).show(false);
 							break;
 					}
 				}
@@ -131,7 +154,7 @@ module view.compart {
 				if (item.dwCount > 10000) {
 					let num = item.dwCount / 10000;
 					if (num > 10000) {
-						let count=num/10000;
+						let count = num / 10000;
 						this.lbl_count.text = count + '亿';
 					}
 					else {
@@ -167,7 +190,8 @@ module view.compart {
 		public canGoToSell(isNotCanSell: boolean): void {
 			this.isNotCanSell = isNotCanSell && Boolean(this.item.dwBinding);
 			// 不能上架
-			this.disabled = this.isNotCanSell;
+			// this.disabled = this.isNotCanSell;
+			this.visible = !this.isNotCanSell;
 		}
 
 		/**

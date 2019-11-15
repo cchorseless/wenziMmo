@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":59,
+    "selecteID":54,
     "props":{"width":529,"sceneColor":"#e7908f","height":576},
     "nodeParent":-1,
     "label":"Dialog",
@@ -56,13 +56,14 @@
                             "props":{"y":0,"x":27,"var":"box_danJia"},
                             "nodeParent":39,
                             "label":"Box(box_danJia)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":59,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"width":57,"text":"单价：","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
                                     "nodeParent":59,
@@ -75,10 +76,12 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":3,"x":97,"skin":"image/common/bottom_gouyu.png"},
+                                    "props":{"y":3,"x":99,"skin":"image/common/bottom_gouyu.png"},
                                     "nodeParent":59,
                                     "label":"Image",
+                                    "isOpen":true,
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -88,8 +91,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":11,"x":135,"width":62,"var":"lbl_price","text":"12364","strokeColor":"#404040","stroke":4,"height":29,"fontSize":20,"color":"#ffffff","align":"center"},
+                                    "props":{"y":11,"x":139,"width":62,"var":"lbl_price","text":"12364","strokeColor":"#404040","stroke":4,"height":29,"fontSize":20,"color":"#ffffff","align":"center"},
                                     "nodeParent":59,
                                     "label":"Label(lbl_price)",
                                     "isDirectory":false,
@@ -101,8 +105,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"x":79,"var":"img_coinPic1","skin":"image/main/icon_common_yuanbao01.png"},
+                                    "props":{"y":0,"x":83,"var":"img_coinPic1","skin":"image/main/icon_common_yuanbao01.png"},
                                     "nodeParent":59,
                                     "label":"Image(img_coinPic1)",
                                     "isDirectory":false,
@@ -116,7 +121,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":17,"x":290,"var":"btn_buy","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买"},
+                            "props":{"y":27,"x":290,"width":105,"var":"btn_buy","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"购买","height":45},
                             "nodeParent":39,
                             "label":"Button(btn_buy)",
                             "isDirectory":false,
@@ -133,13 +138,14 @@
                             "props":{"y":33,"x":15},
                             "nodeParent":39,
                             "label":"Box",
-                            "isOpen":null,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":60,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"width":107,"var":"lbl_coinDes","text":"消耗货币:","height":28,"fontSize":22,"font":"Microsoft YaHei","color":"#63491a","align":"center"},
                                     "nodeParent":60,
@@ -152,6 +158,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":5,"x":111,"skin":"image/common/bottom_gouyu.png"},
                                     "nodeParent":60,
@@ -163,6 +170,7 @@
                                     "compId":45,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":5,"x":40,"width":62,"var":"lbl_coinPrice","text":"12364","strokeColor":"#404040","stroke":4,"height":29,"fontSize":20,"color":"#ffffff","align":"center"},
                                             "nodeParent":45,
@@ -176,6 +184,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-5,"x":-13,"width":46,"var":"img_coinPic","skin":"image/main/icon_common_yuanbao01.png","height":38},
                                             "nodeParent":45,
@@ -247,6 +256,34 @@
             "compId":3,
             "child":[
                 ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":7,"x":13,"width":501,"skin":"image/common/title_tanchuang2.png","height":64},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":61,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":8,"x":8,"width":288,"var":"lab_Name","text":"超级修为丹","strokeColor":"#404040","stroke":2,"height":40,"fontSize":40,"font":"FZXK","color":"#f5dd7b"},
+                    "nodeParent":61,
+                    "label":"Label(lab_Name)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":62,
+                    "child":[
+                        ]
+                }],
+            "$LOCKED":false,
             "$HIDDEN":false
         }],
     "animations":[

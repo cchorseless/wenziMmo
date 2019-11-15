@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":20,
+    "selectedBox":22,
+    "selecteID":32,
     "props":{"width":180,"sceneColor":"#ca7d7c","height":180},
     "nodeParent":-1,
     "label":"View",
@@ -27,229 +27,189 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":30,"width":26,"skin":"image/common/battle/img_nameBg.png","right":0,"height":147},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":7,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","height":145,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":7,
-                            "label":"Label(lbl_name)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":8,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":21,"x":17},
-                    "nodeParent":4,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":9,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":0,"x":11,"skin":"image/common/img_xuetiaodi.png"},
-                            "nodeParent":9,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":122,"x":21,"skin":"image/common/img_yinying.png"},
-                            "nodeParent":9,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":-5,"x":107,"width":38,"height":36},
-                            "nodeParent":9,
-                            "label":"Box",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":12,
-                            "child":[
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":34,"x":5,"width":15,"skin":"image/common/battle/img_mpBg.png","height":30,"anchorY":1},
-                                    "nodeParent":12,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":13,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":34,"x":5,"width":15,"var":"img_Mp","skin":"image/common/battle/img_mp.png","height":30,"anchorY":1},
-                                    "nodeParent":12,
-                                    "label":"Image(img_Mp)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":14,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":4,"x":33,"width":15,"skin":"image/common/battle/img_neiLiBg.png","height":30,"anchorX":1},
-                                    "nodeParent":12,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":15,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":34,"x":18,"width":15,"var":"img_neiGong","skin":"image/common/battle/img_neiLi.png","height":30,"anchorY":1},
-                                    "nodeParent":12,
-                                    "label":"Image(img_neiGong)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":16,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":1,"x":-1,"width":36,"skin":"image/common/battle/img_frame0.png","height":36},
-                                    "nodeParent":12,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":17,
-                                    "child":[
-                                        ]
-                                }]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":25,"width":130,"text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff"},
-                    "nodeParent":4,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":28,"width":26,"var":"img_guildInfo","skin":"image/common/battle/img_nameBg.png","left":0,"height":147},
-                    "nodeParent":4,
-                    "label":"Image(img_guildInfo)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":20,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_guildName","text":"名字六个字啊","height":145,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":20,
-                            "label":"Label(lbl_guildName)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":21,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":74,"x":40,"width":43,"var":"img_heroAva","skin":"image/common/img_dizixingxiang.png","height":85},
+                    "props":{"y":58,"x":0,"width":61,"var":"img_heroAva","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_heroAva)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":3,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-52,"var":"img_heroava","top":6,"skin":"image/common/iconV1_nan01.png","right":5,"left":5,"bottom":12},
+                            "nodeParent":3,
+                            "label":"Image(img_heroava)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":34,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":63,"x":80,"width":66,"var":"img_playerAva","skin":"image/common/img_wanjiaxingxiang.png","height":96},
+                    "props":{"y":58,"x":54,"width":85,"var":"img_playerAva","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_playerAva)",
-                    "isOpen":false,
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":2,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-52,"x":-44,"var":"img_playerava","top":6,"skin":"image/common/iconV1_nan01.png","right":10,"left":10,"bottom":12},
+                            "nodeParent":2,
+                            "label":"Image(img_playerava)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":33,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":58,"x":40,"width":105,"var":"img_playerAvaBig","skin":"image/common/img_wanjiaxingxiang_dan.png","height":103},
+                    "props":{"y":58,"x":26,"width":110,"var":"img_playerAvaBig","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_playerAvaBig)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":22,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"var":"img_avaBig","top":6,"skin":"image/common/iconV1_nan01.png","right":10,"left":10,"bottom":12},
+                            "nodeParent":22,
+                            "label":"Image(img_avaBig)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":32,
+                            "child":[
+                                ]
+                        }],
                     "$HIDDEN":true
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":55,"x":136,"width":26,"var":"img_nameBg","skin":"image/common/battle/img_mingzidi.png","height":112},
+            "nodeParent":1,
+            "label":"Image(img_nameBg)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","leading":2,"layoutEnabled":true,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                    "nodeParent":23,
+                    "label":"Label(lbl_name)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":26,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":24,"x":29,"width":135,"skin":"image/common/battle/img_xuetiaodi_001.png","height":33},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":24,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":7,"x":1,"width":105,"var":"img_hpBg","skin":"image/common/battle/img_hpBg.png","height":10},
+                    "nodeParent":24,
+                    "label":"Image(img_hpBg)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":27,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"width":105,"var":"img_hp","top":0,"skin":"image/common/battle/img_xuetiao.png","left":0,"height":10},
+                            "nodeParent":27,
+                            "label":"Image(img_hp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":28,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":17,"x":1,"width":105,"var":"img_mpBg","skin":"image/common/battle/img_hpBg.png","height":10},
+                    "nodeParent":24,
+                    "label":"Image(img_mpBg)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":29,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"width":100,"var":"img_mp","top":0,"skin":"image/common/battle/img_huangtiao.png","left":0,"height":10},
+                            "nodeParent":29,
+                            "label":"Image(img_mp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":30,
+                            "child":[
+                                ]
+                        }]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":11,"x":28,"width":104,"var":"lbl_guildName","text":"天下第一公会","height":20,"fontSize":14,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lbl_guildName)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":25,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -7,11 +7,12 @@ module view.scene {
 		}
 
 		public sceneTalkList = [];
-
+		public eventInfo = [];
 		/**
 		 * 添加场景对话
 		 */
-		public parseSceneTalk(sceneTalkList: Array<{ des: string, delay?: number, event?: Array<Array<any>> }> = this.sceneTalkList): void {
+		public parseSceneTalk2(sceneTalkList: Array<{ des: string, delay?: number, event?: Array<Array<any>> }> = this.sceneTalkList): void {
+
 			this.visible = true;
 			this.box_next.disabled = true;
 			this.sceneTalkList = sceneTalkList;
@@ -48,10 +49,40 @@ module view.scene {
 		}
 
 
+		public parseSceneTalk(sceneTalkList: Array<{ des: string, delay?: number, event?: Array<Array<any>> }>): void {
+			this.lbl_sceneTalk.text = '';
+			this.lbl_sceneTalk.leading = 10;
+			for (let info of sceneTalkList) {
+				this.lbl_sceneTalk.text += info.des + '\n';
+				if (info.event) {
+					this.eventInfo = this.eventInfo.concat(info.event)
+				}
+			}
+			this.box_next.disabled = false;
+			this.box_next.visible = false;
+			this.img_mask.height = 0;
+			this.alpha = 0;
+			this.visible = true;
+			Laya.Tween.to(this, { alpha: 1 }, 2000, null, Laya.Handler.create(this, () => {
+				Laya.Tween.to(this.img_mask, { height: this.lbl_sceneTalk.displayHeight }, 10000, null, Laya.Handler.create(this, () => {
+					this.box_next.visible = true;
+				}))
+			}))
+		}
+
 
 		public addEvent() {
 			EventManage.onWithEffect(this.box_next, Laya.UIEvent.CLICK, this, () => {
-				this.parseSceneTalk();
+				this.box_next.disabled = true;
+				// this.parseSceneTalk();
+				Laya.Tween.to(this, { alpha: 0 }, 500, null, Laya.Handler.create(this, () => {
+					this.visible = false;
+					for (let evt of this.eventInfo) {
+						GameApp.LListener.event(evt[0], evt[1]);
+					}
+
+				}))
+
 			})
 		}
 	}

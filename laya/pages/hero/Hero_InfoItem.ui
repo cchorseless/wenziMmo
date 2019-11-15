@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":351,
+    "selectedBox":352,
+    "selecteID":353,
     "props":{"width":567,"sceneColor":"#b27372","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -18,7 +18,7 @@
             "props":{"y":0,"x":1},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -163,16 +163,17 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":0,"x":230,"skin":"image/juese/bg_chuzhan.png"},
+                            "props":{"y":0,"x":230,"var":"img_battle","skin":"image/juese/bg_chuzhan.png"},
                             "nodeParent":282,
-                            "label":"Image",
-                            "isOpen":false,
+                            "label":"Image(img_battle)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":317,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":12,"x":13,"skin":"image/juese/font_chuzhan.png"},
                                     "nodeParent":317,
@@ -328,18 +329,19 @@
             "props":{"y":547,"x":12,"var":"viw_dizi","selectedIndex":0},
             "nodeParent":1,
             "label":"ViewStack(viw_dizi)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":314,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-25,"x":-16,"name":"item0"},
                     "nodeParent":314,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -386,24 +388,39 @@
                         },
                         {
                             "type":"Image",
-                            "props":{"y":44,"x":68,"skin":"image/juese/img_suipian.png"},
+                            "props":{"y":100,"x":111,"width":281,"skin":"image/juese/img_haogan_1.png","scaleY":1.2,"scaleX":1.2,"height":141,"gray":true,"alpha":0.5},
                             "nodeParent":350,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":349,
+                            "compId":367,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":101,"x":109,"width":342,"skin":"image/juese/img_fuwen_11.png","height":173},
+                            "nodeParent":350,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":368,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":-26,"x":-6,"name":"item1"},
                     "nodeParent":314,
                     "label":"Box(item1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -447,278 +464,6 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":57,"x":19,"width":401,"skin":"image/juese/img_waikuang.png","scaleY":0.65,"scaleX":0.65,"height":230},
-                            "nodeParent":312,
-                            "label":"Image",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":291,
-                            "child":[
-                                {
-                                    "type":"Box",
-                                    "props":{"y":3,"x":5},
-                                    "nodeParent":291,
-                                    "label":"Box",
-                                    "isOpen":false,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":292,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":0,"x":67,"skin":"image/juese/img_renwu1.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":293,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":65,"skin":"image/juese/img_renwu2.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":294,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":0,"x":-1,"skin":"image/juese/img_fenggexian.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":295,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"skin":"image/juese/Fragmentation_Not unlocked01.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":296,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":73,"skin":"image/juese/Fragmentation_Not unlocked02.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":297,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":2,"x":199,"skin":"image/juese/Fragmentation_Not unlocked03.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":298,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":2,"x":294,"skin":"image/juese/Fragmentation_Not unlocked04.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":299,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":103,"x":190,"skin":"image/juese/Fragmentation_Not unlocked05.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":300,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":149,"x":179,"skin":"image/juese/Fragmentation_Not unlocked06.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":301,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":126,"x":3,"skin":"image/juese/Fragmentation_Not unlocked07.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":302,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":110,"skin":"image/juese/Fragmentation_Not unlocked08.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":303,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":0,"skin":"image/juese/Fragmentation_Selected01.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":304,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":74,"skin":"image/juese/Fragmentation_Selected02.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":305,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":199,"skin":"image/juese/Fragmentation_Selected03.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":306,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":1,"x":296,"skin":"image/juese/Fragmentation_Selected04.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":307,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":103,"x":192,"skin":"image/juese/Fragmentation_Selected05.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":308,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":148,"x":178,"skin":"image/juese/Fragmentation_Selected06.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":309,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":126,"x":2,"skin":"image/juese/Fragmentation_Selected07.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":310,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":110,"x":0,"skin":"image/juese/Fragmentation_Selected08.png"},
-                                            "nodeParent":292,
-                                            "label":"Image",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":311,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                }]
                         },
                         {
                             "type":"Image",
@@ -877,8 +622,151 @@
                             "compId":332,
                             "child":[
                                 ]
+                        },
+                        {
+                            "type":"Box",
+                            "props":{"y":76,"x":18},
+                            "nodeParent":312,
+                            "label":"Box",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":366,
+                            "child":[
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-19,"x":3,"skin":"image/juese/img_haogan_1.png","scaleY":1.2,"scaleX":1.2,"gray":true,"alpha":0.5},
+                                    "nodeParent":366,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":356,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-19,"x":3,"width":54,"var":"img_rune0","skin":"image/common/daoju/itemicon_180101.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune0)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":357,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-19,"x":68,"width":54,"var":"img_rune1","skin":"image/common/daoju/itemicon_180102.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":358,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-19,"x":133,"width":54,"var":"img_rune2","skin":"image/common/daoju/itemicon_180103.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":359,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-19,"x":197,"width":54,"var":"img_rune3","skin":"image/common/daoju/itemicon_180104.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune3)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":360,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":45,"x":3,"width":54,"var":"img_rune4","skin":"image/common/daoju/itemicon_180105.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune4)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":361,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":45,"x":68,"width":54,"var":"img_rune5","skin":"image/common/daoju/itemicon_180106.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune5)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":362,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":45,"x":133,"width":54,"var":"img_rune6","skin":"image/common/daoju/itemicon_180107.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune6)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":363,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":45,"x":197,"width":54,"var":"img_rune7","skin":"image/common/daoju/itemicon_180108.png","scaleY":1.2,"scaleX":1.2,"height":54},
+                                    "nodeParent":366,
+                                    "label":"Image(img_rune7)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":364,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-22,"x":0,"width":263,"skin":"image/juese/img_fuwen_11.png","height":133},
+                                    "nodeParent":366,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":365,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                }],
+                            "$HIDDEN":true
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },
@@ -888,13 +776,14 @@
             "props":{"y":-4,"x":5},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":351,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
                     "nodeParent":351,
@@ -906,8 +795,9 @@
                     "compId":352,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":9,"x":30,"text":"人 物 志","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
+                            "props":{"y":9,"x":30,"text":"弟子简介","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":352,
                             "label":"Label",
                             "isDirectory":false,
@@ -920,6 +810,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"skin":"image/juese/icon_renwuzhi.png"},
                     "nodeParent":351,
@@ -932,6 +823,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
                     "nodeParent":351,

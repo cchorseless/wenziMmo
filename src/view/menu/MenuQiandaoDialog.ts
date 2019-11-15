@@ -10,7 +10,6 @@ module view.menu {
 		//button索引
 		public idx;
 		public setData(): void {
-			this.list_sign.vScrollBarSkin = '';
 			this.tab_sign.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_sign.selectedIndex = index;
 				this.init_jiangli();
@@ -54,6 +53,7 @@ module view.menu {
 					this.lbl_num.text = '' + count;
 				}
 				//签到item
+				this.list_sign.vScrollBarSkin = '';
 				this.list_sign.array = []
 				for (let i = 1; i < (jsonData.qiaodaoday + 1); i++) {
 					this.list_sign.array.push(i);

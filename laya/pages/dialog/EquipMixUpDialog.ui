@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":52,
+    "selecteID":140,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,13 +18,14 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":510,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,
@@ -39,19 +40,21 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":21,"x":164,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":21,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":2,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"var":"lab_Title","text":"装备合成","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"var":"lab_Title","text":"装备合成","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":4,
                             "label":"Label(lab_Title)",
                             "isDirectory":false,
@@ -64,6 +67,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":136,"x":52,"width":517,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"5,3,3,4","height":759},
                     "nodeParent":2,
@@ -77,6 +81,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":815,"x":491,"skin":"image/common/login/decoration_tanchuang.png"},
                     "nodeParent":2,
@@ -90,6 +95,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":481,"x":204,"width":350,"skin":"image/common/line_tujian.png","height":4},
                     "nodeParent":2,
@@ -103,6 +109,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":152,"x":165,"width":2,"skin":"image/common/line_tujian_1.png","height":714},
                     "nodeParent":2,
@@ -117,6 +124,7 @@
                     "$LOCKED":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":145,"x":57,"var":"box_level"},
                     "nodeParent":2,
@@ -154,17 +162,19 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":146,"x":57,"width":106,"var":"box_God","height":594},
                     "nodeParent":2,
                     "label":"Box(box_God)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":30,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":27,"x":53,"width":106,"var":"btn_god_tab0","stateNum":"2","skin":"image/main/btn_haoyou.png","labelSize":22,"labelFont":"FZXK","labelColors":"#63491a","label":"战士装备","height":54.5,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":30,
@@ -177,6 +187,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":84,"x":53,"width":106,"var":"btn_god_tab1","stateNum":"2","skin":"image/main/btn_haoyou.png","name":"btn_magician","labelSize":22,"labelFont":"FZXK","labelColors":"#63491a","label":"法师装备","height":54.5,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":30,
@@ -189,6 +200,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":141,"x":53,"width":106,"var":"btn_god_tab2","stateNum":"2","skin":"image/main/btn_haoyou.png","name":"btn_taoist","labelSize":22,"labelFont":"FZXK","labelColors":"#63491a","label":"道士装备","height":54.5,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":30,
@@ -201,6 +213,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":168,"x":5,"width":95,"var":"box_god_second","height":298},
                             "nodeParent":30,
@@ -212,6 +225,7 @@
                             "compId":29,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":22,"x":47.2,"var":"btn_Relive0","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelStrokeColor":"#000000","labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"3转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -224,6 +238,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":64,"x":47.2,"var":"btn_Relive1","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"5转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -236,6 +251,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":106,"x":47.2,"var":"btn_Relive2","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"7转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -248,6 +264,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":148,"x":47.2,"var":"btn_Relive3","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"9转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -260,6 +277,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":191,"x":47,"var":"btn_Relive4","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"11转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -272,6 +290,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":233,"x":47,"var":"btn_Relive5","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"13转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -284,6 +303,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":275,"x":47,"var":"btn_Relive6","stateNum":"2","skin":"image/main/btn_commmon_001.png","scaleY":0.8,"scaleX":0.8,"labelSize":20,"labelFont":"FZXK","labelColors":"#404040","label":"15转装备","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":29,
@@ -300,6 +320,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":146,"x":57,"var":"box_fire"},
                     "nodeParent":2,
@@ -385,6 +406,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "props":{"y":153,"x":176,"width":375,"var":"list_mix","vScrollBarSkin":"1","spaceY":15,"spaceX":22,"repeatY":3,"repeatX":2,"height":323},
                     "nodeParent":2,
@@ -398,6 +420,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipMixInfoItem.ui",
                     "props":{"y":487,"x":375,"var":"ui_show1"},
@@ -411,6 +434,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/EquipMixInfoItem.ui",
                     "props":{"y":487,"x":182,"var":"ui_show0"},
@@ -424,6 +448,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":863,"x":368,"var":"btn_mixUp","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"合成","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
@@ -436,217 +461,19 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":610,"x":182,"width":184,"skin":"image/common/fram_common_21.png","sizeGrid":"52,2,2,2","height":220},
                     "nodeParent":2,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":52,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"y":50,"x":8,"width":81,"var":"lab_name0_0","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_0)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":55,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":50,"x":88,"width":123,"var":"lab_data0_0","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":56,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":8,"width":81,"var":"lab_name0_1","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":59,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":88,"width":123,"var":"lab_data0_1","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":60,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":92,"x":8,"width":81,"var":"lab_name0_2","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":62,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":92,"x":88,"width":123,"var":"lab_data0_2","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":63,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":8,"width":81,"var":"lab_name0_3","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_3)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":65,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":88,"width":123,"var":"lab_data0_3","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":66,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":134,"x":8,"width":81,"var":"lab_name0_4","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_4)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":68,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":134,"x":88,"width":123,"var":"lab_data0_4","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":69,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":155,"x":8,"width":81,"var":"lab_name0_5","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_5)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":71,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":155,"x":88,"width":123,"var":"lab_data0_5","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":72,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":176,"x":8,"width":81,"var":"lab_name0_6","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_6)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":74,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":176,"x":88,"width":123,"var":"lab_data0_6","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":75,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":197,"x":8,"width":81,"var":"lab_name0_7","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lab_name0_7)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":77,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":197,"x":88,"width":123,"var":"lab_data0_7","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#63491a"},
-                            "nodeParent":52,
-                            "label":"Label(lab_data0_7)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":78,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":44,"text":"当前属性","stroke":2,"fontSize":24,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":52,
@@ -657,9 +484,23 @@
                             "compId":134,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":64,"x":16,"width":160,"var":"vbox_equip0","height":140},
+                            "nodeParent":52,
+                            "label":"VBox(vbox_equip0)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":140,
+                            "child":[
+                                ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":509,"x":347,"skin":"image/common/icon_shengji_01.png"},
                     "nodeParent":2,
@@ -672,217 +513,19 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":610,"x":372,"width":184,"skin":"image/common/fram_common_21.png","sizeGrid":"52,2,2,2","height":220},
                     "nodeParent":2,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":109,
                     "child":[
                         {
-                            "type":"Label",
-                            "props":{"y":50,"x":8,"width":81,"var":"lab_name1_0","text":"物攻啊啊:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_0)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":111,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":50,"x":88,"width":123,"var":"lab_data1_0","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":112,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":8,"width":81,"var":"lab_name1_1","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":114,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":71,"x":88,"width":123,"var":"lab_data1_1","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":115,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":92,"x":8,"width":81,"var":"lab_name1_2","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":117,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":92,"x":88,"width":123,"var":"lab_data1_2","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":118,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":8,"width":81,"var":"lab_name1_3","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_3)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":120,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":113,"x":88,"width":123,"var":"lab_data1_3","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":121,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":134,"x":8,"width":81,"var":"lab_name1_4","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_4)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":123,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":134,"x":88,"width":123,"var":"lab_data1_4","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":124,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":155,"x":8,"width":81,"var":"lab_name1_5","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_5)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":126,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":155,"x":88,"width":123,"var":"lab_data1_5","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":127,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":176,"x":8,"width":81,"var":"lab_name1_6","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_6)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":129,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":176,"x":88,"width":123,"var":"lab_data1_6","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":130,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":197,"x":8,"width":81,"var":"lab_name1_7","text":"物攻:","height":18,"fontSize":18,"font":"FZXK","color":"#000000","align":"center"},
-                            "nodeParent":109,
-                            "label":"Label(lab_name1_7)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":132,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":197,"x":88,"width":123,"var":"lab_data1_7","text":"2060-14560","height":18,"fontSize":18,"font":"FZXK","color":"#179a0d"},
-                            "nodeParent":109,
-                            "label":"Label(lab_data1_7)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":133,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":44,"text":"下级属性","stroke":2,"fontSize":24,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":109,
@@ -891,6 +534,19 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":135,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":64,"x":16,"width":160,"var":"vbox_equip1","height":140},
+                            "nodeParent":109,
+                            "label":"VBox(vbox_equip1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":141,
                             "child":[
                                 ]
                         }]

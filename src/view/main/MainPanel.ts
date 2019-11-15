@@ -57,8 +57,6 @@ module view.main {
 			this.updateUI_yuanBaolock()
 			this.updateUI_power()
 			this.updateUI_vipLv();
-			// 节气
-			this.lbl_jieQi.text = '' + this.getJieQi();
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 		}
@@ -130,9 +128,16 @@ module view.main {
 		 * 更新头像
 		 */
 		public updateUI_avatarIcon(): void {
-			let _player = GameApp.MainPlayer;
 			// 头像
 			this.img_avatarIcon.skin = '' + LangConfig.getPlayerIconSkin();
+		}
+		/**
+		 * 更新PK模式
+		 */
+		public updateUI_pkModel(): void {
+			let _player = GameApp.MainPlayer;
+			// pk模式
+			this.btn_BattleMode.skin = 'image/main/img_type' + _player.pkModel + '.png';
 		}
 		/**
 		 * 更新VIP等级
@@ -141,8 +146,6 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
-
-
 		public addEvent(): void {
 			// 模式切换
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -199,15 +202,15 @@ module view.main {
 
 			// 时辰&&节气界面
 			this.btn_time.on(Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.TimeDialog().setData(null).popup(true);
+				new view.dialog.TimeDialog().setData(this.lbl_jieQi.text, this.lbl_shiChen.text).popup(true);
 			});
-			// 换头像界面
-			// this.box_head.on(Laya.UIEvent.CLICK, this, () => {
-			// 	new view.main.Main_playerInfoDialog().popup(true);
-			// });
+			// 个人信息界面
+			this.img_head.on(Laya.UIEvent.CLICK, this, () => {
+				new view.main.Main_playerInfoDialog().setData().popup(true);
+			});
 			// 路引弹窗
 			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_LuYinDialog().popup(true);
+				new view.main.Main_LuYinDialog().setData().popup(true);
 			});
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
@@ -338,16 +341,44 @@ module view.main {
 		 * 获取时辰
 		 */
 		public getShiChen(): string {
-			return ['夜半', '鸡鸣', '平旦', '日出', '食时', '隅中', '日中', '日昳', '晡时', '日入', '黄昏', '人定'][parseInt('' + new Date().getHours() / 2)]
+			let hour = new Date().getHours();
+			let minite = new Date().getMinutes();
+			let index;
+			let time;
+			let timeArray = ['丑时', '寅时', '卯时', '辰时', '巳时', '午时', '未时', '申时', '酉时', '戌时', '亥时', '子时']
+			if (minite > 0) {
+				for (let i = 1; i < 13; i++) {
+					if (hour == i || hour == (i + 1)) {
+						if (i % 2 == 1) {
+							time = timeArray[i];
+						} else {
+							time = timeArray[(i - 1)];
+						}
+					}
+					if (hour == i * 2 || hour == (i * 2 + 1)) {
+						if (i % 2 == 1) {
+							time = timeArray[i];
+						} else {
+							time = timeArray[(i - 1)];
+						}
+					}
+				}
+			} else {
+				time = timeArray[Math.ceil(hour / 2)];
+			}
+			return time;
 		}
 		/**
 		 * 获取节气
 		 */
 		public getJieQi(): string {
-			let date = new Date();
-			let dayCount = date.getDate() + date.getMonth() * 30;
-			return ['立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑', '立秋'
-				, '处暑', '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至', '小寒', '大寒'][parseInt('' + dayCount % 24)]
+			let date = Date.now() / 1000;
+			let beginTime = GameApp.GameEngine.openDay;
+			let day = (date - beginTime) / 24 / 3600;
+			let index = Math.ceil(day % 24);
+			let season = ['', '立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑', '立秋', '处暑'
+				, '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至', '小寒', '大寒'][index]
+			return season;
 		}
 
 		/**
@@ -397,6 +428,9 @@ module view.main {
 				// 世界聊天
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
 					_chatMsg += '[世界]:' + data.chatMsg;
+					break;
+				default:
+					_chatMsg += '[系统]:' + data.chatMsg;
 					break;
 			}
 			_chatArray.push(_chatMsg);
@@ -525,8 +559,6 @@ module view.main {
 			this.loadXingGeTalentData();
 			//拉取生辰八字四格九宫
 			this.getPlayerBirthData();
-			//拉取路引数据
-			this.getLuYinData();
 			//获取强化信息
 			this.getIntensifyMessage();
 			//魂石升阶信息
@@ -572,13 +604,7 @@ module view.main {
 			lcp.send(pkt);
 
 		}
-		private getLuYinData() {
-			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.openChuangSongRecord, [GameApp.GameEngine.luyinTabID], 0, this,
-				(data: ProtoCmd.itf_Main_openChuangSongRecord) => {
-					GameApp.GameEngine["luyinData" + [GameApp.GameEngine.luyinTabID]] = data
-				});
-			lcp.send(pkt);
-		}
+
 		/**
 		 * 拉取玩家出生信息
 		 */
@@ -587,6 +613,9 @@ module view.main {
 				(data: ProtoCmd.itf_JS_birthdateAndCompellation) => {
 					GameApp.GameEngine.mainPlayer.playerBirthData = data
 					GameApp.GameEngine.openDay = data.openday
+					// 节气
+					this.lbl_jieQi.text = '' + this.getJieQi();
+					this.updateUI_pkModel();
 				});
 			lcp.send(pkt);
 		}
@@ -855,6 +884,7 @@ module view.main {
 				default:
 					progerUI.setData('东看看,西看看...', 3000);
 					break;
+
 			}
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面

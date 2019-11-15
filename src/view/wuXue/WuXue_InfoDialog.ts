@@ -5,6 +5,8 @@ module view.wuXue {
 		public skillID;
 		constructor() {
 			super();
+			this.panel_skillDes.vScrollBarSkin = '';
+			this.panel_skillEffDes.vScrollBarSkin = "";
 		}
 		public item: ProtoCmd.stSkillLvlBase;
 		public setData(s: ProtoCmd.stSkillLvlBase): WuXue_InfoDialog {
@@ -22,9 +24,18 @@ module view.wuXue {
 			itemBase.dwBaseID = 20101;
 			itemBase.dwCount = needItemNum
 			o.setData(itemBase)
+			o.lbl_itemName.visible =false;
 			this.ui_needItem.addChild(o)
-			this.lbl_skillType.text = '' + LangConfig.enSkillTypeDes[EnumData.enSkillType[skillType]];
+			// this.lbl_skillType.text = '' + LangConfig.enSkillTypeDes[EnumData.enSkillType[skillType]];
 			// 技能名称
+
+			this.lab_NeedName1.text =  SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+			this.lbl_useDes1.text =  SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY_ACQUISITION(configID);
+			let str_Act = SheetConfig.mydb_magic_tbl.getInstance(null).ACTIVATION_CONDITIONS(configID);
+			if(str_Act == "0"){
+				str_Act = "无条件"
+			}
+			this.lab_LvUpDetail.text = str_Act;
 			this.lbl_skillName.text = '' + SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID).split('_')[0];
 			// 技能描述
 			this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(configID);
@@ -80,11 +91,10 @@ module view.wuXue {
 			/**
 			 * 测试技能经验值增加
 			 */
-			this.img_test.on(Laya.UIEvent.CLICK, this, function () {
-
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID, 20101, 10]);
-				lcp.send(pkt);
-			})
+			// this.img_test.on(Laya.UIEvent.CLICK, this, function () {
+			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID, 20101, 10]);
+			// 	lcp.send(pkt);
+			// })
 			// 穿戴或者卸下
 			this.btn_dress.on(Laya.UIEvent.CLICK, this, () => {
 				this.close()

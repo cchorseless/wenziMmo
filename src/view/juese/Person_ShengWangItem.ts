@@ -13,13 +13,14 @@ module view.juese {
 			this.hasInit = true;
 			this.panel_shengWang.hScrollBarSkin = '';
 			this.hbox_shengWang['sortItem'] = (items) => { };
+			this.vbox_left['sortItem'] = (items) => { };
+			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.activation();
 		}
 		public addEvent(): void {
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-
 				let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + (this.client_func_index + 1000));
 				if (GameApp.MainPlayer.lvlCount >= activationLvl) {
 					GameUtil.setServerData(this.client_func_index);
@@ -75,19 +76,19 @@ module view.juese {
 				this.lbl_two.text = '声望第二：' + jsonData.rank[2];
 				this.lbl_three.text = '声望第三：' + jsonData.rank[3];
 				// //当前属性
-				let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
+				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 				let attribute1 = shuxing1.des;
 				let battle1 = shuxing1.battle[this.job];
 				this.clip_power1.value = '' + battle1;
 				let keys1 = Object.keys(attribute1)
 				this.vbox_left.removeChildren();
 				for (let key of keys1) {
-					this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+					this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 				}
 				//下级属性
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
 				if (id !== 0) {
-					let shuxing2 = GameUtil.parseEffectidToString('' + id)
+					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let battle = shuxing2.battle[this.job];
 					this.clip_power2.value = '' + battle;
@@ -95,7 +96,7 @@ module view.juese {
 					let keys2 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 					}
 				}
 				//声望经验值进度条

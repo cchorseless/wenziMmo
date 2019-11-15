@@ -82,6 +82,22 @@ module LangConfig {
     }
 
     /**
+     * 获取玩家头像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerIconSkinV1(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job, state = 1): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/iconV1_nan';
+        }
+        else {
+            path = 'image/common/iconV1_nv';
+        }
+        return path + '0' + job + '.png';
+    }
+
+    /**
      * 获取全身像路径
      * @param sex 
      * @param job 
@@ -95,6 +111,22 @@ module LangConfig {
             path = 'image/common/nv';
         }
         return path + '0' + job + '.png';
+    }
+
+    /**
+     * 获取全身small像
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerSmallAvatarSkin(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/nan';
+        }
+        else {
+            path = 'image/common/nv';
+        }
+        return path + '0' + job + '_small.png';
     }
 
 
@@ -113,6 +145,50 @@ module LangConfig {
         }
         return path + '0' + job + '_half.png';
     }
+
+    /**
+     * 获取半身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerAvatarHalfSkinV2(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/common/role_half_nan';
+        }
+        else {
+            path = 'image/common/role_half_nv';
+        }
+        return path + '0' + job + '.png';
+    }
+
+    /**
+     * 获取半身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerAvatarHalfSkinV3(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path = 'image/common/role_half2_';
+        let number = 100;
+        switch (job) {
+            case EnumData.JOB_TYPE.JOB_WARRIOR:
+                number += 1
+                break;
+            case EnumData.JOB_TYPE.JOB_MAGE:
+                number += 3
+                break;
+            case EnumData.JOB_TYPE.JOB_MONK:
+                number += 5
+                break;
+
+        }
+        if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+            number += 1;
+        }
+        return path + number + '.png';
+    }
+
+
 
 
     /**
@@ -135,7 +211,7 @@ module LangConfig {
         JOB_NONE: '不限',//通用
         JOB_WARRIOR: '隐门传人',
         JOB_MAGE: '奇侠怪盗',
-        JOB_MONK: '灭门孤儿'
+        JOB_MONK: '神秘孤儿'
     }
 
     /**
@@ -251,62 +327,62 @@ module LangConfig {
      */
     export const emNonpareilTypeDes = {
         NONPAREIL_TYPE_NULL: '没有极品:',
-        NONPAREIL_TYPE_MAXHP: '最大血量:',
-        NONPAREIL_TYPE_MAXMP: '最大蓝量:',
-        NONPAREIL_TYPE_MAXATK: '攻击上限:',
-        NONPAREIL_TYPE_MINATK: '攻击下限:',
-        NONPAREIL_TYPE_MAXDC: '力道上限:',
-        NONPAREIL_TYPE_MINDC: '力道下限:',
-        NONPAREIL_TYPE_MAXMC: '柔劲上限:',
-        NONPAREIL_TYPE_MINMC: '柔劲下限:',
-        NONPAREIL_TYPE_MAXSC: '刚劲上限:',
-        NONPAREIL_TYPE_MINSC: '刚劲下限:',
-        NONPAREIL_TYPE_MAXAC: '卸力上限:',
-        NONPAREIL_TYPE_MINAC: '卸力下限:',
-        NONPAREIL_TYPE_MAXMAC: '化劲上限:',
-        NONPAREIL_TYPE_MINMAC: '化劲下限:',
-        NONPAREIL_TYPE_HIT: '命中:',
-        NONPAREIL_TYPE_HITRATE: '命中率:',
-        NONPAREIL_TYPE_JUCK: '闪避:',
-        NONPAREIL_TYPE_JUCKRATE: '闪避率:',
-        NONPAREIL_TYPE_CRIT: '暴击:',
-        NONPAREIL_TYPE_CRITRATE: '暴击率:',
-        NONPAREIL_TYPE_TOUGHNESS: '韧性:',
-        NONPAREIL_TYPE_TOUGHNESSRATE: '抗暴率:',
-        NONPAREIL_TYPE_ATKCRIT: '暴击伤害:',
-        NONPAREIL_TYPE_LUCKY: '幸运:',
-        NONPAREIL_TYPE_RESTOREHP: '每次恢复血量:',
-        NONPAREIL_TYPE_RESTOREMP: '每次恢复蓝量:',
-        NONPAREIL_TYPE_MOVESPEED: '移动速度:',
-        NONPAREIL_TYPE_PALSYRATE: '麻痹概率:',
-        NONPAREIL_TYPE_PALSYRESI: '抗麻痹概率:',
-        NONPAREIL_TYPE_UNIONATKRATE: '合击威力:',
-        NONPAREIL_TYPE_INCATKWARRIOR: '对战士伤害增加:',
-        NONPAREIL_TYPE_DECATKWARRIOR: '受战士伤害减少:',
-        NONPAREIL_TYPE_INCATKMAGE: '对法师伤害增加:',
-        NONPAREIL_TYPE_DECATKMAGE: '受法师伤害减少:',
-        NONPAREIL_TYPE_INCATKMONK: '对道士伤害增加:',
-        NONPAREIL_TYPE_DECATKMONK: '受道士伤害减少:',
-        NONPAREIL_TYPE_INCATKMONSTER: '对怪物伤害增加:',
-        NONPAREIL_TYPE_DECATKMONSTER: '受怪物伤害减少:',
-        NONPAREIL_TYPE_INCATKBOSS: '对BOSS伤害增加:',
-        NONPAREIL_TYPE_DECATKBOSS: '受BOSS伤害减少:',
-        NONPAREIL_TYPE_INCATKHERO: '增加对英雄伤害:',
-        NONPAREIL_TYPE_DECATKHERO: '减少受英雄伤害:',
-        NONPAREIL_TYPE_ENERGY: '内功值:',
-        NONPAREIL_TYPE_RESTOREENERGY: '恢复内功值:',
-        NONPAREIL_TYPE_ENERGYRESI: '内功抵消伤害比例:',
-        NONPAREIL_TYPE_INCDAMAGE: '增伤:',
-        NONPAREIL_TYPE_DECDAMAGE: '减伤:',
-        NONPAREIL_TYPE_INCBOSSCRIT: '增加对BOSS的暴击:',
-        NONPAREIL_TYPE_INCBOSSATKCRIT: '增加对BOSS的暴伤:',
-        NONPAREIL_TYPE_DECUNIONATKDAMAGE: '受合击伤害减少:',
-        NONPAREIL_TYPE_DECATKCRITDAMAGE: '受暴击伤害减少:',
-        NONPAREIL_TYPE_RESTOREANGER: '怒气恢复率:',
-        NONPAREIL_TYPE_UATOMONSTER: '合击对怪增伤率:',
-        NONPAREIL_TYPE_UATOPLAYER: '合击对人增伤率:',
-        NONPAREIL_TYPE_UPCOMBOSKILLLEVEL: ' 合计技能提升等级:',
-        NONPAREIL_TYPE_MAXCOUNT: '生命百分比:',
+        NONPAREIL_TYPE_MAXHP: '最大血量+',
+        NONPAREIL_TYPE_MAXMP: '最大蓝量+',
+        NONPAREIL_TYPE_MAXATK: '攻击上限+',
+        NONPAREIL_TYPE_MINATK: '攻击下限+',
+        NONPAREIL_TYPE_MAXDC: '力道上限+',
+        NONPAREIL_TYPE_MINDC: '力道下限+',
+        NONPAREIL_TYPE_MAXMC: '柔劲上限+',
+        NONPAREIL_TYPE_MINMC: '柔劲下限+',
+        NONPAREIL_TYPE_MAXSC: '刚劲上限+',
+        NONPAREIL_TYPE_MINSC: '刚劲下限+',
+        NONPAREIL_TYPE_MAXAC: '卸力上限+',
+        NONPAREIL_TYPE_MINAC: '卸力下限+',
+        NONPAREIL_TYPE_MAXMAC: '化劲上限+',
+        NONPAREIL_TYPE_MINMAC: '化劲下限+',
+        NONPAREIL_TYPE_HIT: '命中+',
+        NONPAREIL_TYPE_HITRATE: '命中率+',
+        NONPAREIL_TYPE_JUCK: '闪避+',
+        NONPAREIL_TYPE_JUCKRATE: '闪避率+',
+        NONPAREIL_TYPE_CRIT: '暴击+',
+        NONPAREIL_TYPE_CRITRATE: '暴击率+',
+        NONPAREIL_TYPE_TOUGHNESS: '韧性+',
+        NONPAREIL_TYPE_TOUGHNESSRATE: '抗暴率+',
+        NONPAREIL_TYPE_ATKCRIT: '暴击伤害+',
+        NONPAREIL_TYPE_LUCKY: '幸运+',
+        NONPAREIL_TYPE_RESTOREHP: '每次恢复血量+',
+        NONPAREIL_TYPE_RESTOREMP: '每次恢复蓝量+',
+        NONPAREIL_TYPE_MOVESPEED: '移动速度+',
+        NONPAREIL_TYPE_PALSYRATE: '麻痹概率+',
+        NONPAREIL_TYPE_PALSYRESI: '抗麻痹概率+',
+        NONPAREIL_TYPE_UNIONATKRATE: '合击威力+',
+        NONPAREIL_TYPE_INCATKWARRIOR: '强化对隐门伤害+',
+        NONPAREIL_TYPE_DECATKWARRIOR: '抵抗隐门伤害+',
+        NONPAREIL_TYPE_INCATKMAGE: '强化怪盗伤害+',
+        NONPAREIL_TYPE_DECATKMAGE: '抵抗怪盗伤害+',
+        NONPAREIL_TYPE_INCATKMONK: '强化孤儿伤害+',
+        NONPAREIL_TYPE_DECATKMONK: '抵抗孤儿伤害+',
+        NONPAREIL_TYPE_INCATKMONSTER: '强化怪物伤害+',
+        NONPAREIL_TYPE_DECATKMONSTER: '抵抗怪物伤害+',
+        NONPAREIL_TYPE_INCATKBOSS: '强化BOSS伤害+',
+        NONPAREIL_TYPE_DECATKBOSS: '抵抗BOSS伤害+',
+        NONPAREIL_TYPE_INCATKHERO: '强化英雄伤害+',
+        NONPAREIL_TYPE_DECATKHERO: '抵抗受英雄伤害+',
+        NONPAREIL_TYPE_ENERGY: '内功值+',
+        NONPAREIL_TYPE_RESTOREENERGY: '恢复内功值+',
+        NONPAREIL_TYPE_ENERGYRESI: '内功抵消伤害+',
+        NONPAREIL_TYPE_INCDAMAGE: '增加伤害+',
+        NONPAREIL_TYPE_DECDAMAGE: '减少伤害+',
+        NONPAREIL_TYPE_INCBOSSCRIT: '对BOSS的暴击+',
+        NONPAREIL_TYPE_INCBOSSATKCRIT: '对BOSS的暴伤+',
+        NONPAREIL_TYPE_DECUNIONATKDAMAGE: '抵抗合击伤害+',
+        NONPAREIL_TYPE_DECATKCRITDAMAGE: '抵抗暴击伤害+',
+        NONPAREIL_TYPE_RESTOREANGER: '怒气恢复率+',
+        NONPAREIL_TYPE_UATOMONSTER: '合击对怪增伤率+',
+        NONPAREIL_TYPE_UATOPLAYER: '合击对人增伤率+',
+        NONPAREIL_TYPE_UPCOMBOSKILLLEVEL: ' 合计技能等级+',
+        NONPAREIL_TYPE_MAXCOUNT: '生命百分比+',
     }
 
     /**
@@ -410,6 +486,38 @@ module LangConfig {
         COIN_TYPE_PLAYER_EXP: '阅历',//-玩家经验
         COIN_TYPE_HERO_EXP: '默契',//-英雄经验
     }
+
+    /**
+     * 帮会名称
+     */
+    export const emGuildMemberPowerLvlDes = {
+        NULL: '外门弟子',
+        ELITISM: '内门弟子',
+        DMIRAL: '核心弟子',
+        ELDERS: '首席大弟子',
+        FITMASTER: '副掌门',
+        MASTER: '掌门'
+    }
+
+    export const zhuanSheng = [
+        '曜神一层',
+        '曜神二层',
+        '曜神三层',
+        '凝魄一层',
+        '凝魄二层',
+        '凝魄三层',
+        '通幽一层',
+        '通幽二层',
+        '通幽三层',
+        '天醒一层',
+        '天醒二层',
+        '天醒三层',
+        '化道一层',
+        '化道二层',
+        '化道三层',
+    ]
+
+
 
 }
 

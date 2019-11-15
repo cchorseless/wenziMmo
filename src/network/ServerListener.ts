@@ -73,6 +73,8 @@ class ServerListener extends SingletonClass {
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
+        // 内功变化
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChuanNeigongUpdate), this, this.cretNeiGongChange);
         // 金币 236
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretGoldChange), this, this.cretGoldChange);
         // 绑定金币 2b6
@@ -156,8 +158,6 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_SELF_INFO, this, this.updatePlayerJuQingInfo);
 
         /**********************************服务器打开面板全局监听**************************** */
-        // 新玩家进入游戏打开欢迎界面
-        GameApp.LListener.once(ProtoCmd.NEW_PLAYER_WelcomeDialog, this, this.openWelcomePanel);
         // 正常充值提示界面
         GameApp.LListener.on(ProtoCmd.CZ_OPEN_chongzhidialog, this, this.openPanel, [ProtoCmd.CZ_OPEN_chongzhidialog]);
         // 首次充值提示界面
@@ -500,7 +500,7 @@ class ServerListener extends SingletonClass {
             obj.location.ncury = cbpkt.getValue('ncury');
             obj.location.ncurz = cbpkt.getValue('ncurz');
             // 刷新UI上的坐标
-            obj.ui_item && obj.ui_item.updateUI();
+            obj.ui_item && obj.ui_item.updateZuoBiao();
         }
         else {
             TipsManage.showTips('同步位置找不到玩家');
@@ -694,7 +694,7 @@ class ServerListener extends SingletonClass {
      */
     public delSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
-        if (cbpkt.getValue('ErrorCode')) {
+        if (cbpkt.getValue('ErrorCode') == 0) {
             delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
@@ -722,35 +722,35 @@ class ServerListener extends SingletonClass {
 
     //0x0234
     /**
-     * 玩家血蓝变化
+     * 场景内血蓝变化
      */
     public cretHealthChange(data: any): void {
         let msgData = new ProtoCmd.CretHealthChange(data);
         let nowhp = msgData.getValue('nNowHP');
         let maxhp = msgData.getValue('nMaxHP');
-        let onlyid = msgData.getValue('dwtempid');
-        if (onlyid == GameApp.GameEngine.mainPlayer.onlyId) {
-            let hp = msgData.getValue('nChangeHP');
-            if (hp < 0) {
-                ////App.MainPanel.addSysChat('你回复了' + (-hp) + '血量');
-            } else {
-                ////App.MainPanel.addSysChat('你掉了' + (-hp) + '血量');
-            }
-            // //App.MainPanel.addSysChat('你:' + msgData.getValue('dwtempid') + '最大血量:' + msgData.getValue('nMaxHP')
-            //     + '当前血量:' + msgData.getValue('nNowHP') + '改变血量:' + msgData.getValue('nChangeHP'));
-            GameApp.GameEngine.mainPlayer.changeHp(nowhp, maxhp);
+        let tempId = msgData.getValue('dwtempid');
+        let nowmp = msgData.getValue('nNowMP');
+        let maxmp = msgData.getValue('nMaxMP');
+        let obj = GameApp.MainPlayer.findViewObj(tempId);
+        if (obj) {
+            obj.changeHp(nowhp, maxhp);
+            obj.changeMp(nowmp, maxmp);
         }
-        // for (let v = 0; v < //App.MainPanel.objItemDB.length; ++v) {
-        //     if (//App.MainPanel.objItemDB[v].onlyid == onlyid) {
-        //         let db = //App.MainPanel.objItemDB[v];
-        //         db.nowhp = nowhp;
-        //         db.maxhp = maxhp;
-        //         let obj = //App.MainPanel.listView.getChildAt(v) as ObjItem;
-        //         //obj.blood.text = nowhp + '/' + maxhp;
-        //         obj.blood.text = "<font color='#00EE00'>(" + db.x + ',' + db.y + ")</font>" + db.nowhp + '/' + db.maxhp;
-        //         break;
-        //     }
-        // }
+        msgData.clear();
+        msgData = null;
+    }
+
+    /**
+     * 场景内内功改变
+     * @param data 
+     */
+    public cretNeiGongChange(data: any): void {
+        let msgData = new ProtoCmd.stCretChuanNeigongUpdate(data);
+        let tempId = msgData.getValue('dwTempId');
+        let obj = GameApp.MainPlayer.findViewObj(tempId);
+        if (obj) {
+            obj.changeNeigong(msgData.nValue, msgData.nMaxValue);
+        }
         msgData.clear();
         msgData = null;
     }
@@ -838,12 +838,13 @@ class ServerListener extends SingletonClass {
         switch (type) {
             // 更新角色经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_PLAYER:
-                GameApp.MainPlayer.changeExp(nowExp.int64ToNumber());
-                TipsManage.showTxt('主角经验改变了' + addExp);
+                GameApp.MainPlayer.changeExp(nowExp);
+                TipsManage.showTxt('获取阅历:' + addExp);
                 break;
             // 更新英雄经验
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_HERO:
-                TipsManage.showTxt('英雄经验改变了' + addExp);
+                GameApp.MainPlayer.changeHeroExp(nowExp);
+                TipsManage.showTxt('获取默契:' + addExp);
                 break;
             // 更新BOSS积分
             case EnumData.eEXP_VALUE_TYPE.EXP_VALUE_TYPE_BOSS:
@@ -885,21 +886,13 @@ class ServerListener extends SingletonClass {
         let level = msg.getValue('dwLevel');
         let i64LeftExp = msg.getValue('i64LeftExp').int64ToNumber();;
         let i64MaxExp = msg.getValue('i64MaxExp').int64ToNumber();;
-        let player: GameObject.Player;
-        // 玩家等级改变
-        if (GameApp.MainPlayer.tempId == dwTempId) {
-            player = GameApp.MainPlayer;
-        }
-        else {
-            player = GameApp.MainPlayer.findViewObj(dwTempId, EnumData.CRET_TYPE.CRET_PLAYER) as GameObject.Player;
-        }
+        let player = GameApp.MainPlayer.findViewObj(dwTempId);
         if (player) {
             player.changeLevel(level);
             player.changeExp(i64LeftExp, i64MaxExp);
         }
         msg.clear();
         msg = null;
-
         GameApp.SDKManager.upgradeRole();
     }
 
@@ -915,7 +908,6 @@ class ServerListener extends SingletonClass {
         let dwType = msg.getValue('dwType');
         let fightPower = msg.getValue('fightPower');
         let player = GameApp.MainPlayer;
-        console.log('-cretAbility-', dwType, dwTempId);
         if (dwTempId == player.tempId) {
             switch (dwType) {
                 // 玩家
@@ -982,14 +974,14 @@ class ServerListener extends SingletonClass {
         player.changeGuildDedication(msg.getValue('dwGuildDedication'));//行会贡献值
         player.changeNowFame(msg.i64Fame.int64ToNumber());//当前声望
         player.changeMaxTotalFame(msg.i64TotalFame.int64ToNumber());//累计声望
-        player.changeNeigong(msg.getValue('nNeigongnum'), msg.getValue('nNeigongMax'));//内功
+        player.changeNeigong(msg.getValue('nNeigongMax') - msg.getValue('nNeigonguse'), msg.getValue('nNeigongMax'));//内功
         player.changeFight(msg.getValue('nFight'));// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
         player.changenSpirte(msg.getValue('nSpirte'));// 精神
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
-        player.changeHeroMaxExp(msg.getValue('i64MaxHeroExp'));// 英雄最大经验
+        player.changeHeroExp(0, msg.getValue('i64MaxHeroExp').int64ToNumber());// 英雄最大经验
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();
@@ -1547,16 +1539,6 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 欢迎界面领取第一个主线任务
-     * @param data 
-     */
-    public openWelcomePanel(): void {
-        // 判定等级和任务情况，是否触发（等级1级 任务为空，领取第一个主线任务）
-        if (Object.keys(GameApp.GameEngine.taskInfo).length == 0) {
-            new view.dialog.WelcomeDialog().setData().popup(true);
-        }
-    }
-    /**
      * 服务器推送创建任务（已接任务）
      * @param data 
      */
@@ -1755,7 +1737,9 @@ class ServerListener extends SingletonClass {
      */
     public changePkModel(data: any): void {
         let msg = new ProtoCmd.CretPkModel(data);
+        GameApp.MainPlayer.pkModel=msg.getValue('pkModel');
         //   PanelManage.Main.ui_scene.pkModelChanged(msg.getValue('pkModel'));
+        PanelManage.Main.updateUI_pkModel();
         msg.clear();
     }
 }

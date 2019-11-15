@@ -19,7 +19,7 @@ module view.beiBao {
 		public initUI(): void {
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
-			for (let i = 0; i < 8; i++) {
+			for (let i = 0; i < 15; i++) {
 				this.vbox_0.addChild(new view.compart.DaoJuGroupItem())
 			}
 			let allKey = Object.keys(GameApp.GameEngine.cangKuDB);

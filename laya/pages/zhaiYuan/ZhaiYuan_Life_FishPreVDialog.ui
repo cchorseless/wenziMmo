@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":2,
+    "selecteID":3,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -18,26 +18,28 @@
             "props":{"y":0,"x":0,"width":618,"skin":"image/common/bottom_tanchuang_big.png","height":932},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":19,"x":160,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":19,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":2,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":3,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"鱼种预览","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"鱼种预览","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":3,
                             "label":"Label",
                             "isDirectory":false,
@@ -50,6 +52,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":108,"x":63,"width":495,"var":"panel_fish","height":748},
                     "nodeParent":2,
@@ -61,6 +64,7 @@
                     "compId":15,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_fish","right":2,"left":2},
                             "nodeParent":15,
@@ -74,6 +78,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":-4,"x":541,"var":"btn_close","stateNum":"2","skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,

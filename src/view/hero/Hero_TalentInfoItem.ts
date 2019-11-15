@@ -8,27 +8,23 @@ module view.hero {
 		public client_func_index = 54;
 		//开启所需等级总数
 		private sum;
-		//玩家等级总数
-		private mySum;
 		public setData(): void {
 			this.panel_talent.vScrollBarSkin = '';
 			this.vbox_talent['sortItem'] = items => { };
-			this.addEvent();
 			this.activation();
+			this.addEvent();	
 		}
 		public addEvent(): void {
-			if (this.mySum >= this.sum) {
-				//激活
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.lvlCount >= this.sum) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
-				})
-			}
-			else {
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				}
+				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
-				});
-			}
+				}
+			})
 			//属性统计
 			this.btn_statistics.on(Laya.UIEvent.CLICK, this, () => {
 				new view.hero.HeroTalentDialog().popup();
@@ -56,7 +52,6 @@ module view.hero {
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 			this.sum = zsLvl * 1000 + lvl;
-			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		/**
 		 * 拉取天赋

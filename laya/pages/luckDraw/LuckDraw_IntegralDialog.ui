@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":1,
+    "selectedBox":33,
+    "selecteID":34,
     "props":{"width":618,"sceneColor":"#ddcbcb","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":20,"x":163,"skin":"image/common/bottom_title1.png"},
+                    "props":{"y":20,"x":153,"skin":"image/common/bottom_title1.png"},
                     "nodeParent":33,
                     "label":"Image",
                     "isOpen":true,
@@ -39,7 +39,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":17,"x":60,"text":"积分兑换","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":10,"x":66,"text":"积分兑换","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":34,
                             "label":"Label",
                             "isDirectory":false,
@@ -68,7 +68,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":118,"x":68,"width":100,"var":"btn_shenbing","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"神 兵"},
+                    "props":{"y":118,"x":55,"width":100,"var":"btn_shenbing","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"神 兵"},
                     "nodeParent":33,
                     "label":"Button(btn_shenbing)",
                     "isDirectory":false,
@@ -82,7 +82,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":118,"x":169,"width":100,"var":"btn_shenjia","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"神 甲"},
+                    "props":{"y":118,"x":156,"width":100,"var":"btn_shenjia","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"神 甲"},
                     "nodeParent":33,
                     "label":"Button(btn_shenjia)",
                     "isDirectory":false,
@@ -96,7 +96,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":118,"x":271,"width":100,"var":"btn_zhuanhuan","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"转 换"},
+                    "props":{"y":118,"x":258,"width":100,"var":"btn_zhuanhuan","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"转 换"},
                     "nodeParent":33,
                     "label":"Button(btn_zhuanhuan)",
                     "isDirectory":false,
@@ -110,7 +110,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":118,"x":375,"width":100,"var":"btn_shoushi","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"首 饰"},
+                    "props":{"y":118,"x":362,"width":100,"var":"btn_shoushi","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"首 饰"},
                     "nodeParent":33,
                     "label":"Button(btn_shoushi)",
                     "isDirectory":false,
@@ -124,7 +124,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":118,"x":479,"width":100,"var":"btn_qita","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"其 他"},
+                    "props":{"y":118,"x":466,"width":100,"var":"btn_qita","stateNum":"2","skin":"image/main/btn_haoyou.png","sizeGrid":"21,24,21,22","labelSize":28,"labelFont":"FZHL","labelColors":"#404040,#63491a","label":"其 他"},
                     "nodeParent":33,
                     "label":"Button(btn_qita)",
                     "isDirectory":false,
@@ -138,7 +138,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":638,"x":62,"width":254,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"79,123,78,133","left":62,"height":256},
+                    "props":{"y":638,"width":254,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"79,123,78,133","left":40,"height":256},
                     "nodeParent":33,
                     "label":"Image",
                     "isOpen":true,
@@ -179,7 +179,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":637,"x":327,"width":254,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"79,123,78,133","right":41,"height":256},
+                    "props":{"y":637,"width":254,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"79,123,78,133","right":40,"height":256},
                     "nodeParent":33,
                     "label":"Image",
                     "isOpen":false,
@@ -231,7 +231,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":177,"x":64,"width":515,"var":"panel_integral","height":456},
+                    "props":{"y":177,"x":51,"width":515,"var":"panel_integral","height":456},
                     "nodeParent":33,
                     "label":"Panel(panel_integral)",
                     "isOpen":true,
@@ -258,7 +258,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":332,"x":197,"visible":false,"var":"box_none"},
+                    "props":{"y":332,"x":194,"visible":false,"var":"box_none"},
                     "nodeParent":33,
                     "label":"Box(box_none)",
                     "isOpen":false,

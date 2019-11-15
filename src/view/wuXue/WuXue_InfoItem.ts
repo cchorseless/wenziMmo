@@ -13,9 +13,8 @@ module view.wuXue {
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].selected = (i < s.level);
 				if (this['btn_' + i].selected == true) {
-					this['btn_' + i].disabled = false;
 				} else {
-					this['btn_' + i].disabled = true;
+					this['btn_' + i].mouseEnabled = false;
 				}
 			}
 			// 经验

@@ -1,7 +1,7 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":194,
+    "selectedBox":1,
     "selecteID":211,
     "props":{"width":567,"sceneColor":"#f8eeee","height":911},
     "nodeParent":-1,
@@ -36,19 +36,6 @@
                     "hasChild":true,
                     "compId":194,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":6,"x":3,"width":33,"stateNum":"2","skin":"image/common/btn_common_shuoming.png","height":33},
-                            "nodeParent":194,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":211,
-                            "child":[
-                                ]
-                        },
                         {
                             "x":45,
                             "type":"Label",
@@ -495,211 +482,16 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":51,"x":37,"width":97,"var":"img_tag1","skin":"image/juese/tab_rw_0.png","height":42},
+                    "type":"List",
+                    "props":{"y":41,"x":46,"width":474,"var":"list_label","spaceY":5,"spaceX":20,"repeatY":2,"repeatX":4,"height":100},
                     "nodeParent":145,
-                    "label":"Image(img_tag1)",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"List(list_label)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":148,
+                    "hasChild":false,
+                    "compId":212,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag1","text":"乐天达观","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":148,
-                            "label":"Label(lab_tag1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":149,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":51,"x":172,"width":97,"var":"img_tag2","skin":"image/juese/tab_rw_01.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag2)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":150,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag2","text":"成熟稳重","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":150,
-                            "label":"Label(lab_tag2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":151,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":51,"x":307,"width":97,"var":"img_tag3","skin":"image/juese/tab_rw_02.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag3)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":152,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag3","text":"幼稚调皮","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":152,
-                            "label":"Label(lab_tag3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":153,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":51,"x":442,"width":97,"var":"img_tag4","skin":"image/juese/tab_rw_03.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag4)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":154,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag4","text":"内向害羞","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":154,
-                            "label":"Label(lab_tag4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":155,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":101,"x":37,"width":97,"var":"img_tag5","skin":"image/juese/tab_rw_03.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag5)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":156,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag5","text":"温柔体贴","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":156,
-                            "label":"Label(lab_tag5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":157,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":101,"x":172,"width":97,"var":"img_tag6","skin":"image/juese/tab_rw_04.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag6)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":158,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag6","text":"活泼可爱","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":158,
-                            "label":"Label(lab_tag6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":159,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":101,"x":308,"width":97,"var":"img_tag7","skin":"image/juese/tab_rw_02.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag7)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":202,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag7","text":"温柔体贴","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":202,
-                            "label":"Label(lab_tag7)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":204,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":101,"x":443,"width":97,"var":"img_tag8","skin":"image/juese/tab_rw_03.png","height":42},
-                    "nodeParent":145,
-                    "label":"Image(img_tag8)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":203,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":11,"x":8,"width":80,"var":"lab_tag8","text":"活泼可爱","strokeColor":"#000000","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":203,
-                            "label":"Label(lab_tag8)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":205,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 }]
         },
         {

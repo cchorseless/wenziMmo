@@ -8,28 +8,21 @@ module view.hero {
 		public client_func_index = 53;
 		//开启所需等级总数
 		private sum;
-		//玩家等级总数
-		private mySum;
 		public setData(): void {
-			this.vbox_1['sortItem'] = (items) => { };
-			this.vbox_2['sortItem'] = (items) => { };
-			this.vbox_3['sortItem'] = (items) => { };
 			this.activation();
 			this.addEvent();
 		}
 		public addEvent(): void {
-			if (this.mySum >= this.sum) {
-				//开启
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+			//开启
+			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (GameApp.MainPlayer.lvlCount >= this.sum) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
-				})
-			}
-			else {
-				this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
+				}
+				else {
 					TipsManage.showTips('您当前等级不足，暂时不能开启')
-				});
-			}
+				}
+			})
 			//一键激活
 			this.btn_allActivation.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_activation();
@@ -68,27 +61,21 @@ module view.hero {
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
 			this.sum = zsLvl * 1000 + lvl;
-			this.mySum = GameApp.MainPlayer.zslevel * 1000 + GameApp.MainPlayer.level;
 		}
 		public init_wuxuePanel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			GameApp.LListener.on(ProtoCmd.Hero_heroJingMaiPanel, this, (jsonData: ProtoCmd.itf_Hero_WuXueInfo) => {
 				//GameApp.GameEngine.heroJob为1战士
-				let shuxing = GameUtil.parseEffectidToString('' + jsonData.effid)
-				let attribute = shuxing.des;
-				this.vbox_1.removeChildren();
-				for (let i=0;i<3;i++) {
-					this.vbox_1.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
+				this.list_down.array = []
+				if (jsonData.effid !== 0) {
+					let shuxing = GameUtil.parseEffectidToObj(['' + jsonData.effid]);
+					let attribute = shuxing.des;
+					this.list_down.array = shuxing.des;
+					this.list_down.itemRender = view.compart.SinglePropsItem;
+					this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+						cell.setData(cell.dataSource.des);
+					}, null, false)
 				}
-				this.vbox_2.removeChildren();
-				for (let i=3;i<7;i++) {
-					this.vbox_2.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
-				}
-				this.vbox_3.removeChildren();
-				for (let i=7;i<11;i++) {
-					this.vbox_2.addChild(new view.juese.Person_LableItem().setData(attribute[i]))
-				}
-				// console.log('====>真气真气', GameApp.GameEngine.heroJob)
 				this.lbl_gas.text = '消耗真气：' + jsonData.realGas + '/' + jsonData.gas;
 				this.lbl_gold.text = '消耗金币：' + jsonData.gold;
 				this.lbl_ballValue.text = jsonData.fakeGas + '/' + jsonData.maxfakegas;
@@ -149,13 +136,13 @@ module view.hero {
 				let _itemUI1 = new view.compart.DaoJuWithNameItem();
 				let itemInfo1 = new ProtoCmd.ItemBase();
 				itemInfo1.dwBaseID = jsonData.oneid;
-				_itemUI1.setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				_itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_01.addChild(_itemUI1);
 				//道具2
 				let _itemUI2 = new view.compart.DaoJuWithNameItem();
 				let itemInfo2 = new ProtoCmd.ItemBase();
 				itemInfo2.dwBaseID = jsonData.twoid;
-				_itemUI2.setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				_itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.box_02.addChild(_itemUI2)
 			})
 			lcp.send(pkt);

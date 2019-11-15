@@ -29,7 +29,7 @@ module view.compart {
 			let sex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
 			this.lbl_sex.text = LangConfig.SEX_TYPEDes[EnumData.SEX_TYPE[sex]];
 			// 战斗评分
-			this.lbl_sorce.text =obj.battleScore[jobLimit] + "";
+			this.lbl_sorce.value =obj.battleScore[jobLimit] + "";
 			// 装备属性
 
 			// 基本属性
@@ -47,23 +47,23 @@ module view.compart {
 					break;
 			}
 			if (effid0) {
-				let effResult0 = GameUtil.parseEffectidToString('' + effid0);
+				let effResult0 = GameUtil.parseEffectidToObj(['' + effid0]);
 				this.tab_props.labels = '基础属性';
 				this.list_propsDes0.itemRender = view.compart.SinglePropsItem;
 				this.list_propsDes0.array = effResult0.des;
 				this.list_propsDes0.renderHandler = Laya.Handler.create(this, (ceil: view.compart.SinglePropsItem, data) => {
-					ceil.setData(ceil.dataSource);
+					ceil.setData(ceil.dataSource.des);
 				}, null, false)
 			}
 			// 套装属性
 			let effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).SUIT_EFFICTID(dwBaseID);
 			if (effid1) {
-				let effResult1 = GameUtil.parseEffectidToString('' + effid1);
+				let effResult1 = GameUtil.parseEffectidToObj(['' + effid1]);
 				this.tab_props.labels += ',套装属性';
 				this.list_propsDes1.itemRender = view.compart.SinglePropsItem;
 				this.list_propsDes1.array = effResult1.des;
 				this.list_propsDes1.renderHandler = Laya.Handler.create(this, (ceil: view.compart.SinglePropsItem, data) => {
-					ceil.setData(ceil.dataSource);
+					ceil.setData(ceil.dataSource.des);
 				}, null, false);
 			}
 			// 特殊属性

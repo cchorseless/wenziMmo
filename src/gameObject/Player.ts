@@ -96,8 +96,14 @@ module GameObject {
          * 更改英雄最大经验
          * @param maxExp 
          */
-        public changeHeroMaxExp(maxExp) {
-            Hero.MaxExp = maxExp;
+        public changeHeroExp(nowExp = 0, maxExp = 0) {
+            if (maxExp > 0) {
+                Hero.MaxExp = maxExp;
+            }
+            if (nowExp > 0) {
+                Hero.NowExp = nowExp;
+            }
+            GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_EXP);
         }
 
         /**
@@ -380,8 +386,13 @@ module GameObject {
          * @param type 
          */
         public findViewObj(tempId: number, type?: EnumData.CRET_TYPE): Creature {
+            // 自己
             if (GameApp.MainPlayer.tempId == tempId) {
                 return GameApp.MainPlayer
+            }
+            // 自己的英雄
+            if (GameApp.MainPlayer.curHero && GameApp.MainPlayer.curHero.tempId == tempId) {
+                return GameApp.MainPlayer.curHero;
             }
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
@@ -391,9 +402,9 @@ module GameObject {
                 case EnumData.CRET_TYPE.CRET_NPC:
                     return this._allNpc[tempId]
                 case EnumData.CRET_TYPE.CRET_HERO:
-                    return this._allNpc[tempId]
+                    return this._allHero[tempId]
                 default:
-                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId]]) {
+                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId], this._allHero[tempId]]) {
                         if (obj) return obj;
                     }
                     break;
@@ -461,8 +472,8 @@ module GameObject {
          */
         public checkSelfIsGuildMaster(): boolean {
             // 会长 副会长可以
-            let canDoArray = [EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_FITMASTER,
-            EnumData.emGuildMemberPowerLvl._GUILDMEMBER_POWERLVL_MASTER]
+            let canDoArray = [EnumData.emGuildMemberPowerLvl.FITMASTER,
+            EnumData.emGuildMemberPowerLvl.MASTER]
             // 职位
             let self_zhiWei = this.feature.btClanMaster;
             return canDoArray.indexOf(self_zhiWei) != -1;

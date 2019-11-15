@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":11,
-    "props":{"width":180,"sceneColor":"#a87473","height":240},
+    "selectedBox":23,
+    "selecteID":26,
+    "props":{"width":120,"sceneColor":"#a87473","height":180},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -26,22 +26,8 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Sprite",
-                    "props":{"y":179,"x":82,"var":"spr_pos"},
-                    "nodeParent":7,
-                    "label":"Sprite(spr_pos)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":201,"x":25,"width":130,"var":"lbl_zuoBiao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905","align":"center"},
+                    "props":{"y":157,"x":2,"width":130,"var":"lbl_zuoBiao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905","align":"center"},
                     "nodeParent":7,
                     "label":"Label(lbl_zuoBiao)",
                     "isDirectory":false,
@@ -54,152 +40,20 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":67,"width":26,"skin":"image/common/battle/img_nameBg.png","right":0,"height":147},
+                    "props":{"y":147,"x":4,"skin":"image/common/img_yinying.png"},
                     "nodeParent":7,
                     "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":10,
+                    "hasChild":false,
+                    "compId":14,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","height":145,"fontSize":20,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
-                            "nodeParent":10,
-                            "label":"Label(lbl_name)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":21,"x":16},
-                    "nodeParent":7,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":12,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":2,"x":14,"skin":"image/common/img_xuetiaodi.png"},
-                            "nodeParent":12,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":175,"x":20,"skin":"image/common/img_yinying.png"},
-                            "nodeParent":12,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":14,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":-1,"x":113},
-                            "nodeParent":12,
-                            "label":"Box",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":15,
-                            "child":[
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":4,"x":5,"width":15,"skin":"image/common/battle/img_mpBg.png","height":30},
-                                    "nodeParent":15,
-                                    "label":"Image",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":16,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":4,"x":5,"width":15,"var":"img_Mp","skin":"image/common/battle/img_mp.png","height":30},
-                                    "nodeParent":15,
-                                    "label":"Image(img_Mp)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":17,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":4,"x":18,"width":15,"skin":"image/common/battle/img_neiLiBg.png","height":30},
-                                    "nodeParent":15,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":18,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":4,"x":18,"width":15,"var":"img_neiGong","skin":"image/common/battle/img_neiLi.png","height":30},
-                                    "nodeParent":15,
-                                    "label":"Image(img_neiGong)",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":19,
-                                    "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Image",
-                                    "props":{"y":1,"x":-1,"width":36,"skin":"image/common/battle/img_frame0.png","height":36},
-                                    "nodeParent":15,
-                                    "label":"Image",
-                                    "isOpen":false,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":20,
-                                    "child":[
-                                        ]
-                                }]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":57,"x":43,"width":93,"var":"img_heroAva","skin":"image/common/nv01_small.png","height":150},
+                    "props":{"y":15,"x":15,"width":90,"var":"img_heroAva","skin":"image/common/nv01_small.png","height":160},
                     "nodeParent":7,
                     "label":"Image(img_heroAva)",
                     "isDirectory":false,
@@ -208,6 +62,32 @@
                     "compId":22,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":3,"x":15,"width":90,"var":"img_hpBg","skin":"image/common/battle/img_hpBg.png","height":10},
+                    "nodeParent":7,
+                    "label":"Image(img_hpBg)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":23,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"width":90,"var":"img_hp","top":0,"skin":"image/common/battle/img_xuetiao.png","left":0,"height":10},
+                            "nodeParent":23,
+                            "label":"Image(img_hp)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         }],

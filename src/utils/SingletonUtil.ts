@@ -9,7 +9,7 @@ class SingletonClass {
      * 获取一个单例
      * @returns {any}
      */
-    public static getInstance(...args: any[]): any {
+    public static getInstance(...args: any[]) {
         var Class: any = this;
         if (!Class._instance) {
             var argsLen: number = args.length;
@@ -27,7 +27,7 @@ class SingletonClass {
                 Class._instance = new Class(args[0], args[1], args[2], args[3], args[4]);
             }
         }
-        return Class._instance;
+        return Class._instance ;
     }
 }
 
@@ -42,7 +42,7 @@ class SingletonPacket {
             } else if (argsLen == 1) {
                 Class._instance = new Class(args[0]);
             }
-        } else if(argsLen == 1) {
+        } else if (argsLen == 1) {
             Class._instance.read(args[0])
         }
         return Class._instance;

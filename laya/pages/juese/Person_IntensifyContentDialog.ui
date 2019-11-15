@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":70,
+    "selecteID":72,
     "props":{"width":472,"sceneColor":"#ffffff","height":423,"alpha":1},
     "nodeParent":-1,
     "label":"Dialog",
@@ -213,84 +213,6 @@
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":268,"x":74,"width":66,"var":"lab_name0","text":"物防：","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_name0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":64,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":268,"x":147,"width":143.71875,"var":"lab_effect0","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_effect0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":65,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":305,"x":74,"width":66,"var":"lab_name1","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_name1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":66,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":304,"x":147,"var":"lab_effect1","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_effect1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":67,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":341,"x":74,"width":66,"var":"lab_name2","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_name2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":68,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":341,"x":147,"var":"lab_effect2","text":"2000-4500","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-            "nodeParent":1,
-            "label":"Label(lab_effect2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":69,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Button",
             "props":{"y":9,"x":418,"width":43,"var":"btn_close","stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png","height":46},
             "nodeParent":1,
@@ -299,6 +221,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":52,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"VBox",
+            "props":{"y":261,"x":86,"width":300,"var":"vbox_intensify","height":110},
+            "nodeParent":1,
+            "label":"VBox(vbox_intensify)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":72,
             "child":[
                 ]
         }],

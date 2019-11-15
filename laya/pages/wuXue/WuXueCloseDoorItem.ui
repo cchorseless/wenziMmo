@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":3,
+    "selecteID":13,
     "props":{"width":277,"sceneColor":"#ffffff","height":131},
     "nodeParent":-1,
     "label":"View",
@@ -30,16 +30,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":21,"x":20,"width":89,"skin":"image/juese/icon_jnk_gaoji.png","height":89},
+            "props":{"y":21,"x":20,"width":89,"skin":"image/common/skill/icon_jpz_3.png","height":89},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":3,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":8,"x":8,"skin":"image/main/icon_jn_linghubu.png"},
                     "nodeParent":3,
@@ -53,8 +54,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":-5,"x":60,"skin":"image/juese/icon_wx_tu.png"},
+                    "props":{"y":-5,"x":60,"skin":"image/common/skill/icon_wx_5.png"},
                     "nodeParent":3,
                     "label":"Image",
                     "isDirectory":false,

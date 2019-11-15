@@ -5,12 +5,12 @@ module EnumData {
     /**
      * 平台类型
      */
-     export enum PLATFORM_TYPE {
-        PLATFORM_TYPE_NULL      = 0,
-        PLATFORM_TYPE_WEB       = 1,
-        PLATFORM_TYPE_IOS       = 2,
-        PLATFORM_TYPE_ANDROID   = 3,
-     };
+    export enum PLATFORM_TYPE {
+        PLATFORM_TYPE_NULL = 0,
+        PLATFORM_TYPE_WEB = 1,
+        PLATFORM_TYPE_IOS = 2,
+        PLATFORM_TYPE_ANDROID = 3,
+    };
 
     /**
     * 客户端枚举类型
@@ -69,16 +69,6 @@ module EnumData {
         Hero3,// 法师弟子
     }
 
-    /**
-     * 确认界面场景模式
-     */
-    export enum SureCanelModel {
-        DELET_ITEM = 0,//背包内删除道具
-        JYH_BUY_ITEM = 1,//交易行购买物品
-        BP_BUY_CREATEITEM = 2,//帮派购买物品
-        BP_QUIT_MEMBER = 3,//帮派驱逐成员
-        BP_CHANGE_ZHIWEI = 4,//帮派改变成员职位
-    }
 
     /**
      * 道具信息界面模式
@@ -670,12 +660,13 @@ module EnumData {
      * 行会职位枚举
      */
     export enum emGuildMemberPowerLvl {
-        _GUILDMEMBER_POWERLVL_NULL,				//帮会成员-入门弟子
-        _GUILDMEMBER_POWERLVL_ELDERS,			//长老-首席弟子
-        _GUILDMEMBER_POWERLVL_FITMASTER,		//副帮主-副掌门
-        _GUILDMEMBER_POWERLVL_MASTER,			//帮主-掌门
-        _GUILDMEMBER_POWERLVL_ELITISM,			//精英-内门弟子
-        _GUILDMEMBER_POWERLVL_ADMIRAL,			//大将-核心弟子
+        NULL = 1,			//帮会成员--外门弟子
+        ELITISM = 2,			//精英--内门弟子
+        ADMIRAL = 3,			//大将--核心弟子
+        ELDERS = 4,			//长老--首席大弟子
+        FITMASTER = 5,			//副帮主-副掌门
+        MASTER = 6,			//帮主--掌门
+
     };
 
 

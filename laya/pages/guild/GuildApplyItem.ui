@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":50,
+    "selectedBox":50,
+    "selecteID":51,
     "props":{"width":559,"sceneColor":"#e38281","height":97},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"width":559,"height":97},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":50,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":559,"skin":"image/common/fram_common_11.png","sizeGrid":"23,41,24,65","height":93},
                     "nodeParent":50,
@@ -38,6 +39,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":4,"x":21,"width":63,"var":"btn_lvIcon","stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png","height":64},
                     "nodeParent":50,
@@ -64,6 +66,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":68,"x":4,"var":"lbl_guildName","text":"门派名称XX","fontSize":22,"font":"FZXK","color":"#5d3816","bold":true},
                     "nodeParent":50,
@@ -77,6 +80,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":5,"x":469,"var":"btn_applyJoin","stateNum":"2","skin":"image/guild/button_shenqingjiaru_finish.png"},
                     "nodeParent":50,
@@ -101,6 +105,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":72,"x":483,"var":"btn_getInfo","stateNum":"2","skin":"image/common/icon_search_normal_finish.png","pivotY":29,"pivotX":50},
                     "nodeParent":50,
@@ -114,6 +119,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":17,"x":130,"text":"人数","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":50,
@@ -126,6 +132,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":16,"x":205,"text":"礼物等级","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":50,
@@ -138,6 +145,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":16,"x":328,"text":"等级需求","strokeColor":"#2d1c05","stroke":4,"fontSize":26,"font":"FZXK","color":"#f3edd3"},
                     "nodeParent":50,
@@ -150,6 +158,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":57,"x":128,"var":"lbl_playerCount","text":"21/60","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                     "nodeParent":50,
@@ -162,6 +171,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":58,"x":242,"var":"lv_giftLv","text":"60","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                     "nodeParent":50,
@@ -174,6 +184,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":56,"x":354,"var":"lbl_lvNeed","text":"XXXX","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232"},
                     "nodeParent":50,
@@ -186,42 +197,17 @@
                         ]
                 },
                 {
-                    "type":"Box",
-                    "props":{"y":8,"x":3,"width":41,"height":47},
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":24,"x":9,"var":"lbl_lv","text":"Lv.6","strokeColor":"#000000","stroke":2,"fontSize":15,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":50,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"Label(lbl_lv)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":64,
+                    "hasChild":false,
+                    "compId":66,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":45,"x":47,"width":50,"skin":"image/common/fram_common_vipdi.png","rotation":180,"height":50},
-                            "nodeParent":64,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":65,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":16,"x":6,"var":"lbl_lv","text":"Lv.6","strokeColor":"#000000","stroke":2,"fontSize":15,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":64,
-                            "label":"Label(lbl_lv)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":66,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                        ]
                 }]
         }],
     "animations":[

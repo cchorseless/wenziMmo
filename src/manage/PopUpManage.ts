@@ -8,20 +8,7 @@ module PopUpManager {
      * 当前的界面
      */
     export let curPanel: Laya.View;
-    /**
-     * 检查界面是否存在，若存在则销毁
-     * @param panel 
-     */
-    export function checkPanel(panel: Laya.View, clearRes = true, effectType = 0): void {
-        if (panel && !panel.destroyed) {
-            if (panel['Dispose']) {
-                panel['Dispose']();
-            }
-            else {
-                PopUpManager.Dispose(panel, clearRes, effectType);
-            }
-        }
-    }
+
     /**
      * 添加面板方法
      * @param panel  面板
@@ -40,68 +27,11 @@ module PopUpManager {
         panel['LCP_isAlway'] = isAlway;
         panel['LCP_effectType'] = effectType;
         panel['LCP_showType'] = showType;
-        // 添加监听界面Dispose事件
-        panel.on(LcpEvent.PANEL_REMOVE, this, (panelName, isAlway, showType) => {
-            // 修改ALLPANEL中的数据
-            ALLPANEL.remove(isAlway);
-            // 归还给main上下两个组
-            switch (showType) {
-                case 0:
-                    break;
-                case 1:
-                    PanelManage.Main.showGroupTop(PanelManage.Main);
-                    PanelManage.Main.showGroupBottom(PanelManage.Main);
-                    break;
-                case 2:
-                    PanelManage.Main.showGroupTop(PanelManage.Main);
-                    break;
-                case 3:
-                    PanelManage.Main.showGroupBottom(PanelManage.Main);
-                    break;
-            }
-            // isAlway的低一级界面的标识
-            let _tmp = [0]
-            for (let i = 0; i < lenn; i++) {
-                let j = ALLPANEL.keys[i]
-                if (j != undefined && j < isAlway) {
-                    _tmp.push(j)
-                }
-            }
-            let lowIsAlways = _tmp[_tmp.length - 1];
-            // 显示低一层的界面
-            let nextPanel = ALLPANEL.get(lowIsAlways);
-            if (nextPanel) {
-                nextPanel.visible = true;
-                switch (nextPanel['LCP_showType']) {
-                    case 0:
-                        break;
-                    case 1:
-                        PanelManage.Main.showGroupTop(nextPanel);
-                        PanelManage.Main.showGroupBottom(nextPanel);
-                        break;
-                    case 2:
-                        PanelManage.Main.showGroupTop(nextPanel);
-                        break;
-                    case 3:
-                        PanelManage.Main.showGroupBottom(nextPanel);
-                        break;
-                }
-                // 同步数据
-                PopUpManager.curPanel = nextPanel;
-            }
-        });
         // 界面层级管理
         let lenn = ALLPANEL.keys.length;
         if (isAlway >= 0) {
             // isAlway的低一级界面的标识
-            let _tmpArray = [0]
-            for (let i = 0; i < lenn; i++) {
-                let _tmp = ALLPANEL.keys[i]
-                if (_tmp != undefined && _tmp < isAlway) {
-                    _tmpArray.push(_tmp)
-                }
-            }
-            let lowIsAlways = _tmpArray[_tmpArray.length - 1];
+            let lowIsAlways = getNextIsAlway(isAlway);
             for (let i = lenn - 1; i >= 0; i--) {
                 let tmp = ALLPANEL.keys[i]
                 if (tmp != undefined) {
@@ -121,21 +51,7 @@ module PopUpManager {
             return
         }
         // 主界面上、下 两个小组显示
-        switch (showType) {
-            // 默认是0,不显示
-            case 0:
-                break;
-            case 1:
-                PanelManage.Main.showGroupTop(panel);
-                PanelManage.Main.showGroupBottom(panel);
-                break;
-            case 2:
-                PanelManage.Main.showGroupTop(panel);
-                break;
-            case 3:
-                PanelManage.Main.showGroupBottom(panel);
-                break;
-        }
+        dealShowType(showType, panel);
         // 数据同步
         ALLPANEL.set(isAlway, panel);
         // 更新游戏配置
@@ -187,31 +103,26 @@ module PopUpManager {
         }
     }
 
+
     /**
      * 销毁N层级以上的所有界面,不重新创建界面的方式显示界面
      * @param panel 面板
      */
-    export function showPanel(panel: Laya.View): void {
+    export function showPanel(panel: Laya.View): boolean {
+        if (panel == null || panel.destroyed) {
+            return
+        }
         // 当前界面 打开当前界面的情况
         if (PopUpManager.curPanel == panel) {
             PopUpManager.curPanel.visible = true;
-            return
+            return true
         }
-        if (panel == undefined || panel.destroyed) {
-            return
-        }
+
         // 界面层级管理
         let lenn = ALLPANEL.keys.length;
         let isAlway = panel['LCP_isAlway'];
         // isAlway的低一级界面的标识
-        let _tmpArray = [0]
-        for (let i = 0; i < lenn; i++) {
-            let _tmp = ALLPANEL.keys[i]
-            if (_tmp != undefined && _tmp < isAlway) {
-                _tmpArray.push(_tmp)
-            }
-        }
-        let lowIsAlways = Math.max.apply(null, _tmpArray);
+        let lowIsAlways = getNextIsAlway(isAlway);
         for (let i = lenn - 1; i >= 0; i--) {
             let tmp = ALLPANEL.keys[i];
             if (tmp != undefined) {
@@ -231,8 +142,47 @@ module PopUpManager {
         }
         // 更新游戏配置
         PopUpManager.curPanel = panel;
+        return true;
     }
 
+    /**
+     * 找到下一层界面
+     * @param isAlway 
+     */
+    function getNextIsAlway(isAlway): number {
+        // isAlway的低一级界面的标识
+        let _tmp: Array<number> = [0];
+        let lenn = ALLPANEL.keys.length;
+        for (let i = 0; i < lenn; i++) {
+            let j = ALLPANEL.keys[i];
+            if (j != null && j < isAlway) {
+                _tmp.push(j)
+            }
+        }
+        return Math.max.apply(null, _tmp);
+
+    }
+
+    /**
+     * 处理头部和底部
+     * @param showType 
+     */
+    function dealShowType(showType, panel) {
+        switch (showType) {
+            case 0:
+                break;
+            case 1:
+                PanelManage.Main.showGroupTop(panel);
+                PanelManage.Main.showGroupBottom(panel);
+                break;
+            case 2:
+                PanelManage.Main.showGroupTop(panel);
+                break;
+            case 3:
+                PanelManage.Main.showGroupBottom(panel);
+                break;
+        }
+    }
 
 
     /**
@@ -243,7 +193,22 @@ module PopUpManager {
     */
     export function Dispose(panel: Laya.Sprite, clearRes = true, effectType: number = 0): void {
         // 派发销毁事件,将销毁界面的INFo传出
-        panel.event(LcpEvent.PANEL_REMOVE, [panel.name, panel['LCP_isAlway'], panel['LCP_showType']]);
+        let panelName = panel.name;
+        let isAlway = panel['LCP_isAlway'];
+        let showType = panel['LCP_showType'];
+        // 修改ALLPANEL中的数据
+        ALLPANEL.remove(isAlway);
+        // 归还给main上下两个组
+        dealShowType(showType, PanelManage.Main);
+        // 显示低一层的界面
+        let lowIsAlways = getNextIsAlway(isAlway);
+        let nextPanel = ALLPANEL.get(lowIsAlways);;
+        if (nextPanel) {
+            nextPanel.visible = true;
+            dealShowType(nextPanel['LCP_showType'], nextPanel);
+            // 同步数据
+            PopUpManager.curPanel = nextPanel;
+        }
         // 动画完成的函数
         let comFunc = () => {
             // 销毁显存资源
@@ -258,6 +223,7 @@ module PopUpManager {
             }
             // 销毁所有缓动
             Laya.Tween.clearAll(panel);
+            Laya.timer.clearAll(panel);
             // 销毁内存对象,但是并不是null,destroy是等js自动垃圾回收机制回收
             panel.destroy(true);
             panel = null;
@@ -294,6 +260,21 @@ module PopUpManager {
 
     }
 
+
+    /**
+     * 检查界面是否存在，若存在则销毁
+     * @param panel 
+     */
+    export function checkPanel(panel: Laya.View, clearRes = true, effectType = 0): void {
+        if (panel && !panel.destroyed) {
+            if (panel['Dispose']) {
+                panel['Dispose']();
+            }
+            else {
+                Dispose(panel, clearRes, effectType);
+            }
+        }
+    }
 }
 
 

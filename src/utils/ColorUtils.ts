@@ -33,6 +33,12 @@ module ColorUtils {
 	}
 
 
+	export function addColor(str: string, color: string): string {
+		return " <font color=\'" + color + '\'>' + str + "</font>"
+	}
+
+
+
 	/**
 	 * 红色的颜色滤镜
 	 */

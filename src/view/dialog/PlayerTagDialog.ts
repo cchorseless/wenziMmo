@@ -5,15 +5,16 @@ module view.dialog {
 			super();
 			this.addEvent()
 		}
-		private addEvent() {
+		public setData(id): PlayerTagDialog {
+			this.lab_content.text = SheetConfig.Label.getInstance(null).INTRODUCE(id);
+			this.lbl_title.text = SheetConfig.Label.getInstance(null).NAME(id);
+			return this;
+		}
+		public addEvent() {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
 		}
-		public setData(id) {
-			let o = GameApp.MainPlayer.xingGeInfo[id].id
-			this.lab_content.text = SheetConfig.Label.getInstance(null).INTRODUCE(o);
-			this.lbl_title.text = SheetConfig.Label.getInstance(null).NAME(o);
-		}
+
 	}
 }

@@ -8,6 +8,10 @@ module view.juese {
 		//角色职业
 		private job = GameApp.MainPlayer.job;
 		private hasInit = false;
+		//当前经验
+		private exp = null;
+		//所需经验
+		private needexp = null;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -17,6 +21,7 @@ module view.juese {
 			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.wingInfo();
+			this.init_gangqi();
 		}
 
 		public wingInfo(): void {
@@ -24,7 +29,7 @@ module view.juese {
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
-				this.init_gangqi();
+
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -51,8 +56,14 @@ module view.juese {
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_JiHuo();
 			})
+			//角色罡气升级
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
-				this.init_upLevel();
+				if (this.exp !== null && this.needexp !== null && this.exp > this.needexp) {
+					this.init_upLevel();
+				}
+				else{
+					TipsManage.showTips('罡气经验不足')
+				}
 			})
 			this.addLcpEvent();
 		}
@@ -70,10 +81,12 @@ module view.juese {
 					let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
 					itemInfo.dwBaseID = parseInt(key);
 					itemInfo.dwCount = num;
-					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
+					let type = 1;
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP, type);
 					this['box_gangqi' + i].addChild(_itemUI);
 				}
 				this.init_GangQIInfo();
+				this.wingInfo();
 			})
 		}
 
@@ -105,36 +118,38 @@ module view.juese {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
-			//当前经验/最大经验
+			//当前经验/所需经验
+			this.exp = data.nValue;
+			this.needexp = data.nMaxValue;
 			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
 			//经验进度
-			this.img_progress.height = 101 * data.nValue / data.nMaxValue;
+			// this.img_progress.height = 101 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
 			// //当前属性
-			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
+			let shuxing1 = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 			let attribute1 = shuxing1.des;
 			let battle1 = shuxing1.battle[this.job];
 			this.lbl_power1.text = '' + battle1;
 			let keys1 = Object.keys(attribute1)
 			this.vbox_left.removeChildren();
 			for (let key of keys1) {
-				this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+				this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 			}
 			//下级属性
 			let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
 			//下阶罡气名
 			let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
 			this.lbl_xiaji.text = '' + xgangqiName;
-			let shuxing2 = GameUtil.parseEffectidToString('' + xiajieID)
+			let shuxing2 = GameUtil.parseEffectidToObj(['' + xiajieID])
 			let attribute2 = shuxing2.des;
 			let battle2 = shuxing2.battle[this.job];
 			this.lbl_power2.text = '' + battle2;
 			let keys2 = Object.keys(attribute2)
 			this.vbox_right.removeChildren();
 			for (let key of keys2) {
-				this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+				this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
 			}
 		}
 
@@ -144,8 +159,7 @@ module view.juese {
 		public init_GangQIInfo(): void {
 			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
-				let j = i + 1;
-				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));
+				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(i));
 			}
 		}
 
@@ -161,7 +175,7 @@ module view.juese {
 		 */
 		public init_upLevel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_advancePlayerWing)
+			pkt.setString(ProtoCmd.JS_upgradePlayerWing)
 			lcp.send(pkt);
 		}
 	}

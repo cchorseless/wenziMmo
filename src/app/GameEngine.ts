@@ -62,12 +62,10 @@ class GameEngine extends SingletonClass {
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
-    /************************弟子基本信息************ */
-
-    /************************当前出战弟子信息************ */
-    // public HeroInfo = {};
-    public GMlvl = {};//GM等级
-    
+    /**************行会信息********** */
+    public allGuildInfo = {};
+    /**************Gm************* */
+    public GMlvl = null;//GM等级
     /************************抽奖相关信息************ */
     public luckDrawType: boolean = false//幸运抽奖自动抽奖状态
     /************************对白信息************ */
@@ -85,12 +83,7 @@ class GameEngine extends SingletonClass {
 
     //服务器开服信息
     public openDay = null;
-    //当前玩家路引信息
-    public luyinData1;
-    public luyinData2;
-    public luyinData3;
-    public luyinData4;
-    public luyinTabID: number = 1;
+
     //单个装备panel信息
     public equipPanelMsg: ProtoCmd.itf_JS_equipPanelMsg;
 

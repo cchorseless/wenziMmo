@@ -14,7 +14,7 @@ module view.guild {
 		}
 		public addEvent(): void {
 			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
-				new view.guild.GuildManageMemberDialog().setData(this, this.lbl_zhiWei.text).popup(true);
+				new view.guild.GuildManageMemberDialog().setData(this, this.item.dwLevel).popup(true);
 			});
 		}
 		public initUI(): void {

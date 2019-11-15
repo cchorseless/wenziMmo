@@ -7,7 +7,6 @@ module view.common {
 		}
 
 		public gameInit(): void {
-
 			// 加载错误
 			let errorFunc = () => { };
 			// 先加载通用的界面素材
@@ -19,7 +18,10 @@ module view.common {
 					ResManage.loadJSON(ResData.JsonRes.AllClientData, () => {
 						PanelManage.openMainPanel();
 						PanelManage.openLoginPanel();
-
+						// 销毁自己
+						Laya.Tween.to(this, { alpha: 0 }, 1000, null, Laya.Handler.create(this, () => {
+							this.destroy(true);
+						}))
 					},
 						(data) => {
 							this.lbl_progress.text = '加载配置表过程中';
@@ -35,5 +37,6 @@ module view.common {
 			console.log(data);
 			this.img_pregress.width = 550 * data;
 		}
+
 	}
 }

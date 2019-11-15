@@ -4,6 +4,7 @@
 module GameObject {
 	export class Hero extends Creature {
 
+		public static NowExp: number = 0;
 		public static MaxExp: number = 0;
 		public static zslevel = 0;
 		public static level = 0;
@@ -22,7 +23,7 @@ module GameObject {
 			return GameApp.MainPlayer.curHero.feature.simpleFeature.job == this.feature.simpleFeature.job;
 		}
 		// 锁定状态 0未激活1可激活2已激活
-		public lockState;
+		public lockState = 0;
 
 	}
 }

@@ -5,8 +5,8 @@ module view.dialog {
 		constructor() {
 			super();
 		}
-		public setData(): WelcomeDialog {
-			this.lbl_des.text = '这一世的躯壳已准备好。宝宝，就等生你了。'
+		public setData(str): WelcomeDialog {
+			this.lbl_des.text = str;
 			this.addEvent()
 			return this
 		}

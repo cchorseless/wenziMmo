@@ -14,7 +14,10 @@ class DomUtil extends SingletonClass {
         return this._dom.parseFromString(str, 'text/xml')
     }
 
-
+    /**
+     * 剧情对白解析
+     * @param txt 
+     */
     public dealWithTalkTxt(txt): string {
         txt = txt.replace(/‘/g, "'").replace(/’/g, "'")
         // 处理名字
@@ -37,8 +40,49 @@ class DomUtil extends SingletonClass {
         // 处理超链接
         txt = txt.replace(/【a/g, "<a href=");
         txt = txt.replace(/a】/g, "</a>");
-        console.log(txt);
         return txt
     }
 
+    /**
+     * 将字符串转化成富文本
+     * @param str 
+     * @param obj 
+     */
+    public changeToRichStr(str: any, obj: richLabProps): string {
+        let s = ' <span style=\'';
+        if (obj.color) {
+            s += 'color:' + obj.color + ';'
+        }
+        if (obj.font) {
+            s += 'font-family:' + obj.font + ';'
+        }
+        if (obj.fontSize) {
+            s += 'fontSize:' + obj.fontSize + ';'
+        }
+        if (obj.stroke) {
+            s += 'stroke:' + obj.stroke + ';'
+        }
+        if (obj.strokeColor) {
+            s += 'strokeColor:' + obj.strokeColor + ';'
+        }
+        if (obj.bold) {
+            s += 'font-weight:bold;'
+        }
+        s += '\'>' + str + '</span>';
+        return s
+    }
+
+    // public 
+
+}
+/**
+ * 富文本属性接口给
+ */
+interface richLabProps {
+    color?: string,
+    font?: string,
+    fontSize?: string,
+    stroke?: number,
+    strokeColor?: string,
+    bold?: boolean,
 }

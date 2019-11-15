@@ -27,6 +27,10 @@ module view.hero {
 				o.setData(1)
 				o.popup();
 			})
+			//战斗属性介绍
+			EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
+				new view.dialog.InfoV1Dialog().popup();
+			})
 			this.addLcpEvent();
 		}
 
@@ -104,39 +108,36 @@ module view.hero {
 			console.log('更新了战力+' + job)
 			let data = GameApp.MainPlayer.heroObj(this.job).ability;
 			// 血-生命值
-			this.lbl_Hp.text = '' + data.nowHP + '/' + data.nMaxHP;
-			// 气-魔法值
-			this.lbl_Mp.text = '' + data.nowMP + '/' + data.nMaxMP;
-			// 耐-内功值
-			this.lbl_neiGong.text = '' + data.nowInnerValue + '/' + data.nInnerValue;
+			let func = LangConfig.getBigNumberDes;
+			this.lbl_Hp.text = '' + func(data.nowHP) + '/' + func(data.nMaxHP);
 			// 攻-攻击
 			switch (this.job) {
 				case EnumData.JOB_TYPE.JOB_WARRIOR:
-					this.lbl_atk.text = '' + data.nMinDC + '-' + data.nMaxDC;
+					this.lbl_atk.text = '' + func(data.nMinDC) + '-' + func(data.nMaxDC);
 					break;
 				case EnumData.JOB_TYPE.JOB_MAGE:
-					this.lbl_atk.text = '' + data.nMinMC + '-' + data.nMaxMC;
+					this.lbl_atk.text = '' + func(data.nMinMC) + '-' + func(data.nMaxMC);
 					break;
 				case EnumData.JOB_TYPE.JOB_MONK:
-					this.lbl_atk.text = '' + data.nMinSC + '-' + data.nMaxSC;
+					this.lbl_atk.text = '' + func(data.nMinSC) + '-' + func(data.nMaxSC);
 					break;
 			}
 			// 抗-物理防御
-			this.lbl_phyDef.text = '' + data.nMinAC + '-' + data.nMaxAC;
+			this.lbl_phyDef.text = '' + func(data.nMinAC) + '-' + func(data.nMaxAC);
 			// 化-魔法防御
-			this.lbl_migDef.text = '' + data.nMinMAC + '-' + data.nMaxMAC;
+			this.lbl_migDef.text = '' + func(data.nMinMAC) + '-' + func(data.nMaxMAC);
 			// 准-准确
-			this.lbl_zhunQue.text = '' + data.nHit;
+			this.lbl_zhunQue.text = '' + func(data.nHit);
 			// 躲-闪避
-			this.lbl_shanbi.text = '' + data.nJuck;
+			this.lbl_shanbi.text = '' + func(data.nJuck);
 			// 巧-暴击
-			this.lbl_baoJi.text = '' + data.nCrit;
+			this.lbl_baoJi.text = '' + func(data.nCrit);
 			// 狠-爆伤
-			this.lbl_baoShang.text = '' + data.nAtkCrit;
+			this.lbl_baoShang.text = '' + func(data.nAtkCrit);
 			// 幸-幸运
-			this.lbl_xingYun.text = '' + data.nLucky;
+			this.lbl_xingYun.text = '' + func(data.nLucky);
 			// 韧-韧性
-			this.lbl_renxing.text = '' + data.nCritResi;
+			this.lbl_renxing.text = '' + func(data.nCritResi);
 		}
 
 		/**
