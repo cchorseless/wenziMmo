@@ -109,14 +109,15 @@ module PopUpManager {
      * @param panel 面板
      */
     export function showPanel(panel: Laya.View): boolean {
+        if (panel == null || panel.destroyed) {
+            return
+        }
         // 当前界面 打开当前界面的情况
         if (PopUpManager.curPanel == panel) {
             PopUpManager.curPanel.visible = true;
             return true
         }
-        if (panel == null || panel.destroyed) {
-            return
-        }
+
         // 界面层级管理
         let lenn = ALLPANEL.keys.length;
         let isAlway = panel['LCP_isAlway'];
