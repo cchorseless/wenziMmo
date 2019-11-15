@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
-    "props":{"width":89,"sceneColor":"#000000","height":89},
+    "selecteID":9,
+    "props":{"width":80,"sceneColor":"#000000","height":80},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,21 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":89,"var":"img_skill_bg","skin":"image/common/skill/icon_jpz_2.png","height":89},
+            "props":{"y":-5,"x":-5,"width":90,"visible":false,"var":"img_light","skin":"image/common/skill/light_03.png","height":90},
+            "nodeParent":1,
+            "label":"Image(img_light)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":80,"var":"img_skill_bg","skin":"image/common/skill/icon_jnzd_xiao1.png","height":80},
             "nodeParent":1,
             "label":"Image(img_skill_bg)",
             "isOpen":true,
@@ -27,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":8,"x":8,"width":70,"var":"img_skill_Icon","skin":"image/common/skill/skill_icon_20001.png","height":70},
+                    "props":{"y":8,"x":8,"width":65,"var":"img_skill_Icon","skin":"image/common/skill/skill_icon_20001.png","height":65},
                     "nodeParent":6,
                     "label":"Image(img_skill_Icon)",
                     "isDirectory":false,
@@ -41,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-5,"x":60,"var":"img_shuxing","skin":"image/common/skill/icon_wx_1.png"},
+                    "props":{"y":0,"x":58,"var":"img_shuxing","skin":"image/common/skill/icon_wx_1.png"},
                     "nodeParent":6,
                     "label":"Image(img_shuxing)",
                     "isDirectory":false,
