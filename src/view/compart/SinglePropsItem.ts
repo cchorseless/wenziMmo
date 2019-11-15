@@ -4,8 +4,10 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public setData(data) {
-			this.lbl_des.text = data;
+		public setData(data): SinglePropsItem {
+			this.div_des.style.fontSize = 22
+			this.div_des.innerHTML = data;
+			return this;
 		}
 	}
 }
