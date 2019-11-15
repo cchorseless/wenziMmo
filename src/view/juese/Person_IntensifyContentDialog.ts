@@ -8,6 +8,7 @@ module view.juese {
 			super();
 		}
 		public setData() {
+			this.vbox_intensify['sortItem'] = (items) => { };
 			let arr = ["头盔", "项链", "衣服", "武器", "手镯", "手镯", "戒指", "戒指", "鞋", "腰带"]
 			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
 			let lv = this.onLvIntensify();
@@ -30,14 +31,11 @@ module view.juese {
 					}
 				}
 			}
-			let effData = GameUtil.parseEffectidToString(effid + "")
+			let effData = GameUtil.parseEffectidToObj([effid + ""])
+			this.vbox_intensify.removeChildren();
 			for (let i = 0; i < effData.des.length; i++) {
-				let str = effData.des[i];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["lab_name" + i].text = str1
-				this["lab_effect" + i].text = str2
+				let str = effData.des[i].des;
+				this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(str))
 			}
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;

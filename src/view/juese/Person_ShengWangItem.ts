@@ -13,6 +13,8 @@ module view.juese {
 			this.hasInit = true;
 			this.panel_shengWang.hScrollBarSkin = '';
 			this.hbox_shengWang['sortItem'] = (items) => { };
+			this.vbox_left['sortItem'] = (items) => { };
+			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.activation();
 		}
