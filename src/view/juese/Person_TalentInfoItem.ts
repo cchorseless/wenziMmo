@@ -185,7 +185,8 @@ module view.juese {
 				GameApp.LListener.on(event, this, (jsonData: ProtoCmd.itf_JS_TalentInfo) => {
 					//进度条
 					this.lbl_jindu.text = jsonData.curscore + '/' + jsonData.score;
-					this.img_progress.height = 101 * jsonData.curscore / jsonData.score;
+					//经验球
+					// this.img_progress.height = 101 * jsonData.curscore / jsonData.score;
 					let keys = Object.keys(jsonData.itemtab);
 					//升级天赋所需物品
 					this.hbox_wupin.removeChildren();

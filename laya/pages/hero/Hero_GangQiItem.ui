@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":256,
-    "selecteID":303,
+    "selectedBox":1,
+    "selecteID":266,
     "props":{"width":567,"sceneColor":"#9e6b6a","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -223,13 +223,14 @@
                             "props":{"y":62,"x":17},
                             "nodeParent":256,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":259,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":23,"skin":"image/juese/img_gangQi_01.png"},
                                     "nodeParent":259,
@@ -243,44 +244,35 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":112,"skin":"image/juese/img_common_18.png"},
                                     "nodeParent":259,
                                     "label":"Image",
                                     "isOpen":true,
-                                    "isDirectory":true,
+                                    "isDirectory":false,
                                     "isAniNode":true,
-                                    "hasChild":true,
+                                    "hasChild":false,
                                     "compId":261,
                                     "child":[
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":36,"x":50,"width":139,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38","height":32},
-                                            "nodeParent":261,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":262,
-                                            "child":[
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":6,"width":108,"var":"lbl_name1","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                    "nodeParent":262,
-                                                    "label":"Label(lbl_name1)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":263,
-                                                    "child":[
-                                                        ],
-                                                    "$HIDDEN":false
-                                                }],
-                                            "$HIDDEN":false
-                                        }]
+                                        ]
                                 },
                                 {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":153,"x":56,"width":108,"var":"lbl_name1","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "nodeParent":259,
+                                    "label":"Label(lbl_name1)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":263,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":7,"x":314,"skin":"image/juese/img_gangQi_02.png"},
                                     "nodeParent":259,
@@ -293,60 +285,38 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":112,"x":297,"skin":"image/juese/img_common_18.png"},
                                     "nodeParent":259,
                                     "label":"Image",
                                     "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":265,
-                                    "child":[
-                                        {
-                                            "type":"Image",
-                                            "props":{"y":36,"x":50,"width":139,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38","height":32},
-                                            "nodeParent":265,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
-                                            "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":266,
-                                            "child":[
-                                                {
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":6,"width":108,"var":"lbl_name2","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                    "nodeParent":266,
-                                                    "label":"Label(lbl_name2)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":267,
-                                                    "child":[
-                                                        ],
-                                                    "$HIDDEN":false
-                                                }],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Image",
-                                    "props":{"y":64,"x":262,"skin":"image/common/state_right.png"},
-                                    "nodeParent":259,
-                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":268,
+                                    "compId":265,
                                     "child":[
                                         ],
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":153,"x":353,"width":108,"var":"lbl_name2","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "nodeParent":259,
+                                    "label":"Label(lbl_name2)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":267,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":64,"x":245,"skin":"image/common/state_right.png"},
+                                    "props":{"y":64,"x":245,"skin":"image/common/icon_shengji_01.png"},
                                     "nodeParent":259,
                                     "label":"Image",
                                     "isDirectory":false,
