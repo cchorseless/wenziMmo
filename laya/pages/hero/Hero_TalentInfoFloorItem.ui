@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":24,
+    "selecteID":61,
     "props":{"width":575,"sceneColor":"#cccccc","height":753},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"width":575,"height":753},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"x":179,"skin":"image/common/bottom_smalltitle.png"},
                     "nodeParent":2,
@@ -36,6 +37,7 @@
                     "compId":3,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":45,"width":84,"var":"lbl_fool","text":"第一重","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":26,"font":"fzxk","color":"#fff4ce"},
                             "nodeParent":3,
@@ -52,6 +54,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":500,"width":51,"var":"lbl_talentPoint","valign":"bottom","text":"8/10","padding":"-1","height":21,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                     "nodeParent":2,
@@ -64,6 +67,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"x":399,"width":103,"valign":"bottom","text":"天赋点数：","padding":"-1","height":21,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                     "nodeParent":2,
@@ -77,6 +81,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":40,"x":5},
                     "nodeParent":2,
@@ -88,6 +93,7 @@
                     "compId":7,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":44,"x":97,"width":370,"skin":"image/common/fram_common_02.png","height":4},
                             "nodeParent":7,
@@ -100,6 +106,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"var":"box_skill1","gray":true},
                             "nodeParent":7,
@@ -140,6 +147,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":2,"x":113,"var":"box_skill2","gray":true},
                             "nodeParent":7,
@@ -179,6 +187,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":2,"x":226,"var":"box_skill3","gray":true},
                             "nodeParent":7,
@@ -219,6 +228,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":2,"x":337,"var":"box_skill4","gray":true},
                             "nodeParent":7,
@@ -258,6 +268,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":3,"x":452,"var":"box_skill5","gray":true},
                             "nodeParent":7,
@@ -298,6 +309,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":197,"x":28,"width":516,"height":555},
                     "nodeParent":2,
@@ -309,8 +321,9 @@
                     "compId":24,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-59,"x":31,"stateNum":"2","skin":"image/juese/icon_role_tudi_finish.png"},
+                            "props":{"y":-59,"x":31,"width":96,"stateNum":"2","skin":"image/main/icon_changjing_01.png","height":97},
                             "nodeParent":24,
                             "label":"Button",
                             "isDirectory":false,
@@ -321,6 +334,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-3,"x":1,"skin":"image/common/img_common_17.png","sizeGrid":"30,29,33,28"},
                             "nodeParent":24,
@@ -332,6 +346,7 @@
                             "compId":26,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":87,"x":78,"width":300,"skin":"image/common/fram_common_02.png","rotation":90,"height":4},
                                     "nodeParent":26,
@@ -344,6 +359,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":52,"x":30,"var":"box_warrior1","gray":true},
                                     "nodeParent":26,
@@ -381,6 +397,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":158,"x":32,"var":"box_warrior2","gray":true},
                                     "nodeParent":26,
@@ -418,6 +435,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":266,"x":30,"var":"box_warrior3","gray":true},
                                     "nodeParent":26,
@@ -455,6 +473,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":366,"x":28,"var":"box_warrior4","gray":true},
                                     "nodeParent":26,
@@ -492,6 +511,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":462,"x":32,"var":"box_warrior5","gray":true},
                                     "nodeParent":26,
@@ -531,8 +551,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-60,"x":212,"stateNum":"2","skin":"image/juese/icon_role_tudi_finish.png"},
+                            "props":{"y":-60,"x":212,"width":96,"stateNum":"2","skin":"image/main/icon_changjing_01.png","height":97},
                             "nodeParent":24,
                             "label":"Button",
                             "isDirectory":false,
@@ -543,6 +564,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-4,"x":182,"skin":"image/common/img_common_17.png","sizeGrid":"30,29,33,28"},
                             "nodeParent":24,
@@ -753,8 +775,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":-60,"x":393,"stateNum":"2","skin":"image/juese/icon_role_tudi_finish.png"},
+                            "props":{"y":-60,"x":393,"width":96,"stateNum":"2","skin":"image/main/icon_changjing_01.png","height":97},
                             "nodeParent":24,
                             "label":"Button",
                             "isDirectory":false,
@@ -765,6 +788,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-4,"x":363,"skin":"image/common/img_common_17.png","sizeGrid":"30,29,33,28"},
                             "nodeParent":24,
@@ -776,6 +800,7 @@
                             "compId":62,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":87,"x":78,"width":300,"skin":"image/common/fram_common_02.png","rotation":90,"height":4},
                                     "nodeParent":62,
@@ -788,6 +813,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":52,"x":30,"var":"box_Taoist1","gray":true},
                                     "nodeParent":62,
@@ -825,6 +851,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":158,"x":32,"var":"box_Taoist2","gray":true},
                                     "nodeParent":62,
@@ -862,6 +889,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":266,"x":30,"var":"box_Taoist3","gray":true},
                                     "nodeParent":62,
@@ -899,6 +927,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":368,"x":28,"var":"box_Taoist4","gray":true},
                                     "nodeParent":62,
@@ -936,6 +965,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":464,"x":29,"var":"box_Taoist5","gray":true},
                                     "nodeParent":62,
@@ -977,6 +1007,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":742,"x":0,"width":575,"skin":"image/juese/line_juese.png"},
                     "nodeParent":2,

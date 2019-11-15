@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":314,
-    "selecteID":312,
+    "selectedBox":282,
+    "selecteID":317,
     "props":{"width":567,"sceneColor":"#b27372","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -166,13 +166,14 @@
                             "props":{"y":0,"x":230,"var":"img_battle","skin":"image/juese/bg_chuzhan.png"},
                             "nodeParent":282,
                             "label":"Image(img_battle)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":317,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":12,"x":13,"skin":"image/juese/font_chuzhan.png"},
                                     "nodeParent":317,
@@ -426,7 +427,6 @@
                     "compId":312,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"x":4,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":312,
@@ -438,7 +438,6 @@
                             "compId":280,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":0,"x":26,"text":"内功碎片","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":280,
@@ -454,7 +453,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":39,"x":5,"skin":"image/juese/frame_neigong.png"},
                             "nodeParent":312,
@@ -468,7 +466,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":217,"x":5,"skin":"image/juese/line_neigong.png"},
                             "nodeParent":312,
@@ -481,7 +478,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":70,"x":290,"text":"冲钰剑法","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":312,
@@ -494,7 +490,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":109,"x":289,"wordWrap":true,"width":244,"text":"依序使用疾风如劲、凤鸣鹤唳、疾风骤雨后可使用本招，中远距离前方直线多段距离。","leading":-3,"height":94,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -507,7 +502,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":228,"x":23,"text":"闪避：166","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -520,7 +514,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":259,"x":23,"text":"攻击：166","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -533,7 +526,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":290,"x":23,"text":"生命上限：166","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -546,7 +538,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":320,"x":23,"text":"物理防御：21-21","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -559,7 +550,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":350,"x":23,"text":"物理攻击：21-21","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -572,7 +562,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":255,"x":293,"text":"对战时伤害增加：5%","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -585,7 +574,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":285,"x":293,"text":"受伤害时伤害减少：5.%","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -598,7 +586,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":316,"x":293,"text":"对战时伤害增加：5.%","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -612,7 +599,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":346,"x":293,"text":"受伤时伤害减少：5.%","leading":-3,"fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":312,
@@ -626,7 +612,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":43,"x":490,"width":56,"var":"btn_rune","stateNum":"2","skin":"image/common/img_common_21_finish.png","selected":true,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelPadding":"2,-5","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"符文\\n套装","height":57},
                             "nodeParent":312,
@@ -639,7 +624,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":76,"x":18},
                             "nodeParent":312,

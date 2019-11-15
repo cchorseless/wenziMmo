@@ -9,12 +9,11 @@ module view.beiBao {
 		}
 		public setData(): void {
 			// 初始化背包
-			
 			for (let i = 0; i < 4; i++) {
 				this['panel_bag' + i].vScrollBarSkin = '';
 				this['vbox_bag' + i]['sortItem'] = (items) => { };
 				this['vbox_bag' + i].space = 10;
-				for (let j = 0; j < 5; j++) {
+				for (let j = 0; j < 8; j++) {
 					this['vbox_bag' + i].addChild(new view.compart.DaoJuGroupItem());
 				}
 			}
@@ -61,12 +60,13 @@ module view.beiBao {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
-			// 打开商店
+			// 左上角
 			this.btn_shop.on(Laya.UIEvent.CLICK, this, () => {
 
 			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
+			// 切换装备显示
 			for (let i = 0; i < 4; i++) {
 				this.ui_equipInfo["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
 					GameApp.GameEngine.mainPlayer.playerORHero = i;
@@ -77,6 +77,7 @@ module view.beiBao {
 			// this.ui_equipInfo.tab_0.on(Laya.UIEvent.CLICK, this, () => {
 			// 	GameApp.GameEngine.mainPlayer.playerORHero = this.ui_equipInfo.tab_0.selectedIndex;
 			// });
+			// 装备等级大师
 			this.ui_equipInfo.btn_lvBuff.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new view.juese.Person_Equip_SoulContentDialog()
 				o.setData(0)
@@ -140,22 +141,12 @@ module view.beiBao {
 				let ui_item: view.compart.DaoJuItem = GameApp.GameEngine.bagItemDB[key].ui_item;
 				ui_item && ui_item.canGoToSell(msg === "btn_baiTan");
 			}
-			// 显示界面
-			this.viw_BagViewChange.selectedIndex = 0;
+
 			this.viw_bagBottom.selectedIndex = index;
 			this.lbl_bagLogolbl.text = ['背包', '回收', '仓库', '摆摊'][index];
 			(this.viw_bagBottom.getChildAt(index) as any).setData();
 		}
 
-		/**
-		 * 显示交易行
-		 */
-		public showJiaoYiHang(): void {
-			this.viw_BagViewChange.selectedIndex = 1;
-			this.ui_jiaoyihang.setData();
-			this.lbl_bagLogolbl.text = '交易行';
-			this.btn_baiTan.selected = false;
-		}
 
 
 		/**
@@ -216,7 +207,7 @@ module view.beiBao {
 								break;
 							}
 						}
-						// 5行格子满了 new 一个新的
+						// 格子满了 new 一个新的
 						if (isFull) {
 							let new_group = new view.compart.DaoJuGroupItem();
 							vbox_bag.addChild(new_group);
@@ -224,7 +215,6 @@ module view.beiBao {
 						}
 
 					}
-					
 					break;
 				// 仓库
 				case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:

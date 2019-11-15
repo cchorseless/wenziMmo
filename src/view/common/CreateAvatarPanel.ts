@@ -36,7 +36,7 @@ module view.common {
 				this.lbl_jueSedes1.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES1(configID);
 				this.lbl_jueSedes2.text = '           ' + SheetConfig.HeroInfoSheet.getInstance(null).DES2(configID);
 				// 半身像
-				this.img_avatarPic0.skin = 'image/createplayer/role_half2_' + configID + '.png'
+				this.img_avatarPic0.skin = LangConfig.getPlayerAvatarHalfSkinV3(this.sex, this.job);
 
 			}, null, false);
 			this.tab_jobSelect.selectedIndex = 0;
@@ -485,10 +485,11 @@ module view.common {
 				this.img_dialog.visible = true;
 				// 最终界面
 				if (index == 4) {
-					this.img_finallyavatar.skin = LangConfig.getPlayerAvatarSkin();
+					this.img_finallyavatar.skin = LangConfig.getPlayerAvatarHalfSkinV3();
 					this.box_talent.addChild(this.box_talent0);
 					this.box_talent0.pos(0, 0);
 					this.box_xingGe.addChild(this.list_xingGe);
+					this.list_xingGe.pos(0, 0)
 					this.lbl_finaName.text = this.playerName;
 					this.lbl_job2.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
 				}

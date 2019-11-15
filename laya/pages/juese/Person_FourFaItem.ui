@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":132,
-    "selecteID":133,
+    "selectedBox":76,
+    "selecteID":79,
     "referenceLines":[
         {
             "value":11,
@@ -212,7 +212,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -220,13 +220,14 @@
                     "props":{"y":0,"x":5,"name":"item1"},
                     "nodeParent":128,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":114,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-49},
                             "nodeParent":114,
@@ -328,6 +329,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":509,"x":18},
                             "nodeParent":114,
@@ -420,17 +422,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":704,"x":10},
                             "nodeParent":114,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":72,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-14,"x":15,"width":174,"skin":"image/common/bottom_smalltitle.png","height":35},
                                     "nodeParent":72,
@@ -458,17 +462,19 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":33,"x":15},
                                     "nodeParent":72,
                                     "label":"Box",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":75,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":7,"x":-2},
                                             "nodeParent":75,
@@ -480,19 +486,21 @@
                                             "compId":76,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
+                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/box_icon_01_finish.png","height":110},
                                                     "nodeParent":76,
                                                     "label":"Button",
-                                                    "isOpen":false,
+                                                    "isOpen":true,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
                                                     "compId":77,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Button",
-                                                            "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
+                                                            "props":{"y":19,"x":11,"stateNum":"1","skin":"image/main/icon_jn_jingang.png"},
                                                             "nodeParent":77,
                                                             "label":"Button",
                                                             "isDirectory":false,
@@ -501,37 +509,13 @@
                                                             "compId":78,
                                                             "child":[
                                                                 ]
-                                                        }]
-                                                },
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
-                                                    "nodeParent":76,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":79,
-                                                    "child":[
-                                                        {
-                                                            "type":"Label",
-                                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                            "nodeParent":79,
-                                                            "label":"Label",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":80,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
                                                         }],
                                                     "$HIDDEN":false
                                                 }],
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":7,"x":133},
                                             "nodeParent":75,
@@ -543,19 +527,21 @@
                                             "compId":81,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
+                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/box_icon_01_finish.png","height":110},
                                                     "nodeParent":81,
                                                     "label":"Button",
-                                                    "isOpen":false,
+                                                    "isOpen":true,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
                                                     "compId":82,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Button",
-                                                            "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
+                                                            "props":{"y":19,"x":11,"stateNum":"1","skin":"image/main/icon_jn_jingang.png"},
                                                             "nodeParent":82,
                                                             "label":"Button",
                                                             "isDirectory":false,
@@ -565,36 +551,11 @@
                                                             "child":[
                                                                 ]
                                                         }]
-                                                },
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
-                                                    "nodeParent":81,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":84,
-                                                    "child":[
-                                                        {
-                                                            "type":"Label",
-                                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                            "nodeParent":84,
-                                                            "label":"Label",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":85,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
-                                                        }],
-                                                    "$HIDDEN":false
                                                 }],
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":7,"x":265},
                                             "nodeParent":75,
@@ -606,19 +567,21 @@
                                             "compId":86,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
+                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/box_icon_01_finish.png","height":110},
                                                     "nodeParent":86,
                                                     "label":"Button",
-                                                    "isOpen":false,
+                                                    "isOpen":true,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
                                                     "compId":87,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Button",
-                                                            "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
+                                                            "props":{"y":19,"x":11,"stateNum":"1","skin":"image/main/icon_jn_jingang.png"},
                                                             "nodeParent":87,
                                                             "label":"Button",
                                                             "isDirectory":false,
@@ -628,36 +591,11 @@
                                                             "child":[
                                                                 ]
                                                         }]
-                                                },
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
-                                                    "nodeParent":86,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":89,
-                                                    "child":[
-                                                        {
-                                                            "type":"Label",
-                                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                            "nodeParent":89,
-                                                            "label":"Label",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":90,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
-                                                        }],
-                                                    "$HIDDEN":false
                                                 }],
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":7,"x":399},
                                             "nodeParent":75,
@@ -669,19 +607,21 @@
                                             "compId":91,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Button",
-                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/img_common_16_finish.png","height":110},
+                                                    "props":{"y":-7,"x":14,"width":100,"stateNum":"2","skin":"image/common/box_icon_01_finish.png","height":110},
                                                     "nodeParent":91,
                                                     "label":"Button",
-                                                    "isOpen":false,
+                                                    "isOpen":true,
                                                     "isDirectory":true,
                                                     "isAniNode":true,
                                                     "hasChild":true,
                                                     "compId":92,
                                                     "child":[
                                                         {
+                                                            "x":105,
                                                             "type":"Button",
-                                                            "props":{"y":19,"x":11,"stateNum":"2","skin":"image/juese/icon_role_shengchenbazi_finish.png"},
+                                                            "props":{"y":19,"x":11,"stateNum":"1","skin":"image/main/icon_jn_jingang.png"},
                                                             "nodeParent":92,
                                                             "label":"Button",
                                                             "isDirectory":false,
@@ -691,32 +631,6 @@
                                                             "child":[
                                                                 ]
                                                         }]
-                                                },
-                                                {
-                                                    "type":"Image",
-                                                    "props":{"y":79,"x":2,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38"},
-                                                    "nodeParent":91,
-                                                    "label":"Image",
-                                                    "isOpen":true,
-                                                    "isDirectory":true,
-                                                    "isAniNode":true,
-                                                    "hasChild":true,
-                                                    "compId":94,
-                                                    "child":[
-                                                        {
-                                                            "type":"Label",
-                                                            "props":{"y":0,"x":6,"width":108,"text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                            "nodeParent":94,
-                                                            "label":"Label",
-                                                            "isDirectory":false,
-                                                            "isAniNode":true,
-                                                            "hasChild":false,
-                                                            "compId":95,
-                                                            "child":[
-                                                                ],
-                                                            "$HIDDEN":false
-                                                        }],
-                                                    "$HIDDEN":false
                                                 }],
                                             "$HIDDEN":false
                                         }],
@@ -724,7 +638,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },

@@ -19,6 +19,8 @@ module ResData {
         public static ServerList = null
         // 服务器公告界面
         public static ServerNotice = null;
+        // 断线界面
+        public static serverError = null;
         // 创建角色界面
         public static CreateAvatar = [{ url: "res/atlas/image/createplayer.atlas", type: Laya.Loader.ATLAS },];;
         // 选择角色界面

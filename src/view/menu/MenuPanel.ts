@@ -32,7 +32,7 @@ module view.menu {
 			})
 			//排名
 			this.btn_menuPaiming.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.MenuPaiHangDialog().popup(true);
+				
 			})
 			//成就
 			this.btn_menuChengjiu.on(Laya.UIEvent.CLICK, this, () => {

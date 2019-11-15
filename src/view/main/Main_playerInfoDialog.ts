@@ -6,6 +6,15 @@ module view.main {
 		}
 		public skin;
 		public setData(): Main_playerInfoDialog {
+			let lvl = GameApp.MainPlayer.lvlCount;
+			if (lvl < 60) {
+				this.viw_pkModel.selectedIndex = 0;
+				this.lbl_type.text = '安全模式';
+			}
+			else {
+				this.viw_pkModel.selectedIndex = 1;
+				this.lbl_type.text = '战斗模式';
+			}
 			this.addEvent();
 			this.init_info();
 			return this;
@@ -55,6 +64,7 @@ module view.main {
 			this.lbl_id.text = '' + _play.onlyId;
 			//等级
 			this.lbl_level.text = _play.zslevel + '转' + _play.level + '级';
+
 			//初始化模式
 			for (let i = 0; i < 5; i++) {
 				this['btn_type' + i].selected = false;
@@ -75,36 +85,41 @@ module view.main {
 			this['btn_type' + i].selected = true;
 		}
 		public init_keepModel(): void {
-			for (let i = 0; i < 5; i++) {
-				if (this['btn_type' + i].selected == true) {
-					let type = EnumData.PkModel.PKMODEL_ALLTHEMODE;
-					switch (i) {
-						//和平模式
-						case 0:
-							type = EnumData.PkModel.PKMODEL_PEACEMODE;
-							break;
-						//队伍模式
-						case 1:
-							type = EnumData.PkModel.PKMODEL_TEAMMODE;
-							break;
-						//行会模式
-						case 2:
-							type = EnumData.PkModel.PKMODEL_GUILDMODE;
-							break;
-						//善恶模式
-						case 3:
-							type = EnumData.PkModel.PKMODEL_GOODANDEVILMODE;
-							break;
-						//全体模式
-						case 4:
-							type = EnumData.PkModel.PKMODEL_ALLTHEMODE;
-							break;
+			if (GameApp.MainPlayer.lvlCount >= 60) {
+				for (let i = 0; i < 5; i++) {
+					if (this['btn_type' + i].selected == true) {
+						let type = EnumData.PkModel.PKMODEL_ALLTHEMODE;
+						switch (i) {
+							//和平模式
+							case 0:
+								type = EnumData.PkModel.PKMODEL_PEACEMODE;
+								break;
+							//队伍模式
+							case 1:
+								type = EnumData.PkModel.PKMODEL_TEAMMODE;
+								break;
+							//行会模式
+							case 2:
+								type = EnumData.PkModel.PKMODEL_GUILDMODE;
+								break;
+							//善恶模式
+							case 3:
+								type = EnumData.PkModel.PKMODEL_GOODANDEVILMODE;
+								break;
+							//全体模式
+							case 4:
+								type = EnumData.PkModel.PKMODEL_ALLTHEMODE;
+								break;
+						}
+						let pkt = new ProtoCmd.CretPkModel();
+						pkt.setValue('pkModel', type);
+						lcp.send(pkt);
+						this.close();
 					}
-					let pkt = new ProtoCmd.CretPkModel();
-					pkt.setValue('pkModel', type);
-					lcp.send(pkt);
-					this.close();
 				}
+			}
+			else {
+				this.close();
 			}
 		}
 	}
