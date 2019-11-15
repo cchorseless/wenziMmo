@@ -29,6 +29,8 @@ module view.dialog {
 			this.ui_show0.img_bg.skin = "";
 			this.ui_show1.img_bg.skin = "";
 			this.list_mix.vScrollBarSkin == "";
+			this.vbox_equip0['sortItem'] = (items) => { };
+			this.vbox_equip1['sortItem'] = (items) => { };
 			this.list_mix.itemRender = view.compart.EquipMixInfoItem;
 
 		}
@@ -216,7 +218,6 @@ module view.dialog {
 			}
 		}
 		public upDataView(data, index) {
-
 			let needID = data[4];
 			let needNum = data[5];
 			let resultID = data[3];
@@ -248,29 +249,17 @@ module view.dialog {
 				effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(data[3].toString())
 				effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(data[4].toString())
 			}
-			let effData0 = GameUtil.parseEffectidToString(effid0.toString());
-			let effData1 = GameUtil.parseEffectidToString(effid0.toString());
-			for(let i = 0;i<8;i++){
-				this["lab_name0_" + i].text = ""
-				this["lab_data0_" + i].text = ""
-				this["lab_name1_" + i].text = ""
-				this["lab_data1_" + i].text = ""
-			}
+			let effData0 = GameUtil.parseEffectidToObj([''+effid0]);
+			let effData1 = GameUtil.parseEffectidToObj([''+effid1]);
+			this.vbox_equip0.removeChildren();
+			this.vbox_equip1.removeChildren();
 			for (let i = 0; i < effData0.des.length; i++) {
-				let str = effData0.des[i];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["lab_name0_" + i].text = str1
-				this["lab_data0_" + i].text = str2
+				let str = effData0.des[i].des;
+				this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(str));
 			}
 			for (let i = 0; i < effData1.des.length; i++) {
-				let str = effData0.des[i];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["lab_name1_" + i].text = str1
-				this["lab_data1_" + i].text = str2
+				let str = effData1.des[i].des;
+				this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(str));
 			}
 		}
 		//重置list中子项的点击状态

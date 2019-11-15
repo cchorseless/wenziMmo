@@ -13,6 +13,8 @@ module view.wuXue {
 		public wstab;
 		public index;
 		public setData(): void {
+			this.vbox_left['sortItem'] = (items) => { };
+			this.vbox_right['sortItem'] = (items) => { };
 			this.btn_heDao.selected=true;
 			this.tab_zhuansheng.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_heDao.selectedIndex = index;
@@ -136,21 +138,21 @@ module view.wuXue {
 				}
 				if (jsonData.effid != 0) {
 					//当前属性
-					let shuxing1 = GameUtil.parseEffectidToString('' + jsonData.effid)
+					let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 					let attribute1 = shuxing1.des;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
 					for (let key of keys1) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 					}
 					//下级属性
 					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
-					let shuxing2 = GameUtil.parseEffectidToString('' + id)
+					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
 					}
 				}
 

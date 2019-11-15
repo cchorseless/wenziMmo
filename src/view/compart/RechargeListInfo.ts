@@ -20,8 +20,12 @@ module view.compart {
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_pay, Laya.UIEvent.CLICK, this, function () {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.test_sendrmb, [this.data[0]])
-				lcp.send(pkt);
+				if (GameApp.SDKManager.SDK) {
+					GameApp.SDKManager.pay(this.data[0])
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.test_sendrmb, [this.data[0]])
+					lcp.send(pkt);
+				}
 			})
 		}
 	}

@@ -5,13 +5,8 @@ module view.compart {
 			super();
 		}
 		public setData(des): SinglePropsItem {
-			let data = des.split('+');
-			this.div_des.style.fontSize = 22;
-			if (data[1]) {
-				this.div_des.innerHTML = data[0] + ':' + data[1];
-			}else{
-				this.div_des.innerHTML = data[0];
-			}
+			this.div_des.style.fontSize=24;
+			this.div_des.innerHTML = des;
 			return this;
 		}
 	}

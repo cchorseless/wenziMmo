@@ -5,6 +5,7 @@
 class SDKManager extends SingletonClass {
     private _SDK = null;//默认喜扑网络SDK
     private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_NULL;
+    private _bundleId = 'manhelp.wenzijianghu.com';
     private _sdkRole = {
         server_id: "-1",            // 区服ID
         server_name: "测试服",       // 区服名称
@@ -289,41 +290,64 @@ class SDKManager extends SingletonClass {
     }
 
     /**
-     * 
-     * @param amount 元
+     * 支付接口
+     * @param price 元
      */
-    pay(amount: number) {
+    pay(price: number) {
         if (!this.SDK) {
             return;
         }
         this.updateRoleInfo();
-        let amountMin = amount * 10 * 10;
+        let amountMin = price * 10 * 10;
         let self = this;
-        GameApp.HttpManager.postJson("name=cashOrderNo",+
+        GameApp.HttpManager.postJson("name=cashOrderNo",
             {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
-                account: GameApp.GameEngine.mainPlayer.playerAccount,
+                account: GameApp.GameEngine.mainPlayer.playerAccount.split('@')[0],
                 username: GameApp.GameEngine.mainPlayer.objName,
-                amount: amount,
+                amount: price,
             },
             (res) => {
                 let jsonData = JSON.parse(res);
 
                 if (jsonData.errorCode == 0) {
-                    self.SDK.pay(amountMin.toString(), self._sdkRole, jsonData.orderNo, function (data) {
-                        if (data.status == self.SDK.PAY_SUCCESS) {
-                            console.warn(data);
-                            console.warn('⽀付结果：⽀付成功!');
-                            GameApp.HttpManager.postJson("name=cashCompleted", {}, (res) => {
+                    switch (this._platform) {
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                            self.SDK.pay(amountMin.toString(), self._sdkRole, jsonData.orderNo, function (data) {
+                                if (data.status == self.SDK.PAY_SUCCESS) {
+                                    console.warn(data);
+                                    console.warn('⽀付结果：⽀付成功!');
+                                    GameApp.HttpManager.postJson("name=cashCompleted", {}, (res) => {
 
-                            })
-                        } else if (data.status == self.SDK.PAY_CANCEL) {
-                            console.warn('⽀付结果：⽀付取消!');
-                        }
-                    }, 'extendString');
+                                    })
+                                } else if (data.status == self.SDK.PAY_CANCEL) {
+                                    console.warn('⽀付结果：⽀付取消!');
+                                }
+                            }, 'extendString');
+                            break;
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
+                            {
+                                let data = {
+                                    type: 'action',
+                                    data: {
+                                        id: 'pay',
+                                        orderId: jsonData.orderNo,
+                                        price: amountMin
+                                    }
+                                }
+                                this.SDK.call("_doAction:", JSON.stringify(data))
+                            } break;
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
+                            break;
+                        default:
+                            console.warn("平台设置不正确, 请注意...");
+                            break;
+                    }
                 } else {
                     console.error("error->>>");
                 }
             })
     }
+
+
 }
