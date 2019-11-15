@@ -5,6 +5,7 @@
 class SDKManager extends SingletonClass {
     private _SDK = null;//默认喜扑网络SDK
     private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_NULL;
+    private _bundleId = 'manhelp.wenzijianghu.com';
     private _sdkRole = {
         server_id: "-1",            // 区服ID
         server_name: "测试服",       // 区服名称
@@ -290,21 +291,21 @@ class SDKManager extends SingletonClass {
 
     /**
      * 支付接口
-     * @param amount 元
+     * @param price 元
      */
-    pay(amount: number) {
+    pay(price: number) {
         if (!this.SDK) {
             return;
         }
         this.updateRoleInfo();
-        let amountMin = amount * 10 * 10;
+        let amountMin = price * 10 * 10;
         let self = this;
         GameApp.HttpManager.postJson("name=cashOrderNo",
             {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
-                account: GameApp.GameEngine.mainPlayer.playerAccount,
+                account: GameApp.GameEngine.mainPlayer.playerAccount.split('@')[0],
                 username: GameApp.GameEngine.mainPlayer.objName,
-                amount: amount,
+                amount: price,
             },
             (res) => {
                 let jsonData = JSON.parse(res);
@@ -331,7 +332,7 @@ class SDKManager extends SingletonClass {
                                     data: {
                                         id: 'pay',
                                         orderId: jsonData.orderNo,
-                                        price: amount
+                                        price: amountMin
                                     }
                                 }
                                 this.SDK.call("_doAction:", JSON.stringify(data))
