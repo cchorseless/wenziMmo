@@ -3,6 +3,8 @@ module view.wuXue {
 	export class WuXueWaiGongPanel extends ui.wuXue.WuXueWaiGongPanelUI {
 		constructor() {
 			super();
+			this.panel_skillDes.vScrollBarSkin = "";
+			this.panel_skillEffDes.vScrollBarSkin = "";
 		}
 
 		public setData(): void {
@@ -23,11 +25,13 @@ module view.wuXue {
 				this.initUI();
 			})
 			for (let i = 1; i < 7; i++) {
+
 				this["ui_item" + i].on(Laya.UIEvent.CLICK, this, function () {
 					for (let key in GameApp.MainPlayer.skillShotButton) {
 						let basekey: number = parseInt(key);
 						let skill_key;
 						if (basekey == i) {
+							this.changeWuxueInfoState(i)
 							skill_key = (GameApp.MainPlayer.skillShotButton[key]).i64Id.int64ToNumber();
 							let _skillBase = GameApp.MainPlayer.skillInfo[skill_key.toString()];
 							let skillLV = _skillBase.level;
@@ -72,6 +76,15 @@ module view.wuXue {
 				}
 			})
 
+		}
+		public changeWuxueInfoState(id) {
+			for (let i = 1; i < 7; i++) {
+				this["ui_item" + i].changeItemState(false);
+				if(i == id){
+					this["ui_item" + i].changeItemState(true);
+				}
+				
+			}
 		}
 		public initUI(): void {
 			for (let i = 1; i < 7; i++) {
@@ -208,9 +221,9 @@ module view.wuXue {
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].selected = i < lvl;
 				if (this['btn_' + i].selected == true) {
-					this['btn_' + i].disabled = false;
+					// this['btn_' + i].disabled = false;
 				} else {
-					this['btn_' + i].disabled = true;
+					this['btn_' + i].mouseEnabled = false;
 				}
 			}
 			this.ui_skill.setData(config);
@@ -231,9 +244,10 @@ module view.wuXue {
 			for (let i = 1; i < 6; i++) {
 				this['btn_' + i].selected = false;
 				if (this['btn_' + i].selected == true) {
-					this['btn_' + i].disabled = false;
+					// this['btn_' + i].disabled = false;
 				} else {
-					this['btn_' + i].disabled = true;
+					this['btn_' + i].mouseEnabled = false;
+
 				}
 			}
 			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
