@@ -9,9 +9,11 @@ module view.main {
 			let lvl = GameApp.MainPlayer.lvlCount;
 			if (lvl < 60) {
 				this.viw_pkModel.selectedIndex = 0;
+				this.lbl_type.text = '安全模式';
 			}
 			else {
 				this.viw_pkModel.selectedIndex = 1;
+				this.lbl_type.text = '战斗模式';
 			}
 			this.addEvent();
 			this.init_info();

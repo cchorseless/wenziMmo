@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":154,
-    "selecteID":155,
+    "selectedBox":66,
+    "selecteID":157,
     "props":{"width":565,"sceneColor":"#e2d4d4","height":760},
     "nodeParent":-1,
     "label":"Dialog",
@@ -34,6 +34,19 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":6,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":84,"x":134,"skin":"image/main/line_fenge_03.png"},
+                    "nodeParent":66,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":157,
                     "child":[
                         ]
                 },
@@ -748,7 +761,7 @@
                                         ],
                                     "$HIDDEN":false
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
                             "x":45,
@@ -956,7 +969,7 @@
                                         }],
                                     "$HIDDEN":false
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         }]
                 }],
             "$HIDDEN":false
