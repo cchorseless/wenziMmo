@@ -77,10 +77,8 @@ module PanelManage {
     export let EastMap: view.map.BigMap_DongLuPanel;//东陆地图界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
-    export let JuQingInfo: view.juQing.JuQingInfoPanel;//手册界面
     export let RankMain: view.rank.Rank_MainPanel;//排行榜主界面
-    export let ZhiNan: view.zhiNan.ZhiNanPanel;//游戏指南界面
-    export let YinDao: view.yindao.YinDaoPanel;//游戏引导界面
+
 
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildMain: view.guild.GuildMainPanel;//帮会界面
@@ -110,11 +108,12 @@ module PanelManage {
     export let Activity: view.activity.ActivityPanel;//活动界面
     export let Promotion: view.promotion.PromotionPanel;//活动界面
 
-    export let ZhiNan_WanFaPanel: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
-    export let ZhiNan_MenPaiPanel: view.zhiNan.ZhiNan_menpaiPanel;//游戏门派界面
-    export let ZhiNan_WuXuePanel: view.zhiNan.ZhiNan_wuxuePanel;//游戏武学界面
-    export let ZhiNan_ShuXingPanel: view.zhiNan.ZhiNan_shuxingPanel;//游戏武学界面
-    export let ZhiNan_DiYuPanel: view.zhiNan.ZhiNan_diyuPanel;//游戏武学界面
+    export let ZhiNan: view.zhiNan.ZhiNanPanel;//游戏指南界面
+    export let ZhiNan_WanFa: view.zhiNan.ZhiNan_wanfaPanel;//游戏玩法界面
+    export let ZhiNan_MenPai: view.zhiNan.ZhiNan_menpaiPanel;//游戏门派界面
+    export let ZhiNan_WuXue: view.zhiNan.ZhiNan_wuxuePanel;//游戏武学界面
+    export let ZhiNan_ShuXing: view.zhiNan.ZhiNan_shuxingPanel;//游戏武学界面
+    export let ZhiNan_DiYu: view.zhiNan.ZhiNan_diyuPanel;//游戏武学界面
 
     /*****************************通用方法************************************* */
 
@@ -131,33 +130,17 @@ module PanelManage {
     //服务器意外失去连接界面
     export function openServerErrorPanel(): void {
         PopUpManager.checkPanel(PanelManage.serverError);
-        ResManage.loadResource(null, () => {
+        ResManage.loadResource(ResData.PanelRes.serverError, () => {
             PanelManage.serverError = new view.common.ServerErrorPanel();
-            PanelManage.serverError['LCP_skin'] = null;
+            PanelManage.serverError['LCP_skin'] = ResData.PanelRes.serverError;
             PanelManage.serverError.setData();
-            PopUpManager.addPanel(PanelManage.serverError, 1, 2);
-        });
-    }
-    // 加载游戏主界面
-    export function loadMainPanel(): void {
-        PopUpManager.checkPanel(PanelManage.Main);
-        ResManage.loadResource(ResData.PanelRes.Main, () => {
-            PanelManage.Main = new view.main.MainPanel();
-            PanelManage.Main['LCP_skin'] = ResData.PanelRes.Main;
-            PanelManage.Main.setData();
-            PopUpManager.addPanel(PanelManage.Main, 0);
-            // 为了避免黑屏，这里特殊化处理一下销毁StartLoadingPanel
-            PopUpManager.checkPanel(PanelManage.StartLoading, true, 2);
-
+            PopUpManager.addPanel(PanelManage.serverError, 999);
         });
     }
 
     // 登陆界面
     export function openLoginPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Login) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Login);
+        if (PopUpManager.showPanel(PanelManage.Login)) return;
         ResManage.loadResource(ResData.PanelRes.Login, () => {
             PanelManage.Login = new view.common.LoginPanel();
             PanelManage.Login['LCP_skin'] = ResData.PanelRes.Login;
@@ -170,10 +153,7 @@ module PanelManage {
 
     // 选择服务器界面
     export function openChooseServerPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ChooseServer) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ChooseServer);
+        if (PopUpManager.showPanel(PanelManage.ChooseServer)) return;
         ResManage.loadResource(ResData.PanelRes.ChooseServer, () => {
             PanelManage.ChooseServer = new view.common.ChooseServerPanel();
             PanelManage.ChooseServer['LCP_skin'] = ResData.PanelRes.ChooseServer;
@@ -184,10 +164,7 @@ module PanelManage {
     }
     // 创建角色界面
     export function openCreateAvatarPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CreateAvatar) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.CreateAvatar);
+        if (PopUpManager.showPanel(PanelManage.CreateAvatar)) return;
         ResManage.loadResource(ResData.PanelRes.CreateAvatar, () => {
             PanelManage.CreateAvatar = new view.common.CreateAvatarPanel();
             PanelManage.CreateAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
@@ -199,10 +176,7 @@ module PanelManage {
 
     // 选择角色界面
     export function openChooseAvatarPanel(data): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ChooseAvatar) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ChooseAvatar);
+        if (PopUpManager.showPanel(PanelManage.ChooseAvatar)) return;
         ResManage.loadResource(ResData.PanelRes.ChooseAvatar, () => {
             PanelManage.ChooseAvatar = new view.common.ChooseAvatarPanel();
             PanelManage.ChooseAvatar['LCP_skin'] = ResData.PanelRes.CreateAvatar;
@@ -216,13 +190,18 @@ module PanelManage {
      * 显示主界面
      */
     export function openMainPanel(): void {
-        if (PanelManage.Main) {
-            PanelManage.Main.updateUI()
-            PopUpManager.showPanel(PanelManage.Main);
+        if (PopUpManager.showPanel(PanelManage.Main)) {
+            PanelManage.Main.updateUI();
             PanelManage.Main.view_scene.selectedIndex = 0;
         }
         else {
-            PanelManage.loadMainPanel();
+            ResManage.loadResource(ResData.PanelRes.Main, () => {
+                PanelManage.Main = new view.main.MainPanel();
+                PanelManage.Main['LCP_skin'] = ResData.PanelRes.Main;
+                PanelManage.Main.setData();
+                PanelManage.Main.mouseEnabled = true;
+                PopUpManager.addPanel(PanelManage.Main, 0);
+            });
         }
     }
 
@@ -231,10 +210,7 @@ module PanelManage {
      * 角色界面
      */
     export function openJueSePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JueSe) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.JueSe);
+        if (PopUpManager.showPanel(PanelManage.JueSe)) return;
         ResManage.loadResource(ResData.PanelRes.JueSe, () => {
             PanelManage.JueSe = new view.juese.PersonPanel();
             PanelManage.JueSe['LCP_skin'] = ResData.PanelRes.JueSe;
@@ -242,16 +218,14 @@ module PanelManage {
             PanelManage.JueSe.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.JueSe, 1, 0, 2);
         })
+
     }
 
     /**
     * 弟子界面
     */
     export function openDiZiPanel(index): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.DiZi) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.DiZi);
+        if (PopUpManager.showPanel(PanelManage.DiZi)) return;
         ResManage.loadResource(ResData.PanelRes.DiZi, () => {
             PanelManage.DiZi = new view.hero.HeroPanel();
             PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.DiZi;
@@ -265,10 +239,7 @@ module PanelManage {
     * 时装界面
     */
     export function openClothePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Clothe) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Clothe);
+        if (PopUpManager.showPanel(PanelManage.Clothe)) return;
         ResManage.loadResource(ResData.PanelRes.Clothe, () => {
             PanelManage.Clothe = new view.juese.ClothePanel();
             PanelManage.Clothe['LCP_skin'] = ResData.PanelRes.Clothe;
@@ -281,10 +252,7 @@ module PanelManage {
     * 武学外功界面
     */
     export function openWuXueWaiGongPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.WaiGong) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.WaiGong);
+        if (PopUpManager.showPanel(PanelManage.WaiGong)) return;
         ResManage.loadResource(ResData.PanelRes.WaiGong, () => {
             PanelManage.WaiGong = new view.wuXue.WuXueWaiGongPanel();
             PanelManage.WaiGong['LCP_skin'] = ResData.PanelRes.WaiGong;
@@ -298,10 +266,7 @@ module PanelManage {
     * 武学内功界面
     */
     export function openWuXueNeiGongPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NeiGong) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.NeiGong);
+        if (PopUpManager.showPanel(PanelManage.NeiGong)) return;
         ResManage.loadResource(ResData.PanelRes.NeiGong, () => {
             PanelManage.NeiGong = new view.wuXue.WuXueNeiGongPanel();
             PanelManage.NeiGong['LCP_skin'] = ResData.PanelRes.NeiGong;
@@ -315,10 +280,7 @@ module PanelManage {
     * 武学合道界面
     */
     export function openWuXueHeDaoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.HeDao) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.HeDao);
+        if (PopUpManager.showPanel(PanelManage.HeDao)) return;
         ResManage.loadResource(ResData.PanelRes.HeDao, () => {
             PanelManage.HeDao = new view.wuXue.WuXueHeDaoPanel();
             PanelManage.HeDao['LCP_skin'] = ResData.PanelRes.HeDao;
@@ -332,10 +294,7 @@ module PanelManage {
       * 武学闭关界面
       */
     export function openWuXueCloseDoorPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.CloseDoor) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.CloseDoor);
+        if (PopUpManager.showPanel(PanelManage.CloseDoor)) return;
         ResManage.loadResource(ResData.PanelRes.CloseDoor, () => {
             PanelManage.CloseDoor = new view.wuXue.WuXueCloseDoorPanel();
             PanelManage.CloseDoor['LCP_skin'] = ResData.PanelRes.CloseDoor;
@@ -354,10 +313,7 @@ module PanelManage {
      * 宅院界面
      */
     export function openZhaiYuanPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhaiYuan) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhaiYuan);
+        if (PopUpManager.showPanel(PanelManage.ZhaiYuan)) return;
         ResManage.loadResource(ResData.PanelRes.ZhaiYuan, () => {
             PanelManage.ZhaiYuan = new view.zhaiYuan.ZhaiYuanPanel();
             PanelManage.ZhaiYuan['LCP_skin'] = ResData.PanelRes.ZhaiYuan;
@@ -370,10 +326,7 @@ module PanelManage {
     * 帮会创建界面
     */
     export function openGuildSelectPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildSelect) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildSelect);
+        if (PopUpManager.showPanel(PanelManage.GuildSelect)) return;
         ResManage.loadResource(ResData.PanelRes.GuildSelect, () => {
             PanelManage.GuildSelect = new view.guild.GuildSelectPanel();
             PanelManage.GuildSelect['LCP_skin'] = ResData.PanelRes.GuildSelect;
@@ -386,10 +339,7 @@ module PanelManage {
     * 帮会界面
     */
     export function openGuildTeamPanel(data): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildMain) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildMain);
+        if (PopUpManager.showPanel(PanelManage.GuildMain)) return;
         ResManage.loadResource(ResData.PanelRes.GuildMain, () => {
             PanelManage.GuildMain = new view.guild.GuildMainPanel();
             PanelManage.GuildMain['LCP_skin'] = ResData.PanelRes.GuildMain;
@@ -402,10 +352,7 @@ module PanelManage {
    * 队伍界面
    */
     export function openTeamPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Team) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Team);
+        if (PopUpManager.showPanel(PanelManage.Team)) return;
         ResManage.loadResource(ResData.PanelRes.Team, () => {
             PanelManage.Team = new view.team.TeamPanel();
             PanelManage.Team['LCP_skin'] = ResData.PanelRes.Team;
@@ -418,10 +365,7 @@ module PanelManage {
    * 好友界面
    */
     export function openFriendPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Friend) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Friend);
+        if (PopUpManager.showPanel(PanelManage.Friend)) return;
         ResManage.loadResource(ResData.PanelRes.Friend, () => {
             PanelManage.Friend = new view.friend.FriendPanel();
             PanelManage.Friend['LCP_skin'] = ResData.PanelRes.Friend;
@@ -434,10 +378,7 @@ module PanelManage {
     * 帮会外交界面
     */
     export function openGuildWaiJiaoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildWaiJiao) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildWaiJiao);
+        if (PopUpManager.showPanel(PanelManage.GuildWaiJiao)) return;
         ResManage.loadResource(ResData.PanelRes.GuildWaiJiao, () => {
             PanelManage.GuildWaiJiao = new view.guild.GuildWaiJiaoPanel();
             PanelManage.GuildWaiJiao['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
@@ -451,10 +392,7 @@ module PanelManage {
     * 帮会入会设定界面
     */
     export function openGuildIntoConditionPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildIntoCondition) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildIntoCondition);
+        if (PopUpManager.showPanel(PanelManage.GuildIntoCondition)) return;
         ResManage.loadResource(ResData.PanelRes.GuildIntoCondition, () => {
             PanelManage.GuildIntoCondition = new view.guild.GuildIntoConditionPanel();
             PanelManage.GuildIntoCondition['LCP_skin'] = ResData.PanelRes.GuildIntoCondition;
@@ -469,10 +407,7 @@ module PanelManage {
     * 帮派福利界面
     */
     export function openGuildFuliPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildFuli) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildFuli);
+        if (PopUpManager.showPanel(PanelManage.GuildFuli)) return;
         ResManage.loadResource(ResData.PanelRes.GuildFuli, () => {
             PanelManage.GuildFuli = new view.guild.GuildFuliPanel();
             PanelManage.GuildFuli['LCP_skin'] = ResData.PanelRes.GuildFuli;
@@ -485,10 +420,7 @@ module PanelManage {
    * 帮派仓库界面
    */
     export function openGuildStorePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildStore) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildStore);
+        if (PopUpManager.showPanel(PanelManage.GuildStore)) return;
         ResManage.loadResource(ResData.PanelRes.GuildStore, () => {
             PanelManage.GuildStore = new view.guild.GuildStorePanel();
             PanelManage.GuildStore['LCP_skin'] = ResData.PanelRes.GuildStore;
@@ -501,10 +433,7 @@ module PanelManage {
      * 帮派日志界面
      */
     export function openGuildRecordPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildRecord) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildRecord);
+        if (PopUpManager.showPanel(PanelManage.GuildRecord)) return;
         ResManage.loadResource(ResData.PanelRes.GuildRecord, () => {
             PanelManage.GuildRecord = new view.guild.GuildRecordPanel();
             PanelManage.GuildRecord['LCP_skin'] = ResData.PanelRes.GuildRecord;
@@ -520,10 +449,7 @@ module PanelManage {
     * 入帮申请界面
     */
     export function openGuildApplyPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildApply) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildApply);
+        if (PopUpManager.showPanel(PanelManage.GuildApply)) return;
         ResManage.loadResource(ResData.PanelRes.GuildApply, () => {
             PanelManage.GuildApply = new view.guild.GuildApplyListPanel();
             PanelManage.GuildApply['LCP_skin'] = ResData.PanelRes.GuildApply;
@@ -537,10 +463,7 @@ module PanelManage {
      * 帮会成员界面
      */
     export function openGuildMemberPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildMember) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildMember);
+        if (PopUpManager.showPanel(PanelManage.GuildMember)) return;
         ResManage.loadResource(ResData.PanelRes.GuildMember, () => {
             PanelManage.GuildMember = new view.guild.GuildMemberPanel();
             PanelManage.GuildMember['LCP_skin'] = ResData.PanelRes.GuildMember;
@@ -554,10 +477,7 @@ module PanelManage {
      * 帮会实力排行界面
      */
     export function openGuildRankPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildRank) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildRank);
+        if (PopUpManager.showPanel(PanelManage.GuildRank)) return;
         ResManage.loadResource(ResData.PanelRes.GuildRank, () => {
             PanelManage.GuildRank = new view.guild.GuildRankPanel();
             PanelManage.GuildRank['LCP_skin'] = ResData.PanelRes.GuildRank;
@@ -571,10 +491,7 @@ module PanelManage {
         * 帮派支援界面
         */
     export function openGuildHelpPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildHelp) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildHelp);
+        if (PopUpManager.showPanel(PanelManage.GuildHelp)) return;
         ResManage.loadResource(ResData.PanelRes.GuildHelp, () => {
             PanelManage.GuildHelp = new view.guild.GuildHelpPanel();
             PanelManage.GuildHelp['LCP_skin'] = ResData.PanelRes.GuildHelp;
@@ -587,10 +504,7 @@ module PanelManage {
         * 帮派商店界面
         */
     export function openGuildShopPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.GuildShop) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.GuildShop);
+        if (PopUpManager.showPanel(PanelManage.GuildShop)) return;
         ResManage.loadResource(ResData.PanelRes.GuildShop, () => {
             PanelManage.GuildShop = new view.guild.GuildShopPanel();
             PanelManage.GuildShop['LCP_skin'] = ResData.PanelRes.GuildShop;
@@ -603,10 +517,7 @@ module PanelManage {
     * 菜单界面
     */
     export function openMenuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Menu) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Menu);
+        if (PopUpManager.showPanel(PanelManage.Menu)) return;
         ResManage.loadResource(ResData.PanelRes.Menu, () => {
             PanelManage.Menu = new view.menu.MenuPanel();
             PanelManage.Menu['LCP_skin'] = ResData.PanelRes.Menu;
@@ -619,10 +530,7 @@ module PanelManage {
 * 新服活动
 */
     export function openNewServer_MainPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NewServerActive) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.NewServerActive);
+        if (PopUpManager.showPanel(PanelManage.NewServerActive)) return;
         ResManage.loadResource(ResData.PanelRes.NewServerActive, () => {
             PanelManage.NewServerActive = new view.newServer.NewServer_MainPanel();
             PanelManage.NewServerActive['LCP_skin'] = ResData.PanelRes.NewServerActive;
@@ -635,10 +543,7 @@ module PanelManage {
    * 抽奖界面
    */
     export function openLuckDrawPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.LuckDraw) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.LuckDraw);
+        if (PopUpManager.showPanel(PanelManage.LuckDraw)) return;
         ResManage.loadResource(ResData.PanelRes.LuckDraw, () => {
             PanelManage.LuckDraw = new view.luckDraw.LuckDraw_MainPanel();
             PanelManage.LuckDraw['LCP_skin'] = ResData.PanelRes.LuckDraw;
@@ -652,10 +557,7 @@ module PanelManage {
 * 商城界面
 */
     export function openShopMallPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ShopMall) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ShopMall);
+        if (PopUpManager.showPanel(PanelManage.ShopMall)) return;
         ResManage.loadResource(ResData.PanelRes.ShopMall, () => {
             PanelManage.ShopMall = new view.shopMall.ShopMall_MainPanel();
             PanelManage.ShopMall['LCP_skin'] = ResData.PanelRes.ShopMall;
@@ -668,10 +570,7 @@ module PanelManage {
 * 福利界面
 */
     export function openFuLiPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuLi) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.FuLi);
+        if (PopUpManager.showPanel(PanelManage.FuLi)) return;
         ResManage.loadResource(ResData.PanelRes.FuLi, () => {
             PanelManage.FuLi = new view.fuli.FuLi_MainPanel();
             PanelManage.FuLi['LCP_skin'] = ResData.PanelRes.FuLi;
@@ -685,10 +584,7 @@ module PanelManage {
      * 背包界面
      */
     export function openBeiBaoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.BeiBao) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.BeiBao);
+        if (PopUpManager.showPanel(PanelManage.BeiBao)) return;
         ResManage.loadResource(ResData.PanelRes.BeiBao, () => {
             PanelManage.BeiBao = new view.beiBao.BagPanel();
             PanelManage.BeiBao['LCP_skin'] = ResData.PanelRes.BeiBao;
@@ -701,10 +597,7 @@ module PanelManage {
      * 主线任务界面
      */
     export function openTask_MainPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_Main) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Task_Main);
+        if (PopUpManager.showPanel(PanelManage.Task_Main)) return;
         ResManage.loadResource(ResData.PanelRes.Task_Main, () => {
             PanelManage.Task_Main = new view.task.Task_MainPanel();
             PanelManage.Task_Main['LCP_skin'] = ResData.PanelRes.Task_Main;
@@ -718,10 +611,7 @@ module PanelManage {
      * 日常任务界面
      */
     export function openTask_DailyPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_Daily) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Task_Daily);
+        if (PopUpManager.showPanel(PanelManage.Task_Daily)) return;
         ResManage.loadResource(ResData.PanelRes.Task_Daily, () => {
             PanelManage.Task_Daily = new view.task.Task_DailyPanel();
             PanelManage.Task_Daily['LCP_skin'] = ResData.PanelRes.Task_Daily;
@@ -735,10 +625,7 @@ module PanelManage {
      * 历练任务界面
      */
     export function openTask_LiLianPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_LiLian) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Task_LiLian);
+        if (PopUpManager.showPanel(PanelManage.Task_LiLian)) return;
         ResManage.loadResource(ResData.PanelRes.Task_LiLian, () => {
             PanelManage.Task_LiLian = new view.task.Task_LiLianPanel();
             PanelManage.Task_LiLian['LCP_skin'] = ResData.PanelRes.Task_LiLian;
@@ -752,10 +639,7 @@ module PanelManage {
      * 成就任务界面
      */
     export function openTask_ChengJiuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Task_chengJiu) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Task_chengJiu);
+        if (PopUpManager.showPanel(PanelManage.Task_chengJiu)) return;
         ResManage.loadResource(ResData.PanelRes.Task_chengJiu, () => {
             PanelManage.Task_chengJiu = new view.task.Task_ChengJiuPanel();
             PanelManage.Task_chengJiu['LCP_skin'] = ResData.PanelRes.Task_chengJiu;
@@ -771,10 +655,7 @@ module PanelManage {
      * 主线副本界面
      */
     export function openFuBenMainPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenMain) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.FuBenMain);
+        if (PopUpManager.showPanel(PanelManage.FuBenMain)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenMain, () => {
             PanelManage.FuBenMain = new view.fuBen.FuBen_MainPanel();
             PanelManage.FuBenMain['LCP_skin'] = ResData.PanelRes.FuBenMain;
@@ -788,10 +669,7 @@ module PanelManage {
      * 每日副本界面
      */
     export function openFuBenDailyPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenDaily) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.FuBenDaily);
+        if (PopUpManager.showPanel(PanelManage.FuBenDaily)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenDaily, () => {
             PanelManage.FuBenDaily = new view.fuBen.FuBen_DailyPanel();
             PanelManage.FuBenDaily['LCP_skin'] = ResData.PanelRes.FuBenDaily;
@@ -805,13 +683,10 @@ module PanelManage {
      * 历练副本界面
      */
     export function openFuBenLiLianPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenLiLian) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.FuBenLiLian);
+        if (PopUpManager.showPanel(PanelManage.FuBenLiLian)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenLiLian, () => {
             PanelManage.FuBenLiLian = new view.fuBen.FuBen_LiLianPanel();
-            PanelManage.FuBenLiLian['LCP_skin'] = ResData.PanelRes.FuBenDaily;
+            PanelManage.FuBenLiLian['LCP_skin'] = ResData.PanelRes.FuBenLiLian;
             PanelManage.FuBenLiLian.setData();
             PanelManage.FuBenLiLian.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.FuBenLiLian, 2, 0, 2);
@@ -822,10 +697,7 @@ module PanelManage {
      * 限时副本界面
      */
     export function openFuBenXianShiPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.FuBenXianShi) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.FuBenXianShi);
+        if (PopUpManager.showPanel(PanelManage.FuBenXianShi)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenXianShi, () => {
             PanelManage.FuBenXianShi = new view.fuBen.FuBen_XianShiPanel();
             PanelManage.FuBenXianShi['LCP_skin'] = ResData.PanelRes.FuBenXianShi;
@@ -837,50 +709,11 @@ module PanelManage {
 
 
 
-
-
-    /**
-     * 剧情进度界面
-     */
-    export function openJuQingInfoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.JuQingInfo) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.JuQingInfo);
-        ResManage.loadResource(ResData.PanelRes.JuQingInfo, () => {
-            PanelManage.JuQingInfo = new view.juQing.JuQingInfoPanel();
-            PanelManage.JuQingInfo['LCP_skin'] = ResData.PanelRes.JuQingInfo;
-            PanelManage.JuQingInfo.setData();
-            PanelManage.JuQingInfo.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.JuQingInfo, 2, 0, 2);
-        })
-    }
-
-    /**
-     * 游戏引导界面
-     */
-    export function openYinDaoPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.YinDao) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.YinDao);
-        ResManage.loadResource(ResData.PanelRes.YinDao, () => {
-            PanelManage.YinDao = new view.yindao.YinDaoPanel();
-            PanelManage.YinDao['LCP_skin'] = ResData.PanelRes.YinDao;
-            PanelManage.YinDao.setData();
-            PanelManage.YinDao.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.YinDao, 2, 0, 2);
-        })
-    }
-
     /**
      * 游戏指南界面
      */
     export function openZhiNanPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan, () => {
             PanelManage.ZhiNan = new view.zhiNan.ZhiNanPanel();
             PanelManage.ZhiNan['LCP_skin'] = ResData.PanelRes.ZhiNan;
@@ -893,80 +726,65 @@ module PanelManage {
      * 游戏玩法界面
      */
     export function openZhiNanWanFaPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_WanFaPanel) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan_WanFaPanel);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan_WanFa)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan_WanFa, () => {
-            PanelManage.ZhiNan_WanFaPanel = new view.zhiNan.ZhiNan_wanfaPanel();
-            PanelManage.ZhiNan_WanFaPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
-            PanelManage.ZhiNan_WanFaPanel.setData();
-            PanelManage.ZhiNan_WanFaPanel.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ZhiNan_WanFaPanel, 3, 0, 0);
+            PanelManage.ZhiNan_WanFa = new view.zhiNan.ZhiNan_wanfaPanel();
+            PanelManage.ZhiNan_WanFa['LCP_skin'] = ResData.PanelRes.ZhiNan_WanFa;
+            PanelManage.ZhiNan_WanFa.setData();
+            PanelManage.ZhiNan_WanFa.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhiNan_WanFa, 3, 0, 0);
         })
     }
     /**
      * 游戏门派界面
      */
     export function openZhiNanMenPaiPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_MenPaiPanel) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan_MenPaiPanel);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan_MenPai)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan_MenPai, () => {
-            PanelManage.ZhiNan_MenPaiPanel = new view.zhiNan.ZhiNan_menpaiPanel();
-            PanelManage.ZhiNan_MenPaiPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
-            PanelManage.ZhiNan_MenPaiPanel.setData();
-            PanelManage.ZhiNan_MenPaiPanel.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ZhiNan_MenPaiPanel, 3, 0, 0);
+            PanelManage.ZhiNan_MenPai = new view.zhiNan.ZhiNan_menpaiPanel();
+            PanelManage.ZhiNan_MenPai['LCP_skin'] = ResData.PanelRes.ZhiNan_MenPai;
+            PanelManage.ZhiNan_MenPai.setData();
+            PanelManage.ZhiNan_MenPai.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhiNan_MenPai, 3, 0, 0);
         })
     }
     /**
      * 游戏武学界面
      */
     export function openZhiNanWuXuePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_WuXuePanel) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan_WuXuePanel);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan_WuXue)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan_WuXue, () => {
-            PanelManage.ZhiNan_WuXuePanel = new view.zhiNan.ZhiNan_wuxuePanel();
-            PanelManage.ZhiNan_WuXuePanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
-            PanelManage.ZhiNan_WuXuePanel.setData();
-            PanelManage.ZhiNan_WuXuePanel.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ZhiNan_WuXuePanel, 3, 0, 0);
+            PanelManage.ZhiNan_WuXue = new view.zhiNan.ZhiNan_wuxuePanel();
+            PanelManage.ZhiNan_WuXue['LCP_skin'] = ResData.PanelRes.ZhiNan_WuXue;
+            PanelManage.ZhiNan_WuXue.setData();
+            PanelManage.ZhiNan_WuXue.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhiNan_WuXue, 3, 0, 0);
         })
     }
     /**
     * 游戏属性界面
     */
     export function openZhiNanShuXingPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_ShuXingPanel) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan_ShuXingPanel);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan_ShuXing)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan_ShuXing, () => {
-            PanelManage.ZhiNan_ShuXingPanel = new view.zhiNan.ZhiNan_shuxingPanel();
-            PanelManage.ZhiNan_ShuXingPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
-            PanelManage.ZhiNan_ShuXingPanel.setData();
-            PanelManage.ZhiNan_ShuXingPanel.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ZhiNan_ShuXingPanel, 3, 0, 0);
+            PanelManage.ZhiNan_ShuXing = new view.zhiNan.ZhiNan_shuxingPanel();
+            PanelManage.ZhiNan_ShuXing['LCP_skin'] = ResData.PanelRes.ZhiNan_ShuXing;
+            PanelManage.ZhiNan_ShuXing.setData();
+            PanelManage.ZhiNan_ShuXing.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhiNan_ShuXing, 3, 0, 0);
         })
     }
     /**
      * 游戏地域界面
      */
     export function openZhiNanDiYuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.ZhiNan_DiYuPanel) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.ZhiNan_DiYuPanel);
+        if (PopUpManager.showPanel(PanelManage.ZhiNan_DiYu)) return;
         ResManage.loadResource(ResData.PanelRes.ZhiNan_DiYu, () => {
-            PanelManage.ZhiNan_DiYuPanel = new view.zhiNan.ZhiNan_diyuPanel();
-            PanelManage.ZhiNan_DiYuPanel['LCP_skin'] = ResData.PanelRes.ZhiNan;
-            PanelManage.ZhiNan_DiYuPanel.setData();
-            PanelManage.ZhiNan_DiYuPanel.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.ZhiNan_DiYuPanel, 3, 0, 0);
+            PanelManage.ZhiNan_DiYu = new view.zhiNan.ZhiNan_diyuPanel();
+            PanelManage.ZhiNan_DiYu['LCP_skin'] = ResData.PanelRes.ZhiNan_DiYu;
+            PanelManage.ZhiNan_DiYu.setData();
+            PanelManage.ZhiNan_DiYu.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.ZhiNan_DiYu, 3, 0, 0);
         })
     }
 
@@ -976,10 +794,7 @@ module PanelManage {
      * 排行榜界面
      */
     export function openRankMainPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.RankMain) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.RankMain);
+        if (PopUpManager.showPanel(PanelManage.RankMain)) return;
         ResManage.loadResource(ResData.PanelRes.RankMain, () => {
             PanelManage.RankMain = new view.rank.Rank_MainPanel();
             PanelManage.RankMain['LCP_skin'] = ResData.PanelRes.RankMain;
@@ -994,10 +809,7 @@ module PanelManage {
      * 北陆地图界面
      */
     export function openNorthMapPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.NorthMap) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.NorthMap);
+        if (PopUpManager.showPanel(PanelManage.NorthMap)) return;
         ResManage.loadResource(ResData.PanelRes.NorthMap, () => {
             PanelManage.NorthMap = new view.map.BigMap_BeiLuPanel();
             PanelManage.NorthMap['LCP_skin'] = ResData.PanelRes.NorthMap;
@@ -1010,10 +822,7 @@ module PanelManage {
      * 南陆地图界面
      */
     export function openSouthMapPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.SouthMap) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.SouthMap);
+        if (PopUpManager.showPanel(PanelManage.SouthMap)) return;
         ResManage.loadResource(ResData.PanelRes.SouthMap, () => {
             PanelManage.SouthMap = new view.map.BigMap_NanLuPanel();
             PanelManage.SouthMap['LCP_skin'] = ResData.PanelRes.SouthMap;
@@ -1026,10 +835,7 @@ module PanelManage {
      * 东陆地图界面
      */
     export function openEastMapPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.EastMap) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.EastMap);
+        if (PopUpManager.showPanel(PanelManage.EastMap)) return;
         ResManage.loadResource(ResData.PanelRes.EastMap, () => {
             PanelManage.EastMap = new view.map.BigMap_DongLuPanel();
             PanelManage.EastMap['LCP_skin'] = ResData.PanelRes.EastMap;
@@ -1044,10 +850,7 @@ module PanelManage {
      * 世界地图界面
      */
     export function openWorldMapPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.WorldMap) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.WorldMap);
+        if (PopUpManager.showPanel(PanelManage.WorldMap)) return;
         ResManage.loadResource(ResData.PanelRes.WorldMap, () => {
             PanelManage.WorldMap = new view.map.WorldMapPanel();
             PanelManage.WorldMap['LCP_skin'] = ResData.PanelRes.WorldMap;
@@ -1084,10 +887,7 @@ module PanelManage {
   * 图鉴道具界面
   */
     export function openTuJianDaojuPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianDaoju) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianDaoju);
+        if (PopUpManager.showPanel(PanelManage.TuJianDaoju)) return;
         ResManage.loadResource(ResData.PanelRes.TuJianDaoju, () => {
             PanelManage.TuJianDaoju = new view.tujian.TuJianDaojuPanel();
             PanelManage.TuJianDaoju['LCP_skin'] = ResData.PanelRes.TuJianDaoju;
@@ -1100,10 +900,7 @@ module PanelManage {
     * 图鉴角色界面
     */
     export function openTuJianJuesePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianJuese) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianJuese);
+        if (PopUpManager.showPanel(PanelManage.TuJianJuese)) return;
         ResManage.loadResource(ResData.PanelRes.TuJianJuese, () => {
             PanelManage.TuJianJuese = new view.tujian.TuJianJuesePanel();
             PanelManage.TuJianJuese['LCP_skin'] = ResData.PanelRes.TuJianJuese;
@@ -1116,10 +913,7 @@ module PanelManage {
       * 图鉴事件界面
       */
     export function openTuJianEventPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianEvent) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianEvent);
+        if (PopUpManager.showPanel(PanelManage.TuJianEvent)) return;
         ResManage.loadResource(ResData.PanelRes.TuJianEvent, () => {
             PanelManage.TuJianEvent = new view.tujian.TuJianEventPanel();
             PanelManage.TuJianEvent['LCP_skin'] = ResData.PanelRes.TuJianEvent;
@@ -1133,10 +927,7 @@ module PanelManage {
        * 图鉴地理界面
        */
     export function openTuJianPlacePanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TuJianPlace) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TuJianPlace);
+        if (PopUpManager.showPanel(PanelManage.TuJianPlace)) return;
         ResManage.loadResource(ResData.PanelRes.TuJianPlace, () => {
             PanelManage.TuJianPlace = new view.tujian.TuJianPlacePanel();
             PanelManage.TuJianPlace['LCP_skin'] = ResData.PanelRes.TuJianPlace;
@@ -1149,10 +940,7 @@ module PanelManage {
     * 天鉴界面
     */
     export function openTianJianPanel(data: any): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.TianJian) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.TianJian);
+        if (PopUpManager.showPanel(PanelManage.TianJian)) return;
         ResManage.loadResource(ResData.PanelRes.TianJian, () => {
             PanelManage.TianJian = new view.tianJian.TianJianPanel();
             PanelManage.TianJian['LCP_skin'] = ResData.PanelRes.TianJian;
@@ -1165,10 +953,7 @@ module PanelManage {
     * 活动界面
     */
     export function openActivePanel(data: any): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Activity) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Activity);
+        if (PopUpManager.showPanel(PanelManage.Activity)) return;
         ResManage.loadResource(ResData.PanelRes.Activity, () => {
             PanelManage.Activity = new view.activity.ActivityPanel();
             PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
@@ -1181,10 +966,7 @@ module PanelManage {
      * 促销
      */
     export function openPromotionPanel(): void {
-        if (PopUpManager.curPanel && PopUpManager.curPanel == PanelManage.Promotion) {
-            return
-        }
-        PopUpManager.checkPanel(PanelManage.Promotion);
+        if (PopUpManager.showPanel(PanelManage.Promotion)) return;
         ResManage.loadResource(ResData.PanelRes.Promotion, () => {
             PanelManage.Promotion = new view.promotion.PromotionPanel();
             PanelManage.Promotion['LCP_skin'] = ResData.PanelRes.Promotion;

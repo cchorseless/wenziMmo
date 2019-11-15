@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":301,
-    "selecteID":302,
+    "selectedBox":324,
+    "selecteID":325,
     "props":{"width":640,"sceneColor":"#000000","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -51,27 +51,13 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"ViewStack",
-            "props":{"y":113,"width":640,"var":"viw_BagViewChange","right":0,"left":0,"height":920},
-            "nodeParent":1,
-            "label":"ViewStack(viw_BagViewChange)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":417,
-            "child":[
+                },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":20,"right":0,"name":"item0","left":0},
-                    "nodeParent":417,
-                    "label":"Box(item0)",
+                    "props":{"x":0,"top":114,"right":0,"left":0,"bottom":94},
+                    "nodeParent":17,
+                    "label":"Box",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -81,7 +67,7 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"y":-9,"x":217,"var":"tab_bag","stateNum":2,"space":3,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":0,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#63491a","labelStroke":1,"labelSize":24,"labelFont":"FZHL","labelColors":"#63491a,#ffffff","labelAlign":"left","direction":"horizontal"},
+                            "props":{"y":4,"x":217,"var":"tab_bag","stateNum":2,"space":3,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":0,"labels":"装 备,材 料,消 耗,任 务","labelStrokeColor":"#63491a","labelStroke":1,"labelSize":24,"labelFont":"FZHL","labelColors":"#63491a,#ffffff","labelAlign":"left","direction":"horizontal"},
                             "nodeParent":416,
                             "label":"Tab(tab_bag)",
                             "isDirectory":false,
@@ -94,7 +80,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":42,"x":114,"width":530,"skin":"image/common/login/line_yeqian.png"},
+                            "props":{"y":58,"x":114,"width":530,"skin":"image/common/login/line_yeqian.png"},
                             "nodeParent":416,
                             "label":"Image",
                             "isDirectory":false,
@@ -108,7 +94,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":65,"x":116,"width":510,"skin":"image/bag/fram_commom_09.png","sizeGrid":"8,7,6,7","height":448},
+                            "props":{"x":116,"width":510,"top":72,"skin":"image/bag/fram_commom_09.png","sizeGrid":"8,7,6,7","bottom":406},
                             "nodeParent":416,
                             "label":"Image",
                             "isOpen":true,
@@ -120,7 +106,7 @@
                                 {
                                     "x":60,
                                     "type":"ViewStack",
-                                    "props":{"y":6,"x":0,"width":510,"var":"viw_bag","selectedIndex":0,"height":435},
+                                    "props":{"var":"viw_bag","top":0,"selectedIndex":0,"right":0,"left":0,"bottom":0},
                                     "nodeParent":39,
                                     "label":"ViewStack(viw_bag)",
                                     "isOpen":true,
@@ -132,7 +118,7 @@
                                         {
                                             "x":75,
                                             "type":"Panel",
-                                            "props":{"y":0,"x":0,"width":510,"var":"panel_bag0","name":"item0","height":435},
+                                            "props":{"x":0,"width":510,"var":"panel_bag0","top":1,"name":"item0","bottom":0},
                                             "nodeParent":32,
                                             "label":"Panel(panel_bag0)",
                                             "isOpen":true,
@@ -144,7 +130,7 @@
                                                 {
                                                     "x":90,
                                                     "type":"VBox",
-                                                    "props":{"y":1,"x":5,"width":505,"var":"vbox_bag0","space":2,"align":"left"},
+                                                    "props":{"var":"vbox_bag0","space":2,"right":0,"left":0,"align":"left"},
                                                     "nodeParent":301,
                                                     "label":"VBox(vbox_bag0)",
                                                     "isOpen":true,
@@ -159,7 +145,7 @@
                                         {
                                             "x":75,
                                             "type":"Panel",
-                                            "props":{"y":0,"x":0,"width":510,"var":"panel_bag1","name":"item1","height":435},
+                                            "props":{"x":0,"width":510,"var":"panel_bag1","top":0,"name":"item1","bottom":0},
                                             "nodeParent":32,
                                             "label":"Panel(panel_bag1)",
                                             "isOpen":true,
@@ -171,7 +157,7 @@
                                                 {
                                                     "x":90,
                                                     "type":"VBox",
-                                                    "props":{"y":1,"x":5,"var":"vbox_bag1","space":2,"align":"left"},
+                                                    "props":{"y":0,"var":"vbox_bag1","space":2,"right":0,"left":0,"align":"left"},
                                                     "nodeParent":310,
                                                     "label":"VBox(vbox_bag1)",
                                                     "isOpen":true,
@@ -186,7 +172,7 @@
                                         {
                                             "x":75,
                                             "type":"Panel",
-                                            "props":{"y":0,"x":0,"width":510,"var":"panel_bag2","name":"item2","height":435},
+                                            "props":{"x":0,"width":510,"var":"panel_bag2","top":0,"name":"item2","bottom":0},
                                             "nodeParent":32,
                                             "label":"Panel(panel_bag2)",
                                             "isOpen":true,
@@ -198,7 +184,7 @@
                                                 {
                                                     "x":90,
                                                     "type":"VBox",
-                                                    "props":{"y":1,"x":5,"var":"vbox_bag2","space":2,"align":"left"},
+                                                    "props":{"y":0,"var":"vbox_bag2","space":2,"right":0,"left":0,"align":"left"},
                                                     "nodeParent":317,
                                                     "label":"VBox(vbox_bag2)",
                                                     "isOpen":true,
@@ -214,7 +200,7 @@
                                         {
                                             "x":75,
                                             "type":"Panel",
-                                            "props":{"y":0,"x":0,"width":510,"var":"panel_bag3","name":"item3","height":435},
+                                            "props":{"x":0,"width":510,"var":"panel_bag3","top":0,"name":"item3","bottom":0},
                                             "nodeParent":32,
                                             "label":"Panel(panel_bag3)",
                                             "isOpen":true,
@@ -226,7 +212,7 @@
                                                 {
                                                     "x":90,
                                                     "type":"VBox",
-                                                    "props":{"y":1,"x":5,"var":"vbox_bag3","space":2,"align":"left"},
+                                                    "props":{"y":0,"var":"vbox_bag3","space":2,"right":0,"left":0,"align":"left"},
                                                     "nodeParent":324,
                                                     "label":"VBox(vbox_bag3)",
                                                     "isOpen":true,
@@ -244,7 +230,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":51,"x":0,"width":101,"skin":"image/common/fram_common_04new.png","sizeGrid":"58,35,64,45","height":865},
+                            "props":{"x":0,"width":101,"top":70,"skin":"image/common/fram_common_04new.png","sizeGrid":"58,35,64,45","bottom":0},
                             "nodeParent":416,
                             "label":"Image",
                             "isOpen":false,
@@ -281,7 +267,7 @@
                                 },
                                 {
                                     "type":"Panel",
-                                    "props":{"y":60,"width":98,"var":"panel_sellHot","left":1,"height":682},
+                                    "props":{"width":98,"var":"panel_sellHot","top":51,"left":1,"bottom":121},
                                     "nodeParent":22,
                                     "label":"Panel(panel_sellHot)",
                                     "isOpen":false,
@@ -306,7 +292,7 @@
                                 },
                                 {
                                     "type":"Box",
-                                    "props":{"y":744,"x":2},
+                                    "props":{"x":6,"bottom":28},
                                     "nodeParent":22,
                                     "label":"Box",
                                     "isOpen":true,
@@ -329,20 +315,8 @@
                                                 ]
                                         },
                                         {
-                                            "type":"Label",
-                                            "props":{"y":45,"x":11,"wordWrap":true,"width":73,"text":"0点刷新","strokeColor":"#63491a","stroke":0.6,"height":26,"fontSize":18,"font":"fzhl","color":"#63491a","bold":false},
-                                            "nodeParent":449,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":400,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
                                             "type":"Button",
-                                            "props":{"y":0,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
+                                            "props":{"y":13,"x":3,"width":86,"var":"btn_refreshItem","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelBold":true,"label":"刷新","height":45},
                                             "nodeParent":449,
                                             "label":"Button(btn_refreshItem)",
                                             "isDirectory":false,
@@ -370,16 +344,17 @@
                         {
                             "x":45,
                             "type":"ViewStack",
-                            "props":{"y":520,"x":129,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
+                            "props":{"x":115,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390,"bottom":7},
                             "nodeParent":416,
                             "label":"ViewStack(viw_bagBottom)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":350,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_equipInfoItem.ui",
                                     "props":{"var":"ui_equipInfo","top":0,"runtime":"view.beiBao.Bag_equipInfoItem","name":"item0","left":-1},
@@ -391,9 +366,10 @@
                                     "compId":445,
                                     "child":[
                                         ],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_HuiShouItem.ui",
                                     "props":{"var":"ui_huiShou","top":0,"runtime":"view.beiBao.Bag_HuiShouItem","name":"item1","left":0},
@@ -408,6 +384,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_CangKuItem.ui",
                                     "props":{"x":-11,"var":"ui_cangKu","top":0,"runtime":"view.beiBao.Bag_CangKuItem","name":"item2"},
@@ -423,6 +400,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_BaiTanItem.ui",
                                     "props":{"var":"ui_tanWei","top":0,"runtime":"view.beiBao.Bag_BaiTanItem","name":"item3","left":0},
@@ -441,7 +419,7 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":-13,"x":20,"width":193,"height":57},
+                            "props":{"y":0,"x":10,"width":193,"height":57},
                             "nodeParent":416,
                             "label":"Box",
                             "isOpen":true,
@@ -456,14 +434,13 @@
                                     "props":{"y":9,"x":-6,"width":197,"skin":"image/common/img_common_title.png","height":48},
                                     "nodeParent":446,
                                     "label":"Image",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":447,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":74,"width":70,"var":"lbl_bagLogolbl","text":"物品","strokeColor":"#765f42","stroke":3,"height":30,"fontSize":32,"font":"FZHL","color":"#ffffff"},
                                             "nodeParent":447,
@@ -506,22 +483,6 @@
                             "$HIDDEN":false
                         }],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"beiBao/Bag_JiaoYiHangItem.ui",
-                    "props":{"var":"ui_jiaoyihang","top":0,"runtime":"view.beiBao.Bag_JiaoYiHangItem","name":"item1","left":0},
-                    "nodeParent":417,
-                    "label":"UIView(ui_jiaoyihang)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":356,
-                    "child":[
-                        ],
-                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

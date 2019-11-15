@@ -162,6 +162,31 @@ module LangConfig {
         return path + '0' + job + '.png';
     }
 
+    /**
+     * 获取半身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerAvatarHalfSkinV3(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path = 'image/common/role_half2_';
+        let number = 100;
+        switch (job) {
+            case EnumData.JOB_TYPE.JOB_WARRIOR:
+                number += 1
+                break;
+            case EnumData.JOB_TYPE.JOB_MAGE:
+                number += 3
+                break;
+            case EnumData.JOB_TYPE.JOB_MONK:
+                number += 5
+                break;
+
+        }
+        if (sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+            number += 1;
+        }
+        return path + number + '.png';
+    }
 
 
 

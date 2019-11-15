@@ -161,13 +161,9 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active35, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active36, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active39, this)
-
-
 			GameApp.LListener.offCaller(ProtoCmd.Active100, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active30, this)
-
 			// GameApp.LListener.offCaller(ProtoCmd.SendExItemPlane, this)    //额外奖励面板
-
 			Laya.timer.clearAll(this)
 			PopUpManager.Dispose(this)
 		}

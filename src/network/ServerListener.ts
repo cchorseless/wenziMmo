@@ -746,7 +746,7 @@ class ServerListener extends SingletonClass {
      */
     public cretNeiGongChange(data: any): void {
         let msgData = new ProtoCmd.stCretChuanNeigongUpdate(data);
-        let tempId = msgData.getValue('dwtempid');
+        let tempId = msgData.getValue('dwTempId');
         let obj = GameApp.MainPlayer.findViewObj(tempId);
         if (obj) {
             obj.changeNeigong(msgData.nValue, msgData.nMaxValue);
