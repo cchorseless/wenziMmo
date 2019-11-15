@@ -5,6 +5,8 @@ module view.compart {
 			super();
 		}
 		public setData(des): SinglePropsItem {
+
+			GameUtil.EffectIDStruct
 			this.div_des.style.fontSize=24;
 			this.div_des.innerHTML = des;
 			return this;

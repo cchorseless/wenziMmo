@@ -1472,9 +1472,9 @@ module ProtoCmd {
             let effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + this.dwBaseID);
             let effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + this.dwBaseID);
             let effid2 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + this.dwBaseID);
-            r0 += GameUtil.parseEffectidToString('' + effid0).battle[1];
-            r1 += GameUtil.parseEffectidToString('' + effid1).battle[2];
-            r2 += GameUtil.parseEffectidToString('' + effid2).battle[3];
+            // r0 += GameUtil.parseEffectidToString('' + effid0).battle[1];
+            // r1 += GameUtil.parseEffectidToString('' + effid1).battle[2];
+            // r2 += GameUtil.parseEffectidToString('' + effid2).battle[3];
             return [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         }
 

@@ -53,6 +53,17 @@ module view.luckDraw {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.LD_LuckyDrawOpen, this, (jsonData: ProtoCmd.itf_LD_LuckDrawInfo) => {
 				this.cnt = jsonData.extab.needcnt;
+				if (this.cnt == 0) {
+					this.btn_get.disabled = false;
+				} else {
+					this.btn_get.disabled = true;
+				}
+				if (this.cnt == -1) {
+					this.lbl_condition.text = '标准奖奖励已领完'
+				}
+				else {
+					this.lbl_condition.text = '再抽' + jsonData.extab.needcnt + '次可获得'
+				}
 				this.drawItem = jsonData.idx;
 				this.TreasureChestInfo = jsonData.showtab;
 				//活动规则
@@ -94,12 +105,7 @@ module view.luckDraw {
 					itemInfo.dwBinding = data.bind;
 					this['ui_item' + key].setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				}
-				if (this.cnt == -1) {
-					this.lbl_condition.text = '标准奖奖励已领完'
-				}
-				else {
-					this.lbl_condition.text = '再抽' + jsonData.extab.needcnt + '次可获得'
-				}
+
 				//可获得标准奖
 				let standardInfo = new ProtoCmd.ItemBase;
 				let standardItem = jsonData.extab.exitem
@@ -108,11 +114,13 @@ module view.luckDraw {
 				standardInfo.dwBinding = standardItem.binding;
 				this.ui_item11.setData(standardInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				//全服记录
-				let records = Object.keys(jsonData.extab.logtab)
-				this.vbox_record.removeChildren();
-				for (let record of records) {
-					let recordData = jsonData.extab.logtab[record]
-					this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_LuckDraw(recordData)); 
+				if (jsonData.extab.logtab !== undefined) {
+					let records = Object.keys(jsonData.extab.logtab)
+					this.vbox_record.removeChildren();
+					for (let record of records) {
+						let recordData = jsonData.extab.logtab[record]
+						this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_LuckDraw(recordData));
+					}
 				}
 				console.log('====>幸运抽奖', jsonData)
 			})
