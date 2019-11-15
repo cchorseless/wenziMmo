@@ -251,62 +251,62 @@ module view.juese {
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
-					let wuxing = GameUtil.parseEffectidToString('' + data.dwEffId);
+					let wuxing = GameUtil.parseEffectidToObj(['' + data.dwEffId]);
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
 					this.lbl_power1.text = '' + battle1;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
 					for (let key of keys1) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key].des))
 					}
 					break;
 				//臂力
 				case EnumData.emEquipPosition.EQUIP_SHIELD:
-					let bili = GameUtil.parseEffectidToString('' + data.dwEffId)
+					let bili = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
 					this.lbl_power1.text = '' + battle2;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_left.removeChildren();
 					for (let key of keys2) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
 					}
 					break;
 				//善缘				
 				case EnumData.emEquipPosition.EQUIP_OFFICIALSEAL:
-					let shanyuan = GameUtil.parseEffectidToString('' + data.dwEffId)
+					let shanyuan = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
 					this.lbl_power1.text = '' + battle3;
 					let keys3 = Object.keys(attribute3)
 					this.vbox_left.removeChildren();
 					for (let key of keys3) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute3[key]))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute3[key].des))
 					}
 					break;
 				//身法
 				case EnumData.emEquipPosition.EQUIP_BLOODJADE:
-					let shenfa = GameUtil.parseEffectidToString('' + data.dwEffId)
+					let shenfa = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
 					this.lbl_power1.text = '' + battle4;
 					let keys4 = Object.keys(attribute4)
 					this.vbox_left.removeChildren();
 					for (let key of keys4) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute4[key]))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute4[key].des))
 					}
 					break;
 				//根骨
 				case EnumData.emEquipPosition.EQUIP_MEDAL:
-					let gengu = GameUtil.parseEffectidToString('' + data.dwEffId)
+					let gengu = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
 					this.lbl_power1.text = '' + battle5;
 					let keys5 = Object.keys(attribute5)
 					this.vbox_left.removeChildren();
 					for (let key of keys5) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute5[key]))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute5[key].des))
 					}
 					break;
 			}
@@ -365,62 +365,62 @@ module view.juese {
 			switch (this.type) {
 				//悟性
 				case EnumData.emEquipPosition.EQUIP_DRAGONSOUL:
-					let wuxing = GameUtil.parseEffectidToString('' + id);
+					let wuxing = GameUtil.parseEffectidToObj(['' + id]);
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
 					this.lbl_power2.text = '' + battle1;
 					let keys1 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
 					for (let key of keys1) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 					}
 					break;
 				//臂力
 				case EnumData.emEquipPosition.EQUIP_SHIELD:
-					let bili = GameUtil.parseEffectidToString('' + id)
+					let bili = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
 					this.lbl_power2.text = '' + battle2;
 					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
 					}
 					break;
 				//善缘				
 				case EnumData.emEquipPosition.EQUIP_OFFICIALSEAL:
-					let shanyuan = GameUtil.parseEffectidToString('' + id)
+					let shanyuan = GameUtil.parseEffectidToObj(['' + id])
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
 					this.lbl_power2.text = '' + battle3;
 					let keys3 = Object.keys(attribute3)
 					this.vbox_right.removeChildren();
 					for (let key of keys3) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute3[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute3[key].des))
 					}
 					break;
 				//身法
 				case EnumData.emEquipPosition.EQUIP_BLOODJADE:
-					let shenfa = GameUtil.parseEffectidToString('' + id)
+					let shenfa = GameUtil.parseEffectidToObj(['' + id])
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
 					this.lbl_power2.text = '' + battle4;
 					let keys4 = Object.keys(attribute4)
 					this.vbox_right.removeChildren();
 					for (let key of keys4) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute4[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute4[key].des))
 					}
 					break;
 				//根骨
 				case EnumData.emEquipPosition.EQUIP_MEDAL:
-					let gengu = GameUtil.parseEffectidToString('' + id)
+					let gengu = GameUtil.parseEffectidToObj(['' + id])
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
 					this.lbl_power2.text = '' + battle5;
 					let keys5 = Object.keys(attribute5)
 					this.vbox_right.removeChildren();
 					for (let key of keys5) {
-						this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute5[key]))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute5[key].des))
 					}
 					break;
 			}
