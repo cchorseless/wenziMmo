@@ -92,16 +92,37 @@ module view.hero {
 			let minNum = EnumData.emEquipPosition.EQUIP_RUNE_UP;
 			let maxNum = EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT + 1;
 			let index = -1;
+			let effidArray = [];
 			for (let i = minNum; i < maxNum; i++) {
 				index = index + 1;
 				let rune = GameUtil.findEquipInPlayer(i);
 				if (rune) {
 					this['img_rune' + index].visible = true;
 					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
+					let dweffid;
+					switch (this.job) {
+						case 1:
+							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + rune.dwBaseID);
+							break;
+						case 2:
+							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + rune.dwBaseID);
+							break;
+						case 3:
+							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + rune.dwBaseID);
+							break;
+					}
+					effidArray.push(dweffid);
 				} else {
 					this['img_rune' + index].visible = false;
 				}
 			}
+			this.list_down.array = [];
+			let shuxing = GameUtil.parseEffectidToObj(effidArray);
+			this.list_down.array = shuxing.des;
+			this.list_down.itemRender = view.compart.SinglePropsItem;
+			this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+				cell.setData(cell.dataSource.des);
+			}, null, false)
 		}
 	}
 }

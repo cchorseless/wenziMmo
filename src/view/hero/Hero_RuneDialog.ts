@@ -66,7 +66,7 @@ module view.hero {
 
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this,this.onclose)
+			this.btn_close.on(Laya.UIEvent.CLICK, this, this.onclose)
 			//符文交换卸下交换符文
 			this.box_exchange1.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.box_exchange1._childs.length > 0) {
@@ -74,9 +74,9 @@ module view.hero {
 					this.vbox_exchange1.removeChildren();
 					this.ui_item1.visible = true;
 				}
+				this.vbox_exchange1.removeChildren();
 				for (let i = 0; i < 6; i++) {
 					this.vbox_exchange1.addChild(new view.hero.Hero_RuneItem())
-
 				}
 			})
 			//符文交换卸下被交换符文
@@ -86,8 +86,8 @@ module view.hero {
 					this.vbox_exchange2.removeChildren();
 					this.ui_item2.visible = true;
 				}
+				this.vbox_exchange2.removeChildren();
 				for (let i = 0; i < 6; i++) {
-
 					this.vbox_exchange2.addChild(new view.hero.Hero_RuneItem())
 				}
 			})
@@ -119,6 +119,7 @@ module view.hero {
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
 				let id3 = suitID + 8;
+				let a = GameUtil.parseEffectidToObj(['' + id1]);
 				// let bossHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id1);
 				// this.lbl_value1.text='合击对怪物伤害+'+bossHurt;
 				// let personHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOPLAYER('' + id2);
