@@ -41,9 +41,43 @@ class DomUtil extends SingletonClass {
         return txt
     }
 
-
-    public changeToRichStr(str: string, color = null, size = null, font, bold, italic, ): string {
-
-        return
+    /**
+     * 将字符串转化成富文本
+     * @param str 
+     * @param obj 
+     */
+    public changeToRichStr(str: any, obj: richLabProps): string {
+        let s = ' <span style=\'';
+        if (obj.color) {
+            s += 'color:' + obj.color + ';'
+        }
+        if (obj.font) {
+            s += 'font-family:' + obj.font + ';'
+        }
+        if (obj.fontSize) {
+            s += 'fontSize:' + obj.fontSize + ';'
+        }
+        if (obj.stroke) {
+            s += 'stroke:' + obj.stroke + ';'
+        }
+        if (obj.strokeColor) {
+            s += 'strokeColor:' + obj.strokeColor + ';'
+        }
+        if (obj.bold) {
+            s += 'font-weight:bold;'
+        }
+        s += str + '\'>';
+        return s
     }
+}
+/**
+ * 富文本属性接口给
+ */
+interface richLabProps {
+    color?: string,
+    font?: string,
+    fontSize?: string,
+    stroke?: number,
+    strokeColor?: string,
+    bold?: boolean,
 }

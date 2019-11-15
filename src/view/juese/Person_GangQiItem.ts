@@ -123,7 +123,7 @@ module view.juese {
 			this.needexp = data.nMaxValue;
 			this.lbl_value.text = data.nValue + '/' + data.nMaxValue;
 			//经验进度
-			this.img_progress.height = 101 * data.nValue / data.nMaxValue;
+			// this.img_progress.height = 101 * data.nValue / data.nMaxValue;
 			//当前罡气名
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
@@ -159,8 +159,7 @@ module view.juese {
 		public init_GangQIInfo(): void {
 			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
-				let j = i + 1;
-				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(j));
+				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(i));
 			}
 		}
 

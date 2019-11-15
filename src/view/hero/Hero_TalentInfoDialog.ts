@@ -40,12 +40,12 @@ module view.hero {
 		 */
 		public init_view(idArray, i, index): void {
 			let num = i * (index + 1);
-			let shuxing = GameUtil.parseEffectidToString('' + idArray[num])
+			let shuxing = GameUtil.parseEffectidToObj(['' + idArray[num]])
 			let attribute = shuxing.des;
 			let keys = Object.keys(attribute)
 			this.vbox_talent.removeChildren();
 			for (let key of keys) {
-				this.vbox_talent.addChild(new view.juese.Person_LableItem().setData(attribute[key]))
+				this.vbox_talent.addChild(new view.compart.SinglePropsItem().setData(attribute[key].des))
 			}
 		}
 

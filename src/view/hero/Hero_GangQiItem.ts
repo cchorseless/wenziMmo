@@ -106,28 +106,28 @@ module view.hero {
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_name1.text = '' + gangqiName;
 			//当前属性
-			let shuxing1 = GameUtil.parseEffectidToString('' + data.dwEffId)
+			let shuxing1 = GameUtil.parseEffectidToObj(['' + data.dwEffId])
 			let attribute1 = shuxing1.des;
 			let battle1 = shuxing1.battle[this.job];
 			this.clip_power1.value = '' + battle1;
 			let keys1 = Object.keys(attribute1)
 			this.vbox_left.removeChildren();
 			for (let key of keys1) {
-				this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key]))
+				this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 			}
 			//下级属性
 			let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
 			//下阶罡气名
 			let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
 			this.lbl_name2.text = '' + xgangqiName;
-			let shuxing2 = GameUtil.parseEffectidToString('' + xiajieID)
+			let shuxing2 = GameUtil.parseEffectidToObj(['' + xiajieID])
 			let attribute2 = shuxing2.des;
 			let battle2 = shuxing2.battle[this.job];
 			this.clip_power2.value = '' + battle2;
 			let keys2 = Object.keys(attribute2)
 			this.vbox_right.removeChildren();
 			for (let key of keys2) {
-				this.vbox_right.addChild(new view.juese.Person_LableItem().setData(attribute2[key]))
+				this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
 			}
 		}
 

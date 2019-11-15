@@ -9,6 +9,10 @@ module view.juese {
 			super();
 		}
 		public setData(type) {
+			this.vbox_soul0['sortItem'] = (items) => { };
+			this.vbox_soul1['sortItem'] = (items) => { };
+			this.vbox_soul2['sortItem'] = (items) => { };
+			this.vbox_soul3['sortItem'] = (items) => { };
 			if (type == 0) {
 				this.viw_equip.selectedIndex = 0;
 				this.lab_title.text = "精炼大师";
@@ -110,21 +114,15 @@ module view.juese {
 						effid1 = lvl_baseData[1][i].effid
 					}
 				}
-				let effData0 = GameUtil.parseEffectidToString(effid0 + "")
-				let effData1 = GameUtil.parseEffectidToString(effid1 + "")
+				let effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
+				let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
+				this.vbox_soul0.removeChildren();
+				this.vbox_soul1.removeChildren();
 				for (let i = 0; i < effData0.des.length; i++) {
-					let str = effData0.des[i];
-					let loc = str.indexOf(":")
-					let str1 = str.substring(0, loc + 1);
-					let str2 = str.substring(loc + 1, str.length)
-					this["lab_equip0_effect" + i].text = str2;
-					this["lab_equip0_name" + i].text = str1;
-					let str_1 = effData1.des[i];
-					let loc_1 = str_1.indexOf(":")
-					let str1_1 = str_1.substring(0, loc_1 + 1);
-					let str2_1 = str_1.substring(loc_1 + 1, str_1.length)
-					this["lab_equip1_effect" + i].text = str2_1;
-					this["lab_equip1_name" + i].text = str1_1;
+					let str = effData0.des[i].des;
+					this.vbox_soul0.addChild(new view.compart.SinglePropsItem().setData(str))
+					let str_1 = effData1.des[i].des;
+					this.vbox_soul1.addChild(new view.compart.SinglePropsItem().setData(str_1))
 				}
 			})
 			lcp.send(pkt);
@@ -163,21 +161,15 @@ module view.juese {
 					effid1 = this.allData.soulchaintab[i].effid
 				}
 			}
-			let effData0 = GameUtil.parseEffectidToString(effid0 + "")
-			let effData1 = GameUtil.parseEffectidToString(effid1 + "")
+			let effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
+			let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
+			this.vbox_soul2.removeChildren();
+			this.vbox_soul3.removeChildren();
 			for (let i = 0; i < effData0.des.length; i++) {
-				let str = effData0.des[i];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["lab_soulContent0_" + i].text = str2;
-				this["lab_name0_" + i].text = str1;
-				let str_1 = effData1.des[i];
-				let loc_1 = str_1.indexOf(":")
-				let str1_1 = str_1.substring(0, loc_1 + 1);
-				let str2_1 = str_1.substring(loc_1 + 1, str_1.length)
-				this["lab_soulContent1_" + i].text = str2_1;
-				this["lab_name1_" + i].text = str1_1;
+				let str = effData0.des[i].des;
+				this.vbox_soul2.addChild(new view.compart.SinglePropsItem().setData(str))
+				let str_1 = effData1.des[i].des;
+				this.vbox_soul3.addChild(new view.compart.SinglePropsItem().setData(str_1))
 			}
 		}
 	}

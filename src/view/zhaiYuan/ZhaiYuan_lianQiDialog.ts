@@ -345,6 +345,7 @@ module view.zhaiYuan {
 			let effData1 = GameUtil.parseEffectidToString(effid1 + "")
 			this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
 			this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
+			
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
 					let str = effData0.des[i];
