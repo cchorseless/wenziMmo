@@ -38,6 +38,8 @@ module view.zhaiYuan {
 			this.addEvent();
 		}
 		public setData() {
+			this.vbox_0['sortItem'] = (items) => { };
+			this.vbox_1['sortItem'] = (items) => { };
 			this.upDateView(0, 0, 0);
 		}
 		public addEvent(): void {
@@ -101,8 +103,6 @@ module view.zhaiYuan {
 				} else {
 					this.curSoulStoneID = this.curSoulStoneIDChooseArr[this.curOneOfSoulStoneLv];
 				}
-
-
 				this.getData_EquipPanelMsg(this.curPage, this.TouchID);
 				for (let i = 1; i < 13; i++) {
 					this.statAllSoulStoneLv.push(this.allData.soulchaintab[i].effid)
@@ -340,28 +340,23 @@ module view.zhaiYuan {
 
 
 			let effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-			let effData0 = GameUtil.parseEffectidToString(effid0 + "")
+			let effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
 			let effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-			let effData1 = GameUtil.parseEffectidToString(effid1 + "")
+			let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
 			this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
 			this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			
+			this.vbox_0.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
-					let str = effData0.des[i];
-					let loc = str.indexOf(":")
-					let str1 = str.substring(0, loc + 1);
-					let str2 = str.substring(loc + 1, str.length)
-					this["html_0_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+					let str = effData0.des[i].des;
+					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(str));
 				}
 			}
+			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					let str = effData1.des[i];
-					let loc = str.indexOf(":")
-					let str1 = str.substring(0, loc + 1);
-					let str2 = str.substring(loc + 1, str.length)
-					this["html_1_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:26;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
+					let str = effData1.des[i].des;
+					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(str));
 				}
 			}
 
@@ -415,24 +410,28 @@ module view.zhaiYuan {
 					if (soul_oneOf_Lv > 0) {
 						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
 						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData = GameUtil.parseEffectidToString(effid0 + "");
+						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
 						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
-						let str = effData.des[0];
-						let loc = str.indexOf(":")
-						let str1 = str.substring(0, loc + 1);
-						let str2 = str.substring(loc + 1, str.length)
+						// let str = effData.des[0];
+						// let loc = str.indexOf(":")
+						// let str1 = str.substring(0, loc + 1);
+						// let str2 = str.substring(loc + 1, str.length)
+						this.list_shengjie.array = [];
 						if (soul_oneOf_Lv >= 12) {
-							this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
-								+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
+							this.list_shengjie.array = effData.des;
+							this.list_shengjie.itemRender = view.compart.SinglePropsItem;
+							this.list_shengjie.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+								cell.setData(cell.dataSource.des);
+							}, null, false)
+							// this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
+							// 	+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
 						} else {
-							let effData1 = GameUtil.parseEffectidToString(this.allData.SoulStoneTab[i] + soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1 + "")
-							let span = parseInt(effData1.des[0].substring(loc + 1, effData1.des[0].length)) - parseInt(str2);
-							this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
-								+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
-								+ "<span style='color:#179a0d;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + "+" + span + "</span>";
-
+						// 	let effData1 = GameUtil.parseEffectidToObj(this.allData.SoulStoneTab[i] + soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1 + "")
+						// 	let span = parseInt(effData1.des[0].substring(loc + 1, effData1.des[0].length)) - parseInt(str2);
+						// 	this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
+						// 		+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
+						// 		+ "<span style='color:#179a0d;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + "+" + span + "</span>";
 						}
-
 					}
 				}
 			}
@@ -452,15 +451,13 @@ module view.zhaiYuan {
 			} else if (GameApp.GameEngine.mainPlayer.job == 3) {
 				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(this.curEquipDataCS.toString())
 			}
-			let effData = GameUtil.parseEffectidToString(effid + "")
-			for (let i = 0; i < effData.des.length; i++) {
-				let str = effData.des[i];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["html_3_" + (i + 1)].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:1;strokeColor:#000000'>" + str1 + "</span>" + "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
-			}
-
+			let effData = GameUtil.parseEffectidToObj([effid + ""])
+			this.list_chuanshi.array = [];
+			this.list_chuanshi.array = effData.des;
+			this.list_chuanshi.itemRender = view.compart.SinglePropsItem;
+			this.list_chuanshi.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+				cell.setData(cell.dataSource.des);
+			}, null, false)
 		}
 		//page2 上面面板的显示状态
 		private setSoulStoneState(id: number) {

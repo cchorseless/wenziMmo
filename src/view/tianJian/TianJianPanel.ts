@@ -89,16 +89,14 @@ module view.tianJian {
 			// this.img_shuxingIcon.skin= (SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillKey).toString();
 			this.lab_shuxingName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillKey);
 			this.lab_shuxingdetail.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(skillKey);
-			let effData = GameUtil.parseEffectidToString(this.tempData.cfgtab[index].effid + "")
+			let effData = GameUtil.parseEffectidToObj([this.tempData.cfgtab[index].effid + ""])
 			this.lab_fight.text = effData.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			for (let i = 1; i < 5; i++) {
-				let str = effData.des[i - 1];
-				let loc = str.indexOf(":")
-				let str1 = str.substring(0, loc + 1);
-				let str2 = str.substring(loc + 1, str.length)
-				this["html_text" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:1;strokeColor:#000000'>" + str1 + "</span>" +"<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>";
-			}
-
+			this.list_down.array=[];
+			this.list_down.array = effData.des;
+			this.list_down.itemRender = view.compart.SinglePropsItem;
+			this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+				cell.setData(cell.dataSource.des);
+			}, null, false)
 		}
 		public changeChoose(index) {
 			let arr = this.tempData.status
@@ -127,11 +125,6 @@ module view.tianJian {
 				}
 			}
 		}
-
-
-
-
-
 
 	}
 }

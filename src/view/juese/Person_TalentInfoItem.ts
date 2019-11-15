@@ -258,7 +258,7 @@ module view.juese {
 					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
 					for (let key of keys1) {
-						this.vbox_left.addChild(new view.juese.Person_LableItem().setData(attribute1[key].des))
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
 					}
 					break;
 				//臂力
