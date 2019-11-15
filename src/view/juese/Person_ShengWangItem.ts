@@ -74,7 +74,7 @@ module view.juese {
 				this.lbl_two.text = '声望第二：' + jsonData.rank[2];
 				this.lbl_three.text = '声望第三：' + jsonData.rank[3];
 				// //当前属性
-				let shuxing1 = GameUtil.parseEffectidToObj('' + jsonData.effid)
+				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 				let attribute1 = shuxing1.des;
 				let battle1 = shuxing1.battle[this.job];
 				this.clip_power1.value = '' + battle1;
@@ -86,7 +86,7 @@ module view.juese {
 				//下级属性
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
 				if (id !== 0) {
-					let shuxing2 = GameUtil.parseEffectidToObj('' + id)
+					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let battle = shuxing2.battle[this.job];
 					this.clip_power2.value = '' + battle;

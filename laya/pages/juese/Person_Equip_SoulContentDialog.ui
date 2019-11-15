@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":119,
+    "selectedBox":154,
+    "selecteID":129,
     "props":{"width":476,"sceneColor":"#ffffff","height":714},
     "nodeParent":-1,
     "label":"Dialog",
@@ -73,14 +73,13 @@
                     "props":{"y":109,"x":13,"name":"item0"},
                     "nodeParent":155,
                     "label":"Box(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":126,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":-42,"x":62,"width":344.421875,"var":"lab_equipTab0","text":"全套装备达到150级（8/8）","strokeColor":"#000000","stroke":3,"height":25,"fontSize":28,"font":"FZHL","color":"#f9e596","align":"center"},
                             "nodeParent":126,
@@ -93,7 +92,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":13,"var":"btn_equip0_0","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -106,7 +104,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":122,"var":"btn_equip0_1","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -119,7 +116,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":231,"var":"btn_equip0_2","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -132,7 +128,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"x":340,"var":"btn_equip0_3","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -145,7 +140,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":53,"x":13,"var":"btn_equip0_4","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -158,7 +152,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":53,"x":122,"var":"btn_equip0_5","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -171,7 +164,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":53,"x":231,"var":"btn_equip0_6","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -184,7 +176,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":53,"x":340,"var":"btn_equip0_7","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -197,7 +188,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":109,"x":1,"width":450,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"10,10,28,40","height":121,"alpha":0.7},
                             "nodeParent":126,
@@ -211,85 +201,18 @@
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":120,"x":63,"width":66,"var":"lab_equip0_name0","text":"物防：","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
+                            "type":"VBox",
+                            "props":{"y":122,"x":25,"width":400,"var":"vbox_soul0","height":100},
                             "nodeParent":126,
-                            "label":"Label(lab_equip0_name0)",
+                            "label":"VBox(vbox_soul0)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":90,
+                            "compId":156,
                             "child":[
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":120,"x":136,"width":143.71875,"var":"lab_equip0_effect0","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip0_effect0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":15,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":157,"x":63,"width":66,"var":"lab_equip0_name1","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip0_name1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":91,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":156,"x":136,"var":"lab_equip0_effect1","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip0_effect1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":193,"x":63,"width":66,"var":"lab_equip0_name2","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip0_name2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":92,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":193,"x":136,"var":"lab_equip0_effect2","text":"2000-4500","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip0_effect2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":246,"x":31,"skin":"image/juese/title_common_01.png"},
                             "nodeParent":126,
@@ -315,7 +238,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":301,"x":63,"width":344.421875,"var":"lab_equipTab1","text":"全套装备达到150级（8/8）","strokeColor":"#000000","stroke":3,"height":25,"fontSize":28,"font":"FZHL","color":"#f9e596","align":"center"},
                             "nodeParent":126,
@@ -329,7 +251,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":343,"x":12,"var":"btn_equip1_0","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -342,7 +263,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":343,"x":121,"var":"btn_equip1_1","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -355,7 +275,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":343,"x":230,"var":"btn_equip1_2","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -368,7 +287,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":343,"x":339,"var":"btn_equip1_3","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -381,7 +299,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":396,"x":12,"var":"btn_equip1_4","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -394,7 +311,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":396,"x":121,"var":"btn_equip1_5","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -407,7 +323,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":396,"x":230,"var":"btn_equip1_6","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -420,7 +335,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":396,"x":339,"var":"btn_equip1_7","stateNum":"2","skin":"image/juese/tab_common_01.png","labelSize":26,"labelFont":"FZHL","labelColors":"#8c7257,#5f4429","label":"衣服"},
                             "nodeParent":126,
@@ -433,7 +347,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":452,"width":450,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"10,10,28,40","height":121,"alpha":0.7},
                             "nodeParent":126,
@@ -447,84 +360,18 @@
                                 ]
                         },
                         {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":463,"x":62,"width":66,"var":"lab_equip1_name0","text":"物防：","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
+                            "type":"VBox",
+                            "props":{"y":461,"x":25,"width":400,"var":"vbox_soul1","height":100},
                             "nodeParent":126,
-                            "label":"Label(lab_equip1_name0)",
+                            "label":"VBox(vbox_soul1)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":120,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":463,"x":135,"width":143.71875,"var":"lab_equip1_effect0","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip1_effect0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":121,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":500,"x":62,"width":66,"var":"lab_equip1_name1","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip1_name1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":122,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":499,"x":135,"var":"lab_equip1_effect1","text":"2000-4500","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip1_effect1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":123,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":536,"x":62,"width":66,"var":"lab_equip1_name2","text":"物防：","height":20,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip1_name2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":124,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":536,"x":135,"var":"lab_equip1_effect2","text":"2000-4500","strokeColor":"#000000","height":20,"fontSize":24,"font":"FZHL","color":"#63491a","align":"left"},
-                            "nodeParent":126,
-                            "label":"Label(lab_equip1_effect2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":125,
+                            "compId":157,
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -532,13 +379,14 @@
                     "props":{"y":81,"x":12,"name":"item1"},
                     "nodeParent":155,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":154,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"x":118,"text":"主角魂石灵魂锁链","strokeColor":"#000000","stroke":4,"height":22,"fontSize":28,"font":"FZHL","color":"#f9e596","align":"left"},
                             "nodeParent":154,
@@ -551,6 +399,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":56,"x":1,"width":450,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"10,10,28,40","height":231,"alpha":0.7},
                             "nodeParent":154,
@@ -565,6 +414,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":64,"x":29,"width":316.0625,"var":"lab_soulTab0","text":"总魂石       阶（225/180）","strokeColor":"#000000","stroke":3,"height":25,"fontSize":26,"font":"FZHL","color":"#ffffff","align":"left"},
                             "nodeParent":154,
@@ -578,6 +428,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":63,"x":103,"width":54.140625,"var":"lab_soul_0_num","text":"180","strokeColor":"#000000","stroke":3,"height":25,"fontSize":28,"font":"FZHL","color":"#6dd041","align":"center"},
                             "nodeParent":154,
@@ -591,153 +442,7 @@
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Label",
-                            "props":{"y":100,"x":184,"width":200,"var":"lab_soulContent0_0","text":"148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":54,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":100,"x":63,"var":"lab_name0_0","text":"最大血量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":72,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":128,"x":136,"width":200,"var":"lab_soulContent0_1","text":"108","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":129,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":128,"x":63,"var":"lab_name0_1","text":"最大：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":130,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":161,"x":184,"width":200,"var":"lab_soulContent0_2","text":"148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":131,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":161,"x":63,"var":"lab_name0_2","text":"最大血量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":132,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":189,"x":135,"width":200,"var":"lab_soulContent0_3","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":133,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":189,"x":63,"var":"lab_name0_3","text":"最大：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":134,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":221,"x":135,"width":200,"var":"lab_soulContent0_4","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":135,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":221,"x":63,"var":"lab_name0_4","text":"最大：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":136,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":251,"x":135,"width":200,"var":"lab_soulContent0_5","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent0_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":137,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":251,"x":63,"var":"lab_name0_5","text":"最大：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name0_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":138,
-                            "child":[
-                                ]
-                        },
-                        {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":326,"width":450,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"10,10,28,40","height":231,"alpha":0.7},
                             "nodeParent":154,
@@ -752,6 +457,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":334,"x":28,"width":316.0625,"var":"lab_soulTab1","text":"总魂石       阶（225/180）","strokeColor":"#000000","stroke":3,"height":25,"fontSize":26,"font":"FZHL","color":"#ffffff","align":"left"},
                             "nodeParent":154,
@@ -765,6 +471,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":333,"x":102,"width":54.140625,"var":"lab_soul_1_num","text":"180","strokeColor":"#000000","stroke":3,"height":25,"fontSize":28,"font":"FZHL","color":"#6dd041","align":"center"},
                             "nodeParent":154,
@@ -778,162 +485,32 @@
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Label",
-                            "props":{"y":370,"x":183,"width":200,"var":"lab_soulContent1_0","text":"148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":97,"x":45,"width":300,"var":"vbox_soul2","height":180},
                             "nodeParent":154,
-                            "label":"Label(lab_soulContent1_0)",
+                            "label":"VBox(vbox_soul2)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":141,
+                            "compId":158,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         },
                         {
-                            "type":"Label",
-                            "props":{"y":370,"x":62,"var":"lab_name1_0","text":"最大血量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":369,"x":45,"width":300,"var":"vbox_soul3","height":180},
                             "nodeParent":154,
-                            "label":"Label(lab_name1_0)",
+                            "label":"VBox(vbox_soul3)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":143,
+                            "compId":159,
                             "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":398,"x":135,"width":200,"var":"lab_soulContent1_1","text":"108","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent1_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":144,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":398,"x":62,"var":"lab_name1_1","text":"最量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name1_1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":145,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":431,"x":183,"width":200,"var":"lab_soulContent1_2","text":"148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent1_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":146,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":431,"x":62,"var":"lab_name1_2","text":"最大血量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name1_2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":147,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":459,"x":135,"width":200,"var":"lab_soulContent1_3","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent1_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":148,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":459,"x":62,"var":"lab_name1_3","text":"最大：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name1_3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":149,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":491,"x":135,"width":200,"var":"lab_soulContent1_4","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent1_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":150,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":491,"x":62,"var":"lab_name1_4","text":"最量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name1_4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":151,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":521,"x":135,"width":200,"var":"lab_soulContent1_5","text":"15-148","height":20,"fontSize":24,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":154,
-                            "label":"Label(lab_soulContent1_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":152,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":521,"x":62,"var":"lab_name1_5","text":"最量：","height":22,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
-                            "nodeParent":154,
-                            "label":"Label(lab_name1_5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":153,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         },
         {

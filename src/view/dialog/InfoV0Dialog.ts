@@ -39,7 +39,7 @@ module view.dialog {
 					effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + this.id);
 					break;
 			}
-			let taletInfo = GameUtil.parseEffectidToString('' + effid)
+			let taletInfo = GameUtil.parseEffectidToObj(['' + effid])
 			//评分
 			this.lbl_score.text = '' + taletInfo.battle[GameApp.MainPlayer.job]
 			let keys = Object.keys(taletInfo.des)
@@ -49,7 +49,7 @@ module view.dialog {
 			}
 			this.list_info.itemRender = view.compart.SinglePropsItem;
 			this.list_info.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource);
+				cell.setData(cell.dataSource.des);
 			}, null, false)
 
 		}
