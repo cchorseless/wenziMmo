@@ -95,67 +95,57 @@ module GameUtil {
         }
     }
 
-    /**
-     * 效果ID结构体
-     */
-    export class EffectIDStruct {
-        public min = 0;
-        public max = 0;
-        public value = 0;
-        public label = '';
-        public des = '';
-        public index;
-        public finish = true;// 数据完成
-        public onlyValue = true;// 最有一个值
+    const keyMap = {
+        // 攻击
+        3: { key: '3_4', label: '攻击:' },
+        4: { key: '3_4', label: '攻击:' },
+        // 物理攻击
+        5: { key: '5_6', label: '力道:' },
+        6: { key: '5_6', label: '力道:' },
+        // 灵巧攻击
+        7: { key: '7_8', label: '柔劲:' },
+        8: { key: '7_8', label: '柔劲:' },
+        // 灵魂攻击
+        9: { key: '9_10', label: '刚劲:' },
+        10: { key: '9_10', label: '刚劲:' },
+        // 物理防御
+        11: { key: '11_12', label: '卸力:' },
+        12: { key: '11_12', label: '卸力:' },
+        // 法术防御
+        13: { key: '13_14', label: '化劲:' },
+        14: { key: '13_14', label: '化劲:' },
     }
+    const richProps: richLabProps = { color: "#00ff00", bold: true };//富文本格式
     /**
      * 解析效果ID，返回数组描述
      * @param effectID 
      */
-    export function parseEffectidToObj(effectList: Array<string>): { des: Array<EffectIDStruct>, battle: Array<number> } {
+    export function parseEffectidToObj(effectList: Array<string>): { des: Array<ProtoCmd.EffectIDStruct>, battle: Array<number> } {
         let ObjList = [];// 描述
         let ObjListMap = {};
         let r0 = 0; // 战力
         let r1 = 0; // 战力
         let r2 = 0; // 战力
-        let richProps: richLabProps = { color: ColorUtils.green, bold: true };//富文本格式
+
         for (let effectID of effectList) {
             let sheetInfo = SheetConfig.mydb_effect_base_tbl.getInstance(null).data[effectID];
             if (sheetInfo) {
                 let startIndex = 3;
                 let length = sheetInfo.length - startIndex;
                 let tmpDes = {};
-                let keyMap = {
-                    // 攻击
-                    5: { key: '5_6', label: '攻击+' },
-                    6: { key: '5_6', label: '攻击+' },
-                    // 物理攻击
-                    7: { key: '7_8', label: '力道+' },
-                    8: { key: '7_8', label: '力道+' },
-                    // 灵巧攻击
-                    9: { key: '9_10', label: '柔劲+' },
-                    10: { key: '9_10', label: '柔劲+' },
-                    // 灵魂攻击
-                    11: { key: '11_12', label: '刚劲+' },
-                    12: { key: '11_12', label: '刚劲+' },
-                    // 物理防御
-                    13: { key: '13_14', label: '卸力+' },
-                    14: { key: '13_14', label: '卸力+' },
-                    // 法术防御
-                    15: { key: '15_16', label: '化劲+' },
-                    16: { key: '15_16', label: '化劲+' },
-                }
                 for (let i = 0; i < length; i++) {
                     let dataIndex = i + startIndex;
+                    // 类型枚举
                     let desIndex = i + 1;
+                    // 数据
                     let data = sheetInfo[dataIndex];
                     if (data != 0) {
                         let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
-                        let obj = new GameUtil.EffectIDStruct();
-                        if (dataIndex >= 5 && dataIndex <= 16) {
+                        let obj = new ProtoCmd.EffectIDStruct();
+                        if (desIndex >= EnumData.emNonpareilType.NONPAREIL_TYPE_MAXATK && desIndex <= EnumData.emNonpareilType.NONPAREIL_TYPE_MINMAC) {
                             // 标记有两个值
                             obj.onlyValue = false;
-                            let key = keyMap[dataIndex].key;
+                            let key = keyMap[desIndex].key;
                             let old_obj = tmpDes[key];
                             if (old_obj) {
                                 old_obj.finish = true;
@@ -164,7 +154,7 @@ module GameUtil {
                             else {
                                 obj.finish = false;
                                 obj.value = data;
-                                obj.label = keyMap[dataIndex].label;
+                                obj.label = keyMap[desIndex].label;
                             }
                             obj.min = Math.min(obj.value, data);
                             obj.max = Math.max(obj.value, data);
@@ -173,7 +163,7 @@ module GameUtil {
                             tmpDes[key] = obj;
                         }
                         else {
-                            obj.index = dataIndex;
+                            obj.index = desIndex;
                             obj.label = des;
                             obj.value = data;
                             obj.des = des + ' ' + GameApp.DomUtil.changeToRichStr(data, richProps);
@@ -214,6 +204,73 @@ module GameUtil {
         let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)];
         return { des: ObjList, battle: battleDes }
 
+    }
+
+
+    /**
+     * 计算极品属性
+     * @param Nonpareil 
+     */
+    export function parseNonpareilToObj(NonpareilList: Array<ProtoCmd.Nonpareil>): Array<ProtoCmd.EffectIDStruct> {
+        let ObjList: Array<ProtoCmd.EffectIDStruct> = [];// 描述
+        let ObjListMap = {};
+        let tmpDes = {};
+        for (let _nonpare of NonpareilList) {
+            let data = _nonpare.dwNpNum;
+            let desIndex = _nonpare.btNpType;
+            if (data) {
+                let des = LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[desIndex]];
+                let obj = new ProtoCmd.EffectIDStruct();
+                if (desIndex >= EnumData.emNonpareilType.NONPAREIL_TYPE_MAXATK && desIndex <= EnumData.emNonpareilType.NONPAREIL_TYPE_MINMAC) {
+                    // 标记有两个值
+                    obj.onlyValue = false;
+                    let key = keyMap[desIndex].key;
+                    let old_obj = tmpDes[key];
+                    if (old_obj) {
+                        old_obj.finish = true;
+                        obj = old_obj;
+                    }
+                    else {
+                        obj.finish = false;
+                        obj.value = data;
+                        obj.label = keyMap[desIndex].label;
+                    }
+                    obj.min = Math.min(obj.value, data);
+                    obj.max = Math.max(obj.value, data);
+                    obj.des = obj.label + GameApp.DomUtil.changeToRichStr(obj.min, richProps) + '-' + GameApp.DomUtil.changeToRichStr(obj.max, richProps);
+                    obj.index = key;
+                    tmpDes[key] = obj;
+                }
+                else {
+                    obj.index = desIndex;
+                    obj.label = des;
+                    obj.value = data;
+                    obj.des = des + ' ' + GameApp.DomUtil.changeToRichStr(data, richProps);
+                };
+                if (obj.finish) {
+                    let tmpObj = ObjListMap[obj.index];
+                    // 合并对象
+                    if (tmpObj) {
+                        tmpObj.min += obj.min;
+                        tmpObj.max += obj.max;
+                        tmpObj.value += obj.value;
+                        if (tmpObj.onlyValue) {
+                            tmpObj.des = tmpObj.label + GameApp.DomUtil.changeToRichStr(tmpObj.value, richProps);
+                        }
+                        else {
+                            tmpObj.des = tmpObj.label + GameApp.DomUtil.changeToRichStr(tmpObj.min, richProps)
+                                + '-' + GameApp.DomUtil.changeToRichStr(tmpObj.max, richProps);
+                        }
+                    }
+                    // 没有添加对象
+                    else {
+                        ObjList.push(obj);
+                        ObjListMap[obj.index] = obj;
+                    }
+                }
+            }
+        }
+        return ObjList
     }
 
 

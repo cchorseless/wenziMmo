@@ -134,8 +134,8 @@ module view.juese {
 			this.lbl_power1.text = '' + battle1;
 			let keys1 = Object.keys(attribute1)
 			this.vbox_left.removeChildren();
-			for (let key of keys1) {
-				this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+			for (let key of attribute1) {
+				this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key))
 			}
 			//下级属性
 			let xiajieID = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
@@ -146,10 +146,9 @@ module view.juese {
 			let attribute2 = shuxing2.des;
 			let battle2 = shuxing2.battle[this.job];
 			this.lbl_power2.text = '' + battle2;
-			let keys2 = Object.keys(attribute2)
 			this.vbox_right.removeChildren();
-			for (let key of keys2) {
-				this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
+			for (let key2 of attribute2) {
+				this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key2))
 			}
 		}
 

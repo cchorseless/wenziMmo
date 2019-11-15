@@ -49,7 +49,7 @@ module view.dialog {
 			}
 			this.list_info.itemRender = view.compart.SinglePropsItem;
 			this.list_info.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource.des);
+				cell.setData(cell.dataSource);
 			}, null, false)
 
 		}

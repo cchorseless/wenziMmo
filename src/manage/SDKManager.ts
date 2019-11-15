@@ -303,7 +303,7 @@ class SDKManager extends SingletonClass {
         GameApp.HttpManager.postJson("name=cashOrderNo",
             {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
-                account: GameApp.GameEngine.mainPlayer.playerAccount.split('@')[0],
+                account: GameApp.GameEngine.mainPlayer.playerAccount,
                 username: GameApp.GameEngine.mainPlayer.objName,
                 amount: price,
             },
