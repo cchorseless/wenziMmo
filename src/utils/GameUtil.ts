@@ -73,7 +73,8 @@ module GameUtil {
             ui.style.align = "center";
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>"
                 + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
-        } else {
+        }
+        else {
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
             return;
         }
@@ -94,6 +95,9 @@ module GameUtil {
         }
     }
 
+    /**
+     * 效果ID结构体
+     */
     export class EffectIDStruct {
         public min = 0;
         public max = 0;
@@ -206,9 +210,11 @@ module GameUtil {
      */
     export function parseEffectidToObj(effectList: Array<string>): { des: Array<EffectIDStruct>, battle: Array<number> } {
         let ObjList = [];// 描述
+        let ObjListMap = {};
         let r0 = 0; // 战力
         let r1 = 0; // 战力
         let r2 = 0; // 战力
+        let richProps: richLabProps = { color: ColorUtils.green, bold: true };//富文本格式
         for (let effectID of effectList) {
             let sheetInfo = SheetConfig.mydb_effect_base_tbl.getInstance(null).data[effectID];
             if (sheetInfo) {
@@ -258,7 +264,7 @@ module GameUtil {
                             }
                             obj.min = Math.min(obj.value, data);
                             obj.max = Math.max(obj.value, data);
-                            obj.des = obj.label + obj.min + '-' + obj.max;
+                            obj.des = obj.label + GameApp.DomUtil.changeToRichStr(obj.min, richProps) + '-' + GameApp.DomUtil.changeToRichStr(obj.max, richProps);
                             obj.index = key;
                             tmpDes[key] = obj;
                         }
@@ -266,12 +272,29 @@ module GameUtil {
                             obj.index = dataIndex;
                             obj.label = des;
                             obj.value = data;
-                            obj.des = des + ' ' + data;
+                            obj.des = des + ' ' + GameApp.DomUtil.changeToRichStr(data, richProps);
                         };
                         if (obj.finish) {
+                            let tmpObj = ObjListMap[obj.index];
                             // 合并对象
-                            // for(let )
-                            ObjList.push(obj);
+                            if (tmpObj) {
+                                tmpObj.min += obj.min;
+                                tmpObj.max += obj.max;
+                                tmpObj.value += obj.value;
+                                if (tmpObj.onlyValue) {
+                                    tmpObj.des = tmpObj.label + GameApp.DomUtil.changeToRichStr(tmpObj.value, richProps);
+                                }
+                                else {
+                                    tmpObj.des = tmpObj.label + GameApp.DomUtil.changeToRichStr(tmpObj.min, richProps)
+                                        + '-' + GameApp.DomUtil.changeToRichStr(tmpObj.max, richProps);
+                                }
+
+                            }
+                            // 没有添加对象
+                            else {
+                                ObjList.push(obj);
+                                ObjListMap[obj.index] = obj;
+                            }
                         }
                         // 战力计算
                         let tmp = GameObject.AbilityWorth[desIndex];
@@ -285,7 +308,6 @@ module GameUtil {
 
         // 战力 ： 通用战力 战士战力 道士战力 法师战力
         let battleDes = [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)];
-
         return { des: ObjList, battle: battleDes }
 
     }
