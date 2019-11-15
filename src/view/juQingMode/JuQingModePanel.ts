@@ -30,7 +30,7 @@ module view.juQingMode {
 			// 剧情进度
 			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-					(data:ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
+					(data: ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
 						// console.log("从服务器获取的数据：", data)
 						serverData = data;
 						for (let i in data) {
@@ -61,7 +61,7 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
 
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
-					(data:ProtoCmd.itf_TianJian_SpecialRingPanel) => {
+					(data: ProtoCmd.itf_TianJian_SpecialRingPanel) => {
 						// console.log("从服务器获取的数据：", data)
 						PanelManage.openTianJianPanel(data);
 					});
@@ -80,7 +80,20 @@ module view.juQingMode {
 			});
 
 			// 剧情事件
-			// EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => { PanelManage.openMenuPanel() });
+			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
+				// PanelManage.openMenuPanel() 
+				this.btn_menu.selected = !this.btn_menu.selected;
+				PanelManage.Main.btn_menu
+				if (this.btn_menu.selected) {
+					this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
+					PanelManage.openMenuPanel()
+				}
+				else {
+					this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
+					PopUpManager.showPanel(PanelManage.Menu);
+					PopUpManager.checkPanel(PanelManage.Menu);
+				}
+			});
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
