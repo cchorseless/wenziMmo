@@ -33,22 +33,22 @@ module view.zhaiYuan {
 			let box = this.view_SMain.getChildAt(id);
 			if (box.numChildren == 0) {
 				if (id == 0) {
-					box.removeChildren();
-					let o = new ZhaiYuan_LianQi_Intensify()
-					o.setData()
-					box.addChild(o);
+					// box.removeChildren();
+					// let o = new ZhaiYuan_LianQi_Intensify()
+					// o.setData()
+					// box.addChild(o);
 				}
 				else if (id == 1) {
-					box.removeChildren();
-					let o = new ZhaiYuan_LianQi_SoulStone()
-					o.setData()
-					box.addChild(o);
+					// box.removeChildren();
+					// let o = new ZhaiYuan_LianQi_SoulStone()
+					// o.setData()
+					// box.addChild(o);
 				}
 				else if (id == 2) {
-					box.removeChildren();
-					let o = new ZhaiYuan_LianQi_CSitem()
-					o.setData()
-					box.addChild(o);
+					// box.removeChildren();
+					// let o = new ZhaiYuan_LianQi_CSitem()
+					// o.setData()
+					// box.addChild(o);
 				}
 			}
 		}
