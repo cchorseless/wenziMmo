@@ -419,6 +419,8 @@ module ProtoCmd {
     export const upgradeSoulStone = "upgradeSoulStone";       //ntype, pos, step, flag(0 经验升级，1道具升级)
     //玩家装备  魂石升阶界面  激活按钮点击时发送
     export const SoulStoneActive = "SoulStoneActive";         //ntype,pos,flag(0元宝激活 1道具激活)
+    //改变菜单按钮的状态
+    export const changeActivityState = "changeMenuState"      //true/false   boolean
 
 
     export const legednEquipPanel = "legednEquipPanel";      //传世装备面板信息    pos(位置0-9)
