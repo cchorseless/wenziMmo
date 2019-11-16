@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
+    "selecteID":220,
     "props":{"width":640,"sceneColor":"#000000","name":"hedao","height":1136},
     "nodeParent":-1,
     "label":"View(hedao)",
@@ -630,14 +630,13 @@
                             "props":{"y":221,"x":13,"width":562,"name":"item0","height":728},
                             "nodeParent":287,
                             "label":"Box(item0)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":288,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":8,"x":44,"stateNum":"1","skin":"image/juese/img_wuxing.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce"},
                                     "nodeParent":288,
@@ -652,7 +651,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":175,"width":229,"skin":"image/common/bottom_smalltitle.png","height":46},
                                     "nodeParent":288,
@@ -664,7 +662,6 @@
                                     "compId":291,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":6,"x":54,"text":"武学戾气","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                             "nodeParent":291,
@@ -680,7 +677,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":451,"width":562,"skin":"image/juese/bottom_common_001.png","height":96},
                                     "nodeParent":288,
@@ -692,7 +688,6 @@
                                     "compId":294,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_liqiIntroduce","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                             "nodeParent":294,
@@ -706,7 +701,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":561,"x":138,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":288,
@@ -720,7 +714,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":562,"x":244,"text":"转生等级7级后自动开启","fontSize":24,"font":"FZHL","color":"#a53232"},
                                     "nodeParent":288,
@@ -733,7 +726,7 @@
                                         ],
                                     "$HIDDEN":false
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
                             "x":45,

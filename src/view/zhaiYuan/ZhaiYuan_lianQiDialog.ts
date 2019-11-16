@@ -354,13 +354,9 @@ module view.zhaiYuan {
 			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData1.des[i]));
 				}
 			}
-
-
-
-
 			this.panel_1_UI.img_circle.visible = false;
 			for (let i = 0; i < 5; i++) {
 				let aa = Math.floor(this.msgData.lvl / 5);
@@ -395,9 +391,6 @@ module view.zhaiYuan {
 			} else if (this.curOneOfSoulStoneLv > 24) {
 				this.setSoulStoneState(6)
 			}
-			for (let i = 1; i < 7; i++) {
-				this["html_soul_" + i].innerHTML = "";
-			}
 			this.lab_attact.text = "";
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID];
@@ -419,7 +412,7 @@ module view.zhaiYuan {
 							this.list_shengjie.array = effData.des;
 							this.list_shengjie.itemRender = view.compart.SinglePropsItem;
 							this.list_shengjie.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-								cell.setData(cell.dataSource.des);
+								cell.setData(cell.dataSource);
 							}, null, false)
 							// this["html_soul_" + i].innerHTML = "<span style='color:#000000;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str1 + "</span>"
 							// 	+ "<span style='color:#63491a;font-family:KaiTi;fontSize:22;stroke:0.2;strokeColor:#000000'>" + str2 + "</span>"
@@ -438,10 +431,6 @@ module view.zhaiYuan {
 		//传世
 		public onPageContent2() {
 			let effid;
-			for (let i = 1; i < 6; i++) {
-				// this.html_3_1
-				this["html_3_" + i].innerHTML = "";
-			}
 			if (GameApp.GameEngine.mainPlayer.job == 1) {
 				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(this.curEquipDataCS.toString())
 			} else if (GameApp.GameEngine.mainPlayer.job == 2) {
@@ -454,7 +443,7 @@ module view.zhaiYuan {
 			this.list_chuanshi.array = effData.des;
 			this.list_chuanshi.itemRender = view.compart.SinglePropsItem;
 			this.list_chuanshi.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource.des);
+				cell.setData(cell.dataSource);
 			}, null, false)
 		}
 		//page2 上面面板的显示状态

@@ -118,11 +118,13 @@ module view.hero {
 			}
 			this.list_down.array = [];
 			let shuxing = GameUtil.parseEffectidToObj(effidArray);
-			this.list_down.array = shuxing.des;
-			this.list_down.itemRender = view.compart.SinglePropsItem;
-			this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource.des);
-			}, null, false)
+			if (shuxing.des.length !== 0) {
+				this.list_down.array = shuxing.des;
+				this.list_down.itemRender = view.compart.SinglePropsItem;
+				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+					cell.setData(cell.dataSource.des);
+				}, null, false)
+			}
 		}
 	}
 }
