@@ -18,7 +18,7 @@ module view.wuXue {
 			this.btn_heDao.selected=true;
 			this.tab_zhuansheng.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_heDao.selectedIndex = index;
-				// this.init_event();
+				this.init_event();
 			}, null, false);
 			this.init_event();
 			this.addEvent();

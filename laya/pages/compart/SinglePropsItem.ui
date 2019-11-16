@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":200,"sceneColor":"#efd6d6","height":30},
+    "selecteID":7,
+    "props":{"width":270,"sceneColor":"#efd6d6","height":30},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,14 +14,27 @@
     "child":[
         {
             "x":15,
-            "type":"HTMLDivElement",
-            "props":{"y":0,"x":0,"width":201,"var":"div_des","innerHTML":"htmlText","height":31},
+            "type":"Label",
+            "props":{"y":0,"x":0,"width":126,"var":"lbl_label","text":"力道力道力道:","height":31,"fontSize":20,"font":"Microsoft YaHei","color":"#000000"},
             "nodeParent":1,
-            "label":"HTMLDivElement(div_des)",
+            "label":"Label(lbl_label)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":6,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":5,"x":131,"width":136,"var":"lbl_dataDes","valign":"middle","text":"9999999-9999999","height":20,"fontSize":20,"font":"FZXK","color":"#43f909","bold":true,"align":"center"},
+            "nodeParent":1,
+            "label":"Label(lbl_dataDes)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
             "child":[
                 ]
         }],

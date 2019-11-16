@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":136,
-    "selecteID":181,
+    "selectedBox":135,
+    "selecteID":112,
     "props":{"width":640,"sceneColor":"#000000","name":"TianJian","height":1136},
     "nodeParent":-1,
     "label":"View(TianJian)",
@@ -790,27 +790,14 @@
                             "props":{"y":0,"x":0,"var":"box_skillIcon"},
                             "nodeParent":110,
                             "label":"Box(box_skillIcon)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":135,
                             "child":[
                                 {
-                                    "type":"Image",
-                                    "props":{"y":0,"x":15,"skin":"image/common/img_jinengkuang_01.png","alpha":0.7},
-                                    "nodeParent":135,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":112,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":15,"x":32,"var":"img_shuxingIcon","skin":"image/common/icon_jineng_01.png"},
                                     "nodeParent":135,
@@ -824,6 +811,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":93,"x":0,"width":148,"skin":"image/common/bottom_prompt.png","height":37},
                                     "nodeParent":135,
@@ -835,6 +823,7 @@
                                     "compId":114,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":7,"x":30,"var":"lab_shuxingName","text":"技能名称","strokeColor":"#000000","stroke":3,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                             "nodeParent":114,

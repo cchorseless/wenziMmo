@@ -5,8 +5,15 @@ module view.compart {
 			super();
 		}
 		public setData(effectIDStruct: ProtoCmd.EffectIDStruct): SinglePropsItem {
-			this.div_des.style.fontSize = 24;
-			this.div_des.innerHTML = effectIDStruct.des;
+
+			this.lbl_label.text = effectIDStruct.label;
+			if (effectIDStruct.onlyValue) {
+				this.lbl_dataDes.text = '' + effectIDStruct.value;
+			}
+			else {
+				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
+			}
+
 			return this;
 		}
 	}

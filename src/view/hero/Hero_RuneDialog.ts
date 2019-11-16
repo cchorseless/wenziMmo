@@ -427,7 +427,6 @@ module view.hero {
 				pkt.setString(ProtoCmd.Hero_runeRecycle, [i])
 				lcp.send(pkt);
 			}
-
 		}
 	}
 }
