@@ -39,13 +39,16 @@ module view.juQingMode {
 			else {
 				if (player.talkID >= this.charpterInfo.enddbid) {
 					this.lbl_conDes.text = '已完成';
+					this.disabled = false
 				}
 				else if (player.talkID < this.charpterInfo.startdbid) {
 					this.lbl_conDes.text = '未开启';
+					this.disabled = true
 				}
 				else {
 					this.lbl_conDes.text = '进行中';
 					this.lbl_conDes.color = '#a2cbb1';
+					this.disabled = false
 				}
 
 			}
