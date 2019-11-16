@@ -61,14 +61,16 @@ module view.juese {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
 				console.log('=====>声望声望', jsonData)
-				this.lbl_use.text='每日消耗'+jsonData.daydelexp+'点声望值';
-				this.lbl_xiaoguo.text='威慑\n 攻击威望值低于自己的玩家'+jsonData.damage;
+				this.lbl_use.text = '每日消耗' + jsonData.daydelexp + '点声望值';
+				this.lbl_xiaoguo.text = '威慑\n 攻击威望值低于自己的玩家' + jsonData.damage;
 				//我的声望头衔
 				for (let i = 0; jsonData.titletab[i]; i++) {
 					if (jsonData.prestigeid == i) {
 						this.lbl_title.text = '' + jsonData.titletab[i].name;
 					}
 				}
+				//声望经验值进度条
+				this.img_progress.width = 211 * jsonData.minexp / jsonData.maxexp;
 				//声望经验值
 				this.lbl_value.text = jsonData.minexp + '/' + jsonData.maxexp;
 				//声望排名
@@ -83,7 +85,7 @@ module view.juese {
 				let keys1 = Object.keys(attribute1)
 				this.vbox_left.removeChildren();
 				for (let key of keys1) {
-					this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+					this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key]))
 				}
 				//下级属性
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
@@ -96,11 +98,10 @@ module view.juese {
 					let keys2 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
 					for (let key of keys2) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key]))
 					}
 				}
-				//声望经验值进度条
-				this.img_progress.width = 211 * jsonData.damage;
+
 				//威望预览
 				this.hbox_shengWang.removeChildren();
 				for (let i = 0; jsonData.titletab[i]; i++) {
