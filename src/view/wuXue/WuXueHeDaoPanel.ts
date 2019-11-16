@@ -140,19 +140,17 @@ module view.wuXue {
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 					let attribute1 = shuxing1.des;
-					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
-					for (let key of keys1) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+					for (let key of attribute1) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key))
 					}
 					//下级属性
 					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
 					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
-					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
-					for (let key of keys2) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
+					for (let key of attribute2) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key))
 					}
 				}
 

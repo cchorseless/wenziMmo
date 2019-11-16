@@ -82,8 +82,8 @@ module view.juese {
 				this['img_xiaoguo' + j].visible = false;
 				this['btn_top' + j].alpha = 0.5;
 				this['btn_top' + j].scaleX = this['btn_top' + j].scaleY = 1;
-				this['btn_top'+j].labelColors='#ffffff';
-				this['btn_top'+j].label=this.talentName[j];
+				this['btn_top' + j].labelColors = '#ffffff';
+				this['btn_top' + j].label = this.talentName[j];
 			}
 			this['btn_top' + i].selected = true;
 			this['btn_top' + i].alpha = 1;
@@ -255,10 +255,9 @@ module view.juese {
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
 					this.lbl_power1.text = '' + battle1;
-					let keys1 = Object.keys(attribute1)
 					this.vbox_left.removeChildren();
-					for (let key of keys1) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+					for (let key of attribute1) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key))
 					}
 					break;
 				//臂力
@@ -267,10 +266,9 @@ module view.juese {
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
 					this.lbl_power1.text = '' + battle2;
-					let keys2 = Object.keys(attribute2)
 					this.vbox_left.removeChildren();
-					for (let key of keys2) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
+					for (let key2 of attribute2) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key2))
 					}
 					break;
 				//善缘				
@@ -279,10 +277,9 @@ module view.juese {
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
 					this.lbl_power1.text = '' + battle3;
-					let keys3 = Object.keys(attribute3)
 					this.vbox_left.removeChildren();
-					for (let key of keys3) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute3[key].des))
+					for (let key3 of attribute3) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key3))
 					}
 					break;
 				//身法
@@ -291,10 +288,9 @@ module view.juese {
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
 					this.lbl_power1.text = '' + battle4;
-					let keys4 = Object.keys(attribute4)
 					this.vbox_left.removeChildren();
-					for (let key of keys4) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute4[key].des))
+					for (let key4 of attribute4) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key4))
 					}
 					break;
 				//根骨
@@ -303,10 +299,9 @@ module view.juese {
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
 					this.lbl_power1.text = '' + battle5;
-					let keys5 = Object.keys(attribute5)
 					this.vbox_left.removeChildren();
-					for (let key of keys5) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(attribute5[key].des))
+					for (let key5 of attribute5) {
+						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key5))
 					}
 					break;
 			}
@@ -350,9 +345,9 @@ module view.juese {
 				let dangqian = this.jieshu - 1;
 				let jieshuID = this.hbox_talent._childs[dangqian].id;
 				let name = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + jieshuID);
-				this['btn_top'+num].labelColors='#f9e596';
-				this['btn_top'+num].label=name;
-				this['img_talent'+num].skin = 'image/common/daoju/itemicon_' + jieshuID + '.png';
+				this['btn_top' + num].labelColors = '#f9e596';
+				this['btn_top' + num].label = name;
+				this['img_talent' + num].skin = 'image/common/daoju/itemicon_' + jieshuID + '.png';
 			}
 		}
 		/**
@@ -369,10 +364,9 @@ module view.juese {
 					let attribute1 = wuxing.des;
 					let battle1 = wuxing.battle[this.job];
 					this.lbl_power2.text = '' + battle1;
-					let keys1 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
-					for (let key of keys1) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key].des))
+					for (let key of attribute1) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key))
 					}
 					break;
 				//臂力
@@ -381,10 +375,9 @@ module view.juese {
 					let attribute2 = bili.des;
 					let battle2 = bili.battle[this.job];
 					this.lbl_power2.text = '' + battle2;
-					let keys2 = Object.keys(attribute2)
 					this.vbox_right.removeChildren();
-					for (let key of keys2) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute2[key].des))
+					for (let key2 of attribute2) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key2))
 					}
 					break;
 				//善缘				
@@ -393,10 +386,9 @@ module view.juese {
 					let attribute3 = shanyuan.des;
 					let battle3 = shanyuan.battle[this.job];
 					this.lbl_power2.text = '' + battle3;
-					let keys3 = Object.keys(attribute3)
 					this.vbox_right.removeChildren();
-					for (let key of keys3) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute3[key].des))
+					for (let key3 of attribute3) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key3))
 					}
 					break;
 				//身法
@@ -405,10 +397,9 @@ module view.juese {
 					let attribute4 = shenfa.des;
 					let battle4 = shenfa.battle[this.job];
 					this.lbl_power2.text = '' + battle4;
-					let keys4 = Object.keys(attribute4)
 					this.vbox_right.removeChildren();
-					for (let key of keys4) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute4[key].des))
+					for (let key4 of attribute4) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key4))
 					}
 					break;
 				//根骨
@@ -417,10 +408,9 @@ module view.juese {
 					let attribute5 = gengu.des;
 					let battle5 = gengu.battle[this.job];
 					this.lbl_power2.text = '' + battle5;
-					let keys5 = Object.keys(attribute5)
 					this.vbox_right.removeChildren();
-					for (let key of keys5) {
-						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute5[key].des))
+					for (let key5 of attribute5) {
+						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key5))
 					}
 					break;
 			}

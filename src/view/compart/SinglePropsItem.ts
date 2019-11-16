@@ -4,9 +4,9 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public setData(des): SinglePropsItem {
-			this.div_des.style.fontSize=24;
-			this.div_des.innerHTML = des;
+		public setData(effectIDStruct: ProtoCmd.EffectIDStruct): SinglePropsItem {
+			this.div_des.style.fontSize = 24;
+			this.div_des.innerHTML = effectIDStruct.des;
 			return this;
 		}
 	}

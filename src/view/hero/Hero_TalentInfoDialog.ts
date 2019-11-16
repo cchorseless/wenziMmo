@@ -42,10 +42,9 @@ module view.hero {
 			let num = i * (index + 1);
 			let shuxing = GameUtil.parseEffectidToObj(['' + idArray[num]])
 			let attribute = shuxing.des;
-			let keys = Object.keys(attribute)
 			this.vbox_talent.removeChildren();
-			for (let key of keys) {
-				this.vbox_talent.addChild(new view.compart.SinglePropsItem().setData(attribute[key].des))
+			for (let key of attribute) {
+				this.vbox_talent.addChild(new view.compart.SinglePropsItem().setData(key))
 			}
 		}
 

@@ -34,8 +34,7 @@ module view.juese {
 			let effData = GameUtil.parseEffectidToObj([effid + ""])
 			this.vbox_intensify.removeChildren();
 			for (let i = 0; i < effData.des.length; i++) {
-				let str = effData.des[i].des;
-				this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(str))
+				this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]))
 			}
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;

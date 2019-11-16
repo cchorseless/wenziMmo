@@ -254,12 +254,10 @@ module view.dialog {
 			this.vbox_equip0.removeChildren();
 			this.vbox_equip1.removeChildren();
 			for (let i = 0; i < effData0.des.length; i++) {
-				let str = effData0.des[i].des;
-				this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(str));
+				this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 			}
 			for (let i = 0; i < effData1.des.length; i++) {
-				let str = effData1.des[i].des;
-				this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(str));
+				this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 			}
 		}
 		//重置list中子项的点击状态

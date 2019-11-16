@@ -348,15 +348,13 @@ module view.zhaiYuan {
 			this.vbox_0.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
-					let str = effData0.des[i].des;
-					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(str));
+					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					let str = effData1.des[i].des;
-					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(str));
+					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 

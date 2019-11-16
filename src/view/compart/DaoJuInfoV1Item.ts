@@ -52,7 +52,7 @@ module view.compart {
 				this.list_propsDes0.itemRender = view.compart.SinglePropsItem;
 				this.list_propsDes0.array = effResult0.des;
 				this.list_propsDes0.renderHandler = Laya.Handler.create(this, (ceil: view.compart.SinglePropsItem, data) => {
-					ceil.setData(ceil.dataSource.des);
+					ceil.setData(ceil.dataSource);
 				}, null, false)
 			}
 			// 套装属性
@@ -63,7 +63,7 @@ module view.compart {
 				this.list_propsDes1.itemRender = view.compart.SinglePropsItem;
 				this.list_propsDes1.array = effResult1.des;
 				this.list_propsDes1.renderHandler = Laya.Handler.create(this, (ceil: view.compart.SinglePropsItem, data) => {
-					ceil.setData(ceil.dataSource.des);
+					ceil.setData(ceil.dataSource);
 				}, null, false);
 			}
 			// 特殊属性

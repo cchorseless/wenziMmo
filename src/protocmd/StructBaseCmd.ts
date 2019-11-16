@@ -1045,7 +1045,7 @@ module ProtoCmd {
          */
         public get btdes(): string {
             if (this.btNpType) {
-                return LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[this.btNpType]] + ':' + this.dwNpNum;
+                return LangConfig.emNonpareilTypeDes[EnumData.emNonpareilType[this.btNpType]] + this.dwNpNum;
             }
         }
         /**
@@ -1064,7 +1064,19 @@ module ProtoCmd {
 
     }
 
-
+    /**
+     * 效果ID结构体
+     */
+    export class EffectIDStruct {
+        public min = 0;
+        public max = 0;
+        public value = 0;
+        public label = '';
+        public des: string = '';
+        public index;
+        public finish = true;// 数据完成
+        public onlyValue = true;// 最有一个值
+    }
     /**
      * 物品结构
      */
@@ -1073,7 +1085,7 @@ module ProtoCmd {
         public ExtensionProperty: Laya.Byte;		// 预留 10字节，做扩充
         public defaultName: string;
         private _itemType;//物品类型
-        private _stNpPropertyDes: Array<string> = [];// 极品属性描述
+        private _stNpPropertyDes: Array<EffectIDStruct> = [];// 极品属性描述
         private _stNpProperty: Array<Nonpareil> = [];// 极品属性对象
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
@@ -1344,112 +1356,9 @@ module ProtoCmd {
         /**
          * 极品属性描述
          */
-        public get stNpPropertyString(): Array<string> {
+        public get stNpPropertyString(): Array<EffectIDStruct> {
             if (this._stNpPropertyDes.length == 0) {
-                let _stNpProperty = this.stNpProperty;
-                let tmpObj = {};
-                let tmpDes = {};
-                let strDes = {};
-                for (let obj of _stNpProperty) {
-                    let str = obj.btdes;
-                    if (strDes[obj.btNpFrom] == null) {
-                        strDes[obj.btNpFrom] = [];
-                    }
-                    // 两条合一条
-                    if (obj.btNpType >= 3 && obj.btNpType <= 14) {
-                        tmpObj[obj.btNpType] = obj;
-                        let firstObj;
-                        let secondObj;
-                        let key;
-                        switch (obj.btNpType) {
-                            case 3:
-                            case 4:
-                                key = '' + obj.btNpFrom + '_3_4'
-                                firstObj = tmpObj[3];
-                                secondObj = tmpObj[4];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '攻击:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                            case 5:
-                            case 6:
-                                key = '' + obj.btNpFrom + '_5_6'
-                                firstObj = tmpObj[5];
-                                secondObj = tmpObj[6];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '力道:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                            case 7:
-                            case 8:
-                                key = '' + obj.btNpFrom + '_7_8'
-                                firstObj = tmpObj[7];
-                                secondObj = tmpObj[8];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '柔劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                            case 9:
-                            case 10:
-                                key = '' + obj.btNpFrom + '_9_10'
-                                firstObj = tmpObj[9];
-                                secondObj = tmpObj[10];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '刚劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                            case 11:
-                            case 12:
-                                key = '' + obj.btNpFrom + '_11_12'
-                                firstObj = tmpObj[11];
-                                secondObj = tmpObj[12];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '卸力:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                            case 13:
-                            case 14:
-                                key = '' + obj.btNpFrom + '_13_14'
-                                firstObj = tmpObj[13];
-                                secondObj = tmpObj[14];
-                                if (firstObj && secondObj) {
-                                    tmpDes[key] = '化劲:' + Math.min(secondObj.dwNpNum, firstObj.dwNpNum) + '-' + Math.max(secondObj.dwNpNum, firstObj.dwNpNum);
-                                }
-                                else {
-                                    tmpDes[key] = str;
-                                }
-                                break;
-                        }
-                    }
-                    else {
-                        strDes[obj.btNpFrom].push(str);
-                    }
-
-                }
-                let keys = Object.keys(tmpDes);
-                for (let key of keys) {
-                    let btNpFrom = key.split('_')[0];
-                    strDes[btNpFrom].push(tmpDes[key]);
-                }
-                let keys2 = Object.keys(strDes).sort();
-                for (let key2 of keys2) {
-                    this._stNpPropertyDes = this._stNpPropertyDes.concat(strDes[key2]);
-                }
+                this._stNpPropertyDes = GameUtil.parseNonpareilToObj(this.stNpProperty);
             }
             return this._stNpPropertyDes;
         }
@@ -1472,9 +1381,10 @@ module ProtoCmd {
             let effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + this.dwBaseID);
             let effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + this.dwBaseID);
             let effid2 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + this.dwBaseID);
-            r0 += GameUtil.parseEffectidToString('' + effid0).battle[1];
-            r1 += GameUtil.parseEffectidToString('' + effid1).battle[2];
-            r2 += GameUtil.parseEffectidToString('' + effid2).battle[3];
+            r0 += GameUtil.parseEffectidToObj(['' + effid0]).battle[1];
+            r1 += GameUtil.parseEffectidToObj(['' + effid0]).battle[2];
+            r2 += GameUtil.parseEffectidToObj(['' + effid0]).battle[3];
+            // 套装战力 TODO
             return [Math.ceil((r0 + r1 + r2) / 3), Math.ceil(r0), Math.ceil(r1), Math.ceil(r2)]
         }
 

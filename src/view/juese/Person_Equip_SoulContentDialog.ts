@@ -119,10 +119,8 @@ module view.juese {
 				this.vbox_soul0.removeChildren();
 				this.vbox_soul1.removeChildren();
 				for (let i = 0; i < effData0.des.length; i++) {
-					let str = effData0.des[i].des;
-					this.vbox_soul0.addChild(new view.compart.SinglePropsItem().setData(str))
-					let str_1 = effData1.des[i].des;
-					this.vbox_soul1.addChild(new view.compart.SinglePropsItem().setData(str_1))
+					this.vbox_soul0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]))
+					this.vbox_soul1.addChild(new view.compart.SinglePropsItem().setData(effData1.des[i]))
 				}
 			})
 			lcp.send(pkt);
@@ -166,10 +164,8 @@ module view.juese {
 			this.vbox_soul2.removeChildren();
 			this.vbox_soul3.removeChildren();
 			for (let i = 0; i < effData0.des.length; i++) {
-				let str = effData0.des[i].des;
-				this.vbox_soul2.addChild(new view.compart.SinglePropsItem().setData(str))
-				let str_1 = effData1.des[i].des;
-				this.vbox_soul3.addChild(new view.compart.SinglePropsItem().setData(str_1))
+				this.vbox_soul2.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]))
+				this.vbox_soul3.addChild(new view.compart.SinglePropsItem().setData(effData1.des[i]))
 			}
 		}
 	}
