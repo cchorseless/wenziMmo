@@ -89,40 +89,48 @@ module view.hero {
 		}
 		//内功碎片
 		public init_rune(): void {
+			this.list_down.array = [];
 			let minNum = EnumData.emEquipPosition.EQUIP_RUNE_UP;
 			let maxNum = EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT + 1;
 			let index = -1;
-			let effidArray = [];
+			let runeArray = [];
 			for (let i = minNum; i < maxNum; i++) {
 				index = index + 1;
 				let rune = GameUtil.findEquipInPlayer(i);
 				if (rune) {
 					this['img_rune' + index].visible = true;
 					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
-					let dweffid;
-					switch (this.job) {
-						case 1:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + rune.dwBaseID);
-							break;
-						case 2:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + rune.dwBaseID);
-							break;
-						case 3:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + rune.dwBaseID);
-							break;
+					let array = rune.stNpPropertyString
+					for (let j = 0; rune.stNpPropertyString[j]; j++) {
+						runeArray.push(rune.stNpPropertyString[j]);
 					}
-					effidArray.push(dweffid);
 				} else {
 					this['img_rune' + index].visible = false;
 				}
 			}
-			this.list_down.array = [];
-			let shuxing = GameUtil.parseEffectidToObj(effidArray);
-			if (shuxing.des.length !== 0) {
-				this.list_down.array = shuxing.des;
+			if (runeArray.length !== 0) {
+				let singleArray = [];
+				for (let i = 0; runeArray[i]; i++) {
+					let single = false;
+					for (let begin = (i + 1); runeArray[begin]; begin++) {
+						if (runeArray[i].index == runeArray[begin].index) {
+							if (runeArray[begin].onlyValue) {
+								runeArray[begin].value = runeArray[i].value + runeArray[begin].value;
+							} else {
+								runeArray[begin].max = runeArray[i].value + runeArray[begin].max;
+								runeArray[begin].min = runeArray[i].value + runeArray[begin].min;
+							}
+							single = true;
+						}
+					}
+					if (single == false) {
+						singleArray.push(runeArray[i]);
+					}
+				}
+				this.list_down.array = singleArray;
 				this.list_down.itemRender = view.compart.SinglePropsItem;
 				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-					cell.setData(cell.dataSource.des);
+					cell.setData(cell.dataSource);
 				}, null, false)
 			}
 		}

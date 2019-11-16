@@ -1350,7 +1350,7 @@ module ProtoCmd {
             // 按照位置排序
             // 先根据 条目位置排序
             // 再根据 条目枚举排序
-            return this._stNpProperty.sort((a, b) => { return a.btNpFrom - b.btNpFrom }).sort((a, b) => { return a.btNpType - b.btNpType });
+            return this._stNpProperty.sort((a, b) => { return b.btNpFrom - a.btNpFrom }).sort((a, b) => { return b.btNpType - a.btNpType });
         }
 
         /**

@@ -243,8 +243,10 @@ module ProtoCmd {
     export const Hero_exchangeRealGas = 'exchangeRealGas';
     // 弟子符文面板
     export const Hero_openActiveRunePanel = 'openActiveRunePanel';//得到数据score符文积分viewtab符文碎片
-    // 弟子符文面板
-    export const Hero_runeRecycle = 'runeRecycle';//得到数据score符文积分viewtab符文碎片
+    // 弟子符文全部回收
+    export const Hero_runeRecycle = 'runeRecycle';//（参数：0-10阶）
+     // 弟子符文激活
+    export const Hero_activeRuneExProperty = 'activeRuneExProperty';//（参数：0-10阶）
 
     /*********************************资质天赋******************** */
 

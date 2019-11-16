@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":346,
-    "selecteID":233,
+    "selectedBox":98,
+    "selecteID":385,
     "props":{"width":629,"sceneColor":"#eed8d7","height":909},
     "nodeParent":-1,
     "label":"Dialog",
@@ -444,7 +444,7 @@
                             "props":{"y":540,"x":4,"width":523,"var":"panel_view","height":130},
                             "nodeParent":55,
                             "label":"Panel(panel_view)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -466,7 +466,7 @@
                                             "props":{"y":0,"x":0,"var":"box_1"},
                                             "nodeParent":51,
                                             "label":"Box(box_1)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -851,13 +851,14 @@
                     "props":{"y":12,"name":"item1"},
                     "nodeParent":346,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":98,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"x":21,"width":505,"var":"panel_activation","height":400},
                             "nodeParent":98,
@@ -869,6 +870,7 @@
                             "compId":56,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_rune1","space":5,"right":0,"left":0},
                                     "nodeParent":56,
@@ -883,6 +885,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":404,"x":11,"width":520,"skin":"image/common/login/line_yeqian.png"},
                             "nodeParent":98,
@@ -896,6 +899,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":579,"x":9,"wordWrap":true,"width":117,"var":"lbl_shanghai","text":"对战士伤害增长5.2%","leading":5,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":98,
@@ -908,6 +912,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":435,"x":406,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":98,
@@ -946,6 +951,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":416,"x":146,"width":245,"var":"vbox_item","height":228},
                             "nodeParent":98,
@@ -959,6 +965,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":485,"x":406,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":98,
@@ -970,6 +977,7 @@
                             "compId":96,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_4.png","height":25},
                                     "nodeParent":96,
@@ -982,6 +990,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":96,
@@ -996,10 +1005,11 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":541,"x":408,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活"},
+                            "props":{"y":541,"x":408,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"激活"},
                             "nodeParent":98,
-                            "label":"Button",
+                            "label":"Button(btn_jihuo)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -1009,6 +1019,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuWithNameItem.ui",
                             "props":{"y":461,"x":17,"var":"ui_item0","runtime":"view.compart.DaoJuWithNameItem"},
@@ -1022,6 +1033,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":463,"x":19,"width":110,"var":"box_item","height":115},
                             "nodeParent":98,
@@ -1035,7 +1047,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1043,7 +1055,7 @@
                     "props":{"y":12,"x":11,"name":"item2"},
                     "nodeParent":346,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -1186,9 +1198,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":600,"x":384,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"替换"},
+                            "props":{"y":600,"x":384,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"替换"},
                             "nodeParent":233,
-                            "label":"Button",
+                            "label":"Button(btn_exchange)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -1280,37 +1292,8 @@
                             "compId":418,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":250,"x":54,"width":110,"var":"box_exchange1","height":100},
-                            "nodeParent":233,
-                            "label":"Box(box_exchange1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":389,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":250,"x":344,"width":110,"var":"box_exchange2","height":100},
-                            "nodeParent":233,
-                            "label":"Box(box_exchange2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":390,
-                            "child":[
-                                ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -1728,8 +1711,9 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
-                }]
+                    "$HIDDEN":true
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {
