@@ -222,7 +222,6 @@ module view.juQingMode {
 
 		public initUI(): void {
 			// 拉取章节信息
-
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
 				(jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
