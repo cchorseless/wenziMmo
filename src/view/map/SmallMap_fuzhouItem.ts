@@ -9,7 +9,7 @@ module view.map {
 			for (let i = 10001; i <= 10027; i++) {
 				let btn: Laya.Button = this['btn_' + i];
 				btn.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + i);
-				btn.labelSize = (btn.label.length > 3) ? 19 : 25;
+				btn.labelSize = (btn.label.length > 3) ? 16 : 25;
 				btn.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + i) + '.png';
 			}
 
