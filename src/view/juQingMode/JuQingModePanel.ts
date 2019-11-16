@@ -83,7 +83,12 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				// PanelManage.openMenuPanel() 
 				this.btn_menu.selected = !this.btn_menu.selected;
-				PanelManage.Main.btn_menu
+				GameApp.LListener.event(ProtoCmd.changeActivityState, this.btn_menu.selected);
+				// PanelManage.Main.btn_menu.selected;
+
+			});
+			GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
+				this.btn_menu.selected = state;
 				if (this.btn_menu.selected) {
 					this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
 					PanelManage.openMenuPanel()
@@ -93,7 +98,8 @@ module view.juQingMode {
 					PopUpManager.showPanel(PanelManage.Menu);
 					PopUpManager.checkPanel(PanelManage.Menu);
 				}
-			});
+			})
+
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
@@ -216,6 +222,7 @@ module view.juQingMode {
 
 		public initUI(): void {
 			// 拉取章节信息
+
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [GameApp.MainPlayer.pianZhangID], null, this,
 				(jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
@@ -244,10 +251,16 @@ module view.juQingMode {
 							}
 						}
 					};
+					let startTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
+					let endTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid;
+					let span0 = endTalkId - startTalkId
+					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId
+					this.lab_juqingjindu.text = "当前进度：" + Math.floor((span1 / span0) * 100) + "%"
 				});
 			lcp.send(pkt1);
 			// 判定是否有触发了剧情事件
 			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+
 			if (taskInfo) {
 				this.btn_next.label = 'new 剧情事件!!!!';
 			}
