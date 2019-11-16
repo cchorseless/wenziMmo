@@ -13,7 +13,9 @@ module view.juQingMode {
 			this.div_content.style.align = 'middle';
 			this.div_content.innerHTML = txt;
 			if (txt.search('<a href=') > -1) {
-				this.div_content.on(Laya.Event.LINK, this, (data) => { console.log(data) })
+				this.div_content.on(Laya.Event.LINK, this, (data) => { console.log(data)
+					
+				 })
 			}
 		}
 	}
