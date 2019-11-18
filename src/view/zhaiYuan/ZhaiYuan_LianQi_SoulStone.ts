@@ -68,6 +68,7 @@ module view.zhaiYuan {
 				}
 			})
 		}
+		//刷新面板
 		public upDateView(type, Touchindex) {
 			let curCostNum;
 			let costName;
@@ -146,6 +147,7 @@ module view.zhaiYuan {
 			//更新   上面面板的详细信息
 			this.onPageContent1();
 		}
+		//拉取新的上面面板面板单个item信息
 		public getData_EquipPanelMsg(touchid) {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStonePanel, [this.type, this.TouchID, this.curSoulStoneID], 0, this,
 				(data) => {
@@ -155,6 +157,7 @@ module view.zhaiYuan {
 				});
 			lcp.send(pkt);
 		}
+		//更新   上面面板的详细信息
 		public onPageContent1() {
 			let arr;
 			if (this.type == 0) {
@@ -175,6 +178,7 @@ module view.zhaiYuan {
 				this.setSoulStoneState(6)
 			}
 			this.lab_attact.text = "";
+			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID];
 			let attackNum = 0;
@@ -188,10 +192,6 @@ module view.zhaiYuan {
 						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
 						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
 						effDataArr.push(effData.des)
-						// if (soul_oneOf_Lv >= 12) {
-
-						// } else {
-						// }
 					}
 				}
 			} else if (this.type == 1) {
@@ -203,10 +203,6 @@ module view.zhaiYuan {
 						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
 						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
 						effDataArr.push(effData.des)
-						// if (soul_oneOf_Lv >= 12) {
-
-						// } else {
-						// }
 					}
 				}
 			}
@@ -218,6 +214,7 @@ module view.zhaiYuan {
 			}, null, false)
 			this.lab_attact.text = attackNum.toString();
 		}
+		//设置上面面板显示多少个魂石
 		private setSoulStoneState(id: number) {
 			for (let i = 3; i < 7; i++) {
 				if (i == id) {
@@ -238,10 +235,12 @@ module view.zhaiYuan {
 				this["lab_hunshi" + id + "_lv" + i].text = str + "阶"
 			}
 		}
+		//获取面板信息
 		private getData_PlayerEquipMsg(touchID) {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null)
 			lcp.send(pkt);
 		}
+		//发送激活、升阶请求
 		private sendIntensify() {
 			if (this.btn_intensify.label == "激活") {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SoulStoneActive, [this.type, this.TouchID, 0]);
