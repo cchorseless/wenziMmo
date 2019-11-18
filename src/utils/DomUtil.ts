@@ -19,27 +19,29 @@ class DomUtil extends SingletonClass {
      * @param txt 
      */
     public dealWithTalkTxt(txt): string {
+
         txt = txt.replace(/‘/g, "'").replace(/’/g, "'")
         // 处理名字
-        txt = txt.replace(/拎壶冲/g, "<font color='#17930d'>" + GameApp.MainPlayer.objName + "</font>");
+        txt = txt.replace(/拎壶冲/g, "<font color='#179a0d'>" + GameApp.MainPlayer.objName + "</font>");
         // 处理事件
         txt = txt.replace(/【e/g, "<font color='#fb0a06'>");
         txt = txt.replace(/e】/g, "</font>");
         // 处理道具
-        txt = txt.replace(/【i/g, "<font color='#08fb42'>");
+        txt = txt.replace(/【i/g, "<font color='#a36a1d'>");
         txt = txt.replace(/i】/g, "</font>");
         // 处理NPC 
-        txt = txt.replace(/【n/g, "<font color='#08fb42'>");
+        txt = txt.replace(/【n/g, "<font color='#a53232'>");
         txt = txt.replace(/n】/g, "</font>");
         // 怪物
-        txt = txt.replace(/【m/g, "<font color='#17930d'>");
+        txt = txt.replace(/【m/g, "<font color='#a53232'>");
         txt = txt.replace(/m】/g, "</font>");
         // 处理地点
-        txt = txt.replace(/【p/g, "<font color='#17930d'>");
+        txt = txt.replace(/【p/g, "<font color='#81398c'>");
         txt = txt.replace(/p】/g, "</font>");
         // 处理超链接
         txt = txt.replace(/【a/g, "<a href=");
         txt = txt.replace(/a】/g, "</a>");
+        txt = "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>"+txt
         return txt
     }
 

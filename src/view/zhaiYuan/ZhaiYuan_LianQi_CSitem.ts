@@ -35,6 +35,7 @@ module view.zhaiYuan {
 				this.getData_PlayerEquipMsg(this.TouchID);
 			})
 		}
+		//刷新面板
 		private upDateView(touchid) {
 			let curCostNum;
 			let costName;
@@ -45,6 +46,7 @@ module view.zhaiYuan {
 				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
 			}
 			this.curHasActive = false;
+			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			this.useDataID = baseArr[this.TouchID]
 			if (this.useDataID == 15) {
@@ -103,6 +105,7 @@ module view.zhaiYuan {
 				this.btn_intensify.label = arr[4];
 				this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 				this.img_chuanshi_equip.btn_icon.gray = true;
+				// this["ui_equip" + this.TouchID]
 			}
 			this.lab_cost_forge.text = ""
 			//升级;             所需要的金币消耗
@@ -118,12 +121,9 @@ module view.zhaiYuan {
 			this.onPageContent2()
 
 		}
+		//更新上面面板信息
 		public onPageContent2() {
 			let effid;
-			for (let i = 1; i < 6; i++) {
-				// this.html_3_1
-				this["html_3_" + i].innerHTML = "";
-			}
 			if (GameApp.GameEngine.mainPlayer.job == 1) {
 				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(this.curEquipDataCS.toString())
 			} else if (GameApp.GameEngine.mainPlayer.job == 2) {
@@ -136,9 +136,10 @@ module view.zhaiYuan {
 			this.list_chuanshi.array = effData.des;
 			this.list_chuanshi.itemRender = view.compart.SinglePropsItem;
 			this.list_chuanshi.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource.des);
+				cell.setData(cell.dataSource);
 			}, null, false)
 		}
+		//重新获取面板信息
 		private getData_PlayerEquipMsg(touchID) {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.legednEquipBaseid, null, 0, this, (data) => {
 				this.allData = data;
@@ -146,10 +147,13 @@ module view.zhaiYuan {
 			})
 			lcp.send(pkt);
 		}
+		//刷新面板
 		public getData_EquipPanelMsg(itemID: number) {
 			this.upDateView(this.TouchID);
 		}
+		//发送激活、进阶请求
 		private sendIntensify() {
+			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			if (this.btn_intensify.label == "激活") {
 				this.dressEquip(this.tempItemData)
@@ -177,6 +181,7 @@ module view.zhaiYuan {
 
 			}
 		}
+		//穿戴装备
 		private dressEquip(obj) {
 			let packet = new ProtoCmd.CretProcessingItem();
 			packet.setValue('dwtmpid', GameApp.MainPlayer.tempId);
@@ -217,6 +222,7 @@ module view.zhaiYuan {
 			packet.destLocation.btIndex = itemPosition;
 			lcp.send(packet);
 		}
+		//显示 下面的消耗数值
 		private showCSPanel() {
 			let costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.drillid.toString())
 			let curCostNum = GameUtil.findItemInBag(this.msgData.drillid, GameApp.GameEngine.bagItemDB);

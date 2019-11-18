@@ -68,6 +68,7 @@ module view.zhaiYuan {
 				}
 			})
 		}
+		//刷新面板
 		public upDateView(type, Touchindex) {
 			let curCostNum;
 			let costName;
@@ -77,6 +78,7 @@ module view.zhaiYuan {
 				this["ui_equip" + i].btn_icon.gray = false;
 				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
 			}
+			this.allData.openlvl
 			this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 			this.ui_centerIcon.img_circle.visible = false;
 			this.ui_jieduan.img_circle.visible = false;
@@ -84,17 +86,21 @@ module view.zhaiYuan {
 				if (type == 0) {
 					if (this.allData.openlvl[i].pbj == 0) {
 						this["ui_equip" + i].btn_icon.gray = true;
+						this.btn_intensify.label = "激活"
 					}
 					else {
 						this["ui_equip" + i].btn_icon.gray = false;
+						this.btn_intensify.label = "升阶"
 					}
 				}
 				else if (type == 1) {
 					if (this.allData.openlvl[i].hbj == 0) {
 						this["ui_equip" + i].btn_icon.gray = true;
+						this.btn_intensify.label = "激活"
 					}
 					else {
 						this["ui_equip" + i].btn_icon.gray = false;
+						this.btn_intensify.label = "升阶"
 					}
 				}
 			}
@@ -141,6 +147,7 @@ module view.zhaiYuan {
 			//更新   上面面板的详细信息
 			this.onPageContent1();
 		}
+		//拉取新的上面面板面板单个item信息
 		public getData_EquipPanelMsg(touchid) {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStonePanel, [this.type, this.TouchID, this.curSoulStoneID], 0, this,
 				(data) => {
@@ -150,6 +157,7 @@ module view.zhaiYuan {
 				});
 			lcp.send(pkt);
 		}
+		//更新   上面面板的详细信息
 		public onPageContent1() {
 			let arr;
 			if (this.type == 0) {
@@ -169,13 +177,12 @@ module view.zhaiYuan {
 			} else if (this.curOneOfSoulStoneLv > 24) {
 				this.setSoulStoneState(6)
 			}
-			for (let i = 1; i < 7; i++) {
-				this["html_soul_" + i].innerHTML = "";
-			}
 			this.lab_attact.text = "";
+			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID];
 			let attackNum = 0;
+			let effDataArr = []
 			if (this.type == 0) {
 				for (let i = 1; i < 7; i++) {
 					let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
@@ -184,21 +191,30 @@ module view.zhaiYuan {
 						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
 						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
 						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
-
-						this.list_shengjie.array = [];
-						if (soul_oneOf_Lv >= 12) {
-							this.list_shengjie.array = effData.des;
-							this.list_shengjie.itemRender = view.compart.SinglePropsItem;
-							this.list_shengjie.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-								cell.setData(cell.dataSource.des);
-							}, null, false)
-						} else {
-						}
+						effDataArr.push(effData.des)
+					}
+				}
+			} else if (this.type == 1) {
+				for (let i = 1; i < 7; i++) {
+					let soul_oneOf_Lv = this.allData.herolvl[this.TouchID][i] //魂石每一个球的等级
+					if (soul_oneOf_Lv > 0) {
+						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
+						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
+						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
+						effDataArr.push(effData.des)
 					}
 				}
 			}
+			this.list_shengjie.array = [];
+			this.list_shengjie.array = effDataArr
+			this.list_shengjie.itemRender = view.compart.SinglePropsItem;
+			this.list_shengjie.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+				cell.setData(effDataArr[index][0]);
+			}, null, false)
 			this.lab_attact.text = attackNum.toString();
 		}
+		//设置上面面板显示多少个魂石
 		private setSoulStoneState(id: number) {
 			for (let i = 3; i < 7; i++) {
 				if (i == id) {
@@ -219,10 +235,12 @@ module view.zhaiYuan {
 				this["lab_hunshi" + id + "_lv" + i].text = str + "阶"
 			}
 		}
+		//获取面板信息
 		private getData_PlayerEquipMsg(touchID) {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null)
 			lcp.send(pkt);
 		}
+		//发送激活、升阶请求
 		private sendIntensify() {
 			if (this.btn_intensify.label == "激活") {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SoulStoneActive, [this.type, this.TouchID, 0]);

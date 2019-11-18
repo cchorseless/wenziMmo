@@ -37,11 +37,12 @@ module view.zhaiYuan {
 				this.getData_PlayerEquipMsg()
 			})
 		}
+		//刷新界面
 		public upDateView(type, Touchindex) {
 			let curCostNum;
 			let costName;
 			let costCount;
-			let arr = ["强化", "激活", "升阶", "进阶", "获取"]
+			// let arr = ["强化", "激活", "升阶", "进阶", "获取"]
 			this.btn_intensify.label = "强化";
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].btn_icon.gray = false;
@@ -72,8 +73,9 @@ module view.zhaiYuan {
 			//更新   上面面板的详细信息
 			this.onPageContent0();
 		}
-
+		//上面面板的详细信息
 		public onPageContent0() {
+			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID]
 			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
@@ -93,13 +95,13 @@ module view.zhaiYuan {
 			this.vbox_0.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
-					// this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.panel_1_UI.img_circle.visible = false;
@@ -116,7 +118,9 @@ module view.zhaiYuan {
 				}
 			}
 		}
-		//获取当前强化阶段3、5、7、9、11、13、15
+		/**
+		 * 获取当前强化阶段3、5、7、9、11、13、15      用于左上角显示当前阶数
+		 */
 		private onShowIntensifyNum(): number {
 			let aa;
 			let lv3 = 0;
@@ -184,7 +188,7 @@ module view.zhaiYuan {
 				return lv3;
 			}
 		}
-
+		//点击强化，发送强化事件
 		public sendIntensify() {
 			if (!this.canIntensify) {
 				TipsManage.showTips("资源不足，无法强化！")
@@ -198,6 +202,7 @@ module view.zhaiYuan {
 				});
 			lcp.send(pkt);
 		}
+		//强化成功后重新拉取面板信息
 		public getData_PlayerEquipMsg() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
 				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
