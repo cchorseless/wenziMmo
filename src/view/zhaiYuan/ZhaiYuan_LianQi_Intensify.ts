@@ -41,7 +41,7 @@ module view.zhaiYuan {
 			let curCostNum;
 			let costName;
 			let costCount;
-			let arr = ["强化", "激活", "升阶", "进阶", "获取"]
+			// let arr = ["强化", "激活", "升阶", "进阶", "获取"]
 			this.btn_intensify.label = "强化";
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].btn_icon.gray = false;
@@ -93,13 +93,13 @@ module view.zhaiYuan {
 			this.vbox_0.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
-					// this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.panel_1_UI.img_circle.visible = false;

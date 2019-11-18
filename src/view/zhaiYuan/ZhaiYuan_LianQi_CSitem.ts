@@ -103,6 +103,7 @@ module view.zhaiYuan {
 				this.btn_intensify.label = arr[4];
 				this.img_chuanshi_equip.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 				this.img_chuanshi_equip.btn_icon.gray = true;
+				this["ui_equip" + i]
 			}
 			this.lab_cost_forge.text = ""
 			//升级;             所需要的金币消耗
@@ -120,10 +121,6 @@ module view.zhaiYuan {
 		}
 		public onPageContent2() {
 			let effid;
-			for (let i = 1; i < 6; i++) {
-				// this.html_3_1
-				this["html_3_" + i].innerHTML = "";
-			}
 			if (GameApp.GameEngine.mainPlayer.job == 1) {
 				effid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(this.curEquipDataCS.toString())
 			} else if (GameApp.GameEngine.mainPlayer.job == 2) {
@@ -136,7 +133,7 @@ module view.zhaiYuan {
 			this.list_chuanshi.array = effData.des;
 			this.list_chuanshi.itemRender = view.compart.SinglePropsItem;
 			this.list_chuanshi.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource.des);
+				cell.setData(cell.dataSource);
 			}, null, false)
 		}
 		private getData_PlayerEquipMsg(touchID) {
