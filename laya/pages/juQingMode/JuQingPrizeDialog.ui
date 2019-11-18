@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":629,"sceneColor":"#cf413f","height":771},
+    "selecteID":66,
+    "props":{"width":569,"sceneColor":"#9c9797","height":779},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,7 +15,21 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":629,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","height":771},
+            "props":{"y":-202,"x":-30,"skin":"image/剧情奖励-弹窗.jpg","alpha":0.3},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":82,
+            "child":[
+                ],
+            "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":569,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","height":779},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -25,38 +39,40 @@
             "compId":2,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":8,"x":160,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
+            "props":{"y":4,"x":10,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
+            "isOpen":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":68,
             "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":7,"x":62,"text":"剧情奖励","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":68,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":70,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":11,"x":46,"text":"剧情奖励","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffeeb1"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":70,
+            "child":[
+                ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":61,"x":598,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":10,"x":551,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -69,91 +85,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":61,"x":69,"text":"剧情进度","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":72,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":115,"x":81,"wordWrap":true,"text":"第一卷","height":26,"fontSize":28,"font":"FZHL","color":"#000000","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":79,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":115,"x":146,"wordWrap":true,"width":178,"var":"lbl_pzName","text":"义薄云天","height":26,"fontSize":28,"font":"FZHL","color":"#63491a","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_pzName)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":60,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":117,"x":333,"wordWrap":true,"width":74,"var":"lbl_charpterNo","text":"第一章","height":26,"fontSize":22,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label(lbl_charpterNo)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":57,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":117,"x":413,"wordWrap":true,"var":"lbl_charpterName","text":"杀熊","height":26,"fontSize":24,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_charpterName)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":61,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":162,"x":69,"text":"挂机效率","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":74,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":209,"x":52,"text":"金币：","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":231,"x":65,"text":"金币：","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -161,12 +93,13 @@
             "hasChild":false,
             "compId":65,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":112,"var":"lbl_coinXl","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
+            "props":{"y":230,"x":125,"var":"lbl_coinXl","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_coinXl)",
             "isDirectory":false,
@@ -174,12 +107,13 @@
             "hasChild":false,
             "compId":20,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":209,"x":227,"text":"阅历：","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":266,"x":63,"text":"阅历：","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -187,12 +121,13 @@
             "hasChild":false,
             "compId":66,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":294,"var":"lbl_playerExp","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
+            "props":{"y":265,"x":130,"var":"lbl_playerExp","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_playerExp)",
             "isDirectory":false,
@@ -200,12 +135,13 @@
             "hasChild":false,
             "compId":21,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":209,"x":402,"text":"默契：","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":266,"x":238,"text":"默契：","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -213,31 +149,19 @@
             "hasChild":false,
             "compId":67,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":469,"var":"lbl_heroExp","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
+            "props":{"y":265,"x":305,"var":"lbl_heroExp","text":"10000/H","fontSize":24,"font":"FZHL","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_heroExp)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":22,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":253,"x":69,"text":"掉落预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":76,
             "child":[
                 ],
             "$HIDDEN":false
@@ -267,20 +191,6 @@
                     "child":[
                         ]
                 }]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":449,"x":69,"text":"累计奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":78,
-            "child":[
-                ],
-            "$HIDDEN":false
         },
         {
             "x":15,
@@ -325,7 +235,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":667,"x":302,"var":"btn_lingQu","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":6,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":723,"x":289,"width":150,"var":"btn_lingQu","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#4e2a2a","labelStroke":6,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"领取","height":65,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_lingQu)",
             "isOpen":true,
@@ -335,6 +245,188 @@
             "compId":38,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":66,"x":40,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":80,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":-1,"x":24,"text":"剧情进度","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":80,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":72,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":187,"x":41,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":83,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":-1,"x":24,"text":"挂机效率","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":83,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":74,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":302,"x":45,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":85,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":-1,"x":24,"text":"掉落预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":85,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":76,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":501,"x":43,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":86,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":-1,"x":24,"text":"累计奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":86,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":87,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":112,"x":63,"skin":"image/juQingMode/bottom_zhangjie02.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":88,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":10,"x":204,"wordWrap":true,"width":74,"var":"lbl_charpterNo","text":"第一章","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#ffeeb1"},
+                    "nodeParent":88,
+                    "label":"Label(lbl_charpterNo)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":10,"x":281,"wordWrap":true,"width":166,"var":"lbl_charpterName","text":"我与你的约定","strokeColor":"#4e2a2a","stroke":4,"height":26,"fontSize":24,"font":"FZHL","color":"#ffeeb1"},
+                    "nodeParent":88,
+                    "label":"Label(lbl_charpterName)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":61,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":8,"x":42,"wordWrap":true,"width":128,"var":"lbl_pzName","height":28,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
+                    "nodeParent":88,
+                    "label":"Label(lbl_pzName)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":60,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":-11,"x":-9,"stateNum":"2","skin":"image/juQingMode/icon_zhuyepian.png"},
+                    "nodeParent":88,
+                    "label":"Button",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":89,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {

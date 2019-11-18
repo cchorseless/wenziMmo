@@ -11,12 +11,19 @@ module view.juQingMode {
 
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
-			this.vbox_zhangJieRight['sortItem'] = (items) => { };
+			// this.vbox_zhangJieRight['sortItem'] = (items) => { };
 			this.panel_zhangJie.scaleY = 0;
 			this.panel_zhangJie.vScrollBarSkin = '';
 			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
 			this.box_jiangLi.visible = false;
+			if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
+				this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03.png"
+				this.btn_VIPskip.stateNum = 2;
+			} else {
+				this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03_0.png"
+				this.btn_VIPskip.stateNum = 1;
+			}
 			this.initUI();
 			this.addEvent();
 		}
@@ -91,9 +98,14 @@ module view.juQingMode {
 
 			});
 			this.box_vipTiaoGuo.on(Laya.UIEvent.CLICK, this, function () {
+				if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+					lcp.send(pkt);
+				} else {
+					TipsManage.showTips("VIP等级未达到")
+					return;
+				}
 
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
-				lcp.send(pkt);
 			})
 
 			GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
@@ -114,15 +126,21 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
 				let temp = this.btn_charpter.selected ? 1 : 0;
-				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200);
+				if (temp == 1) {
+					this.img_panel.visible = true
+				} else {
+					this.img_panel.visible = false
+				}
+				Laya.Tween.to(this.panel_zhangJie, { scaleY: temp }, 200, );
+
 				// 刷新item
 				if (this.btn_charpter.selected) {
 					for (let _item of this.vbox_zhangJieLeft._childs) {
 						_item.updateUI();
 					}
-					for (let _item of this.vbox_zhangJieRight._childs) {
-						_item.updateUI();
-					}
+					// for (let _item of this.vbox_zhangJieRight._childs) {
+					// 	_item.updateUI();
+					// }
 				}
 			});
 
@@ -152,12 +170,14 @@ module view.juQingMode {
 					if (charpterData) {
 						// 激活了任务
 						if (jsonData.mainquestid) {
-							this.btn_next.label = 'new 剧情事件!!!!';
+							// this.btn_next.label = 'new 剧情事件!!!!';
+							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
 							// 更新主线任务
 							PanelManage.Main.updateTaskInfo();
 						}
 						else {
-							this.btn_next.label = '继 续';
+							this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
+							// this.btn_next.label = '继 续';
 						}
 						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = charpterData.data[GameApp.MainPlayer.talkID];
 						// 处理选项对白
@@ -179,9 +199,9 @@ module view.juQingMode {
 					let span0 = endTalkId - startTalkId;
 					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
 					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "当前进度：100%"
+						this.lab_juqingjindu.text = "100%"
 					} else {
-						this.lab_juqingjindu.text = "当前进度：" + Math.floor((span1 / span0) * 100) + "%"
+						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
 					}
 				}
 				else {
@@ -256,12 +276,13 @@ module view.juQingMode {
 							// 章节ui
 							let charpterInfo_ui = new view.juQingMode.JuQingCharpterItem();
 							charpterInfo_ui.setData(charpterInfo);
-							if (this.vbox_zhangJieLeft.numChildren > this.vbox_zhangJieRight.numChildren) {
-								this.vbox_zhangJieRight.addChild(charpterInfo_ui);
-							}
-							else {
-								this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
-							}
+							this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
+							// if (this.vbox_zhangJieLeft.numChildren > this.vbox_zhangJieRight.numChildren) {
+							// 	this.vbox_zhangJieRight.addChild(charpterInfo_ui);
+							// }
+							// else {
+							// 	this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
+							// }
 							// 找到自己的章节ID，拿到开始对白ID和结束对白ID
 							if (charpterInfo.zjid == charpterID) {
 								this.updateTalkInfo(charpterID);
@@ -273,9 +294,9 @@ module view.juQingMode {
 					let span0 = endTalkId - startTalkId;
 					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
 					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "当前进度：100%"
+						this.lab_juqingjindu.text = "100%"
 					} else {
-						this.lab_juqingjindu.text = "当前进度：" + Math.floor((span1 / span0) * 100) + "%"
+						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
 					}
 				});
 			lcp.send(pkt1);
@@ -283,10 +304,12 @@ module view.juQingMode {
 			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
 
 			if (taskInfo) {
-				this.btn_next.label = 'new 剧情事件!!!!';
+				// this.btn_next.label = 'new 剧情事件!!!!';
+				this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
 			}
 			else {
-				this.btn_next.label = '继 续';
+				// this.btn_next.label = '继 续';
+				this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
 			}
 		}
 
@@ -310,7 +333,7 @@ module view.juQingMode {
 			this.vbox_0.removeChildren();
 			let charpterInfo = GameApp.GameEngine.allCharpterInfo[charpterID];
 			// 章节编号
-			this.lbl_charpterTile.text = '第' + charpterInfo.index + '章';
+			this.lbl_charpterTile.text = '第' +  GameUtil.SectionToChinese(parseInt(charpterInfo.index),0) + '章';
 			// 章节名字
 			this.lbl_charpterName.text = charpterInfo.name;
 			// 拉取章节所有剧情
@@ -342,12 +365,12 @@ module view.juQingMode {
 					let span0 = endTalkId1 - startTalkId;
 					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
 					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "当前进度：100%"
+						this.lab_juqingjindu.text = "100%"
 						this.panel_0.vScrollBar.min = this.vbox_0.height
 						this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
 						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
 					} else {
-						this.lab_juqingjindu.text = "当前进度：" + Math.floor((span1 / span0) * 100) + "%"
+						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
 						this.panel_0.vScrollBar.min = this.vbox_0.height
 						this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
 						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
