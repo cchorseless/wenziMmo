@@ -4,6 +4,7 @@ module view.hero {
 		constructor() {
 			super();
 			this.addEvent();
+			this.init_rune();
 		}
 		public job;
 		public addEvent(): void {
@@ -67,7 +68,6 @@ module view.hero {
 					break;
 				case 2:
 					this.viw_dizi.selectedIndex = 1;
-					this.init_rune();
 					break;
 			}
 			//弟子出战状态
@@ -108,23 +108,21 @@ module view.hero {
 					this['img_rune' + index].visible = false;
 				}
 			}
+			//内功碎片极品属性
 			if (runeArray.length !== 0) {
 				let singleArray = [];
-				for (let i = 0; runeArray[i]; i++) {
-					let single = false;
-					for (let begin = (i + 1); runeArray[begin]; begin++) {
-						if (runeArray[i].index == runeArray[begin].index) {
-							if (runeArray[begin].onlyValue) {
-								runeArray[begin].value = runeArray[i].value + runeArray[begin].value;
-							} else {
-								runeArray[begin].max = runeArray[i].value + runeArray[begin].max;
-								runeArray[begin].min = runeArray[i].value + runeArray[begin].min;
-							}
-							single = true;
+				for (let runeObj of runeArray) {
+					let find = false;
+					for (let singleObj of singleArray) {
+						if (runeObj.index == singleObj.index) {
+							singleObj.value = runeObj.value + singleObj.value;
+							singleObj.max = runeObj.max + singleObj.max;
+							singleObj.min = runeObj.min + singleObj.min;
+							find = true;
 						}
 					}
-					if (single == false) {
-						singleArray.push(runeArray[i]);
+					if (!find) {
+						singleArray.push(JSON.parse(JSON.stringify(runeObj)));
 					}
 				}
 				this.list_down.array = singleArray;

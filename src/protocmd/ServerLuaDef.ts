@@ -246,7 +246,11 @@ module ProtoCmd {
     // 弟子符文全部回收
     export const Hero_runeRecycle = 'runeRecycle';//（参数：0-10阶）
      // 弟子符文激活
-    export const Hero_activeRuneExProperty = 'activeRuneExProperty';//（参数：0-10阶）
+    export const Hero_activeRuneExProperty = 'activeRuneExProperty';//（参数：符文的64id和类型0背包1身上）
+       // 弟子符文属性配置
+    export const Hero_clickRunePreperty = 'clickRunePreperty';//（参数：符文阶数，符文穿戴位置）
+    // 弟子符文交換
+    export const Hero_exchangeRuneproperty = 'exchangeRuneproperty';//（参数：firid, firtype, firpos, secid, sectype, secpos--64id|类型：0 包裹，1身上|位置：第几条属性）
 
     /*********************************资质天赋******************** */
 

@@ -651,6 +651,5 @@ module GameUtil {
                 }
             });
         }
-
     }
 }

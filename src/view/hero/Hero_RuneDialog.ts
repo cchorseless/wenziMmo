@@ -16,6 +16,8 @@ module view.hero {
 		public runeid2: ProtoCmd.ItemBase;
 		//交换符文类型2（0背包1身上）；
 		public type2;
+		public pos1;
+		public pos2;
 		public setData(job): Hero_RuneDialog {
 			// //弟子职业
 			// switch (job) {
@@ -44,10 +46,14 @@ module view.hero {
 			this.panel_recovery.vScrollBarSkin = '';
 			this.vbox_rune3['sortItem'] = (items) => { };
 			// //初始化item
-			this.ui_item1.ui_item.img_item.skin = '';
-			this.ui_item2.ui_item.img_item.skin = '';
+			for (let i = 0; i < 3; i++) {
+				this['ui_item' + i].ui_item.img_item.skin = '';
+				this['ui_item' + i].ui_item.lbl_count.text = '';
+			}
 			for (let j = 0; j < 6; j++) {
 				this.vbox_item.addChild(new view.hero.Hero_RuneItem());
+				this.vbox_exchange1.addChild(new view.hero.Hero_RuneItem());
+				this.vbox_exchange2.addChild(new view.hero.Hero_RuneItem());
 			}
 			this.addEvent();
 			let i = 1;
@@ -81,6 +87,10 @@ module view.hero {
 					new view.hero.Hero_RunePartDialog().setData().popup();
 				})
 			}
+			//符文交換
+			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_exchangeEvent();
+			})
 			//全部回收
 			this.btn_all.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_Allrecovery();
@@ -92,6 +102,8 @@ module view.hero {
 		public init_view(i): void {
 			GameApp.LListener.on(ProtoCmd.Hero_openActiveRunePanel, this, (jsonData) => {
 				let itemID = jsonData.viewtab[i]
+				//符文精华
+				this.lbl_have.text = this.lbl_exchangeHave.text = jsonData.score;
 				let suitID = SheetConfig.mydb_item_base_tbl.getInstance(null).SUIT_EFFICTID('' + jsonData.viewtab[i]);
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
@@ -108,6 +120,26 @@ module view.hero {
 					this['img_part_' + j].skin = 'image/common/daoju/itemicon_' + itemID + '.png';
 					itemID = itemID + 1;
 				}
+				for (let child of this.vbox_exchange1._childs) {
+					child.btn_choose.selected = false;
+				}
+				for (let child of this.vbox_exchange2._childs) {
+					child.btn_choose.selected = false;
+				}
+				this.pos1=null;
+				this.pos2=null
+				if (this.tab_rune.selectedIndex > 0 && this.runeid !== undefined) {
+					this.init_runeEvent(this.runeid, this.type)
+				}
+				if (this.tab_rune.selectedIndex == 2 && this.runeid1 !== undefined) {
+					this.ui_item1.name = '';
+					this.init_runeEvent(this.runeid1, this.type1)
+				}
+				if (this.tab_rune.selectedIndex == 2 && this.runeid2 !== undefined) {
+					this.ui_item2.name = '';
+					this.init_runeEvent(this.runeid2, this.type2)
+				}
+
 			})
 		}
 		public onclose(): void {
@@ -172,15 +204,14 @@ module view.hero {
 			if (playridArray.length > 0) {
 				//把装备里的符文添加到界面
 				for (let info of infos) {
-					type = 1;
 					let itemLvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + playridArray[info].dwBaseID);
-					let EquipInPros = playridArray[info].stNpProperty;
 					// this.EquipInRecoveryEvent(itemLvl);
 					for (let child of vbox._childs) {
 						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
 							let item = new view.compart.DaoJuItem();
 							item.on(Laya.UIEvent.CLICK, this, () => {
-								this.init_runeEvent(playridArray[info], EquipInPros, type)
+								type = 1;
+								this.init_runeEvent(playridArray[info], type)
 							})
 							item.initUI(playridArray[info]);
 							child.addItem(item);
@@ -191,9 +222,7 @@ module view.hero {
 			}
 			//把背包里的符文添加到界面
 			for (let key of keys) {
-				type = 0;
 				let data = bag[key];
-				let pros = data.stNpProperty;
 				let itemLvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + data.dwBaseID);
 				let item;
 				for (let child of vbox._childs) {
@@ -205,53 +234,75 @@ module view.hero {
 					}
 				}
 				item.on(Laya.UIEvent.CLICK, this, () => {
-					this.init_runeEvent(data, pros, type)
+					type = 0;
+					this.init_runeEvent(data, type)
 				})
 			}
 		}
 		/**
-		* 符文事件
+		* 符文点击事件
 		*/
-		public init_runeEvent(data, pros, type): void {
+		public init_runeEvent(data, type): void {
+			let boxNum;
+			let pros = data.stNpProperty;
+			let pos;
 			this.vbox_item.removeChildren();
 			for (let i = 0; i < 6; i++) {
 				this.vbox_item.addChild(new view.hero.Hero_RuneItem());
 			}
-			let jipinArray = [];
-			for (let i = 0; pros[i]; i++) {
-				let j = i + 1;
-				if (pros[j] !== undefined) {
-					if (pros[i].btNpFrom == pros[j].btNpFrom) {
-						let des = pros[i].btdes + '-' + pros[j].dwNpNum;
-						jipinArray.push(des);
-						i = i + 1;
-					}
-					else {
-						jipinArray.push(pros[i].btdes);
+			let labelArray = [];
+			let singleArray = [];
+			for (let runeObj of pros) {
+				let find = false;
+				for (let singleObj of singleArray) {
+					if (runeObj.btNpFrom == singleObj.btNpFrom) {
+						singleObj.dwNpNum = runeObj.dwNpNum + '-' + singleObj.dwNpNum;
+						find = true;
 					}
 				}
-				else {
-					jipinArray.push(pros[i].btdes);
+				if (!find) {
+					labelArray.push(runeObj);
+					singleArray.push(JSON.parse(JSON.stringify(runeObj)));
 				}
 			}
+			//根據位置排序
+			function compare(property) {
+				return function (a, b) {
+					var value1 = a[property];
+					var value2 = b[property];
+					return value1 - value2;
+				}
+			}
+			singleArray = singleArray.sort(compare('btNpFrom'))
+			labelArray = labelArray.sort(compare('btNpFrom'))
 			//背包符文激活		
 			if (this.tab_rune.selectedIndex == 1) {
+				this.type = type;
 				//符文展示
 				this.box_item.removeChildren();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = data.dwBaseID;
 				this.ui_item0.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.runeid = data;
-				this.type = type;
-				//符文词条
-				this.lbl_shanghai.text=''+jipinArray[0];
-				for (let i = 1; jipinArray[i]; i++) {
-					let index=i-1;
-					this.vbox_item._childs[index].setData(jipinArray[i])
+				//极品属性
+				let label = labelArray[0].btdes.split('上');
+				if (label[1]) {
+					this.lbl_shanghai.text = label[0] + ':' + singleArray[0].dwNpNum;
+
+				} else {
+					let label1 = labelArray[0].btdes.split(':');
+					this.lbl_shanghai.text = label1[0] + ':' + singleArray[0].dwNpNum;
+				}
+				for (let i = 1; singleArray[i]; i++) {
+					let index = i - 1;
+					pos = i + 1;
+					boxNum = 0;
+					this.vbox_item._childs[index].setData(singleArray[i], labelArray[i].btdes, this.tab_rune.selectedIndex, boxNum, this)
 				}
 			}
 			// 背包符文交换
 			if (this.tab_rune.selectedIndex == 2) {
+
 				// ui_item1不为空，ui_item2为空时符文加入ui_item2
 				if (this.ui_item1.name == '1' && this.ui_item2.name !== '1') {
 					this.ui_item2.name = '1';
@@ -264,9 +315,19 @@ module view.hero {
 					itemInfo.dwBinding = data.dwBinding;
 					this.ui_item2.setData(itemInfo, EnumData.ItemInfoModel.SHOW_NONE);
 					//符文极品属性
-					this.vbox_exchange2.removeChildren();
-					for (let i = 0; jipinArray[i]; i++) {
-						this.vbox_exchange2.addChild(new view.hero.Hero_RuneItem().setData(jipinArray[i]))
+					let label = labelArray[0].btdes.split('上');
+					if (label[1]) {
+						this.lbl_shuxing02.text = label[0] + ':' + singleArray[0].dwNpNum;
+
+					} else {
+						let label1 = labelArray[0].btdes.split(':');
+						this.lbl_shuxing02.text = label1[0] + ':' + singleArray[0].dwNpNum;
+					}
+					for (let i = 1; singleArray[i]; i++) {
+						let index = i - 1;
+						pos = i + 1;
+						boxNum = 2;
+						this.vbox_exchange2._childs[index].setData(singleArray[i], labelArray[i].btdes, this.tab_rune.selectedIndex, boxNum, this)
 					}
 				}
 				//ui_item1为空时，加入符文
@@ -281,12 +342,23 @@ module view.hero {
 					itemInfo.dwBinding = data.dwBinding;
 					this.ui_item1.setData(itemInfo, EnumData.ItemInfoModel.SHOW_NONE);
 					//符文极品属性
-					this.vbox_exchange1.removeChildren();
-					for (let i = 0; jipinArray[i]; i++) {
-						this.vbox_exchange1.addChild(new view.hero.Hero_RuneItem().setData(jipinArray[i]))
+					let label = labelArray[0].btdes.split('上');
+					if (label[1]) {
+						this.lbl_shuxing01.text = label[0] + ':' + singleArray[0].dwNpNum;
+
+					} else {
+						let label1 = labelArray[0].btdes.split(':');
+						this.lbl_shuxing01.text = label1[0] + ':' + singleArray[0].dwNpNum;
+					}
+					for (let i = 1; singleArray[i]; i++) {
+						let index = i - 1;
+						pos = i + 1;
+						boxNum = 1;
+						this.vbox_exchange1._childs[index].setData(singleArray[i], labelArray[i].btdes, this.tab_rune.selectedIndex, boxNum, this)
 					}
 				}
 			}
+			this.init_runeAttribute(data.dwBaseID, pos)
 		}
 		/**
 		 * 符文激活
@@ -317,7 +389,54 @@ module view.hero {
 				this['ui_item' + i].name = '';
 				this['ui_item' + i].ui_item.img_item.skin = '';
 				this['ui_item' + i].lbl_itemName.text = '';
-				this['vbox_exchange' + i].removeChildren();
+				this['lbl_shuxing0' + i].text = '';
+				for (let child of this['vbox_exchange' + i]._childs) {
+					child.lbl_name.text = '';
+					child.view_single.selectedIndex = 0;
+				}
+			}
+		}
+		/**
+		 * 符文属性
+		 */
+		public init_runeAttribute(id: number, pos: number): void {
+			let jieshu = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + id);
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_clickRunePreperty, [jieshu, pos], null, this, (jsonData) => {
+				console.log('=====》符文属性', jsonData);
+				this.lbl_use.text = jsonData.need;
+			})
+			lcp.send(pkt);
+		}
+		public init_exchangeBtn(num, boxNum): void {
+			for (let child of this['vbox_exchange' + boxNum]._childs) {
+				child.btn_choose.selected = false;
+			}
+			this['vbox_exchange' + boxNum]._childs[num].btn_choose.selected = true;
+
+			let keys1 = Object.keys(this.vbox_exchange1._childs);
+			for (let key1 of keys1) {
+				if (this.vbox_exchange1._childs[key1].btn_choose.selected) {
+					this.pos1 = parseInt(key1) + 1;
+				}
+			}
+			let keys2 = Object.keys(this.vbox_exchange2._childs);
+			for (let key2 of keys2) {
+				if (this.vbox_exchange2._childs[key2].btn_choose.selected) {
+					this.pos2 = parseInt(key2) + 1;
+				}
+			}
+
+		}
+		public init_exchangeEvent(): void {
+			//交換屬性
+			if (this.runeid1 && this.runeid2 && this.pos1 && this.pos2) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.Hero_exchangeRuneproperty, [this.runeid1.i64ItemID, this.type1, this.pos1, this.runeid2.i64ItemID, this.type2, this.pos2])
+				lcp.send(pkt);
+			}
+			else {
+				TipsManage.showTips('交换条件不足')
 			}
 		}
 	}

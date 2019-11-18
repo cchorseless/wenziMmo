@@ -1087,6 +1087,8 @@ module ProtoCmd {
         private _itemType;//物品类型
         private _stNpPropertyDes: Array<EffectIDStruct> = [];// 极品属性描述
         private _stNpProperty: Array<Nonpareil> = [];// 极品属性对象
+        private _npCount: number = 0;       //极品属性的条数
+        private _npDesCount: number = 0;    //极品属性的描述数量
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {
@@ -1334,30 +1336,31 @@ module ProtoCmd {
          * 极品属性
          */
         public get stNpProperty(): Array<Nonpareil> {
-            if (this._stNpProperty.length == 0) {
-                if (this.btNpPropertyCount > 0) {
-                    let npdata: Laya.Byte = new Laya.Byte();
-                    npdata = this.getValue('UnionData');
-                    for (let j = 0; j < this.btNpPropertyCount; j++) {
-                        let np = new Nonpareil();
-                        np.btNpFrom = npdata.getUint8();
-                        np.btNpType = npdata.getUint8();
-                        np.dwNpNum = npdata.getUint32();
-                        this._stNpProperty.push(np);
-                    }
+            if (this.btNpPropertyCount > 0 && this._npCount != this.btNpPropertyCount) {
+                this._stNpProperty = [];
+                this._npCount = this.btNpPropertyCount;
+                let npdata: Laya.Byte = new Laya.Byte();
+                npdata = this.getValue('UnionData');
+                for (let j = 0; j < this._npCount; j++) {
+                    let np = new Nonpareil();
+                    np.btNpFrom = npdata.getUint8();
+                    np.btNpType = npdata.getUint8();
+                    np.dwNpNum = npdata.getUint32();
+                    this._stNpProperty.push(np);
                 }
             }
             // 按照位置排序
             // 先根据 条目位置排序
             // 再根据 条目枚举排序
-            return this._stNpProperty.sort((a, b) => { return b.btNpFrom - a.btNpFrom }).sort((a, b) => { return b.btNpType - a.btNpType });
+            return this._stNpProperty.sort((a, b) => { return a.btNpFrom - b.btNpFrom }).sort((a, b) => { return a.btNpType - b.btNpType });
         }
 
         /**
          * 极品属性描述
          */
         public get stNpPropertyString(): Array<EffectIDStruct> {
-            if (this._stNpPropertyDes.length == 0) {
+            if (this._npDesCount != this._npCount) {
+                this._npDesCount = this._npCount;
                 this._stNpPropertyDes = GameUtil.parseNonpareilToObj(this.stNpProperty);
             }
             return this._stNpPropertyDes;
