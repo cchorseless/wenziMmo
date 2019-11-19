@@ -5,37 +5,44 @@ module view.shopMall {
 			super();
 		}
 		public item;
-		public setData(item: ProtoCmd.itf_Shop_RefreshResult): void {
+		public index;
+		public setData(item: ProtoCmd.itf_Shop_RefreshResult, index: number): ShopItemV2Item {
+			for (let i = 1; i < 4; i++) {
+				this['box_'+i].visible=false;
+			}
+			this['box_'+index].visible=true;
 			this.item = item;
+			this.index = index;
 			//折扣
-			this.img_zheKou.visible = false;
+			this['img_zheKou' + index].visible = false;
 			if (item.discount > 0) {
-				this.img_zheKou.visible = true;
-				this.img_zheKou.skin ='image/common/img_'+item.discount+'zhe.png' ;
+				this['img_zheKou' + index].visible = true;
+				this['img_zheKou' + index].skin = 'image/common/img_' + item.discount + 'zhe.png';
 			}
 			//限购
-			this.lbl_xiangou.visible = false;
+			this['lbl_xiangou' + index].visible = false;
 			if (item.limitcnt > 0) {
-				this.lbl_xiangou.visible = true;
-				this.lbl_xiangou.text='限购'+item.limitcnt+'次' ;
+				this['lbl_xiangou' + index].visible = true;
+				this['lbl_xiangou' + index].text = '限购' + item.limitcnt + '次';
 			}
 			//物品
 			let itemInfo = new ProtoCmd.ItemBase();
 			itemInfo.dwBaseID = item.itemid;
 			itemInfo.dwCount = item.num;
 			itemInfo.dwBinding = item.binding;
-			this.ui_daoju.setData(itemInfo)
+			this['ui_daoju' + index].setData(itemInfo)
 			//物品名称
 			let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item.itemid)
-			this.lbl_name.text = '' + name;
+			this['lbl_name' + index].text = '' + name;
 			//物品价格
-			this.lbl_price.text = '' + item.price;
+			this['lbl_price' + index].text = '' + item.price;
 			//物品货币类型
-			this.img_huobi.skin = LangConfig.getCoinImagePicSkin(item.pricetype);
+			this['img_huobi' + index].skin = LangConfig.getCoinImagePicSkin(item.pricetype);
 			this.addEvent();
+			return this;
 		}
 		public addEvent(): void {
-			this.on(Laya.UIEvent.CLICK, this, () => {
+			this['box_' + this.index].on(Laya.UIEvent.CLICK, this, () => {
 				let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item.itemid);
 				let itemInfoDialog: view.shopMall.ShopBuyItemV0Dialog | view.shopMall.ShopBuyItemV1Dialog;
 				// 根据物品类型显示不同界面

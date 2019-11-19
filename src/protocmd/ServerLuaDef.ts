@@ -171,7 +171,7 @@ module ProtoCmd {
     export const JS_playerWingPanel = 'playerWingPanel';
     // 罡气使用物品
     export const JS_advancePlayerWing = 'advancePlayerWing';
-     // 罡气升阶
+    // 罡气升阶
     export const JS_upgradePlayerWing = 'upgradePlayerWing';
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
@@ -245,13 +245,13 @@ module ProtoCmd {
     export const Hero_openActiveRunePanel = 'openActiveRunePanel';//得到数据score符文积分viewtab符文碎片
     // 弟子符文全部回收
     export const Hero_runeRecycle = 'runeRecycle';//（参数：0-10阶）
-     // 弟子符文激活
+    // 弟子符文激活
     export const Hero_activeRuneExProperty = 'activeRuneExProperty';//（参数：符文的64id和类型0背包1身上）
-       // 弟子符文属性配置
+    // 弟子符文属性配置
     export const Hero_clickRunePreperty = 'clickRunePreperty';//（参数：符文阶数，符文穿戴位置）
     // 弟子符文交換
     export const Hero_exchangeRuneproperty = 'exchangeRuneproperty';//（参数：firid, firtype, firpos, secid, sectype, secpos--64id|类型：0 包裹，1身上|位置：第几条属性）
-       // 符文回收属性
+    // 符文回收属性
     export const Hero_runeRecycleConfig = 'runeRecycleConfig';
 
     /*********************************资质天赋******************** */
@@ -677,7 +677,8 @@ module ProtoCmd {
     export interface itf_Shop_RefreshResult {
         refreshprice: number;//刷新价格
         items: { [index: string]: itf_Shop_ShopItem };//刷新道具
-
+        curcount: number//当前次数
+        maxcount:number//最大次数
         pricetype: number;//购买货币类型
         binding: number//是否绑定
         curcnt: number//当前购买次数
