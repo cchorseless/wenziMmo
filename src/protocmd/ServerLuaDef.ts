@@ -251,6 +251,8 @@ module ProtoCmd {
     export const Hero_clickRunePreperty = 'clickRunePreperty';//（参数：符文阶数，符文穿戴位置）
     // 弟子符文交換
     export const Hero_exchangeRuneproperty = 'exchangeRuneproperty';//（参数：firid, firtype, firpos, secid, sectype, secpos--64id|类型：0 包裹，1身上|位置：第几条属性）
+       // 符文回收属性
+    export const Hero_runeRecycleConfig = 'runeRecycleConfig';
 
     /*********************************资质天赋******************** */
 

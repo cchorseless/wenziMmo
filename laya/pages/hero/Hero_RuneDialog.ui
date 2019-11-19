@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":138,
-    "selecteID":230,
+    "selectedBox":8,
+    "selecteID":9,
     "props":{"width":629,"sceneColor":"#eed8d7","height":909},
     "nodeParent":-1,
     "label":"Dialog",
@@ -100,28 +100,30 @@
                     "props":{"x":6,"name":"item0"},
                     "nodeParent":346,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":55,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":10,"x":169,"width":205,"skin":"image/common/bottom_smalltitle.png","sizeGrid":"0,32,0,32","height":35},
                             "nodeParent":55,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":8,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":1,"x":38,"text":"通天霸主","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
+                                    "props":{"y":1,"x":38,"var":"lbl_runeName","text":"通天霸主","strokeColor":"#603d22","stroke":4,"fontSize":32,"font":"FZXK","color":"#f3edd3"},
                                     "nodeParent":8,
-                                    "label":"Label",
+                                    "label":"Label(lbl_runeName)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -133,10 +135,11 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":46,"x":211,"text":"10级可穿戴","fontSize":22,"font":"FZHL","color":"#000000"},
+                            "props":{"y":46,"x":211,"var":"lbl_runLevel","text":"10级可穿戴","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":55,
-                            "label":"Label",
+                            "label":"Label(lbl_runLevel)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -145,6 +148,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":78,"x":94,"skin":"image/juese/img_haogan_1.png","scaleY":1.6,"scaleX":1.6,"gray":true},
                             "nodeParent":55,
@@ -158,6 +162,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":78,"x":94,"var":"img_part_1","skin":"image/common/daoju/itemicon_180101.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -171,6 +176,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":78,"x":181,"var":"img_part_2","skin":"image/common/daoju/itemicon_180102.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -184,6 +190,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":78,"x":267,"var":"img_part_3","skin":"image/common/daoju/itemicon_180103.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -197,6 +204,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":78,"x":353,"var":"img_part_4","skin":"image/common/daoju/itemicon_180104.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -210,6 +218,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":164,"x":94,"var":"img_part_5","skin":"image/common/daoju/itemicon_180105.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -223,6 +232,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":164,"x":181,"var":"img_part_6","skin":"image/common/daoju/itemicon_180106.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -236,6 +246,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":164,"x":267,"var":"img_part_7","skin":"image/common/daoju/itemicon_180107.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -249,6 +260,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":164,"x":353,"var":"img_part_8","skin":"image/common/daoju/itemicon_180108.png","scaleY":1.6,"scaleX":1.6},
                             "nodeParent":55,
@@ -262,6 +274,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":77,"x":94,"skin":"image/juese/img_fuwen_11.png"},
                             "nodeParent":55,
@@ -275,6 +288,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":256,"x":3,"width":522,"skin":"image/juese/frame_neigong.png","height":276},
                             "nodeParent":55,
@@ -288,6 +302,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":281,"x":86,"text":"集齐三块","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":55,
@@ -300,6 +315,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":313,"x":12,"width":245.234375,"var":"lbl_value1","text":"合计击对怪物伤害+2000%","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":55,
@@ -312,6 +328,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":351,"x":86,"text":"集齐五块","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":55,
@@ -325,6 +342,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":383,"x":12,"width":245.234375,"var":"lbl_value2","text":"合计击对怪物伤害+2000%","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":55,
@@ -337,6 +355,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":431,"x":86,"text":"集齐八块","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":55,
@@ -350,6 +369,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":463,"x":12,"width":245.234375,"var":"lbl_value3","text":"合计击对怪物伤害+2000%","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":55,
@@ -362,6 +382,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":281,"x":347,"text":"集齐全套","strokeColor":"#000000","stroke":4,"fontSize":24,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":55,
@@ -375,6 +396,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":313,"x":273,"width":245.234375,"var":"lbl_value4","text":"合计击对怪物伤害+2000%","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":55,
@@ -388,6 +410,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":337,"x":346},
                             "nodeParent":55,
@@ -440,6 +463,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":540,"x":4,"width":523,"var":"panel_view","height":130},
                             "nodeParent":55,
@@ -451,6 +475,7 @@
                             "compId":50,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"HBox",
                                     "props":{"var":"hbox_view","top":0,"space":10,"bottom":0},
                                     "nodeParent":50,
@@ -462,6 +487,7 @@
                                     "compId":51,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":0,"var":"box_1"},
                                             "nodeParent":51,
@@ -473,6 +499,7 @@
                                             "compId":355,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_1.png","height":96},
                                                     "nodeParent":355,
@@ -483,13 +510,15 @@
                                                     "compId":356,
                                                     "child":[
                                                         ],
+                                                    "$LOCKED":true,
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune1","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":355,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune1)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -500,6 +529,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":200,"var":"box_2"},
                                             "nodeParent":51,
@@ -525,9 +555,9 @@
                                                 },
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune2","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":358,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune2)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -538,6 +568,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_3"},
                                             "nodeParent":51,
@@ -563,9 +594,9 @@
                                                 },
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune3","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":361,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune3)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -576,6 +607,7 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_4"},
                                             "nodeParent":51,
@@ -601,9 +633,9 @@
                                                 },
                                                 {
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune4","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":364,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune4)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -614,17 +646,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_5"},
                                             "nodeParent":51,
                                             "label":"Box(box_5)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":367,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_5.png","height":96},
                                                     "nodeParent":367,
@@ -638,10 +672,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune5","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":367,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune5)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -652,17 +687,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_6"},
                                             "nodeParent":51,
                                             "label":"Box(box_6)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":370,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_6.png","height":96},
                                                     "nodeParent":370,
@@ -676,10 +713,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune6","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":370,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune6)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -690,17 +728,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_7"},
                                             "nodeParent":51,
                                             "label":"Box(box_7)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":373,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_7.png","height":96},
                                                     "nodeParent":373,
@@ -714,10 +754,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune7","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":373,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune7)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -728,17 +769,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_8"},
                                             "nodeParent":51,
                                             "label":"Box(box_8)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":376,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_8.png","height":96},
                                                     "nodeParent":376,
@@ -752,10 +795,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune8","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":376,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune8)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -766,17 +810,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_9"},
                                             "nodeParent":51,
                                             "label":"Box(box_9)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":379,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_9.png","height":96},
                                                     "nodeParent":379,
@@ -790,10 +836,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune9","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":379,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune9)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -804,17 +851,19 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":0,"x":400,"var":"box_10"},
                                             "nodeParent":51,
                                             "label":"Box(box_10)",
-                                            "isOpen":false,
+                                            "isOpen":true,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
                                             "compId":382,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Image",
                                                     "props":{"x":0,"width":190,"top":0,"skin":"image/juese/img_haogan_10.png","height":96},
                                                     "nodeParent":382,
@@ -828,10 +877,11 @@
                                                     "$HIDDEN":false
                                                 },
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
-                                                    "props":{"y":109,"x":34,"width":118,"text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
+                                                    "props":{"y":109,"x":34,"width":118,"var":"lbl_rune10","text":"70级可穿戴","height":20,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                                                     "nodeParent":382,
-                                                    "label":"Label",
+                                                    "label":"Label(lbl_rune10)",
                                                     "isDirectory":false,
                                                     "isAniNode":true,
                                                     "hasChild":false,
@@ -843,7 +893,7 @@
                                         }]
                                 }]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1043,14 +1093,13 @@
                     "props":{"y":12,"x":11,"name":"item2"},
                     "nodeParent":346,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":233,
                     "child":[
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"x":10,"width":505,"var":"panel_exchange","height":236},
                             "nodeParent":233,
@@ -1077,7 +1126,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":241,"width":520,"skin":"image/common/login/line_yeqian.png"},
                             "nodeParent":233,
@@ -1091,7 +1139,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":267,"x":175,"wordWrap":true,"width":169,"text":"选择要交换的属性每次只能交换一条","leading":5,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":233,
@@ -1105,7 +1152,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":627,"x":45,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":233,
@@ -1117,7 +1163,6 @@
                             "compId":137,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_4.png","height":25},
                                     "nodeParent":137,
@@ -1130,7 +1175,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_exchangeHave","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":137,
@@ -1146,7 +1190,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":627,"x":225,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":233,
@@ -1158,7 +1201,6 @@
                             "compId":138,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_4.png","height":25},
                                     "nodeParent":138,
@@ -1171,7 +1213,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_exchangeUse","text":"100","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":138,
@@ -1187,7 +1228,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":600,"x":384,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"替换"},
                             "nodeParent":233,
@@ -1201,7 +1241,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":606,"x":260,"width":43,"text":"消耗","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1215,7 +1254,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":606,"x":60,"text":"拥有精华","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1229,7 +1267,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":375,"x":3,"width":246,"var":"vbox_exchange1","height":228},
                             "nodeParent":233,
@@ -1243,7 +1280,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":375,"x":273,"width":246,"var":"vbox_exchange2","height":228},
                             "nodeParent":233,
@@ -1257,7 +1293,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuWithNameItem.ui",
                             "props":{"y":249,"x":49,"var":"ui_item1","runtime":"view.compart.DaoJuWithNameItem"},
@@ -1272,7 +1307,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuWithNameItem.ui",
                             "props":{"y":252,"x":342,"var":"ui_item2","runtime":"view.compart.DaoJuWithNameItem"},
@@ -1286,7 +1320,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":345,"x":25,"width":145,"var":"lbl_shuxing01","text":"属性：达到","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1300,7 +1333,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":345,"x":328,"width":145,"var":"lbl_shuxing02","text":"属性：达到","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1313,7 +1345,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -1634,7 +1666,7 @@
                             "props":{"y":552,"x":396,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":345,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -1654,9 +1686,9 @@
                                 },
                                 {
                                     "type":"Label",
-                                    "props":{"y":1,"x":14,"width":91,"text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "props":{"y":1,"x":14,"width":91,"var":"lbl_score","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":316,
-                                    "label":"Label",
+                                    "label":"Label(lbl_score)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -1672,7 +1704,7 @@
                             "props":{"y":577,"x":396,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":345,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -1692,9 +1724,9 @@
                                 },
                                 {
                                     "type":"Label",
-                                    "props":{"y":1,"x":14,"width":91,"text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "props":{"y":1,"x":14,"width":91,"var":"lbl_gold","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":319,
-                                    "label":"Label",
+                                    "label":"Label(lbl_gold)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,

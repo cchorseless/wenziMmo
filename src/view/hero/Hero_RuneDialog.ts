@@ -16,8 +16,12 @@ module view.hero {
 		public runeid2: ProtoCmd.ItemBase;
 		//交换符文类型2（0背包1身上）；
 		public type2;
+		//符文交换位置1
 		public pos1;
+		//符文交换位置2
 		public pos2;
+		//当前符文第一个碎片id
+		public itemid;
 		public setData(job): Hero_RuneDialog {
 			// //弟子职业
 			// switch (job) {
@@ -84,7 +88,10 @@ module view.hero {
 			//符文碎片属性
 			for (let i = 1; i < 9; i++) {
 				this['img_part_' + i].on(Laya.UIEvent.CLICK, this, () => {
-					new view.hero.Hero_RunePartDialog().setData().popup();
+					let id = this.itemid + i - 1;
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = id;
+					new view.dialog.ItemInfoV1Dialog().setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL).popup();
 				})
 			}
 			//符文交換
@@ -93,17 +100,36 @@ module view.hero {
 			})
 			//全部回收
 			this.btn_all.on(Laya.UIEvent.CLICK, this, () => {
-				this.init_Allrecovery();
+				let send = undefined
+				this.init_Allrecovery(send);
 			})
+			// 符文交换卸下符文
+			for (let i = 0; i < 10; i++) {
+				this['btn_recovery_' + i].on(Laya.UIEvent.CLICK, this, () => {
+					if (i >= 2) {
+						let j = i + 1;
+						this.init_Allrecovery(j);
+					} else {
+						this.init_Allrecovery(i)
+					}
+				})
+
+			}
 		}
 		/**
 		 * 符文预览
 		 */
 		public init_view(i): void {
 			GameApp.LListener.on(ProtoCmd.Hero_openActiveRunePanel, this, (jsonData) => {
-				let itemID = jsonData.viewtab[i]
+				let itemID = this.itemid = jsonData.viewtab[i]
 				//符文精华
 				this.lbl_have.text = this.lbl_exchangeHave.text = jsonData.score;
+				//符文名称
+				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(jsonData.viewtab[i]).split('·');
+				this.lbl_runeName.text=''+name[0];
+				//当前符文穿戴级别
+				let dangqianlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(jsonData.viewtab[i]);
+				this.lbl_runLevel.text = dangqianlvl + '级可穿戴'
 				let suitID = SheetConfig.mydb_item_base_tbl.getInstance(null).SUIT_EFFICTID('' + jsonData.viewtab[i]);
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
@@ -116,21 +142,29 @@ module view.hero {
 				// let HurtTime = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id3);
 				// this.lbl_value2.text='合击技能回满时间降至'+personHurt;
 				console.log('======>效果id', suitID)
+				//符文碎片
 				for (let j = 1; j < 9; j++) {
 					this['img_part_' + j].skin = 'image/common/daoju/itemicon_' + itemID + '.png';
 					itemID = itemID + 1;
 				}
+				for (let g = 1; g < 11; g++) {
+					//符文穿戴级别
+					let level = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(jsonData.viewtab[g])
+					this['lbl_rune' + g].text = level + '级可穿戴';
+				}
+				//刷新符文激活界面
+				if (this.tab_rune.selectedIndex > 0 && this.runeid !== undefined) {
+					this.init_runeEvent(this.runeid, this.type)
+				}
+				//刷新符文交换界面
 				for (let child of this.vbox_exchange1._childs) {
 					child.btn_choose.selected = false;
 				}
 				for (let child of this.vbox_exchange2._childs) {
 					child.btn_choose.selected = false;
 				}
-				this.pos1=null;
-				this.pos2=null
-				if (this.tab_rune.selectedIndex > 0 && this.runeid !== undefined) {
-					this.init_runeEvent(this.runeid, this.type)
-				}
+				this.pos1 = null;
+				this.pos2 = null
 				if (this.tab_rune.selectedIndex == 2 && this.runeid1 !== undefined) {
 					this.ui_item1.name = '';
 					this.init_runeEvent(this.runeid1, this.type1)
@@ -139,7 +173,10 @@ module view.hero {
 					this.ui_item2.name = '';
 					this.init_runeEvent(this.runeid2, this.type2)
 				}
-
+				//刷新符文回收
+				if (this.tab_rune.selectedIndex == 3) {
+					this.init_RuneBagEvent();
+				}
 			})
 		}
 		public onclose(): void {
@@ -162,10 +199,14 @@ module view.hero {
 			//初始化vbox_rune1||vbox_rune2||vbox_rune3符文列表
 			//玩家身上的符文
 			let playridArray = [];
+			//装备位置
+			let posArray = [];
 			for (let i = EnumData.emEquipPosition.EQUIP_RUNE_UP; i < (EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT + 1); i++) {
 				let id = GameUtil.findEquipInPlayer(i);
 				if (id) {
+					let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + id.dwBaseID)
 					playridArray.push(id);
+					posArray.push({ pos: i, pingfen: id.battleScore[jobLimit] });
 				}
 			}
 			let infos = Object.keys(playridArray);
@@ -201,11 +242,10 @@ module view.hero {
 			}
 			//符文类型（0背包；1身上）
 			let type;
-			if (playridArray.length > 0) {
+			let levelArray = [];
+			if (infos.length > 1) {
 				//把装备里的符文添加到界面
 				for (let info of infos) {
-					let itemLvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + playridArray[info].dwBaseID);
-					// this.EquipInRecoveryEvent(itemLvl);
 					for (let child of vbox._childs) {
 						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
 							let item = new view.compart.DaoJuItem();
@@ -223,7 +263,19 @@ module view.hero {
 			//把背包里的符文添加到界面
 			for (let key of keys) {
 				let data = bag[key];
-				let itemLvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + data.dwBaseID);
+				let itemLvl2 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + data.dwBaseID);
+				// 符文穿戴位置
+				let weizhi = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION('' + data.dwBaseID);
+				// 符文职业
+				let jobLimit = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB('' + data.dwBaseID)
+				let pingfen = data.battleScore[jobLimit]
+				for (let part of posArray) {
+					if (weizhi == part.pos) {
+						if (part.pingfen <= pingfen) {
+							levelArray.push({ jieshu: itemLvl2, info: data });
+						}
+					}
+				}
 				let item;
 				for (let child of vbox._childs) {
 					if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
@@ -238,12 +290,14 @@ module view.hero {
 					this.init_runeEvent(data, type)
 				})
 			}
+			this.init_CalculationJieShu(levelArray);
 		}
 		/**
 		* 符文点击事件
 		*/
 		public init_runeEvent(data, type): void {
 			let boxNum;
+			//符文极品属性
 			let pros = data.stNpProperty;
 			let pos;
 			this.vbox_item.removeChildren();
@@ -284,7 +338,7 @@ module view.hero {
 				itemInfo.dwBaseID = data.dwBaseID;
 				this.ui_item0.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.runeid = data;
-				//极品属性
+				//极品属性显示
 				let label = labelArray[0].btdes.split('上');
 				if (label[1]) {
 					this.lbl_shanghai.text = label[0] + ':' + singleArray[0].dwNpNum;
@@ -302,7 +356,6 @@ module view.hero {
 			}
 			// 背包符文交换
 			if (this.tab_rune.selectedIndex == 2) {
-
 				// ui_item1不为空，ui_item2为空时符文加入ui_item2
 				if (this.ui_item1.name == '1' && this.ui_item2.name !== '1') {
 					this.ui_item2.name = '1';
@@ -370,13 +423,19 @@ module view.hero {
 				lcp.send(pkt);
 			}
 		}
-		/**
-		 * 符文全部回收发协议
+		/*
+		 * 符文回收
 		 */
-		public init_Allrecovery(): void {
-			for (let i = 0; i < 11; i++) {
+		public init_Allrecovery(j): void {
+			if (j == undefined) {
+				for (let i = 0; i < 11; i++) {
+					let pkt = new ProtoCmd.QuestClientData();
+					pkt.setString(ProtoCmd.Hero_runeRecycle, [i])
+					lcp.send(pkt);
+				}
+			} else {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.Hero_runeRecycle, [i])
+				pkt.setString(ProtoCmd.Hero_runeRecycle, [j])
 				lcp.send(pkt);
 			}
 		}
@@ -408,6 +467,11 @@ module view.hero {
 			})
 			lcp.send(pkt);
 		}
+		/**
+		 * 符文交换位置
+		 * @param num 
+		 * @param boxNum 
+		 */
 		public init_exchangeBtn(num, boxNum): void {
 			for (let child of this['vbox_exchange' + boxNum]._childs) {
 				child.btn_choose.selected = false;
@@ -428,6 +492,9 @@ module view.hero {
 			}
 
 		}
+		/**
+		 * 符文交换
+		 */
 		public init_exchangeEvent(): void {
 			//交換屬性
 			if (this.runeid1 && this.runeid2 && this.pos1 && this.pos2) {
@@ -438,6 +505,116 @@ module view.hero {
 			else {
 				TipsManage.showTips('交换条件不足')
 			}
+		}
+		/**
+		 * 
+		 * @param levelArray 计算符文阶数
+		 */
+		public init_CalculationJieShu(levelArray: any): void {
+			let num0 = 0;
+			let num1 = 0;
+			let num2 = 0;
+			let num3 = 0;
+			let num4 = 0;
+			let num5 = 0;
+			let num6 = 0;
+			let num7 = 0;
+			let num8 = 0;
+			let num9 = 0;
+			let length0 = 0;
+			let length1 = 0;
+			let length2 = 0;
+			let length3 = 0;
+			let length4 = 0;
+			let length5 = 0;
+			let length6 = 0;
+			let length7 = 0;
+			let length8 = 0;
+			let length9 = 0;
+			let array = [];
+			for (let num of levelArray) {
+				let pros = num.info.stNpProperty;
+				let singleArray = [];
+				for (let runeObj of pros) {
+					let find = false;
+					for (let singleObj of singleArray) {
+						if (runeObj.btNpFrom == singleObj.btNpFrom) {
+							singleObj.dwNpNum = runeObj.dwNpNum + '-' + singleObj.dwNpNum;
+							find = true;
+						}
+					}
+					if (!find) {
+						singleArray.push(JSON.parse(JSON.stringify(runeObj)));
+					}
+				}
+				//符文属性词条数量
+				let shuxingNum = singleArray.length;
+				switch (num.jieshu) {
+					case 0:
+						num0 += 1;
+						break;
+					case 1:
+						num1 += 1;
+						break;
+					case 3:
+						num2 += 1;
+						break;
+					case 4:
+						num3 += 1;
+						break;
+					case 5:
+						num4 += 1;
+						break;
+					case 6:
+						num5 += 1;
+						break;
+					case 7:
+						num6 += 1;
+						break;
+					case 8:
+						num7 += 1;
+						break;
+					case 9:
+						num8 += 1;
+						break;
+					case 10:
+						num9 += 1;
+						break;
+				}
+				array.push({ num: shuxingNum, jieshu: num.jieshu })
+			}
+			this.lbl_recovery_0.text = '(' + num0 + ')';
+			this.lbl_recovery_1.text = '(' + num1 + ')';
+			this.lbl_recovery_2.text = '(' + num2 + ')';
+			this.lbl_recovery_3.text = '(' + num3 + ')';
+			this.lbl_recovery_4.text = '(' + num4 + ')';
+			this.lbl_recovery_5.text = '(' + num5 + ')';
+			this.lbl_recovery_6.text = '(' + num6 + ')';
+			this.lbl_recovery_7.text = '(' + num7 + ')';
+			this.lbl_recovery_8.text = '(' + num8 + ')';
+			this.lbl_recovery_9.text = '(' + num9 + ')';
+			this.init_runeRecycleConfig(array);
+		}
+		/**
+		 * 符文回收属性
+		 */
+		public init_runeRecycleConfig(array): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_runeRecycleConfig, null, null, this, (jsonData) => {
+				let sumGold = 0;
+				let sumScore = 0;
+				for (let single of array) {
+					let data = jsonData[single.jieshu];
+					for (let i = 0; i < single.num; i++) {
+						sumGold = sumGold + data[i].gold;
+						sumScore = sumGold + data[i].score;
+					}
+				}
+				this.lbl_score.text = '' + sumScore;
+				this.lbl_gold.text = '' + sumGold;
+				console.log('=====>回收属性', jsonData)
+			})
+			lcp.send(pkt);
 		}
 	}
 }
