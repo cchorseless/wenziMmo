@@ -126,7 +126,7 @@ module view.hero {
 				this.lbl_have.text = this.lbl_exchangeHave.text = jsonData.score;
 				//符文名称
 				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(jsonData.viewtab[i]).split('·');
-				this.lbl_runeName.text=''+name[0];
+				this.lbl_runeName.text = '' + name[0];
 				//当前符文穿戴级别
 				let dangqianlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(jsonData.viewtab[i]);
 				this.lbl_runLevel.text = dangqianlvl + '级可穿戴'
@@ -134,13 +134,19 @@ module view.hero {
 				let id1 = suitID + 3;
 				let id2 = suitID + 5;
 				let id3 = suitID + 8;
-				let a = GameUtil.parseEffectidToObj(['' + id1]);
-				// let bossHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id1);
-				// this.lbl_value1.text='合击对怪物伤害+'+bossHurt;
-				// let personHurt = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOPLAYER('' + id2);
-				// this.lbl_value2.text='合击对玩家和弟子伤害+'+personHurt;
-				// let HurtTime = SheetConfig.mydb_effect_base_tbl.getInstance(null).NONPAREIL_TYPE_UATOMONSTER('' + id3);
-				// this.lbl_value2.text='合击技能回满时间降至'+personHurt;
+				let keys = Object.keys(LangConfig.emEffectFuWenDes);
+				for (let key of keys) {
+					if (parseInt(key) == id1) {
+						this.lbl_value1.text = LangConfig.emEffectFuWenDes[key];
+					}
+					if (parseInt(key) == id2) {
+						this.lbl_value2.text = LangConfig.emEffectFuWenDes[key];
+					}
+					if (parseInt(key) == id3) {
+
+						this.lbl_value3.text = LangConfig.emEffectFuWenDes[key];
+					}
+				}
 				console.log('======>效果id', suitID)
 				//符文碎片
 				for (let j = 1; j < 9; j++) {
