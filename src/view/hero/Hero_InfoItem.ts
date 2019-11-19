@@ -4,7 +4,6 @@ module view.hero {
 		constructor() {
 			super();
 			this.addEvent();
-			this.init_rune();
 		}
 		public job;
 		public addEvent(): void {
@@ -24,6 +23,7 @@ module view.hero {
 				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
 			});
 			this.addLcpEvent();
+			this.init_rune();
 		}
 
 		public addLcpEvent() {
@@ -79,7 +79,7 @@ module view.hero {
 				} else {
 					this.img_battle.disabled = true;
 				}
-			}
+			}	
 		}
 		//激活弟子
 		public init_JiHuo(proto): void {
@@ -100,7 +100,7 @@ module view.hero {
 				if (rune) {
 					this['img_rune' + index].visible = true;
 					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
-					let array = rune.stNpPropertyString
+					let array = rune.stNpPropertyString;
 					for (let j = 0; rune.stNpPropertyString[j]; j++) {
 						runeArray.push(rune.stNpPropertyString[j]);
 					}
@@ -125,7 +125,10 @@ module view.hero {
 						singleArray.push(JSON.parse(JSON.stringify(runeObj)));
 					}
 				}
-				this.list_down.array = singleArray;
+				this.list_down.vScrollBarSkin='';
+				for(let single of singleArray){
+					this.list_down.array.push(single)
+				}
 				this.list_down.itemRender = view.compart.SinglePropsItem;
 				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
 					cell.setData(cell.dataSource);

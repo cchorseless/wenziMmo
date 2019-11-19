@@ -1359,9 +1359,10 @@ module ProtoCmd {
          * 极品属性描述
          */
         public get stNpPropertyString(): Array<EffectIDStruct> {
+            let temp = this.stNpProperty;
             if (this._npDesCount != this._npCount) {
                 this._npDesCount = this._npCount;
-                this._stNpPropertyDes = GameUtil.parseNonpareilToObj(this.stNpProperty);
+                this._stNpPropertyDes = GameUtil.parseNonpareilToObj(temp);
             }
             return this._stNpPropertyDes;
         }

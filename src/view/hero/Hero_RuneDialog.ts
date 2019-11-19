@@ -255,6 +255,7 @@ module view.hero {
 					for (let child of vbox._childs) {
 						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
 							let item = new view.compart.DaoJuItem();
+							item.img_onself.visible=true;
 							item.on(Laya.UIEvent.CLICK, this, () => {
 								type = 1;
 								this.init_runeEvent(playridArray[info], type)
@@ -465,6 +466,7 @@ module view.hero {
 		 * 符文属性
 		 */
 		public init_runeAttribute(id: number, pos: number): void {
+			this.lbl_use.text='';
 			let jieshu = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + id);
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_clickRunePreperty, [jieshu, pos], null, this, (jsonData) => {

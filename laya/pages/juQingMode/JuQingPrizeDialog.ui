@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":66,
+    "selecteID":2,
     "props":{"width":569,"sceneColor":"#9c9797","height":779},
     "nodeParent":-1,
     "label":"Dialog",
@@ -12,20 +12,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":-202,"x":-30,"skin":"image/剧情奖励-弹窗.jpg","alpha":0.3},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":82,
-            "child":[
-                ],
-            "$LOCKED":true
-        },
         {
             "x":15,
             "type":"Image",
@@ -39,7 +25,7 @@
             "compId":2,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -54,7 +40,7 @@
             "compId":68,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -72,7 +58,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":10,"x":551,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":33,"x":541,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -357,7 +343,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":112,"x":63,"skin":"image/juQingMode/bottom_zhangjie02.png"},
+            "props":{"y":123,"x":59,"skin":"image/juQingMode/bottom_zhangjie02.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
