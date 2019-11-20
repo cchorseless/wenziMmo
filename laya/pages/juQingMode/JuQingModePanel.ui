@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":104,
+    "selectedBox":168,
+    "selecteID":223,
     "props":{"width":640,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -97,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"x":310,"var":"btn_next","stateNum":"2","skin":"image/juQingMode/icon_jixu.png","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","bottom":22,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":897,"x":311,"var":"btn_next","stateNum":"2","skin":"image/juQingMode/icon_jixu.png","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","bottom":22,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":168,
                     "label":"Button(btn_next)",
                     "isOpen":true,
@@ -193,12 +193,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":834,"x":445,"var":"box_vipTiaoGuo"},
+                    "props":{"x":445,"var":"box_vipTiaoGuo","bottom":41},
                     "nodeParent":168,
                     "label":"Box(box_vipTiaoGuo)",
                     "isOpen":true,
