@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":82,
+    "selectedBox":50,
+    "selecteID":51,
     "props":{"width":621,"sceneColor":"#ffffff","height":789},
     "nodeParent":-1,
     "label":"View",
@@ -139,18 +139,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":1,"width":618,"skin":"image/common/fram_common_11.png","height":114},
+            "props":{"y":3,"x":1,"width":618,"skin":"image/menu/bottom_list.png","height":114},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":50,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":5,"x":0,"skin":"image/common/frame_list_zhaojia.png"},
+                    "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
                     "nodeParent":50,
                     "label":"Image",
                     "isDirectory":false,
@@ -161,6 +162,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
                     "nodeParent":50,
@@ -174,6 +176,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":78,"x":436,"width":173.078125,"var":"lbl_onLineTime","text":"11小时23分38秒","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#a53232"},
                     "nodeParent":50,
@@ -187,6 +190,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":79,"x":339,"text":"今日在线：","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#404040"},
                     "nodeParent":50,
@@ -200,6 +204,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":11,"x":130,"wordWrap":true,"width":401,"text":"记得每天都来领取每日在线奖励喵~~每日在想达到要求，即可领取奖励","strokeColor":"#000000","leading":8,"height":52,"fontSize":24,"font":"FZHL","color":"#404040"},
                     "nodeParent":50,

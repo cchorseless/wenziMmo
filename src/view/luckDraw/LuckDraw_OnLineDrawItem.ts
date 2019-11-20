@@ -4,6 +4,7 @@ module view.luckDraw {
 		constructor() {
 			super();
 			this.setData();
+			this.addEvent();
 		}
 		public drawItem;
 		public baoxiangInfo;
@@ -11,7 +12,6 @@ module view.luckDraw {
 			this.panel_record.vScrollBarSkin = '';
 			this.vbox_record['sortItem'] = items => { };
 			this.init_luckDrawPanel();
-			this.addEvent();
 		}
 		public addEvent(): void {
 			//返回菜单界面

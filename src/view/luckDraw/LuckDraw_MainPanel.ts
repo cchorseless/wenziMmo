@@ -28,11 +28,12 @@ module view.luckDraw {
 					let data = jsonData[key];
 					luckDrawData.push(data.name)
 					let box = new Laya.Box();
+					let i = parseInt(key) - 1;
+					box.name = 'item' + i;
 					box.top = box.bottom = box.right = box.left = 0;
 					this.viw_luck.addItem(box);
 				}
 				this.tab_top.labels = '' + luckDrawData;
-				//抽奖索引
 				let index = 0;
 				this.init_luckDrawPanel(index);
 			})
@@ -45,29 +46,28 @@ module view.luckDraw {
 		public init_luckDrawPanel(index) {
 			if (this.data !== null) {
 				let ui_item;
-				//抽奖在data里的索引
 				let i = index + 1;
 				switch (this.data[i].id) {
 					case 0:
-						ui_item = new view.luckDraw.LuckDraw_CangBaoItem();
+						ui_item = view.luckDraw.LuckDraw_CangBaoItem;
 						break;
 					case 15:
-						ui_item = new view.luckDraw.LuckDraw_TurntableItem();
+						ui_item = view.luckDraw.LuckDraw_TurntableItem;
 						break;
 					case 31:
-						ui_item = new view.luckDraw.LuckDraw_LuckDrawItem();
+						ui_item = view.luckDraw.LuckDraw_LuckDrawItem;
 						break;
 					case 34:
-						ui_item = new view.activity.Active_LuckBagDraw();
+						ui_item = view.activity.Active_LuckBagDraw;
 						break;
 					case 38:
-						ui_item = new view.luckDraw.LuckDraw_OnLineDrawItem();
+						ui_item = view.luckDraw.LuckDraw_OnLineDrawItem;
 						break;
 				}
 				for (let single of this.viw_luck._childs) {
 					let name = single.name.split('item')[1];
 					if (name == index && single._childs.length == 0) {
-						single.addChild(ui_item);
+						single.addChild(new ui_item());
 					}
 				}
 

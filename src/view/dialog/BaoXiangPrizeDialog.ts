@@ -21,9 +21,9 @@ module view.dialog {
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			// this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.close();
+			// })
 		}
 		//幸运抽奖
 		public init_luckDrawView(data): BaoXiangPrizeDialog {
