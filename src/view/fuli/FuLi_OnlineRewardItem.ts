@@ -31,6 +31,11 @@ module view.fuli {
 					new view.dialog.BaoXiangPrizeDialog().setData(this.treasureBoxInfo[i].itemtab).popup()
 				})
 			}
+			//城主特权
+			this.btn_detail.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_detail.selected = !this.btn_detail.selected
+				this.init_dialogEvent(this.btn_detail.selected);
+			})
 		}
 		/**
 		 * 拉取在线奖励面板
@@ -46,19 +51,20 @@ module view.fuli {
 					switch (data.btnStatus) {
 						case 0:
 							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_1close.png'
+							this['btn_get' + key].visible = false;
 							this['lbl_time' + key].visible = true;
 							this['lbl_time' + key].text = TimeUtils.getFormatBySecond(data.times, 5);
 							break;
 						case 1:
 							this['img_treasureBox' + key].skin = 'image/common/icon_baoxiang1_light.png'
-							this['btn_get' + key].visible = true;
+							this['btn_get' + key].disabled = false;
 							break;
 						case 2:
 							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_1open.png'
 							this['btn_get' + key].visible = true;
 							this['btn_get' + key].label = '已领取';
-							this['btn_get' + key].gray = true;
-							this['btn_get' + key].mouseEnabled = false;
+							this['btn_get' + key].visible = true;
+							this['btn_get' + key].disabled = true;
 							break;
 					}
 					//上周在线时间累计获得礼券
@@ -95,6 +101,18 @@ module view.fuli {
 					break;
 			}
 			this.init_ReWardInfo();
+		}
+		/**
+	  * 
+	  * @param type 规则按钮是否被选中
+	  */
+		public init_dialogEvent(type: boolean): void {
+			if (type) {
+				Laya.Tween.to(this.img_rule, { scaleX: 1, scaleY: 1 }, 200);
+			}
+			else {
+				Laya.Tween.to(this.img_rule, { scaleX: 0, scaleY: 0 }, 200);
+			}
 		}
 	}
 }

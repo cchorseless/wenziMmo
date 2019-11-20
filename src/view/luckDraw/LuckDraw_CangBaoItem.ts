@@ -6,6 +6,7 @@ module view.luckDraw {
 			this.setData();
 		}
 		public storeData;
+		public num = 0;
 		public setData(): void {
 			this.panel_myRecord.vScrollBarSkin = '';
 			this.vbox_myRecord['sortItem'] = items => { };
@@ -14,7 +15,6 @@ module view.luckDraw {
 			this.addEvent();
 			this.init_CangBaoGeData();
 			this.init_Record();
-			this.addLcpEvent();
 		}
 		public addEvent(): void {
 			//返回菜单界面
@@ -35,7 +35,7 @@ module view.luckDraw {
 
 				})
 			}
-
+			this.addLcpEvent();
 		}
 		public init_CangBaoGeData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
@@ -121,9 +121,11 @@ module view.luckDraw {
 			GameApp.LListener.on(ProtoCmd.LD_CangbaotuBuy, this, (jsonData) => {
 				this.lbl_score.text = '' + jsonData.score;
 				this.storeData = jsonData.item;
-				this.init_Record()
+				this.num += 1;
+				if (this.num > 1) {
+					this.init_Record();
+				}
 				GameApp.LListener.event(ProtoCmd.LD_storeRefresh, this.storeData);
-
 			})
 		}
 		public destroy(isbool): void {
