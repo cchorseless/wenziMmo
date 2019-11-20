@@ -29,7 +29,7 @@ module view.juQingMode {
 					contentText = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_DES1(id);
 					break;
 				case "m":                     //怪物
-					name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME_COLOR(id);
+					name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME(id);
 					contentText = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES(id);
 					break;
 			}
