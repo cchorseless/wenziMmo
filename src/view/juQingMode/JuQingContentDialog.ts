@@ -6,9 +6,6 @@ module view.juQingMode {
 			this.addEvent();
 		}
 		public addEvent(){
-			this.btn_close.on(Laya.UIEvent.CLICK,this,function(){
-				this.close();
-			})
 		}
 		public setData(data: string) {
 			let o = data.substring(0, 1);

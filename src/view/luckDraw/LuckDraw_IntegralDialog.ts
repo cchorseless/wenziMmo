@@ -14,6 +14,7 @@ module view.luckDraw {
 			this.addEvent();
 			let i = 1;
 			this.init_Integral(i);
+			this.btn_duihuan1.selected=true;
 			// this.init_record();
 			this.addLcpEvent();
 			return this;
@@ -22,31 +23,15 @@ module view.luckDraw {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
-			//神兵
-			this.btn_shenbing.on(Laya.UIEvent.CLICK, this, () => {
-				let i = 1
+			for(let i=1;i<6;i++){
+			this['btn_duihuan'+i].on(Laya.UIEvent.CLICK, this, () => {
+				for(let j=1;j<6;j++){
+					this['btn_duihuan'+j].selected=false;
+				}
+				this['btn_duihuan'+i].selected=true;
 				this.init_Integral(i);
 			})
-			//神甲
-			this.btn_shenjia.on(Laya.UIEvent.CLICK, this, () => {
-				let i = 2
-				this.init_Integral(i);
-			})
-			//转换
-			this.btn_zhuanhuan.on(Laya.UIEvent.CLICK, this, () => {
-				let i = 3
-				this.init_Integral(i);
-			})
-			//首饰
-			this.btn_shoushi.on(Laya.UIEvent.CLICK, this, () => {
-				let i = 4
-				this.init_Integral(i);
-			})
-			//其他
-			this.btn_qita.on(Laya.UIEvent.CLICK, this, () => {
-				let i = 5
-				this.init_Integral(i);
-			})
+			}
 		}
 		public init_Integral(i): void {
 			let pkt = new ProtoCmd.QuestClientData();

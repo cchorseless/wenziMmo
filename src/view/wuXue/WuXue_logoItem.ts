@@ -13,7 +13,13 @@ module view.wuXue {
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
 			this.img_skill_bg.skin = "image/common/skill/icon_jnzd_xiao" + quality + ".png"
 			this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
-			this.img_shuxing.skin = "image/common/skill/icon_wx_" + wuXing + ".png"
+			if(wuXing >0){
+				this.img_shuxing.visible = true;
+				this.img_shuxing.skin = "image/common/skill/icon_wx_" + wuXing + ".png"
+			}else{
+				this.img_shuxing.visible =false;
+			}
+			
 		}
 
 

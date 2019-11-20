@@ -206,6 +206,8 @@ module ProtoCmd {
     export const upgradeSkill = 'upgradeSkill';
     //武学经验值增加
     export const addSkillExp = 'addSkillExp';
+    //内功计时
+    export const neigong_nowTick = "neigong_nowTick";  
 
 
     /********************************弟子信息界面***************** */
@@ -545,6 +547,9 @@ module ProtoCmd {
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
 
+    
+
+
 
 
 
@@ -684,7 +689,7 @@ module ProtoCmd {
         refreshprice: number;//刷新价格
         items: { [index: string]: itf_Shop_ShopItem };//刷新道具
         curcount: number//当前次数
-        maxcount:number//最大次数
+        maxcount: number//最大次数
         pricetype: number;//购买货币类型
         binding: number//是否绑定
         curcnt: number//当前购买次数

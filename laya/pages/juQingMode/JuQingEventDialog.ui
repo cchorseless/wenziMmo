@@ -2,8 +2,8 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":600,"sceneColor":"#d4b3b2","height":700},
+    "selecteID":54,
+    "props":{"width":569,"sceneColor":"#d4b3b2","height":779},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -15,255 +15,329 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"top":0,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":0,"width":569,"top":0,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","left":0,"height":779},
             "nodeParent":1,
             "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":2,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":204,"x":42,"width":76,"text":"说   明：","height":26,"fontSize":24,"font":"fzhl","color":"#000000"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":8,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":205,"x":140,"wordWrap":true,"width":388,"var":"lbl_eventDes","valign":"top","text":"今晚打老虎","height":83,"fontSize":24,"font":"fzhl","color":"#63491a"},
+            "nodeParent":1,
+            "label":"Label(lbl_eventDes)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":722,"x":284,"width":150,"var":"btn_qianWang","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"前往","height":60,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_qianWang)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":22,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":75,"x":141,"skin":"image/juQingMode/bottom_shuxitianjian.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":54,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":81,"x":179,"width":212,"var":"lbl_eventName","text":"事件名称","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":36,"font":"FZXK","color":"#ffeeb1","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lbl_eventName)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":29,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":442,"x":47,"var":"box_jinDu"},
+            "nodeParent":1,
+            "label":"Box(box_jinDu)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":30,
             "child":[
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":154,"x":81,"width":76,"text":"说   明：","height":26,"fontSize":22,"font":"FZHL","color":"#000000"},
-                    "nodeParent":2,
+                    "props":{"y":0,"x":0,"width":103,"text":"任务进度：","height":26,"fontSize":24,"font":"fzhl","color":"#000000"},
+                    "nodeParent":30,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":8,
+                    "compId":21,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":0,"x":112,"width":354,"var":"div_jinDu","innerHTML":"htmlText","height":30},
+                    "nodeParent":30,
+                    "label":"HTMLDivElement(div_jinDu)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":42,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":399,"x":47,"var":"box_target"},
+            "nodeParent":1,
+            "label":"Box(box_target)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":34,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":1,"x":0,"width":103,"text":"任务目标：","height":26,"fontSize":24,"font":"fzhl","color":"#000000"},
+                    "nodeParent":34,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":1,"x":110,"width":354,"var":"div_targetDes","innerHTML":"htmlText","height":30},
+                    "nodeParent":34,
+                    "label":"HTMLDivElement(div_targetDes)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":33,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":359,"x":47,"var":"box_npc"},
+            "nodeParent":1,
+            "label":"Box(box_npc)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":35,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":0,"x":0,"width":103,"text":"目标NPC：","height":26,"fontSize":24,"font":"fzhl","color":"#000000"},
+                    "nodeParent":35,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":155,"x":175,"wordWrap":true,"width":369,"var":"lbl_eventDes","text":"阎罗王的小鬼跑了，需要你帮主他找回小鬼，并送回给阎罗王。","height":57,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_eventDes)",
-                    "isOpen":true,
+                    "props":{"y":0,"x":113,"wordWrap":true,"width":136,"var":"lbl_npc","text":"小鬼（0/1）","height":28,"fontSize":22,"font":"fzhl","color":"#63491a"},
+                    "nodeParent":35,
+                    "label":"Label(lbl_npc)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":9,
+                    "compId":31,
                     "child":[
                         ]
-                },
+                }],
+            "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":491,"x":9,"width":551,"skin":"image/common/bottom_touming.png","height":193,"alpha":0.8},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":53,
+            "child":[
+                ],
+            "$LOCKED":true,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":557,"x":52,"width":465,"var":"panel_0","height":118},
+            "nodeParent":1,
+            "label":"Panel(panel_0)",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":36,
+            "child":[
                 {
-                    "x":30,
+                    "type":"HBox",
+                    "props":{"var":"hbox_0","top":0,"bottom":0},
+                    "nodeParent":36,
+                    "label":"HBox(hbox_0)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":37,
+                    "child":[
+                        ]
+                }],
+            "$LOCKED":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":147,"x":32,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":47,
+            "child":[
+                {
                     "type":"Label",
-                    "props":{"y":119,"x":79,"text":"任务描述","strokeColor":"#52331e","stroke":4,"fontSize":28,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":2,
+                    "props":{"y":-1,"x":24,"text":"任务描述","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":47,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":26,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":221,"x":79,"text":"任务条件","strokeColor":"#52331e","stroke":4,"fontSize":28,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":39,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":374,"x":84,"text":"任务奖励","strokeColor":"#52331e","stroke":4,"fontSize":28,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":41,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":562,"x":212,"width":139,"var":"btn_qianWang","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"11,33,18,17","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"前往","height":59},
-                    "nodeParent":2,
-                    "label":"Button(btn_qianWang)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":22,
+                    "compId":50,
                     "child":[
                         ],
                     "$HIDDEN":false
-                },
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":319,"x":33,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":48,
+            "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":71,"x":242,"var":"lbl_eventName","text":"事件名称","strokeColor":"#52331e","stroke":4,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":2,
-                    "label":"Label(lbl_eventName)",
+                    "props":{"y":-1,"x":24,"text":"任务条件","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":48,
+                    "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":29,
+                    "compId":51,
                     "child":[
-                        ]
-                },
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":505,"x":33,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":49,
+            "child":[
                 {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":331,"x":75,"var":"box_jinDu"},
-                    "nodeParent":2,
-                    "label":"Box(box_jinDu)",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "type":"Label",
+                    "props":{"y":-1,"x":24,"text":"任务奖励","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":49,
+                    "label":"Label",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":30,
+                    "hasChild":false,
+                    "compId":52,
                     "child":[
-                        {
-                            "type":"Label",
-                            "props":{"width":103,"text":"任务进度：","height":26,"fontSize":22,"font":"FZHL","color":"#000000"},
-                            "nodeParent":30,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":21,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"HTMLDivElement",
-                            "props":{"y":6,"x":112,"width":354,"var":"div_jinDu","innerHTML":"htmlText","height":30},
-                            "nodeParent":30,
-                            "label":"HTMLDivElement(div_jinDu)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":42,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":292,"x":76,"var":"box_target"},
-                    "nodeParent":2,
-                    "label":"Box(box_target)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":34,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":1,"width":103,"text":"任务目标：","height":26,"fontSize":22,"font":"FZHL","color":"#000000"},
-                            "nodeParent":34,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":20,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"HTMLDivElement",
-                            "props":{"y":6,"x":110,"width":354,"var":"div_targetDes","innerHTML":"htmlText","height":30},
-                            "nodeParent":34,
-                            "label":"HTMLDivElement(div_targetDes)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":33,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":257,"x":75,"var":"box_npc"},
-                    "nodeParent":2,
-                    "label":"Box(box_npc)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":35,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"width":103,"text":"目标NPC：","height":26,"fontSize":22,"font":"FZHL","color":"#000000"},
-                            "nodeParent":35,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":3,"x":113,"wordWrap":true,"width":136,"var":"lbl_npc","text":"小鬼（0/1）","height":28,"fontSize":22,"font":"FZHL","color":"#63491a"},
-                            "nodeParent":35,
-                            "label":"Label(lbl_npc)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":31,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
-                    "x":30,
-                    "type":"Panel",
-                    "props":{"y":429,"x":64,"width":465,"var":"panel_0","height":118},
-                    "nodeParent":2,
-                    "label":"Panel(panel_0)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":36,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"HBox",
-                            "props":{"var":"hbox_0","top":0,"bottom":0},
-                            "nodeParent":36,
-                            "label":"HBox(hbox_0)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":37,
-                            "child":[
-                                ]
-                        }]
+                        ],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":37,"x":561,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":42,"x":520,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
@@ -276,29 +350,33 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":10,"x":158,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
+            "props":{"y":5,"x":11,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23","alpha":0.65},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":4,
+            "hasChild":false,
+            "compId":43,
             "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":8,"x":62,"text":"剧情事件","strokeColor":"#000000","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":4,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                }],
+                ],
+            "$LOCKED":true,
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":14,"x":38,"text":"剧情事件","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffeeb1"},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":false,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":44,
+            "child":[
+                ],
+            "$LOCKED":true
         }],
     "animations":[
         {

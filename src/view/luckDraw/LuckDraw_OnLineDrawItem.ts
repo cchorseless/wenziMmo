@@ -11,7 +11,6 @@ module view.luckDraw {
 			this.panel_record.vScrollBarSkin = '';
 			this.vbox_record['sortItem'] = items => { };
 			this.init_luckDrawPanel();
-			this.init_record();
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -101,8 +100,22 @@ module view.luckDraw {
 					itemInfo.dwBinding = data.bind;
 					this['ui_item' + key].setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				}
-
 			})
+			/**
+		 * 全服记录
+		 */
+			GameApp.LListener.on(ProtoCmd.LD_ZXCJ_list, this, (jsonData) => {
+				let data = jsonData.record.split('+')
+				let keys = Object.keys(data);
+				let num = (keys.length - 1) / 3;
+				this.vbox_record.removeChildren();
+				for (let i = 0; i < num; i++) {
+					let a = i * 3;
+					let b = a + 1;
+					let c = a + 2;
+					this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_onLineDraw(data[a], data[b], data[c]));
+				}
+			});
 		}
 		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.LD_ZXCJ_Plane, this);
@@ -125,23 +138,6 @@ module view.luckDraw {
 			pkt.setString(ProtoCmd.LD_ZXCJ_Start, null, null, this, (jsonData) => {
 			});
 			lcp.send(pkt);
-		}
-		/**
-		 * 全服记录
-		 */
-		public init_record(): void {
-			GameApp.LListener.on(ProtoCmd.LD_ZXCJ_list, this, (jsonData) => {
-				let data = jsonData.record.split('+')
-				let keys = Object.keys(data);
-				let num = (keys.length - 1) / 3;
-				this.vbox_record.removeChildren();
-				for (let i = 0; i < num; i++) {
-					let a = i * 3;
-					let b = a + 1;
-					let c = a + 2;
-					this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_onLineDraw(data[a], data[b], data[c]));
-				}
-			});
 		}
 		/**
 		 * 领取奖励

@@ -1,8 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.wuXue {
 	export class WuXueNeiGongPanel extends ui.wuXue.WuXueNeiGongPanelUI {
+		public static self:WuXueNeiGongPanel;
+		public totalEXP = 0;
+		public curEXP = 0;
 		constructor() {
 			super();
+			WuXueNeiGongPanel.self = this;
 		}
 		private value;
 		public setData(): void {
@@ -10,6 +14,18 @@ module view.wuXue {
 			this.initUI();
 			this.addEvent();
 			this.init_jingluo();
+			this.getMyData();
+		}
+		public getMyData() {
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.neigong_nowTick, null, 0, this, function (data) {
+				let aa = data;
+				// console.log("当前时间:" + data.tick);
+				this.lbl_des.text = "每分钟" + data.rate + "点内功"
+				this.img_exp.width = (data.tick / 60) * this.img_expBg.width;
+				let second = (60 - data.tick) * 1000;
+				this.changeWidthTw(second)
+			})
+			lcp.send(pkt);
 		}
 		public addEvent(): void {
 			//刷新面板
@@ -25,6 +41,7 @@ module view.wuXue {
 			})
 			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_neigong, this, function () {
 				this.initUI()
+				this.getMyData()
 			})
 			// 模式切换
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
@@ -56,14 +73,14 @@ module view.wuXue {
 			for (let i = 7; i < 11; i++) {
 				this["ui_item" + i].removeItem();
 				// this["ui_item" + i].lbl_buWei.text = "";
-				this["lbl_des" + i].text = "效率:0点/min";
+				this["lbl_des" + i].text = "0点/min";
 			}
 			this.ui_item7.lbl_buWei.text = '内功武学';
 			this.ui_item8.lbl_buWei.text = '内功武学';
 			this.ui_item9.lbl_buWei.text = '内功武学';
 			this.ui_item10.lbl_buWei.text = '内功武学';
 			// 动画
-			this.changeWidthTw()
+			// this.changeWidthTw()
 			//list
 			this.list_0.vScrollBarSkin = '';
 			this.list_0.itemRender = view.wuXue.WuXue_InfoItem
@@ -105,22 +122,22 @@ module view.wuXue {
 					case EnumData.emSkillShotButtonType.NeiGong_1:
 						this.ui_item7.addItem(skill_ui);
 						this.ui_item7.lbl_buWei.text = nameStr;
-						this.lbl_des7.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						this.lbl_des7.text = SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
 						break;
 					case EnumData.emSkillShotButtonType.NeiGong_2:
 						this.ui_item8.addItem(skill_ui);
 						this.ui_item8.lbl_buWei.text = nameStr;
-						this.lbl_des8.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						this.lbl_des8.text = SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
 						break;
 					case EnumData.emSkillShotButtonType.NeiGong_3:
 						this.ui_item9.addItem(skill_ui);
 						this.ui_item9.lbl_buWei.text = nameStr;
-						this.lbl_des9.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
+						this.lbl_des9.text = SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min";
 						break;
 					case EnumData.emSkillShotButtonType.NeiGong_4:
 						this.ui_item10.addItem(skill_ui);
 						this.ui_item10.lbl_buWei.text = nameStr;
-						this.lbl_des10.text = "效率:" + SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min"
+						this.lbl_des10.text = SheetConfig.mydb_magic_tbl.getInstance(null).INTERNALCOUNT(_skillBase.configID) + "点/min"
 						break;
 				}
 			}
@@ -138,21 +155,26 @@ module view.wuXue {
 				this.lbl_huifu.text = '' + jsonData.nghf;
 				let data = jsonData.dangqianshuxing.split('=')
 				//内功值
-				this.lbl_neigong.text = '' + data[1];
+				this.lbl_neigong.text = jsonData.dangqianneigong.toString();
 				//内功抵抗
-				this.lbl_dikang.text = data[0] + "%";
-				let value = jsonData.dangqianneigong - jsonData.xiaohaoitem;
+				this.lbl_dikang.text = (parseInt(data[1]) / 100) + "%";
+				this.curEXP = jsonData.zongnum;
+				this.totalEXP = jsonData.xiaohaoitem;
+				let value = jsonData.zongnum - jsonData.xiaohaoitem;
 				this.value = value;
+				let k = 100 / 132;
 				if (value < 0) {
 					//当前内功值进度
-					this.lbl_value.text = jsonData.dangqianneigong + '/' + jsonData.xiaohaoitem;
-					//当前内功值进度条
-					this.img_progress.width = 149 * jsonData.dangqianneigong / jsonData.xiaohaoitem;
+					this.panel_showExp.visible = true;
+					this.btn_lvUp.visible = false;
+					this.lbl_value.text = jsonData.zongnum + '/' + jsonData.xiaohaoitem;
+					this.panel_mask.y = 100 - (jsonData.zongnum / jsonData.xiaohaoitem * 100 * k)
+					this.img_mask.y = (-1) * (100 - (jsonData.zongnum / jsonData.xiaohaoitem * 100 *k))
 				} else {
 					//当前内功值进度
+					this.panel_showExp.visible = false;
+					this.btn_lvUp.visible = true;
 					this.lbl_value.text = jsonData.xiaohaoitem + '/' + jsonData.xiaohaoitem;
-					//当前内功值进度条
-					this.img_progress.width = 149;
 				}
 
 				let neigong = jsonData.dangqiandengji % 10;
@@ -184,6 +206,27 @@ module view.wuXue {
 			pkt.setString(ProtoCmd.WX_shuxingxitong_minabandakai)
 			lcp.send(pkt);
 		}
+		//服务器广播    内功经验增加
+		public neigongIncrease(num:number) {
+			this.curEXP += num;
+			let value = this.curEXP - this.totalEXP;
+			this.value = value;
+			let k = 100 / 132;
+			if (value < 0) {
+				//当前内功值进度
+				this.panel_showExp.visible = true;
+				this.btn_lvUp.visible = false;
+				this.lbl_value.text = this.curEXP  + '/' + this.totalEXP;
+				this.panel_mask.y = 100 - (this.curEXP  / this.totalEXP * 100)
+				this.img_mask.y = (-1) * (100 - (this.curEXP  / this.totalEXP * 100))
+			} else {
+				//当前内功值进度
+				this.panel_showExp.visible = false;
+				this.btn_lvUp.visible = true;
+				this.lbl_value.text = this.totalEXP + '/' + this.totalEXP;
+			}
+			TipsManage.showTips("内功值增加" + num + "点！！");
+		}
 
 		/**
 		 * 经络升级发包
@@ -201,12 +244,13 @@ module view.wuXue {
 		/**
 		 * 动画
 		 */
-		public changeWidthTw(): void {
-			Laya.Tween.to(this.img_exp, { width: this.img_expBg.width }, 3000, null,
+		public changeWidthTw(second: number): void {
+			Laya.Tween.to(this.img_exp, { width: this.img_expBg.width }, second, null,
 				Laya.Handler.create(this, () => {
 					this.img_exp.width = 0;
-					this.changeWidthTw();
+					this.changeWidthTw(60000);
 				}));
 		}
+
 	}
 }

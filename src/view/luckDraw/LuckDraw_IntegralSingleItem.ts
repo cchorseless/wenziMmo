@@ -22,10 +22,18 @@ module view.luckDraw {
 				this.ui_daoju.setData(itemInfos1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				//消耗的藏宝阁积分
 				let itemNames2 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemIDs2)
-				this.lbl_use.text = '消耗'+itemnums2 + itemNames2;
-				this.ui_use.visible=false;
-				this.lbl_add.visible=false;
-				this.lbl_dengyu.visible=false;
+				this.lbl_use.text = '消耗' + itemnums2 + itemNames2;
+				this.ui_use.visible = false;
+				this.lbl_add.visible = false;
+				this.lbl_dengyu.visible = false;
+				if ( parseInt(score) >= parseInt(itemnums2)) {
+					this.btn_exchange.visible = true;
+					this.lbl_NoCondition.visible=false;
+				}
+				else {
+					this.btn_exchange.visible = false;
+					this.lbl_NoCondition.visible=true;
+				}
 			}
 			else {
 				let wupin = singleInfo.split('=');
@@ -46,7 +54,7 @@ module view.luckDraw {
 				let itemInfo2 = new ProtoCmd.ItemBase;
 				itemInfo2.dwBaseID = itemID2;
 				itemInfo2.dwCount = itemnum2;
-				this.ui_use.visible=true;
+				this.ui_use.visible = true;
 				this.ui_use.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				//消耗的藏宝阁积分
 				let itemName3 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemID3)
@@ -55,9 +63,11 @@ module view.luckDraw {
 				//判断是否满足兑换条件
 				if (count1 >= parseInt(itemnum2) && parseInt(score) >= parseInt(itemnum3)) {
 					this.btn_exchange.visible = true;
+					this.lbl_NoCondition.visible=false;
 				}
 				else {
 					this.btn_exchange.visible = false;
+					this.lbl_NoCondition.visible=true;
 				}
 			}
 

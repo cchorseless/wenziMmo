@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":12,
+    "selecteID":26,
     "props":{"width":621,"sceneColor":"#ffffff","height":789},
     "nodeParent":-1,
     "label":"View",
@@ -15,87 +15,85 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":8,"width":605,"skin":"image/common/bottom_huodongjianjie.png","height":163,"alpha":0.5},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":11,"x":27,"width":71,"skin":"image/common/title_ConfederationDeclaration.png","height":106},
+            "props":{"y":3,"x":0,"width":618,"skin":"image/common/fram_common_11.png","height":114},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":4,
+            "compId":27,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":6,"x":5,"wordWrap":true,"width":30,"text":"接引","strokeColor":"#000000","stroke":4,"height":59,"fontSize":26,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":4,
-                    "label":"Label",
+                    "type":"Image",
+                    "props":{"y":5,"x":0,"skin":"image/common/frame_list_zhaojia.png"},
+                    "nodeParent":27,
+                    "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
+                    "compId":28,
                     "child":[
                         ]
                 },
                 {
                     "type":"Label",
-                    "props":{"y":37,"x":31,"wordWrap":true,"width":30,"text":"奖励","strokeColor":"#000000","stroke":4,"height":59,"fontSize":26,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":4,
+                    "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
+                    "nodeParent":27,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":6,
+                    "compId":29,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":18,"x":115,"wordWrap":true,"width":501,"text":"       接引新的凡夫俗子进入江湖，并让新人说出口令。新人即可瞬间获得                 ,而在新人修炼到一定程度后，接引者也会受到礼物作为接引回馈。","strokeColor":"#000000","leading":2,"height":96,"fontSize":22,"font":"FZHL","color":"#404040"},
+                    "nodeParent":27,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":42,"x":345,"width":31,"skin":"image/main/icon_coin_1.png","height":26},
+                    "nodeParent":27,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":33,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":45,"x":376,"width":53.625,"text":"X300","strokeColor":"#000000","leading":8,"height":24,"fontSize":22,"font":"FZHL","color":"#a53232"},
+                    "nodeParent":27,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":22,"x":114,"wordWrap":true,"width":463,"text":"       接引新的凡夫俗子进入江湖，并让新人说出口令。新人即可瞬间获得元宝           ,而在新人修炼到一定程度后，接引者也会受到礼物作为接引回馈。","strokeColor":"#000000","leading":2,"fontSize":22,"font":"FZHL","color":"#404040"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":45,"x":408,"width":53.625,"text":"X300","strokeColor":"#000000","leading":8,"height":24,"fontSize":22,"font":"FZHL","color":"#a53232"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ],
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":164,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":148,"alpha":0.7},
+            "props":{"y":171,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":87,"alpha":0.7},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -109,7 +107,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":182,"x":22,"width":205,"skin":"image/common/bottom_smalltitle.png","height":39},
+            "props":{"y":131,"x":3,"width":179,"skin":"image/common/bottom_smalltitle.png","height":39},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -120,7 +118,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":2,"x":45,"text":"礼包口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":28,"font":"FZHL","color":"#fff4ce"},
+                    "props":{"y":3,"x":32,"text":"礼包口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":10,
                     "label":"Label",
                     "isDirectory":false,
@@ -136,7 +134,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":235,"x":15,"width":372,"var":"input_jihuo","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的礼包口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
+            "props":{"y":193,"x":36,"width":352,"var":"input_jihuo","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的礼包口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"TextInput(input_jihuo)",
             "isDirectory":false,
@@ -150,7 +148,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":231,"x":439,"width":103,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"确认","height":55},
+            "props":{"y":194,"x":389,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"确认"},
             "nodeParent":1,
             "label":"Button(btn_jihuo)",
             "isDirectory":false,
@@ -164,7 +162,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":321,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":148,"alpha":0.7},
+            "props":{"y":317,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":88,"alpha":0.7},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -178,18 +176,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":335,"x":15,"width":205,"skin":"image/common/bottom_smalltitle.png","height":39},
+            "props":{"y":279,"x":6,"width":171,"skin":"image/common/bottom_smalltitle.png","height":39},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":15,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":3,"x":46,"text":"接引口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":28,"font":"FZHL","color":"#fff4ce"},
+                    "props":{"y":1,"x":38,"text":"接引口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":15,
                     "label":"Label",
                     "isDirectory":false,
@@ -205,7 +204,7 @@
         {
             "x":15,
             "type":"TextInput",
-            "props":{"y":392,"x":12,"width":372,"skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
+            "props":{"y":340,"x":36,"width":352,"skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"TextInput",
             "isDirectory":false,
@@ -219,7 +218,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":386,"x":393,"width":103,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"确认","height":55},
+            "props":{"y":338,"x":389,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"确认"},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -233,7 +232,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":386,"x":500,"width":103,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"接引码","height":55},
+            "props":{"y":338,"x":480,"width":104,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"接引码","height":45},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,
@@ -247,7 +246,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":474,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":314,"alpha":0.7},
+            "props":{"y":465,"x":-2,"width":624,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":323,"alpha":0.7},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -261,7 +260,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":488,"x":15,"width":267,"skin":"image/common/bottom_smalltitle.png","height":39},
+            "props":{"y":426,"x":1,"width":266,"skin":"image/common/bottom_smalltitle.png","height":39},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -272,7 +271,7 @@
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":1,"x":48,"text":"已接引的大侠","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":28,"font":"FZHL","color":"#fff4ce"},
+                    "props":{"y":3,"x":43,"text":"已接引的大侠","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                     "nodeParent":21,
                     "label":"Label",
                     "isDirectory":false,
@@ -315,7 +314,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":494,"x":554,"text":"共0人","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#63491a","bold":true},
+            "props":{"y":434,"x":561,"text":"共0人","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#63491a","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":168,
-    "selecteID":223,
+    "selectedBox":185,
+    "selecteID":184,
     "props":{"width":640,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -97,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":897,"x":311,"var":"btn_next","stateNum":"2","skin":"image/juQingMode/icon_jixu.png","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","bottom":22,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"x":310,"var":"btn_next","stateNum":"2","skin":"image/juQingMode/icon_jixu.png","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","bottom":22,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":168,
                     "label":"Button(btn_next)",
                     "isOpen":true,
@@ -193,12 +193,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":445,"var":"box_vipTiaoGuo","bottom":41},
+                    "props":{"y":834,"x":445,"var":"box_vipTiaoGuo"},
                     "nodeParent":168,
                     "label":"Box(box_vipTiaoGuo)",
                     "isOpen":true,
@@ -523,15 +523,16 @@
             "props":{"var":"box_selectQuestion","right":0,"left":0,"height":200,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_selectQuestion)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":185,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"width":640,"top":0,"skin":"image/common/default/img_blackBg.png","right":0,"left":0,"height":196,"bottom":0,"alpha":0.7},
+                    "props":{"y":-39,"x":0,"skin":"image/juQingMode/bottom_tishi2.png","alpha":1},
                     "nodeParent":185,
                     "label":"Image",
                     "isOpen":true,
@@ -544,8 +545,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":12,"x":-4,"width":641,"var":"lbl_selestQuestion","valign":"middle","text":"现在向哪个方向走呢？","height":80,"fontSize":30,"font":"FZHL","color":"#f9f6f6","align":"center"},
+                    "props":{"y":-7,"x":0,"width":641,"var":"lbl_selestQuestion","valign":"middle","underlineColor":"#000000","text":"现在向哪个方向走呢？","stroke":4,"height":80,"fontSize":36,"font":"FZHL","color":"#f9f6f6","align":"center"},
                     "nodeParent":185,
                     "label":"Label(lbl_selestQuestion)",
                     "isDirectory":false,
@@ -556,8 +558,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":151,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":151,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
                     "label":"Button(btn_selectA)",
                     "isDirectory":false,
@@ -568,8 +571,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":149,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":149,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
                     "label":"Button(btn_selectB)",
                     "isDirectory":false,
@@ -579,7 +583,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -587,14 +591,13 @@
             "props":{"y":77,"x":0,"width":233,"visible":false,"var":"img_panel","skin":"image/juQingMode/bottom_zhangjiemilu.png","height":970},
             "nodeParent":1,
             "label":"Image(img_panel)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":224,
             "child":[
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"x":0,"width":233,"var":"panel_zhangJie","height":952},
                     "nodeParent":224,
@@ -606,7 +609,6 @@
                     "compId":186,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":10,"x":4,"width":215,"var":"vbox_zhangJieLeft","space":2,"align":"center"},
                             "nodeParent":186,
