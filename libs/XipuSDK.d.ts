@@ -1,1 +1,1 @@
-declare var XipuSDK;
+declare let XipuSDK: any;

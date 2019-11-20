@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":230,
+    "selectedBox":242,
+    "selecteID":243,
     "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":685},
     "nodeParent":-1,
     "label":"View",
@@ -30,17 +30,19 @@
                     "props":{"y":0,"x":0,"width":545,"var":"panel_monster","top":0,"right":0,"left":0,"height":294},
                     "nodeParent":2,
                     "label":"Panel(panel_monster)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":7,
                     "child":[
                         {
+                            "x":45,
                             "type":"HBox",
                             "props":{"x":0,"var":"hbox_monster","top":0,"bottom":0,"align":"middle"},
                             "nodeParent":7,
                             "label":"HBox(hbox_monster)",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -48,7 +50,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -56,13 +58,14 @@
                     "props":{"y":292,"x":0,"width":545,"var":"panel_player","right":0,"left":0,"height":180},
                     "nodeParent":2,
                     "label":"Panel(panel_player)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":167,
                     "child":[
                         {
+                            "x":45,
                             "type":"HBox",
                             "props":{"x":0,"var":"hbox_player","top":0,"bottom":0,"align":"bottom"},
                             "nodeParent":167,
@@ -131,7 +134,7 @@
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":30,"x":3,"text":"地图","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":41,"x":13,"text":"地图","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":227,
                             "label":"Label",
                             "isDirectory":false,
@@ -157,35 +160,6 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":340,"x":22,"width":36,"var":"btn_changSize","stateNum":"1","skin":"image/main/btn_common_02.png","selected":false,"mouseEnabled":true,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":62,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_changSize)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":244,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"scene/BattleSkillContonlV0Item.ui",
-                    "props":{"runtime":"view.scene.BattleSkillContonlV0Item","right":0,"bottom":0},
-                    "nodeParent":2,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":245,
-                    "child":[
-                        ]
                 }],
             "$HIDDEN":false
         }],

@@ -343,21 +343,21 @@ module GameUtil {
                             if (GameApp.MainPlayer.roomId != roomid) {
                                 // 是否需要导航
                                 if (GameApp.GameEngine.smallMapData.left == roomid) {
-                                    btn = PanelManage.Main.btn_mapLeft;
+                                    btn = GameApp.SceneManager.smallMapFindButton('btn_mapLeft');
                                 }
                                 else if (GameApp.GameEngine.smallMapData.right == roomid) {
-                                    btn = PanelManage.Main.btn_mapRight
+                                    btn = GameApp.SceneManager.smallMapFindButton('btn_mapRight')
                                 }
                                 else if (GameApp.GameEngine.smallMapData.up == roomid) {
-                                    btn = PanelManage.Main.btn_mapUp
+                                    btn = GameApp.SceneManager.smallMapFindButton('btn_mapUp')
                                 }
                                 else if (GameApp.GameEngine.smallMapData.down == roomid) {
-                                    btn = PanelManage.Main.btn_mapDown
+                                    btn = GameApp.SceneManager.smallMapFindButton('btn_mapDown')
                                 }
                                 // 非相邻房间，需要展开地图导航
                                 else {
-                                    GameUtil.addEffectButton(PanelManage.Main.btn_mapBig);
-                                    GameUtil.addEffectButton(PanelManage.Main.ui_mainDownMapItem.findRoomButton(roomid));
+                                    GameUtil.addEffectButton(GameApp.SceneManager.smallMapFindButton('btn_mapBig'));
+                                    GameUtil.addEffectButton(GameApp.SceneManager.bigMapfindButton(roomid));
                                 }
                             }
                             GameUtil.findNPC(roomid, npcid);
@@ -527,16 +527,16 @@ module GameUtil {
         if (index + 1 < toDoList.length) {
             let next_id = toDoList[index + 1];
             if (GameApp.GameEngine.smallMapData.left == next_id) {
-                btn = PanelManage.Main.btn_mapLeft;
+                btn = GameApp.SceneManager.smallMapFindButton('btn_mapLeft');
             }
             else if (GameApp.GameEngine.smallMapData.right == next_id) {
-                btn = PanelManage.Main.btn_mapRight
+                btn = GameApp.SceneManager.smallMapFindButton('btn_mapRight');
             }
             else if (GameApp.GameEngine.smallMapData.up == next_id) {
-                btn = PanelManage.Main.btn_mapUp
+                btn = GameApp.SceneManager.smallMapFindButton('btn_mapUp');
             }
             else if (GameApp.GameEngine.smallMapData.down == next_id) {
-                btn = PanelManage.Main.btn_mapDown
+                btn = GameApp.SceneManager.smallMapFindButton('btn_mapDown');
             }
             toDoList[index] = null;
             btn && GameUtil.addEffectButton(btn);
