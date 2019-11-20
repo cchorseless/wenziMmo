@@ -4,7 +4,6 @@ module view.shopMall {
 		constructor() {
 			super();
 		}
-
 		public allType = [EnumData.ShopType.SHOP_TYPE_TUIJIAN,
 		EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK,
 		EnumData.ShopType.SHOP_TYPE_SKILL,
@@ -26,9 +25,7 @@ module view.shopMall {
 			this.vbox_shop5['sortItem'] = (items) => { };
 			this.lbl_rongyu.text = '' + GameApp.MainPlayer.wealth.honorNum;
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				if (this['vbox_shop' + (index + 1)] == null || this['vbox_shop' + (index + 1)].length == 0) {
-					this.updateHotShop(this.allType[index]);
-				}
+				this.updateHotShop(this.allType[index]);
 				this.viw_shop.selectedIndex = index;
 			}, null, false);
 			this.addEvent();
@@ -60,50 +57,31 @@ module view.shopMall {
 		public addLcpEvent(): void {
 			// 热销
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_TUIJIAN, this, (jsonData) => {
-				let keys = Object.keys(jsonData.items)
-				for (let key of keys) {
-					let data = jsonData.items[key];
-					let shang = parseInt(key) % 3;
-					let shopItem = new view.shopMall.ShopItemV2Item();
-					let index;
-					switch (shang) {
-						case 0:
-							index = 3;
-							shopItem.setData(data, index);
-							break;
-						case 1:
-							index = 1;
-							this.vbox_shop1.addChild(shopItem.setData(data, index));
-							break;
-						case 2:
-							index = 2;
-							shopItem.setData(data, index);
-							break;
-					}
-				}
+				let shop = 1;
+				this.init_shopEvent(jsonData, shop);
 
 			});
 			//礼券
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_YUANBAOLOCK, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-
+				let shop = 2;
+				this.init_shopEvent(jsonData, shop);
 			});
 			//技能
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_SKILL, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-
-
+				let shop = 3;
+				this.init_shopEvent(jsonData, shop);
 			});
 			//荣誉
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_HONOR, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-
+				let shop = 4;
+				this.init_shopEvent(jsonData, shop);
 			});
 			//限购
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_LIMITED, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
-
-
+				let shop = 5;
+				this.init_shopEvent(jsonData, shop);
 				console.log('=====》商城商城', jsonData)
 			});
-
-
 		}
 
 
@@ -119,16 +97,58 @@ module view.shopMall {
 	  	 *拉取商店信息
 	  	 */
 		public updateHotShop(type): void {
-			if (type != EnumData.ShopType.SHOP_TYPE_MYSTERY) {
-				let pkt = new ProtoCmd.QuestClientData();
-				let data = [type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
-				pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, type);
-				lcp.send(pkt);
+			let index=this.tab_top.selectedIndex;
+			if (index < 5) {
+				if (this['vbox_shop' + (index + 1)]._childs == [] || this['vbox_shop' + (index + 1)]._childs == 0) {
+					let pkt = new ProtoCmd.QuestClientData();
+					let data = [type, EnumData.ShopSubType.SHOP_SUBTYPE_NONE];
+					pkt.setString(ProtoCmd.SHOP_UpdateItemList, data, type);
+					lcp.send(pkt);
+				}
 			} else {
 				this.aa();
 			}
 
 		}
-
+		public init_shopEvent(jsonData, shop): void {
+			let keys = Object.keys(jsonData.items)
+			let shang = Math.floor((keys.length - 1) / 3);
+			let shu = (keys.length - 1) % 3;
+			this['vbox_shop' + shop].removeChildren();
+			let index;
+			let shopArray = [];
+			let sum = 0;
+			for (let i = 1; i < keys.length; i++) {
+				let data = jsonData.items[i];
+				let yu = i % 3;
+				switch (yu) {
+					case 0:
+						index = 3;
+						shopArray.push({ item: data, index: index });
+						break;
+					case 1:
+						index = 1;
+						sum += 1;
+						shopArray.push({ item: data, index: index });
+						break;
+					case 2:
+						index = 2;
+						shopArray.push({ item: data, index: index });
+						break;
+				}
+				if (sum <= shang) {
+					if (index == 3) {
+						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray));
+						shopArray = [];
+					}
+				}
+				else {
+					if (index == shu) {
+						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray));
+						shopArray = [];
+					}
+				}
+			}
+		}
 	}
 }

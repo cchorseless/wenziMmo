@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":50,
+    "selectedBox":62,
+    "selecteID":100,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -153,13 +153,14 @@
             "props":{"y":191,"x":44,"width":551,"var":"panel_shop","height":55},
             "nodeParent":1,
             "label":"Panel(panel_shop)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":20,
             "child":[
                 {
+                    "x":30,
                     "type":"Tab",
                     "props":{"y":1,"x":5,"var":"tab_top","stateNum":2,"space":15,"skin":"image/menu/btn_sc_common_01.png","selectedIndex":0,"labels":"热销,礼券,技能,荣誉,限购,神秘","labelStrokeColor":"#3e2a23","labelStroke":4,"labelSize":28,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff"},
                     "nodeParent":20,
@@ -226,6 +227,7 @@
             "compId":51,
             "child":[
                 ],
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
@@ -245,7 +247,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":260,"x":17,"var":"viw_shop"},
+            "props":{"y":260,"x":10,"var":"viw_shop"},
             "nodeParent":1,
             "label":"ViewStack(viw_shop)",
             "isOpen":true,
@@ -257,7 +259,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":0,"width":605,"var":"panel_shop1","name":"item0","height":795},
+                    "props":{"y":0,"width":620,"var":"panel_shop1","name":"item0","height":795},
                     "nodeParent":40,
                     "label":"Panel(panel_shop1)",
                     "isOpen":true,
@@ -269,9 +271,10 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":0,"width":0,"var":"vbox_shop1","height":0},
+                            "props":{"y":0,"x":-2,"width":0,"var":"vbox_shop1","height":0},
                             "nodeParent":88,
                             "label":"VBox(vbox_shop1)",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -284,7 +287,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"width":605,"var":"panel_shop2","name":"item1","height":795},
+                    "props":{"width":620,"var":"panel_shop2","name":"item1","height":795},
                     "nodeParent":40,
                     "label":"Panel(panel_shop2)",
                     "isOpen":true,
@@ -296,7 +299,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":0,"width":0,"var":"vbox_shop2","height":0},
+                            "props":{"y":0,"x":-2,"width":0,"var":"vbox_shop2","height":0},
                             "nodeParent":89,
                             "label":"VBox(vbox_shop2)",
                             "isDirectory":false,
@@ -311,7 +314,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"width":605,"var":"panel_shop3","name":"item2","height":795},
+                    "props":{"width":620,"var":"panel_shop3","name":"item2","height":795},
                     "nodeParent":40,
                     "label":"Panel(panel_shop3)",
                     "isOpen":true,
@@ -323,7 +326,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":0,"width":0,"var":"vbox_shop3","height":0},
+                            "props":{"y":0,"x":-2,"width":0,"var":"vbox_shop3","height":0},
                             "nodeParent":91,
                             "label":"VBox(vbox_shop3)",
                             "isDirectory":false,
@@ -338,7 +341,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"width":605,"var":"panel_shop4","name":"item3","height":795},
+                    "props":{"width":620,"var":"panel_shop4","name":"item3","height":795},
                     "nodeParent":40,
                     "label":"Panel(panel_shop4)",
                     "isOpen":true,
@@ -350,7 +353,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":0,"width":0,"var":"vbox_shop4","height":0},
+                            "props":{"y":0,"x":-2,"width":0,"var":"vbox_shop4","height":0},
                             "nodeParent":93,
                             "label":"VBox(vbox_shop4)",
                             "isDirectory":false,
@@ -365,7 +368,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"width":605,"var":"panel_shop5","name":"item4","height":795},
+                    "props":{"width":620,"var":"panel_shop5","name":"item4","height":795},
                     "nodeParent":40,
                     "label":"Panel(panel_shop5)",
                     "isOpen":true,
@@ -377,7 +380,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":0,"x":0,"width":0,"var":"vbox_shop5","height":0},
+                            "props":{"y":0,"x":-2,"width":0,"var":"vbox_shop5","height":0},
                             "nodeParent":95,
                             "label":"VBox(vbox_shop5)",
                             "isDirectory":false,
