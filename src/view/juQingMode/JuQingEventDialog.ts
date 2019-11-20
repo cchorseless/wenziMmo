@@ -14,13 +14,21 @@ module view.juQingMode {
 			// 任务说明
 			this.lbl_eventDes.text = '' + taskInfo.des;
 			// 任务目标
-			this.div_targetDes.style.fontSize = 20;
+			this.div_targetDes.style.font = "STKaiti"
+			this.div_targetDes.style.fontSize = 24;
 			this.div_targetDes.innerHTML = '' + taskInfo.target;
 			// 任务NPC
 			this.lbl_npc.text = '' + taskInfo.endnpcname;
 			this.box_npc.visible = Boolean(taskInfo.endnpcname);
+			if (Boolean(taskInfo.endnpcname)) {
+				this.box_target.y = 399
+			} else {
+				this.box_target.y = 375
+			}
 			// 任务进度
-			this.div_jinDu.style.fontSize = 20;
+			this.div_jinDu.style.font = "STKaiti"
+			this.div_jinDu.style.fontSize = 24;
+			
 			switch (taskInfo.queststatus) {
 				// 完成
 				case EnumData.QUESTSTATUS.QUESTCOMPLETED:

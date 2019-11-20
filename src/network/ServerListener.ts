@@ -69,7 +69,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSetSkillShortCutsEnDeCoder), this, this.addSkillShortButton);
         // 删除技能快捷键信息 0296
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarDelSkillShortCutsEnDeCoder), this, this.delSkillShortButton);
-
+        //内功增加
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChuanNeiGongAddExp), this, this.increaseExp);
         /*************************************同步玩家属性************************************ */
         // 血条/蓝条变化 0x0234
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretHealthChange), this, this.cretHealthChange);
@@ -168,6 +169,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
         //PKModel
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
+
 
         // 初始化标记
         this.hasInit = true;
@@ -712,6 +714,22 @@ class ServerListener extends SingletonClass {
         }
         else {
             TipsManage.showTips('删除失败')
+        }
+        cbpkt.clear();
+    }
+    /**
+     * 增加的内功经验值
+     */
+    public increaseExp(data) {
+        let cbpkt = new ProtoCmd.stCretChuanNeiGongAddExp(data);
+        if (cbpkt.getValue('nNeiGongExp') > 0) {
+            if (PopUpManager.curPanel.name == "neigong") {
+                let aa: number = cbpkt.getValue('nNeiGongExp')
+                
+                view.wuXue.WuXueNeiGongPanel.self.neigongIncrease(aa);
+            } else {
+                return;
+            }
         }
         cbpkt.clear();
     }
@@ -1737,7 +1755,7 @@ class ServerListener extends SingletonClass {
      */
     public changePkModel(data: any): void {
         let msg = new ProtoCmd.CretPkModel(data);
-        GameApp.MainPlayer.pkModel=msg.getValue('pkModel');
+        GameApp.MainPlayer.pkModel = msg.getValue('pkModel');
         //   PanelManage.Main.ui_scene.pkModelChanged(msg.getValue('pkModel'));
         PanelManage.Main.updateUI_pkModel();
         msg.clear();
