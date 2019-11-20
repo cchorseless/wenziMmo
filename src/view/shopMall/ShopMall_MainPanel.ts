@@ -61,10 +61,10 @@ module view.shopMall {
 			// 热销
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_TUIJIAN, this, (jsonData) => {
 				let keys = Object.keys(jsonData.items)
-				let shopItem = new view.shopMall.ShopItemV2Item();
 				for (let key of keys) {
 					let data = jsonData.items[key];
 					let shang = parseInt(key) % 3;
+					let shopItem = new view.shopMall.ShopItemV2Item();
 					let index;
 					switch (shang) {
 						case 0:
