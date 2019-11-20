@@ -27,7 +27,6 @@ module ResData {
         public static ChooseAvatar = null;
         // 通用素材
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/common/comp.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/number.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/npc.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },

@@ -9,23 +9,20 @@ module view.scene {
 		/**
 		 * 展开
 		 */
-		public changeToBig(): void {
-			Laya.Tween.to(this, { width: 640 }, 500, Laya.Ease.bounceOut);
-			// Laya.Tween.to(this.hbox_0, { space: 19 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_1, { space: 23 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_2, { space: 31 }, 500, null, null, null, true);
+		public changeSelfSize(show): void {
+			if (show) {
+				Laya.Tween.to(this, { width: 640 }, 500, Laya.Ease.bounceOut);
+				// Laya.Tween.to(this.hbox_0, { space: 19 }, 500, null, null, null, true);
+				Laya.Tween.to(this.hbox_1, { space: 23 }, 500, null, null, null, true);
+				// Laya.Tween.to(this.hbox_2, { space: 31 }, 500, null, null, null, true);
+			}
+			else {
+				Laya.Tween.to(this, { width: 545 }, 500, Laya.Ease.bounceOut);
+				// Laya.Tween.to(this.hbox_0, { space: 0 }, 500, null, null, null, true);
+				Laya.Tween.to(this.hbox_1, { space: 0 }, 500, null, null, null, true);
+				// Laya.Tween.to(this.hbox_2, { space: 0 }, 500, null, null, null, true);
+			}
 		}
-
-		/**
-		 * 缩小
-		 */
-		public changeToSmall(): void {
-			Laya.Tween.to(this, { width: 545 }, 500, Laya.Ease.bounceOut);
-			// Laya.Tween.to(this.hbox_0, { space: 0 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_1, { space: 0 }, 500, null, null, null, true);
-			Laya.Tween.to(this.hbox_2, { space: 0 }, 500, null, null, null, true);
-		}
-
 
 		/**
 		 * 添加怪物
@@ -47,7 +44,6 @@ module view.scene {
 					this.addMonster(_monsterItem);
 				}
 			}
-
 
 			for (let i = 0; i < 7; i++) {
 				if (this['box_' + i].numChildren == 0) {

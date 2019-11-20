@@ -5,7 +5,7 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
-			this.btn_daily.selected=true;
+			this.btn_daily.selected = true;
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
@@ -22,22 +22,34 @@ module view.fuBen {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-			PanelManage.openJuQingModePanel()
+				PanelManage.openJuQingModePanel()
 			});
+
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
+
 			EventManage.onWithEffect(this.btn_daily, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenDailyPanel();
 			});
+
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenMainPanel();
 			});
+
 			EventManage.onWithEffect(this.btn_liLian, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenLiLianPanel();
 			});
+
 			EventManage.onWithEffect(this.btn_xianShi, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenXianShiPanel();
+			});
+
+			// 挑战副本
+			EventManage.onWithEffect(this.btn_challenge, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex]);
+				lcp.send(pkt);
 			});
 		}
 		/**
@@ -66,6 +78,8 @@ module view.fuBen {
 				let keys = Object.keys(jsonData);
 				for (let key of keys) {
 					let data: ProtoCmd.itf_FB_XinMoInfo = jsonData[key];
+					// 索引
+					data.index = parseInt(key);
 					this.hbox_xinMo.addChild(new view.fuBen.FuBenDailyXinMoItem().setData(data));
 				}
 				this.json = jsonData[1]
@@ -73,8 +87,9 @@ module view.fuBen {
 			});
 			lcp.send(pkt);
 		}
-
-		public update_XinMo(data: any): FuBen_DailyPanel {
+		public curSelectIndex = 1;
+		public update_XinMo(data: ProtoCmd.itf_FB_XinMoInfo): FuBen_DailyPanel {
+			this.curSelectIndex = data.index;
 			//boss[1]名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid).split("_");
 			this.lbl_bossName.text = '' + name[0];
@@ -100,7 +115,7 @@ module view.fuBen {
 				let _itemUI = new view.compart.DaoJuWithNameItem();
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.dwBaseID = jiangli[i];
-				_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_xinMo1.addChild(_itemUI)
 			}
 

@@ -24,6 +24,7 @@ module GameObject {
             this.feature.simpleFeature.sex = srcID;
         }
 
+        // public mapid
 
         // 天赋
         public talentInfo;
@@ -343,7 +344,7 @@ module GameObject {
                 default:
                     break;
             }
-            PanelManage.Main && PanelManage.Main.addViewObjUI(obj, type);
+            PanelManage.Main && GameApp.SceneManager.addViewObjUI(obj, type);
         }
         /**
          * 将游戏对象移除视野
@@ -462,7 +463,7 @@ module GameObject {
             }
             this._allHero = {};
             if (PanelManage.Main) {
-                PanelManage.Main.clearViewUI();
+                 GameApp.SceneManager.clearViewUI();
             }
         }
 

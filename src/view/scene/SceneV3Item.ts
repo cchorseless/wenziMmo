@@ -4,6 +4,7 @@ module view.scene {
 		constructor() {
 			super();
 			this.top = this.bottom = this.right = 0;
+			this.addEvent();
 			this.name = 'SceneV3Item';
 		}
 		public setData(): void {
@@ -13,7 +14,6 @@ module view.scene {
 			this.hbox_player['sortItem'] = (items) => { };
 			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
 			this.hbox_monster.addChild(ui_monsterGroup);
-			this.addEvent();
 		}
 
 		public addEvent(): void {
@@ -33,37 +33,20 @@ module view.scene {
 			// 	else {
 			// 		GameApp.MainPlayer.stopAutoAtk()
 			// 	}
-
 			// });
-			// 变大变小
-			// NPC竖条 展开缩放的动画
-			EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
-				this.btn_changSize.selected = !this.btn_changSize.selected;
-				if (this.btn_changSize.selected) {
-					this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
-					PanelManage.Main.showGroupNpcList(true);
-					this.changeToBig();
-				}
-				else {
-					this.btn_changSize.skin = 'image/main/btn_common_02.png'
-					PanelManage.Main.showGroupNpcList(false);
-					this.changeToSmall();
-				}
-			})
 		}
 
 		/**
 		 * 刷新界面
 		 */
 		public updateUI(): void {
+			console.log('刷新了' + this.name)
 			// 清除怪物
 			this.clearMonster();
 			// 清除其他玩家
 			this.clearPlayer();
 			// 更新角色
-			SceneManager.updateSelfPlayer(this);
-			// 更新弟子
-			SceneManager.updateDiziPlayer(this);
+			GameApp.SceneManager.updateSelfPlayer(this);
 			// 更新地图
 			this.updateMapInfo();
 		}
@@ -71,24 +54,18 @@ module view.scene {
 		/**
 		 * 展开
 		 */
-		public changeToBig(): void {
-			Laya.Tween.to(this, { width: 640 }, 300, null, null, null, true);
-			Laya.Tween.to(this.hbox_player, { space: 50 }, 300, null, null, null, true);
-			for (let item of this.hbox_monster._childs) {
-				(item as view.scene.MonsterGroupInSceneItem).changeToBig();
+		public changeSelfSize(show): void {
+			if (show) {
+				Laya.Tween.to(this, { width: 640 }, 300, null, null, null, true);
+				Laya.Tween.to(this.hbox_player, { space: 50 }, 300, null, null, null, true);
 			}
-		}
-
-		/**
-		 * 缩小
-		 */
-		public changeToSmall(): void {
-			Laya.Tween.to(this, { width: 545 }, 300, null, null, null, true);
-			Laya.Tween.to(this.hbox_player, { space: 5 }, 300, null, null, null, true);
-			for (let item of this.hbox_monster._childs) {
-				(item as view.scene.MonsterGroupInSceneItem).changeToSmall();
+			else {
+				Laya.Tween.to(this, { width: 545 }, 300, null, null, null, true);
+				Laya.Tween.to(this.hbox_player, { space: 5 }, 300, null, null, null, true);
 			}
-
+			for (let item of this.hbox_monster._childs) {
+				(item as view.scene.MonsterGroupInSceneItem).changeSelfSize(show);
+			}
 		}
 
 
@@ -119,29 +96,6 @@ module view.scene {
 
 
 		/**
-		 * 添加英雄
-		 */
-		public addHero(obj: GameObject.Hero): void {
-			let masterTempID = obj.feature.dwMasterTmpID;
-			// 判断是否是自己
-			if (masterTempID == GameApp.MainPlayer.tempId) {
-				this.box_diZi.removeChildren();
-				let ui_hero: view.scene.HeroInSceneItem = new view.scene.HeroInSceneItem();
-				ui_hero.setData(obj);
-				ui_hero.centerX = ui_hero.centerY = 0;
-				this.box_diZi.addChild(ui_hero);
-			}
-			else {
-				// 找到主人
-				let masterObj = GameApp.MainPlayer.findViewObj(masterTempID, EnumData.CRET_TYPE.CRET_PLAYER);
-				if (masterObj && masterObj.ui_item) {
-					(masterObj.ui_item as view.scene.PlayerAndHeroInSceneV0Item).setHero(obj);
-				}
-			}
-		}
-
-
-		/**
 		 * 清除所有怪物
 		 */
 		public clearMonster(): void {
@@ -164,7 +118,7 @@ module view.scene {
 			playerUI.setMaster(obj);
 			this.hbox_player.addChild(playerUI);
 			if (obj.curHero) {
-				this.addHero(obj.curHero)
+				GameApp.SceneManager.addHero(obj.curHero)
 			}
 		}
 
@@ -175,19 +129,6 @@ module view.scene {
 		public clearPlayer(): void {
 			this.hbox_player.removeChildren();
 		}
-
-		/**
-		 * 攻击状态模式缓动
-		 */
-		// public showBattleModel(isShow): void {
-		// 	if (isShow) {
-		// 		this.img_battleMode.visible = true;
-		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 1, scaleX: 1 }, 200);
-		// 	}
-		// 	else {
-		// 		Laya.Tween.to(this.img_battleMode, { scaleY: 0, scaleX: 0 }, 200, null, Laya.Handler.create(this, () => { this.img_battleMode.visible = false }))
-		// 	}
-		// }
 
 		/**
 		 * 更新地图信息

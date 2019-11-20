@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":129,
-    "selecteID":146,
+    "selectedBox":162,
+    "selecteID":167,
     "referenceLines":[
         {
             "value":1127,
@@ -115,7 +115,7 @@
                                 },
                                 {
                                     "type":"Button",
-                                    "props":{"y":10,"x":29,"var":"btn_npcHasDown","stateNum":1,"skin":"image/common/icon_zhibiao2.png"},
+                                    "props":{"y":10,"x":25,"var":"btn_npcHasDown","stateNum":1,"skin":"image/common/icon_zhibiao2.png"},
                                     "nodeParent":66,
                                     "label":"Button(btn_npcHasDown)",
                                     "isDirectory":false,
@@ -127,7 +127,7 @@
                                 },
                                 {
                                     "type":"Button",
-                                    "props":{"y":666,"x":29,"var":"btn_npcHasUp","stateNum":1,"skin":"image/common/icon_zhibiao2.png","scaleY":-1},
+                                    "props":{"y":670,"x":25,"var":"btn_npcHasUp","stateNum":1,"skin":"image/common/icon_zhibiao2.png","scaleY":-1},
                                     "nodeParent":66,
                                     "label":"Button(btn_npcHasUp)",
                                     "isDirectory":false,
@@ -136,6 +136,20 @@
                                     "compId":67,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"width":36,"var":"btn_changSize","stateNum":"1","skin":"image/main/btn_common_02.png","selected":false,"right":-31,"mouseEnabled":true,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":62,"centerY":0,"anchorY":0.5,"anchorX":0.5},
+                                    "nodeParent":66,
+                                    "label":"Button(btn_changSize)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":168,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
@@ -661,184 +675,17 @@
                                 },
                                 {
                                     "x":60,
-                                    "type":"Image",
-                                    "props":{"y":2,"var":"img_mapBg","skin":"image/main/img_map_01.png","right":0},
-                                    "nodeParent":75,
-                                    "label":"Image(img_mapBg)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":92,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":49,"x":157,"width":81,"var":"img_lineUp","skin":"image/main/fram_common_001.png","rotation":90,"height":4},
-                                            "nodeParent":92,
-                                            "label":"Image(img_lineUp)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":124,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":127,"x":54,"width":100,"var":"img_lineLeft","skin":"image/main/fram_common_001.png"},
-                                            "nodeParent":92,
-                                            "label":"Image(img_lineLeft)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":123,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":129,"x":160,"width":100,"var":"img_lineRight","skin":"image/main/fram_common_001.png"},
-                                            "nodeParent":92,
-                                            "label":"Image(img_lineRight)",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":143,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Image",
-                                            "props":{"y":140,"x":157,"width":81,"var":"img_lineDown","skin":"image/main/fram_common_001.png","rotation":90,"height":4},
-                                            "nodeParent":92,
-                                            "label":"Image(img_lineDown)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":144,
-                                            "child":[
-                                                ]
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":132,"x":62,"width":80,"var":"btn_mapLeft","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelPadding":"20,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺","height":80,"anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapLeft)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":93,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":131,"x":244,"width":80,"var":"btn_mapRight","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"20,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"武器铺铺","height":80,"anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapRight)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":94,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":134,"x":156,"width":80,"var":"btn_mapCenter","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelPadding":"20,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"驿站","height":80,"anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapCenter)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":95,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":220,"x":155,"width":80,"var":"btn_mapDown","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"20,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大街","height":80,"anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapDown)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":96,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":50,"x":155,"width":80,"var":"btn_mapUp","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":20,"labelPadding":"20,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"城墙","height":80,"anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapUp)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":97,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":46,"x":259,"var":"btn_mapBig","stateNum":"2","skin":"image/main/btn_common_02_finish.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"40,0,3,1","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"当前","anchorY":0.5,"anchorX":0.5},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_mapBig)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":98,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        },
-                                        {
-                                            "x":75,
-                                            "type":"Button",
-                                            "props":{"y":15,"x":22,"var":"btn_flyPoint","stateNum":2,"skin":"image/main/icon_luyin_01_finish.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"路引"},
-                                            "nodeParent":92,
-                                            "label":"Button(btn_flyPoint)",
-                                            "isOpen":true,
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":118,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":53,"x":0,"width":346,"var":"box_talk","height":230},
                                     "nodeParent":75,
                                     "label":"Box(box_talk)",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":156,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Tab",
                                             "props":{"x":0,"var":"tab_task","stateNum":2,"space":20,"skin":"image/main/fram_common_42_finish.png","selectedIndex":0,"left":0,"labels":"世\\n界,场\\n景","labelStrokeColor":"#000000","labelStroke":6,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffce00","direction":"vertical","centerY":0},
                                             "nodeParent":156,
@@ -852,7 +699,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":0,"x":17,"width":329,"skin":"image/main/fram_common_03a.png","sizeGrid":"16,16,16,16","height":230},
                                             "nodeParent":156,
@@ -927,13 +773,26 @@
                                             "$HIDDEN":false
                                         }],
                                     "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Box",
+                                    "props":{"width":294,"var":"box_smallScene","right":0,"height":284},
+                                    "nodeParent":75,
+                                    "label":"Box(box_smallScene)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":178,
+                                    "child":[
+                                        ]
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":117,"x":0,"visible":false,"var":"box_uiScene1","right":0,"left":0,"height":980},
+                            "props":{"y":117,"width":640,"visible":false,"var":"box_uiScene1","right":0,"left":0,"height":685},
                             "nodeParent":162,
                             "label":"Box(box_uiScene1)",
                             "isOpen":true,
@@ -1201,24 +1060,38 @@
                         },
                         {
                             "x":45,
-                            "type":"UIView",
-                            "source":"main/Main_DownMapItem.ui",
-                            "props":{"y":815,"x":635,"visible":false,"var":"ui_mainDownMapItem","runtime":"view.main.Main_DownMapItem","anchorY":1,"anchorX":1},
+                            "type":"Panel",
+                            "props":{"y":800,"x":640,"var":"panel_bigMap","top":0,"right":0,"left":0,"height":800,"anchorY":1,"anchorX":1},
                             "nodeParent":162,
-                            "label":"UIView(ui_mainDownMapItem)",
+                            "label":"Panel(panel_bigMap)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":126,
+                            "compId":175,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"scene/BattleSkillContonlV0Item.ui",
+                            "props":{"var":"ui_battleSkill","runtime":"view.scene.BattleSkillContonlV0Item","right":5,"bottom":345},
+                            "nodeParent":162,
+                            "label":"UIView(ui_battleSkill)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":167,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
                             "type":"UIView",
                             "source":"dialog/ChatBigDialog.ui",
-                            "props":{"y":120,"x":0,"var":"ui_chatBigDialog","runtime":"view.dialog.ChatBigDialog"},
+                            "props":{"var":"ui_chatBigDialog","runtime":"view.dialog.ChatBigDialog","centerY":0,"centerX":0},
                             "nodeParent":162,
                             "label":"UIView(ui_chatBigDialog)",
                             "isDirectory":false,
