@@ -80,7 +80,6 @@ module view.shopMall {
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_LIMITED, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
 				let shop = 5;
 				this.init_shopEvent(jsonData, shop);
-				console.log('=====》商城商城', jsonData)
 			});
 		}
 
@@ -110,6 +109,11 @@ module view.shopMall {
 			}
 
 		}
+		/**
+		 * 
+		 * @param jsonData 商店信息
+		 * @param shop 商店类型
+		 */
 		public init_shopEvent(jsonData, shop): void {
 			let keys = Object.keys(jsonData.items)
 			let shang = Math.floor((keys.length - 1) / 3);
