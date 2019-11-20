@@ -4,7 +4,6 @@ module view.activity {
 		public reFrushNum = 0;
 		constructor() {
 			super();
-
 			this.addEvent()
 		}
 		public addEvent() {
@@ -19,7 +18,7 @@ module view.activity {
 				})
 			}
 		}
-		public setData(data) {
+		public setData(data):Active_Mysteryshop {
 			this.setTimeShow(data);
 			for (let i = 1; i < 5; i++) {
 				let o = new view.compart.DaoJuItem();
@@ -40,6 +39,7 @@ module view.activity {
 				this["ui_shopItem" + i].lab_lastNum.text = "原：" + data.tab[i].oldprice;
 				this["ui_shopItem" + i].lab_curNum.text = data.tab[i].need;
 			}
+			return this;
 		}
 		public setTimeShow(data) {
 			this.reFrushNum = data.shuaxinprice;

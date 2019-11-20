@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":20,
-    "props":{"width":597,"sceneColor":"#000000","height":767},
+    "selecteID":22,
+    "props":{"width":620,"sceneColor":"#000000","height":795},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,15 +27,30 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":597,"skin":"image/common/fram_common_11.png","sizeGrid":"33,33,3,33","height":737},
+                    "props":{"y":572,"x":0,"width":623,"skin":"image/common/img_sc_zs02.png","sizeGrid":"13,19,18,18","height":59},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":42,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":313,"x":0,"width":623,"skin":"image/common/img_sc_zs02.png","sizeGrid":"13,19,18,18","height":59},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":41,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -66,7 +81,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":598,"skin":"image/common/bottom_ConfederationDeclaration.png","height":114},
+                    "props":{"y":2,"x":4,"width":618,"skin":"image/common/fram_common_11.png","height":114},
                     "nodeParent":2,
                     "label":"Image",
                     "isOpen":true,
@@ -77,8 +92,21 @@
                     "child":[
                         {
                             "x":45,
+                            "type":"Image",
+                            "props":{"y":5,"x":0,"skin":"image/common/frame_list_zhaojia.png"},
+                            "nodeParent":6,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":5,"x":98,"wordWrap":true,"width":490,"var":"lab_rules","valign":"top","text":"我我我我我我我我我w我我我我我我我我我我我我我问问我我w我我我我我我我我我我我我我我我我我我我我我我我我我问问我我我我我我","height":93,"fontSize":26,"font":"FZXK","color":"#000000","align":"left"},
+                            "props":{"y":14,"x":128,"wordWrap":true,"width":466,"var":"lab_rules","valign":"top","text":"活动期间消耗元宝达到指定额度且上榜的玩家，可获得超值奖励，排行榜整点刷新","height":88,"fontSize":22,"font":"FZHL","color":"#000000","align":"left"},
                             "nodeParent":6,
                             "label":"Label(lab_rules)",
                             "isDirectory":false,
@@ -86,33 +114,22 @@
                             "hasChild":false,
                             "compId":7,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":2,"x":20,"width":71,"skin":"image/common/title_ConfederationDeclaration.png","height":106},
+                            "type":"Label",
+                            "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
                             "nodeParent":6,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
+                            "label":"Label",
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
-                            "compId":8,
+                            "hasChild":false,
+                            "compId":9,
                             "child":[
-                                {
-                                    "x":60,
-                                    "type":"Label",
-                                    "props":{"y":6,"x":14,"wordWrap":true,"width":30,"text":"规则","strokeColor":"#000000","stroke":4,"height":59,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":8,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":9,
-                                    "child":[
-                                        ]
-                                }]
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$LOCKED":true,
                     "$HIDDEN":false
@@ -121,7 +138,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"activity/Active_shopItem.ui",
-                    "props":{"y":124,"x":19,"var":"ui_shopItem1"},
+                    "props":{"y":106,"x":52,"var":"ui_shopItem1"},
                     "nodeParent":2,
                     "label":"UIView(ui_shopItem1)",
                     "isDirectory":false,
@@ -129,13 +146,14 @@
                     "hasChild":false,
                     "compId":11,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"activity/Active_shopItem.ui",
-                    "props":{"y":124,"x":308,"var":"ui_shopItem2"},
+                    "props":{"y":108,"x":330,"var":"ui_shopItem2"},
                     "nodeParent":2,
                     "label":"UIView(ui_shopItem2)",
                     "isDirectory":false,
@@ -143,13 +161,14 @@
                     "hasChild":false,
                     "compId":12,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"activity/Active_shopItem.ui",
-                    "props":{"y":343,"x":19,"var":"ui_shopItem3"},
+                    "props":{"y":370,"x":52,"var":"ui_shopItem3"},
                     "nodeParent":2,
                     "label":"UIView(ui_shopItem3)",
                     "isDirectory":false,
@@ -157,13 +176,14 @@
                     "hasChild":false,
                     "compId":15,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"activity/Active_shopItem.ui",
-                    "props":{"y":343,"x":308,"var":"ui_shopItem4"},
+                    "props":{"y":370,"x":330,"var":"ui_shopItem4"},
                     "nodeParent":2,
                     "label":"UIView(ui_shopItem4)",
                     "isDirectory":false,
@@ -171,59 +191,61 @@
                     "hasChild":false,
                     "compId":16,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":556,"x":4,"width":588,"skin":"image/common/bottom_huodongjianjie.png","height":160},
+                    "props":{"y":637,"x":4,"width":614,"skin":"image/common/fram_common_11.png","height":157},
                     "nodeParent":2,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":18,
                     "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":587,"x":45,"wordWrap":true,"width":343,"text":"每次刷新后，             所有物品都只能购买一次","stroke":0.8,"leading":10,"height":97,"fontSize":26,"font":"FZXK","color":"#000000","align":"left"},
-                    "nodeParent":2,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":19,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":618,"x":487,"width":162,"var":"btn_UpDate","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"立即刷新","height":70,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_UpDate)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":20,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":644,"x":393,"width":187,"var":"lab_UpDateText","valign":"middle","text":"1000元宝刷新","stroke":0.8,"height":39,"fontSize":24,"font":"FZXK","color":"#000000","align":"center"},
-                    "nodeParent":2,
-                    "label":"Label(lab_UpDateText)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":21,
-                    "child":[
-                        ]
+                        {
+                            "type":"Label",
+                            "props":{"y":42,"x":27,"wordWrap":true,"width":342,"text":"每次刷新后，                所有物品都只能购买一次","stroke":0.8,"leading":10,"height":97,"fontSize":30,"font":"FZHL","color":"#000000","align":"left"},
+                            "nodeParent":18,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":64,"x":482,"width":155,"var":"btn_UpDate","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"立即刷新","height":51,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":18,
+                            "label":"Button(btn_UpDate)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":89,"x":385,"width":187,"var":"lab_UpDateText","valign":"middle","text":"1000元宝刷新","stroke":0.8,"height":39,"fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
+                            "nodeParent":18,
+                            "label":"Label(lab_UpDateText)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":21,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

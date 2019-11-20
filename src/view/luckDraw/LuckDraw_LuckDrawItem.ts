@@ -122,7 +122,6 @@ module view.luckDraw {
 						this.vbox_record.addChild(new view.luckDraw.LuckDraw_RecordItem().init_LuckDraw(recordData));
 					}
 				}
-				console.log('====>幸运抽奖', jsonData)
 			})
 		}
 		public destroy(isbool): void {
