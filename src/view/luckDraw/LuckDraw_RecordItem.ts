@@ -35,7 +35,6 @@ module view.luckDraw {
 		public init_jifenRecord(name, item): LuckDraw_RecordItem {
 			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item)
 			this.lbl_record.text = name + '兑换了' + itemName;
-			console.log('===>物品名字拆分', name, item)
 			return this;
 		}
 		/**

@@ -2,6 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
+    "selecteID":7,
     "props":{"width":621,"sceneColor":"#e2d3d3","height":789},
     "nodeParent":-1,
     "label":"View",
@@ -13,42 +14,121 @@
     "child":[
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":24,"x":25,"text":"1.最多找回前2天的未完成任务资源奖励","fontSize":24,"font":"FZHL","color":"#000000"},
+            "type":"Image",
+            "props":{"top":0,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","right":0,"left":0,"bottom":0,"alpha":0.7},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":29,
             "child":[
                 ],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":54,"x":25,"text":"2.背包不足将通过邮件发放找到资源","fontSize":24,"font":"FZHL","color":"#000000"},
+            "type":"Image",
+            "props":{"y":3,"x":1,"width":618,"skin":"image/common/fram_common_11.png","height":114},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":17,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"y":5,"x":0,"skin":"image/common/frame_list_zhaojia.png"},
+                    "nodeParent":17,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":10,"x":129,"text":"1.最多找回前2天的未完成任务资源奖励","fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":41,"x":131,"text":"2.背包不足将通过邮件发放找到资源","fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":73,"x":131,"wordWrap":true,"width":469,"text":"3.免费找回只能找回部分资源,元宝可以全部找回","height":29,"fontSize":22,"font":"FZHL","color":"#000000"},
+                    "nodeParent":17,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":686,"x":-1,"width":623,"skin":"image/common/img_sc_zs02.png","sizeGrid":"13,19,18,18","height":59},
+            "nodeParent":1,
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":26,
             "child":[
                 ],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":82,"x":25,"text":"3.免费找回只能找回部分资源，元宝可以全部找回","fontSize":24,"font":"FZHL","color":"#000000"},
+            "type":"Image",
+            "props":{"y":126,"x":32,"width":558,"skin":"image/common/fram_common_11.png","sizeGrid":"20,23,18,18","height":588},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":5,
+            "compId":28,
             "child":[
                 ],
             "$HIDDEN":false
@@ -56,7 +136,7 @@
         {
             "x":15,
             "type":"List",
-            "props":{"y":148,"x":37,"width":556,"var":"list_top","spaceX":30,"repeatY":6,"repeatX":2,"height":166},
+            "props":{"y":173,"x":38,"width":544,"var":"list_top","spaceX":25,"repeatY":6,"repeatX":2,"height":166},
             "nodeParent":1,
             "label":"List(list_top)",
             "isDirectory":false,
@@ -68,8 +148,22 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":387,"x":35,"width":552,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":182,"alpha":0.7},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":25,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"List",
-            "props":{"y":370,"x":39,"width":556,"var":"list_down","spaceY":15,"spaceX":15,"repeatY":2,"repeatX":6,"height":178},
+            "props":{"y":390,"x":49,"width":523,"var":"list_down","spaceY":15,"spaceX":15,"repeatY":2,"repeatX":6,"height":178},
             "nodeParent":1,
             "label":"List(list_down)",
             "isDirectory":false,
@@ -82,7 +176,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":552,"x":252,"width":135,"var":"btn_free","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"免费找回","height":59},
+            "props":{"y":588,"x":99,"width":150,"var":"btn_free","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"免费找回","height":54},
             "nodeParent":1,
             "label":"Button(btn_free)",
             "isDirectory":false,
@@ -96,7 +190,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":650,"x":254,"width":135,"var":"btn_yuanbao","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"元宝找回","height":59},
+            "props":{"y":588,"x":369,"width":150,"var":"btn_yuanbao","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"元宝找回","height":54},
             "nodeParent":1,
             "label":"Button(btn_yuanbao)",
             "isDirectory":false,
@@ -110,7 +204,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":618,"x":195,"text":"免费找回当前一半资源","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":654,"x":107,"wordWrap":true,"width":146,"text":"   免费找回   当前一半资源","height":54,"fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -124,7 +218,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":718,"x":240,"text":"消耗","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":654,"x":376,"text":"消耗","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -138,7 +232,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":718,"x":331,"var":"lbl_price","text":":845","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":654,"x":467,"var":"lbl_price","text":":845","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label(lbl_price)",
             "isDirectory":false,
@@ -152,7 +246,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":741,"x":241,"text":"找回所有资源","fontSize":24,"font":"FZHL","color":"#000000"},
+            "props":{"y":677,"x":377,"text":"找回所有资源","fontSize":24,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -166,7 +260,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":710,"x":290,"width":41,"skin":"image/main/icon_common_yuanbao01.png","height":34},
+            "props":{"y":646,"x":426,"width":41,"skin":"image/main/icon_common_yuanbao01.png","height":34},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -179,7 +273,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":406,"x":220,"var":"lbl_none","text":"无可找回资源","fontSize":30,"font":"FZHL","color":"#000000"},
+            "props":{"y":449,"x":220,"var":"lbl_none","text":"无可找回资源","fontSize":30,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label(lbl_none)",
             "isDirectory":false,
@@ -188,6 +282,60 @@
             "compId":15,
             "child":[
                 ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":135,"x":35,"skin":"image/common/bottom_smalltitle.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":21,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":1,"x":29,"text":"副本找回","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":21,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":350,"x":39,"width":189,"skin":"image/common/bottom_smalltitle.png","height":35},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":23,
+            "child":[
+                {
+                    "type":"Label",
+                    "props":{"y":1,"x":23,"text":"可找回奖励","strokeColor":"#52331e","stroke":4,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
+                    "nodeParent":23,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
             "$HIDDEN":false
         }],
     "animations":[
