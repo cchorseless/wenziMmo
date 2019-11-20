@@ -12,7 +12,6 @@ module view.compart {
 			else {
 				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
 			}
-
 			return this;
 		}
 	}

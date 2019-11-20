@@ -96,6 +96,11 @@ module view.beiBao {
 			// 监听刷新商店
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_BAG_HOT, this,
 				(jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
+					//刷新次数
+					this.lbl_cishu.text = jsonData.curcount + '/' + jsonData.maxcount;
+					if (jsonData.curcount >= jsonData.maxcount) {
+						this.btn_refreshItem.disabled = true;
+					}
 					this.vbox_sellHot.removeChildren();
 					// 刷新价格
 					this.lbl_refreshPrice.text = '' + jsonData.refreshprice;
@@ -226,7 +231,7 @@ module view.beiBao {
 					break;
 
 			}
-			console.log("道具数量：",this.vbox_bag0.numChildren )
+			console.log("道具数量：", this.vbox_bag0.numChildren)
 		}
 
 		/**

@@ -5,7 +5,7 @@ module view.juese{
 			super();
 		}
 		public setData(data,i):Person_ShengWangQiZiItem{
-			this.img_shengwang.skin='image/common/img_qizi'+(i+1)+'.png'
+			this.img_shengwang.skin='image/juese/icon_shengwang'+i+'.png'
 			this.lbl_title.text=''+data.name;
 			return this;
 		}

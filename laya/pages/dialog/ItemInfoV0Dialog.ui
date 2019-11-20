@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":18,
-    "selecteID":25,
+    "selectedBox":1,
+    "selecteID":3,
     "referenceLines":null,
     "props":{"width":526,"sceneColor":"#ffffff","height":556,"alpha":1},
     "nodeParent":-1,
@@ -34,7 +34,7 @@
             "props":{"y":7,"x":13,"width":501,"skin":"image/common/title_tanchuang2.png","height":64},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -53,7 +53,7 @@
                     "child":[
                         ]
                 }],
-            "$LOCKED":true,
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
@@ -74,27 +74,11 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":8,"x":454,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$LOCKED":true,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"ViewStack",
             "props":{"y":444,"x":45,"width":435,"var":"viw_model","selectedIndex":0,"height":78,"bottom":34},
             "nodeParent":1,
             "label":"ViewStack(viw_model)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -273,6 +257,22 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":7,"x":460,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":3,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":false
         }],
     "animations":[
         {
