@@ -107,7 +107,7 @@ class GameEngine extends SingletonClass {
         this.bagItemDB = {};
         this.cangKuDB = {};
         if (PanelManage.Main) {
-            PanelManage.Main.clearViewUI();
+            GameApp.SceneManager.clearViewUI();
         }
     }
 

@@ -134,6 +134,12 @@ module ProtoCmd {
     /********************************心魔副本*********************** */
     // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
+    // 进入个人BOSS界面
+    export const FB_GeRenBoss_Enter = 'GeRenBoss_Enter';
+    // 个人副本界面
+    export const FB_GeRenBoss_FB_Info = 'GeRenBoss_FB_Info';
+    // 离开个人BOSS界面
+    export const FB_GeRenBoss_Leave = 'GeRenBoss_Leave';
     /********************************缉盗悬赏副本*********************** */
     // 打开野外boss界面
     export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
@@ -948,6 +954,7 @@ module ProtoCmd {
      * 心魔副本信息
      */
     export interface itf_FB_XinMoInfo {
+        index?: number;//索引
         flag: number;//已刷副本次数
         maxcnt: number;//最大刷副本次数
         maxlv: number;//最大等级

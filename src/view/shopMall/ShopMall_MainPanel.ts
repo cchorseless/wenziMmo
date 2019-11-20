@@ -31,20 +31,12 @@ module view.shopMall {
 			this.addEvent();
 			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN);
 		}
-		public aa() {
-			GameApp.LListener.on(ProtoCmd.Active9, this, (data) => {
-				this.shop6.removeChildren()
-				let o = new view.activity.Active_Mysteryshop()
-				o.setData(data)
-				this.shop6.addChild(o);
-			})
-			let pkt9 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active9, null)
-			lcp.send(pkt9);
-		}
 		public addEvent(): void {
+			//返回菜单
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
 			});
+			//充值
 			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new view.recharge_vip.Recharge_VipDialog();
 				o.setData(1);
@@ -80,7 +72,6 @@ module view.shopMall {
 			GameApp.LListener.on(ProtoCmd.SHOP_UpdateItemList + '_' + EnumData.ShopType.SHOP_TYPE_LIMITED, this, (jsonData: ProtoCmd.itf_Shop_RefreshResult) => {
 				let shop = 5;
 				this.init_shopEvent(jsonData, shop);
-				console.log('=====》商城商城', jsonData)
 			});
 		}
 
@@ -97,7 +88,7 @@ module view.shopMall {
 	  	 *拉取商店信息
 	  	 */
 		public updateHotShop(type): void {
-			let index=this.tab_top.selectedIndex;
+			let index = this.tab_top.selectedIndex;
 			if (index < 5) {
 				if (this['vbox_shop' + (index + 1)]._childs == [] || this['vbox_shop' + (index + 1)]._childs == 0) {
 					let pkt = new ProtoCmd.QuestClientData();
@@ -106,19 +97,33 @@ module view.shopMall {
 					lcp.send(pkt);
 				}
 			} else {
-				this.aa();
+				//神秘商店
+				this.init_secretShopEvent();
 			}
 
 		}
+		/**
+		 * 
+		 * @param jsonData 商店信息
+		 * @param shop 商店类型
+		 */
 		public init_shopEvent(jsonData, shop): void {
-			let keys = Object.keys(jsonData.items)
-			let shang = Math.floor((keys.length - 1) / 3);
-			let shu = (keys.length - 1) % 3;
+			//商品的总数
+			let allItem = 0;
+			for (let j = 1; jsonData.items[j]; j++) {
+				if (jsonData.items[j].num) {
+					allItem += 1;
+				}
+			}
+			//货架层数
+			let shang = Math.floor(allItem / 3);
+			//一层货架摆不满时的余数
+			let shu = allItem % 3;
 			this['vbox_shop' + shop].removeChildren();
 			let index;
 			let shopArray = [];
 			let sum = 0;
-			for (let i = 1; i < keys.length; i++) {
+			for (let i = 1; i < (allItem + 1); i++) {
 				let data = jsonData.items[i];
 				let yu = i % 3;
 				switch (yu) {
@@ -149,6 +154,17 @@ module view.shopMall {
 					}
 				}
 			}
+		}
+		/**
+		 * 神秘商店
+		 */
+		public init_secretShopEvent(): void {
+			GameApp.LListener.on(ProtoCmd.Active9, this, (data) => {
+				this.shop6.removeChildren()
+				this.shop6.addChild(new view.activity.Active_Mysteryshop().setData(data));
+			})
+			let pkt9 = new ProtoCmd.QuestClientData().setString(ProtoCmd.Active9)
+			lcp.send(pkt9);
 		}
 	}
 }

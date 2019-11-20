@@ -331,7 +331,7 @@ class ServerListener extends SingletonClass {
             PanelManage.openMainPanel();
         }
         // 更新UI布局
-        PanelManage.Main && PanelManage.Main.loadScene();
+        PanelManage.Main && GameApp.SceneManager.loadScene();
         msgData.clear();
     }
 
@@ -600,6 +600,7 @@ class ServerListener extends SingletonClass {
         let nMagicId = cbpkt.getValue('nMagicId');
         // 花费时间
         let dwActionTick = cbpkt.getValue('dwActionTick');
+        console.log()
         let atker = GameApp.MainPlayer.findViewObj(dwTempId);
         atker && atker.showSkill(dwTargetId, nMagicId, dwActionTick);
         cbpkt.clear();

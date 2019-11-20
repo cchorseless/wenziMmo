@@ -26,6 +26,7 @@ class SDKManager extends SingletonClass {
 
         switch (this._platform) {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
+                // this._SDK = XipuSDK;
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 this._SDK = Laya.PlatformClass.createClass("SDKGameApi");
@@ -305,7 +306,7 @@ class SDKManager extends SingletonClass {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
                 account: GameApp.GameEngine.mainPlayer.playerAccount,
                 username: GameApp.GameEngine.mainPlayer.objName,
-                amount: price,
+                amount: amountMin,
             },
             (res) => {
                 let jsonData = JSON.parse(res);
@@ -351,3 +352,4 @@ class SDKManager extends SingletonClass {
 
 
 }
+

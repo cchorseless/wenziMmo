@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":62,
+    "selectedBox":31,
+    "selecteID":34,
     "props":{"width":621,"sceneColor":"#e3cece","height":789},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +18,14 @@
             "props":{"width":621,"name":"item0","height":789},
             "nodeParent":1,
             "label":"Box(item0)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":9,"x":3,"width":254,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"19,27,26,29","height":306},
                     "nodeParent":2,
@@ -206,6 +207,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":7,"x":263,"width":353,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"19,27,26,29","height":306},
                     "nodeParent":2,
@@ -217,6 +219,7 @@
                     "compId":17,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":113,"text":"当前排名","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":17,
@@ -229,6 +232,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":49,"x":10,"width":333,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":37},
                             "nodeParent":17,
@@ -240,6 +244,7 @@
                             "compId":19,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":22,"text":"1","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":19,
@@ -253,8 +258,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":57,"var":"lbl_name1","text":"角色名称六字","fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":5,"x":57,"width":132,"var":"lbl_name1","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":19,
                                     "label":"Label(lbl_name1)",
                                     "isDirectory":false,
@@ -266,8 +272,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":215,"var":"lbl_right1","text":"12阶10星","fontSize":22,"font":"FZHL","color":"#63491a"},
+                                    "props":{"y":5,"x":215,"width":100,"var":"lbl_right1","text":"无","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                                     "nodeParent":19,
                                     "label":"Label(lbl_right1)",
                                     "isDirectory":false,
@@ -281,6 +288,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":86,"x":10,"width":333,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":37},
                             "nodeParent":17,
@@ -292,6 +300,7 @@
                             "compId":23,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":22,"text":"2","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":23,
@@ -305,8 +314,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":57,"var":"lbl_name2","text":"角色名称六字","fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":5,"x":57,"width":132,"var":"lbl_name2","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":23,
                                     "label":"Label(lbl_name2)",
                                     "isDirectory":false,
@@ -318,8 +328,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":215,"var":"lbl_right2","text":"12阶10星","fontSize":22,"font":"FZHL","color":"#63491a"},
+                                    "props":{"y":5,"x":215,"width":100,"var":"lbl_right2","text":"无","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                                     "nodeParent":23,
                                     "label":"Label(lbl_right2)",
                                     "isDirectory":false,
@@ -333,6 +344,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":122,"x":10,"width":333,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":37},
                             "nodeParent":17,
@@ -344,6 +356,7 @@
                             "compId":27,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":22,"text":"3","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":27,
@@ -357,8 +370,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":57,"var":"lbl_name3","text":"角色名称六字","fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":5,"x":57,"width":132,"var":"lbl_name3","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":27,
                                     "label":"Label(lbl_name3)",
                                     "isDirectory":false,
@@ -370,8 +384,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":215,"var":"lbl_right3","text":"12阶10星","fontSize":22,"font":"FZHL","color":"#63491a"},
+                                    "props":{"y":5,"x":215,"width":100,"var":"lbl_right3","text":"无","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                                     "nodeParent":27,
                                     "label":"Label(lbl_right3)",
                                     "isDirectory":false,
@@ -385,6 +400,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":159,"x":10,"width":333,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":37},
                             "nodeParent":17,
@@ -396,6 +412,7 @@
                             "compId":31,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":22,"text":"4","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":31,
@@ -409,8 +426,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":57,"var":"lbl_name4","text":"角色名称六字","fontSize":22,"font":"FZHL","color":"#000000"},
+                                    "props":{"y":5,"x":57,"width":132,"var":"lbl_name4","height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
                                     "nodeParent":31,
                                     "label":"Label(lbl_name4)",
                                     "isDirectory":false,
@@ -422,8 +440,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":5,"x":215,"var":"lbl_right4","text":"12阶10星","fontSize":22,"font":"FZHL","color":"#63491a"},
+                                    "props":{"y":5,"x":215,"width":100,"var":"lbl_right4","text":"无","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                                     "nodeParent":31,
                                     "label":"Label(lbl_right4)",
                                     "isDirectory":false,
@@ -437,6 +456,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":201,"x":10,"width":333,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":54},
                             "nodeParent":17,
@@ -448,6 +468,7 @@
                             "compId":35,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":6,"text":"我的排名：","strokeColor":"#000000","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":35,
@@ -461,6 +482,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":14,"x":125,"var":"lbl_my","text":"未上榜","fontSize":24,"font":"FZHL","color":"#a53232"},
                                     "nodeParent":35,
@@ -476,6 +498,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":258,"x":14,"wordWrap":true,"width":324,"var":"lbl_introduce","text":"官印达到6阶5星才可领取奖励","leading":5,"height":23,"fontSize":18,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":17,
@@ -489,6 +512,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":278,"x":55,"wordWrap":true,"width":242,"text":"奖励将在结束后用邮件发放","leading":5,"fontSize":18,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":17,
@@ -504,6 +528,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":321,"x":12,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36"},
                     "nodeParent":2,
@@ -515,6 +540,7 @@
                     "compId":39,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":36,"var":"ui_get_11","runtime":"view.compart.DaoJuItem"},
@@ -528,6 +554,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":121,"var":"ui_get_12","runtime":"view.compart.DaoJuItem"},
@@ -541,6 +568,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":32,"x":265,"var":"lbl_lvl1","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":39,
@@ -554,6 +582,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":45,"x":514,"var":"btn_get1","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":39,
@@ -569,6 +598,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":420,"x":12,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36"},
                     "nodeParent":2,
@@ -580,6 +610,7 @@
                     "compId":44,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":36,"var":"ui_get_21","runtime":"view.compart.DaoJuItem"},
@@ -593,6 +624,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":121,"var":"ui_get_22","runtime":"view.compart.DaoJuItem"},
@@ -606,6 +638,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":32,"x":265,"var":"lbl_lvl2","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":44,
@@ -619,6 +652,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":45,"x":514,"var":"btn_get2","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":44,
@@ -634,6 +668,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":520,"x":12,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36"},
                     "nodeParent":2,
@@ -645,6 +680,7 @@
                     "compId":49,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":36,"var":"ui_get_31","runtime":"view.compart.DaoJuItem"},
@@ -658,6 +694,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":121,"var":"ui_get_32","runtime":"view.compart.DaoJuItem"},
@@ -671,6 +708,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":32,"x":265,"var":"lbl_lvl3","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":49,
@@ -684,6 +722,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":45,"x":514,"var":"btn_get3","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":49,
@@ -699,6 +738,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":619,"x":12,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36"},
                     "nodeParent":2,
@@ -710,6 +750,7 @@
                     "compId":54,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":36,"var":"ui_get_41","runtime":"view.compart.DaoJuItem"},
@@ -723,6 +764,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":6,"x":121,"var":"ui_get_42","runtime":"view.compart.DaoJuItem"},
@@ -736,6 +778,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":32,"x":265,"var":"lbl_lvl4","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":54,
@@ -749,6 +792,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":45,"x":514,"var":"btn_get4","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":54,
@@ -764,6 +808,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":731,"x":4,"width":613,"var":"panel_down","height":54},
                     "nodeParent":2,
@@ -775,6 +820,7 @@
                     "compId":59,
                     "child":[
                         {
+                            "x":45,
                             "type":"Tab",
                             "props":{"y":2,"x":3,"var":"tab_down","stateNum":2,"space":5,"skin":"image/main/btn_commmon_001.png","selectedIndex":0,"labels":"第一天,第二天,第三天,第四天,第五天,第六天,第七天","labelSize":20,"labelFont":"FZHL","labelColors":"#404040,#63491a","height":54},
                             "nodeParent":59,

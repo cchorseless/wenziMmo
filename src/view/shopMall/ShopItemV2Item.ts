@@ -20,9 +20,13 @@ module view.shopMall {
 				}
 				//限购
 				this['lbl_xiangou' + single.index].visible = false;
+				this['img_item' + single.index].height = 152;
+				this['img_item' + single.index].y = 28;
 				if (single.item.limitcnt > 0) {
 					this['lbl_xiangou' + single.index].visible = true;
 					this['lbl_xiangou' + single.index].text = '限购' + single.item.limitcnt + '次';
+					this['img_item' + single.index].height = 176;
+					this['img_item' + single.index].y = 6;
 				}
 				//物品
 				let itemInfo = new ProtoCmd.ItemBase();

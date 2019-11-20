@@ -18,9 +18,7 @@ module view.luckDraw {
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_close.on(Laya.UIEvent.CLICK, this,this.onclose);
 			//回收非转生装备
 			this.btn_nozhuan.on(Laya.UIEvent.CLICK, this, () => {
 				this.sendData = this.noZhuanData;
@@ -69,6 +67,10 @@ module view.luckDraw {
 				this.addEvent();
 				this.init_dataEvent();
 			})
+		}
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.LD_storeRefresh, this);
+			this.close();
 		}
 		/**
 		 * 仓库物品显示
