@@ -4,7 +4,7 @@
  */
 class SDKManager extends SingletonClass {
     private _SDK = null;//默认喜扑网络SDK
-    private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB;
+    private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_NULL;
     private _bundleId = 'manhelp.wenzijianghu.com';
     private _sdkRole = {
         server_id: "-1",            // 区服ID
@@ -21,7 +21,7 @@ class SDKManager extends SingletonClass {
         super();
         if (Laya.PlatformClass && Laya.Browser.onIOS) {
             // IOS
-            // this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
+            this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
         }
 
         switch (this._platform) {
@@ -306,7 +306,7 @@ class SDKManager extends SingletonClass {
                 trueZoneId: GameApp.GameEngine.trueZoneid,
                 account: GameApp.GameEngine.mainPlayer.playerAccount,
                 username: GameApp.GameEngine.mainPlayer.objName,
-                amount: price,
+                amount: amountMin,
             },
             (res) => {
                 let jsonData = JSON.parse(res);

@@ -318,6 +318,20 @@ module ProtoCmd {
             this.read(data);
         }
     }
+    /**
+     * 增加内功
+     */
+    export class stCretChuanNeiGongAddExp extends Packet {
+        public static msgID: number = 0x0290;
+        public constructor(data: Laya.Byte = null) {
+            super()
+            this.addProperty("nNeiGongExp", PacketBase.TYPE_INT);  //增加的内功
+            this.read(data);
+        }
+        public get nValue(): number {
+            return this.getValue('nNeiGongExp');
+        }
+    }
 
     /**
      * 同步内功值
@@ -331,8 +345,6 @@ module ProtoCmd {
             this.addProperty('nNeigongnum', PacketBase.TYPE_INT);//内功使用的值,(用最大值减去使用值才等于内功当前值)
             this.read(data);
         }
-
-
         public get nValue(): number {
             return this.getValue('nNeigongmax') - this.getValue('nNeigongnum');
         }
