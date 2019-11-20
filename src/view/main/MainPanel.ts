@@ -15,6 +15,10 @@ module view.main {
 			this.panel_chatMsg.vScrollBarSkin = '';
 			this.vbox_chatMsg['sortItem'] = (items) => { };
 			this.vbox_sceneMsg['sortItem'] = (items) => { };
+			// 大地图
+			this.panel_bigMap.hScrollBarSkin = '';
+			this.panel_bigMap.scale(0, 0);
+			// 聊天信息
 			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_task.selectedIndex = index;
 				if (index == 1) {
@@ -41,6 +45,8 @@ module view.main {
 			this.img_bottomPartInfoBg.scaleY = getScaleY;
 			this.img_npc.scaleY = getScaleY;
 			this.box_uiScene0.scaleY = getScaleY;
+			this.box_uiScene1.scaleY = getScaleY;
+			this.ui_battleSkill.bottom = this.ui_battleSkill.bottom * getScaleY;
 		}
 
 		/**
@@ -148,6 +154,19 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
+			// 变大变小
+			// NPC竖条 展开缩放的动画
+			EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
+				this.btn_changSize.selected = !this.btn_changSize.selected;
+				if (this.btn_changSize.selected) {
+					this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
+					this.showGroupNpcList(true);
+				}
+				else {
+					this.btn_changSize.skin = 'image/main/btn_common_02.png'
+					this.showGroupNpcList(false);
+				}
+			})
 			// 模式切换
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
@@ -222,37 +241,6 @@ module view.main {
 			this.img_head.on(Laya.UIEvent.CLICK, this, () => {
 				new view.main.Main_playerInfoDialog().setData().popup(true);
 			});
-			// 路引弹窗
-			this.btn_flyPoint.on(Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_LuYinDialog().setData().popup(true);
-			});
-			// 地图展开界面
-			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
-				this.btn_mapBig.selected = !this.btn_mapBig.selected;
-				if (this.btn_mapBig.selected) {
-					this.ui_mainDownMapItem.showSelf(true);
-				}
-				else {
-					this.ui_mainDownMapItem.showSelf(false);
-				}
-			});
-			// ****************小地图***************
-			// 向下移动
-			EventManage.onWithEffect(this.btn_mapDown, Laya.UIEvent.CLICK, this, () => {
-				this.joinRoom(GameApp.GameEngine.smallMapData.down);
-			});
-			// 向上移动
-			EventManage.onWithEffect(this.btn_mapUp, Laya.UIEvent.CLICK, this, () => {
-				this.joinRoom(GameApp.GameEngine.smallMapData.up);
-			});
-			// 向左移动
-			EventManage.onWithEffect(this.btn_mapLeft, Laya.UIEvent.CLICK, this, () => {
-				this.joinRoom(GameApp.GameEngine.smallMapData.left);
-			});
-			// 向右移动
-			EventManage.onWithEffect(this.btn_mapRight, Laya.UIEvent.CLICK, this, () => {
-				this.joinRoom(GameApp.GameEngine.smallMapData.right);
-			});
 
 			// 新手任务
 			this.box_goTask.on(Laya.UIEvent.CLICK, this, () => {
@@ -301,15 +289,12 @@ module view.main {
 					GameApp.MainPlayer.roomId = jsonData.curmapid;
 					// 上下左右房间的信息
 					GameApp.GameEngine.smallMapData = jsonData.dstmap;
-					console.log(jsonData.dstmap);
 					console.log('进入了' + jsonData.curmapid);
 					// 更新主场景
 					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
-					this.updateUiScene(mapType);
+					GameApp.SceneManager.updateUiScene(mapType);
 					// 更新场景信息
 					this.updateSceneView('进入了' + jsonData.curmapid);
-					// 更新小地图
-					this.updateSmallMap();
 				}
 			});
 		}
@@ -340,17 +325,19 @@ module view.main {
 		// 界面展示NPC列表
 		public showGroupNpcList(show: boolean): void {
 			if (show) {
-				Laya.Tween.to(this.img_npc, { scaleX: 0 }, 300, null, Laya.Handler.create(this, () => {
-					this.img_npc.visible = false;
-				}));
+				Laya.Tween.to(this.img_npc, { width: 0 }, 300, null);
 				Laya.Tween.to(this.box_uiScene0, { left: 0 }, 300);
 			}
 			else {
-				this.img_npc.visible = true;
-				Laya.Tween.to(this.img_npc, { scaleX: 1 }, 300);
+				Laya.Tween.to(this.img_npc, { width: 95 }, 300);
 				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 300);
 			}
+			(this.box_uiScene0.getChildAt(0) as view.scene.SceneV3Item).changeSelfSize(show)
 		}
+
+
+
+
 		/**
 		 * 获取时辰
 		 */
@@ -467,7 +454,26 @@ module view.main {
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
 		}
 
-
+		/**
+		 * 更新场景旁白
+		 */
+		public updateSceneView(_chatMsg: string): void {
+			// 更新到小窗
+			let small_txt: Laya.Label;
+			if (this.vbox_sceneMsg.numChildren > GameApp.GameEngine.chatDataSmallMax) {
+				small_txt = this.vbox_sceneMsg.getChildAt(0) as Laya.Label;
+			}
+			else {
+				small_txt = new Laya.Label();
+			}
+			small_txt.text = _chatMsg;
+			small_txt.fontSize = 16;//字号
+			small_txt.bold = true;
+			small_txt.width = 340;
+			small_txt.wordWrap = true;
+			this.vbox_sceneMsg.addChild(small_txt);
+			Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
+		}
 		/**
 		 * 更新NPC的任务状态
 		 * @param npcID 
@@ -481,85 +487,6 @@ module view.main {
 					break;
 				}
 			}
-		}
-
-		/**
-		 * 获取当前场景
-		 */
-		public get ui_scene(): itf.SceneItem {
-			if (this.box_uiScene1.numChildren > 0) {
-				return (this.box_uiScene1.getChildAt(0) as any);
-			}
-			else {
-				return this.box_uiScene0.getChildAt(0) as any;
-			}
-		}
-
-
-		/**
-		 * 更新视野内对象UI
-		 * @param handleType 
-		 * @param obj 
-		 */
-		public addViewObjUI(obj, type: EnumData.CRET_TYPE): void {
-			console.log(obj.objName + '进入视野')
-			switch (type) {
-				// 玩家
-				case EnumData.CRET_TYPE.CRET_PLAYER:
-					this.ui_scene.addPlayer(obj);
-					break;
-				// 英雄
-				case EnumData.CRET_TYPE.CRET_HERO:
-					this.ui_scene.addHero(obj);
-					break;
-				// 怪物
-				case EnumData.CRET_TYPE.CRET_MONSTER:
-					this.ui_scene.addMonster(obj);
-					break;
-				// NPC
-				case EnumData.CRET_TYPE.CRET_NPC:
-					let npcIcon: view.npc.NpcIconItem = new view.npc.NpcIconItem();
-					npcIcon.setData(obj);
-					this.vbox_npc.addChild(npcIcon);
-					break;
-				default:
-					break;
-			}
-		}
-
-		/**
-		 * 清空视野
-		 */
-		public clearViewUI(): void {
-			this.vbox_npc.removeChildren();
-			this.ui_scene && this.ui_scene.clearPlayer();
-			this.ui_scene && this.ui_scene.clearMonster();
-		}
-
-
-		/**
-		 * 玩家切换地图后刷新界面
-		 */
-		public loadScene(): void {
-			// ui_scene 布局
-			let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
-			// 大于0是副本地图.根据大地图类型布局。1 个人副本 2 公共副本
-			if (bigMapType > 0) {
-				this.updateUiScene(bigMapType);
-			}
-			else {
-				this.loadSmallMap();
-			}
-			// 切完大地图发送,地图ID改变
-			let ready = new ProtoCmd.StateReady();
-			lcp.send(ready, this, () => {
-				// 首次ready拉取一次数据
-				if (!GameApp.GameEngine.isReady) {
-					this.initData();
-				}
-				console.log('客户端准备完成');
-				GameApp.GameEngine.isReady = true;
-			});
 		}
 
 		/**
@@ -635,199 +562,6 @@ module view.main {
 		}
 
 
-		/**
-		 * 更新主场景ui_scene
-		 */
-		public updateUiScene(mapType: EnumData.emRoomType): void {
-			console.log('===updateUiScene===>', mapType);
-			let uiscene;
-			switch (mapType) {
-				// 个人副本
-				case EnumData.emRoomType.singleFuBen:
-					this.box_uiScene1.removeChildren();
-					uiscene = new view.scene.SceneV1Item();
-					uiscene.setData();
-					this.box_uiScene1.visible = true;
-					this.box_uiScene1.addChild(uiscene);
-					break;
-				// 多人副本
-				case EnumData.emRoomType.publicFuBen:
-					this.box_uiScene1.removeChildren();
-					uiscene = new view.scene.SceneV2Item();
-					uiscene.setData();
-					this.box_uiScene1.visible = true;
-					this.box_uiScene1.addChild(uiscene);
-					break;
-				// 野外地图
-				case EnumData.emRoomType.publicYeWai:
-					this.box_uiScene1.removeChildren();
-					this.box_uiScene1.visible = false;
-					if (this.box_uiScene0.numChildren == 0 || this.box_uiScene0.getChildAt(0).name != 'SceneV3Item') {
-						this.box_uiScene0.removeChildren();
-						uiscene = new view.scene.SceneV3Item();
-						uiscene.setData();
-						this.box_uiScene0.addChild(uiscene);
-						if (this.box_uiScene0.left == 0) {
-							uiscene.changeToBig();
-						}
-					}
-					break;
-				// 主城
-				case EnumData.emRoomType.publicZhuCheng:
-					this.box_uiScene1.removeChildren();
-					this.box_uiScene1.visible = false;
-					if (this.box_uiScene0.numChildren == 0 || this.box_uiScene0.getChildAt(0).name != 'SceneV4Item') {
-						this.box_uiScene0.removeChildren();
-						uiscene = new view.scene.SceneV4Item();
-						uiscene.setData();
-						this.box_uiScene0.addChild(uiscene);
-						if (this.box_uiScene0.left == 0) {
-							uiscene.changeToBig();
-						}
-					}
-					break;
-			}
-			console.log('刷新了ui_scene')
-			// 刷新界面
-			this.ui_scene.updateUI();
-		}
-
-
-		/**
-		 * 加载小地图
-		 * @param id 
-		 */
-		public loadSmallMap(): void {
-			console.log('加载小地图中');
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.MAP_Get_ALLROOM_INFO, null, null, this, (jsonData: ProtoCmd.itf_MAP_ROOM_INFO) => {
-				// 当前小房间信息
-				GameApp.MainPlayer.roomId = jsonData.curminmapid;
-				// 上下左右房间的信息
-				GameApp.GameEngine.smallMapData = jsonData.dstmap;
-
-				// 更新主场景
-				let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curminmapid);
-				this.updateUiScene(mapType);
-				// 更新小地图
-				this.updateSmallMap();
-			});
-			lcp.send(pkt);
-			let ui_map;
-			switch (GameApp.MainPlayer.location.mapid) {
-				// 酆都
-				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DU:
-					ui_map = new view.map.SmallMap_fengduItem();
-					ui_map.setData();
-					break;
-				// 福州城
-				case EnumData.MAP_BIG_MAP_ID.MAP_FU_ZHOU_CHENG:
-					ui_map = new view.map.SmallMap_fuzhouItem();
-					ui_map.setData();
-					break;
-				// 华山派
-				case EnumData.MAP_BIG_MAP_ID.MAP_HUA_SHAN_PAI:
-					ui_map = new view.map.SmallMap_fuzhouItem();
-					ui_map.setData();
-					break;
-			}
-			this.ui_mainDownMapItem.panel_0.removeChildren();
-			ui_map && this.ui_mainDownMapItem.panel_0.addChild(ui_map);
-		}
-
-		/**
-		 * 更新小地图
-		 */
-		public updateSmallMap(): void {
-			let mapInfo = GameApp.GameEngine.smallMapData;
-			let roomId = GameApp.MainPlayer.roomId;
-			// 中间自己
-			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
-			this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 20 : 25;
-			this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + roomId) + '.png';
-			// 左侧
-			this.img_lineLeft.visible = Boolean(mapInfo.left);
-			if (mapInfo.left) {
-				this.btn_mapLeft.visible = true;
-				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
-				this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 20 : 25;
-				this.btn_mapLeft.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.left) + '.png';
-			}
-			else {
-				this.btn_mapLeft.visible = false;
-			}
-			// 下面
-			this.img_lineDown.visible = Boolean(mapInfo.down);
-			if (mapInfo.down) {
-				this.btn_mapDown.visible = true;
-				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
-				this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 20 : 25;
-				this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.down) + '.png';
-			}
-			else {
-				this.btn_mapDown.visible = false;
-			}
-			// 上面
-			this.img_lineUp.visible = Boolean(mapInfo.up);
-			if (mapInfo.up) {
-				this.btn_mapUp.visible = true;
-				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
-				this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 20 : 25;
-				this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.up) + '.png';
-			}
-			else {
-				this.btn_mapUp.visible = false;
-			}
-			// 右边
-			this.img_lineRight.visible = Boolean(mapInfo.right);
-			if (mapInfo.right) {
-				this.btn_mapRight.visible = true;
-				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
-				this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 20 : 25;
-				this.btn_mapRight.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.right) + '.png';
-			}
-			else {
-				this.btn_mapRight.visible = false;
-			}
-			// 更新地图
-			this.ui_mainDownMapItem.updateUI();
-		}
-
-		/**
-		 * 进入房间
-		 * @param roomid 
-		 */
-		public joinRoom(roomid): void {
-			if (!roomid) { return };
-			if (GameApp.MainPlayer.roomId == roomid) {
-				TipsManage.showTips('当前就在此地图');
-				return
-			}
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.MAP_MOVE, [roomid])
-			lcp.send(pkt);
-		}
-
-		/**
-		 * 更新场景旁白
-		 */
-		public updateSceneView(_chatMsg: string): void {
-			// 更新到小窗
-			let small_txt: Laya.Label;
-			if (this.vbox_sceneMsg.numChildren > GameApp.GameEngine.chatDataSmallMax) {
-				small_txt = this.vbox_sceneMsg.getChildAt(0) as Laya.Label;
-			}
-			else {
-				small_txt = new Laya.Label();
-			}
-			small_txt.text = _chatMsg;
-			small_txt.fontSize = 16;//字号
-			small_txt.bold = true;
-			small_txt.width = 340;
-			small_txt.wordWrap = true;
-			this.vbox_sceneMsg.addChild(small_txt);
-			Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
-		}
 
 		/**
 		 * 拉取剧情数据

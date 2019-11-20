@@ -1112,7 +1112,7 @@ module ProtoCmd {
             this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
             this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);//过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
-            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 60); //
+            this.addProperty('UnionData', PacketBase.TYPE_BYTES, 120); //
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
             if (data) { data.pos += this.read(data); }
         }

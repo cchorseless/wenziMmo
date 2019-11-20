@@ -45,17 +45,17 @@ module view.luckDraw {
 					case 0:
 						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_CangBaoItem());
 						break;
-					case 8:
+					case 15:
 						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_TurntableItem());
 						break;
-					case 15:
-						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_LuckDrawItem());
-						break;
 					case 31:
-						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_OnLineDrawItem());
+						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_LuckDrawItem());
 						break;
 					case 34:
 						this.box_LuckBagDraw.addChild(new view.activity.Active_LuckBagDraw());
+						break;
+					case 38:
+						this.box_LuckBagDraw.addChild(new view.luckDraw.LuckDraw_OnLineDrawItem());
 						break;
 				}
 			}

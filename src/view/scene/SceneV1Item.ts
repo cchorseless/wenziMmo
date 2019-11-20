@@ -1,21 +1,17 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class SceneV1Item extends ui.scene.SceneV1ItemUI implements itf.SceneItem {
+	export class SceneV1Item extends ui.scene.SceneV1ItemUI {
 		constructor() {
 			super();
 		}
 
 		public setData(): void {
 			this.panel_0.vScrollBarSkin = '';
-			this.panel_1.vScrollBarSkin = '';
 			this.panel_2.hScrollBarSkin = '';
-			this.vbox_0['sortItem'] = (items) => { };
-			this.vbox_1['sortItem'] = (items) => { };
 			this.hbox_2['sortItem'] = (items) => { };
-
-			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
-			ui_monsterGroup.changeToBig();
-			this.hbox_2.addChild(ui_monsterGroup);
+			this.hbox_0['sortItem'] = (items) => { };
+			let ui_monsterGroup2 = new view.scene.MonsterGroupInSceneV1Item();
+			this.hbox_2.addChild(ui_monsterGroup2);
 			this.viw_0.setIndexHandler = Laya.Handler.create(this, (index) => {
 				let keys = Object.keys(GameApp.MainPlayer.allMonster);
 				for (let key of keys) {
@@ -33,44 +29,29 @@ module view.scene {
 			this.addEvent();
 		}
 
-		public addEvent(): void {
-			EventManage.onWithEffect(this.btn_exit, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_ChuMoLeave);
-				lcp.send(pkt);
-			});
 
-			this.addLcpEvent();
+		public addEvent(): void {
+
 		}
 
 		public addLcpEvent() {
-			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
-				console.log(jsonData);
-				this.lbl_leftTime.text = '' + jsonData.sec + '秒';
-				this.lbl_tongGuanTiaoJian.text = '' + jsonData.tiaojian + '(' + jsonData.curcnt + '/' + jsonData.totalcnt + ')';
-				if (this.vbox_0.numChildren > 0) {
-					for (let i = 0; jsonData.item[i]; i++) {
-						let itemBase = new ProtoCmd.ItemBase();
-						let new_ui = new view.compart.DaoJuWithNameItem();
-						new_ui.setData(itemBase);
-						this.vbox_0.addChild(new_ui);
-					}
-				}
-			})
+
 		}
 
-		public Dispose() {
+		public destroy(isBool = true) {
 			GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
-			PopUpManager.Dispose(this);
+			this.destroy(true);
 		}
 
-
+		/**
+		 * 初始化
+		 */
 		public updateUI(): void {
 			this.clearMonster();
 			this.clearPlayer();
 			// 更新怪物
 			// 更新角色
-			SceneManager.updateSelfPlayer(this);
+			GameApp.SceneManager.updateSelfPlayer(this);
 			// 更新地图
 			this.updateMapInfo();
 		}
@@ -97,48 +78,42 @@ module view.scene {
 			}
 			// 配置表ID
 			let configID = (obj as GameObject.Monster).feature.dwCretTypeId;
-			// 判断是否是BOSS,最多两个BOSS
+			// 判断是否是BOSS,最多三个BOSS
 			let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
 			if (isBoss) {
 				// 切换成BOSS模式
 				this.viw_0.selectedIndex = isBoss;
 				// 添加BOSS
 				if (this.box_bossPos0.numChildren == 0) {
-					this.box_bossPos0.addChild(monster);
+					this.box_bossPos0.addChild(monster)
+				}
+				else if (this.box_bossPos1.numChildren == 0) {
+					this.box_bossPos1.addChild(monster);
 				}
 				else {
-					this.box_bossPos1.addChild(monster);
+					this.box_bossPos2.addChild(monster);
 				}
 			}
 			// 小怪根据模式添加
 			else {
 				// BOSS模式
 				if (this.viw_0.selectedIndex) {
-					if (this.vbox_0.numChildren == this.vbox_1.numChildren) {
-						this.vbox_0.addChild(monster);
-					}
-					else {
-						this.vbox_1.addChild(monster);
-					}
+					this.hbox_0.addChild(monster);
 				}
 				// 小怪模式
 				else {
 					for (let _ui of this.hbox_2._childs) {
 						// 添加成功
-						if ((_ui as view.scene.MonsterGroupInSceneItem).addMonster(monster)) {
+						if ((_ui as view.scene.MonsterGroupInSceneV1Item).addMonster(monster)) {
 							return
 						}
 					}
 					// 添加不成功创建后添加
-					let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
+					let ui_monsterGroup = new view.scene.MonsterGroupInSceneV1Item();
 					ui_monsterGroup.addMonster(monster);
 					this.hbox_2.addChild(ui_monsterGroup);
 				}
 			}
-
-
-
-
 		}
 
 
@@ -146,29 +121,19 @@ module view.scene {
 		 * 清除所有怪物
 		 */
 		public clearMonster(): void {
-			this.vbox_0.removeChildren();
-			this.vbox_1.removeChildren();
+			this.hbox_0.removeChildren();
 			this.box_bossPos0.removeChildren();
 			this.box_bossPos1.removeChildren();
 			for (let i = 0; i < this.hbox_2.numChildren; i++) {
 				if (i == 0) {
-					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneItem).clearAllMonster();
+					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneV1Item).clearAllMonster();
 				}
 				else {
-					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneItem).removeSelf();
+					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneV1Item).removeSelf();
 				}
 			}
 		}
-		/**
-		 * 添加英雄
-		 */
-		public addHero(): void {
 
-		}
-
-		public addPlayer(obj): void {
-
-		}
 		public clearPlayer(): void {
 
 		}

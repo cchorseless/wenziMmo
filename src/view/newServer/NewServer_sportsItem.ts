@@ -7,6 +7,8 @@ module view.newServer {
 		}
 		//天数
 		public index = 1;
+		//开服几天
+		public day;
 		public setData(): void {
 			this.panel_down.vScrollBarSkin = '';
 			this.tab_down.selectHandler = Laya.Handler.create(this, (index) => {
@@ -26,6 +28,8 @@ module view.newServer {
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.NS_KaiFuJingJiOpen, this, (jsonData: ProtoCmd.itf_NS_sportsInfo) => {
+				//开服天数
+				this.day=jsonData.opendays;
 				//全服排名奖励
 				let keys_left = Object.keys(jsonData.item)
 				for (let key_left of keys_left) {
@@ -35,13 +39,13 @@ module view.newServer {
 					itemInfo1.dwBaseID = data_left[1].index;
 					itemInfo1.dwCount = data_left[1].num;
 					itemInfo1.dwBinding = data_left[1].bind;
-					this['ui_allServer_' + key_left + '1'].setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL)
+					this['ui_allServer_' + key_left + '1'].setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//第二个物品
 					let itemInfo2 = new ProtoCmd.ItemBase();
 					itemInfo2.dwBaseID = data_left[2].index;
 					itemInfo2.dwCount = data_left[2].num;
 					itemInfo2.dwBinding = data_left[2].bind;
-					this['ui_allServer_' + key_left + '2'].setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL)
+					this['ui_allServer_' + key_left + '2'].setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				}
 				//竞技活动
 				let keys_down = Object.keys(jsonData.join)
@@ -72,13 +76,13 @@ module view.newServer {
 					itemInfo1.dwBaseID = data_down.item[1].index;
 					itemInfo1.dwCount = data_down.item[1].num;
 					itemInfo1.dwBinding = data_down.item[1].bind;
-					this['ui_get_' + key_down + '1'].setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL)
+					this['ui_get_' + key_down + '1'].setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//第二个物品
 					let itemInfo2 = new ProtoCmd.ItemBase();
 					itemInfo2.dwBaseID = data_down.item[2].index;
 					itemInfo2.dwCount = data_down.item[2].num;
 					itemInfo2.dwBinding = data_down.item[2].bind;
-					this['ui_get_' + key_down + '2'].setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL)
+					this['ui_get_' + key_down + '2'].setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 					//等级
 					this['lbl_lvl' + key_down].text = '' + data_down.lv;
 				}
@@ -96,11 +100,14 @@ module view.newServer {
 				pkts.setValue('btType', jsonData.ranktype)
 				lcp.send(pkts, this, (data) => {
 					let bpkts = new ProtoCmd.stMyRankReturn(data)
-					if (bpkts.rank !== undefined) {
+					if (bpkts.rank > -1) {
 						this.lbl_my.text = '' + bpkts.rank;
 					}
 					else {
 						this.lbl_my.text = '未上榜';
+					}
+					if(this.day>this.index){
+						this.lbl_my.text = '已结束';
 					}
 				})
 			})
