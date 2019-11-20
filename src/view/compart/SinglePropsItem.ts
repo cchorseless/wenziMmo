@@ -5,7 +5,6 @@ module view.compart {
 			super();
 		}
 		public setData(effectIDStruct: ProtoCmd.EffectIDStruct): SinglePropsItem {
-
 			this.lbl_label.text = effectIDStruct.label;
 			if (effectIDStruct.onlyValue) {
 				this.lbl_dataDes.text = '' + effectIDStruct.value;
@@ -13,7 +12,6 @@ module view.compart {
 			else {
 				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
 			}
-
 			return this;
 		}
 	}

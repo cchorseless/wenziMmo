@@ -8,17 +8,25 @@ module view.juQingMode {
 		public setData(npcid: number, txt: string): void {
 			txt = GameApp.DomUtil.dealWithTalkTxt(txt);
 			this.div_content.style.fontSize = 24;
+			this.div_content.style.bold = true;
+			this.div_content.style.fontFamily = "FZHuaLi-M14S";
 			this.div_content.style.wordWrap = true;
 			this.div_content.style.leading = 5;
 			this.div_content.style.align = 'middle';
 			this.div_content.innerHTML = txt;
 			if (txt.search('<a href=') > -1) {
-				this.div_content.on(Laya.Event.LINK, this, (data) => { console.log(data) })
+				this.div_content.on(Laya.Event.LINK, this, (data) => {
+					console.log(data)
+					let o = new JuQingContentDialog();
+					o.setData(data)
+					o.popup(true)
+				})
 			}
 			// NPC 头像
 			this.npcId = '' + npcid;
 			this.ui_item.img_avatarPic.skin = 'image/common/npc/npc_icon_' + npcid + '.png';
 			this.ui_item.img_tips.visible = false;
+			this.ui_item.lbl_npcName.color = "#fff4ce"
 			this.ui_item.lbl_npcName.text = '' + SheetConfig.mydb_npcgen_tbl.getInstance(null).NAME('' + npcid);
 			this.ui_item.lbl_zuoBiao.visible = false;
 			this.addEvent();

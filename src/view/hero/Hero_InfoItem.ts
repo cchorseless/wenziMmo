@@ -23,6 +23,7 @@ module view.hero {
 				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
 			});
 			this.addLcpEvent();
+			this.init_rune();
 		}
 
 		public addLcpEvent() {
@@ -67,7 +68,6 @@ module view.hero {
 					break;
 				case 2:
 					this.viw_dizi.selectedIndex = 1;
-					this.init_rune();
 					break;
 			}
 			//弟子出战状态
@@ -79,7 +79,7 @@ module view.hero {
 				} else {
 					this.img_battle.disabled = true;
 				}
-			}
+			}	
 		}
 		//激活弟子
 		public init_JiHuo(proto): void {
@@ -89,40 +89,51 @@ module view.hero {
 		}
 		//内功碎片
 		public init_rune(): void {
+			this.list_down.array = [];
 			let minNum = EnumData.emEquipPosition.EQUIP_RUNE_UP;
 			let maxNum = EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT + 1;
 			let index = -1;
-			let effidArray = [];
+			let runeArray = [];
 			for (let i = minNum; i < maxNum; i++) {
 				index = index + 1;
 				let rune = GameUtil.findEquipInPlayer(i);
 				if (rune) {
 					this['img_rune' + index].visible = true;
 					this['img_rune' + index].skin = 'image/common/daoju/itemicon_' + rune.dwBaseID + '.png'
-					let dweffid;
-					switch (this.job) {
-						case 1:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID('' + rune.dwBaseID);
-							break;
-						case 2:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID('' + rune.dwBaseID);
-							break;
-						case 3:
-							dweffid = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID('' + rune.dwBaseID);
-							break;
+					let array = rune.stNpPropertyString;
+					for (let j = 0; rune.stNpPropertyString[j]; j++) {
+						runeArray.push(rune.stNpPropertyString[j]);
 					}
-					effidArray.push(dweffid);
 				} else {
 					this['img_rune' + index].visible = false;
 				}
 			}
-			this.list_down.array = [];
-			let shuxing = GameUtil.parseEffectidToObj(effidArray);
-			this.list_down.array = shuxing.des;
-			this.list_down.itemRender = view.compart.SinglePropsItem;
-			this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(cell.dataSource);
-			}, null, false)
+			//内功碎片极品属性
+			if (runeArray.length !== 0) {
+				let singleArray = [];
+				for (let runeObj of runeArray) {
+					let find = false;
+					for (let singleObj of singleArray) {
+						if (runeObj.index == singleObj.index) {
+							singleObj.value = runeObj.value + singleObj.value;
+							singleObj.max = runeObj.max + singleObj.max;
+							singleObj.min = runeObj.min + singleObj.min;
+							find = true;
+						}
+					}
+					if (!find) {
+						singleArray.push(JSON.parse(JSON.stringify(runeObj)));
+					}
+				}
+				this.list_down.vScrollBarSkin='';
+				for(let single of singleArray){
+					this.list_down.array.push(single)
+				}
+				this.list_down.itemRender = view.compart.SinglePropsItem;
+				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
+					cell.setData(cell.dataSource);
+				}, null, false)
+			}
 		}
 	}
 }
