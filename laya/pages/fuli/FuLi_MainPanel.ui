@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":105,
+    "selectedBox":67,
+    "selecteID":95,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1088,"x":64,"var":"btn_return","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+            "props":{"y":1096,"x":60,"var":"btn_return","stateNum":"1","skin":"image/common/btn_backdi.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_return)",
             "isOpen":true,
@@ -85,23 +85,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":182,"x":5,"width":627,"skin":"image/common/frame_main.png","sizeGrid":"33,37,26,30","height":865},
+            "props":{"y":255,"x":619,"var":"img_right","skin":"image/common/img_sc_zs03.png","height":801},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":255,"x":619,"var":"img_left","skin":"image/common/img_sc_zs03.png","height":790},
-            "nodeParent":1,
-            "label":"Image(img_left)",
+            "label":"Image(img_right)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -113,9 +99,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":255,"x":10,"var":"img_right","skin":"image/common/img_sc_zs03.png","height":790},
+            "props":{"y":255,"x":10,"var":"img_left","skin":"image/common/img_sc_zs03.png","height":799},
             "nodeParent":1,
-            "label":"Image(img_right)",
+            "label":"Image(img_left)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -156,7 +142,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":259,"x":8,"width":621,"var":"viw_fuli","selectedIndex":0,"height":797},
+            "props":{"y":259,"x":9,"width":621,"var":"viw_fuli","selectedIndex":0,"height":797},
             "nodeParent":1,
             "label":"ViewStack(viw_fuli)",
             "isOpen":true,
@@ -169,7 +155,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"fuli/FuLi_InvitItem.ui",
-                    "props":{"y":-2,"x":-3,"var":"ui_invit","runtime":"view.fuli.FuLi_InvitItem","name":"item0"},
+                    "props":{"y":0,"x":-10,"var":"ui_invit","runtime":"view.fuli.FuLi_InvitItem","name":"item0"},
                     "nodeParent":67,
                     "label":"UIView(ui_invit)",
                     "isDirectory":false,
@@ -184,7 +170,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"fuli/FuLi_OnlineRewardItem.ui",
-                    "props":{"y":0,"x":0,"width":621,"var":"ui_onlineReward","runtime":"view.fuli.FuLi_OnlineRewardItem","name":"item1","height":789},
+                    "props":{"x":0,"width":621,"var":"ui_onlineReward","runtime":"view.fuli.FuLi_OnlineRewardItem","name":"item1","height":789},
                     "nodeParent":67,
                     "label":"UIView(ui_onlineReward)",
                     "isDirectory":false,
@@ -208,7 +194,7 @@
                     "compId":93,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

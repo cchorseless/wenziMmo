@@ -10,9 +10,21 @@ module view.fuli {
 		//宝箱相关信息
 		public treasureBoxInfo;
 		public setData(): void {
+			//开服效率
+			let day=TimeUtils.getFormatBySecond(GameApp.GameEngine.openDay/1000,5).split('天')[0];
+			let week = Math.ceil(day / 7);
+			if (week == 1) {
+				this.lbl_xiaolu.text = '60/h';
+			}
+			if (week == 2) {
+				this.lbl_xiaolu.text = '80/h';
+			}
+			if (week >= 3) {
+				this.lbl_xiaolu.text = '100/h';
+			}
 			this.num = 0;
 			for (let i = 1; i < 5; i++) {
-				this['lbl_time' + i].visible = false;
+				this['div_time' + i].visible = false;
 				this['btn_get' + i].visible = false;
 			}
 			this.addEvent();
@@ -52,11 +64,14 @@ module view.fuli {
 						case 0:
 							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_1close.png'
 							this['btn_get' + key].visible = false;
-							this['lbl_time' + key].visible = true;
-							this['lbl_time' + key].text = TimeUtils.getFormatBySecond(data.times, 5);
+							this['div_time' + key].visible = true;
+							GameUtil.timeCountDown(data.times, this['div_time' + key])
+							this['div_time' + key].style.color = '#a53232';
+							this['div_time' + key].style.fontSize = 22;
 							break;
 						case 1:
-							this['img_treasureBox' + key].skin = 'image/common/icon_baoxiang1_light.png'
+							this['img_treasureBox' + key].skin = 'image/common/icon_baoxiang1_light.png';
+							this['btn_get' + key].visible = true;
 							this['btn_get' + key].disabled = false;
 							break;
 						case 2:
@@ -72,7 +87,9 @@ module view.fuli {
 					//本周在线时间累计获得礼券
 					this.lbl_thisweek.text = '' + jsonData.benzhouyuanbao;
 					//今日在线时长
-					this.lbl_onLineTime.text = '' + TimeUtils.getFormatBySecond(jsonData.zaixianshijian, 5);
+					this.div_onLineTime.style.fontSize = 22;
+					this.div_onLineTime.style.color = '#a53232'
+					this.div_onLineTime.innerHTML = '' + TimeUtils.getFormatBySecond(jsonData.zaixianshijian, 5);
 				}
 			})
 			lcp.send(pkt);

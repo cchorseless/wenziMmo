@@ -13,11 +13,14 @@ module view.menu {
 
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
-			this.img_bg.scaleY = getScaleY;
 			this.box_bottom.scaleY = getScaleY;
 		}
 
 		public addEvent(): void {
+			//返回
+			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
+			})
 			//图鉴
 			this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTuJianJuesePanel();

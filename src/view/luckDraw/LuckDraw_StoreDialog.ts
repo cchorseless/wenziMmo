@@ -60,7 +60,6 @@ module view.luckDraw {
 		public addLcpEvent(): void {
 			//刷新弹窗物品
 			GameApp.LListener.on(ProtoCmd.LD_storeRefresh, this, (jsonData) => {
-				console.log('====>转生转生装备', jsonData)
 				this.vbox_store.removeChildren();
 				this.data = jsonData;
 				this.init_store();
