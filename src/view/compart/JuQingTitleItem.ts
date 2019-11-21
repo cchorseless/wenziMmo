@@ -21,21 +21,28 @@ module view.compart {
 				if (data.zslvl > 0) {
 					des = '' + data.zslvl + '转';
 				}
-				this.lbl_conDes.text = des + data.lvl + '级解锁';
+				this.lbl_charpterName.text = des + data.lvl + '级解锁';
 				this.disabled = true;
 			}
 			// 解锁
 			else {
 				if (player.talkID >= data.enddbid) {
+					this.lbl_conDes.color='#0f6809';
 					this.lbl_conDes.text = '已完成';
+					this.box_view.mouseEnabled=true;
+					this.img_bg.visible=false;
 				}
 				else if (player.talkID < data.startdbid) {
-					this.lbl_conDes.text = '未开始';
+					this.lbl_conDes.color='#63491a';
+					this.lbl_conDes.text = '未解锁';
+					this.box_view.mouseEnabled=false;
 					this.img_bg.visible=true;
-					this.img_shuo.visible=true;
 				}
 				else {
+					this.lbl_conDes.color='#a53232';
 					this.lbl_conDes.text = '进行中';
+					this.box_view.mouseEnabled=false;
+					this.img_bg.visible=false;
 				}
 				this.disabled = false;
 			};

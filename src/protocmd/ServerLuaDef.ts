@@ -207,7 +207,7 @@ module ProtoCmd {
     //武学经验值增加
     export const addSkillExp = 'addSkillExp';
     //内功计时
-    export const neigong_nowTick = "neigong_nowTick";  
+    export const neigong_nowTick = "neigong_nowTick";
 
 
     /********************************弟子信息界面***************** */
@@ -366,8 +366,10 @@ module ProtoCmd {
     export const LD_cangbaogeopen = "cangbaogeopen";
     //藏宝阁奖励记录
     export const LD_cangbaoge_getrecord = "cangbaoge_getrecord";//得到数据(record全服奖励记录myrecord我的奖励记录)
-    //藏宝阁抽奖
+    //藏宝阁购买藏宝图
     export const LD_CangbaotuBuy = "CangbaotuBuy";
+    //藏宝阁抽奖
+    export const cbg_choujiang = "cbg_choujiang";
     //积分兑换面板
     export const LD_BZ_SendPlaneMsg = "BZ_SendPlaneMsg";
     //积分兑换记录积分
@@ -547,7 +549,7 @@ module ProtoCmd {
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
 
-    
+
 
 }
 

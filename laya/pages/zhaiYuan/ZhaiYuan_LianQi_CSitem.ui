@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":15,
-    "selecteID":17,
+    "selectedBox":1,
+    "selecteID":16,
     "props":{"width":530,"sceneColor":"#ffffff","height":741},
     "nodeParent":-1,
     "label":"View",
@@ -176,42 +176,29 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":130,"x":233,"width":144,"skin":"image/common/fram_common_04gray.png","height":30},
+                    "type":"List",
+                    "props":{"y":235,"x":0,"width":530,"var":"list_chuanshi","spaceX":10,"repeatX":2,"height":141},
                     "nodeParent":2,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"List(list_chuanshi)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":15,
+                    "hasChild":false,
+                    "compId":17,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":4,"x":28,"var":"lab_itemName3","text":"道具名称","strokeColor":"#404040","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":15,
-                            "label":"Label(lab_itemName3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":16,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"List",
-                            "props":{"y":105,"x":-233,"width":530,"var":"list_chuanshi","spaceX":10,"repeatX":2,"height":141},
-                            "nodeParent":15,
-                            "label":"List(list_chuanshi)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":17,
-                            "child":[
-                                ]
-                        }]
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":134,"x":261,"var":"lab_itemName3","text":"道具名称","strokeColor":"#404040","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":2,
+                    "label":"Label(lab_itemName3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },

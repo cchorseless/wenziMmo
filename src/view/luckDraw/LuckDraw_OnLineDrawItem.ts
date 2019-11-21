@@ -31,7 +31,8 @@ module view.luckDraw {
 			//领取宝箱
 			for (let i = 1; i < 4; i++) {
 				this['btn_item0' + i].on(Laya.UIEvent.CLICK, this, () => {
-					this.init_baoxiang(i);
+					// this['btn_item0' + i].selected = !this['btn_item0' + i].selected;
+					this.init_baoxiang(i, this['btn_item0' + i].selected);
 				})
 			}
 			this.addLcpEvent();
@@ -155,10 +156,10 @@ module view.luckDraw {
 			pkt.setString(ProtoCmd.LD_ZXCJ_LingQu2, [i]);
 			lcp.send(pkt)
 		}
-		public init_baoxiang(i): void {
+		public init_baoxiang(i, selected): void {
 			switch (this.baoxiangInfo[i].flag) {
 				case 0:
-					new view.dialog.BaoXiangPrizeDialog().setData(this.baoxiangInfo[i]).popup();
+					this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this['btn_item0' + i], this.baoxiangInfo[i]));
 					break;
 				case 1:
 					this.init_getBaoxiang(i);

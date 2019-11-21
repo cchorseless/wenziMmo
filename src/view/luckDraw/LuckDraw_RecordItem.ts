@@ -14,7 +14,7 @@ module view.luckDraw {
 		public init_myRecord(data): LuckDraw_RecordItem {
 			let itemName = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.i)
 			let cout = '' + data.n;
-			this.lbl_record.text = GameApp.MainPlayer.objName + ' 获得:' + itemName + 'x' + cout;
+			this.lbl_record.text ='获得:' + itemName + 'x' + cout;
 			return this;
 		}
 		/**

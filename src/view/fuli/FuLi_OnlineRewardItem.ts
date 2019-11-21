@@ -12,7 +12,7 @@ module view.fuli {
 		public setData(): void {
 			//开服效率
 			let day=TimeUtils.getFormatBySecond(GameApp.GameEngine.openDay/1000,5).split('天')[0];
-			let week = Math.ceil(day / 7);
+			let week = Math.ceil(parseInt(day)  / 7);
 			if (week == 1) {
 				this.lbl_xiaolu.text = '60/h';
 			}
@@ -40,7 +40,7 @@ module view.fuli {
 			//预览宝箱奖励
 			for (let i = 1; i < 5; i++) {
 				this['img_treasureBox' + i].on(Laya.UIEvent.CLICK, this, () => {
-					new view.dialog.BaoXiangPrizeDialog().setData(this.treasureBoxInfo[i].itemtab).popup()
+					new view.compart.BaoxiangPrizeItem().init_pos(this['img_treasureBox' + i],this.treasureBoxInfo[i].itemtab);
 				})
 			}
 			//城主特权
