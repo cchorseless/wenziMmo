@@ -8,6 +8,8 @@ module view.luckDraw {
 		public storeData;
 		public num = 0;
 		public setData(): void {
+			this.panel_box1.vScrollBarSkin = "";
+			this.panel_box2.vScrollBarSkin = '';
 			this.panel_myRecord.vScrollBarSkin = '';
 			this.vbox_myRecord['sortItem'] = items => { };
 			this.panel_allRecord.vScrollBarSkin = '';
@@ -64,7 +66,8 @@ module view.luckDraw {
 				for (let tip of tips) {
 					let tipInfo = jsonData.tips[tip];
 					this['lbl_yuanbao' + tip].text = '' + tipInfo.need;
-					this['lbl_tips' + tip].text = '藏宝图*' + tipInfo.cnt + ' 赠' + tipInfo.addjifen + '积分';
+					this['lbl_tips' + tip].text = '积分 +' +tipInfo.addjifen;
+					this['lbl_quan' + tip].text = '' + tipInfo.cnt;
 				}
 				//宝藏积分
 				this.lbl_score.text = '' + jsonData.score;

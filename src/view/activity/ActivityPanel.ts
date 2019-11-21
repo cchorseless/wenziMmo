@@ -41,6 +41,9 @@ module view.activity {
 			for (let i = 0; i < this.hbox_tab.numChildren; i++) {
 				let p: any = this.hbox_tab.getChildAt(i);
 				p.btn_icon.selected = (index == i);
+				p.img_isSelected.visible = (index == i);
+				p.changeUSEfontColor(index == i);
+
 			}
 		}
 
