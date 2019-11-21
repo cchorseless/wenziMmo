@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":130,"sceneColor":"#000000","height":100},
+    "selecteID":6,
+    "props":{"width":130,"sceneColor":"#000000","height":110},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,35 +14,61 @@
     "child":[
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":50,"x":67,"width":100,"var":"btn_icon","stateNum":"2","skin":"image/common/bottom_shuxing.png","height":97,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Button(btn_icon)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":13,"x":30.5,"width":106,"var":"img_icon","skin":"image/guild/icon_shilipaihang.png","scaleY":0.7,"scaleX":0.7,"height":107},
+            "props":{"y":69,"x":0,"skin":"image/activity/img_zs_02.png"},
             "nodeParent":1,
-            "label":"Image(img_icon)",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":5,
             "child":[
                 ]
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":3,"x":0,"visible":false,"var":"img_isSelected","skin":"image/activity/img_zs_03.png","alpha":0.8},
+            "nodeParent":1,
+            "label":"Image(img_isSelected)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":42,"x":67,"width":85,"var":"btn_icon","stateNum":"2","skin":"image/activity/box_yuandi.png","height":84,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_icon)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":2,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":4,"x":9,"width":105,"var":"img_icon","skin":"image/guild/icon_shilipaihang.png","scaleY":0.7,"scaleX":0.7,"height":107},
+                    "nodeParent":2,
+                    "label":"Image(img_icon)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":70,"x":16.5,"width":104,"var":"lab_name","text":"名字名字","stroke":3,"height":30,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
+            "props":{"y":81,"x":0,"width":130,"var":"lab_name","text":"名字名字","strokeColor":"#4e2a2a","stroke":3,"height":30,"fontSize":26,"font":"FZXK","color":"#ffeeb1","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,
