@@ -12,7 +12,7 @@ module view.fuli {
 		public setData(): void {
 			//开服效率
 			let day=TimeUtils.getFormatBySecond(GameApp.GameEngine.openDay/1000,5).split('天')[0];
-			let week = Math.ceil(day / 7);
+			let week = Math.ceil(parseInt(day)  / 7);
 			if (week == 1) {
 				this.lbl_xiaolu.text = '60/h';
 			}

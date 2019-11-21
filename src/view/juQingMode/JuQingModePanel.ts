@@ -91,7 +91,7 @@ module view.juQingMode {
 
 			// 剧情事件
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
-				// PanelManage.openMenuPanel() 
+				PanelManage.openMenuPanel() 
 				this.btn_menu.selected = !this.btn_menu.selected;
 				GameApp.LListener.event(ProtoCmd.changeActivityState, this.btn_menu.selected);
 				// PanelManage.Main.btn_menu.selected;
@@ -108,18 +108,18 @@ module view.juQingMode {
 
 			})
 
-			GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
-				this.btn_menu.selected = state;
-				if (this.btn_menu.selected) {
-					this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
-					PanelManage.openMenuPanel()
-				}
-				else {
-					this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
-					PopUpManager.showPanel(PanelManage.Menu);
-					PopUpManager.checkPanel(PanelManage.Menu);
-				}
-			})
+			// GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
+			// 	this.btn_menu.selected = state;
+			// 	if (this.btn_menu.selected) {
+			// 		this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
+			// 		PanelManage.openMenuPanel()
+			// 	}
+			// 	else {
+			// 		this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
+			// 		PopUpManager.showPanel(PanelManage.Menu);
+			// 		PopUpManager.checkPanel(PanelManage.Menu);
+				// }
+			// })
 
 
 			// 章节信息
