@@ -13,7 +13,10 @@ module view.fuli {
 			this.init_view();
 		}
 		public addEvent(): void {
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_return.on(Laya.
+			
+			
+			UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			})
 		}

@@ -89,6 +89,11 @@ module view.shopMall {
 	  	 */
 		public updateHotShop(type): void {
 			let index = this.tab_top.selectedIndex;
+			if (index == 3) {
+				this.img_rongyu.visible = true;
+			} else {
+				this.img_rongyu.visible = false;
+			}
 			if (index < 5) {
 				if (this['vbox_shop' + (index + 1)]._childs == [] || this['vbox_shop' + (index + 1)]._childs == 0) {
 					let pkt = new ProtoCmd.QuestClientData();
