@@ -8,18 +8,28 @@ module view.compart {
 		public setData(charpterID, key: string, data: { star: number, monsterid: number }) {
 			this.ceng = parseInt(key);
 			// 星级
-			for (let i = 0; i < 3; i++) {
-				this['btn_star' + i].selected = (i < data.star);
-			}
-			// 关卡名称
-			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
-			if (charpterInfo) {
-				this.lbl_name.text = charpterInfo.events[key].eventname;
-			}
-			// 怪物头像
-			// todo
-			// this.img_monsterPic.skin=''
+			if (data.star == 0 || data.star == undefined) {
+				this.lbl_label.visible=true;
+				this.lbl_label.height = 22;
+				this.lbl_label.color = '#0f6809';
+				this.lbl_label.text = '未通关';
+				this.box_star.visible = false;
+			} else {
+				this.box_star.visible = true;
+				this.lbl_label.visible=false;
+				for (let i = 0; i < 3; i++) {
+					this['btn_star' + i].selected = (i < data.star);
+				}
+				// 关卡名称
+				let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
+				if (charpterInfo) {
+					this.lbl_name.text = charpterInfo.events[key].eventname;
+				}
+				// 怪物头像
+				// todo
+				// this.img_monsterPic.skin=''
 
+			}
 		}
 
 	}

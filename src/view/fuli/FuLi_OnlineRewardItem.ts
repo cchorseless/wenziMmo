@@ -40,7 +40,7 @@ module view.fuli {
 			//预览宝箱奖励
 			for (let i = 1; i < 5; i++) {
 				this['img_treasureBox' + i].on(Laya.UIEvent.CLICK, this, () => {
-					new view.dialog.BaoXiangPrizeDialog().setData(this.treasureBoxInfo[i].itemtab).popup()
+					new view.compart.BaoxiangPrizeItem().init_pos(this['img_treasureBox' + i],this.treasureBoxInfo[i].itemtab);
 				})
 			}
 			//城主特权

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":57,
+    "selectedBox":240,
+    "selecteID":312,
     "referenceLines":[
         {
             "value":595,
@@ -54,7 +54,7 @@
             "type":0,
             "id":10
         }],
-    "props":{"width":640,"sceneColor":"#000000","height":1136},
+    "props":{"x":0,"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -96,533 +96,207 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":583,"x":14,"width":615,"var":"panel_mission","height":454},
+            "props":{"y":584,"x":0,"width":640,"var":"panel_mission","height":468},
             "nodeParent":1,
             "label":"Panel(panel_mission)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":303,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":358,"x":4,"width":608,"skin":"image/menu/fram_caidan_02.png","height":111},
+                    "props":{"y":6,"skin":"image/common/img_tongji01.png","sizeGrid":"9,116,6,86","right":0,"left":3,"height":21},
                     "nodeParent":303,
                     "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":264,
+                    "hasChild":false,
+                    "compId":313,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":-1,"x":0,"width":194,"skin":"image/main/tab_common_01.png","height":35},
-                            "nodeParent":264,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":300,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":5,"x":6,"text":"每天肝一肝","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":300,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":301,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false,
-                                    "$HIDDEN":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":108,"width":74,"var":"btn_mail","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":264,
-                            "label":"Button(btn_mail)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":267,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":5,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_mail.png","height":59},
-                                    "nodeParent":267,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":268,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-3,"width":80,"text":"邮件","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":267,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":269,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":262,"width":74,"var":"btn_qiandao","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":264,
-                            "label":"Button(btn_qiandao)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":270,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":5,"x":10,"width":59,"stateNum":"1","skin":"image/menu/icon_sign.png","height":59},
-                                    "nodeParent":270,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":271,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-1,"width":80,"text":"签到","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":270,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":272,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":419,"width":74,"var":"btn_menuTujian","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":264,
-                            "label":"Button(btn_menuTujian)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":273,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":7,"x":9,"width":59,"stateNum":"2","skin":"image/common/icon_tujian.png","height":59},
-                                    "nodeParent":273,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":274,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-1,"width":80,"text":"图鉴","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":273,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":275,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        }],
-                    "$LOCKED":false,
+                        ],
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":241,"x":4,"skin":"image/menu/fram_caidan_02.png"},
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"y":40,"x":18,"width":602,"var":"vbox_down","space":10},
                     "nodeParent":303,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":276,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":-1,"x":0,"width":194,"skin":"image/main/tab_common_01.png","height":35},
-                            "nodeParent":276,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":296,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":5,"x":6,"text":"每天肝一肝","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":296,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":297,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false,
-                                    "$HIDDEN":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":108,"width":74,"var":"btn_menuChengjiu","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":276,
-                            "label":"Button(btn_menuChengjiu)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":279,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":6,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_chengjiu.png","height":59},
-                                    "nodeParent":279,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":280,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-6,"width":88,"text":"成就","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":279,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":281,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":262,"width":74,"var":"btn_menuPaiming","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":276,
-                            "label":"Button(btn_menuPaiming)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":282,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_rank.png","height":59},
-                                    "nodeParent":282,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":283,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-2,"width":80,"text":"排名","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":282,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":284,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":419,"width":74,"var":"btn_Blessing","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":276,
-                            "label":"Button(btn_Blessing)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":285,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":7,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_bless.png","height":59},
-                                    "nodeParent":285,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":286,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-3,"width":80,"text":"祈福","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":285,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":287,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        }],
-                    "$LOCKED":false,
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":123,"x":4,"skin":"image/menu/fram_caidan_02.png"},
-                    "nodeParent":303,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":252,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":-1,"x":0,"width":194,"skin":"image/main/tab_common_01.png","height":35},
-                            "nodeParent":252,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":253,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":5,"x":6,"text":"每天肝一肝","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":253,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":254,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false,
-                                    "$HIDDEN":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":108,"width":74,"var":"btn_mobai","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":252,
-                            "label":"Button(btn_mobai)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":255,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_mobai.png","height":59},
-                                    "nodeParent":255,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":256,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-8,"width":91,"text":"膜拜城主","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":255,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":257,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":262,"width":74,"var":"btn_guess","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":252,
-                            "label":"Button(btn_guess)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":258,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":2,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_guess.png","height":59},
-                                    "nodeParent":258,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":259,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-7,"width":90,"text":"全民竞猜","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":258,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":260,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":34,"x":419,"width":74,"stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":252,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":261,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
-                                    "nodeParent":261,
-                                    "label":"Button",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":262,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-5,"width":84,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":21,"fontSize":21,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":261,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":263,
-                                    "child":[
-                                        ],
-                                    "$LOCKED":false
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        }],
-                    "$LOCKED":false,
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":3,"x":4,"width":608,"skin":"image/menu/fram_caidan_02.png","height":111},
-                    "nodeParent":303,
-                    "label":"Image",
+                    "label":"VBox(vbox_down)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":240,
+                    "compId":319,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":-1,"x":0,"width":194,"skin":"image/main/tab_common_01.png","height":35},
-                            "nodeParent":240,
+                            "props":{"y":3,"x":4,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
+                            "nodeParent":319,
                             "label":"Image",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":241,
+                            "compId":240,
                             "child":[
                                 {
-                                    "type":"Label",
-                                    "props":{"y":5,"x":6,"text":"每天肝一肝","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":241,
-                                    "label":"Label",
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":71,"x":145,"width":74,"var":"btn_FirstCharge","stateNum":"1","skin":"image/menu/bottom_tubiao.png","pivotY":37,"pivotX":37,"labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":240,
+                                    "label":"Button(btn_FirstCharge)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":243,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_shouchong.png","height":59},
+                                            "nodeParent":243,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":244,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-9,"width":92,"text":"首充有礼","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":243,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":245,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":262,"width":74,"var":"btn_totalLogin","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":240,
+                                    "label":"Button(btn_totalLogin)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":246,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_sumlogin.png","height":59},
+                                            "nodeParent":246,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":247,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-6,"width":87,"text":"累计登录","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":246,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":248,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":419,"width":74,"var":"btn_baoxiang","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":240,
+                                    "label":"Button(btn_baoxiang)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":249,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
+                                            "nodeParent":249,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":250,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-6,"width":87,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":21,"fontSize":21,"font":"FZHL","color":"#ffffff"},
+                                            "nodeParent":249,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":251,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-27,"x":580,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":240,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":242,
+                                    "compId":314,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-27,"x":13,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":240,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":312,
                                     "child":[
                                         ],
                                     "$LOCKED":false,
@@ -632,127 +306,528 @@
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Button",
-                            "props":{"y":71,"x":145,"width":74,"var":"btn_FirstCharge","stateNum":"1","skin":"image/menu/bottom_tubiao.png","pivotY":37,"pivotX":37,"labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":240,
-                            "label":"Button(btn_FirstCharge)",
-                            "isOpen":false,
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":123,"x":4,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
+                            "nodeParent":319,
+                            "label":"Image",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":243,
+                            "compId":252,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_shouchong.png","height":59},
-                                    "nodeParent":243,
-                                    "label":"Button",
-                                    "isDirectory":false,
+                                    "props":{"y":34,"x":108,"width":74,"var":"btn_mobai","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":252,
+                                    "label":"Button(btn_mobai)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":244,
+                                    "hasChild":true,
+                                    "compId":255,
                                     "child":[
-                                        ],
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_mobai.png","height":59},
+                                            "nodeParent":255,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":256,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-8,"width":91,"text":"膜拜城主","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":255,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":257,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-9,"width":92,"text":"首充有礼","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":243,
-                                    "label":"Label",
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":262,"width":74,"var":"btn_guess","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":252,
+                                    "label":"Button(btn_guess)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":258,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":2,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_guess.png","height":59},
+                                            "nodeParent":258,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":259,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-7,"width":90,"text":"全民竞猜","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":258,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":260,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":419,"width":74,"stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":252,
+                                    "label":"Button",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":261,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
+                                            "nodeParent":261,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":262,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-5,"width":84,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":21,"fontSize":21,"font":"FZHL","color":"#ffffff"},
+                                            "nodeParent":261,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":263,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-28,"x":13,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":252,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":245,
+                                    "compId":317,
                                     "child":[
                                         ],
-                                    "$LOCKED":false
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-28,"x":580,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":252,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":318,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Button",
-                            "props":{"y":34,"x":262,"width":74,"var":"btn_totalLogin","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":240,
-                            "label":"Button(btn_totalLogin)",
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":241,"x":4,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
+                            "nodeParent":319,
+                            "label":"Image",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":246,
+                            "compId":276,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":7,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_sumlogin.png","height":59},
-                                    "nodeParent":246,
-                                    "label":"Button",
-                                    "isDirectory":false,
+                                    "props":{"y":34,"x":108,"width":74,"var":"btn_menuChengjiu","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":276,
+                                    "label":"Button(btn_menuChengjiu)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":247,
+                                    "hasChild":true,
+                                    "compId":279,
                                     "child":[
-                                        ],
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":6,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_chengjiu.png","height":59},
+                                            "nodeParent":279,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":280,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-6,"width":88,"text":"成就","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":279,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":281,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-6,"width":87,"text":"累计登录","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
-                                    "nodeParent":246,
-                                    "label":"Label",
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":262,"width":74,"var":"btn_menuPaiming","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":276,
+                                    "label":"Button(btn_menuPaiming)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":282,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_rank.png","height":59},
+                                            "nodeParent":282,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":283,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-2,"width":80,"text":"排名","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":282,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":284,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":419,"width":74,"var":"btn_Blessing","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":276,
+                                    "label":"Button(btn_Blessing)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":285,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":7,"x":8,"width":59,"stateNum":"1","skin":"image/menu/icon_bless.png","height":59},
+                                            "nodeParent":285,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":286,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-3,"width":80,"text":"祈福","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":285,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":287,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-26,"x":13,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":276,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":248,
+                                    "compId":320,
                                     "child":[
                                         ],
-                                    "$LOCKED":false
+                                    "$LOCKED":true,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-26,"x":580,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":276,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":321,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
                         },
                         {
-                            "type":"Button",
-                            "props":{"y":34,"x":419,"width":74,"var":"btn_baoxiang","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
-                            "nodeParent":240,
-                            "label":"Button(btn_baoxiang)",
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":358,"x":4,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
+                            "nodeParent":319,
+                            "label":"Image",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":249,
+                            "compId":264,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
-                                    "props":{"y":2,"x":8,"width":59,"stateNum":"2","skin":"image/common/icon_renwu.png","height":59},
-                                    "nodeParent":249,
-                                    "label":"Button",
-                                    "isDirectory":false,
+                                    "props":{"y":34,"x":108,"width":74,"var":"btn_mail","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":264,
+                                    "label":"Button(btn_mail)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
                                     "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":250,
+                                    "hasChild":true,
+                                    "compId":267,
                                     "child":[
-                                        ],
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":5,"x":7,"width":59,"stateNum":"1","skin":"image/menu/icon_mail.png","height":59},
+                                            "nodeParent":267,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":268,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-3,"width":80,"text":"邮件","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":267,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":269,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "type":"Label",
-                                    "props":{"y":48,"x":-6,"width":87,"text":"每日必做","strokeColor":"#000000","stroke":4,"height":21,"fontSize":21,"font":"FZHL","color":"#ffffff"},
-                                    "nodeParent":249,
-                                    "label":"Label",
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":262,"width":74,"var":"btn_qiandao","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":264,
+                                    "label":"Button(btn_qiandao)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":270,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":5,"x":10,"width":59,"stateNum":"1","skin":"image/menu/icon_sign.png","height":59},
+                                            "nodeParent":270,
+                                            "label":"Button",
+                                            "isOpen":true,
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":271,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-1,"width":80,"text":"签到","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":270,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":272,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":34,"x":419,"width":74,"var":"btn_menuTujian","stateNum":"1","skin":"image/menu/bottom_tubiao.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":20,"labelPadding":"10,12","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":74},
+                                    "nodeParent":264,
+                                    "label":"Button(btn_menuTujian)",
+                                    "isOpen":true,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":273,
+                                    "child":[
+                                        {
+                                            "x":75,
+                                            "type":"Button",
+                                            "props":{"y":7,"x":9,"width":59,"stateNum":"2","skin":"image/common/icon_tujian.png","height":59},
+                                            "nodeParent":273,
+                                            "label":"Button",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":274,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        },
+                                        {
+                                            "x":75,
+                                            "type":"Label",
+                                            "props":{"y":48,"x":-1,"width":80,"text":"图鉴","strokeColor":"#000000","stroke":4,"height":20,"fontSize":21,"font":"FZHL","color":"#ffffff","align":"center"},
+                                            "nodeParent":273,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":275,
+                                            "child":[
+                                                ],
+                                            "$LOCKED":false
+                                        }],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-25,"x":13,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":264,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":251,
+                                    "compId":326,
                                     "child":[
                                         ],
-                                    "$LOCKED":false
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":-25,"x":580,"skin":"image/menu/img_cd_zhangshi01.png"},
+                                    "nodeParent":264,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":327,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        }],
-                    "$LOCKED":false,
-                    "$HIDDEN":false
+                        }]
                 }]
         },
         {
@@ -1026,7 +1101,7 @@
             "compId":45,
             "child":[
                 ],
-            "$LOCKED":true,
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
