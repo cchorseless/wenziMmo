@@ -25,7 +25,8 @@ module view.luckDraw {
 			})
 			//宝箱预览
 			this.img_baoxiang.on(Laya.UIEvent.CLICK, this, () => {
-				new dialog.BaoXiangPrizeDialog().init_luckDrawView(this.TreasureChestInfo).popup()
+				let type=1;
+				new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang,this.TreasureChestInfo,type)
 			})
 			//抽奖
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {

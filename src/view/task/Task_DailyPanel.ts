@@ -6,7 +6,7 @@ module view.task {
 		}
 
 		public setData(): void {
-			this.btn_dailyTask.selected=true;
+			this.btn_dailyTask.selected = true;
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
 			this.panel_1.vScrollBarSkin = '';
@@ -31,7 +31,7 @@ module view.task {
 		}
 		public addEvent(): void {
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
-		PanelManage.openJuQingModePanel()
+				PanelManage.openJuQingModePanel()
 			});
 
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
@@ -61,7 +61,7 @@ module view.task {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
 				let keys = Object.keys(jsonData.tab);
-				console.log('=====>宝箱活跃度',jsonData)
+				console.log('=====>宝箱活跃度', jsonData)
 				//活跃度进度条
 				if (jsonData.value / jsonData.maxvalue < 1) {
 					//当前活跃度/最大活跃度时<1时，进度条长度
@@ -155,24 +155,22 @@ module view.task {
 			switch (i) {
 				case 1:
 					this.img_baoxiang1.on(Laya.UIEvent.CLICK, this, () => {
-						new view.dialog.BaoXiangPrizeDialog().setData(item).show();
+						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang1, item);
 					});
 					break;
 				case 2:
 					this.img_baoxiang2.on(Laya.UIEvent.CLICK, this, () => {
-						new view.dialog.BaoXiangPrizeDialog().setData(item).show();
+						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang2, item);
 					});
 					break;
 				case 3:
 					this.img_baoxiang3.on(Laya.UIEvent.CLICK, this, () => {
-
-						new view.dialog.BaoXiangPrizeDialog().setData(item).show();
+						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang3, item);
 					});
 					break;
 				case 4:
 					this.img_baoxiang4.on(Laya.UIEvent.CLICK, this, () => {
-
-						new view.dialog.BaoXiangPrizeDialog().setData(item).show();
+						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang4, item);
 					});
 					break;
 			}
@@ -185,7 +183,7 @@ module view.task {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_DailyTaskClientOpen, null, null, this, (jsonData: { any }) => {
 				let keys = Object.keys(jsonData);
-					for (let key of keys) {
+				for (let key of keys) {
 					let data = jsonData[key];
 					this.vbox_1.addChild(new view.compart.TaskInfoV0Item().daily(data));
 				}

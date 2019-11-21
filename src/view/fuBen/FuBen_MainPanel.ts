@@ -41,14 +41,11 @@ module view.fuBen {
 			// 挑战BOSS
 			EventManage.onWithEffect(this.btn_battle, Laya.UIEvent.CLICK, this, this.enterFuBen);
 		}
-
-
-
 		public initUI(): void {
-			this.panel_0.vScrollBarSkin = '';
+			this.panel_0.hScrollBarSkin = '';
 			this.panel_1.hScrollBarSkin = '';
 			this.panel_2.hScrollBarSkin = '';
-			this.vbox_0['sortItem'] = (items) => { };
+			this.hbox_0['sortItem'] = (items) => { };
 			this.hbox_1['sortItem'] = (items) => { };
 			this.hbox_2['sortItem'] = (items) => { };
 			this.updatePianZhangInfo(GameApp.MainPlayer.pianZhangID);
@@ -67,14 +64,14 @@ module view.fuBen {
 						// 篇章名字
 						this.lbl_pianZhangName.text = jsonData.pzname;
 						let keys = Object.keys(jsonData.charpterInfo);
-						this.vbox_0.removeChildren();
+						this.hbox_0.removeChildren();
 						for (let key of keys) {
 							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
 							charpterInfo.index = key;
 							let charpterTitle_ui = new view.compart.JuQingTitleItem();
 							charpterTitle_ui.anchorX = 0;
 							charpterTitle_ui.setData(charpterInfo);
-							this.vbox_0.addChild(charpterTitle_ui);
+							this.hbox_0.addChild(charpterTitle_ui);
 							// 更新章节信息
 							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
@@ -95,9 +92,9 @@ module view.fuBen {
 			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
 			if (charpterInfo) {
 				// 章节标题信息
-				this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;
+				// this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;
 				// 章节简介
-				this.lbl_into.text = '' + charpterInfo.intro;
+				// this.lbl_into.text = '' + charpterInfo.intro;
 				// 挂机预览
 				let itemsKeys = Object.keys(charpterInfo.items);
 				for (let key of itemsKeys) {
@@ -132,8 +129,10 @@ module view.fuBen {
 			// 除魔相关信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
-				// 挑战次数
-				this.lbl_tiaoZhanTimes.text = '挑战次数:' + jsonData.curcnt + '/' + jsonData.totalcnt;
+				// 当前挑战次数
+				this.lbl_tiaoZhanTimes.text = ''+jsonData.curcnt;
+				// 最大挑战次数
+				this.lbl_maxTimes.text = '/' + jsonData.totalcnt;
 				// 关卡信息
 				let keys = Object.keys(jsonData.state);
 				for (let key of keys) {
@@ -204,43 +203,44 @@ module view.fuBen {
 					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_2.addChild(_itemUI);
 				};
-				if (jsonData.lv) {
-					this.lbl_lvneed.text = '' + jsonData.lv;
-				};
-				switch (jsonData.type) {
-					case 0:
-						this.lbl_extraDes.visible = false;
-						this.lbl_needextra.visible = false;
-						break;
-					case 1:
-						this.lbl_extraDes.text = '装备强化等级'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-					case 2:
-						this.lbl_extraDes.text = '神盾等级'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-					case 3:
-						this.lbl_extraDes.text = '龙魂等级'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-					case 4:
-						this.lbl_extraDes.text = '罡气境界'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-					case 5:
-						this.lbl_extraDes.text = '武器等级'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-					case 6:
-						this.lbl_extraDes.text = '装备穿戴等级'
-						this.lbl_needextra.text = '穿戴' + jsonData.lv + '级' + jsonData.need + '件';
-						break;
-					case 8:
-						this.lbl_extraDes.text = '善缘等级'
-						this.lbl_needextra.text = '' + jsonData.need;
-						break;
-				}
+				//等级需求
+				// if (jsonData.lv) {
+					// this.lbl_lvneed.text = '' + jsonData.lv;
+				// };
+				// switch (jsonData.type) {
+				// 	case 0:
+				// 		this.lbl_extraDes.visible = false;
+				// 		// this.lbl_needextra.visible = false;
+				// 		break;
+				// 	case 1:
+				// 		this.lbl_extraDes.text = '装备强化等级'
+				// 		// this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// 	case 2:
+				// 		this.lbl_extraDes.text = '神盾等级'
+				// 		// this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// 	case 3:
+				// 		this.lbl_extraDes.text = '龙魂等级'
+				// 		// this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// 	case 4:
+				// 		this.lbl_extraDes.text = '罡气境界'
+				// 		// this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// 	case 5:
+				// 		this.lbl_extraDes.text = '武器等级'
+				// 		// this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// 	case 6:
+				// 		this.lbl_extraDes.text = '装备穿戴等级'
+				// 		// this.lbl_needextra.text = '穿戴' + jsonData.lv + '级' + jsonData.need + '件';
+				// 		break;
+				// 	case 8:
+				// 		this.lbl_extraDes.text = '善缘等级'
+				// 		this.lbl_needextra.text = '' + jsonData.need;
+				// 		break;
+				// }
 			});
 			lcp.send(pkt);
 		}

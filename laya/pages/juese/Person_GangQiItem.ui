@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":215,
-    "selecteID":330,
+    "selectedBox":171,
+    "selecteID":175,
     "props":{"width":567,"sceneColor":"#d7b5b5","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -204,30 +204,16 @@
                                     "child":[
                                         {
                                             "x":75,
-                                            "type":"Image",
-                                            "props":{"y":36,"x":50,"width":139,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38","height":32},
+                                            "type":"Label",
+                                            "props":{"y":41,"x":21,"width":184,"var":"lbl_dangqian","text":"混元罡气","strokeColor":"#000000","stroke":2,"height":22,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":170,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
+                                            "label":"Label(lbl_dangqian)",
+                                            "isDirectory":false,
                                             "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":172,
+                                            "hasChild":false,
+                                            "compId":173,
                                             "child":[
-                                                {
-                                                    "x":90,
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":6,"width":108,"var":"lbl_dangqian","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                    "nodeParent":172,
-                                                    "label":"Label(lbl_dangqian)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":173,
-                                                    "child":[
-                                                        ],
-                                                    "$HIDDEN":false
-                                                }],
+                                                ],
                                             "$HIDDEN":false
                                         }]
                                 },
@@ -258,30 +244,16 @@
                                     "child":[
                                         {
                                             "x":75,
-                                            "type":"Image",
-                                            "props":{"y":36,"x":50,"width":139,"skin":"image/common/fram_common_04gray.png","sizeGrid":"0,56,0,38","height":32},
+                                            "type":"Label",
+                                            "props":{"y":41,"x":21,"width":184,"var":"lbl_xiaji","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                             "nodeParent":171,
-                                            "label":"Image",
-                                            "isOpen":true,
-                                            "isDirectory":true,
+                                            "label":"Label(lbl_xiaji)",
+                                            "isDirectory":false,
                                             "isAniNode":true,
-                                            "hasChild":true,
-                                            "compId":174,
+                                            "hasChild":false,
+                                            "compId":175,
                                             "child":[
-                                                {
-                                                    "x":90,
-                                                    "type":"Label",
-                                                    "props":{"y":5,"x":6,"width":108,"var":"lbl_xiaji","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
-                                                    "nodeParent":174,
-                                                    "label":"Label(lbl_xiaji)",
-                                                    "isDirectory":false,
-                                                    "isAniNode":true,
-                                                    "hasChild":false,
-                                                    "compId":175,
-                                                    "child":[
-                                                        ],
-                                                    "$HIDDEN":false
-                                                }],
+                                                ],
                                             "$HIDDEN":false
                                         }],
                                     "$HIDDEN":false
@@ -622,7 +594,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":499,"x":75,"skin":"image/juese/title_common_01.png"},
+                            "props":{"y":499,"x":75,"skin":"image/common/title_common_01.png"},
                             "nodeParent":215,
                             "label":"Image",
                             "isOpen":false,
@@ -771,7 +743,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":706,"x":78,"skin":"image/juese/title_common_01.png"},
+                            "props":{"y":706,"x":78,"skin":"image/common/title_common_01.png"},
                             "nodeParent":215,
                             "label":"Image",
                             "isOpen":false,

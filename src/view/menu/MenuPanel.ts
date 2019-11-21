@@ -6,11 +6,11 @@ module view.menu {
 			this.panel_mission.vScrollBarSkin = '';
 		}
 		public setData(): void {
+			this.panel_mission.vScrollBarSkin = '';
+			this.vbox_down['sortItem'] = (items) => { };
 			this.initUI();
 			this.addEvent();
 		}
-
-
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
 			this.box_bottom.scaleY = getScaleY;

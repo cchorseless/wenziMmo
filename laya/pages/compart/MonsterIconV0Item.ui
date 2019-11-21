@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":90,"sceneColor":"#000000","height":120},
+    "selectedBox":22,
+    "selecteID":23,
+    "props":{"width":113,"sceneColor":"#000000","height":155},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,102 +15,136 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":8,"x":0,"width":89,"var":"box_view","height":112},
+            "props":{"x":0,"width":113,"var":"box_view","height":155},
             "nodeParent":1,
             "label":"Box(box_view)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":22,
             "child":[
                 {
-                    "type":"Button",
-                    "props":{"y":10,"x":61,"var":"btn_star2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star2","mouseEnabled":false},
-                    "nodeParent":2,
-                    "label":"Button(btn_star2)",
-                    "isOpen":false,
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":47,"x":30,"width":58,"var":"img_monsterPic","skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
+                    "nodeParent":22,
+                    "label":"Image(img_monsterPic)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":11,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
-                    "type":"Button",
-                    "props":{"x":32,"var":"btn_star1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star1","mouseEnabled":false},
-                    "nodeParent":2,
-                    "label":"Button(btn_star1)",
-                    "isOpen":false,
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":47,"x":13,"var":"img_bg","skin":"image/juQingMode/frame_touxiang_04.png"},
+                    "nodeParent":22,
+                    "label":"Image(img_bg)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":4,
+                    "compId":12,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
-                    "type":"Button",
-                    "props":{"y":10,"var":"btn_star0","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star0","mouseEnabled":false},
-                    "nodeParent":2,
-                    "label":"Button(btn_star0)",
-                    "isOpen":false,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Box",
-                    "props":{"y":59,"x":45,"width":80,"height":80,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":8,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"width":80,"var":"img_bg","skin":"image/common/daoju/fram_common_npc.png","height":80},
-                            "nodeParent":8,
-                            "label":"Image(img_bg)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":9,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":4,"x":16,"width":58,"var":"img_monsterPic","skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
-                            "nodeParent":8,
-                            "label":"Image(img_monsterPic)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ]
-                        }]
-                },
-                {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":83,"x":7,"width":76,"var":"lbl_name","text":"杀熊","strokeColor":"#000000","stroke":4,"height":24,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
-                    "nodeParent":2,
+                    "props":{"y":111,"x":15,"width":76,"var":"lbl_name","text":"杀熊","strokeColor":"#000000","stroke":4,"height":26,"fontSize":28,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "nodeParent":22,
                     "label":"Label(lbl_name)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":7,
+                    "compId":13,
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":135,"x":10,"wordWrap":true,"width":86,"text":"(1-1)","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"fzhl","color":"#ffffff","align":"center"},
+                    "nodeParent":22,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"x":2,"wordWrap":true,"width":111,"var":"lbl_label","text":"5转150级解锁","strokeColor":"#000000","height":44,"fontSize":22,"font":"fzhl","color":"#a53232","align":"center"},
+                    "nodeParent":22,
+                    "label":"Label(lbl_label)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":19,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":23,"x":8,"var":"box_star"},
+                    "nodeParent":22,
+                    "label":"Box(box_star)",
+                    "isOpen":null,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":23,
+                    "child":[
+                        {
+                            "type":"Button",
+                            "props":{"x":30,"var":"btn_star1","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star1","mouseEnabled":false},
+                            "nodeParent":23,
+                            "label":"Button(btn_star1)",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":19,"var":"btn_star0","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star0","mouseEnabled":false},
+                            "nodeParent":23,
+                            "label":"Button(btn_star0)",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":15,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":18,"x":62,"var":"btn_star2","stateNum":"2","skin":"image/common/fram_common_22_finish.png","selected":false,"scaleY":0.7,"scaleX":0.7,"name":"star2","mouseEnabled":false},
+                            "nodeParent":23,
+                            "label":"Button(btn_star2)",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        }]
                 }]
         }],
     "animations":[
