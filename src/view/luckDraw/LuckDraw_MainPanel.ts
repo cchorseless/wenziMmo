@@ -1,8 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.luckDraw {
 	export class LuckDraw_MainPanel extends ui.luckDraw.LuckDraw_MainPanelUI {
+		public static self: LuckDraw_MainPanel;
 		constructor() {
 			super();
+			LuckDraw_MainPanel.self = this;
 		}
 		public data = null;
 		public setData(): void {
@@ -17,7 +19,11 @@ module view.luckDraw {
 		}
 		public addEvent(): void {
 		}
+		public upDataCangBaoMap() {
+			this.lab_mapNum.text = '' + GameUtil.findItemInBag(353, GameApp.GameEngine.bagItemDB);
+		}
 		public init_getData(): void {
+
 			let pkt = new ProtoCmd.QuestClientData();
 			//获取页签
 			pkt.setString(ProtoCmd.LD_chouJiangPanel, null, null, this, (jsonData: ProtoCmd.itf_LD_Info) => {
@@ -49,18 +55,24 @@ module view.luckDraw {
 				let i = index + 1;
 				switch (this.data[i].id) {
 					case 0:
+						LuckDraw_MainPanel.self.box_cangbao.visible = true;
+						this.upDataCangBaoMap();
 						ui_item = view.luckDraw.LuckDraw_CangBaoItem;
 						break;
 					case 15:
+						LuckDraw_MainPanel.self.box_cangbao.visible = false;
 						ui_item = view.luckDraw.LuckDraw_TurntableItem;
 						break;
 					case 31:
+						LuckDraw_MainPanel.self.box_cangbao.visible = false;
 						ui_item = view.luckDraw.LuckDraw_LuckDrawItem;
 						break;
 					case 34:
+						LuckDraw_MainPanel.self.box_cangbao.visible = false;
 						ui_item = view.activity.Active_LuckBagDraw;
 						break;
 					case 38:
+						LuckDraw_MainPanel.self.box_cangbao.visible = false;
 						ui_item = view.luckDraw.LuckDraw_OnLineDrawItem;
 						break;
 				}

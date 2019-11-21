@@ -210,7 +210,7 @@ module view.main {
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				this.btn_menu.selected = !this.btn_menu.selected;
 				PanelManage.openMenuPanel()
-				GameApp.LListener.event(ProtoCmd.changeActivityState, this.btn_menu.selected);
+				// GameApp.LListener.event(ProtoCmd.changeActivityState, this.btn_menu.selected);
 				// if (this.btn_menu.selected) {
 				// 	this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
 				// 	PanelManage.openMenuPanel()

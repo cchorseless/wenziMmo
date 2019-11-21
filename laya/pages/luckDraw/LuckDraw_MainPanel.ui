@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":10,
+    "selecteID":114,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -43,6 +43,20 @@
         {
             "x":15,
             "type":"Image",
+            "props":{"y":182,"x":7,"width":627,"sizeGrid":"33,37,26,30","height":865},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
             "props":{"y":184,"x":0,"skin":"image/common/img_tongji01.png","sizeGrid":"0,35,-2,86"},
             "nodeParent":1,
             "label":"Image",
@@ -58,7 +72,7 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":193,"x":62,"width":516,"var":"panel_top","height":55},
+            "props":{"y":193,"x":47,"width":546,"var":"panel_top","height":55},
             "nodeParent":1,
             "label":"Panel(panel_top)",
             "isOpen":true,
@@ -70,7 +84,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"var":"tab_top","stateNum":2,"space":15,"skin":"image/main/btn_haoyou.png","selectedIndex":0,"scaleX":1.3,"labelSize":20,"labelFont":"FZHL","labelColors":"#404040,#63491a"},
+                    "props":{"var":"tab_top","strokeColors":"#9f6f5d,#c30e0e,#c30e0e","stateNum":2,"space":15,"skin":"image/menu/btn_sc_common_01.png","selectedIndex":0,"labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":55},
                     "nodeParent":11,
                     "label":"Tab(tab_top)",
                     "isDirectory":false,
@@ -161,6 +175,85 @@
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":189,"x":601,"skin":"image/common/icon_001.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":106,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":189,"x":39,"skin":"image/common/icon_001.png","scaleX":-1},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":107,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":130,"x":475,"var":"box_cangbao"},
+            "nodeParent":1,
+            "label":"Box(box_cangbao)",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":114,
+            "child":[
+                {
+                    "type":"Image",
+                    "props":{"y":7,"x":22,"width":113,"skin":"image/common/frame_chat.png","height":29},
+                    "nodeParent":114,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":111,
+                    "child":[
+                        {
+                            "type":"Label",
+                            "props":{"y":0,"x":12,"width":93,"var":"lab_mapNum","valign":"middle","text":"80万","strokeColor":"#000000","stroke":4,"mouseThrough":true,"height":27,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
+                            "nodeParent":111,
+                            "label":"Label(lab_mapNum)",
+                            "isOpen":false,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":112,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Image",
+                    "props":{"width":40,"skin":"image/main/icon_coin_2.png","height":40},
+                    "nodeParent":114,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":109,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
