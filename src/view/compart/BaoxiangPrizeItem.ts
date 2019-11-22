@@ -49,7 +49,14 @@ module view.compart {
 			}
 			return this;
 		}
-		public init_pos(btn: Laya.Sprite,data,type=0): BaoxiangPrizeItem {
+		/**
+		 * 
+		 * @param btn 点击按钮
+		 * @param data 宝箱物品
+		 * @param type 宝箱数据类型（0走setData,1走init_luckDrawView）
+		 *
+		 */
+		public init_pos(btn: Laya.Sprite, data, type = 0): BaoxiangPrizeItem {
 			let posPoint = btn.localToGlobal(new Laya.Point(btn.width / 2, btn.height / 2))
 			let X = posPoint.x;
 			let Y = posPoint.y;
@@ -60,18 +67,18 @@ module view.compart {
 			} else {
 				this.anchorX = 0;
 			}
-			if (Y > (Max_height  / 2)) {
+			if (Y > (Max_height / 2)) {
 				this.anchorY = 1;
 			} else {
 				this.anchorY = 0;
 			}
-			this.pos(X, Y);
+			this.pos(btn.x, btn.y);
 			this.scaleX = this.scaleY = 0;
 			Laya.Tween.to(this, { scaleX: 1, scaleY: 1 }, 200);
-			if(type==0){
+			if (type == 0) {
 				this.setData(data);
 			}
-			if(type==1){
+			if (type == 1) {
 				this.init_luckDrawView(data);
 			}
 			return this;

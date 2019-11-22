@@ -1124,4 +1124,54 @@ module EnumData {
         publicZhuCheng = 301,// 主城
 
     }
+
+
+    /**
+     * 活动枚举
+     */
+    export enum activityType {
+        EverydayBuyPanel = 1,   // 每日必买
+        CZJJ_OpenPlane = 2,   //超值理财
+        ChaoZhiLC_Open = 3,   //成长基金
+        ConsumeOpen = 4,   //消费排行
+        LimitTimePanicBuyPanel = 5,   //限时抢购
+        LimitTimeGiftBagPanel = 6,   //限时礼包
+        RechargeOpen = 7,   //充值排行
+        ShenMi_Open = 9,   //神秘商店
+        RechargeGiftPanel = 10,   //累计充值
+        ComposeEquipPanel = 12,   //装备箱合成
+        ContinueRechargePanel = 13,   //连续充值
+        ExchangeGiftPanel = 14,   //兑换豪礼
+        FLZP_Plane = 15,   //福利转盘
+        MeiRiChongZhiOpen = 16,   //每日充值
+        MRLQ_Plane = 17,   //每日领取
+        ConsumeGiftPanel = 18,   //消费豪礼
+        NationalResourcePanel = 19,   //全民官印
+        ResourceGiftPanel = 24,   //官印、资源线好礼
+        chaozhiopen = 29,   // 超值礼包
+        DBCZ_Plane = 30,   //单笔充值
+        LuckyDrawOpen = 31,   //幸运抽奖
+        ExchangePointPanel = 32,   //积分兑换
+        MeiRiTeHuiPanel = 33,   //每日特惠
+        FuDaiOpen = 34,   //福袋抽奖、档次
+        QuanMingLiBaoOpen = 35,   //全民礼包
+        MZJJ_OpenPlane = 36,   //每周基金
+        ZXCJ_Plane = 38,   //在线抽奖、转盘
+        OneDayRechargePanel = 39,   //单日充值
+        MeiRiShouChongOpen = 41,   //每日首充
+
+
+
+        TeHuiIndex = 203,   //  特惠礼包
+        WorthGiftBagPanel = 204,   //  特选礼包 
+        FirstChargeOpen = 205,   //  首充
+
+        leijidenglu_minbandakai = 206,   // 累计登录
+        KaiFuJingJiOpen = 207,   //  开服竞技
+        QuanMingBoss = 208,   // 全民BOSS
+        LongChengClientOpen = 209,   // 新服活动龙城争霸
+        JingCaiClientOpen = 301,   // 全民竞猜
+        ExpRefineOpen = 302,   // 经验炼制
+
+    }
 }
