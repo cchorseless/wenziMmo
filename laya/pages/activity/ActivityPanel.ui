@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":69,
-    "selecteID":73,
+    "selectedBox":51,
+    "selecteID":77,
     "props":{"width":640,"sceneColor":"#c0a6a6","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -39,7 +39,7 @@
             "compId":4,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -47,14 +47,13 @@
             "props":{"y":114,"x":0,"skin":"image/activity/bg_huodong_01.png"},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":69,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"x":457,"skin":"image/activity/img_renwu_huodong.png"},
                     "nodeParent":69,
@@ -67,7 +66,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":24,"x":237,"skin":"image/activity/box_liaotianpaopao.png"},
                     "nodeParent":69,
@@ -92,7 +90,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":133,"x":0,"skin":"image/activity/img_zs_01.png"},
                     "nodeParent":69,
@@ -103,7 +100,8 @@
                     "compId":73,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -131,6 +129,35 @@
                         ]
                 }],
             "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":313,"x":10,"skin":"image/common/img_sc_zs03.png","height":740},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":75,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":313,"x":619,"skin":"image/common/img_sc_zs03.png","height":740},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":74,
+            "child":[
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
