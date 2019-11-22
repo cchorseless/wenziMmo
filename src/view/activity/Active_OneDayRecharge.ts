@@ -6,38 +6,23 @@ module view.activity {
 		constructor() {
 			super();
 
-			this.addEvent()
 		}
-		public addEvent() {
-			for (let i = 1; i < 5; i++) {
-				this.ui_gift1
-				this["ui_gift" + i].on(Laya.UIEvent.CLICK, this, function () {
-					this.chooseItem = i;
-					this.onShowChooseGift();
-				})
-			}
-			EventManage.onWithEffect(this.btn_get, Laya.UIEvent.CLICK, this, function () {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetOneDayRechargeAward, [this.chooseItem])
-				lcp.send(pkt);
-			})
-			EventManage.onWithEffect(this.btn_recharge, Laya.UIEvent.CLICK, this, function () {
-				//打开充值界面
-				// GameUtil.timeCountDown(70,this.html_time)
-			})
-		}
+		//领取状态
+		public state;
 		public setData(data) {
+			this.state = data.state;
 			this.setTimeShow(data);
 			this.onShowChooseGift();
 			if (data.state == 0) {
-				this.btn_get.label = "充值"
-				this.btn_get.disabled = true;
+				this.btn_recharge.label = "立即充值"
+				this.btn_recharge.disabled = false;
 			}
 			else if (data.state == 1) {
-				this.btn_get.label = "领取"
-				this.btn_get.disabled = false;
+				this.btn_recharge.label = "可领取"
+				this.btn_recharge.disabled = false;
 			} else if (data.state == 2) {
-				this.btn_get.label = "已领取"
-				this.btn_get.disabled = true;
+				this.btn_recharge.label = "已领取"
+				this.btn_recharge.disabled = true;
 			} for (let i = 1; i < 5; i++) {
 				this["ui_gift" + i].lab_giftName.text = data.itemtab[i].name;
 				let items = data.itemtab[i].items;
@@ -50,8 +35,32 @@ module view.activity {
 					this["ui_gift" + i]["item" + j].addChild(o)
 				}
 			}
-
+			this.addEvent()
 		}
+		public addEvent() {
+			for (let i = 1; i < 5; i++) {
+				this["ui_gift" + i].on(Laya.UIEvent.CLICK, this, function () {
+					this.chooseItem = i;
+					this.onShowChooseGift();
+				})
+			}
+			EventManage.onWithEffect(this.btn_recharge, Laya.UIEvent.CLICK, this, function () {
+				if (this.state == 0) {
+					let o = new view.recharge_vip.Recharge_VipDialog();
+					o.setData(1);
+					o.popup(true);
+				}
+				if (this.state == 1) {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.GetOneDayRechargeAward, [this.chooseItem])
+					lcp.send(pkt);
+				}
+			})
+			EventManage.onWithEffect(this.btn_recharge, Laya.UIEvent.CLICK, this, function () {
+				//打开充值界面
+				// GameUtil.timeCountDown(70,this.html_time)
+			})
+		}
+
 		private onShowChooseGift() {
 			for (let i = 1; i < 5; i++) {
 				this["ui_gift" + i].img_circle.visible = false;
@@ -76,15 +85,17 @@ module view.activity {
 			}
 			if (data.achieve != null) {
 				this.html_cost.style.align = "center";
-				this.html_cost.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>当日充值：</span>" + "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.achieve + "</span>";
+				this.html_cost.innerHTML = "<span style='color:#554536;font-family:LiSu;fontSize:24;stroke:0.5;strokeColor:#000000'>当日充值：</span>" + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.achieve + "</span>";
 			}
 			else {
 				this.html_cost.innerHTML = "";
 			}
-			this.html_hastimes.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余次数：</span>" + "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.leftcnt + "</span>" 
-			+"<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>/</span>" + "<span style='color:#554536;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.maxcnt + "</span>" 
 	
-	}
+			this.html_hastimes.style.wordWrap=false;
+			this.html_hastimes.innerHTML = "<span style='color:#554536;font-family:LiSu;fontSize:24;stroke:0.5;strokeColor:#000000'>今日可参加次数：</span>" + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.leftcnt + "</span>"
+				+ "<span style='color:#554536;font-family:LiSu;fontSize:24;stroke:0.5;strokeColor:#000000'>/</span>" + "<span style='color:#554536;font-family:LiSu;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.maxcnt + "</span>"
+
+		}
 		private onshowTime(leftTime) {
 			if (leftTime > 0) {
 				Laya.timer.frameLoop(3600, this, function () {
