@@ -1135,7 +1135,7 @@ module EnumData {
         ChaoZhiLC_Open = 3,   //成长基金
         ConsumeOpen = 4,   //消费排行
         LimitTimePanicBuyPanel = 5,   //限时抢购
-        LimitTimeGiftBagPanel = 6,   //限时礼包
+        LimitTimeGiftBagPanel = 100,   //限时礼包  6
         RechargeOpen = 7,   //充值排行
         ShenMi_Open = 9,   //神秘商店
         RechargeGiftPanel = 10,   //累计充值
@@ -1148,9 +1148,9 @@ module EnumData {
         ConsumeGiftPanel = 18,   //消费豪礼
         NationalResourcePanel = 19,   //全民官印
         ResourceGiftPanel = 24,   //官印、资源线好礼
-        chaozhiopen = 29,   // 超值礼包
+        chaozhiopen = 202,   // 超值礼包   29
         DBCZ_Plane = 30,   //单笔充值
-        LuckyDrawOpen = 31,   //幸运抽奖
+        LuckyDrawOpen = 201,   //幸运抽奖 31
         ExchangePointPanel = 32,   //积分兑换
         MeiRiTeHuiPanel = 33,   //每日特惠
         FuDaiOpen = 34,   //福袋抽奖、档次

@@ -1,35 +1,58 @@
 /**Created by the LayaAirIDE*/
 module view.activity {
 	export class ActivityPanel extends ui.activity.ActivityPanelUI {
+		/**
+		 * All动态活动ID
+		 */
+		public activityState = [
+			EnumData.activityType.ChaoZhiLC_Open,
+			EnumData.activityType.RechargeGiftPanel,
+			EnumData.activityType.ContinueRechargePanel,
+			EnumData.activityType.MeiRiChongZhiOpen,
+			EnumData.activityType.ConsumeGiftPanel,
+			EnumData.activityType.NationalResourcePanel,
+			EnumData.activityType.DBCZ_Plane,
+			EnumData.activityType.MZJJ_OpenPlane,
+			EnumData.activityType.OneDayRechargePanel,
+		]
 		constructor() {
 			super();
 		}
-		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
+		public setData() {
 			this.panel_tab.hScrollBarSkin = "";
 			this.hbox_tab['sortItem'] = (items) => { };
-			for (let i in data) {
+			/**
+			 * 服务器开放的活动列表
+			 */
+			let data = [];
+			for (let i = 0; i < this.activityState.length; i++) {
+				for (let o in GameApp.GameEngine.activityStatus) {
+					if (GameApp.GameEngine.activityStatus[o].id == this.activityState[i]) {
+						data.push(GameApp.GameEngine.activityStatus[o])
+					}
+				}
+			}
+			for (let i = 0; i < data.length; i++) {
 				let o = new Active_list_tabItem();
-				let index = parseInt(i) - 1;
-				data[i].index = index;
-				o.setData(data[i]);
+				o.setData(data[i],i);
 				this.hbox_tab.addChild(o);
-				// 添加view_stack
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
 				this.viewS_main.addItem(box);
 			}
 			this.addEvent();
 			// 第一个活动
-			this.onChooseTabItem(data[1]);
+			this.onChooseTabItem(data[0],0);
 		}
 
 		/**
 		 * 切换界面
-		 * @param item 
+		 * @param item 活动数据
+		 * @param id   tabID == viewS_main ID
 		 */
-		public onChooseTabItem(item: ProtoCmd.itf_ACT_JingCaiSendShow) {
-			this.changeTabState(item.index);
-			this.getActiveInfoData(item);
+		public onChooseTabItem(item,id) {
+			this.changeTabState(id);
+			this.getActiveInfoData(item,id);
 		}
 
 
@@ -47,8 +70,8 @@ module view.activity {
 			}
 		}
 
-		public getActiveInfoData(item: ProtoCmd.itf_ACT_JingCaiSendShow) {
-			let box = this.viewS_main.getChildAt(item.index);
+		public getActiveInfoData(item,id) {
+			let box = this.viewS_main.getChildAt(id);
 			let pcmdString = ProtoCmd["Active" + item.id];
 			// 需要拉界面
 			if (box.numChildren == 0) {
@@ -135,7 +158,7 @@ module view.activity {
 						break;
 				}
 			}
-			this.viewS_main.selectedIndex = item.index;
+			this.viewS_main.selectedIndex = id;
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, function () {

@@ -74,10 +74,7 @@ module view.menu {
 			})
 			//活动
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt32 = new ProtoCmd.QuestClientData().setString(ProtoCmd.JingCaiSendShow, null, 0, this, function (data) {
-					PanelManage.openActivePanel(data);
-				})
-				lcp.send(pkt32);
+				PanelManage.openActivePanel();
 			})
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new view.recharge_vip.Recharge_VipDialog();

@@ -2,11 +2,13 @@
 module view.activity {
 	export class Active_list_tabItem extends ui.activity.Active_list_tabItemUI {
 		public item;
+		public itemid;
 		constructor() {
 			super();
 		}
-		public setData(data: ProtoCmd.itf_ACT_JingCaiSendShow) {
+		public setData(data,id) {
 			this.item = data;
+			this.itemid = id
 			this.lab_name.text = data.name;
 			this.img_icon.skin = "image/activity/active_icon" + data.id + ".png"
 			this.changeUSEfontColor(false);
@@ -14,7 +16,7 @@ module view.activity {
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_icon, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.Activity.onChooseTabItem(this.item);
+				PanelManage.Activity.onChooseTabItem(this.item,this.itemid);
 			})
 		}
 		public changeUSEfontColor(boo: boolean) {

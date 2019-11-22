@@ -223,15 +223,15 @@ module view.main {
 			});
 			// GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
 			// 	this.btn_menu.selected = state;
-				// if (this.btn_menu.selected) {
-					// this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
-					
-				// }
-				// else {
-					// this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
-					// PopUpManager.showPanel(PanelManage.Menu);
-					// PopUpManager.checkPanel(PanelManage.Menu);
-				// }
+			// if (this.btn_menu.selected) {
+			// this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
+
+			// }
+			// else {
+			// this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
+			// PopUpManager.showPanel(PanelManage.Menu);
+			// PopUpManager.checkPanel(PanelManage.Menu);
+			// }
 			// })
 
 			// 时辰&&节气界面
@@ -507,6 +507,18 @@ module view.main {
 			this.getSoulStoneMessage();
 			// 声望信息
 			this.getShengWangInfo();
+			//活动状态
+			this.getHuoDongStatus()
+		}
+		/**
+		 * 菜单界面活动状态
+		 */
+		public getHuoDongStatus() {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.HuoDongStatus, null, null, this, (data:ProtoCmd.itf_MENU_ActiveStatus) => {
+				GameApp.GameEngine.activityStatus = data
+			})
+			lcp.send(pkt)
 		}
 
 		/**
