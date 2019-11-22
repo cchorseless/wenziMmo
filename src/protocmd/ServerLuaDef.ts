@@ -345,6 +345,10 @@ module ProtoCmd {
     export const Menu_JingCaiClientOpenEx = "JingCaiClientOpenEx";
 
     /*********************************新服活动******************** */
+    /**
+     * 获取菜单界面的活动state
+     */
+    export const HuoDongStatus = "HuoDongStatus";
     //新服活动面板
     export const NS_XinFuClientOpen = "XinFuClientOpen";
     //开服竞技
@@ -557,7 +561,12 @@ module ProtoCmd {
  * 返回结构体
  */
 module ProtoCmd {
-
+    /**
+     * 活动status返回data
+     */
+    export interface itf_MENU_ActiveStatus{
+        
+    }
 
 
     /**

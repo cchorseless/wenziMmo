@@ -952,12 +952,12 @@ module PanelManage {
     /**
     * 活动界面
     */
-    export function openActivePanel(data: any): void {
+    export function openActivePanel(): void {
         if (PopUpManager.showPanel(PanelManage.Activity)) return;
         ResManage.loadResource(ResData.PanelRes.Activity, () => {
             PanelManage.Activity = new view.activity.ActivityPanel();
             PanelManage.Activity['LCP_skin'] = ResData.PanelRes.Activity;
-            PanelManage.Activity.setData(data);
+            PanelManage.Activity.setData();
             PanelManage.Activity.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.Activity, 100, 0, 2);
         })
