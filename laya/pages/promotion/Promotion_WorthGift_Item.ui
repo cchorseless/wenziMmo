@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":37,
-    "props":{"width":640,"sceneColor":"#000000","height":881},
+    "selecteID":46,
+    "props":{"width":640,"sceneColor":"#eadfdf","height":881},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,23 +15,61 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":7,"width":627,"skin":"image/promotion/bg_shouchong.png","height":737},
+            "props":{"y":-3,"x":0,"width":640,"skin":"image/menu/bg_zhuanpan.png","height":799},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":3,
+            "compId":40,
             "child":[
                 ],
-            "$LOCKED":true,
             "$HIDDEN":false
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":1,"x":-1,"width":397,"skin":"image/menu/img_cd_chaozhilibaorenwu.png","height":797},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":44,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":18,"x":290,"skin":"image/menu/img_cd_chaozhilibao.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":45,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":126,"x":311,"width":316,"skin":"image/menu/tab_cd_01.png","height":426},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":46,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
             "type":"Box",
-            "props":{"y":137,"x":327},
+            "props":{"y":145,"x":321},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,
@@ -55,7 +93,7 @@
                 },
                 {
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name1","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":81,"x":-1,"width":144,"var":"lab_name1","text":"好名字六个字","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":8,
                     "label":"Label(lab_name1)",
                     "isDirectory":false,
@@ -70,16 +108,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":137,"x":488},
+            "props":{"y":145,"x":478},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":9,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":35,"width":75,"var":"box_2","height":75},
                     "nodeParent":9,
@@ -93,8 +132,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name2","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":80,"width":144,"var":"lab_name2","text":"好名字六个字","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":9,
                     "label":"Label(lab_name2)",
                     "isDirectory":false,
@@ -104,21 +144,23 @@
                     "child":[
                         ],
                     "$LOCKED":false
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":262,"x":327},
+            "props":{"y":285,"x":321},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":35,"width":75,"var":"box_3","height":75},
                     "nodeParent":12,
@@ -132,8 +174,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name3","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":80,"width":144,"var":"lab_name3","text":"好名字六个字","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":12,
                     "label":"Label(lab_name3)",
                     "isDirectory":false,
@@ -148,16 +191,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":262,"x":488},
+            "props":{"y":285,"x":478},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":13,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":35,"width":75,"var":"box_4","height":75},
                     "nodeParent":13,
@@ -171,8 +215,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name4","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":80,"width":144,"var":"lab_name4","text":"好名字六个字","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":13,
                     "label":"Label(lab_name4)",
                     "isDirectory":false,
@@ -187,16 +232,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":386,"x":327},
+            "props":{"y":427,"x":321},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":35,"width":75,"var":"box_5","height":75},
                     "nodeParent":24,
@@ -210,8 +256,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name5","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":80,"width":144,"var":"lab_name5","text":"好名字六个字","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":24,
                     "label":"Label(lab_name5)",
                     "isDirectory":false,
@@ -226,16 +273,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":386,"x":488},
+            "props":{"y":427,"x":478},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":35,"width":75,"var":"box_6","height":75},
                     "nodeParent":25,
@@ -249,8 +297,9 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":80,"width":144,"var":"lab_name6","text":"好名字六个字","stroke":2,"height":24,"fontSize":22,"font":"FZXK","color":"#f5dd7b","align":"center"},
+                    "props":{"y":80,"width":144,"var":"lab_name6","text":"好名字六个字","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#f5dd7b","align":"center"},
                     "nodeParent":25,
                     "label":"Label(lab_name6)",
                     "isDirectory":false,
@@ -265,7 +314,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":502,"x":362,"width":257,"var":"lab_LastPrice","valign":"middle","text":"原价5000元","height":40,"fontSize":40,"font":"FZHL","color":"#404040","align":"left"},
+            "props":{"y":550,"x":287,"width":265,"var":"lab_LastPrice","valign":"middle","text":"原价368元","height":40,"fontSize":40,"font":"FZHL","color":"#404040","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_LastPrice)",
             "isOpen":true,
@@ -274,12 +323,13 @@
             "hasChild":false,
             "compId":30,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":516,"x":373,"width":203,"skin":"image/common/img_common_09.png","height":21},
+            "props":{"y":561,"x":322,"width":203,"skin":"image/common/img_common_09.png","height":21},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -287,12 +337,13 @@
             "hasChild":false,
             "compId":36,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":654,"x":433,"width":160,"var":"btn_buy","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","pivotY":37,"pivotX":79,"labelStroke":5,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff","label":"立即购买","height":70},
+            "props":{"y":713,"x":427,"width":155,"var":"btn_buy","stateNum":"2","skin":"image/common/button_qianwang_red.png","pivotY":37,"pivotX":79,"labelStroke":5,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领取礼包","height":54},
             "nodeParent":1,
             "label":"Button(btn_buy)",
             "isDirectory":false,
@@ -300,12 +351,13 @@
             "hasChild":false,
             "compId":31,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":690,"x":333,"width":201,"var":"html_buyTimes","height":30},
+            "props":{"y":742,"x":334,"width":201,"var":"html_buyTimes","height":30},
             "nodeParent":1,
             "label":"HTMLDivElement(html_buyTimes)",
             "isDirectory":false,
@@ -318,20 +370,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":559,"x":420,"width":201,"var":"html_CurPrice","height":48},
-            "nodeParent":1,
-            "label":"HTMLDivElement(html_CurPrice)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":35,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"HTMLDivElement",
-            "props":{"y":787,"x":146,"width":449,"var":"html_time","height":30},
+            "props":{"y":826,"x":134,"width":449,"var":"html_time","height":30},
             "nodeParent":1,
             "label":"HTMLDivElement(html_time)",
             "isDirectory":false,
@@ -340,6 +379,47 @@
             "compId":37,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"FontClip",
+            "props":{"y":603,"x":438,"var":"clip_nowPrice","value":"50","skin":"image/common/number/zi_cd_suzi02.png","sheet":"0123456789"},
+            "nodeParent":1,
+            "label":"FontClip(clip_nowPrice)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":41,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":602,"x":510,"skin":"image/menu/zi_cd_yuan.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":42,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":605,"x":395,"width":40,"valign":"middle","text":"现","height":40,"fontSize":40,"font":"FZHL","color":"#404040","align":"center"},
+            "nodeParent":1,
+            "label":"Label",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":43,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {

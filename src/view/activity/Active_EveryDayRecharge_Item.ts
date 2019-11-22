@@ -44,14 +44,14 @@ module view.activity {
 			} else {
 				this.timerEnd();
 			}
-			if (data.yuanbao != null) {
-				this.html_cost.style.align = "center";
-				let str: string = "当前消费：";
-				this.html_cost.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + str + "</span>" + "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.yuanbao + "</span>";
-			}
-			else {
-				this.html_cost.innerHTML = "";
-			}
+			// if (data.yuanbao != null) {
+			// 	this.html_cost.style.align = "center";
+			// 	let str: string = "当前消费：";
+			// 	this.html_cost.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + str + "</span>" + "<span style='color:#179a0d;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + data.yuanbao + "</span>";
+			// }
+			// else {
+			// 	this.html_cost.innerHTML = "";
+			// }
 		}
 		private onshowTime(leftTime) {
 			if (leftTime > 0) {
