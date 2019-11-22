@@ -555,6 +555,10 @@ module ProtoCmd {
 
 
 
+    export const tubiaofasong = "tubiaofasong";  //菜单界面的动态切图的刷新，实时推送
+
+
+
 }
 
 /**
