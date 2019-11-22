@@ -37,8 +37,9 @@ module view.shopMall {
 				//物品名称
 				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + single.item.itemid)
 				this['lbl_name' + single.index].text = '' + name;
-				//物品价格
-				this['lbl_price' + single.index].text = '' + single.item.price;
+				//物品打折后价格
+				let nowPrice = Math.ceil(single.item.price * single.item.discount / 10)
+				this['lbl_price' + single.index].text = '' + nowPrice;
 				//物品货币类型
 				this['img_huobi' + single.index].skin = LangConfig.getCoinImagePicSkin(single.item.pricetype);
 			}

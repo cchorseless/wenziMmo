@@ -14,6 +14,7 @@ module view.promotion {
 			this.panel_tab.hScrollBarSkin = "";
 			this.hbox_tab['sortItem'] = (items) => { };
 			if (id == 1) {
+				this.hbox_tab.x=this.hbox_tab.y=0;
 				for (let i in data) {
 					let o = new Promotion_SpecialGift_TabItem();
 					let index = parseInt(i) - 1;
@@ -27,6 +28,8 @@ module view.promotion {
 			}
 			else if (id == 2) {
 				this.data2 = data;
+				this.hbox_tab.x=70;
+				this.hbox_tab.y=0;
 				for (let i in data.itemtab) {
 					let o = new Promotion_SpecialGift_TabItem();
 					let index = parseInt(i) - 1;

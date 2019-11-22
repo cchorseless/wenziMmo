@@ -20,8 +20,11 @@ module view.promotion {
 				o.height = 60;
 				o.labelFont = "FZXK";
 				o.labelSize = 28;
-				o.skin = "image/main/btn_haoyou.png"
-				o.stateNum = 2;
+				o.skin = "image/menu/btn_sc_common_01.png"
+				o.stateNum=2;
+				o.labelColors='#ffffff,#ffffff';
+				o.strokeColors = '#975740,#d13939';
+				o.labelStroke=4;
 				this.hbox_tab.addChild(o);
 				// 添加view_stack
 				let box = new Laya.Box();

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":32,
     "props":{"width":640,"sceneColor":"#cfc1c1","height":690},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":15,"x":45,"width":550,"visible":false,"skin":"image/promotion/frame_name.png","height":55},
+            "props":{"y":31,"x":61,"width":550,"visible":false,"skin":"image/common/bottom_xinshijian.png","height":55},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":25,"x":82,"width":476,"var":"html_title","height":36},
+            "props":{"y":40,"x":94,"width":476,"var":"html_title","height":36},
             "nodeParent":1,
             "label":"HTMLDivElement(html_title)",
             "isDirectory":false,
@@ -42,7 +42,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":597,"x":146,"width":449,"var":"html_time","height":30},
+            "props":{"y":627,"x":146,"width":449,"var":"html_time","height":30},
             "nodeParent":1,
             "label":"HTMLDivElement(html_time)",
             "isDirectory":false,
@@ -54,21 +54,8 @@
         },
         {
             "x":15,
-            "type":"HTMLDivElement",
-            "props":{"y":630,"x":146,"width":449,"var":"html_cost","height":30},
-            "nodeParent":1,
-            "label":"HTMLDivElement(html_cost)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Panel",
-            "props":{"y":83,"x":31,"width":309,"var":"panel_item","height":451},
+            "props":{"y":119,"x":39,"width":317,"var":"panel_item","height":450},
             "nodeParent":1,
             "label":"Panel(panel_item)",
             "isDirectory":false,
@@ -81,7 +68,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":83,"x":357,"width":273,"skin":"image/promotion/bottom_dazhe.png","height":451},
+            "props":{"y":118,"x":364,"width":273,"skin":"image/promotion/bottom_dazhe.png","height":451},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -94,7 +81,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":432,"x":492,"width":160,"var":"btn_get","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","pivotY":37,"pivotX":79,"labelStroke":5,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff","label":"购买","height":70},
+            "props":{"y":481,"x":506,"width":160,"var":"btn_get","stateNum":"2","skin":"image/common/button_qianwang_red.png","pivotY":37,"pivotX":79,"labelStroke":5,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领取礼包","height":56},
             "nodeParent":1,
             "label":"Button(btn_get)",
             "isDirectory":false,
@@ -102,12 +89,13 @@
             "hasChild":false,
             "compId":2,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":129,"x":419,"skin":"image/promotion/font_8zhe.png"},
+            "props":{"y":164,"x":425,"skin":"image/promotion/font_8zhe.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -115,12 +103,39 @@
             "hasChild":false,
             "compId":19,
             "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":329,"x":409,"width":108,"text":"现价：","strokeColor":"#000000","stroke":5,"height":38,"fontSize":36,"font":"FZHL","color":"#ffffff","align":"center"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":29,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":334,"x":501,"skin":"image/main/icon_coin_1.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":30,
+            "child":[
                 ]
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":287,"x":382,"width":223,"var":"lab_curRmb","text":"现价：262","strokeColor":"#000000","stroke":5,"height":38,"fontSize":36,"font":"FZHL","color":"#ffffff","align":"center"},
+            "props":{"y":328,"x":558,"width":84,"var":"lab_curRmb","text":"262","strokeColor":"#000000","stroke":5,"height":38,"fontSize":36,"font":"FZHL","color":"#ffffff","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_curRmb)",
             "isDirectory":false,
@@ -133,7 +148,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":483,"x":387,"width":212,"var":"lab_buytimes","text":"限购次数：5","height":38,"fontSize":30,"font":"FZHL","color":"#404040","align":"center"},
+            "props":{"y":523,"x":399,"width":212,"var":"lab_buytimes","text":"限购次数：5","height":38,"fontSize":30,"font":"FZHL","color":"#404040","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_buytimes)",
             "isDirectory":false,
@@ -146,7 +161,33 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":334,"x":387,"width":212,"var":"lab_oldtime","valign":"middle","text":"原价：328","height":38,"fontSize":30,"font":"FZHL","color":"#404040","align":"center"},
+            "props":{"y":377,"x":429,"width":90,"valign":"middle","text":"原价：","height":38,"fontSize":30,"font":"FZHL","color":"#404040","align":"center"},
+            "nodeParent":1,
+            "label":"Label",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":27,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":379,"x":505,"skin":"image/main/icon_coin_1.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":28,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":377,"x":556,"width":77,"var":"lab_oldtime","valign":"middle","text":"328","height":38,"fontSize":30,"font":"FZHL","color":"#404040","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_oldtime)",
             "isDirectory":false,
@@ -159,13 +200,26 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":344,"x":412,"skin":"image/promotion/line_yuanjia.png"},
+            "props":{"y":388,"x":425,"skin":"image/promotion/line_yuanjia.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":25,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":118,"x":16,"width":341,"skin":"image/menu/tab_cd_texuan01.png","height":453},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":32,
             "child":[
                 ]
         }],

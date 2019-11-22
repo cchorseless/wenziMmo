@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":6,
+    "selecteID":16,
     "props":{"width":640,"visible":true,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -95,7 +95,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":79,"width":140,"visible":false,"var":"btn_promotion_0","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"超值礼包","height":60},
+            "props":{"y":216,"x":79,"width":140,"visible":false,"var":"btn_promotion_0","strokeColors":"#975740,#d13939","stateNum":"2","skin":"image/menu/btn_sc_common_01.png","pivotY":30,"pivotX":70,"labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"超值礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_0)",
             "isDirectory":false,
@@ -109,7 +109,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":216,"x":233,"width":140,"visible":false,"var":"btn_promotion_1","stateNum":"2","skin":"image/main/btn_haoyou.png","pivotY":30,"pivotX":70,"labelSize":28,"labelFont":"FZXK","label":"特惠礼包","height":60},
+            "props":{"y":216,"x":233,"width":140,"visible":false,"var":"btn_promotion_1","strokeColors":"#975740,#d13939","stateNum":"2","skin":"image/menu/btn_sc_common_01.png","pivotY":30,"pivotX":70,"labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"特惠礼包","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_1)",
             "isDirectory":false,
@@ -123,7 +123,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":186,"x":317,"width":140,"visible":false,"var":"btn_promotion_2","stateNum":"2","skin":"image/main/btn_haoyou.png","labelSize":28,"labelFont":"FZXK","label":"label","height":60},
+            "props":{"y":186,"x":317,"width":140,"visible":false,"var":"btn_promotion_2","strokeColors":"#975740,#d13939","stateNum":"2","skin":"image/menu/btn_sc_common_01.png","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"label","height":60},
             "nodeParent":1,
             "label":"Button(btn_promotion_2)",
             "isDirectory":false,
@@ -133,7 +133,7 @@
             "child":[
                 ],
             "$LOCKED":true,
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -151,7 +151,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1070,"x":68,"var":"btn_back","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
+            "props":{"y":1095,"x":73,"var":"btn_back","stateNum":"1","skin":"image/common/btn_backdi.png","anchorY":0.5,"anchorX":0.6},
             "nodeParent":1,
             "label":"Button(btn_back)",
             "isOpen":false,

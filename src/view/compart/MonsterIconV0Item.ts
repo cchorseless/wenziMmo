@@ -5,7 +5,7 @@ module view.compart {
 			super();
 		}
 		public ceng: number;
-		public setData(charpterID, key: string, data: { star: number, monsterid: number }) {
+		public setData(charpterID, key: string, data: {lv:number, monsterid: number,need:number,star: number,type:number }) {
 			this.ceng = parseInt(key);
 			// 星级
 			if (data.star == 0 || data.star == undefined) {
@@ -15,6 +15,9 @@ module view.compart {
 				this.lbl_label.text = '未通关';
 				this.box_star.visible = false;
 			} else {
+				if(data.need!==undefined||data.need!==0){
+
+				}
 				this.box_star.visible = true;
 				this.lbl_label.visible=false;
 				for (let i = 0; i < 3; i++) {
@@ -27,7 +30,7 @@ module view.compart {
 				}
 				// 怪物头像
 				// todo
-				// this.img_monsterPic.skin=''
+				this.img_monsterPic.skin='image/common/nppc/npc_icon_'+data.monsterid
 
 			}
 		}

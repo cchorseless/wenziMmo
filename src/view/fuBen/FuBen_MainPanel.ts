@@ -4,15 +4,16 @@ module view.fuBen {
 		constructor() {
 			super();
 		}
+		//篇章id
 		public setData(): void {
-			this.btn_juQing.selected=true;
+			this.btn_juQing.selected = true;
 			this.initUI();
 			this.addEvent();
 		}
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-	PanelManage.openJuQingModePanel()
+				PanelManage.openJuQingModePanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -61,7 +62,6 @@ module view.fuBen {
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [pzID], null, this,
 				(jsonData: { pzid: number, pzname: string, charpterInfo: any }) => {
 					if (jsonData.pzid == pzID) {
-						// 篇章名字
 						this.lbl_pianZhangName.text = jsonData.pzname;
 						let keys = Object.keys(jsonData.charpterInfo);
 						this.hbox_0.removeChildren();
@@ -122,7 +122,7 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
-					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_1.addChild(_itemUI);
 				}
 			}
@@ -130,7 +130,7 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
 				// 当前挑战次数
-				this.lbl_tiaoZhanTimes.text = ''+jsonData.curcnt;
+				this.lbl_tiaoZhanTimes.text = '' + jsonData.curcnt;
 				// 最大挑战次数
 				this.lbl_maxTimes.text = '/' + jsonData.totalcnt;
 				// 关卡信息
@@ -200,12 +200,12 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
-					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_2.addChild(_itemUI);
 				};
 				//等级需求
 				// if (jsonData.lv) {
-					// this.lbl_lvneed.text = '' + jsonData.lv;
+				// this.lbl_lvneed.text = '' + jsonData.lv;
 				// };
 				// switch (jsonData.type) {
 				// 	case 0:

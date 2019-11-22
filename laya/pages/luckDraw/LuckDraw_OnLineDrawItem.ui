@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":38,
+    "selectedBox":16,
+    "selecteID":18,
     "props":{"width":638,"sceneColor":"#d6bfbf","height":883},
     "nodeParent":-1,
     "label":"View",
@@ -430,7 +430,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":2,"x":145,"text":"全服记录","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZHL","color":"#ffffff"},
+                    "props":{"y":2,"x":139,"text":"全服记录","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":16,
                     "label":"Label",
                     "isDirectory":false,
@@ -444,18 +444,19 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":41,"x":8,"width":379,"var":"panel_record","height":139},
+                    "props":{"y":46,"x":74,"width":271,"var":"panel_record","height":139},
                     "nodeParent":16,
                     "label":"Panel(panel_record)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":18,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
-                            "props":{"var":"vbox_record","right":0,"left":0},
+                            "props":{"y":0,"x":4,"width":370,"var":"vbox_record","left":0},
                             "nodeParent":18,
                             "label":"VBox(vbox_record)",
                             "isOpen":true,
