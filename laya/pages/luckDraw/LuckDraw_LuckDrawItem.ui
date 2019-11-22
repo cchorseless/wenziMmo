@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":50,
-    "selecteID":51,
+    "selectedBox":1,
+    "selecteID":62,
     "props":{"width":638,"sceneColor":"#efeaea","height":883},
     "nodeParent":-1,
     "label":"View",
@@ -153,6 +153,156 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":111,"x":266,"width":102,"visible":false,"var":"img_circle1","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle1)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":54,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":124,"x":362,"width":102,"visible":false,"var":"img_circle2","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle2)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":55,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":208,"x":392,"width":102,"visible":false,"var":"img_circle3","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle3)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":53,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":292,"x":392,"width":102,"visible":false,"var":"img_circle4","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle4)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":56,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":375,"x":362,"width":102,"visible":false,"var":"img_circle5","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle5)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":57,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":389,"x":266,"width":102,"visible":false,"var":"img_circle6","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle6)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":58,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":375,"x":170,"width":102,"visible":false,"var":"img_circle7","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle7)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":59,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":292,"x":141,"width":102,"visible":false,"var":"img_circle8","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle8)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":60,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":207,"x":141,"width":102,"visible":false,"var":"img_circle9","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle9)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":61,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":125,"x":170,"width":102,"visible":false,"var":"img_circle10","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle10)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":62,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"UIView",
             "source":"compart/DaoJuItem.ui",
             "props":{"y":125,"x":280,"var":"ui_item1","runtime":"view.compart.DaoJuItem"},
@@ -163,7 +313,8 @@
             "hasChild":false,
             "compId":17,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -177,7 +328,8 @@
             "hasChild":false,
             "compId":18,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -191,7 +343,8 @@
             "hasChild":false,
             "compId":19,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -205,7 +358,8 @@
             "hasChild":false,
             "compId":20,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -219,7 +373,8 @@
             "hasChild":false,
             "compId":21,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -233,7 +388,8 @@
             "hasChild":false,
             "compId":22,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -247,7 +403,8 @@
             "hasChild":false,
             "compId":23,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -261,7 +418,8 @@
             "hasChild":false,
             "compId":24,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -275,7 +433,8 @@
             "hasChild":false,
             "compId":38,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -289,7 +448,8 @@
             "hasChild":false,
             "compId":39,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -326,14 +486,13 @@
             "props":{"y":843,"x":72,"var":"btn_return","stateNum":"1","skin":"image/common/btn_backdi.png","anchorY":0.5,"anchorX":0.6},
             "nodeParent":1,
             "label":"Button(btn_return)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":26,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":15,"x":15,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                     "nodeParent":26,
@@ -348,7 +507,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":49,"x":13,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":26,
@@ -424,14 +582,13 @@
             "props":{"y":629,"x":247,"width":378,"var":"panel_record","height":139},
             "nodeParent":1,
             "label":"Panel(panel_record)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":36,
             "child":[
                 {
-                    "x":30,
                     "type":"VBox",
                     "props":{"var":"vbox_record","right":0,"left":0},
                     "nodeParent":36,
