@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":6,
-    "selecteID":10,
-    "props":{"width":503,"sceneColor":"#000000","height":170},
+    "selectedBox":15,
+    "selecteID":11,
+    "props":{"width":496,"sceneColor":"#000000","height":63},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,34 +15,20 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"skin":"image/juQing/frame_bianzhuangmulu.png"},
+            "props":{"width":496,"skin":"image/juQingMode/list_mulu_yiwanchng.png","height":63},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":6,
+            "compId":15,
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":63,"x":62,"skin":"image/juQing/bottom_pianzhang.png"},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":24,"x":62,"var":"lbl_id","text":"第一卷","fontSize":29,"font":"FZXK","color":"#724119"},
-                    "nodeParent":6,
+                    "props":{"y":17,"x":38,"var":"lbl_id","text":"第一卷","strokeColor":"#4e2a2a","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffeeb1"},
+                    "nodeParent":15,
                     "label":"Label(lbl_id)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -53,54 +39,27 @@
                 },
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":147,"x":2,"skin":"image/juQingMode/line_bianzhuangmulu.png"},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":137,"x":78,"var":"lbl_charpterCount","text":"合计0章","height":24,"fontSize":24,"font":"FZXK","color":"#fde5c8"},
-                    "nodeParent":6,
-                    "label":"Label(lbl_charpterCount)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-2,"x":235,"skin":"image/juQing/role_renyingying_half.png"},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":12,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":62,"x":77,"var":"lbl_charpterName","text":"华山篇一","strokeColor":"#404040","stroke":4,"fontSize":45,"font":"FZXK","color":"#f0dbbe"},
-                    "nodeParent":6,
+                    "props":{"y":15,"x":197,"var":"lbl_charpterName","text":"华山篇一","fontSize":30,"font":"FZHL","color":"#623e24"},
+                    "nodeParent":15,
                     "label":"Label(lbl_charpterName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":13,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":17,"x":348,"width":135,"var":"lbl_charpterCount","text":"共计十章","height":35,"fontSize":26,"font":"FZHL","color":"#623e24","align":"center"},
+                    "nodeParent":15,
+                    "label":"Label(lbl_charpterCount)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
                     "child":[
                         ]
                 }],

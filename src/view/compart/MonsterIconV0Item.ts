@@ -59,6 +59,7 @@ module view.compart {
 			if (lvl >= data.lv && mylvl >= needlvl) {
 				if (data.star == 0) {
 					this.lbl_label.visible = true;
+					this.lbl_label.y=20;
 					this.lbl_label.height = 22;
 					this.lbl_label.color = '#0f6809';
 					this.lbl_label.text = '未通关';
@@ -74,6 +75,7 @@ module view.compart {
 			}
 			else {
 				this.lbl_label.visible = true;
+				this.lbl_label.y=2;
 				this.lbl_label.height = 44;
 				this.lbl_label.color = '#a53232';
 				this.lbl_label.text = name + '达到' + needlvl + '解锁';
