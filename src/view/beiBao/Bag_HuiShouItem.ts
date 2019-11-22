@@ -72,9 +72,10 @@ module view.beiBao {
 				this.onRecycle();
 			});
 			this.btn_goVip.on(Laya.UIEvent.CLICK, this, function () {
-				let o = new recharge_vip.Recharge_VipDialog()
-				o.setData(0);
-				o.popup()
+				// let o = new recharge_vip.Recharge_VipDialog()
+				// o.setData(0);
+				// o.popup()
+				//待转移  月卡
 			})
 
 

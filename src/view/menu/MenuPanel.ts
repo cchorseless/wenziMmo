@@ -78,7 +78,7 @@ module view.menu {
 			})
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new view.recharge_vip.Recharge_VipDialog();
-				o.setData(1);
+				o.setData(0);
 				o.popup(true);
 			})
 			//玩法攻略

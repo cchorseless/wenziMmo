@@ -4,6 +4,7 @@ module view.promotion {
 		public static self: Promotion_SpecialGift;
 		public SpecialGiftType;
 		public data2;
+		public curbox;
 		constructor() {
 			super();
 			Promotion_SpecialGift.self = this;
@@ -14,7 +15,7 @@ module view.promotion {
 			this.panel_tab.hScrollBarSkin = "";
 			this.hbox_tab['sortItem'] = (items) => { };
 			if (id == 1) {
-				this.hbox_tab.x=this.hbox_tab.y=0;
+				this.hbox_tab.x = this.hbox_tab.y = 0;
 				for (let i in data) {
 					let o = new Promotion_SpecialGift_TabItem();
 					let index = parseInt(i) - 1;
@@ -28,8 +29,8 @@ module view.promotion {
 			}
 			else if (id == 2) {
 				this.data2 = data;
-				this.hbox_tab.x=70;
-				this.hbox_tab.y=0;
+				this.hbox_tab.x = 70;
+				this.hbox_tab.y = 0;
 				for (let i in data.itemtab) {
 					let o = new Promotion_SpecialGift_TabItem();
 					let index = parseInt(i) - 1;
@@ -40,7 +41,7 @@ module view.promotion {
 					box.top = box.bottom = box.right = box.left = 0;
 					this.viewS_main.addItem(box);
 				}
-				
+
 			}
 			this.onChooseTabItem(0);
 			this.addEvent();
@@ -53,14 +54,14 @@ module view.promotion {
 				let p: any = this.hbox_tab.getChildAt(i);
 				p.on(Laya.UIEvent.CLICK, this, function () {
 					this.changeTabState(i);
-					this.viewS_main.selectedIndex = i;
+					// this.viewS_main.selectedIndex = i;
 					this.getActiveInfoData(i);
 				})
 			}
 		}
 		public onChooseTabItem(id) {
 			this.changeTabState(id);
-			this.viewS_main.selectedIndex = id;
+
 			this.getActiveInfoData(id);
 		}
 		private changeTabState(index) {
@@ -74,29 +75,30 @@ module view.promotion {
 			}
 		}
 		public getActiveInfoData(id) {
-			let box = this.viewS_main.getChildAt(id);
+			this.curbox = this.viewS_main.getChildAt(id);
 			let index = id + 1;
-			if (box.numChildren <= 0) {
+			if (this.curbox.numChildren <= 0) {
 				if (this.SpecialGiftType == 1) {
-
 					GameApp.LListener.on(ProtoCmd.TeHuiClientOpen, this, (data) => {
-						box.removeChildren();
+						this.curbox.removeChildren();
 						let o = new Promotion_SpecialGift_VSinfo()
 						o.setData(data)
-						box.addChild(o);
+						this.curbox.addChild(o);
+						// console.log("|||||||||||||||||" + Promotion_SpecialGift.self.curbox.name)
 					})
 					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.TeHuiClientOpen, [index])
 					lcp.send(pkt0);
 				} else {
 					// let index = id + 1;
-					box.removeChildren();
+					this.curbox.removeChildren();
+					// console.log(":::::::::::::::" + Promotion_SpecialGift.self.curbox.name)
 					let o = new Promotion_SpecialGift2_VSinfo();
-					o.setData(this.data2.itemtab[index],this.data2.lefttime,this.data2.context)
-					box.addChild(o);
+					o.setData(this.data2.itemtab[index], this.data2.lefttime, this.data2.context)
+					this.curbox.addChild(o);
 				}
 
 			}
-
+			this.viewS_main.selectedIndex = id;
 		}
 		public destroy(e = true) {
 			GameApp.LListener.offCaller(ProtoCmd.TeHuiClientOpen, this)

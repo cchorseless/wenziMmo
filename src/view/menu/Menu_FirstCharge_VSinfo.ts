@@ -43,7 +43,7 @@ module view.menu {
 			EventManage.onWithEffect(this.btn_get, Laya.UIEvent.CLICK, this, function () {
 				if (this.bj == 0) {
 					let o = new view.recharge_vip.Recharge_VipDialog();
-					o.setData(1);
+					o.setData(0);
 					o.popup(true);
 				} else if (this.bj == 1) {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.FirstChargeGet, [this.id])

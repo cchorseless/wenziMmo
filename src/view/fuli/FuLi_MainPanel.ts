@@ -27,18 +27,15 @@ module view.fuli {
 			if (this.data.length > 0) {
 				for (let i = 0; i < this.data.length; i++) {
 					this.tabLabels.push(this.data[i].name)
+					let box = new Laya.Box();
+					box.top = box.bottom = box.right = box.left = 0;
+					this.viw_fuli.addItem(box);
 				}
 			}
 			let labels: string;
 			labels = this.tabLabels.join(',')
 			this.tab_fuli.labels = labels;
 
-			for (let i = 0; i < this.data.length; i++) {
-				let box = new Laya.Box();
-				box.name = "item" + i + 3
-				box.top = box.bottom = box.right = box.left = 0;
-				this.viw_fuli.addItem(box);
-			}
 
 			this.addEvent();
 			this.init_view(0);
@@ -52,17 +49,33 @@ module view.fuli {
 				this.init_view(index);
 			}, null, false);
 		}
+		public Dispose() {
+			GameApp.LListener.offCaller(ProtoCmd.Active32, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active12, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active17, this)
+			Laya.timer.clearAll(this)
+			PopUpManager.Dispose(this)
+		}
 		public init_view(id): void {
-			if(id != 1||id != 2){
+			if (id != 1 || id != 2) {
 				this.img_left.visible = this.img_right.visible = false;
-			}else{
+			} else {
 				this.img_left.visible = this.img_right.visible = true;
 			}
 			this.viw_fuli.selectedIndex = id;
 			let box = this.viw_fuli.getChildAt(id);
-			let num = box.numChildren
-			if(num == 0){
-				
+			if (box.numChildren == 0) {
+				let actID = this.data[id - 3].id;
+				let pcmdString = ProtoCmd["Active" + actID];
+				GameApp.LListener.on(pcmdString, this, (data) => {
+					box.removeChildren()
+					let o = new activity.Active_Panel_Item()
+					o.setData(data, actID)
+					box.addChild(o);
+				})
+				let pkt12 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+				lcp.send(pkt12);
 			}
 
 		}
