@@ -1,6 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.luckDraw {
 	export class LuckDraw_LuckDrawItem extends ui.luckDraw.LuckDraw_LuckDrawItemUI {
+		public rePlay = 2;
+		public curPlay = 0;
+		public tempData = null;
+		public isTouch = false;
 		constructor() {
 			super();
 			this.setData();
@@ -17,6 +21,9 @@ module view.luckDraw {
 			this.btn_useSelf.selected = GameApp.GameEngine.luckDrawType;
 			this.addEvent();
 			this.init_ReWardInfo();
+			this.ui_item0.ui_item.img_item.visible = false;
+			this.ui_item0.ui_item.lbl_count.visible = false;
+			this.ui_item0.lbl_itemName.visible = false;
 		}
 		public addEvent(): void {
 			//返回菜单界面
@@ -25,17 +32,19 @@ module view.luckDraw {
 			})
 			//宝箱预览
 			this.img_baoxiang.on(Laya.UIEvent.CLICK, this, () => {
-				let type=1;
-				this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang,this.TreasureChestInfo,type));
+				let type = 1;
+				new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang, this.TreasureChestInfo, type)
 			})
 			//抽奖
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_draw();
+				this.isTouch = true;
 			})
 			//领取奖励
 			this.ui_item0.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.drawItem > 0) {
 					this.init_getItem();
+					this.isTouch = false;
 				}
 			})
 			//自动抽奖
@@ -83,14 +92,20 @@ module view.luckDraw {
 				}
 				// 初始化抽奖所抽到的物品
 				if (jsonData.idx > 0) {
-					this.ui_item0.ui_item.img_item.visible = true;
-					this.ui_item0.ui_item.lbl_count.visible = true;
-					this.ui_item0.lbl_itemName.visible = true;
-					let data = jsonData.item[jsonData.idx]
-					let drawInfo = new ProtoCmd.ItemBase;
-					drawInfo.dwBaseID = data.index;
-					drawInfo.dwCount = data.num;
-					this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);
+					if (this.isTouch) {
+						this.tempData = jsonData;
+						this.showResult(jsonData.idx)
+					} else {
+						this.ui_item0.ui_item.img_item.visible = true;
+						this.ui_item0.ui_item.lbl_count.visible = true;
+						this.ui_item0.lbl_itemName.visible = true;
+						let data = jsonData.item[jsonData.idx]
+						let drawInfo = new ProtoCmd.ItemBase;
+						drawInfo.dwBaseID = data.index;
+						drawInfo.dwCount = data.num;
+						this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);
+					}
+
 				} else {
 					this.ui_item0.ui_item.img_item.visible = false;
 					this.ui_item0.ui_item.lbl_count.visible = false;
@@ -124,6 +139,62 @@ module view.luckDraw {
 					}
 				}
 			})
+		}
+		public showResult(id) {
+			this.showAniStart(1, id);
+		}
+
+		public showAniStart(i, id) {
+			let self = this;
+			for (let o = 1; o < 11; o++) {
+				this["img_circle" + o].visible = false
+				if (o == i) {
+					this["img_circle" + o].visible = true;
+				}
+			}
+			Laya.Tween.to(this["img_circle" + i], { scaleX: 1 }, 200 + self.curPlay * 80, null,
+				Laya.Handler.create(this, () => {
+					if (self.curPlay < self.rePlay) {
+						if (i < 10) {
+							i++;
+							self.showAniStart(i, id)
+						} else {
+							self.curPlay++;
+							self.showAniStart(1, id)
+						}
+					} else {
+						self.showAniEnd(1, id)
+					}
+				}));
+		}
+		public showAniEnd(i, id) {
+			let self = this;
+			for (let o = 1; o < 11; o++) {
+				this["img_circle" + o].visible = false
+				if (o == i) {
+					this["img_circle" + o].visible = true;
+				}
+			}
+			Laya.Tween.to(this["img_circle" + i], { scaleX: 1 }, 300 + self.curPlay * 50, null,
+				Laya.Handler.create(this, () => {
+					if (i < id) {
+						i++;
+						self.showAniEnd(i, id)
+					} else {
+						self.curPlay = 0;
+						self.showItem0(id)
+					}
+				}));
+		}
+		public showItem0(id) {
+			this.ui_item0.ui_item.img_item.visible = true;
+			this.ui_item0.ui_item.lbl_count.visible = true;
+			this.ui_item0.lbl_itemName.visible = true;
+			let data = this.tempData.item[this.tempData.idx]
+			let drawInfo = new ProtoCmd.ItemBase;
+			drawInfo.dwBaseID = data.index;
+			drawInfo.dwCount = data.num;
+			this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);
 		}
 		public destroy(isbool): void {
 			GameApp.LListener.offCaller(ProtoCmd.LD_LuckyDrawOpen, this);
