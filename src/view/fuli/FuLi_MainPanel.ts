@@ -11,29 +11,29 @@ module view.fuli {
 			EnumData.activityType.ExchangePointPanel,
 		]
 		public tabLabels = ["邀请有礼", "在线奖励", "资源找回"]
+		public data = [];//实际上存在的动态福利
 		constructor() {
 			super();
 			this.panel_tab.hScrollBarSkin = '';
 		}
 		public setData(): void {
-			let data = [];
 			for (let i = 0; i < this.activityState.length; i++) {
 				for (let o in GameApp.GameEngine.activityStatus) {
 					if (GameApp.GameEngine.activityStatus[o].id == this.activityState[i]) {
-						data.push(GameApp.GameEngine.activityStatus[o])
+						this.data.push(GameApp.GameEngine.activityStatus[o])
 					}
 				}
 			}
-			if (data.length > 0) {
-				for (let i = 0; i < data.length; i++) {
-					this.tabLabels.push(data[i].name)
+			if (this.data.length > 0) {
+				for (let i = 0; i < this.data.length; i++) {
+					this.tabLabels.push(this.data[i].name)
 				}
 			}
 			let labels: string;
 			labels = this.tabLabels.join(',')
 			this.tab_fuli.labels = labels;
 
-			for (let i = 0; i < data.length; i++) {
+			for (let i = 0; i < this.data.length; i++) {
 				let box = new Laya.Box();
 				box.name = "item" + i + 3
 				box.top = box.bottom = box.right = box.left = 0;
@@ -59,6 +59,11 @@ module view.fuli {
 				this.img_left.visible = this.img_right.visible = true;
 			}
 			this.viw_fuli.selectedIndex = id;
+			let box = this.viw_fuli.getChildAt(id);
+			let num = box.numChildren
+			if(num == 0){
+				
+			}
 
 		}
 	}
