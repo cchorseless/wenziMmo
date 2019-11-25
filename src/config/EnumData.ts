@@ -530,7 +530,8 @@ module EnumData {
         CRET_PET = 4,
         CRET_COPYHUMAN = 5,
         CRET_HERO = 6,
-        CRET_ALL,
+        CRET_ALL = 7,
+        CRET_ITEM = 100,// 添加道具
     };
 
     /**

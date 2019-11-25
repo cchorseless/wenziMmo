@@ -6,6 +6,19 @@ module view.scene {
 		}
 
 
+		public addItem(itemUI: view.compart.DaoJuWithNameItem) {
+			for (let i = 0; i < 12; i++) {
+				let box: Laya.Box = this['box_' + i];
+				if (box.numChildren == 0) {
+					box.addChild(itemUI);
+
+					return true
+				}
+			}
+		}
+
+
+
 		public addMonster(monster: view.scene.MonsterInSceneItem): boolean {
 			for (let i = 0; i < 12; i++) {
 				let box: Laya.Box = this['box_' + i];

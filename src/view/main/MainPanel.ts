@@ -250,9 +250,7 @@ module view.main {
 						this.div_taskDes.event(Laya.Event.LINK, _ele.href);
 						break;
 					}
-
 				}
-
 			});
 			//vip界面
 			this.img_vip.on(Laya.UIEvent.CLICK, this, function () {
@@ -336,9 +334,6 @@ module view.main {
 			(this.box_uiScene0.getChildAt(0) as view.scene.SceneV3Item).changeSelfSize(show)
 		}
 
-
-
-
 		/**
 		 * 获取时辰
 		 */
@@ -376,6 +371,7 @@ module view.main {
 			}
 			return time;
 		}
+		
 		/**
 		 * 获取节气
 		 */

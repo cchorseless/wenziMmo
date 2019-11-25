@@ -756,11 +756,11 @@ module ProtoCmd {
             this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
             this.addProperty('wX', PacketBase.TYPE_WORD);           //坐标
             this.addProperty('wY', PacketBase.TYPE_WORD);
-
+            this.cmd = 0x02A0;
             if (data) {
                 this.read(data);
             }
-            this.cmd = 0x02A0;
+
         }
     }
 

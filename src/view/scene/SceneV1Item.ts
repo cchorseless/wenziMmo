@@ -63,6 +63,34 @@ module view.scene {
 
 		}
 
+		public addDaoJu(obj: ProtoCmd.ItemBase): void {
+
+			let itemUI = new view.compart.DaoJuWithNameItem();
+			itemUI.setData(obj, EnumData.ItemInfoModel.SHOW_NONE);
+			this.viw_0.selectedIndex = 0;
+			for (let _ui of this.hbox_2._childs) {
+				// 添加成功
+				if ((_ui as view.scene.MonsterGroupInSceneV1Item).addItem(itemUI)) {
+					// 拾取物品
+					itemUI.on(Laya.UIEvent.CLICK, this, () => {
+						let pkt = new ProtoCmd.MapItemEventPick();
+						pkt.setValue('i64ItemID', obj.i64ItemID);
+						pkt.setValue('wX', obj.mapX);
+						pkt.setValue('wY', obj.mapY);
+						lcp.send(pkt, this, (data) => {
+							let cbpkt = new ProtoCmd.MapItemEventPick(data);
+							if (cbpkt.getValue('btErrorCode') == 0) {
+								TipsManage.showTips('拾取道具成功');
+							}
+						})
+					});
+					return
+				}
+			}
+
+		}
+
+
 		/**
 		 * 添加怪物
 		 * @param obj 
