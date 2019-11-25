@@ -107,7 +107,42 @@ module view.menu {
 				PopUpManager.checkPanel(this);
 			})
 			this.btn_Activity1.on(Laya.UIEvent.CLICK, this, () => {
-				new view.menu.Menu_ExpRefine().popup(true);
+				if (this.dataDynamic[1].id == EnumData.activityType.ExpRefineOpen) {
+					new view.menu.Menu_ExpRefine().popup(true);
+				} else if (this.dataDynamic[1].id == EnumData.activityType.JingCaiClientOpen) {
+					let pkt = new ProtoCmd.QuestClientData();
+					let data = 0;
+					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
+						data = jsonData;
+						if (data !== 0) {
+							new view.menu.MenuGuessDialog().popup(true);
+						}
+					});
+					lcp.send(pkt);
+					if (data == 0) {
+						TipsManage.showTips('活动未开启')
+					}
+				}
+
+			})
+			//竞猜
+			this.btn_Activity2.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.dataDynamic[1].id == EnumData.activityType.ExpRefineOpen) {
+					new view.menu.Menu_ExpRefine().popup(true);
+				} else if (this.dataDynamic[1].id == EnumData.activityType.JingCaiClientOpen) {
+					let pkt = new ProtoCmd.QuestClientData();
+					let data = 0;
+					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
+						data = jsonData;
+						if (data !== 0) {
+							new view.menu.MenuGuessDialog().popup(true);
+						}
+					});
+					lcp.send(pkt);
+					if (data == 0) {
+						TipsManage.showTips('活动未开启')
+					}
+				}
 			})
 			this.btn_EveryDayFirstRecharge.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.Menu_EveryDayRechargeDialog().popup(true);
@@ -155,21 +190,7 @@ module view.menu {
 			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.MenuMoBaiDialog().popup(true);
 			})
-			//竞猜
-			this.btn_Activity2.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				let data = 0;
-				pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
-					data = jsonData;
-					if (data !== 0) {
-						new view.menu.MenuGuessDialog().popup(true);
-					}
-				});
-				lcp.send(pkt);
-				if (data == 0) {
-					TipsManage.showTips('活动未开启')
-				}
-			})
+
 			//新服活动
 			// this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.init_newServerOpen();
