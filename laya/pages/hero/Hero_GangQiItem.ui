@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":266,
+    "selectedBox":248,
+    "selecteID":249,
     "props":{"width":567,"sceneColor":"#9e6b6a","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -30,15 +30,16 @@
                     "props":{"y":44,"x":-2,"name":"item0"},
                     "nodeParent":244,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":248,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":112,"x":178,"width":227,"stateNum":"1","skin":"image/juese/img_common_11.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce","height":279},
+                            "props":{"y":59,"x":63,"width":457,"stateNum":"1","skin":"image/juese/img_hedao.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce","height":402},
                             "nodeParent":248,
                             "label":"Button",
                             "isOpen":true,
@@ -48,33 +49,23 @@
                             "compId":249,
                             "child":[
                                 {
-                                    "type":"Image",
-                                    "props":{"y":277,"x":-27,"width":274,"skin":"image/common/fram_common_04gray.png","height":64},
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":411,"x":148,"text":"混元罡气","strokeColor":"#52331e","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":249,
-                                    "label":"Image",
-                                    "isOpen":true,
-                                    "isDirectory":true,
+                                    "label":"Label",
+                                    "isDirectory":false,
                                     "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":325,
+                                    "hasChild":false,
+                                    "compId":326,
                                     "child":[
-                                        {
-                                            "type":"Label",
-                                            "props":{"y":12,"x":57,"text":"混元罡气","strokeColor":"#52331e","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffffff"},
-                                            "nodeParent":325,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":326,
-                                            "child":[
-                                                ],
-                                            "$HIDDEN":false
-                                        }]
+                                        ],
+                                    "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":2,"x":-75,"width":370,"skin":"image/juese/img_gangQi_01.png","height":349},
+                                    "props":{"y":20,"x":-4,"width":468,"skin":"image/juese/img_gangQi_01.png","height":441},
                                     "nodeParent":249,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -82,11 +73,14 @@
                                     "hasChild":false,
                                     "compId":324,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$LOCKED":true,
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":199,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":248,
@@ -98,6 +92,7 @@
                             "compId":251,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":27,"text":"硬功罡气","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":251,
@@ -113,6 +108,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":765,"x":216,"width":139,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"开启","height":59},
                             "nodeParent":248,
@@ -126,6 +122,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":736,"x":120,"text":"开启条件：","fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":248,
@@ -139,6 +136,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":530,"x":0,"width":571,"skin":"image/juese/bottom_common_001.png","height":196},
                             "nodeParent":248,
@@ -150,6 +148,7 @@
                             "compId":254,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":8,"x":19,"wordWrap":true,"width":522,"var":"lbl_detail","text":"华山派最早的历史可以追溯至秦汉时代，那时华山附近就有诸多剑侠的故事流传。","leading":5,"height":78,"fontSize":20,"font":"FZHL","color":"#404040"},
                                     "nodeParent":254,
@@ -160,9 +159,11 @@
                                     "compId":255,
                                     "child":[
                                         ]
-                                }]
+                                }],
+                            "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":737,"x":226,"var":"lbl_condition","text":"巴啦啦小魔仙随身变~","fontSize":24,"font":"FZHL","color":"#a53232"},
                             "nodeParent":248,
@@ -175,7 +176,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -183,14 +184,13 @@
                     "props":{"y":44,"x":9,"name":"item1"},
                     "nodeParent":244,
                     "label":"Box(item1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":256,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":21,"x":186,"width":174,"skin":"image/common/bottom_smalltitle.png","height":35},
                             "nodeParent":256,
@@ -218,7 +218,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":62,"x":17},
                             "nodeParent":256,
@@ -230,7 +229,6 @@
                             "compId":259,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"x":23,"skin":"image/juese/img_gangQi_01.png"},
                                     "nodeParent":259,
@@ -244,7 +242,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":112,"skin":"image/juese/img_common_18.png"},
                                     "nodeParent":259,
@@ -258,7 +255,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":153,"x":56,"width":108,"var":"lbl_name1","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":259,
@@ -272,7 +268,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":7,"x":314,"skin":"image/juese/img_gangQi_02.png"},
                                     "nodeParent":259,
@@ -285,7 +280,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":112,"x":297,"skin":"image/juese/img_common_18.png"},
                                     "nodeParent":259,
@@ -300,7 +294,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":153,"x":353,"width":108,"var":"lbl_name2","text":"混元罡气","strokeColor":"#000000","stroke":2,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":259,
@@ -314,7 +307,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":64,"x":245,"skin":"image/common/icon_shengji_01.png"},
                                     "nodeParent":259,
@@ -330,7 +322,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":253,"x":34},
                             "nodeParent":256,
@@ -467,7 +458,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":307,"x":34},
                             "nodeParent":256,
@@ -482,7 +472,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":360,"x":261,"skin":"image/common/icon_shengji_01.png"},
                             "nodeParent":256,
@@ -495,7 +484,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":304,"x":36,"width":199,"skin":"image/juese/fram_common_21.png","height":172},
                             "nodeParent":256,
@@ -507,7 +495,6 @@
                             "compId":329,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":9,"x":47,"text":"当前属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":329,
@@ -521,7 +508,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":57,"x":7,"width":185,"var":"vbox_left","height":107},
                                     "nodeParent":329,
@@ -537,7 +523,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":476,"x":47,"skin":"image/common/zi_zhanli.png"},
                             "nodeParent":256,
@@ -551,7 +536,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "props":{"y":484,"x":132,"width":107,"var":"clip_power1","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
                             "nodeParent":256,
@@ -565,7 +549,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":305,"x":319,"skin":"image/juese/fram_common_21.png"},
                             "nodeParent":256,
@@ -577,7 +560,6 @@
                             "compId":332,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":9,"x":47,"text":"下级属性","strokeColor":"#000000","stroke":4,"height":22,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":332,
@@ -590,7 +572,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":57,"x":7,"width":185,"var":"vbox_right","height":107},
                                     "nodeParent":332,
@@ -606,7 +587,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":476,"x":322,"skin":"image/common/zi_zhanli.png"},
                             "nodeParent":256,
@@ -620,7 +600,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"FontClip",
                             "props":{"y":484,"x":407,"width":107,"var":"clip_power2","value":"199720","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":21},
                             "nodeParent":256,
@@ -634,7 +613,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":533,"width":472,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","left":46},
                             "nodeParent":256,
@@ -649,7 +627,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":534,"x":47,"width":470,"var":"img_progress","skin":"image/common/Progressbar_gang_top.png","sizeGrid":"5,11,5,5","height":7},
                             "nodeParent":256,
@@ -663,7 +640,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":521,"x":242,"width":81,"var":"lbl_progress","text":"80/100","strokeColor":"#000000","stroke":4,"height":26,"fontSize":18,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":256,
@@ -676,7 +652,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":712,"x":197,"width":95,"text":"获取途径：","strokeColor":"#000000","height":29,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":256,
@@ -689,7 +664,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":714,"x":297,"var":"lbl_from","text":"XXXXX|XXXXXX|XXXXX","strokeColor":"#000000","height":29,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":256,
@@ -703,7 +677,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":608,"x":136,"width":95,"text":"进度消耗：","strokeColor":"#000000","height":29,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":256,
@@ -716,7 +689,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":601,"x":234,"width":42,"skin":"image/common/icon_common_jinbi01.png","height":35},
                             "nodeParent":256,
@@ -729,7 +701,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":608,"x":277,"var":"lbl_use","text":"5000000000","strokeColor":"#000000","height":29,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":256,
@@ -743,7 +714,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":710,"x":0,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":256,
@@ -755,7 +725,6 @@
                             "compId":314,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":23,"text":"下阶预览","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":32,"font":"FZXK","color":"#fff4ce"},
                                     "nodeParent":314,
@@ -771,7 +740,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":748,"x":1,"width":544,"var":"panel_gangqi","height":116},
                             "nodeParent":256,
@@ -783,7 +751,6 @@
                             "compId":316,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"HBox",
                                     "props":{"var":"hbox_gangqi","top":0,"bottom":0},
                                     "nodeParent":316,
@@ -798,7 +765,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":646,"x":203,"width":140,"var":"btn_upLevel","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"培养","height":59},
                             "nodeParent":256,
@@ -810,7 +776,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         },
         {

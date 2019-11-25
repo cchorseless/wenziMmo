@@ -8,7 +8,7 @@ module view.compart {
 		}
 		public res0;
 		public res1;
-		public setData(res: any, boFirst:boolean = true): ServerListItem {
+		public setData(res: any, boFirst: boolean = true): ServerListItem {
 			if (boFirst) {
 				this.btn_0.label = '' + res.zoneName;
 				this.btn_0.visible = true;
@@ -39,7 +39,7 @@ module view.compart {
 				GameApp.GameEngine.connectPort = '' + this.res1.port;
 				GameApp.GameEngine.zoneid = this.res1.zoneId;
 				GameApp.GameEngine.trueZoneid = this.res1.trueZoneId;
-					GameApp.GameEngine.tradeid = this.res1.tradeId
+				GameApp.GameEngine.tradeid = this.res1.tradeId
 				PanelManage.ChooseServer.lbl_serverName.text = '' + this.res1.zoneName;
 				view.dialog.ServerListDialog.closeAll()
 
