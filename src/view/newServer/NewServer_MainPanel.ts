@@ -1,6 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.newServer {
 	export class NewServer_MainPanel extends ui.newServer.NewServer_MainPanelUI {
+		/**
+		 * 动态活动ID
+		 */
+		public activityState = [
+			EnumData.activityType.KaiFuJingJiOpen,
+		]
 		constructor() {
 			super();
 		}

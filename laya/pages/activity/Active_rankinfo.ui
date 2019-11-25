@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":587,"sceneColor":"#000000","height":93},
+    "selecteID":15,
+    "props":{"width":540,"sceneColor":"#000000","height":93},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":587,"skin":"image/menu/bottom_list.png","sizeGrid":"30,139,48,21","height":93},
+            "props":{"y":0,"x":0,"width":540,"skin":"image/common/fram_common_11.png","height":93},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -31,6 +31,7 @@
             "props":{"y":29,"x":9,"width":60,"var":"lab_rank","valign":"middle","text":"1","stroke":3,"height":35,"fontSize":26,"font":"FZXK","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_rank)",
+            "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -41,7 +42,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":30,"x":322,"width":132,"var":"lab_name","valign":"middle","text":"好名字六个字","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
+            "props":{"y":30,"x":253,"width":132,"var":"lab_name","valign":"middle","text":"好名字六个字","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,
@@ -54,13 +55,39 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":30,"x":481,"width":98,"var":"lab_num","valign":"middle","text":"500000","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
+            "props":{"y":30,"x":423,"width":98,"var":"lab_num","valign":"middle","text":"500000","stroke":0.5,"height":32,"fontSize":22,"font":"FZXK","color":"#171717","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_num)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":14,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"y":11,"x":114,"width":125,"var":"panel_reward","height":75},
+            "nodeParent":1,
+            "label":"Panel(panel_reward)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":15,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":18,"x":16,"width":46,"var":"img_rank","skin":"image/menu/icon_rank1.png","height":58},
+            "nodeParent":1,
+            "label":"Image(img_rank)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":17,
             "child":[
                 ]
         }],

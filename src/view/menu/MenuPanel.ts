@@ -1,6 +1,20 @@
 /**Created by the LayaAirIDE*/
 module view.menu {
 	export class MenuPanel extends ui.menu.MenuPanelUI {
+		public changeActID = 1;  //活动页ID
+		//下面的动态活动
+		public dynamicActivities = [
+			EnumData.activityType.ExpRefineOpen,
+			EnumData.activityType.JingCaiClientOpen,
+		]
+		public rechargeActivities = [
+			EnumData.activityType.FirstChargeOpen,
+			EnumData.activityType.MeiRiTeHuiPanel,
+		]
+
+		public dataDynamic = [];//实际上存在的动态活动    下面的三个动态
+		public dataRecharge = [];//实际上存在的充值活动   充值ICon
+
 		constructor() {
 			super();
 			this.panel_mission.vScrollBarSkin = '';
@@ -10,6 +24,72 @@ module view.menu {
 			// this.vbox_down['sortItem'] = (items) => { };
 			this.initUI();
 			this.addEvent();
+			this.changeActivity();
+			this.checkdynamicActivityState();
+			this.rechargeActivitiesState();
+		}
+		public rechargeActivitiesState() {
+
+			for (let i in GameApp.GameEngine.activityStatus) {
+				if (GameApp.GameEngine.activityStatus[i].id == EnumData.activityType.FirstChargeOpen) {
+					this.btn_FirstRecharge_Icon.skin = "image/activity/active_icon205.png";
+					this.lab_FirstRecharge.text = "首充";
+				} else {
+					this.btn_FirstRecharge_Icon.skin = "image/activity/active_icon33.png";
+					this.lab_FirstRecharge.text = "每日特惠";
+				}
+			}
+		}
+		public checkdynamicActivityState() {
+			for (let i = 0; i < this.dynamicActivities.length; i++) {
+				for (let o in GameApp.GameEngine.activityStatus) {
+					if (GameApp.GameEngine.activityStatus[o].id == this.dynamicActivities[i]) {
+						this.dataDynamic.push(GameApp.GameEngine.activityStatus[o])
+					}
+				}
+			}
+			for (let i = 1; i < 4; i++) {
+				if (this.dataDynamic[i]) {
+					this["btn_Activity" + i].visible = true;
+					this["lab_Activty" + i].text = this.dataDynamic[i].name;
+					this["btn_act_Icon" + i].skin = "image/menu/active_icon" + this.dataDynamic[i].id + ".png";
+				} else {
+					this["btn_Activity" + i].visible = false;
+				}
+
+			}
+		}
+		//8s一次活动页刷新
+		public changeActivity() {
+			let self = this;
+			let curID = this.changeActID;
+			Laya.timer.frameLoop(300, self, function () {
+				if (self.changeActID < 5) {
+					self.changeActID++
+				} else {
+					self.changeActID = 1
+				}
+				for (let i = 1; i < 6; i++) {
+					self["img_Turn" + i].skin = "image/menu/img_common_28.png";
+					let p = new Laya.Image();
+					p.width = self.img_xinfuActive.width;
+					p.height = self.img_xinfuActive.height;
+					p.y = self.img_xinfuActive.y;
+					p.x = self.img_xinfuActive.x + p.width;
+					self.panel_changeAct.addChild(p)
+					p.skin = "image/menu/img_xuanchuang_0" + self.changeActID + ".png"
+					Laya.Tween.to(self.img_xinfuActive, { x: self.img_xinfuActive.width * (-1) }, 250);
+					Laya.Tween.to(p, { x: 0 }, 250, null, Laya.Handler.create(this, () => {
+						self.img_xinfuActive.skin = "image/menu/img_xuanchuang_0" + self.changeActID + ".png"
+						self.img_xinfuActive.x = 0;
+						self.panel_changeAct.removeChild(p);
+					}))
+					if (i == self.changeActID) {
+						self["img_Turn" + i].skin = "image/menu/img_common_28down.png"
+					}
+				}
+			});
+
 		}
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
@@ -17,10 +97,71 @@ module view.menu {
 		}
 
 		public addEvent(): void {
+
+			// tubiaofasong
+			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
+				console.log(data);
+			})
 			//返回
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			})
+			this.btn_Activity1.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.dataDynamic[1].id == EnumData.activityType.ExpRefineOpen) {
+					new view.menu.Menu_ExpRefine().popup(true);
+				} else if (this.dataDynamic[1].id == EnumData.activityType.JingCaiClientOpen) {
+					let pkt = new ProtoCmd.QuestClientData();
+					let data = 0;
+					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
+						data = jsonData;
+						if (data !== 0) {
+							new view.menu.MenuGuessDialog().popup(true);
+						}
+					});
+					lcp.send(pkt);
+					if (data == 0) {
+						TipsManage.showTips('活动未开启')
+					}
+				}
+
+			})
+			//竞猜
+			this.btn_Activity2.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.dataDynamic[1].id == EnumData.activityType.ExpRefineOpen) {
+					new view.menu.Menu_ExpRefine().popup(true);
+				} else if (this.dataDynamic[1].id == EnumData.activityType.JingCaiClientOpen) {
+					let pkt = new ProtoCmd.QuestClientData();
+					let data = 0;
+					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
+						data = jsonData;
+						if (data !== 0) {
+							new view.menu.MenuGuessDialog().popup(true);
+						}
+					});
+					lcp.send(pkt);
+					if (data == 0) {
+						TipsManage.showTips('活动未开启')
+					}
+				}
+			})
+			this.btn_EveryDayFirstRecharge.on(Laya.UIEvent.CLICK, this, () => {
+				new view.menu.Menu_EveryDayRechargeDialog().popup(true);
+			})
+
+
+			//上面的轮换页活动
+			this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
+				switch (this.changeActID) {
+					case 1:
+						this.init_newServerOpen();
+						break;
+					case 2: case 3: case 4: case 5:
+						TipsManage.showTips("当前是轮换活动" + this.changeActID)
+						break;
+
+				}
+			})
+
 			// //图鉴
 			// this.btn_menuTujian.on(Laya.UIEvent.CLICK, this, () => {
 			// 	PanelManage.openTuJianJuesePanel();
@@ -49,25 +190,11 @@ module view.menu {
 			this.btn_mobai.on(Laya.UIEvent.CLICK, this, () => {
 				new view.menu.MenuMoBaiDialog().popup(true);
 			})
-			// //竞猜
-			// this.btn_guess.on(Laya.UIEvent.CLICK, this, () => {
-			// 	let pkt = new ProtoCmd.QuestClientData();
-			// 	let data = 0;
-			// 	pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
-			// 		data = jsonData;
-			// 		if (data !== 0) {
-			// 			new view.menu.MenuGuessDialog().popup(true);
-			// 		}
-			// 	});
-			// 	lcp.send(pkt);
-			// 	if (data == 0) {
-			// 		TipsManage.showTips('活动未开启')
-			// 	}
-			// })
+
 			//新服活动
-			this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
-				this.init_newServerOpen();
-			})
+			// this.img_xinfuActive.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.init_newServerOpen();
+			// })
 			//抽奖
 			this.btn_luckDraw.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openLuckDrawPanel();
@@ -110,6 +237,12 @@ module view.menu {
 			//设置
 			this.btn_setUp.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SetUpDialog().popup(true);
+			})
+			this.btn_operatorRank.on(Laya.UIEvent.CLICK, this, function () {
+				new view.menu.Menu_OperatorRankDialog().popup(true);
+			})
+			this.btn_monthCard.on(Laya.UIEvent.CLICK, this, function () {
+				new view.menu.Menu_MonthCard().popup(true);
 			})
 		}
 		/**

@@ -102,7 +102,7 @@ module GameUtil {
             let aa = TimeUtils.getFormatBySecond(second, 6)
             ui.style.align = "center";
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>"
-                + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
+                + "<span style='color:#a53232;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
         }
         else {
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
