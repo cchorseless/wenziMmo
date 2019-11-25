@@ -21,7 +21,6 @@ module view.juese {
 			this.vbox_right['sortItem'] = (items) => { };
 			this.addEvent();
 			this.wingInfo();
-			this.init_gangqi();
 		}
 
 		public wingInfo(): void {
@@ -29,7 +28,7 @@ module view.juese {
 			if (this.getItemInfo()) {
 				this.vstack_gangqi.selectedIndex = 1;
 				this.init_Info(this.getItemInfo());
-
+				this.init_gangqi();
 			}
 			else {
 				this.vstack_gangqi.selectedIndex = 0;
@@ -61,7 +60,7 @@ module view.juese {
 				if (this.exp !== null && this.needexp !== null && this.exp > this.needexp) {
 					this.init_upLevel();
 				}
-				else{
+				else {
 					TipsManage.showTips('罡气经验不足')
 				}
 			})
@@ -86,7 +85,7 @@ module view.juese {
 					this['box_gangqi' + i].addChild(_itemUI);
 				}
 				this.init_GangQIInfo();
-				this.wingInfo();
+				this.init_Info(this.getItemInfo());
 			})
 		}
 

@@ -25,7 +25,6 @@ module view.compart {
 			// 是否有能力提升的提示
 			let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE(dwBaseID);
 			this.btn_isStronger.visible = false;
-
 			let needJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID);
 			let needsex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
 			let needlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);

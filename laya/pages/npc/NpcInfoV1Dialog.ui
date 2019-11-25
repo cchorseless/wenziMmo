@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":49,
+    "selecteID":30,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -40,7 +40,6 @@
             "compId":125,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":1,"x":19,"width":222,"var":"lbl_npcName","text":"NPC","strokeColor":"#000000","stroke":4,"height":48,"fontSize":48,"font":"FZXK","color":"#ffffff","align":"center"},
                     "nodeParent":125,
@@ -580,7 +579,7 @@
                             "$HIDDEN":false
                         }],
                     "$LOCKED":false,
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -618,7 +617,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -670,9 +669,9 @@
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -813,7 +812,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -960,7 +959,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":412,"x":44,"width":65,"var":"btn_return","stateNum":2,"skin":"image/common/btn_fanhui_02_finish.png","height":59},
+            "props":{"y":473,"x":11,"width":65,"var":"btn_return","stateNum":2,"skin":"image/common/btn_fanhui_02_finish.png","height":59},
             "nodeParent":1,
             "label":"Button(btn_return)",
             "isDirectory":false,
@@ -969,7 +968,7 @@
             "compId":30,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
