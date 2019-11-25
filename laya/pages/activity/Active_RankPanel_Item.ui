@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":22,
-    "selecteID":25,
-    "props":{"width":640,"sceneColor":"#ffffff","height":814},
+    "selectedBox":1,
+    "selecteID":17,
+    "props":{"width":557,"sceneColor":"#ffffff","height":750},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,91 +14,8 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":161,"x":0,"width":640,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"14,12,26,9","height":570},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":21,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"activity/Active_rankinfo.ui",
-            "props":{"y":166,"x":21,"var":"item_1"},
-            "nodeParent":1,
-            "label":"UIView(item_1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"activity/Active_rankinfo.ui",
-            "props":{"y":269,"x":21,"var":"item_2"},
-            "nodeParent":1,
-            "label":"UIView(item_2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":8,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"activity/Active_rankinfo.ui",
-            "props":{"y":371,"x":21,"var":"item_3"},
-            "nodeParent":1,
-            "label":"UIView(item_3)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"activity/Active_rankinfo.ui",
-            "props":{"y":474,"x":21,"var":"item_4"},
-            "nodeParent":1,
-            "label":"UIView(item_4)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"UIView",
-            "source":"activity/Active_rankinfo.ui",
-            "props":{"y":576,"x":21,"var":"item_5"},
-            "nodeParent":1,
-            "label":"UIView(item_5)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":742,"x":143,"width":449,"var":"html_time","innerHTML":"aaaaaaaa","height":30},
+            "props":{"y":714,"x":237,"width":310,"var":"html_time","innerHTML":"aaaaaaaa","height":30},
             "nodeParent":1,
             "label":"HTMLDivElement(html_time)",
             "isDirectory":false,
@@ -111,7 +28,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":776,"x":143,"width":449,"var":"html_cost","innerHTML":"aaaaaaaaaa","height":30},
+            "props":{"y":714,"x":10,"width":214,"var":"html_cost","innerHTML":"aaaaaaaaaa","height":30},
             "nodeParent":1,
             "label":"HTMLDivElement(html_cost)",
             "isDirectory":false,
@@ -124,7 +41,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":122,"x":0,"width":640,"skin":"image/common/bottom_tiaojian .png","height":40},
+            "props":{"y":114,"x":5,"width":545,"skin":"image/common/bottom_tiaojian .png","height":40},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -136,9 +53,10 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":169,"text":"奖励","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":5,"x":139,"text":"奖励","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":3,
                     "label":"Label",
+                    "isOpen":false,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -149,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":355,"text":"玩家名字","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":5,"x":263,"text":"玩家名字","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":3,
                     "label":"Label",
                     "isDirectory":false,
@@ -162,7 +80,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":7,"x":499,"text":"最低要求","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                    "props":{"y":5,"x":418,"text":"最低要求","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":3,
                     "label":"Label",
                     "isDirectory":false,
@@ -176,7 +94,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-6,"x":11,"width":618,"skin":"image/menu/bottom_list.png","height":114},
+            "props":{"y":0,"x":8,"width":540,"skin":"image/menu/bottom_list.png","height":109},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -188,7 +106,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
+                    "props":{"y":0,"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
                     "nodeParent":22,
                     "label":"Image",
                     "isDirectory":false,
@@ -201,7 +119,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
+                    "props":{"y":34,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
                     "nodeParent":22,
                     "label":"Label",
                     "isDirectory":false,
@@ -215,7 +133,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":11,"x":124,"wordWrap":true,"width":467,"var":"lab_rules","valign":"top","text":"我w我我我我我我我我我问问我我w我我我我我我我我我我我我我我我我我我我我我我我我我问问我我我我我我","height":93,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
+                    "props":{"y":7,"x":120,"wordWrap":true,"width":409,"var":"lab_rules","valign":"top","text":"我w我我我我我我我我我问问我我w我我我我我我我我我我我我我我我我我我我我我我我我我问问我我我我我我","height":93,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
                     "nodeParent":22,
                     "label":"Label(lab_rules)",
                     "isDirectory":false,
@@ -227,6 +145,86 @@
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":159,"x":9,"width":540,"height":522},
+            "nodeParent":1,
+            "label":"Box",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":26,
+            "child":[
+                {
+                    "type":"UIView",
+                    "source":"activity/Active_rankinfo.ui",
+                    "props":{"var":"item_1"},
+                    "nodeParent":26,
+                    "label":"UIView(item_1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"UIView",
+                    "source":"activity/Active_rankinfo.ui",
+                    "props":{"y":107,"var":"item_2"},
+                    "nodeParent":26,
+                    "label":"UIView(item_2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"UIView",
+                    "source":"activity/Active_rankinfo.ui",
+                    "props":{"y":215,"var":"item_3"},
+                    "nodeParent":26,
+                    "label":"UIView(item_3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"UIView",
+                    "source":"activity/Active_rankinfo.ui",
+                    "props":{"y":322,"var":"item_4"},
+                    "nodeParent":26,
+                    "label":"UIView(item_4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"UIView",
+                    "source":"activity/Active_rankinfo.ui",
+                    "props":{"y":429,"var":"item_5"},
+                    "nodeParent":26,
+                    "label":"UIView(item_5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
         }],
     "animations":[
         {

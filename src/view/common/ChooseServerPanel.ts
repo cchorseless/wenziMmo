@@ -4,10 +4,11 @@ module view.common {
 		constructor() {
 			super();
 		}
+		public index = null;
 		public setData(): ChooseServerPanel {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
-
+			this.init_selectServer();
 			this.addEvent();
 			return this;
 		}
@@ -19,7 +20,11 @@ module view.common {
 
 			//打开服务器列表
 			EventManage.onWithEffect(this.btn_changeServer, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup()
+				if (this.index !== null) {
+					new view.dialog.ServerListDialog().setData(this.lbl_playerName.text, this.index).popup();
+				} else {
+					new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup();
+				}
 			});
 
 			// 切换账号
@@ -134,6 +139,51 @@ module view.common {
 				TipsManage.showTips("选择昵称失败：" + msgData.getValue('nErrorCode'))
 			}
 			msgData.clear();
+		}
+		public init_selectServer(): void {
+			let self = this;
+			let historyServer = null;
+			//拉取近期登陆服务器
+			let h = 'name=historyZoneList&tradeId=1&account=' + self.lbl_playerName.text;
+			GameApp.HttpManager.get(h, (res) => {
+				let resData = JSON.parse(res);
+				historyServer = resData.list[0];
+				if (historyServer == null || historyServer == undefined) {
+					let labelNum;
+					let info = 'name=zoneCount';
+					//拉取服务器数量
+					GameApp.HttpManager.get(info, (res) => {
+						let resData = JSON.parse(res);
+						//服务器数量
+						let length = resData[0].count;
+						//服务器索引
+						self.index = labelNum = Math.floor(length / 100);
+					})
+					if (length > 0) {
+						let str0 = 'name=zoneList&minId=0&maxId=100';
+						let str1 = 'name=zoneList&tradeId=1&minId=101&maxId=200';
+						let str2 = 'name=zoneList&tradeId=1&minId=201&maxId=300';
+						let str3 = 'name=zoneList&tradeId=1&minId=301&maxId=400';
+						let str4 = 'name=zoneList&tradeId=1&minId=401&maxId=500';
+						let str5 = 'name=zoneList&tradeId=1&minId=501&maxId=600';
+						let serverArray = [str0, str1, str2, str3, str4, str5];
+						GameApp.HttpManager.get(serverArray[labelNum], (res) => {
+							let resData = JSON.parse(res);
+							for (let part of resData) {
+								historyServer = part;
+							}
+						});
+					}
+				}
+				if (historyServer !== null && historyServer !== undefined) {
+					GameApp.GameEngine.connectIP = '' + historyServer.url;
+					GameApp.GameEngine.connectPort = '' + historyServer.port;
+					GameApp.GameEngine.zoneid = historyServer.zoneId;
+					GameApp.GameEngine.trueZoneid = historyServer.trueZoneId;
+					GameApp.GameEngine.tradeid = historyServer.tradeId
+					self.lbl_serverName.text = historyServer.zoneName;
+				}
+			});
 		}
 	}
 }

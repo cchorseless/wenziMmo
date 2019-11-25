@@ -6,8 +6,9 @@ module view.dialog {
 
 		}
 		public account;
-		public setData(account): ServerListDialog {
+		public setData(account, index = 0): ServerListDialog {
 			// this.tab_left.labels = '0-100,101-200,201-300,301-400,401-500,501-600';
+			this.tab_left.selectedIndex = index;
 			this.account = account;
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_left.selectedIndex = index;
@@ -51,6 +52,9 @@ module view.dialog {
 				this.close();
 			});
 		}
+		/**
+		 * 拉取所有服务器
+		 */
 		public readServerList(): void {
 			let str;
 			let vbox;
@@ -86,12 +90,10 @@ module view.dialog {
 					vbox = this.vbox_5;
 					break;
 			}
-
 			GameApp.HttpManager.get(str, (res) => {
 				let resData = JSON.parse(res);
 				vbox.removeChildren();
 				let ui_server = null;
-				//拉取所有服务器
 				for (let id of resData) {
 					if (ui_server == null) {
 						ui_server = new view.compart.ServerListItem()
@@ -102,15 +104,19 @@ module view.dialog {
 						ui_server = null;
 					}
 				}
-
+				this.init_recentlyServer();
 			});
-			//拉取近期登陆服务器
+		}
+		/**
+		 * 拉取近期登陆服务器
+		 */
+		public init_recentlyServer(): void {
 			let h = 'name=historyZoneList&tradeId=1&account=' + this.account;
 			GameApp.HttpManager.get(h, (res) => {
 				let resData = JSON.parse(res);
 				this.vbox_recently.removeChildren();
 				let ui_server = null;
-				for (let id of resData) {
+				for (let id of resData.list) {
 					if (ui_server == null) {
 						ui_server = new view.compart.ServerListItem()
 						this.vbox_recently.addChild(ui_server);
@@ -119,10 +125,8 @@ module view.dialog {
 						ui_server.setData(id, false);
 						ui_server = null;
 					}
-
 				}
 			})
-
 		}
 	}
 }

@@ -1,9 +1,10 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":32,
-    "selecteID":38,
-    "props":{"width":597,"sceneColor":"#000000","height":932},
+    "selectedBox":2,
+    "selecteID":9,
+    "referenceLines":null,
+    "props":{"width":597,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -26,20 +27,6 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Image",
-                    "props":{"y":166,"x":26,"width":544,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":537,"alpha":0.7},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":37,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":-2,"x":507,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":2,
@@ -47,11 +34,9 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":3,
+                    "compId":4,
                     "child":[
-                        ],
-                    "$LOCKED":false,
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "x":30,
@@ -63,22 +48,21 @@
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":4,
+                    "compId":5,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":10,"x":99,"width":112.5,"text":"充 值","strokeColor":"#404040","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffeeb1","align":"center"},
-                            "nodeParent":4,
+                            "props":{"y":10,"x":99,"width":112.5,"text":"月 卡","strokeColor":"#404040","stroke":4,"height":45,"fontSize":45,"font":"FZXK","color":"#ffeeb1","align":"center"},
+                            "nodeParent":5,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":5,
+                            "compId":6,
                             "child":[
                                 ]
-                        }],
-                    "$LOCKED":true
+                        }]
                 },
                 {
                     "x":30,
@@ -89,40 +73,23 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":36,
+                    "compId":7,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":99,"x":32,"var":"tab_div","strokeColors":"#aa6d13,#aa6d13","stateNum":2,"space":20,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":-1,"scaleY":1.2,"scaleX":1.15,"labels":"充值,VIP特权","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"left","direction":"horizontal"},
-                    "nodeParent":2,
-                    "label":"Tab(tab_div)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":34,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "x":30,
                     "type":"ViewStack",
-                    "props":{"y":168,"x":34,"width":532,"var":"ViewS_show","height":736},
+                    "props":{"y":168,"x":48,"width":500,"var":"ViewS_show","height":736},
                     "nodeParent":2,
                     "label":"ViewStack(ViewS_show)",
-                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":32,
+                    "compId":9,
                     "child":[
                         ]
-                }],
-            "$LOCKED":false
+                }]
         }],
     "animations":[
         {

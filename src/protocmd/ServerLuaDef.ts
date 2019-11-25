@@ -522,6 +522,8 @@ module ProtoCmd {
 
 
 
+
+
     export const FuDaiChouJiang = "FuDaiChouJiang";   //福袋抽奖开启按钮
     export const SendExItemPlane = "SendExItemPlane";   //福袋抽奖额外奖励面板
     export const FuDaiGet = "FuDaiGet";   //福袋抽奖额外奖励    领取
@@ -561,6 +563,9 @@ module ProtoCmd {
 
     export const FirstChargeOpen = "FirstChargeOpen";  //首充面板；
     export const FirstChargeGet = "FirstChargeGet";  //首充面板   领取
+
+    export const ExpRefineOpen = "ExpRefineOpen"; //经验炼制  界面
+    export const ExpRefining = "ExpRefining";     //经验炼制  index (1人物 2英雄)
 
 
 
