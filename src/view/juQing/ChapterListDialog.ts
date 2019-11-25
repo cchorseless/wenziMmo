@@ -27,7 +27,7 @@ module view.juQing {
 				for (let key of keys) {
 					let charpterInfo: ProtoCmd.itf_JUQING_PIANZHANG = jsonData[key];
 					let ui_item = new view.compart.JuQingCharpterInfoItem();
-					ui_item.setData(charpterInfo);
+					ui_item.setData(charpterInfo,parseInt(key));
 					this.vbox_chapterList.addChild(ui_item);
 				}
 			})

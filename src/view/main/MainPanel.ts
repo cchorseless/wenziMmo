@@ -223,15 +223,15 @@ module view.main {
 			});
 			// GameApp.LListener.on(ProtoCmd.changeActivityState, this, function (state) {
 			// 	this.btn_menu.selected = state;
-				// if (this.btn_menu.selected) {
-					// this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
-					
-				// }
-				// else {
-					// this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
-					// PopUpManager.showPanel(PanelManage.Menu);
-					// PopUpManager.checkPanel(PanelManage.Menu);
-				// }
+			// if (this.btn_menu.selected) {
+			// this.btn_menu.skin = 'image/main/btn_caidan_01down_close.png';
+
+			// }
+			// else {
+			// this.btn_menu.skin = 'image/main/btn_caidan_01down_finish.png';
+			// PopUpManager.showPanel(PanelManage.Menu);
+			// PopUpManager.checkPanel(PanelManage.Menu);
+			// }
 			// })
 
 			// 时辰&&节气界面
@@ -345,18 +345,24 @@ module view.main {
 			let timeArray = ['丑时', '寅时', '卯时', '辰时', '巳时', '午时', '未时', '申时', '酉时', '戌时', '亥时', '子时']
 			if (minite > 0) {
 				for (let i = 1; i < 13; i++) {
-					if (hour == i || hour == (i + 1)) {
-						if (i % 2 == 1) {
-							time = timeArray[i];
-						} else {
-							time = timeArray[(i - 1)];
+					if (hour <= 12) {
+						if (hour == i || hour == (i + 1)) {
+							if (i % 2 == 1) {
+								let num1 = Math.ceil((i-1) / 2);
+								time = timeArray[num1];
+							} else {
+								let num2 = Math.floor((i-1) / 2);
+								time = timeArray[(num2)];
+							}
 						}
 					}
-					if (hour == i * 2 || hour == (i * 2 + 1)) {
-						if (i % 2 == 1) {
-							time = timeArray[i];
-						} else {
-							time = timeArray[(i - 1)];
+					else {
+						if (hour == i * 2 || hour == (i * 2 + 1)) {
+							if (i % 2 == 1) {
+								time = timeArray[i];
+							} else {
+								time = timeArray[(i - 1)];
+							}
 						}
 					}
 				}
@@ -503,6 +509,18 @@ module view.main {
 			this.getSoulStoneMessage();
 			// 声望信息
 			this.getShengWangInfo();
+			//活动状态
+			this.getHuoDongStatus()
+		}
+		/**
+		 * 菜单界面活动状态
+		 */
+		public getHuoDongStatus() {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.HuoDongStatus, null, null, this, (data: ProtoCmd.itf_MENU_ActiveStatus) => {
+				GameApp.GameEngine.activityStatus = data
+			})
+			lcp.send(pkt)
 		}
 
 		/**

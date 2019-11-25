@@ -155,22 +155,22 @@ module view.task {
 			switch (i) {
 				case 1:
 					this.img_baoxiang1.on(Laya.UIEvent.CLICK, this, () => {
-						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang1, item);
+						this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang1, item));
 					});
 					break;
 				case 2:
 					this.img_baoxiang2.on(Laya.UIEvent.CLICK, this, () => {
-						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang2, item);
+						this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang2, item));
 					});
 					break;
 				case 3:
 					this.img_baoxiang3.on(Laya.UIEvent.CLICK, this, () => {
-						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang3, item);
+						this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang3, item));
 					});
 					break;
 				case 4:
 					this.img_baoxiang4.on(Laya.UIEvent.CLICK, this, () => {
-						new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang4, item);
+						this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang4, item));
 					});
 					break;
 			}

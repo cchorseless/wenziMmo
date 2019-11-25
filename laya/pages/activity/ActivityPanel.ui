@@ -39,12 +39,12 @@
             "compId":4,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":114,"x":0,"skin":"image/activity/bg_huodong_01.png"},
+            "props":{"y":114,"x":0,"width":640,"skin":"image/activity/bg_huodong_01.png","height":169},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -94,7 +94,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":133,"x":0,"skin":"image/activity/img_zs_01.png"},
+                    "props":{"y":133,"x":0,"width":640,"skin":"image/activity/img_zs_01.png","height":91},
                     "nodeParent":69,
                     "label":"Image",
                     "isDirectory":false,
@@ -103,7 +103,8 @@
                     "compId":73,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -131,6 +132,35 @@
                         ]
                 }],
             "$LOCKED":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":313,"x":10,"skin":"image/common/img_sc_zs03.png","height":740},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":75,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":313,"x":619,"skin":"image/common/img_sc_zs03.png","height":740},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":74,
+            "child":[
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,

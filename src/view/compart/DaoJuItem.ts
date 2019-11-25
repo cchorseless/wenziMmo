@@ -150,15 +150,16 @@ module view.compart {
 			// 底图
 			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
 			// 物品数量
+
 			if (item.dwCount && item.dwCount > 1) {
 				if (item.dwCount > 10000) {
-					let num = item.dwCount / 10000;
+					let num =item.dwCount / 10000;
 					if (num > 10000) {
 						let count = num / 10000;
-						this.lbl_count.text = count + '亿';
+						this.lbl_count.text = Math.ceil(count) + '亿';
 					}
 					else {
-						this.lbl_count.text = num + '万';
+						this.lbl_count.text = Math.ceil(num) + '万';
 					}
 				}
 				else {

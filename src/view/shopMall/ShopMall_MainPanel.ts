@@ -1,6 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.shopMall {
 	export class ShopMall_MainPanel extends ui.shopMall.ShopMall_MainPanelUI {
+		public labels = ['热销', '礼券', '技能', '荣誉', '限购']
+		/**
+		 * All动态活动ID
+		 */
+		public activityState = [EnumData.activityType.ShenMi_Open]
+		public data = []
 		constructor() {
 			super();
 		}
@@ -24,22 +30,36 @@ module view.shopMall {
 			this.panel_shop5.vScrollBarSkin = '';
 			this.vbox_shop5['sortItem'] = (items) => { };
 			this.lbl_rongyu.text = '' + GameApp.MainPlayer.wealth.honorNum;
-			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				this.updateHotShop(this.allType[index]);
-				this.viw_shop.selectedIndex = index;
-			}, null, false);
+			for (let o in GameApp.GameEngine.activityStatus) {
+				if (GameApp.GameEngine.activityStatus[o].id == this.activityState[0]) {
+					this.data.push(GameApp.GameEngine.activityStatus[o])
+				}
+			}
+			if (this.data.length > 0) {
+				for (let i = 0; i < this.data.length; i++) {
+					this.labels.push(this.data[i].name)
+				}
+			}
+			let tablabel: string;
+			tablabel = this.labels.join(',')
+			this.tab_top.labels = tablabel;
+
 			this.addEvent();
-			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN);
+			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN,0);
 		}
 		public addEvent(): void {
 			//返回菜单
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this)
 			});
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				this.updateHotShop(this.allType[index],index);
+				
+			}, null, false);
 			//充值
 			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new view.recharge_vip.Recharge_VipDialog();
-				o.setData(1);
+				o.setData(0);
 				o.popup(true);
 			});
 
@@ -87,8 +107,10 @@ module view.shopMall {
 		/**
 	  	 *拉取商店信息
 	  	 */
-		public updateHotShop(type): void {
-			let index = this.tab_top.selectedIndex;
+		public updateHotShop(type,id): void {
+			
+			let index = id;
+			this.viw_shop.selectedIndex = id;
 			if (index == 3) {
 				this.img_rongyu.visible = true;
 			} else {

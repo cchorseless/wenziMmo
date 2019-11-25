@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":48,
+    "selecteID":37,
     "props":{"width":638,"sceneColor":"#d6bfbf","height":883},
     "nodeParent":-1,
     "label":"View",
@@ -207,7 +207,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":570,"x":3,"width":116,"var":"btn_item01","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116},
+            "props":{"y":628,"x":60,"width":116,"var":"btn_item01","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_item01)",
             "isDirectory":false,
@@ -221,7 +221,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":568,"x":118,"width":116,"var":"btn_item02","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116},
+            "props":{"y":626,"x":176,"width":116,"var":"btn_item02","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_item02)",
             "isDirectory":false,
@@ -235,7 +235,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":671,"x":53,"width":116,"var":"btn_item03","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116},
+            "props":{"y":729,"x":111,"width":116,"var":"btn_item03","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelPadding":"38,6","labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"累计6次","height":116,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_item03)",
             "isDirectory":false,
@@ -244,6 +244,126 @@
             "compId":38,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":120,"x":213,"width":102,"visible":false,"var":"img_circle1","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle1)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":48,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":120,"x":319,"width":102,"visible":false,"var":"img_circle2","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle2)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":49,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":195,"x":392,"width":102,"visible":false,"var":"img_circle3","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle3)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":50,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":292,"x":392,"width":102,"visible":false,"var":"img_circle4","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle4)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":51,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":367,"x":319,"width":102,"visible":false,"var":"img_circle5","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle5)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":52,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":366,"x":214,"width":102,"visible":false,"var":"img_circle6","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle6)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":53,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":290,"x":141,"width":102,"visible":false,"var":"img_circle7","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle7)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":54,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":196,"x":142,"width":102,"visible":false,"var":"img_circle8","skin":"image/common/frame_selected_touxiang.png","height":102},
+            "nodeParent":1,
+            "label":"Image(img_circle8)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":55,
+            "child":[
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -257,7 +377,8 @@
             "hasChild":false,
             "compId":21,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -271,7 +392,8 @@
             "hasChild":false,
             "compId":22,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -285,7 +407,8 @@
             "hasChild":false,
             "compId":23,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -299,7 +422,8 @@
             "hasChild":false,
             "compId":24,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -313,7 +437,8 @@
             "hasChild":false,
             "compId":25,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -327,7 +452,8 @@
             "hasChild":false,
             "compId":26,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -341,7 +467,8 @@
             "hasChild":false,
             "compId":27,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -355,7 +482,8 @@
             "hasChild":false,
             "compId":28,
             "child":[
-                ]
+                ],
+            "$LOCKED":true
         },
         {
             "x":15,
@@ -371,6 +499,7 @@
             "compId":29,
             "child":[
                 ],
+            "$LOCKED":true,
             "$HIDDEN":false
         },
         {
@@ -379,14 +508,13 @@
             "props":{"y":842,"x":72,"var":"btn_return","stateNum":"1","skin":"image/common/btn_backdi.png","anchorY":0.5,"anchorX":0.6},
             "nodeParent":1,
             "label":"Button(btn_return)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":11,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":15,"x":15,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
                     "nodeParent":11,
@@ -401,7 +529,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":49,"x":13,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                     "nodeParent":11,
@@ -421,14 +548,13 @@
             "props":{"y":594,"width":396,"skin":"image/menu/bottom_list.png","sizeGrid":"79,135,78,133","right":6,"height":200},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":16,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":2,"x":145,"text":"全服记录","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":16,
@@ -442,7 +568,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"y":41,"x":8,"width":379,"var":"panel_record","height":139},
                     "nodeParent":16,

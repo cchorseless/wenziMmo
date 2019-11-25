@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":152,
-    "selecteID":153,
+    "selectedBox":60,
+    "selecteID":73,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -112,13 +112,14 @@
                     "props":{"y":25,"x":17,"name":"item0"},
                     "nodeParent":34,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":121,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":99,"width":611,"var":"panel_0","height":668},
                             "nodeParent":121,
@@ -130,6 +131,7 @@
                             "compId":56,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"x":0,"width":620,"var":"vbox_0","align":"center"},
                                     "nodeParent":56,
@@ -145,17 +147,19 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-10,"x":22},
                             "nodeParent":121,
                             "label":"Box",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":60,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":42,"x":0,"scaleX":1.1},
                                     "nodeParent":60,
@@ -167,6 +171,7 @@
                                     "compId":61,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"skin":"image/common/img_common_25.png"},
                                             "nodeParent":61,
@@ -180,6 +185,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"width":0,"var":"img_pregress","skin":"image/common/img_common_25down.png"},
                                             "nodeParent":61,
@@ -194,8 +200,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":12,"x":41,"var":"img_baoxiang1","skin":"image/common/icon_baoxiang1_open.png"},
+                                    "props":{"y":52,"x":81,"var":"img_baoxiang1","skin":"image/common/icon_baoxiang1_open.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":60,
                                     "label":"Image(img_baoxiang1)",
                                     "isOpen":true,
@@ -208,6 +215,7 @@
                                     "$LOCKED":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":66,"x":43,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
                                     "nodeParent":60,
@@ -219,6 +227,7 @@
                                     "compId":65,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":5,"x":28,"text":"60","strokeColor":"#404040","stroke":4,"fontSize":18,"color":"#ffffff"},
                                             "nodeParent":65,
@@ -233,8 +242,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":11,"x":140,"var":"img_baoxiang2","skin":"image/common/icon_baoxiang2_close.png"},
+                                    "props":{"y":51,"x":180,"var":"img_baoxiang2","skin":"image/common/icon_baoxiang2_close.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":60,
                                     "label":"Image(img_baoxiang2)",
                                     "isDirectory":false,
@@ -246,6 +256,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":68,"x":147,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
                                     "nodeParent":60,
@@ -257,6 +268,7 @@
                                     "compId":68,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":5,"x":28,"text":"120","strokeColor":"#404040","stroke":4,"fontSize":18,"color":"#ffffff"},
                                             "nodeParent":68,
@@ -271,8 +283,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":10,"x":239,"var":"img_baoxiang3","skin":"image/common/icon_baoxiang3_close.png"},
+                                    "props":{"y":50,"x":279,"var":"img_baoxiang3","skin":"image/common/icon_baoxiang3_close.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":60,
                                     "label":"Image(img_baoxiang3)",
                                     "isDirectory":false,
@@ -283,6 +296,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":68,"x":246,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
                                     "nodeParent":60,
@@ -294,6 +308,7 @@
                                     "compId":71,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":5,"x":28,"text":"180","strokeColor":"#404040","stroke":4,"fontSize":18,"color":"#ffffff"},
                                             "nodeParent":71,
@@ -308,8 +323,9 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":11,"x":340,"var":"img_baoxiang4","skin":"image/common/icon_baoxiang4_close.png"},
+                                    "props":{"y":51,"x":380,"var":"img_baoxiang4","skin":"image/common/icon_baoxiang4_close.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":60,
                                     "label":"Image(img_baoxiang4)",
                                     "isDirectory":false,
@@ -320,6 +336,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":66,"x":341,"width":25,"skin":"image/common/icon_huoyuedu.png","height":33},
                                     "nodeParent":60,
@@ -331,6 +348,7 @@
                                     "compId":74,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":5,"x":28,"text":"240","strokeColor":"#404040","stroke":4,"fontSize":18,"color":"#ffffff"},
                                             "nodeParent":74,
@@ -347,6 +365,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":-21,"x":492,"width":102,"stateNum":"2","skin":"image/common/button_shenqingjiaru_finish.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":18,"labelPadding":"-8","labelFont":"Microsoft YaHei","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"当前活跃度","height":103},
                             "nodeParent":121,
@@ -358,6 +377,7 @@
                             "compId":76,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":58,"x":28,"width":58,"var":"lbl_huoyue","text":"120","strokeColor":"#404040","stroke":4,"height":26,"fontSize":26,"color":"#f9e596","align":"center"},
                                     "nodeParent":76,

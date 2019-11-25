@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":50,
-    "selecteID":87,
+    "selectedBox":1,
+    "selecteID":89,
     "props":{"width":621,"sceneColor":"#ffffff","height":799},
     "nodeParent":-1,
     "label":"View",
@@ -251,13 +251,14 @@
             "props":{"y":123,"x":76,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
                     "nodeParent":8,
@@ -281,20 +282,21 @@
                                 ]
                         }],
                     "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":12,"x":13,"width":171,"var":"img_treasureBox1","skin":"image/common/icon_bigbaoxiang_1close.png","height":171},
-                    "nodeParent":8,
-                    "label":"Image(img_treasureBox1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
                 }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":220,"x":174,"width":171,"var":"img_treasureBox1","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_treasureBox1)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
+            "child":[
+                ],
             "$HIDDEN":false
         },
         {
@@ -317,13 +319,14 @@
             "props":{"y":123,"x":346,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":15,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
                     "nodeParent":15,
@@ -346,20 +349,21 @@
                             "child":[
                                 ]
                         }]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":12,"x":13,"width":171,"var":"img_treasureBox2","skin":"image/common/icon_bigbaoxiang_1close.png","height":171},
-                    "nodeParent":15,
-                    "label":"Image(img_treasureBox2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":220,"x":444,"width":171,"var":"img_treasureBox2","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_treasureBox2)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":16,
+            "child":[
+                ]
         },
         {
             "x":15,
@@ -381,13 +385,14 @@
             "props":{"y":376,"x":76,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":21,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
                     "nodeParent":21,
@@ -410,20 +415,21 @@
                             "child":[
                                 ]
                         }]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":12,"x":13,"width":171,"var":"img_treasureBox3","skin":"image/common/icon_bigbaoxiang_1close.png","height":171},
-                    "nodeParent":21,
-                    "label":"Image(img_treasureBox3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":22,
-                    "child":[
-                        ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":473,"x":174,"width":171,"var":"img_treasureBox3","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_treasureBox3)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":22,
+            "child":[
+                ]
         },
         {
             "x":15,
@@ -445,13 +451,14 @@
             "props":{"y":377,"x":347,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":27,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
                     "nodeParent":27,
@@ -474,20 +481,21 @@
                             "child":[
                                 ]
                         }]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":12,"x":13,"width":171,"var":"img_treasureBox4","skin":"image/common/icon_bigbaoxiang_1close.png","height":171},
-                    "nodeParent":27,
-                    "label":"Image(img_treasureBox4)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":474,"x":445,"width":171,"var":"img_treasureBox4","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Image(img_treasureBox4)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":28,
+            "child":[
+                ]
         },
         {
             "x":15,

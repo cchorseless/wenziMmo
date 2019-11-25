@@ -36,7 +36,6 @@ module ResData {
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
-
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
         ];
@@ -141,7 +140,8 @@ module ResData {
         public static JuQingMode = [{ url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }];
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS }
+        { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }
         ];
         //新服活动
         public static NewServerActive = null;

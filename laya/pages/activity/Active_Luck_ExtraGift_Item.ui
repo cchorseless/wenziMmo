@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":5,
+    "selecteID":7,
     "props":{"width":538,"sceneColor":"#000000","height":113},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":1,"width":538,"skin":"image/common/fram_common_11.png","height":113},
+            "props":{"y":1,"x":1,"width":538,"skin":"image/menu/bottom_list.png","sizeGrid":"33,149,33,33","height":113},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":33,"x":0,"width":45,"skin":"image/common/title_ConfederationDeclaration.png","skewY":270,"skewX":90,"pivotY":0.5,"pivotX":0.5,"height":311},
+            "props":{"y":0,"x":2,"width":229,"skin":"image/menu/bottom_jisheng.png","height":35},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -69,13 +69,26 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":34,"x":38,"width":373,"var":"panel_item","height":75},
+            "props":{"y":34,"x":38,"width":276,"var":"panel_item","height":75},
             "nodeParent":1,
             "label":"Panel(panel_item)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":16,"x":370,"skin":"image/common/line_fenge.png","height":80},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":7,
             "child":[
                 ]
         }],

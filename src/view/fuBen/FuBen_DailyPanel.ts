@@ -69,7 +69,6 @@ module view.fuBen {
 		/**
 		 * 心魔界面
 		 */
-
 		public json;
 		public init_XinMo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
@@ -80,7 +79,10 @@ module view.fuBen {
 					let data: ProtoCmd.itf_FB_XinMoInfo = jsonData[key];
 					// 索引
 					data.index = parseInt(key);
-					this.hbox_xinMo.addChild(new view.fuBen.FuBenDailyXinMoItem().setData(data));
+					//是否展示为1时
+					if (data.show == 1) {
+						this.hbox_xinMo.addChild(new view.fuBen.FuBenDailyXinMoItem().setData(data));
+					}
 				}
 				this.json = jsonData[1]
 				this.update_XinMo(this.json);
@@ -89,6 +91,12 @@ module view.fuBen {
 		}
 		public curSelectIndex = 1;
 		public update_XinMo(data: ProtoCmd.itf_FB_XinMoInfo): FuBen_DailyPanel {
+			//点击发光效果
+			for (let single of this.hbox_xinMo._childs) {
+				single.img_light.visible = false;
+			}
+			let i = data.index - 1;
+			this.hbox_xinMo._childs[i].img_light.visible = true;
 			this.curSelectIndex = data.index;
 			//boss[1]名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid).split("_");

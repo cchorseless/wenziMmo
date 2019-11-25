@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":2,
-    "selecteID":4,
+    "selecteID":34,
     "props":{"width":597,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -24,6 +24,20 @@
             "hasChild":true,
             "compId":2,
             "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":166,"x":26,"width":544,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","height":537,"alpha":0.7},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":37,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
                 {
                     "x":30,
                     "type":"Button",
@@ -68,8 +82,22 @@
                 },
                 {
                     "x":30,
+                    "type":"Image",
+                    "props":{"y":162,"x":20,"width":550,"skin":"image/common/login/line_yeqian.png"},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":36,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":124,"x":45,"var":"tab_div","stateNum":2,"space":1,"skin":"image/common/btn_common_04_finish.png","selectedIndex":-1,"labels":"月卡,充值,VIP特权","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"labelAlign":"left","direction":"horizontal"},
+                    "props":{"y":99,"x":113,"var":"tab_div","strokeColors":"#aa6d13,#aa6d13","stateNum":2,"space":20,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":-1,"scaleY":1.2,"scaleX":1.15,"labels":"充值,VIP特权","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","labelAlign":"left","direction":"horizontal"},
                     "nodeParent":2,
                     "label":"Tab(tab_div)",
                     "isDirectory":false,
@@ -77,21 +105,36 @@
                     "hasChild":false,
                     "compId":34,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"ViewStack",
-                    "props":{"y":175,"x":48,"width":501,"var":"ViewS_show","height":723},
+                    "props":{"y":168,"x":34,"width":532,"var":"ViewS_show","height":736},
                     "nodeParent":2,
                     "label":"ViewStack(ViewS_show)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":32,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"recharge_vip/Recharge_Item.ui",
+                            "props":{},
+                            "nodeParent":32,
+                            "label":"UIView",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":38,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
                 }],
             "$LOCKED":false
         }],

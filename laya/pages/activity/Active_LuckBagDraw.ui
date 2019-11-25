@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":51,
+    "selecteID":14,
     "props":{"width":638,"sceneColor":"#f1e4e4","height":883},
     "nodeParent":-1,
     "label":"View",
@@ -85,7 +85,7 @@
                 {
                     "x":30,
                     "type":"HTMLDivElement",
-                    "props":{"y":794,"x":125,"width":449,"var":"html_time","height":50},
+                    "props":{"y":807,"x":125,"width":449,"var":"html_time","height":30},
                     "nodeParent":2,
                     "label":"HTMLDivElement(html_time)",
                     "isDirectory":false,
@@ -98,7 +98,7 @@
                 {
                     "x":30,
                     "type":"HTMLDivElement",
-                    "props":{"y":831,"x":139,"width":449,"var":"html_cost","height":48},
+                    "props":{"y":844,"x":125,"width":449,"var":"html_cost","height":30},
                     "nodeParent":2,
                     "label":"HTMLDivElement(html_cost)",
                     "isDirectory":false,
@@ -163,7 +163,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":145,"x":71,"width":119,"var":"btn_gift1","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelSize":26,"labelFont":"FZXK","labelColors":"#404040","label":"初级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":145,"x":71,"width":119,"var":"btn_gift1","strokeColors":"#63491a,#63491a,#63491a","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelSize":26,"labelFont":"FZXK","labelColors":"#63491a,#ffffff","label":"初级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_gift1)",
                     "isDirectory":false,
@@ -177,7 +177,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":145,"x":195,"width":119,"var":"btn_gift2","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#404040","label":"中级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":145,"x":195,"width":119,"var":"btn_gift2","strokeColors":"#63491a,#63491a,#63491a","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#63491a,#ffffff","label":"中级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_gift2)",
                     "isDirectory":false,
@@ -191,7 +191,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":145,"x":319,"width":119,"var":"btn_gift3","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#404040","label":"高级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":145,"x":319,"width":119,"var":"btn_gift3","strokeColors":"#63491a,#63491a,#63491a","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#63491a,#ffffff","label":"高级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_gift3)",
                     "isDirectory":false,
@@ -205,7 +205,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":145,"x":442,"width":119,"var":"btn_gift4","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#404040","label":"特技礼包","height":54,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":145,"x":442,"width":119,"var":"btn_gift4","strokeColors":"#63491a,#63491a,#63491a","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#63491a,#ffffff","label":"特级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_gift4)",
                     "isDirectory":false,
@@ -219,7 +219,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":145,"x":564,"width":119,"var":"btn_gift5","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#404040","label":"神级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":145,"x":564,"width":119,"var":"btn_gift5","strokeColors":"#63491a,#63491a,#63491a","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","scaleY":1,"scaleX":1,"labelSize":26,"labelFont":"FZXK","labelColors":"#63491a,#ffffff","label":"神级礼包","height":54,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Button(btn_gift5)",
                     "isDirectory":false,
@@ -304,13 +304,14 @@
                     "props":{"y":194,"x":287,"width":100,"height":104},
                     "nodeParent":2,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":63,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"x":13,"width":75,"var":"box_1","height":75},
                             "nodeParent":63,
@@ -322,6 +323,7 @@
                             "compId":54,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-15,"x":-13,"width":114,"skin":"image/common/icon_baoxiang3_close.png","scaleY":1,"scaleX":1,"height":114},
                                     "nodeParent":54,
@@ -336,6 +338,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":77,"x":8,"width":100,"var":"lab_name1","text":"礼包A","stroke":2,"height":24,"fontSize":20,"font":"FZHL","color":"#f5dd7b","align":"center"},
                             "nodeParent":63,

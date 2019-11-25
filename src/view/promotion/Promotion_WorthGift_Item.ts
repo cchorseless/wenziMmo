@@ -43,16 +43,13 @@ module view.promotion {
 			}
 		}
 		public setTimeShow(data) {
-			this.lab_LastPrice.text = "原价" + data.item.oldprice +"元";
-
-			this.html_CurPrice.style.align = "center";
-			this.html_CurPrice.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:40;stroke:0.5;strokeColor:#000000'>现</span>"
-				+ "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:48;stroke:2;strokeColor:#fff3bd'>" + data.item.newprice + "元" + "</span>";
-
+			this.lab_LastPrice.text = "原价" + data.item.oldprice + "元";
+			//现价
+			this.clip_nowPrice.value = '' + data.item.newprice;
 
 			this.html_buyTimes.style.align = "center";
 			this.html_buyTimes.innerHTML = "<span style='color:#000000;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>限购次数：</span>"
-				+ "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:2;strokeColor:#fff3bd'>" + data.cnt + "</span>"
+				+ "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24'>" + data.cnt + "</span>"
 				+ "<span style='color:#000000;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>次</span>"
 
 
@@ -85,7 +82,7 @@ module view.promotion {
 			EventManage.onWithEffect(this.btn_buy, Laya.UIEvent.CLICK, this, () => {
 				if (this.bj == 0) {
 					let o = new view.recharge_vip.Recharge_VipDialog();
-					o.setData(1);
+					o.setData(0);
 					o.popup(true);
 				} else if (this.bj == 1) {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ChaoZhiBuy, null)

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":18,
+    "selecteID":5,
     "props":{"width":589,"sceneColor":"#000000","height":113},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":1,"width":598,"skin":"image/common/fram_common_11.png","height":113},
+            "props":{"y":1,"x":1,"width":598,"skin":"image/menu/bottom_list.png","sizeGrid":"22,145,19,0","height":113},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,7 +28,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":53.500000013397305,"x":519.500003577119,"var":"btn_mix","stateNum":2,"skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"合成","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":54,"x":520,"width":98,"var":"btn_mix","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"合成","height":45,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_mix)",
             "isDirectory":false,
@@ -67,7 +67,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":38,"x":36,"width":184,"var":"lab_name","valign":"middle","text":"热血装备箱合成","stroke":3,"height":39,"fontSize":24,"color":"#f5dd7b"},
+            "props":{"y":38,"x":36,"width":184,"var":"lab_name","valign":"middle","text":"热血装备箱合成","stroke":3,"height":39,"fontSize":24,"font":"FZHL","color":"#f5dd7b"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,
@@ -80,7 +80,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":83,"x":246,"width":80,"var":"lab_num","valign":"middle","text":"0/20","stroke":0.5,"height":28,"fontSize":22,"font":"FZXK","color":"#000000","align":"center"},
+            "props":{"y":83,"x":246,"width":80,"var":"lab_num","valign":"middle","text":"0/20","stroke":0.5,"height":28,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_num)",
             "isDirectory":false,

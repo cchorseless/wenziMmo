@@ -7,7 +7,7 @@ module view.recharge_vip {
 			Recharge_VipDialog.self = this;
 			this.addEvent();
 		}
-		//0:月卡  1:充值   2:VIP特权
+		//  0:充值   1:VIP特权      月卡转移到menu界面
 		public setData(tab) {
 			for (let i = 0; i < 3; i++) {
 				let box = new Laya.Box();
@@ -20,7 +20,7 @@ module view.recharge_vip {
 		}
 		public addEvent() {
 			EventManage.onWithEffect(this.btn_close, Laya.UIEvent.CLICK, this, () => {
-				GameApp.LListener.offCaller(ProtoCmd.ZGTQ_Open, this)
+				// GameApp.LListener.offCaller(ProtoCmd.ZGTQ_Open, this)
 				GameApp.LListener.offCaller(ProtoCmd.cashPanel, this)
 				GameApp.LListener.offCaller(ProtoCmd.VIP_OpenPlane, this)
 				this.close();
@@ -32,6 +32,17 @@ module view.recharge_vip {
 
 			})
 		}
+		// 
+		// 	if (id == 0) {
+		// 		GameApp.LListener.on(ProtoCmd.ZGTQ_Open, this, (data) => {
+		// 			box.removeChildren();
+		// 			let o = new Recharge_VIPMonthCard()
+		// 			o.setData(data)
+		// 			box.addChild(o);
+		// 		})
+		// 		let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.ZGTQ_Open, null)
+		// 		lcp.send(pkt0);
+		// 	}
 		public changeTab() {
 			this.ViewS_show.selectedIndex = this.tab_div.selectedIndex = 1;
 			this.getActiveInfoData(this.tab_div.selectedIndex);
@@ -40,15 +51,6 @@ module view.recharge_vip {
 			let box = this.ViewS_show.getChildAt(id);
 			if (box.numChildren == 0) {
 				if (id == 0) {
-					GameApp.LListener.on(ProtoCmd.ZGTQ_Open, this, (data) => {
-						box.removeChildren();
-						let o = new Recharge_VIPMonthCard()
-						o.setData(data)
-						box.addChild(o);
-					})
-					let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.ZGTQ_Open, null)
-					lcp.send(pkt0);
-				} else if (id == 1) {
 					GameApp.LListener.on(ProtoCmd.cashPanel, this, (data) => {
 						box.removeChildren();
 						let o = new Recharge_Item()
@@ -57,7 +59,7 @@ module view.recharge_vip {
 					})
 					let pkt1 = new ProtoCmd.QuestClientData().setString(ProtoCmd.cashPanel, null)
 					lcp.send(pkt1);
-				} else if (id == 2) {
+				} else if (id == 1) {
 					GameApp.LListener.on(ProtoCmd.VIP_OpenPlane, this, (data) => {
 						box.removeChildren();
 						let o = new Recharge_VipWelfare()

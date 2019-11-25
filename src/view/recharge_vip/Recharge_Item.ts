@@ -38,11 +38,11 @@ module view.recharge_vip {
 			let spanExp = this.giftData.nextcash - this.giftData.curcash;
 			if (this.vipLv != 12) {
 				this.textFlow.style.align = "center"
-				this.textFlow.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>再充值</span>"
-					+ "<span style='color:#ffffff;font-family:FZHuaLi-M14S;fontSize:28;stroke:2;strokeColor:#000000'>" + spanExp + "</span>"
-					+ "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>元宝</span>"
-					+ "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>即可成为</span>"
-					+ "<span style='color:#efe4a0;font-family:FZHuaLi-M14S;fontSize:30;stroke:2;strokeColor:#000000'>" + "VIP" + (this.vipLv + 1) + "</span>";
+				this.textFlow.innerHTML = "<span style='color:#000000;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>再充值</span>"
+					+ "<span style='color:#ffffff;font-family:FZHuaLi-M14S;fontSize:28;stroke:4;strokeColor:#000000'>" + spanExp + "</span>"
+					+ "<span style='color:#000000;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>元宝</span>"
+					+ "<span style='color:#000000;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>即可成为</span>"
+					+ "<span style='color:#f5dd7b;font-family:FZHuaLi-M14S;fontSize:30;stroke:4;strokeColor:#000000'>" + "VIP" + (this.vipLv + 1) + "</span>";
 			}
 			else {
 				this.textFlow.style.align = "center"

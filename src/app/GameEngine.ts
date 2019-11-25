@@ -81,6 +81,8 @@ class GameEngine extends SingletonClass {
     public tokenCheck: number;
     public logintoken: Laya.Byte;
 
+    public activityStatus:ProtoCmd.itf_MENU_ActiveStatus = null;
+
     //服务器开服信息
     public openDay = null;
 

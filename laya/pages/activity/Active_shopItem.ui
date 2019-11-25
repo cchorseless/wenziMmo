@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":23,
+    "selecteID":24,
     "props":{"width":241,"sceneColor":"#000000","height":251},
     "nodeParent":-1,
     "label":"View",
@@ -89,7 +89,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":170,"x":127,"var":"lab_curNum","text":"1888","stroke":0.5,"fontSize":22,"font":"FZHL","color":"#63491a"},
+            "props":{"y":170,"x":136,"var":"lab_curNum","text":"1888","stroke":0.5,"fontSize":22,"font":"FZHL","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lab_curNum)",
             "isDirectory":false,
@@ -102,7 +102,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":171,"x":56,"width":73,"text":"抢购价:","stroke":0.5,"height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
+            "props":{"y":171,"x":65,"width":73,"text":"抢购价:","stroke":0.5,"height":22,"fontSize":22,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -149,6 +149,32 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":133,"x":27,"skin":"image/main/icon_yuanbao.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":23,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":166,"x":27,"skin":"image/main/icon_yuanbao.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":24,
             "child":[
                 ]
         }],

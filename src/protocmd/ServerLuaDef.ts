@@ -345,6 +345,10 @@ module ProtoCmd {
     export const Menu_JingCaiClientOpenEx = "JingCaiClientOpenEx";
 
     /*********************************新服活动******************** */
+    /**
+     * 获取菜单界面的活动state
+     */
+    export const HuoDongStatus = "HuoDongStatus";
     //新服活动面板
     export const NS_XinFuClientOpen = "XinFuClientOpen";
     //开服竞技
@@ -551,13 +555,22 @@ module ProtoCmd {
 
 
 
+    export const tubiaofasong = "tubiaofasong";  //菜单界面的动态切图的刷新，实时推送
+
+
+
 }
 
 /**
  * 返回结构体
  */
 module ProtoCmd {
+    /**
+     * 活动status返回data
+     */
+    export interface itf_MENU_ActiveStatus {
 
+    }
 
 
     /**
@@ -956,6 +969,8 @@ module ProtoCmd {
         maxcnt: number;//最大刷副本次数
         maxlv: number;//最大等级
         minlv: number;//最小等级
+        maxzslv: number;//最大转生等级
+        minzslv: number;//最小转生等级
         monsterid: number;//bossID
         sec: number;//剩余刷新时间
         show: number;//是否展示
