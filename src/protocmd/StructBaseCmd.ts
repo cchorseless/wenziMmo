@@ -1089,6 +1089,8 @@ module ProtoCmd {
         private _stNpProperty: Array<Nonpareil> = [];// 极品属性对象
         private _npCount: number = 0;       //极品属性的条数
         private _npDesCount: number = 0;    //极品属性的描述数量
+        public mapX;//掉落地图的X坐标
+        public mapY;//掉落地图的Y坐标
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {
@@ -1414,7 +1416,6 @@ module ProtoCmd {
          */
         public recoverUI(): void {
             if (this.ui_item) {
-                console.log(this.ui_item)
                 this.ui_item.destroy(true);
             }
             this.ui_item = null;
