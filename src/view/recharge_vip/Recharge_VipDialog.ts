@@ -9,7 +9,7 @@ module view.recharge_vip {
 		}
 		//  0:充值   1:VIP特权      月卡转移到menu界面
 		public setData(tab) {
-			for (let i = 0; i < 3; i++) {
+			for (let i = 0; i < 2; i++) {
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
 				this.ViewS_show.addItem(box);
@@ -63,6 +63,7 @@ module view.recharge_vip {
 					GameApp.LListener.on(ProtoCmd.VIP_OpenPlane, this, (data) => {
 						box.removeChildren();
 						let o = new Recharge_VipWelfare()
+						o.x = 16;
 						o.setData(data)
 						box.addChild(o);
 					})

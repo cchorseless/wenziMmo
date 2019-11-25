@@ -141,7 +141,8 @@ module ResData {
         // 菜单界面
         public static Menu = [{ url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }
+        { url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS }
         ];
         //新服活动
         public static NewServerActive = null;
