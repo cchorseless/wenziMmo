@@ -129,8 +129,17 @@ module ProtoCmd {
     /********************************资源副本*********************** */
     // 资源状态
     export const FB_CLFubenStatus = 'CLFubenStatus';
-    //单个资源副本
+    // 单个资源副本
     export const FB_OpenNpc_CLFuben = 'OpenNpc_CLFuben';
+    // 进入副本
+    export const FB_Into_CLFuben = 'Into_CLFuben';
+    // 领取奖励
+    export const FB_CLFuben_LingJiang = 'CLFuben_LingJiang';
+    // 离开副本
+    export const FB_CaiLiaoFuBenLikai = 'CaiLiaoFuBenLikai';
+    // 扫荡
+    export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';
+
     /********************************心魔副本*********************** */
     // 打开个人boss界面
     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
