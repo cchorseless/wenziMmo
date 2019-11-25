@@ -30,7 +30,7 @@ module view.compart {
 				GameApp.GameEngine.zoneid = this.res0.zoneId;
 				GameApp.GameEngine.trueZoneid = this.res0.trueZoneId;
 				GameApp.GameEngine.tradeid = this.res0.tradeId
-				PanelManage.ChooseServer.lbl_serverName.text = '' + this.res0.zoneName;
+				PanelManage.ChooseServer.lbl_serverName.text = this.res0.zoneName || 'error';
 				view.dialog.ServerListDialog.closeAll()
 
 			})
@@ -40,7 +40,7 @@ module view.compart {
 				GameApp.GameEngine.zoneid = this.res1.zoneId;
 				GameApp.GameEngine.trueZoneid = this.res1.trueZoneId;
 				GameApp.GameEngine.tradeid = this.res1.tradeId
-				PanelManage.ChooseServer.lbl_serverName.text = '' + this.res1.zoneName;
+				PanelManage.ChooseServer.lbl_serverName.text = this.res1.zoneName || 'error';
 				view.dialog.ServerListDialog.closeAll()
 
 			})
