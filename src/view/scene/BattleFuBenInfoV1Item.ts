@@ -7,14 +7,17 @@ module view.scene {
 		}
 
 
-		public setData(){
+		public setData() {
 
 		}
 
 		public addEvent(): void {
 			this.btn_exit.on(Laya.UIEvent.CLICK, this, () => {
-				// switch()
-			})
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.FB_GeRenBoss_Leave);
+				lcp.send(pkt);
+			});
+
 		}
 	}
 }

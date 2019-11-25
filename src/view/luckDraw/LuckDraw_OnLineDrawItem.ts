@@ -85,7 +85,6 @@ module view.luckDraw {
 						drawInfo.dwCount = data.num;
 						this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);
 					}
-
 				} else {
 					this.ui_item0.ui_item.img_item.visible = false;
 					this.ui_item0.ui_item.lbl_count.visible = false;

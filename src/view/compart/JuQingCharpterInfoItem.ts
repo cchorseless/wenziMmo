@@ -5,12 +5,33 @@ module view.compart {
 			super();
 		}
 		public item: ProtoCmd.itf_JUQING_PIANZHANG;
-		public setData(item: ProtoCmd.itf_JUQING_PIANZHANG): void {
+		public setData(item: ProtoCmd.itf_JUQING_PIANZHANG, key: number): void {
 			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
+			this.lbl_id.text = '第' + numArray[key] + '卷';
 			this.item = item;
-			this.lbl_charpterCount.text = '合计' + numArray[item.cnt] + '章';
 			this.lbl_charpterName.text = '' + item.name;
-			//已完成，lbl_charpterCount字号变成30，颜色变#14790d,label变已完成;未解锁状态字号26，加锁标志，颜色#a53232,label未解锁
+			let nowChapter = GameApp.MainPlayer.pianZhangID;
+			if (item.id < nowChapter) {
+				this.lbl_charpterCount.fontSize = 30;
+				this.lbl_charpterCount.color = '#14790d';
+				this.lbl_charpterCount.text = '已完成';
+				this.img_charpter.skin = 'image/juQingMode/list_mulu_yiwanchng.png';
+				this.img_shuo.visible = false;
+			}
+			if (item.id == nowChapter) {
+				this.lbl_charpterCount.fontSize = 26;
+				this.lbl_charpterCount.color = '#623e24';
+				this.lbl_charpterCount.text = '合计' + numArray[item.cnt] + '章';
+				this.img_charpter.skin = 'image/juQingMode/list_mulu_yijiesuo.png';
+				this.img_shuo.visible = false;
+			}
+			if (item.id > nowChapter) {
+				this.lbl_charpterCount.fontSize = 26;
+				this.lbl_charpterCount.color = '#a53232';
+				this.lbl_charpterCount.text = '未解锁';
+				this.img_charpter.skin = 'image/juQingMode/list_mulu_weiwanchng.png';
+				this.img_shuo.visible = true;
+			}
 		}
 	}
 }

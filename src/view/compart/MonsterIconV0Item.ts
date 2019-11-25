@@ -17,7 +17,7 @@ module view.compart {
 			this.img_monsterPic.skin = 'image/common/nppc/npc_icon_' + data.monsterid + '.png';
 			let lvl = GameApp.MainPlayer.level;
 			let needlvl = data.need;
-			let mylvl=0;
+			let mylvl = 0;
 			let name;
 			switch (data.type) {
 				case 0:
@@ -59,7 +59,7 @@ module view.compart {
 			if (lvl >= data.lv && mylvl >= needlvl) {
 				if (data.star == 0) {
 					this.lbl_label.visible = true;
-					this.lbl_label.y=20;
+					this.lbl_label.y = 20;
 					this.lbl_label.height = 22;
 					this.lbl_label.color = '#0f6809';
 					this.lbl_label.text = '未通关';
@@ -75,10 +75,15 @@ module view.compart {
 			}
 			else {
 				this.lbl_label.visible = true;
-				this.lbl_label.y=2;
+				this.lbl_label.y = 2;
 				this.lbl_label.height = 44;
 				this.lbl_label.color = '#a53232';
-				this.lbl_label.text = name + '达到' + needlvl + '解锁';
+				if (data.type == 0) {
+					this.lbl_label.text = '玩家等级达到' + data.lv + '解锁';
+				}
+				else {
+					this.lbl_label.text = name + '达到' + needlvl + '解锁';
+				}
 				this.box_star.visible = false;
 			}
 		}

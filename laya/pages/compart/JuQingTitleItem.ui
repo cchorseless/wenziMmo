@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":12,
-    "selecteID":13,
+    "selectedBox":1,
+    "selecteID":11,
     "props":{"y":0,"x":0,"width":215,"sceneColor":"#907676","height":91},
     "nodeParent":-1,
     "label":"View",
@@ -18,14 +18,13 @@
             "props":{"y":0,"x":0,"var":"box_view"},
             "nodeParent":1,
             "label":"Box(box_view)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":16,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"width":215,"var":"btn_bg","stateNum":"2","skin":"image/juQingMode/bottom_zhangjie.png","height":91},
                     "nodeParent":16,
@@ -37,7 +36,6 @@
                     "compId":12,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":16,"x":65,"width":121,"var":"lbl_charpterNo","text":"第一章","strokeColor":"#4e2a2a","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#ffeeb1","align":"center"},
                             "nodeParent":12,
@@ -50,7 +48,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":48,"x":42,"wordWrap":true,"width":167,"var":"lbl_charpterName","text":"确定目标","leading":-5,"height":43,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":12,
@@ -63,7 +60,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":14,"x":16,"wordWrap":true,"width":21,"var":"lbl_conDes","text":"已完成","height":62,"fontSize":20,"font":"FZXK","color":"#0f6809"},
                             "nodeParent":12,

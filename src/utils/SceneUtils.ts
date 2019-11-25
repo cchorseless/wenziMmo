@@ -264,6 +264,10 @@ class SceneManager extends SingletonClass {
                 npcIcon.setData(obj);
                 this.vbox_npc.addChild(npcIcon);
                 break;
+            // 道具
+            case EnumData.CRET_TYPE.CRET_ITEM:
+                this.ui_scene.addDaoJu(obj);
+                break;
             default:
                 break;
         }

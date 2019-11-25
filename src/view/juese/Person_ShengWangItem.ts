@@ -74,9 +74,15 @@ module view.juese {
 				//声望经验值
 				this.lbl_value.text = jsonData.minexp + '/' + jsonData.maxexp;
 				//声望排名
-				this.lbl_one.text = '声望第一：' + jsonData.rank[1];
-				this.lbl_two.text = '声望第二：' + jsonData.rank[2];
-				this.lbl_three.text = '声望第三：' + jsonData.rank[3];
+				let ranks = Object.keys(jsonData.rank);
+				let numArray = ['零', '一', '二', '三']
+				for (let i = 1; i < 4; i++) {
+					if (jsonData.rank[i]) {
+						this['lbl_shengwang' + i].text = '声望第' + numArray[i] + ':' + jsonData.rank[i];
+					} else {
+						this['lbl_shengwang' + i].text = '声望第' + numArray[i] + ':虚位以待';
+					}
+				}
 				// //当前属性
 				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 				let attribute1 = shuxing1.des;
@@ -89,7 +95,7 @@ module view.juese {
 				}
 				//下级属性
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
-				if (id !== 0) {
+				if (id !== undefined) {
 					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let battle = shuxing2.battle[this.job];
@@ -101,7 +107,6 @@ module view.juese {
 						this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(attribute1[key]))
 					}
 				}
-
 				//威望预览
 				this.hbox_shengWang.removeChildren();
 				for (let i = 0; jsonData.titletab[i]; i++) {
@@ -115,7 +120,7 @@ module view.juese {
 			pkt.setValue('rankType', EnumData.emRankType.Cret_Fame_Rank)
 			lcp.send(pkt, this, (data) => {
 				let bpkt = new ProtoCmd.stMyRankReturn(data);
-				if (bpkt.rank == undefined) {
+				if (bpkt.rank == undefined || bpkt.rank == -1) {
 					this.lbl_myRank.text = '未上榜';
 				} else {
 					this.lbl_myRank.text = '' + bpkt.rank;

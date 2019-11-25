@@ -726,7 +726,7 @@ class ServerListener extends SingletonClass {
         if (cbpkt.getValue('nNeiGongExp') > 0) {
             if (PopUpManager.curPanel.name == "neigong") {
                 let aa: number = cbpkt.getValue('nNeiGongExp')
-                
+
                 view.wuXue.WuXueNeiGongPanel.self.neigongIncrease(aa);
             } else {
                 return;
@@ -1242,9 +1242,10 @@ class ServerListener extends SingletonClass {
         itemInfo.dwBaseID = msg.getValue('dwBaseID');
         itemInfo.dwCount = msg.getValue('dwCount');
         itemInfo.btQuality = msg.getValue('btQuality');
-        // let itemUI = new view.compart.DaoJuWithNameItem();
-        // itemUI.setData(itemInfo);
+        itemInfo.mapX = msg.getValue('wX');
+        itemInfo.mapY = msg.getValue('wY');
         GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()] = itemInfo;
+        GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
         msg.clear();
         msg = null;
     }

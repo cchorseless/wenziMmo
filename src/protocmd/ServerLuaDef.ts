@@ -974,6 +974,8 @@ module ProtoCmd {
         maxcnt: number;//最大刷副本次数
         maxlv: number;//最大等级
         minlv: number;//最小等级
+        maxzslv: number;//最大转生等级
+        minzslv: number;//最小转生等级
         monsterid: number;//bossID
         sec: number;//剩余刷新时间
         show: number;//是否展示

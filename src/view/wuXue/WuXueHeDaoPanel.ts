@@ -185,8 +185,9 @@ module view.wuXue {
 				for (let key of keys) {
 					lvlArray.push(jsonData.wstab[key]);
 					this['btn_liqi' + key].label = 'lv.' + jsonData.wstab[key].lvl;
-					//魂力球按钮状态
+					//魂力球按钮状态（等级999则为未激活）
 					if (jsonData.wstab[key].lvl == 999) {
+						this['btn_liqi' + key].label='未激活'
 						this['btn_liqi' + key].mouseEnabled = false;
 					}
 					else {

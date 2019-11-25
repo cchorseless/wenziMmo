@@ -41,11 +41,11 @@ module GameObject {
         public viplvl: number = 0;//Vip等级
         public pkModel: EnumData.PkModel;// PK模式
         /******************视图信息************************ */
-        private _allPlayer: { [V: string]: GameObject.OtherPlayer } = {};//所有的玩家
-        private _allMonster: { [V: string]: GameObject.Monster } = {};//所有的怪物
-        private _allNpc: { [V: string]: GameObject.Npc } = {};//所有的NPC
-        private _allHero = {};// 所有的英雄
-        public allItem = {};//所有的掉落宝物
+        public allPlayer: { [V: string]: GameObject.OtherPlayer } = {};//所有的玩家
+        public allMonster: { [V: string]: GameObject.Monster } = {};//所有的怪物
+        public allNpc: { [V: string]: GameObject.Npc } = {};//所有的NPC
+        public allHero: { [V: string]: GameObject.Hero } = {};// 所有的英雄
+        public allItem: { [V: string]: ProtoCmd.ItemBase } = {};//所有的掉落宝物
 
         // ****************行会********************
         public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
@@ -310,7 +310,7 @@ module GameObject {
         public addViewObj(obj: any, type: EnumData.CRET_TYPE): void {
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    this._allPlayer[obj.tempId] = obj;
+                    this.allPlayer[obj.tempId] = obj;
                     // 角色和弟子互相绑定
                     if (this._tmpHeroList[obj.tempId]) {
                         obj.curHero = this._tmpHeroList[obj.tempId]
@@ -318,10 +318,10 @@ module GameObject {
                     }
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    this._allMonster[obj.tempId] = obj;
+                    this.allMonster[obj.tempId] = obj;
                     break;
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    this._allNpc[obj.tempId] = obj;
+                    this.allNpc[obj.tempId] = obj;
                     break;
                 case EnumData.CRET_TYPE.CRET_HERO:
                     // 角色和弟子互相绑定
@@ -331,14 +331,14 @@ module GameObject {
                         this.curHero = obj;
                     }
                     // 其他的弟子
-                    else if (this._allPlayer[masterID]) {
-                        this._allPlayer[masterID].curHero = obj;
-                        this._allHero[obj.tempId] = obj;
+                    else if (this.allPlayer[masterID]) {
+                        this.allPlayer[masterID].curHero = obj;
+                        this.allHero[obj.tempId] = obj;
                     }
                     // 玩家还没进来的情况
                     else {
                         this._tmpHeroList[masterID] = obj;
-                        this._allHero[obj.tempId] = obj;
+                        this.allHero[obj.tempId] = obj;
                     }
                     break;
                 default:
@@ -355,23 +355,23 @@ module GameObject {
             console.log(tempId + '从视野被移除');
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    if (this._allPlayer[tempId]) {
-                        this._allPlayer[tempId].clear();
-                        delete this._allPlayer[tempId]
+                    if (this.allPlayer[tempId]) {
+                        this.allPlayer[tempId].clear();
+                        delete this.allPlayer[tempId]
                     }
                     break;
 
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    if (this._allMonster[tempId]) {
-                        this._allMonster[tempId].clear();
-                        delete this._allMonster[tempId]
+                    if (this.allMonster[tempId]) {
+                        this.allMonster[tempId].clear();
+                        delete this.allMonster[tempId]
                     }
                     break;
 
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    if (this._allNpc[tempId]) {
-                        this._allNpc[tempId].clear();
-                        delete this._allNpc[tempId]
+                    if (this.allNpc[tempId]) {
+                        this.allNpc[tempId].clear();
+                        delete this.allNpc[tempId]
                     }
                     break;
 
@@ -397,15 +397,15 @@ module GameObject {
             }
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
-                    return this._allPlayer[tempId]
+                    return this.allPlayer[tempId]
                 case EnumData.CRET_TYPE.CRET_MONSTER:
-                    return this._allMonster[tempId]
+                    return this.allMonster[tempId]
                 case EnumData.CRET_TYPE.CRET_NPC:
-                    return this._allNpc[tempId]
+                    return this.allNpc[tempId]
                 case EnumData.CRET_TYPE.CRET_HERO:
-                    return this._allHero[tempId]
+                    return this.allHero[tempId]
                 default:
-                    for (let obj of [this._allPlayer[tempId], this._allMonster[tempId], this._allNpc[tempId], this._allHero[tempId]]) {
+                    for (let obj of [this.allPlayer[tempId], this.allMonster[tempId], this.allNpc[tempId], this.allHero[tempId]]) {
                         if (obj) return obj;
                     }
                     break;
@@ -413,58 +413,44 @@ module GameObject {
         }
 
         /**
-         * 视野内所有玩家
-         */
-        public get allPlayer() {
-            return this._allPlayer;
-        }
-        /**
-         * 视野内所有怪物
-         */
-        public get allMonster() {
-            return this._allMonster;
-        }
-        /**
-         * 视野内所有NPC
-         */
-        public get allNpc() {
-            return this._allNpc;
-        }
-
-        /**
-         * 是业内所有的英雄
-         */
-        public get allHero() {
-            return this._allHero;
-        }
-
-        /**
          * 清除视野内所有的对象
          */
         public clearViewObj() {
-            for (let tempId in this._allPlayer) {
-                this._allPlayer[tempId].clear();
-                this._allPlayer[tempId] = null;
+            // 清除所有玩家
+            for (let tempId in this.allPlayer) {
+                this.allPlayer[tempId].clear();
+                this.allPlayer[tempId] = null;
             }
-            this._allPlayer = {};
-            for (let tempId in this._allMonster) {
-                this._allMonster[tempId].clear();
-                this._allMonster[tempId] = null;
+            this.allPlayer = {};
+            // 清除所有怪物
+            for (let tempId in this.allMonster) {
+                this.allMonster[tempId].clear();
+                this.allMonster[tempId] = null;
             }
-            this._allMonster = {};
-            for (let tempId in this._allNpc) {
-                this._allNpc[tempId].clear();
-                this._allNpc[tempId] = null;
+            this.allMonster = {};
+            // 清除所有NPC
+            for (let tempId in this.allNpc) {
+                this.allNpc[tempId].clear();
+                this.allNpc[tempId] = null;
             }
-            this._allNpc = {};
-            for (let tempId in this._allHero) {
-                this._allHero[tempId].clear();
-                this._allHero[tempId] = null;
+            this.allNpc = {};
+            // 清除所有英雄
+            for (let tempId in this.allHero) {
+                this.allHero[tempId].clear();
+                this.allHero[tempId] = null;
             }
-            this._allHero = {};
+            this.allHero = {};
+            // 清除所有物品
+            for (let tempId in this.allItem) {
+                this.allItem[tempId].clear();
+                this.allItem[tempId] = null;
+
+            }
+            this.allItem = {};
             if (PanelManage.Main) {
-                 GameApp.SceneManager.clearViewUI();
+                GameApp.SceneManager.clearViewUI();
             }
+
         }
 
 

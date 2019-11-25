@@ -33,11 +33,11 @@ module view.dialog {
 			}
 			this.lbl_time.text = data[2];
 			this.lbl_timeIntroduce.text = data[3];
-			this.img_time.skin='image/main/img_time'+num+'.png'
+			this.img_time.skin = 'image/main/img_time' + num + '.png'
 		}
 		public init_season(): void {
 			let seasonData = SheetConfig.Solarterms.getInstance(null).GETDATALIST(1);
-				let keys = Object.keys(seasonData);
+			let keys = Object.keys(seasonData);
 			let data = null;
 			let num = null;
 			for (let key of keys) {
@@ -48,7 +48,7 @@ module view.dialog {
 				}
 			}
 			this.lbl_seasonIntroduce.text = data[3];
-			this.img_season.skin='image/main/img_season'+num+'.png'
+			this.img_season.skin = 'image/main/img_season' + num + '.png'
 		}
 	}
 }
