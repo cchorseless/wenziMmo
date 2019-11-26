@@ -11,15 +11,6 @@ module view.task {
 			this.vbox_0['sortItem'] = (items) => { };
 			this.panel_1.vScrollBarSkin = '';
 			this.vbox_1['sortItem'] = (items) => { };
-			this.panel_2.vScrollBarSkin = '';
-			this.vbox_2['sortItem'] = (items) => { };
-			this.panel_3.vScrollBarSkin = '';
-			this.vbox_3['sortItem'] = (items) => { };
-			for (let i = 0; i < 15; i++) {
-				// this.vbox_1.addChild(new view.compart.TaskInfoV0Item())
-				// this.vbox_2.addChild(new view.compart.TaskInfoV0Item())
-				// this.vbox_3.addChild(new view.compart.TaskInfoV0Item())
-			}
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
@@ -55,9 +46,9 @@ module view.task {
 			this.addLcpEvent();
 		}
 		/**
-			 * 活跃
-			 * 
-			 */
+		* 活跃
+		* 
+		*/
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
 				let keys = Object.keys(jsonData.tab);
