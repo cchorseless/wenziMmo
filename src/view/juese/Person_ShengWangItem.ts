@@ -95,7 +95,7 @@ module view.juese {
 				}
 				//下级属性
 				let id = parseInt(SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid));
-				if (id !== undefined) {
+				if (id != undefined) {
 					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let battle = shuxing2.battle[this.job];

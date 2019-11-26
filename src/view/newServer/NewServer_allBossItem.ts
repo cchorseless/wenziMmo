@@ -73,7 +73,7 @@ module view.newServer {
 		 * 拉取boss数据
 		 */
 		public init_clickEvent(): void {
-			if (this.data !== null) {
+			if (this.data != null) {
 				//boss类型
 				this.lbl_type.text = this.data[this.num].name;
 				//boss相关

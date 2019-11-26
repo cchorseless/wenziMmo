@@ -23,7 +23,7 @@ module view.dialog {
 			this.lbl_title.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + this.id);
 			//资质描述
 			let introduce = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMDES('' + this.id);
-			if (introduce !== undefined && introduce !== '' && introduce !== '0') {
+			if (introduce != undefined && introduce != '' && introduce != '0') {
 				this.lbl_introduce.text = '' + introduce;
 			}
 			//天赋属性

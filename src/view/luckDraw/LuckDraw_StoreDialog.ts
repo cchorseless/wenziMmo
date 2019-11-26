@@ -22,7 +22,7 @@ module view.luckDraw {
 			//回收非转生装备
 			this.btn_nozhuan.on(Laya.UIEvent.CLICK, this, () => {
 				this.sendData = this.noZhuanData;
-				if (this.sendData !== undefined) {
+				if (this.sendData != undefined) {
 					this.init_recovery();
 				}
 				else {
@@ -33,7 +33,7 @@ module view.luckDraw {
 			//回收1-2转生装备
 			this.btn_zhaun.on(Laya.UIEvent.CLICK, this, () => {
 				this.sendData = this.zhuanData;
-				if (this.sendData !== undefined) {
+				if (this.sendData != undefined) {
 					this.init_recovery();
 				}
 				else {
@@ -42,13 +42,13 @@ module view.luckDraw {
 			})
 			//经验丹使用
 			this.btn_use.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.data !== '') {
+				if (this.data != '') {
 					this.init_use();
 				}
 			})
 			//全部领取
 			this.btn_allGet.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.data !== '') {
+				if (this.data != '') {
 					this.init_allGet();
 				}
 			})
@@ -79,7 +79,7 @@ module view.luckDraw {
 			for (let i = 0; i < 20; i++) {
 				this.vbox_store.addChild(new view.compart.DaoJuGroupItem())
 			}
-			if (this.data !== '') {
+			if (this.data != '') {
 				let item = this.data.split('+')
 				let keys = Object.keys(item)
 				let num = Math.ceil(keys.length / 6)
@@ -104,7 +104,7 @@ module view.luckDraw {
 		 * 仓库物品分类
 		 */
 		public init_dataEvent(): void {
-			if (this.data !== '') {
+			if (this.data != '') {
 				let item = this.data.split('+');
 				let keys = Object.keys(item);
 				let i = 0;

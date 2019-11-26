@@ -130,7 +130,7 @@ module view.luckDraw {
 				standardInfo.dwBinding = standardItem.binding;
 				this.ui_item11.setData(standardInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				//全服记录
-				if (jsonData.extab.logtab !== undefined) {
+				if (jsonData.extab.logtab != undefined) {
 					let records = Object.keys(jsonData.extab.logtab)
 					this.vbox_record.removeChildren();
 					for (let record of records) {

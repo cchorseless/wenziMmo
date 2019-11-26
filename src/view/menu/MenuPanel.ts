@@ -114,7 +114,7 @@ module view.menu {
 					let data = 0;
 					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
 						data = jsonData;
-						if (data !== 0) {
+						if (data != 0) {
 							new view.menu.MenuGuessDialog().popup(true);
 						}
 					});
@@ -134,7 +134,7 @@ module view.menu {
 					let data = 0;
 					pkt.setString(ProtoCmd.Menu_JingCaiClientOpen, null, null, this, (jsonData) => {
 						data = jsonData;
-						if (data !== 0) {
+						if (data != 0) {
 							new view.menu.MenuGuessDialog().popup(true);
 						}
 					});
@@ -255,7 +255,7 @@ module view.menu {
 				let name = [];
 				for (let key of keys) {
 					//活动名称不为零&&活动状态为1时显示
-					if (jsonData.General[key].name !== undefined && jsonData.General[key].state == 1) {
+					if (jsonData.General[key].name != undefined && jsonData.General[key].state == 1) {
 						name.push(jsonData.General[key].name)
 					}
 				}

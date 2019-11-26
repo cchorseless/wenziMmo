@@ -21,7 +21,7 @@ module view.common {
 
 			//打开服务器列表
 			EventManage.onWithEffect(this.btn_changeServer, Laya.UIEvent.CLICK, this, () => {
-				if (this.index !== null) {
+				if (this.index != null) {
 					new view.dialog.ServerListDialog().setData(this.lbl_playerName.text, this.index).popup();
 				} else {
 					new view.dialog.ServerListDialog().setData(this.lbl_playerName.text).popup();
@@ -147,8 +147,18 @@ module view.common {
 			let h = 'name=historyZoneList&tradeId=1&account=' + this.lbl_playerName.text;
 			GameApp.HttpManager.get(h, (res) => {
 				let resData = JSON.parse(res);
-				historyServer = resData.list[0];
-				// 無記錄
+				//查找最近登陆过的服务器
+				let trueZoneId = resData.order[0].trueZoneId;
+				if (trueZoneId != undefined) {
+					for (let list of resData.list) {
+						let ListTrueZoneId = list.trueZoneId;
+						if (trueZoneId == ListTrueZoneId) {
+							//最近登陆的服务器
+							historyServer = list;
+						}
+					}
+				}
+				// 无历史记录
 				if (historyServer == null) {
 					let labelNum;
 					let info = 'name=zoneCount';
