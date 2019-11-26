@@ -11,45 +11,45 @@ module EventManage {
         let time = 80;
         let old_scaleX = dispatch.scaleX;
         let old_scaleY = dispatch.scaleY;
-        // dispatch.on(Laya.UIEvent.MOUSE_DOWN, caller, func, args);
-        // 按下事件
-        dispatch.on(Laya.UIEvent.MOUSE_DOWN, caller, () => {
-            // console.log(222222);
-            // if (dispatch['lcp_onWithEffect']) { return };
-            // dispatch['lcp_onWithEffect'] = true;
-            dispatch.mouseThrough = true;
-            Laya.Tween.to(dispatch, { scaleX: old_scaleX * 0.9, scaleY: old_scaleY * 0.9 }, time, Laya.Ease.sineIn);
-        });
+        dispatch.on(Laya.UIEvent.MOUSE_DOWN, caller, func, args);
+        // // 按下事件
+        // dispatch.on(Laya.UIEvent.MOUSE_DOWN, caller, () => {
+        //     // console.log(222222);
+        //     // if (dispatch['lcp_onWithEffect']) { return };
+        //     // dispatch['lcp_onWithEffect'] = true;
+        //     dispatch.mouseThrough = true;
+        //     Laya.Tween.to(dispatch, { scaleX: old_scaleX * 0.9, scaleY: old_scaleY * 0.9 }, time, Laya.Ease.sineIn);
+        // });
 
-        // 移走事件
-        dispatch.on(Laya.UIEvent.MOUSE_OUT, caller, () => {
-            // console.log('MOUSE_OUT')
-            // dispatch['lcp_onWithEffect'] = false;
-            dispatch.mouseThrough = false;
-            Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn)
-        });
+        // // 移走事件
+        // dispatch.on(Laya.UIEvent.MOUSE_OUT, caller, () => {
+        //     // console.log('MOUSE_OUT')
+        //     // dispatch['lcp_onWithEffect'] = false;
+        //     dispatch.mouseThrough = false;
+        //     Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn)
+        // });
 
-        // 抬起事件 e 强制触发
-        dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
-            if (dispatch.mouseThrough) {
-                console.log('MOUSE_UP');
-                Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn,
-                    Laya.Handler.create(null, () => {
-                        dispatch.mouseThrough = true;
-                        if (args) {
-                            Laya.Handler.create(caller, func).runWith(args);
-                        }
-                        else {
-                            Laya.Handler.create(caller, func).run();
-                        }
-                    })
-                );
-            }
+        // // 抬起事件 e 强制触发
+        // dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
+        //     if (dispatch.mouseThrough) {
+        //         console.log('MOUSE_UP');
+        //         Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn,
+        //             Laya.Handler.create(null, () => {
+        //                 dispatch.mouseThrough = true;
+        //                 if (args) {
+        //                     Laya.Handler.create(caller, func).runWith(args);
+        //                 }
+        //                 else {
+        //                     Laya.Handler.create(caller, func).run();
+        //                 }
+        //             })
+        //         );
+        //     }
 
-            // if (dispatch['lcp_onWithEffect']) {
-            //     Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn, Laya.Handler.create(caller, func, args));
-            // }
-        });
+        //     // if (dispatch['lcp_onWithEffect']) {
+        //     //     Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn, Laya.Handler.create(caller, func, args));
+        //     // }
+        // });
         // console.log(dispatch);
     }
 }
