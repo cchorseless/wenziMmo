@@ -19,6 +19,9 @@ module view.newServer {
 			this.init_panel();
 		}
 		public addEvent(): void {
+			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
+			})
 			for (let i = 1; i < 5; i++) {
 				this['btn_get' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.init_get(i);
@@ -29,7 +32,7 @@ module view.newServer {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.NS_KaiFuJingJiOpen, this, (jsonData: ProtoCmd.itf_NS_sportsInfo) => {
 				//开服天数
-				this.day=jsonData.opendays;
+				this.day = jsonData.opendays;
 				//全服排名奖励
 				let keys_left = Object.keys(jsonData.item)
 				for (let key_left of keys_left) {
@@ -106,7 +109,7 @@ module view.newServer {
 					else {
 						this.lbl_my.text = '未上榜';
 					}
-					if(this.day>this.index){
+					if (this.day > this.index) {
 						this.lbl_my.text = '已结束';
 					}
 				})

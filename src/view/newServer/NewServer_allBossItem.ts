@@ -18,6 +18,9 @@ module view.newServer {
 		}
 
 		public addEvent(): void {
+			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
+			})
 			//前一页
 			this.btn_last.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.num > 1) {
