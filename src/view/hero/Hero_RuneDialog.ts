@@ -159,7 +159,7 @@ module view.hero {
 					this['lbl_rune' + g].text = level + '级可穿戴';
 				}
 				//刷新符文激活界面
-				if (this.tab_rune.selectedIndex > 0 && this.runeid !== undefined) {
+				if (this.tab_rune.selectedIndex > 0 && this.runeid != undefined) {
 					this.init_runeEvent(this.runeid, this.type)
 				}
 				//刷新符文交换界面
@@ -171,11 +171,11 @@ module view.hero {
 				}
 				this.pos1 = null;
 				this.pos2 = null
-				if (this.tab_rune.selectedIndex == 2 && this.runeid1 !== undefined) {
+				if (this.tab_rune.selectedIndex == 2 && this.runeid1 != undefined) {
 					this.ui_item1.name = '';
 					this.init_runeEvent(this.runeid1, this.type1)
 				}
-				if (this.tab_rune.selectedIndex == 2 && this.runeid2 !== undefined) {
+				if (this.tab_rune.selectedIndex == 2 && this.runeid2 != undefined) {
 					this.ui_item2.name = '';
 					this.init_runeEvent(this.runeid2, this.type2)
 				}
@@ -364,7 +364,7 @@ module view.hero {
 			// 背包符文交换
 			if (this.tab_rune.selectedIndex == 2) {
 				// ui_item1不为空，ui_item2为空时符文加入ui_item2
-				if (this.ui_item1.name == '1' && this.ui_item2.name !== '1') {
+				if (this.ui_item1.name == '1' && this.ui_item2.name != '1') {
 					this.ui_item2.name = '1';
 					this.runeid2 = data;
 					this.type2 = type;
@@ -391,7 +391,7 @@ module view.hero {
 					}
 				}
 				//ui_item1为空时，加入符文
-				if (this.ui_item1.name !== '1') {
+				if (this.ui_item1.name != '1') {
 					this.ui_item1.name = '1';
 					this.runeid1 = data;
 					this.type1 = type;
@@ -424,7 +424,7 @@ module view.hero {
 		 * 符文激活
 		 */
 		public init_activation(): void {
-			if (this.runeid !== undefined && this.type !== undefined) {
+			if (this.runeid != undefined && this.type != undefined) {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.Hero_activeRuneExProperty, [this.runeid.i64ItemID, this.type])
 				lcp.send(pkt);

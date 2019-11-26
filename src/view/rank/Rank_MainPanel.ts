@@ -92,7 +92,7 @@ module view.rank {
 			})
 			//查看宝箱奖励
 			this.img_baoxiang.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.reward !== null && this.reward !== undefined) {
+				if (this.reward != null && this.reward != undefined) {
 					this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang,this.reward));
 				}
 			})

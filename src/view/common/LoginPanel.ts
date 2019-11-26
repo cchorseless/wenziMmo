@@ -7,6 +7,7 @@ module view.common {
 
 		public setData(): void {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
+			console.log(this.lbl_versionInfo.text);
 			// 判断是否SDK登录
 			if (GameApp.SDKManager.SDK) {
 				this.stack_login.visible = false;
@@ -33,6 +34,7 @@ module view.common {
 
 
 		public loginGame(): void {
+			console.error("loginGame.......")
 			if (this.input_account.text == '') {
 				TipsManage.showTips('账号不能为空');
 				return
@@ -44,6 +46,7 @@ module view.common {
 			Laya.LocalStorage.setItem('account', this.input_account.text);
 			Laya.LocalStorage.setItem('password', this.input_password.text);
 			PanelManage.openChooseServerPanel();
+
 		}
 		/**
   		 * 选择界面登录

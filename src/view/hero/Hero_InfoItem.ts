@@ -109,7 +109,7 @@ module view.hero {
 				}
 			}
 			//内功碎片极品属性
-			if (runeArray.length !== 0) {
+			if (runeArray.length != 0) {
 				let singleArray = [];
 				for (let runeObj of runeArray) {
 					let find = false;

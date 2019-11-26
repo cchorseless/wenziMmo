@@ -22,7 +22,7 @@ module view.compart {
 			this.img_taskInfo.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_selected.selected = !this.btn_selected.selected;
 				//不是未接状态打开任务详细面板
-				if (this.status !== -1) {
+				if (this.status != -1) {
 					this.showMore(this.btn_selected.selected);
 				}
 			})

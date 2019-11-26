@@ -67,7 +67,7 @@ module view.hero {
 			GameApp.LListener.on(ProtoCmd.Hero_heroJingMaiPanel, this, (jsonData: ProtoCmd.itf_Hero_WuXueInfo) => {
 				//GameApp.GameEngine.heroJob为1战士
 				this.list_down.array = []
-				if (jsonData.effid !== 0) {
+				if (jsonData.effid != 0) {
 					let shuxing = GameUtil.parseEffectidToObj(['' + jsonData.effid]);
 					let attribute = shuxing.des;
 					this.list_down.array = shuxing.des;

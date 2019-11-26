@@ -274,7 +274,7 @@ module view.wuXue {
 						return value1 - value2;
 					}
 				}
-				if (this.wstab !== undefined) {
+				if (this.wstab != undefined) {
 					this.wstab[jsonData.pos].addpro = jsonData.addpro;
 					this.wstab[jsonData.pos].lvl = jsonData.lvl;
 					let index = this.wstab[jsonData.pos].realpos;
@@ -445,9 +445,9 @@ module view.wuXue {
 			for (let i = 1; i < 9; i++) {
 				//属性增加的百分比
 				let addpro = this.wstab[i].addpro;
-				if (this.wstab[i].lvl !== 999) {
+				if (this.wstab[i].lvl != 999) {
 					let item = GameUtil.findEquipInPlayer(this.wstab[i].realpos);
-					if (item !== undefined) {
+					if (item != undefined) {
 						let id = item.dwBaseID;
 						let effid;
 						switch (GameApp.MainPlayer.job) {

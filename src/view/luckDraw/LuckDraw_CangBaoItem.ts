@@ -90,7 +90,7 @@ module view.luckDraw {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.LD_cangbaoge_getrecord, null, null, this, (jsonData) => {
 				//全服奖励记录
-				if (jsonData.record !== "") {
+				if (jsonData.record != "") {
 					let single = jsonData.record.split('+')
 					console.log(jsonData.record)
 					let singleKeys = Object.keys(single)
@@ -103,7 +103,7 @@ module view.luckDraw {
 					})
 				}
 				//我的奖励记录
-				if (jsonData.myrecord !== {}) {
+				if (jsonData.myrecord != {}) {
 					let keys = Object.keys(jsonData.myrecord);
 					this.vbox_myRecord.removeChildren();
 					for (let key of keys) {

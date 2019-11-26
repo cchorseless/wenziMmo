@@ -31,7 +31,7 @@ module view.newServer {
 			let name = [];
 			for (let key of keys) {
 				//活动名称不为零&&活动状态为1时显示
-				if (this.data.General[key].name !== undefined && this.data.General[key].state == 1) {
+				if (this.data.General[key].name != undefined && this.data.General[key].state == 1) {
 					name.push(this.data.General[key].name)
 				}
 			}
@@ -45,7 +45,7 @@ module view.newServer {
 			this.box_newServer.removeChildren();
 			let id=this.data.General[ids].id;
 			if (this.data.General[ids].state == 1) {
-				if (this.data !== null) {
+				if (this.data != null) {
 					switch (id) {
 						case 10:
 							this.box_newServer.addChild(new view.newServer.NewServer_sportsItem())

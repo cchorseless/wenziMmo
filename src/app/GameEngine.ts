@@ -15,10 +15,10 @@ class GameEngine extends SingletonClass {
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
     public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
-    public trueZoneid: number = 1;
+    public trueZoneid: number = 50001;
     public serverName: string = '测试服'
-    public zoneid: number = 1001;//区号
-    public tradeid: number = 1;
+    public zoneid: number = 51001;//区号
+    public tradeid: number = 29;
     public svrIndex: number = 0;//服号
     public cdnResUrl: string = '';
     public curData: string = 'Laya_h5';

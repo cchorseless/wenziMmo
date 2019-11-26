@@ -46,7 +46,7 @@ module view.menu {
 			lcp.send(pkt);
 		}
 		public init_changeData(): void {
-			if (this.data !== null&&this.data!==undefined) {
+			if (this.data != null&&this.data!=undefined) {
 				let keys = Object.keys(this.data)
 				//最大页数
 				let max = Math.ceil(keys.length / 12)
