@@ -18,6 +18,9 @@ module view.newServer {
 		}
 
 		public addEvent(): void {
+			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
+			})
 			//前一页
 			this.btn_last.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.num > 1) {
@@ -73,7 +76,7 @@ module view.newServer {
 		 * 拉取boss数据
 		 */
 		public init_clickEvent(): void {
-			if (this.data !== null) {
+			if (this.data != null) {
 				//boss类型
 				this.lbl_type.text = this.data[this.num].name;
 				//boss相关

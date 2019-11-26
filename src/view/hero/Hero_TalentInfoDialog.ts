@@ -57,7 +57,7 @@ module view.hero {
 			if (index == 0 && i == 1) {
 				this.view_talent.selectedIndex = 1;
 			}
-			if (index !== 0 && i == 1) {
+			if (index != 0 && i == 1) {
 				if (data.lvltab[0] == 5 && data.lvltab[index] == 0) {
 					this.view_talent.selectedIndex = 1;
 				}

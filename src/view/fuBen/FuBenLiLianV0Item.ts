@@ -20,7 +20,7 @@ module view.fuBen {
 				let imgH = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monid);
 				this.img_boss1.skin = 'image/common/npc/npc_half_' + imgH + '.png';
 				//boss状态
-				if (data.time !== 0) {
+				if (data.time != 0) {
 					let time = TimeUtils.getFormatBySecond(data.time, 1)
 					this.lbl_time1.text = '' + time;
 				}
@@ -52,7 +52,7 @@ module view.fuBen {
 				let imgH = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monid);
 				this.img_boss2.skin = 'image/common/npc/npc_half_' + imgH + '.png';
 				//boss状态
-				if (data.time !== 0) {
+				if (data.time != 0) {
 					let time = TimeUtils.getFormatBySecond(data.time, 1)
 					this.lbl_time2.text = '' + time;
 				}
@@ -83,7 +83,7 @@ module view.fuBen {
 				let imgH = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monid);
 				this.img_boss3.skin = 'image/common/npc/npc_half_' + imgH + '.png';
 				//boss状态
-				if (data.time !== 0) {
+				if (data.time != 0) {
 					let time = TimeUtils.getFormatBySecond(data.time, 1)
 					this.lbl_time3.text = '' + time;
 				}

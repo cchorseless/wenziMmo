@@ -14,7 +14,7 @@ module view.fuli {
 			})
 		}
 		public init_activation(): void {
-			if (this.input_jihuo.text !== "") {
+			if (this.input_jihuo.text != "") {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.FuLi_xinshouka_other_shiyong, [this.input_jihuo.text], null, this, (jsonData) => {
 				})

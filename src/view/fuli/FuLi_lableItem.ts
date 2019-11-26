@@ -7,7 +7,7 @@ module view.fuli {
 		public setData(data): void {
 			if (data.name) {
 				let name = data.name.split(']')
-				if (name[1] !== undefined) {
+				if (name[1] != undefined) {
 					this.lbl_lable.text = name[1] + '(可找回' + data.cnt + '次)';
 				}
 				else {

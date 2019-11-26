@@ -22,7 +22,7 @@ module view.dialog {
 				let cbpkt = new ProtoCmd.stMailQueryDetailRetDecoder(data);
 				if (cbpkt.getValue('bterrorcode') == 0) {
 					// 是否有道具
-					this.box_hasGeted.visible = (cbpkt.MailDetail.nCount !== 0);
+					this.box_hasGeted.visible = (cbpkt.MailDetail.nCount != 0);
 					// 附件是否领取
 					this.btn_getDaoju.visible = Boolean(cbpkt.MailDetail.wReveivedItem);
 					if (cbpkt.MailDetail.nCount == 0 && cbpkt.MailDetail.boRead == 1) {

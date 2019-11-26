@@ -57,7 +57,7 @@ module view.menu {
 					this.btn_ok.label = '确定';
 				}
 				//竞猜值
-				if (jsonData.jingcai !== 0) {
+				if (jsonData.jingcai != 0) {
 					this.input_num.text = '' + jsonData.jingcai;
 					this.input_num.editable = false;
 				}
@@ -80,7 +80,7 @@ module view.menu {
 		 * 参与竞猜
 		 */
 		public init_guess(): void {
-			if (this.input_num.text !== '') {
+			if (this.input_num.text != '') {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.Menu_JingCai,[this.input_num.text])
 				lcp.send(pkt);

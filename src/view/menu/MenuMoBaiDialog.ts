@@ -42,7 +42,7 @@ module view.menu {
 				//城主名称
 				this.lbl_name.text = jsonData.name;
 				//城主半身造型
-				if (jsonData.name !== '虚位以待') {
+				if (jsonData.name != '虚位以待') {
 					let pkt = new ProtoCmd.GetOtherPlayerInfoEncoder();
 					pkt.setValue('szName', jsonData.name)
 					lcp.send(pkt, this, (data) => {

@@ -81,7 +81,7 @@ module view.hero {
 					this.lbl_progress.text = '' + jsonData.maxxw + '/' + jsonData.maxxw;
 					this.img_progress.width = 472;
 				}
-				if (jsonData.effid !== 0) {
+				if (jsonData.effid != 0) {
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 					let attribute1 = shuxing1.des;
@@ -112,7 +112,7 @@ module view.hero {
 		public init_xiuwei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
-				if (jsonData.exp !== undefined) {
+				if (jsonData.exp != undefined) {
 					//所需经验
 					this.lbl_exp.text = '' + jsonData.exp;
 					//所需金币

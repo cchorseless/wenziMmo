@@ -92,7 +92,6 @@ module view.luckDraw {
 				}
 				box.addChild(new ui_item());
 			}
-
 			this.viw_luck.selectedIndex = index;
 		}
 	}

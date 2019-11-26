@@ -111,7 +111,7 @@ module view.task {
 				this.box_null.visible = false;
 				this.box_juqing.visible = true;
 				let juqingTaskInfo: ProtoCmd.stQuestInfoBase = juQingInfo[Object.keys(juQingInfo)[0]];
-				if (juqingTaskInfo !== undefined) {
+				if (juqingTaskInfo != undefined) {
 					this.juqingTask = juqingTaskInfo;
 					// 结束任务NPC
 					if (juqingTaskInfo.endnpcname == "") {
@@ -164,7 +164,7 @@ module view.task {
 		 * 主线任务领取
 		 */
 		public init_zhuxianEvent(): void {
-			if (this.zhuxianTask !== null) {
+			if (this.zhuxianTask != null) {
 				switch (this.zhuxianTask.queststatus) {
 					// 完成
 					case EnumData.QUESTSTATUS.QUESTCOMPLETED:
@@ -193,7 +193,7 @@ module view.task {
 	  * 剧情任务领取
 	  */
 		public init_juqingEvent(): void {
-			if (this.juqingTask !== null) {
+			if (this.juqingTask != null) {
 				switch (this.juqingTask.queststatus) {
 					// 完成
 					case EnumData.QUESTSTATUS.QUESTCOMPLETED:

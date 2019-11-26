@@ -57,7 +57,7 @@ module view.juese {
 			})
 			//角色罡气升级
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.exp !== null && this.needexp !== null && this.exp > this.needexp) {
+				if (this.exp != null && this.needexp != null && this.exp > this.needexp) {
 					this.init_upLevel();
 				}
 				else {

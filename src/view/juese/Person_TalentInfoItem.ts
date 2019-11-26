@@ -323,7 +323,7 @@ module view.juese {
 				}
 				this.hbox_talent.addChild(new view.juese.Person_TalentInfoBtnItem().setData(id));
 			}
-			if (this.jieshu !== 0) {
+			if (this.jieshu != 0) {
 				let num;
 				switch (this.dangqianNum) {
 					case 1:

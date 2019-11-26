@@ -114,9 +114,21 @@ module view.dialog {
 			let h = 'name=historyZoneList&tradeId=1&account=' + this.account;
 			GameApp.HttpManager.get(h, (res) => {
 				let resData = JSON.parse(res);
+				//根据resData.list对历史纪录服务器排序
+				let recentArray = [];
+				let recently = Object.keys(resData.order);
+				for (let recent of recently) {
+					let trueZoneId = resData.order[recent].trueZoneId
+					for (let list of resData.list) {
+						let ListTrueZoneId = list.trueZoneId;
+						if (trueZoneId == ListTrueZoneId) {
+							recentArray.push(list);
+						}
+					}
+				}
 				this.vbox_recently.removeChildren();
 				let ui_server = null;
-				for (let id of resData.list) {
+				for (let id of recentArray) {
 					if (ui_server == null) {
 						ui_server = new view.compart.ServerListItem()
 						this.vbox_recently.addChild(ui_server);
