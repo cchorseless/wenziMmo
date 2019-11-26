@@ -348,10 +348,10 @@ module view.main {
 					if (hour <= 12) {
 						if (hour == i || hour == (i + 1)) {
 							if (i % 2 == 1) {
-								let num1 = Math.ceil((i-1) / 2);
+								let num1 = Math.ceil((i - 1) / 2);
 								time = timeArray[num1];
 							} else {
-								let num2 = Math.floor((i-1) / 2);
+								let num2 = Math.floor((i - 1) / 2);
 								time = timeArray[(num2)];
 							}
 						}
@@ -371,7 +371,7 @@ module view.main {
 			}
 			return time;
 		}
-		
+
 		/**
 		 * 获取节气
 		 */
@@ -511,6 +511,10 @@ module view.main {
 			this.getShengWangInfo();
 			//活动状态
 			this.getHuoDongStatus()
+			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
+				console.log(data);
+				GameApp.GameEngine.turnActivity = data;
+			})
 		}
 		/**
 		 * 菜单界面活动状态
