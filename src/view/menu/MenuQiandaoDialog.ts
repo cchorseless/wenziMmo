@@ -28,8 +28,7 @@ module view.menu {
 
 		}
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData) => {
-				console.log('=====>签到签到', jsonData)
+			GameApp.LListener.on(ProtoCmd.Menu_QianDao_DaKai, this, (jsonData: ProtoCmd.itf_Menu_SignInInfo) => {
 				//可补签次数
 				this.lbl_buqian.text = '' + jsonData.buQianNum;
 				let date = jsonData.history.split('+')
@@ -53,14 +52,14 @@ module view.menu {
 					this.lbl_num.text = '' + count;
 				}
 				//签到item
+				this.list_sign.array = [];
 				this.list_sign.vScrollBarSkin = '';
-				this.list_sign.array = []
 				for (let i = 1; i < (jsonData.qiaodaoday + 1); i++) {
-					this.list_sign.array.push(i);
+					this.list_sign.array.push(i);    
 				}
 				this.list_sign.itemRender = view.menu.MenuQiandaoItem;
-				this.list_sign.renderHandler = Laya.Handler.create(this, (cell: view.menu.MenuQiandaoItem, index) => {
-					cell.setData(cell.dataSource, date, jsonData.curtimetab[3], jsonData.buQianNum);
+				this.list_sign.renderHandler = Laya.Handler.create(this, (cell: view.menu.MenuQiandaoItem,index) => {
+					cell.setData(cell.dataSource, date, jsonData.curtimetab[3], jsonData.buQianNum, jsonData.items[cell.dataSource]);
 
 				}, null, false)
 				this.WupinArray = jsonData.itemtab;
