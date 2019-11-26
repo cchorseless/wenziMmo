@@ -6,42 +6,43 @@ module view.newServer {
 		 */
 		public activityState = [
 			EnumData.activityType.KaiFuJingJiOpen,
+			EnumData.activityType.QuanMingBoss,
+			EnumData.activityType.LongChengClientOpen,
+			EnumData.activityType.leijidenglu_minbandakai,
 		]
+		public tabNameArr = [];
 		constructor() {
 			super();
-		}
-		public data = null;
-		public newServerActive = null;
-		public setData(data): NewServer_MainPanel {
-			this.data = data;
-			this.panel_newServer.hScrollBarSkin = '';
-			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				this.init_addBox();
-			}, null, false);
 			this.addEvent();
-			this.init_newServer();
-			return this;
 		}
-		public addEvent(): void {
+		public data = [];
+		public setData() {
+			this.panel_newServer.hScrollBarSkin = '';
 
-		}
-		public init_newServer(): void {
-			let keys = Object.keys(this.data.General)
-			let name = [];
-			let dataArray = [];
-			for (let key of keys) {
-				//活动名称不为零&&活动状态为1时显示
-				if (this.data.General[key].name != undefined && this.data.General[key].state == 1) {
-					name.push(this.data.General[key].name);
-					dataArray.push(this.data.General[key]);
+			for (let i = 0; i < this.activityState.length; i++) {
+				for (let o in GameApp.GameEngine.activityStatus) {
+					if (GameApp.GameEngine.activityStatus[o].id == this.activityState[i]) {
+						this.data.push(GameApp.GameEngine.activityStatus[o])
+					}
+				}
+			}
+			if (this.data.length > 0) {
+				for (let i = 0; i < this.data.length; i++) {
+					this.tabNameArr.push(this.data[i].name)
 					let box = new Laya.Box();
 					box.top = box.bottom = box.right = box.left = 0;
 					this.view_newServer.addItem(box);
 				}
 			}
-			this.newServerActive = dataArray;
-			this.tab_top.labels = '' + name;
+			let labels: string;
+			labels = this.tabNameArr.join(',')
+			this.tab_top.labels = labels;
 			this.init_addBox();
+		}
+		public addEvent(): void {
+			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
+				this.init_addBox();
+			}, null, false);
 		}
 		public init_addBox(): void {
 			this.box_time.visible = false
@@ -49,22 +50,26 @@ module view.newServer {
 			let box = this.view_newServer.getChildAt(index)
 			let ui_newServer;
 			if (box.numChildren == 0) {
-				if (this.newServerActive != null) {
-					switch (this.newServerActive[index].id) {
-						case 10:
-							ui_newServer = view.newServer.NewServer_sportsItem;
-							break;
-						case 2:
-							ui_newServer = view.newServer.NewServer_allBossItem;
-							break;
-						case 3:
-							ui_newServer = view.newServer.NewServer_DragonItem;
-							break;
-					}
-					box.addChild(new ui_newServer());
+				switch (this.data[index].id) {
+					case EnumData.activityType.KaiFuJingJiOpen:
+						ui_newServer = view.newServer.NewServer_sportsItem;
+						break;
+					case EnumData.activityType.QuanMingBoss:
+						ui_newServer = view.newServer.NewServer_allBossItem;
+						break;
+					case EnumData.activityType.LongChengClientOpen:
+						ui_newServer = view.newServer.NewServer_DragonItem;
+						break;
+						case EnumData.activityType.leijidenglu_minbandakai:
+						ui_newServer = view.newServer.NewServer_DragonItem;
+						break;
+					// case EnumData.activityType.leijidenglu_minbandakai:
+					// 	break;
 				}
+				box.addChild(new ui_newServer());
+
 			}
-			this.view_newServer.selectedIndex=index;
+			this.view_newServer.selectedIndex = index;
 		}
 		public init_time(time: string): void {
 			this.box_time.visible = true;

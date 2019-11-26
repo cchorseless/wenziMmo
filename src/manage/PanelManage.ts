@@ -529,12 +529,12 @@ module PanelManage {
     /**
 * 新服活动
 */
-    export function openNewServer_MainPanel(data): void {
+    export function openNewServer_MainPanel(): void {
         // if (PopUpManager.showPanel(PanelManage.NewServerActive)) return;
         ResManage.loadResource(ResData.PanelRes.NewServerActive, () => {
             PanelManage.NewServerActive = new view.newServer.NewServer_MainPanel();
             PanelManage.NewServerActive['LCP_skin'] = ResData.PanelRes.NewServerActive;
-            PanelManage.NewServerActive.setData(data);
+            PanelManage.NewServerActive.setData();
             PanelManage.NewServerActive.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.NewServerActive, 100, 0, 2);
         })

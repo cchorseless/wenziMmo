@@ -272,56 +272,35 @@ module view.menu {
 			})
 
 			this.img_xinfuActive.on(Laya.Event.MOUSE_UP, this, function (ev) {
-				if (this.isTouch) {
-					if (this.touchEndX == 0) {
-						this.touchEndX = this.getPosX(ev)
-						let span = this.touchBeginX - this.touchEndX
-						if (span < -30) {
-							this.nextOrLastActivity(false)
-						} else if (span > 30) {
-							this.nextOrLastActivity(true)
-						} else {
-							this.isTouch = false;
-							this.touchEndX = 0;
-							switch (this.changeActID) {
-								case 1:
-									this.init_newServerOpen();
-									break;
-								case 2: case 3: case 4: case 5:
-									TipsManage.showTips("当前是轮换活动" + this.changeActID)
-									break;
-							}
-						}
-					}
-				}
-
-
-
+				this.turnActTouchEnd(ev)
 			})
 			this.img_xinfuActive.on(Laya.Event.MOUSE_OUT, this, function (ev) {
-				if (this.isTouch) {
-					if (this.touchEndX == 0) {
-						this.touchEndX = this.getPosX(ev)
-						let span = this.touchBeginX - this.touchEndX
-						if (span < -30) {
-							this.nextOrLastActivity(false)
-						} else if (span > 30) {
-							this.nextOrLastActivity(true)
-						} else {
-							this.isTouch = false;
-							this.touchEndX = 0;
-							switch (this.changeActID) {
-								case 1:
-									this.init_newServerOpen();
-									break;
-								case 2: case 3: case 4: case 5:
-									TipsManage.showTips("当前是轮换活动" + this.changeActID)
-									break;
-							}
+				this.turnActTouchEnd(ev)
+			})
+		}
+		public turnActTouchEnd(ev) {
+			if (this.isTouch) {
+				if (this.touchEndX == 0) {
+					this.touchEndX = this.getPosX(ev)
+					let span = this.touchBeginX - this.touchEndX
+					if (span < -30) {
+						this.nextOrLastActivity(false)
+					} else if (span > 30) {
+						this.nextOrLastActivity(true)
+					} else {
+						this.isTouch = false;
+						this.touchEndX = 0;
+						switch (this.changeActID) {
+							case 1:
+								this.init_newServerOpen();
+								break;
+							case 2: case 3: case 4: case 5:
+								TipsManage.showTips("当前是轮换活动" + this.changeActID)
+								break;
 						}
 					}
 				}
-			})
+			}
 		}
 		public getPosX(ev) {
 			let x = ev.stageX;
@@ -389,24 +368,25 @@ module view.menu {
 		 * 判断新服活动是否开启事件
 		 */
 		public init_newServerOpen(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.NS_XinFuClientOpen, null, null, this, (jsonData) => {
-				let keys = Object.keys(jsonData.General)
-				let name = [];
-				for (let key of keys) {
-					//活动名称不为零&&活动状态为1时显示
-					if (jsonData.General[key].name !== undefined && jsonData.General[key].state == 1) {
-						name.push(jsonData.General[key].name);
-					}
-				}
-				if (name.length == 0) {
-					TipsManage.showTips('新服活动未开启');
-				} else {
-					//打开新服活动界面
-					PanelManage.openNewServer_MainPanel(jsonData);
-				}
-			})
-			lcp.send(pkt);
+			// let pkt = new ProtoCmd.QuestClientData();
+			// pkt.setString(ProtoCmd.NS_XinFuClientOpen, null, null, this, (jsonData) => {
+			// 	let keys = Object.keys(jsonData.General)
+			// 	let name = [];
+			// 	for (let key of keys) {
+			// 		//活动名称不为零&&活动状态为1时显示
+			// 		if (jsonData.General[key].name !== undefined && jsonData.General[key].state == 1) {
+			// 			name.push(jsonData.General[key].name);
+			// 		}
+			// 	}
+			// 	if (name.length == 0) {
+			// 		TipsManage.showTips('新服活动未开启');
+			// 	} else {
+			// 		//打开新服活动界面
+			// 		PanelManage.openNewServer_MainPanel(jsonData);
+			// 	}
+			// })
+			// lcp.send(pkt);
+			PanelManage.openNewServer_MainPanel()
 		}
 	}
 }
