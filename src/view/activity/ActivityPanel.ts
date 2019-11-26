@@ -14,6 +14,7 @@ module view.activity {
 			EnumData.activityType.DBCZ_Plane,
 			EnumData.activityType.MZJJ_OpenPlane,
 			EnumData.activityType.OneDayRechargePanel,
+			EnumData.activityType.XFYLPanel
 		]
 		constructor() {
 			super();
@@ -121,30 +122,15 @@ module view.activity {
 						let pkt39 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt39);
 						break;
-					case 9://神秘商店
+					case 37://消费有礼
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
-							let o = new Active_Mysteryshop()
-							o.setData(data)
-							box.addChild(o);
+							// let o = new Active_Mysteryshop()
+							// o.setData(data)
+							// box.addChild(o);
 						})
-						let pkt9 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
-						lcp.send(pkt9);
-						break;
-					case 24://资源线豪礼  即：龙魂排行
-						GameApp.LListener.on(pcmdString, this, (data) => {
-							box.removeChildren()
-							let o = new Active_DragonSoul()
-							o.setData(data)
-							box.addChild(o);
-						})
-						let pkt24 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
-						lcp.send(pkt24);
-						break;
-					case 34://福袋抽奖
-						box.removeChildren()
-						let o = new Active_LuckBagDraw()
-						box.addChild(o);
+						let pkt37 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
+						lcp.send(pkt37);
 						break;
 					case 2://限时礼包
 						GameApp.LListener.on(ProtoCmd.Active100, this, (data) => {
@@ -178,6 +164,7 @@ module view.activity {
 			GameApp.LListener.offCaller(ProtoCmd.Active14, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active16, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active17, this)
+			GameApp.LListener.offCaller(ProtoCmd.Active37, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active18, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active19, this)
 			GameApp.LListener.offCaller(ProtoCmd.Active24, this)
