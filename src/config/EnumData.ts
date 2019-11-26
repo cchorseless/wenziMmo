@@ -1160,6 +1160,7 @@ module EnumData {
         ZXCJ_Plane = 38,   //在线抽奖、转盘
         OneDayRechargePanel = 39,   //单日充值
         MeiRiShouChongOpen = 41,   //每日首充
+        XFYLPanel = 37,   //消费有礼
 
 
 

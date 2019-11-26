@@ -479,7 +479,7 @@ module ProtoCmd {
     export const Active33 = "MeiRiTeHuiPanel"       //每日特惠      面板         其他接口：领取
     export const Active36 = "MZJJ_OpenPlane"        //每周基金      面板         其他接口：领取
     export const Active9 = "ShenMi_Open";          //神秘商店      面板         其他接口：刷新  购买
-
+    export const Active37 = "XFYLPanel";           //消费有礼物      面板         其他接口：普通获取，奖励领取
 
     export const Active100 = "LimitTimeGiftBagPanel"  //限时礼包   面板         其他接口：购买
     export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
