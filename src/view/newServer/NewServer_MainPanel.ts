@@ -27,10 +27,12 @@ module view.newServer {
 		public init_newServer(): void {
 			let keys = Object.keys(this.data.General)
 			let name = [];
+			let dataArray=[];
 			for (let key of keys) {
 				//活动名称不为零&&活动状态为1时显示
 				if (this.data.General[key].name != undefined && this.data.General[key].state == 1) {
 					name.push(this.data.General[key].name);
+					dataArray.push(this.data.General[key]);
 					let box = new Laya.Box();
 					box.top = box.bottom = box.right = box.left = 0;
 					this.view_newServer.addItem(box);
@@ -42,24 +44,28 @@ module view.newServer {
 		public init_addBox(): void {
 			this.box_time.visible = false
 			let index = this.tab_top.selectedIndex;
+			let box = this.view_newServer.getChildAt(index)
 			let ids = index + 1;
-			this.box_newServer.removeChildren();
 			let id = this.data.General[ids].id;
-			if (this.data.General[ids].state == 1) {
-				if (this.data != null) {
-					switch (id) {
-						case 10:
-							this.box_newServer.addChild(new view.newServer.NewServer_sportsItem())
-							break;
-						case 2:
-							this.box_newServer.addChild(new view.newServer.NewServer_allBossItem())
-							break;
-						case 3:
-							this.box_newServer.addChild(new view.newServer.NewServer_DragonItem())
-							break;
+			let ui_newServer;
+			if (box.numChildren == 0) {
+				if (this.data.General[ids].state == 1) {
+					if (this.data != null) {
+						switch (id) {
+							case 10:
+								ui_newServer = view.newServer.NewServer_sportsItem;
+								break;
+							case 2:
+								ui_newServer = view.newServer.NewServer_allBossItem;
+								break;
+							case 3:
+								ui_newServer = view.newServer.NewServer_DragonItem;
+								break;
+						}
 					}
 				}
 			}
+
 		}
 		public init_time(time: string): void {
 			this.box_time.visible = true;
