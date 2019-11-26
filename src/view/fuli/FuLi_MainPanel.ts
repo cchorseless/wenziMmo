@@ -35,8 +35,6 @@ module view.fuli {
 			let labels: string;
 			labels = this.tabLabels.join(',')
 			this.tab_fuli.labels = labels;
-
-
 			this.addEvent();
 			this.init_view(0);
 		}
@@ -58,7 +56,7 @@ module view.fuli {
 			PopUpManager.Dispose(this)
 		}
 		public init_view(id): void {
-			if (id != 1 || id != 2) {
+			if (id == 0) {
 				this.img_left.visible = this.img_right.visible = false;
 			} else {
 				this.img_left.visible = this.img_right.visible = true;

@@ -9,8 +9,6 @@ module view.task {
 		public taskEvent = null;
 		public setData(): void {
 			this.btn_juQingTask.selected = true;
-			this.panel_zhiXian.vScrollBarSkin = '';
-			this.vbox_zhiXian['sortItem'] = (items) => { };
 			this.panel_jiangli.hScrollBarSkin = '';
 			this.hbox_jiangli['sortItem'] = (items) => { };
 			this.panel_juqing.hScrollBarSkin = '';
@@ -18,10 +16,6 @@ module view.task {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
-			for (let i = 0; i < 3; i++) {
-				this.vbox_zhiXian.addChild(new view.compart.TaskInfoItem())
-			}
-
 			this.initUI();
 			this.addEvent();
 		}

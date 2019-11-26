@@ -12,7 +12,13 @@ module view.menu {
 		//当前日期
 		public num;
 		public buqianNum;
-		public setData(data, day: Array<string>, num, buqianNum: number): void {
+		public setData(data, day: Array<string>, num, buqianNum: number,item:any): void {
+			//每次签到得到的物品奖励
+			let itemInfo=new ProtoCmd.ItemBase();
+			itemInfo.dwBaseID=item.index;
+			itemInfo.dwBinding=item.binding;
+			itemInfo.dwCount=item.num;
+			this.ui_qiandao.setData(itemInfo);
 			this.data = data;
 			this.day = day;
 			this.num = num;
