@@ -16,7 +16,10 @@ module view.newServer {
 				if (this.bj == 1) {
 					this.init_get();
 				}
-			})
+			});
+			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
+			});
 			this.addLcpEvent();
 		}
 		public addLcpEvent(): void {
@@ -32,7 +35,7 @@ module view.newServer {
 					itemInfo.dwBaseID = data.index;
 					itemInfo.dwCount = data.num;
 					itemInfo.dwBinding = data.bind;
-					this['ui_item' + key].setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL)
+					this['ui_item' + key].setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				}
 				//按钮状态
 				this.bj = jsonData.Bj;

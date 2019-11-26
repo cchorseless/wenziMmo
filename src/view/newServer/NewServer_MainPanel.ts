@@ -22,9 +22,7 @@ module view.newServer {
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
-			})
+
 		}
 		public init_newServer(): void {
 			let keys = Object.keys(this.data.General)
@@ -32,7 +30,10 @@ module view.newServer {
 			for (let key of keys) {
 				//活动名称不为零&&活动状态为1时显示
 				if (this.data.General[key].name != undefined && this.data.General[key].state == 1) {
-					name.push(this.data.General[key].name)
+					name.push(this.data.General[key].name);
+					let box = new Laya.Box();
+					box.top = box.bottom = box.right = box.left = 0;
+					this.view_newServer.addItem(box);
 				}
 			}
 			this.tab_top.labels = '' + name;
@@ -43,7 +44,7 @@ module view.newServer {
 			let index = this.tab_top.selectedIndex;
 			let ids = index + 1;
 			this.box_newServer.removeChildren();
-			let id=this.data.General[ids].id;
+			let id = this.data.General[ids].id;
 			if (this.data.General[ids].state == 1) {
 				if (this.data != null) {
 					switch (id) {
