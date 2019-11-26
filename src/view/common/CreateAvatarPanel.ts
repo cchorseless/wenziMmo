@@ -529,7 +529,7 @@ module view.common {
 			createusr.playerinfo.feature.setValue('sex', this.sex);
 			createusr.playerinfo.feature.setValue('job', this.job);
 			// 创角协议
-			lcp.send(createusr, this, this.createPlayerRet);
+			lcp.send(createusr);
 		}
 
 
@@ -537,27 +537,17 @@ module view.common {
 		 * 创角协议回调
 		 * @param data 
 		 */
-		public createPlayerRet(data: any): void {
-			let msg = new ProtoCmd.CreatePlayerRet(data);
-			let errorcode = msg.getValue('errorcode');
-			if (errorcode == 0) {
-				// 创建账号成功
-				this.showDialog(0);
-				// 单服单角色，这里可以扩展
-				let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
-				selector.setValue("nselectidx", 0);
-				selector.setValue("szName", msg.getValue('szPlayerName'));
-				selector.setValue("btmapsubline", 1);
-				lcp.send(selector, this, this.selectPlayerRet)
-				GameApp.GameEngine.isLogin = true;
-				GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'))
-			}
-			else {
-				let strmsg: string = LangConfig.createPlayerErrorDes[EnumData.createPlayerError[errorcode]];
-				TipsManage.showTips(strmsg + errorcode);
-			}
-			msg.clear();
-			msg = null;
+		public createPlayerRet(msg: ProtoCmd.CreatePlayerRet): void {
+			// 创建账号成功
+			this.showDialog(0);
+			// 单服单角色，这里可以扩展
+			let selector: ProtoCmd.SelectPlayer = new ProtoCmd.SelectPlayer();
+			selector.setValue("nselectidx", 0);
+			selector.setValue("szName", msg.getValue('szPlayerName'));
+			selector.setValue("btmapsubline", 1);
+			lcp.send(selector, this, this.selectPlayerRet)
+			GameApp.GameEngine.isLogin = true;
+			GameApp.SDKManager.createRole(msg.getValue('dwUserOnlyId'), msg.getValue('szPlayerName'));
 		}
 
 		/**

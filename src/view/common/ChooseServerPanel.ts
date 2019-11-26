@@ -3,6 +3,7 @@ module view.common {
 	export class ChooseServerPanel extends ui.common.ChooseServerPanelUI {
 		constructor() {
 			super();
+			this.setData();
 		}
 		public index = null;
 		public setData(): ChooseServerPanel {
@@ -141,14 +142,14 @@ module view.common {
 			msgData.clear();
 		}
 		public init_selectServer(): void {
-			let self = this;
 			let historyServer = null;
 			//拉取近期登陆服务器
-			let h = 'name=historyZoneList&tradeId=1&account=' + self.lbl_playerName.text;
+			let h = 'name=historyZoneList&tradeId=1&account=' + this.lbl_playerName.text;
 			GameApp.HttpManager.get(h, (res) => {
 				let resData = JSON.parse(res);
 				historyServer = resData.list[0];
-				if (historyServer == null || historyServer == undefined) {
+				// 無記錄
+				if (historyServer == null) {
 					let labelNum;
 					let info = 'name=zoneCount';
 					//拉取服务器数量
@@ -157,31 +158,31 @@ module view.common {
 						//服务器数量
 						let length = resData[0].count;
 						//服务器索引
-						self.index = labelNum = Math.floor(length / 100);
-					})
-					if (length > 0) {
-						let str0 = 'name=zoneList&minId=0&maxId=100';
-						let str1 = 'name=zoneList&tradeId=1&minId=101&maxId=200';
-						let str2 = 'name=zoneList&tradeId=1&minId=201&maxId=300';
-						let str3 = 'name=zoneList&tradeId=1&minId=301&maxId=400';
-						let str4 = 'name=zoneList&tradeId=1&minId=401&maxId=500';
-						let str5 = 'name=zoneList&tradeId=1&minId=501&maxId=600';
-						let serverArray = [str0, str1, str2, str3, str4, str5];
-						GameApp.HttpManager.get(serverArray[labelNum], (res) => {
-							let resData = JSON.parse(res);
-							for (let part of resData) {
-								historyServer = part;
-							}
-						});
-					}
+						this.index = labelNum = Math.floor(length / 100);
+						if (length > 0) {
+							let str0 = 'name=zoneList&minId=0&maxId=100';
+							let str1 = 'name=zoneList&tradeId=1&minId=101&maxId=200';
+							let str2 = 'name=zoneList&tradeId=1&minId=201&maxId=300';
+							let str3 = 'name=zoneList&tradeId=1&minId=301&maxId=400';
+							let str4 = 'name=zoneList&tradeId=1&minId=401&maxId=500';
+							let str5 = 'name=zoneList&tradeId=1&minId=501&maxId=600';
+							let serverArray = [str0, str1, str2, str3, str4, str5];
+							GameApp.HttpManager.get(serverArray[labelNum], (res) => {
+								let resData = JSON.parse(res);
+								let keys = Object.keys(resData.list);
+								let i = keys.length - 1;
+								historyServer = resData.list[i];
+							});
+						}
+					});
 				}
-				if (historyServer !== null && historyServer !== undefined) {
+				if (historyServer != null) {
 					GameApp.GameEngine.connectIP = '' + historyServer.url;
 					GameApp.GameEngine.connectPort = '' + historyServer.port;
 					GameApp.GameEngine.zoneid = historyServer.zoneId;
 					GameApp.GameEngine.trueZoneid = historyServer.trueZoneId;
 					GameApp.GameEngine.tradeid = historyServer.tradeId
-					self.lbl_serverName.text = historyServer.zoneName;
+					this.lbl_serverName.text = historyServer.zoneName || 'error';
 				}
 			});
 		}

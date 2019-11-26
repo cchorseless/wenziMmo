@@ -4,8 +4,10 @@ module view.fuBen {
 		constructor() {
 			super();
 		}
+		public item: ProtoCmd.itf_FB_ZiYuanInfo;
 		public setData(data: ProtoCmd.itf_FB_ZiYuanInfo): FuBenDailySourceItem {
 			this.panel_ziyuan.hScrollBarSkin = '';
+			this.item = data;
 			//剩余副本次数
 			let cout = data.leftcnt - data.caninto
 			this.lbl_count.text = '' + cout;
@@ -13,6 +15,7 @@ module view.fuBen {
 			this.lbl_name.text = '' + data.name;
 			// this.lbl_detail.text = '' +;
 			this.openFuBen(data.index);
+			this.addEvent();
 			return this;
 		}
 		public openFuBen(index): void {
@@ -24,13 +27,23 @@ module view.fuBen {
 					_itemData.dwBaseID = jsonData.jiangli[key].index;
 					_itemData.dwCount = jsonData.jiangli[key].num;
 					let _itemUI = new view.compart.DaoJuWithNameItem();
-					_itemUI.setData(_itemData,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					_itemUI.setData(_itemData, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_ziyuan.addChild(_itemUI);
 				};
 
 
 			})
 			lcp.send(pkt);
+		}
+
+		public addEvent(): void {
+			// 进入副本
+			this.btn_into.on(Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.FB_Into_CLFuben, [this.item.index]);
+				lcp.send(pkt);
+			})
+
 		}
 	}
 }

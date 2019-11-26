@@ -17,7 +17,6 @@ module view.scene {
 				pkt.setString(ProtoCmd.FB_GeRenBoss_Leave);
 				lcp.send(pkt);
 			});
-
 		}
 	}
 }

@@ -22,6 +22,8 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.UpdateToken), this, this.updateToken);
         // 服务器tips提示
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TipMsg), this, this.showTips);
+        // 创建角色返回
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CreatePlayerRet), this, this.CreatePlayerRet);
         // 新手引导进度
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SUBCMD_QUESTBOOLDATA), this, this.updateQuestBoolData);
         // 玩家改变地图ID 201
@@ -278,6 +280,25 @@ class ServerListener extends SingletonClass {
         console.log(cbpkt.tipmsg)
         cbpkt.clear();
         cbpkt = null;
+    }
+
+    /**
+     * 创角界面
+     * @param data 
+     */
+    public CreatePlayerRet(data): void {
+        let msg = new ProtoCmd.CreatePlayerRet(data);
+        let errorcode = msg.getValue('errorcode');
+        // 创建角色成功
+        if (errorcode == 0) {
+            PanelManage.CreateAvatar.createPlayerRet(msg);
+        }
+        else {
+            let strmsg: string = LangConfig.createPlayerErrorDes[EnumData.createPlayerError[errorcode]];
+            TipsManage.showTips(strmsg + errorcode);
+        }
+        msg.clear();
+        msg = null;
     }
 
     /**

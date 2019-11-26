@@ -157,7 +157,7 @@ module PanelManage {
         ResManage.loadResource(ResData.PanelRes.ChooseServer, () => {
             PanelManage.ChooseServer = new view.common.ChooseServerPanel();
             PanelManage.ChooseServer['LCP_skin'] = ResData.PanelRes.ChooseServer;
-            PanelManage.ChooseServer.setData();
+            // PanelManage.ChooseServer.setData();
             PanelManage.ChooseServer.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.ChooseServer, 2);
         })
