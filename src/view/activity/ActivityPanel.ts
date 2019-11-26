@@ -67,7 +67,6 @@ module view.activity {
 				p.btn_icon.selected = (index == i);
 				p.img_isSelected.visible = (index == i);
 				p.changeUSEfontColor(index == i);
-
 			}
 		}
 
@@ -125,9 +124,9 @@ module view.activity {
 					case 37://消费有礼
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
-							// let o = new Active_Mysteryshop()
-							// o.setData(data)
-							// box.addChild(o);
+							let o = new Active_XFYL()
+							o.setData(data)
+							box.addChild(o);
 						})
 						let pkt37 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt37);

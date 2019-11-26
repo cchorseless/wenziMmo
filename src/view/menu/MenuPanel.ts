@@ -119,9 +119,6 @@ module view.menu {
 						}
 					});
 					lcp.send(pkt);
-					if (data == 0) {
-						TipsManage.showTips('活动未开启')
-					}
 				}
 
 			})
@@ -139,9 +136,6 @@ module view.menu {
 						}
 					});
 					lcp.send(pkt);
-					if (data == 0) {
-						TipsManage.showTips('活动未开启')
-					}
 				}
 			})
 			this.btn_EveryDayFirstRecharge.on(Laya.UIEvent.CLICK, this, () => {
@@ -256,7 +250,7 @@ module view.menu {
 				for (let key of keys) {
 					//活动名称不为零&&活动状态为1时显示
 					if (jsonData.General[key].name !== undefined && jsonData.General[key].state == 1) {
-						name.push(jsonData.General[key].name)
+						name.push(jsonData.General[key].name);
 					}
 				}
 				if (name.length == 0) {

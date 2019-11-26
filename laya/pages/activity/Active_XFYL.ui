@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":9,
-    "selecteID":10,
+    "selectedBox":14,
+    "selecteID":21,
     "props":{"width":640,"sceneColor":"#ffffff","height":814},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":640,"skin":"image/activity/bg_xfyl_01.png","height":829},
+            "props":{"y":-14,"x":0,"width":640,"skin":"image/activity/bg_xfyl_01.png","height":829},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":243,"x":317,"width":294,"height":260},
+            "props":{"y":241,"x":317,"width":294,"var":"panel_item","height":260},
             "nodeParent":1,
-            "label":"Panel",
+            "label":"Panel(panel_item)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -42,9 +42,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":557,"x":389,"width":150,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领 取","height":45},
+            "props":{"y":557,"x":389,"width":150,"var":"btn_get","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"领 取","height":45},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_get)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -55,9 +55,9 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":785,"x":198,"width":423,"innerHTML":"htmlText","height":26},
+            "props":{"y":785,"x":198,"width":423,"var":"html_time","innerHTML":"htmlText","height":26},
             "nodeParent":1,
-            "label":"HTMLDivElement",
+            "label":"HTMLDivElement(html_time)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -68,9 +68,9 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":751,"x":404,"width":225,"innerHTML":"htmlText","height":26},
+            "props":{"y":751,"x":404,"width":225,"var":"html_totalGet","innerHTML":"htmlText","height":26},
             "nodeParent":1,
-            "label":"HTMLDivElement",
+            "label":"HTMLDivElement(html_totalGet)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -81,7 +81,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":751,"x":81,"width":126,"text":"label","height":26,"color":"#000000"},
+            "props":{"y":751,"x":106,"width":126,"text":"当前累计消耗:","height":26,"fontSize":20,"font":"fzhl","color":"#55453e"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -94,9 +94,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":751,"x":246,"width":111,"text":"label","height":26},
+            "props":{"y":751,"x":271,"width":111,"var":"lab_yuanbao","text":"20000","strokeColor":"#000000","stroke":3,"height":26,"fontSize":20,"font":"fzhl","color":"#ffffff"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lab_yuanbao)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -107,9 +107,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":208,"x":272,"width":362,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":10},
+            "props":{"y":197,"x":265,"width":362,"var":"img_progressBG1","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":10},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_progressBG1)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -119,9 +119,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":215,"skin":"image/common/Progress bar_gang_top.png","sizeGrid":"5,11,5,5","height":10},
+                    "props":{"y":0,"x":0,"width":215,"var":"img_progressBase1","skin":"image/common/Progress bar_gang_top.png","sizeGrid":"5,11,5,5","height":10},
                     "nodeParent":9,
-                    "label":"Image",
+                    "label":"Image(img_progressBase1)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -144,6 +144,230 @@
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":147,"x":256,"width":380,"var":"lab_detail","text":"再消费1288元宝可领取一次奖励","strokeColor":"#000000","stroke":2,"height":24,"fontSize":24,"font":"fzhl","color":"#ffffff"},
+            "nodeParent":1,
+            "label":"Label(lab_detail)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":12,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"HTMLDivElement",
+            "props":{"y":526,"x":351,"width":225,"var":"html_getNum","innerHTML":"htmlText","height":26},
+            "nodeParent":1,
+            "label":"HTMLDivElement(html_getNum)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":664,"x":90,"width":480,"var":"img_progressBG2","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","height":10},
+            "nodeParent":1,
+            "label":"Image(img_progressBG2)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":14,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":0,"width":120,"var":"img_progressBase2","skin":"image/common/Progress bar_gang_top.png","sizeGrid":"5,11,5,5","height":10},
+                    "nodeParent":14,
+                    "label":"Image(img_progressBase2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":15,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":25,"x":47,"width":65.6015625,"var":"lab_addNum1","text":"累计8次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":24,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":25,"x":202,"width":77.203125,"var":"lab_addNum3","text":"累计40次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":25,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":25,"x":357,"width":88.8046875,"var":"lab_addNum5","text":"累计200次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":26,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-38,"x":119,"width":77.203125,"var":"lab_addNum2","text":"累计15次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":27,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-38,"x":273,"width":88.8046875,"var":"lab_addNum4","text":"累计100次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":28,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-38,"x":434,"width":88.8046875,"var":"lab_addNum6","text":"累计400次","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                    "nodeParent":14,
+                    "label":"Label(lab_addNum6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":80,"width":60,"var":"btn_reward1","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward1)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":17,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":160,"width":60,"var":"btn_reward2","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":240,"width":60,"var":"btn_reward3","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":19,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":320,"width":60,"var":"btn_reward4","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":20,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":400,"width":60,"var":"btn_reward5","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":21,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":0,"x":480,"width":60,"var":"btn_reward6","stateNum":"1","skin":"image/common/icon_baoxiang4_light.png","label":"label","height":60,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":14,
+                    "label":"Button(btn_reward6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":22,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":752,"x":229,"skin":"image/guild/icon_yuanbao.png","scaleY":0.4,"scaleX":0.4},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":30,
+            "child":[
+                ]
         }],
     "animations":[
         {
