@@ -163,7 +163,8 @@ module ResData {
         // 天鉴界面
         public static TianJian = null;
         //活动界面
-        public static Activity = [{ url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS }];
+        public static Activity = [{ url: "res/atlas/image/activity.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];
         //促销界面
         public static Promotion = [{ url: "res/atlas/image/promotion.atlas", type: Laya.Loader.ATLAS }];
 

@@ -494,6 +494,10 @@ module ProtoCmd {
     export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
     // export const Active
 
+    export const GetXFYLJiChuAward = "GetXFYLJiChuAward"  //消费有礼基础奖励
+    export const GetXFYLAward = "GetXFYLAward"  //消费有礼，累计奖励     index:  order
+
+
     export const MeiRiChongZhiGet = "MeiRiChongZhiGet"  //领取每日充值的奖励   16
     export const GetConsumeGiftAward = "GetConsumeGiftAward"//领取消费豪礼    18
     export const LimitTimePanicBuy = "LimitTimePanicBuy"  //限时购买 购买
