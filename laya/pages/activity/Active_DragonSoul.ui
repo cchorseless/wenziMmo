@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":18,
+    "selectedBox":5,
+    "selecteID":6,
     "props":{"width":557,"sceneColor":"#ffffff","height":750},
     "nodeParent":-1,
     "label":"View",
@@ -30,17 +30,19 @@
                     "props":{"width":545,"skin":"image/common/bottom_prompt.png","sizeGrid":"0,40,0,38","height":40},
                     "nodeParent":4,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":5,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":7,"x":157,"text":"奖励","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":7,"x":164,"text":"奖励","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":5,
                             "label":"Label",
+                            "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -49,8 +51,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":7,"x":401,"text":"玩家名字","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                            "props":{"y":7,"x":389,"text":"玩家名字","stroke":3,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":5,
                             "label":"Label",
                             "isDirectory":false,

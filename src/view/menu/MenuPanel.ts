@@ -5,6 +5,20 @@ module view.menu {
 		//滑动上面的活动图
 		public touchBeginX = 0;
 		public touchEndX = 0;
+		public maxTurnNum = 0;
+		public turnActArr1 = [EnumData.activityType.KaiFuJingJiOpen,
+		EnumData.activityType.QuanMingBoss,
+		EnumData.activityType.LongChengClientOpen,
+		EnumData.activityType.leijidenglu_minbandakai,]
+		public turnActArr3 = [
+			EnumData.activityType.ResourceGiftPanel,
+			EnumData.activityType.ResourceGiftIsShow2,
+			EnumData.activityType.ResourceGiftIsShow3,
+			EnumData.activityType.ResourceGiftIsShow4,
+			EnumData.activityType.ResourceGiftIsShow5
+		]
+		public turnActArr4 = [EnumData.activityType.chaozhiopen]
+		public curTurnAct = [];
 
 		public isTouch = false;
 		//下面的动态活动
@@ -24,11 +38,109 @@ module view.menu {
 			super();
 			this.panel_mission.vScrollBarSkin = '';
 		}
+		public turnActMax() {
+			this.curTurnAct = [];
+			let data1 = [];
+			let data3 = [];
+			let data4 = [];
+
+			for (let i = 0; i < this.turnActArr1.length; i++) {
+				for (let o in GameApp.GameEngine.activityStatus) {
+					if (GameApp.GameEngine.activityStatus[o].id == this.turnActArr1[i]) {
+						data1.push(GameApp.GameEngine.activityStatus[o])
+					}
+				}
+			}
+			if (data1.length > 0) {
+				if (this.curTurnAct.length == 0) {
+					this.curTurnAct.push(1);
+				} else {
+					for (let i = 0; i < this.curTurnAct.length; i++) {
+						if (this.curTurnAct[i] != 1) {
+							this.curTurnAct.push(1);
+							break;
+						}
+						else {
+							break
+						}
+					}
+				}
+
+			}
+			if (this.curTurnAct.length == 0) {
+				this.curTurnAct.push(2);
+			} else {
+				for (let i = 0; i < this.curTurnAct.length; i++) {
+					if (this.curTurnAct[i] != 2) {
+						this.curTurnAct.push(2);
+						break;
+					}
+					else {
+						break
+					}
+				}
+			}
+			for (let i = 0; i < this.turnActArr3.length; i++) {
+				if (GameApp.GameEngine.turnActivity.id == this.turnActArr3[i]) {
+					data3.push(GameApp.GameEngine.turnActivity.id)
+				}
+			}
+			if (data3.length > 0) {
+				if (this.curTurnAct.length == 0) {
+					this.curTurnAct.push(3);
+				} else {
+					for (let i = 0; i < this.curTurnAct.length; i++) {
+						if (this.curTurnAct[i] == 3) {
+							break;
+						}
+						else {
+							this.curTurnAct.push(3);
+							break;
+						}
+					}
+				}
+			}
+			for (let i = 0; i < this.turnActArr4.length; i++) {
+				for (let o in GameApp.GameEngine.activityStatus) {
+					if (GameApp.GameEngine.activityStatus[o].id == this.turnActArr4[i]) {
+						data4.push(GameApp.GameEngine.activityStatus[o])
+						break;
+					}
+					else {
+						break
+					}
+				}
+			}
+			if (data4.length > 0) {
+				if (this.curTurnAct.length == 0) {
+					this.curTurnAct.push(4);
+				} else {
+					for (let i = 0; i < this.curTurnAct.length; i++) {
+						if (this.curTurnAct[i] != 4) {
+							this.curTurnAct.push(4);
+						} else {
+							break
+						}
+					}
+				}
+			}
+			this.maxTurnNum = this.curTurnAct.length
+			for (let i = 1; i < 6; i++) {
+				this["img_Turn" + i].visible = false;
+				if (i <= this.maxTurnNum) {
+					// img_Turn
+					this["img_Turn" + i].visible = true;
+				}
+			}
+
+
+		}
 		public setData(): void {
 			this.panel_mission.vScrollBarSkin = '';
 			// this.vbox_down['sortItem'] = (items) => { };
 			this.initUI();
 			this.addEvent();
+			this.turnActMax()
 			this.changeActivity();
 			this.checkdynamicActivityState();
 			this.rechargeActivitiesState();
@@ -80,12 +192,13 @@ module view.menu {
 			let self = this;
 			let curID = this.changeActID;
 			Laya.timer.frameLoop(300, self, function () {
-				if (self.changeActID < 5) {
+				if (self.changeActID < this.maxTurnNum) {
 					self.changeActID++
 				} else {
 					self.changeActID = 1
 				}
-				for (let i = 1; i < 6; i++) {
+				console.log("for循环的max" + (this.maxTurnNum + 1), "|||", this.maxTurnNum)
+				for (let i = 1; i < (this.maxTurnNum + 1); i++) {
 					self["img_Turn" + i].skin = "image/menu/img_common_28.png";
 					let p = new Laya.Image();
 					p.width = self.img_xinfuActive.width;
@@ -135,6 +248,7 @@ module view.menu {
 			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
 				console.log(data);
 				GameApp.GameEngine.turnActivity = data;
+				this.turnActMax()
 			})
 			//返回
 			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
@@ -290,14 +404,7 @@ module view.menu {
 					} else {
 						this.isTouch = false;
 						this.touchEndX = 0;
-						switch (this.changeActID) {
-							case 1:
-								this.init_newServerOpen();
-								break;
-							case 2: case 3: case 4: case 5:
-								TipsManage.showTips("当前是轮换活动" + this.changeActID)
-								break;
-						}
+						this.chooseTurnAct(this.changeActID)
 					}
 				}
 			}
@@ -310,12 +417,12 @@ module view.menu {
 			// state true是+  false 是-  
 			let self = this;
 			if (state) {
-				if (self.changeActID < 5) {
+				if (self.changeActID < this.maxTurnNum) {
 					self.changeActID++
 				} else {
 					self.changeActID = 1
 				}
-				for (let i = 1; i < 6; i++) {
+				for (let i = 1; i < this.maxTurnNum + 1; i++) {
 					self["img_Turn" + i].skin = "image/menu/img_common_28.png";
 					let p = new Laya.Image();
 					p.width = self.img_xinfuActive.width;
@@ -338,9 +445,9 @@ module view.menu {
 				if (self.changeActID > 1) {
 					self.changeActID--
 				} else {
-					self.changeActID = 5
+					self.changeActID = this.maxTurnNum
 				}
-				for (let i = 1; i < 6; i++) {
+				for (let i = 1; i < this.maxTurnNum + 1; i++) {
 					self["img_Turn" + i].skin = "image/menu/img_common_28.png";
 					let p = new Laya.Image();
 					p.width = self.img_xinfuActive.width;
@@ -368,25 +475,42 @@ module view.menu {
 		 * 判断新服活动是否开启事件
 		 */
 		public init_newServerOpen(): void {
-			// let pkt = new ProtoCmd.QuestClientData();
-			// pkt.setString(ProtoCmd.NS_XinFuClientOpen, null, null, this, (jsonData) => {
-			// 	let keys = Object.keys(jsonData.General)
-			// 	let name = [];
-			// 	for (let key of keys) {
-			// 		//活动名称不为零&&活动状态为1时显示
-			// 		if (jsonData.General[key].name !== undefined && jsonData.General[key].state == 1) {
-			// 			name.push(jsonData.General[key].name);
-			// 		}
-			// 	}
-			// 	if (name.length == 0) {
-			// 		TipsManage.showTips('新服活动未开启');
-			// 	} else {
-			// 		//打开新服活动界面
-			// 		PanelManage.openNewServer_MainPanel(jsonData);
-			// 	}
-			// })
-			// lcp.send(pkt);
 			PanelManage.openNewServer_MainPanel()
+		}
+		/**
+		 * 选择轮播条后根据id打开界面
+		 */
+		public chooseTurnAct(id): void {
+			// PanelManage.openNewServer_MainPanel()
+			let curIndex = this.curTurnAct[id - 1];
+
+			switch (curIndex) {
+				case 1:
+					PanelManage.openNewServer_MainPanel()
+					break;
+				case 2:
+					//打开活动列表
+					let p = new Menu_TurnActivity2();
+					p.setData();
+					p.popup(true);
+					break;
+				case 3:
+					let data3 = [];
+					for (let i = 0; i < this.turnActArr3.length; i++) {
+						if (GameApp.GameEngine.turnActivity.id == this.turnActArr3[i]) {
+							data3.push(GameApp.GameEngine.turnActivity.id)
+						}
+					}
+					let o = new Menu_TurnActivity3();
+					o.getData(data3[0]);
+					o.popup(true);
+					//打开其中一个豪礼界面
+					break;
+				case 4:
+					//打开促销界面
+					PanelManage.openPromotionPanel()
+					break;
+			}
 		}
 	}
 }

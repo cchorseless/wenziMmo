@@ -15,15 +15,16 @@ module view.promotion {
 			this.data = data;
 			let items = data.item;
 			this.setTimeShow(data)
-			// let p = new Promotion_SpecialGift_TabItem()
-			// p.lab_Name.visible = false;
-			// this.box_icon.addChild(p);
+			this.html_title.style.align = "center"
+			this.html_title.innerHTML = "<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:3;strokeColor:#000000'>花费</span>"
+			 + "<span style='color:#f9e596;font-family:STLiti;fontSize:32;stroke:3;strokeColor:#000000'>"+ data.yuanbao + "元宝" + "</span>"
+			 +"<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:3;strokeColor:#000000'>获得神装礼包</span>"
 
 			for (let i in items) {
 				let o = new Promotion_Special_VSinfo_Itembox();
 				o.setData(items[i])
 				let p = parseInt(i) - 1;
-				o.y = Math.floor(p / 2) * (o.height + 30);
+				o.y = Math.floor(p / 2) * (o.height + 10);
 				o.x = p % 2 * (o.width + 18)
 				this.panel_item.addChild(o);
 			}

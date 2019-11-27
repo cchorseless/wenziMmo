@@ -494,6 +494,16 @@ module ProtoCmd {
     export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
     // export const Active
 
+    export const Active25 = "ResourceGiftPanel";    //龙魂好礼 面板        其他接口
+    export const Active26 = "ResourceGiftPanel";    //勋章好礼 面板        其他接口
+    export const Active27 = "ResourceGiftPanel";    //光翼好礼 面板        其他接口
+    export const Active28 = "ResourceGiftPanel";    //转生好礼 面板        其他接口
+
+    export const Active20 = "NationalResourcePanel";    //全民龙魂 面板        其他接口
+    export const Active21 = "NationalResourcePanel";    //全民勋章 面板        其他接口
+    export const Active22 = "NationalResourcePanel";    //全民光翼 面板        其他接口
+    export const Active23 = "NationalResourcePanel";    //全民转生 面板        其他接口
+
     export const GetXFYLJiChuAward = "GetXFYLJiChuAward"  //消费有礼基础奖励
     export const GetXFYLAward = "GetXFYLAward"  //消费有礼，累计奖励     index:  order
 
@@ -1175,11 +1185,11 @@ module ProtoCmd {
   */
     export interface itf_Menu_SignInInfo {
         buQianNum: number//可补签次数
-        curtimetab:{1:number,2:number,3:number }//当前1年2月3日
+        curtimetab: { 1: number, 2: number, 3: number }//当前1年2月3日
         firstlogindate: number//初次登陆日期
-        history:string//历史签到记录
+        history: string//历史签到记录
         items: any//每次签到的物品奖励
-        itemtab:any//累计签到奖励
+        itemtab: any//累计签到奖励
         qiandao: number//今天是否已签到0没签到1已签到
         qiandaonum: 7//已签到总天数
         qiaodaoday: 31//本月总天数

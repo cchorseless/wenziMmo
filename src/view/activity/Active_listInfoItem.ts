@@ -231,7 +231,7 @@ module view.activity {
 						itemBase.dwCount = data.items[i].num;
 						itemBase.dwBinding = data.items[i].bind;
 						o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-						o.x = (o.width + 24) * (parseInt(i) - 1)
+						o.x = (o.width + 15) * (parseInt(i) - 1)
 						this.panel_allItem.addChild(o)
 					}
 					break;
