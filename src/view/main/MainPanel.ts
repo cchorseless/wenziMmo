@@ -258,7 +258,10 @@ module view.main {
 				o.setData(1);
 				o.popup(true);
 			})
-
+			//任务
+			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, () => {
+			new view.dialog.TaskDialog().popup(true);
+			});
 			this.addLcpEvent();
 		}
 
