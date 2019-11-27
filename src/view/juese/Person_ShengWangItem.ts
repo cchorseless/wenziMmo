@@ -60,7 +60,6 @@ module view.juese {
 		public getShengWangInfo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
-				console.log('=====>声望声望', jsonData)
 				this.lbl_use.text = '每日消耗' + jsonData.daydelexp + '点声望值';
 				this.lbl_xiaoguo.text = '威慑\n 攻击威望值低于自己的玩家' + jsonData.damage;
 				//我的声望头衔
@@ -69,6 +68,8 @@ module view.juese {
 						this.lbl_title.text = '' + jsonData.titletab[i].name;
 					}
 				}
+				//我的声望icon
+				this.img_self.skin = 'image/juese/icon_shengwang' + jsonData.prestigeid + '.png';
 				//声望经验值进度条
 				this.img_progress.width = 211 * jsonData.minexp / jsonData.maxexp;
 				//声望经验值

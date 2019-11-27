@@ -449,7 +449,6 @@ class ServerListener extends SingletonClass {
         let msg = new ProtoCmd.MapCreatePlayer(data);
         let tempId = msg.getValue('dwTmpId');
         let type = msg.feature.getValue('btCretType');
-
         let player;
         // 玩家自己
         if (GameApp.MainPlayer.tempId == tempId) {
@@ -473,6 +472,7 @@ class ServerListener extends SingletonClass {
         player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));//血
         player.changeMp(msg.getValue('nNowMp'), msg.getValue('nMaxMp'));//蓝
         player.changeNeigong(msg.getValue('nMaxNG') - msg.getValue('nHasUseNG'), msg.getValue('nMaxNG'));//内功
+        PanelManage.Main.ui_battleSkill.init_skillView();
         // 自己进入地图，加载ui_scene.
         // 只会调用一次，创建自己的角色。
         // 这里可以拉取数据
@@ -485,6 +485,7 @@ class ServerListener extends SingletonClass {
         }
         msg.clear();
         msg = null;
+
     }
 
     /**
@@ -641,6 +642,7 @@ class ServerListener extends SingletonClass {
             skill.clone(skillInfo.data);
             GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
         }
+
         cbpkt.clear();
         cbpkt = null;
     }
@@ -673,7 +675,6 @@ class ServerListener extends SingletonClass {
             case "biguan":
                 break;
         }
-
         cbpkt.clear();
         cbpkt = null;
     }
@@ -703,8 +704,7 @@ class ServerListener extends SingletonClass {
                 case "biguan":
                     break;
             }
-
-
+            PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
             TipsManage.showTips('技能快捷键失败');
@@ -733,6 +733,7 @@ class ServerListener extends SingletonClass {
                 case "biguan":
                     break;
             }
+            PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
             TipsManage.showTips('删除失败')
@@ -1060,6 +1061,8 @@ class ServerListener extends SingletonClass {
             //英雄复活时间戳
             GameApp.MainPlayer.curHero.rebornLeftTime = msg.getValue("dwReliveTime");
         }
+        //玩家合击技
+        PanelManage.Main.ui_battleSkill.init_hejiskillView(job);
         //角色转生等级
         GameApp.MainPlayer.zslevel = msg.getValue("btMainRlvl");
     }

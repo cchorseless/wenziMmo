@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":162,
-    "selecteID":128,
+    "selectedBox":147,
+    "selecteID":77,
     "referenceLines":[
         {
             "value":1127,
@@ -571,15 +571,16 @@
                                     "props":{"y":0,"x":-2,"var":"box_taskInfo"},
                                     "nodeParent":75,
                                     "label":"Box(box_taskInfo)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":147,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
-                                            "props":{"y":5,"x":19,"var":"btn_taskAll","stateNum":"1","skin":"image/main/icon_renwu.png","labelStroke":4,"labelSize":25,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff"},
+                                            "props":{"y":29,"x":39,"var":"btn_taskAll","stateNum":"1","skin":"image/main/icon_renwu.png","labelStroke":4,"labelSize":25,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":147,
                                             "label":"Button(btn_taskAll)",
                                             "isOpen":true,
@@ -589,6 +590,7 @@
                                             "compId":77,
                                             "child":[
                                                 {
+                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":34,"x":-2,"text":"任务","strokeColor":"#010101","stroke":4,"fontSize":24,"font":"FZXK","color":"#ffffff"},
                                                     "nodeParent":77,
@@ -603,6 +605,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-1,"x":2,"width":347,"skin":"image/main/img_common_05.png","sizeGrid":"29,25,26,21","height":69},
                                             "nodeParent":147,
@@ -616,6 +619,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":26,"x":270,"width":63,"var":"box_goTask","height":22},
                                             "nodeParent":147,
@@ -642,6 +646,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"HTMLDivElement",
                                             "props":{"y":10,"x":66,"width":223,"var":"div_taskDes","innerHTML":"前往小树林与人交谈","height":50},
                                             "nodeParent":147,
@@ -1099,7 +1104,7 @@
                             "compId":128,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":false
                 }]

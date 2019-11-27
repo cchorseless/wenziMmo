@@ -226,6 +226,8 @@ module ProtoCmd {
     export const Hero_firstGenHero = 'firstGenHero';
     // 激活第二第三个弟子
     export const Hero_HeroJiHuo2and3 = 'HeroJiHuo2and3';
+    // 切换弟子出战状态
+    export const Hero_ChangeHero = 'ChangeHero';
     // 转生面板
     export const Hero_zhuanShengPanel = 'zhuanShengPanel';
     // 转生
