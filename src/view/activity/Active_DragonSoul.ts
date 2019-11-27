@@ -49,7 +49,7 @@ module view.activity {
 					if (leftTime > 0) {
 						let aa = TimeUtils.getFormatBySecond(leftTime, 6)
 						this.html_time.style.align = "center";
-						this.html_time.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>" + "<span style='color:#a53232;font-family:FZHuaLi-M14S;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
+						this.html_time.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>剩余时间：</span>" + "<span style='color:#a53232;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>" + aa + "</span>";
 					}
 				});
 			}

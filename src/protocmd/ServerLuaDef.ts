@@ -494,6 +494,16 @@ module ProtoCmd {
     export const Active30 = "DBCZ_Plane"             //单笔充值   面板         其他接口：领取
     // export const Active
 
+    export const Active25 = "ResourceGiftPanel";    //龙魂好礼 面板        其他接口
+    export const Active26 = "ResourceGiftPanel";    //勋章好礼 面板        其他接口
+    export const Active27 = "ResourceGiftPanel";    //光翼好礼 面板        其他接口
+    export const Active28 = "ResourceGiftPanel";    //转生好礼 面板        其他接口
+
+    export const Active20 = "NationalResourcePanel";    //全民龙魂 面板        其他接口
+    export const Active21 = "NationalResourcePanel";    //全民勋章 面板        其他接口
+    export const Active22 = "NationalResourcePanel";    //全民光翼 面板        其他接口
+    export const Active23 = "NationalResourcePanel";    //全民转生 面板        其他接口
+
     export const GetXFYLJiChuAward = "GetXFYLJiChuAward"  //消费有礼基础奖励
     export const GetXFYLAward = "GetXFYLAward"  //消费有礼，累计奖励     index:  order
 

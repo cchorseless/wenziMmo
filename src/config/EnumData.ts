@@ -1147,8 +1147,8 @@ module EnumData {
         MeiRiChongZhiOpen = 16,   //每日充值
         MRLQ_Plane = 17,   //每日领取
         ConsumeGiftPanel = 18,   //消费豪礼
-        NationalResourcePanel = 19,   //全民官印
-        ResourceGiftPanel = 24,   //官印、资源线好礼
+
+
         chaozhiopen = 202,   // 超值礼包   29
         DBCZ_Plane = 30,   //单笔充值
         LuckyDrawOpen = 201,   //幸运抽奖 31
@@ -1161,6 +1161,20 @@ module EnumData {
         OneDayRechargePanel = 39,   //单日充值
         MeiRiShouChongOpen = 41,   //每日首充
         XFYLPanel = 37,   //消费有礼
+
+
+        ResourceGiftPanel = 24,   //官印、资源线好礼
+        ResourceGiftIsShow2 = 25,   //龙魂豪礼
+        ResourceGiftIsShow3 = 26,   //勋章豪礼
+        ResourceGiftIsShow4 = 27,   //光翼豪礼
+        ResourceGiftIsShow5 = 28,   //转生豪礼
+
+
+        NationalResourcePanel = 19,   //全民官印
+        NationalResourceIsShow2 = 20,   //全民龙魂
+        NationalResourceIsShow3 = 21,   //全民勋章
+        NationalResourceIsShow4 = 22,   //全民光翼
+        NationalResourceIsShow5 = 23,   //全民转生
 
 
 
