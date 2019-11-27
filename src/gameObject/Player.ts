@@ -141,6 +141,7 @@ module GameObject {
          * 返回默认技能ID
          */
         public get default_skill(): string {
+          
             return ['99901', '200201', '300201'][this.job - 1];
         }
 

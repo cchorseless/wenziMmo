@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":12,
+    "selecteID":14,
     "props":{"width":190,"sceneColor":"#a8504e","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -54,39 +54,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":43,"x":51,"stateNum":"1","skin":"image/main/icon_jn_linghubu.png"},
+                            "props":{"y":162,"x":1,"width":63,"var":"btn_kill1","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
                             "nodeParent":2,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":5,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":87,"x":-2,"stateNum":"1","skin":"image/main/icon_jn_yehushenfa.png"},
-                            "nodeParent":2,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":157,"x":-3,"stateNum":"1","skin":"image/main/icon_jn_chongyujianfa.png"},
-                            "nodeParent":2,
-                            "label":"Button",
+                            "label":"Button(btn_kill1)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -94,6 +64,71 @@
                             "compId":9,
                             "child":[
                                 ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":92,"x":2,"width":63,"var":"btn_kill2","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "nodeParent":2,
+                            "label":"Button(btn_kill2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":7,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":48,"x":56,"width":63,"var":"btn_kill3","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "nodeParent":2,
+                            "label":"Button(btn_kill3)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":5,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":49,"x":124,"width":63,"var":"btn_kill4","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "nodeParent":2,
+                            "label":"Button(btn_kill4)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":118,"x":72,"width":86,"var":"btn_kill5","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":86},
+                            "nodeParent":2,
+                            "label":"Button(btn_kill5)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
                             "$HIDDEN":false
                         },
                         {
@@ -107,36 +142,6 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":11,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":44,"x":120,"stateNum":"1","skin":"image/main/icon_jn_jingang.png"},
-                            "nodeParent":2,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":108,"x":63,"stateNum":"1","skin":"image/main/icon_jn_huoyandao.png"},
-                            "nodeParent":2,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":14,
                             "child":[
                                 ],
                             "$HIDDEN":false

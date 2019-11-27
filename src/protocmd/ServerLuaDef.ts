@@ -226,6 +226,8 @@ module ProtoCmd {
     export const Hero_firstGenHero = 'firstGenHero';
     // 激活第二第三个弟子
     export const Hero_HeroJiHuo2and3 = 'HeroJiHuo2and3';
+    // 切换弟子出战状态
+    export const Hero_ChangeHero = 'ChangeHero';
     // 转生面板
     export const Hero_zhuanShengPanel = 'zhuanShengPanel';
     // 转生
@@ -1175,11 +1177,11 @@ module ProtoCmd {
   */
     export interface itf_Menu_SignInInfo {
         buQianNum: number//可补签次数
-        curtimetab:{1:number,2:number,3:number }//当前1年2月3日
+        curtimetab: { 1: number, 2: number, 3: number }//当前1年2月3日
         firstlogindate: number//初次登陆日期
-        history:string//历史签到记录
+        history: string//历史签到记录
         items: any//每次签到的物品奖励
-        itemtab:any//累计签到奖励
+        itemtab: any//累计签到奖励
         qiandao: number//今天是否已签到0没签到1已签到
         qiandaonum: 7//已签到总天数
         qiaodaoday: 31//本月总天数

@@ -22,6 +22,13 @@ module view.hero {
 			this.btn_rune.on(Laya.UIEvent.CLICK, this, () => {
 				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
 			});
+			//切换出战状态
+			this.btn_battle.on(Laya.UIEvent.CLICK, this, () => {
+				//当前弟子已解锁且不为出战弟子时切换出战状态
+				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle == false && GameApp.MainPlayer.heroObj(this.job).lockState == 2) {
+					this.init_ChangeHero();
+				}
+			})
 			this.addLcpEvent();
 			this.init_rune();
 		}
@@ -46,7 +53,10 @@ module view.hero {
 				this.setData(this.job);
 			})
 		}
-
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);
+			super.destroy(isbool);
+		}
 		/**
 		 * 弟子基本信息
 		 */
@@ -70,16 +80,7 @@ module view.hero {
 					this.viw_dizi.selectedIndex = 1;
 					break;
 			}
-			//弟子出战状态
-			if (GameApp.MainPlayer.curHero == undefined) {
-				this.img_battle.disabled = true;
-			} else {
-				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle) {
-					this.img_battle.disabled = false;
-				} else {
-					this.img_battle.disabled = true;
-				}
-			}	
+			this.init_heroState();
 		}
 		//激活弟子
 		public init_JiHuo(proto): void {
@@ -125,14 +126,36 @@ module view.hero {
 						singleArray.push(JSON.parse(JSON.stringify(runeObj)));
 					}
 				}
-				this.list_down.vScrollBarSkin='';
-				for(let single of singleArray){
+				this.list_down.vScrollBarSkin = '';
+				for (let single of singleArray) {
 					this.list_down.array.push(single)
 				}
 				this.list_down.itemRender = view.compart.SinglePropsItem;
 				this.list_down.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
 					cell.setData(cell.dataSource);
 				}, null, false)
+			}
+		}
+		/**
+		 * 切换英雄出战状态
+		 */
+		public init_ChangeHero(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			let num = this.job - 1;
+			pkt.setString(ProtoCmd.Hero_ChangeHero, [num]);
+			lcp.send(pkt);
+		}
+		public init_heroState(): void {
+			//弟子出战状态
+			if (GameApp.MainPlayer.curHero == null) {
+				this.btn_battle.gray = true;
+			}
+			else {
+				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle) {
+					this.btn_battle.gray = false;
+				} else {
+					this.btn_battle.gray = true;
+				}
 			}
 		}
 	}

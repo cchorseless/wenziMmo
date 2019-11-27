@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":314,
+    "selectedBox":282,
+    "selecteID":370,
     "props":{"width":567,"sceneColor":"#b27372","height":911},
     "nodeParent":-1,
     "label":"View",
@@ -54,7 +54,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":91,"x":39,"width":333,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"12,16,15,11","height":391},
+                    "props":{"y":91,"x":39,"width":333,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"12,16,15,11","renderType":"render","height":391},
                     "nodeParent":186,
                     "label":"Image",
                     "isOpen":true,
@@ -162,21 +162,21 @@
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":0,"x":230,"var":"img_battle","skin":"image/juese/bg_chuzhan.png"},
+                            "type":"Button",
+                            "props":{"x":230,"var":"btn_battle","stateNum":"1","skin":"image/juese/bg_chuzhan.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","gray":true},
                             "nodeParent":282,
-                            "label":"Image(img_battle)",
+                            "label":"Button(btn_battle)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":317,
+                            "compId":370,
                             "child":[
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":12,"x":13,"skin":"image/juese/font_chuzhan.png"},
-                                    "nodeParent":317,
+                                    "props":{"y":14,"x":10,"skin":"image/juese/font_chuzhan.png"},
+                                    "nodeParent":370,
                                     "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
@@ -184,7 +184,8 @@
                                     "compId":318,
                                     "child":[
                                         ]
-                                }]
+                                }],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
