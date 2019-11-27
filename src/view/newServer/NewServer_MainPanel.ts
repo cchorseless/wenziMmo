@@ -60,8 +60,8 @@ module view.newServer {
 					case EnumData.activityType.LongChengClientOpen:
 						ui_newServer = view.newServer.NewServer_DragonItem;
 						break;
-						case EnumData.activityType.leijidenglu_minbandakai:
-						ui_newServer = view.newServer.NewServer_DragonItem;
+					case EnumData.activityType.leijidenglu_minbandakai:
+						ui_newServer = view.newServer.NewServer_TotalLoginItem;
 						break;
 					// case EnumData.activityType.leijidenglu_minbandakai:
 					// 	break;

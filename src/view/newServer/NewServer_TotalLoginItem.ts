@@ -4,6 +4,7 @@ module view.newServer {
 		public static self: NewServer_TotalLoginItem;
 		public touchID = 1;
 		public data;
+		public totalDay = 0;
 		constructor() {
 			super();
 			NewServer_TotalLoginItem.self = this;
@@ -15,9 +16,8 @@ module view.newServer {
 			GameApp.LListener.on(ProtoCmd.leijidenglu_minbandakai, this, function (data) {
 				this.setData(data);
 			})
-			EventManage.onWithEffect(this.btn_get, Laya.UIEvent.CLICK, this, function () {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.leijidenglu_minbandakai, [this.touchID])
-				lcp.send(pkt);
+			this.btn_back.on(Laya.UIEvent.CLICK,this,function(){
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
 			})
 		}
 		public getData() {
@@ -30,11 +30,15 @@ module view.newServer {
 				if (data[i]) {
 					let o = new view.newServer.NewServer_TotalLogin_Item()
 					o.setData(data[i]);
-					o.x = (i - 1) % 3 * (o.width + 15);
-					o.y = Math.floor((i - 1) / 3) * (o.width + 15)
+					o.x = 4;
+					o.y = (i - 1) * (o.height + 15)
 					this.panel_item.addChild(o);
+					if (data[i].status == 2) {
+						this.totalDay++
+					}
 				}
 			}
+			this.FC_num.value = "" + this.totalDay;
 			this.itemState();
 		}
 		public onChooseItem(id) {
