@@ -1761,12 +1761,20 @@ module ProtoCmd {
             this.addProperty("dwWeekFieldBoss", PacketBase.TYPE_DWORD);
             this.addProperty("dwWeekGuildBoss", PacketBase.TYPE_DWORD);
             this.addProperty("dwJoinNeedLvl", PacketBase.TYPE_DWORD);
-            this.addProperty("szJoinNotice", PacketBase.TYPE_STRING, 512);
-            this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 1024);
+            this.addProperty("szJoinNotice", PacketBase.TYPE_STRING, 64);
+            this.addProperty("szAliaNames", PacketBase.TYPE_STRING, 512);
             this.addProperty("zsLevel", PacketBase.TYPE_DWORD);
+            this.addProperty("weekCash", PacketBase.TYPE_DWORD);//每周充值
+            this.addProperty("skillList", PacketBase.TYPE_STRING, 1024);//技能列表
             if (data) {
                 data.pos += this.read(data);
             }
+        }
+         /**
+         * 技能列表
+         */
+        public get skillList(): number {
+            return this.getValue("skillList");
         }
         /**
          * 行会ID

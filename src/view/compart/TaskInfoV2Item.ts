@@ -23,31 +23,31 @@ module view.compart {
 			switch (this.type) {
 				//主线任务
 				case 0:
-					this.img_taskTypeBg.skin = 'image/main/tab_meiri_01.png';
+					this.img_taskTypeBg.skin = 'image/main/img_task01.png';
 					this.lbl_taskType.text = '主线';
 					this.lbl_taskType.strokeColor = '#be7e16';
 					break;
 				//每日任务
 				case 1:
-					this.img_taskTypeBg.skin = 'image/main/tab_meiri_04.png';
+					this.img_taskTypeBg.skin = 'image/main/img_task04.png';
 					this.lbl_taskType.text = '每日';
 					this.lbl_taskType.strokeColor = '#4595b1';
 					break;
 				//历练||支线任务
 				case 2:
-					this.img_taskTypeBg.skin = 'image/main/tab_meiri_03.png';
+					this.img_taskTypeBg.skin = 'image/main/img_task03.png';
 					this.lbl_taskType.text = '支线';
 					this.lbl_taskType.strokeColor = '#7e41b6';
 					break;
 				//剧情任务
 				case 4:
-					this.img_taskTypeBg.skin = 'image/main/tab_meiri_02.png';
+					this.img_taskTypeBg.skin = 'image/main/img_task04.png';
 					this.lbl_taskType.text = '剧情';
 					this.lbl_taskType.strokeColor = '#b65c41';
 					break;
 				//威望任务
 				// case :
-				// 	this.img_taskTypeBg.skin = 'image/main/tab_meiri_05.png';
+				// 	this.img_taskTypeBg.skin = 'image/main/img_task05.png';
 				// 	this.lbl_taskType.text = '威望';
 				// 	this.lbl_taskType.strokeColor = '#4fb145';
 				// 	break;
@@ -69,7 +69,7 @@ module view.compart {
 				}
 			}
 			//任务名
-			this.lbl_taskName.text = this.taskInfo.questname.split(':')[1];
+			this.lbl_taskName.text = this.taskInfo.questname;
 			//任务介绍
 			this.lbl_introduce.text = this.taskInfo.des;
 		}

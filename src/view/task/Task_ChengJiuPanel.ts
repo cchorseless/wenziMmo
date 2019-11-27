@@ -41,17 +41,10 @@ module view.task {
 				PanelManage.openTask_MainPanel()
 			});
 		}
-		// public updateUI(index = 0): void {
-		// 	let pkt = new ProtoCmd.QuestClientData();
-		// 	pkt.setString(ProtoCmd.TASK_GET_CHENGJIU_INFO, [index], null, this, (jsonData) => {
-		// 		console.log(jsonData)
-		// 	})
-		// 	lcp.send(pkt);
-		// }
 		/**
-* 成就
-* 
-*/
+        * 成就
+        * 
+        */
 		public init_chengjiu(i): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_achievementPanel, [i + 1], null, this, (jsonData) => {
