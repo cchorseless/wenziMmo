@@ -55,9 +55,13 @@ module view.scene {
 		public init_hejiskillView(job): void {
 			//合击技能
 			let skillInfo = GameApp.MainPlayer.skillInfo;
-			let index = '500' + job;
-			let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
-			this.btn_kill5.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+			if (parseInt(job) > 0) {
+				let index = '500' + job;
+				let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
+				this.btn_kill5.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+			}else{
+				this.btn_kill5.skin = 'image/common/frame_ketianjia.png';
+			}
 		}
 	}
 }
