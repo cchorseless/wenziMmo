@@ -6,10 +6,12 @@ module view.menu {
 		public touchBeginX = 0;
 		public touchEndX = 0;
 		public maxTurnNum = 0;
+		//轮播活动第一页
 		public turnActArr1 = [EnumData.activityType.KaiFuJingJiOpen,
 		EnumData.activityType.QuanMingBoss,
 		EnumData.activityType.LongChengClientOpen,
 		EnumData.activityType.leijidenglu_minbandakai,]
+		//轮播活动第三页
 		public turnActArr3 = [
 			EnumData.activityType.ResourceGiftPanel,
 			EnumData.activityType.ResourceGiftIsShow2,
@@ -17,6 +19,7 @@ module view.menu {
 			EnumData.activityType.ResourceGiftIsShow4,
 			EnumData.activityType.ResourceGiftIsShow5
 		]
+		//轮播活动第二页
 		public turnActArr4 = [EnumData.activityType.chaozhiopen]
 		public curTurnAct = [];
 
@@ -26,6 +29,7 @@ module view.menu {
 			EnumData.activityType.ExpRefineOpen,
 			EnumData.activityType.JingCaiClientOpen,
 		]
+		//充值icon
 		public rechargeActivities = [
 			EnumData.activityType.FirstChargeOpen,
 			EnumData.activityType.MeiRiTeHuiPanel,
@@ -38,6 +42,7 @@ module view.menu {
 			super();
 			this.panel_mission.vScrollBarSkin = '';
 		}
+		//当前轮播有几页
 		public turnActMax() {
 			this.curTurnAct = [];
 			let data1 = [];
@@ -187,7 +192,7 @@ module view.menu {
 
 			}
 		}
-		//5s一次活动页刷新
+		//5s一次活动页刷新    自动刷新轮播
 		public changeActivity() {
 			let self = this;
 			let curID = this.changeActID;
@@ -384,14 +389,16 @@ module view.menu {
 				this.touchBeginX = this.getPosX(ev)
 				this.isTouch = true;
 			})
-
+			//手动滑动轮播
 			this.img_xinfuActive.on(Laya.Event.MOUSE_UP, this, function (ev) {
 				this.turnActTouchEnd(ev)
 			})
+			//手动滑动轮播
 			this.img_xinfuActive.on(Laya.Event.MOUSE_OUT, this, function (ev) {
 				this.turnActTouchEnd(ev)
 			})
 		}
+		//手动滑动轮播  表现
 		public turnActTouchEnd(ev) {
 			if (this.isTouch) {
 				if (this.touchEndX == 0) {
@@ -409,10 +416,12 @@ module view.menu {
 				}
 			}
 		}
+		//获得当前鼠标坐标
 		public getPosX(ev) {
 			let x = ev.stageX;
 			return x;
 		}
+		//轮播动画
 		public nextOrLastActivity(state) {
 			// state true是+  false 是-  
 			let self = this;

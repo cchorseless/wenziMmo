@@ -314,7 +314,7 @@ module GameObject {
                 this.ability.nowMP = nowMP;
             }
             if (this.isMainPlayer) {
-              
+
             }
         }
 
