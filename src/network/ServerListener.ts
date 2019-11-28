@@ -224,6 +224,10 @@ class ServerListener extends SingletonClass {
         realLogin.setValue('tokencheck', GameApp.GameEngine.tokenCheck);
         realLogin.setValue('gamesvr_id_type', GameApp.GameEngine.gamesvrIdType);
         realLogin.setValue('logintoken', GameApp.GameEngine.logintoken);
+        if (GameApp.GameEngine.deviceInfo['idfa']) {
+            realLogin.setValue('meshineId', GameApp.GameEngine.deviceInfo['idfa']);
+        }
+
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
         let accounts = GameApp.GameEngine.mainPlayer.playerAccount.split('@');
