@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":4,
+    "selectedBox":13,
+    "selecteID":15,
     "props":{"width":522,"sceneColor":"#ffffff","height":173},
     "nodeParent":-1,
     "label":"View",
@@ -69,7 +69,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":10,"x":85,"width":192,"var":"lbl_taskName","text":"任务名称六字","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#ffeeb1","align":"center"},
+                    "props":{"y":16,"x":87,"width":318,"var":"lbl_taskName","text":"任务名称六字","strokeColor":"#603d22","stroke":4,"height":32,"fontSize":28,"font":"FZHL","color":"#ffeeb1","align":"left"},
                     "nodeParent":2,
                     "label":"Label(lbl_taskName)",
                     "isDirectory":false,
@@ -148,6 +148,75 @@
                     "compId":11,
                     "child":[
                         ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":142,"x":24,"visible":false,"var":"box_chengjiu"},
+                    "nodeParent":2,
+                    "label":"Box(box_chengjiu)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":16,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"text":"完成度：","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
+                            "nodeParent":16,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":10,"x":82,"width":255,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,15,0,8","height":9},
+                            "nodeParent":16,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":13,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":0,"x":-1,"width":255,"skin":"image/common/Progress bar_gang_top.png","sizeGrid":"0,39,0,30","name":"img_progress","height":9},
+                                    "nodeParent":13,
+                                    "label":"Image(img_progress)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":14,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":-10,"x":75,"width":105,"var":"lbl_progress","valign":"bottom","text":"349/350","stroke":3,"height":18,"fontSize":18,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "nodeParent":13,
+                                    "label":"Label(lbl_progress)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":15,
+                                    "child":[
+                                        ]
+                                }],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        }],
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false

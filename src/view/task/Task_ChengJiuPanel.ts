@@ -13,7 +13,7 @@ module view.task {
 			}, null, false);
 			this.panel_0.vScrollBarSkin = '';
 			this.vbox_0['sortItem'] = (items) => { };
-			let i = 0
+			let i = 0;
 			this.init_chengjiu(i);
 			this.addEvent();
 		}
