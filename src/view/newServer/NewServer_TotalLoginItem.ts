@@ -17,7 +17,7 @@ module view.newServer {
 				this.setData(data);
 			})
 			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
-				GameApp.LListener.offCaller(ProtoCmd.leijidenglu_minbandakai,this)
+				GameApp.LListener.offCaller(ProtoCmd.leijidenglu_minbandakai, this)
 				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
 			})
 		}
@@ -26,6 +26,7 @@ module view.newServer {
 			lcp.send(pkt);
 		}
 		public setData(data) {
+			this.totalDay = 0;
 			if (this.panel_item.numChildren > 0) {
 				this.panel_item.removeChildren();
 			}
