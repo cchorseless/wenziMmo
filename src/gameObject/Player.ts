@@ -141,7 +141,7 @@ module GameObject {
          * 返回默认技能ID
          */
         public get default_skill(): string {
-          
+
             return ['99901', '200201', '300201'][this.job - 1];
         }
 
@@ -511,7 +511,7 @@ module GameObject {
                 // 有攻击目标找攻击目标 
                 if (this.atkTargetTempId) {
                     let target = this.findViewObj(this.atkTargetTempId);
-                    if (target) {
+                    if (target != undefined || target != null) {
                         this.tryAttack(target);
                         return
                     }
@@ -522,15 +522,14 @@ module GameObject {
                     let monsterObj: Monster = this.allMonster[key];
                     let config = monsterObj.feature.dwCretTypeId;
                     // 查表找到BOSS
-                    if (Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + config))) {
+                    if (Boolean(SheetConfig.mydb_monster_tbl.getInstance(null).BOSS(config.toString()))) {
                         this.tryAttack(monsterObj);
                         return
                     }
                 }
                 // 没有攻击目标,所有的怪物位置最靠左的
-                // if( ){
 
-                // }
+
                 TipsManage.showTips('无怪物');
             }, null, false);
             // 攻击一次
@@ -553,7 +552,7 @@ module GameObject {
          * @param skillID 
          */
         public startHandAtk(target: Creature, skillID: number = 999): void {
-            this.stopAutoAtk();
+            // this.stopAutoAtk();
             this.tryAttack(target, skillID)
         }
 

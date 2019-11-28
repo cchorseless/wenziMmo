@@ -544,6 +544,8 @@ class ServerListener extends SingletonClass {
                 // 检查攻击动作，释放攻击动作,检查CD
                 case EnumData.BattleResult.SUCCESS:
                     atker.startAttack();
+                    let skillid = msgData.getValue('nMagicId')
+                    PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
                     break;
                 default:
                     TipsManage.showTips('攻击失败' + msgData.btErrorCode);
@@ -567,14 +569,33 @@ class ServerListener extends SingletonClass {
         let maxhp = msg.getValue('nMaxHp');
         let actmpid = msg.getValue('dwAcTmpID');
         let tartmpid = msg.getValue('dwTmpId');
+        let skillID = msg.getValue('wdMagicID');
         let player = GameApp.MainPlayer;
         // 攻击者
         let atker = player.findViewObj(actmpid);
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
+            let e = new Laya.Label();
+            e.font = "fzhl";
+            e.color = "#ffeeb1";
+            e.stroke = 3;
+            e.strokeColor = "#000000";
+            e.fontSize = 28;
+            let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
+            e.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+            // targeter.ui_item.y;
+            let p = targeter.ui_item.localToGlobal(new Laya.Point());
+            e.y = p.y;
+            e.x = 0;
+            PanelManage.Main.addChild(e)
+            Laya.Tween.to(e, { x: p.x }, 500, null, Laya.Handler.create(this, () => {
+                PanelManage.Main.removeChild(e)
+            }))
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
+
+
             TipsManage.showTxt('HP--' + npower);
         }
         else {
