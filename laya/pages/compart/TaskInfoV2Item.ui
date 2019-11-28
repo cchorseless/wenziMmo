@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":13,
-    "selecteID":15,
+    "selecteID":14,
     "props":{"width":522,"sceneColor":"#ffffff","height":173},
     "nodeParent":-1,
     "label":"View",
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":13,"x":1,"var":"img_taskTypeBg","skin":"image/main/img_task02.png"},
+                    "props":{"y":13,"x":1,"width":80,"var":"img_taskTypeBg","skin":"image/main/img_task02.png"},
                     "nodeParent":2,
                     "label":"Image(img_taskTypeBg)",
                     "isOpen":true,
@@ -191,7 +191,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":0,"x":-1,"width":255,"skin":"image/common/Progress bar_gang_top.png","sizeGrid":"0,39,0,30","name":"img_progress","height":9},
+                                    "props":{"y":0,"x":-1,"width":255,"var":"img_progress","skin":"image/common/Progress bar_gang_top.png","sizeGrid":"0,39,0,30","height":9},
                                     "nodeParent":13,
                                     "label":"Image(img_progress)",
                                     "isDirectory":false,

@@ -27,11 +27,6 @@ module view.task {
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
-
-			this.btn_achieveTask.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openTask_ChengJiuPanel()
-			});
-
 			this.btn_dailyTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_DailyPanel()
 			});

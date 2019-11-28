@@ -186,6 +186,11 @@ module ProtoCmd {
     export const JS_advancePlayerWing = 'advancePlayerWing';
     // 罡气升阶
     export const JS_upgradePlayerWing = 'upgradePlayerWing';
+    // 成就领取奖励
+    export const JS_getAchievementReward = 'getAchievementReward';
+     // 成就领取奖励回调
+    export const JS_updateAchievement = 'updateAchievement';
+    
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"

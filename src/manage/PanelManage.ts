@@ -636,22 +636,6 @@ module PanelManage {
     }
 
     /**
-     * 成就任务界面
-     */
-    export function openTask_ChengJiuPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Task_chengJiu)) return;
-        ResManage.loadResource(ResData.PanelRes.Task_chengJiu, () => {
-            PanelManage.Task_chengJiu = new view.task.Task_ChengJiuPanel();
-            PanelManage.Task_chengJiu['LCP_skin'] = ResData.PanelRes.Task_chengJiu;
-            PanelManage.Task_chengJiu.setData();
-            PanelManage.Task_chengJiu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task_chengJiu, 2, 0, 2);
-        })
-    }
-
-
-
-    /**
      * 主线副本界面
      */
     export function openFuBenMainPanel(): void {

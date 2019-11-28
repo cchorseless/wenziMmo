@@ -74,7 +74,6 @@ module view.friend {
 					friend_UI.setData(friendItem);
 					this.vbox_friend0.addChild(friend_UI);
 				}
-
 				cbpkt.clear();
 				cbpkt = null;
 			})

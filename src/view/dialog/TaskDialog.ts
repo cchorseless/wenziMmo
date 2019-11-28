@@ -26,7 +26,7 @@ module view.dialog {
 				let keys = Object.keys(taskList[taskSingle])
 				for (let key of keys) {
 					let data=taskList[taskSingle][key];
-					this.vbox_task.addChild(new view.compart.TaskInfoV2Item().setData(data,parseInt(taskSingle)));
+					this.vbox_task.addChild(new view.compart.TaskInfoV2Item().init_taskList(data,parseInt(taskSingle)));
 				}
 			}
 		}
