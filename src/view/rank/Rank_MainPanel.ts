@@ -50,10 +50,6 @@ module view.rank {
 			EventManage.onWithEffect(this.btn_team, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
 			});
-			// 好友
-			EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFriendPanel();
-			});
 			// 帮会
 			EventManage.onWithEffect(this.btn_guild, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openGuildSelectPanel();

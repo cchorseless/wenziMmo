@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":52,
+    "selectedBox":50,
+    "selecteID":73,
     "props":{"width":472,"sceneColor":"#ffffff","height":423,"alpha":1},
     "nodeParent":-1,
     "label":"Dialog",
@@ -30,27 +30,40 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":12,"width":440,"skin":"image/common/title_tanchuang2.png","height":64},
+            "props":{"top":0,"skin":"image/common/title_tanchuang2.png","right":0,"left":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":50,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":3,"x":8,"text":"精炼大师","strokeColor":"#000000","stroke":4,"height":48,"fontSize":45,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":126,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
                     "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":51,
+                    "hasChild":true,
+                    "compId":73,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":7,"x":21,"width":178,"text":"精炼大师","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":73,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":74,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         },
@@ -214,7 +227,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":4,"x":408,"var":"btn_close","stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png"},
+            "props":{"y":-2,"x":422,"var":"btn_close","stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,

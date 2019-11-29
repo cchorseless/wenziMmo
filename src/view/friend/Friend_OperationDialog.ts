@@ -1,45 +1,76 @@
 /**Created by the LayaAirIDE*/
 module view.friend {
-	export class FriendNearbyDialog extends ui.friend.FriendNearbyDialogUI {
+	export class Friend_OperationDialog extends ui.friend.Friend_OperationDialogUI {
 		constructor() {
 			super();
 		}
-		public item: GameObject.Player;
-		public setData(item: GameObject.Player): FriendNearbyDialog {
+		public item;
+		public type;
+		public name;
+		public lvl;
+		public job;
+		public sex;
+		public setData(item, type): Friend_OperationDialog {
 			this.item = item;
+			this.type = type;
+			//type操作类型1好友列表2附近的人
+			switch (type) {
+				case 1:
+					this.btn_friend.label = '删除好友';
+					this.name = item.szName;
+					//门派名称
+					this.lbl_Sects.text = this.item.guildName;
+					break;
+				case 2:
+					this.btn_friend.label = '添加好友';
+					this.name = item.objName;
+					//门派名称
+					if (this.item.feature.dwClanId == 0) {
+						this.lbl_Sects.text = '暂未加入门派';
+					} else {
+						// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.feature.dwClanId);
+					}
+					break;
+			}
+			this.lvl = item.level;
+			this.job = item.job;
+			this.sex = item.sex;
 			//附近的人的昵称
-			this.lbl_name.text = '' + this.item.objName;
+			this.lbl_name.text = '' + this.name;
 			//附近的人的等级
-			this.lbl_lvl.text = '' + this.item.level;
-			
+			this.lbl_level.text = item.zslevel + '转' + this.lvl + '级';
+			//头像
+			this.img_head.skin = LangConfig.getPlayerIconSkin(this.sex, this.job);
 			this.addEvent();
 			return this;
 		}
 		public addEvent(): void {
-			this.btn_nearbyClose.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_friendClose.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			})
-			//添加好友
-			this.btn_nearbyAddFriend.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [0]);
+			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
+				//添加好友
+				if (this.type == 2) {
+					this.changeRelationShip(0);
+				}
+				//删除好友
+				if (this.type == 1) {
+
+				}
+			});
 			// 拉入黑名单   
-			this.btn_nearbyIntoBlack.on(Laya.UIEvent.CLICK, this, this.changeRelationShip, [1]);
+			this.btn_intoBlackList.on(Laya.UIEvent.CLICK, this, () => {
+				this.changeRelationShip(1);
+			});
 			//邀请附近的人加入队伍
 			this.btn_nearbyBuildTeam.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt=new ProtoCmd.TeamInviteEnDecoder(null);
-				pkt.setValue('szName', this.item.objName);
-				pkt.setValue('dwLevel', this.item.level);
-				pkt.setValue('btJob', this.item.job);
-				pkt.setValue('btSex', this.item.sex);
-				lcp.send(pkt, this, (data) => {
-					let cbpkt = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
-				})
+				this.init_addTeam();
 			})
 		}
-
 		/**
-		 * 添加好友 || 拉入黑名单
-		 * @param type 
-		 */
+	  * 添加好友 || 拉入黑名单
+	  * @param type 
+	  */
 		public changeRelationShip(type): void {
 			let pkt = new ProtoCmd.stRelationAdd();
 			pkt.setValue('btType', type);
@@ -94,6 +125,19 @@ module view.friend {
 					case EnumData.emFriendErrorCode.RELATION_FAIL_NEED_VERIFY: break;  		//需要验证
 					case EnumData.emFriendErrorCode.RELATION_FAIL_REFUSEALL: break;  		//设置了拒绝加好友
 				}
+			})
+		}
+		/**
+		 * 加入队伍
+		 */
+		public init_addTeam(): void {
+			let pkt = new ProtoCmd.TeamInviteEnDecoder(null);
+			pkt.setValue('szName', this.name);
+			pkt.setValue('dwLevel', this.lvl);
+			pkt.setValue('btJob', this.job);
+			pkt.setValue('btSex', this.sex);
+			lcp.send(pkt, this, (data) => {
+				let cbpkt = new ProtoCmd.TeamAgreeInviteEnDecoder(data);
 			})
 		}
 	}

@@ -1,8 +1,7 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":8,
-    "selecteID":12,
+    "selectedBox":1,
     "props":{"width":500,"sceneColor":"#ffffff","height":400},
     "nodeParent":-1,
     "label":"Dialog",
@@ -42,30 +41,42 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":6,"x":10,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23","alpha":0.65},
+                    "props":{"top":0,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23","right":0,"left":0},
                     "nodeParent":8,
                     "label":"Image",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":3,
                     "child":[
-                        ],
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":139,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
+                            "nodeParent":3,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":13,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":7,"x":21,"width":178,"text":"探宝奖励","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                                    "nodeParent":13,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":14,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":14,"x":27,"text":"探宝奖励","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffeeb1"},
-                    "nodeParent":8,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
                 },
                 {
                     "x":30,

@@ -6,7 +6,6 @@ module view.friend {
 			this.setData();
 		}
 		public setData(): void {
-
 			this.addEvent();
 			this.updateNearbyList();
 		}
@@ -25,7 +24,7 @@ module view.friend {
 			this.vbox_nearby.removeChildren();
 			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
 			for (let _key of allKeys) {
-				// this.vbox_nearby.addChild(new view.compart.FriendTeamItem().setNearbyPlayerInfo(GameApp.MainPlayer.allPlayer[_key]));
+				this.vbox_nearby.addChild(new view.main.Main_FriendInfoItem().init_nearbyPerson(GameApp.MainPlayer.allPlayer[_key]));
 			}
 		}
 		/**

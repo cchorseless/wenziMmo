@@ -193,11 +193,11 @@ module ProtoCmd {
                     this._list[element]._obj.clone(this._bytes, this._list[element]._len);
                 }
             }
-            // // 读取数据
-            if (this.data) {
-                s.pos = 0;
-                this.read(s)
-            };
+            // // // 读取数据
+            // if (this.data) {
+            //     s.pos = 0;
+            //     this.read(s)
+            // };
         }
 
         public addProperty(name: string, type: number, len: number = 0, obj: any = null): void {
@@ -1770,9 +1770,9 @@ module ProtoCmd {
                 data.pos += this.read(data);
             }
         }
-         /**
-         * 技能列表
-         */
+        /**
+        * 技能列表
+        */
         public get skillList(): number {
             return this.getValue("skillList");
         }
@@ -2655,6 +2655,7 @@ module ProtoCmd {
             this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
             this.addProperty('guildname', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//行会名
+            this.addProperty('zsLevel', PacketBase.TYPE_DWORD);					//转生等级
             if (data) {
                 data.pos += this.read(data);
             }
@@ -2668,7 +2669,9 @@ module ProtoCmd {
         public get level(): number {
             return this.getValue("dwLevel");
         }
-
+        public get zsLevel(): number {
+            return this.getValue("zsLevel");
+        }
         public get playerName(): string {
             return this.getValue("szName");
         }
@@ -2684,7 +2687,9 @@ module ProtoCmd {
         public get sex(): number {
             return this.getValue("btSex");
         }
-
+        public get mapname(): number {
+            return this.getValue("mapname");
+        }
         public get onlyId(): Int64 {
             return this.getValue("dwOnlyId");
         }

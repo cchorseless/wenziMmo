@@ -14,7 +14,7 @@ module view.friend {
 		}
 		public addEvent(): void {
 			this.btn_blackList.on(Laya.UIEvent.CLICK, this, () => {
-				new view.friend.FriendBlackListDialog().popup();
+				// new view.friend.FriendBlackListDialog().popup();
 			});
 		}
 		public showMore(v: boolean): void {

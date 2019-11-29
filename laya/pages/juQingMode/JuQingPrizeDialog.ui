@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":93,
+    "selecteID":68,
     "props":{"width":569,"sceneColor":"#9c9797","height":779},
     "nodeParent":-1,
     "label":"Dialog",
@@ -30,35 +30,47 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":4,"x":10,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23","alpha":0.65},
+            "props":{"top":0,"skin":"image/common/title_tanchuang2.png","sizeGrid":"24,26,24,23","right":0,"left":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
-            "isDirectory":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":68,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":174,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
+                    "nodeParent":68,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":94,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":7,"x":21,"width":178,"text":"剧情奖励","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":94,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":95,
+                            "child":[
+                                ]
+                        }]
+                }],
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":11,"x":46,"text":"剧情奖励","strokeColor":"#404040","stroke":4,"fontSize":40,"font":"FZXK","color":"#ffeeb1"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":70,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Button",
-            "props":{"y":42,"x":520,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":29,"x":543,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,

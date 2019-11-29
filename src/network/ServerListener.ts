@@ -113,6 +113,8 @@ class ServerListener extends SingletonClass {
         // 背包内物品数量改变 30a
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
         /***********************************好友相关 *********************************/
+        // 好友列表
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationGetListRet), this, this.FriendList);
         // 添加一个好友
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddFriend), this, this.addFriend);
         //向添加人发出询问
@@ -1445,6 +1447,11 @@ class ServerListener extends SingletonClass {
     }
 
     /*******************************************************好友信息******************************************* */
+    public FriendList(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationGetListRet(data);
+        let Type = msg.getValue('btType');
+        new view.main.Main_FriendListDialog().setData(msg,Type);
+    }
     /**
      * 添加一个好友信息
      */

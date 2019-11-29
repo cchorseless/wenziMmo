@@ -82,7 +82,6 @@ module PanelManage {
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildMain: view.guild.GuildMainPanel;//帮会界面
     export let Team: view.team.TeamPanel;//队伍界面
-    export let Friend: view.friend.FriendPanel;//好友界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
     export let GuildStore: view.guild.GuildStorePanel;//帮派仓库界面
@@ -360,19 +359,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Team, 1, 0, 2);
         })
     }
-    /**
-   * 好友界面
-   */
-    export function openFriendPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Friend)) return;
-        ResManage.loadResource(ResData.PanelRes.Friend, () => {
-            PanelManage.Friend = new view.friend.FriendPanel();
-            PanelManage.Friend['LCP_skin'] = ResData.PanelRes.Friend;
-            PanelManage.Friend.setData();
-            PanelManage.Friend.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Friend, 1, 0, 2);
-        })
-    }
+
     /**
     * 帮会外交界面
     */
