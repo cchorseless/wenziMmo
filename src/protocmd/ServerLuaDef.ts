@@ -77,6 +77,15 @@ module ProtoCmd {
     export const TASK_DailyTaskClientOpen = 'DailyTaskClientOpen';
     // 任务历练威望
     export const TASK_prestigeQuestPanel = 'prestigeQuestPanel';
+    // 威望宝箱领取
+    export const getRewardByPrestigeScore = 'getRewardByPrestigeScore';
+    // 接受威望任务
+    export const recvivePrestigeQuest = 'recvivePrestigeQuest';
+    // 元宝完成威望任务
+    export const finishPrestigeQuestByRmb = 'finishPrestigeQuestByRmb';
+    // 领取威望任务奖励
+    export const finishPrestigeQuest = 'finishPrestigeQuest';
+    
     //任务成就id及其对应宝箱状态，0未达到|1已达到后未领取|2达到后已领取
     export const TASK_achievementPanel = 'achievementPanel';// 拉取成就信息     (index:页签)
     //任务成就描述与奖励
@@ -188,9 +197,9 @@ module ProtoCmd {
     export const JS_upgradePlayerWing = 'upgradePlayerWing';
     // 成就领取奖励
     export const JS_getAchievementReward = 'getAchievementReward';
-     // 成就领取奖励回调
+    // 成就领取奖励回调
     export const JS_updateAchievement = 'updateAchievement';
-    
+
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"

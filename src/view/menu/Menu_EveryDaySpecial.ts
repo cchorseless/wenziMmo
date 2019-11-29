@@ -18,6 +18,7 @@ module view.menu {
 			} else if (this.buttonBJ == 1) {
 				this.btn_get.label = "领取";
 			}
+			this.lab_rules.text = data.introduce
 			GameUtil.timeCountDown(data.leftsec, this.html_time)
 			for (let i = 1; i < 5; i++) {
 				let o = new view.compart.DaoJuItem();
