@@ -70,7 +70,6 @@ module PanelManage {
     export let Task_Main: view.task.Task_MainPanel;//主线任务界面
     export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
     export let Task_LiLian: view.task.Task_LiLianPanel;//历练任务界面
-    export let Task_chengJiu: view.task.Task_ChengJiuPanel;//成就任务界面
 
     export let NorthMap: view.map.BigMap_BeiLuPanel;//北陆地图界面
     export let SouthMap: view.map.BigMap_NanLuPanel;//南陆地图界面
