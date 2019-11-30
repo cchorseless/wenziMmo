@@ -63,7 +63,9 @@ module ProtoCmd {
     export const MAP_MOVE_POINT = 'moveToPoint';// (mapid, x, y, str) ：地图ID，地图坐标，附属信息
     // 小地图信息
     export const MAP_Get_ALLROOM_INFO = 'getAllMinMapStatus';//获取所有小地图信息
-
+    /*****************************好友相关********************* */
+    // 好友本地数据更新
+    export const FD_UPDATA = 'updataFriendInfo';
     /*****************************任务相关********************* */
     // 任务刷新星级
     export const TASK_REFRESH_XINGJI = 'huanrenwu_shuaxingxingji';// 任务刷新星级
@@ -85,7 +87,7 @@ module ProtoCmd {
     export const finishPrestigeQuestByRmb = 'finishPrestigeQuestByRmb';
     // 领取威望任务奖励
     export const finishPrestigeQuest = 'finishPrestigeQuest';
-    
+
     //任务成就id及其对应宝箱状态，0未达到|1已达到后未领取|2达到后已领取
     export const TASK_achievementPanel = 'achievementPanel';// 拉取成就信息     (index:页签)
     //任务成就描述与奖励

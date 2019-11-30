@@ -25,6 +25,10 @@ module view.scene {
 			EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
 				new view.main.Main_FriendListDialog().popup();
 			});
+			//活跃
+			EventManage.onWithEffect(this.btn_brisk, Laya.UIEvent.CLICK, this, () => {
+				new view.main.Main_BriskDialog().popup();
+			});
 			// 当前地图界面
 			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
 			// 自动战斗

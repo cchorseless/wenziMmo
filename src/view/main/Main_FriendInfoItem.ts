@@ -7,23 +7,29 @@ module view.main {
 		}
 		//操作类型1好友列表2附近的人
 		public type: number;
-		public item;
+		public item: any;
+		//好友类型0好友1黑名单2仇人3非好友类型
+		public key = 3;
 		/**
 		 * 
 		 * @param item 好友列表
 		 */
-		public init_friendList(item: ProtoCmd.stRelationInfoBase): Main_FriendInfoItem {
-			this.type=1;
-			this.item=item;
+		public init_friendList(item: ProtoCmd.stRelationInfoBase, key): Main_FriendInfoItem {
+			this.type = 1;
+			this.item = item;
+			this.key = key;
 			//姓名
 			this.lbl_name.text = '' + item.szName;
 			//等级
 			this.lbl_lvl.text = '' + item.level;
 			//转生等级
-			this.lbl_zslvl.text = '' + item.zsLevel;
+			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
 			let job;
 			switch (item.job) {
+				case 0:
+					job = '暂无';
+					break;
 				case 1:
 					job = '隐门传人';
 					break;
@@ -41,6 +47,11 @@ module view.main {
 			this.lbl_place.text = '' + item.mapname;
 			//门派名称
 			this.lbl_Sects.text = item.guildName;
+			if (item.state == 0) {
+				this.box_friend.gray = true;
+			} else {
+				this.box_friend.gray = false;
+			}
 			return this;
 		}
 		/**
@@ -48,8 +59,8 @@ module view.main {
 		 * @param item 附近d的人
 		 */
 		public init_nearbyPerson(item: GameObject.OtherPlayer): Main_FriendInfoItem {
-			this.type=2;
-			this.item=item;
+			this.type = 2;
+			this.item = item;
 			//姓名
 			this.lbl_name.text = '' + item.objName;
 			//等级
@@ -59,6 +70,9 @@ module view.main {
 			//职业名称
 			let job;
 			switch (item.job) {
+				case 0:
+					job = '暂无';
+					break;
 				case 1:
 					job = '隐门传人';
 					break;
@@ -85,8 +99,8 @@ module view.main {
 		public addEvent(): void {
 			//操作
 			this.btn_operation.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.type&&this.item) {
-					new view.friend.Friend_OperationDialog().setData(this.item,this.type).popup()
+				if (this.type && this.item) {
+					new view.friend.Friend_OperationDialog().setData(this.item, this.type, this.key).popup()
 				}
 			})
 		}

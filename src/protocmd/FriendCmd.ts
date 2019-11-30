@@ -57,6 +57,14 @@ module ProtoCmd {
             }
             return 0;
         }
+        //好友类型
+        public get type(): String {
+            return this.getValue("btType");
+        }
+        //好友数量
+        public get num(): String {
+            return this.getValue("nCount");
+        }
     }
 
     //添加好友
@@ -139,7 +147,6 @@ module ProtoCmd {
     //列表增加了一个成员----------
     export class stRelationAddFriend extends Packet {
         public static msgID: number = 0x0A08;
-        public friendlist: Array<stRelationInfoBase> = [];
         public friendInfo: stRelationInfoBase = new stRelationInfoBase();
         public constructor(data: Laya.Byte) {
             super();
@@ -162,15 +169,24 @@ module ProtoCmd {
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.read(data);
         }
+        //好友类型
+        public get type(): number {
+            return this.getValue("btType");
+        }
+        //好友名称
+        public get szName(): String {
+            return this.getValue("szName");
+        }
     }
 
     //删除 好友
     export class stRelationDelete extends Packet {
         public static msgID: number = 0x0A0A;
+        public cbPacket = stRelationDeleteRet;
         public constructor(data: Laya.Byte) {
             super();
             this.addProperty('btType', PacketBase.TYPE_INT);//0好友1黑名单2仇人
-            this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);//
+            this.addProperty('dwOnlyId', PacketBase.TYPE_INT64);//
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.cmd = 0x0A0A;
         }
@@ -184,6 +200,18 @@ module ProtoCmd {
             this.addProperty('btType', PacketBase.TYPE_INT);//
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//
             this.read(data);
+        }
+        //是否成功
+        public get ErrorCode(): number {
+            return this.getValue("btErrorCode");
+        }
+        //好友类型
+        public get type(): number {
+            return this.getValue("btType");
+        }
+        //好友名称
+        public get szName(): String {
+            return this.getValue("szName");
         }
     }
 

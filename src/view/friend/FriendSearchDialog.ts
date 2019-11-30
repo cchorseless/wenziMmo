@@ -28,8 +28,8 @@ module view.friend {
 			}
 		}
 		/**
-  * 查找好友
-  */
+        * 查找好友
+       */
 		public findPlayer(): void {
 			if (this.input_playName.text.length == 0) {
 				TipsManage.showTips('请输入查找名字');

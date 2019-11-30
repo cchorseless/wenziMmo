@@ -2655,7 +2655,7 @@ module ProtoCmd {
             this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
             this.addProperty('guildname', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//行会名
-            this.addProperty('zsLevel', PacketBase.TYPE_DWORD);					//转生等级
+            this.addProperty('zslevel', PacketBase.TYPE_DWORD);					//转生等级
             if (data) {
                 data.pos += this.read(data);
             }
@@ -2669,8 +2669,8 @@ module ProtoCmd {
         public get level(): number {
             return this.getValue("dwLevel");
         }
-        public get zsLevel(): number {
-            return this.getValue("zsLevel");
+        public get zslevel(): number {
+            return this.getValue("zslevel");
         }
         public get playerName(): string {
             return this.getValue("szName");

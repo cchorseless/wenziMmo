@@ -38,7 +38,7 @@ module view.juese {
 		}
 		public setData(data) {
 			this.vbox_item.removeChildren();
-			this.FC_num.value = data.score;
+			this.lbl_num.text = data.score;
 			for (let i in data.questtab) {
 				let o = new juese.Person_shengwang_Info();
 				o.setData(data.questtab[i])

@@ -3,13 +3,9 @@ module view.main {
 	export class Main_FriendListDialog extends ui.main.Main_FriendListDialogUI {
 		constructor() {
 			super();
-			this.addEvent();
+			this.setData();
 		}
-		public list;
-		public type;
-		public setData(msg,Type): void {
-			this.list=msg;
-			this.type=Type;
+		public setData(): void {
 			this.panel_all.vScrollBarSkin = '';
 			this.panel_friend1.vScrollBarSkin = '';
 			this.vbox_friend1['sortItem'] = (items) => { };
@@ -17,10 +13,9 @@ module view.main {
 			this.vbox_friend2['sortItem'] = (items) => { };
 			this.panel_friend3.vScrollBarSkin = '';
 			this.vbox_friend3['sortItem'] = (items) => { };
-			for (let i = 1; i < 4; i++) {
-				this['panel_friend' + i].y = this['btn_friend' + i].y + this['btn_friend' + i].height;
-			}
+			this.init_friendList();
 			this.updateFriendList();
+			this.addEvent();
 		}
 		public addEvent(): void {
 			//好友展开||收起
@@ -39,25 +34,40 @@ module view.main {
 			})
 		}
 		/**
-  * 拉取关系列表
-  */
-		public updateFriendList(): void {
-				let j = this.type + 1;
+		 * 拉取关系列表
+		 */
+		public init_friendList(): void {
+			let friendInfo = GameApp.MainPlayer.friendInfo;
+			let keys = Object.keys(friendInfo);
+			for (let key of keys) {
+				let j = friendInfo[key].type + 1;
+				this['vbox_friend' + j].removeChildren();
+				let data = friendInfo[key].info
 				//0好1黑2仇3所有
-					let online = 0;
-					for (let item of this.list.friendlist) {
-						if (item.state == 1) {
-							online += 1;
-						}
-						let friend_UI = new view.main.Main_FriendInfoItem();
-						let friendItem = new ProtoCmd.stRelationInfoBase();
-						friendItem.clone(item.data);
-						friend_UI.init_friendList(friendItem);
-						this['vbox_friend' + j].addChild(friend_UI);
+				let online = 0;
+				for (let item of data) {
+					if (item.state == 1) {
+						online += 1;
 					}
-					this['panel_friend' + j].height = this['vbox_friend' + j].height * this['vbox_friend' + j]._childs.length;
-					this['lbl_num' + j].text = '(' + online + '/' + this.list.friendlist.length + ')';
+					let friend_UI = new view.main.Main_FriendInfoItem();
+					let friendItem = new ProtoCmd.stRelationInfoBase();
+					friendItem.clone(item.data);
+					friend_UI.init_friendList(friendItem, parseInt(key));
+					this['vbox_friend' + j].addChild(friend_UI);
+				}
+				this['panel_friend' + j].height = this['vbox_friend' + j].height * this['vbox_friend' + j]._childs.length;
+				this['panel_friend' + j].y = this['btn_friend' + j].y + this['btn_friend' + j].height;
+				this['lbl_num' + j].text = '(' + online + '/' + data.length + ')';
 			}
+		}
+		/**
+       * 更新关系列表
+       */
+		public updateFriendList(): void {
+			GameApp.LListener.on(ProtoCmd.FD_UPDATA, this, (data) => {
+				this.init_friendList();
+			})
+		}
 		/**
 		 * 好友列表伸缩状态
 		 * @param select 点击状态
@@ -65,6 +75,7 @@ module view.main {
 		 */
 		public init_selected(select: boolean, index): void {
 			if (index == 1) {
+				//好友列表位置
 				this['panel_friend' + index].y = this['btn_friend' + index].y + this['btn_friend' + index].height;
 			} else {
 				if (this['panel_friend' + (index - 1)].scaleY == 1) {
