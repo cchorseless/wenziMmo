@@ -17,7 +17,7 @@ module ProtoCmd {
             this.addProperty('dwSendTime', PacketBase.TYPE_INT);    //发送时间
             this.addProperty('boBanner', PacketBase.TYPE_BOOL);     //是否横幅
             this.addProperty('dwVip', PacketBase.TYPE_DWORD);       //VIP等级
-            this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);
+            this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);  // 行会ID
 
             this.addProperty('btPlatForm', PacketBase.TYPE_BYTE);       //平台类型
             this.addProperty('btTxYellowType', PacketBase.TYPE_BYTE);   //黄钻类型 1黄钻,2年黄钻,3豪华黄钻
