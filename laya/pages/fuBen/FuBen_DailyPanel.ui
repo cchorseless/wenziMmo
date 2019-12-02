@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":21,
-    "selecteID":242,
+    "selectedBox":351,
+    "selecteID":352,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -123,13 +123,14 @@
                     "props":{"y":-4,"x":15,"width":620,"name":"item1","height":796},
                     "nodeParent":21,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":344,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":19,"x":24,"skin":"image/juQingMode/bottom_lihui.png"},
                             "nodeParent":344,
@@ -142,6 +143,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":38,"x":17,"var":"img_boss","skin":"image/common/npc/npc_half_1001.png"},
                             "nodeParent":344,
@@ -154,6 +156,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":44,"x":179,"var":"lbl_bossTitle","text":"黄沙道人","strokeColor":"#623e24","stroke":4,"fontSize":36,"font":"FZXK","color":"#ffeeb1"},
                             "nodeParent":344,
@@ -166,6 +169,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":261,"x":26,"wordWrap":true,"width":558,"var":"lbl_introduce","text":"      介绍介绍介介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介","leading":5,"height":91,"fontSize":23,"font":"FZHL","color":"#63491a"},
                             "nodeParent":344,
@@ -179,6 +183,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":562,"x":229,"width":157,"var":"btn_challenge","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"挑战","height":59},
                             "nodeParent":344,
@@ -192,6 +197,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":197,"x":113,"skin":"image/common/title_common_01.png"},
                             "nodeParent":344,
@@ -203,6 +209,7 @@
                             "compId":345,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":133,"text":"BOSS背景","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
                                     "nodeParent":345,
@@ -218,6 +225,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":384,"x":113,"skin":"image/common/title_common_01.png"},
                             "nodeParent":344,
@@ -229,6 +237,7 @@
                             "compId":347,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":133,"text":"BOSS奖励","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
                                     "nodeParent":347,
@@ -244,6 +253,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":103,"x":411,"width":63,"text":"位置：","height":34,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":344,
@@ -256,6 +266,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":103,"x":482,"width":115,"var":"lbl_position","text":"（18,18）","height":34,"fontSize":24,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":344,
@@ -268,6 +279,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":139,"x":409,"text":"心魔弱点：","height":34,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":344,
@@ -280,6 +292,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":139,"x":529,"width":67,"var":"lbl_bossName","text":"90","height":34,"fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":344,
@@ -292,6 +305,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":104,"x":173,"width":98,"text":"BOSS等级：","height":34,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":344,
@@ -304,6 +318,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":104,"x":305,"width":97,"var":"lbl_bossLvl","text":"90","height":32,"fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":344,
@@ -316,6 +331,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":139,"x":173,"width":107,"text":"挑战等级：","height":34,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":344,
@@ -329,6 +345,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":139,"x":286,"width":113,"var":"lbl_challengeLvl","text":"3级转150","height":32,"fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":344,
@@ -342,6 +359,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":436,"x":67,"width":482,"var":"panel_xinMo1","height":109},
                             "nodeParent":344,
@@ -353,6 +371,7 @@
                             "compId":351,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"HBox",
                                     "props":{"y":0,"x":5,"var":"hbox_xinMo1","height":105},
                                     "nodeParent":351,
@@ -367,6 +386,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":647,"x":46,"width":528,"var":"panel_xinMo","height":140},
                             "nodeParent":344,
@@ -378,6 +398,7 @@
                             "compId":337,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"HBox",
                                     "props":{"x":5,"var":"hbox_xinMo","top":1,"space":20,"bottom":0},
                                     "nodeParent":337,
@@ -393,6 +414,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":687,"x":28,"stateNum":"1","skin":"image/common/icon_001.png","scaleX":-1},
                             "nodeParent":344,
@@ -405,6 +427,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":688,"x":584,"stateNum":"1","skin":"image/common/icon_001.png"},
                             "nodeParent":344,
@@ -415,20 +438,8 @@
                             "compId":343,
                             "child":[
                                 ]
-                        },
-                        {
-                            "type":"HTMLDivElement",
-                            "props":{"y":579,"x":422,"width":189,"var":"div_times","height":27},
-                            "nodeParent":344,
-                            "label":"HTMLDivElement(div_times)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":367,
-                            "child":[
-                                ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -436,14 +447,13 @@
                     "props":{"y":-11,"x":16,"width":608,"name":"item2","height":785},
                     "nodeParent":21,
                     "label":"Panel(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":242,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"space":10,"right":0,"left":0,"align":"center"},
                             "nodeParent":242,
@@ -457,7 +467,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

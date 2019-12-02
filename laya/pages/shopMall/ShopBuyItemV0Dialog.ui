@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":59,
-    "selecteID":54,
+    "selectedBox":1,
+    "selecteID":3,
     "props":{"width":529,"sceneColor":"#e7908f","height":576},
     "nodeParent":-1,
     "label":"Dialog",
@@ -246,22 +246,8 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":8,"x":461,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"Image",
-            "props":{"y":7,"x":13,"width":501,"skin":"image/common/title_tanchuang2.png","height":64},
+            "props":{"y":0,"x":2,"width":525,"top":0,"skin":"image/common/title_tanchuang2.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -272,18 +258,45 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":8,"x":8,"width":288,"var":"lab_Name","text":"超级修为丹","strokeColor":"#404040","stroke":2,"height":40,"fontSize":40,"font":"FZXK","color":"#f5dd7b"},
+                    "type":"Image",
+                    "props":{"y":0,"x":162,"width":200,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44","height":51},
                     "nodeParent":61,
-                    "label":"Label(lab_Name)",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":62,
+                    "hasChild":true,
+                    "compId":63,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":7,"x":-53,"width":306,"var":"lab_Name","text":"经验卷轴","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":63,
+                            "label":"Label(lab_Name)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":62,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":-3,"x":476,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":3,
+            "child":[
+                ],
             "$HIDDEN":false
         }],
     "animations":[

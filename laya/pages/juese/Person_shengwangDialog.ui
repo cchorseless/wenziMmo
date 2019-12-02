@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":12,
+    "selectedBox":10,
+    "selecteID":25,
     "props":{"width":597,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -116,14 +116,13 @@
             "props":{"y":834,"x":140,"width":380,"var":"img_base","skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,15,0,8","height":13},
             "nodeParent":1,
             "label":"Image(img_base)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":1,"width":280,"var":"img_socre","skin":"image/common/Progress bar_gang_top.png","sizeGrid":"0,39,0,30","height":13},
                     "nodeParent":12,
@@ -137,7 +136,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-40,"x":45,"width":80,"var":"box_1","skin":"image/common/box1_close.png","height":80},
                     "nodeParent":12,
@@ -149,7 +147,6 @@
                     "compId":16,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":72,"x":17,"width":46.40625,"var":"lab_boxNum1","text":"3000","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":16,
@@ -163,7 +160,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-40,"x":150,"width":80,"var":"box_2","skin":"image/common/box2_close.png","height":80},
                     "nodeParent":12,
@@ -175,7 +171,6 @@
                     "compId":17,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":72,"x":17,"width":46.40625,"var":"lab_boxNum2","text":"3000","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":17,
@@ -190,7 +185,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-40,"x":245,"width":80,"var":"box_3","skin":"image/common/box3_close.png","height":80},
                     "nodeParent":12,
@@ -202,7 +196,6 @@
                     "compId":18,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":72,"x":17,"width":46.40625,"var":"lab_boxNum3","text":"3000","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":18,
@@ -217,7 +210,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":-40,"x":340,"width":80,"var":"box_4","skin":"image/common/box4_close.png","height":80},
                     "nodeParent":12,
@@ -229,7 +221,6 @@
                     "compId":19,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":72,"x":17,"width":46.40625,"var":"lab_boxNum4","text":"3000","strokeColor":"#000000","stroke":3,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":19,
@@ -249,7 +240,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":792,"x":56,"skin":"image/juese/img_weiwang_01.png"},
+            "props":{"y":792,"x":56,"skin":"image/common/img_weiwang_01.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -260,17 +251,19 @@
             "child":[
                 {
                     "x":30,
-                    "type":"FontClip",
-                    "props":{"y":38,"x":14,"width":68,"var":"FC_num","value":"200","skin":"image/common/number/zi_shuzi_02.png","sheet":"0123456789","height":22,"align":"center"},
+                    "type":"Label",
+                    "props":{"y":33,"x":18,"width":58.0078125,"var":"lbl_num","text":"888","strokeColor":"#9d4d16","stroke":4,"italic":true,"height":30,"fontSize":30,"font":"FZHL","color":"#ffe171","align":"center"},
                     "nodeParent":10,
-                    "label":"FontClip(FC_num)",
+                    "label":"Label(lbl_num)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":11,
+                    "compId":25,
                     "child":[
-                        ]
-                }]
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -283,7 +276,8 @@
             "hasChild":false,
             "compId":24,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {

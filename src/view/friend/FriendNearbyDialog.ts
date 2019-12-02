@@ -11,6 +11,7 @@ module view.friend {
 			this.lbl_name.text = '' + this.item.objName;
 			//附近的人的等级
 			this.lbl_lvl.text = '' + this.item.level;
+			
 			this.addEvent();
 			return this;
 		}

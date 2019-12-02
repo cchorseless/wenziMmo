@@ -113,6 +113,10 @@ class ServerListener extends SingletonClass {
         // 背包内物品数量改变 30a
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
         /***********************************好友相关 *********************************/
+        // 好友列表
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationGetListRet), this, this.FriendList);
+        //从现有的列表中删除指定的信息
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationListDelete), this, this.FriendDelete);
         // 添加一个好友
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddFriend), this, this.addFriend);
         //向添加人发出询问
@@ -1445,29 +1449,80 @@ class ServerListener extends SingletonClass {
     }
 
     /*******************************************************好友信息******************************************* */
+    public FriendList(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationGetListRet(data);
+        let friendArray = []
+        for (let single of msg.friendlist) {
+            let baseIno = new ProtoCmd.stRelationInfoBase();
+            baseIno.clone(single.data);
+            friendArray.push(baseIno)
+        }
+        //0好友1黑名单2仇人
+        let type = msg.getValue('btType');
+        let friendInfo = GameApp.MainPlayer.friendInfo;
+        if (friendInfo[type]) {
+            friendInfo[type] = { info: friendArray, type: type };
+        } else {
+            friendInfo.push({ info: friendArray, type: type });
+        }
+    }
+    /**
+     * 
+     * @param data 删除好友
+     */
+    public FriendDelete(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationListDelete(data);
+        let type = msg.type;
+        let name = msg.szName;
+        let friendInfo = GameApp.MainPlayer.friendInfo[type].info;
+        let keys = Object.keys(friendInfo);
+        for (let key of keys) {
+            if (friendInfo[key].szName == name) {
+                friendInfo.splice(key, 1);
+            }
+        }
+        GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo)
+    }
     /**
      * 添加一个好友信息
      */
     public addFriend(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddFriend(data);
+        let baseIno = new ProtoCmd.stRelationInfoBase();
+        baseIno.clone(msg.friendInfo.data);
         let Type = msg.getValue('btType');
         let _friend;
         switch (Type) {
             // 好友
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+            case 0:
                 _friend = GameApp.GameEngine.friendDB;
                 break;
             // 黑名单
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+            case 1:
                 _friend = GameApp.GameEngine.blackDB;
                 break;
             // 仇人
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+            case 2:
                 _friend = GameApp.GameEngine.chouRenDB;
                 break;
             default:
                 throw new Error('好友类型不对');
         }
+        let friendInfo = GameApp.MainPlayer.friendInfo[Type].info;
+        let keys = Object.keys(friendInfo)
+        if (keys.length > 0) {
+            for (let key of keys) {
+                if (friendInfo[key].szName == baseIno.szName) {
+                    friendInfo.splice(key, 1, baseIno);
+                } else {
+                    friendInfo.push(baseIno);
+                }
+            }
+        } else {
+            friendInfo.push(baseIno);
+        }
+
+        GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo);
     }
     /**
     * 向添加人发出询问

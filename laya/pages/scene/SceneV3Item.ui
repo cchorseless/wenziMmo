@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":242,
-    "selecteID":243,
+    "selectedBox":2,
+    "selecteID":245,
     "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":685},
     "nodeParent":-1,
     "label":"View",
@@ -159,6 +159,62 @@
                     "compId":230,
                     "child":[
                         ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":125,"width":69,"var":"btn_friend","stateNum":"1","skin":"image/common/icon_bangpaichengyuan.png","right":9,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":2,
+                    "label":"Button(btn_friend)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":243,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":41,"x":13,"text":"好友","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":243,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":244,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":207,"width":69,"var":"btn_brisk","stateNum":"1","skin":"image/main/icon_haogandu.png","right":9,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":2,
+                    "label":"Button(btn_brisk)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":245,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":41,"x":13,"text":"活跃","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":245,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":246,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false

@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":7,
-    "props":{"x":150,"width":150,"sceneColor":"#000000","height":255,"anchorX":1},
+    "selecteID":8,
+    "props":{"width":522,"sceneColor":"#ffffff","height":97},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":150,"visible":true,"skin":"image/main/img_haoyou.png","sizeGrid":"17,25,26,36","scaleY":1,"height":255},
+            "props":{"width":522,"skin":"image/menu/bottom_list.png","sizeGrid":"30,139,48,21","height":97},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -26,24 +26,26 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":5,"x":15,"width":131,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"12,32,18,22","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"查看信息","height":52},
+                    "type":"Image",
+                    "props":{"y":4,"x":3,"width":306,"skin":"image/menu/bottom_jisheng.png","sizeGrid":"0,88,0,6","height":42},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Image",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":3,
                     "child":[
                         ],
+                    "$LOCKED":false,
                     "$HIDDEN":false
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":52,"x":15,"width":131,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"12,32,18,22","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"添加好友","height":52},
+                    "type":"Label",
+                    "props":{"y":11,"x":4,"width":236,"var":"lbl_taskName","text":"消费礼券（0/1）","stroke":3,"height":32,"fontSize":28,"font":"FZHL","color":"#ffeeb1","align":"center"},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Label(lbl_taskName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -54,10 +56,10 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":99,"x":15,"width":131,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"12,32,18,22","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"拉入黑名单","height":52},
+                    "type":"Label",
+                    "props":{"y":51,"x":32,"width":358,"var":"lbl_detail","valign":"middle","text":"活动内容描述一句话","stroke":0.5,"height":32,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Label(lbl_detail)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -68,10 +70,10 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":146,"x":14,"width":131,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"12,32,18,22","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"组队邀请","height":52},
+                    "type":"Label",
+                    "props":{"y":10,"x":402,"var":"lbl_huoyuedu","valign":"middle","text":"30活跃度","stroke":0.5,"fontSize":22,"font":"FZHL","color":"#63491a","align":"left"},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Label(lbl_huoyuedu)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -82,10 +84,10 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":193,"x":15,"width":131,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"12,32,18,22","labelStrokeColor":"#000000","labelStroke":4,"labelSize":22,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"发送私聊","height":52},
+                    "type":"Label",
+                    "props":{"y":36,"x":414,"var":"lbl_finish","valign":"middle","text":"已完成","stroke":0.5,"fontSize":24,"font":"FZHL","color":"#179a0d","align":"left"},
                     "nodeParent":2,
-                    "label":"Button",
+                    "label":"Label(lbl_finish)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -93,8 +95,21 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":60,"x":448,"var":"btn_get","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#9a681d","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"前往","anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":2,
+                    "label":"Button(btn_get)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }]
         }],
     "animations":[
         {

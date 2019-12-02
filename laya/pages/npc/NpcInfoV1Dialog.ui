@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":30,
+    "selecteID":127,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -30,42 +30,41 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":5,"x":14,"skin":"image/common/title_tanchuang2.png"},
+            "props":{"top":0,"skin":"image/common/title_tanchuang2.png","right":0,"left":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":125,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":1,"x":19,"width":222,"var":"lbl_npcName","text":"NPC","strokeColor":"#000000","stroke":4,"height":48,"fontSize":48,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":203,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
                     "nodeParent":125,
-                    "label":"Label(lbl_npcName)",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":126,
+                    "hasChild":true,
+                    "compId":127,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        {
+                            "type":"Label",
+                            "props":{"y":7,"x":21,"width":178,"var":"lbl_npcName","text":"NPC","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":127,
+                            "label":"Label(lbl_npcName)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":128,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":37,"var":"btn_close","stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png","right":15,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Button(btn_close)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":6,
-            "child":[
-                ]
         },
         {
             "x":15,
@@ -1073,6 +1072,19 @@
                         ],
                     "$HIDDEN":false
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":27,"x":598,"var":"btn_close","stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png","right":4,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_close)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ]
         }],
     "animations":[
         {
