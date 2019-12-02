@@ -25,8 +25,10 @@ module GameObject {
         }
 
         // public mapid
-        // 好友
+        // 好友列表
         public friendInfo = [];
+        //好友申请列表
+        public friendApplyInfo = [];
         // 天赋
         public talentInfo;
         // 性格

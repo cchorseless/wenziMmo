@@ -124,7 +124,13 @@ module view.fuBen {
 			})
 			lcp.send(pkt);
 		}
-
+	/**
+	    *更新天山血狱界面(boss之家)
+	    */
+		public update_bossHome(): FuBen_LiLianPanel {
+			
+			return this;
+		}
 		/**
 		  * 阴葵门界面(锁妖塔)
 		  */

@@ -2700,6 +2700,7 @@ module ProtoCmd {
             super();
             this.addProperty('dwOnlyId', PacketBase.TYPE_DOUBLE);
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//名字
+            this.addProperty('dwzsLevel', PacketBase.TYPE_DWORD);  //转生等级
             this.addProperty('dwLevel', PacketBase.TYPE_DWORD);  //等级
             this.addProperty('btSex', PacketBase.TYPE_BYTE); //性别
             this.addProperty('btJob', PacketBase.TYPE_BYTE);	//职业
@@ -2711,9 +2712,28 @@ module ProtoCmd {
             this.addProperty("btTxBlueLevel", PacketBase.TYPE_BYTE);//蓝钻等级
             this.addProperty("btTxQQVipType", PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty("btTxQQVipLevel", PacketBase.TYPE_BYTE);//QQ会员等级
+            this.addProperty("guileId", PacketBase.TYPE_DWORD);//QQ会员等级
             if (data) {
                 data.pos += this.read(data);
             }
+        }
+        public get szName(): number {
+            return this.getValue("szName");
+        }
+        public get level(): number {
+            return this.getValue("dwLevel");
+        }
+        public get zslevel(): number {
+            return this.getValue("dwzsLevel");
+        }
+        public get sex(): number {
+            return this.getValue("btSex");
+        }
+        public get job(): number {
+            return this.getValue("btJob");
+        }
+        public get guileId(): number {
+            return this.getValue("guileId");
         }
     }
 
@@ -3533,6 +3553,39 @@ module ProtoCmd {
             if (data) {
                 data.pos += this.read(data);	//修改偏移
             }
+        }
+    }
+
+    export class friendApply extends PacketBase {
+        constructor(data: Laya.Byte = null) {
+            super();
+            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
+            this.addProperty("dwzsLevel", PacketBase.TYPE_DWORD);//转生等级
+            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);//等级
+            this.addProperty("btJob", PacketBase.TYPE_BYTE);
+            this.addProperty("btSex", PacketBase.TYPE_BYTE);
+            this.addProperty("guildId", PacketBase.TYPE_DWORD);
+            this.read(data);
+        }
+        public get playerName(): String {
+            return this.getValue("szName");
+        }
+
+        public get job(): number {
+            return this.getValue("btJob");
+        }
+
+        public get sex(): number {
+            return this.getValue("btSex");
+        }
+        public get zslevel(): number {
+            return this.getValue("dwzsLevel");
+        }
+        public get level(): number {
+            return this.getValue("dwLevel");
+        }
+        public get guildId(): number {
+            return this.getValue("guildId");
         }
     }
 }

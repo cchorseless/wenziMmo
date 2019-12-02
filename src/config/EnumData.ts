@@ -712,6 +712,7 @@ module EnumData {
         RELATION_FAIL_ENEMY_CANT_BE_FRIEND,//仇人不是
         RELATION_FAIL_NEED_VERIFY,		//需要验证
         RELATION_FAIL_REFUSEALL,		//设置了拒绝加好友
+        RELATION_FAIL_APPLYING,//已申请
     };
     export enum emListType {
         LIST_FRIEND,//好友列表

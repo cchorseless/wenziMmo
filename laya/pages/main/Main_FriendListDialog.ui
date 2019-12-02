@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":6,
+    "selectedBox":54,
+    "selecteID":58,
     "props":{"width":618,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -81,21 +81,60 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Panel",
-                    "props":{"y":55,"x":2,"width":526,"var":"panel_friend1","scaleY":0,"height":561},
+                    "type":"Button",
+                    "props":{"y":0,"x":0,"width":535,"var":"btn_friend1","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
-                    "label":"Panel(panel_friend1)",
+                    "label":"Button(btn_friend1)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":7,
+                    "compId":52,
                     "child":[
                         {
                             "x":45,
+                            "type":"Label",
+                            "props":{"y":13,"x":166,"width":105,"var":"lbl_num1","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":52,
+                            "label":"Label(lbl_num1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":8,"x":50,"text":"我的好友","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":52,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":13,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":6,"x":17,"width":20,"var":"btn_arrow1","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
+                            "nodeParent":52,
+                            "label":"Button(btn_arrow1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":23,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"VBox",
-                            "props":{"y":1,"var":"vbox_friend1","space":5,"right":0,"left":0},
-                            "nodeParent":7,
+                            "props":{"var":"vbox_friend1","top":48,"space":5,"scaleY":0,"right":0,"left":0},
+                            "nodeParent":52,
                             "label":"VBox(vbox_friend1)",
                             "isOpen":true,
                             "isDirectory":false,
@@ -109,21 +148,60 @@
                 },
                 {
                     "x":30,
-                    "type":"Panel",
-                    "props":{"y":65,"x":2,"width":526,"var":"panel_friend2","scaleY":0,"height":561},
+                    "type":"Button",
+                    "props":{"y":48,"width":535,"var":"btn_friend2","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
-                    "label":"Panel(panel_friend2)",
+                    "label":"Button(btn_friend2)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":55,
+                    "compId":53,
                     "child":[
                         {
                             "x":45,
+                            "type":"Label",
+                            "props":{"y":12,"x":137,"width":105,"var":"lbl_num2","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
+                            "nodeParent":53,
+                            "label":"Label(lbl_num2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":27,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":8,"x":50,"text":"黑名单","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
+                            "nodeParent":53,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":6,"x":17,"width":20,"var":"btn_arrow2","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
+                            "nodeParent":53,
+                            "label":"Button(btn_arrow2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":25,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"VBox",
-                            "props":{"y":1,"var":"vbox_friend2","space":5,"right":0,"left":0},
-                            "nodeParent":55,
+                            "props":{"x":0,"var":"vbox_friend2","top":48,"space":5,"scaleY":0,"right":0,"left":0},
+                            "nodeParent":53,
                             "label":"VBox(vbox_friend2)",
                             "isOpen":true,
                             "isDirectory":false,
@@ -137,144 +215,18 @@
                 },
                 {
                     "x":30,
-                    "type":"Panel",
-                    "props":{"y":75,"x":2,"width":526,"var":"panel_friend3","scaleY":0,"height":561},
-                    "nodeParent":60,
-                    "label":"Panel(panel_friend3)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":57,
-                    "child":[
-                        {
-                            "type":"VBox",
-                            "props":{"y":1,"var":"vbox_friend3","space":5,"right":0,"left":0},
-                            "nodeParent":57,
-                            "label":"VBox(vbox_friend3)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":58,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":0,"x":0,"width":535,"var":"btn_friend1","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
-                    "nodeParent":60,
-                    "label":"Button(btn_friend1)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":52,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":13,"x":166,"width":105,"var":"lbl_num1","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":52,
-                            "label":"Label(lbl_num1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":22,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":8,"x":50,"text":"我的好友","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":52,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":6,"x":17,"width":20,"var":"btn_arrow1","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
-                            "nodeParent":52,
-                            "label":"Button(btn_arrow1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":23,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":48,"width":535,"var":"btn_friend2","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
-                    "nodeParent":60,
-                    "label":"Button(btn_friend2)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":53,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":12,"x":137,"width":105,"var":"lbl_num2","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":53,
-                            "label":"Label(lbl_num2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":27,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":8,"x":50,"text":"黑名单","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":53,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":26,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":6,"x":17,"width":20,"var":"btn_arrow2","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
-                            "nodeParent":53,
-                            "label":"Button(btn_arrow2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":25,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":96,"width":535,"var":"btn_friend3","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
                     "label":"Button(btn_friend3)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":54,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":166,"width":105,"var":"lbl_num3","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":54,
@@ -287,6 +239,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":50,"text":"我的仇人","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":54,
@@ -299,6 +252,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":6,"x":17,"width":20,"var":"btn_arrow3","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":54,
@@ -307,6 +261,20 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":29,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"x":0,"var":"vbox_friend3","top":48,"space":5,"scaleY":0,"right":0,"left":0},
+                            "nodeParent":54,
+                            "label":"VBox(vbox_friend3)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":58,
                             "child":[
                                 ]
                         }],

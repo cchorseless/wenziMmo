@@ -64,8 +64,10 @@ module ProtoCmd {
     // 小地图信息
     export const MAP_Get_ALLROOM_INFO = 'getAllMinMapStatus';//获取所有小地图信息
     /*****************************好友相关********************* */
-    // 好友本地数据更新
+    // 好友列表本地数据更新
     export const FD_UPDATA = 'updataFriendInfo';
+    // 好友申请本地数据更新
+    export const FD_APPLY_UPDATA = 'updataFriendApplyInfo';
     /*****************************任务相关********************* */
     // 任务刷新星级
     export const TASK_REFRESH_XINGJI = 'huanrenwu_shuaxingxingji';// 任务刷新星级
