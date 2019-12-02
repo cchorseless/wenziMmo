@@ -1100,11 +1100,11 @@ module ProtoCmd {
             this.addProperty('i64ItemID', PacketBase.TYPE_INT64);	//物品id
             this.addProperty('dwBaseID', PacketBase.TYPE_INT);	//物品基本id
             this.addProperty('Location', PacketBase.TYPE_BYTES, this._location.size(), this._location);	//存储位置
-            this.addProperty('dwLevel', PacketBase.TYPE_DWORD);//当前等级
-            this.addProperty('nValue', PacketBase.TYPE_INT); //当前存储的经验
-            this.addProperty('nMaxValue', PacketBase.TYPE_INT);//存储的最大经验
+            this.addProperty('dwLevel', PacketBase.TYPE_DWORD); //当前等级
+            this.addProperty('nValue', PacketBase.TYPE_INT);    //当前存储的经验
+            this.addProperty('nMaxValue', PacketBase.TYPE_INT); //存储的最大经验
             this.addProperty('boIdent', PacketBase.TYPE_BOOL);	//是否鉴定
-            this.addProperty('nDura', PacketBase.TYPE_INT);	//当前耐久度
+            this.addProperty('nDura', PacketBase.TYPE_INT);	    //当前耐久度
             this.addProperty('nMaxDura', PacketBase.TYPE_INT);	//最大耐久度
             this.addProperty('dwCount', PacketBase.TYPE_INT);	//物品数量	0..100
             this.addProperty('dwBinding', PacketBase.TYPE_DWORD);	//绑定信息
@@ -1112,7 +1112,7 @@ module ProtoCmd {
             this.addProperty('dwEffId', PacketBase.TYPE_DWORD);		 //当前效果ID
             this.addProperty('btQuality', PacketBase.TYPE_BYTE);	//物品品质
             this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
-            this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);//过期时间	
+            this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);    //过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
             this.addProperty('UnionData', PacketBase.TYPE_BYTES, 120); //
             this.addProperty('ExtensionProperty', PacketBase.TYPE_BYTES, 10);	//预留10字节，做扩充
@@ -2637,7 +2637,6 @@ module ProtoCmd {
             this.addProperty('tOfflineTime', PacketBase.TYPE_DWORD);		//离线时间
             this.addProperty('btLocationState', PacketBase.TYPE_BYTE);     //是否显示位置
             this.addProperty('mapname', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//所在地图
-
             this.addProperty("btPlatForm", PacketBase.TYPE_BYTE);//平台类型
             this.addProperty("btTxYellowType", PacketBase.TYPE_BYTE);//黄钻类型 1黄钻,2年黄钻,3豪华黄钻
             this.addProperty("btTxYellowLevel", PacketBase.TYPE_BYTE);//黄钻等级
