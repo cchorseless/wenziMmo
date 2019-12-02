@@ -107,7 +107,7 @@ module view.menu {
 			this.lab_isOpen.text = '已结束';
 			this.lab_isOpen.color = "#393939"
 			this.btn_join.visible = false
-			this.gray = true;
+			this.img_bg.gray = true;
 		}
 	}
 }

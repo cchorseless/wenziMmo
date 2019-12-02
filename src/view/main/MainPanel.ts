@@ -81,9 +81,16 @@ module view.main {
 		public updateUI_exp(): void {
 			let _player = GameApp.MainPlayer;
 			// 经验比例
-			let expBiLi = Math.ceil(_player.ability.nowexp / _player.ability.maxexp * 100);
+			let expBiLi;
+			if (_player.level >= 150) {
+				expBiLi = 100
+			}else{
+				expBiLi = Math.ceil(_player.ability.nowexp / _player.ability.maxexp * 100);
+			}	
 			this.img_exp.width = this.img_expBg.width * expBiLi / 100;
-			this.lbl_level.text = '' + LangConfig.getLevelDes(_player.zslevel, _player.level) + '(' + expBiLi + '%)'
+			this.lbl_level.text = _player.level + "";
+			this.lab_exp.text = expBiLi + '%';
+			this.lab_zhuansheng.text = _player.zslevel + "转";
 
 		}
 		/**
@@ -156,17 +163,17 @@ module view.main {
 		public addEvent(): void {
 			// 变大变小
 			// NPC竖条 展开缩放的动画
-			EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
-				this.btn_changSize.selected = !this.btn_changSize.selected;
-				if (this.btn_changSize.selected) {
-					this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
-					this.showGroupNpcList(true);
-				}
-				else {
-					this.btn_changSize.skin = 'image/main/btn_common_02.png'
-					this.showGroupNpcList(false);
-				}
-			})
+			// EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
+			// 	this.btn_changSize.selected = !this.btn_changSize.selected;
+			// 	if (this.btn_changSize.selected) {
+			// 		this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
+			// 		this.showGroupNpcList(true);
+			// 	}
+			// 	else {
+			// 		this.btn_changSize.skin = 'image/main/btn_common_02.png'
+			// 		this.showGroupNpcList(false);
+			// 	}
+			// })
 			// 模式切换
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
@@ -260,7 +267,7 @@ module view.main {
 			})
 			//任务
 			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, () => {
-			new view.dialog.TaskDialog().popup(true);
+				new view.dialog.TaskDialog().popup(true);
 			});
 			this.addLcpEvent();
 		}
@@ -410,34 +417,34 @@ module view.main {
 			switch (btChatType) {
 				// 私聊
 				case EnumData.ChatType.CHAT_TYPE_PRIVATE:
-					_chatMsg += '[私聊]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 				// 当前屏幕聊天
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
-					_chatMsg += '[当前]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 系统消息
 				case EnumData.ChatType.CHAT_TYPE_SYSTEM:
-					_chatMsg += '[系统]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 队伍聊天
 				case EnumData.ChatType.CHAT_TYPE_GROUP:
-					_chatMsg += '[队伍]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 帮会聊天
 				case EnumData.ChatType.CHAT_TYPE_CLAN:
-					_chatMsg += '[帮会]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 世界聊天
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
-					_chatMsg += '[世界]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 				default:
-					_chatMsg += '[系统]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 			}
 			_chatArray.push(_chatMsg);
@@ -457,7 +464,19 @@ module view.main {
 			vbox_small.addChild(small_txt);
 			Laya.timer.frameOnce(2, this, () => { panel_small.scrollTo(0, panel_small.contentHeight); })
 			// 更新到大窗
-			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
+			let senderName = data.getValue('szName');
+			let sender_VIPLv = data.getValue('dwVip')
+			let level = data.getValue('dw_playerLevel')
+			let zslv = data.getValue('dw_zsLevel')
+			let sex = data.getValue('bt_sex')
+			let job = data.getValue('bt_job')
+			let str = '';
+			if (sex == 1) {
+				str = 'icon_nan0' + job
+			} else {
+				str = 'icon_nv0' + job
+			}
+			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg, senderName, sender_VIPLv, level, zslv, str);
 		}
 
 		/**

@@ -44,6 +44,15 @@ class DomUtil extends SingletonClass {
         txt = "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>"+txt
         return txt
     }
+    /**
+     * 聊天窗口解析
+     * @param txt 字符串
+     */
+    public dealwithChatTxt(txt){
+
+        txt = "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" + txt;
+        return txt
+    }
 
     /**
      * 将字符串转化成富文本

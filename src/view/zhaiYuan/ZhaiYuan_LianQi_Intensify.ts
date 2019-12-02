@@ -101,7 +101,7 @@ module view.zhaiYuan {
 			this.vbox_1.removeChildren();
 			if (effData1.des.length > 0) {
 				for (let i = 0; i < effData1.des.length; i++) {
-					this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
 			this.panel_1_UI.img_circle.visible = false;
