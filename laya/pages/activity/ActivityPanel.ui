@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":69,
-    "selecteID":73,
+    "selectedBox":1,
+    "selecteID":4,
     "props":{"width":640,"sceneColor":"#c0a6a6","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/main/fram_common_02a.png","right":0,"left":0,"bottom":0},
+            "props":{"top":0,"skin":"image/main/fram_common_02a.png","right":0,"left":-15,"bottom":0},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -165,7 +165,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"width":640,"var":"viewS_main","right":0,"left":0,"height":814,"bottom":0},
+            "props":{"width":640,"var":"viewS_main","right":0,"left":0,"height":814,"bottom":5},
             "nodeParent":1,
             "label":"ViewStack(viewS_main)",
             "isOpen":true,

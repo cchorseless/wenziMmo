@@ -84,11 +84,9 @@ module ResData {
         // 主线任务界面
         public static Task_Main = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];
         // 日常任务界面
-        public static Task_Daily = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
+        public static Task_Daily = null;
         // 历练任务界面
-        public static Task_LiLian = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
-        // 成就任务界面
-        public static Task_chengJiu = [{ url: "res/atlas/image/task.atlas", type: Laya.Loader.ATLAS }];;
+        public static Task_LiLian = null;
         // 帮派选择界面
         public static GuildSelect = [{ url: "res/atlas/image/guild.atlas", type: Laya.Loader.ATLAS }];;
         // 帮派界面

@@ -7,7 +7,7 @@ module view.fuBen {
 		public setData(id, times): FuBen_XianShiItem {
 			this.panel_jiangli.hScrollBarSkin = '';
 			this.hbox_jiangli['sortItem'] = (items) => { };
-				//当前时间
+			//当前时间
 			let time = TimeUtils.getFormatBySecond8(times)
 			this.init_xianshiDetail(id, time);
 			return this;
@@ -31,7 +31,7 @@ module view.fuBen {
 							let _itemUI = new view.compart.DaoJuWithNameItem();
 							let itemInfo = new ProtoCmd.ItemBase();
 							itemInfo.dwBaseID = jsonData[i].award[g];
-							_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+							_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 							this.hbox_jiangli.addChild(_itemUI);
 						}
 						this.timeEvent(jsonData[i].time, time)
@@ -41,6 +41,8 @@ module view.fuBen {
 			lcp.send(pkt);
 		}
 		public timeEvent(actTime, time): void {
+			this.lbl_state.color = '#179a0d';
+			this.lbl_state.text = '未开启';
 			let starHour;
 			let starMin;
 			let endHour;
@@ -56,35 +58,43 @@ module view.fuBen {
 				endHour = parseInt(time2[1].split(':')[0]);
 				//结束时间的分钟
 				endMin = parseInt(time2[1].split(':')[1]);
-			}
-			//当前小时大于活动开始小时，小于活动结束小时
-			if (time.hour > starHour) {
-				if (time.hour < endHour) {
-					this.lbl_state.text = '已开启';
-				}
-			}
-			//当前小时大于活动开始小时，等于活动结束小时，当前分钟小于活动结束分钟
-			if (time.hour > starHour) {
-				if (time.hour == endHour) {
-					if (time.min <= endMin) {
-						this.lbl_state.text = '已开启';
-					}
-				}
-			}
-			//当前小时等于活动开始小时，当前分钟大于等于活动开始分钟，当前小时小于活动结束小时
-			if (time.hour == starHour) {
-				if (time.min >= starMin) {
+				//当前小时大于活动开始小时，小于活动结束小时
+				if (time.hour > starHour) {
 					if (time.hour < endHour) {
+						this.lbl_state.color = '#a53232';
 						this.lbl_state.text = '已开启';
+						return;
 					}
 				}
-			}
-			//当前小时等于活动开始小时，当前分钟大于等于活动开始分钟，当前等于活动结束小时，当前分钟小于结束分钟
-			if (time.hour == starHour) {
-				if (time.min >= starMin) {
+				//当前小时大于活动开始小时，等于活动结束小时，当前分钟小于活动结束分钟
+				if (time.hour > starHour) {
 					if (time.hour == endHour) {
 						if (time.min <= endMin) {
+							this.lbl_state.color = '#a53232';
 							this.lbl_state.text = '已开启';
+							return;
+						}
+					}
+				}
+				//当前小时等于活动开始小时，当前分钟大于等于活动开始分钟，当前小时小于活动结束小时
+				if (time.hour == starHour) {
+					if (time.min >= starMin) {
+						if (time.hour < endHour) {
+							this.lbl_state.color = '#a53232';
+							this.lbl_state.text = '已开启';
+							return;
+						}
+					}
+				}
+				//当前小时等于活动开始小时，当前分钟大于等于活动开始分钟，当前等于活动结束小时，当前分钟小于结束分钟
+				if (time.hour == starHour) {
+					if (time.min >= starMin) {
+						if (time.hour == endHour) {
+							if (time.min <= endMin) {
+								this.lbl_state.color = '#a53232';
+								this.lbl_state.text = '已开启';
+								return;
+							}
 						}
 					}
 				}

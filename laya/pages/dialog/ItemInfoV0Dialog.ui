@@ -31,10 +31,10 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":7,"x":13,"width":501,"skin":"image/common/title_tanchuang2.png","height":64},
+            "props":{"top":0,"skin":"image/common/title_tanchuang2.png","right":0,"left":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -42,16 +42,29 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":8,"x":27,"width":288,"var":"lab_Name","text":"超级修为丹","strokeColor":"#404040","stroke":2,"height":40,"fontSize":40,"font":"FZXK","color":"#f5dd7b"},
+                    "type":"Image",
+                    "props":{"y":0,"x":153,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
                     "nodeParent":64,
-                    "label":"Label(lab_Name)",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":65,
+                    "hasChild":true,
+                    "compId":75,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":7,"x":21,"width":178,"var":"lab_Name","text":"超级修为丹","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":75,
+                            "label":"Label(lab_Name)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":76,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
@@ -85,7 +98,6 @@
             "compId":18,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":10,"x":0,"width":432,"name":"item0","height":58},
                     "nodeParent":18,
@@ -123,7 +135,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":16,"x":142.5,"width":150,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","name":"item1","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":60},
                     "nodeParent":18,
@@ -137,7 +148,6 @@
                     "$HIDDEN":true
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"right":0,"name":"item2","left":6,"height":60,"centerY":6},
                     "nodeParent":18,
@@ -202,7 +212,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":16,"x":142.5,"width":150,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item3","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":60},
                     "nodeParent":18,
@@ -261,7 +270,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":7,"x":460,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
+            "props":{"y":1,"x":473,"var":"btn_close","stateNum":"2","skin":"image/common/btn_smallTanchuangClose.png"},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isOpen":true,

@@ -5,12 +5,14 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
-			this.btn_liLian.selected=true;
+			this.btn_liLian.selected = true;
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.vstack_top.selectedIndex = index;
 			}, null, false);
-			this.panel_0.vScrollBarSkin = '';
-			this.vbox_0['sortItem'] = (items) => { };
+			this.panel_boss.hScrollBarSkin = '';
+			this.hbox_boss['sortItem'] = (items) => { };
+			this.panel_jiangli.hScrollBarSkin = '';
+			this.hbox_jiangli['sortItem'] = (items) => { };
 			this.panel_1.vScrollBarSkin = '';
 			this.vbox_1['sortItem'] = (items) => { };
 			this.panel_yinkui.hScrollBarSkin = '';
@@ -25,7 +27,7 @@ module view.fuBen {
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-			PanelManage.openJuQingModePanel()
+				PanelManage.openJuQingModePanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -50,30 +52,59 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
 				let keys = Object.keys(jsonData);
-				this.vbox_0.removeChildren();
-				let ui_jidao = null;
-				for (let i = 1; jsonData[i]; i++) {
-					let num = i % 3;
-					let data = jsonData[i];
-					if (num == 1) {
-						ui_jidao = null;
-						ui_jidao = new view.fuBen.FuBenLiLianV0Item()
-						this.vbox_0.addChild(ui_jidao);
-						ui_jidao.setData(num,data);
-					}
-					if (num == 2) {
-						ui_jidao.setData(num,data)
-					}
-					if (num == 0) {
-						ui_jidao.setData(num,data)
-						ui_jidao = null;
-					}
-
-
+				this.hbox_boss.removeChildren();
+				for (let key of keys) {
+					let data = jsonData[key];
+					this.hbox_boss.addChild(new view.fuBen.FuBenDailyXinMoItem().init_liLian(data, key));
 				}
-				
+				let json = jsonData[1]
+				this.update_yeWai(json, 1);
 			})
 			lcp.send(pkt);
+		}
+		/**
+	    *更新缉盗悬赏(野外BOSS)
+	    */
+		public update_yeWai(data: ProtoCmd.itf_FB_JiDaoInfo, index): FuBen_LiLianPanel {
+			//点击发光效果
+			for (let single of this.hbox_boss._childs) {
+				single.img_light.visible = false;
+			}
+			let i = index - 1;
+			this.hbox_boss._childs[i].img_light.visible = true;
+			//boss名称
+			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monid).split("_");
+			this.lbl_bossTitle.text = '' + name[0];
+			//推荐等级
+			let lvl = SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + data.monid);
+			this.lbl_level.text = '' + lvl;
+			//bosss所在地
+			let map = SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + data.mapid);
+			this.lbl_pos.text = '' + map;
+			//BOSS头像
+			let imgH = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monid);
+			this.img_boss.skin = 'image/common/npc/npc_half_' + imgH + '.png';
+			//boss状态
+			if (data.time != 0) {
+				let time = TimeUtils.getFormatBySecond(data.time, 1)
+				this.lbl_state.text = '' + time;
+			} else {
+				this.lbl_state.text = '可击杀';
+			}
+			//BOSS介绍
+			let introduce = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + data.monid);
+			this.lbl_introduce.text = introduce;
+			//掉落奖励
+			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monid);
+			this.hbox_jiangli.removeChildren();
+			for (let item of jiangli) {
+				let _itemUI = new view.compart.DaoJuItem();
+				let itemInfo = new ProtoCmd.ItemBase();
+				itemInfo.dwBaseID = item;
+				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				this.hbox_jiangli.addChild(_itemUI);
+			}
+			return this;
 		}
 		/**
 		  * 天山血狱界面（boss之家）
@@ -81,13 +112,13 @@ module view.fuBen {
 		public init_bossHome(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_WorldBoss_Open, null, null, this, (jsonData) => {
-				console.log('=====>天山血狱',jsonData)
+				console.log('=====>天山血狱', jsonData)
 				let keys = Object.keys(jsonData);
-				let i=0;
+				let i = 0;
 				for (let key of keys) {
-					i=i+1;
+					i = i + 1;
 					let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
-					this.vbox_1.addChild(new view.fuBen.FuBenLiLianV1Item().setData(key, data,i));
+					this.vbox_1.addChild(new view.fuBen.FuBenLiLianV1Item().setData(key, data, i));
 				}
 
 			})
@@ -118,7 +149,7 @@ module view.fuBen {
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_yinkui.addChild(_itemUI)
 				}
 				//BOSS地图
@@ -178,7 +209,7 @@ module view.fuBen {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = jsonData.reward[i].index;
 					itemInfo.dwCount = jsonData.reward[i].num;
-					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_world.addChild(_itemUI)
 				}
 			})

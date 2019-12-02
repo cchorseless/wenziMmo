@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":62,
-    "selecteID":63,
+    "selectedBox":61,
+    "selecteID":67,
     "props":{"y":0,"x":0,"width":150,"sceneColor":"#c07a79","height":240},
     "nodeParent":-1,
     "label":"View",
@@ -152,7 +152,21 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":7,"x":110,"var":"img_job","skin":"image/common/img_job01.png"},
+                            "nodeParent":61,
+                            "label":"Image(img_job)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":67,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

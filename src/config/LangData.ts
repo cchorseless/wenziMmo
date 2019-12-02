@@ -2,8 +2,8 @@
  * 多语言配置
  * by pipixia
  */
-module LangConfig {
 
+module LangConfig {
     export function getRealName(name: string): string {
         return name.split('_')[0]
     }
@@ -202,8 +202,31 @@ module LangConfig {
         tu: '土'
 
     }
+    /**
+     *  获取职业icon路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerJobIcon(job = GameApp.MainPlayer.job): string {
+        let path = 'image/common/img_job0';
+        let number;
+        switch (job) {
+            //隐门传人
+            case EnumData.JOB_TYPE.JOB_WARRIOR:
+                number = 1
+                break;
+            //奇侠怪盗
+            case EnumData.JOB_TYPE.JOB_MAGE:
+                number = 2
+                break;
+            //神秘孤儿
+            case EnumData.JOB_TYPE.JOB_MONK:
+                number = 3
+                break;
 
-
+        }
+        return path + number + '.png';
+    }
     /**
      * 职业
      */

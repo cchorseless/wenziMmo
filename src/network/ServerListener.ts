@@ -113,6 +113,10 @@ class ServerListener extends SingletonClass {
         // 背包内物品数量改变 30a
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretItemCountChanged), this, this.cretItemCountChanged);
         /***********************************好友相关 *********************************/
+        // 好友列表
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationGetListRet), this, this.FriendList);
+        //从现有的列表中删除指定的信息
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationListDelete), this, this.FriendDelete);
         // 添加一个好友
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddFriend), this, this.addFriend);
         //向添加人发出询问
@@ -224,6 +228,10 @@ class ServerListener extends SingletonClass {
         realLogin.setValue('tokencheck', GameApp.GameEngine.tokenCheck);
         realLogin.setValue('gamesvr_id_type', GameApp.GameEngine.gamesvrIdType);
         realLogin.setValue('logintoken', GameApp.GameEngine.logintoken);
+        if (GameApp.GameEngine.deviceInfo['idfa']) {
+            realLogin.setValue('meshineId', GameApp.GameEngine.deviceInfo['idfa']);
+        }
+
         // 正式进入游戏
         lcp.send(realLogin, this, this.userRealLogin);
         let accounts = GameApp.GameEngine.mainPlayer.playerAccount.split('@');
@@ -544,6 +552,8 @@ class ServerListener extends SingletonClass {
                 // 检查攻击动作，释放攻击动作,检查CD
                 case EnumData.BattleResult.SUCCESS:
                     atker.startAttack();
+                    let skillid = msgData.getValue('nMagicId')
+                    PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
                     break;
                 default:
                     TipsManage.showTips('攻击失败' + msgData.btErrorCode);
@@ -567,14 +577,33 @@ class ServerListener extends SingletonClass {
         let maxhp = msg.getValue('nMaxHp');
         let actmpid = msg.getValue('dwAcTmpID');
         let tartmpid = msg.getValue('dwTmpId');
+        let skillID = msg.getValue('wdMagicID');
         let player = GameApp.MainPlayer;
         // 攻击者
         let atker = player.findViewObj(actmpid);
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
+            let e = new Laya.Label();
+            e.font = "fzhl";
+            e.color = "#ffeeb1";
+            e.stroke = 3;
+            e.strokeColor = "#000000";
+            e.fontSize = 28;
+            let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
+            e.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+            // targeter.ui_item.y;
+            let p = targeter.ui_item.localToGlobal(new Laya.Point());
+            e.y = p.y;
+            e.x = 0;
+            PanelManage.Main.addChild(e)
+            Laya.Tween.to(e, { x: p.x }, 500, null, Laya.Handler.create(this, () => {
+                PanelManage.Main.removeChild(e)
+            }))
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
+
+
             TipsManage.showTxt('HP--' + npower);
         }
         else {
@@ -1420,29 +1449,80 @@ class ServerListener extends SingletonClass {
     }
 
     /*******************************************************好友信息******************************************* */
+    public FriendList(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationGetListRet(data);
+        let friendArray = []
+        for (let single of msg.friendlist) {
+            let baseIno = new ProtoCmd.stRelationInfoBase();
+            baseIno.clone(single.data);
+            friendArray.push(baseIno)
+        }
+        //0好友1黑名单2仇人
+        let type = msg.getValue('btType');
+        let friendInfo = GameApp.MainPlayer.friendInfo;
+        if (friendInfo[type]) {
+            friendInfo[type] = { info: friendArray, type: type };
+        } else {
+            friendInfo.push({ info: friendArray, type: type });
+        }
+    }
+    /**
+     * 
+     * @param data 删除好友
+     */
+    public FriendDelete(data: Laya.Byte): void {
+        let msg = new ProtoCmd.stRelationListDelete(data);
+        let type = msg.type;
+        let name = msg.szName;
+        let friendInfo = GameApp.MainPlayer.friendInfo[type].info;
+        let keys = Object.keys(friendInfo);
+        for (let key of keys) {
+            if (friendInfo[key].szName == name) {
+                friendInfo.splice(key, 1);
+            }
+        }
+        GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo)
+    }
     /**
      * 添加一个好友信息
      */
     public addFriend(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddFriend(data);
+        let baseIno = new ProtoCmd.stRelationInfoBase();
+        baseIno.clone(msg.friendInfo.data);
         let Type = msg.getValue('btType');
         let _friend;
         switch (Type) {
             // 好友
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP:
+            case 0:
                 _friend = GameApp.GameEngine.friendDB;
                 break;
             // 黑名单
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE:
+            case 1:
                 _friend = GameApp.GameEngine.blackDB;
                 break;
             // 仇人
-            case EnumData.PACKAGE_TYPE.ITEMCELLTYPE_STORE:
+            case 2:
                 _friend = GameApp.GameEngine.chouRenDB;
                 break;
             default:
                 throw new Error('好友类型不对');
         }
+        let friendInfo = GameApp.MainPlayer.friendInfo[Type].info;
+        let keys = Object.keys(friendInfo)
+        if (keys.length > 0) {
+            for (let key of keys) {
+                if (friendInfo[key].szName == baseIno.szName) {
+                    friendInfo.splice(key, 1, baseIno);
+                } else {
+                    friendInfo.push(baseIno);
+                }
+            }
+        } else {
+            friendInfo.push(baseIno);
+        }
+
+        GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo);
     }
     /**
     * 向添加人发出询问

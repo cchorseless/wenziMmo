@@ -43,10 +43,6 @@ module view.team {
 					PanelManage.openGuildSelectPanel();
 				}
 			})
-			// 好友
-			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFriendPanel();
-			})
 			// 排行榜
 			this.btn_paihang.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openRankMainPanel();

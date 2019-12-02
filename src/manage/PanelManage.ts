@@ -70,7 +70,6 @@ module PanelManage {
     export let Task_Main: view.task.Task_MainPanel;//主线任务界面
     export let Task_Daily: view.task.Task_DailyPanel;//日常任务界面
     export let Task_LiLian: view.task.Task_LiLianPanel;//历练任务界面
-    export let Task_chengJiu: view.task.Task_ChengJiuPanel;//成就任务界面
 
     export let NorthMap: view.map.BigMap_BeiLuPanel;//北陆地图界面
     export let SouthMap: view.map.BigMap_NanLuPanel;//南陆地图界面
@@ -83,7 +82,6 @@ module PanelManage {
     export let GuildSelect: view.guild.GuildSelectPanel;//公会界面
     export let GuildMain: view.guild.GuildMainPanel;//帮会界面
     export let Team: view.team.TeamPanel;//队伍界面
-    export let Friend: view.friend.FriendPanel;//好友界面
     export let GuildIntoCondition: view.guild.GuildIntoConditionPanel;//入帮设置界面
     export let GuildFuli: view.guild.GuildFuliPanel;//帮派福利界面
     export let GuildStore: view.guild.GuildStorePanel;//帮派仓库界面
@@ -361,19 +359,7 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Team, 1, 0, 2);
         })
     }
-    /**
-   * 好友界面
-   */
-    export function openFriendPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Friend)) return;
-        ResManage.loadResource(ResData.PanelRes.Friend, () => {
-            PanelManage.Friend = new view.friend.FriendPanel();
-            PanelManage.Friend['LCP_skin'] = ResData.PanelRes.Friend;
-            PanelManage.Friend.setData();
-            PanelManage.Friend.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Friend, 1, 0, 2);
-        })
-    }
+
     /**
     * 帮会外交界面
     */
@@ -634,22 +620,6 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.Task_LiLian, 2, 0, 2);
         })
     }
-
-    /**
-     * 成就任务界面
-     */
-    export function openTask_ChengJiuPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.Task_chengJiu)) return;
-        ResManage.loadResource(ResData.PanelRes.Task_chengJiu, () => {
-            PanelManage.Task_chengJiu = new view.task.Task_ChengJiuPanel();
-            PanelManage.Task_chengJiu['LCP_skin'] = ResData.PanelRes.Task_chengJiu;
-            PanelManage.Task_chengJiu.setData();
-            PanelManage.Task_chengJiu.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.Task_chengJiu, 2, 0, 2);
-        })
-    }
-
-
 
     /**
      * 主线副本界面

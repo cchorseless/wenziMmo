@@ -10,6 +10,7 @@ class GameEngine extends SingletonClass {
     public legalKey: Array<any> = [];                                             //合法的更改属性的密钥
     public serverid: string = "";
     public version: string = "1.0.0";//版本号
+    public deviceInfo = {}                                                         //设备信息
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://

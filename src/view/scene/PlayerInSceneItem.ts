@@ -17,6 +17,8 @@ module view.scene {
 			else {
 				this.lbl_name.fontSize = 18
 			}
+			//职业icon
+			this.img_job.skin=LangConfig.getPlayerJobIcon();
 			this.lbl_name.text = this.item.objName;
 			this.img_nameBg.height = this.lbl_name.displayHeight + 25;
 			// 公会名字

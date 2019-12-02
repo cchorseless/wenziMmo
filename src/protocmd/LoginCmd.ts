@@ -164,7 +164,7 @@ module ProtoCmd {
             this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//账号
             this.addProperty('szPlayerName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//角色名
             this.addProperty('szTxSubPlatformName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//平台名
-            this.addProperty('szMac', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('meshineId', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//机器码
             this.addProperty('dwUserOnlyId', PacketBase.TYPE_INT64);//角色唯一ID
             this.addProperty('btmapsubline', PacketBase.TYPE_BYTE); //游戏分线
             this.addProperty('dwTrueZoneid', PacketBase.TYPE_DWORD); //游戏分线
@@ -289,6 +289,32 @@ module ProtoCmd {
 
             this.cmd = 0x020A;
             this.read(data);
+        }
+    }
+
+    //0x010B
+    //设备信息
+    export class UserDeviceInfo extends Packet {
+        public static msgID: number = 0x010B;
+        public constructor() {
+            super();
+            this.cmd = 0x010B;
+
+            this.addProperty('szAccount', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
+            this.addProperty('szClientVersion', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//客户端版本
+            this.addProperty('szSystemSoftware', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//操作系统
+            this.addProperty('szSystemHardware', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//硬件
+            this.addProperty('szTelecomOper', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//运营商
+            this.addProperty('szNetwork', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//网络3G/WIFI/2G
+            this.addProperty('nScreenWidth', PacketBase.TYPE_DWORD);//显示屏宽度
+            this.addProperty('nScreenHight', PacketBase.TYPE_DWORD);//显示屏高度
+            this.addProperty('fDensity', PacketBase.TYPE_WORD);//像素密度
+            this.addProperty('nRegChannel', PacketBase.TYPE_DWORD);//注册渠道
+            this.addProperty('szCpuHardware', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//cpu类型|频率|核数
+            this.addProperty('nMemory', PacketBase.TYPE_DWORD);//内存信息单位M
+            this.addProperty('szDeviceId', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//设备ID
+            this.addProperty('szIDFA', PacketBase.TYPE_STRING, 128);//IDFA
+            this.addProperty('nLoginChannel', PacketBase.TYPE_DWORD);//登录渠道
         }
     }
 }

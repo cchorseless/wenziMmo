@@ -23,10 +23,6 @@ module view.task {
 				PanelManage.openMainPanel();
 			});
 
-			this.btn_achieveTask.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openTask_ChengJiuPanel()
-			});
-
 			this.btn_dailyTask.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTask_DailyPanel()
 			});

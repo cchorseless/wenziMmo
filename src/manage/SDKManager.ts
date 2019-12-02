@@ -85,7 +85,7 @@ class SDKManager extends SingletonClass {
             return;
         }
         let self = this;
-
+        this.getIOSDeviceInfo();
         switch (this._platform) {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.login(function (data) {
@@ -207,6 +207,7 @@ class SDKManager extends SingletonClass {
         if (!this.SDK) {
             return;
         }
+
         this.updateRoleInfo();
 
         switch (this._platform) {
@@ -236,6 +237,7 @@ class SDKManager extends SingletonClass {
             default:
                 break;
         }
+
 
     }
 
@@ -298,6 +300,7 @@ class SDKManager extends SingletonClass {
         if (!this.SDK) {
             return;
         }
+
         this.updateRoleInfo();
         let amountMin = price * 10 * 10;
         let self = this;
@@ -350,6 +353,57 @@ class SDKManager extends SingletonClass {
             })
     }
 
+    getIOSDeviceInfo() {
+        let device = {
+            type: 'getdata',
+            data: {
+                id: 'deviceInfo',
+            }
+        }
+        this.SDK.call("_doAction:", JSON.stringify(device))
+    }
+
+    /**
+     * IOS 设备信息
+     */
+    public static IOSDeviceInfo(str: any) {
+        console.log(str);
+        let infoArr = str.split('`');
+
+        // let pkt = new ProtoCmd.UserDeviceInfo();
+
+        for (let info of infoArr) {
+            let keyValue = info.split('=');
+            if(keyValue.length == 2){
+                GameApp.GameEngine.deviceInfo[keyValue[0]] = keyValue[1];
+            }
+            // switch (info[0]) {
+            //     case 'deviceName':
+            //         pkt.setValue('szSystemHardware', info[1]);
+
+            //         break;
+            //     case 'bundlenVersion':
+            //         pkt.setValue('szSystemHardware', info[1]);
+            //         break;
+            //     case 'batteryLevel':
+            //         break;
+            //     case 'idfa':
+            //         pkt.setValue('szIDFA', info[1]);
+            //         break;
+            //     case 'idfv':
+            //         pkt.setValue('szDeviceId', info[1]);
+            //         break;
+            //     case 'channelLabel':
+            //         pkt.setValue('nLoginChannel', info[1]);
+            //         break;
+            //     case 'deviceAdress':
+            //         break;
+            //     default:
+            //         break;
+            // }
+        }
+        // lcp.send(pkt);
+    }
 
 }
 

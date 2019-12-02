@@ -87,6 +87,7 @@ module view.scene {
 		 * 更新血条
 		 */
 		public updateHp(): void {
+			this.lbl_hp.text = this.item.ability.nowHP  + "/" +  this.item.ability.nMaxHP
 			// this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
 		}
 

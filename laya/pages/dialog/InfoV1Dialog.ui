@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":2,
-    "selecteID":3,
+    "selectedBox":12,
+    "selecteID":13,
     "props":{"width":569,"sceneColor":"#ffffff","height":390},
     "nodeParent":-1,
     "label":"Dialog",
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":6,"x":14,"skin":"image/common/title_tanchuang2.png"},
+                    "props":{"top":0,"skin":"image/common/title_tanchuang2.png","right":0,"left":0},
                     "nodeParent":2,
                     "label":"Image",
                     "isOpen":true,
@@ -51,17 +51,29 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":1,"x":25,"text":"战斗属性介绍","strokeColor":"#000000","stroke":4,"fontSize":48,"font":"FZXK","color":"#ffffff"},
+                            "type":"Image",
+                            "props":{"y":0,"x":155,"width":259,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44","height":51},
                             "nodeParent":5,
-                            "label":"Label",
-                            "isDirectory":false,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":6,
+                            "hasChild":true,
+                            "compId":12,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":7,"x":21,"width":216,"text":"战斗属性介绍","strokeColor":"#404040","stroke":2,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                                    "nodeParent":12,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":13,
+                                    "child":[
+                                        ]
+                                }]
                         }],
                     "$HIDDEN":false
                 },
