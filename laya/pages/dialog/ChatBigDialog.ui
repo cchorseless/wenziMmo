@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":29,
-    "selecteID":30,
+    "selectedBox":10,
+    "selecteID":11,
     "props":{"width":618,"sceneColor":"#f4afae","height":932},
     "nodeParent":-1,
     "label":"View",
@@ -111,15 +111,16 @@
                     "props":{"y":180,"x":70,"var":"viw_big","top":180,"selectedIndex":0,"right":70,"left":70,"bottom":120},
                     "nodeParent":29,
                     "label":"ViewStack(viw_big)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
-                            "props":{"var":"panel_big0","top":0,"right":0,"name":"item0","left":0,"bottom":0},
+                            "props":{"width":478,"var":"panel_big0","top":0,"right":0,"name":"item0","left":0,"height":632,"bottom":0},
                             "nodeParent":10,
                             "label":"Panel(panel_big0)",
                             "isOpen":false,
@@ -142,6 +143,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"var":"panel_big1","top":0,"right":0,"name":"item1","left":0,"bottom":0},
                             "nodeParent":10,
@@ -166,6 +168,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"var":"panel_big2","top":0,"right":0,"name":"item2","left":0,"bottom":0},
                             "nodeParent":10,
@@ -190,6 +193,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"var":"panel_big3","top":0,"right":0,"name":"item3","left":0,"bottom":0},
                             "nodeParent":10,
@@ -214,6 +218,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"var":"panel_big4","top":0,"right":0,"name":"item4","left":0,"bottom":0},
                             "nodeParent":10,
@@ -238,6 +243,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"var":"panel_big5","top":0,"right":0,"name":"item5","left":0,"bottom":0},
                             "nodeParent":10,
@@ -260,7 +266,8 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

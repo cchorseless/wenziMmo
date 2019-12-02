@@ -75,19 +75,20 @@ module view.dialog {
 		 */
 		public addLabel(chatType: EnumData.ChatType, str: string) {
 			// 综合
-			let all_txt: Laya.Label;
-			if (this.vbox_big0.numChildren > GameApp.GameEngine.chatDataAllMax) {
-				all_txt = this.vbox_big0.getChildAt(0) as Laya.Label;
-			}
-			else {
-				all_txt = new Laya.Label();
-			}
-			all_txt.text = str;
-			all_txt.fontSize = this.labFontSize;
-			all_txt.bold = true;
-			all_txt.width = 500;
-			all_txt.wordWrap = true;
-			this.vbox_big0.addChild(all_txt);
+			// let all_txt: Laya.Label;
+			// if (this.vbox_big0.numChildren > GameApp.GameEngine.chatDataAllMax) {
+			// 	all_txt = this.vbox_big0.getChildAt(0) as Laya.Label;
+			// }
+			// else {
+			// 	all_txt = new Laya.Label();
+			// }
+			// all_txt.text = str;
+			// all_txt.fontSize = this.labFontSize;
+			// all_txt.bold = true;
+			// all_txt.width = 500;
+			// all_txt.wordWrap = true;
+			let all_txt;
+
 			Laya.timer.frameOnce(2, this, () => { this.panel_big0.scrollTo(null, this.panel_big0.contentHeight); })
 
 			// 单个频道
@@ -97,11 +98,15 @@ module view.dialog {
 				// 当前屏幕聊天
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
 					_curIndex = 5;
+					all_txt = new compart.Chatinfo_system();
+					all_txt.setData(str)
 					break;
 
 				// 系统消息
 				case EnumData.ChatType.CHAT_TYPE_SYSTEM:
 					_curIndex = 1;
+					all_txt = new compart.Chatinfo_system();
+					all_txt.setData(str)
 					break;
 
 				// 世界聊天
@@ -120,6 +125,8 @@ module view.dialog {
 					break;
 
 			}
+			this.vbox_big0.addChild(all_txt);
+
 			let _curVbox: Laya.VBox = this['vbox_big' + _curIndex];
 			let _curPanel: Laya.Panel = this['panel_big' + _curIndex];
 			let single_txt;
