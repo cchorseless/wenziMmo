@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":3,
+    "selectedBox":16,
+    "selecteID":17,
     "props":{"width":190,"sceneColor":"#a8504e","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -39,7 +39,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":8,"x":152,"width":48,"var":"btn_autoAttack","stateNum":"1","skin":"image/main/img_zhandou.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动攻击","height":46,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":201,"x":114,"width":48,"var":"btn_autoAttack","stateNum":"1","skin":"image/main/img_zhandou.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动攻击","height":46,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":2,
                             "label":"Button(btn_autoAttack)",
                             "isOpen":true,
@@ -54,7 +54,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":162,"x":1,"width":63,"var":"btn_kill1","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "props":{"y":137,"x":1,"width":63,"var":"btn_kill1","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
                             "nodeParent":2,
                             "label":"Button(btn_kill1)",
                             "isOpen":true,
@@ -70,7 +70,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":92,"x":2,"width":63,"var":"btn_kill2","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "props":{"y":67,"x":2,"width":63,"var":"btn_kill2","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
                             "nodeParent":2,
                             "label":"Button(btn_kill2)",
                             "isOpen":true,
@@ -86,7 +86,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":48,"x":56,"width":63,"var":"btn_kill3","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "props":{"y":23,"x":56,"width":63,"var":"btn_kill3","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
                             "nodeParent":2,
                             "label":"Button(btn_kill3)",
                             "isOpen":true,
@@ -102,7 +102,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":49,"x":124,"width":63,"var":"btn_kill4","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
+                            "props":{"y":24,"x":124,"width":63,"var":"btn_kill4","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
                             "nodeParent":2,
                             "label":"Button(btn_kill4)",
                             "isOpen":true,
@@ -118,7 +118,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":118,"x":72,"width":86,"var":"btn_kill5","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":86},
+                            "props":{"y":93,"x":72,"width":86,"var":"btn_kill5","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":86},
                             "nodeParent":2,
                             "label":"Button(btn_kill5)",
                             "isOpen":true,
@@ -129,21 +129,6 @@
                             "child":[
                                 ],
                             "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":8,"x":84,"width":56,"stateNum":"2","skin":"image/main/icon_shezhi_01.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"设置","height":59,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":2,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ],
                             "$HIDDEN":false
                         },
                         {
@@ -178,9 +163,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":148,"x":155,"width":48,"stateNum":"1","skin":"image/main/img_zhandou.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动攻击","height":46,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":209,"x":114,"width":48,"var":"btn_autoAttack1","stateNum":"1","skin":"image/main/img_zhandou.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"自动攻击","height":46,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":16,
-                            "label":"Button",
+                            "label":"Button(btn_autoAttack1)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -201,21 +186,6 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":18,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":206,"x":97,"stateNum":"2","skin":"image/main/icon_shezhi_01.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"label":"设置","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":16,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":25,
                             "child":[
                                 ],
                             "$HIDDEN":false

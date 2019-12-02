@@ -76,7 +76,7 @@ module view.dialog {
 		 * @param senderName   发送方姓名
 		 * @param send_VIPLv   发送方VIP等级
 		 */
-		public addLabel(chatType: EnumData.ChatType, str: string, senderName: string, send_VIPLv: number) {
+		public addLabel(chatType: EnumData.ChatType, str: string, senderName: string, send_VIPLv: number,zslv,lv,path) {
 			let all_txt;
 			Laya.timer.frameOnce(2, this, () => { this.panel_big0.scrollTo(null, this.panel_big0.contentHeight); })
 
@@ -88,10 +88,10 @@ module view.dialog {
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
 					_curIndex = 5;
 					all_txt = new compart.ChatInfo();
-					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + _curIndex].addChild(all_txt);
 					let base5 = new compart.ChatInfo();
-					base5.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					base5.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + 0].addChild(base5);
 					break;
 
@@ -110,11 +110,11 @@ module view.dialog {
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
 					_curIndex = 2;
 					all_txt = new compart.ChatInfo();
-					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + _curIndex].addChild(all_txt);
 					this.vbox_big2.numChildren
 					let base2 = new compart.ChatInfo();
-					base2.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					base2.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + 0].addChild(base2);
 					break;
 
@@ -122,10 +122,10 @@ module view.dialog {
 				case EnumData.ChatType.CHAT_TYPE_CLAN:
 					_curIndex = 3;
 					all_txt = new compart.ChatInfo();
-					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + _curIndex].addChild(all_txt);
 					let base3 = new compart.ChatInfo();
-					base3.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					base3.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + 0].addChild(base3);
 					break;
 
@@ -133,10 +133,10 @@ module view.dialog {
 				case EnumData.ChatType.CHAT_TYPE_GROUP:
 					_curIndex = 4;
 					all_txt = new compart.ChatInfo();
-					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + _curIndex].addChild(all_txt);
 					let base4 = new compart.ChatInfo();
-					base4.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					base4.setData(str,senderName,_curIndex,send_VIPLv,lv,zslv,path)
 					this["vbox_big" + 0].addChild(base4);
 					break;
 

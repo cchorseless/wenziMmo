@@ -53,7 +53,14 @@ module view.npc {
 			}
 			// 配置表ID
 			let configId = this.item.feature.dwCretTypeId;
-			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId) + '.png';
+			let pathID = SheetConfig.mydb_npcgen_tbl.getInstance(null).ICON_NUMBER('' + configId)
+			if (pathID > 0) {
+				this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + pathID + '.png';
+				this.img_bg.skin = "image/main/frame_npc_01.png"
+			}else{
+				this.img_bg.skin = "image/main/frame_npc_02.png"
+			}
+			
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 		/**
@@ -62,11 +69,11 @@ module view.npc {
 		public newServer_AllBoss(id): NpcIconItem {
 			//boss头像
 			let img_allBoss = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + id);
-			this.img_avatarPic.skin='image/common/npc/npc_icon_'+img_allBoss+'.png';
-			let name=SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
-			this.lbl_npcName.text=''+name;
-			this.img_tips.visible=false;
-			this.lbl_zuoBiao.visible=false;
+			this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + img_allBoss + '.png';
+			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + id);
+			this.lbl_npcName.text = '' + name;
+			this.img_tips.visible = false;
+			this.lbl_zuoBiao.visible = false;
 			return this;
 		}
 	}

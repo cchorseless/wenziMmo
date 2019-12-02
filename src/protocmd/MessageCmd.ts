@@ -19,6 +19,7 @@ module ProtoCmd {
             this.addProperty('dwVip', PacketBase.TYPE_DWORD);       //VIP等级
             this.addProperty('dwGuildId', PacketBase.TYPE_DWORD);  // 行会ID
 
+
             this.addProperty('btPlatForm', PacketBase.TYPE_BYTE);       //平台类型
             this.addProperty('btTxYellowType', PacketBase.TYPE_BYTE);   //黄钻类型 1黄钻,2年黄钻,3豪华黄钻
             this.addProperty('btTxYellowLevel', PacketBase.TYPE_BYTE);  //黄钻等级.
@@ -27,6 +28,10 @@ module ProtoCmd {
             this.addProperty('btTxBlueLevel', PacketBase.TYPE_BYTE);//蓝钻等级
             this.addProperty('btTxQQVipType', PacketBase.TYPE_BYTE);//QQ会员类型 1会员,2年会员,3豪华会员
             this.addProperty('btTxQQVipLevel', PacketBase.TYPE_BYTE);//QQ会员等级
+            this.addProperty('dw_playerLevel', PacketBase.TYPE_DWORD);//角色等级
+            this.addProperty('dw_zsLevel', PacketBase.TYPE_DWORD);//转生等级
+            this.addProperty('bt_sex', PacketBase.TYPE_BYTE);//性别
+            this.addProperty('bt_job', PacketBase.TYPE_BYTE);//职业
             this.addProperty('nSize', PacketBase.TYPE_INT);
             this.cmd = CretChat.msgID;
             if (data != null) {

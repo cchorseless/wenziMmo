@@ -33,11 +33,11 @@ module view.compart {
 					this.lab_tabType.text = "当前"
 					break;
 			}
-			this.lab_LV.text = '';
+			this.lab_LV.text = '' +lv;
 			this.lab_name.text = name;
 			this.lab_vipLV.text = "" + vip_LV;
-			this.lab_zhuanshengLV.text = "";
-			// this.img_head = ""
+			this.lab_zhuanshengLV.text = "" + zhuansheng;
+			this.img_head.skin = "image/common/" + headPic + ".png"
 		}
 		public addEvent() {
 			this.img_head.on(Laya.UIEvent.CLICK, this, function () {
