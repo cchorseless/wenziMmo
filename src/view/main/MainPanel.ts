@@ -410,34 +410,34 @@ module view.main {
 			switch (btChatType) {
 				// 私聊
 				case EnumData.ChatType.CHAT_TYPE_PRIVATE:
-					_chatMsg += '[私聊]:' + data.chatMsg;
+					_chatMsg =data.chatMsg;
 					break;
 				// 当前屏幕聊天
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
-					_chatMsg += '[当前]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 系统消息
 				case EnumData.ChatType.CHAT_TYPE_SYSTEM:
-					_chatMsg += '[系统]:' + data.chatMsg;
+					_chatMsg =data.chatMsg;
 					break;
 
 				// 队伍聊天
 				case EnumData.ChatType.CHAT_TYPE_GROUP:
-					_chatMsg += '[队伍]:' + data.chatMsg;
+					_chatMsg =data.chatMsg;
 					break;
 
 				// 帮会聊天
 				case EnumData.ChatType.CHAT_TYPE_CLAN:
-					_chatMsg += '[帮会]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 
 				// 世界聊天
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
-					_chatMsg += '[世界]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 				default:
-					_chatMsg += '[系统]:' + data.chatMsg;
+					_chatMsg = data.chatMsg;
 					break;
 			}
 			_chatArray.push(_chatMsg);
@@ -457,7 +457,9 @@ module view.main {
 			vbox_small.addChild(small_txt);
 			Laya.timer.frameOnce(2, this, () => { panel_small.scrollTo(0, panel_small.contentHeight); })
 			// 更新到大窗
-			// this.ui_chatBigDialog.addLabel(btChatType, _chatMsg);
+			let senderName = data.getValue('szName');
+			let sender_VIPLv = data.getValue('dwVip')
+			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg,senderName,sender_VIPLv);
 		}
 
 		/**

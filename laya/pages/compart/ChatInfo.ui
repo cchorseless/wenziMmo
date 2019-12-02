@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":10,
-    "selecteID":11,
-    "props":{"width":478,"sceneColor":"#ffffff","height":130},
+    "selectedBox":1,
+    "selecteID":9,
+    "props":{"width":528,"sceneColor":"#ffffff","height":130},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -85,7 +85,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":45,"x":83,"width":390,"var":"img_labCircle","skin":"image/main/img_liaotianbaobao_01.png","sizeGrid":"9,6,10,35","height":77},
+            "props":{"y":47,"x":83,"width":444,"var":"img_labCircle","skin":"image/main/img_liaotianbaobao_01.png","sizeGrid":"9,6,10,35","height":77},
             "nodeParent":1,
             "label":"Image(img_labCircle)",
             "isOpen":true,
@@ -106,14 +106,15 @@
                     "compId":15,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":6,"x":127,"width":76,"skin":"image/main/tab_diangqian_04.png","sizeGrid":"0,35,0,16","height":31},
+            "props":{"y":6,"x":127,"var":"img_tabType","skin":"image/main/tab_diangqian_04.png","sizeGrid":"0,35,0,16"},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_tabType)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,

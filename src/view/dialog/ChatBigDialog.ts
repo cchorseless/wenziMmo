@@ -19,6 +19,7 @@ module view.dialog {
 			this.tab_big.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_big.selectedIndex = index;
 				this.box_send.visible = (index > 1);
+				this.lab_cantSend.visible = !this.box_send.visible;
 				switch (index) {
 					// 当前
 					case 0:
@@ -72,23 +73,11 @@ module view.dialog {
 		 * 添加聊天信息
 		 * @param chatType 
 		 * @param str 
+		 * @param senderName   发送方姓名
+		 * @param send_VIPLv   发送方VIP等级
 		 */
-		public addLabel(chatType: EnumData.ChatType, str: string) {
-			// 综合
-			// let all_txt: Laya.Label;
-			// if (this.vbox_big0.numChildren > GameApp.GameEngine.chatDataAllMax) {
-			// 	all_txt = this.vbox_big0.getChildAt(0) as Laya.Label;
-			// }
-			// else {
-			// 	all_txt = new Laya.Label();
-			// }
-			// all_txt.text = str;
-			// all_txt.fontSize = this.labFontSize;
-			// all_txt.bold = true;
-			// all_txt.width = 500;
-			// all_txt.wordWrap = true;
+		public addLabel(chatType: EnumData.ChatType, str: string, senderName: string, send_VIPLv: number) {
 			let all_txt;
-
 			Laya.timer.frameOnce(2, this, () => { this.panel_big0.scrollTo(null, this.panel_big0.contentHeight); })
 
 			// 单个频道
@@ -98,8 +87,12 @@ module view.dialog {
 				// 当前屏幕聊天
 				case EnumData.ChatType.CHAT_TYPE_REFMSG:
 					_curIndex = 5;
-					all_txt = new compart.Chatinfo_system();
-					all_txt.setData(str)
+					all_txt = new compart.ChatInfo();
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + _curIndex].addChild(all_txt);
+					let base5 = new compart.ChatInfo();
+					base5.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + 0].addChild(base5);
 					break;
 
 				// 系统消息
@@ -107,42 +100,66 @@ module view.dialog {
 					_curIndex = 1;
 					all_txt = new compart.Chatinfo_system();
 					all_txt.setData(str)
+					this["vbox_big" + _curIndex].addChild(all_txt);
+					let base1 = new compart.Chatinfo_system();
+					base1.setData(str)
+					this["vbox_big" + 0].addChild(base1);
 					break;
 
 				// 世界聊天
 				case EnumData.ChatType.CHAT_TYPE_WORLD:
 					_curIndex = 2;
+					all_txt = new compart.ChatInfo();
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + _curIndex].addChild(all_txt);
+					this.vbox_big2.numChildren
+					let base2 = new compart.ChatInfo();
+					base2.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + 0].addChild(base2);
 					break;
 
 				// 帮会聊天
 				case EnumData.ChatType.CHAT_TYPE_CLAN:
 					_curIndex = 3;
+					all_txt = new compart.ChatInfo();
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + _curIndex].addChild(all_txt);
+					let base3 = new compart.ChatInfo();
+					base3.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + 0].addChild(base3);
 					break;
 
 				// 队伍聊天
 				case EnumData.ChatType.CHAT_TYPE_GROUP:
 					_curIndex = 4;
+					all_txt = new compart.ChatInfo();
+					all_txt.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + _curIndex].addChild(all_txt);
+					let base4 = new compart.ChatInfo();
+					base4.setData(str,senderName,_curIndex,send_VIPLv,0,0,0)
+					this["vbox_big" + 0].addChild(base4);
 					break;
 
 			}
-			this.vbox_big0.addChild(all_txt);
 
-			let _curVbox: Laya.VBox = this['vbox_big' + _curIndex];
-			let _curPanel: Laya.Panel = this['panel_big' + _curIndex];
-			let single_txt;
-			if (_curVbox.numChildren > GameApp.GameEngine.chatDataSingleMax) {
-				single_txt = _curVbox.getChildAt(0) as Laya.Label;
-			}
-			else {
-				single_txt = new Laya.Label();
-			}
-			single_txt.text = str;
-			single_txt.fontSize = this.labFontSize;
-			single_txt.bold = true;
-			single_txt.width = 500;
-			single_txt.wordWrap = true;
-			_curVbox.addChild(single_txt);
-			Laya.timer.frameOnce(2, this, () => { _curPanel.scrollTo(null, _curPanel.contentHeight); })
+
+
+			// let _curVbox: Laya.VBox = this['vbox_big' + _curIndex];
+			// let _curPanel: Laya.Panel = this['panel_big' + _curIndex];
+			// let single_txt;
+			// if (_curVbox.numChildren > GameApp.GameEngine.chatDataSingleMax) {
+			// 	single_txt = _curVbox.getChildAt(0) as Laya.Label;
+			// }
+			// else {
+			// 	single_txt = new Laya.Label();
+			// }
+			// single_txt.text = str;
+			// single_txt.fontSize = this.labFontSize;
+			// single_txt.bold = true;
+			// single_txt.width = 500;
+			// single_txt.wordWrap = true;
+			// _curVbox.addChild(single_txt);
+			// Laya.timer.frameOnce(2, this, () => { _curPanel.scrollTo(null, _curPanel.contentHeight); })
 		}
 	}
 }
