@@ -115,6 +115,8 @@ class ServerListener extends SingletonClass {
         /***********************************好友相关 *********************************/
         // 好友列表
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationGetListRet), this, this.FriendList);
+        // 好友申请列表
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SUBCMD_RELATION_APPLYFRIENT_LIST_RET), this, this.FriendApplyList);
         //从现有的列表中删除指定的信息
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationListDelete), this, this.FriendDelete);
         // 添加一个好友
@@ -122,7 +124,7 @@ class ServerListener extends SingletonClass {
         //向添加人发出询问
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddQuery), this, this.addFriendAsk);
         // 回答关系添加结果(only 好友)
-        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddAnswerQuery), this, this.addFriendAskResult);
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stRelationAddRet), this, this.addFriendAskResult);
         /***********************************组队相关********************************* */
         //向队长发出申请
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.TeamAgreeJoinEncoder), this, this.addTeamAsk);
@@ -413,6 +415,7 @@ class ServerListener extends SingletonClass {
         obj.objName = obj.filterName(szShowName);
         // feature 信息
         obj.feature.clone(msgData.feature.data);
+        obj.feature.simpleFeature.read(obj.feature.getValue('simpleFeature'));
         // 位置  信息
         obj.location.clone(msgData.location.data);
         // 战斗信息
@@ -476,11 +479,12 @@ class ServerListener extends SingletonClass {
         player.location.clone(msg.location.data);
         // 更新外观信息
         player.feature.clone(msg.feature.data);
+        player.feature.simpleFeature.read(player.feature.getValue('simpleFeature'));
         // 更新能力信息
         player.changeHp(msg.getValue('nNowHp'), msg.getValue('nMaxHp'));//血
         player.changeMp(msg.getValue('nNowMp'), msg.getValue('nMaxMp'));//蓝
         player.changeNeigong(msg.getValue('nMaxNG') - msg.getValue('nHasUseNG'), msg.getValue('nMaxNG'));//内功
-        PanelManage.Main.ui_battleSkill.init_skillView();
+        // PanelManage.Main.ui_battleSkill.init_skillView();
         // 自己进入地图，加载ui_scene.
         // 只会调用一次，创建自己的角色。
         // 这里可以拉取数据
@@ -1449,6 +1453,10 @@ class ServerListener extends SingletonClass {
     }
 
     /*******************************************************好友信息******************************************* */
+    /**
+     *
+     * @param data 好友列表
+     */
     public FriendList(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationGetListRet(data);
         let friendArray = []
@@ -1468,6 +1476,29 @@ class ServerListener extends SingletonClass {
     }
     /**
      * 
+     * @param data 好友申请列表
+     */
+    public FriendApplyList(data: Laya.Byte): void {
+        let msg = new ProtoCmd.SUBCMD_RELATION_APPLYFRIENT_LIST_RET(data);
+        let friendArray = []
+        for (let single of msg.friendlist) {
+            let baseIno = new ProtoCmd.friendApply();
+            baseIno.clone(single.data);
+            //同一个人的好友申请只显示一条
+            if (friendArray.length > 0) {
+                for (let item of friendArray) {
+                    if (item.playerName != single.playerName) {
+                        friendArray.push(baseIno);
+                    }
+                }
+            } else {
+                friendArray.push(baseIno);
+            }
+        }
+        GameApp.MainPlayer.friendApplyInfo = friendArray;
+    }
+    /**
+     *
      * @param data 删除好友
      */
     public FriendDelete(data: Laya.Byte): void {
@@ -1478,9 +1509,11 @@ class ServerListener extends SingletonClass {
         let keys = Object.keys(friendInfo);
         for (let key of keys) {
             if (friendInfo[key].szName == name) {
+                //删除
                 friendInfo.splice(key, 1);
             }
         }
+         //刷新好友列表
         GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo)
     }
     /**
@@ -1509,19 +1542,20 @@ class ServerListener extends SingletonClass {
                 throw new Error('好友类型不对');
         }
         let friendInfo = GameApp.MainPlayer.friendInfo[Type].info;
-        let keys = Object.keys(friendInfo)
-        if (keys.length > 0) {
-            for (let key of keys) {
-                if (friendInfo[key].szName == baseIno.szName) {
-                    friendInfo.splice(key, 1, baseIno);
-                } else {
-                    friendInfo.push(baseIno);
-                }
+        let keys = Object.keys(friendInfo);
+        let num = 0;
+        //好友里如果有这个人就替换，没有就添加
+        for (let key of keys) {
+            if (friendInfo[key].szName == baseIno.szName) {
+                //替换
+                friendInfo.splice(key, 1, baseIno);
+                num = 1;
             }
-        } else {
+        }
+        if (num == 0) {
             friendInfo.push(baseIno);
         }
-
+        //刷新好友列表
         GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo);
     }
     /**
@@ -1529,20 +1563,42 @@ class ServerListener extends SingletonClass {
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
-        let asks = new view.friend.FriendCheckDialog();
-        asks.setData(msg.getValue('szName'), msg.getValue('dwLevel')).popup(true);
+        let applyItem = new ProtoCmd.friendApply();
+        applyItem.clone(msg.friendApplyList.data);
+        let friendApplyInfo = GameApp.MainPlayer.friendApplyInfo;
+        let keys = Object.keys(friendApplyInfo);
+        //好友申请里如果有这个人的申请就替换，没有就添加
+        let num = 0;
+        for (let key of keys) {
+            if (friendApplyInfo[key].playerName == applyItem.playerName) {
+                //替换
+                friendApplyInfo.splice(parseInt(key), 1, applyItem);
+                num = 1;
+            }
+        }
+        if (num == 0) {
+            friendApplyInfo.push(applyItem);
+        }
+        //刷新好友申请列表
+        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA, GameApp.MainPlayer.friendApplyInfo);
     }
     /**
       * 回答关系添加结果(only 好友)
       */
     public addFriendAskResult(data: Laya.Byte): void {
-        let msg = new ProtoCmd.stRelationAddAnswerQuery(data);
-        if (msg.getValue('boAgree')) {
-            TipsManage.showTips('你成功添加' + msg.getValue('szName'));
+        let msg = new ProtoCmd.stRelationAddRet(data);
+        let name = msg.getValue('szName');
+        let friendApplyInfo = GameApp.MainPlayer.friendApplyInfo;
+        let keys = Object.keys(friendApplyInfo);
+        //本地好友申请里刪除處理過的好友申请
+        for (let key of keys) {
+            if (friendApplyInfo[key].playerName == name) {
+                //删除
+                friendApplyInfo.splice(parseInt(key), 1);
+            }
         }
-        else {
-            TipsManage.showTips('添加失败');
-        }
+        //刷新好友申请列表
+        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA, GameApp.MainPlayer.friendApplyInfo);
     }
     /*******************************************************组队信息******************************************* */
     /**
@@ -1622,7 +1678,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 有人申请帮派红点提示
-     * @param data 
+     * @param data
      */
     public RED_NOTICE_applyBangPai(data): void {
         let cbpkt = new ProtoCmd.stGuildApply(data);
@@ -1664,7 +1720,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 服务器推送创建任务（已接任务）
-     * @param data 
+     * @param data
      */
     public addTaskInfo_V1(data): void {
         let cbpket = new ProtoCmd.stQuestCreateRet(data);
@@ -1690,7 +1746,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 服务器推送创建任务（能接未接任务）
-     * @param data 
+     * @param data
      */
     public addTaskInfo_V2(data): void {
         let cbpket = new ProtoCmd.stQuestSendQuestInfoRet(data);
@@ -1710,7 +1766,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 改变任务信息
-     * @param data 
+     * @param data
      */
     public changeTaskState(data): void {
         let cbpket = new ProtoCmd.stQuestDoingRet(data);
@@ -1741,7 +1797,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 只改变任务状态
-     * @param data 
+     * @param data
      */
     public changeOnlyTaskState(data): void {
         let cbpket = new ProtoCmd.stQuestFinishRet(data);
@@ -1777,7 +1833,7 @@ class ServerListener extends SingletonClass {
     /***************************************LUA消息分发****************************** */
     /**
      * 服务器返回的lua脚本数据
-     * @param data 
+     * @param data
      */
     public questServerDataRet(data: any): void {
         let msg = new ProtoCmd.QuestServerDataRet(data);
@@ -1816,7 +1872,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 客户端设置
-     * @param data 
+     * @param data
      */
     public clientSetData(data: any): void {
 
@@ -1826,7 +1882,7 @@ class ServerListener extends SingletonClass {
 
     /**
      * 打开界面
-     * @param data 
+     * @param data
      */
     public openPanel(data: string): void {
         switch (data) {
@@ -1856,8 +1912,8 @@ class ServerListener extends SingletonClass {
     }
 
     /**
-     * 
-     * @param data PK 模式 
+     *
+     * @param data PK 模式
      */
     public changePkModel(data: any): void {
         let msg = new ProtoCmd.CretPkModel(data);

@@ -101,33 +101,50 @@ module ProtoCmd {
     //向被添加人发送询问(only 好友)
     export class stRelationAddQuery extends Packet {
         public static msgID: number = 0x0A05;
+        public friendApplyList = new friendApply();
         public constructor(data: Laya.Byte) {
             super();
-            this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//添加者
-            this.addProperty('szVerify', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN); //验证信息
-            this.addProperty("dwLevel", PacketBase.TYPE_DWORD);
-            this.addProperty("btJob", PacketBase.TYPE_BYTE);
-            this.addProperty("btSex", PacketBase.TYPE_BYTE);
+            this.addProperty('friendApplyList', PacketBase.TYPE_BYTES, this.friendApplyList.size(), this.friendApplyList);//添加者
             this.read(data);
         }
-
-        public get playerName(): String {
-            return this.getValue("szName");
-        }
-
-        public get job(): number {
-            return this.getValue("btJob");
-        }
-
-        public get sex(): number {
-            return this.getValue("btSex");
-        }
-
-        public get level(): number {
-            return this.getValue("dwLevel");
+    }
+    /**
+     * 好友申请列表
+     */
+    export class SUBCMD_RELATION_APPLYFRIENT_LIST extends Packet {
+        public static msgID: number = 0x0A2B;
+        public cbPacket = SUBCMD_RELATION_APPLYFRIENT_LIST_RET;
+        public constructor() {
+            super();
         }
     }
+    /**
+   * 好友申请列表返回
+   */
+    export class SUBCMD_RELATION_APPLYFRIENT_LIST_RET extends Packet {
+        public static msgID: number = 0x0A2C;
+        public friendlist: Array<friendApply> = [];
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('nCount', PacketBase.TYPE_DWORD);
+            if (data) this.read(data);
+        }
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            for (var i: number = 0; i < this.getValue('nCount'); i++) {
+                this.friendlist.push(new friendApply(data));
+            }
+            return data.pos;
+        }
 
+        public clear(): void {
+            super.clear();
+            for (var i: number = 0; i < this.friendlist.length; i++) {
+                this.friendlist[i].clear();
+            }
+            this.friendlist.length = 0;
+        }
+    }
 
     //c-s 回答关系添加结果(only 好友)
     export class stRelationAddAnswerQuery extends Packet {

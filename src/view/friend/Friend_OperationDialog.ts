@@ -5,6 +5,7 @@ module view.friend {
 			super();
 		}
 		public item;
+		//type操作类型1好友列表2附近的人4搜索的人
 		public type;
 		public name;
 		public lvl;
@@ -20,22 +21,46 @@ module view.friend {
 			//type操作类型1好友列表2附近的人
 			switch (type) {
 				case 1:
-					this.btn_friend.label = '删除好友';
+					switch (key) {
+						case 0:
+							this.btn_friend.label = '删除好友';
+							break;
+						case 1:
+							this.btn_friend.label = '移出黑名单';
+							this.btn_intoBlackList.visible = false;
+							break;
+						case 2:
+							this.btn_friend.label = '删除仇人';
+							break;
+					};
 					this.name = item.szName;
 					//门派名称
-					this.lbl_Sects.text = this.item.guildName;
+					if (this.item.guildName == "") {
+						this.lbl_Sects.text = '暂未加入门派';
+					} else { this.lbl_Sects.text = this.item.guildName; }
 					break;
 				case 2:
 					this.btn_friend.label = '添加好友';
 					this.name = item.objName;
 					//门派名称
-					if (this.item.feature.dwClanId == 0) {
+					if (this.item.feature.dwClanId && this.item.feature.dwClanId == 0) {
 						this.lbl_Sects.text = '暂未加入门派';
 					} else {
 						// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.feature.dwClanId);
 					}
 					break;
+				case 4:
+					this.btn_friend.label = '添加好友';
+					this.name = item.szName;
+					//门派名称
+					if (this.item.guild && this.item.guild == 0) {
+						this.lbl_Sects.text = '暂未加入门派';
+					} else {
+						// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.guild);
+					}
+					break;
 			}
+
 			//角色等级
 			this.lvl = item.level;
 			//角色职业
@@ -59,7 +84,7 @@ module view.friend {
 			})
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				//添加好友
-				if (this.type == 2) {
+				if (this.type == 2 || this.type == 4) {
 					this.changeRelationShip(0);
 				}
 				//删除好友
@@ -92,7 +117,7 @@ module view.friend {
 			})
 		}
 		/**
-		 * 删除好友
+		 * 删除好友||移出黑名单||删除仇人
 		 */
 		public init_deleteFriend(): void {
 			let pkt = new ProtoCmd.stRelationDelete(null);
@@ -122,6 +147,10 @@ module view.friend {
 				this.init_tips(errorcode);
 			})
 		}
+		/**
+		 * 操作结果反馈
+		 * @param errorcode 错误类型
+		 */
 		public init_tips(errorcode): void {
 			switch (errorcode) {
 				//成功
@@ -156,6 +185,10 @@ module view.friend {
 				//没有这个用户
 				case EnumData.emFriendErrorCode.RELATION_FAIL_NO_USER:
 					break;
+				//已申请
+				case EnumData.emFriendErrorCode.RELATION_FAIL_APPLYING:
+					TipsManage.showTips('已发送过申请');
+					break;
 				case EnumData.emFriendErrorCode.RELATION_FAIL_WAIT_TO_ANSWER: break;  //
 				case EnumData.emFriendErrorCode.RELATION_FAIL_CLOSE_INVITE: break;  //关闭邀请
 				case EnumData.emFriendErrorCode.RELATION_FAIL_NOSELF: break;  	//不能添加自己
@@ -167,7 +200,8 @@ module view.friend {
 				case EnumData.emFriendErrorCode.RELATION_FAIL_LOCATION_QUERY: break;   //探查令不够
 				case EnumData.emFriendErrorCode.RELATION_FAIL_ENEMY_CANT_BE_FRIEND: break;  //仇人不是
 				case EnumData.emFriendErrorCode.RELATION_FAIL_NEED_VERIFY: break;  		//需要验证
-				case EnumData.emFriendErrorCode.RELATION_FAIL_REFUSEALL: break;  		//设置了拒绝加好友
+				case EnumData.emFriendErrorCode.RELATION_FAIL_REFUSEALL: break;  //设置了拒绝加好友
+
 			}
 		}
 	}

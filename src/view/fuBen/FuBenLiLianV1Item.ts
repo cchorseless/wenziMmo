@@ -4,61 +4,40 @@ module view.fuBen {
 		constructor() {
 			super();
 		}
+		public data;
+		public i;
+		public key;
 		public setData(key, data: ProtoCmd.itf_FB_XueYuInfo, i): FuBenLiLianV1Item {
-			this.panel_xueYu.hScrollBarSkin = '';
-			let keys = Object.keys(data);
-			let num = 0;
-			this.hbox_xueYu.removeChildren();
-			for (let id of keys) {
-				let type = data[id];
-				if (type = 1) {
-					num = num + 1
-				}
-				//奖励
-				let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + id);
-				for (let i = 0; jiangli[i]; i++) {
-					let _itemUI = new view.compart.DaoJuWithNameItem();
-					let itemInfo = new ProtoCmd.ItemBase();
-					itemInfo.dwBaseID = jiangli[i];
-					_itemUI.setData(itemInfo,EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					this.hbox_xueYu.addChild(_itemUI)
-				}
+			this.key = key;
+			this.data = data;
+			this.i = i;
+			let lvl = GameApp.MainPlayer.lvlCount;
+			if (lvl >= data.openlvl) {
+				this.btn_selected.skin = 'image/fuben/frame_cengji_01.png';
+			} else {
+				this.btn_selected.skin = 'image/fuben/frame_cengji_03.png';
+				this.btn_selected.mouseEnabled=false;
 			}
-			//稀有boss存活数量
-			this.num.text = '' + num;
-			//层数
-			// this.floor=i;
-			let arr=['零','一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+			//地图名称
+			this.lbl_map.text = '' + SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + key);
+			let arr = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
 			this.lbl_ceng.text = '第' + arr[i] + '层';
-			this.img_liLianMore.scaleY = 0;
-			this.height = this.btn_selected.height;
 			this.addEvent();
-			this.getBossInfo(key);
+			// this.getBossInfo(key);
 			return this;
 		}
 		public addEvent(): void {
 			this.btn_selected.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_selected.selected = !this.btn_selected.selected;
-				this.showMore(this.btn_selected.selected);
+				PanelManage.FuBenLiLian.update_bossHome(this.data, this.i, this.key);
 			})
 		}
-		public showMore(v: boolean): void {
-			if (v) {
-				Laya.Tween.to(this.img_liLianMore, { scaleY: 1 }, 500);
-				Laya.Tween.to(this, { height: this.btn_selected.height + this.img_liLianMore.height }, 500);
-			}
-			else {
-				Laya.Tween.to(this.img_liLianMore, { scaleY: 0 }, 500);
-				Laya.Tween.to(this, { height: this.btn_selected.height }, 500)
-			}
-		}
+		// public getBossInfo(key): void {
+		// 	let pkt = new ProtoCmd.QuestClientData();
+		// 	pkt.setString(ProtoCmd.FB_GetWorldBossInfo, [key], null, this, (jsonData: { any }) => {
 
-		public getBossInfo(key): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GetWorldBossInfo, [key], null, this, (jsonData: { any }) => {
-
-			})
-			lcp.send(pkt);
-		}
+		// 	})
+		// 	lcp.send(pkt);
+		// }
 	}
 }

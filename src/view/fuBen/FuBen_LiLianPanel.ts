@@ -119,12 +119,69 @@ module view.fuBen {
 					i = i + 1;
 					let data: ProtoCmd.itf_FB_XueYuInfo = jsonData[key];
 					this.vbox_1.addChild(new view.fuBen.FuBenLiLianV1Item().setData(key, data, i));
+					if (i == 1) {
+						this.update_bossHome(data, i, key);
+					}
 				}
-
 			})
 			lcp.send(pkt);
 		}
-
+		/**
+		*更新天山血狱界面(boss之家)
+		*/
+		public update_bossHome(data: ProtoCmd.itf_FB_XueYuInfo, i, mapid): FuBen_LiLianPanel {
+			//点击当前效果
+			let lvl = GameApp.MainPlayer.lvlCount;
+			for (let single of this.vbox_1._childs) {
+				if (lvl >= data.openlvl) {
+					single.btn_selected.skin = 'image/fuben/frame_cengji_01.png';
+				} else {
+					single.btn_selected.skin = 'image/fuben/frame_cengji_03.png';
+					single.btn_selected.mouseEnabled = false;
+				}
+			}
+			let index = i - 1;
+			this.vbox_1._childs[index].btn_selected.skin = 'image/fuben/frame_cengji_02.png';
+			let keys = Object.keys(data.montab);
+			//存活数量
+			let lifenum = 0;
+			let num = 0;
+			this.box_jiangli.removeChildren();;
+			//掉落奖励
+			for (let id of keys) {
+				let type = data[id];
+				if (type = 1) {
+					//存活数量
+					lifenum = lifenum + 1
+				}
+				num += 1;
+				//取第一个boss的掉落奖励显示
+				if (num == 1) {
+					//奖励
+					let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + id);
+					for (let i = 0; jiangli[i]; i++) {
+						let ui_item = new view.compart.DaoJuItem();
+						let itemInfo = new ProtoCmd.ItemBase();
+						itemInfo.dwBaseID = jiangli[i];
+						ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
+						this.box_jiangli.addChild(ui_item);
+						//奖励添加位置
+						if (i % 2 == 0) {
+							ui_item.x = 0;
+						} else {
+							ui_item.x = 140;
+						}
+						ui_item.y = Math.floor(i / 2) *( ui_item.height + 20);
+					}
+				}
+			}
+			//稀有boss存活数量
+			this.lbl_num.text = '' + lifenum;
+			//层数
+			let arr = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+			this.lbl_ceng.text = '第' + arr[i] + '层';
+			return this;
+		}
 		/**
 		  * 阴葵门界面(锁妖塔)
 		  */
@@ -172,7 +229,6 @@ module view.fuBen {
 		public init_killXieDi(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_WorldBossPanel, null, null, this, (jsonData: any) => {
-
 				//进入条件
 				this.lbl_worldLvl.text = '' + jsonData.openlvl;
 				//BOSS名称

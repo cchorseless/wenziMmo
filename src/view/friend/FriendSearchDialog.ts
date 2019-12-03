@@ -23,6 +23,7 @@ module view.friend {
 		public updateNearbyList(): void {
 			this.vbox_nearby.removeChildren();
 			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
+			this.vbox_nearby.removeChildren();
 			for (let _key of allKeys) {
 				this.vbox_nearby.addChild(new view.main.Main_FriendInfoItem().init_nearbyPerson(GameApp.MainPlayer.allPlayer[_key]));
 			}
@@ -32,7 +33,7 @@ module view.friend {
        */
 		public findPlayer(): void {
 			if (this.input_playName.text.length == 0) {
-				TipsManage.showTips('请输入查找名字');
+				this.updateNearbyList();
 				return
 			}
 			let pkt = new ProtoCmd.stRelationSearchFriend();
@@ -41,16 +42,15 @@ module view.friend {
 				this.vbox_nearby.removeChildren();
 				let cbpkt = new ProtoCmd.stRelationSearchFriendRet(data);
 				for (let _item of cbpkt.results) {
-					// let ui_item = new view.compart.FriendTeamItem();
-					// let itemInfo = new ProtoCmd.stFindResultBase();
-					// itemInfo.clone(_item.data);
-					// ui_item.setFindPlayerInfo(itemInfo);
-					// this.vbox_nearby.addChild(ui_item);
+					let ui_item = new view.main.Main_FriendInfoItem();
+					let itemInfo = new ProtoCmd.stFindResultBase();
+					itemInfo.clone(_item.data);
+					ui_item.init_Search(itemInfo);
+					this.vbox_nearby.addChild(ui_item);
 				}
 				cbpkt.clear();
 				cbpkt = null;
 			})
 		}
-
 	}
 }

@@ -616,7 +616,8 @@ module ProtoCmd {
             "10": 1,
             "11": 4,
             "12": 1,
-            "13": 4
+            "13": 4,
+            "14": 1
         }
         public constructor() {
             super();
@@ -696,7 +697,7 @@ module ProtoCmd {
                             cret.feature.btGroupMaster = data.getByte();
                             break;
                         }
-                    case 9: 4  // 氏族ID  公会ID
+                    case 9: // 氏族ID  公会ID
                         {
                             cret.feature.dwClanId = data.getUint32();
                             break;
@@ -721,6 +722,10 @@ module ProtoCmd {
                             cret.feature.wNowKilling = data.getInt32();
                             break;
                         }
+                    case 14://转生等级
+                        {
+                            cret.feature.zslevel = data.getUint8();
+                        } break;
                     default:
                         {
                             break;
