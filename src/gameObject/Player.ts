@@ -1,6 +1,6 @@
 module GameObject {
 
-    export class Player extends Creature {
+     export class Player extends Creature {
         public playerAccount: string;
         /****************************基本信息****************** */
         public wealth: Wealth;//财富

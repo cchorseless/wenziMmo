@@ -793,6 +793,7 @@ module ProtoCmd {
             this.addProperty('dwVip', PacketBase.TYPE_DWORD); //vip等级
             this.addProperty("btNameColor", PacketBase.TYPE_BYTE);//名字颜色 0是正常的，1灰，2黄，3红
             this.addProperty("wNowKilling", PacketBase.TYPE_DWORD);//pk值
+            this.addProperty("zslevel", PacketBase.TYPE_BYTE);//转生等级
         }
         /**
          * 队伍ID
@@ -856,6 +857,12 @@ module ProtoCmd {
         }
         public set wNowKilling(v: number) {
             this.setValue('wNowKilling', v);
+        }
+        public get zslevel(): number {
+            return this.getValue('zslevel');
+        }
+        public set zslevel(v: number) {
+            this.setValue('zslevel', v);
         }
     }
 
@@ -2715,6 +2722,9 @@ module ProtoCmd {
             if (data) {
                 data.pos += this.read(data);
             }
+        }
+        public get onlyId(): number {
+            return this.getValue("dwOnlyId");
         }
         public get szName(): number {
             return this.getValue("szName");

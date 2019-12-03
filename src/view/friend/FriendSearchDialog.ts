@@ -33,7 +33,7 @@ module view.friend {
        */
 		public findPlayer(): void {
 			if (this.input_playName.text.length == 0) {
-				TipsManage.showTips('请输入查找名字');
+				this.updateNearbyList();
 				return
 			}
 			let pkt = new ProtoCmd.stRelationSearchFriend();
@@ -52,6 +52,5 @@ module view.friend {
 				cbpkt = null;
 			})
 		}
-
 	}
 }

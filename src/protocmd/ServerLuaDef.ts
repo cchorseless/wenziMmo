@@ -1054,7 +1054,9 @@ module ProtoCmd {
    * 天山血狱
    */
     export interface itf_FB_XueYuInfo {
-        //bossID为key值
+        //,montab怪物列表，openlvl开放等级
+        montab: any;
+        openlvl: number;
     }
     /**
  * 阴葵门

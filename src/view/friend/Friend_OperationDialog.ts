@@ -5,6 +5,7 @@ module view.friend {
 			super();
 		}
 		public item;
+		//type操作类型1好友列表2附近的人4搜索的人
 		public type;
 		public name;
 		public lvl;
@@ -26,6 +27,7 @@ module view.friend {
 							break;
 						case 1:
 							this.btn_friend.label = '移出黑名单';
+							this.btn_intoBlackList.visible = false;
 							break;
 						case 2:
 							this.btn_friend.label = '删除仇人';
@@ -33,7 +35,9 @@ module view.friend {
 					};
 					this.name = item.szName;
 					//门派名称
-					this.lbl_Sects.text = this.item.guildName;
+					if (this.item.guildName == "") {
+						this.lbl_Sects.text = '暂未加入门派';
+					} else { this.lbl_Sects.text = this.item.guildName; }
 					break;
 				case 2:
 					this.btn_friend.label = '添加好友';
@@ -47,7 +51,7 @@ module view.friend {
 					break;
 				case 4:
 					this.btn_friend.label = '添加好友';
-					this.name = item.objName;
+					this.name = item.szName;
 					//门派名称
 					if (this.item.guild && this.item.guild == 0) {
 						this.lbl_Sects.text = '暂未加入门派';
@@ -80,7 +84,7 @@ module view.friend {
 			})
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, () => {
 				//添加好友
-				if (this.type == 2) {
+				if (this.type == 2 || this.type == 4) {
 					this.changeRelationShip(0);
 				}
 				//删除好友
@@ -151,7 +155,7 @@ module view.friend {
 			switch (errorcode) {
 				//成功
 				case EnumData.emFriendErrorCode.RELATION_SUCCESS:
-					TipsManage.showTips('添加成功');
+					TipsManage.showTips('操作成功');
 					break;
 				// 好友已在列表中
 				case EnumData.emFriendErrorCode.RELATION_FAIL_ALLREADY_FRIEND:
