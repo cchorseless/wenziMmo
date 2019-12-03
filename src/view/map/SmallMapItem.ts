@@ -11,17 +11,18 @@ module view.map {
 		public updateUI(): void {
 			let mapInfo = GameApp.GameEngine.smallMapData;
 			let roomId = GameApp.MainPlayer.roomId;
+			this.lab_location.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			// 中间自己
-			this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
-			this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 18 : 25;
-			this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + roomId) + '.png';
+			// this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			// this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 18 : 25;
+			// this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + roomId) + '.png';
 			// 左侧
 			this.img_lineLeft.visible = Boolean(mapInfo.left);
 			if (mapInfo.left) {
 				this.btn_mapLeft.visible = true;
 				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
-				this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 18 : 25;
-				this.btn_mapLeft.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.left) + '.png';
+				// this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 18 : 25;
+				// this.btn_mapLeft.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.left) + '.png';
 			}
 			else {
 				this.btn_mapLeft.visible = false;
@@ -31,8 +32,8 @@ module view.map {
 			if (mapInfo.down) {
 				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
-				this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 18 : 25;
-				this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.down) + '.png';
+				// this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 18 : 25;
+				// this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.down) + '.png';
 			}
 			else {
 				this.btn_mapDown.visible = false;
@@ -42,8 +43,8 @@ module view.map {
 			if (mapInfo.up) {
 				this.btn_mapUp.visible = true;
 				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
-				this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 18 : 25;
-				this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.up) + '.png';
+				// this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 18 : 25;
+				// this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.up) + '.png';
 			}
 			else {
 				this.btn_mapUp.visible = false;
@@ -53,8 +54,8 @@ module view.map {
 			if (mapInfo.right) {
 				this.btn_mapRight.visible = true;
 				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
-				this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 18 : 25;
-				this.btn_mapRight.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.right) + '.png';
+				// this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 18 : 25;
+				// this.btn_mapRight.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.right) + '.png';
 			}
 			else {
 				this.btn_mapRight.visible = false;
@@ -81,9 +82,9 @@ module view.map {
 				this.joinRoom(GameApp.GameEngine.smallMapData.right);
 			});
 			// 路引弹窗
-			EventManage.onWithEffect(this.btn_flyPoint, Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_LuYinDialog().setData().popup(true);
-			});
+			// EventManage.onWithEffect(this.btn_flyPoint, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.main.Main_LuYinDialog().setData().popup(true);
+			// });
 			// 地图展开界面
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				this.btn_mapBig.selected = !this.btn_mapBig.selected;
@@ -94,6 +95,9 @@ module view.map {
 				// 	this.ui_mainDownMapItem.showSelf(false);
 				// }
 			});
+			this.lab_roomContent.on(Laya.UIEvent.CLICK,this,function(){
+				new view.scene.SceneInfoDialog().setData().popup(true);
+			})
 		}
 		/**
  		  * 进入房间

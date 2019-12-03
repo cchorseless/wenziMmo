@@ -49,11 +49,11 @@ module view.scene {
 				if (this['box_' + i].numChildren == 0) {
 					// 第一排
 					if (i < 3) {
-						monster.scale(0.7, 0.7);
+						monster.scale(1, 1);
 					}
 					// 第二排
 					else if (i >= 3 && i < 7) {
-						monster.scale(0.6, 0.6);
+						monster.scale(0.95,0.95);
 					}
 					monster.centerY = 0;
 					monster.centerX = 0;

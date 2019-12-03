@@ -22,7 +22,7 @@ module view.fuBen {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel()
+				FuBen_MainPanel.backPanel()
 			});
 
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -34,7 +34,7 @@ module view.fuBen {
 			});
 
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel();
+				PanelManage.openFuBenMainPanel(FuBen_MainPanel.fromStr);
 			});
 
 			EventManage.onWithEffect(this.btn_liLian, Laya.UIEvent.CLICK, this, () => {

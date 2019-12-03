@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":10,
-    "selecteID":9,
-    "props":{"y":0,"x":0,"width":200,"sceneColor":"#000000","height":150},
+    "selectedBox":1,
+    "selecteID":15,
+    "props":{"y":0,"x":0,"width":80,"sceneColor":"#000000","height":93},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,47 +15,22 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":77,"x":100,"var":"box_view","anchorY":0.5,"anchorX":0.5},
+            "props":{"y":0,"x":1,"width":80,"var":"box_view","height":93},
             "nodeParent":1,
             "label":"Box(box_view)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":10,
+            "compId":15,
             "child":[
                 {
                     "x":30,
-                    "type":"Sprite",
-                    "props":{"y":104,"x":79,"var":"spr_pos"},
-                    "nodeParent":10,
-                    "label":"Sprite(spr_pos)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":116,"x":34,"width":130,"var":"lbl_hp","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
-                    "nodeParent":10,
-                    "label":"Label(lbl_hp)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":88,"x":35,"width":130,"var":"lbl_name","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
-                    "nodeParent":10,
+                    "props":{"x":2,"width":73,"var":"lbl_name","text":"猫妖猫猫","strokeColor":"#000000","stroke":2,"height":18,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
+                    "nodeParent":15,
                     "label":"Label(lbl_name)",
+                    "isOpen":false,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -65,16 +40,57 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":61,"x":36,"width":130,"var":"lbl_zuoBiao","text":"label","height":23,"fontSize":20,"font":"Microsoft YaHei","color":"#ff0905"},
-                    "nodeParent":10,
-                    "label":"Label(lbl_zuoBiao)",
-                    "isDirectory":false,
+                    "type":"Image",
+                    "props":{"y":24,"x":0,"var":"img_bg","skin":"image/main/frame_boss_03.png"},
+                    "nodeParent":15,
+                    "label":"Image(img_bg)",
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
+                    "hasChild":true,
+                    "compId":11,
                     "child":[
-                        ]
+                        {
+                            "type":"Image",
+                            "props":{"y":2,"x":5,"var":"img_icon","skin":"image/common/img_cat.png","scaleY":0.45,"scaleX":0.45},
+                            "nodeParent":11,
+                            "label":"Image(img_icon)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":12,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":17,"x":6,"var":"img_hp_bg","skin":"image/main/progress bar_bossi_1.png"},
+                    "nodeParent":15,
+                    "label":"Image(img_hp_bg)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":13,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":-3,"var":"img_hp_cur","skin":"image/main/progress bar_bossi_2.png"},
+                            "nodeParent":13,
+                            "label":"Image(img_hp_cur)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":14,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

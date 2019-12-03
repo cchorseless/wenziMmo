@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":245,
-    "props":{"y":0,"x":0,"width":545,"sceneColor":"#000000","height":685},
+    "selecteID":175,
+    "props":{"y":0,"x":0,"width":640,"sceneColor":"#000000","height":1139},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":0,"width":545,"var":"panel_monster","top":0,"right":0,"left":0,"height":294},
+                    "props":{"var":"panel_monster","top":149,"right":80,"left":120,"height":294},
                     "nodeParent":2,
                     "label":"Panel(panel_monster)",
                     "isOpen":true,
@@ -50,12 +50,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":292,"x":0,"width":545,"var":"panel_player","right":0,"left":0,"height":180},
+                    "props":{"y":450,"var":"panel_player","right":80,"left":120,"height":180},
                     "nodeParent":2,
                     "label":"Panel(panel_player)",
                     "isOpen":true,
@@ -82,7 +82,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"x":173,"width":200,"var":"box_self","height":90,"centerX":0,"bottom":80},
+                    "props":{"x":243,"width":200,"var":"box_self","height":90,"bottom":421},
                     "nodeParent":2,
                     "label":"Box(box_self)",
                     "isDirectory":false,
@@ -99,13 +99,14 @@
                     "props":{"y":34,"x":58,"var":"box_sceneMore","skin":"image/main/img_bgLuoyang.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Image(box_sceneMore)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":226,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":1,"x":17,"var":"lbl_roomName","text":"洛阳","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":226,
@@ -122,35 +123,8 @@
                 },
                 {
                     "x":30,
-                    "type":"Button",
-                    "props":{"y":43,"x":500,"width":69,"var":"btn_worldMap","stateNum":"2","skin":"image/main/img_main_ditu_finish.png","right":11,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_worldMap)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":227,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":41,"x":13,"text":"地图","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":227,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":231,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Box",
-                    "props":{"width":123,"var":"box_diZi","left":24,"height":78,"bottom":80},
+                    "props":{"width":123,"var":"box_diZi","left":108,"height":78,"bottom":427},
                     "nodeParent":2,
                     "label":"Box(box_diZi)",
                     "isDirectory":false,
@@ -159,62 +133,6 @@
                     "compId":230,
                     "child":[
                         ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":125,"width":69,"var":"btn_friend","stateNum":"1","skin":"image/common/icon_bangpaichengyuan.png","right":9,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_friend)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":243,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":41,"x":13,"text":"好友","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":243,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":244,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":207,"width":69,"var":"btn_brisk","stateNum":"1","skin":"image/main/icon_haogandu.png","right":9,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"35,0,0,0","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":65,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":2,
-                    "label":"Button(btn_brisk)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":245,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":41,"x":13,"text":"活跃","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
-                            "nodeParent":245,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":246,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false

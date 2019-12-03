@@ -12,7 +12,7 @@ module view.scene {
 			this.item = item;
 			item.ui_item = this;
 			this.lbl_name.text = this.item.objName;
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
+			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			// 半身像
@@ -21,11 +21,11 @@ module view.scene {
 				skePath = 'BOSS_dingmian'
 			}
 			// 龙骨资源
-			this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
-				this.spr_pos.addChild(this._skeGroup);
-				this._skeGroup.play(1, true);
-				this.addEvent();
-			});
+			// this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
+			// 	this.spr_pos.addChild(this._skeGroup);
+			// 	this._skeGroup.play(1, true);
+			// 	this.addEvent();
+			// });
 			this.updateUI();
 		}
 
@@ -80,14 +80,16 @@ module view.scene {
 
 
 		public updateUI(): void {
-			this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
+			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP/this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 
 		/**
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			this.lbl_hp.text = this.item.ability.nowHP  + "/" +  this.item.ability.nMaxHP
+			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP/this.item.ability.nMaxHP) * this.img_hp_bg.width)
+			// this.lbl_hp.text = this.item.ability.nowHP  + "/" +  this.item.ability.nMaxHP
 			// this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
 		}
 

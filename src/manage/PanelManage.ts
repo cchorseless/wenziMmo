@@ -624,12 +624,12 @@ module PanelManage {
     /**
      * 主线副本界面
      */
-    export function openFuBenMainPanel(): void {
+    export function openFuBenMainPanel(from:string): void {
         if (PopUpManager.showPanel(PanelManage.FuBenMain)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenMain, () => {
             PanelManage.FuBenMain = new view.fuBen.FuBen_MainPanel();
             PanelManage.FuBenMain['LCP_skin'] = ResData.PanelRes.FuBenMain;
-            PanelManage.FuBenMain.setData();
+            PanelManage.FuBenMain.setData(from);
             PanelManage.FuBenMain.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.FuBenMain, 2, 0, 2);
         })

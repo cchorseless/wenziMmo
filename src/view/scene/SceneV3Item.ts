@@ -18,19 +18,19 @@ module view.scene {
 
 		public addEvent(): void {
 			// 场景信息界面
-			EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
-				new view.scene.SceneInfoDialog().setData().popup(true);
-			});
+			// EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.scene.SceneInfoDialog().setData().popup(true);
+			// });
 			//好友
-			EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_FriendListDialog().popup();
-			});
-			//活跃
-			EventManage.onWithEffect(this.btn_brisk, Laya.UIEvent.CLICK, this, () => {
-				new view.main.Main_BriskDialog().popup();
-			});
+			// EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.main.Main_FriendListDialog().popup();
+			// });
+			// //活跃
+			// EventManage.onWithEffect(this.btn_brisk, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.main.Main_BriskDialog().popup();
+			// });
 			// 当前地图界面
-			EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
+			// EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
 			// 自动战斗
 			// EventManage.onWithEffect(this.btn_autoAtk, Laya.UIEvent.CLICK, this, () => {
 			// 	this.btn_autoAtk.selected = !this.btn_autoAtk.selected;

@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
 	export class BattleSkillContonlV0Item extends ui.scene.BattleSkillContonlV0ItemUI {
+		// public isAuto = false;
 		public skillState = [
 			{ id: 1, state: 1 },
 			{ id: 2, state: 1 },
@@ -25,9 +26,12 @@ module view.scene {
 				this.viw_0.selectedIndex = 0;
 			})
 			this.btn_autoAttack.on(Laya.UIEvent.CLICK, this, function () {
+				// this.isAuto = !this.isAuto;
 				this.startAuto()
-
-
+			})
+			this.btn_autoAttack1.on(Laya.UIEvent.CLICK, this, function () {
+				// this.isAuto = !this.isAuto;
+				this.startAuto()
 			})
 			for (let i = 1; i < 6; i++) {
 				this['btn_kill' + i].on(Laya.UIEvent.CLICK, this, () => {
@@ -78,11 +82,18 @@ module view.scene {
 		}
 		public startAuto() {
 			this.autoFight = !this.autoFight;
+			if(this.autoFight){
+				this.btn_autoAttack.selected = true;
+				this.btn_autoAttack1.selected = true;
+			}else{
+				this.btn_autoAttack.selected = false;
+				this.btn_autoAttack1.selected = false;
+			}
 			let self = this;
 			Laya.timer.loop(1000, self, fight)
 			function fight() {
 				if (self.autoFight) {
-					for (let i  = 0 ; i < self.skillState.length;i++) {
+					for (let i = 0; i < self.skillState.length; i++) {
 						if (self.skillState[i].state == 1) {
 							if (self.useSkillID[self.skillState[i].id]) {
 								for (let o in GameApp.MainPlayer.allMonster) {
@@ -138,7 +149,7 @@ module view.scene {
 				let index = '500' + job;
 				let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
 				this.btn_kill5.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
-			}else{
+			} else {
 				this.btn_kill5.skin = 'image/common/frame_ketianjia.png';
 			}
 		}

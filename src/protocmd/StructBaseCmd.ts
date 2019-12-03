@@ -3151,7 +3151,7 @@ module ProtoCmd {
             this.addProperty('jiangli', PacketBase.TYPE_STRING, 1024);// 任务奖励'/'分开 
             this.addProperty('star', PacketBase.TYPE_BYTE);//星级
             this.addProperty('itemchoose', PacketBase.TYPE_BOOL);// 1 物品单选还是全选,true单选 
-            this.addProperty('queststatus', PacketBase.TYPE_BYTE);// 1 任务状态，标示如下 
+            this.addProperty('queststatus', PacketBase.TYPE_BYTE);// 1 任务状态，标示如下 -1 未接受0、1进行中2可交3已结束 
             this.addProperty('targetType', PacketBase.TYPE_DWORD);// 任务目标类型 
             if (data) {
                 data.pos += this.read(data);

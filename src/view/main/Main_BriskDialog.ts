@@ -33,7 +33,6 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData;
 			pkt.setString(ProtoCmd.TASK_HuoYueDuClientOpen)
 			lcp.send(pkt);
-
 		}
 		/**
 	* 活跃

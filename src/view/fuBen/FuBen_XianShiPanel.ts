@@ -6,7 +6,7 @@ module view.fuBen {
 		}
 
 		public setData(): void {
-			this.btn_xianShi.selected=true;
+			this.btn_xianShi.selected = true;
 			this.panel_xianshi.vScrollBarSkin = '';
 			this.vbox_xianshi['sortItem'] = (items) => { };
 			this.addEvent();
@@ -15,7 +15,7 @@ module view.fuBen {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-	PanelManage.openJuQingModePanel()
+				FuBen_MainPanel.backPanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -24,7 +24,7 @@ module view.fuBen {
 				PanelManage.openFuBenDailyPanel();
 			});
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel();
+				PanelManage.openFuBenMainPanel(FuBen_MainPanel.fromStr);
 			});
 			EventManage.onWithEffect(this.btn_liLian, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenLiLianPanel();
@@ -40,11 +40,11 @@ module view.fuBen {
 		public init_xianshi(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_LimitActivities, null, null, this, (jsonData) => {
-				let keys=Object.keys(jsonData.state);
+				let keys = Object.keys(jsonData.state);
 				this.vbox_xianshi.removeChildren();
 				for (let key of keys) {
-					let data=jsonData.state[key]
-					this.vbox_xianshi.addChild(new view.fuBen.FuBen_XianShiItem().setData(data.id,jsonData.now));
+					let data = jsonData.state[key]
+					this.vbox_xianshi.addChild(new view.fuBen.FuBen_XianShiItem().setData(data.id, jsonData.now));
 				}
 			})
 			lcp.send(pkt);

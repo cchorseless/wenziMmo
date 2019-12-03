@@ -1,19 +1,28 @@
 /**Created by the LayaAirIDE*/
 module view.fuBen {
 	export class FuBen_MainPanel extends ui.fuBen.FuBen_MainPanelUI {
+		public static fromStr: string;
 		constructor() {
 			super();
 		}
 		//篇章id
-		public setData(): void {
+		public setData(fromStr: string): void {
+			FuBen_MainPanel.fromStr = fromStr;
 			this.btn_juQing.selected = true;
 			this.initUI();
 			this.addEvent();
 		}
+		public static backPanel() {
+			if (FuBen_MainPanel.fromStr == 'main') {
+				PanelManage.openMainPanel()
+			} else if (FuBen_MainPanel.fromStr == 'juqing') {
+				PanelManage.openJuQingModePanel()
+			}
+		}
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel()
+				FuBen_MainPanel.backPanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -22,7 +31,7 @@ module view.fuBen {
 				PanelManage.openFuBenDailyPanel();
 			});
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel();
+				PanelManage.openFuBenMainPanel(FuBen_MainPanel.fromStr);
 			});
 			EventManage.onWithEffect(this.btn_liLian, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenLiLianPanel();
