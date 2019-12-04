@@ -3,12 +3,16 @@ module view.main {
 	export class MainPanel extends ui.main.MainPanelUI {
 		public isTouchTab = false;
 		public touchActNum = 0;
-		public touchTaskNum = 0;
+		public touchTaskNum = 1;
+		public flyPanel: Main_FlyChatPanel;
 		constructor() {
 			super();
 			this.panel_task.vScrollBarSkin = '';
 		}
 		public setData(): void {
+			this.flyPanel = new Main_FlyChatPanel();
+			this.box_fly.addChild(this.flyPanel)
+			this.addChild(this.flyPanel);
 			this.btn_taskAll.selected = true;
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
@@ -16,28 +20,28 @@ module view.main {
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
 			//  聊天小窗
-			this.panel_sceneMsg.vScrollBarSkin = '';
-			this.panel_chatMsg.vScrollBarSkin = '';
-			this.vbox_chatMsg['sortItem'] = (items) => { };
-			this.vbox_sceneMsg['sortItem'] = (items) => { };
+			// this.panel_sceneMsg.vScrollBarSkin = '';
+			// this.panel_chatMsg.vScrollBarSkin = '';
+			// this.vbox_chatMsg['sortItem'] = (items) => { };
+			// this.vbox_sceneMsg['sortItem'] = (items) => { };
 			// 大地图
 			this.panel_bigMap.hScrollBarSkin = '';
 			this.panel_bigMap.scale(0, 0);
 			this.panel_bigMap.visible = false;
 			// 聊天信息
-			this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
-				this.vstack_task.selectedIndex = index;
-				if (index == 1) {
-					this.tab_task.labels = '场\n景,发\n送';
-					this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
-						this.ui_chatSendDialog.visible = true;
-					})
-				}
-				else {
-					this.tab_task.labels = '场\n景,聊\n天';
-				}
-			}, null, false);
-			this.tab_task.selectedIndex = 1;
+			// this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
+			// 	this.vstack_task.selectedIndex = index;
+			// 	if (index == 1) {
+			// 		this.tab_task.labels = '场\n景,发\n送';
+			// 		this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
+			// 			this.ui_chatSendDialog.visible = true;
+			// 		})
+			// 	}
+			// 	else {
+			// 		this.tab_task.labels = '场\n景,聊\n天';
+			// 	}
+			// }, null, false);
+			// this.tab_task.selectedIndex = 1;
 			this.initUI();
 			this.addEvent();
 			this.visible = false;
@@ -60,6 +64,7 @@ module view.main {
 		 */
 		public updateUI(): void {
 			// 界面赋值
+			this.upDataFlyChatSetting();
 			this.updateUI_name();
 			this.updateUI_avatarIcon();
 			this.updateUI_exp()
@@ -144,6 +149,22 @@ module view.main {
 			}
 			this.clip_power.value = '' + LangConfig.getBigNumberDes(fight);
 		}
+		public upDataFlyChatSetting() {
+			let data = laya.net.LocalStorage.getJSON("chat_Set")
+			if (data == null || data == undefined) {
+				let j = {
+					3: { status: true },
+					5: { status: true },
+					2: { status: true },
+					8: { status: true },
+					4: { status: true },
+				}
+				laya.net.LocalStorage.setJSON("chat_Set", j)
+				GameApp.MainPlayer.chatStatus = j;
+			} else {
+				GameApp.MainPlayer.chatStatus = data;
+			}
+		}
 		/**
 		 * 更新头像
 		 */
@@ -157,7 +178,7 @@ module view.main {
 		public updateUI_pkModel(): void {
 			let _player = GameApp.MainPlayer;
 			// pk模式
-			this.btn_BattleMode.skin = 'image/main/img_type' + _player.pkModel + '.png';
+			// this.btn_BattleMode.skin = 'image/main/img_type' + _player.pkModel + '.png';
 		}
 		/**
 		 * 更新VIP等级
@@ -167,7 +188,16 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-
+			// this.img_npc.on(Laya.UIEvent.CLICK, this, function () {
+			// 	GameApp.MainPlayer.chatStatus = {
+			// 		3: { status: 0 },
+			// 		5: { status: 0 },
+			// 		2: { status: 1 },
+			// 		8: { status: 1 },
+			// 		4: { status: 1 },
+			// 	}
+			// 	laya.net.LocalStorage.setJSON("chat_Set",GameApp.MainPlayer.chatStatus)
+			// })
 			// EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => { this.panel_bigMap.visible = true; });
 			// 变大变小
 			// NPC竖条 展开缩放的动画
@@ -205,9 +235,9 @@ module view.main {
 			this.img_tabCM.on(Laya.UIEvent.CLICK, this, function () {
 				this.isTouchTab = !this.isTouchTab;
 				if (this.isTouchTab) {
-					Laya.Tween.to(this.vbox_tab, { y: 0 }, 500)
+					Laya.Tween.to(this.vbox_tab, { x: 0 }, 250)
 				} else {
-					Laya.Tween.to(this.vbox_tab, { y: -1 * this.vbox_tab.height }, 500)
+					Laya.Tween.to(this.vbox_tab, { x: 1 * this.vbox_tab.width }, 250)
 				}
 			})
 			EventManage.onWithEffect(this.btn_Act, Laya.UIEvent.CLICK, this, function () {
@@ -215,13 +245,10 @@ module view.main {
 				this.touchTaskNum = 0;
 				this.btn_taskAll.selected = false;
 				this.btn_Act.selected = true;
-				switch (this.touchActNum) {
-					case 1:
-						this.updateActiveInfo()
-						break;
-					case 2:
-						new view.main.Main_BriskDialog().popup();
-						break
+				if (this.touchActNum == 1) {
+					this.updateActiveInfo()
+				} else if (this.touchActNum >= 2) {
+					new view.main.Main_BriskDialog().popup();
 				}
 
 			})
@@ -230,13 +257,10 @@ module view.main {
 				this.touchActNum = 0;
 				this.btn_taskAll.selected = true;
 				this.btn_Act.selected = false;
-				switch (this.touchTaskNum) {
-					case 1:
-						this.updateTaskInfo()
-						break;
-					case 2:
-						new view.dialog.TaskDialog().popup();
-						break
+				if (this.touchTaskNum == 1) {
+					this.updateTaskInfo()
+				} else if (this.touchTaskNum >= 2) {
+					new view.dialog.TaskDialog().popup();
 				}
 			})
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, function () {
@@ -473,6 +497,7 @@ module view.main {
 		 * @param data 
 		 */
 		public updateChatView(data: ProtoCmd.CretChat): void {
+
 			let btChatType = data.getValue('btChatType');
 			if (btChatType == null) {
 				return
@@ -485,8 +510,8 @@ module view.main {
 				_chatArray.shift()
 			}
 			let _chatMsg = '';
-			let panel_small = this.panel_chatMsg; // 
-			let vbox_small = this.vbox_chatMsg;  //  
+			// let panel_small = this.panel_chatMsg; // 
+			// let vbox_small = this.vbox_chatMsg;  //  
 			switch (btChatType) {
 				// 私聊
 				case EnumData.ChatType.CHAT_TYPE_PRIVATE:
@@ -522,20 +547,20 @@ module view.main {
 			}
 			_chatArray.push(_chatMsg);
 			// 更新到小窗
-			let small_txt: Laya.Label;
-			if (vbox_small.numChildren > GameApp.GameEngine.chatDataSmallMax) {
-				small_txt = vbox_small.getChildAt(0) as Laya.Label;
-			}
-			else {
-				small_txt = new Laya.Label();
-			}
-			small_txt.text = _chatMsg;
-			small_txt.fontSize = 16;//字号
-			small_txt.bold = true;
-			small_txt.width = 340;
-			small_txt.wordWrap = true;
-			vbox_small.addChild(small_txt);
-			Laya.timer.frameOnce(2, this, () => { panel_small.scrollTo(0, panel_small.contentHeight); })
+			// let small_txt: Laya.Label;
+			// if (vbox_small.numChildren > GameApp.GameEngine.chatDataSmallMax) {
+			// 	small_txt = vbox_small.getChildAt(0) as Laya.Label;
+			// }
+			// else {
+			// 	small_txt = new Laya.Label();
+			// }
+			// small_txt.text = _chatMsg;
+			// small_txt.fontSize = 16;//字号
+			// small_txt.bold = true;
+			// small_txt.width = 340;
+			// small_txt.wordWrap = true;
+			// vbox_small.addChild(small_txt);
+			// Laya.timer.frameOnce(2, this, () => { panel_small.scrollTo(0, panel_small.contentHeight); })
 			// 更新到大窗
 			let senderName = data.getValue('szName');
 			let sender_VIPLv = data.getValue('dwVip')
@@ -549,6 +574,8 @@ module view.main {
 			} else {
 				str = 'icon_nv0' + job
 			}
+			// this.showFlyChatMsg(btChatType, _chatMsg, senderName)
+			this.flyPanel.showFlyChatMsg(btChatType, _chatMsg, senderName)
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg, senderName, sender_VIPLv, level, zslv, str);
 		}
 
@@ -557,20 +584,20 @@ module view.main {
 		 */
 		public updateSceneView(_chatMsg: string): void {
 			// 更新到小窗
-			let small_txt: Laya.Label;
-			if (this.vbox_sceneMsg.numChildren > GameApp.GameEngine.chatDataSmallMax) {
-				small_txt = this.vbox_sceneMsg.getChildAt(0) as Laya.Label;
-			}
-			else {
-				small_txt = new Laya.Label();
-			}
-			small_txt.text = _chatMsg;
-			small_txt.fontSize = 16;//字号
-			small_txt.bold = true;
-			small_txt.width = 340;
-			small_txt.wordWrap = true;
-			this.vbox_sceneMsg.addChild(small_txt);
-			Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
+			// let small_txt: Laya.Label;
+			// if (this.vbox_sceneMsg.numChildren > GameApp.GameEngine.chatDataSmallMax) {
+			// 	small_txt = this.vbox_sceneMsg.getChildAt(0) as Laya.Label;
+			// }
+			// else {
+			// 	small_txt = new Laya.Label();
+			// }
+			// small_txt.text = _chatMsg;
+			// small_txt.fontSize = 16;//字号
+			// small_txt.bold = true;
+			// small_txt.width = 340;
+			// small_txt.wordWrap = true;
+			// this.vbox_sceneMsg.addChild(small_txt);
+			// Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
 		}
 		/**
 		 * 更新NPC的任务状态
@@ -716,6 +743,13 @@ module view.main {
 		 */
 		public updateActiveInfo(): void {
 			this.vbox_task.removeChildren();
+			let actInfo: any = GameApp.GameEngine.activeInfo;
+			let keys = Object.keys(actInfo.tab)
+			for (let i = 0; i < keys.length; i++) {
+				let o = new main.Main_taskInfo();
+				o.setData(actInfo.tab[keys[i]], 1)
+				this.vbox_task.addChild(o)
+			}
 		}
 
 		/**
@@ -729,62 +763,62 @@ module view.main {
 			let eventInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
 			for (let i in eventInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(eventInfo[i])
+				o.setData(eventInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			// 主线任务
 			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			for (let i in zhuXianInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(zhuXianInfo[i])
+				o.setData(zhuXianInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let everyDayInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.EVERYDAY];
 			for (let i in everyDayInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(everyDayInfo[i])
+				o.setData(everyDayInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let lifeExpInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			for (let i in lifeExpInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(lifeExpInfo[i])
+				o.setData(lifeExpInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let clanInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.CLAN];
 			for (let i in clanInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(clanInfo[i])
+				o.setData(clanInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let runRingInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.RUNRING];
 			for (let i in runRingInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(runRingInfo[i])
+				o.setData(runRingInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let wantedInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.WANTED];
 			for (let i in wantedInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(wantedInfo[i])
+				o.setData(wantedInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let jinYinInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JINYIN];
 			for (let i in jinYinInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(jinYinInfo[i])
+				o.setData(jinYinInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let achievementInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ACHIEVEMENT];
 			for (let i in achievementInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(achievementInfo[i])
+				o.setData(achievementInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 			let onlineRewardInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ONLINEREWARD];
 			for (let i in onlineRewardInfo) {
 				let o = new main.Main_taskInfo();
-				o.setData(onlineRewardInfo[i])
+				o.setData(onlineRewardInfo[i], 0)
 				this.vbox_task.addChild(o)
 			}
 

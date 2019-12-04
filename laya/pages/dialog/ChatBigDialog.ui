@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":23,
-    "selecteID":24,
+    "selectedBox":1,
+    "selecteID":38,
     "props":{"width":618,"sceneColor":"#f4afae","height":932},
     "nodeParent":-1,
     "label":"View",
@@ -349,6 +349,45 @@
                         ]
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":25,"x":51,"var":"btn_set","stateNum":"1","skin":"image/juese/box_common_01.png"},
+            "nodeParent":1,
+            "label":"Button(btn_set)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":38,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":11,"x":11,"width":42,"stateNum":"1","skin":"image/common/icon_common_shezhi.png","labelSize":22,"labelPadding":"40","labelFont":"fzhl","height":42},
+                    "nodeParent":38,
+                    "label":"Button",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":36,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":40,"x":-1,"text":"设置","fontSize":22,"font":"fzhl","color":"#623e24"},
+                            "nodeParent":36,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":37,
+                            "child":[
+                                ]
+                        }]
+                }]
         }],
     "animations":[
         {

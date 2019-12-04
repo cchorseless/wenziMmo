@@ -1,6 +1,6 @@
 module GameObject {
 
-     export class Player extends Creature {
+    export class Player extends Creature {
         public playerAccount: string;
         /****************************基本信息****************** */
         public wealth: Wealth;//财富
@@ -35,6 +35,11 @@ module GameObject {
         public xingGeInfo;
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
+
+        /**
+         * 聊天设置
+         */
+        public chatStatus:any = {};
         /**
          * 等级和
          */
