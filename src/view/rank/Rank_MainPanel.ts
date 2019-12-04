@@ -15,6 +15,8 @@ module view.rank {
 			this.panel_top.hScrollBarSkin = '';
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
+				//换排行榜类型时从第一页开始；
+				this.page=1;
 				this.rankList();
 			}, null, false);
 			this.panel_0.vScrollBarSkin = '';
@@ -35,7 +37,6 @@ module view.rank {
 			this.vbox_7['sortItem'] = (items) => { };
 			this.addEvent();
 			this.rankList();
-
 		}
 		public addEvent(): void {
 			// 返回
@@ -89,7 +90,7 @@ module view.rank {
 			//查看宝箱奖励
 			this.img_baoxiang.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.reward != null && this.reward != undefined) {
-					this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang,this.reward));
+					this.addChild(new view.compart.BaoxiangPrizeItem().init_pos(this.img_baoxiang, this.reward));
 				}
 			})
 		}
@@ -174,9 +175,13 @@ module view.rank {
 			pkt.setValue('nPage', this.page);
 			lcp.send(pkt, this, (data) => {
 				let cbpkt = new ProtoCmd.stRankMsg(data);
-				this.maxpage = cbpkt.maxPage;
+				if (cbpkt.maxPage == 0) {
+					this.maxpage = 1;
+				} else {
+					this.maxpage = Math.ceil(cbpkt.maxPage / 8);
+				}
 				this.lbl_pageCount.text = '' + cbpkt.curPage;
-				this.lbl_maxPage.text = '' + cbpkt.maxPage;
+				this.lbl_maxPage.text = '' + this.maxpage;
 				ui_rank_box.removeChildren();
 				for (let item of cbpkt.TopInfos) {
 					let ui_rank = new view.rank.RankPlayerItem();

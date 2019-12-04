@@ -60,6 +60,16 @@ module view.juese {
 		public init_taskInfo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.TASK_achievementDesc, null, null, this, (jsonData) => {
+				// let keys = Object.keys(jsonData);
+				// let taskArray = [];
+				// for (let key of keys) {
+				// 	let data = jsonData[key];
+				// 	let keys1 = Object.keys(data)
+				// 	for (let key1 of keys1) {
+				// 		taskArray.push(data[key1]);
+				// 	}
+				// }
+				// this.taskdata = taskArray;
 				this.taskdata = jsonData;
 			})
 			lcp.send(pkt);
@@ -67,6 +77,17 @@ module view.juese {
 		/**
 		 * 排序
 		 */
+		// public init_newsort(): void {
+		// 	let keys = Object.keys(this.taskdata);
+		// 	let taskArray = [];
+		// 	for (let key of keys) {
+		// 		let data = this.taskdata[key];
+		// 		let keys1 = Object.keys(data)
+		// 		for (let key1 of keys1) {
+		// 			taskArray.push(data[key1]);
+		// 		}
+		// 	}
+		// }
 		public init_sort(): void {
 			let keys = Object.keys(this.taskdata);
 			this.vbox_achieve.removeChildren();

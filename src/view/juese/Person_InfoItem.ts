@@ -49,16 +49,25 @@ module view.juese {
 
 		}
 		public addEvent(): void {
+			//装扮
 			this.btn_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openClothePanel();
 			})
+			//装备打造
+			this.btn_buildEquip.on(Laya.UIEvent.CLICK, this, () => {
+				new view.juese.Person_BuildEquipDialog().popup(true);
+
+			})
+			//生辰八字
 			this.btn_birthEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonBirthDialog().popup(true);
 			})
+			//姓名九宫
 			this.btn_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonNameDialog().popup(true);
 
 			})
+			//生平履历
 			this.btn_shengpingEnter.on(Laya.UIEvent.CLICK, this, () => {
 				let ui = new view.juese.PersonShengPingDialog();
 				let pkt = new ProtoCmd.ExperienceLogCmd();

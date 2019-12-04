@@ -9,7 +9,6 @@ module ProtoCmd {
         public TopInfos: Array<stRankInfo> = [];
         public constructor(data: Laya.Byte) {
             super();
-
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);  //0成功 1 未找到
             this.addProperty('btType', PacketBase.TYPE_DWORD);//emRankType
             this.addProperty('nPage', PacketBase.TYPE_BYTE);//页数
