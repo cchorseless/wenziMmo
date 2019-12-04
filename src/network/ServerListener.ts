@@ -588,6 +588,8 @@ class ServerListener extends SingletonClass {
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
+
+
             let e = new Laya.Label();
             e.font = "fzhl";
             e.color = "#ffeeb1";
@@ -604,6 +606,10 @@ class ServerListener extends SingletonClass {
             Laya.Tween.to(e, { x: p.x }, 500, null, Laya.Handler.create(this, () => {
                 PanelManage.Main.removeChild(e)
             }))
+
+            
+
+
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
 

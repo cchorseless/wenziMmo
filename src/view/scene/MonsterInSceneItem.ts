@@ -15,17 +15,31 @@ module view.scene {
 			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
-			// 半身像
-			let skePath = SheetConfig.mydb_monster_tbl.getInstance(null).SKERES('' + configID);
-			if (skePath == '0') {
-				skePath = 'BOSS_dingmian'
+
+			let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
+			let skePath
+			if (!isBoss) {
+				// this.addMonster(monsterObj);
+				this.img_bg.skin = 'image/main/frame_boss_03.png'
+				skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
+				this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
+			} else {
+				// 半身像
+				this.img_bg.skin = 'image/main/frame_boss_02.png'
+				skePath = SheetConfig.mydb_monster_tbl.getInstance(null).SKERES('' + configID);
+				this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
 			}
+
+			// if (skePath == '0') {
+			// 	skePath = 'BOSS_dingmian'
+			// }
 			// 龙骨资源
 			// this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
 			// 	this.spr_pos.addChild(this._skeGroup);
 			// 	this._skeGroup.play(1, true);
 			// 	this.addEvent();
 			// });
+			
 			this.updateUI();
 		}
 
@@ -81,14 +95,14 @@ module view.scene {
 
 		public updateUI(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
-			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP/this.item.ability.nMaxHP) * this.img_hp_bg.width)
+			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 
 		/**
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP/this.item.ability.nMaxHP) * this.img_hp_bg.width)
+			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 			// this.lbl_hp.text = this.item.ability.nowHP  + "/" +  this.item.ability.nMaxHP
 			// this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
 		}
