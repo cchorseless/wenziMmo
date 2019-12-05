@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class MonsterInSceneItem extends ui.scene.MonsterInSceneItemUI {
+	export class MonsterInSceneItem extends ui.scene.MonsterInSceneItemV0UI {
 		constructor() {
 			super();
 		}
