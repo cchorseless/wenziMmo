@@ -14,7 +14,7 @@ class GameEngine extends SingletonClass {
 
     public serverInfo;                                                            //服务器信息
     public isWss: Boolean = false;                                                // 通讯协议，true:wss://  false:ws://
-    public connectIP: string = (true) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
+    public connectIP: string = (false) ? '47.111.178.154' : '192.168.10.187';      // 云服务器 本地服务器
     public connectPort: string = '8001';
     public trueZoneid: number = 50001;
     public serverName: string = '测试服'
