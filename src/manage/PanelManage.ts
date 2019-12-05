@@ -53,7 +53,7 @@ module PanelManage {
     export let ChooseAvatar: view.common.ChooseAvatarPanel;                              //选角界面
     export let Main: view.main.MainPanel;                                                //主界面                                              
     /*****************************游戏界面************************************* */
-    export let JueSe: view.juese.PersonPanel;//角色界面
+    export let JueSe: view.juese.Person_MainPanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
@@ -210,7 +210,7 @@ module PanelManage {
     export function openJueSePanel(): void {
         if (PopUpManager.showPanel(PanelManage.JueSe)) return;
         ResManage.loadResource(ResData.PanelRes.JueSe, () => {
-            PanelManage.JueSe = new view.juese.PersonPanel();
+            PanelManage.JueSe = new view.juese.Person_MainPanel();
             PanelManage.JueSe['LCP_skin'] = ResData.PanelRes.JueSe;
             PanelManage.JueSe.setData();
             PanelManage.JueSe.mouseEnabled = true;
