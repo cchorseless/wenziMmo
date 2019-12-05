@@ -17,6 +17,7 @@ module view.scene {
 		public skillID = [];
 		public setData(): void {
 			this.addEvent();
+			// this.init_skillView()
 		}
 		public addEvent(): void {
 			this.btn_show0.on(Laya.UIEvent.CLICK, this, () => {
@@ -82,10 +83,10 @@ module view.scene {
 		}
 		public startAuto() {
 			this.autoFight = !this.autoFight;
-			if(this.autoFight){
+			if (this.autoFight) {
 				this.btn_autoAttack.selected = true;
 				this.btn_autoAttack1.selected = true;
-			}else{
+			} else {
 				this.btn_autoAttack.selected = false;
 				this.btn_autoAttack1.selected = false;
 			}
@@ -127,15 +128,18 @@ module view.scene {
 					this.skillID.push(showDetailID);
 					this.useSkillID[key] = showDetailID;
 				}
-				this.useSkillID[5] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(GameApp.MainPlayer.default_skill);
+				// let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
+				// this.btn_kill5.skin = "image/common/skill/skill_icon_" + id + ".png";
+				// this.useSkillID[5] = id;
 			}
 			else {
-				let defaultConfigID: string = GameApp.MainPlayer.default_skill;
-				let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
-				this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
-				this.skillID = [defaultConfigID];
-				this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
-				this.useSkillID[5] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
+			let defaultConfigID: string = GameApp.MainPlayer.default_skill;
+			let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
+			// let id = ['20001', '20065', '20017'][GameApp.MainPlayer.job - 1];
+			this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
+			this.skillID = [defaultConfigID];
+			// this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
+			this.useSkillID[1] = defaulticon;
 			}
 
 		}
