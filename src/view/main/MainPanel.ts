@@ -120,6 +120,7 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 金币
 			this.lbl_gold.text = '' + LangConfig.getBigNumberDes(_player.wealth.gold);
+			this.lab_coin.text = '' + LangConfig.getBigNumberDes(_player.wealth.gold);
 		}
 		/**
 		 * 更新元宝
@@ -128,6 +129,7 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 元宝
 			this.lbl_yuanBao.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
+			this.lab_yuanbao.text =  '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
 		}
 		/**
 		 * 更新绑定元宝
@@ -136,6 +138,7 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 绑定元宝
 			this.lbl_yuanBaolock.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao_lock);
+			this.lab_ticket.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao_lock);
 		}
 		/**
 		 * 更新战力

@@ -30,6 +30,8 @@ module ProtoCmd {
     export const JQ_OPEN_JuQingEventDialog = 'JuQingEventDialog';
 
     /****************************NPC************************* */
+    //
+    export const clickNpc = "clickNpc";   //点击NPC
     // 偷盗
     export const stealNpcItem = 'stealNpcItem';
     // 切搓

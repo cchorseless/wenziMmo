@@ -16,7 +16,13 @@ module view.npc {
 
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
-				new view.npc.NpcInfoV1Dialog().setData(this.item).popup(true);
+				let pkID = this.item.feature.dwCretTypeId
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0,this, function (data) {
+					let aa = data;
+					new view.npc.NpcInfoV1Dialog().setData(this.item).popup(true);
+				})
+				lcp.send(pkt);
+
 			});
 		}
 
@@ -57,10 +63,10 @@ module view.npc {
 			if (pathID > 0) {
 				this.img_avatarPic.skin = 'image/common/npc/npc_icon_' + pathID + '.png';
 				this.img_bg.skin = "image/main/frame_npc_01.png"
-			}else{
+			} else {
 				this.img_bg.skin = "image/main/frame_npc_02.png"
 			}
-			
+
 			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 		/**
