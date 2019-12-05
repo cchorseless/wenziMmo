@@ -3,7 +3,7 @@ module GameObject {
     export class Monster extends Creature {
 
         public feature: ProtoCmd.AnimalFeature;
-        public ui_item: view.scene.MonsterInSceneItem;
+        public ui_item;
         constructor() {
             super();
             this.feature = new ProtoCmd.AnimalFeature();
@@ -53,7 +53,7 @@ module GameObject {
          * 受击
          */
         public onAttack(): void {
-            this.ui_item.playAni(2);
+            // this.ui_item.playAni(2);
         }
 
         /**
@@ -61,7 +61,7 @@ module GameObject {
          */
         public goDie(): void {
             console.log(this.objName + '死亡');
-            this.ui_item.playAni(3)
+            // this.ui_item.playAni(3)
             this.ui_item.disabled = true;
             this.ui_item.removeSelf();
         }

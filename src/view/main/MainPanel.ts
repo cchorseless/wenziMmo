@@ -26,7 +26,7 @@ module view.main {
 			// this.vbox_sceneMsg['sortItem'] = (items) => { };
 			// 大地图
 			this.panel_bigMap.hScrollBarSkin = '';
-			this.panel_bigMap.scale(0, 0);
+			// this.panel_bigMap.scale(0, 0);
 			this.panel_bigMap.visible = false;
 			// 聊天信息
 			// this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
@@ -198,7 +198,9 @@ module view.main {
 			// 	}
 			// 	laya.net.LocalStorage.setJSON("chat_Set",GameApp.MainPlayer.chatStatus)
 			// })
-			// EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => { this.panel_bigMap.visible = true; });
+			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
+				GameApp.SceneManager.showBigMap(true);
+			});
 			// 变大变小
 			// NPC竖条 展开缩放的动画
 			// EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {

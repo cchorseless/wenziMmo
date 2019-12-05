@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":56,
-    "selecteID":74,
-    "props":{"width":640,"sceneColor":"#000000","height":685},
+    "selectedBox":2,
+    "selecteID":58,
+    "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":10,"x":183,"width":200,"var":"box_self","height":90,"centerX":0,"bottom":80},
+                    "props":{"x":243,"width":200,"var":"box_self","height":90,"bottom":421},
                     "nodeParent":2,
                     "label":"Box(box_self)",
                     "isDirectory":false,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":10,"x":10,"width":123,"var":"box_diZi","left":24,"height":78,"bottom":80},
+                    "props":{"width":123,"var":"box_diZi","left":108,"height":78,"bottom":427},
                     "nodeParent":2,
                     "label":"Box(box_diZi)",
                     "isDirectory":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"width":640,"var":"viw_0","top":0,"selectedIndex":0,"right":0,"left":0,"height":474},
+            "props":{"width":640,"var":"viw_0","top":150,"selectedIndex":0,"right":0,"left":0,"height":474},
             "nodeParent":1,
             "label":"ViewStack(viw_0)",
             "isOpen":true,
@@ -97,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":0,"x":0,"var":"box_boss","right":0,"name":"item1","left":0,"height":480},
+                    "props":{"x":0,"var":"box_boss","right":0,"name":"item1","left":0,"height":480},
                     "nodeParent":56,
                     "label":"Box(box_boss)",
                     "isOpen":false,
