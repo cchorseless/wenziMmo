@@ -407,12 +407,13 @@ module view.main {
 
 		//界面切换时控制那些部分不变
 		public showGroupTop(panel: Laya.View): void {
-			this.box_mainTop.visible = true;
+			panel.addChild(this.box_top);
+			panel.addChild(this.box_menu);
 			if (panel == this) {
-				this.box_main.addChildAt(this.box_mainTop, 2);
+				this.box_top.visible = false;
 			}
 			else {
-				panel.addChild(this.box_mainTop);
+				this.box_top.visible = true;
 			}
 
 		}
