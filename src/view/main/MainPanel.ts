@@ -413,9 +413,11 @@ module view.main {
 			panel.addChild(this.box_menu);
 			if (panel == this) {
 				this.box_top.visible = false;
+				this.box_mainTop.visible = true;
 			}
 			else {
 				this.box_top.visible = true;
+				this.box_mainTop.visible = false;
 			}
 
 		}

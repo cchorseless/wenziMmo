@@ -3,6 +3,7 @@ module view.juese {
 	export class Person_EquipInfoItem extends ui.juese.Person_EquipInfoItemUI {
 		constructor() {
 			super();
+			this.setData();
 		}
 		public hasInit = false;// 初始化自己
 		public setData(): void {
@@ -14,34 +15,45 @@ module view.juese {
 			this.getEquipBackground();
 		}
 		public addEvent(): void {
+			//精炼
 			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
 				let o = new Person_Equip_SoulContentDialog()
 				o.setData(0)
 				o.popup();
 
 			})
+			//强化
 			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
 				let o = new Person_IntensifyContentDialog()
 				o.setData()
 				o.popup();
 			})
+			//等级
 			EventManage.onWithEffect(this.btn_soul, Laya.UIEvent.CLICK, this, () => {
 				let o = new Person_Equip_SoulContentDialog()
 				o.setData(1)
 				o.popup();
 			})
-			//战斗属性介绍
-			EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
-				new view.dialog.InfoV1Dialog().popup();
+			//装备打造
+			EventManage.onWithEffect(this.btn_equipBuild, Laya.UIEvent.CLICK, this, () => {
+				new view.juese.Person_BuildEquipDialog().popup();
 			})
+			//武学基础
+			EventManage.onWithEffect(this.btn_wuXueBase, Laya.UIEvent.CLICK, this, () => {
+				new view.juese.Person_WuXueBaseDialog().popup();
+			})
+			//战斗属性介绍
+			// EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.dialog.InfoV1Dialog().popup();
+			// })
 		}
 
 		public initUI(): void {
 			let func = LangConfig.getBigNumberDes;
 			//战力
-			this.lbl_zhanli.value = '' + func(GameApp.MainPlayer.ability.nFight);
-			//玩家半身像
-			this.img_avatarPic.skin = LangConfig.getPlayerAvatarHalfSkin()
+			this.lbl_zhanli.text = '' + func(GameApp.MainPlayer.ability.nFight);
+			//玩家倒影全身像
+			this.img_avatarPic.skin = LangConfig.getPlayerAvatarSkinV1()
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
 			for (let key of allKey) {
 				let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
@@ -54,44 +66,13 @@ module view.juese {
 					(this['ui_item' + btIndex] as view.compart.EquipInBodybgItem).addItem(itemUI);
 				}
 			}
-			let player = GameApp.MainPlayer;
-			let ability = player.ability;
-			// 血-生命值
-			this.lbl_Hp.text = '' + func(ability.nowHP) + '/' + func(ability.nMaxHP);
-			// 气-魔法值
-			this.lbl_Mp.text = '' + func(ability.nowMP) + '/' + func(ability.nMaxMP);
-			// 耐-内功值
-			this.lbl_neiGong.text = '' + func(ability.nowInnerValue) + '/' + func(ability.nInnerValue);
-			// 攻-攻击
-			switch (player.job) {
-				case EnumData.JOB_TYPE.JOB_WARRIOR:
-					this.lbl_atk.text = '' + func(ability.nMinDC) + '-' + func(ability.nMaxDC);
-					break;
-				case EnumData.JOB_TYPE.JOB_MAGE:
-					this.lbl_atk.text = '' + func(ability.nMinMC) + '-' + func(ability.nMaxMC);
-					break;
-				case EnumData.JOB_TYPE.JOB_MONK:
-					this.lbl_atk.text = '' + func(ability.nMinSC) + '-' + func(ability.nMaxSC);
-					break;
-			}
-			// 抗-物理防御
-			this.lbl_phyDef.text = '' + func(ability.nMinAC) + '-' + func(ability.nMaxAC);
-			// 化-魔法防御
-			this.lbl_migDef.text = '' + func(ability.nMinMAC) + '-' + func(ability.nMaxMAC);
-			// 准-准确
-			this.lbl_zhunQue.text = '' + func(ability.nHit);
-			// 躲-闪避
-			this.lbl_shanbi.text = '' + func(ability.nJuck);
-			// 巧-暴击
-			this.lbl_baoJi.text = '' + func(ability.nCrit);
-			// 狠-爆伤
-			this.lbl_baoShang.text = '' + func(ability.nAtkCrit);
-			// 幸-幸运
-			this.lbl_xingYun.text = '' + func(ability.nLucky);
-			// 韧-韧性
-			this.lbl_renxing.text = '' + func(ability.nCritResi);
-			// 侠义值-PK值
-			this.lbl_pk.text = '' + func(player.feature.getValue('wNowKilling'));
+			//出身
+			let job = GameApp.MainPlayer.job;
+			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[job]];
+			//等级
+			this.lbl_level.text=GameApp.MainPlayer.zslevel+'转'+GameApp.MainPlayer.level+'级';
+			//角色名
+			this.lbl_name.text=GameApp.MainPlayer.objName;
 		}
 
 		/**

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":19,
+    "selectedBox":19,
+    "selecteID":13,
     "props":{"y":0,"x":0,"width":75,"sceneColor":"#827171","height":95},
     "nodeParent":-1,
     "label":"View",
@@ -69,32 +69,31 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":4,"var":"img_bg","skin":"image/main/frame_npc_01.png"},
+                    "props":{"y":0,"x":2,"width":70,"var":"img_bg","skin":"image/main/frame_npc_01.png","height":70},
                     "nodeParent":19,
                     "label":"Image(img_bg)",
-                    "isOpen":false,
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":13,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-5,"x":0,"var":"img_avatarPic","skin":"image/common/npc/npc_icon_1508.png","scaleY":0.6,"scaleX":0.6},
-                    "nodeParent":19,
-                    "label":"Image(img_avatarPic)",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ],
-                    "$LOCKED":false,
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"var":"img_avatarPic","top":5,"skin":"image/common/npc/npc_icon_1508.png","right":5,"left":5,"bottom":5},
+                            "nodeParent":13,
+                            "label":"Image(img_avatarPic)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        }],
                     "$HIDDEN":false
                 },
                 {

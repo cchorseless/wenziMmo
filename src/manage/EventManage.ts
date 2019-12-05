@@ -24,6 +24,7 @@ module EventManage {
         // // 移走事件
         // dispatch.on(Laya.UIEvent.MOUSE_OUT, caller, () => {
         //     // console.log('MOUSE_OUT')
+        
         //     // dispatch['lcp_onWithEffect'] = false;
         //     dispatch.mouseThrough = false;
         //     Laya.Tween.to(dispatch, { scaleX: old_scaleX, scaleY: old_scaleY }, time, Laya.Ease.sineIn)
