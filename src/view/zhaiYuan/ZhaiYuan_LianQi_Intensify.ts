@@ -82,10 +82,7 @@ module view.zhaiYuan {
 			this.lab_showForgeLevel_1.text = "";
 			this.lab_1_increase.text = "";
 			this.lab_luckyText.text = "当前成功率：";
-
 			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
-
-
 			let effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
 			let effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
 			let effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
