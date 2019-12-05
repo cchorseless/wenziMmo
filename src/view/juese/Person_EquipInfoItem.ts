@@ -67,12 +67,16 @@ module view.juese {
 				}
 			}
 			//出身
-			let job = GameApp.MainPlayer.job;
-			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[job]];
+			let player = GameApp.MainPlayer;
+			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
 			//等级
-			this.lbl_level.text=GameApp.MainPlayer.zslevel+'转'+GameApp.MainPlayer.level+'级';
+			this.lbl_level.text = player.zslevel + '转' +player.level + '级';
 			//角色名
-			this.lbl_name.text=GameApp.MainPlayer.objName;
+			this.lbl_name.text = player.objName;
+			// 声望信息
+			this.lbl_shengWang.text = '['+LangConfig.getFameDes(player.wealth.nowFame)+']';
+			//攻击类型
+			this.lbl_killType.text=LangConfig.getWuXueAttackType();
 		}
 
 		/**

@@ -187,8 +187,25 @@ module LangConfig {
         }
         return path + number + '.png';
     }
+    /**
+     * 获取武学攻击类型
+     */
+    export function getWuXueAttackType(job = GameApp.MainPlayer.job): string {
+        let type;
+        switch (job) {
+            case EnumData.JOB_TYPE.JOB_WARRIOR:
+                type = '外功';
+                break;
+            case EnumData.JOB_TYPE.JOB_MAGE:
+                type = '内功';
+                break;
+            case EnumData.JOB_TYPE.JOB_MONK:
+                type = '内功';
+                break;
 
-
+        }
+        return type;
+    }
 
 
     /**

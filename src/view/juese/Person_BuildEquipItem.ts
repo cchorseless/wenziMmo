@@ -5,11 +5,11 @@ module view.juese {
 			super();
 		}
 		public data;
-		public setData(data): Person_BuildEquipItem {
-			this.data = data;
+		public setData(item:{data:any,key:number}): Person_BuildEquipItem {
+			this.data = item;
 			//穿戴位置
 			let name;
-			switch (data[9]) {
+			switch (item.data[9]) {
 				case EnumData.emEquipPosition.EQUIP_HEADDRESS:
 				case EnumData.emEquipPosition.EQUIP_LEGEND_HEADDRESS:
 					name = '帽子';
@@ -49,17 +49,23 @@ module view.juese {
 			}
 			this.lbl_pos.text = name;
 			//道具名
-			this.lbl_name.text = data[1];
+			this.lbl_name.text = item.data[1];
 			//使用等级
-			if (data[67] == 0) {
-				this.lbl_lvl.text = data[3] + '级';
+			if (item.data[64] == 0) {
+				this.lbl_lvl.text = item.data[3] + '级';
 			} else {
-				this.lbl_lvl.text = data[67] + '转' + data[3] + '级';
+				this.lbl_lvl.text = item.data[64] + '转' + item.data[3] + '级';
 			}
 			let itemInfo = new ProtoCmd.ItemBase();
-			itemInfo.dwBaseID = parseInt(data[0]);
-			this.ui_item.setData(itemInfo)
+			itemInfo.dwBaseID = item.key;
+			this.ui_item.setData(itemInfo);
+			this.addEvent();
 			return this;
+		}
+		public addEvent(): void {
+			this.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquip,(this.data))
+			})
 		}
 	}
 }

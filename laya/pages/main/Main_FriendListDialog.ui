@@ -1,7 +1,7 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":54,
+    "selectedBox":60,
     "selecteID":58,
     "props":{"width":618,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
@@ -85,14 +85,13 @@
                     "props":{"y":0,"x":0,"width":535,"var":"btn_friend1","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
                     "label":"Button(btn_friend1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":52,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":166,"width":105,"var":"lbl_num1","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":52,
@@ -105,7 +104,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":50,"text":"我的好友","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":52,
@@ -118,7 +116,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":6,"x":17,"width":20,"var":"btn_arrow1","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":52,
@@ -129,22 +126,22 @@
                             "compId":23,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"VBox",
-                            "props":{"var":"vbox_friend1","top":48,"space":5,"scaleY":0,"right":0,"left":0},
-                            "nodeParent":52,
-                            "label":"VBox(vbox_friend1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":8,
-                            "child":[
-                                ]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"y":48,"x":4,"width":526,"var":"vbox_friend1","space":5,"scaleY":0,"left":0},
+                    "nodeParent":60,
+                    "label":"VBox(vbox_friend1)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
                 },
                 {
                     "x":30,
@@ -152,14 +149,13 @@
                     "props":{"y":48,"width":535,"var":"btn_friend2","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
                     "label":"Button(btn_friend2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":53,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":137,"width":105,"var":"lbl_num2","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":53,
@@ -172,7 +168,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":50,"text":"黑名单","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":53,
@@ -185,7 +180,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":6,"x":17,"width":20,"var":"btn_arrow2","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":53,
@@ -196,22 +190,22 @@
                             "compId":25,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"VBox",
-                            "props":{"x":0,"var":"vbox_friend2","top":48,"space":5,"scaleY":0,"right":0,"left":0},
-                            "nodeParent":53,
-                            "label":"VBox(vbox_friend2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":56,
-                            "child":[
-                                ]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"y":48,"x":4,"width":526,"var":"vbox_friend2","space":5,"scaleY":0,"left":0},
+                    "nodeParent":60,
+                    "label":"VBox(vbox_friend2)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":56,
+                    "child":[
+                        ]
                 },
                 {
                     "x":30,
@@ -219,14 +213,13 @@
                     "props":{"y":96,"width":535,"var":"btn_friend3","stateNum":"1","skin":"image/main/tab_hy_01.png","sizeGrid":"0,10,0,11","height":48},
                     "nodeParent":60,
                     "label":"Button(btn_friend3)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":54,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":166,"width":105,"var":"lbl_num3","text":"(1/20)","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZXK","color":"#ffffff","align":"center"},
                             "nodeParent":54,
@@ -239,7 +232,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":50,"text":"我的仇人","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":54,
@@ -252,7 +244,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":6,"x":17,"width":20,"var":"btn_arrow3","stateNum":"1","skin":"image/main/btn_common_02.png","rotation":0,"height":35},
                             "nodeParent":54,
@@ -263,22 +254,22 @@
                             "compId":29,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"VBox",
-                            "props":{"x":0,"var":"vbox_friend3","top":48,"space":5,"scaleY":0,"right":0,"left":0},
-                            "nodeParent":54,
-                            "label":"VBox(vbox_friend3)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":58,
-                            "child":[
-                                ]
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"y":144,"x":4,"width":526,"var":"vbox_friend3","space":5,"scaleY":0,"left":0},
+                    "nodeParent":60,
+                    "label":"VBox(vbox_friend3)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":58,
+                    "child":[
+                        ]
                 }]
         },
         {

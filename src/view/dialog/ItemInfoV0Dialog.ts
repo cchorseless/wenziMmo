@@ -29,12 +29,12 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
 					this.viw_model.selectedIndex = 2;
 					// 参考价格
-					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * this.itemObj.dwCount;
+					// this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * this.itemObj.dwCount;
 					// 输入完成事件
 					this.input_price.on(Laya.UIEvent.BLUR, this, () => {
 						let price = parseInt(this.input_price.text);
-						let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID) * this.hsbar_count.value;
-						this.input_price.text = '' + Math.max(Math.min(999999999, price), minPrice);
+						// let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID) * this.hsbar_count.value;
+						// this.input_price.text = '' + Math.max(Math.min(999999999, price), minPrice);
 					})
 					break;
 				// 仓库内，道具不能拆分取出仓库，所以隐藏
@@ -66,7 +66,7 @@ module view.dialog {
 				this.hsbar_count.value = this.itemObj.dwCount;
 				this.hsbar_count.changeHandler = Laya.Handler.create(this, (value) => {
 					this.lbl_countDes.text = '使用道具数量：' + value;
-					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * value;
+					// this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID) * value;
 				}, null, false)
 			}
 			this.ui_item.setData(obj);

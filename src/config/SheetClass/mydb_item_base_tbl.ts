@@ -203,148 +203,137 @@ module SheetConfig {
          */
         public JYH_SUBTYPE(configID: string): number { return this.data[configID][49] }
         /**
-         *  参考价格
-         */
-        public JYH_PRICE(configID: string): number { return this.data[configID][50] }
-        /**
-         *  最低价格
-         */
-        public JYH_MINPRICE(configID: string): number { return this.data[configID][51] }
-        /**
-         *  最高价格
-         */
-        public JYH_MAXPRICE(configID: string): number { return this.data[configID][52] }
-        /**
          *  物品说明
          */
-        public ITEMDES(configID: string): string { return this.data[configID][53] }
+        public ITEMDES(configID: string): string { return this.data[configID][50] }
         /**
          *  物品扩展说明
          */
-        public ITEMPLUSDES(configID: string): string { return this.data[configID][54] }
+        public ITEMPLUSDES(configID: string): string { return this.data[configID][51] }
         /**
          *  商城简介
          */
-        public INSHOPDES(configID: string): string { return this.data[configID][55] }
+        public INSHOPDES(configID: string): string { return this.data[configID][52] }
         /**
          *  特效显示
          */
-        public SHOWEFFECT(configID: string): number { return this.data[configID][56] }
+        public SHOWEFFECT(configID: string): number { return this.data[configID][53] }
         /**
          *  贡献值
          */
-        public CONTRIBUTIONVALUE(configID: string): number { return this.data[configID][57] }
+        public CONTRIBUTIONVALUE(configID: string): number { return this.data[configID][54] }
         /**
          *  装备攻击需求
          */
-        public EQUIP_ATK_NEED(configID: string): number { return this.data[configID][58] }
+        public EQUIP_ATK_NEED(configID: string): number { return this.data[configID][55] }
         /**
          *  装备魔法需求
          */
-        public EQUIP_MAGIC_NEED(configID: string): number { return this.data[configID][59] }
+        public EQUIP_MAGIC_NEED(configID: string): number { return this.data[configID][56] }
         /**
          *  装备道术需求
          */
-        public EQUIP_DS_NEED(configID: string): number { return this.data[configID][60] }
+        public EQUIP_DS_NEED(configID: string): number { return this.data[configID][57] }
         /**
          *  装备元神需求
          */
-        public EQUIP_YS_NEED(configID: string): number { return this.data[configID][61] }
+        public EQUIP_YS_NEED(configID: string): number { return this.data[configID][58] }
         /**
          *  装备强化效果
          */
-        public EQUIP_STRENGTHENEFFECT(configID: string): number { return this.data[configID][62] }
+        public EQUIP_STRENGTHENEFFECT(configID: string): number { return this.data[configID][59] }
         /**
          *  装备长短标示
          */
-        public EQUIP_LENGTHSIGN(configID: string): number { return this.data[configID][63] }
+        public EQUIP_LENGTHSIGN(configID: string): number { return this.data[configID][60] }
         /**
          *  装备战斗力需求
          */
-        public EQUIP_POWERNEED(configID: string): number { return this.data[configID][64] }
+        public EQUIP_POWERNEED(configID: string): number { return this.data[configID][61] }
         /**
          *  掉落描述
          */
-        public ITEMDROPDES(configID: string): string { return this.data[configID][65] }
+        public ITEMDROPDES(configID: string): string { return this.data[configID][62] }
         /**
          *  背景描述
          */
-        public ITEMBGDES(configID: string): string { return this.data[configID][66] }
+        public ITEMBGDES(configID: string): string { return this.data[configID][63] }
         /**
          *  转生等级
          */
-        public ZS_LEVEL(configID: string): number { return this.data[configID][67] }
+        public ZS_LEVEL(configID: string): number { return this.data[configID][64] }
         /**
          *  强化上限
          */
-        public STRENGTHENLIMIT(configID: string): number { return this.data[configID][68] }
+        public STRENGTHENLIMIT(configID: string): number { return this.data[configID][65] }
         /**
          *  日用次数
          */
-        public USETIMESDAILY(configID: string): number { return this.data[configID][69] }
+        public USETIMESDAILY(configID: string): number { return this.data[configID][66] }
         /**
          *  回收经验
          */
-        public RECOVEREXP(configID: string): number { return this.data[configID][70] }
+        public RECOVEREXP(configID: string): number { return this.data[configID][67] }
         /**
          *  回收英雄经验
          */
-        public RECOVERHEROEXP(configID: string): number { return this.data[configID][71] }
+        public RECOVERHEROEXP(configID: string): number { return this.data[configID][68] }
         /**
          *  神装颜色
          */
-        public SZ_COLOR(configID: string): number { return this.data[configID][72] }
+        public SZ_COLOR(configID: string): number { return this.data[configID][69] }
         /**
          *  展示子类型
          */
-        public SHOWSUBTYPE(configID: string): number { return this.data[configID][73] }
+        public SHOWSUBTYPE(configID: string): number { return this.data[configID][70] }
         /**
          *  神装编号
          */
-        public SZ_ID(configID: string): number { return this.data[configID][74] }
+        public SZ_ID(configID: string): number { return this.data[configID][71] }
         /**
          *  使用获得道具
          */
-        public USEPRIZE(configID: string): number { return this.data[configID][75] }
+        public USEPRIZE(configID: string): number { return this.data[configID][72] }
         /**
          *  排序类型
          */
-        public SORTTYPE(configID: string): number { return this.data[configID][76] }
+        public SORTTYPE(configID: string): number { return this.data[configID][73] }
         /**
          *  排序子类型
          */
-        public SORTSUBTYPE(configID: string): number { return this.data[configID][77] }
+        public SORTSUBTYPE(configID: string): number { return this.data[configID][74] }
         /**
          *  英雄等级需求
          */
-        public LVNEED(configID: string): number { return this.data[configID][78] }
+        public LVNEED(configID: string): number { return this.data[configID][75] }
         /**
          *  盛世融合id
          */
-        public SX_MIXID(configID: string): number { return this.data[configID][79] }
+        public SX_MIXID(configID: string): number { return this.data[configID][76] }
         /**
          *  盛世拆分id
          */
-        public SX_SPLITID(configID: string): number { return this.data[configID][80] }
+        public SX_SPLITID(configID: string): number { return this.data[configID][77] }
         /**
          *  融合所需个数
          */
-        public MIXNEEDCOUNT(configID: string): number { return this.data[configID][81] }
+        public MIXNEEDCOUNT(configID: string): number { return this.data[configID][78] }
         /**
          *  不可拆分
          */
-        public CANSPLIT(configID: string): number { return this.data[configID][82] }
+        public CANSPLIT(configID: string): number { return this.data[configID][79] }
         /**
          *  好感度
          */
-        public LIKEVALUE(configID: string): number { return this.data[configID][83] }
+        public LIKEVALUE(configID: string): number { return this.data[configID][80] }
         /**
          *  图鉴需求
          */
-        public TUJIAN(configID: string): number { return this.data[configID][84] }
+        public TUJIAN(configID: string): number { return this.data[configID][81] }
         /**
-         * 获得道具全部数据
-         */
+       * 获得道具全部数据
+       */
         public GRTALLDATA(configID: string): any { return this.data[configID] }
+
     }
 }

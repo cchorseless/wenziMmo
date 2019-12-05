@@ -28,12 +28,12 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN:
 					this.viw_model.selectedIndex = 2;
 					// 参考价格
-					this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID);
+					// this.input_price.text = '' + SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_PRICE('' + obj.dwBaseID);
 					// 输入完成事件
 					this.input_price.on(Laya.UIEvent.BLUR, this, () => {
 						let price = parseInt(this.input_price.text);
-						let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID);
-						this.input_price.text = '' + Math.max(Math.min(99999999, price), minPrice);
+						// let minPrice = SheetConfig.mydb_item_base_tbl.getInstance(null).JYH_MINPRICE('' + obj.dwBaseID);
+						// this.input_price.text = '' + Math.max(Math.min(99999999, price), minPrice);
 					})
 					break;
 				// 仓库内

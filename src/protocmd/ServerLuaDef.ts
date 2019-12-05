@@ -203,7 +203,8 @@ module ProtoCmd {
     export const JS_getAchievementReward = 'getAchievementReward';
     // 成就领取奖励回调
     export const JS_updateAchievement = 'updateAchievement';
-
+    // 角色更新装备打造信息
+    export const JS_updateBuildEquip = 'updateBuildEquip';
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
