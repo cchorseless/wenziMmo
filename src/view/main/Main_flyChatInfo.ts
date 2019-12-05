@@ -50,7 +50,10 @@ module view.main {
 			this.lab_chatName.text = name + ':'
 			if (isSys) {
 				this.html_content.x = this.lab_chatName.x + this.lab_chatName.width + 5;
-				this.html_content.style.fontSize = 18;
+				this.html_content.style.fontSize = 22;
+				this.html_content.style.color = '#ffffff';
+				this.html_content.style.stroke = 4;
+				this.html_content.style.strokeColor = "#000000";
 				this.html_content.style.fontFamily = 'STKaiti';
 				this.html_content.innerHTML = msgStr;
 				this.width = this.html_content.contextWidth + 30 + this.html_content.x;

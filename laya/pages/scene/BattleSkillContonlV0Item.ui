@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":16,
-    "selecteID":18,
+    "selectedBox":33,
+    "selecteID":14,
     "props":{"width":190,"sceneColor":"#a8504e","height":250},
     "nodeParent":-1,
     "label":"View",
@@ -31,63 +31,31 @@
                     "nodeParent":30,
                     "label":"Box(item0)",
                     "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":2,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":35,"x":59,"skin":"image/common/bottom_jineng_01.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":2,
+                    "compId":31,
                     "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":211,"x":132,"var":"btn_autoAttack","stateNum":"2","skin":"image/main/icon_guaji.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":2,
-                            "label":"Button(btn_autoAttack)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":3,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":137,"x":1,"width":63,"var":"btn_kill1","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
-                            "nodeParent":2,
-                            "label":"Button(btn_kill1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":9,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":67,"x":2,"width":63,"var":"btn_kill2","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
-                            "nodeParent":2,
-                            "label":"Button(btn_kill2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":23,"x":56,"width":63,"var":"btn_kill3","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
-                            "nodeParent":2,
+                            "props":{"y":8,"x":6,"width":44,"var":"btn_kill3","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":44},
+                            "nodeParent":31,
                             "label":"Button(btn_kill3)",
                             "isOpen":true,
                             "isDirectory":false,
@@ -98,12 +66,56 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        },
+                        }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":140,"x":9,"skin":"image/common/bottom_jineng_01.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":34,
+                    "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":24,"x":124,"width":63,"var":"btn_kill4","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":63},
-                            "nodeParent":2,
+                            "props":{"y":8,"x":6,"width":44,"var":"btn_kill1","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":44},
+                            "nodeParent":34,
+                            "label":"Button(btn_kill1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":9,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":33,"x":123,"skin":"image/common/bottom_jineng_01.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":35,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":8,"x":6,"width":44,"var":"btn_kill4","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":44},
+                            "nodeParent":35,
                             "label":"Button(btn_kill4)",
                             "isOpen":true,
                             "isDirectory":false,
@@ -114,12 +126,56 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        },
+                        }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":78,"x":13,"skin":"image/common/bottom_jineng_01.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":36,
+                    "child":[
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":93,"x":72,"width":86,"var":"btn_kill5","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":86},
-                            "nodeParent":2,
+                            "props":{"y":8,"x":6,"width":44,"var":"btn_kill2","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":44},
+                            "nodeParent":36,
+                            "label":"Button(btn_kill2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":7,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":101,"x":72,"skin":"image/common/bottom_jineng_02.png"},
+                    "nodeParent":30,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":33,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":8,"x":12,"width":70,"var":"btn_kill5","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":70},
+                            "nodeParent":33,
                             "label":"Button(btn_kill5)",
                             "isOpen":true,
                             "isDirectory":false,
@@ -130,22 +186,39 @@
                                 ],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":212,"x":173,"var":"btn_show0","stateNum":"1","skin":"image/main/icon_shoufang.png","skewX":180,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":2,
-                            "label":"Button(btn_show0)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":4,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":218,"x":132,"var":"btn_autoAttack","stateNum":"2","skin":"image/main/icon_guaji.png","labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":30,
+                    "label":"Button(btn_autoAttack)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":219,"x":173,"var":"btn_show0","stateNum":"1","skin":"image/main/icon_shoufang.png","skewX":180,"labelStroke":4,"labelSize":18,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":30,
+                    "label":"Button(btn_show0)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
                     "$HIDDEN":false
                 },
                 {
@@ -190,6 +263,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
+                    "$LOCKED":true,
                     "$HIDDEN":false
                 }]
         }],

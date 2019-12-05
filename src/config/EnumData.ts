@@ -538,10 +538,10 @@ module EnumData {
      * 怪物类型
      */
     export enum emMonsterType {
-        _MON_TYPE_NORMAL_ = 0,		//普通怪物
-        _MON_TYPE_LITTLEBOSS_ = 1,	//小BOSS
-        _MON_TYPE_BIGBOSS_ = 2,		//大BOSS
-        _MON_TYPE_PET_ = 3,		    //宠物
+        _MON_TYPE_NORMAL_ = 0,		//普通怪物      type  V0
+        _MON_TYPE_LITTLEBOSS_ = 1,	//小BOSS               v1
+        _MON_TYPE_BIGBOSS_ = 2,		//大BOSS             V 1
+        _MON_TYPE_PET_ = 3,		    //宠物       
         _MON_TYPE_DEAD_ = 4,		//死亡系
         _MON_TYPE_DEFENSEFORCE_ = 5,//强制防御,掉血一点
         _MON_TYPE_BROADSWORD_ = 6,	//大刀守卫
@@ -553,7 +553,7 @@ module EnumData {
         _MON_TYPE_CREAM_ = 12,		//精英怪物
         _MON_TYPE_CITYGUARD_ = 13,	//友军怪物
         _MON_TYPE_MAGICPET_ = 14,	//魔宠
-        _MON_TYPE_COLLECT_ = 15,	//收集类
+        _MON_TYPE_COLLECT_ = 15,	//收集类              V15
         _MON_TYPE_HERO_ = 16,		//英雄
     };
 

@@ -12,7 +12,7 @@ module view.main {
 		public setData(): void {
 			this.flyPanel = new Main_FlyChatPanel();
 			this.box_fly.addChild(this.flyPanel)
-			this.addChild(this.flyPanel);
+			// this.addChild(this.flyPanel);
 			this.btn_taskAll.selected = true;
 			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;

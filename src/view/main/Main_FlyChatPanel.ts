@@ -48,7 +48,7 @@ module view.main {
 		public moveHbox(id, obj) {
 			// this['hbox_' + id].x = 640;
 			let base = this['hbox_' + id]
-			Laya.Tween.to(base, { x: this['hbox_' + id].width * (-1) }, 3000, null, Laya.Handler.create(this, function () {
+			Laya.Tween.to(base, { x: this['hbox_' + id].width * (-1) }, 8000, null, Laya.Handler.create(this, function () {
 				base.removeChild(obj)
 				base.width -= obj.width;
 			}))

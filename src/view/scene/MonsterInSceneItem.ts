@@ -26,7 +26,7 @@ module view.scene {
 			} else {
 				// 半身像
 				this.img_bg.skin = 'image/main/frame_boss_02.png'
-				skePath = SheetConfig.mydb_monster_tbl.getInstance(null).SKERES('' + configID);
+				skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 				this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
 			}
 
@@ -37,7 +37,7 @@ module view.scene {
 			// this._skeGroup.loadRes(['sk/monster/' + skePath + '.sk'], () => {
 			// 	this.spr_pos.addChild(this._skeGroup);
 			// 	this._skeGroup.play(1, true);
-			// 	this.addEvent();
+				this.addEvent();
 			// });
 			
 			this.updateUI();
