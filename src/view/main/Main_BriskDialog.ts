@@ -48,19 +48,21 @@ module view.main {
 					//当前活跃度<最大活跃度时
 					this.lbl_huoyue.text = '' + jsonData.value;
 					//当前活跃度/最大活跃度时<1时，进度条长度
-					this.img_pregress.width = 447 * jsonData.value / jsonData.maxvalue;
+					this.img_pregress.width = 380 * jsonData.value / jsonData.maxvalue;
 				}
 				else {
 					//当前活跃度>=最大活跃度时,显示最大活跃度
 					this.lbl_huoyue.text = '' + jsonData.maxvalue;
 					//当前活跃度/最大活跃度时>=1时，进度条长度
-					this.img_pregress.width = 447;
+					this.img_pregress.width = 380;
 				}
 				for (let key of keys) {
 					let data = jsonData.tab[key];
 					this.vbox_brisk.addChild(new view.main.Main_BriskItem().setData(data));
 				}
 				for (let i = 1; jsonData.wardtab[i]; i++) {
+					//达到活跃值才能领取宝箱
+					this['lbl_baoxiang'+i].text=jsonData.wardtab[i].value;
 					switch (jsonData.wardtab[i].bj) {
 						case 0:
 							this['img_baoxiang' + i].skin = 'image/common/icon_baoxiang' + i + '_close.png'

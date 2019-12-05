@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
-    "props":{"width":70,"sceneColor":"#ead6d6","height":70},
+    "selecteID":2,
+    "props":{"width":85,"sceneColor":"#ead6d6","height":85},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -30,29 +30,29 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":67,"visible":false,"var":"img_bg","skin":"image/common/bottom_normal.png","height":66,"centerY":0,"centerX":0},
-            "nodeParent":1,
-            "label":"Image(img_bg)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"width":70,"skin":"image/common/frame_normal_touxiang.png","height":70},
+            "props":{"y":0,"x":0,"width":85,"skin":"image/common/frame_normal_touxiang.png","height":85},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":2,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":7,"x":7,"width":70,"visible":false,"var":"img_bg","skin":"image/common/daoju/itemicon_bg_17.png","height":70},
+                    "nodeParent":2,
+                    "label":"Image(img_bg)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":3,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
             "$HIDDEN":false
         }],
     "animations":[

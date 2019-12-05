@@ -94,17 +94,17 @@ module view.main {
 				Laya.Tween.to(this['vbox_friend' + index], { scaleY: 1 }, 200);
 				switch (index) {
 					case 1:
-						this.btn_friend2.y = height1 + this.vbox_friend1.height * this.vbox_friend1._childs.length;
+						this.btn_friend2.y = height1 + this.vbox_friend1.height;
 						let height21 = this.btn_friend2.y + this.btn_friend2.height;
 						if (this.vbox_friend2.scaleY == 0) {
 							this.btn_friend3.y = height21;
 						} else {
-							this.btn_friend3.y = height21 + this.vbox_friend2.height * this.vbox_friend2._childs.length
+							this.btn_friend3.y = height21 + this.vbox_friend2.height;
 						}
 						break;
 					case 2:
 						let height22 = this.btn_friend2.y + this.btn_friend2.height;
-						this.btn_friend3.y = height22 + this.vbox_friend2.height * this.vbox_friend2._childs.length
+						this.btn_friend3.y = height22 + this.vbox_friend2.height ;
 						break;
 				}
 			}
@@ -118,7 +118,7 @@ module view.main {
 						if (this.vbox_friend2.scaleY == 0) {
 							this.btn_friend3.y = height31;
 						} else {
-							this.btn_friend3.y = height31 + this.vbox_friend2.height * this.vbox_friend2._childs.length
+							this.btn_friend3.y = height31 + this.vbox_friend2.height ;
 						}
 						break;
 					case 2:

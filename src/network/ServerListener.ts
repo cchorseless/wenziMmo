@@ -1565,7 +1565,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo);
     }
     /**
-    * 向添加人发出询问
+    * 向被添加人发送询问(only 好友)
     */
     public addFriendAsk(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddQuery(data);
@@ -1586,10 +1586,10 @@ class ServerListener extends SingletonClass {
             friendApplyInfo.push(applyItem);
         }
         //刷新好友申请列表
-        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA, GameApp.MainPlayer.friendApplyInfo);
+        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA);
     }
     /**
-      * 回答关系添加结果(only 好友)
+      * 添加好友结果返回(only 好友)
       */
     public addFriendAskResult(data: Laya.Byte): void {
         let msg = new ProtoCmd.stRelationAddRet(data);
@@ -1604,7 +1604,7 @@ class ServerListener extends SingletonClass {
             }
         }
         //刷新好友申请列表
-        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA, GameApp.MainPlayer.friendApplyInfo);
+        GameApp.LListener.event(ProtoCmd.FD_APPLY_UPDATA);
     }
     /*******************************************************组队信息******************************************* */
     /**

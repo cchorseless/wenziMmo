@@ -236,6 +236,9 @@ module ResData {
             { url: 'json/Ranking_List.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Ranking_List },
             //时辰节气
             { url: 'json/Solarterms.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Solarterms },
+            //装备打造
+            { url: 'json/zhuangbei_make.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuangbei_make },
+
 
         ];
     }
