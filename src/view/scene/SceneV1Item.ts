@@ -96,12 +96,25 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addMonster(obj): void {
-			let monster: view.scene.MonsterInSceneItem;
+			let monster;
 			if (obj.ui_item) {
 				monster = obj.ui_item;
 			}
 			else {
-				monster = new view.scene.MonsterInSceneItem();
+				let configID = '' + obj.feature.dwCretTypeId
+				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
+				switch (skePath) {
+					case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+						monster = new view.scene.MonsterInSceneItemV15();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
+						monster = new view.scene.MonsterInSceneItemV1();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
+						monster = new view.scene.MonsterInSceneItemV0();
+						break;
+				}
+				// monster = new view.scene.MonsterInSceneItemV0();
 				monster.setData(obj);
 			}
 			// 配置表ID

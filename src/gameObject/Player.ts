@@ -39,7 +39,7 @@ module GameObject {
         /**
          * 聊天设置
          */
-        public chatStatus:any = {};
+        public chatStatus: any = {};
         /**
          * 等级和
          */
@@ -559,7 +559,7 @@ module GameObject {
          * @param target 
          * @param skillID 
          */
-        public startHandAtk(target: Creature, skillID: number = 999): void {
+        public startHandAtk0(target: Creature, skillID: number = 999): void {
             // this.stopAutoAtk();
             this.tryAttack(target, skillID)
         }
@@ -568,6 +568,7 @@ module GameObject {
          * 播放攻击动作
          */
         public startAttack(): void {
+            this.ui_item.playAni();
             if (this.ui_item) {
                 // this.ui_item.stopPlayAni();
                 // 自动攻击

@@ -28,7 +28,7 @@ module view.scene {
 		 * 添加怪物
 		 * @param obj 
 		 */
-		public addMonster(monster: view.scene.MonsterInSceneItem): boolean {
+		public addMonster(monster): boolean {
 			// 优先添加BOX_ONLY
 			if (this.box_only.visible && this.box_only.numChildren == 0) {
 				monster.scale(1.5, 1.5);
@@ -40,7 +40,8 @@ module view.scene {
 			else {
 				this.box_only.visible = false;
 				if (this.box_only.numChildren == 1) {
-					let _monsterItem = this.box_only.getChildAt(0).removeSelf() as view.scene.MonsterInSceneItem;
+					// let _monsterItem = this.box_only.getChildAt(0).removeSelf() as view.scene.MonsterInSceneItemV0;
+					let _monsterItem = this.box_only.getChildAt(0).removeSelf();
 					this.addMonster(_monsterItem);
 				}
 			}

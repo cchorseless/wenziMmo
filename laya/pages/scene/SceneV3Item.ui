@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":175,
-    "props":{"y":0,"x":0,"width":640,"sceneColor":"#000000","height":1139},
+    "selectedBox":1,
+    "selecteID":1,
+    "props":{"y":0,"x":0,"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"var":"panel_monster","top":149,"right":80,"left":120,"height":294},
+                    "props":{"y":149,"width":400,"var":"panel_monster","right":74,"height":210},
                     "nodeParent":2,
                     "label":"Panel(panel_monster)",
                     "isOpen":true,
@@ -55,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"y":450,"var":"panel_player","right":80,"left":120,"height":180},
+                    "props":{"y":391,"var":"panel_player","right":80,"left":120,"height":180},
                     "nodeParent":2,
                     "label":"Panel(panel_player)",
                     "isOpen":true,
@@ -96,7 +96,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":34,"x":58,"var":"box_sceneMore","skin":"image/main/img_bgLuoyang.png","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":34,"x":58,"visible":false,"var":"box_sceneMore","skin":"image/main/img_bgLuoyang.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":2,
                     "label":"Image(box_sceneMore)",
                     "isOpen":true,

@@ -63,7 +63,7 @@ class SceneManager extends SingletonClass {
         // 副本地图
         if (bigMapType > 0) {
             this.updateUiScene(bigMapType);
-            this.loadBigMap();
+            // this.loadBigMap();
             this.loadSceneFinish();
         }
         else {
@@ -81,7 +81,7 @@ class SceneManager extends SingletonClass {
             });
             lcp.send(pkt);
         }
-
+        this.loadBigMap();
     }
     /**
      * 切换完大地图后发送
@@ -327,8 +327,11 @@ class SceneManager extends SingletonClass {
                 ui_map.setData();
                 break;
         }
-        this.panelBigMap.removeChildren();
-        ui_map && this.panelBigMap.addChild(ui_map);
+        PanelManage.Main.panel_bigMap.removeChildren();
+        if (ui_map) { 
+            this.panelBigMap.addChild(ui_map);
+        }
+
     }
 
 

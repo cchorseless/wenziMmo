@@ -19,7 +19,7 @@ module view.scene {
 
 
 
-		public addMonster(monster: view.scene.MonsterInSceneItem): boolean {
+		public addMonster(monster): boolean {
 			for (let i = 0; i < 12; i++) {
 				let box: Laya.Box = this['box_' + i];
 				if (box.numChildren == 0) {
