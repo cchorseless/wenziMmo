@@ -129,6 +129,21 @@ module LangConfig {
         return path + '0' + job + '_small.png';
     }
 
+    /**
+     * 获取角色有倒影全身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerAvatarSkinV1(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/juese/img_nan';
+        }
+        else {
+            path = 'image/juese/img_nv';
+        }
+        return path + '0' + job + '.png';
+    }
 
     /**
      * 获取半身像路径
@@ -146,21 +161,6 @@ module LangConfig {
         return path + '0' + job + '_half.png';
     }
 
-    /**
-     * 获取半身像路径
-     * @param sex 
-     * @param job 
-     */
-    export function getPlayerAvatarHalfSkinV2(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
-        let path;
-        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-            path = 'image/common/role_half_nan';
-        }
-        else {
-            path = 'image/common/role_half_nv';
-        }
-        return path + '0' + job + '.png';
-    }
 
     /**
      * 获取半身像路径

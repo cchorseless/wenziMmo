@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":162,
-    "selecteID":255,
+    "selectedBox":100,
+    "selecteID":218,
     "referenceLines":[
         {
             "value":1127,
@@ -904,13 +904,14 @@
                             "props":{"width":640,"var":"img_bottomPartInfoBg","right":0,"left":0,"height":311,"bottom":0},
                             "nodeParent":162,
                             "label":"Image(img_bottomPartInfoBg)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":75,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-26,"x":215,"skin":"image/main/shandow_ditu.png"},
                                     "nodeParent":75,
@@ -923,6 +924,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-11,"width":294,"var":"box_smallScene","right":123,"height":284},
                                     "nodeParent":75,
@@ -936,6 +938,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":181,"x":595,"width":51,"var":"btn_mapBig","stateNum":"2","skin":"image/main/icon_dangqian.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"40,0,3,1","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":59,"anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":75,
@@ -949,6 +952,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":109,"x":595,"var":"btn_flyPoint","stateNum":2,"skin":"image/main/icon_luyin.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":75,
@@ -963,6 +967,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":37,"x":595,"var":"btm_mapWorld","stateNum":2,"skin":"image/main/icon_ditu.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":75,
@@ -977,6 +982,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-6,"x":0,"width":225,"var":"box_taskInfo","height":260},
                                     "nodeParent":75,
@@ -1176,6 +1182,31 @@
                                 {
                                     "x":60,
                                     "type":"Button",
+                                    "props":{"y":43,"x":402,"var":"btn_fuben","stateNum":"2","skin":"image/main/icon_fuben.png","anchorY":0.5,"anchorX":0.5},
+                                    "nodeParent":100,
+                                    "label":"Button(btn_fuben)",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":218,
+                                    "child":[
+                                        {
+                                            "type":"Label",
+                                            "props":{"y":49,"x":17,"text":"副本","strokeColor":"#010101","stroke":6,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
+                                            "nodeParent":218,
+                                            "label":"Label",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":220,
+                                            "child":[
+                                                ]
+                                        }]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
                                     "props":{"y":41,"x":487,"var":"btn_wuPin","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":100,
                                     "label":"Button(btn_wuPin)",
@@ -1213,32 +1244,6 @@
                                     "child":[
                                         ],
                                     "$HIDDEN":false
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Button",
-                                    "props":{"y":41,"x":402,"var":"btn_fuben","stateNum":"2","skin":"image/juQingMode/icon_fuben.png","anchorY":0.5,"anchorX":0.5},
-                                    "nodeParent":100,
-                                    "label":"Button(btn_fuben)",
-                                    "isOpen":true,
-                                    "isDirectory":true,
-                                    "isAniNode":true,
-                                    "hasChild":true,
-                                    "compId":218,
-                                    "child":[
-                                        {
-                                            "x":75,
-                                            "type":"Label",
-                                            "props":{"y":49,"x":17,"text":"副本","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
-                                            "nodeParent":218,
-                                            "label":"Label",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":220,
-                                            "child":[
-                                                ]
-                                        }]
                                 }],
                             "$LOCKED":true,
                             "$HIDDEN":false

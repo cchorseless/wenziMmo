@@ -13,25 +13,24 @@ module view.juese {
 			this.hasInit = true;
 			let player = GameApp.MainPlayer;
 			// 年龄
-			this.lbl_age.text = '' + player.age_str;
-			// 姓名
-			this.lbl_name.text = '' + player.objName;
-			// 出身
-			this.lbl_job.text = '' + LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
-			// 公会名称
-			this.lbl_guild.text = '' + (player.guildInfo.szName || '暂无帮派');
-			// 健康
-			this.lbl_jianKang.text = '' + player.nHealth + '/100';
-			// 精神
-			this.lbl_jingShen.text = '' + player.nSpirte + '/100';
-			// 体力
-			this.lbl_tiLi.text = '' + player.nTili + '/100';
+			this.lbl_age.text = player.age_number + '-' + (player.age_number + 1) + '岁';
+			let month = parseInt(player.age_str.match(/\d+/g)[1]);
+			this.img_agepro.width = 302 * month / 12;
 			// 颜值
 			this.lbl_yanZhi.text = '' + player.nYanZhi + '/100';
+			this.img_yanzhipro.width = 302 * player.nYanZhi / 100;
+			// 健康
+			this.lbl_jianKang.text = '' + player.nHealth + '/100';
+			this.img_healthpro.width = 302 * player.nHealth / 100;
+			// 精神
+			this.lbl_jingShen.text = '' + player.nSpirte + '/100';
+			this.img_spiritpro.width = 302 * player.nSpirte / 100;
+			// 体力
+			this.lbl_tiLi.text = '' + player.nTili + '/100';
+			this.img_poweipro.width = 302 * player.nTili / 100;
 			// 心情
 			this.lbl_xinQing.text = '' + player.nXinQing + '/100';
-			// 角色形象
-			this.img_avatar.skin = '' + LangConfig.getPlayerAvatarSkin();
+			this.img_moodpro.width = 302 * player.nXinQing / 100;
 			//个人标签
 			this.list_label.array = [];
 			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
@@ -44,20 +43,15 @@ module view.juese {
 				cell.setData(cell.dataSource);
 			}, null, false)
 			// 声望信息
-			this.lbl_shengWang.text = LangConfig.getFameDes(player.wealth.nowFame);
+			// this.lbl_shengWang.text = LangConfig.getFameDes(player.wealth.nowFame);
 			this.addEvent();
 
 		}
 		public addEvent(): void {
-			//装扮
-			this.btn_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openClothePanel();
-			})
-			//装备打造
-			this.btn_buildEquip.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Person_BuildEquipDialog().popup(true);
-
-			})
+			// //装扮
+			// this.btn_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openClothePanel();
+			// })
 			//生辰八字
 			this.btn_birthEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonBirthDialog().popup(true);
@@ -65,7 +59,10 @@ module view.juese {
 			//姓名九宫
 			this.btn_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonNameDialog().popup(true);
-
+			})
+			//成就
+			this.btn_nameEnter.on(Laya.UIEvent.CLICK, this, () => {
+				// new view.juese.Task_ChengJiuDialog().popup(true);
 			})
 			//生平履历
 			this.btn_shengpingEnter.on(Laya.UIEvent.CLICK, this, () => {

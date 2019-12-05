@@ -140,32 +140,32 @@ module view.juese {
 					}
 				}
 			}
-			this.init_dangqian();
+			// this.init_dangqian();
 		}
-		public init_dangqian(id = null): void {
-			//当前装备选中状态显示
-			for (let item of this.hbox_equip._childs) {
-				item.img_light.visible = false;
-			}
-			if (id == null) {
-				this.hbox_equip._childs[0].img_light.visible = true;
-			} else {
-				for (let item of this.hbox_equip._childs) {
-					if (item.data[0] == id) {
-						item.img_light.visible = true;
+		// public init_dangqian(id = null): void {
+		// 	//当前装备选中状态显示
+		// 	for (let item of this.hbox_equip._childs) {
+		// 		item.img_light.visible = false;
+		// 	}
+		// 	if (id == null) {
+		// 		this.hbox_equip._childs[0].img_light.visible = true;
+		// 	} else {
+		// 		for (let item of this.hbox_equip._childs) {
+		// 			if (item.data[0] == id) {
+		// 				item.img_light.visible = true;
 
-					}
-				}
-			}
-			//当前装备打造信息
-			let keys = Object.keys(this.equipInfo);
-			for (let key of keys) {
-				if (id == key) {
-					let equipData = this.equipInfo[key];
-				}
-			}
-			//equipFabricate(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID, 状态0不附加材料,1附加材料
-			//111`11
-		}
+		// 			}
+		// 		}
+		// 	}
+		// 	//当前装备打造信息
+		// 	let keys = Object.keys(this.equipInfo);
+		// 	for (let key of keys) {
+		// 		if (id == key) {
+		// 			let equipData = this.equipInfo[key];
+		// 		}
+		// 	}
+		// 	//equipFabricate(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID, 状态0不附加材料,1附加材料
+		// 	//111`11
+		// }
 	}
 }
