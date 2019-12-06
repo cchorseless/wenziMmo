@@ -18,6 +18,7 @@ module view.juese {
 			this.addEvent();
 			this.init_personInfo();
 			this.init_personBase();
+			this.init_personMoney();
 		}
 		public addEvent(): void {
 			// //装扮
@@ -102,11 +103,11 @@ module view.juese {
 			this.lbl_neili.text = '' + ability.nowInnerValue + '/' + ability.nInnerValue;
 			this.img_neilipro.width = 302 * ability.nowInnerValue / ability.nInnerValue;
 			// 外功攻击
-			this.lbl_waikill.text = ability.nMinDC + '/' + ability.nMaxDC;
+			this.lbl_waikill.text = ability.nMinDC + '-' + ability.nMaxDC;
 			// 外功防御
-			this.lbl_waiprotect.text = ability.nMinAC + '/' + ability.nMaxAC;
+			this.lbl_waiprotect.text = ability.nMinAC + '-' + ability.nMaxAC;
 			// 内功防御
-			this.lbl_neiprotect.text = ability.nMinMC + '/' + ability.nMaxMC;
+			this.lbl_neiprotect.text = ability.nMinMAC + '-' + ability.nMaxMAC;
 			// 闪避
 			this.lbl_shan.text = '' + ability.nJuck;
 			// 准确
@@ -135,6 +136,19 @@ module view.juese {
 			this.lbl_bossadd.text = '' + ability.nAtkAddBoss;
 			// boss抵抗
 			this.lbl_bossdikang.text = '' + ability.nAtkReduceBoss;
+		}
+		public init_personMoney(): void {
+			let wealth = GameApp.MainPlayer.wealth;
+			//元宝
+			this.lbl_coin1.text = '' + wealth.yuanBao;
+			//礼券
+			this.lbl_coin2.text = '' + wealth.yuanBao_lock;
+			//金币
+			this.lbl_coin3.text = '' + wealth.gold;
+			//荣誉
+			this.lbl_coin4.text = '' + wealth.honorNum;
+			//帮贡
+			this.lbl_coin5.text = '' + wealth.guildDedication;
 		}
 	}
 }

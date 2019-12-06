@@ -249,9 +249,9 @@ module LangConfig {
      */
     export const JOB_TYPEDES = {
         JOB_NONE: '不限',//通用
-        JOB_WARRIOR: '隐门传人',
-        JOB_MAGE: '奇侠怪盗',
-        JOB_MONK: '神秘孤儿'
+        JOB_WARRIOR: '剑客',
+        JOB_MAGE: '怪盗',
+        JOB_MONK: '隐门'
     }
 
     /**

@@ -30,10 +30,20 @@ module GameUtil {
             }
         }
     }
-
-
-
-
+    /**
+     * 根据等级查找背包内大于这个等级的所有装备
+     * @param itemID 
+     * @param bag 
+     */
+    export function findItemInfoInBagByLevel(level: number, bag = GameApp.GameEngine.bagItemDB): any {
+        let itemArray = [];
+        for (let i in bag) {
+            if (bag[i].itemType==2&&bag[i].dwLevel >= level) {
+                    itemArray.push(bag[i]);
+            }
+        }
+        return itemArray;
+    }
     /**
      * 查找玩家身上的装备信息
      * @param index 
@@ -67,9 +77,9 @@ module GameUtil {
      * @param num  数字 
      * @param type  简体0  繁体1
      */
-    export function SectionToChinese(num:number,type:number) {
-        var chnNumChar = [["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"],["零","壹","贰","叁","肆","伍","柒","捌","玖"]][type];
-        var chnUnitChar = [["", "十", "百", "千", "万", "亿", "万亿", "亿亿"],["","拾","佰","仟","萬","億"]][type];
+    export function SectionToChinese(num: number, type: number) {
+        var chnNumChar = [["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"], ["零", "壹", "贰", "叁", "肆", "伍", "柒", "捌", "玖"]][type];
+        var chnUnitChar = [["", "十", "百", "千", "万", "亿", "万亿", "亿亿"], ["", "拾", "佰", "仟", "萬", "億"]][type];
         var strIns = '', chnStr = '';
         var unitPos = 0;
         var zero = true;

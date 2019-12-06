@@ -207,6 +207,11 @@ module ProtoCmd {
     export const JS_updateAchievement = 'updateAchievement';
     // 角色更新装备打造信息
     export const JS_updateBuildEquip = 'updateBuildEquip';
+    // 角色更新装备选择的材料
+    export const JS_updateBuildEquipItem = 'updateBuildEquipItem';
+    // 角色装备打造
+    export const JS_equipFabricate = 'equipFabricate';//参数(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID（111`11利用·符号连接两个64id）, 状态0不附加材料,1附加材料
+
     /********************************武学界面***************** */
     //武学界面刷新    快捷键   外功
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
