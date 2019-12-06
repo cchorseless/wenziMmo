@@ -34,7 +34,7 @@ module view.npc {
 
 
 			});
-			// 切磋
+			// 切磋 界面打开
 			this.btn_battle.on(Laya.UIEvent.CLICK, this, () => {
 				this.viw_bottom.selectedIndex = 4;
 				this.btn_return.visible = true;
@@ -47,6 +47,20 @@ module view.npc {
 			// 偷窃
 			this.btn_touQie.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.Main.addNpcPregressItem(this.item);
+				let pkID = this.item.feature.dwCretTypeId
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.stealNpcItem, [pkID], 0, this, function (data) {
+					let aa = data;
+				})
+				lcp.send(pkt);
+				this.close();
+			});
+			//切磋事件
+			this.btn_fight.on(Laya.UIEvent.CLICK, this, () => {
+				let pkID = this.item.feature.dwCretTypeId
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.fightWithNpc, [pkID], 0, this, function (data) {
+					let aa = data;
+				})
+				lcp.send(pkt);
 				this.close();
 			});
 			// 对话
@@ -109,23 +123,25 @@ module view.npc {
 			// 装备
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let _itemId of equipItem) {
-						if (_itemId) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				itemUI.setData(_itembase);
-				this.hbox_equip.addChild(itemUI);
-			}}
+				if (_itemId) {
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					itemUI.setData(_itembase);
+					this.hbox_equip.addChild(itemUI);
+				}
+			}
 			// 宝物
 			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
 			for (let _itemId of BAOWUItem) {
-						if (_itemId) {
-				let itemUI = new view.compart.DaoJuWithNameItem();
-				let _itembase = new ProtoCmd.ItemBase();
-				_itembase.dwBaseID = _itemId;
-				itemUI.setData(_itembase);
-				this.hbox_baoWu.addChild(itemUI);
-			}}
+				if (_itemId) {
+					let itemUI = new view.compart.DaoJuWithNameItem();
+					let _itembase = new ProtoCmd.ItemBase();
+					_itembase.dwBaseID = _itemId;
+					itemUI.setData(_itembase);
+					this.hbox_baoWu.addChild(itemUI);
+				}
+			}
 			// 战斗能力
 			this.lbl_npcDes2.text = this.battleDes[0]
 			// 气血状态

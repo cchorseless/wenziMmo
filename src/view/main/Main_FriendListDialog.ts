@@ -71,15 +71,17 @@ module view.main {
 		 * 初始化位置
 		 */
 		public init_InitializationPos(index): void {
-			// this['panel_friend' + index].height = this['vbox_friend' + index].height * this['vbox_friend' + index]._childs.length;
+			this.vbox_friend1.y = this.btn_friend1.y + this.btn_friend1.height;;
 			if (index != 1) {
 				let height = this['btn_friend' + (index - 1)].y + this['btn_friend' + (index - 1)].height;
 				//好友列表位置
 				if (this['vbox_friend' + (index - 1)].scaleY == 1) {
 					this['btn_friend' + index].y = height + this['vbox_friend' + (index - 1)].height * this['vbox_friend' + (index - 1)]._childs.length;
+
 				} else {
 					this['btn_friend' + index].y = height;
 				}
+				this.init_vbox();
 			}
 		}
 		/**
@@ -104,7 +106,7 @@ module view.main {
 						break;
 					case 2:
 						let height22 = this.btn_friend2.y + this.btn_friend2.height;
-						this.btn_friend3.y = height22 + this.vbox_friend2.height ;
+						this.btn_friend3.y = height22 + this.vbox_friend2.height;
 						break;
 				}
 			}
@@ -114,11 +116,12 @@ module view.main {
 				switch (index) {
 					case 1:
 						this.btn_friend2.y = height1;
+						this.vbox_friend2.y = this.btn_friend2.y + this.btn_friend2.height;
 						let height31 = this.btn_friend2.y + this.btn_friend2.height;
 						if (this.vbox_friend2.scaleY == 0) {
 							this.btn_friend3.y = height31;
 						} else {
-							this.btn_friend3.y = height31 + this.vbox_friend2.height ;
+							this.btn_friend3.y = height31 + this.vbox_friend2.height;
 						}
 						break;
 					case 2:
@@ -126,6 +129,12 @@ module view.main {
 						this.btn_friend3.y = height32;
 						break;
 				}
+			}
+			this.init_vbox();
+		}
+		public init_vbox(): void {
+			for (let i = 1; i < 4; i++) {
+				this['vbox_friend' + i].y = this['btn_friend' + i].y + this['btn_friend' + i].height;
 			}
 		}
 	}

@@ -24,7 +24,7 @@ module view.scene {
 			// 公会名字
 			this.lbl_guildName.text = '' + this.item.guildInfo.szName;
 			// 全身像
-			this.img_playerAva.skin = LangConfig.getPlayerSmallAvatarSkin();
+			this.img_playerAva.skin = LangConfig.getPlayerAvatarHalfSkin();
 			// 刷新UI
 			this.updateUI();
 
@@ -64,6 +64,11 @@ module view.scene {
 		 */
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			// this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
+			this.img_isfight.visible = true;
+			Laya.Tween.to(this.img_isfight,{scaleX:1.1,scaleY:1.1},500,null,Laya.Handler.create(this, () => {
+				this.img_isfight.scaleX = this.img_isfight.scaleY = 1;
+				this.img_isfight.visible = false;
+			}))
 		}
 
 		public stopPlayAni(): void {
@@ -72,7 +77,7 @@ module view.scene {
 
 		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
+			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 	}
 }

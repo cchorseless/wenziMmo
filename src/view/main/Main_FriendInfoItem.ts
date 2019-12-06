@@ -25,22 +25,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
-			let job;
-			switch (item.job) {
-				case 0:
-					job = '暂无';
-					break;
-				case 1:
-					job = '隐门传人';
-					break;
-				case 2:
-					job = '奇侠怪盗';
-					break;
-				case 2:
-					job = '灭门孤儿';
-					break;
-			}
-			this.lbl_jobNmae.text = job;
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job);
 			//地点名称
@@ -68,22 +53,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
-			let job;
-			switch (item.job) {
-				case 0:
-					job = '暂无';
-					break;
-				case 1:
-					job = '隐门传人';
-					break;
-				case 2:
-					job = '奇侠怪盗';
-					break;
-				case 2:
-					job = '灭门孤儿';
-					break;
-			}
-			this.lbl_jobNmae.text = job;
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[item.job];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
 			//地点名称
@@ -110,22 +80,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
-			let job;
-			switch (item.job) {
-				case 0:
-					job = '暂无';
-					break;
-				case 1:
-					job = '隐门传人';
-					break;
-				case 2:
-					job = '奇侠怪盗';
-					break;
-				case 2:
-					job = '灭门孤儿';
-					break;
-			}
-			this.lbl_jobNmae.text = job;
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[item.job];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
 			//地点名称不可见
@@ -151,22 +106,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + data.zslevel;
 			//职业名称
-			let job;
-			switch (data.job) {
-				case 0:
-					job = '暂无';
-					break;
-				case 1:
-					job = '隐门传人';
-					break;
-				case 2:
-					job = '奇侠怪盗';
-					break;
-				case 2:
-					job = '灭门孤儿';
-					break;
-			}
-			this.lbl_jobNmae.text = job;
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[data.job];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(data.sex, data.job)
 			//地点不可见

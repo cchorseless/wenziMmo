@@ -44,7 +44,7 @@ module view.scene {
 								if (this.useSkillID[i]) {
 									for (let o in GameApp.MainPlayer.allMonster) {
 										this.autoFight = false
-										GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], this.useSkillID[i]);
+										GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], this.useSkillID[i]);
 										break;
 									}
 								}
@@ -98,7 +98,7 @@ module view.scene {
 						if (self.skillState[i].state == 1) {
 							if (self.useSkillID[self.skillState[i].id]) {
 								for (let o in GameApp.MainPlayer.allMonster) {
-									GameApp.MainPlayer.startHandAtk(GameApp.MainPlayer.allMonster[o], self.useSkillID[self.skillState[i].id]);
+									GameApp.MainPlayer.startHandAtk0(GameApp.MainPlayer.allMonster[o], self.useSkillID[self.skillState[i].id]);
 									return;
 								}
 							}
@@ -138,8 +138,8 @@ module view.scene {
 			// let id = ['20001', '20065', '20017'][GameApp.MainPlayer.job - 1];
 			this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
 			this.skillID = [defaultConfigID];
-			// this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
-			this.useSkillID[1] = defaulticon;
+			this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
+			// this.useSkillID[1] = defaulticon;
 			}
 
 		}

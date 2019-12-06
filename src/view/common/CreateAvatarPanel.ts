@@ -222,20 +222,47 @@ module view.common {
 			let monsterList = this.monsterConfigList[index];
 			if (monsterList && monsterList.length > 1) {
 				for (let monConfig of monsterList) {
-					let monsterUI = new view.scene.MonsterInSceneItem();
+					let monsterUI;
 					let npcObj = new GameObject.Monster();
 					npcObj.feature.dwCretTypeId = monConfig;
 					npcObj.objName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + monConfig);
+					let configID = '' + npcObj.feature.dwCretTypeId
+					let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
+					switch (skePath) {
+						case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+							monsterUI = new view.scene.MonsterInSceneItemV15();
+							break;
+						case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
+							monsterUI = new view.scene.MonsterInSceneItemV1();
+							break;
+						case EnumData.emMonsterType._MON_TYPE_NORMAL_:
+							monsterUI = new view.scene.MonsterInSceneItemV0();
+							break;
+					}
 					monsterUI.setData(npcObj);
 					this.ui_item.addMonster(monsterUI);
 				}
 			}
 			// 只有一个怪物
 			else if (monsterList && monsterList.length == 1) {
-				let monsterUI = new view.scene.MonsterInSceneItem();
+				let monsterUI;
 				let monsterObj = new GameObject.Monster();
 				monsterObj.feature.dwCretTypeId = monsterList[0];
 				monsterObj.objName = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + monsterList[0]);
+
+				let configID = '' + monsterObj.feature.dwCretTypeId
+				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
+				switch (skePath) {
+					case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+						monsterUI = new view.scene.MonsterInSceneItemV15();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
+						monsterUI = new view.scene.MonsterInSceneItemV1();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
+						monsterUI = new view.scene.MonsterInSceneItemV0();
+						break;
+				}
 				monsterUI.scale(1.5, 1.5)
 				monsterUI.setData(monsterObj);
 				monsterUI.collectHander = Laya.Handler.create(this, () => {

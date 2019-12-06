@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":24,
-    "selecteID":35,
-    "props":{"width":180,"sceneColor":"#ca7d7c","height":180},
+    "selectedBox":1,
+    "selecteID":39,
+    "props":{"width":180,"sceneColor":"#ca7d7c","height":200},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":58,"x":0,"width":61,"var":"img_heroAva","skin":"image/common/battle/img_juese_di.png","height":110},
+                    "props":{"y":65,"x":0,"width":61,"var":"img_heroAva","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_heroAva)",
                     "isOpen":true,
@@ -49,12 +49,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":58,"x":54,"width":85,"var":"img_playerAva","skin":"image/common/battle/img_juese_di.png","height":110},
+                    "props":{"y":65,"x":54,"width":85,"var":"img_playerAva","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_playerAva)",
                     "isOpen":true,
@@ -76,12 +76,12 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":58,"x":26,"width":110,"var":"img_playerAvaBig","skin":"image/common/battle/img_juese_di.png","height":110},
+                    "props":{"y":65,"x":35,"width":110,"var":"img_playerAvaBig","skin":"image/common/battle/img_juese_di.png","height":110},
                     "nodeParent":4,
                     "label":"Image(img_playerAvaBig)",
                     "isOpen":true,
@@ -110,19 +110,18 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":55,"x":136,"width":26,"var":"img_nameBg","skin":"image/common/battle/img_mingzidi.png","height":112},
+            "props":{"y":62,"x":145,"width":26,"var":"img_nameBg","skin":"image/common/battle/img_mingzidi.png","height":138},
             "nodeParent":1,
             "label":"Image(img_nameBg)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":23,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":13,"x":0,"wordWrap":true,"width":25,"var":"lbl_name","text":"名字六个字啊","leading":2,"layoutEnabled":true,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+                    "props":{"y":13,"x":4,"wordWrap":true,"width":18,"var":"lbl_name","text":"名字六个字啊","strokeColor":"#000000","stroke":3,"leading":0,"layoutEnabled":true,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
                     "nodeParent":23,
                     "label":"Label(lbl_name)",
                     "isDirectory":false,
@@ -136,7 +135,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":24,"x":29,"width":135,"skin":"image/common/battle/img_xuetiaodi_001.png","height":33},
+            "props":{"y":31,"x":38,"width":135,"skin":"image/common/battle/img_xuetiaodi_001.png","height":33},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -151,14 +150,13 @@
                     "props":{"y":7,"x":1,"width":105,"var":"img_hpBg","skin":"image/common/battle/img_hpBg.png","height":10},
                     "nodeParent":24,
                     "label":"Image(img_hpBg)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":27,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":105,"var":"img_hp","top":0,"skin":"image/common/battle/img_xuetiao.png","left":0,"height":10},
                             "nodeParent":27,
@@ -186,7 +184,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"width":100,"var":"img_mp","top":0,"skin":"image/common/battle/img_huangtiao.png","left":0,"height":10},
+                            "props":{"width":100,"var":"img_mp","top":0,"skin":"image/juese/fram_common_11.png","left":0,"height":10},
                             "nodeParent":29,
                             "label":"Image(img_mp)",
                             "isDirectory":false,
@@ -214,13 +212,26 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":11,"x":28,"width":104,"var":"lbl_guildName","text":"天下第一公会","height":20,"fontSize":14,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+            "props":{"y":17,"x":39,"width":109,"var":"lbl_guildName","text":"天下第一公会","strokeColor":"#000000","stroke":3,"height":20,"fontSize":18,"font":"fzhl","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_guildName)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":25,
+            "compId":38,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"x":31,"var":"lab_designation","top":0,"text":"★无敌最俊朗★","strokeColor":"#000000","stroke":2,"height":18,"fontSize":18,"font":"fzhl","color":"#dc53cd"},
+            "nodeParent":1,
+            "label":"Label(lab_designation)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":39,
             "child":[
                 ]
         }],

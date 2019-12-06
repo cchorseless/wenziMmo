@@ -1,18 +1,17 @@
 /**Created by the LayaAirIDE*/
-module view.juese{
-	export class Person_MainPanel extends ui.juese.Person_MainPanelUI{
-		constructor(){
+module view.juese {
+	export class Person_MainPanel extends ui.juese.Person_MainPanelUI {
+		constructor() {
 			super();
 		}
 		public setData(): void {
 			this.btn_self.selected = true;
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
-				(this.viw_player.getChildAt(index) as any).setData();
+				// (this.viw_player.getChildAt(index) as any).setData();
 				this.viw_player.selectedIndex = index;
 			}, null, false);
 			this.addEvent();
 			this.init_Dizi();
-
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {

@@ -82,24 +82,36 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addMonster(obj): void {
-			let monster: view.scene.MonsterInSceneItem;
+			let monster;
 			if (obj.ui_item) {
 				monster = obj.ui_item;
 			}
 			else {
-				monster = new view.scene.MonsterInSceneItem();
-				monster.setData(obj);
-			}
-			for (let _ui of this.hbox_monster._childs) {
-				// 添加成功
-				if ((_ui as view.scene.MonsterGroupInSceneItem).addMonster(monster)) {
-					return
+				let configID = '' + obj.feature.dwCretTypeId
+				let skePath: EnumData.emMonsterType = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_TYPE(configID)
+				switch (skePath) {
+					case EnumData.emMonsterType._MON_TYPE_COLLECT_: case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
+						monster = new view.scene.MonsterInSceneItemV15();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
+						monster = new view.scene.MonsterInSceneItemV1();
+						break;
+					case EnumData.emMonsterType._MON_TYPE_NORMAL_:
+						monster = new view.scene.MonsterInSceneItemV0();
+						break;
 				}
+				monster.setData(obj);
+				for (let _ui of this.hbox_monster._childs) {
+					// 添加成功
+					if ((_ui as view.scene.MonsterGroupInSceneItem).addMonster(monster)) {
+						return
+					}
+				}
+				// 添加不成功创建后添加
+				let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
+				ui_monsterGroup.addMonster(monster);
+				this.hbox_monster.addChild(ui_monsterGroup);
 			}
-			// 添加不成功创建后添加
-			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
-			ui_monsterGroup.addMonster(monster);
-			this.hbox_monster.addChild(ui_monsterGroup);
 		}
 
 
