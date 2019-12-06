@@ -125,6 +125,33 @@ module ProtoCmd {
         }
     }
 
+    // 服务器推送所有符合要求可接任务信息, 客户端也可以发送此包来自动请求, 一分钟只能请求一次
+    export class stQuestRefresh extends Packet {
+        public static msgID: number = 0x0908;
+        public questinfos: Array<stQuestInfoBase> = [];
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('infocount', PacketBase.TYPE_DWORD);
+            this.read(data);
+        }
+        public read(data: Laya.Byte): number {
+            data.pos = super.read(data);
+            for (var i: number = 0; i < this.getValue('infocount'); i++) {
+                this.questinfos[i] = new stQuestInfoBase(data);
+            }
+            return data.pos;
+        }
+        public clear(): void {
+            super.clear();
+            for (var i: number = 0; i < this.questinfos.length; i++) {
+                this.questinfos[i].clear();
+                this.questinfos[i] = null;
+            }
+            this.questinfos.length = 0;
+            this.questinfos = null;
+        }
+    }
+
     // 0x091B
     // 服务器刷新任务返回，刷任务星级
     export class stQuestSendQuestInfoRet extends Packet {

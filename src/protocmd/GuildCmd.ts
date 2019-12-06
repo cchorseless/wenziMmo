@@ -1241,6 +1241,122 @@ module ProtoCmd {
 		}
 	}
 
+
+	// 0x2A62 - 98
+	// 获取行会技能
+	export class stGlobalGetGuildSkill extends Packet {
+		public static msgID: number = 0x2A62;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);// 行会ID
+			this.cmd = 0x2A62;
+			this.read(data);
+		}
+	}
+
+	// 0x2A63 - 99
+	// 获取行会技能返回
+	export class stGlobalGetGuildSkillRet extends Packet {
+		public static msgID: number = 0x2A63;
+		public skills = []
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("guildId", PacketBase.TYPE_DWORD);// 行会ID
+			this.addProperty("count", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A63;
+			this.read(data);
+		}
+
+		public read(data) {
+			data.pos = super.read(data);
+			for (let i: number = 0; i < this.getValue('count'); i++) {
+				this.skills[i] = data.getUint32();
+			}
+			return 0;
+		}
+	}
+
+	// 0x2A64 - 100
+	// 学习行会技能
+	export class stGlobalLearnSkill extends Packet {
+		public static msgID: number = 0x2A64;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("skillId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A64;
+			this.read(data);
+		}
+	}
+	// 0x2A65 - 101
+	// 学习行会技能返回
+	export class stGlobalLearnSkillRet extends Packet {
+		public static msgID: number = 0x2A65;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("errorCode", PacketBase.TYPE_BYTE);//0成功 1失败
+			this.addProperty("skillId", PacketBase.TYPE_DWORD);
+			this.cmd = 0x2A65;
+			this.read(data);
+		}
+	}
+
+	// 0x2A66 - 102
+	// 发送接引者ID
+	export class stGlobalVerifyInviteKey extends Packet {
+		public static msgID: number = 0x2A66;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("onlyid", PacketBase.TYPE_INT64);
+			this.cmd = 0x2A66;
+			this.read(data);
+		}
+	}
+
+	// 0x2A67 - 103
+	// 发送接引者ID返回
+	export class stGlobalVerifyInviteKeyRet extends Packet {
+		public static msgID: number = 0x2A67;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("errorCode", PacketBase.TYPE_BYTE);//0成功 1接引者不存在 2已有接引者
+			this.addProperty("onlyid", PacketBase.TYPE_INT64);
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//我的接引者
+			this.cmd = 0x2A67;
+			this.read(data);
+		}
+	}
+
+	// 0x2A68 - 104
+	// 接引面板数据
+	export class stGlobalInviteData extends Packet {
+		public static msgID: number = 0x2A68;
+		public constructor(data: Laya.Byte) {
+			super();
+			this.cmd = 0x2A68;
+			this.read(data);
+		}
+	}
+	// 0x2A69 - 105
+	// 接引面板数据返回
+	export class stGlobalInviteDataRet extends Packet {
+		public static msgID: number = 0x2A67;
+		public nameStr: string = '';
+		public constructor(data: Laya.Byte) {
+			super();
+			this.addProperty("szName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);//我的接引者
+			this.addProperty("count", PacketBase.TYPE_DWORD);//我接引的人
+			this.cmd = 0x2A67;
+			this.read(data);
+		}
+
+		public read(data) {
+			data.pos = super.read(data);
+			var nSize: number = this.getValue('count');
+			this.nameStr = data.readUTFBytes(nSize);
+			return data.length
+		}
+	}
+
 }
 
 
