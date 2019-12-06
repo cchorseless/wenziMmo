@@ -38,6 +38,7 @@ module ResData {
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }
         ];
         // 主界面 主界面资源通过同步加载

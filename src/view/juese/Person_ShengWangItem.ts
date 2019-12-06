@@ -3,6 +3,8 @@ module view.juese {
 	export class Person_ShengWangItem extends ui.juese.Person_ShengWangItemUI {
 		constructor() {
 			super();
+			this.addEvent();
+			this.setData();
 		}
 		public hasInit = false;// 初始化自己
 		private client_func_index = 18;// 功能ID编号
@@ -12,14 +14,20 @@ module view.juese {
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
-			this.panel_shengWang.hScrollBarSkin = '';
-			this.hbox_shengWang['sortItem'] = (items) => { };
+			// this.panel_shengWang.hScrollBarSkin = '';
+			// this.hbox_shengWang['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
 			this.vbox_right['sortItem'] = (items) => { };
-			this.addEvent();
+			// this.addEvent();
 			this.activation();
 		}
 		public addEvent(): void {
+			this.btn_preview.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new Person_ShengWangPreviewDialog();
+				o.setData(this.data.titletab)
+				o.show();
+			})
+
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				let activationLvl = SheetConfig.Introduction_play.getInstance(null).LEVEL('' + (this.client_func_index + 1000));
@@ -32,10 +40,10 @@ module view.juese {
 				}
 			});
 			this.btn_achieve.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Task_ChengJiuDialog().setData(this.data).popup();
+				new view.juese.Task_ChengJiuDialog().setData(this.data).show()
 			})
 			this.btn_weiwang.on(Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Person_shengwangDialog().popup(true);
+				new view.juese.Person_shengwangDialog().show()
 			})
 		}
 		public activation(): void {
@@ -69,7 +77,8 @@ module view.juese {
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
 				this.data = jsonData;
 				this.lbl_use.text = '每日消耗' + jsonData.daydelexp + '点声望值';
-				this.lbl_xiaoguo.text = '威慑\n 攻击威望值低于自己的玩家' + jsonData.damage;
+				this.lab_effectName.text = "威慑";
+				this.lbl_xiaoguo.text = '攻击威望值低于自己的玩家' + jsonData.damage;
 				//我的声望头衔
 				for (let i = 0; jsonData.titletab[i]; i++) {
 					if (jsonData.prestigeid == i) {
@@ -78,8 +87,9 @@ module view.juese {
 				}
 				//我的声望icon
 				this.img_self.skin = 'image/juese/icon_shengwang' + jsonData.prestigeid + '.png';
+
 				//声望经验值进度条
-				this.img_progress.width = 211 * jsonData.minexp / jsonData.maxexp;
+				this.img_progress.width = 170 * jsonData.minexp / jsonData.maxexp;
 				//声望经验值
 				this.lbl_value.text = jsonData.minexp + '/' + jsonData.maxexp;
 				//声望排名
@@ -87,16 +97,16 @@ module view.juese {
 				let numArray = ['零', '一', '二', '三']
 				for (let i = 1; i < 4; i++) {
 					if (jsonData.rank[i]) {
-						this['lbl_shengwang' + i].text = '声望第' + numArray[i] + ':' + jsonData.rank[i];
+						this['lbl_shengwang' + i].text = jsonData.rank[i];
 					} else {
-						this['lbl_shengwang' + i].text = '声望第' + numArray[i] + ':虚位以待';
+						this['lbl_shengwang' + i].text = '虚位以待';
 					}
 				}
 				// //当前属性
 				let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 				let attribute1 = shuxing1.des;
 				let battle1 = shuxing1.battle[this.job];
-				this.clip_power1.value = '' + battle1;
+				// this.clip_power1.value = '' + battle1;
 				let keys1 = Object.keys(attribute1)
 				this.vbox_left.removeChildren();
 				for (let key of keys1) {
@@ -108,7 +118,7 @@ module view.juese {
 					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
 					let battle = shuxing2.battle[this.job];
-					this.clip_power2.value = '' + battle;
+					// this.clip_power2.value = '' + battle;
 					let battle2 = shuxing2.battle[this.job];
 					let keys2 = Object.keys(attribute1)
 					this.vbox_right.removeChildren();
@@ -117,10 +127,10 @@ module view.juese {
 					}
 				}
 				//威望预览
-				this.hbox_shengWang.removeChildren();
-				for (let i = 0; jsonData.titletab[i]; i++) {
-					this.hbox_shengWang.addChild(new view.juese.Person_ShengWangQiZiItem().setData(jsonData.titletab[i], i))
-				}
+				// this.hbox_shengWang.removeChildren();
+				// for (let i = 0; jsonData.titletab[i]; i++) {
+				// 	this.hbox_shengWang.addChild(new view.juese.Person_ShengWangQiZiItem().setData(jsonData.titletab[i], i))
+				// }
 			})
 			lcp.send(pkt);
 		}
@@ -135,7 +145,7 @@ module view.juese {
 				if (bpkt.rank == undefined || bpkt.rank == -1) {
 					this.lbl_myRank.text = '未上榜';
 				} else {
-					this.lbl_myRank.text = '' + bpkt.rank;
+					this.lbl_myRank.text = '第' + bpkt.rank + '名';
 				}
 			})
 		}

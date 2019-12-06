@@ -46,6 +46,10 @@ module view.juese {
 			// EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
 			// 	new view.dialog.InfoV1Dialog().popup();
 			// })
+			this.btn_prestige.on(Laya.UIEvent.CLICK,this,function(){
+				let o = new Person_shengwangMainDialog();
+				o.popup(true);
+			})
 		}
 
 		public initUI(): void {
