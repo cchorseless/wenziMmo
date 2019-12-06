@@ -5,7 +5,7 @@ module view.juese {
 			super();
 		}
 		public data;
-		public setData(item:{data:any,key:number}): Person_BuildEquipItem {
+		public setData(item: { data: any, key: number }): Person_BuildEquipItem {
 			this.data = item;
 			//穿戴位置
 			let name;
@@ -64,8 +64,12 @@ module view.juese {
 		}
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquip,(this.data))
+				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquip, (this.data))
 			})
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquip, this);
+			super.destroy(isbool);
 		}
 	}
 }

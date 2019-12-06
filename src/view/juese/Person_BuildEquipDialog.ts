@@ -6,10 +6,22 @@ module view.juese {
 			this.setData();
 		}
 		public equipInfo;
+		//剑客可打造所有装备
 		public jobEquip1 = [];
+		//怪盗可打造所有装备
 		public jobEquip2 = [];
+		//隐门可打造所有装备
 		public jobEquip3 = [];
+		//职业1剑客2怪盗3隐门
 		public job = 1;
+		//必选装备所需数量
+		public maxNum;
+		//必选装备的等级条件限制
+		public level;
+		//要打造的装备的dwBaseID
+		public result;
+		//必选装备所有材料的int64id（用'`'号连接）
+		public stuff;
 		public setData(): void {
 			this.panel_equip.hScrollBarSkin = '';
 			this.hbox_equip['sortItem'] = (items) => { };
@@ -48,6 +60,7 @@ module view.juese {
 			}
 			this.addEvent();
 			this.init_euipInfo(0);
+			this.init_selectPart();
 		}
 		public addEvent(): void {
 			//装备等级选择
@@ -58,6 +71,20 @@ module view.juese {
 			//关闭弹窗
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
+			})
+			//选择必选材料
+			this.box_add.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.level && this.maxNum) {
+					new view.juese.Person_BuildEquipSelectDialog().setData(this.level, this.maxNum).popup();
+				}
+			})
+			//打造裝備
+			this.btn_build.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_buildEquip();
+			})
+			//是否选中可选材料
+			this.btn_putAnother.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_putAnother.selected = !this.btn_putAnother.selected;
 			})
 		}
 		/**
@@ -153,7 +180,7 @@ module view.juese {
 			this.init_dangqian();
 		}
 		public init_dangqian(equipInfo = null): void {
-			//当前装备选中状态显示
+			//当前装备选中状态发光显示
 			for (let item of this.hbox_equip._childs) {
 				item.img_light.visible = false;
 			}
@@ -173,17 +200,108 @@ module view.juese {
 			if (this.hbox_equip._childs.length > 0) {
 				let keys = Object.keys(this.equipInfo);
 				for (let key of keys) {
-					if (equipInfo.key== key) {
-						let equipData = this.equipInfo[key];
+					if (equipInfo.key == key) {
+						//可合成装备
 						let itemInfo = new ProtoCmd.ItemBase();
 						itemInfo.dwBaseID = parseInt(key);
+						this.result = parseInt(key)
 						this.ui_build.setData(itemInfo);
 						this.lbl_name.text = equipInfo.data[1];
+						//所需材料
+						let equipData = this.equipInfo[key];
+						//初始化必选材料信息
+						this.btn_add.visible = true;
+						let item0 = equipData[0].split('`');
+						this.level = parseInt(item0[0]);
+						this.lbl_condition.text = '等级大于' + item0[0] + '级'
+						this.lbl_num.text = '0/' + item0[1];
+						this.maxNum = item0[1];
+						this.ui_item0.img_item.visible = false;
+						this.ui_item0.lbl_count.visible = false;
+						//固定材料
+						let item12 = equipData[1].match(/\d+/g);
+						//材料1
+						let itemInfo1 = new ProtoCmd.ItemBase();
+						itemInfo1.dwBaseID = parseInt(item12[0]);
+						itemInfo1.dwCount = parseInt(item12[1]);
+						this.ui_item1.setData(itemInfo1);
+						this.lbl_item1.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[0]);
+						//材料2
+						let itemInfo2 = new ProtoCmd.ItemBase();
+						itemInfo2.dwBaseID = parseInt(item12[2]);
+						itemInfo2.dwCount = parseInt(item12[3]);
+						this.ui_item2.setData(itemInfo2);
+						this.lbl_item2.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[2]);
+						//可选材料
+						let itemInfo3 = new ProtoCmd.ItemBase();
+						itemInfo3.dwBaseID = equipData[2];
+						itemInfo3.dwCount = equipData[3];
+						this.ui_item3.ui_item.setData(itemInfo3, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						break;
 					}
 				}
 			}
-			// 	//equipFabricate(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID, 状态0不附加材料,1附加材料
-			// 	//111`11
+
+		}
+		/**
+		 * 更新选中装备
+		 */
+		public updata(): void {
+			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquip, this, (data) => {
+				this.init_dangqian(data);
+			})
+		}
+		public init_selectPart(): void {
+			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type: number) => {
+				//type为选择材料弹窗响应1为打造装备弹窗响应
+				if (type == 1) {
+					this.btn_add.visible = false;
+					this.ui_item0.img_item.visible = true;
+					this.ui_item0.lbl_count.visible = false;
+					//会配一个通用icon显示，此处只需要显示材料数量
+					// let itemInfo = new ProtoCmd.ItemBase();
+					// itemInfo.dwBaseID = jsonData.dwBaseID;
+					// itemInfo.dwBinding = jsonData.dwBinding;
+					// itemInfo.dwCount = jsonData.dwCount;
+					// this.ui_item0.setData(itemInfo);
+					//所需必选装备数量
+					let num = this.lbl_num.text.split('/');
+					let cout = 0;
+					for (let item of jsonData) {
+						cout += 1;
+						//获取必选装备所有材料的int64id（用'`'号连接）
+						if (this.stuff) {
+							this.stuff = this.stuff + '`' + item.i64ItemID.id;
+						} else {
+							this.stuff = item.i64ItemID.id
+						}
+					}
+					//当前必选装备数量/所需必选装备数量
+					this.lbl_num.text = cout + '/' + num[1];
+				}
+			})
+		}
+		public onClosed(TYPE?) {
+			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this)
+			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquip, this)
+		}
+		public init_buildEquip(): void {
+			if (this.stuff && this.result) {
+				//可选装备选中状态0不附加材料,1附加材料
+				let type;
+				if (this.btn_putAnother.selected) {
+					type = 1;
+				} else {
+					type = 0;
+				}
+				//打造装备
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData, type) => {
+				})
+				lcp.send(pkt)
+			} else {
+				TipsManage.showTips('材料不足')
+			}
 		}
 	}
 }
