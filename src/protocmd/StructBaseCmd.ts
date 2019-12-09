@@ -1118,7 +1118,7 @@ module ProtoCmd {
             this.addProperty('btBornFrom', PacketBase.TYPE_BYTE);	//物品来源
             this.addProperty('dwEffId', PacketBase.TYPE_DWORD);		 //当前效果ID
             this.addProperty('btQuality', PacketBase.TYPE_BYTE);	//物品品质
-            this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
+            this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//装备星级
             this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);    //过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
             this.addProperty('UnionData', PacketBase.TYPE_BYTES, 120); //

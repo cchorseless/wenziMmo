@@ -135,7 +135,7 @@ module view.hero {
 		public init_GangQIInfo(): void {
 			this.hbox_gangqi.removeChildren();
 			for (let i = 0; i < 10; i++) {
-				this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(i));
+				// this.hbox_gangqi.addChild(new view.juese.Person_GangQiBtnItem().setData(i));
 			}
 		}
 		//罡气信息拉取发包

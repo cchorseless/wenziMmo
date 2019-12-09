@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":4,
-    "props":{"width":130,"sceneColor":"#aba1a1","height":120},
+    "selectedBox":1,
+    "selecteID":2,
+    "props":{"width":130,"sceneColor":"#aba1a1","height":110},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,9 +15,9 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":0,"x":15,"width":100,"stateNum":"2","skin":"image/common/bottom_shuxing.png","height":110},
+            "props":{"y":0,"x":15,"width":100,"var":"btn_select","stateNum":"2","skin":"image/common/bottom_shuxing.png","height":110},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_select)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
@@ -41,7 +41,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":86,"x":9,"width":108,"var":"lbl_name","text":"玩法名称","height":29,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
+            "props":{"y":86,"x":1,"width":130,"var":"lbl_name","text":"玩法名称","height":22,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_name)",
             "isDirectory":false,
