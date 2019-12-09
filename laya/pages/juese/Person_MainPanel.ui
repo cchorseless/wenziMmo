@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":104,
-    "selecteID":171,
+    "selectedBox":174,
+    "selecteID":176,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -93,7 +93,7 @@
                     "compId":123,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -108,7 +108,47 @@
                     "compId":171,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":27,"width":583,"var":"box_item2","name":"item2"},
+                    "nodeParent":104,
+                    "label":"Box(box_item2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":172,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":27,"width":583,"var":"box_item3","name":"item3"},
+                    "nodeParent":104,
+                    "label":"Box(box_item3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":173,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":0,"width":638,"var":"box_item4","name":"item4"},
+                    "nodeParent":104,
+                    "label":"Box(box_item4)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":174,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         },
