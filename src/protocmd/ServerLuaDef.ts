@@ -187,6 +187,10 @@ module ProtoCmd {
     export const Rank_rankShowRewardByRankType = 'rankShowRewardByRankType';
     //我的奖励领取
     export const Rank_getRankRewardByRankType = 'getRankRewardByRankType';
+    //装扮界面
+    export const dressPanel = 'dressPanel';
+    //装扮穿戴
+    export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
     // 声望信息

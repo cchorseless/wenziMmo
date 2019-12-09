@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":104,
-    "selecteID":292,
+    "selectedBox":174,
+    "selecteID":176,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":174,"x":0,"width":638,"var":"viw_player","height":899},
+            "props":{"y":198,"x":0,"width":638,"var":"viw_player","height":875},
             "nodeParent":1,
             "label":"ViewStack(viw_player)",
             "isOpen":true,
@@ -84,7 +84,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"juese/Person_EquipInfoItem.ui",
-                    "props":{"y":44,"x":27,"width":583,"var":"ui_equipProps","runtime":"view.juese.Person_EquipInfoItem","name":"item0","height":810},
+                    "props":{"y":0,"x":27,"width":583,"var":"ui_equipProps","runtime":"view.juese.Person_EquipInfoItem","name":"item0","height":810},
                     "nodeParent":104,
                     "label":"UIView(ui_equipProps)",
                     "isDirectory":false,
@@ -99,7 +99,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"juese/Person_InfoItem.ui",
-                    "props":{"y":5,"x":10,"width":617,"var":"ui_jueseDetail","runtime":"view.juese.Person_InfoItem","name":"item1","height":888},
+                    "props":{"y":7,"x":10,"width":617,"var":"ui_jueseDetail","runtime":"view.juese.Person_InfoItem","name":"item1","height":888},
                     "nodeParent":104,
                     "label":"UIView(ui_jueseDetail)",
                     "isDirectory":false,
@@ -112,35 +112,45 @@
                 },
                 {
                     "x":30,
-                    "type":"UIView",
-                    "source":"juese/Person_TalentInfoItem.ui",
-                    "props":{"y":-1,"x":32,"var":"ui_talent","runtime":"view.juese.Person_TalentInfoItem","name":"item2"},
+                    "type":"Box",
+                    "props":{"y":0,"x":27,"width":583,"var":"box_item2","name":"item2"},
                     "nodeParent":104,
-                    "label":"UIView(ui_talent)",
+                    "label":"Box(box_item2)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":292,
+                    "compId":172,
                     "child":[
-                        ],
-                    "$HIDDEN":false
+                        ]
                 },
                 {
                     "x":30,
-                    "type":"UIView",
-                    "source":"juese/Person_GangQiItem.ui",
-                    "props":{"y":40,"x":6,"var":"ui_gangQi","runtime":"view.juese.Person_GangQiItem","name":"item3"},
+                    "type":"Box",
+                    "props":{"y":0,"x":27,"width":583,"var":"box_item3","name":"item3"},
                     "nodeParent":104,
-                    "label":"UIView(ui_gangQi)",
+                    "label":"Box(box_item3)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":213,
+                    "compId":173,
                     "child":[
-                        ],
-                    "$HIDDEN":true
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":0,"width":638,"var":"box_item4","name":"item4"},
+                    "nodeParent":104,
+                    "label":"Box(box_item4)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":174,
+                    "child":[
+                        ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,

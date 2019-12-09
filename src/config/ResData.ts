@@ -239,8 +239,8 @@ module ResData {
             { url: 'json/Solarterms.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Solarterms },
             //装备打造
             { url: 'json/zhuangbei_make.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuangbei_make },
-
-
+            //外观列表
+            { url: 'json/zhuanban_Dress.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuanban_Dress }
         ];
     }
 
