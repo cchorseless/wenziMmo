@@ -15,14 +15,12 @@ module view.juese {
 			this.serverData = data;
 			for (let i in data) {
 				let baseData = SheetConfig.zhuanban_Dress.getInstance(null).GETDATABYID(data[i].id + '');
-				// let type = SheetConfig.zhuanban_Dress.getInstance(null).MINTYPE(data[i].id + '');
-				// this.statusArr.push([type,data.status])
 				if (baseData) {
 					this.dataArr.push([baseData, [data[i].status, data[i].id]]);
 				}
 
 			}
-			
+
 			this.showView(this.curType)
 		}
 		public showView(type) {
@@ -49,6 +47,9 @@ module view.juese {
 				this.panel_show.getChildAt(i).on(Laya.UIEvent.CLICK, this, function () {
 					for (let o = 0; o < this.panel_show.numChildren; o++) {
 						if (this.panel_show.getChildAt(o).itemID == i) {
+							this.setView_get(this.panel_show.getChildAt(o).itemStr)
+							this.setEffectShow(this.panel_show.getChildAt(o).effectID)
+							Person_DressInfoItem.self.setView_get(this.panel_show.getChildAt(o).isUnLock, this.panel_show.getChildAt(o).hasWear, this.panel_show.getChildAt(o).dressID)
 							this.panel_show.getChildAt(o).img_circle.visible = true;
 						} else {
 							this.panel_show.getChildAt(o).img_circle.visible = false;
@@ -68,6 +69,20 @@ module view.juese {
 			this.html_get.style.fontSize = 24;
 			this.html_get.innerHTML = "<span style='color:#000000'>获得途径：</span>"
 				+ "<span style='color:#63491a'>" + str + "</span>";
+		}
+
+		public setEffectShow(effid) {
+			// effid.replace(/|/g,',' );
+			effid = effid.split('|');
+			for (let i = 0; i < effid.length; i++) {
+				let useEffid = effid[i];
+				let effData = GameUtil.parseEffectidToObj([useEffid])
+				if (effData.des.length > 0) {
+					for (let i = 0; i < effData.des.length; i++) {
+						this.hbox_effect.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
+					}
+				}
+			}
 		}
 	}
 }

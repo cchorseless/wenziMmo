@@ -26,6 +26,8 @@ module view.juese {
 				this.panel_show.getChildAt(i).on(Laya.UIEvent.CLICK, this, function () {
 					for (let o = 0; o < this.panel_show.numChildren; o++) {
 						if (this.panel_show.getChildAt(o).itemID == i) {
+							this.setView_get(this.panel_show.getChildAt(o).itemStr)
+							Person_DressInfoItem.self.setView_get(this.panel_show.getChildAt(o).isUnLock, this.panel_show.getChildAt(o).hasWear, this.panel_show.getChildAt(o).dressID)
 							this.panel_show.getChildAt(o).img_circle.visible = true;
 						} else {
 							this.panel_show.getChildAt(o).img_circle.visible = false;
