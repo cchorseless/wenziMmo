@@ -5,13 +5,14 @@ module view.juese {
 			super();
 			this.setData();
 		}
+
 		private hasInit = false;// 初始化自己
 		//拉取天赋信息类型
 		private talent;
+		//升级所需物品
+		public iteminfo;
 		//装备类型
 		private type;
-		//天赋激活类型
-		private index;
 		//天赋升级类型
 		private upLevelType;
 		//天赋名称
@@ -41,7 +42,6 @@ module view.juese {
 			//装备位置
 			this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 			this.talent = this.eventList[0]
-			this.index = this.activeEventList[0];
 			this.upLevelType = this.UpEventList[0];
 			this.dangqianNum = 2;
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
@@ -59,19 +59,27 @@ module view.juese {
 					this.init_Initialization(i);
 				});
 			}
-			// 激活
+			// 一键激活
 			this.btn_jiHuo.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(this.index, null, null, this, (jsonData) => {
-					this.TalentInfo()
-				})
-				lcp.send(pkt);
+				for (let active of this.activeEventList) {
+					let pkt = new ProtoCmd.QuestClientData();
+					pkt.setString(active, null, null, this, (jsonData) => {
+						this.TalentInfo()
+					})
+					lcp.send(pkt);
+				}
 			})
 			// 升级
 			this.btn_up.on(Laya.UIEvent.CLICK, this, () => {
 				this.lvUpTalent();
 			})
 			this.addLcpEvent();
+			//购买
+			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.iteminfo.length>0) {
+					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo).popup();
+				}
+			})
 		}
 		/**
     * 天赋按钮icon
@@ -151,8 +159,6 @@ module view.juese {
 			this.talent = this.eventList[i];
 			//升级天赋协议
 			this.upLevelType = this.UpEventList[i];
-			//激活天赋协议
-			this.index = this.activeEventList[i]
 			this.TalentInfo();
 		}
 		/**
@@ -164,6 +170,7 @@ module view.juese {
 				this.viw_0.selectedIndex = 0;
 				this.zhuangbeiInfo(this.getItemInfo());
 				this.init_laqu();
+				this.init_changeIcon();
 			}
 			else {
 				this.viw_0.selectedIndex = 1;
@@ -190,26 +197,17 @@ module view.juese {
 					//所需经验
 					this.lbl_need.text = '' + jsonData.score;
 					//当前经验
-					if(jsonData.curscore<jsonData.score){
-						this.lbl_have.color='#a53232';
-					}else{
-						this.lbl_have.color='#000000';
+					if (jsonData.curscore < jsonData.score) {
+						this.lbl_have.color = '#a53232';
+					} else {
+						this.lbl_have.color = '#000000';
 					}
 					this.lbl_have.text = '' + jsonData.curscore
-					// let keys = Object.keys(jsonData.itemtab);
 					//升级天赋所需物品
-					// this.hbox_wupin.removeChildren();
-					// for (let key of keys) {
-					// 	let data = jsonData.itemtab[key];
-					// 	let _itemUI = new view.compart.DaoJuWithNameItem();
-					// 	let itemInfo = new ProtoCmd.ItemBase();
-					// 	let num = GameUtil.findItemInBag(data.index, GameApp.GameEngine.bagItemDB);
-					// 	itemInfo.dwBaseID = data.index;
-					// 	itemInfo.dwCount = num;
-					// 	_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP);
-					// 	this.hbox_wupin.addChild(_itemUI)
-					// }
-					// this.init_xiajie(jsonData.itemid);
+					this.iteminfo = []
+					for (let i in jsonData.itemtab) {
+						this.iteminfo.push(jsonData.itemtab[i].index);
+					}
 				})
 			}
 		}
@@ -264,7 +262,6 @@ module view.juese {
 			for (let event of this.eventList) {
 				GameApp.LListener.offCaller(event, this);
 			}
-
 			super.destroy(isbool);
 		}
 	}

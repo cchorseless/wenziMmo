@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":320,
-    "selecteID":343,
+    "selectedBox":354,
+    "selecteID":372,
     "props":{"width":573,"sceneColor":"#e2a9a8","height":886},
     "nodeParent":-1,
     "label":"View",
@@ -504,7 +504,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":135,"x":31,"width":510,"var":"vbox_left","space":5,"height":200},
+                            "props":{"y":135,"x":31,"width":510,"var":"vbox_left","space":10,"height":200},
                             "nodeParent":354,
                             "label":"VBox(vbox_left)",
                             "isOpen":true,
@@ -636,9 +636,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":366,"x":535,"stateNum":"2","skin":"image/main/bnt_jia.png"},
+                            "props":{"y":366,"x":535,"var":"btn_buy","stateNum":"2","skin":"image/main/bnt_jia.png"},
                             "nodeParent":354,
-                            "label":"Button",
+                            "label":"Button(btn_buy)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,

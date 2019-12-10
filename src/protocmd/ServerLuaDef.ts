@@ -54,7 +54,7 @@ module ProtoCmd {
     // 拉取商店道具列表
     export const SHOP_UpdateItemList = 'openMallLable';// (type:商城类型,subtype:商店子类型=0（0无子ID，从1开始）) return itf_HotShop
     // 商店购买物品
-    export const SHOP_BuyItem = 'buyMallItem';//(type,subtype, idx, num)
+    export const SHOP_BuyItem = 'buyMallItem';//(type商店类型,subtype商店子类型, idx第几个物品, num数量)
     // 热销商店刷新
     export const SHOP_HOT_REFRESH = 'refreshMallHotItem';
 

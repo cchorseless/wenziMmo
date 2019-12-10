@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":376,
-    "selecteID":377,
+    "selectedBox":349,
+    "selecteID":352,
     "props":{"width":625,"sceneColor":"#d7b5b5","height":818},
     "nodeParent":-1,
     "label":"View",
@@ -167,10 +167,10 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"x":86,"width":164,"skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
+                            "props":{"x":86,"width":164,"var":"img_now","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
                             "nodeParent":349,
-                            "label":"Image",
-                            "isOpen":null,
+                            "label":"Image(img_now)",
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -187,36 +187,36 @@
                                     "compId":351,
                                     "child":[
                                         ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":213,"x":-11,"width":184,"var":"lbl_dangqian","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
+                                    "nodeParent":350,
+                                    "label":"Label(lbl_dangqian)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":352,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":213,"x":75,"width":184,"var":"lbl_dangqian","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
-                            "nodeParent":349,
-                            "label":"Label(lbl_dangqian)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":352,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"x":393,"width":164,"skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
+                            "props":{"x":393,"width":164,"var":"img_next","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
                             "nodeParent":349,
-                            "label":"Image",
-                            "isOpen":null,
+                            "label":"Image(img_next)",
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":353,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-10,"x":-73,"width":263,"skin":"image/common/role_half2_102.png","height":223},
                                     "nodeParent":353,
@@ -226,30 +226,31 @@
                                     "hasChild":false,
                                     "compId":354,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":213,"x":-12,"width":184,"var":"lbl_xiaji","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
+                                    "nodeParent":353,
+                                    "label":"Label(lbl_xiaji)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":355,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":213,"x":381,"width":184,"var":"lbl_xiaji","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
-                            "nodeParent":349,
-                            "label":"Label(lbl_xiaji)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":355,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"y":87,"x":295,"width":50,"skin":"image/common/icon_shengji_01.png","height":83},
+                            "props":{"y":87,"x":295,"width":50,"var":"img_shengji","skin":"image/common/icon_shengji_01.png","height":83},
                             "nodeParent":349,
-                            "label":"Image",
+                            "label":"Image(img_shengji)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -260,7 +261,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":261,"x":11,"width":614,"skin":"image/common/bottom_touming.png","height":91},
+                            "props":{"y":261,"x":5,"width":614,"skin":"image/juese/shadow_shuju.png","height":91},
                             "nodeParent":349,
                             "label":"Image",
                             "isDirectory":false,
@@ -268,7 +269,8 @@
                             "hasChild":false,
                             "compId":357,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -517,7 +519,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":498,"x":30,"width":572,"skin":"image/common/bottom_touming.png","height":181},
+                            "props":{"y":498,"x":26,"width":572,"skin":"image/juese/shadow_shuju.png","height":181},
                             "nodeParent":349,
                             "label":"Image",
                             "isOpen":true,
@@ -657,9 +659,9 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":-5,"x":127,"stateNum":"2","skin":"image/main/bnt_jia.png"},
+                                    "props":{"y":-5,"x":127,"var":"btn_buy","stateNum":"2","skin":"image/main/bnt_jia.png"},
                                     "nodeParent":383,
-                                    "label":"Button",
+                                    "label":"Button(btn_buy)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,

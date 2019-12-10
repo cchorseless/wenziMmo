@@ -13,6 +13,7 @@ module view.juese {
 		private exp = null;
 		//所需经验
 		private needexp = null;
+		public iteminfo;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -52,12 +53,19 @@ module view.juese {
 		}
 
 		public addEvent(): void {
+			//激活
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_JiHuo();
 			})
+			//购买
+			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.iteminfo) {
+					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 0).popup();
+				}
+			})
 			//角色罡气升级
 			this.btn_upLevel.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.exp != null && this.needexp != null && this.exp > this.needexp) {
+				if (this.exp != null && this.needexp != null && this.exp >= this.needexp) {
 					this.init_upLevel();
 				}
 				else {
@@ -65,26 +73,13 @@ module view.juese {
 				}
 			})
 			this.addLcpEvent();
+			this.init_GangQIInfo(this.getItemInfo());
 		}
 
 		public addLcpEvent(): void {
 			//拉取我的罡气物品信息
 			GameApp.LListener.on(ProtoCmd.JS_playerWingPanel, this, (jsonData) => {
-				let keys = Object.keys(jsonData)
-				let i = 0;
-				// for (let key of keys) {
-				// 	let data = jsonData[key];
-				// 	i = i + 1;
-				// 	let _itemUI = new view.compart.DaoJuWithNameItem();
-				// 	let itemInfo = new ProtoCmd.ItemBase();
-				// 	let num = GameUtil.findItemInBag(key, GameApp.GameEngine.bagItemDB);
-				// 	itemInfo.dwBaseID = parseInt(key);
-				// 	itemInfo.dwCount = num;
-				// 	let type = 1;
-				// 	_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP, type);
-				// 	this['box_gangqi' + i].addChild(_itemUI);
-				// }
-				this.init_GangQIInfo(this.getItemInfo());
+				this.iteminfo = jsonData;
 				this.init_Info(this.getItemInfo());
 			})
 		}
@@ -128,29 +123,43 @@ module view.juese {
 				this.lbl_have.color = '#000000';
 			}
 			//当前罡气名
-			let id = data.dwEffId + data.dwLevel - 1;
+			let id = data.dwEffId;
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 			this.lbl_dangqian.text = '' + gangqiName;
-			//下级属性
-			let xiajieID = data.dwEffId + (Math.floor(data.dwLevel / 10) + 1) * 10;
-			//下阶罡气名
-			let xgangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + xiajieID);
-			this.lbl_xiaji.text = '' + xgangqiName;
+			//当前罡气属性
+			let des0 = GameUtil.parseEffectidToObj(['' + data.dwEffId]);
+			//当前罡气战力
+			let battle0 = des0.battle[this.job];
+			//下阶罡气属性
+			let nextid = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId);
+			let des1 = GameUtil.parseEffectidToObj(['' + nextid]);
+			//下阶罡气战力
+			let battle1 = des1.battle[this.job];
+			this.lbl_power1.text = '' + battle0;
+			//战力差
+			this.lbl_addBattle.text = '+' + (battle1 - battle0);
+			this.vbox_left.removeChildren();
+			for (let i = 0; des0.des[i]; i++) {
+				this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des0.des[i], des1.des[i], 0))
+			}
+			this.init_update();
 		}
 		/**
 		 * 罡气下阶预览
 		 */
 		public init_GangQIInfo(data): void {
-			let id = data.dwEffId;
-			this.hbox_gangqi.removeChildren();
-			for (let i = 0; i < 10; i++) {
-				let effid = id + i * 10;
-				let gangqiInfo = new view.juese.Person_GangQiBtnItem();
-				gangqiInfo.scaleX = 0.7;
-				gangqiInfo.scaleY = 0.7;
-				this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid));
+			if (data) {
+				//罡气基础id
+				let id = data.dwEffId - data.dwLevel + 1;
+				this.hbox_gangqi.removeChildren();
+				for (let i = 0; i < 10; i++) {
+					let effid = id + i * 10;
+					let gangqiInfo = new view.juese.Person_GangQiBtnItem();
+					gangqiInfo.scaleX = 0.7;
+					gangqiInfo.scaleY = 0.7;
+					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid));
+				}
 			}
-			this.init_update();
 		}
 
 		//罡气信息拉取发包
@@ -173,10 +182,9 @@ module view.juese {
 		 */
 		public init_update(id = null): void {
 			let data = this.getItemInfo();
-			let dangqian = data.dwEffId + data.dwLevel - 1;
 			if (id == null) {
-				//当前的下一阶罡气
-				id = data.dwEffId + (Math.floor(data.dwLevel / 10) + 1) * 10;
+				//当前的下一星罡气效果id
+				id = data.dwEffId + (Math.floor(data.dwLevel / 10) + 1) * 10 - data.dwLevel + 1;
 			}
 			//选中状态
 			for (let child of this.hbox_gangqi._childs) {
@@ -186,28 +194,16 @@ module view.juese {
 					child.btn_select.selected = false;
 				}
 			}
-			//当前罡气属性
-			let des0 = GameUtil.parseEffectidToObj(['' + dangqian]);
-			//选中罡气属性
-			let des1 = GameUtil.parseEffectidToObj(['' + id]);
-			//当前罡气战力
-			let battle0 = des0.battle[this.job];
-			//选中罡气战力
-			let battle1 = des1.battle[this.job];
-			this.lbl_power1.text = '' + battle0;
-			//当前与选中的罡气比，战力是上升还是下降
-			if (dangqian != id) {
-				if ((battle1 - battle0) >= 0) {
-					this.lbl_addBattle.text = '+' + Math.abs(battle1 - battle0);
-				} else {
-					this.lbl_addBattle.text = '-' + Math.abs(battle1 - battle0);
-				}
+			if (data.dwLevel < 90) {
+				this.img_now.x = 86;
+				this.img_next.visible = true;
+				//罡气名
+				this.lbl_xiaji.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
+				//罡气皮肤
+				// this.img_next.skin = 'image/juese/img_gangQi_0' + j + '.png'
 			} else {
-				this.lbl_addBattle.text = '';
-			}
-			this.vbox_left.removeChildren();
-			for (let i = 0; des0.des[i]; i++) {
-				this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des0.des[i], des1.des[i],0))
+				this.img_now.x = 230;
+				this.img_next.visible = false;
 			}
 		}
 	}

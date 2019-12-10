@@ -45,7 +45,7 @@ module view.shopMall {
 			this.tab_top.labels = tablabel;
 
 			this.addEvent();
-			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN,0);
+			this.updateHotShop(EnumData.ShopType.SHOP_TYPE_TUIJIAN, 0);
 		}
 		public addEvent(): void {
 			//返回菜单
@@ -53,8 +53,8 @@ module view.shopMall {
 				PopUpManager.checkPanel(this)
 			});
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
-				this.updateHotShop(this.allType[index],index);
-				
+				this.updateHotShop(this.allType[index], index);
+
 			}, null, false);
 			//充值
 			this.btn_Recharge.on(Laya.UIEvent.CLICK, this, () => {
@@ -107,10 +107,10 @@ module view.shopMall {
 		/**
 	  	 *拉取商店信息
 	  	 */
-		public updateHotShop(type,id): void {
-			
+		public updateHotShop(type, id): void {
 			let index = id;
 			this.viw_shop.selectedIndex = id;
+			//荣誉货币只在index=3时显示
 			if (index == 3) {
 				this.img_rongyu.visible = true;
 			} else {
@@ -127,7 +127,6 @@ module view.shopMall {
 				//神秘商店
 				this.init_secretShopEvent();
 			}
-
 		}
 		/**
 		 * 
@@ -135,6 +134,12 @@ module view.shopMall {
 		 * @param shop 商店类型
 		 */
 		public init_shopEvent(jsonData, shop): void {
+			let shoptype;
+			if (shop == 5) {
+				shoptype = EnumData.ShopType.SHOP_TYPE_LIMITED;
+			} else {
+				shoptype = shop;
+			}
 			//商品的总数
 			let allItem = 0;
 			for (let j = 1; jsonData.items[j]; j++) {
@@ -170,13 +175,13 @@ module view.shopMall {
 				}
 				if (sum <= shang) {
 					if (index == 3) {
-						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray));
+						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray,shoptype,i));
 						shopArray = [];
 					}
 				}
 				else {
 					if (index == shu) {
-						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray));
+						this['vbox_shop' + shop].addChild(new view.shopMall.ShopItemV2Item().setData(shopArray,shoptype,i));
 						shopArray = [];
 					}
 				}

@@ -1530,23 +1530,6 @@ class ServerListener extends SingletonClass {
         let baseIno = new ProtoCmd.stRelationInfoBase();
         baseIno.clone(msg.friendInfo.data);
         let Type = msg.getValue('btType');
-        let _friend;
-        switch (Type) {
-            // 好友
-            case 0:
-                _friend = GameApp.GameEngine.friendDB;
-                break;
-            // 黑名单
-            case 1:
-                _friend = GameApp.GameEngine.blackDB;
-                break;
-            // 仇人
-            case 2:
-                _friend = GameApp.GameEngine.chouRenDB;
-                break;
-            default:
-                throw new Error('好友类型不对');
-        }
         let friendInfo = GameApp.MainPlayer.friendInfo[Type].info;
         let keys = Object.keys(friendInfo);
         let num = 0;

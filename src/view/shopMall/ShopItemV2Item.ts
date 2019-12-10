@@ -4,9 +4,16 @@ module view.shopMall {
 		constructor() {
 			super();
 		}
-		public item;
-		public setData(data): ShopItemV2Item {
-			this.item = data;
+		public item=[];
+		public setData(data, shoptype, i): ShopItemV2Item {
+			for (let part of data) {
+				this.item.push({
+					binding: part.item.binding, curcnt: part.item.curcnt, discount: part.item.discount, itemid: part.item.itemid,
+					limitcnt: part.item.limitcnt, num: part.item.num, price: part.item.price, pricetype: part.item.pricetype,
+					show: part.item.show, type: shoptype, subtype: 0, index: i
+				});
+			}
+
 			for (let i = 1; i < 4; i++) {
 				this['box_' + i].visible = false;
 			}
@@ -43,7 +50,6 @@ module view.shopMall {
 				//物品货币类型
 				this['img_huobi' + single.index].skin = LangConfig.getCoinImagePicSkin(single.item.pricetype);
 			}
-
 			this.addEvent();
 			return this;
 		}
@@ -51,7 +57,7 @@ module view.shopMall {
 			for (let i = 1; i < 4; i++) {
 				let j = i - 1;
 				this['box_' + i].on(Laya.UIEvent.CLICK, this, () => {
-					let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item[j].item.itemid);
+					let itemType = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + this.item[j].itemid);
 					let itemInfoDialog: view.shopMall.ShopBuyItemV0Dialog | view.shopMall.ShopBuyItemV1Dialog;
 					// 根据物品类型显示不同界面
 					switch (itemType) {
@@ -79,7 +85,7 @@ module view.shopMall {
 							itemInfoDialog = new view.shopMall.ShopBuyItemV0Dialog();
 							break;
 					}
-					itemInfoDialog.setData(this.item[j].item, EnumData.ShopBuyPanelType.SHOP_BUY_GUILD_PANEL).show(true);
+					itemInfoDialog.setData(this.item[j], EnumData.ShopBuyPanelType.SHOP_BUY_GUILD_PANEL).show(true);
 				})
 			}
 
