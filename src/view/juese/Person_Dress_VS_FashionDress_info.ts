@@ -12,6 +12,9 @@ module view.juese {
 		}
 		public setData(data, id, status, dressID, type) {
 			// this.img_icon.skin ='';
+			if(!data[0]){
+				return;
+			}
 			this.dressID = dressID;
 			this.itemType = type;
 			this.itemID = id;

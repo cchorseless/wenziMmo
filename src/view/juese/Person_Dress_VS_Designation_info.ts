@@ -19,8 +19,6 @@ module view.juese {
 			} else {
 				this.img_circle.visible = false;
 			}
-			// let isUnLock;
-			// let hasWear;
 			this.itemStr = data[4]
 			this.effectID = data[1];
 			if (status == 0) {

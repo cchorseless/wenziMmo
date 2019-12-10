@@ -37,6 +37,7 @@ module view.juese {
 			lcp.send(pkt34);
 		}
 		public setData(data) {
+			this.vbox_item['sortItem'] = (items) => { };
 			this.vbox_item.removeChildren();
 			this.lbl_num.text = data.score;
 			for (let i in data.questtab) {
