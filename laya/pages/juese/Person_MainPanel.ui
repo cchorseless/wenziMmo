@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":174,
-    "selecteID":176,
+    "selectedBox":104,
+    "selecteID":175,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":198,"x":0,"width":638,"var":"viw_player","height":875},
+            "props":{"y":194,"x":0,"width":638,"var":"viw_player","height":879},
             "nodeParent":1,
             "label":"ViewStack(viw_player)",
             "isOpen":true,
@@ -112,29 +112,32 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":0,"x":27,"width":583,"var":"box_item2","name":"item2"},
+                    "type":"UIView",
+                    "source":"juese/Person_TalentInfoItem.ui",
+                    "props":{"y":-29,"x":32,"var":"ui_talent","runtime":"view.juese.Person_TalentInfoItem","name":"item2"},
                     "nodeParent":104,
-                    "label":"Box(box_item2)",
+                    "label":"UIView(ui_talent)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":172,
+                    "compId":175,
                     "child":[
                         ]
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":0,"x":27,"width":583,"var":"box_item3","name":"item3"},
+                    "type":"UIView",
+                    "source":"juese/Person_GangQiItem.ui",
+                    "props":{"y":34,"x":6,"var":"ui_gangQi","runtime":"view.juese.Person_GangQiItem","name":"item3"},
                     "nodeParent":104,
-                    "label":"Box(box_item3)",
+                    "label":"UIView(ui_gangQi)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":173,
+                    "compId":176,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
