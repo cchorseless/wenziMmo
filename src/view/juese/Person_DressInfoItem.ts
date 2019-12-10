@@ -2,6 +2,7 @@
 module view.juese {
 	export class Person_DressInfoItem extends ui.juese.Person_DressInfoItemUI {
 		public touchID = 0;
+		public curBox;
 		public base = [[1], [4], [3]]
 		public static self: Person_DressInfoItem;
 		constructor() {
@@ -11,11 +12,6 @@ module view.juese {
 			Person_DressInfoItem.self = this;
 		}
 		public setData() {
-			// let pkt = new ProtoCmd.QuestClientData();
-			// pkt.setString(ProtoCmd.dressPanel, [1], null, this, (jsonData) => {
-			// 	let data = jsonData;
-			// })
-			// lcp.send(pkt);
 			for (let i = 0; i < 3; i++) {
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
@@ -38,6 +34,7 @@ module view.juese {
 			})
 		}
 		public showView_Stack(type) {
+			
 			if (type == 0) {
 				this.btn_fashion.selected = true;
 				this.btn_gangqi.selected = false;
@@ -51,34 +48,37 @@ module view.juese {
 				this.btn_gangqi.selected = false;
 				this.btn_Designation.selected = true;
 			}
-			let box = this.V_Show.getChildAt(type);
-			if (box.numChildren <= 0) {
+			this.curBox = this.V_Show.getChildAt(type);
+			if (this.curBox.numChildren <= 0) {
 				GameApp.LListener.on(ProtoCmd.dressPanel, this, (data) => {
-					box.removeChildren();
+					this.curBox.removeChildren();
 					switch (this.touchID) {
 						case 0:
 							let o = new Person_Dress_VS_FashionDressItem();
 							o.setData(data);
 							o.x = 22
-							box.addChild(o);
+							this.curBox.addChild(o);
 							break;
 						case 1:
 							let p = new Person_Dress_VS_GangQiItem();
 							p.setData(data);
 							p.x = 22
-							box.addChild(p);
+							this.curBox.addChild(p);
 							break;
 						case 2:
-							// let q = new Person_Dress_VS_DesignationItem();
-							// q.setData(data);
-							// q.x = 22
-							// box.addChild(q);
+							let q = new Person_Dress_VS_DesignationItem();
+							q.setData(data);
+							q.x = 22
+							this.curBox.addChild(q);
 							break;
 					}
 				})
 				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.dressPanel, this.base[type])
 				lcp.send(pkt0);
 			}
+			this.V_Show.selectedIndex = type;
+
+
 		}
 		/**
 		 * 穿戴按钮状态

@@ -17,8 +17,12 @@ module view.juese {
 				let baseData = SheetConfig.zhuanban_Dress.getInstance(null).GETDATABYID(data[i].id + '');
 				// let type = SheetConfig.zhuanban_Dress.getInstance(null).MINTYPE(data[i].id + '');
 				// this.statusArr.push([type,data.status])
-				this.dataArr.push([baseData, [data[i].status,data[i].id]]);
+				if (baseData) {
+					this.dataArr.push([baseData, [data[i].status, data[i].id]]);
+				}
+
 			}
+			
 			this.showView(this.curType)
 		}
 		public showView(type) {
@@ -33,10 +37,11 @@ module view.juese {
 			for (let i = 0; i < curArr.length; i++) {
 				let o = new Person_Dress_VS_Designation_info()
 				o.setData(curArr[i][0], i, curArr[i][1][0], curArr[i][1][1]);
-				o.y = Math.floor(i/ 2) * (o.height + 6);
-				o.x = i% 2 * (o.width + 10)
+				o.y = Math.floor(i / 2) * (o.height + 6);
+				o.x = i % 2 * (o.width + 10)
 				this.panel_show.addChild(o);
 			}
+			this.addEvent();
 
 		}
 		public addEvent() {
@@ -55,6 +60,7 @@ module view.juese {
 				this.curType = index;
 				this.showView(this.curType)
 			}, null, false)
+
 		}
 		public setView_get(str: string) {
 			this.html_get.style.fontFamily = 'STKaiti';

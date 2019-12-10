@@ -3,6 +3,7 @@ module view.juese {
 	export class Person_Dress_VS_FashionDress_info extends ui.juese.Person_Dress_VS_FashionDress_infoUI {
 		public itemID;
 		public itemType;//0:时装  1:罡气
+		public itemStr;
 		constructor() {
 			super();
 		}
@@ -18,10 +19,11 @@ module view.juese {
 			this.lab_name.text = data[0];
 			let isUnLock;
 			let hasWear;
+			this.itemStr = data[4]
 			if (this.itemType == 0) {
-				Person_Dress_VS_FashionDressItem.self.setView_get(data[4]);
+				Person_Dress_VS_FashionDressItem.self.setView_get(this.itemStr);
 			} else if (this.itemType == 1) {
-				Person_Dress_VS_GangQiItem.self.setView_get(data[4]);
+				Person_Dress_VS_GangQiItem.self.setView_get(this.itemStr);
 			}
 
 			if (status == 0) {
@@ -46,12 +48,5 @@ module view.juese {
 			}
 			Person_DressInfoItem.self.setView_get(isUnLock, hasWear)
 		}
-		// public selectedItem(id) {
-		// 	if (id == this.itemID) {
-		// 		this.img_circle.visible = true;
-		// 	} else {
-		// 		this.img_circle.visible = false;
-		// 	}
-		// }
 	}
 }
