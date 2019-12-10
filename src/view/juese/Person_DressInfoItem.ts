@@ -24,7 +24,6 @@ module view.juese {
 		public addEvent() {
 
 
-			//  GameApp.LListener.event(ProtoCmd.UP_DATE_DRESS); 
 			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
 				this.upDateView();
 			})
@@ -94,6 +93,9 @@ module view.juese {
 				})
 				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.dressPanel, this.base[type])
 				lcp.send(pkt0);
+			}else{
+				let item=this.curBox.getChildAt(0).panel_show.getChildAt(0)
+				this.setView_get(item.isUnLock, item.hasWear, item.dressID)
 			}
 			this.V_Show.selectedIndex = type;
 
@@ -124,7 +126,10 @@ module view.juese {
 		}
 		public upDateView() {
 			let box = this.V_Show.getChildAt(this.touchID);
-			box.removeChildren();
+			if (box.numChildren > 0) {
+				box.removeChildren();
+			}
+
 			this.showView_Stack(this.touchID)
 		}
 	}
