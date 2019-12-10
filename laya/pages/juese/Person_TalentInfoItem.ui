@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":354,
-    "selecteID":358,
+    "selectedBox":320,
+    "selecteID":343,
     "props":{"width":573,"sceneColor":"#e2a9a8","height":886},
     "nodeParent":-1,
     "label":"View",
@@ -74,7 +74,8 @@
                             "hasChild":false,
                             "compId":324,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -315,9 +316,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":171,"x":257,"skin":"image/juese/font_zhanli_1.png"},
+                    "props":{"y":171,"x":257,"var":"img_battle","skin":"image/juese/font_zhanli_1.png"},
                     "nodeParent":320,
-                    "label":"Image",
+                    "label":"Image(img_battle)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -342,9 +343,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":237,"x":251,"width":18,"skin":"image/juese/img_jiantou_2.png","height":23},
+                    "props":{"y":237,"x":251,"width":18,"var":"img_add","skin":"image/juese/img_jiantou_2.png","height":23},
                     "nodeParent":320,
-                    "label":"Image",
+                    "label":"Image(img_add)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
