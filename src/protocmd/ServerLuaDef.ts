@@ -193,6 +193,8 @@ module ProtoCmd {
     export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
+    //更新时装穿戴情况
+    export const UP_DATE_DRESS = 'up_date_dress';
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
     // 强化大师(强化、装备等级、升级大师)

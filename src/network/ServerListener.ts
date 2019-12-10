@@ -507,6 +507,7 @@ class ServerListener extends SingletonClass {
     public syncPlayerFeature(data): void {
         let cbpkt = ProtoCmd.PlayerIconDecoder.getInstance();
         cbpkt.read(data);
+        GameApp.LListener.event(ProtoCmd.UP_DATE_DRESS);
     }
 
     /**

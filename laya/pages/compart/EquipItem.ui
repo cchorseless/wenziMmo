@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":4,
-    "props":{"width":75,"sceneColor":"#000000","height":75},
+    "selecteID":2,
+    "props":{"width":95,"sceneColor":"#000000","height":115},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,20 +15,49 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"var":"btn_icon","stateNum":"1","skin":"image/common/daoju/quality_5.png"},
+            "props":{"y":5,"x":5,"width":85,"var":"btn_icon","stateNum":"1","skin":"image/common/frame_normal_touxiang.png","height":85,"gray":false},
             "nodeParent":1,
             "label":"Button(btn_icon)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":2,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":7,"x":8,"width":70,"var":"img_icon","skin":"image/common/daoju/itemicon_bg_10.png","height":70},
+                    "nodeParent":2,
+                    "label":"Image(img_icon)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ],
+                    "$LOCKED":true
+                }],
+            "$LOCKED":true,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":91,"x":11,"width":72,"var":"lab_name","text":"左手镯","height":22,"fontSize":24,"font":"fzhl","color":"#4b3520","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_name)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":7,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-5,"x":-5,"var":"img_circle","skin":"image/common/daoju/fram_common_daojudown.png"},
+            "props":{"y":0,"x":0,"width":95,"var":"img_circle","skin":"image/common/daoju/fram_common_daojudown.png","height":95},
             "nodeParent":1,
             "label":"Image(img_circle)",
             "isOpen":false,
@@ -38,20 +67,49 @@
             "compId":3,
             "child":[
                 ],
+            "$LOCKED":true,
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":5,"x":48,"width":42,"var":"img_lv_mask","skin":"image/common/bottom_black.png","height":19},
+            "nodeParent":1,
+            "label":"Image(img_lv_mask)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":6,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-1,"x":0,"var":"lab_lv","text":"+ 30","fontSize":18,"font":"fzhl","color":"#5dcf1b"},
+                    "nodeParent":6,
+                    "label":"Label(lab_lv)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":10,"x":9,"var":"img_icon"},
+            "props":{"y":9,"x":8,"visible":false,"var":"img_lock","skin":"image/zhaiYuan/img_common_shuoding.png"},
             "nodeParent":1,
-            "label":"Image(img_icon)",
+            "label":"Image(img_lock)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":4,
+            "compId":8,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

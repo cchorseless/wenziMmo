@@ -6,6 +6,7 @@ module view.zhaiYuan {
 		private canIntensify: boolean = false; //能否强化
 		private allData;//下面的面板十个item数据
 		private msgData;//上面的面板的详细信息数 
+		private equipNameArr = ['头盔', '项链', '衣服', '武器', '左手镯', '右手镯', '左戒指', '右戒指', '鞋子', '裤子']
 		public type = 0;
 		constructor() {
 			super();
@@ -16,8 +17,9 @@ module view.zhaiYuan {
 
 		}
 		public setData() {
-			this.vbox_0['sortItem'] = (items) => { };
-			this.vbox_1['sortItem'] = (items) => { };
+			// this.vbox_0['sortItem'] = (items) => { };
+			// this.vbox_1['sortItem'] = (items) => { };
+			this.vbox_eff['sortItem'] = (items) => { };
 			this.upDateView(0, 0);
 		}
 		public addEvent() {
@@ -30,28 +32,34 @@ module view.zhaiYuan {
 			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
 				this.sendIntensify();
 			});
-
-			this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
-				this.type = this.tab_down.selectedIndex;
-				this.TouchID = 0;
-				this.getData_PlayerEquipMsg()
-			})
 		}
 		//刷新界面
 		public upDateView(type, Touchindex) {
 			let curCostNum;
-			let costName;
+			let costID;
 			let costCount;
 			// let arr = ["强化", "激活", "升阶", "进阶", "获取"]
 			this.btn_intensify.label = "强化";
+			let aa;
+			if (type == 0) {
+				aa = this.allData.playerjson;
+			} else {
+				aa = this.allData.herojson;
+			}
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].btn_icon.gray = false;
+				this["ui_equip" + i].lab_name.text = this.equipNameArr[i];
+				this["ui_equip" + i].lab_lv.text = '+ ' + aa[i] + '';
 				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
 			}
+			this.lab_curLevel.text = aa[this.TouchID] + '';
+			this.lab_nextLevel.text = (aa[this.TouchID] + 1) + '';
 			this.panel_1_UI.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
+			this.panel_1_UI.lab_name.text = this.equipNameArr[this.TouchID];
+			this.panel_1_UI.lab_lv.text = '+ ' + aa[this.TouchID] + '';
 			this.panel_1_UI.img_circle.visible = false;
 			curCostNum = GameUtil.findItemInBag(this.msgData.itemid, GameApp.GameEngine.bagItemDB);
-			costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.itemid.toString())
+			costID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.msgData.itemid.toString())
 			costCount = this.msgData.count;
 			if (curCostNum >= costCount) {
 				this.canIntensify = true
@@ -62,7 +70,12 @@ module view.zhaiYuan {
 			//升级;             所需要的金币消耗
 			// this.lab_goldCost.text = "消耗金币：" + this.msgData.gold;
 			//选中时;           item金色的框是否显示 --选中状态    
-			this.lab_cost_forge.text = "消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
+			//  + costName + " (" + curCostNum + "/" + costCount + ")"
+			this.lab_cost_forge.text = "强化消耗";
+			this.lab_cost_Text.text = costCount + '/' + curCostNum;
+			this.img_icon.skin = 'image/common/daoju/itemicon_' + costID + '.png';
+
+
 			for (let i = 0; i < 10; i++) {
 				if (i == this.TouchID) {
 					this["ui_equip" + i].img_circle.visible = true
@@ -79,41 +92,50 @@ module view.zhaiYuan {
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID]
 			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
-			this.lab_showForgeLevel_1.text = "";
-			this.lab_1_increase.text = "";
-			this.lab_luckyText.text = "当前成功率：";
 			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
-			let effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-			let effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
+			let effid0;
+			let effData0;
+			if (this.msgData.lvl != 0) {
+				effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+				effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
+			}
+
 			let effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
 			let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
-			this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			this.vbox_0.removeChildren();
+			// this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
+			// this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
+			// this.vbox_0.removeChildren();
+			this.vbox_eff.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
-					this.vbox_0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					this.vbox_eff.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 				}
 			}
-			this.vbox_1.removeChildren();
-			if (effData1.des.length > 0) {
-				for (let i = 0; i < effData1.des.length; i++) {
-					// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
-				}
-			}
+			this.img_exp_cur.width = (this.msgData.curexp / this.msgData.maxexp) * this.img_exp_bg.width
+			this.lab_Luckexp.text = this.msgData.curexp + '/' + this.msgData.maxexp;
+
+
+
+
+			// this.vbox_1.removeChildren();
+			// if (effData1.des.length > 0) {
+			// 	for (let i = 0; i < effData1.des.length; i++) {
+			// 		// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+			// 	}
+			// }
 			this.panel_1_UI.img_circle.visible = false;
-			for (let i = 0; i < 5; i++) {
-				let aa = Math.floor(this.msgData.lvl / 5);
-				let ss = this.msgData.lvl % 5;
-				this["btn_Star" + i].skin = starSkin[aa];
-				if (ss > i) {
-					this["btn_Star" + i].disabled = false;
-					this["btn_Star" + i].selected = true;
-				} else {
-					this["btn_Star" + i].disabled = true;
-					this["btn_Star" + i].selected = false;
-				}
-			}
+			// for (let i = 0; i < 5; i++) {
+			// 	let aa = Math.floor(this.msgData.lvl / 5);
+			// 	let ss = this.msgData.lvl % 5;
+			// 	this["btn_Star" + i].skin = starSkin[aa];
+			// 	if (ss > i) {
+			// 		this["btn_Star" + i].disabled = false;
+			// 		this["btn_Star" + i].selected = true;
+			// 	} else {
+			// 		this["btn_Star" + i].disabled = true;
+			// 		this["btn_Star" + i].selected = false;
+			// 	}
+			// }
 		}
 		/**
 		 * 获取当前强化阶段3、5、7、9、11、13、15      用于左上角显示当前阶数
@@ -194,10 +216,10 @@ module view.zhaiYuan {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.equipIntensify, [this.type, this.TouchID, 0], 0,
 				this, (data) => {
 					TipsManage.showTips("强化成功")
-					this.getData_PlayerEquipMsg()
-
 				});
 			lcp.send(pkt);
+			this.getData_PlayerEquipMsg()
+
 		}
 		//强化成功后重新拉取面板信息
 		public getData_PlayerEquipMsg() {

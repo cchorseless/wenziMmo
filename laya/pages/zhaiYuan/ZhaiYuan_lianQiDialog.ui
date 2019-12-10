@@ -1,7 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
+    "selectedBox":80,
+    "selecteID":128,
     "referenceLines":null,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
@@ -12,19 +13,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":-113,"x":-120,"width":344,"skin":"image/zhaiYuan/img_tieJiangPu.png","height":332},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":7,
-            "child":[
-                ]
-        },
         {
             "x":15,
             "type":"Image",
@@ -65,7 +53,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":-5,"x":539,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
+                    "props":{"y":-5,"x":517,"var":"btn_close","stateNum":2,"skin":"image/common/btn_common_guangbi01up_finish.png"},
                     "nodeParent":80,
                     "label":"Button(btn_close)",
                     "isDirectory":false,
@@ -78,7 +66,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":149,"x":47,"width":530,"skin":"image/common/login/line_yeqian.png"},
+                    "props":{"y":149,"x":47,"width":530,"skin":"image/common/login/line_yeqian.png","height":3},
                     "nodeParent":80,
                     "label":"Image",
                     "isDirectory":false,
@@ -91,7 +79,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":98,"x":141,"var":"tab_top","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"强化,升阶,传世","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
+                    "props":{"y":94,"x":95,"var":"tab_top","stateNum":2,"space":2,"skin":"image/common/bookmark_wupin_01.png","selectedIndex":0,"labels":"强化,升阶,传世","labelStrokeColor":"#000000","labelSize":22,"labelFont":"FZXK","labelColors":"#404040,#63491a","labelBold":true,"direction":"horizontal"},
                     "nodeParent":80,
                     "label":"Tab(tab_top)",
                     "isDirectory":false,
@@ -108,6 +96,7 @@
             "props":{"y":158,"x":45,"width":530,"var":"view_SMain","height":741},
             "nodeParent":1,
             "label":"ViewStack(view_SMain)",
+            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

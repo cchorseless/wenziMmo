@@ -15,10 +15,12 @@ module view.juese {
 			this.serverData = data;
 			for (let i in data) {
 				let baseData = SheetConfig.zhuanban_Dress.getInstance(null).GETDATABYID(data[i].id + '');
-				// let type = SheetConfig.zhuanban_Dress.getInstance(null).MINTYPE(data[i].id + '');
-				// this.statusArr.push([type,data.status])
-				this.dataArr.push([baseData, [data[i].status,data[i].id]]);
+				if (baseData) {
+					this.dataArr.push([baseData, [data[i].status, data[i].id]]);
+				}
+
 			}
+
 			this.showView(this.curType)
 		}
 		public showView(type) {
@@ -33,10 +35,11 @@ module view.juese {
 			for (let i = 0; i < curArr.length; i++) {
 				let o = new Person_Dress_VS_Designation_info()
 				o.setData(curArr[i][0], i, curArr[i][1][0], curArr[i][1][1]);
-				o.y = Math.floor(i/ 2) * (o.height + 6);
-				o.x = i% 2 * (o.width + 10)
+				o.y = Math.floor(i / 2) * (o.height + 6);
+				o.x = i % 2 * (o.width + 10)
 				this.panel_show.addChild(o);
 			}
+			this.addEvent();
 
 		}
 		public addEvent() {
@@ -44,6 +47,9 @@ module view.juese {
 				this.panel_show.getChildAt(i).on(Laya.UIEvent.CLICK, this, function () {
 					for (let o = 0; o < this.panel_show.numChildren; o++) {
 						if (this.panel_show.getChildAt(o).itemID == i) {
+							this.setView_get(this.panel_show.getChildAt(o).itemStr)
+							this.setEffectShow(this.panel_show.getChildAt(o).effectID)
+							Person_DressInfoItem.self.setView_get(this.panel_show.getChildAt(o).isUnLock, this.panel_show.getChildAt(o).hasWear, this.panel_show.getChildAt(o).dressID)
 							this.panel_show.getChildAt(o).img_circle.visible = true;
 						} else {
 							this.panel_show.getChildAt(o).img_circle.visible = false;
@@ -55,6 +61,7 @@ module view.juese {
 				this.curType = index;
 				this.showView(this.curType)
 			}, null, false)
+
 		}
 		public setView_get(str: string) {
 			this.html_get.style.fontFamily = 'STKaiti';
@@ -62,6 +69,20 @@ module view.juese {
 			this.html_get.style.fontSize = 24;
 			this.html_get.innerHTML = "<span style='color:#000000'>获得途径：</span>"
 				+ "<span style='color:#63491a'>" + str + "</span>";
+		}
+
+		public setEffectShow(effid) {
+			// effid.replace(/|/g,',' );
+			effid = effid.split('|');
+			for (let i = 0; i < effid.length; i++) {
+				let useEffid = effid[i];
+				let effData = GameUtil.parseEffectidToObj([useEffid])
+				if (effData.des.length > 0) {
+					for (let i = 0; i < effData.des.length; i++) {
+						this.hbox_effect.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
+					}
+				}
+			}
 		}
 	}
 }
