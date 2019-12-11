@@ -3,6 +3,7 @@ module view.juese {
 	export class Person_GangQiItem extends ui.juese.Person_GangQiItemUI {
 		constructor() {
 			super();
+			this.setData();
 		}
 		private client_func_index = 16;// 功能ID编号
 		//角色职业
@@ -201,14 +202,14 @@ module view.juese {
 			}
 			if (data.dwLevel < 90) {
 				this.img_now.x = 86;
-				this.img_next.visible = true;
+				this.img_shengji.visible = this.img_next.visible = true;
 				//罡气名
 				this.lbl_xiaji.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 				//罡气皮肤
 				// this.img_next.skin = 'image/juese/img_gangQi_0' + j + '.png'
 			} else {
 				this.img_now.x = 230;
-				this.img_next.visible = false;
+				this.img_shengji.visible = this.img_next.visible = false;
 			}
 		}
 	}

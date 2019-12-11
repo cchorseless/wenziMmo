@@ -64,7 +64,7 @@ module view.juese {
 		}
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquip, (this.data))
+				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquip,(this.data))
 			})
 		}
 		public destroy(isbool): void {

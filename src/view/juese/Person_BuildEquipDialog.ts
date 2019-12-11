@@ -61,6 +61,7 @@ module view.juese {
 			this.addEvent();
 			this.init_euipInfo(0);
 			this.init_selectPart();
+			this.updata();
 		}
 		public addEvent(): void {
 			//装备等级选择
@@ -237,7 +238,10 @@ module view.juese {
 						//可选材料
 						let itemInfo3 = new ProtoCmd.ItemBase();
 						itemInfo3.dwBaseID = equipData[2];
-						itemInfo3.dwCount = equipData[3];
+						let kexuan = GameUtil.findItemInBag(equipData[2], GameApp.GameEngine.bagItemDB);
+						//可选道具数量
+						this.lbl_kexuan.text = kexuan + '/' + equipData[3];
+						this.ui_item3.ui_item.lbl_count.visible = false;
 						this.ui_item3.ui_item.setData(itemInfo3, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						break;
 					}

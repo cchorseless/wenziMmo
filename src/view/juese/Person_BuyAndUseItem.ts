@@ -12,7 +12,7 @@ module view.juese {
 		public type;
 		public num = 0;
 		public setData(id, type): Person_BuyAndUseItem {
-			//0罡气1资质
+			//0罡气1资质2弟子转生
 			this.type = type;
 			this.id = id;
 			this.init_updata();
@@ -101,8 +101,15 @@ module view.juese {
 						if (btErrorCode == 0) {
 							TipsManage.showTips('道具使用成功');
 							this.init_updata();
-							if(this.type==1){
-								PanelManage.JueSe.ui_talent.init_laqu();
+							switch (this.type) {
+								//刷新角色天赋界面
+								case 1:
+									PanelManage.JueSe.ui_talent.init_laqu();
+									break;
+								case 2:
+								//刷新弟子转生界面
+									PanelManage.DiZi.ui_sangong.init_zhuangshengPanel();
+									break;
 							}
 						}
 						else {

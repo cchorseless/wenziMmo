@@ -263,7 +263,7 @@ module ProtoCmd {
     // 转生
     export const Hero_zhuanSheng = 'zhuanSheng';
     // 获取修为面板
-    export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';
+    export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';//(1弟子0玩家)
     // 兑换修为面板
     export const Hero_exchangeXiuWei = 'exchangeXiuWei';
     // 弟子罡气激活
@@ -934,7 +934,7 @@ module ProtoCmd {
     export interface itf_Hero_XiuWeiInfo {
         count: number//每日兑换次数
         exp: number//所需经验
-        gold: number//金币数量
+        gold: number//所需金币数量
         pill: number//修为丹
         superpill: number//超级修为丹
         xw: number//上述条件可兑换的修为

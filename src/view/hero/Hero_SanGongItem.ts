@@ -13,6 +13,7 @@ module view.hero {
 		private sum;
 		//判断是第几个弟子
 		private job;
+		public xiuweidata;
 		public setData(): void {
 			// this.job = job;
 			// let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
@@ -26,10 +27,13 @@ module view.hero {
 			this.btn_zhuanSheng.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpLevel();
 			})
-			//返璞归真
-			// this.btn_xiuwei.on(Laya.UIEvent.CLICK, this, () => {
-			// 	this.init_UpXiuWei();
-			// })
+			//购买
+			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.xiuweidata) {
+					new view.juese.Person_BuyAndUseDialog().setData(this.xiuweidata, 2).popup();
+				}
+			})
+
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
 				if (GameApp.MainPlayer.lvlCount >= this.sum) {
@@ -73,35 +77,39 @@ module view.hero {
 			GameApp.LListener.on(ProtoCmd.Hero_zhuanShengPanel, this, (jsonData: ProtoCmd.itf_Hero_ZhuanShengInfo) => {
 				let exp = jsonData.xw - jsonData.maxxw;
 				this.exp = exp;
-				if (jsonData.xw <= jsonData.maxxw) {
-					// this.lbl_progress.text = jsonData.xw + '/' + jsonData.maxxw;
-					// this.img_progress.width = 472 * jsonData.xw / jsonData.maxxw;
-				}
-				else {
-					// this.lbl_progress.text = '' + jsonData.maxxw + '/' + jsonData.maxxw;
-					// this.img_progress.width = 472;
+				//转生所需经验
+				this.lbl_need.text = '' + jsonData.maxxw;
+				this.lbl_have.text = '' + jsonData.xw;
+				let result = jsonData.xw - jsonData.maxxw;
+				if (result < 0) {
+					this.lbl_have.color = '#a53232';
+				} else {
+					this.lbl_have.color = '#000000';
 				}
 				if (jsonData.effid != 0) {
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
 					let attribute1 = shuxing1.des;
-					let battle1 = shuxing1.battle[this.job];
-					// this.clip_power1.value = '' + battle1;
-					this.vbox_left.removeChildren();
-					for (let key of attribute1) {
-						this.vbox_left.addChild(new view.compart.SinglePropsItem().setData(key))
+					let index = 0;
+					let heroInfo = [GameApp.MainPlayer.hero1, GameApp.MainPlayer.hero2, GameApp.MainPlayer.hero3];
+					for (let idx in heroInfo) {
+						if (heroInfo[idx].isOnBattle) {
+							index = parseInt(idx) + 1;
+							break;
+						}
 					}
+					let battle1 = shuxing1.battle[index];
+					this.lbl_battle.text = '' + battle1;
 					//下级属性
-					// let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
-					// let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
-					// let attribute2 = shuxing2.des;
-					// let battle2 = shuxing2.battle[this.job];
-					// this.clip_power2.value = '' + battle2;
-					// let keys2 = Object.keys(attribute2)
-					// this.vbox_right.removeChildren();
-					// for (let key2 of attribute2) {
-					// 	this.vbox_right.addChild(new view.compart.SinglePropsItem().setData(key2))
-					// }
+					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
+					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
+					let attribute2 = shuxing2.des;
+					let battle2 = shuxing2.battle[index];
+					this.lbl_battleup.text = '+' + (battle2 - battle1);
+					this.vbox_left.removeChildren();
+					for (let key in attribute1) {
+						this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], attribute2[key], 1))
+					}
 				}
 			})
 		}
@@ -109,28 +117,14 @@ module view.hero {
 			GameApp.LListener.offCaller(ProtoCmd.Hero_zhuanShengPanel, this);
 			super.destroy(isbool);
 		}
+		/**
+		 * 修为
+		 */
 		public init_xiuwei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
 				if (jsonData.exp != undefined) {
-					//所需经验
-					// this.lbl_exp.text = '' + jsonData.exp;
-					// //所需金币
-					// this.lbl_gold.text = '' + jsonData.gold;
-					// //可兑换的修为
-					// this.lbl_exchange.text = '' + jsonData.xw;
-					// //道具1
-					// let _itemUI1 = new view.compart.DaoJuWithNameItem();
-					// let itemInfo1 = new ProtoCmd.ItemBase();
-					// itemInfo1.dwBaseID = jsonData.pill;
-					// _itemUI1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					// this.box_1.addChild(_itemUI1);
-					// //道具2
-					// let _itemUI2 = new view.compart.DaoJuWithNameItem();
-					// let itemInfo2 = new ProtoCmd.ItemBase();
-					// itemInfo2.dwBaseID = jsonData.superpill;
-					// _itemUI2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					// this.box_2.addChild(_itemUI2)
+					this.xiuweidata = jsonData;
 				}
 			})
 			lcp.send(pkt);
@@ -155,15 +149,6 @@ module view.hero {
 		public init_zhuangshengPanel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
-			lcp.send(pkt);
-		}
-		/**
-	  * 兑换修为
-	  */
-		public init_UpXiuWei(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
-			})
 			lcp.send(pkt);
 		}
 	}

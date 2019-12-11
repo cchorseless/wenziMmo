@@ -4,6 +4,7 @@ module view.juese {
 		public static self: Person_InfoItem;
 		constructor() {
 			super();
+			this.setData();
 			Person_InfoItem.self = this;
 		}
 		public hasInit = false;
@@ -93,20 +94,20 @@ module view.juese {
 		public init_personBase(): void {
 			let ability = GameApp.MainPlayer.ability;
 			// 血量
-			this.lbl_hp.text = '' + ability.nowHP + '/' + ability.nMaxHP;
+			this.lbl_hp.text = '' +LangConfig.getBigNumberDes(ability.nowHP)+ '/' + LangConfig.getBigNumberDes(ability.nMaxHP);
 			this.img_hppro.width = 302 * ability.nowHP / ability.nMaxHP;
 			// 气量
-			this.lbl_gas.text = '' + ability.nowMP + '/' + ability.nMaxMP;
+			this.lbl_gas.text = '' + LangConfig.getBigNumberDes(ability.nowMP) + '/' + LangConfig.getBigNumberDes(ability.nMaxMP);
 			this.img_gaspro.width = 302 * ability.nowMP / ability.nMaxMP;
 			// 内力
-			this.lbl_neili.text = '' + ability.nowInnerValue + '/' + ability.nInnerValue;
+			this.lbl_neili.text = '' + LangConfig.getBigNumberDes(ability.nowInnerValue) + '/' + LangConfig.getBigNumberDes(ability.nInnerValue);
 			this.img_neilipro.width = 302 * ability.nowInnerValue / ability.nInnerValue;
 			// 外功攻击
-			this.lbl_waikill.text = ability.nMinDC + '-' + ability.nMaxDC;
+			this.lbl_waikill.text = LangConfig.getBigNumberDes(ability.nMinDC) + '-' + LangConfig.getBigNumberDes(ability.nMaxDC);
 			// 外功防御
-			this.lbl_waiprotect.text = ability.nMinAC + '-' + ability.nMaxAC;
+			this.lbl_waiprotect.text = LangConfig.getBigNumberDes(ability.nMinAC) + '-' + LangConfig.getBigNumberDes(ability.nMaxAC);
 			// 内功防御
-			this.lbl_neiprotect.text = ability.nMinMAC + '-' + ability.nMaxMAC;
+			this.lbl_neiprotect.text = LangConfig.getBigNumberDes(ability.nMinMAC) + '-' + LangConfig.getBigNumberDes(ability.nMaxMAC);
 			// 闪避
 			this.lbl_shan.text = '' + ability.nJuck;
 			// 准确
