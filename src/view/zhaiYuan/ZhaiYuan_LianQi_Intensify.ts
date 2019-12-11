@@ -95,16 +95,48 @@ module view.zhaiYuan {
 			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
 			let effid0;
 			let effData0;
+			let effid1;
+			let effData1;
+			for (let i = 0; i < 3; i++) {
+				this['img_increase' + i].visible = false
+			}
 			if (this.msgData.lvl != 0) {
 				effid0 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
 				effData0 = GameUtil.parseEffectidToObj([effid0 + ""])
-			}
+				effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+				effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
+				for (let i = 0; i < effData0.des.length; i++) {
+					if (effData0.des[i].onlyValue) {
+						let span = effData1.des[i].des.value - effData0.des[i].des.value;
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = span + '';
+					} else {
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = (effData1.des[i].min - effData0.des[i].min) + "-" + (effData1.des[i].max - effData0.des[i].max);
+					}
+				}
 
-			let effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-			let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
-			// this.lab_attack0.text = effData0.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			// this.lab_attack1.text = effData1.battle[GameApp.GameEngine.mainPlayer.job].toString()
-			// this.vbox_0.removeChildren();
+			} else {
+				effid1 = this.allData.ISPosEffidTab[useID - 10] + this.msgData.lvl + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+				effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
+				let tempData = GameUtil.parseEffectidToObj([effid1 + ""])
+				effData0 = tempData;
+				for (let i = 0; i < effData0.des.length; i++) {
+					if (effData0.des[i].onlyValue) {
+						effData0.des[i].des.value = 0;
+						let span = effData1.des[i].value - effData0.des[i].value;
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = span + '';
+						effData0.des[i].des = effData0.des[i].label + "<span style='color:#00ff00;font-weight:bold;'>" + effData0.des[i].value + "</span>"
+					} else {
+						effData0.des[i].min = 0;
+						effData0.des[i].max = 0;
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = (effData1.des[i].min - effData0.des[i].min) + "-" + (effData1.des[i].max - effData0.des[i].max);
+						effData0.des[i].des = effData0.des[i].label + "<span style='color:#00ff00;font-weight:bold;'>" + effData0.des[i].min + "</span>- <span style='color:#00ff00;font-weight:bold;'>" + effData0.des[i].max + "</span>"
+					}
+				}
+			}
 			this.vbox_eff.removeChildren();
 			if (effData0.des.length > 0) {
 				for (let i = 0; i < effData0.des.length; i++) {
@@ -114,28 +146,7 @@ module view.zhaiYuan {
 			this.img_exp_cur.width = (this.msgData.curexp / this.msgData.maxexp) * this.img_exp_bg.width
 			this.lab_Luckexp.text = this.msgData.curexp + '/' + this.msgData.maxexp;
 
-
-
-
-			// this.vbox_1.removeChildren();
-			// if (effData1.des.length > 0) {
-			// 	for (let i = 0; i < effData1.des.length; i++) {
-			// 		// this.vbox_1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
-			// 	}
-			// }
 			this.panel_1_UI.img_circle.visible = false;
-			// for (let i = 0; i < 5; i++) {
-			// 	let aa = Math.floor(this.msgData.lvl / 5);
-			// 	let ss = this.msgData.lvl % 5;
-			// 	this["btn_Star" + i].skin = starSkin[aa];
-			// 	if (ss > i) {
-			// 		this["btn_Star" + i].disabled = false;
-			// 		this["btn_Star" + i].selected = true;
-			// 	} else {
-			// 		this["btn_Star" + i].disabled = true;
-			// 		this["btn_Star" + i].selected = false;
-			// 	}
-			// }
 		}
 		/**
 		 * 获取当前强化阶段3、5、7、9、11、13、15      用于左上角显示当前阶数

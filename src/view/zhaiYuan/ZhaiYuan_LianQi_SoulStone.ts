@@ -5,6 +5,9 @@ module view.zhaiYuan {
 		private allData;//下面的面板十个item数据
 		private msgData;//上面的面板的详细信息数 
 		public type = 0;
+		public hasFull = false;
+		private equipNameArr = ['头盔', '项链', '衣服', '武器', '左手镯', '右手镯', '左戒指', '右戒指', '鞋子', '裤子']
+
 
 		private canActive: boolean = false;  //能否激活
 		private statAllSoulStoneLv = [];     //所有魂石的  不同lv总和  分阶段的effID的数组
@@ -23,14 +26,21 @@ module view.zhaiYuan {
 		public setData() {
 
 			this.getData_PlayerEquipMsg(0)
+			this.vbox_eff0['sortItem'] = (items) => { };
+			this.vbox_eff1['sortItem'] = (items) => { };
 			// this.upDateView(0, 0);
 		}
 		public addEvent() {
-			this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
-				this.type = this.tab_down.selectedIndex;
-				this.TouchID = 0;
-				this.getData_PlayerEquipMsg(this.TouchID)
-			})
+			// this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
+			// 	this.type = this.tab_down.selectedIndex;
+			// 	this.TouchID = 0;
+			// 	this.getData_PlayerEquipMsg(this.TouchID)
+			// })
+
+			EventManage.onWithEffect(this.btn_recharge, Laya.UIEvent.CLICK, this, () => {
+				let o = new juese.Person_BuyAndUseItem();
+
+			});
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.TouchID = i;
@@ -49,11 +59,8 @@ module view.zhaiYuan {
 				// curSoulStoneIDChooseArr
 				let baselvldata = null;
 				this.curOneOfSoulStoneLv = 0;
-				if (this.type == 0) {
-					baselvldata = this.allData.playerlvl
-				} else {
-					baselvldata = this.allData.herolvl
-				}
+				baselvldata = this.allData.playerlvl
+
 				for (let i = 1; i < 7; i++) {
 					this.curOneOfSoulStoneLv += baselvldata[this.TouchID][i]
 				}
@@ -75,55 +82,64 @@ module view.zhaiYuan {
 			let costCount;
 			let arr = ["强化", "激活", "升阶", "进阶", "获取"]
 			for (let i = 0; i < 10; i++) {
-				this["ui_equip" + i].btn_icon.gray = false;
 				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
+				this["ui_equip" + i].lab_name.text = this.equipNameArr[i];
 			}
-			this.allData.openlvl
 			this.ui_centerIcon.img_icon.skin = "image/common/daoju/itemicon_bg_" + (this.TouchID + 10) + ".png";
 			this.ui_centerIcon.img_circle.visible = false;
-			this.ui_jieduan.img_circle.visible = false;
+
 			for (let i in this.allData.openlvl) {
-				if (type == 0) {
-					if (this.allData.openlvl[i].pbj == 0) {
-						this["ui_equip" + i].btn_icon.gray = true;
-						this.btn_intensify.label = "激活"
+				if (this.allData.openlvl[i].pbj == 0) {
+					this["ui_equip" + i].btn_icon.gray = true;
+					this["ui_equip" + i].img_lock.visible = true;
+					this["ui_equip" + i].img_lv_mask.visible = false;
+
+				} else if (this.allData.openlvl[i].pbj == 1) {
+					this["ui_equip" + i].btn_icon.gray = false;
+					this["ui_equip" + i].img_lock.visible = false;
+					this["ui_equip" + i].img_lv_mask.visible = true;
+					let num = 0;
+					for (let p in this.allData.playerlvl[i]) {
+						num += this.allData.playerlvl[i][p];
 					}
-					else {
-						this["ui_equip" + i].btn_icon.gray = false;
-						this.btn_intensify.label = "升阶"
-					}
-				}
-				else if (type == 1) {
-					if (this.allData.openlvl[i].hbj == 0) {
-						this["ui_equip" + i].btn_icon.gray = true;
-						this.btn_intensify.label = "激活"
-					}
-					else {
-						this["ui_equip" + i].btn_icon.gray = false;
-						this.btn_intensify.label = "升阶"
-					}
+					this["ui_equip" + i].lab_lv.text = '+ ' + num;
+
 				}
 			}
 			curCostNum = GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
-			costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.allData.openlvl[this.TouchID].item.index.toString())
+			// costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.allData.openlvl[this.TouchID].item.index.toString())
 			costCount = this.allData.openlvl[this.TouchID].item.num;
-			if (curCostNum >= costCount) {
-				this.canActive = true
-			}
-			else {
-				this.canActive = false;
-			}
-			this.lab_cost_forge.text = "激活消耗：" + costName + " (" + curCostNum + "/" + costCount + ")";
-			if (this["ui_equip" + this.TouchID].btn_icon.gray == false) {
-				this.btn_intensify.label = arr[2];
-				this.lab_cost_forge.text = "升阶消耗：" + "(" + this.msgData.curexp + "/" + this.msgData.needexp + ")";
-			}
-			let baseLvData;
-			if (this.type == 0) {
-				baseLvData = this.allData.playerlvl;
+			if (this.allData.openlvl[this.TouchID].pbj == 0) {
+				this.ui_centerIcon.btn_icon.gray = true;
+				this.ui_centerIcon.img_lock.visible = true;
+				this.ui_centerIcon.img_lv_mask.visible = false;
+
+				this.btn_intensify.label = "激活";
+				this.box_cost_active.visible = true;
+				this.box_cost_up.visible = false;
+				let skinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.allData.openlvl[this.TouchID].item.index + '')
+				this.img_icon.skin = 'image/common/daoju/itemicon_' + skinID + '.png';
+				let myItemNum = GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
+				this.lab_cost_Text.text = this.allData.openlvl[this.TouchID].item.num + '/' + myItemNum;
+				this.canActive = myItemNum > this.allData.openlvl[this.TouchID].item.num
 			} else {
-				baseLvData = this.allData.herolvl;
+				this.ui_centerIcon.btn_icon.gray = false;
+				this.ui_centerIcon.img_lock.visible = false;
+				this.ui_centerIcon.img_lv_mask.visible = true;
+				let num = 0;
+				for (let p in this.allData.playerlvl[this.TouchID]) {
+					num += this.allData.playerlvl[this.TouchID][p];
+				}
+				this.ui_centerIcon.lab_lv.text = '+ ' + num;
+
+				this.box_cost_active.visible = false;
+				this.box_cost_up.visible = true;
+				this.btn_intensify.label = "升阶";
+				this.btn_intensify.label = arr[2];
+				this.lab_needCost.text = this.msgData.needexp + '';
+				this.lab_curHave.text = this.msgData.curexp + '';
 			}
+			let baseLvData = this.allData.playerlvl;
 			for (let i in baseLvData) {
 				for (let o in baseLvData[i]) {
 					this.curSoulStoneLv += baseLvData[i][o];
@@ -160,11 +176,7 @@ module view.zhaiYuan {
 		//更新   上面面板的详细信息
 		public onPageContent1() {
 			let arr;
-			if (this.type == 0) {
-				arr = this.allData.playerlvl;
-			} else {
-				arr = this.allData.herolvl;
-			}
+			arr = this.allData.playerlvl;
 
 			let aa = arr[this.TouchID];
 			if (this.curOneOfSoulStoneLv < 9) {
@@ -177,63 +189,181 @@ module view.zhaiYuan {
 			} else if (this.curOneOfSoulStoneLv > 24) {
 				this.setSoulStoneState(6)
 			}
-			this.lab_attact.text = "";
+			// this.lab_attact.text = "";
 			//用当前位置的id转换为服务器ID
+			this.hasFull = false;
+
+			let num = 0;
+			for (let p in this.allData.playerlvl[this.TouchID]) {
+				num += this.allData.playerlvl[this.TouchID][p];
+			}
+			if (num < 72) {
+				this.hasFull = false;
+				this.box_level.visible = true;
+				this.lab_full_Level.visible = false;
+				this.lab_curLevel.text = num + '';
+				this.lab_nextLevel.text = (num + 1) + '';
+			} else {
+				this.hasFull = true;
+				this.box_level.visible = false;
+				this.lab_full_Level.visible = true;
+			}
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID];
-			let attackNum = 0;
-			let effDataArr = []
-			if (this.type == 0) {
+			this.showEffect();
+		}
+		public showEffect() {
+
+			let Soul_LV0_Num = 0;
+			this.vbox_eff0.removeChildren();
+			this.vbox_eff1.removeChildren();
+			for (let i = 1; i < 7; i++) {
+				this['img_increase' + i].visible = false
+			}
+			let stoneLV = this.allData.playerlvl[this.TouchID][this.curSoulStoneID];//0-12 lv
+			if (this.allData.openlvl[this.TouchID].pbj == 0) {
+				this.box_eff_show.visible = false;
+				this.lab_lock_show.visible = true;
+			} else {
+				this.box_eff_show.visible = true;
+				this.lab_lock_show.visible = false;
 				for (let i = 1; i < 7; i++) {
 					let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
-					if (soul_oneOf_Lv > 0) {
-						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
-						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
-						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
-						effDataArr.push(effData.des)
+					if (soul_oneOf_Lv == 0) {
+						Soul_LV0_Num++
 					}
 				}
-			} else if (this.type == 1) {
-				for (let i = 1; i < 7; i++) {
-					let soul_oneOf_Lv = this.allData.herolvl[this.TouchID][i] //魂石每一个球的等级
-					if (soul_oneOf_Lv > 0) {
-						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
+				if (Soul_LV0_Num < 3) {
+					for (let i = 1; i < 7; i++) {
+						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
 						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData = GameUtil.parseEffectidToObj([effid0 + ""]);
-						attackNum += effData.battle[GameApp.GameEngine.mainPlayer.job];
-						effDataArr.push(effData.des)
+						let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
+						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						}
+						if (!this.hasFull) {
+							let effid1 = this.allData.SoulStoneTab[this.curSoulStoneID] +soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+							let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+							if (i == this.curSoulStoneID) {
+								if (effData0.des[0].onlyValue) {
+									let span = effData1.des[0].value - effData0.des[0].value;
+									this['img_increase' + i].visible = true
+									this['lab_upNum' + i].text = span + '';
+								} else {
+									let span0 = effData1.des[0].min - effData0.des[0].min
+									let span1 = (effData1.des[0].max - effData0.des[0].max)
+									this['img_increase' + i].visible = true
+									this['lab_upNum' + i].text = span0 + "-" + span1;
+								}
+							}
+						}
+					}
+				} else if (Soul_LV0_Num >= 3) {
+					for (let i = 1; i < 4; i++) {
+						let effData0;
+						let effid1 = this.allData.SoulStoneTab[i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+						let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+						let tempData = GameUtil.parseEffectidToObj([effid1 + ""])
+						effData0 = tempData;
+						if (effData0.des[0].onlyValue) {
+							effData0.des[0].value = 0;
+							let span = effData1.des[0].value - effData0.des[0].value;
+							if (this.curSoulStoneID == i) {
+								this['img_increase' + i].visible = true
+								this['lab_upNum' + i].text = span + '';
+								effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + 0 + "</span>"
+							}
+						} else {
+							effData0.des[0].min = 0;
+							effData0.des[0].max = 0;
+							let span0 = effData1.des[0].min - effData0.des[0].min
+							let span1 = (effData1.des[0].max - effData0.des[0].max)
+							if (this.curSoulStoneID == i) {
+								this['img_increase' + i].visible = true
+								this['lab_upNum' + i].text = span0 + "-" + span1;
+								effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].min + "</span>- <span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].max + "</span>"
+
+							}
+						}
+						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						}
 					}
 				}
 			}
-			this.list_shengjie.array = [];
-			this.list_shengjie.array = effDataArr
-			this.list_shengjie.itemRender = view.compart.SinglePropsItem;
-			this.list_shengjie.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-				cell.setData(effDataArr[index][0]);
-			}, null, false)
-			this.lab_attact.text = attackNum.toString();
+		}
+		public setEffect() {
+
+			let Soul_LV0_Num = 0;
+			this.vbox_eff0.removeChildren();
+			this.vbox_eff1.removeChildren();
+			for (let i = 1; i < 7; i++) {
+				this['img_increase' + i].visible = false
+			}
+			if (this.allData.openlvl[this.TouchID].pbj == 0) {
+				this.box_eff_show.visible = false;
+				this.lab_lock_show.visible = true;
+			} else {
+				this.box_eff_show.visible = true;
+				this.lab_lock_show.visible = false;
+				if (this.allData.playerlvl[this.TouchID][6] < 12) {
+					for (let i = 1; i < 7; i++) {
+						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
+						if (soul_oneOf_Lv > 0) {
+							if (soul_oneOf_Lv < 72) {
+								this.allData.SoulStoneTab[i];    //原本魂石对应的effid
+								let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+								let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
+								let effid1 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+								let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+								if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+									this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+								} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+									this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+								}
+								if (effData0.des[0].onlyValue) {
+									let span = effData1.des[0].value - effData0.des[0].value;
+									if (this.curSoulStoneID == i) {
+										this['img_increase' + i].visible = true
+										this['lab_upNum' + i].text = span + '';
+									}
+								} else {
+									let span0 = effData1.des[0].min - effData0.des[0].min
+									let span1 = (effData1.des[0].max - effData0.des[0].max)
+									if (this.curSoulStoneID == i) {
+										this['img_increase' + i].visible = true
+										this['lab_upNum' + i].text = span0 + "-" + span1;
+									}
+								}
+							}
+						} else {
+							Soul_LV0_Num++;
+						}
+					}
+
+				}
+				else if (this.allData.playerlvl[this.TouchID][6] == 12) {
+					for (let i = 1; i < 7; i++) {
+						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
+						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
+						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+						let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
+						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+						}
+					}
+				}
+			}
+
 		}
 		//设置上面面板显示多少个魂石
 		private setSoulStoneState(id: number) {
-			for (let i = 3; i < 7; i++) {
-				if (i == id) {
-					this["box_hunshi" + i].visible = true;
-				} else {
-					this["box_hunshi" + i].visible = false;
-				}
-			}
-			let baseData;
-			if (this.type == 0) {
-				baseData = this.allData.playerlvl[this.TouchID];
-			} else {
-				baseData = this.allData.herolvl[this.TouchID]
-			}
-			for (let i = 1; i < id + 1; i++) {
-				// this["img_hunshi" + id + "_" + i].skin = ""
-				let str = baseData[i];
-				this["lab_hunshi" + id + "_lv" + i].text = str + "阶"
-			}
 		}
 		//获取面板信息
 		private getData_PlayerEquipMsg(touchID) {
@@ -243,9 +373,12 @@ module view.zhaiYuan {
 		//发送激活、升阶请求
 		private sendIntensify() {
 			if (this.btn_intensify.label == "激活") {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SoulStoneActive, [this.type, this.TouchID, 0]);
-				lcp.send(pkt);
-
+				if (this.canActive) {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SoulStoneActive, [this.type, this.TouchID, 1]);
+					lcp.send(pkt);
+				} else {
+					TipsManage.showTips("灵魂之石不足，无法激活！")
+				}
 			} else if (this.btn_intensify.label == "升阶") {
 				// curSoulStone
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSoulStone, [this.type, this.TouchID, this.curSoulStoneID, 0])

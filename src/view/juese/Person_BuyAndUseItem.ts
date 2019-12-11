@@ -12,7 +12,7 @@ module view.juese {
 		public item;
 		public type;
 		public setData(id, type): Person_BuyAndUseItem {
-			//0罡气1普通物品
+			//Type   0罡气1普通物品2魂石购买
 			this.type = type;
 			this.id = id;
 			this.init_updata();
