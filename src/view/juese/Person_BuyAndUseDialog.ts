@@ -5,20 +5,50 @@ module view.juese {
 			super();
 		}
 		public data;
+		//0罡气1资质天赋
 		public type;
-		public setData(data, type = 1): Person_BuyAndUseDialog {
+		public setData(data, type): Person_BuyAndUseDialog {
 			this.type = type;
 			this.vbox_01['sortItem'] = (items) => { };
 			this.data = data;
+			//养成途径
+			switch (this.type) {
+				case 0:
+					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1016)
+					break;
+				case 1:
+					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1014)
+					break;
+				case 2:
+					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1021)
+					break;
+			}
+			//角色罡气||角色资质天赋
+			if (type == 0 || type == 1) {
+				this.view_item.selectedIndex = 0;
+				this.init_itemBuy();
+			}
+			//弟子转生
+			if (type == 2) {
+				this.view_item.selectedIndex = 1;
+				this.vbox_02.removeChildren();
+				this.init_zhuansheng();
+			}
 			this.addEvent();
-			this.init_itemBuy();
 			return this;
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			});
+			//返璞归真
+			this.btn_duihuan.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_UpXiuWei();
+			})
 		}
+		/**
+		 * 相关功能所需购买物品
+		 */
 		public init_itemBuy(): void {
 			if (this.data) {
 				this.vbox_01.removeChildren();
@@ -26,6 +56,29 @@ module view.juese {
 					this.vbox_01.addChild(new view.juese.Person_BuyAndUseItem().setData(this.data[key], this.type));
 				}
 			}
+		}
+		/**
+		 * 弟子转生
+		 */
+		public init_zhuansheng(): void {
+			let data: ProtoCmd.itf_Hero_XiuWeiInfo = this.data;
+			//可兑换修为
+			this.lbl_xiuwei.text = '' + data.xw;
+			//所需金币
+			this.lbl_jinbi.text = '' + data.gold;
+			//所需阅历经验
+			this.lbl_yueli.text = '' + data.exp;
+			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.pill, this.type))
+			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.superpill, this.type));
+		}
+		/**
+    * 兑换修为
+    */
+		public init_UpXiuWei(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+			})
+			lcp.send(pkt);
 		}
 	}
 }

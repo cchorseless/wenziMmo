@@ -14,6 +14,7 @@ module view.juese {
 		//所需经验
 		private needexp = null;
 		public iteminfo;
+		public dialog;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -60,7 +61,8 @@ module view.juese {
 			//购买
 			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.iteminfo) {
-					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 0).popup();
+					this.dialog = view.juese.Person_BuyAndUseDialog;
+					new this.dialog().setData(this.iteminfo, 0).popup();
 				}
 			})
 			//角色罡气升级
@@ -81,11 +83,15 @@ module view.juese {
 			GameApp.LListener.on(ProtoCmd.JS_playerWingPanel, this, (jsonData) => {
 				this.iteminfo = jsonData;
 				this.init_Info(this.getItemInfo());
+				if (this.dialog) {
+					GameApp.LListener.event(ProtoCmd.JS_updata_GangqiUse)
+				}
 			})
 		}
 
 		public destroy(isbool = true): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
+			GameApp.LListener.offCaller(ProtoCmd.JS_updata_GangqiUse, this);
 			super.destroy(isbool);
 		}
 
@@ -196,14 +202,14 @@ module view.juese {
 			}
 			if (data.dwLevel < 90) {
 				this.img_now.x = 86;
-				this.img_next.visible = true;
+				this.img_shengji.visible = this.img_next.visible = true;
 				//罡气名
 				this.lbl_xiaji.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 				//罡气皮肤
 				// this.img_next.skin = 'image/juese/img_gangQi_0' + j + '.png'
 			} else {
 				this.img_now.x = 230;
-				this.img_next.visible = false;
+				this.img_shengji.visible = this.img_next.visible = false;
 			}
 		}
 	}

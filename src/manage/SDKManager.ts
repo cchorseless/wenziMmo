@@ -5,7 +5,7 @@
 class SDKManager extends SingletonClass {
     private _SDK = null;//默认喜扑网络SDK
     private _platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_NULL;
-    private _bundleId = 'manhelp.wenzijianghu.com';
+    private _functionQuotation = '';
     private _sdkRole = {
         server_id: "-1",            // 区服ID
         server_name: "测试服",       // 区服名称
@@ -19,9 +19,15 @@ class SDKManager extends SingletonClass {
 
     constructor() {
         super();
-        if (Laya.PlatformClass && Laya.Browser.onIOS) {
-            // IOS
-            this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
+        if (Laya.PlatformClass) {
+            if (Laya.Browser.onIOS) {
+                // IOS
+                this._functionQuotation = ':';
+                this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS;
+            } else if (Laya.Browser.onAndroid) {
+                // IOS
+                this._platform = EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID;
+            }
         }
 
         switch (this._platform) {
@@ -33,7 +39,7 @@ class SDKManager extends SingletonClass {
                 break;
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                 //需要完整的类路径，注意与iOS的不同
-                this._SDK = Laya.PlatformClass.createClass("demo.JSBridge");
+                this._SDK = Laya.PlatformClass.createClass("gameapi.SDKGameApi");
                 break;
             default:
                 this._SDK = null;
@@ -61,6 +67,7 @@ class SDKManager extends SingletonClass {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.init(debug)
                 break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 {
                     let data = {
@@ -70,10 +77,8 @@ class SDKManager extends SingletonClass {
                             value: ''
                         }
                     }
-                    this.SDK.call("_doAction:", JSON.stringify(data))
+                    this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                 } break;
-            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                break;
             default:
                 console.warn("平台设置不正确, 请注意...");
                 break;
@@ -92,6 +97,7 @@ class SDKManager extends SingletonClass {
                     SDKManager.loginCallback(data.openid + '`' + data.timestamp + '`' + data.sign + '`' + data.identity_status);
                 });
                 break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 {
                     let data = {
@@ -101,10 +107,9 @@ class SDKManager extends SingletonClass {
                             value: ''
                         }
                     }
-                    this.SDK.call("_doAction:", JSON.stringify(data))
+                    this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                 } break;
-            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                break;
+
             default:
                 console.warn("平台设置不正确, 请注意...");
                 break;
@@ -176,6 +181,7 @@ class SDKManager extends SingletonClass {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.createRole(this._sdkRole);
                 break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 {
                     let data = {
@@ -192,10 +198,9 @@ class SDKManager extends SingletonClass {
                             remainder: this._sdkRole.remainder
                         }
                     }
-                    this.SDK.call("_doAction:", JSON.stringify(data))
+                    this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                 } break;
-            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                break;
+
             default:
                 break;
         }
@@ -214,6 +219,7 @@ class SDKManager extends SingletonClass {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.loginRole(this._sdkRole);
                 break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 {
                     let data = {
@@ -230,10 +236,9 @@ class SDKManager extends SingletonClass {
                             remainder: this._sdkRole.remainder
                         }
                     }
-                    this.SDK.call("_doAction:", JSON.stringify(data))
+                    this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                 } break;
-            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                break;
+
             default:
                 break;
         }
@@ -252,6 +257,7 @@ class SDKManager extends SingletonClass {
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_WEB:
                 this.SDK.upgradeRole(this._sdkRole);
                 break;
+            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
             case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                 {
                     let data = {
@@ -268,10 +274,9 @@ class SDKManager extends SingletonClass {
                             remainder: this._sdkRole.remainder
                         }
                     }
-                    this.SDK.call("_doAction:", JSON.stringify(data))
+                    this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                 } break;
-            case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                break;
+
             default:
                 break;
         }
@@ -329,6 +334,7 @@ class SDKManager extends SingletonClass {
                                 }
                             }, 'extendString');
                             break;
+                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
                         case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_IOS:
                             {
                                 let data = {
@@ -339,10 +345,9 @@ class SDKManager extends SingletonClass {
                                         price: amountMin
                                     }
                                 }
-                                this.SDK.call("_doAction:", JSON.stringify(data))
+                                this.SDK.call("_doAction" + this._functionQuotation, JSON.stringify(data))
                             } break;
-                        case EnumData.PLATFORM_TYPE.PLATFORM_TYPE_ANDROID:
-                            break;
+
                         default:
                             console.warn("平台设置不正确, 请注意...");
                             break;
@@ -374,7 +379,7 @@ class SDKManager extends SingletonClass {
 
         for (let info of infoArr) {
             let keyValue = info.split('=');
-            if(keyValue.length == 2){
+            if (keyValue.length == 2) {
                 GameApp.GameEngine.deviceInfo[keyValue[0]] = keyValue[1];
             }
             // switch (info[0]) {

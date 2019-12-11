@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":350,
-    "selecteID":353,
+    "selectedBox":322,
+    "selecteID":276,
     "props":{"width":617,"sceneColor":"#f8eeee","height":888},
     "nodeParent":-1,
     "label":"View",
@@ -130,7 +130,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":87,"x":423,"width":105.84375,"var":"lbl_age","text":"18-19岁","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":87,"x":423,"width":105.84375,"var":"lbl_age","text":"18-19岁","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_age)",
                             "isDirectory":false,
@@ -182,7 +182,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":123,"x":427,"width":116.625,"var":"lbl_yanZhi","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":123,"x":427,"width":116.625,"var":"lbl_yanZhi","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_yanZhi)",
                             "isDirectory":false,
@@ -235,7 +235,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":158,"x":427,"width":117,"var":"lbl_xinQing","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":158,"x":427,"width":117,"var":"lbl_xinQing","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_xinQing)",
                             "isDirectory":false,
@@ -288,7 +288,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":193,"x":427,"width":116.625,"var":"lbl_jianKang","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":193,"x":427,"width":116.625,"var":"lbl_jianKang","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_jianKang)",
                             "isDirectory":false,
@@ -341,7 +341,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":226,"x":427,"width":116.625,"var":"lbl_tiLi","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":226,"x":427,"width":116.625,"var":"lbl_tiLi","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_tiLi)",
                             "isDirectory":false,
@@ -394,7 +394,7 @@
                         },
                         {
                             "type":"Label",
-                            "props":{"y":258,"x":427,"width":116.625,"var":"lbl_jingShen","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38"},
+                            "props":{"y":258,"x":427,"width":116.625,"var":"lbl_jingShen","text":"200/2000","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":256,
                             "label":"Label(lbl_jingShen)",
                             "isDirectory":false,
@@ -542,13 +542,14 @@
                     "props":{"y":0,"x":21,"width":575,"name":"item1","height":736},
                     "nodeParent":323,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":322,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"x":11,"text":"血量：","strokeColor":"#000000","fontSize":24,"font":"FZHL","color":"#624d38"},
                             "nodeParent":322,
@@ -562,6 +563,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"x":98,"width":302,"skin":"image/juese/progress bar_di_1.png","height":18},
                             "nodeParent":322,
@@ -573,6 +575,7 @@
                             "compId":259,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":302,"var":"img_hppro","skin":"image/juese/progress bar_dingi_3.png","height":18},
                                     "nodeParent":259,
@@ -589,8 +592,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"x":411,"width":163.03125,"var":"lbl_hp","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"x":411,"width":163.03125,"var":"lbl_hp","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_hp)",
                             "isDirectory":false,
@@ -602,6 +606,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":36,"x":11,"text":"气量：","strokeColor":"#000000","fontSize":24,"font":"FZHL","color":"#624d38"},
                             "nodeParent":322,
@@ -615,6 +620,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"x":98,"width":302,"skin":"image/juese/progress bar_di_1.png","height":18},
                             "nodeParent":322,
@@ -626,6 +632,7 @@
                             "compId":263,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":302,"var":"img_gaspro","skin":"image/juese/progress bar_dingi_4.png","height":18},
                                     "nodeParent":263,
@@ -642,8 +649,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":36,"x":411,"width":163.03125,"var":"lbl_gas","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":36,"x":411,"width":163.03125,"var":"lbl_gas","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_gas)",
                             "isDirectory":false,
@@ -655,6 +663,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":71,"x":11,"text":"内力：","strokeColor":"#000000","fontSize":24,"font":"FZHL","color":"#624d38"},
                             "nodeParent":322,
@@ -668,6 +677,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":76,"x":98,"width":302,"skin":"image/juese/progress bar_di_1.png","height":18},
                             "nodeParent":322,
@@ -679,6 +689,7 @@
                             "compId":267,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"width":302,"var":"img_neilipro","skin":"image/juese/progress bar_dingi_5.png","height":18},
                                     "nodeParent":267,
@@ -695,8 +706,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":71,"x":411,"width":163.03125,"var":"lbl_neili","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":71,"x":411,"width":163.03125,"var":"lbl_neili","text":"12345/12345","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_neili)",
                             "isDirectory":false,
@@ -708,6 +720,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":120,"x":90,"skin":"image/common/title_common_01.png"},
                             "nodeParent":322,
@@ -719,6 +732,7 @@
                             "compId":270,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":8,"x":144,"text":"基础属性","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429"},
                                     "nodeParent":270,
@@ -735,6 +749,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":181,"x":1,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -747,6 +762,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":193,"x":11,"width":104,"text":"外功攻击","height":24,"fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -760,8 +776,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":191,"x":404,"width":155.6953125,"var":"lbl_waikill","text":"1224-2053","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":191,"x":323,"width":241,"var":"lbl_waikill","text":"10001万-10001万","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_waikill)",
                             "isDirectory":false,
@@ -773,6 +790,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":239,"x":11,"width":104,"text":"外功防御","height":24,"fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -786,8 +804,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":237,"x":404,"width":155.6953125,"var":"lbl_waiprotect","text":"1224-2053","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":237,"x":323,"width":241,"var":"lbl_waiprotect","text":"1224-2053","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_waiprotect)",
                             "isDirectory":false,
@@ -799,6 +818,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":272,"x":1,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -811,6 +831,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":285,"x":11,"width":104,"text":"内力防御","height":24,"fontSize":26,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -824,8 +845,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":283,"x":404,"width":155.6953125,"var":"lbl_neiprotect","text":"1224-2053","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":283,"x":323,"width":241,"var":"lbl_neiprotect","text":"1224-2053","height":24,"fontSize":26,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_neiprotect)",
                             "isDirectory":false,
@@ -837,6 +859,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":341,"x":88,"skin":"image/common/title_common_01.png"},
                             "nodeParent":322,
@@ -848,6 +871,7 @@
                             "compId":280,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":8,"x":144,"text":"基础属性","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429"},
                                     "nodeParent":280,
@@ -864,6 +888,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":344,"x":535,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
                             "nodeParent":322,
@@ -877,6 +902,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":412,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -888,6 +914,7 @@
                             "compId":281,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":10,"width":52,"text":"闪避","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":281,
@@ -901,8 +928,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":12,"x":206,"width":67.03125,"var":"lbl_shan","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":12,"x":206,"width":67.03125,"var":"lbl_shan","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":281,
                                     "label":"Label(lbl_shan)",
                                     "isDirectory":false,
@@ -914,6 +942,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":14,"x":302,"width":52,"text":"准确","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":281,
@@ -927,8 +956,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":11,"x":497,"width":67.03125,"var":"lbl_zhun","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":11,"x":497,"width":67.03125,"var":"lbl_zhun","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":281,
                                     "label":"Label(lbl_zhun)",
                                     "isDirectory":false,
@@ -941,6 +971,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":471,"x":10,"width":52,"text":"重击","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -954,8 +985,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":470,"x":206,"width":67.03125,"var":"lbl_zhongji","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":470,"x":206,"width":67.03125,"var":"lbl_zhongji","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_zhongji)",
                             "isDirectory":false,
@@ -967,6 +999,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":472,"x":302,"width":52,"text":"会心","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -980,8 +1013,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":469,"x":497,"width":67.03125,"var":"lbl_huixin","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":469,"x":497,"width":67.03125,"var":"lbl_huixin","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_huixin)",
                             "isDirectory":false,
@@ -993,6 +1027,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":504,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -1004,6 +1039,7 @@
                             "compId":294,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":10,"width":52,"text":"韧性","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":294,
@@ -1017,8 +1053,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":12,"x":206,"width":67.03125,"var":"lbl_renxing","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":12,"x":206,"width":67.03125,"var":"lbl_renxing","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":294,
                                     "label":"Label(lbl_renxing)",
                                     "isDirectory":false,
@@ -1030,6 +1067,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":14,"x":302,"width":52,"text":"幸运","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":294,
@@ -1043,8 +1081,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":11,"x":497,"width":67.03125,"var":"lbl_luck","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":11,"x":497,"width":67.03125,"var":"lbl_luck","text":"2014","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":294,
                                     "label":"Label(lbl_luck)",
                                     "isDirectory":false,
@@ -1058,6 +1097,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":564,"x":11,"width":96,"text":"剑客增伤","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -1071,8 +1111,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":562,"x":206,"width":51.375,"var":"lbl_job1add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":562,"x":206,"width":51.375,"var":"lbl_job1add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_job1add)",
                             "isDirectory":false,
@@ -1084,6 +1125,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":564,"x":301,"width":96,"text":"剑客抵抗","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -1097,8 +1139,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":562,"x":497,"width":51.375,"var":"lbl_job1dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":562,"x":497,"width":51.375,"var":"lbl_job1dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_job1dikang)",
                             "isDirectory":false,
@@ -1110,6 +1153,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":597,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -1121,6 +1165,7 @@
                             "compId":303,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":12,"x":11,"width":96,"text":"怪盗增伤","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":303,
@@ -1134,8 +1179,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":10,"x":206,"width":51.375,"var":"lbl_job2add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":10,"x":206,"width":51.375,"var":"lbl_job2add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":303,
                                     "label":"Label(lbl_job2add)",
                                     "isDirectory":false,
@@ -1147,6 +1193,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":12,"x":301,"width":96,"text":"怪盗抵抗","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":303,
@@ -1160,8 +1207,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":10,"x":497,"width":51.375,"var":"lbl_job2dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":10,"x":497,"width":51.375,"var":"lbl_job2dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":303,
                                     "label":"Label(lbl_job2dikang)",
                                     "isDirectory":false,
@@ -1175,6 +1223,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":657,"x":11,"width":96,"text":"隐门增伤","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -1188,8 +1237,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":655,"x":206,"width":51.375,"var":"lbl_job3add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":655,"x":206,"width":51.375,"var":"lbl_job3add","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_job3add)",
                             "isDirectory":false,
@@ -1201,6 +1251,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":657,"x":301,"width":96,"text":"隐门抵抗","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                             "nodeParent":322,
@@ -1214,8 +1265,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":655,"x":497,"width":51.375,"var":"lbl_job3dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                            "props":{"y":655,"x":497,"width":51.375,"var":"lbl_job3dikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                             "nodeParent":322,
                             "label":"Label(lbl_job3dikang)",
                             "isDirectory":false,
@@ -1227,6 +1279,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":690,"skin":"image/juese/shadow_shuzhi.png"},
                             "nodeParent":322,
@@ -1238,6 +1291,7 @@
                             "compId":316,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":12,"x":11,"width":96,"text":"BOSS增伤","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":316,
@@ -1251,8 +1305,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":10,"x":206,"width":51.375,"var":"lbl_bossadd","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":10,"x":206,"width":51.375,"var":"lbl_bossadd","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":316,
                                     "label":"Label(lbl_bossadd)",
                                     "isDirectory":false,
@@ -1264,6 +1319,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":12,"x":301,"width":96,"text":"BOSS抵抗","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":316,
@@ -1277,8 +1333,9 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":10,"x":497,"width":51.375,"var":"lbl_bossdikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"left"},
+                                    "props":{"y":10,"x":497,"width":51.375,"var":"lbl_bossdikang","text":"20%","height":24,"fontSize":24,"font":"FZHL","color":"#624d38","align":"right"},
                                     "nodeParent":316,
                                     "label":"Label(lbl_bossdikang)",
                                     "isDirectory":false,
@@ -1291,7 +1348,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -1299,14 +1356,13 @@
                     "props":{"y":7,"x":15,"name":"item2"},
                     "nodeParent":323,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":365,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1318,7 +1374,6 @@
                             "compId":327,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":10,"x":27,"width":51,"skin":"image/main/icon_tongqian.png","scaleY":0.8,"scaleX":0.8,"height":42},
                                     "nodeParent":327,
@@ -1332,7 +1387,6 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":89,"text":"铜币","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":327,
@@ -1346,7 +1400,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":358,"width":94,"var":"lbl_coin3","text":"100000","height":24,"fontSize":24,"font":"FZHL","color":"#5b4630","align":"right"},
                                     "nodeParent":327,
@@ -1360,7 +1413,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":6,"x":478,"stateNum":"2","skin":"image/juese/bnt_use.png","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","label":"使用"},
                                     "nodeParent":327,
@@ -1376,7 +1428,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":66,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1388,7 +1439,6 @@
                             "compId":335,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":10,"x":27,"width":51,"skin":"image/main/icon_coin_1.png","scaleY":0.8,"scaleX":0.8,"height":42},
                                     "nodeParent":335,
@@ -1402,7 +1452,6 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":89,"text":"元宝","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":335,
@@ -1416,7 +1465,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":358,"width":94,"var":"lbl_coin1","text":"100000","height":24,"fontSize":24,"font":"FZHL","color":"#5b4630","align":"right"},
                                     "nodeParent":335,
@@ -1430,7 +1478,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":6,"x":478,"stateNum":"2","skin":"image/juese/bnt_use.png","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","label":"使用"},
                                     "nodeParent":335,
@@ -1446,7 +1493,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":132,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1458,7 +1504,6 @@
                             "compId":340,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":10,"x":27,"width":51,"skin":"image/main/icon_coin_2.png","scaleY":0.8,"scaleX":0.8,"height":42},
                                     "nodeParent":340,
@@ -1472,7 +1517,6 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":89,"text":"礼券","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":340,
@@ -1486,7 +1530,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":358,"width":94,"var":"lbl_coin2","text":"100000","height":24,"fontSize":24,"font":"FZHL","color":"#5b4630","align":"right"},
                                     "nodeParent":340,
@@ -1500,7 +1543,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":6,"x":478,"stateNum":"2","skin":"image/juese/bnt_use.png","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","label":"使用"},
                                     "nodeParent":340,
@@ -1516,7 +1558,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":199,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1528,7 +1569,6 @@
                             "compId":345,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":10,"x":27,"width":51,"skin":"image/main/icon_coin_4.png","scaleY":0.8,"scaleX":0.8,"height":42},
                                     "nodeParent":345,
@@ -1542,7 +1582,6 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":89,"text":"荣誉","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":345,
@@ -1556,7 +1595,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":358,"width":94,"var":"lbl_coin4","text":"100000","height":24,"fontSize":24,"font":"FZHL","color":"#5b4630","align":"right"},
                                     "nodeParent":345,
@@ -1570,7 +1608,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":6,"x":478,"stateNum":"2","skin":"image/juese/bnt_use.png","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","label":"使用"},
                                     "nodeParent":345,
@@ -1586,7 +1623,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":265,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1598,7 +1634,6 @@
                             "compId":350,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":11,"x":28,"width":39,"skin":"image/main/icon_coin_5.png","scaleY":0.8,"scaleX":0.8,"height":39},
                                     "nodeParent":350,
@@ -1612,7 +1647,6 @@
                                     "$LOCKED":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":89,"text":"帮贡","height":24,"fontSize":24,"font":"FZHL","color":"#000000"},
                                     "nodeParent":350,
@@ -1626,7 +1660,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":13,"x":358,"width":94,"var":"lbl_coin5","text":"100000","height":24,"fontSize":24,"font":"FZHL","color":"#5b4630","align":"right"},
                                     "nodeParent":350,
@@ -1640,7 +1673,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":6,"x":478,"stateNum":"2","skin":"image/juese/bnt_use.png","labelSize":22,"labelFont":"FZHL","labelColors":"#000000,#000000","label":"使用"},
                                     "nodeParent":350,
@@ -1657,7 +1689,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":331,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1724,7 +1755,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":397,"width":585,"skin":"image/juese/shadow_shuzhi.png","height":53},
                             "nodeParent":365,
@@ -1789,7 +1819,8 @@
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },
