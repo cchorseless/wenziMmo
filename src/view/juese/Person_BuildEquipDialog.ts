@@ -275,6 +275,7 @@ module view.juese {
 			//战力
 			this.fclip_battle.value = '' + battle;
 			//属性
+			this.vbox_shuxing.removeChildren();
 			for (let part of attribute) {
 				this.vbox_shuxing.addChild(new view.compart.SinglePropsItem().setData(part))
 			}

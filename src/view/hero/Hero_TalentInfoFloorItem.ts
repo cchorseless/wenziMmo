@@ -95,7 +95,7 @@ module view.hero {
 					let sum = jsonData.lvltab[0] + jsonData.lvltab[1] + jsonData.lvltab[2] + jsonData.lvltab[3];
 					this.lbl_talentPoint.text = sum + '/10';
 					this.data = jsonData;
-					PanelManage.DiZi.ui_talent.init_talentData(jsonData);
+					// PanelManage.DiZi.ui_talent.init_talentData(jsonData);
 				}
 
 			})

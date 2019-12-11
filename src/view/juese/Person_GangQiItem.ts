@@ -3,7 +3,6 @@ module view.juese {
 	export class Person_GangQiItem extends ui.juese.Person_GangQiItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 		private client_func_index = 16;// 功能ID编号
 		//角色职业
@@ -14,6 +13,7 @@ module view.juese {
 		//所需经验
 		private needexp = null;
 		public iteminfo;
+		public dialog;
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
@@ -60,7 +60,8 @@ module view.juese {
 			//购买
 			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.iteminfo) {
-					new view.juese.Person_BuyAndUseDialog().setData(this.iteminfo, 0).popup();
+					this.dialog = view.juese.Person_BuyAndUseDialog;
+					new this.dialog().setData(this.iteminfo, 0).popup();
 				}
 			})
 			//角色罡气升级
@@ -81,11 +82,15 @@ module view.juese {
 			GameApp.LListener.on(ProtoCmd.JS_playerWingPanel, this, (jsonData) => {
 				this.iteminfo = jsonData;
 				this.init_Info(this.getItemInfo());
+				if (this.dialog) {
+					GameApp.LListener.event(ProtoCmd.JS_updata_GangqiUse)
+				}
 			})
 		}
 
 		public destroy(isbool = true): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_playerWingPanel, this);
+			GameApp.LListener.offCaller(ProtoCmd.JS_updata_GangqiUse, this);
 			super.destroy(isbool);
 		}
 

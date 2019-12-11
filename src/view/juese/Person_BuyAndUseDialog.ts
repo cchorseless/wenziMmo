@@ -5,6 +5,7 @@ module view.juese {
 			super();
 		}
 		public data;
+		//0罡气1资质天赋
 		public type;
 		public setData(data, type = 1): Person_BuyAndUseDialog {
 			this.type = type;
@@ -21,6 +22,11 @@ module view.juese {
 		}
 		public init_itemBuy(): void {
 			if (this.data) {
+				if (this.type == 0) {
+					this.lbl_from.text =SheetConfig.Introduction_play.getInstance(null).GROWUPDES(''+1016)
+				}else{
+					this.lbl_from.text =SheetConfig.Introduction_play.getInstance(null).GROWUPDES(''+1014)
+				}
 				this.vbox_01.removeChildren();
 				for (let key in this.data) {
 					this.vbox_01.addChild(new view.juese.Person_BuyAndUseItem().setData(this.data[key], this.type));

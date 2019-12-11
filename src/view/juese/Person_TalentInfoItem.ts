@@ -3,9 +3,7 @@ module view.juese {
 	export class Person_TalentInfoItem extends ui.juese.Person_TalentInfoItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
-
 		private hasInit = false;// 初始化自己
 		//拉取天赋信息类型
 		private talent;

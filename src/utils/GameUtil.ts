@@ -38,7 +38,10 @@ module GameUtil {
     export function findItemInfoInBagByLevel(level: number, bag = GameApp.GameEngine.bagItemDB): any {
         let itemArray = [];
         for (let i in bag) {
-            if (bag[i].itemType==2&&bag[i].dwLevel >= level) {
+            let zslevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(''+bag[i].dwBaseID);
+            let nowlevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(''+bag[i].dwBaseID);
+            let lvlnum=zslevel*1000+nowlevel;
+            if (bag[i].itemType==2&&lvlnum >= level) {
                     itemArray.push(bag[i]);
             }
         }

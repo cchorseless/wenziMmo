@@ -359,6 +359,8 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+     //罡气使用更新
+    export const JS_updata_GangqiUse = "updata_GangqiUse";
     /*********************************菜单******************** */
     //菜单祈福面板
     export const Menu_QiFuClientOpen = "QiFuClientOpen";
