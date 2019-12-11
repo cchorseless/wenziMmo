@@ -672,9 +672,9 @@ module ProtoCmd {
             super();
             this.addProperty('btCretType', PacketBase.TYPE_BYTE);//1此人物的类型，比如1==玩家，2==NPC，3==怪,4宝宝,5，人形怪，6英雄
             this.addProperty('simpleFeature', PacketBase.TYPE_BYTES, this.simpleFeature.size());//昵称外观信息stSimpleFeature结构
-            this.addProperty('nTitleId', PacketBase.TYPE_WORD);//称号ID
+            this.addProperty('nTitleId', PacketBase.TYPE_WORD);//称号ID    
             this.addProperty('btBattleCamp', PacketBase.TYPE_BYTE);//战场类型
-            this.addProperty('dwWingId', PacketBase.TYPE_WORD);//翅膀Id
+            this.addProperty('dwWingId', PacketBase.TYPE_WORD);//罡气Id
             this.addProperty('n_bo_AllFeature', PacketBase.TYPE_DWORD);//外观 位状态信息
         }
 
@@ -1118,7 +1118,7 @@ module ProtoCmd {
             this.addProperty('btBornFrom', PacketBase.TYPE_BYTE);	//物品来源
             this.addProperty('dwEffId', PacketBase.TYPE_DWORD);		 //当前效果ID
             this.addProperty('btQuality', PacketBase.TYPE_BYTE);	//物品品质
-            this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//强化次数
+            this.addProperty('btStrengCount', PacketBase.TYPE_BYTE);	//装备星级
             this.addProperty('dwExpireTime', PacketBase.TYPE_DWORD);    //过期时间	
             this.addProperty('btNpPropertyCount', PacketBase.TYPE_BYTE);	//极品属性条目数
             this.addProperty('UnionData', PacketBase.TYPE_BYTES, 120); //

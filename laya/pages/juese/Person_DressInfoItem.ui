@@ -3,7 +3,7 @@
     "type":"View",
     "selectedBox":1,
     "selecteID":10,
-    "props":{"width":583,"sceneColor":"#daddc9","height":810},
+    "props":{"width":638,"sceneColor":"#daddc9","height":860},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,16 +15,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":4,"x":85,"width":414,"height":226},
+            "props":{"y":0,"x":112,"width":414,"height":226},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"juese/Person_showJuese.ui",
                     "props":{"y":112.80000000000001,"x":337.6,"var":"ui_show3","scaleY":0.7,"scaleX":0.7,"anchorY":0.5,"anchorX":0.5},
@@ -38,6 +39,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"juese/Person_showJuese.ui",
                     "props":{"y":112.80000000000001,"x":75.6,"var":"ui_show1","scaleY":0.7,"scaleX":0.7,"anchorY":0.5,"anchorX":0.5},
@@ -51,6 +53,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"juese/Person_showJuese.ui",
                     "props":{"y":112.80000000000001,"x":196.6,"var":"ui_show2","scaleY":0.8,"scaleX":0.8,"anchorY":0.5,"anchorX":0.5},
@@ -67,9 +70,9 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":229,"x":1,"top":229,"right":0,"left":1,"height":407},
+            "props":{"width":638,"var":"V_Show","top":234,"right":0,"left":0,"height":425},
             "nodeParent":1,
-            "label":"ViewStack",
+            "label":"ViewStack(V_Show)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -79,36 +82,36 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "props":{"y":653,"x":201,"stateNum":"2","skin":"image/juese/btn_common_dahonganniu.png","label":"label"},
+            "type":"Image",
+            "props":{"width":638,"skin":"image/juese/bottom_common_001.png","right":0,"left":0,"height":100,"bottom":15},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":10,
+            "compId":16,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":738,"x":25,"stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","label":"label"},
+            "props":{"y":791,"x":506,"var":"btn_Designation","stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","labelSize":26,"labelFont":"fzhl","labelColors":"#614a21,#28494e,#28494e","label":"称号","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_Designation)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":11,
+            "compId":13,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":738,"x":213,"stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","label":"label"},
+            "props":{"y":791,"x":318,"var":"btn_gangqi","stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","labelSize":26,"labelFont":"fzhl","labelColors":"#614a21,#28494e,#28494e","label":"罡气","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_gangqi)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -119,13 +122,26 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":738,"x":401,"stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","label":"label"},
+            "props":{"y":791,"x":130,"var":"btn_fashion","stateNum":"2","skin":"image/juese/btn_common_xiaoyeqian01.png","labelSize":26,"labelFont":"fzhl","labelColors":"#614a21,#28494e,#28494e","label":"时装","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_fashion)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":13,
+            "compId":11,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":697,"x":319,"var":"btn_wear","stateNum":"2","skin":"image/juese/btn_common_dahonganniu.png","labelSize":30,"labelPadding":"-3","labelFont":"fzhl","labelColors":"#761a1a,#461010,#461010","label":"卸下","anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_wear)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":10,
             "child":[
                 ]
         }],

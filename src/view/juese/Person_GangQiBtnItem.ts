@@ -4,17 +4,19 @@ module view.juese {
 		constructor() {
 			super();
 		}
-		public setData(i): Person_GangQiBtnItem {
+		public id;
+		public setData(i, id): Person_GangQiBtnItem {
+			this.id=id;
 			//罡气
-			let j=i+1;
-			this.lbl_name.text = '' + j;
-			this.btn_gangqi.skin='image/juese/img_gangQi_0'+j+'.png'
-			this.addEvent(j);
+			let j = i + 1;
+			this.lbl_name.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
+			this.btn_gangqi.skin = 'image/juese/img_gangQi_0' + j + '.png'
+			this.addEvent();
 			return this;
 		}
-		public addEvent(j): void {
+		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-
+				PanelManage.JueSe.ui_gangQi.init_update(this.id);
 			})
 		}
 	}

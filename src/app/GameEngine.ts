@@ -55,15 +55,13 @@ class GameEngine extends SingletonClass {
     public equipDBIndex = {};//装备位置索引，用于判定该位置是否有装备{bindex:i64id}
     public bagItemDB = {};//物品背包
     public cangKuDB = {};//仓库背包
-    // ****************好友*****************
-    public friendDB = {};//好友
-    public blackDB = {};//黑名单
-    public chouRenDB = {};//仇人
+    // ****************热销商城*****************
+    public hotShop;
     /************************地图信息************* */
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
     /************************任务信息************ */
     public taskInfo = {};// 所有任务信息
-        /************************活跃信息************ */
+    /************************活跃信息************ */
     public activeInfo = {};// 所有活跃信息
     /**************行会信息********** */
     public allGuildInfo = {};
@@ -85,7 +83,7 @@ class GameEngine extends SingletonClass {
     public logintoken: Laya.Byte;
 
     //所有活动的状态
-    public activityStatus:ProtoCmd.itf_MENU_ActiveStatus = null;
+    public activityStatus: ProtoCmd.itf_MENU_ActiveStatus = null;
     //轮播页的活动推送
     public turnActivity;
 

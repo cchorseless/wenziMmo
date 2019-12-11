@@ -54,7 +54,7 @@ module ProtoCmd {
     // 拉取商店道具列表
     export const SHOP_UpdateItemList = 'openMallLable';// (type:商城类型,subtype:商店子类型=0（0无子ID，从1开始）) return itf_HotShop
     // 商店购买物品
-    export const SHOP_BuyItem = 'buyMallItem';//(type,subtype, idx, num)
+    export const SHOP_BuyItem = 'buyMallItem';//(type商店类型,subtype商店子类型, idx第几个物品, num数量)
     // 热销商店刷新
     export const SHOP_HOT_REFRESH = 'refreshMallHotItem';
 
@@ -187,8 +187,14 @@ module ProtoCmd {
     export const Rank_rankShowRewardByRankType = 'rankShowRewardByRankType';
     //我的奖励领取
     export const Rank_getRankRewardByRankType = 'getRankRewardByRankType';
+    //装扮界面
+    export const dressPanel = 'dressPanel';
+    //装扮穿戴
+    export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
+    //更新时装穿戴情况
+    export const UP_DATE_DRESS = 'up_date_dress';
     // 声望信息
     export const JS_PrestigePanel = 'prestigePanel';
     // 强化大师(强化、装备等级、升级大师)
@@ -353,6 +359,8 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
+     //罡气使用更新
+    export const JS_updata_GangqiUse = "updata_GangqiUse";
     /*********************************菜单******************** */
     //菜单祈福面板
     export const Menu_QiFuClientOpen = "QiFuClientOpen";

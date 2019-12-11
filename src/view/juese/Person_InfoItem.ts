@@ -5,7 +5,6 @@ module view.juese {
 		constructor() {
 			super();
 			Person_InfoItem.self = this;
-			this.setData();
 		}
 		public hasInit = false;
 		public setData(): void {

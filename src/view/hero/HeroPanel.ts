@@ -27,9 +27,9 @@ module view.hero {
 			let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
 			this.tab_left.mouseEnabled = hasActive;
 			if (hasActive) {
-				this.ui_equipProps.setData(job);
-				this.ui_gangqi.setData(job);
-				this.ui_sangong.setData(job);
+				// this.ui_equipProps.setData(job);
+				// this.ui_gangqi.setData(job);
+				// this.ui_sangong.setData(job);
 			}
 			this.ui_diziInfo.setData(job);
 		}

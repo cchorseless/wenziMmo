@@ -66,6 +66,10 @@ module GameObject {
         /******************技能******************** */
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
+
+        // public TitleID = null;
+        // public wingID = null;
+        // public dressID = null;
         /**
          * 判断技能是否已经装备上了
          * @param skillID 

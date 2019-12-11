@@ -207,6 +207,8 @@ module view.juese {
 						this.result = parseInt(key)
 						this.ui_build.setData(itemInfo);
 						this.lbl_name.text = equipInfo.data[1];
+						//基础属性显示
+						this.init_baseAttribute(equipInfo.data);
 						//所需材料
 						let equipData = this.equipInfo[key];
 						//初始化必选材料信息
@@ -251,6 +253,36 @@ module view.juese {
 				this.init_dangqian(data);
 			})
 		}
+		/**
+		 * 
+		 * @param data 打造的装备基础属性
+		 */
+		public init_baseAttribute(data): void {
+			let effid;
+			switch (data[11]) {
+				case 1:
+					effid = data[17];
+					break;
+				case 2:
+					effid = data[18];
+					break;
+				case 3:
+					effid = data[19];
+					break;
+			}
+			let attribute = GameUtil.parseEffectidToObj(['' + effid]).des;
+			let battle = GameUtil.parseEffectidToObj(['' + effid]).battle[data[11]];
+			//战力
+			this.fclip_battle.value = '' + battle;
+			//属性
+			this.vbox_shuxing.removeChildren();
+			for (let part of attribute) {
+				this.vbox_shuxing.addChild(new view.compart.SinglePropsItem().setData(part))
+			}
+		}
+		/**
+		 * 选择的必选材料显示
+		 */
 		public init_selectPart(): void {
 			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type: number) => {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
@@ -285,6 +317,9 @@ module view.juese {
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this)
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquip, this)
 		}
+		/**
+		 * 打造装备
+		 */
 		public init_buildEquip(): void {
 			if (this.stuff && this.result) {
 				//可选装备选中状态0不附加材料,1附加材料
@@ -297,6 +332,7 @@ module view.juese {
 				//打造装备
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData, type) => {
+
 				})
 				lcp.send(pkt)
 			} else {

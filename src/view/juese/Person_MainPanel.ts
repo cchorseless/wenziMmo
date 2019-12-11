@@ -7,11 +7,21 @@ module view.juese {
 		public setData(): void {
 			this.btn_self.selected = true;
 			this.tab_player.selectHandler = Laya.Handler.create(this, (index) => {
-				// (this.viw_player.getChildAt(index) as any).setData();
+				(this.viw_player.getChildAt(index) as any).setData();
 				this.viw_player.selectedIndex = index;
+				this.setVS_View(index)
 			}, null, false);
 			this.addEvent();
 			this.init_Dizi();
+		}
+		public setVS_View(id) {
+			let ui_item;
+			switch (id) {
+				case 4:
+					ui_item = view.juese.Person_DressInfoItem;
+					this.box_item4.addChild(new ui_item())
+					break;
+			}
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
@@ -20,12 +30,9 @@ module view.juese {
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel()
 			})
-			// for (let job = 1; job < 4; job++) {
-			// 	EventManage.onWithEffect(this['btn_dizi' + job], Laya.UIEvent.CLICK, this, () => {
-			// 		PanelManage.openDiZiPanel(job);
-			// 	})
-			// }
-
+			EventManage.onWithEffect(this.btn_hero, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openDiZiPanel();
+			})
 		}
 		//弟子基本信息发协议
 		public init_Dizi(): void {

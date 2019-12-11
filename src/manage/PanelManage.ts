@@ -97,7 +97,7 @@ module PanelManage {
     export let LuckDraw: view.luckDraw.LuckDraw_MainPanel;//抽奖界面
     export let ShopMall: view.shopMall.ShopMall_MainPanel;//商城界面
     export let FuLi: view.fuli.FuLi_MainPanel;//商城界面
-    export let DiZi: view.hero.HeroPanel;//弟子界面
+    export let DiZi: view.hero.Hero_MainPanel;//弟子界面
     export let TuJianDaoju: view.tujian.TuJianDaojuPanel;//图鉴道具界面
     export let TuJianJuese: view.tujian.TuJianJuesePanel;//图鉴角色界面
     export let TuJianEvent: view.tujian.TuJianEventPanel;//图鉴事件界面
@@ -222,12 +222,12 @@ module PanelManage {
     /**
     * 弟子界面
     */
-    export function openDiZiPanel(index): void {
+    export function openDiZiPanel(): void {
         if (PopUpManager.showPanel(PanelManage.DiZi)) return;
         ResManage.loadResource(ResData.PanelRes.DiZi, () => {
-            PanelManage.DiZi = new view.hero.HeroPanel();
+            PanelManage.DiZi = new view.hero.Hero_MainPanel();
             PanelManage.DiZi['LCP_skin'] = ResData.PanelRes.DiZi;
-            PanelManage.DiZi.setData(index);
+            PanelManage.DiZi.setData();
             PanelManage.DiZi.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.DiZi, 2, 0, 2);
         })

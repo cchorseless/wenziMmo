@@ -18,7 +18,7 @@ module view.juese {
 			//精炼
 			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
 				let o = new Person_Equip_SoulContentDialog()
-				o.setData(0)
+				o.setData(1)
 				o.popup();
 
 			})
@@ -31,7 +31,7 @@ module view.juese {
 			//等级
 			EventManage.onWithEffect(this.btn_soul, Laya.UIEvent.CLICK, this, () => {
 				let o = new Person_Equip_SoulContentDialog()
-				o.setData(1)
+				o.setData(0)
 				o.popup();
 			})
 			//装备打造
@@ -46,7 +46,7 @@ module view.juese {
 			// EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
 			// 	new view.dialog.InfoV1Dialog().popup();
 			// })
-			this.btn_prestige.on(Laya.UIEvent.CLICK,this,function(){
+			this.btn_prestige.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new Person_shengwangMainDialog();
 				o.popup(true);
 			})
@@ -74,13 +74,13 @@ module view.juese {
 			let player = GameApp.MainPlayer;
 			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
 			//等级
-			this.lbl_level.text = player.zslevel + '转' +player.level + '级';
+			this.lbl_level.text = player.zslevel + '转' + player.level + '级';
 			//角色名
 			this.lbl_name.text = player.objName;
 			// 声望信息
-			this.lbl_shengWang.text = '['+LangConfig.getFameDes(player.wealth.nowFame)+']';
+			this.lbl_shengWang.text = '[' + LangConfig.getFameDes(player.wealth.nowFame) + ']';
 			//攻击类型
-			this.lbl_killType.text=LangConfig.getWuXueAttackType();
+			this.lbl_killType.text = LangConfig.getWuXueAttackType();
 		}
 
 		/**

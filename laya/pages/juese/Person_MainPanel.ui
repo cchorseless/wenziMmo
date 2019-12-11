@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":104,
-    "selecteID":171,
+    "selecteID":123,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -29,13 +29,13 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":42,"x":0,"skin":"image/juese/img_title.png"},
+            "props":{"y":149,"x":2,"skin":"image/juese/bg_juese_01.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":36,
+            "compId":177,
             "child":[
                 ],
             "$HIDDEN":false
@@ -43,13 +43,13 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":164,"x":0,"skin":"image/juese/bg_juese_02.png"},
+            "props":{"y":42,"x":0,"skin":"image/juese/img_title.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":41,
+            "compId":36,
             "child":[
                 ],
             "$HIDDEN":false
@@ -70,8 +70,23 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":164,"x":0,"skin":"image/juese/bg_juese_02.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":41,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"ViewStack",
-            "props":{"y":198,"x":0,"width":638,"var":"viw_player","height":875},
+            "props":{"y":194,"x":0,"width":638,"var":"viw_player","height":879},
             "nodeParent":1,
             "label":"ViewStack(viw_player)",
             "isOpen":true,
@@ -108,9 +123,53 @@
                     "compId":171,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"juese/Person_TalentInfoItem.ui",
+                    "props":{"y":-29,"x":32,"var":"ui_talent","runtime":"view.juese.Person_TalentInfoItem","name":"item2"},
+                    "nodeParent":104,
+                    "label":"UIView(ui_talent)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":175,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"juese/Person_GangQiItem.ui",
+                    "props":{"y":34,"x":6,"var":"ui_gangQi","runtime":"view.juese.Person_GangQiItem","name":"item3"},
+                    "nodeParent":104,
+                    "label":"UIView(ui_gangQi)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":176,
+                    "child":[
+                        ],
+                    "$HIDDEN":true
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":0,"x":0,"width":638,"var":"box_item4","name":"item4"},
+                    "nodeParent":104,
+                    "label":"Box(box_item4)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":174,
+                    "child":[
+                        ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

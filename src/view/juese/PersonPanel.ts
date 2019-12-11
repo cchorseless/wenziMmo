@@ -25,7 +25,7 @@ module view.juese {
 			})
 			for (let job = 1; job < 4; job++) {
 				EventManage.onWithEffect(this['btn_dizi' + job], Laya.UIEvent.CLICK, this, () => {
-					PanelManage.openDiZiPanel(job);
+					// PanelManage.openDiZiPanel(job);
 				})
 			}
 
