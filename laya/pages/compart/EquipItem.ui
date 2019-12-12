@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":6,
-    "selecteID":5,
+    "selectedBox":1,
+    "selecteID":3,
     "props":{"width":95,"sceneColor":"#000000","height":115},
     "nodeParent":-1,
     "label":"View",
@@ -110,6 +110,19 @@
             "child":[
                 ],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":35,"x":20,"width":54.9375,"visible":false,"var":"lab_stageNum","text":"10阶","strokeColor":"#a9643b","stroke":4,"height":24,"fontSize":24,"font":"fzhl","color":"#faf1c2","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lab_stageNum)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":9,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -8,6 +8,7 @@ module view.zhaiYuan {
 		private msgData;//上面的面板的详细信息数 
 		private equipNameArr = ['头盔', '项链', '衣服', '武器', '左手镯', '右手镯', '左戒指', '右戒指', '鞋子', '裤子']
 		public type = 0;
+
 		constructor() {
 			super();
 			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
@@ -32,6 +33,9 @@ module view.zhaiYuan {
 			EventManage.onWithEffect(this.btn_intensify, Laya.UIEvent.CLICK, this, () => {
 				this.sendIntensify();
 			});
+			this.btn_add.on(Laya.UIEvent.CLICK,this,function(){
+
+			})
 		}
 		//刷新界面
 		public upDateView(type, Touchindex) {
@@ -63,9 +67,11 @@ module view.zhaiYuan {
 			costCount = this.msgData.count;
 			if (curCostNum >= costCount) {
 				this.canIntensify = true
+				this.btn_add.visible = false;
 			}
 			else {
 				this.canIntensify = false;
+				this.btn_add.visible = true;
 			}
 			//升级;             所需要的金币消耗
 			// this.lab_goldCost.text = "消耗金币：" + this.msgData.gold;

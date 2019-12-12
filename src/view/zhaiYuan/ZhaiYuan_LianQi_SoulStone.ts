@@ -80,7 +80,7 @@ module view.zhaiYuan {
 			let curCostNum;
 			let costName;
 			let costCount;
-			let arr = ["强化", "激活", "升阶", "进阶", "获取"]
+			let arr = ["强化", "激活", "精炼", "进阶", "获取"]
 			for (let i = 0; i < 10; i++) {
 				this["ui_equip" + i].img_icon.skin = "image/common/daoju/itemicon_bg_" + (i + 10) + ".png";
 				this["ui_equip" + i].lab_name.text = this.equipNameArr[i];
@@ -134,7 +134,7 @@ module view.zhaiYuan {
 
 				this.box_cost_active.visible = false;
 				this.box_cost_up.visible = true;
-				this.btn_intensify.label = "升阶";
+				this.btn_intensify.label = "精炼";
 				this.btn_intensify.label = arr[2];
 				this.lab_needCost.text = this.msgData.needexp + '';
 				this.lab_curHave.text = this.msgData.curexp + '';
@@ -324,7 +324,7 @@ module view.zhaiYuan {
 				} else {
 					TipsManage.showTips("灵魂之石不足，无法激活！")
 				}
-			} else if (this.btn_intensify.label == "升阶") {
+			} else if (this.btn_intensify.label == "精炼") {
 				// curSoulStone
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSoulStone, [this.type, this.TouchID, this.curSoulStoneID, 0])
 				lcp.send(pkt);

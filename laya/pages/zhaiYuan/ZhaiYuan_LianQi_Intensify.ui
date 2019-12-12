@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":64,
+    "selectedBox":30,
+    "selecteID":30,
     "props":{"width":565,"sceneColor":"#b5b5b5","height":741},
     "nodeParent":-1,
     "label":"View",
@@ -16,7 +16,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/EquipItem.ui",
-            "props":{"y":0,"x":223,"var":"panel_1_UI","scaleY":1.24,"scaleX":1.24},
+            "props":{"y":8,"x":216,"var":"panel_1_UI","scaleY":1.24,"scaleX":1.24},
             "nodeParent":1,
             "label":"UIView(panel_1_UI)",
             "isDirectory":false,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":45,"x":157,"width":292,"skin":"image/common/img_zs_com01.png","scaleY":1.2,"scaleX":0.85,"height":96,"alpha":1},
+            "props":{"y":53,"x":151,"width":295,"skin":"image/common/img_zs_com01.png","scaleY":1.2,"scaleX":0.85,"height":96,"alpha":1},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -218,7 +218,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":165,"x":159,"width":247,"var":"img_exp_bg","skin":"image/zhaiYuan/tab_common_jindutiaodi01.png","sizeGrid":"5,13,6,14","height":13},
+            "props":{"y":169,"x":159,"width":247,"var":"img_exp_bg","skin":"image/zhaiYuan/tab_common_jindutiaodi01.png","sizeGrid":"5,13,6,14","height":13},
             "nodeParent":1,
             "label":"Image(img_exp_bg)",
             "isOpen":false,
@@ -473,13 +473,14 @@
                     "props":{"y":263,"x":169,"width":60,"var":"box_cost","height":60},
                     "nodeParent":66,
                     "label":"Box(box_cost)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":72,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":0,"width":60,"skin":"image/common/frame_normal_touxiang.png","height":60},
                             "nodeParent":72,
@@ -493,6 +494,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":2,"x":2,"width":55,"var":"img_icon","height":55},
                             "nodeParent":72,
@@ -505,6 +507,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":42,"x":-1,"width":61,"var":"lab_cost_Text","text":"50/50","height":18,"fontSize":18,"font":"fzhl","color":"#7a211f","align":"right"},
                             "nodeParent":72,
@@ -517,6 +520,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":20,"x":-106,"width":102,"var":"lab_cost_forge","text":"强化消耗","strokeColor":"#2d1c05","height":24,"fontSize":22,"font":"FZHL","color":"#000000","bold":true,"align":"left"},
                             "nodeParent":72,
@@ -525,6 +529,19 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":6,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":4,"x":4,"visible":false,"var":"btn_add","stateNum":"2","skin":"image/main/btn_common_tianjia.png"},
+                            "nodeParent":72,
+                            "label":"Button(btn_add)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":89,
                             "child":[
                                 ]
                         }]
