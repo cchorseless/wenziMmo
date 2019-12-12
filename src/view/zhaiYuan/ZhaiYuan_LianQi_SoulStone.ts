@@ -213,7 +213,7 @@ module view.zhaiYuan {
 			this.showEffect();
 		}
 		public showEffect() {
-
+			let maxShowSoul = 3;
 			let Soul_LV0_Num = 0;
 			this.vbox_eff0.removeChildren();
 			this.vbox_eff1.removeChildren();
@@ -233,134 +233,79 @@ module view.zhaiYuan {
 						Soul_LV0_Num++
 					}
 				}
-				if (Soul_LV0_Num < 3) {
-					for (let i = 1; i < 7; i++) {
-						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
-						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
-						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
-							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
-							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-						}
-						if (!this.hasFull) {
-							let effid1 = this.allData.SoulStoneTab[this.curSoulStoneID] +soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-							let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
-							if (i == this.curSoulStoneID) {
-								if (effData0.des[0].onlyValue) {
-									let span = effData1.des[0].value - effData0.des[0].value;
-									this['img_increase' + i].visible = true
-									this['lab_upNum' + i].text = span + '';
-								} else {
-									let span0 = effData1.des[0].min - effData0.des[0].min
-									let span1 = (effData1.des[0].max - effData0.des[0].max)
-									this['img_increase' + i].visible = true
-									this['lab_upNum' + i].text = span0 + "-" + span1;
-								}
-							}
-						}
-					}
-				} else if (Soul_LV0_Num >= 3) {
-					for (let i = 1; i < 4; i++) {
-						let effData0;
-						let effid1 = this.allData.SoulStoneTab[i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
-						let tempData = GameUtil.parseEffectidToObj([effid1 + ""])
-						effData0 = tempData;
-						if (effData0.des[0].onlyValue) {
-							effData0.des[0].value = 0;
-							let span = effData1.des[0].value - effData0.des[0].value;
-							if (this.curSoulStoneID == i) {
-								this['img_increase' + i].visible = true
-								this['lab_upNum' + i].text = span + '';
-								effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + 0 + "</span>"
-							}
+			}
+			switch (Soul_LV0_Num) {
+				case 6: case 5: case 4: case 3:
+					maxShowSoul = 3;
+					break;
+				case 2:
+					maxShowSoul = 4;
+					break;
+				case 1:
+					maxShowSoul = 5;
+					break;
+				case 0:
+					maxShowSoul = 6;
+					break;
+			}
+
+			for (let i = 1; i < (6 - Soul_LV0_Num + 1); i++) {
+				let effid_1 = this.allData.SoulStoneTab[i] + this.allData.playerlvl[this.TouchID][i] + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+				let effData_1 = GameUtil.parseEffectidToObj([effid_1 + ""]);
+				if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+					this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
+				} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+					this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
+				}
+				if (!this.hasFull) {
+					let effid1 = this.allData.SoulStoneTab[this.curSoulStoneID] + this.allData.playerlvl[this.TouchID][i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+					let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+					if (i == this.curSoulStoneID) {
+						if (effData_1.des[0].onlyValue) {
+							let span = effData1.des[0].value - effData_1.des[0].value;
+							this['img_increase' + i].visible = true
+							this['lab_upNum' + i].text = span + '';
 						} else {
-							effData0.des[0].min = 0;
-							effData0.des[0].max = 0;
-							let span0 = effData1.des[0].min - effData0.des[0].min
-							let span1 = (effData1.des[0].max - effData0.des[0].max)
-							if (this.curSoulStoneID == i) {
-								this['img_increase' + i].visible = true
-								this['lab_upNum' + i].text = span0 + "-" + span1;
-								effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].min + "</span>- <span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].max + "</span>"
-
-							}
-						}
-						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
-							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
-							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+							let span0 = effData1.des[0].min - effData_1.des[0].min
+							let span1 = (effData1.des[0].max - effData_1.des[0].max)
+							this['img_increase' + i].visible = true
+							this['lab_upNum' + i].text = span0 + "-" + span1;
 						}
 					}
 				}
 			}
-		}
-		public setEffect() {
+			for (let i = (6 - Soul_LV0_Num + 1); i < 7; i++) {
+				let effData0;
+				let effid1 = this.allData.SoulStoneTab[i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+				let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+				let tempData = GameUtil.parseEffectidToObj([effid1 + ""])
+				effData0 = tempData;
+				if (effData0.des[0].onlyValue) {
+					effData0.des[0].value = 0;
+					let span = effData1.des[0].value - effData0.des[0].value;
+					effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + 0 + "</span>"
+					if (this.curSoulStoneID == i) {
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = span + '';
 
-			let Soul_LV0_Num = 0;
-			this.vbox_eff0.removeChildren();
-			this.vbox_eff1.removeChildren();
-			for (let i = 1; i < 7; i++) {
-				this['img_increase' + i].visible = false
-			}
-			if (this.allData.openlvl[this.TouchID].pbj == 0) {
-				this.box_eff_show.visible = false;
-				this.lab_lock_show.visible = true;
-			} else {
-				this.box_eff_show.visible = true;
-				this.lab_lock_show.visible = false;
-				if (this.allData.playerlvl[this.TouchID][6] < 12) {
-					for (let i = 1; i < 7; i++) {
-						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
-						if (soul_oneOf_Lv > 0) {
-							if (soul_oneOf_Lv < 72) {
-								this.allData.SoulStoneTab[i];    //原本魂石对应的effid
-								let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-								let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
-								let effid1 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-								let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
-								if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
-									this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-								} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
-									this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-								}
-								if (effData0.des[0].onlyValue) {
-									let span = effData1.des[0].value - effData0.des[0].value;
-									if (this.curSoulStoneID == i) {
-										this['img_increase' + i].visible = true
-										this['lab_upNum' + i].text = span + '';
-									}
-								} else {
-									let span0 = effData1.des[0].min - effData0.des[0].min
-									let span1 = (effData1.des[0].max - effData0.des[0].max)
-									if (this.curSoulStoneID == i) {
-										this['img_increase' + i].visible = true
-										this['lab_upNum' + i].text = span0 + "-" + span1;
-									}
-								}
-							}
-						} else {
-							Soul_LV0_Num++;
-						}
 					}
-
-				}
-				else if (this.allData.playerlvl[this.TouchID][6] == 12) {
-					for (let i = 1; i < 7; i++) {
-						let soul_oneOf_Lv = this.allData.playerlvl[this.TouchID][i] //魂石每一个球的等级
-						this.allData.SoulStoneTab[i];    //原本魂石对应的effid
-						let effid0 = this.allData.SoulStoneTab[i] + soul_oneOf_Lv + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-						let effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
-						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
-							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
-							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
-						}
+				} else {
+					effData0.des[0].min = 0;
+					effData0.des[0].max = 0;
+					let span0 = effData1.des[0].min - effData0.des[0].min
+					let span1 = (effData1.des[0].max - effData0.des[0].max)
+					effData0.des[0].des = effData0.des[0].label + "<span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].min + "</span>- <span style='color:#00ff00;font-weight:bold;'>" + effData0.des[0].max + "</span>"
+					if (this.curSoulStoneID == i) {
+						this['img_increase' + i].visible = true
+						this['lab_upNum' + i].text = span0 + "-" + span1;
 					}
 				}
+				if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+					this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+				} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+					this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[0]));
+				}
 			}
-
 		}
 		//设置上面面板显示多少个魂石
 		private setSoulStoneState(id: number) {
