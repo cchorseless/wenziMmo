@@ -51,10 +51,10 @@ module view.juese {
 			//道具名
 			this.lbl_name.text = item.data[1];
 			//使用等级
-			if (item.data[64] == 0) {
+			if (item.data[67] == 0) {
 				this.lbl_lvl.text = item.data[3] + '级';
 			} else {
-				this.lbl_lvl.text = item.data[64] + '转' + item.data[3] + '级';
+				this.lbl_lvl.text = item.data[67] + '转' + item.data[3] + '级';
 			}
 			let itemInfo = new ProtoCmd.ItemBase();
 			itemInfo.dwBaseID = item.key;

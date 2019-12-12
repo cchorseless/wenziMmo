@@ -74,7 +74,7 @@ module view.juese {
 				if (this.num == 1) {
 					this.init_use();
 					//经验已满，买了没使用成功，刷新按钮
-					this.init_updata();
+					PanelManage.JueSe.ui_gangQi.init_expFull();
 				}
 			});
 		}
@@ -107,7 +107,7 @@ module view.juese {
 									PanelManage.JueSe.ui_talent.init_laqu();
 									break;
 								case 2:
-								//刷新弟子转生界面
+									//刷新弟子转生界面
 									PanelManage.DiZi.ui_sangong.init_zhuangshengPanel();
 									break;
 							}

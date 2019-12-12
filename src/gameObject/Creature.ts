@@ -378,8 +378,14 @@ module GameObject {
          * 战力
          * @param fight 
          */
-        public changeFight(fight: number) {
-            this.ability.nFight = fight;
+        public changeFight(fight: number, dwType: number) {
+            if (dwType > 0) {
+                //弟子战力
+                GameApp.MainPlayer.heroObj(dwType).ability.nFight = fight;
+            } else {
+                //玩家战力
+                this.ability.nFight = fight;
+            }
         }
 
 

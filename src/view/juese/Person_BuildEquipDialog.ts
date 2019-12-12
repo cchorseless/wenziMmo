@@ -160,13 +160,13 @@ module view.juese {
 				for (let item of equipInfo) {
 					if (num < 2) {
 						//转生等级为0&&等级需求
-						if (item.data[64] == 0 && item.data[3] == lvl) {
+						if (item.data[67] == 0 && item.data[3] == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}
 					if (num >= 2 && num < 8) {
 						//转生等级为lvl
-						if (item.data[64] == lvl) {
+						if (item.data[67] == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}

@@ -10,9 +10,9 @@ module view.juese {
 		private job = GameApp.MainPlayer.job;
 		private hasInit = false;
 		//当前经验
-		private exp = null;
+		private exp;
 		//所需经验
-		private needexp = null;
+		private needexp;
 		public iteminfo;
 		public dialog;
 		public setData(): void {
@@ -129,8 +129,7 @@ module view.juese {
 				this.lbl_have.color = '#000000';
 			}
 			//当前罡气名
-			let id = data.dwEffId;
-			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
+			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + data.dwEffId);
 			this.lbl_dangqian.text = '' + gangqiName;
 			//当前罡气属性
 			let des0 = GameUtil.parseEffectidToObj(['' + data.dwEffId]);
@@ -149,6 +148,7 @@ module view.juese {
 				this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des0.des[i], des1.des[i], 0))
 			}
 			this.init_update();
+			this.init_expFull();
 		}
 		/**
 		 * 罡气下阶预览
@@ -163,7 +163,7 @@ module view.juese {
 					let gangqiInfo = new view.juese.Person_GangQiBtnItem();
 					gangqiInfo.scaleX = 0.7;
 					gangqiInfo.scaleY = 0.7;
-					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid));
+					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid,0));
 				}
 			}
 		}
@@ -210,6 +210,17 @@ module view.juese {
 			} else {
 				this.img_now.x = 230;
 				this.img_shengji.visible = this.img_next.visible = false;
+			}
+		}
+		/**
+		 * 判断罡气经验是否已满
+		 */
+		public init_expFull(): void {
+			if (this.exp && this.needexp) {
+				let num = this.exp - this.needexp;
+				if (num > 0) {
+					GameApp.LListener.event(ProtoCmd.JS_updata_GangqiUse)
+				}
 			}
 		}
 	}

@@ -3,7 +3,6 @@ module view.hero {
 	export class Hero_SanGongItem extends ui.hero.Hero_SanGongItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 		//当前经验-最大经验
 		public exp;
@@ -11,7 +10,7 @@ module view.hero {
 		public client_func_index = 56;
 		//开启所需等级总数
 		private sum;
-		//判断是第几个弟子
+		//当前弟子职业
 		private job;
 		public xiuweidata;
 		public setData(): void {
@@ -36,18 +35,18 @@ module view.hero {
 
 			//开启
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
-				if (GameApp.MainPlayer.lvlCount >= this.sum) {
+				if (GameApp.MainPlayer.curHero.level >= 80) {
 					GameUtil.setServerData(this.client_func_index);
 					this.activation();
 				}
 				else {
-					TipsManage.showTips('您当前等级不足，暂时不能开启')
+					TipsManage.showTips('您的弟子当前等级不足，暂时不能开启')
 				}
 			})
 		}
 		public activation(): void {
 			//判断是否激活
-			if (GameUtil.getServerData(this.client_func_index)) {
+			if (GameApp.MainPlayer.curHero.level >= 80) {
 				this.viw_sangong.selectedIndex = 1;
 				this.addLcpEvent();
 				this.init_zhuangshengPanel();
@@ -67,7 +66,7 @@ module view.hero {
 			let zsLvl = Math.floor(activationLvl / 1000);
 			let lvl = activationLvl % 1000;
 			this.lbl_detail.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + id);
-			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
+			this.lbl_condition.text = '弟子等级达到80级'
 			this.sum = zsLvl * 1000 + lvl;
 		}
 		/**
@@ -87,24 +86,34 @@ module view.hero {
 					this.lbl_have.color = '#000000';
 				}
 				if (jsonData.effid != 0) {
-					//当前属性
-					let shuxing1 = GameUtil.parseEffectidToObj(['' + jsonData.effid])
-					let attribute1 = shuxing1.des;
-					let index = 0;
-					let heroInfo = [GameApp.MainPlayer.hero1, GameApp.MainPlayer.hero2, GameApp.MainPlayer.hero3];
-					for (let idx in heroInfo) {
-						if (heroInfo[idx].isOnBattle) {
-							index = parseInt(idx) + 1;
-							break;
-						}
+					//当前弟子转生等级
+					this.lbl_dangqian.text = GameObject.Hero.zslevel + '转';
+					//当前弟子下一转生等级
+					this.lbl_next.text = (GameObject.Hero.zslevel + 1) + '转';
+					if (GameObject.Hero.zslevel < 15) {
+						//当前转生等级不是最大转生等级
+						this.img_dangqian.x = 120;
+						this.img_change.visible = true;
+						this.img_next.visible = true;
+					} else {
+						//当前转生等级是最大转生等级
+						this.img_dangqian.x = 255;
+						this.img_change.visible = false;
+						this.img_next.visible = false;
 					}
-					let battle1 = shuxing1.battle[index];
+					//根据当前弟子职业偏移当前弟子罡气效果id
+					let jobid = jsonData.effid + (GameApp.MainPlayer.curHero.feature.simpleFeature.job - 1) * 1000;
+					//当前属性
+					let shuxing1 = GameUtil.parseEffectidToObj(['' + jobid])
+					let attribute1 = shuxing1.des;
+					let curJob = GameApp.MainPlayer.curHero.feature.simpleFeature.job;
+					let battle1 = shuxing1.battle[curJob];
 					this.lbl_battle.text = '' + battle1;
 					//下级属性
-					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jsonData.effid)
+					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jobid)
 					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
 					let attribute2 = shuxing2.des;
-					let battle2 = shuxing2.battle[index];
+					let battle2 = shuxing2.battle[curJob];
 					this.lbl_battleup.text = '+' + (battle2 - battle1);
 					this.vbox_left.removeChildren();
 					for (let key in attribute1) {

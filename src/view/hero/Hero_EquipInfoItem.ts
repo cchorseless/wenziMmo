@@ -5,11 +5,16 @@ module view.hero {
 			super();
 			this.getEquipBackground();
 			this.addEvent();
-			this.init_changeHero();
+			this.setData();
 		}
 		private HEADDRESS;
 		private BELT;
-		private job;
+		private job=1;
+		public heroInfo = [GameApp.MainPlayer.hero1, GameApp.MainPlayer.hero2, GameApp.MainPlayer.hero3];
+		public setData(): void {
+			this.init_changeHero();
+			this.updateFight();
+		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_equip, Laya.UIEvent.CLICK, this, () => {
 				let o = new view.juese.Person_Equip_SoulContentDialog()
@@ -27,6 +32,9 @@ module view.hero {
 				o.setData(1)
 				o.popup();
 			})
+			this.btn_shuxing.on( Laya.UIEvent.CLICK, this, () => {
+				 new view.hero.Hero_EquipAttributeDialog().setData(this.job).popup();
+			})
 			//上一个弟子
 			EventManage.onWithEffect(this.btn_previous, Laya.UIEvent.CLICK, this, () => {
 				if (this.job > 1) {
@@ -43,9 +51,21 @@ module view.hero {
 			})
 			//切换出战状态
 			this.img_chuzhan.on(Laya.UIEvent.CLICK, this, () => {
+				let i = this.job - 1;
 				//当前弟子已解锁且不为出战弟子时切换出战状态
-				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle == false && GameApp.MainPlayer.heroObj(this.job).lockState == 2) {
-					this.init_ChangeHero();
+				// if (this.heroInfo[i].isOnBattle ) {
+				this.init_ChangeHeroState();
+				// }
+			})
+			//激活弟子
+			this.btn_jiesuo.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.job == EnumData.JOB_TYPE.JOB_WARRIOR) {
+					//激活弟子1
+					this.init_JiHuo(ProtoCmd.Hero_firstGenHero);
+				}
+				else {
+					//激活弟子2|3
+					this.init_JiHuo(ProtoCmd.Hero_HeroJiHuo2and3);
 				}
 			})
 			//战斗属性介绍
@@ -54,7 +74,12 @@ module view.hero {
 			// })
 			this.addLcpEvent();
 		}
-
+		//激活弟子
+		public init_JiHuo(proto): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(proto, [this.job])
+			lcp.send(pkt);
+		}
 		public addLcpEvent() {
 			// GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_ABILITY, this, (job) => {
 			// 	this.updateProps(job);
@@ -62,12 +87,30 @@ module view.hero {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_POWER, this, (job) => {
 				this.updateFight(job);
 			});
-
+			// 更新弟子状态
+			GameApp.LListener.on(ProtoCmd.Hero_HeroBaseInfo, this, (jsonData: { [v: string]: ProtoCmd.itf_Hero_BaseInfo }) => {
+				for (let i = 1; i < 4; i++) {
+					switch (jsonData[i].JOB) {
+						case EnumData.JOB_TYPE.JOB_WARRIOR:
+							GameApp.MainPlayer.hero1.lockState = jsonData[i].STATE;
+							break;
+						case EnumData.JOB_TYPE.JOB_MAGE:
+							GameApp.MainPlayer.hero2.lockState = jsonData[i].STATE;
+							break;
+						case EnumData.JOB_TYPE.JOB_MONK:
+							GameApp.MainPlayer.hero3.lockState = jsonData[i].STATE;
+							break;
+					}
+				}
+				// 刷新弟子状态
+				this.init_changeHero(this.job);
+				PanelManage.DiZi.init_dizi();
+			})
 		}
 
 		public destroy(isbool) {
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_ABILITY, this);
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_POWER, this);
+			GameApp.LListener.offCaller(ProtoCmd.Hero_HeroBaseInfo, this);
 			super.destroy(isbool);
 		}
 		/**
@@ -82,25 +125,26 @@ module view.hero {
 		//切换弟子
 		public init_changeHero(job = 1): void {
 			this.job = job;
-			// 拉取弟子属性信息
-			// let pkt = new ProtoCmd.SUBCMD_HERO_ABILITY();
-			// pkt.setValue('btJob', this.job);
-			// lcp.send(pkt);
-			this.init_heroState();
+			// 判断是否解锁
+			switch (GameApp.MainPlayer.heroObj(this.job).lockState) {
+				//0不可接受1可解锁2已解锁
+				case 0:
+					this.viw_dizi.selectedIndex = 0;
+					this.btn_jiesuo.disabled = true;
+					break;
+				case 1:
+					this.viw_dizi.selectedIndex = 0;
+					this.btn_jiesuo.disabled = false;
+					break;
+				case 2:
+					this.viw_dizi.selectedIndex = 1;
+					this.init_heroState();
+					break;
+			};
 			//职业
-			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
+			this.lbl_chushen.text = this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[this.job]]
 			//弟子半身像
 			this.img_hero.skin = LangConfig.getPlayerAvatarSkinV1(GameApp.MainPlayer.heroSex, this.job)
-			//合击技能
-			let skillInfo = GameApp.MainPlayer.skillInfo;
-			let index = '500' + this.job;
-			let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
-			this.btn_wuxue.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
-			this.lbl_wuxue.text=SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillInfo[index].configID)
-			// 装备
-			for (let i = 0; i < 10; i++) {
-				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
-			}
 			switch (this.job) {
 				case 1:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
@@ -108,9 +152,11 @@ module view.hero {
 					//等级
 					this.lbl_level.text = '' + GameApp.MainPlayer.hero1.level + '级';
 					//攻击类型
-					this.lbl_killtype.text = '外功';
+					this.lbl_gongji.text = this.lbl_killtype.text = '外功';
 					this.btn_next.visible = true;
 					this.btn_previous.visible = false;
+					//解锁等级
+					this.lbl_condition.text = '39级';
 					break;
 				case 2:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
@@ -118,9 +164,11 @@ module view.hero {
 					//等级
 					this.lbl_level.text = '' + GameApp.MainPlayer.hero2.level + '级';
 					//攻击类型
-					this.lbl_killtype.text = '内功';
+					this.lbl_gongji.text = this.lbl_killtype.text = '内功';
 					this.btn_next.visible = true;
 					this.btn_previous.visible = true;
+					//解锁等级
+					this.lbl_condition.text = '62级';
 					break;
 				case 3:
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
@@ -128,30 +176,42 @@ module view.hero {
 					//等级
 					this.lbl_level.text = '' + GameApp.MainPlayer.hero3.level + '级';
 					//攻击类型
-					this.lbl_killtype.text = '内功';
+					this.lbl_gongji.text = this.lbl_killtype.text = '内功';
 					this.btn_next.visible = false;
 					this.btn_previous.visible = true;
+					//解锁等级
+					this.lbl_condition.text = '72级';
 					break;
 			}
-			// 判断是否解锁
-			if (GameApp.MainPlayer.heroObj(this.job).lockState != 2) { return };
-			let allKey = Object.keys(GameApp.GameEngine.equipDB);
-			for (let key of allKey) {
-				let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
-				let btLocation = _itemBase.location.getValue('btLocation');
-				let btIndex = _itemBase.location.getValue('btIndex');
-				// 筛选合适的装备
-				if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= this.BELT && btIndex >= this.HEADDRESS) {
-					let itemUI = new view.compart.DaoJuItem();
-					itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_PLAYER);
-					(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
+			if (this.viw_dizi.selectedIndex == 1) {
+				//合击技能
+				let skillInfo = GameApp.MainPlayer.skillInfo;
+				let index = '500' + this.job;
+				let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
+				this.btn_wuxue.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+				this.lbl_wuxue.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillInfo[index].configID)
+				// 装备
+				for (let i = 0; i < 10; i++) {
+					(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
+				}
+				let allKey = Object.keys(GameApp.GameEngine.equipDB);
+				for (let key of allKey) {
+					let _itemBase: ProtoCmd.ItemBase = GameApp.GameEngine.equipDB[key];
+					let btLocation = _itemBase.location.getValue('btLocation');
+					let btIndex = _itemBase.location.getValue('btIndex');
+					// 筛选合适的装备
+					if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= this.BELT && btIndex >= this.HEADDRESS) {
+						let itemUI = new view.compart.DaoJuItem();
+						itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_PLAYER);
+						(this['ui_item' + (btIndex - this.HEADDRESS)] as view.compart.EquipInBodybgItem).addItem(itemUI);
+					}
 				}
 			}
 		}
 		/**
 		 * 切换英雄出战状态
 		 */
-		public init_ChangeHero(): void {
+		public init_ChangeHeroState(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			let num = this.job - 1;
 			pkt.setString(ProtoCmd.Hero_ChangeHero, [num]);
@@ -171,49 +231,9 @@ module view.hero {
 			}
 		}
 		/**
-		 * 更新战斗属性
-		 */
-		// public updateProps(job): void {
-		// 	if (job != this.job) return;
-		// 	console.log('更新了战力+' + job)
-		// 	let data = GameApp.MainPlayer.heroObj(this.job).ability;
-		// 	// 血-生命值
-		// 	let func = LangConfig.getBigNumberDes;
-		// 	this.lbl_Hp.text = '' + func(data.nowHP) + '/' + func(data.nMaxHP);
-		// 	// 攻-攻击
-		// 	switch (this.job) {
-		// 		case EnumData.JOB_TYPE.JOB_WARRIOR:
-		// 			this.lbl_atk.text = '' + func(data.nMinDC) + '-' + func(data.nMaxDC);
-		// 			break;
-		// 		case EnumData.JOB_TYPE.JOB_MAGE:
-		// 			this.lbl_atk.text = '' + func(data.nMinMC) + '-' + func(data.nMaxMC);
-		// 			break;
-		// 		case EnumData.JOB_TYPE.JOB_MONK:
-		// 			this.lbl_atk.text = '' + func(data.nMinSC) + '-' + func(data.nMaxSC);
-		// 			break;
-		// 	}
-		// 	// 抗-物理防御
-		// 	this.lbl_phyDef.text = '' + func(data.nMinAC) + '-' + func(data.nMaxAC);
-		// 	// 化-魔法防御
-		// 	this.lbl_migDef.text = '' + func(data.nMinMAC) + '-' + func(data.nMaxMAC);
-		// 	// 准-准确
-		// 	this.lbl_zhunQue.text = '' + func(data.nHit);
-		// 	// 躲-闪避
-		// 	this.lbl_shanbi.text = '' + func(data.nJuck);
-		// 	// 巧-暴击
-		// 	this.lbl_baoJi.text = '' + func(data.nCrit);
-		// 	// 狠-爆伤
-		// 	this.lbl_baoShang.text = '' + func(data.nAtkCrit);
-		// 	// 幸-幸运
-		// 	this.lbl_xingYun.text = '' + func(data.nLucky);
-		// 	// 韧-韧性
-		// 	this.lbl_renxing.text = '' + func(data.nCritResi);
-		// }
-
-		/**
 		 * 更新战力
 		 */
-		public updateFight(job) {
+		public updateFight(job=1) {
 			//战力
 			if (job != this.job) return;
 			this.lbl_zhanli.text = '' + LangConfig.getBigNumberDes(GameApp.MainPlayer.heroObj(this.job).ability.nFight);

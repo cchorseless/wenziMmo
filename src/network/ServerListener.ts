@@ -608,7 +608,7 @@ class ServerListener extends SingletonClass {
                 PanelManage.Main.removeChild(e)
             }))
 
-            
+
 
 
             targeter.onAttack();
@@ -995,28 +995,28 @@ class ServerListener extends SingletonClass {
                 case EnumData.PlayerAndHeroType.Player:
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
-                    player.changeFight(fightPower);
+                    player.changeFight(fightPower,dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_POWER);
                     break;
                 // 英雄战士
                 case EnumData.PlayerAndHeroType.Hero1:
                     player.hero1.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero1.changeFight(fightPower);
+                    player.hero1.changeFight(fightPower,dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄法师
                 case EnumData.PlayerAndHeroType.Hero2:
                     player.hero2.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero2.changeFight(fightPower);
+                    player.hero2.changeFight(fightPower,dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄道士
                 case EnumData.PlayerAndHeroType.Hero3:
                     player.hero3.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero3.changeFight(fightPower);
+                    player.hero3.changeFight(fightPower,dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
             }
@@ -1056,7 +1056,7 @@ class ServerListener extends SingletonClass {
         player.changeNowFame(msg.i64Fame.int64ToNumber());//当前声望
         player.changeMaxTotalFame(msg.i64TotalFame.int64ToNumber());//累计声望
         player.changeNeigong(msg.getValue('nNeigongMax') - msg.getValue('nNeigonguse'), msg.getValue('nNeigongMax'));//内功
-        player.changeFight(msg.getValue('nFight'));// 战斗力
+        player.changeFight(msg.getValue('nFight'),0);// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
         player.changenSpirte(msg.getValue('nSpirte'));// 精神
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
@@ -1520,7 +1520,7 @@ class ServerListener extends SingletonClass {
                 friendInfo.splice(key, 1);
             }
         }
-         //刷新好友列表
+        //刷新好友列表
         GameApp.LListener.event(ProtoCmd.FD_UPDATA, GameApp.MainPlayer.friendInfo)
     }
     /**

@@ -13,11 +13,11 @@ module view.compart {
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE,type=0): void {
+		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE, type = 0): void {
 			// 双向绑定
 			this.item = item;
 			//区分是普通消耗物品还是罡气消耗
-			this.type=type;
+			this.type = type;
 			item.recoverUI();
 			item.ui_item = this;
 			let dwBaseID = '' + item.dwBaseID;
@@ -32,7 +32,7 @@ module view.compart {
 				if (needJob == GameApp.GameEngine.mainPlayer.job || needJob == 0) {
 					if (needlvl <= GameApp.GameEngine.mainPlayer.level) {
 						this.img_cantWear.visible = false;
-					}else {
+					} else {
 						this.img_cantWear.visible = true;
 					}
 				} else {
@@ -122,10 +122,10 @@ module view.compart {
 									model = EnumData.ItemInfoModel.SHOW_IN_BAG_BAITAN;
 									break;
 							}
-							itemInfoDialog.setData(this.item, model,this.type).show(false);
+							itemInfoDialog.setData(this.item, model, this.type).show(false);
 							break;
 						default:
-							itemInfoDialog.setData(this.item, this.model,this.type).show(false);
+							itemInfoDialog.setData(this.item, this.model, this.type).show(false);
 							break;
 					}
 				}
@@ -149,24 +149,26 @@ module view.compart {
 			// 底图
 			this.img_bg.skin = 'image/common/daoju/quality_' + SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(dwBaseID) + '.png';
 			// 物品数量
-			if (item.dwCount && item.dwCount > 1) {
-				if (item.dwCount > 10000) {
-					let num =item.dwCount / 10000;
-					if (num > 10000) {
-						let count = num / 10000;
-						this.lbl_count.text = Math.ceil(count) + '亿';
+			if (this.lbl_count.text) {
+				if (item.dwCount && item.dwCount > 1) {
+					if (item.dwCount > 10000) {
+						let num = item.dwCount / 10000;
+						if (num > 10000) {
+							let count = num / 10000;
+							this.lbl_count.text = Math.ceil(count) + '亿';
+						}
+						else {
+							this.lbl_count.text = Math.ceil(num) + '万';
+						}
 					}
 					else {
-						this.lbl_count.text = Math.ceil(num) + '万';
+						this.lbl_count.text = '' + item.dwCount;
 					}
+
 				}
 				else {
-					this.lbl_count.text = '' + item.dwCount;
+					this.lbl_count.text = '';
 				}
-
-			}
-			else {
-				this.lbl_count.text = '';
 			}
 		}
 

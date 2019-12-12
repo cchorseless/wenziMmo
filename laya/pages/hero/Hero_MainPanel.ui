@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":7,
-    "selecteID":147,
+    "selecteID":66,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -98,7 +98,7 @@
                     "x":30,
                     "type":"UIView",
                     "source":"hero/Hero_EquipInfoItem.ui",
-                    "props":{"y":10,"x":27,"width":583,"var":"ui_equipProps","runtime":"view.hero.Hero_EquipInfoItem","name":"item0","height":810},
+                    "props":{"y":10,"x":27,"width":583,"var":"ui_equipProps","runtime":"view.hero.Hero_EquipInfoItem","name":"item0","height":850},
                     "nodeParent":7,
                     "label":"UIView(ui_equipProps)",
                     "isDirectory":false,
@@ -107,7 +107,7 @@
                     "compId":66,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -140,14 +140,15 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-174,"x":10,"name":"item3"},
+                    "type":"UIView",
+                    "source":"juese/Person_GangQiItem.ui",
+                    "props":{"y":24,"x":6,"var":"ui_gangqi","runtime":"view.hero.Hero_GangQiItem","name":"item3"},
                     "nodeParent":7,
-                    "label":"Box(item3)",
+                    "label":"UIView(ui_gangqi)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":146,
+                    "compId":166,
                     "child":[
                         ],
                     "$HIDDEN":true
@@ -164,7 +165,8 @@
                     "hasChild":false,
                     "compId":147,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

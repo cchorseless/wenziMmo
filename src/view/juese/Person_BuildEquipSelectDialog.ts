@@ -47,8 +47,9 @@ module view.juese {
 				if (itemArray.length > 0) {
 					let items = Object.keys(itemArray);
 					for (let item of items) {
-						let iteminfo = new ProtoCmd.ItemBase;
-						this.list_item.array[item] = itemArray[item];
+						let iteminfo = new ProtoCmd.ItemBase();
+						iteminfo.clone(itemArray[item].data);
+						this.list_item.array[item] = iteminfo;
 					}
 				}
 			}
