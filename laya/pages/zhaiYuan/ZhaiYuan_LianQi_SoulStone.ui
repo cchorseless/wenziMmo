@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":152,
-    "selecteID":120,
+    "selectedBox":119,
+    "selecteID":131,
     "props":{"width":565,"sceneColor":"#ffffff","height":741},
     "nodeParent":-1,
     "label":"View",
@@ -740,70 +740,35 @@
                                 }]
                         }],
                     "$LOCKED":true,
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":260,"x":168,"width":60,"var":"box_cost_active","height":60},
+                    "props":{"y":252,"x":168,"width":75,"var":"box_cost_active","height":75},
                     "nodeParent":119,
                     "label":"Box(box_cost_active)",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "isOpen":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":127,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"width":60,"skin":"image/common/frame_normal_touxiang.png","height":60},
-                            "nodeParent":127,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":128,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":2,"x":2,"width":55,"var":"img_icon","height":55},
-                            "nodeParent":127,
-                            "label":"Image(img_icon)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":129,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":42,"x":-1,"width":61,"var":"lab_cost_Text","text":"50/50","height":18,"fontSize":18,"font":"fzhl","color":"#7a211f","align":"right"},
-                            "nodeParent":127,
-                            "label":"Label(lab_cost_Text)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":130,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":20,"x":-106,"width":102,"text":"激活消耗","strokeColor":"#2d1c05","height":24,"fontSize":22,"font":"FZHL","color":"#000000","bold":true,"align":"left"},
-                            "nodeParent":127,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":131,
-                            "child":[
-                                ]
-                        }],
+                        ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":277,"x":62,"width":102,"var":"lab_cost_need","text":"激活消耗","strokeColor":"#2d1c05","height":24,"fontSize":22,"font":"FZHL","color":"#000000","bold":true,"align":"left"},
+                    "nodeParent":119,
+                    "label":"Label(lab_cost_need)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":131,
+                    "child":[
+                        ]
                 }]
         }],
     "animations":[
