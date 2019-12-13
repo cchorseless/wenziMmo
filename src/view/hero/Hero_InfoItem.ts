@@ -20,7 +20,7 @@ module view.hero {
 			})
 			//符文套装
 			this.btn_rune.on(Laya.UIEvent.CLICK, this, () => {
-				new view.hero.Hero_RuneDialog().setData(this.job).popup(true);
+				new view.hero.Hero_RuneDialog().setData().popup(true);
 			});
 			//切换出战状态
 			this.btn_battle.on(Laya.UIEvent.CLICK, this, () => {

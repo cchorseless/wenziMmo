@@ -302,7 +302,8 @@ module ProtoCmd {
     export const Hero_exchangeRuneproperty = 'exchangeRuneproperty';//（参数：firid, firtype, firpos, secid, sectype, secpos--64id|类型：0 包裹，1身上|位置：第几条属性）
     // 符文回收属性
     export const Hero_runeRecycleConfig = 'runeRecycleConfig';
-
+    // 符文点击事件
+    export const Hero_runeSelect = 'runeSelect';
     /*********************************资质天赋******************** */
 
     // 拉取天赋+性格随机结果

@@ -22,7 +22,7 @@ module view.hero {
 		public pos2;
 		//当前符文第一个碎片id
 		public itemid;
-		public setData(job): Hero_RuneDialog {
+		public setData(): Hero_RuneDialog {
 			// //弟子职业
 			// switch (job) {
 			// 	case 1:

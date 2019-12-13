@@ -37,18 +37,21 @@ module view.zhaiYuan {
 					let o = new ZhaiYuan_LianQi_Intensify()
 					o.setData()
 					box.addChild(o);
-				}
-				else if (id == 1) {
+				}else if (id == 1) {
 					box.removeChildren();
 					let o = new ZhaiYuan_LianQi_SoulStone()
 					o.setData()
 					box.addChild(o);
-				}
-				else if (id == 2) {
+				}else if (id == 2) {
 					box.removeChildren();
 					let o = new ZhaiYuan_LianQi_CSitem()
 					o.setData()
 					box.addChild(o);
+				} else if (id == 3) {
+					// box.removeChildren();
+					// let o = new ZhaiYuan_LianQi_HQitem()
+					// o.setData()
+					// box.addChild(o);
 				}
 			}
 		}

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":245,
-    "selecteID":234,
+    "selectedBox":260,
+    "selecteID":259,
     "props":{"width":583,"sceneColor":"#aa6867","height":850},
     "nodeParent":-1,
     "label":"View",
@@ -71,13 +71,14 @@
                     "props":{"y":0,"x":1,"name":"item0"},
                     "nodeParent":261,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":260,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/juese/frame_font.png"},
                             "nodeParent":260,
@@ -91,6 +92,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":83,"text":"出身：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":260,
@@ -103,6 +105,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":149,"width":88,"var":"lbl_chushen","text":"隐门传人","fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":260,
@@ -115,6 +118,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":349,"text":"攻击类型：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":260,
@@ -127,6 +131,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":457,"width":44,"var":"lbl_gongji","text":"外功","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":260,
@@ -139,6 +144,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":673,"x":140,"width":304,"skin":"image/juese/frame_yonghuming.png","height":45},
                             "nodeParent":260,
@@ -152,6 +158,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":682,"x":201,"width":180,"var":"lbl_mingzi","text":"玩家名称六字","height":30,"fontSize":30,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":260,
@@ -165,6 +172,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":789,"x":147,"skin":"image/juese/line_kaiqi.png"},
                             "nodeParent":260,
@@ -177,6 +185,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":787,"x":239,"width":104,"valign":"middle","text":"解锁条件","height":24,"fontSize":26,"font":"FZHL","color":"#000000","bold":false,"align":"center"},
                             "nodeParent":260,
@@ -190,6 +199,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":818,"x":224,"width":135.7890625,"var":"lbl_condition","valign":"middle","text":"12转150级","height":24,"fontSize":26,"font":"FZHL","color":"#a53232","bold":false,"align":"center"},
                             "nodeParent":260,
@@ -203,8 +213,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":753,"x":290,"var":"btn_jiesuo","stateNum":"1","skin":"image/juese/bnt_kaiqi.png","labelStrokeColor":"#000000","labelStroke":5,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":753,"x":290,"var":"btn_jiesuo","stateNum":"2","skin":"image/common/btn_jiesuo.png","labelStrokeColor":"#9d4d16","labelStroke":5,"labelSize":36,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","labelAlign":"center","label":"解锁","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":260,
                             "label":"Button(btn_jiesuo)",
                             "isDirectory":false,
@@ -215,7 +226,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -223,14 +234,13 @@
                     "props":{"y":2,"x":0,"width":583,"name":"item1","height":833},
                     "nodeParent":261,
                     "label":"Box(item1)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":245,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/juese/frame_font.png"},
                             "nodeParent":245,
@@ -244,7 +254,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":20,"text":"出身：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":245,
@@ -257,7 +266,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":86,"width":88,"var":"lbl_job","text":"隐门传人","fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":245,
@@ -270,7 +278,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":198,"text":"等级：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":245,
@@ -283,7 +290,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":264,"width":114.8984375,"var":"lbl_level","text":"15转150级","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":245,
@@ -296,7 +302,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":409,"text":"攻击类型：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":245,
@@ -309,7 +314,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":5,"x":519,"width":44,"var":"lbl_killtype","text":"外功","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":245,
@@ -322,12 +326,11 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":76,"x":1,"var":"ui_item0","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":76,"x":1,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item0)",
+                            "label":"UIView(ui_item3)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -337,12 +340,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":181,"x":1,"var":"ui_item1","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":181,"x":1,"var":"ui_item2","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item1)",
+                            "label":"UIView(ui_item2)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -352,12 +354,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":286,"x":1,"var":"ui_item2","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":286,"x":1,"var":"ui_item9","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item2)",
+                            "label":"UIView(ui_item9)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -367,12 +368,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":390,"x":1,"var":"ui_item3","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":390,"x":1,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item3)",
+                            "label":"UIView(ui_item4)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -382,12 +382,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":495,"x":1,"var":"ui_item4","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":495,"x":1,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item4)",
+                            "label":"UIView(ui_item5)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -397,12 +396,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":495,"x":498,"var":"ui_item5","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":495,"x":498,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item5)",
+                            "label":"UIView(ui_item6)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -412,12 +410,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":390,"x":498,"var":"ui_item6","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":390,"x":498,"var":"ui_item7","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item6)",
+                            "label":"UIView(ui_item7)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -427,12 +424,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":286,"x":498,"var":"ui_item7","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":286,"x":498,"var":"ui_item8","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item7)",
+                            "label":"UIView(ui_item8)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -442,12 +438,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":181,"x":498,"var":"ui_item8","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":181,"x":498,"var":"ui_item1","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item8)",
+                            "label":"UIView(ui_item1)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -457,12 +452,11 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipInBodybgItem.ui",
-                            "props":{"y":76,"x":498,"var":"ui_item9","runtime":"view.compart.EquipInBodybgItem"},
+                            "props":{"y":76,"x":498,"var":"ui_item0","runtime":"view.compart.EquipInBodybgItem"},
                             "nodeParent":245,
-                            "label":"UIView(ui_item9)",
+                            "label":"UIView(ui_item0)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -472,7 +466,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":92,"x":418,"var":"btn_equip","stateNum":"2","skin":"image/juese/icon_dengji.png","labelSize":24,"labelPadding":"30,1,-1","labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"等级"},
                             "nodeParent":245,
@@ -487,7 +480,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":178,"x":418,"var":"btn_intensify","stateNum":"2","skin":"image/juese/icon_qianghua.png","labelSize":24,"labelPadding":"30,1,-1","labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"强化"},
                             "nodeParent":245,
@@ -502,7 +494,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":265,"x":418,"var":"btn_soul","stateNum":"2","skin":"image/juese/icon_jinglian.png","labelSize":24,"labelPadding":"30,1,-1","labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"精炼"},
                             "nodeParent":245,
@@ -517,7 +508,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":650,"x":62,"stateNum":"2","skin":"image/juese/frame_zhuangbei.png","labelSize":20,"labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"装备\\n强化","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":245,
@@ -532,7 +522,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":650,"x":520,"stateNum":"2","skin":"image/juese/frame_zhuangbei.png","labelSize":20,"labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"基本\\n武学","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":245,
@@ -547,7 +536,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":750,"x":519,"stateNum":"2","skin":"image/juese/frame_zhuangbei.png","labelSize":20,"labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"强化\\n养成","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":245,
@@ -562,7 +550,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":694,"x":179,"skin":"image/juese/img_zhanli.png"},
                             "nodeParent":245,
@@ -576,7 +563,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":706,"x":202,"skin":"image/juese/font_zhanli.png"},
                             "nodeParent":245,
@@ -589,7 +575,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":701,"x":280,"width":92.875,"var":"lbl_zhanli","text":"199720","strokeColor":"#000000","stroke":4,"italic":true,"height":30,"fontSize":32,"font":"FZLB","color":"#ffffff"},
                             "nodeParent":245,
@@ -602,7 +587,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":765,"x":138,"width":304,"skin":"image/juese/frame_yonghuming.png","height":45},
                             "nodeParent":245,
@@ -616,7 +600,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":771,"x":176,"width":180,"text":"玩家名称六字","height":30,"fontSize":30,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":245,
@@ -630,7 +613,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":767,"x":377,"var":"btn_shuxing","stateNum":"2","skin":"image/juese/btn_common_shuxing.png","labelSize":24,"labelFont":"FZHL","labelColors":"#63491a,#63491a"},
                             "nodeParent":245,
@@ -645,7 +627,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":786,"x":9,"width":100,"var":"lbl_wuxue","valign":"middle","text":"内功武学","height":25,"fontSize":20,"font":"FZHL","color":"#4b3520","align":"center"},
                             "nodeParent":245,
@@ -659,7 +640,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":721,"x":24,"width":70,"var":"btn_wuxue","stateNum":"1","skin":"image/common/frame_ketianjia.png","height":70},
                             "nodeParent":245,
@@ -675,7 +655,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":44,"x":102,"var":"img_chuzhan","skin":"image/juese/img_chuzhan.png"},
                             "nodeParent":245,
@@ -701,7 +680,7 @@
                                 }],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$HIDDEN":false
         },

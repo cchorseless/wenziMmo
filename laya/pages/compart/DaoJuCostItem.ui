@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":6,
-    "selecteID":7,
+    "selectedBox":1,
+    "selecteID":4,
     "props":{"width":75,"sceneColor":"#000000","height":75},
     "nodeParent":-1,
     "label":"View",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":7,"x":7,"width":60,"var":"img_item","skin":"image/common/daoju/itemicon_1122003.png","height":60,"alpha":1},
+            "props":{"y":7,"x":7,"width":60,"var":"img_item","skin":"image/common/daoju/itemicon_200.png","height":60,"alpha":1},
             "nodeParent":1,
             "label":"Image(img_item)",
             "isDirectory":false,
@@ -42,8 +42,23 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":75,"var":"img_NeedAdd","skin":"image/common/bottom_black.png","height":75,"alpha":0.5},
+            "nodeParent":1,
+            "label":"Image(img_NeedAdd)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"x":0,"width":75,"var":"lab_cost","text":"222/22","strokeColor":"#202020","stroke":3,"height":20,"fontSize":18,"font":"FZHL","color":"#ffffff","bottom":3,"align":"right"},
+            "props":{"y":52,"x":0,"width":75,"var":"lab_cost","text":"222/22","strokeColor":"#202020","stroke":3,"height":20,"fontSize":18,"font":"FZHL","color":"#63491a","bottom":3,"align":"right"},
             "nodeParent":1,
             "label":"Label(lab_cost)",
             "isDirectory":false,
@@ -56,29 +71,17 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"width":75,"var":"img_NeedAdd","skin":"image/common/bottom_black.png","height":75,"alpha":0.5},
+            "type":"Button",
+            "props":{"y":37,"x":37,"visible":false,"var":"btn_add","stateNum":"2","skin":"image/main/btn_common_tianjia.png","anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Image(img_NeedAdd)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Button(btn_add)",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":6,
+            "hasChild":false,
+            "compId":7,
             "child":[
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":37,"x":37,"visible":false,"var":"btn_add","stateNum":"2","skin":"image/main/btn_common_tianjia.png","anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":6,
-                    "label":"Button(btn_add)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":7,
-                    "child":[
-                        ]
-                }]
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

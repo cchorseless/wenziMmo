@@ -34,7 +34,6 @@ module view.common {
 
 
 		public loginGame(): void {
-			console.error("loginGame.......")
 			if (this.input_account.text == '') {
 				TipsManage.showTips('账号不能为空');
 				return

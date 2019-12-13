@@ -31,6 +31,11 @@ module view.zhaiYuan {
 			// this.upDateView(0, 0);
 		}
 		public addEvent() {
+			this.box_jieduan.on(Laya.UIEvent.CLICK, this, function () {
+				let o = new view.juese.Person_Equip_SoulContentDialog()
+				o.setData(0)
+				o.popup();
+			})
 			// this.tab_down.on(Laya.UIEvent.CLICK, this, () => {
 			// 	this.type = this.tab_down.selectedIndex;
 			// 	this.TouchID = 0;
@@ -116,11 +121,19 @@ module view.zhaiYuan {
 
 				this.btn_intensify.label = "激活";
 				this.box_cost_active.visible = true;
+				this.lab_cost_need.visible = true;
 				this.box_cost_up.visible = false;
-				let skinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.allData.openlvl[this.TouchID].item.index + '')
-				this.img_icon.skin = 'image/common/daoju/itemicon_' + skinID + '.png';
+				// let skinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.allData.openlvl[this.TouchID].item.index + '')
+				// this.img_icon.skin = 'image/common/daoju/itemicon_' + skinID + '.png';
 				let myItemNum = GameUtil.findItemInBag(this.allData.openlvl[this.TouchID].item.index, GameApp.GameEngine.bagItemDB);
-				this.lab_cost_Text.text = this.allData.openlvl[this.TouchID].item.num + '/' + myItemNum;
+				// this.lab_cost_Text.text = this.allData.openlvl[this.TouchID].item.num + '/' + myItemNum;
+				let itembase = new ProtoCmd.ItemBase();
+				itembase.dwBaseID = this.allData.openlvl[this.TouchID].item.index;
+				let costStr = myItemNum + '/' + this.allData.openlvl[this.TouchID].item.num;
+				let o = new compart.DaoJuCostItem();
+				let status: boolean = myItemNum > this.allData.openlvl[this.TouchID].item.num;
+				o.setData(itembase, status,costStr,1);
+				this.box_cost_active.addChild(o);
 				this.canActive = myItemNum > this.allData.openlvl[this.TouchID].item.num
 			} else {
 				this.ui_centerIcon.btn_icon.gray = false;
@@ -133,6 +146,7 @@ module view.zhaiYuan {
 				this.ui_centerIcon.lab_lv.text = '+ ' + num;
 
 				this.box_cost_active.visible = false;
+				this.lab_cost_need.visible = false;
 				this.box_cost_up.visible = true;
 				this.btn_intensify.label = "精炼";
 				this.btn_intensify.label = arr[2];

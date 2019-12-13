@@ -55,8 +55,8 @@ class GameEngine extends SingletonClass {
     public equipDBIndex = {};//装备位置索引，用于判定该位置是否有装备{bindex:i64id}
     public bagItemDB = {};//物品背包
     public cangKuDB = {};//仓库背包
-    // ****************热销商城*****************
-    public hotShop;
+    // ****************装备打造必选材料*****************
+    public buildEquip;
     /************************地图信息************* */
     public smallMapData: ProtoCmd.itf_MAP_SMALL_INFO;//
     /************************任务信息************ */

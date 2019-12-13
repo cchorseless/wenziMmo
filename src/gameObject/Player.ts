@@ -101,9 +101,9 @@ module GameObject {
         public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子
-        public hero1: GameObject.Hero;// 战士弟子
-        public hero2: GameObject.Hero;// 法师弟子
-        public hero3: GameObject.Hero;// 道士弟子
+        public hero1;// 战士弟子
+        public hero2;// 法师弟子
+        public hero3;// 道士弟子
 
         /**
          * 更改英雄最大经验

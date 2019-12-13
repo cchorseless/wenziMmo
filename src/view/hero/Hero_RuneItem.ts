@@ -20,12 +20,6 @@ module view.hero {
 				this.lbl_name.text = label1[0] + ':';
 			}
 			this.lbl_des.text = '' + data.dwNpNum;
-			if (index == 1) {
-				this.btn_choose.visible = false;
-			}
-			if (index == 2) {
-				this.btn_choose.visible = true;
-			}
 			this.view_single.selectedIndex = 1;
 			this.addEvent();
 			return this;

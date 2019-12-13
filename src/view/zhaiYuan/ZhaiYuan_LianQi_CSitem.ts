@@ -43,12 +43,13 @@ module view.zhaiYuan {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this, () => {
 				this.getData_PlayerEquipMsg(this.TouchID);
 			})
-			this.btn_add0.on(Laya.UIEvent.CLICK, this, function () {
 
-			})
-			this.btn_add1.on(Laya.UIEvent.CLICK, this, function () {
+			// this.btn_add0.on(Laya.UIEvent.CLICK, this, function () {
 
-			})
+			// })
+			// this.btn_add1.on(Laya.UIEvent.CLICK, this, function () {
+
+			// })
 		}
 		//刷新面板
 		private upDateView(touchid) {
@@ -143,9 +144,16 @@ module view.zhaiYuan {
 					this.box_up0.visible = true;
 					let weaponID = equipArr[baseArr[this.TouchID]]
 					let equipskinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(weaponID + '');
-					this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
-					this.lab_cost_Text0.text = 1 + " / " + 1;
+					// this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
+					// this.lab_cost_Text0.text = 1 + " / " + 1;
 					this.lab_cost_forge0.text = '觉醒消耗'
+
+					let itemBase = new ProtoCmd.ItemBase();
+					itemBase.dwBaseID = weaponID;
+					let costStr1 = 1 + " / " + 1;
+					let o1 = new compart.DaoJuCostItem();
+					o1.setData(itemBase, true, costStr1, 1)
+					this.box_up0.addChild(o1);
 				}
 			} else if (!this.curHasEquip) {
 				this.curStatus = 0;
@@ -165,9 +173,14 @@ module view.zhaiYuan {
 				this.box_up0.visible = true;
 				let weaponID = equipArr[baseArr[this.TouchID]];
 				let equipskinID = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(weaponID + '');
-				this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
-				this.lab_cost_Text0.text = 1 + " / " + 0;
+				// this.img_icon0.skin = "image/common/daoju/itemicon_" + equipskinID + ".png";
+				let itemBase = new ProtoCmd.ItemBase();
+				itemBase.dwBaseID = weaponID;
+				let costStr2 = 0 + " / " + 1;
+				let o2 = new compart.DaoJuCostItem();
 				this.lab_cost_forge0.text = '需要获取'
+				o2.setData(itemBase, false, costStr2, 1)
+				this.box_up0.addChild(o2);
 			}
 			// this.lab_cost_forge.text = ""
 
@@ -208,6 +221,12 @@ module view.zhaiYuan {
 								this.box_level.visible = false;
 								this.lab_full_Level.visible = true;
 								this.lab_full_Level.text = '已满级';
+								this.box_up0.visible = false;
+								this.lab_cost_forge0.visible = false;
+								this.box_up1.visible = false;
+								this.lab_cost_forge1.visible = false;
+
+
 							} else {
 								this.isFullLv = false;
 								this.box_level.visible = true;
@@ -264,6 +283,13 @@ module view.zhaiYuan {
 					effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(this.curEquipDataCS.toString())
 				}
 				effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
+				for (let i = 0; i < effData0.des.length; i++) {
+					if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+						this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+						this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+					}
+				}
 
 			} else {
 				if (this.curStatus == 0 || this.curStatus == 1) {
@@ -302,48 +328,42 @@ module view.zhaiYuan {
 
 				} else if (this.curStatus == 2) {
 					if (GameApp.GameEngine.mainPlayer.job == 1) {
-						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
-						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID((this.curEquipDataCS + 1 + this.curStageNum).toString())
+						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID((this.curEquipDataCS + this.curStageNum - 1).toString())
+						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
 					} else if (GameApp.GameEngine.mainPlayer.job == 2) {
-						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
-						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID((this.curEquipDataCS + 1 + this.curStageNum).toString())
+						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID((this.curEquipDataCS + this.curStageNum - 1).toString())
+						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
 					} else if (GameApp.GameEngine.mainPlayer.job == 3) {
-						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
-						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID((this.curEquipDataCS + 1 + this.curStageNum).toString())
+						effid0 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID((this.curEquipDataCS + this.curStageNum - 1).toString())
+						effid1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID((this.curEquipDataCS + this.curStageNum).toString())
 					}
 					effData0 = GameUtil.parseEffectidToObj([effid0 + ""]);
 					effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
 					for (let i = 0; i < effData0.des.length; i++) {
-						if (effData0.des[i].onlyValue) {
-							let span = effData1.des[i].value - effData0.des[i].value;
-							this['img_increase' + (i + 1)].visible = true
-							this['lab_upNum' + (i + 1)].text = span + '';
-						} else {
-							let span0 = effData1.des[i].min - effData0.des[i].min
-							let span1 = (effData1.des[i].max - effData0.des[i].max)
-							this['img_increase' + (i + 1)].visible = true
-							this['lab_upNum' + (i + 1)].text = span0 + "-" + span1;
-						}
 						if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
 							this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 						} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
 							this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 						}
+						if (effData1.des[i]) {
+							if (effData0.des[i].onlyValue) {
+								let span = effData1.des[i].value - effData0.des[i].value;
+								this['img_increase' + (i + 1)].visible = true
+								this['lab_upNum' + (i + 1)].text = span + '';
+							} else {
+								let span0 = effData1.des[i].min - effData0.des[i].min
+								let span1 = (effData1.des[i].max - effData0.des[i].max)
+								this['img_increase' + (i + 1)].visible = true
+								this['lab_upNum' + (i + 1)].text = span0 + "-" + span1;
+							}
+						}
+
+
 					}
 
 				}
 
 			}
-
-
-
-
-			// this.list_chuanshi.array = [];
-			// this.list_chuanshi.array = effData.des;
-			// this.list_chuanshi.itemRender = view.compart.SinglePropsItem;
-			// this.list_chuanshi.renderHandler = Laya.Handler.create(this, (cell: view.compart.SinglePropsItem, index) => {
-			// 	cell.setData(cell.dataSource);
-			// }, null, false)
 		}
 		//重新获取面板信息
 		private getData_PlayerEquipMsg(touchID) {
@@ -357,7 +377,7 @@ module view.zhaiYuan {
 		public getData_EquipPanelMsg(itemID: number) {
 			this.upDateView(this.TouchID);
 		}
-		//发送激活、进阶请求
+		//发送激活、进阶请求 
 		private sendIntensify() {
 			//用当前位置的id转换为服务器ID
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
@@ -366,6 +386,10 @@ module view.zhaiYuan {
 			} else if (this.btn_intensify.label == "获取") {
 				TipsManage.showTips("暂无该装备，请先前往藏宝阁获取哦~")
 			} else if (this.btn_intensify.label == "进阶") {
+				if (this.isFullLv) {
+					TipsManage.showTips("该装备已满级！")
+					return;
+				}
 				if (GameApp.GameEngine.mainPlayer.zslevel < this.msgData.zslvl) {
 					TipsManage.showTips("未达到传世等级");
 					return
@@ -430,49 +454,66 @@ module view.zhaiYuan {
 		}
 		//显示 下面的消耗数值
 		private showCSPanel() {
-			let costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.drillid.toString())
-			let curCostNum = GameUtil.findItemInBag(this.msgData.drillid, GameApp.GameEngine.bagItemDB);
-			let costName1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.soulid.toString())
-			let curCostNum1 = GameUtil.findItemInBag(this.msgData.soulid, GameApp.GameEngine.bagItemDB);
-			let costCount = this.msgData.drillnum;
-			let costCount1 = this.msgData.soulnum;
-			let skinID0 = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.msgData.drillid.toString())
-			let skinID1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.msgData.soulid.toString())
-			if (curCostNum >= costCount) {
-				this.canUpLvCS0 = true;
-				this.btn_add0.visible = false;
-			} else {
-				this.canUpLvCS0 = false;
-				this.btn_add0.visible = true;
-			}
-			if (curCostNum1 >= costCount1) {
-				this.canUpLvCS1 = true;
-				this.btn_add1.visible = false;
-			} else {
-				this.canUpLvCS0 = false;
-				this.btn_add1.visible = true;
-			}
-			if (costCount > 0) {
-				this.box_up0.visible = true;
-				this.lab_cost_forge0.text = "进阶消耗";
-				this.lab_cost_Text0.text = costCount + " / " + curCostNum;
-				this.img_icon0.skin = 'image/common/daoju/itemicon_' + skinID0 + '.png';
+			if (this.msgData != null || this.msgData != undefined) {
+				let costName = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.drillid.toString())
+				let curCostNum = GameUtil.findItemInBag(this.msgData.drillid, GameApp.GameEngine.bagItemDB);
+				let costName1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(this.msgData.soulid.toString())
+				let curCostNum1 = GameUtil.findItemInBag(this.msgData.soulid, GameApp.GameEngine.bagItemDB);
+				let costCount = this.msgData.drillnum;
+				let costCount1 = this.msgData.soulnum;
+				let skinID0 = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.msgData.drillid.toString())
+				let skinID1 = SheetConfig.mydb_item_base_tbl.getInstance(null).ICONID(this.msgData.soulid.toString())
+				if (curCostNum >= costCount) {
+					this.canUpLvCS0 = true;
+					// this.btn_add0.visible = false;
+				} else {
+					this.canUpLvCS0 = false;
+					// this.btn_add0.visible = true;
+				}
+				if (curCostNum1 >= costCount1) {
+					this.canUpLvCS1 = true;
+					// this.btn_add1.visible = false;
+				} else {
+					this.canUpLvCS1 = false;
+					// this.btn_add1.visible = true;
+				}
+				if (costCount > 0) {
+					this.box_up0.visible = true;
+					this.lab_cost_forge0.visible = true;
+					this.lab_cost_forge0.text = "进阶消耗";
+					// this.lab_cost_Text0.text = costCount + " / " + curCostNum;
+					// this.img_icon0.skin = 'image/common/daoju/itemicon_' + skinID0 + '.png';
+					let itemBase = new ProtoCmd.ItemBase();
+					itemBase.dwBaseID = this.msgData.drillid;
+					let o = new compart.DaoJuCostItem();
+					let costStr = curCostNum + '/' + costCount;
+					o.setData(itemBase, this.canUpLvCS0, costStr, 1)
+					this.box_up0.addChild(o);
+
+				} else {
+					this.box_up0.visible = false;
+					this.lab_cost_forge0.visible = false;
+				}
+				if (costCount1 > 0) {
+					this.box_up1.visible = true;
+					this.lab_cost_forge1.visible = true;
+					this.lab_cost_forge1.text = "进阶消耗"
+					let itemBase = new ProtoCmd.ItemBase();
+					itemBase.dwBaseID = this.msgData.soulid;
+					let o = new compart.DaoJuCostItem();
+					let costStr = curCostNum1 + '/' + costCount1;
+					o.setData(itemBase, this.canUpLvCS1, costStr, 1)
+					this.box_up1.addChild(o);
+				} else {
+					this.box_up1.visible = false;
+					this.lab_cost_forge1.visible = false;
+				}
 			} else {
 				this.box_up0.visible = false;
-			}
-			if (costCount1 > 0) {
-				this.box_up1.visible = true;
-				this.lab_cost_forge1.text = "进阶消耗"
-				this.lab_cost_Text1.text = costCount1 + " / " + curCostNum1;
-				this.img_icon1.skin = 'image/common/daoju/itemicon_' + skinID1 + '.png';
-			} else {
+				this.lab_cost_forge0.visible = false;
 				this.box_up1.visible = false;
+				this.lab_cost_forge1.visible = false;
 			}
-			// if (costCount1 <= 0) {
-			// 	this.lab_cost_forge0.text = "进阶消耗：" + costName + " (" + curCostNum + " / " + costCount + ")";
-			// } else {
-			// 	this.lab_cost_forge1.text = "进阶消耗：" + costName + " (" + curCostNum + " / " + costCount + ";" + costName + ":" + curCostNum1 + " / " + costCount1 + ")";
-			// }
 		}
 		public destroy(e = true) {
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_LIANQI_CHUANSHI_UI, this);

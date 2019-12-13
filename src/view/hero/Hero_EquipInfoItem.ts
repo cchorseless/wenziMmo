@@ -9,7 +9,7 @@ module view.hero {
 		}
 		private HEADDRESS;
 		private BELT;
-		private job=1;
+		private job = 1;
 		public heroInfo = [GameApp.MainPlayer.hero1, GameApp.MainPlayer.hero2, GameApp.MainPlayer.hero3];
 		public setData(): void {
 			this.init_changeHero();
@@ -32,8 +32,8 @@ module view.hero {
 				o.setData(1)
 				o.popup();
 			})
-			this.btn_shuxing.on( Laya.UIEvent.CLICK, this, () => {
-				 new view.hero.Hero_EquipAttributeDialog().setData(this.job).popup();
+			this.btn_shuxing.on(Laya.UIEvent.CLICK, this, () => {
+				new view.hero.Hero_EquipAttributeDialog().setData(this.job).popup();
 			})
 			//上一个弟子
 			EventManage.onWithEffect(this.btn_previous, Laya.UIEvent.CLICK, this, () => {
@@ -150,7 +150,7 @@ module view.hero {
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_WARRIOR_BELT;
 					//等级
-					this.lbl_level.text = '' + GameApp.MainPlayer.hero1.level + '级';
+					this.lbl_level.text = '' + GameObject.Hero.zslevel + '转' + GameApp.MainPlayer.hero1.level + '级';
 					//攻击类型
 					this.lbl_gongji.text = this.lbl_killtype.text = '外功';
 					this.btn_next.visible = true;
@@ -162,7 +162,7 @@ module view.hero {
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MAGE_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MAGE_BELT;
 					//等级
-					this.lbl_level.text = '' + GameApp.MainPlayer.hero2.level + '级';
+					this.lbl_level.text = '' + GameObject.Hero.zslevel + '转' + GameApp.MainPlayer.hero2.level + '级';
 					//攻击类型
 					this.lbl_gongji.text = this.lbl_killtype.text = '内功';
 					this.btn_next.visible = true;
@@ -174,7 +174,7 @@ module view.hero {
 					this.HEADDRESS = EnumData.emEquipPosition.EQUIP_HERO_MONK_HEADDRESS;
 					this.BELT = EnumData.emEquipPosition.EQUIP_HERO_MONK_BELT;
 					//等级
-					this.lbl_level.text = '' + GameApp.MainPlayer.hero3.level + '级';
+					this.lbl_level.text = '' + GameObject.Hero.zslevel + '转' + GameApp.MainPlayer.hero3.level + '级';
 					//攻击类型
 					this.lbl_gongji.text = this.lbl_killtype.text = '内功';
 					this.btn_next.visible = false;
@@ -233,7 +233,7 @@ module view.hero {
 		/**
 		 * 更新战力
 		 */
-		public updateFight(job=1) {
+		public updateFight(job = 1) {
 			//战力
 			if (job != this.job) return;
 			this.lbl_zhanli.text = '' + LangConfig.getBigNumberDes(GameApp.MainPlayer.heroObj(this.job).ability.nFight);
