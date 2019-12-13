@@ -14,34 +14,13 @@ module view.main {
 			this.box_fly.addChild(this.flyPanel)
 			// this.addChild(this.flyPanel);
 			this.btn_taskAll.selected = true;
-			this.ui_chatSendDialog.visible = false;
 			this.ui_chatBigDialog.visible = false;
 			// NPC列表
 			this.panel_npc.vScrollBarSkin = '';
 			this.vbox_npc['sortItem'] = (items) => { };
-			//  聊天小窗
-			// this.panel_sceneMsg.vScrollBarSkin = '';
-			// this.panel_chatMsg.vScrollBarSkin = '';
-			// this.vbox_chatMsg['sortItem'] = (items) => { };
-			// this.vbox_sceneMsg['sortItem'] = (items) => { };
 			// 大地图
 			this.panel_bigMap.hScrollBarSkin = '';
-			// this.panel_bigMap.scale(0, 0);
 			this.panel_bigMap.visible = false;
-			// 聊天信息
-			// this.tab_task.selectHandler = Laya.Handler.create(this, (index) => {
-			// 	this.vstack_task.selectedIndex = index;
-			// 	if (index == 1) {
-			// 		this.tab_task.labels = '场\n景,发\n送';
-			// 		this.tab_task.items[index].on(Laya.UIEvent.CLICK, this, () => {
-			// 			this.ui_chatSendDialog.visible = true;
-			// 		})
-			// 	}
-			// 	else {
-			// 		this.tab_task.labels = '场\n景,聊\n天';
-			// 	}
-			// }, null, false);
-			// this.tab_task.selectedIndex = 1;
 			this.initUI();
 			this.addEvent();
 			this.visible = false;
@@ -191,32 +170,11 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-			// this.img_npc.on(Laya.UIEvent.CLICK, this, function () {
-			// 	GameApp.MainPlayer.chatStatus = {
-			// 		3: { status: 0 },
-			// 		5: { status: 0 },
-			// 		2: { status: 1 },
-			// 		8: { status: 1 },
-			// 		4: { status: 1 },
-			// 	}
-			// 	laya.net.LocalStorage.setJSON("chat_Set",GameApp.MainPlayer.chatStatus)
-			// })
+
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				GameApp.SceneManager.showBigMap(true);
 			});
-			// 变大变小
-			// NPC竖条 展开缩放的动画
-			// EventManage.onWithEffect(this.btn_changSize, Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_changSize.selected = !this.btn_changSize.selected;
-			// 	if (this.btn_changSize.selected) {
-			// 		this.btn_changSize.skin = 'image/main/btn_common_02_fan.png'
-			// 		this.showGroupNpcList(true);
-			// 	}
-			// 	else {
-			// 		this.btn_changSize.skin = 'image/main/btn_common_02.png'
-			// 		this.showGroupNpcList(false);
-			// 	}
-			// })
+
 			EventManage.onWithEffect(this.btn_fuben, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenMainPanel('main');
 			})
