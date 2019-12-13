@@ -129,7 +129,7 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 元宝
 			this.lbl_yuanBao.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
-			this.lab_yuanbao.text =  '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
+			this.lab_yuanbao.text = '' + LangConfig.getBigNumberDes(_player.wealth.yuanBao);
 		}
 		/**
 		 * 更新绑定元宝
@@ -419,10 +419,14 @@ module view.main {
 				this.box_mainTop.visible = true;
 			}
 			else {
+				// 复制一张底图
+				let imgBg = new Laya.Image();
+				imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
+				imgBg.skin = GameApp.SceneManager.ui_scene.img_bg.skin;
+				panel.addChildAt(imgBg, 0);
 				this.box_top.visible = true;
 				this.box_mainTop.visible = false;
 			}
-
 		}
 
 		// 界面切换时控制那些部分不变
