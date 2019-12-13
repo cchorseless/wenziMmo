@@ -3,7 +3,6 @@ module view.hero {
 	export class Hero_TalentInfoItem extends ui.hero.Hero_TalentInfoItemUI {
 		constructor() {
 			super();
-			this.setData();
 		}
 		public client_func_index = 54;
 		//开启所需等级总数

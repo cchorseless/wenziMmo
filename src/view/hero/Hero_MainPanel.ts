@@ -6,6 +6,7 @@ module view.hero {
 		}
 		public state = false
 		public setData(): void {
+			this.btn_hero.selected = true;
 			this.tab_left.selectHandler = Laya.Handler.create(this, (index) => {
 				(this.viw_left.getChildAt(index) as any).setData();
 				this.viw_left.selectedIndex = index;
@@ -16,7 +17,7 @@ module view.hero {
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel()
+				PopUpManager.checkPanel(this);
 			})
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();

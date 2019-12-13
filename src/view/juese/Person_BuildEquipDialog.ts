@@ -216,7 +216,12 @@ module view.juese {
 						this.btn_add.visible = true;
 						let item0 = equipData[0].split('`');
 						this.level = parseInt(item0[0]);
-						this.lbl_condition.text = '等级大于' + item0[0] + '级'
+						if (parseInt(item0[0]) >= 1000) {
+							let zs = Math.ceil(parseInt(item0[0]) / 1000);
+							this.lbl_condition.text = '等级大于' + zs + '转'
+						} else {
+							this.lbl_condition.text = '等级大于' + item0[0] + '级'
+						}
 						this.lbl_num.text = '0/' + item0[1];
 						this.maxNum = item0[1];
 						this.ui_item0.img_item.visible = false;
@@ -302,9 +307,7 @@ module view.juese {
 					// this.ui_item0.setData(itemInfo);
 					//所需必选装备数量
 					let num = this.lbl_num.text.split('/');
-					let cout = 0;
 					for (let item of jsonData) {
-						cout += 1;
 						//获取必选装备所有材料的int64id（用'`'号连接）
 						if (this.stuff) {
 							this.stuff = this.stuff + '`' + item.i64ItemID.id;
@@ -313,13 +316,16 @@ module view.juese {
 						}
 					}
 					//当前必选装备数量/所需必选装备数量
-					this.lbl_num.text = cout + '/' + num[1];
+					if (GameApp.GameEngine.buildEquip.length >= 0) {
+						this.lbl_num.text = GameApp.GameEngine.buildEquip.length + '/' + num[1];
+					}
 				}
 			})
 		}
 		public onClosed(TYPE?) {
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this)
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquip, this)
+			GameApp.GameEngine.buildEquip = undefined;
 		}
 		/**
 		 * 打造装备

@@ -13,11 +13,9 @@ module view.compart {
 		 * @param item 
 		 * @param mode 响应事件模式,默认不显示
 		 */
-		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE, type = 0): void {
+		public setData(item: ProtoCmd.ItemBase, model: EnumData.ItemInfoModel = EnumData.ItemInfoModel.SHOW_NONE): void {
 			// 双向绑定
 			this.item = item;
-			//区分是普通消耗物品还是罡气消耗
-			this.type = type;
 			item.recoverUI();
 			item.ui_item = this;
 			let dwBaseID = '' + item.dwBaseID;
@@ -56,7 +54,7 @@ module view.compart {
 					// this.img_bg.filters = [new Laya.ColorFilter(ColorUtils.redFilters)]
 				}
 				else {
-					this.img_bg.filters = null;
+					this.img_bg.filters = [];
 				}
 			}
 

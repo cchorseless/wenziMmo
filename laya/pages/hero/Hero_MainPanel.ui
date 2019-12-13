@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":7,
-    "selecteID":66,
+    "selecteID":167,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -126,17 +126,17 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":-184,"x":0,"name":"item2"},
+                    "type":"UIView",
+                    "source":"hero/Hero_TalentInfoItem.ui",
+                    "props":{"y":0,"x":35,"var":"ui_talent","runtime":"view.hero.Hero_TalentInfoItem","name":"item2"},
                     "nodeParent":7,
-                    "label":"Box(item2)",
+                    "label":"UIView(ui_talent)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":145,
+                    "compId":167,
                     "child":[
-                        ],
-                    "$HIDDEN":true
+                        ]
                 },
                 {
                     "x":30,

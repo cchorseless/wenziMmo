@@ -995,28 +995,28 @@ class ServerListener extends SingletonClass {
                 case EnumData.PlayerAndHeroType.Player:
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
-                    player.changeFight(fightPower,dwType);
+                    player.changeFight(fightPower, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_POWER);
                     break;
                 // 英雄战士
                 case EnumData.PlayerAndHeroType.Hero1:
                     player.hero1.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero1.changeFight(fightPower,dwType);
+                    player.hero1.changeFight(fightPower, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄法师
                 case EnumData.PlayerAndHeroType.Hero2:
                     player.hero2.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero2.changeFight(fightPower,dwType);
+                    player.hero2.changeFight(fightPower, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
                 // 英雄道士
                 case EnumData.PlayerAndHeroType.Hero3:
                     player.hero3.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
-                    player.hero3.changeFight(fightPower,dwType);
+                    player.hero3.changeFight(fightPower, dwType);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_POWER, dwType);
                     break;
             }
@@ -1056,7 +1056,7 @@ class ServerListener extends SingletonClass {
         player.changeNowFame(msg.i64Fame.int64ToNumber());//当前声望
         player.changeMaxTotalFame(msg.i64TotalFame.int64ToNumber());//累计声望
         player.changeNeigong(msg.getValue('nNeigongMax') - msg.getValue('nNeigonguse'), msg.getValue('nNeigongMax'));//内功
-        player.changeFight(msg.getValue('nFight'),0);// 战斗力
+        player.changeFight(msg.getValue('nFight'), 0);// 战斗力
         player.changenHealth(msg.getValue('nHealth'));// 健康
         player.changenSpirte(msg.getValue('nSpirte'));// 精神
         player.changenXinQing(msg.getValue('nXinQing'));// 心情
@@ -1080,6 +1080,7 @@ class ServerListener extends SingletonClass {
         let job = msg.getValue("btHeroJob");
         //英雄性别
         let sex = msg.getValue("btHeroSex");
+        let zslevel = msg.getValue("btHeroRlvl")
         switch (job) {
             case EnumData.JOB_TYPE.JOB_WARRIOR:
                 GameApp.MainPlayer.curHero = GameApp.MainPlayer.hero1;
@@ -1093,7 +1094,7 @@ class ServerListener extends SingletonClass {
         }
         if (GameApp.MainPlayer.curHero) {
             //英雄转生等级
-            GameObject.Hero.zslevel = msg.getValue("btHeroRlvl");
+            GameObject.Hero.zslevel = zslevel;
             //英雄等级
             GameObject.Hero.level = msg.getValue("wHeroLvl");
             //英雄状态

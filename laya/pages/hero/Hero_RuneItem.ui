@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":9,
-    "selecteID":10,
-    "props":{"width":245,"sceneColor":"#eee7e7","height":38},
+    "selectedBox":8,
+    "selecteID":7,
+    "props":{"width":275,"sceneColor":"#eee7e7","height":43},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -12,20 +12,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"width":245,"skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","height":38},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":2,
-            "child":[
-                ]
-        },
         {
             "x":15,
             "type":"ViewStack",
@@ -41,17 +27,16 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":245,"visible":false,"skin":"image/common/bottom_black.png","name":"item0","height":38,"alpha":0.5},
+                    "props":{"y":2,"x":15,"width":245,"visible":false,"skin":"image/common/bottom_black.png","name":"item0","height":38,"alpha":0.5},
                     "nodeParent":8,
                     "label":"Image(item0)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":3,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":56,"text":"该词条未激活","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":3,
@@ -67,26 +52,26 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":5,"x":4,"name":"item1"},
+                    "type":"Button",
+                    "props":{"y":22,"x":135,"width":255,"visible":false,"var":"btn_choose","stateNum":"1","skin":"image/juese/frame_list _suxing3.png","name":"item1","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":8,
-                    "label":"Box(item1)",
+                    "label":"Button(btn_choose)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":9,
+                    "compId":7,
                     "child":[
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"var":"lbl_name","text":"魔攻：","fontSize":22,"font":"FZHL","color":"#000000"},
-                            "nodeParent":9,
+                            "props":{"y":3,"x":13,"var":"lbl_name","text":"魔攻：","fontSize":22,"font":"FZHL","color":"#000000"},
+                            "nodeParent":7,
                             "label":"Label(lbl_name)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":5,
+                            "compId":13,
                             "child":[
                                 ],
                             "$HIDDEN":false
@@ -94,27 +79,13 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":1,"x":102,"width":103,"var":"lbl_des","text":"魔攻：","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
-                            "nodeParent":9,
+                            "props":{"y":3,"x":144,"width":103,"var":"lbl_des","text":"52-52","height":22,"fontSize":22,"font":"FZHL","color":"#63491a","align":"right"},
+                            "nodeParent":7,
                             "label":"Label(lbl_des)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":-5,"x":205,"visible":false,"var":"btn_choose","stateNum":"2","skin":"image/common/frame_choose_finish.png"},
-                            "nodeParent":9,
-                            "label":"Button(btn_choose)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
+                            "compId":14,
                             "child":[
                                 ],
                             "$HIDDEN":false

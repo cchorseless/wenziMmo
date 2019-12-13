@@ -17,7 +17,8 @@ module view.juese {
 			this.level = level;
 			this.addEvent();
 			this.itemInfo();
-			this.init_select();
+
+			this.init_selectEvent();
 			return this;
 		}
 		public addEvent(): void {
@@ -28,6 +29,7 @@ module view.juese {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.onclose();
 			})
+			this.addLcpEvent();
 		}
 		public itemInfo(): void {
 			this.list_item.array = [];
@@ -59,60 +61,69 @@ module view.juese {
 				num += 1;
 				cell.setData(cell.dataSource, num);
 			}, null, false)
-
+			
 		}
-		public init_select(): void {
+		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type, select: boolean, index: number) => {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
 				//select为装备选中状态
 				//index为装备索引
 				if (type == 0) {
-					//初始化全部为不选中状态
-					for (let child0 of this.list_item.cells) {
-						child0.btn_select.selected = false;
-					}
-					if (select) {
-						//若选中数量小于最大选中数量
-						if (this.selectData.length < this.maxNum) {
-							this.selectData.push(jsonData);
-							this.index.push(index);
-						} else {
-							//若选中数量大于或最大选中数量
-							TipsManage.showTips('选择数量达到上限')
-						}
-					} else {
-						//取消选中，删除装备数组中相应信息
-						let keys = Object.keys(this.selectData);
-						for (let key of keys) {
-							if (this.selectData[key].dwBaseID == jsonData.dwBaseID) {
-								//删除
-								this.selectData.splice(parseInt(key), 1);
-								break;
-							}
-						}
-						//删除装备索引数组中相应信息
-						for (let shu in this.index) {
-							if (this.index[shu] == index) {
-								this.index.splice(parseInt(shu), 1);
-							}
-						}
-					}
-					//根据装备索引在list中查找病显示选中||非选择状态
-					for (let num of this.index) {
-						for (let child in this.list_item.cells) {
-							let allData = this.list_item.cells
-							if (child == num) {
-								allData[child].btn_select.selected = true;
-								break;
-							}
-						}
-					}
+					this.init_selectEvent(jsonData, type, select, index);
 				}
 			})
 		}
 		public onclose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this);
 			this.close();
+		}
+		public init_selectEvent(jsonData = null, type = null, select: boolean = null, index: number = null): void {
+			if (jsonData != null) {
+				//初始化全部为不选中状态
+				for (let child of this.list_item.cells) {
+					child.btn_select.selected = false;
+				}
+				if (select) {
+					//若选中数量小于最大选中数量
+					if (this.selectData.length < this.maxNum) {
+						this.selectData.push(jsonData);
+						this.index.push(index);
+					} else {
+						//若选中数量大于或最大选中数量
+						TipsManage.showTips('选择数量达到上限')
+					}
+				} else {
+					//取消选中，删除装备数组中相应信息
+					let keys = Object.keys(this.selectData);
+					for (let key of keys) {
+						if (this.selectData[key].dwBaseID == jsonData.dwBaseID) {
+							//取消选中
+							this.selectData.splice(parseInt(key), 1);
+							break;
+						}
+					}
+					//删除装备索引数组中相应信息
+					for (let shu in this.index) {
+						if (this.index[shu] == index) {
+							this.index.splice(parseInt(shu), 1);
+						}
+					}
+				}
+				GameApp.GameEngine.buildEquip = this.index;
+			}
+			if (GameApp.GameEngine.buildEquip) {
+				this.index = GameApp.GameEngine.buildEquip;
+				//根据装备索引在list中查找病显示选中||非选择状态
+				for (let num of GameApp.GameEngine.buildEquip) {
+					for (let child in this.list_item.cells) {
+						let allData = this.list_item.cells
+						if (child == num) {
+							allData[child].btn_select.selected = true;
+							break;
+						}
+					}
+				}
+			}
 		}
 	}
 }
