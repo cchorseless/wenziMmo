@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":162,
-    "selecteID":150,
+    "selectedBox":253,
+    "selecteID":254,
     "referenceLines":[
         {
             "value":1127,
@@ -663,7 +663,6 @@
                             "compId":236,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":0,"x":0,"skin":"image/main/shadow_top.png"},
                                     "nodeParent":236,
@@ -676,7 +675,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":0,"x":30},
                                     "nodeParent":236,
@@ -688,7 +686,6 @@
                                     "compId":238,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":6,"x":18,"width":130,"skin":"image/main/frame_jinbiyuanbao.png","height":23},
                                             "nodeParent":238,
@@ -702,7 +699,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":3,"x":-4,"width":49,"skin":"image/main/icon_tongqian.png","scaleY":0.8,"scaleX":0.8,"height":41},
                                             "nodeParent":238,
@@ -716,7 +712,6 @@
                                             "$LOCKED":true
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":4,"x":30,"width":89,"var":"lab_coin","valign":"middle","text":"10000","strokeColor":"#000000","height":25,"fontSize":16,"font":"SimHei","color":"#fcf9f6","align":"center"},
                                             "nodeParent":238,
@@ -730,7 +725,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"x":132,"stateNum":"2","skin":"image/main/bnt_jia.png"},
                                             "nodeParent":238,
@@ -746,7 +740,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":0,"x":236},
                                     "nodeParent":236,
@@ -758,7 +751,6 @@
                                     "compId":243,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":6,"x":18,"width":130,"skin":"image/main/frame_jinbiyuanbao.png","height":23},
                                             "nodeParent":243,
@@ -772,7 +764,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":0,"x":-5,"skin":"image/main/icon_coin_1.png","scaleY":0.8,"scaleX":0.8},
                                             "nodeParent":243,
@@ -786,7 +777,6 @@
                                             "$LOCKED":true
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":4,"x":30,"width":89,"var":"lab_yuanbao","valign":"middle","text":"10000","strokeColor":"#000000","height":25,"fontSize":16,"font":"SimHei","color":"#fcf9f6","align":"center"},
                                             "nodeParent":243,
@@ -800,7 +790,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"x":132,"stateNum":"2","skin":"image/main/bnt_jia.png"},
                                             "nodeParent":243,
@@ -816,7 +805,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":0,"x":441},
                                     "nodeParent":236,
@@ -828,7 +816,6 @@
                                     "compId":248,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":6,"x":18,"width":130,"skin":"image/main/frame_jinbiyuanbao.png","height":23},
                                             "nodeParent":248,
@@ -842,7 +829,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"skin":"image/main/icon_coin_2.png","scaleY":0.8,"scaleX":0.8},
                                             "nodeParent":248,
@@ -856,7 +842,6 @@
                                             "$LOCKED":true
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":4,"x":30,"width":89,"var":"lab_ticket","valign":"middle","text":"10000","strokeColor":"#000000","height":25,"fontSize":16,"font":"SimHei","color":"#fcf9f6","align":"center"},
                                             "nodeParent":248,
@@ -870,7 +855,6 @@
                                             "$LOCKED":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"x":132,"stateNum":"2","skin":"image/main/bnt_jia.png"},
                                             "nodeParent":248,
@@ -902,7 +886,7 @@
                                 {
                                     "x":60,
                                     "type":"Button",
-                                    "props":{"y":1,"x":277,"var":"btn_menu","stateNum":"2","skin":"image/common/icon_huodong.png"},
+                                    "props":{"y":-3,"var":"btn_menu","stateNum":"2","skin":"image/common/icon_huodong.png","right":10},
                                     "nodeParent":253,
                                     "label":"Button(btn_menu)",
                                     "isDirectory":false,
@@ -1367,22 +1351,6 @@
                             "child":[
                                 ],
                             "$LOCKED":false,
-                            "$HIDDEN":true
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"dialog/ChatSendDialog.ui",
-                            "props":{"y":470,"x":109,"var":"ui_chatSendDialog","runtime":"view.dialog.ChatSendDialog"},
-                            "nodeParent":162,
-                            "label":"UIView(ui_chatSendDialog)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":128,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
                             "$HIDDEN":true
                         }],
                     "$HIDDEN":false
