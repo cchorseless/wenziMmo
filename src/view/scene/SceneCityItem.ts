@@ -1,11 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class SceneV3Item extends ui.scene.SceneV3ItemUI implements itf.SceneItem {
+	export class SceneCityItem extends ui.scene.SceneCityItemUI implements itf.SceneItem {
 		constructor() {
 			super();
 			this.top = this.bottom = this.right = 0;
 			this.addEvent();
-			this.name = 'SceneV3Item';
+			this.name = 'SceneCityItem';
 		}
 		public setData(): void {
 			this.panel_monster.hScrollBarSkin = '';
@@ -156,7 +156,7 @@ module view.scene {
 		public updateMapInfo(): void {
 			let roomId = GameApp.MainPlayer.roomId;
 			// 房间名称
-			this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+			// this.lbl_roomName.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			// 地图背景
 			let bgRes = SheetConfig.mapRoomSheet.getInstance(null).SCENEPIC('' + roomId);
 			this.img_bg.skin = 'image/common/scene/zdmap_icon_' + bgRes + '.png';

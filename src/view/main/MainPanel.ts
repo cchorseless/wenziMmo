@@ -408,7 +408,7 @@ module view.main {
 				Laya.Tween.to(this.img_npc, { width: 95 }, 300);
 				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 300);
 			}
-			(this.box_uiScene0.getChildAt(0) as view.scene.SceneV3Item).changeSelfSize(show)
+			(this.box_uiScene0.getChildAt(0) as view.scene.SceneCityItem).changeSelfSize(show)
 		}
 
 		/**
