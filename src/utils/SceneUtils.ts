@@ -37,6 +37,9 @@ class SceneManager extends SingletonClass {
     public get box_smallScene() {
         return PanelManage.Main.box_smallScene;
     }
+    public get box_smallMapScene() {
+        return PanelManage.Main.box_smallMap;
+    }
 
     /**
      * 大地图场景容器
@@ -124,6 +127,7 @@ class SceneManager extends SingletonClass {
                         if (fuBenInfo == null) {
                             fuBenInfo = new view.scene.BattleFuBenInfoV0Item();
                             this.box_smallScene.addChild(fuBenInfo);
+                            PanelManage.Main.img_bottomPartInfoBg.visible = false;
                         }
                         break;
                     // 个人副本--心魔
@@ -132,6 +136,8 @@ class SceneManager extends SingletonClass {
                         if (fuBenInfo == null) {
                             fuBenInfo = new view.scene.BattleFuBenInfoV1Item();
                             this.box_smallScene.addChild(fuBenInfo);
+                            PanelManage.Main.img_bottomPartInfoBg.visible = false;
+
                         }
                         break;
                 }
@@ -170,7 +176,7 @@ class SceneManager extends SingletonClass {
                 let smallMap = this.box_smallScene.getChildByName('SmallMapItem') as view.map.SmallMapItem;
                 if (smallMap == null) {
                     smallMap = new view.map.SmallMapItem();
-                    this.box_smallScene.addChild(smallMap);
+                    this.box_smallMapScene.addChild(smallMap);
                 }
                 // 更新小地图
                 smallMap.updateUI();
@@ -328,7 +334,7 @@ class SceneManager extends SingletonClass {
                 break;
         }
         PanelManage.Main.panel_bigMap.removeChildren();
-        if (ui_map) { 
+        if (ui_map) {
             this.panelBigMap.addChild(ui_map);
         }
 

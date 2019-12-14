@@ -9,7 +9,8 @@ module view.scene {
 
 
 		public setData(): void {
-
+			let roomId = GameApp.MainPlayer.roomId;
+			this.lab_location.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 		}
 
 		public addEvent() {
@@ -17,7 +18,11 @@ module view.scene {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.FB_ChuMoLeave);
 				lcp.send(pkt);
+				PanelManage.Main.img_bottomPartInfoBg.visible = true;
 			});
+			this.lab_roomContent.on(Laya.UIEvent.CLICK, this, function () {
+				new view.scene.SceneInfoDialog().setData().popup(true);
+			})
 
 			this.addLcpEvent();
 		}
