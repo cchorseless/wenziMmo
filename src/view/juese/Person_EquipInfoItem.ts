@@ -42,6 +42,10 @@ module view.juese {
 			EventManage.onWithEffect(this.btn_wuXueBase, Laya.UIEvent.CLICK, this, () => {
 				new view.juese.Person_WuXueBaseDialog().popup();
 			})
+			//装备强化
+			EventManage.onWithEffect(this.btn_equipStrong, Laya.UIEvent.CLICK, this, () => {
+				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
+			})
 			//战斗属性介绍
 			// EventManage.onWithEffect(this.btn_shuxing, Laya.UIEvent.CLICK, this, () => {
 			// 	new view.dialog.InfoV1Dialog().popup();

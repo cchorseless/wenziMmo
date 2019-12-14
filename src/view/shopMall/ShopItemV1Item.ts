@@ -8,7 +8,7 @@ module view.shopMall {
 		public setData(item: ProtoCmd.itf_Shop_ShopItem): void {
 			this.item = item;
 			// 折扣
-			if (item.discount > 0) { this.img_zheKou.skin = 'image/common/img_' + item.discount + 'zhe.png'; }
+			if (item.discount > 0) { this.lbl_zhekou.text = item.discount + '折'; }
 			else {
 				this.img_zheKou.visible = false;
 			}

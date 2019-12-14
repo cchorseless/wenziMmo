@@ -9,7 +9,10 @@ module view.hero {
 		//当前英雄罡气效果id
 		public jobeffid;
 		private client_func_index = 55;// 功能ID编号
+		public hasint = false;
 		public initUI(): void {
+			if (this.hasint) { return };
+			this.hasint = true;
 			this.panel_gangqi.hScrollBarSkin = '';
 			this.hbox_gangqi['sortItem'] = (items) => { };
 			this.vbox_left['sortItem'] = (items) => { };
@@ -104,7 +107,7 @@ module view.hero {
 			let curJob = GameApp.MainPlayer.curHero.feature.simpleFeature.job;
 			//当前罡气名
 			let id = data.dwEffId + (curJob - 1) * 1000;
-			this.jobeffid=id;
+			this.jobeffid = id;
 			let gangqiName = SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 			this.lbl_dangqian.text = '' + gangqiName;
 			//当前罡气属性
@@ -141,7 +144,7 @@ module view.hero {
 					let gangqiInfo = new view.juese.Person_GangQiBtnItem();
 					gangqiInfo.scaleX = 0.7;
 					gangqiInfo.scaleY = 0.7;
-					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid,1));
+					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid, 1));
 				}
 			}
 		}

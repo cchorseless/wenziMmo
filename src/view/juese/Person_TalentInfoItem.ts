@@ -46,6 +46,12 @@ module view.juese {
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.btn_top0.selected = true;
 			this.img_xiaoguo0.visible = true;
+			let talentAllData = GameApp.MainPlayer.talentInfo;
+			this.lbl_lvl0.text = 'LV.' + talentAllData[1];
+			this.lbl_lvl1.text = 'LV.' + talentAllData[3];
+			this.lbl_lvl2.text = 'LV.' + talentAllData[5];
+			this.lbl_lvl3.text = 'LV.' + talentAllData[4];
+			this.lbl_lvl4.text = 'LV.' + talentAllData[2];
 			this.addEvent();
 			this.TalentInfo();
 			this.init_changeIcon();
@@ -84,32 +90,28 @@ module view.juese {
     * 天赋按钮icon
     */
 		public init_changeIcon(): void {
-			//初始化等级
-			for (let i = 0; i < 5; i++) {
-				this['lbl_lvl' + i].text = '未解锁';
-			}
 			let talentAllData = GameApp.MainPlayer.talentInfo;
 			for (let pos = EnumData.emEquipPosition.EQUIP_MEDAL; pos < EnumData.emEquipPosition.EQUIP_HERO_DRAGONHEART; pos++) {
 				let data = GameUtil.findEquipInPlayer(pos);
 				if (pos == EnumData.emEquipPosition.EQUIP_DRAGONSOUL && data) {
 					this.img_talent0.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-					this.lbl_lvl0.text = 'LV.' + talentAllData[1];
+
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_SHIELD && data) {
 					this.img_talent1.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-					this.lbl_lvl1.text = 'LV.' + talentAllData[3];
+
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_OFFICIALSEAL && data) {
 					this.img_talent2.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-					this.lbl_lvl2.text = 'LV.' + talentAllData[5];
+
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_BLOODJADE && data) {
 					this.img_talent3.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-					this.lbl_lvl3.text = 'LV.' + talentAllData[4];
+
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_MEDAL && data) {
 					this.img_talent4.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-					this.lbl_lvl4.text = 'LV.' + talentAllData[2];
+
 				}
 			}
 		}
@@ -126,32 +128,38 @@ module view.juese {
 			this['btn_top' + i].selected = true;
 			this['img_xiaoguo' + i].visible = true;
 			this.title = this.talentName[i];
+
 			switch (i) {
 				//悟性
 				case 0:
 					this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 					this.dangqianNum = EnumData.emTalentType.talent_wuXing;
+
 					break;
 				//臂力
 				case 1:
 					this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
 					this.dangqianNum = EnumData.emTalentType.talent_biLi;
+
 					break;
 				//善缘
 				case 2:
 					this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
 					this.dangqianNum = EnumData.emTalentType.talent_shanYuan;
+
 					break;
 				//身法
 				case 3:
 					this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
 					this.dangqianNum = EnumData.emTalentType.talent_shenFa;
+
 					break;
 
 				//根骨
 				case 4:
 					this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
+
 					break;
 			}
 			//拉取天赋协议
@@ -182,7 +190,6 @@ module view.juese {
 		public notActivation(): void {
 			let id = this.client_func_index + 1000;
 			this.lbl_condition.text = '' + SheetConfig.Introduction_play.getInstance(null).TEXT1('' + id)
-			this.lbl_type.text = '先天' + this.title + '资质';
 			this.lbl_add.text = this.lbl_battle.text = '';
 			this.img_add.visible = this.img_battle.visible = false;
 		}

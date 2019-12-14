@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":75,
-    "selecteID":145,
+    "selectedBox":125,
+    "selecteID":135,
     "props":{"width":618,"sceneColor":"#000000","height":742},
     "nodeParent":-1,
     "label":"Dialog",
@@ -136,13 +136,14 @@
                     "props":{"y":165,"x":66,"width":502,"height":162},
                     "nodeParent":75,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":76,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                             "nodeParent":76,
@@ -155,6 +156,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":58,"x":40,"skin":"image/guild/icon_tongqian.png"},
                             "nodeParent":76,
@@ -167,6 +169,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":135,"x":48,"width":61,"var":"lbl_goldCount","text":"30000","strokeColor":"#000000","stroke":4,"height":18,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"right"},
                             "nodeParent":76,
@@ -179,6 +182,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":52,"x":5,"width":60,"skin":"image/common/title_ConfederationDeclaration.png","sizeGrid":"0,25,70,13","rotation":-90,"height":183},
                             "nodeParent":76,
@@ -193,6 +197,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":14,"x":20,"text":"捐献铜钱","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":76,
@@ -205,6 +210,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":166,"width":96,"text":"帮会贡献：","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":76,
@@ -217,6 +223,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":116,"x":166,"text":"帮会资金：","padding":"-1","fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":76,
@@ -229,6 +236,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":85,"x":258,"text":"+10","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":76,
@@ -241,6 +249,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":118,"x":258,"text":"+1","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":76,
@@ -253,8 +262,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":40,"x":376,"var":"btn_juanXianTongBi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献"},
+                            "props":{"y":40,"x":376,"width":102,"var":"btn_juanXianTongBi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献","height":50},
                             "nodeParent":76,
                             "label":"Button(btn_juanXianTongBi)",
                             "isDirectory":false,
@@ -265,6 +275,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":281,"width":137,"text":"今日剩余可捐赠：","padding":"-1","height":22,"fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":76,
@@ -277,6 +288,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":421,"width":54,"var":"lbl_leftGold","text":"500万","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#a53232"},
                             "nodeParent":76,
@@ -289,6 +301,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":53,"x":167,"text":"每1万金币可兑换","padding":"-1","fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":76,
@@ -301,6 +314,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":108,"x":386,"text":" 今日首次\\n+20活跃度","padding":"-1","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":76,
@@ -319,13 +333,14 @@
                     "props":{"y":334,"x":66,"width":502,"height":162},
                     "nodeParent":75,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":110,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                             "nodeParent":110,
@@ -338,6 +353,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":80,"x":33,"skin":"image/guild/icon_yuanbao.png"},
                             "nodeParent":110,
@@ -350,6 +366,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":135,"x":48,"width":61,"var":"lbl_yuanBaoCount","text":"30000","strokeColor":"#000000","stroke":4,"height":18,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"right"},
                             "nodeParent":110,
@@ -362,6 +379,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":52,"x":5,"width":60,"skin":"image/common/title_ConfederationDeclaration.png","sizeGrid":"0,25,70,13","rotation":-90,"height":183},
                             "nodeParent":110,
@@ -376,6 +394,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":14,"x":20,"text":"捐献元宝","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":110,
@@ -388,6 +407,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":166,"width":96,"text":"帮会贡献：","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":110,
@@ -400,6 +420,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":116,"x":166,"text":"帮会资金：","padding":"-1","fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":110,
@@ -412,6 +433,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":85,"x":258,"text":"+10","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":110,
@@ -424,6 +446,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":118,"x":258,"text":"+1","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":110,
@@ -436,8 +459,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":40,"x":376,"var":"btn_juanXianYuanBao","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献"},
+                            "props":{"y":40,"x":376,"width":102,"var":"btn_juanXianYuanBao","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献","height":50},
                             "nodeParent":110,
                             "label":"Button(btn_juanXianYuanBao)",
                             "isDirectory":false,
@@ -448,6 +472,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":281,"width":137,"text":"今日剩余可捐赠：","padding":"-1","height":22,"fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":110,
@@ -460,6 +485,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":421,"width":54,"text":"500万","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#a53232"},
                             "nodeParent":110,
@@ -472,6 +498,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":53,"x":167,"text":"每1万金币可兑换","padding":"-1","fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":110,
@@ -484,6 +511,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":108,"x":386,"text":" 今日首次\\n+20活跃度","padding":"-1","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":110,
@@ -502,13 +530,14 @@
                     "props":{"y":504,"x":66,"width":502,"height":162},
                     "nodeParent":75,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":125,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":1,"width":502,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"39,46,46,55","height":165,"alpha":0.5},
                             "nodeParent":125,
@@ -521,6 +550,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":58,"x":40,"skin":"image/guild/icon_tongqian.png"},
                             "nodeParent":125,
@@ -533,6 +563,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":135,"x":48,"width":61,"text":"30000","strokeColor":"#000000","stroke":4,"height":18,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"right"},
                             "nodeParent":125,
@@ -545,6 +576,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":52,"x":5,"width":60,"skin":"image/common/title_ConfederationDeclaration.png","sizeGrid":"0,25,70,13","rotation":-90,"height":183},
                             "nodeParent":125,
@@ -559,6 +591,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":14,"x":20,"text":"捐献装备","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":125,
@@ -571,6 +604,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":82,"x":166,"width":96,"text":"帮会贡献：","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":125,
@@ -583,6 +617,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":116,"x":166,"text":"帮会资金：","padding":"-1","fontSize":20,"font":"FZHL","color":"#404040"},
                             "nodeParent":125,
@@ -595,6 +630,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":85,"x":258,"text":"+10","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":125,
@@ -607,6 +643,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":118,"x":258,"text":"+1","padding":"-1","fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":125,
@@ -619,8 +656,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":40,"x":376,"var":"btn_juanXianEquip","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献"},
+                            "props":{"y":40,"x":376,"width":102,"var":"btn_juanXianEquip","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献","height":50},
                             "nodeParent":125,
                             "label":"Button(btn_juanXianEquip)",
                             "isDirectory":false,
@@ -631,6 +669,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":281,"width":137,"text":"今日剩余可捐赠：","padding":"-1","height":22,"fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":125,
@@ -643,6 +682,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":11,"x":421,"width":54,"text":"500万","padding":"-1","height":22,"fontSize":20,"font":"FZHL","color":"#a53232"},
                             "nodeParent":125,
@@ -655,6 +695,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":53,"x":167,"text":"每1万金币可兑换","padding":"-1","fontSize":18,"font":"FZHL","color":"#404040"},
                             "nodeParent":125,
@@ -667,6 +708,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":108,"x":386,"text":" 今日首次\\n+20活跃度","padding":"-1","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":125,

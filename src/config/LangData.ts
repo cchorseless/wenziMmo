@@ -137,10 +137,10 @@ module LangConfig {
     export function getPlayerAvatarSkinV1(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
         let path;
         if (sex == EnumData.SEX_TYPE.SEX_MAN) {
-            path = 'image/juese/img_nan';
+            path = 'image/common/img_nan';
         }
         else {
-            path = 'image/juese/img_nv';
+            path = 'image/common/img_nv';
         }
         return path + '0' + job + '.png';
     }

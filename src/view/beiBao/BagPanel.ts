@@ -60,18 +60,13 @@ module view.beiBao {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
-			// 左上角
-			this.btn_shop.on(Laya.UIEvent.CLICK, this, () => {
-
-			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
 			// 切换装备显示
 			for (let i = 0; i < 4; i++) {
 				this.ui_equipInfo["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
 					GameApp.GameEngine.mainPlayer.playerORHero = i;
-					// this.reSetState(i)
-					this.ui_equipInfo.img_div.y = this.ui_equipInfo["ui_tab" + i].y;
+					this.reSetState(i);
 				})
 			}
 			// this.ui_equipInfo.tab_0.on(Laya.UIEvent.CLICK, this, () => {
@@ -148,7 +143,7 @@ module view.beiBao {
 			}
 
 			this.viw_bagBottom.selectedIndex = index;
-			this.lbl_bagLogolbl.text = ['背包', '回收', '仓库', '摆摊'][index];
+			// this.lbl_bagLogolbl.text = ['背包', '回收', '仓库', '摆摊'][index];
 			(this.viw_bagBottom.getChildAt(index) as any).setData();
 		}
 
