@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":59,
-    "selecteID":60,
+    "selectedBox":54,
+    "selecteID":58,
     "props":{"width":640,"sceneColor":"#e3cece","height":886},
     "nodeParent":-1,
     "label":"View",
@@ -47,13 +47,14 @@
             "props":{"y":57,"x":85,"width":539,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":82},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":39,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":36,"var":"ui_get_11","runtime":"view.compart.DaoJuItem"},
@@ -67,6 +68,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":121,"var":"ui_get_12","runtime":"view.compart.DaoJuItem"},
@@ -80,6 +82,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":32,"x":265,"var":"lbl_lvl1","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                     "nodeParent":39,
@@ -93,8 +96,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"var":"btn_get1","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get1","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":39,
                     "label":"Button(btn_get1)",
                     "isDirectory":false,
@@ -113,13 +117,14 @@
             "props":{"y":143,"x":85,"width":539,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":82},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":44,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":36,"var":"ui_get_21","runtime":"view.compart.DaoJuItem"},
@@ -133,6 +138,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":121,"var":"ui_get_22","runtime":"view.compart.DaoJuItem"},
@@ -146,6 +152,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":32,"x":265,"var":"lbl_lvl2","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                     "nodeParent":44,
@@ -159,8 +166,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"var":"btn_get2","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get2","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":44,
                     "label":"Button(btn_get2)",
                     "isDirectory":false,
@@ -179,13 +187,14 @@
             "props":{"y":228,"x":85,"width":539,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":82},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":49,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":36,"var":"ui_get_31","runtime":"view.compart.DaoJuItem"},
@@ -199,6 +208,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":121,"var":"ui_get_32","runtime":"view.compart.DaoJuItem"},
@@ -212,6 +222,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":32,"x":265,"var":"lbl_lvl3","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                     "nodeParent":49,
@@ -225,8 +236,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"var":"btn_get3","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get3","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":49,
                     "label":"Button(btn_get3)",
                     "isDirectory":false,
@@ -245,13 +257,14 @@
             "props":{"y":318,"x":85,"width":539,"skin":"image/common/fram_common_11.png","sizeGrid":"21,25,18,36","height":82},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":54,
             "child":[
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":36,"var":"ui_get_41","runtime":"view.compart.DaoJuItem"},
@@ -265,6 +278,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"UIView",
                     "source":"compart/DaoJuItem.ui",
                     "props":{"y":6,"x":121,"var":"ui_get_42","runtime":"view.compart.DaoJuItem"},
@@ -278,6 +292,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":32,"x":265,"var":"lbl_lvl4","text":"1阶10星","fontSize":26,"font":"FZHL","color":"#000000"},
                     "nodeParent":54,
@@ -291,8 +306,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"var":"btn_get4","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get4","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":54,
                     "label":"Button(btn_get4)",
                     "isDirectory":false,

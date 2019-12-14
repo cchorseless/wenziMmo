@@ -12,21 +12,33 @@ module view.scene {
 			this.item.ui_item = this;
 			// 名字
 			if (this.item.objName.length > 4) {
-				this.lbl_name.fontSize = 16
+				this.lab_name.fontSize = 16
 			}
 			else {
-				this.lbl_name.fontSize = 18
+				this.lab_name.fontSize = 18
 			}
 			//职业icon
-			this.img_job.skin=LangConfig.getPlayerJobIcon();
-			this.lbl_name.text = this.item.objName;
-			this.img_nameBg.height = this.lbl_name.displayHeight + 25;
+			this.img_job.skin = LangConfig.getPlayerJobIcon();
+			this.lab_name.text = this.item.objName;
+			// this.img_nameBg.height = this.lbl_name.displayHeight + 25;
 			// 公会名字
 			this.lbl_guildName.text = '' + this.item.guildInfo.szName;
 			// 全身像
-			this.img_playerAva.skin = LangConfig.getPlayerAvatarHalfSkin();
+			// this.img_playerAva.skin = LangConfig.getPlayerAvatarHalfSkin();
+			let sex = GameApp.MainPlayer.sex;
+			let curJob = GameApp.MainPlayer.job;
+			let path;
+
+			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+				path = 'image/main/player_nan';
+			}
+			else {
+				path = 'image/main/player_nv';
+			}
+			this.img_playerAva.skin = path + '0' + curJob + '_half.png';
 			// 刷新UI
 			this.updateUI();
+			this.img_job.skin = LangConfig.getPlayerJobIcon();
 
 		}
 
@@ -65,7 +77,7 @@ module view.scene {
 		public playAni(model = 0, loop: boolean = false, force = false, completeHandler: Laya.Handler = null, playbackRate = 1): void {
 			// this._skeGroup.play(model, loop, force, completeHandler, playbackRate);
 			this.img_isfight.visible = true;
-			Laya.Tween.to(this.img_isfight,{scaleX:1.1,scaleY:1.1},500,null,Laya.Handler.create(this, () => {
+			Laya.Tween.to(this.img_isfight, { scaleX: 1.1, scaleY: 1.1 }, 500, null, Laya.Handler.create(this, () => {
 				this.img_isfight.scaleX = this.img_isfight.scaleY = 1;
 				this.img_isfight.visible = false;
 			}))

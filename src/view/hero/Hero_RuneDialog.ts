@@ -103,7 +103,7 @@ module view.hero {
 				let send = undefined
 				this.init_Allrecovery(send);
 			})
-			// 符文交换卸下符文
+			// 回收
 			for (let i = 0; i < 10; i++) {
 				this['btn_recovery_' + i].on(Laya.UIEvent.CLICK, this, () => {
 					if (i >= 2) {

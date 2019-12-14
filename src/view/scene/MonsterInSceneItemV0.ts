@@ -15,8 +15,11 @@ module view.scene {
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
 			let skePath
+			this.lab_LV.text = 'LV.' + this.item.level;
 			// this.addMonster(monsterObj);
-			this.img_bg.skin = 'image/main/frame_boss_03.png'
+			// this.img_bg.skin = 'image/main/frame_boss_03.png'
+			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
+			this.img_wx.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
 			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
 			this.addEvent();
@@ -28,7 +31,7 @@ module view.scene {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;
-								// player["startHandAtk" + job](this.item);
+				// player["startHandAtk" + job](this.item);
 				player.startHandAtk0(this.item);
 			})
 		}

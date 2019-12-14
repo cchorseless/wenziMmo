@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":103,
+    "selecteID":40,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Tab",
-            "props":{"y":113,"x":7,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/juese/bookmark_01.png","selectedIndex":0,"labels":"装备,属性,资质,罡气,外观","labelSize":26,"labelFont":"FZHL","labelColors":"#654e24,#74613e","labelAlign":"center","direction":"horizontal"},
+            "props":{"y":113,"x":7,"var":"tab_player","stateNum":2,"space":-5,"skin":"image/common/bookmark_01.png","selectedIndex":0,"labels":"装备,属性,资质,罡气,外观","labelSize":26,"labelFont":"FZHL","labelColors":"#654e24,#74613e","labelAlign":"center","direction":"horizontal"},
             "nodeParent":1,
             "label":"Tab(tab_player)",
             "isDirectory":false,
@@ -81,7 +81,7 @@
             "child":[
                 ],
             "$LOCKED":false,
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -174,16 +174,17 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"right":0,"left":0,"height":93,"bottom":0},
+            "props":{"y":1043,"x":0,"width":640,"height":93},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":103,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":41,"skin":"image/main/bottom_deep.png"},
                     "nodeParent":103,
@@ -197,6 +198,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":41,"x":155,"var":"btn_self","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":103,
@@ -222,8 +224,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":41,"x":258,"var":"btn_hero","stateNum":"2","skin":"image/juese/icon_dizi.png","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":41,"x":258,"visible":false,"var":"btn_hero","stateNum":"2","skin":"image/juese/icon_dizi.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":103,
                     "label":"Button(btn_hero)",
                     "isOpen":false,
@@ -247,6 +250,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":41,"x":60,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
                     "nodeParent":103,
@@ -261,6 +265,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":41,"x":573,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_xiaoshuo.png","anchorY":0.5,"anchorX":0.42},
                     "nodeParent":103,

@@ -17,7 +17,10 @@ module view.scene {
 			let skePath
 			// this.addMonster(monsterObj);
 			skePath = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + configID);
-			this.img_icon.skin = 'image/common/npc/npc_icon_' + skePath + '.png'
+			let wuxing = SheetConfig.mydb_monster_tbl.getInstance(null).WUXINGPROPS(configID)
+			this.img_wuxing.skin = "image/common/skill/icon_wx_" + wuxing + ".png"
+			this.img_icon.skin = 'image/common/npc/npc_half_' + skePath + '.png'
+
 			this.addEvent();
 
 			this.updateUI();
@@ -32,13 +35,13 @@ module view.scene {
 			})
 		}
 		public updateUI(): void {
-			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
+			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 		/**
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
+			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 	}
 }

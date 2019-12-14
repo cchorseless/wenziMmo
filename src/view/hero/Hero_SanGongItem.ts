@@ -13,7 +13,10 @@ module view.hero {
 		//当前弟子职业
 		private job;
 		public xiuweidata;
+		public hasint=false;
 		public setData(): void {
+			if(this.hasint){return};
+			this.hasint=true;
 			// this.job = job;
 			// let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
 			this.vbox_left['sortItem'] = (items) => { };
@@ -85,6 +88,15 @@ module view.hero {
 				} else {
 					this.lbl_have.color = '#000000';
 				}
+				let sex;
+				if(GameApp.MainPlayer.sex==EnumData.SEX_TYPE.SEX_MAN){
+					sex=EnumData.SEX_TYPE.SEX_WOMEN;
+				}
+				if(GameApp.MainPlayer.sex==EnumData.SEX_TYPE.SEX_WOMEN){
+					sex=EnumData.SEX_TYPE.SEX_MAN;
+				}
+				//弟子头像
+				this.img_curhero1.skin=this.img_curhero2.skin=LangConfig.getPlayerIconSkinV1(sex,GameApp.MainPlayer.curHero.feature.simpleFeature.job)
 				if (jsonData.effid != 0) {
 					//当前弟子转生等级
 					this.lbl_dangqian.text = GameObject.Hero.zslevel + '转';

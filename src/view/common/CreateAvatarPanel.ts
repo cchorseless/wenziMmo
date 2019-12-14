@@ -618,6 +618,7 @@ module view.common {
 			}
 			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
 			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
+				cell.scaleX=cell.scaleY=0.9;
 				cell.setData(cell.dataSource);
 			}, null, false)
 		}
