@@ -9,8 +9,7 @@ module view.scene {
 
 
 		public setData(): void {
-			let roomId = GameApp.MainPlayer.roomId;
-			this.lab_location.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
+
 		}
 
 		public addEvent() {
@@ -30,6 +29,7 @@ module view.scene {
 		public addLcpEvent() {
 			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
 				console.log(jsonData);
+				let aa = TimeUtils.getFormatBySecond(jsonData.sec, 1)
 				this.lbl_leftTime.text = '' + jsonData.sec + '秒';
 				this.lbl_tongGuanTiaoJian.text = '' + jsonData.tiaojian + '(' + jsonData.curcnt + '/' + jsonData.totalcnt + ')';
 				// if (this.hbox_0.numChildren > 0) {
@@ -40,6 +40,8 @@ module view.scene {
 				// 		this.vbox_0.addChild(new_ui);
 				// 	}
 				// }
+				let roomId = GameApp.MainPlayer.roomId;
+				this.lab_location.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			})
 		}
 
