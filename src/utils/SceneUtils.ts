@@ -161,10 +161,10 @@ class SceneManager extends SingletonClass {
             case EnumData.emRoomType.publicYeWai:
                 this.box_uiScene1.removeChildren();
                 this.box_uiScene1.visible = false;
-                uiscene = this.box_uiScene0.getChildByName('SceneV3Item');
+                uiscene = this.box_uiScene0.getChildByName('SceneCityItem');
                 if (uiscene == null) {
                     this.box_uiScene0.removeChildren();
-                    uiscene = new view.scene.SceneV3Item();
+                    uiscene = new view.scene.SceneCityItem();
                     uiscene.setData();
                     this.box_uiScene0.addChild(uiscene);
                     if (this.box_uiScene0.left == 0) {

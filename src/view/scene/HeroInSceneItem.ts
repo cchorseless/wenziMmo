@@ -9,8 +9,19 @@ module view.scene {
 		public setData(item: GameObject.Hero): void {
 			this.item = item;
 			this.item.ui_item = this;
-			this.img_heroAva.skin = LangConfig.getPlayerSmallAvatarSkin(item.feature.simpleFeature.sex, item.feature.simpleFeature.job)
 			// 行会名字
+			let sex = item.feature.simpleFeature.sex;
+			let curJob = item.feature.simpleFeature.job;
+			// this.lab_name = item.feature.simpleFeature
+			let path;
+
+			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+				path = 'image/main/player_nan';
+			}
+			else {
+				path = 'image/main/player_nv';
+			}
+			this.img_heroAva.skin = path + '0' + curJob + '_half.png';
 
 			this.updateUI();
 		}
@@ -47,7 +58,7 @@ module view.scene {
 		}
 		public updateZuoBiao(): void {
 			// this.lbl_hp.text = '' + this.item.ability.nowHP + '/' + this.item.ability.nMaxHP;
-			this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
+			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 		}
 	}
 }

@@ -64,37 +64,8 @@
                         },
                         {
                             "x":45,
-                            "type":"Box",
-                            "props":{"y":0,"width":640,"visible":false,"var":"box_uiScene1","right":0,"left":0,"height":1136},
-                            "nodeParent":162,
-                            "label":"Box(box_uiScene1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":150,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":180,"x":0,"width":640,"var":"box_fly","height":200},
-                            "nodeParent":162,
-                            "label":"Box(box_fly)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":235,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
                             "type":"Image",
-                            "props":{"width":112,"visible":true,"var":"img_npc","top":95,"skin":"image/main/bottom_npc.png","right":520,"left":8,"height":691,"bottom":350},
+                            "props":{"y":95,"x":8,"width":112,"visible":true,"var":"img_npc","top":95,"skin":"image/main/bottom_npc.png","right":520,"left":8,"height":691,"bottom":350},
                             "nodeParent":162,
                             "label":"Image(img_npc)",
                             "isOpen":false,
@@ -131,6 +102,35 @@
                                 }],
                             "$LOCKED":false,
                             "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":0,"width":640,"visible":false,"var":"box_uiScene1","right":0,"left":0,"height":1136},
+                            "nodeParent":162,
+                            "label":"Box(box_uiScene1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":150,
+                            "child":[
+                                ],
+                            "$LOCKED":true,
+                            "$HIDDEN":true
+                        },
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":180,"x":0,"width":640,"var":"box_fly","height":200},
+                            "nodeParent":162,
+                            "label":"Box(box_fly)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":235,
+                            "child":[
+                                ]
                         },
                         {
                             "x":45,
@@ -912,7 +912,6 @@
                             "compId":75,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-26,"x":215,"width":423,"skin":"image/main/shandow_ditu.png","height":306},
                                     "nodeParent":75,
@@ -925,7 +924,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-6,"x":0,"var":"box_main_Show"},
                                     "nodeParent":75,
@@ -1052,7 +1050,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-18,"x":220,"width":338,"var":"box_smallMap","height":231},
                                     "nodeParent":75,

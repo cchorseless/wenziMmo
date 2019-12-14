@@ -262,6 +262,7 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
 			lcp.send(pkt);
+			PanelManage.Main.img_bottomPartInfoBg.visible = false;
 		}
 	}
 }

@@ -400,4 +400,8 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
  *  传送房间
  */
  public TRANSFER_ROOM(configID:string):number { return this.data[configID][99]}
+/**
+ *  五行属性
+ */
+ public WUXINGPROPS(configID:string):number { return this.data[configID][100]}
 }}
