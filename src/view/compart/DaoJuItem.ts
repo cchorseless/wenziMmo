@@ -26,20 +26,19 @@ module view.compart {
 			let needJob = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(dwBaseID);
 			let needsex = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMSEX(dwBaseID);
 			let needlvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(dwBaseID);
-			if (needsex == 0 || needsex == GameApp.GameEngine.mainPlayer.sex) {
-				if (needJob == GameApp.GameEngine.mainPlayer.job || needJob == 0) {
-					if (needlvl <= GameApp.GameEngine.mainPlayer.level) {
-						this.img_cantWear.visible = false;
-					} else {
-						this.img_cantWear.visible = true;
-					}
-				} else {
-					this.img_cantWear.visible = true;
-				}
-			} else {
-				this.img_cantWear.visible = true;
-			}
-
+			// if (needsex == 0 || needsex == GameApp.GameEngine.mainPlayer.sex) {
+			// 	if (needJob == GameApp.GameEngine.mainPlayer.job || needJob == 0) {
+			// 		if (needlvl <= GameApp.GameEngine.mainPlayer.level) {
+			// 			this.img_cantWear.visible = false;
+			// 		} else {
+			// 			this.img_cantWear.visible = true;
+			// 		}
+			// 	} else {
+			// 		this.img_cantWear.visible = true;
+			// 	}
+			// } else {
+			// 	this.img_cantWear.visible = true;
+			// }
 
 			// 在角色身上
 			if (item.location.btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_PACKAGE) {
