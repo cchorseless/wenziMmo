@@ -34,7 +34,7 @@ module view.compart {
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.item.type) {
-					GameApp.LListener.event(ProtoCmd.Hero_runeSelect, (this.item.type, this.index));
+					GameApp.LListener.event(ProtoCmd.Hero_runeSelect, [this.item.type, this.index]);
 				}
 			})
 		}
