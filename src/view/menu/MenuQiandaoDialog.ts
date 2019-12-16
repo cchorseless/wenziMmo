@@ -114,7 +114,7 @@ module view.menu {
 				for (let itemKey of itemKeys) {
 					let itemdata = array[i].items[itemKey]
 					let ui_item = new view.compart.DaoJuItem;
-					let info = new ProtoCmd.ItemBase;
+					let info = new ProtoCmd.ItemBase();
 					info.dwBaseID = itemdata.indexv;
 					info.dwBinding = itemdata.binding;
 					info.dwCount = itemdata.num;

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":233,
-    "selecteID":139,
+    "selectedBox":345,
+    "selecteID":395,
     "props":{"width":629,"sceneColor":"#eed8d7","height":909},
     "nodeParent":-1,
     "label":"Dialog",
@@ -1017,14 +1017,13 @@
                     "props":{"y":12,"x":11,"name":"item2"},
                     "nodeParent":346,
                     "label":"Box(item2)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":233,
                     "child":[
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"x":10,"width":505,"var":"panel_exchange","height":236},
                             "nodeParent":233,
@@ -1051,7 +1050,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":241,"width":520,"skin":"image/common/login/line_yeqian.png"},
                             "nodeParent":233,
@@ -1065,7 +1063,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":267,"x":175,"wordWrap":true,"width":169,"text":"选择要交换的属性每次只能交换一条","leading":5,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":233,
@@ -1079,7 +1076,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":627,"x":45,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":233,
@@ -1091,7 +1087,6 @@
                             "compId":137,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_4.png","height":25},
                                     "nodeParent":137,
@@ -1104,7 +1099,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_exchangeHave","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":137,
@@ -1120,7 +1114,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":627,"x":225,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":233,
@@ -1132,7 +1125,6 @@
                             "compId":138,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_4.png","height":25},
                                     "nodeParent":138,
@@ -1145,7 +1137,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_exchangeUse","text":"100","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":138,
@@ -1161,7 +1152,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":600,"x":384,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"替换"},
                             "nodeParent":233,
@@ -1175,7 +1165,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":606,"x":260,"width":43,"text":"消耗","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1189,7 +1178,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":606,"x":60,"text":"拥有精华","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1203,7 +1191,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":375,"x":3,"width":246,"var":"vbox_exchange1","height":228},
                             "nodeParent":233,
@@ -1217,7 +1204,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":375,"x":273,"width":246,"var":"vbox_exchange2","height":228},
                             "nodeParent":233,
@@ -1231,7 +1217,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuWithNameItem.ui",
                             "props":{"y":249,"x":49,"var":"ui_item1","runtime":"view.compart.DaoJuWithNameItem"},
@@ -1246,7 +1231,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuWithNameItem.ui",
                             "props":{"y":252,"x":342,"var":"ui_item2","runtime":"view.compart.DaoJuWithNameItem"},
@@ -1260,7 +1244,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":345,"x":25,"width":145,"var":"lbl_shuxing01","text":"属性：达到","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1274,7 +1257,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":345,"x":328,"width":145,"var":"lbl_shuxing02","text":"属性：达到","leading":5,"height":25,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":233,
@@ -1287,7 +1269,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -1295,13 +1277,14 @@
                     "props":{"y":12,"x":11,"name":"item3"},
                     "nodeParent":346,
                     "label":"Box(item3)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":345,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"x":10,"width":505,"var":"panel_recovery","height":396},
                             "nodeParent":345,
@@ -1313,6 +1296,7 @@
                             "compId":235,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_rune3","space":5,"right":0,"left":0},
                                     "nodeParent":235,
@@ -1328,6 +1312,7 @@
                             "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":404,"width":520,"skin":"image/common/login/line_yeqian.png"},
                             "nodeParent":345,
@@ -1341,6 +1326,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":412,"x":13,"width":170,"var":"btn_recovery_0","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"70级符文","height":45},
                             "nodeParent":345,
@@ -1354,6 +1340,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":422,"x":122,"var":"lbl_recovery_0","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1366,6 +1353,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":462,"x":13,"width":170,"var":"btn_recovery_2","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"3转符文","height":45},
                             "nodeParent":345,
@@ -1379,6 +1367,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":472,"x":122,"var":"lbl_recovery_2","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1391,6 +1380,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":512,"x":13,"width":170,"var":"btn_recovery_4","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"5转符文","height":45},
                             "nodeParent":345,
@@ -1404,6 +1394,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":522,"x":122,"var":"lbl_recovery_4","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1416,6 +1407,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":562,"x":13,"width":170,"var":"btn_recovery_6","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"7转符文","height":45},
                             "nodeParent":345,
@@ -1429,6 +1421,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":572,"x":122,"var":"lbl_recovery_6","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1441,6 +1434,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":612,"x":13,"width":170,"var":"btn_recovery_8","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"9转符文","height":45},
                             "nodeParent":345,
@@ -1454,6 +1448,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":622,"x":122,"var":"lbl_recovery_8","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1466,6 +1461,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":412,"x":193,"width":170,"var":"btn_recovery_1","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"1转符文","height":45},
                             "nodeParent":345,
@@ -1479,6 +1475,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":422,"x":302,"var":"lbl_recovery_1","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1491,6 +1488,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":462,"x":193,"width":170,"var":"btn_recovery_3","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"4转符文","height":45},
                             "nodeParent":345,
@@ -1504,6 +1502,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":472,"x":302,"var":"lbl_recovery_3","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1516,6 +1515,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":512,"x":193,"width":170,"var":"btn_recovery_5","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"6转符文","height":45},
                             "nodeParent":345,
@@ -1529,6 +1529,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":522,"x":302,"var":"lbl_recovery_5","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1541,6 +1542,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":562,"x":193,"width":170,"var":"btn_recovery_7","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"8转符文","height":45},
                             "nodeParent":345,
@@ -1554,6 +1556,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":572,"x":302,"var":"lbl_recovery_7","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1566,6 +1569,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":612,"x":193,"width":170,"var":"btn_recovery_9","stateNum":"1","skin":"image/common/fram_common_11.png","sizeGrid":"10,16,16,19","labelSize":22,"labelPadding":"0,20","labelFont":"FZHL","labelColors":"#000000,#000000","label":"10转符文","height":45},
                             "nodeParent":345,
@@ -1579,6 +1583,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":622,"x":302,"var":"lbl_recovery_9","text":"（0）","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1591,6 +1596,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":410,"x":376,"wordWrap":true,"width":143,"text":"回收符文可获得文华，回收绑定符文可获得绑定金币。只能回收战力低于已装备的符文","height":120,"fontSize":20,"font":"FZHL","color":"#63491a"},
                             "nodeParent":345,
@@ -1604,6 +1610,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":552,"x":396,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":345,
@@ -1615,6 +1622,7 @@
                             "compId":316,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/juese/item_39.png","height":25},
                                     "nodeParent":316,
@@ -1627,6 +1635,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_score","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":316,
@@ -1642,6 +1651,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":577,"x":396,"width":114,"skin":"image/common/bottom_gouyu.png","height":27},
                             "nodeParent":345,
@@ -1653,6 +1663,7 @@
                             "compId":319,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-12,"width":23,"skin":"image/main/icon_common_jinbi01.png","height":25},
                                     "nodeParent":319,
@@ -1665,6 +1676,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":14,"width":91,"var":"lbl_gold","text":"4620000","strokeColor":"#000000","stroke":4,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":319,
@@ -1680,6 +1692,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":602,"x":398,"var":"btn_all","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":3,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"全部"},
                             "nodeParent":345,
@@ -1693,6 +1706,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":529,"x":376,"width":143,"text":"全部回收可获得","fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":345,
@@ -1705,7 +1719,7 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         }],

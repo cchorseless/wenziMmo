@@ -55,7 +55,7 @@ module view.main {
 				this.html_content.style.stroke = 4;
 				this.html_content.style.strokeColor = "#000000";
 				this.html_content.style.fontFamily = 'STKaiti';
-				this.html_content.innerHTML = msgStr;
+				// this.html_content.innerHTML = msgStr;
 				this.width = this.html_content.contextWidth + 30 + this.html_content.x;
 				this.img_bg.width = this.width;
 			} else {

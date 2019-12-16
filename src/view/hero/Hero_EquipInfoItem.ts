@@ -11,7 +11,10 @@ module view.hero {
 		private BELT;
 		private job = 1;
 		public heroInfo = [GameApp.MainPlayer.hero1, GameApp.MainPlayer.hero2, GameApp.MainPlayer.hero3];
+		public hasint;
 		public setData(): void {
+			if (this.hasint) { return };
+			this.hasint = true;
 			this.init_changeHero();
 			this.updateFight();
 		}

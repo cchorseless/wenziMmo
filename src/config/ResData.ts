@@ -244,7 +244,9 @@ module ResData {
             //装备打造
             { url: 'json/zhuangbei_make.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuangbei_make },
             //外观列表
-            { url: 'json/zhuanban_Dress.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuanban_Dress }
+            { url: 'json/zhuanban_Dress.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuanban_Dress },
+            //武学四法（角色武学基础）
+            { url: 'json/sifa_consume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.sifa_consume }
         ];
     }
 

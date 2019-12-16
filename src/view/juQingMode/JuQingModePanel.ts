@@ -17,13 +17,13 @@ module view.juQingMode {
 			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
 			this.box_jiangLi.visible = false;
-			if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
-				this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03.png"
-				this.btn_VIPskip.stateNum = 2;
-			} else {
-				this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03_0.png"
-				this.btn_VIPskip.stateNum = 1;
-			}
+			// if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
+			// 	this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03.png"
+			// 	this.btn_VIPskip.stateNum = 2;
+			// } else {
+			// 	this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03_0.png"
+			// 	this.btn_VIPskip.stateNum = 1;
+			// }
 			this.initUI();
 			this.addEvent();
 		}
@@ -38,46 +38,46 @@ module view.juQingMode {
 			});
 
 			// 剧情进度
-			EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-					(data: ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
-						// console.log("从服务器获取的数据：", data)
-						serverData = data;
-						for (let i in data) {
-							if (data[i] == 1) {
-								hasRP = true;
-							}
-						}
-						PanelManage.openZhiNanPanel()
-					});
-				lcp.send(pkt);
+			// EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
+			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
+			// 		(data: ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
+			// 			// console.log("从服务器获取的数据：", data)
+			// 			serverData = data;
+			// 			for (let i in data) {
+			// 				if (data[i] == 1) {
+			// 					hasRP = true;
+			// 				}
+			// 			}
+			// 			PanelManage.openZhiNanPanel()
+			// 		});
+			// 	lcp.send(pkt);
 
-			});
+			// });
 
 			// 副本
-			EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel('juqing')
-			});
+			// EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openFuBenMainPanel('juqing')
+			// });
 
 			// 图谱
-			EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openTuJianJuesePanel()
-			});
+			// EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openTuJianJuesePanel()
+			// });
 
 			// 任务
-			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTask_MainPanel(); });
+			// EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTask_MainPanel(); });
 
 			// 天鉴
-			EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
+			// EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
 
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
-					(data: ProtoCmd.itf_TianJian_SpecialRingPanel) => {
-						// console.log("从服务器获取的数据：", data)
-						PanelManage.openTianJianPanel(data);
-					});
-				lcp.send(pkt);
+			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
+			// 		(data: ProtoCmd.itf_TianJian_SpecialRingPanel) => {
+			// 			// console.log("从服务器获取的数据：", data)
+			// 			PanelManage.openTianJianPanel(data);
+			// 		});
+			// 	lcp.send(pkt);
 
-			});
+			// });
 
 			// 场景模式
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -89,20 +89,21 @@ module view.juQingMode {
 				new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
 
-			// 剧情事件
+			// 珍宝阁
 			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMenuPanel()
 			});
-			this.box_vipTiaoGuo.on(Laya.UIEvent.CLICK, this, function () {
-				if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
-					lcp.send(pkt);
-				} else {
-					TipsManage.showTips("VIP等级未达到")
-					return;
-				}
+			//跳过对白
+			// this.box_vipTiaoGuo.on(Laya.UIEvent.CLICK, this, function () {
+			// 	if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
+			// 		let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+			// 		lcp.send(pkt);
+			// 	} else {
+			// 		TipsManage.showTips("VIP等级未达到")
+			// 		return;
+			// 	}
 
-			})
+			// })
 
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {

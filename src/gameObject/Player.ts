@@ -164,7 +164,7 @@ module GameObject {
             let span = new Date().getTime() / 1000 - GameApp.MainPlayer.createTime;
             let span_day = span / 60 / 60 / 24;
             let year = 17 + Math.ceil(span_day / 24);
-            let month = Math.ceil(span_day % 24);
+            let month = Math.ceil(span_day % 24)/24*12;
             let str = '';
             if (month == 0) {
                 str = year + '岁' + '整';

@@ -88,7 +88,7 @@ module view.luckDraw {
 						let itemData = item[i].split('=')
 						if (!(child as view.compart.DaoJuGroupItem).checkIsFull()) {
 							let ui_item = new view.compart.DaoJuItem();
-							let itemInfo = new ProtoCmd.ItemBase;
+							let itemInfo = new ProtoCmd.ItemBase();
 							itemInfo.dwBaseID = parseInt(itemData[0]);
 							itemInfo.dwCount = parseInt(itemData[1]);
 							ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_CANGKU);

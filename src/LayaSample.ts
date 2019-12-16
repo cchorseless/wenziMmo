@@ -56,7 +56,11 @@ class GameMain {
         if (aspectRatio > 1.9) {
             offY = 50;
         }
-        box.bottom = box.top = offY;
+        box.top = offY;
+        box.bottom = 0;
+        if (Laya.Browser.onIPhone) {
+            box.bottom = offY;
+        }
         box.left = box.right = 0;
         box.autoSize = true;
         return box

@@ -6,10 +6,12 @@ module view.hero {
 		}
 		public num;
 		public boxNum;
-		public heroDialog;
-		public setData(data, labels, index,boxNum,heroDialog): Hero_RuneItem {
-			this.heroDialog=heroDialog;
-			this.boxNum=boxNum;
+		public type;
+		public qingYuanItem;
+		public setData(data, labels, boxNum, type, qingYuanItem): Hero_RuneItem {
+			this.type=type;
+			this.qingYuanItem = qingYuanItem;
+			this.boxNum = boxNum;
 			this.num = data.btNpFrom - 11;
 			let label = labels.split('上');
 			if (label[1]) {
@@ -26,9 +28,8 @@ module view.hero {
 		}
 		public addEvent(): void {
 			this.btn_choose.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_choose.selected = true;
-				if (this.btn_choose.selected) {
-					this.heroDialog.init_exchangeBtn(this.num,this.boxNum);
+				if (this.view_single.selectedIndex == 1) {
+					this.qingYuanItem.init_exchangeBtn(this.num, this.boxNum,this.type);
 				}
 			})
 		}

@@ -16,7 +16,7 @@ module view.luckDraw {
 				let itemIDs2 = parseInt(wupins[1].split('&')[1]);
 				let itemnums2 = wupins[2].split('-')[0];
 				//可兑换的物品
-				let itemInfos1 = new ProtoCmd.ItemBase;
+				let itemInfos1 = new ProtoCmd.ItemBase();
 				itemInfos1.dwBaseID = itemIDs1;
 				itemInfos1.dwCount = itemnums1;
 				this.ui_daoju.setData(itemInfos1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
@@ -46,12 +46,12 @@ module view.luckDraw {
 				let itemID3 = parseInt(wupin[2].split('-')[1]);
 				let itemnum3 = wupin[3].split('+')[0];
 				//可兑换的物品
-				let itemInfo1 = new ProtoCmd.ItemBase;
+				let itemInfo1 = new ProtoCmd.ItemBase();
 				itemInfo1.dwBaseID = itemID1;
 				itemInfo1.dwCount = itemnum1;
 				this.ui_daoju.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				//消耗的物品
-				let itemInfo2 = new ProtoCmd.ItemBase;
+				let itemInfo2 = new ProtoCmd.ItemBase();
 				itemInfo2.dwBaseID = itemID2;
 				itemInfo2.dwCount = itemnum2;
 				this.ui_use.visible = true;

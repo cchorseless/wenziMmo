@@ -58,16 +58,16 @@ module view.beiBao {
 			let heroSex = GameApp.MainPlayer.heroSex;
 			switch (id) {
 				case 0:
-					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV3();
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarSkinV1();
 					break;
 				case 1:
-					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV3(heroSex, EnumData.JOB_TYPE.JOB_WARRIOR);
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarSkinV1(heroSex, EnumData.JOB_TYPE.JOB_WARRIOR);
 					break;
 				case 2:
-					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV3(heroSex, EnumData.JOB_TYPE.JOB_MAGE);
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarSkinV1(heroSex, EnumData.JOB_TYPE.JOB_MAGE);
 					break;
 				case 3:
-					this.img_playerPic.skin = LangConfig.getPlayerAvatarHalfSkinV3(heroSex, EnumData.JOB_TYPE.JOB_MONK);
+					this.img_playerPic.skin = LangConfig.getPlayerAvatarSkinV1(heroSex, EnumData.JOB_TYPE.JOB_MONK);
 					break;
 			}
 		}
@@ -104,7 +104,7 @@ module view.beiBao {
 					break;
 			}
 			// this.curCreater
-			this.font_zhanLi.value = power;
+			this.lbl_zhanLi.text = ''+power;
 			let small_index;
 			let big_index;
 			switch (GameApp.GameEngine.mainPlayer.playerORHero) {

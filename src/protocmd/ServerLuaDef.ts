@@ -362,6 +362,8 @@ module ProtoCmd {
     export const delChuangSongRecord = "delChuangSongRecord";
     //罡气使用更新
     export const JS_updata_GangqiUse = "updata_GangqiUse";
+    //武学基础修炼
+    export const JS_upgradeWuXueSiFa = "upgradeWuXueSiFa";//参数(pos)穿戴位置
     /*********************************菜单******************** */
     //菜单祈福面板
     export const Menu_QiFuClientOpen = "QiFuClientOpen";

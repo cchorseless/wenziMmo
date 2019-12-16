@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":2,
-    "selecteID":3,
+    "selectedBox":24,
+    "selecteID":181,
     "props":{"width":640,"sceneColor":"#863938","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -651,6 +651,7 @@
                     "compId":80,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-46,"x":3,"width":620,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":745},
                             "nodeParent":80,
@@ -662,6 +663,7 @@
                             "compId":92,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":1,"x":-2,"width":626,"height":799},
                                     "nodeParent":92,
@@ -673,6 +675,7 @@
                                     "compId":99,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":58,"x":4,"width":617,"var":"panel_find","height":660},
                                             "nodeParent":99,
@@ -698,8 +701,9 @@
                                                 }]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
-                                            "props":{"y":1,"x":498,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"搜索"},
+                                            "props":{"y":4,"x":498,"width":102,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"搜索","height":50},
                                             "nodeParent":99,
                                             "label":"Button(btn_search)",
                                             "isDirectory":false,
@@ -711,6 +715,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":8,"x":12,"width":481,"var":"input_find","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入帮派名称","padding":"2,140,8,4","height":52,"fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
                                             "nodeParent":99,
@@ -724,6 +729,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":754,"x":215,"width":198,"height":42},
                                             "nodeParent":99,
