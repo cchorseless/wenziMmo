@@ -9,25 +9,24 @@ module view.scene {
 		public setMaster(obj: GameObject.OtherPlayer): void {
 			this.masterItem = obj;
 			obj.ui_item = this;
-			this.img_heroAva.visible = false;
-			this.img_playerAva.visible = false;
-			this.img_playerAvaBig.visible = true;
+
+			this.img_playerAva.visible = true;
 			if (this.masterItem.objName.length > 4) {
-				this.lbl_name.fontSize = 16
+				this.lab_name.fontSize = 16
 			}
 			else {
-				this.lbl_name.fontSize = 18
+				this.lab_name.fontSize = 18
 			}
 			//职业icon
-			this.img_job.skin=LangConfig.getPlayerJobIcon(this.masterItem.job);
+			this.img_job.skin = LangConfig.getPlayerJobIcon(this.masterItem.job);
 			//名字
-			this.lbl_name.text = this.masterItem.objName;
-			this.img_nameBg.height = this.lbl_name.displayHeight + 25;
+			this.lab_name.text = this.masterItem.objName;
+			// this.img_nameBg.height = this.lbl_name.displayHeight + 25;
 			// 公会
 			let guidlID = this.masterItem.feature.dwClanId;
 			if (guidlID) {
-				let guildName = GameApp.GameEngine.allGuildInfo[guidlID];
 				// 没有查到本地数据就缓存
+				let guildName = GameApp.GameEngine.allGuildInfo[guidlID];
 				if (guildName) {
 					this.lbl_guildName.text = '' + guildName;
 				}
@@ -46,19 +45,29 @@ module view.scene {
 			else {
 				this.lbl_guildName.text = '';
 			}
+			let sex = this.masterItem.sex;
+			let curJob = this.masterItem.job;
+			let path;
+
+			if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+				path = 'image/main/player_nan';
+			}
+			else {
+				path = 'image/main/player_nv';
+			}
+			this.img_playerAva.skin = path + '0' + curJob + '_half.png';
 			// skin
-			this.img_avaBig.skin = this.img_playerava.skin = LangConfig.getPlayerIconSkinV1(this.masterItem.sex, this.masterItem.job);
 			this.updateUI();
 		}
 
 		public setHero(obj: GameObject.Hero) {
-			console.log('---------添加了弟子---------');
-			this.masterItem.curHero = obj;
-			this.img_heroAva.visible = true;
-			this.img_playerAva.visible = true;
-			this.img_playerAvaBig.visible = false;
-			// 弟子
-			this.img_heroava.skin = LangConfig.getPlayerIconSkinV1(obj.feature.simpleFeature.sex, obj.feature.simpleFeature.job);
+			// console.log('---------添加了弟子---------');
+			// this.masterItem.curHero = obj;
+			// this.img_heroAva.visible = true;
+			// this.img_playerAva.visible = true;
+			// this.img_playerAvaBig.visible = false;
+			// // 弟子
+			// this.img_heroava.skin = LangConfig.getPlayerIconSkinV1(obj.feature.simpleFeature.sex, obj.feature.simpleFeature.job);
 		}
 
 		public addEvent() {

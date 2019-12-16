@@ -27,21 +27,11 @@ module SheetConfig {
          */
         public RESOURCES(configID: string): string { return this.data[configID][5] }
         /**
-         *  根据类型  返回数据  type:1时装 4：罡气 3：称号
+         *  根据ID返回数据
          */
-        public GETDATABYTYPE(type: number): any {
-            let baseData = [];
-            for (let i in this.data) {
-                if (this.data[i][2] == type) {
-                    baseData.push(this.data[i])
-                }
-            }
-            return baseData;
-        }
         public GETDATABYID(configID: string): any {
-            let baseData = this.data[configID];
-            return baseData;
-
+            let base = this.data[configID];
+            return base;
         }
     }
 }

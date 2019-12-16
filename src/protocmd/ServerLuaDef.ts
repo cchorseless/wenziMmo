@@ -128,7 +128,9 @@ module ProtoCmd {
     // 打开奖励面板
     export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
 
-    /********************************主线副本界面**************** */
+    /********************************主线副本界面**************** */    //有星星  单人  除魔 
+    //副本监听返回
+    export const map_CaiLiaoFubenPlane2 = 'map_CaiLiaoFubenPlane2';
     // 打开主线面板
     export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)
     // 获取单层信息
@@ -139,7 +141,7 @@ module ProtoCmd {
     export const FB_ChuMoLeave = 'ChuMoLeave';
     // 主线副本进入成功,更新副本进度
     export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
-    /********************************资源副本*********************** */
+    /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
     export const FB_CLFubenStatus = 'CLFubenStatus';
     // 单个资源副本
@@ -153,28 +155,26 @@ module ProtoCmd {
     // 扫荡
     export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';
 
-    /********************************心魔副本*********************** */
-    // 打开个人boss界面
-    export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
-    // 进入个人BOSS界面
+    /********************************心魔副本*********************** */ //没星星  单人
+    //打开心魔界面  panel
+     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
+    // 进入心魔界面
     export const FB_GeRenBoss_Enter = 'GeRenBoss_Enter';
-    // 个人副本界面
-    export const FB_GeRenBoss_FB_Info = 'GeRenBoss_FB_Info';
-    // 离开个人BOSS界面
+    // 离开心魔界面
     export const FB_GeRenBoss_Leave = 'GeRenBoss_Leave';
-    /********************************缉盗悬赏副本*********************** */
+    /********************************缉盗悬赏副本*********************** */  //多人  没星星
     // 打开野外boss界面
     export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
-    /********************************诛杀邪帝副本*********************** */
+    /********************************诛杀邪帝副本*********************** */  //多人没星星
     // 打开世界boss界面
     export const FB_WorldBossPanel = 'WorldBossPanel';
 
-    /********************************天山血狱副本*********************** */
+    /********************************天山血狱副本*********************** */  //多人 没星星
     // 打开boss之家界面
     export const FB_WorldBoss_Open = 'WorldBoss_Open';
     // boss之家单条信息界面
     export const FB_GetWorldBossInfo = 'GetWorldBossInfo';
-    /********************************阴葵门副本*********************** */
+    /********************************阴葵门副本*********************** *///多人 没星星
     // 打开锁妖塔界面
     export const FB_BossSuoYaoTa = 'BossSuoYaoTa';
     /********************************限时副本*********************** */
@@ -360,7 +360,7 @@ module ProtoCmd {
     export const addChuangSongRecord = "addChuangSongRecord";
     //路引删除
     export const delChuangSongRecord = "delChuangSongRecord";
-     //罡气使用更新
+    //罡气使用更新
     export const JS_updata_GangqiUse = "updata_GangqiUse";
     /*********************************菜单******************** */
     //菜单祈福面板
@@ -633,6 +633,15 @@ module ProtoCmd {
      */
     export interface itf_MENU_ActiveStatus {
 
+    }
+    /**
+     * 活动status返回data
+     */
+    export interface itf_FUBEN_MESSAGE {
+        fubenStr:string,
+        curNum:number,
+        maxNum:number,
+        item:Object
     }
 
 

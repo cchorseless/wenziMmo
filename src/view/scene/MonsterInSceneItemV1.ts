@@ -27,7 +27,7 @@ module view.scene {
 		}
 		public collectHander: Laya.Handler;// 采集物Hander
 		public addEvent(): void {
-			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
+			this.box_view.on(Laya.UIEvent.CLICK, this, () => {
 				let player = GameApp.MainPlayer;
 				let job = player.job;
 				// player["startHandAtk" + job](this.item);

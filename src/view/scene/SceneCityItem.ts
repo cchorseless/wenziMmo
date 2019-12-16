@@ -42,6 +42,28 @@ module view.scene {
 			// 		GameApp.MainPlayer.stopAutoAtk()
 			// 	}
 			// });
+			// GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, function (data) {
+			// 	let pb = data;
+			// 	pb
+			// })
+			this.addLcpEvent()
+		}
+		public addLcpEvent() {
+			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
+				console.log(jsonData);
+				// GameApp.GameEngine.curFuBenMsg = jsonData;
+				GameApp.GameEngine.curFuBenMsg = null;
+				GameApp.GameEngine.curFuBenMsg = {
+					curNum: jsonData.KILLCNT,
+					maxNum: jsonData.MAXCNT,
+					fubenStr:"",
+					item: jsonData.JiangLi
+				}
+				if (jsonData.KILLCNT>=jsonData.MAXCNT){
+					new scene.BattleRewardInfoV0Item().popup();
+					return;
+				}
+			})
 		}
 
 		/**
@@ -160,6 +182,10 @@ module view.scene {
 			// 地图背景
 			let bgRes = SheetConfig.mapRoomSheet.getInstance(null).SCENEPIC('' + roomId);
 			this.img_bg.skin = 'image/common/scene/zdmap_icon_' + bgRes + '.png';
+		}
+		public destroy() {
+			GameApp.LListener.offCaller(ProtoCmd.map_CaiLiaoFubenPlane2, this);
+			super.destroy(true)
 		}
 	}
 }

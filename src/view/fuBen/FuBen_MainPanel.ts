@@ -259,10 +259,15 @@ module view.fuBen {
 		 */
 		public enterFuBen(): void {
 			if (this.selectedCeng == null) { return };
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
-			lcp.send(pkt);
+			// let pkt = new ProtoCmd.QuestClientData();
+			// pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
+			// lcp.send(pkt);
+			// PanelManage.Main.img_bottomPartInfoBg.visible = false;
 			PanelManage.Main.img_bottomPartInfoBg.visible = false;
+
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng]);
+			lcp.send(pkt);
 		}
 	}
 }

@@ -5,6 +5,9 @@ module view.compart {
 			super();
 		}
 		public setData(effectIDStruct: ProtoCmd.EffectIDStruct): SinglePropsItem {
+			if(!effectIDStruct){
+				return;
+			}
 			this.lbl_label.text = effectIDStruct.label;
 			this.lbl_dataDes.x = this.lbl_label.width + 5;
 			if (effectIDStruct.onlyValue) {
