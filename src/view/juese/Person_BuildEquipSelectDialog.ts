@@ -17,7 +17,6 @@ module view.juese {
 			this.level = level;
 			this.addEvent();
 			this.itemInfo();
-
 			this.init_selectEvent();
 			return this;
 		}
@@ -61,7 +60,7 @@ module view.juese {
 				num += 1;
 				cell.setData(cell.dataSource, num);
 			}, null, false)
-			
+
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type, select: boolean, index: number) => {

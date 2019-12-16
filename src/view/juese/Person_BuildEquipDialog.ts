@@ -25,6 +25,7 @@ module view.juese {
 		public setData(): void {
 			this.panel_equip.hScrollBarSkin = '';
 			this.hbox_equip['sortItem'] = (items) => { };
+			this.vbox_shuxing['sortItem'] = (items) => { };
 			//职业页签
 			this.tab_daoju.selectHandler = Laya.Handler.create(this, (index) => {
 				//职业
@@ -41,7 +42,7 @@ module view.juese {
 			this.equipInfo = SheetConfig.zhuangbei_make.getInstance(null).data;
 			let keys = Object.keys(this.equipInfo);
 			for (let key of keys) {
-				let daojuData = SheetConfig.mydb_item_base_tbl.getInstance(null).GRTALLDATA(key);
+				let daojuData = SheetConfig.mydb_item_base_tbl.getInstance(null).data[key];
 				//职业
 				switch (daojuData[11]) {
 					case 1:

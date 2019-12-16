@@ -191,6 +191,7 @@ module PanelManage {
         if (PopUpManager.showPanel(PanelManage.Main)) {
             PanelManage.Main.updateUI();
             PanelManage.Main.view_scene.selectedIndex = 0;
+            PanelManage.Main.box_menu.visible = true;
         }
         else {
             ResManage.loadResource(ResData.PanelRes.Main, () => {
@@ -624,7 +625,7 @@ module PanelManage {
     /**
      * 主线副本界面
      */
-    export function openFuBenMainPanel(from:string): void {
+    export function openFuBenMainPanel(from: string): void {
         if (PopUpManager.showPanel(PanelManage.FuBenMain)) return;
         ResManage.loadResource(ResData.PanelRes.FuBenMain, () => {
             PanelManage.FuBenMain = new view.fuBen.FuBen_MainPanel();
@@ -836,6 +837,7 @@ module PanelManage {
      */
     export function openJuQingModePanel(): void {
         PanelManage.openMainPanel();
+        PanelManage.Main.box_menu.visible = false;
         if (PanelManage.Main.view_scene.numChildren == 1) {
             ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
                 PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();

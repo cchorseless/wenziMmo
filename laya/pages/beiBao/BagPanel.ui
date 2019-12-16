@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":416,
-    "selecteID":32,
+    "selectedBox":1,
+    "selecteID":487,
     "props":{"width":640,"sceneColor":"#e5d4d4","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -22,6 +22,34 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":18,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":42,"x":0,"skin":"image/juese/img_title.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":486,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":47,"x":54,"skin":"image/bag/font_wupin.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":487,
             "child":[
                 ],
             "$HIDDEN":false
@@ -109,7 +137,6 @@
                     "compId":32,
                     "child":[
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"x":0,"width":488,"var":"panel_bag0","top":1,"name":"item0","height":444},
                             "nodeParent":32,
@@ -121,7 +148,6 @@
                             "compId":301,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"var":"vbox_bag0","space":2,"right":0,"left":0,"align":"left"},
                                     "nodeParent":301,
@@ -136,7 +162,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":0,"width":488,"var":"panel_bag1","top":0,"name":"item1","height":444},
                             "nodeParent":32,
@@ -148,7 +173,6 @@
                             "compId":310,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_bag1","space":2,"right":0,"left":0,"align":"left"},
                                     "nodeParent":310,
@@ -163,7 +187,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":0,"width":488,"var":"panel_bag2","top":0,"name":"item2","height":444},
                             "nodeParent":32,
@@ -175,7 +198,6 @@
                             "compId":317,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_bag2","space":2,"right":0,"left":0,"align":"left"},
                                     "nodeParent":317,
@@ -191,7 +213,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":0,"width":488,"var":"panel_bag3","top":0,"name":"item3","height":444},
                             "nodeParent":32,
@@ -203,7 +224,6 @@
                             "compId":324,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_bag3","space":2,"right":0,"left":0,"align":"left"},
                                     "nodeParent":324,

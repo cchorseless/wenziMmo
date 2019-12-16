@@ -42,7 +42,7 @@ module view.dialog {
 					let keys = Object.keys(cbpkt.MailDetail.items);
 					for (let key of keys) {
 						let ui_gift = new view.compart.DaoJuWithNameItem;
-						let item = new ProtoCmd.ItemBase;
+						let item = new ProtoCmd.ItemBase();
 						item.dwBaseID = cbpkt.MailDetail.items[key].dwBaseID;
 						item.dwCount = cbpkt.MailDetail.items[key].dwCount;
 						ui_gift.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL)

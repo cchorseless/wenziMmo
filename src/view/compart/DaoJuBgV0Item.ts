@@ -16,7 +16,7 @@ module view.compart {
 			this.index = index;
 			if (item.type>=0) {
 				this.item = item;
-				let itemInfo = new ProtoCmd.ItemBase;
+				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.clone(item.data.data);
 				this.ui_item.setData(itemInfo);
 				if (item.type == 1) {

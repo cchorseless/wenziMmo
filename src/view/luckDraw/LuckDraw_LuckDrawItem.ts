@@ -100,7 +100,7 @@ module view.luckDraw {
 						this.ui_item0.ui_item.lbl_count.visible = true;
 						this.ui_item0.lbl_itemName.visible = true;
 						let data = jsonData.item[jsonData.idx]
-						let drawInfo = new ProtoCmd.ItemBase;
+						let drawInfo = new ProtoCmd.ItemBase();
 						drawInfo.dwBaseID = data.index;
 						drawInfo.dwCount = data.num;
 						this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);
@@ -115,7 +115,7 @@ module view.luckDraw {
 				let keys = Object.keys(jsonData.item)
 				for (let key of keys) {
 					let data = jsonData.item[key]
-					let itemInfo = new ProtoCmd.ItemBase;
+					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = data.index;
 					itemInfo.dwCount = data.num;
 					itemInfo.dwBinding = data.bind;
@@ -123,7 +123,7 @@ module view.luckDraw {
 				}
 
 				//可获得标准奖
-				let standardInfo = new ProtoCmd.ItemBase;
+				let standardInfo = new ProtoCmd.ItemBase();
 				let standardItem = jsonData.extab.exitem
 				standardInfo.dwBaseID = standardItem.index;
 				standardInfo.dwCount = standardItem.num;
@@ -191,7 +191,7 @@ module view.luckDraw {
 			this.ui_item0.ui_item.lbl_count.visible = true;
 			this.ui_item0.lbl_itemName.visible = true;
 			let data = this.tempData.item[this.tempData.idx]
-			let drawInfo = new ProtoCmd.ItemBase;
+			let drawInfo = new ProtoCmd.ItemBase();
 			drawInfo.dwBaseID = data.index;
 			drawInfo.dwCount = data.num;
 			this.ui_item0.setData(drawInfo, EnumData.ItemInfoModel.SHOW_NONE);

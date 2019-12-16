@@ -5,7 +5,7 @@ module GameUtil {
      * @param itemID 
      * @param bag 
      */
-    export function findItemInBag(itemID, bag): number {
+    export function findItemInBag(itemID:number, bag): number {
         let count = 0;
         let keys = Object.keys(bag);
         for (let _key of keys) {

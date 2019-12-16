@@ -126,7 +126,7 @@ module view.hero {
 				this.list_rune.array.push(i);
 			}
 			for (let index in runeArray) {
-				let itemInfo = new ProtoCmd.ItemBase;
+				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.clone(runeArray[index].data.data);
 				runeArray[index].data = itemInfo;
 				this.list_rune.array[index] = runeArray[index];

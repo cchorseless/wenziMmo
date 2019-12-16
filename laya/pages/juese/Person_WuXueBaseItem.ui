@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":11,
+    "selecteID":9,
     "props":{"width":140,"sceneColor":"#ffffff","height":220},
     "nodeParent":-1,
     "label":"View",
@@ -28,9 +28,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":11,"x":18,"width":104,"text":"基础武器","strokeColor":"#63491a","stroke":4,"height":28,"fontSize":26,"font":"FZHL","color":"#ffeeb1","align":"center"},
+            "props":{"y":11,"x":18,"width":104,"var":"lbl_name","text":"基础武器","strokeColor":"#63491a","stroke":4,"height":28,"fontSize":26,"font":"FZHL","color":"#ffeeb1","align":"center"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_name)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -56,15 +56,16 @@
             "x":15,
             "type":"UIView",
             "source":"compart/DaoJuItem.ui",
-            "props":{"y":56,"x":38,"scaleY":0.85,"scaleX":0.85},
+            "props":{"y":56,"x":38,"var":"ui_item","scaleY":0.85,"scaleX":0.85,"runtime":"view.compart.DaoJuItem"},
             "nodeParent":1,
-            "label":"UIView",
+            "label":"UIView(ui_item)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -83,9 +84,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":152,"x":30,"width":78.515625,"text":"20/30级","fontSize":20,"font":"FZHL","color":"#63491a"},
+            "props":{"y":152,"x":30,"width":78.515625,"var":"lbl_lvl","text":"20/30级","fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
             "nodeParent":1,
-            "label":"Label",
+            "label":"Label(lbl_lvl)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -97,9 +98,9 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":140,"skin":"image/juese/tab_xz_gaoguang01.png","height":210},
+            "props":{"y":0,"x":0,"width":140,"var":"img_select","skin":"image/juese/tab_xz_gaoguang01.png","height":210},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_select)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -108,20 +109,21 @@
             "child":[
                 ],
             "$LOCKED":false,
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":185,"x":103,"skin":"image/common/icon_shengji_01.png","rotation":90},
+            "props":{"y":185,"x":103,"visible":false,"var":"img_jiantou","skin":"image/common/icon_shengji_01.png","rotation":90},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_jiantou)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":11,
             "child":[
-                ]
+                ],
+            "$HIDDEN":true
         }],
     "animations":[
         {

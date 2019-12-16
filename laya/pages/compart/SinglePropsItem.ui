@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":7,
-    "props":{"width":270,"sceneColor":"#efd6d6","height":30},
+    "selecteID":8,
+    "props":{"width":285,"sceneColor":"#efd6d6","height":30},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -35,6 +35,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":4,"x":156,"visible":false,"var":"lbl_add","text":"+66","height":20,"fontSize":22,"font":"FZHL","color":"#147a0d","bold":true,"align":"left"},
+            "nodeParent":1,
+            "label":"Label(lbl_add)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":8,
             "child":[
                 ]
         }],

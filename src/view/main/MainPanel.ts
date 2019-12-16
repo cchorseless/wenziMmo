@@ -369,14 +369,23 @@ module view.main {
 		}
 
 		//界面切换时控制那些部分不变
-		public showGroupTop(panel: Laya.View): void {
+		public showGroupTop(panel): void {
 			panel.addChild(this.box_top);
 			panel.addChild(this.box_menu);
 			if (panel == this) {
+				if (this.view_scene.selectedIndex == 0) {
+					this.box_menu.visible = true;
+				}else{
+					this.box_menu.visible = false;
+				}
 				this.box_top.visible = false;
 				this.box_mainTop.visible = true;
 			}
 			else {
+				//菜单界面隐藏（通过btn_setUp设置按钮判断是否是菜单界面）
+				if(panel.btn_setUp){
+					this.box_menu.visible = false;
+				}
 				// 复制一张底图
 				let imgBg = new Laya.Image();
 				imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;

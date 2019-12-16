@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":40,
+    "selectedBox":103,
+    "selecteID":45,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -12,20 +12,6 @@
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":47,"x":54,"skin":"image/juese/font_juese.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":37,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
         {
             "x":15,
             "type":"Image",
@@ -50,6 +36,20 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":36,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":47,"x":54,"skin":"image/juese/font_juese.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":37,
             "child":[
                 ],
             "$HIDDEN":false
@@ -200,7 +200,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":41,"x":155,"var":"btn_self","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":41,"x":155,"visible":false,"var":"btn_self","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":103,
                     "label":"Button(btn_self)",
                     "isOpen":false,
