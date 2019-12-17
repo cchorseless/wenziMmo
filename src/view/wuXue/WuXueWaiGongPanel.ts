@@ -3,8 +3,8 @@ module view.wuXue {
 	export class WuXueWaiGongPanel extends ui.wuXue.WuXueWaiGongPanelUI {
 		constructor() {
 			super();
-			this.panel_skillDes.vScrollBarSkin = "";
-			this.panel_skillEffDes.vScrollBarSkin = "";
+			// this.panel_skillDes.vScrollBarSkin = "";
+			// this.panel_skillEffDes.vScrollBarSkin = "";
 		}
 
 		public setData(): void {
@@ -55,13 +55,13 @@ module view.wuXue {
 				PanelManage.openWuXueNeiGongPanel()
 			});
 			// 闭关
-			this.btn_closeDoor.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openWuXueCloseDoorPanel();
-			});
+			// this.btn_closeDoor.on(Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openWuXueCloseDoorPanel();
+			// });
 			// 合道
-			this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openWuXueHeDaoPanel();
-			});
+			// this.btn_heDao.on(Laya.UIEvent.CLICK, this, () => {
+			// 	PanelManage.openWuXueHeDaoPanel();
+			// });
 			//技能更换
 
 			//刷新面板
@@ -161,48 +161,47 @@ module view.wuXue {
 			let configID = GameApp.MainPlayer.skillInfo[showDetailID.toString()].configID;
 			let lvNum = GameApp.MainPlayer.skillInfo[showDetailID.toString()].level;
 			let type = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
-			if (type == 1 || type == 2 || type == 3) {
-				this.changeSkillInfo(configID, lvNum)
-			}
+			// if (type == 1 || type == 2 || type == 3) {
+			// 	this.changeSkillInfo(configID, lvNum)
+			// }
 
 		}
 
 
 
 		public updateSkilButton(btRow: number, skill_key: string): void {
-
-			let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
-			let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
-			if (_skillBase) {
-				let skill_ui = new view.wuXue.WuXue_logoItem();
-				skill_ui.setData(_skillBase.configID);
-				switch (btRow) {
-					case EnumData.emSkillShotButtonType.WaiGong_1:
-						this.ui_item1.addItem(skill_ui);
-						this.ui_item1.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_2:
-						this.ui_item2.addItem(skill_ui);
-						this.ui_item2.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_3:
-						this.ui_item3.addItem(skill_ui);
-						this.ui_item3.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_4:
-						this.ui_item4.addItem(skill_ui);
-						this.ui_item4.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.ZhaoJia_1:
-						this.ui_item5.addItem(skill_ui);
-						this.ui_item5.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.ShenFa_1:
-						this.ui_item6.addItem(skill_ui);
-						this.ui_item6.lbl_buWei.text = nameStr;
-						break;
-				}
-			}
+			// let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
+			// let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
+			// if (_skillBase) {
+			// 	let skill_ui = new view.wuXue.WuXue_logoItem();
+			// 	skill_ui.setData(_skillBase.configID);
+			// 	switch (btRow) {
+			// 		case EnumData.emSkillShotButtonType.WaiGong_1:
+			// 			this.ui_item1.addItem(skill_ui);
+			// 			this.ui_item1.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_2:
+			// 			this.ui_item2.addItem(skill_ui);
+			// 			this.ui_item2.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_3:
+			// 			this.ui_item3.addItem(skill_ui);
+			// 			this.ui_item3.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_4:
+			// 			this.ui_item4.addItem(skill_ui);
+			// 			this.ui_item4.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.ZhaoJia_1:
+			// 			this.ui_item5.addItem(skill_ui);
+			// 			this.ui_item5.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.ShenFa_1:
+			// 			this.ui_item6.addItem(skill_ui);
+			// 			this.ui_item6.lbl_buWei.text = nameStr;
+			// 			break;
+			// 	}
+			// }
 		}
 
 
@@ -211,23 +210,23 @@ module view.wuXue {
 		 * @param config   技能ID
 		 * @param lv       该技能等级
 		 */
-		public changeSkillInfo(config: string, lvl: number): void {
+		// public changeSkillInfo(config: string, lvl: number): void {
 			// 技能名称
-			this.lbl_skillName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(config);
-			// 技能描述
-			this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(config);
-			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(config);
-			this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = true;
-			for (let i = 1; i < 6; i++) {
-				this['btn_' + i].selected = i < lvl;
-				if (this['btn_' + i].selected == true) {
-					// this['btn_' + i].disabled = false;
-				} else {
-					this['btn_' + i].mouseEnabled = false;
-				}
-			}
-			this.ui_skill.setData(config);
-		}
+		// 	this.lbl_skillName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(config);
+		// 	// 技能描述
+		// 	this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(config);
+		// 	this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(config);
+		// 	this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = true;
+		// 	for (let i = 1; i < 6; i++) {
+		// 		this['btn_' + i].selected = i < lvl;
+		// 		if (this['btn_' + i].selected == true) {
+		// 			// this['btn_' + i].disabled = false;
+		// 		} else {
+		// 			this['btn_' + i].mouseEnabled = false;
+		// 		}
+		// 	}
+		// 	this.ui_skill.setData(config);
+		// }
 
 		/**
 		 * 显示默认的技能信息
@@ -236,21 +235,21 @@ module view.wuXue {
 			// 每个职业默认一个基础技能
 			let defaultConfigID: string = GameApp.MainPlayer.default_skill;
 			// 技能名称
-			this.lbl_skillName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(defaultConfigID).split('_')[0];
+			// this.lbl_skillName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(defaultConfigID).split('_')[0];
 			// 技能描述
-			this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(defaultConfigID);
-			this.ui_skill.setData(defaultConfigID);
+			// this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(defaultConfigID);
+			// this.ui_skill.setData(defaultConfigID);
 			// this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = false;
-			for (let i = 1; i < 6; i++) {
-				this['btn_' + i].selected = false;
-				if (this['btn_' + i].selected == true) {
-					// this['btn_' + i].disabled = false;
-				} else {
-					this['btn_' + i].mouseEnabled = false;
+			// for (let i = 1; i < 6; i++) {
+			// 	this['btn_' + i].selected = false;
+			// 	if (this['btn_' + i].selected == true) {
+			// 		// this['btn_' + i].disabled = false;
+			// 	} else {
+			// 		this['btn_' + i].mouseEnabled = false;
 
-				}
-			}
-			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
+			// 	}
+			// }
+			// this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
 			let loc = defaultConfigID.indexOf("01")
 			let base = defaultConfigID.substring(0, loc);
 

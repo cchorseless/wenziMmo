@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":99,
+    "selecteID":111,
     "props":{"width":640,"sceneColor":"#eae2e2","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -14,192 +14,193 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"width":640,"skin":"image/main/fram_common_02a.png","height":1136},
+            "type":"Box",
+            "props":{"x":0,"bottom":0},
             "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
+            "label":"Box",
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":97,
+            "compId":111,
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":0,"x":0,"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
-                    "nodeParent":97,
+                    "props":{"y":0,"x":0,"width":640,"skin":"image/main/fram_common_02a.png","height":1136},
+                    "nodeParent":111,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":98,
+                    "hasChild":true,
+                    "compId":97,
                     "child":[
-                        ],
+                        {
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
+                            "nodeParent":97,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":98,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$LOCKED":false,
                     "$HIDDEN":false
-                }],
-            "$LOCKED":false,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":184,"x":0,"skin":"image/common/img_tongji01.png","sizeGrid":"0,35,-2,86"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":4,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":194,"x":43,"width":553,"var":"panel_newServer","height":55},
-            "nodeParent":1,
-            "label":"Panel(panel_newServer)",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":99,
-            "child":[
+                },
                 {
-                    "x":30,
-                    "type":"Tab",
-                    "props":{"y":-2,"x":0,"var":"tab_top","strokeColors":"#9f6f5d,#c30e0e,#c30e0e","stateNum":2,"space":15,"skin":"image/menu/btn_sc_common_01.png","selectedIndex":0,"labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":54.5},
-                    "nodeParent":99,
-                    "label":"Tab(tab_top)",
+                    "type":"Image",
+                    "props":{"y":184,"x":0,"skin":"image/common/img_tongji01.png","sizeGrid":"0,35,-2,86"},
+                    "nodeParent":111,
+                    "label":"Image",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }]
-        },
-        {
-            "x":15,
-            "type":"ViewStack",
-            "props":{"y":253,"x":0,"width":640,"var":"view_newServer","height":886},
-            "nodeParent":1,
-            "label":"ViewStack(view_newServer)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":110,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "props":{"y":1074,"x":188,"var":"box_time"},
-            "nodeParent":1,
-            "label":"Box(box_time)",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":103,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"text":"活动时间:","fontSize":24,"font":"FZHL","color":"#55453a"},
-                    "nodeParent":103,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":101,
+                    "compId":4,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Label",
-                    "props":{"x":104,"width":228.28125,"var":"lbl_time","text":"1天13小时13分52秒","height":22,"fontSize":24,"font":"FZHL","color":"#a53232","align":"left"},
-                    "nodeParent":103,
-                    "label":"Label(lbl_time)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":102,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }]
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "props":{"y":114,"x":5},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":104,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
-                    "nodeParent":104,
-                    "label":"Image",
+                    "type":"Panel",
+                    "props":{"y":194,"x":43,"width":553,"var":"panel_newServer","height":55},
+                    "nodeParent":111,
+                    "label":"Panel(panel_newServer)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":105,
+                    "compId":99,
                     "child":[
                         {
-                            "x":45,
+                            "type":"Tab",
+                            "props":{"y":-2,"x":0,"var":"tab_top","strokeColors":"#9f6f5d,#c30e0e,#c30e0e","stateNum":2,"space":15,"skin":"image/menu/btn_sc_common_01.png","selectedIndex":0,"labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","height":54.5},
+                            "nodeParent":99,
+                            "label":"Tab(tab_top)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":5,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
+                },
+                {
+                    "type":"ViewStack",
+                    "props":{"y":253,"x":0,"width":640,"var":"view_newServer","height":886},
+                    "nodeParent":111,
+                    "label":"ViewStack(view_newServer)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":110,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":1074,"x":188,"var":"box_time"},
+                    "nodeParent":111,
+                    "label":"Box(box_time)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":103,
+                    "child":[
+                        {
                             "type":"Label",
-                            "props":{"y":9,"x":30,"text":"新服活动","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
-                            "nodeParent":105,
+                            "props":{"text":"活动时间:","fontSize":24,"font":"FZHL","color":"#55453a"},
+                            "nodeParent":103,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":106,
+                            "compId":101,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"x":104,"width":228.28125,"var":"lbl_time","text":"1天13小时13分52秒","height":22,"fontSize":24,"font":"FZHL","color":"#a53232","align":"left"},
+                            "nodeParent":103,
+                            "label":"Label(lbl_time)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":102,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }]
+                },
+                {
+                    "type":"Box",
+                    "props":{"y":114,"x":5},
+                    "nodeParent":111,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":104,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
+                            "nodeParent":104,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":105,
+                            "child":[
+                                {
+                                    "type":"Label",
+                                    "props":{"y":9,"x":30,"text":"新服活动","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "nodeParent":105,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":106,
+                                    "child":[
+                                        ]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":3,"skin":"image/common/icon_renwuzhi.png"},
+                            "nodeParent":104,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":107,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                            "nodeParent":104,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":108,
                             "child":[
                                 ]
                         }],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":3,"skin":"image/common/icon_renwuzhi.png"},
-                    "nodeParent":104,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":107,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Button",
-                    "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
-                    "nodeParent":104,
-                    "label":"Button",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":108,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
+                }]
         }],
     "animations":[
         {

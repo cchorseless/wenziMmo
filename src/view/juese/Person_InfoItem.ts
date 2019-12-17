@@ -78,15 +78,17 @@ module view.juese {
 			this.img_moodpro.width = 302 * player.nXinQing / 100;
 			//个人标签
 			this.list_label.array = [];
-			let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
-			for (let key of keys) {
-				let id = GameApp.MainPlayer.xingGeInfo[key].id
-				this.list_label.array.push(id);
+			if (GameApp.MainPlayer.xingGeInfo) {
+				let keys = Object.keys(GameApp.MainPlayer.xingGeInfo);
+				for (let key of keys) {
+					let id = GameApp.MainPlayer.xingGeInfo[key].id
+					this.list_label.array.push(id);
+				}
+				this.list_label.itemRender = view.juese.Person_SpeLabelItem;
+				this.list_label.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
+					cell.setData(cell.dataSource);
+				}, null, false)
 			}
-			this.list_label.itemRender = view.juese.Person_SpeLabelItem;
-			this.list_label.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
-				cell.setData(cell.dataSource);
-			}, null, false)
 		}
 		/**
 		 * 基础
@@ -94,7 +96,7 @@ module view.juese {
 		public init_personBase(): void {
 			let ability = GameApp.MainPlayer.ability;
 			// 血量
-			this.lbl_hp.text = '' +LangConfig.getBigNumberDes(ability.nowHP)+ '/' + LangConfig.getBigNumberDes(ability.nMaxHP);
+			this.lbl_hp.text = '' + LangConfig.getBigNumberDes(ability.nowHP) + '/' + LangConfig.getBigNumberDes(ability.nMaxHP);
 			this.img_hppro.width = 302 * ability.nowHP / ability.nMaxHP;
 			// 气量
 			this.lbl_gas.text = '' + LangConfig.getBigNumberDes(ability.nowMP) + '/' + LangConfig.getBigNumberDes(ability.nMaxMP);

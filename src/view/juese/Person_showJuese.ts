@@ -4,5 +4,8 @@ module view.juese{
 		constructor(){
 			super();
 		}
+		public setData(){
+			
+		}
 	}
 }

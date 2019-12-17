@@ -25,6 +25,14 @@ module view.scene {
 			this.lbl_guildName.text = '' + this.item.guildInfo.szName;
 			// 全身像
 			// this.img_playerAva.skin = LangConfig.getPlayerAvatarHalfSkin();
+			let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
+
+			if (ch > 0) {
+				let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
+				this.img_chenghao.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			}
+
+
 			let sex = GameApp.MainPlayer.sex;
 			let curJob = GameApp.MainPlayer.job;
 			let path;

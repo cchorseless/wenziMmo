@@ -26,7 +26,10 @@ module view.scene {
 					}
 				}
 			}, null, false);
+			let ui_Content = new BattleFuBenInfoV1Item();
+			this.box_content.addChild(ui_Content);
 			this.addEvent();
+
 		}
 
 
@@ -178,5 +181,6 @@ module view.scene {
 		public clearPlayer(): void {
 
 		}
+
 	}
 }

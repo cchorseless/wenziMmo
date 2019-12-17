@@ -334,6 +334,11 @@ module view.main {
 
 		public addLcpEvent(): void {
 			let _player = GameApp.MainPlayer;
+			//副本
+			// GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, function (data) {
+			// 	let pb = data;
+			// 	pb
+			// })
 			// 金币
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_gold() });
 			// 元宝

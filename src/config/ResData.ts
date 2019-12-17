@@ -45,7 +45,10 @@ module ResData {
         // 主界面 主界面资源通过同步加载
         public static Main = null;
         // 角色界面
-        public static JueSe = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];
+        public static JueSe = [
+            { url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS },
+            { url: "res/atlas/image/juese/chenghao.atlas", type: Laya.Loader.ATLAS },
+            { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS }];
         // 弟子界面
         public static DiZi = null;
         // 时装界面

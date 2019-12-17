@@ -132,7 +132,7 @@ module view.zhaiYuan {
 				let costStr = myItemNum + '/' + this.allData.openlvl[this.TouchID].item.num;
 				let o = new compart.DaoJuCostItem();
 				let status: boolean = myItemNum > this.allData.openlvl[this.TouchID].item.num;
-				o.setData(itembase, status,costStr,1);
+				o.setData(itembase, status, costStr, 1);
 				this.box_cost_active.addChild(o);
 				this.canActive = myItemNum > this.allData.openlvl[this.TouchID].item.num
 			} else {
@@ -266,27 +266,30 @@ module view.zhaiYuan {
 			for (let i = 1; i < (6 - Soul_LV0_Num + 1); i++) {
 				let effid_1 = this.allData.SoulStoneTab[i] + this.allData.playerlvl[this.TouchID][i] + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
 				let effData_1 = GameUtil.parseEffectidToObj([effid_1 + ""]);
-				if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
-					this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
-				} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
-					this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
-				}
-				if (!this.hasFull) {
-					let effid1 = this.allData.SoulStoneTab[this.curSoulStoneID] + this.allData.playerlvl[this.TouchID][i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
-					let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
-					if (i == this.curSoulStoneID) {
-						if (effData_1.des[0].onlyValue) {
-							let span = effData1.des[0].value - effData_1.des[0].value;
-							this['img_increase' + i].visible = true
-							this['lab_upNum' + i].text = span + '';
-						} else {
-							let span0 = effData1.des[0].min - effData_1.des[0].min
-							let span1 = (effData1.des[0].max - effData_1.des[0].max)
-							this['img_increase' + i].visible = true
-							this['lab_upNum' + i].text = span0 + "-" + span1;
+				if (effData_1.des.length > 0) {
+					if (this.vbox_eff0.numChildren == this.vbox_eff1.numChildren) {
+						this.vbox_eff0.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
+					} else if (this.vbox_eff0.numChildren > this.vbox_eff1.numChildren) {
+						this.vbox_eff1.addChild(new view.compart.SinglePropsItem().setData(effData_1.des[0]));
+					}
+					if (!this.hasFull) {
+						let effid1 = this.allData.SoulStoneTab[this.curSoulStoneID] + this.allData.playerlvl[this.TouchID][i] + 1 + (GameApp.GameEngine.mainPlayer.job - 1) * 1000 - 1
+						let effData1 = GameUtil.parseEffectidToObj([effid1 + ""]);
+						if (i == this.curSoulStoneID) {
+							if (effData_1.des[0].onlyValue) {
+								let span = effData1.des[0].value - effData_1.des[0].value;
+								this['img_increase' + i].visible = true
+								this['lab_upNum' + i].text = span + '';
+							} else {
+								let span0 = effData1.des[0].min - effData_1.des[0].min
+								let span1 = (effData1.des[0].max - effData_1.des[0].max)
+								this['img_increase' + i].visible = true
+								this['lab_upNum' + i].text = span0 + "-" + span1;
+							}
 						}
 					}
 				}
+
 			}
 			for (let i = (6 - Soul_LV0_Num + 1); i < 7; i++) {
 				let effData0;

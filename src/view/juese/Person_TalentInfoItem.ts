@@ -47,11 +47,13 @@ module view.juese {
 			this.btn_top0.selected = true;
 			this.img_xiaoguo0.visible = true;
 			let talentAllData = GameApp.MainPlayer.talentInfo;
-			this.lbl_lvl0.text = 'LV.' + talentAllData[1];
-			this.lbl_lvl1.text = 'LV.' + talentAllData[3];
-			this.lbl_lvl2.text = 'LV.' + talentAllData[5];
-			this.lbl_lvl3.text = 'LV.' + talentAllData[4];
-			this.lbl_lvl4.text = 'LV.' + talentAllData[2];
+			if (talentAllData) {
+				this.lbl_lvl0.text = 'LV.' + talentAllData[1];
+				this.lbl_lvl1.text = 'LV.' + talentAllData[3];
+				this.lbl_lvl2.text = 'LV.' + talentAllData[5];
+				this.lbl_lvl3.text = 'LV.' + talentAllData[4];
+				this.lbl_lvl4.text = 'LV.' + talentAllData[2];
+			}
 			this.addEvent();
 			this.TalentInfo();
 			this.init_changeIcon();

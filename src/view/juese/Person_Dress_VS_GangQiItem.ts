@@ -4,6 +4,7 @@ module view.juese {
 		public static self: Person_Dress_VS_GangQiItem;
 		constructor() {
 			super();
+			this.panel_show.vScrollBarSkin = '';
 			Person_Dress_VS_GangQiItem.self = this;
 		}
 		public setData(data) {

@@ -181,6 +181,8 @@ class ServerListener extends SingletonClass {
 
         // 初始化标记
         this.hasInit = true;
+
+
     }
 
     /**
