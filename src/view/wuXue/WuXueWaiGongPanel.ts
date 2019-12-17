@@ -241,15 +241,15 @@ module view.wuXue {
 			// this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(defaultConfigID);
 			// this.ui_skill.setData(defaultConfigID);
 			// this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = false;
-			for (let i = 1; i < 6; i++) {
-				this['btn_' + i].selected = false;
-				if (this['btn_' + i].selected == true) {
-					// this['btn_' + i].disabled = false;
-				} else {
-					this['btn_' + i].mouseEnabled = false;
+			// for (let i = 1; i < 6; i++) {
+			// 	this['btn_' + i].selected = false;
+			// 	if (this['btn_' + i].selected == true) {
+			// 		// this['btn_' + i].disabled = false;
+			// 	} else {
+			// 		this['btn_' + i].mouseEnabled = false;
 
-				}
-			}
+			// 	}
+			// }
 			// this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
 			let loc = defaultConfigID.indexOf("01")
 			let base = defaultConfigID.substring(0, loc);

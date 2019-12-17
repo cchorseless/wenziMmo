@@ -4,8 +4,8 @@ module view.compart {
 		constructor() {
 			super();
 		}
-		public setData(effectIDStruct: ProtoCmd.EffectIDStruct): SinglePropsItem {
-			if(!effectIDStruct){
+		public setData(effectIDStruct: ProtoCmd.EffectIDStruct, nexteffectIDStruct: ProtoCmd.EffectIDStruct = null): SinglePropsItem {
+			if (!effectIDStruct) {
 				return;
 			}
 			this.lbl_label.text = effectIDStruct.label;
@@ -17,6 +17,16 @@ module view.compart {
 				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
 			}
 			this.width = this.lbl_dataDes.x + this.lbl_dataDes.width + 5;
+			if (nexteffectIDStruct != null) {
+				let addValue;
+				if (effectIDStruct.onlyValue) {
+					addValue = nexteffectIDStruct.value - effectIDStruct.value;
+				}
+				else {
+					addValue = nexteffectIDStruct.max - effectIDStruct.max;
+				}
+				this.lbl_add.text = '+' + addValue;
+			}
 			return this;
 		}
 	}
