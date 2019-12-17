@@ -170,39 +170,38 @@ module view.wuXue {
 
 
 		public updateSkilButton(btRow: number, skill_key: string): void {
-
-			let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
-			let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
-			if (_skillBase) {
-				let skill_ui = new view.wuXue.WuXue_logoItem();
-				skill_ui.setData(_skillBase.configID);
-				switch (btRow) {
-					case EnumData.emSkillShotButtonType.WaiGong_1:
-						this.ui_item1.addItem(skill_ui);
-						this.ui_item1.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_2:
-						this.ui_item2.addItem(skill_ui);
-						this.ui_item2.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_3:
-						this.ui_item3.addItem(skill_ui);
-						this.ui_item3.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.WaiGong_4:
-						this.ui_item4.addItem(skill_ui);
-						this.ui_item4.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.ZhaoJia_1:
-						this.ui_item5.addItem(skill_ui);
-						this.ui_item5.lbl_buWei.text = nameStr;
-						break;
-					case EnumData.emSkillShotButtonType.ShenFa_1:
-						this.ui_item6.addItem(skill_ui);
-						this.ui_item6.lbl_buWei.text = nameStr;
-						break;
-				}
-			}
+			// let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
+			// let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
+			// if (_skillBase) {
+			// 	let skill_ui = new view.wuXue.WuXue_logoItem();
+			// 	skill_ui.setData(_skillBase.configID);
+			// 	switch (btRow) {
+			// 		case EnumData.emSkillShotButtonType.WaiGong_1:
+			// 			this.ui_item1.addItem(skill_ui);
+			// 			this.ui_item1.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_2:
+			// 			this.ui_item2.addItem(skill_ui);
+			// 			this.ui_item2.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_3:
+			// 			this.ui_item3.addItem(skill_ui);
+			// 			this.ui_item3.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.WaiGong_4:
+			// 			this.ui_item4.addItem(skill_ui);
+			// 			this.ui_item4.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.ZhaoJia_1:
+			// 			this.ui_item5.addItem(skill_ui);
+			// 			this.ui_item5.lbl_buWei.text = nameStr;
+			// 			break;
+			// 		case EnumData.emSkillShotButtonType.ShenFa_1:
+			// 			this.ui_item6.addItem(skill_ui);
+			// 			this.ui_item6.lbl_buWei.text = nameStr;
+			// 			break;
+			// 	}
+			// }
 		}
 
 
