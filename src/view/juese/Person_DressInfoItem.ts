@@ -25,11 +25,15 @@ module view.juese {
 		public upDataMyselfDress() {
 			// this.ui_show2 = new Person_showJuese();
 			let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
-			let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
-			this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			if (ch != 0) {
+				let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
+				this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			}
 			let gangqi = GameApp.GameEngine.mainPlayer.feature.dwWingId;
-			let gangqi_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(gangqi + '')
-			this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + gangqi_Skin + '.png'
+			if (gangqi != 0) {
+				let gangqi_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(gangqi + '')
+				this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + gangqi_Skin + '.png'
+			}
 		}
 		public addEvent() {
 
