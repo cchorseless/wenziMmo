@@ -6,13 +6,16 @@ module view.juese {
 		}
 		public type;
 		public id;
+		public index;
 		public setData(i, id, type): Person_GangQiBtnItem {
+			this.btn_select.visible = false;
 			this.type = type;
 			this.id = id;
 			//罡气
 			let j = i + 1;
+			this.index = j;
 			this.lbl_name.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
-			this.btn_gangqi.skin = 'image/juese/img_gangQi_0' + j + '.png'
+			this.btn_gangqi.skin = 'image/common/img_gangQi_0' + j + '.png'
 			this.addEvent();
 			return this;
 		}

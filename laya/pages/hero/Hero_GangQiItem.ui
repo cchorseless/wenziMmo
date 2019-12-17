@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":381,
-    "selecteID":384,
+    "selectedBox":346,
+    "selecteID":357,
     "props":{"width":625,"sceneColor":"#9e6b6a","height":818},
     "nodeParent":-1,
     "label":"View",
@@ -170,15 +170,16 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-10,"x":-73,"width":263,"skin":"image/common/role_half2_102.png","height":223},
+                                    "props":{"y":-10,"x":-73,"width":263,"var":"img_self1","skin":"image/common/role_half2_102.png","height":223},
                                     "nodeParent":347,
-                                    "label":"Image",
+                                    "label":"Image(img_self1)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
                                     "compId":348,
                                     "child":[
-                                        ]
+                                        ],
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "x":60,
@@ -211,9 +212,9 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-10,"x":-73,"width":263,"skin":"image/common/role_half2_102.png","height":223},
+                                    "props":{"y":-10,"x":-73,"width":263,"var":"img_self2","skin":"image/common/role_half2_102.png","height":223},
                                     "nodeParent":350,
-                                    "label":"Image",
+                                    "label":"Image(img_self2)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -268,7 +269,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":277,"x":582,"skin":"image/common/icon_001.png"},
+                            "props":{"y":277,"x":576,"skin":"image/common/icon_001.png"},
                             "nodeParent":346,
                             "label":"Image",
                             "isDirectory":false,
@@ -294,7 +295,7 @@
                         {
                             "x":45,
                             "type":"Panel",
-                            "props":{"y":271,"x":56,"width":520,"var":"panel_gangqi","height":70},
+                            "props":{"y":271,"x":54,"width":520,"var":"panel_gangqi","height":70},
                             "nodeParent":346,
                             "label":"Panel(panel_gangqi)",
                             "isOpen":true,
