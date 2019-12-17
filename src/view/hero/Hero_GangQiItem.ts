@@ -176,13 +176,12 @@ module view.hero {
 			let index;
 			for (let child of this.hbox_gangqi._childs) {
 				if (child.id == id) {
-					// child.btn_select.selected = true;
 					index = child.index;
 					child.btn_select.visible = true;
 				} else {
-					// child.btn_select.selected = false;
 					child.btn_select.visible = false;
 				}
+				//当前罡气皮肤
 				if (child.id == data.dwEffId) {
 					this.img_now.skin = 'image/common/img_gangQi_0' + child.index + '.png';
 				}

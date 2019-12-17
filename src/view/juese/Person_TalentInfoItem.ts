@@ -97,23 +97,18 @@ module view.juese {
 				let data = GameUtil.findEquipInPlayer(pos);
 				if (pos == EnumData.emEquipPosition.EQUIP_DRAGONSOUL && data) {
 					this.img_talent0.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_SHIELD && data) {
 					this.img_talent1.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_OFFICIALSEAL && data) {
 					this.img_talent2.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_BLOODJADE && data) {
 					this.img_talent3.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-
 				}
 				if (pos == EnumData.emEquipPosition.EQUIP_MEDAL && data) {
 					this.img_talent4.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-
 				}
 			}
 		}
@@ -130,38 +125,32 @@ module view.juese {
 			this['btn_top' + i].selected = true;
 			this['img_xiaoguo' + i].visible = true;
 			this.title = this.talentName[i];
-
 			switch (i) {
 				//悟性
 				case 0:
 					this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 					this.dangqianNum = EnumData.emTalentType.talent_wuXing;
-
 					break;
 				//臂力
 				case 1:
 					this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
 					this.dangqianNum = EnumData.emTalentType.talent_biLi;
-
 					break;
 				//善缘
 				case 2:
 					this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
 					this.dangqianNum = EnumData.emTalentType.talent_shanYuan;
-
 					break;
 				//身法
 				case 3:
 					this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
 					this.dangqianNum = EnumData.emTalentType.talent_shenFa;
-
 					break;
 
 				//根骨
 				case 4:
 					this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
-
 					break;
 			}
 			//拉取天赋协议
@@ -171,7 +160,7 @@ module view.juese {
 			this.TalentInfo();
 		}
 		/**
-	  * 刷新天赋界面
+	  * 判断天赋是否激活
 	  * 
 	  */
 		public TalentInfo(): void {
@@ -216,6 +205,7 @@ module view.juese {
 					for (let i in jsonData.itemtab) {
 						this.iteminfo.push(jsonData.itemtab[i].index);
 					}
+					//天赋升级后刷新
 					this.zhuangbeiInfo(this.getItemInfo());
 				})
 			}
