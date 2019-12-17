@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":3,
+    "selecteID":8,
     "props":{"width":594,"sceneColor":"#ffffff","height":425},
     "nodeParent":-1,
     "label":"View",
@@ -52,16 +52,28 @@
                 },
                 {
                     "x":30,
-                    "type":"HBox",
-                    "props":{"y":5,"x":0,"var":"hbox_effect","space":10,"right":0,"left":0,"height":40},
+                    "type":"Panel",
+                    "props":{"y":5,"var":"panel_eff","right":0,"left":0,"height":40},
                     "nodeParent":2,
-                    "label":"HBox(hbox_effect)",
-                    "isDirectory":false,
+                    "label":"Panel(panel_eff)",
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
+                    "hasChild":true,
+                    "compId":13,
                     "child":[
-                        ]
+                        {
+                            "type":"HBox",
+                            "props":{"y":0,"x":0,"var":"hbox_effect","space":10,"height":40},
+                            "nodeParent":13,
+                            "label":"HBox(hbox_effect)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":8,
+                            "child":[
+                                ]
+                        }]
                 }]
         },
         {

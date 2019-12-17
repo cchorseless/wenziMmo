@@ -11,7 +11,7 @@ module view.juese {
 			super();
 		}
 		public setData(data, id, status, dressID, type) {
-			// this.img_icon.skin ='';
+			
 			if(!data[0]){
 				return;
 			}
@@ -39,8 +39,10 @@ module view.juese {
 				this.lab_hasGet.color = '#179a0d'
 			}
 			if (this.itemType == 0) {
+				this.img_icon.skin ='';
 				curDressID = GameApp.GameEngine.mainPlayer.feature.simpleFeature.dress;
 			} else if (this.itemType == 1) {
+				this.img_icon.skin ='image/juese/gangqi/'+ data[5] + '.png'
 				curDressID = GameApp.GameEngine.mainPlayer.feature.dwWingId;
 			}
 			if (dressID == curDressID) {

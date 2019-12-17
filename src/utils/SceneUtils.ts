@@ -35,7 +35,7 @@ class SceneManager extends SingletonClass {
      * 小地图场景容器
      */
     public get box_smallScene() {
-        return PanelManage.Main.box_smallScene;
+        return PanelManage.Main.box_smallMap;
     }
     public get box_smallMapScene() {
         return PanelManage.Main.box_smallMap;
@@ -109,52 +109,34 @@ class SceneManager extends SingletonClass {
         console.log('===updateUiScene===>', mapType);
         let uiscene;
         switch (mapType) {
-            // 个人副本
+            // 心魔副本
             case EnumData.emRoomType.singleFuBen:
-            // 除魔副本
-            case EnumData.emRoomType.chuMoFuBen:
                 this.box_uiScene0.visible = false;
                 this.box_uiScene1.removeChildren();
                 uiscene = new view.scene.SceneV1Item();
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
-                let fuBenInfo;
-                switch (mapType) {
-                    // 除魔副本
-                    case EnumData.emRoomType.chuMoFuBen:
-                        fuBenInfo = this.box_smallScene.getChildByName('BattleFuBenInfoV0Item') as view.scene.BattleFuBenInfoV0Item;
-                        if (fuBenInfo == null) {
-                            fuBenInfo = new view.scene.BattleFuBenInfoV0Item();
-                            this.box_smallScene.addChild(fuBenInfo);
-                            PanelManage.Main.img_bottomPartInfoBg.visible = false;
-                        }
-                        break;
-                    // 个人副本--心魔
-                    case EnumData.emRoomType.singleFuBen:
-                        fuBenInfo = this.box_smallScene.getChildByName('BattleFuBenInfoV1Item') as view.scene.BattleFuBenInfoV1Item;
-                        if (fuBenInfo == null) {
-                            fuBenInfo = new view.scene.BattleFuBenInfoV1Item();
-                            this.box_smallScene.addChild(fuBenInfo);
-                            PanelManage.Main.img_bottomPartInfoBg.visible = false;
-
-                        }
-                        break;
-                }
-                fuBenInfo.setData();
-                let ind = this.box_smallScene.getChildIndex(fuBenInfo);
-                for (let i = 0; i < this.box_smallScene.numChildren; i++) {
-                    (this.box_smallScene.getChildAt(i) as Laya.View).visible = ind == i;
-                }
-                break;
-
-            // 多人副本
-            case EnumData.emRoomType.publicFuBen:
+                PanelManage.Main.img_bottomPartInfoBg.visible = false;
+            // 除魔副本
+            case EnumData.emRoomType.chuMoFuBen:
+                this.box_uiScene0.visible = false;
                 this.box_uiScene1.removeChildren();
                 uiscene = new view.scene.SceneV2Item();
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
+                PanelManage.Main.img_bottomPartInfoBg.visible = false;
+                break;
+            // 资源副本
+            case EnumData.emRoomType.resourceFuBen:
+                this.box_uiScene0.visible = false;
+                this.box_uiScene1.removeChildren();
+                uiscene = new view.scene.SceneV3Item();
+                uiscene.setData();
+                this.box_uiScene1.visible = true;
+                this.box_uiScene1.addChild(uiscene);
+                PanelManage.Main.img_bottomPartInfoBg.visible = false;
                 break;
 
             // 有怪物的野外地图
@@ -387,4 +369,5 @@ class SceneManager extends SingletonClass {
         //     img_selfOn.pos(targgetBtn.x, targgetBtn.y)
         // }
     }
+
 }

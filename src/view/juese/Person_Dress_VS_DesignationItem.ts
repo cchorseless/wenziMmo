@@ -9,6 +9,9 @@ module view.juese {
 		public serverData;
 		constructor() {
 			super();
+			this.panel_show.vScrollBarSkin = '';
+			this.panel_eff.hScrollBarSkin = '';
+			this.hbox_effect['sortItem'] = (items) => { };
 			Person_Dress_VS_DesignationItem.self = this
 		}
 		public setData(data) {

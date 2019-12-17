@@ -64,6 +64,7 @@ module GameObject {
             // this.ui_item.playAni(3)
             this.ui_item.disabled = true;
             this.ui_item.removeSelf();
+            // this.ui_item.parent.removeChild(this.ui_item)
         }
     }
 }

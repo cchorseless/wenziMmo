@@ -47,9 +47,13 @@ module view.fuBen {
 
 			// 挑战副本
 			EventManage.onWithEffect(this.btn_challenge, Laya.UIEvent.CLICK, this, () => {
+				// let pkt = new ProtoCmd.QuestClientData();
+				// pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex]);
+				// lcp.send(pkt);
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex]);
+				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
 				lcp.send(pkt);
+				PanelManage.Main.img_bottomPartInfoBg.visible = false;
 			});
 		}
 		/**

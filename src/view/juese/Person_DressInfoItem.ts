@@ -14,6 +14,7 @@ module view.juese {
 			Person_DressInfoItem.self = this;
 		}
 		public setData() {
+			this.upDataMyselfDress()
 			for (let i = 0; i < 3; i++) {
 				let box = new Laya.Box();
 				box.top = box.bottom = box.right = box.left = 0;
@@ -21,11 +22,21 @@ module view.juese {
 			}
 			this.showView_Stack(this.touchID);
 		}
+		public upDataMyselfDress() {
+			// this.ui_show2 = new Person_showJuese();
+			let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
+			let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
+			this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			let gangqi = GameApp.GameEngine.mainPlayer.feature.dwWingId;
+			let gangqi_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(gangqi + '')
+			this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + gangqi_Skin + '.png'
+		}
 		public addEvent() {
 
 
 			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
 				this.upDateView();
+				this.upDataMyselfDress()
 			})
 
 
@@ -93,8 +104,8 @@ module view.juese {
 				})
 				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.dressPanel, this.base[type])
 				lcp.send(pkt0);
-			}else{
-				let item=this.curBox.getChildAt(0).panel_show.getChildAt(0)
+			} else {
+				let item = this.curBox.getChildAt(0).panel_show.getChildAt(0)
 				this.setView_get(item.isUnLock, item.hasWear, item.dressID)
 			}
 			this.V_Show.selectedIndex = type;

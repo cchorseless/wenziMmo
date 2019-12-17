@@ -1122,10 +1122,11 @@ module EnumData {
      * 房间类型，决定ui_scene类型
      */
     export enum emRoomType {
-        singleFuBen = 100, // 个人副本
-        chuMoFuBen = 101,// 除魔副本
-        publicFuBen = 200, // 公共副本
-        zuDuiFuBen = 201,// 组队副本
+        singleFuBen = 100, // 心魔副本     日常  心魔
+        chuMoFuBen = 101,// 除魔副本       剧情  
+        resourceFuBen = 102,// 资源副本       日常
+        publicFuBen = 200, // 公共副本     
+        zuDuiFuBen = 201,// 组队副本        历练
         publicYeWai = 300, // 普通公共野外
         publicZhuCheng = 301,// 主城
 

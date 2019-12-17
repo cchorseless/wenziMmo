@@ -87,6 +87,8 @@ class GameEngine extends SingletonClass {
     //轮播页的活动推送
     public turnActivity;
 
+    public curFuBenMsg:ProtoCmd.itf_FUBEN_MESSAGE;
+
 
 
     //服务器开服信息
