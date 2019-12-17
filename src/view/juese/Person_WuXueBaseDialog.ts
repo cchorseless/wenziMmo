@@ -4,9 +4,9 @@ module view.juese {
 		constructor() {
 			super();
 			this.setData();
-
 		}
 		public basePos;
+		public cailiaoItem;
 		public setData(): void {
 			this.vbox_shuxing['sortItem'] = (items) => { };
 			this.addEvent();
@@ -18,7 +18,9 @@ module view.juese {
 				this.close();
 			})
 			this.box_add.on(Laya.UIEvent.CLICK, this, () => {
-
+				if (this.cailiaoItem) {
+					new view.dialog.GetItemWayDialog().setData(this.cailiaoItem).popup()
+				}
 			})
 			//修炼
 			this.btn_xiulian.on(Laya.UIEvent.CLICK, this, () => {
@@ -93,6 +95,7 @@ module view.juese {
 			let cailiao = info[2].split('`');
 			let cailiaoInfo = new ProtoCmd.ItemBase();
 			cailiaoInfo.dwBaseID = cailiao[0];
+			this.cailiaoItem = cailiao[0];
 			this.ui_cailiao.setData(cailiaoInfo);
 			this.ui_cailiao.lbl_count.visible = false;
 			let num = GameUtil.findItemInBag(parseInt(cailiao[0]), GameApp.GameEngine.bagItemDB)
