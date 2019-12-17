@@ -33,6 +33,7 @@ module ResData {
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/battle.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/skill.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/skillName.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
@@ -40,7 +41,10 @@ module ResData {
         { url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS }
+        { url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/juese/chenghao.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS }
         ];
         // 主界面 主界面资源通过同步加载
         public static Main = null;

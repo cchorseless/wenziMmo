@@ -28,19 +28,23 @@ module view.juese {
 			if (ch != 0) {
 				let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
 				this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			} else {
+				this.ui_show2.img_ch.skin = ''
 			}
 			let gangqi = GameApp.GameEngine.mainPlayer.feature.dwWingId;
 			if (gangqi != 0) {
 				let gangqi_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(gangqi + '')
 				this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + gangqi_Skin + '.png'
+			} else {
+				this.ui_show2.img_gangqi.skin = ''
 			}
 		}
 		public addEvent() {
 
-
+			let self = this;
 			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
-				this.upDateView();
-				this.upDataMyselfDress()
+				self.upDateView();
+				self.upDataMyselfDress()
 			})
 
 
@@ -140,12 +144,14 @@ module view.juese {
 			}
 		}
 		public upDateView() {
-			let box = this.V_Show.getChildAt(this.touchID);
-			if (box.numChildren > 0) {
-				box.removeChildren();
-			}
-
-			this.showView_Stack(this.touchID)
+			// let box = this.V_Show.getChildAt(this.V_Show.selectedIndex);
+			// if (box) {
+			// 	if (box.numChildren > 0) {
+			// 		box.removeChildren();
+			// 	}
+			this.curBox.removeChildren();
+			this.showView_Stack(this.V_Show.selectedIndex)
+			// }
 		}
 	}
 }

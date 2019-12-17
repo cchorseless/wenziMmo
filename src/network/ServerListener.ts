@@ -593,20 +593,21 @@ class ServerListener extends SingletonClass {
         if (targeter) {
 
 
-            let e = new Laya.Label();
-            e.font = "fzhl";
-            e.color = "#ffeeb1";
-            e.stroke = 3;
-            e.strokeColor = "#000000";
-            e.fontSize = 28;
+            let e = new Laya.Image();
             let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
-            e.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+            let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;
+            e.skin = 'image/common/skillName/' + skillEff + '.png'
+            
             let p = targeter.ui_item.localToGlobal(new Laya.Point());
-            e.y = p.y;
-            e.x = 0;
+            e.anchorX = e.anchorY = 0.5;
+            e.y = p.y + (targeter.ui_item.height/2);
+            e.x = p.x+ (targeter.ui_item.width/2);
+            e.scaleX = e.scaleY = 1;
+            // e.alpha
+            
             PanelManage.Main.addChild(e)
-            Laya.Tween.to(e, { x: p.x }, 500, null, Laya.Handler.create(this, () => {
+            Laya.Tween.to(e, { y: e.y - 100,alpha:0.3}, 800, null, Laya.Handler.create(this, () => {
                 PanelManage.Main.removeChild(e)
             }))
 

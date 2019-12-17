@@ -1,6 +1,6 @@
 module SheetConfig {
     export class mydb_magic_tbl {
-        public data; private _instance; public constructor(data) { this.data = data; }
+        private data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): mydb_magic_tbl { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
         /**
          *  技能编号
@@ -251,9 +251,9 @@ module SheetConfig {
          */
         public SKILLLEARNGUILDLVNEED(configID: string): number { return this.data[configID][61] }
         /**
-         * 获取技能数据
-         * @param skillID 技能编号
-         */
+        * 获取技能数据
+        * @param skillID 技能编号
+        */
         public getAllData(skillID: number): any {
             let skillDate = [];
             for (let i in this.data) {
@@ -264,6 +264,5 @@ module SheetConfig {
             }
             return skillDate;
         }
-
     }
 }

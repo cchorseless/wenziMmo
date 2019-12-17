@@ -15,8 +15,11 @@ module view.fuBen {
 			this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_res.vScrollBarSkin = '';
 			this.vbox_res['sortItem'] = (items) => { };
+			this.panel_boss.hScrollBarSkin = '';
+			this.hbox_boss['sortItem'] = (items) => { };
 			this.init_res()
 			this.init_XinMo();
+			this.init_JiDao();
 			this.addEvent();
 		}
 
@@ -118,6 +121,12 @@ module view.fuBen {
 			this.lbl_introduce.text = '' + detail;
 			//boss挑战等级
 			this.lbl_challengeLvl.text = '' + data.minlv;
+			//boss挑战次数
+			this.html_challengeNum.style.fontFamily = 'STKaiti';
+			this.html_challengeNum.style.fontSize = 23;
+			this.html_challengeNum.innerHTML = "<span style='color:#63491a'>挑战次数：</span>"
+				+ "<span style='color:#a33330'>" + data.flag + "</span>"
+				+ "<span style='color:#63491a'>" + "/" + data.maxcnt + "</span>";
 			//boss坐标
 			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
 			// boss掉落奖励
@@ -132,6 +141,63 @@ module view.fuBen {
 			}
 
 			return this;
+		}
+		public init_JiDao(): void {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
+				let keys = Object.keys(jsonData);
+				this.hbox_boss.removeChildren();
+				for (let key of keys) {
+					let data = jsonData[key];
+					this.hbox_boss.addChild(new view.fuBen.FuBenDailyXinMoItem().init_liLian(data, key));
+				}
+				let json = jsonData[1]
+				this.update_yeWai(json, 1);
+			})
+			lcp.send(pkt);
+		}
+		/**
+*更新缉盗悬赏(野外BOSS)
+*/
+		public update_yeWai(data: ProtoCmd.itf_FB_JiDaoInfo, index) {
+			//点击发光效果
+			for (let single of this.hbox_boss._childs) {
+				single.img_light.visible = false;
+			}
+			let i = index - 1;
+			this.hbox_boss._childs[i].img_light.visible = true;
+			//boss名称
+			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monid).split("_");
+			this.lab_name.text = '' + name[0];
+			//推荐等级
+			let lvl = SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + data.monid);
+			this.lab_lv.text = '' + lvl;
+			//bosss所在地
+			let map = SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + data.mapid);
+			this.lab_location.text = '' + map;
+			//BOSS头像
+			let imgH = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monid);
+			this.img_icon.skin = 'image/common/npc/npc_half_' + imgH + '.png';
+			//boss状态
+			if (data.time != 0) {
+				let time = TimeUtils.getFormatBySecond(data.time, 1)
+				this.lab_status.text = '' + time;
+			} else {
+				this.lab_status.text = '可击杀';
+			}
+			//BOSS介绍
+			let introduce = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + data.monid);
+			this.lab_detail.text = introduce;
+			//掉落奖励
+			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monid);
+			this.hbox_reward.removeChildren();
+			for (let item of jiangli) {
+				let _itemUI = new view.compart.DaoJuItem();
+				let itemInfo = new ProtoCmd.ItemBase();
+				itemInfo.dwBaseID = item;
+				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+				this.hbox_reward.addChild(_itemUI);
+			}
 		}
 	}
 }
