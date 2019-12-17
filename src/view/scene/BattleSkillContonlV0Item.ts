@@ -121,6 +121,9 @@ module view.scene {
 			}
 			if (keys.length > 0) {
 				for (let key of keys) {
+					if(parseInt(key) > 5){
+						return;
+					}
 					let showDetailID = (selfSkill[key]).i64Id.int64ToNumber();
 					let configID = GameApp.MainPlayer.skillInfo[showDetailID.toString()].configID;
 					let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);

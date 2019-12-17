@@ -44,6 +44,9 @@ module view.menu {
 		}
 		//当前轮播有几页
 		public turnActMax() {
+			if (!GameApp.GameEngine.turnActivity) {
+				return;
+			}
 			this.curTurnAct = [];
 			let data1 = [];
 			let data3 = [];
@@ -85,6 +88,7 @@ module view.menu {
 					}
 				}
 			}
+
 			for (let i = 0; i < this.turnActArr3.length; i++) {
 				if (GameApp.GameEngine.turnActivity.id == this.turnActArr3[i]) {
 					data3.push(GameApp.GameEngine.turnActivity.id)
@@ -194,6 +198,9 @@ module view.menu {
 		}
 		//5s一次活动页刷新    自动刷新轮播
 		public changeActivity() {
+			if (!GameApp.GameEngine.turnActivity) {
+				return;
+			}
 			let self = this;
 			let curID = this.changeActID;
 			Laya.timer.frameLoop(300, self, function () {
@@ -400,6 +407,9 @@ module view.menu {
 		}
 		//手动滑动轮播  表现
 		public turnActTouchEnd(ev) {
+			if (!GameApp.GameEngine.turnActivity) {
+				return;
+			}
 			if (this.isTouch) {
 				if (this.touchEndX == 0) {
 					this.touchEndX = this.getPosX(ev)

@@ -105,7 +105,7 @@ class SceneManager extends SingletonClass {
     /**
      * 更新主场景ui_scene
      */
-    public updateUiScene(mapType: EnumData.emRoomType): void {
+      public updateUiScene(mapType: EnumData.emRoomType): void {
         console.log('===updateUiScene===>', mapType);
         let uiscene;
         switch (mapType) {
@@ -117,7 +117,6 @@ class SceneManager extends SingletonClass {
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
-                PanelManage.Main.img_bottomPartInfoBg.visible = false;
             // 除魔副本
             case EnumData.emRoomType.chuMoFuBen:
                 this.box_uiScene0.visible = false;
@@ -126,7 +125,6 @@ class SceneManager extends SingletonClass {
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
-                PanelManage.Main.img_bottomPartInfoBg.visible = false;
                 break;
             // 资源副本
             case EnumData.emRoomType.resourceFuBen:
@@ -136,7 +134,15 @@ class SceneManager extends SingletonClass {
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
-                PanelManage.Main.img_bottomPartInfoBg.visible = false;
+                break;
+            // 多人副本
+            case EnumData.emRoomType.publicFuBen:
+                //  case EnumData.emRoomType.publicYeWai:
+                this.box_uiScene1.removeChildren();
+                uiscene = new view.scene.SceneV5Item();
+                uiscene.setData();
+                this.box_uiScene1.visible = true;
+                this.box_uiScene1.addChild(uiscene);
                 break;
 
             // 有怪物的野外地图
@@ -144,15 +150,15 @@ class SceneManager extends SingletonClass {
                 this.box_uiScene1.removeChildren();
                 this.box_uiScene1.visible = false;
                 uiscene = this.box_uiScene0.getChildByName('SceneCityItem');
-                if (uiscene == null) {
-                    this.box_uiScene0.removeChildren();
-                    uiscene = new view.scene.SceneCityItem();
-                    uiscene.setData();
-                    this.box_uiScene0.addChild(uiscene);
-                    if (this.box_uiScene0.left == 0) {
-                        uiscene.changeSelfSize(true);
-                    }
+                // if (uiscene == null) {
+                this.box_uiScene0.removeChildren();
+                uiscene = new view.scene.SceneCityItem();
+                uiscene.setData();
+                this.box_uiScene0.addChild(uiscene);
+                if (this.box_uiScene0.left == 0) {
+                    uiscene.changeSelfSize(true);
                 }
+                // }
                 this.box_uiScene0.visible = true;
                 // 清空场景信息
                 let smallMap = this.box_smallScene.getChildByName('SmallMapItem') as view.map.SmallMapItem;
@@ -187,6 +193,88 @@ class SceneManager extends SingletonClass {
         this.ui_scene.updateUI();
 
     }
+    // public updateUiScene(mapType: EnumData.emRoomType): void {
+    //     console.log('===updateUiScene===>', mapType);
+    //     let uiscene;
+    //     switch (mapType) {
+    //         // 心魔副本
+    //         case EnumData.emRoomType.singleFuBen:
+    //             this.box_uiScene0.visible = false;
+    //             this.box_uiScene1.removeChildren();
+    //             uiscene = new view.scene.SceneV1Item();
+    //             uiscene.setData();
+    //             this.box_uiScene1.visible = true;
+    //             this.box_uiScene1.addChild(uiscene);
+    //             PanelManage.Main.img_bottomPartInfoBg.visible = false;
+    //         // 除魔副本
+    //         case EnumData.emRoomType.chuMoFuBen:
+    //             this.box_uiScene0.visible = false;
+    //             this.box_uiScene1.removeChildren();
+    //             uiscene = new view.scene.SceneV2Item();
+    //             uiscene.setData();
+    //             this.box_uiScene1.visible = true;
+    //             this.box_uiScene1.addChild(uiscene);
+    //             PanelManage.Main.img_bottomPartInfoBg.visible = false;
+    //             break;
+    //         // 资源副本
+    //         case EnumData.emRoomType.resourceFuBen:
+    //             this.box_uiScene0.visible = false;
+    //             this.box_uiScene1.removeChildren();
+    //             uiscene = new view.scene.SceneV3Item();
+    //             uiscene.setData();
+    //             this.box_uiScene1.visible = true;
+    //             this.box_uiScene1.addChild(uiscene);
+    //             PanelManage.Main.img_bottomPartInfoBg.visible = false;
+    //             break;
+
+    //         // 有怪物的野外地图
+    //         case EnumData.emRoomType.publicYeWai:
+    //             this.box_uiScene1.removeChildren();
+    //             this.box_uiScene1.visible = false;
+    //             uiscene = this.box_uiScene0.getChildByName('SceneCityItem');
+    //             if (uiscene == null) {
+    //                 this.box_uiScene0.removeChildren();
+    //                 uiscene = new view.scene.SceneCityItem();
+    //                 uiscene.setData();
+    //                 this.box_uiScene0.addChild(uiscene);
+    //                 if (this.box_uiScene0.left == 0) {
+    //                     uiscene.changeSelfSize(true);
+    //                 }
+    //             }
+    //             this.box_uiScene0.visible = true;
+    //             // 清空场景信息
+    //             let smallMap = this.box_smallScene.getChildByName('SmallMapItem') as view.map.SmallMapItem;
+    //             if (smallMap == null) {
+    //                 smallMap = new view.map.SmallMapItem();
+    //                 this.box_smallMapScene.addChild(smallMap);
+    //             }
+    //             // 更新小地图
+    //             smallMap.updateUI();
+    //             let index = this.box_smallScene.getChildIndex(smallMap);
+    //             for (let i = 0; i < this.box_smallScene.numChildren; i++) {
+    //                 (this.box_smallScene.getChildAt(i) as Laya.View).visible = index == i;
+    //             }
+    //             break;
+
+    //         // 主城
+    //         case EnumData.emRoomType.publicZhuCheng:
+    //             this.box_uiScene1.removeChildren();
+    //             this.box_uiScene1.visible = false;
+    //             if (this.box_uiScene0.numChildren == 0 || this.box_uiScene0.getChildAt(0).name != 'SceneV4Item') {
+    //                 this.box_uiScene0.removeChildren();
+    //                 uiscene = new view.scene.SceneV4Item();
+    //                 uiscene.setData();
+    //                 this.box_uiScene0.addChild(uiscene);
+    //                 if (this.box_uiScene0.left == 0) {
+    //                     uiscene.changeSelfSize();
+    //                 }
+    //             }
+    //             break;
+    //     }
+    //     // 刷新界面
+    //     this.ui_scene.updateUI();
+
+    // }
 
 	/**
 	 * 初始化角色

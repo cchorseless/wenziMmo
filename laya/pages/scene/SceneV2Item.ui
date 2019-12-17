@@ -1,11 +1,11 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":53,
-    "props":{"width":640,"sceneColor":"#000000","name":"singleNoStar101","height":1136},
+    "selectedBox":65,
+    "selecteID":72,
+    "props":{"width":640,"sceneColor":"#000000","name":"singleStar101","height":1136},
     "nodeParent":-1,
-    "label":"View(singleNoStar101)",
+    "label":"View(singleStar101)",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -204,25 +204,10 @@
                                 {
                                     "x":60,
                                     "type":"UIView",
-                                    "source":"compart/MonsterIconItem.ui",
-                                    "props":{"y":5,"x":-28,"visible":false},
-                                    "nodeParent":65,
-                                    "label":"UIView",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":66,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":true
-                                },
-                                {
-                                    "x":60,
-                                    "type":"UIView",
                                     "source":"compart/MonsterIcon_Bossitem.ui",
-                                    "props":{"y":8,"x":-24},
+                                    "props":{"y":8,"x":-24,"var":"ui_Boss"},
                                     "nodeParent":65,
-                                    "label":"UIView",
+                                    "label":"UIView(ui_Boss)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -254,8 +239,10 @@
                                             "hasChild":false,
                                             "compId":69,
                                             "child":[
-                                                ]
-                                        }]
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "x":60,
@@ -269,30 +256,15 @@
                                     "hasChild":false,
                                     "compId":70,
                                     "child":[
-                                        ]
-                                },
-                                {
-                                    "x":60,
-                                    "type":"Label",
-                                    "props":{"y":41,"x":65,"visible":false,"var":"lbl_lv","text":"LV:180","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":65,
-                                    "label":"Label(lbl_lv)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":71,
-                                    "child":[
                                         ],
-                                    "$LOCKED":true,
-                                    "$HIDDEN":true
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":61,"x":84,"width":210,"text":"20000102/200000000","height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
+                                    "props":{"y":61,"x":84,"width":210,"var":"lab_hp","text":"20000102/200000000","height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
                                     "nodeParent":65,
-                                    "label":"Label",
+                                    "label":"Label(lab_hp)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,

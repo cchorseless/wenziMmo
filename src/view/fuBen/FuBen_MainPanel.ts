@@ -72,9 +72,13 @@ module view.fuBen {
 				(jsonData: { pzid: number, pzname: string, charpterInfo: any }) => {
 					if (jsonData.pzid == pzID) {
 						this.lbl_pianZhangName.text = jsonData.pzname;
+						let nowLv = 1;
 						let keys = Object.keys(jsonData.charpterInfo);
 						this.hbox_0.removeChildren();
 						for (let key of keys) {
+							if (jsonData.charpterInfo[key].startdbid <= jsonData.pzid && jsonData.charpterInfo[key].startdbid >= jsonData.pzid) {
+								nowLv = jsonData.charpterInfo[key].lvl;
+							}
 							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
 							charpterInfo.index = key;
 							let charpterTitle_ui = new view.compart.JuQingTitleItem();
@@ -84,6 +88,7 @@ module view.fuBen {
 							// 更新章节信息
 							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
+						this.lbl_pianZhangLV.text = '第' + GameUtil.SectionToChinese(nowLv,0) + '章';
 						// 更新单个章节的信息
 						this.updateMainFuBenInfo(GameApp.MainPlayer.charpterID);
 					}
@@ -262,8 +267,6 @@ module view.fuBen {
 			// let pkt = new ProtoCmd.QuestClientData();
 			// pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng])
 			// lcp.send(pkt);
-			// PanelManage.Main.img_bottomPartInfoBg.visible = false;
-			PanelManage.Main.img_bottomPartInfoBg.visible = false;
 
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.selectedCeng]);

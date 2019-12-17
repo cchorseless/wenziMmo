@@ -128,6 +128,9 @@ module ProtoCmd {
     // 打开奖励面板
     export const JQ_GET_JQ_openJuQingBaseReward = 'openJuQingBaseReward';
 
+    //更新Boss血量
+    export const UPDATE_BOSSHP = 'update_bosshp';
+
     /********************************主线副本界面**************** */    //有星星  单人  除魔 
     //副本监听返回
     export const map_CaiLiaoFubenPlane2 = 'map_CaiLiaoFubenPlane2';
@@ -162,6 +165,8 @@ module ProtoCmd {
     export const FB_GeRenBoss_Enter = 'GeRenBoss_Enter';
     // 离开心魔界面
     export const FB_GeRenBoss_Leave = 'GeRenBoss_Leave';
+    //监听心魔副本的副本状态
+    export const GeRenBoss_FB_Info = "GeRenBoss_FB_Info";
     /********************************缉盗悬赏副本*********************** */  //多人  没星星
     // 打开野外boss界面
     export const FB_YeWaiBoss_Open = 'YeWaiBoss_Open';
