@@ -11,21 +11,17 @@ module view.common {
 		public set playerName(v: string) {
 			this._playerName = v;
 		}
-
-
-
-
 		public job = 1;// 职业
 		public sex = 1;// 性别
 		public setData(): void {
 			this.vbox_left['sortItem'] = (items) => { };
-			this.panel_0.vScrollBarSkin = '';
-			this.panel_1.vScrollBarSkin = '';
-			this.vbox_0['sortItem'] = (items) => { };
-			this.vbox_1['sortItem'] = (items) => { };
-			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
-				this.viw_talk.selectedIndex = index;
-			}, null, false);
+			// this.panel_0.vScrollBarSkin = '';
+			// this.panel_1.vScrollBarSkin = '';
+			// this.vbox_0['sortItem'] = (items) => { };
+			// this.vbox_1['sortItem'] = (items) => { };
+			// this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
+			// 	this.viw_talk.selectedIndex = index;
+			// }, null, false);
 			this.tab_jobSelect.selectHandler = Laya.Handler.create(this, (index) => {
 				let configID = '' + (index + 101);
 				this.lbl_job.text = SheetConfig.HeroInfoSheet.getInstance(null).JOBDES(configID);
@@ -188,12 +184,14 @@ module view.common {
 			let mapName1 = this.mapNameList[index];
 			let mapName2 = this.mapNameList[index + 1];
 			this.btn_mapCenter.label = '' + mapName1;
-			this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index] + '.png';
-			this.lbl_sceneName.text = '' + mapName1;
+			this.btn_mapCenter.labelColors='#1a5062';
+			this.btn_mapCenter.skin = 'image/main/frame_didian_2.png';
+			// this.lbl_sceneName.text = '' + mapName1;
 			if (mapName0) {
 				this.btn_mapDown.visible = this.img_mapLineDown.visible = true;
 				this.btn_mapDown.label = '' + mapName0;
-				this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index - 1] + '.png';
+				this.btn_mapDown.labelColors='#63491a';
+				this.btn_mapDown.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
 				this.btn_mapDown.visible = this.img_mapLineDown.visible = false;
@@ -202,7 +200,8 @@ module view.common {
 			if (mapName2) {
 				this.btn_mapUp.visible = this.img_mapLineUp.visible = true
 				this.btn_mapUp.label = '' + mapName2;
-				this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + this.mapIconList[index + 1] + '.png';
+				this.btn_mapUp.labelColors='#63491a';
+				this.btn_mapUp.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
 				this.btn_mapUp.visible = this.img_mapLineUp.visible = false;
@@ -465,10 +464,10 @@ module view.common {
 				des += ColorUtils.addColor(RandomUtils.randomArray(['天人道', '人道', '饿鬼道', '地狱道', '畜生道']), ColorUtils.red);
 				div.innerHTML = des;
 				box.addChild(div);
-				this.vbox_1.addChild(box);
-				Laya.timer.frameOnce(1, this, () => {
-					this.panel_1.scrollTo(0, this.vbox_1.height);
-				})
+				// this.vbox_1.addChild(box);
+				// Laya.timer.frameOnce(1, this, () => {
+				// 	this.panel_1.scrollTo(0, this.vbox_1.height);
+				// })
 				this.addDiFuTalk();
 			})
 
@@ -491,10 +490,10 @@ module view.common {
 				des += '顺利降生人间';
 				div.innerHTML = des;
 				box.addChild(div);
-				this.vbox_0.addChild(box);
-				Laya.timer.frameOnce(1, this, () => {
-					this.panel_0.scrollTo(0, this.vbox_0.height);
-				})
+				// this.vbox_0.addChild(box);
+				// Laya.timer.frameOnce(1, this, () => {
+				// 	this.panel_0.scrollTo(0, this.vbox_0.height);
+				// })
 				this.addRenJianTalk();
 			})
 		}
@@ -618,7 +617,7 @@ module view.common {
 			}
 			this.list_xingGe.itemRender = view.juese.Person_SpeLabelItem;
 			this.list_xingGe.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_SpeLabelItem, index) => {
-				cell.scaleX=cell.scaleY=0.9;
+				cell.scaleX = cell.scaleY = 0.9;
 				cell.setData(cell.dataSource);
 			}, null, false)
 		}

@@ -297,8 +297,6 @@ module view.juese {
 			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type: number) => {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
 				if (type == 1) {
-					this.btn_add.visible = false;
-					this.ui_item0.img_item.visible = true;
 					this.ui_item0.lbl_count.visible = false;
 					//会配一个通用icon显示，此处只需要显示材料数量
 					// let itemInfo = new ProtoCmd.ItemBase();
@@ -317,8 +315,15 @@ module view.juese {
 						}
 					}
 					//当前必选装备数量/所需必选装备数量
-					if (GameApp.GameEngine.buildEquip.length >= 0) {
+					if (GameApp.GameEngine.buildEquip.length > 0) {
 						this.lbl_num.text = GameApp.GameEngine.buildEquip.length + '/' + num[1];
+						this.ui_item0.img_item.visible = true;
+					} else {
+						this.lbl_num.text = '0/' + num[1];
+						this.ui_item0.img_item.visible = false;
+					}
+					if (GameApp.GameEngine.buildEquip.length == parseInt(num[1])) {
+						this.btn_add.visible = false;
 					}
 				}
 			})

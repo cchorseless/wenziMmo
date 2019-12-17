@@ -54,6 +54,11 @@ module view.wuXue {
 			this.btn_neiGong.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueNeiGongPanel()
 			});
+			// 排序
+			this.btn_sort.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_sort.selected = !this.btn_sort.selected;
+				this.init_sortTween(this.btn_sort.selected);
+			});
 			// 闭关
 			// this.btn_closeDoor.on(Laya.UIEvent.CLICK, this, () => {
 			// 	PanelManage.openWuXueCloseDoorPanel();
@@ -80,13 +85,29 @@ module view.wuXue {
 		public changeWuxueInfoState(id) {
 			for (let i = 1; i < 7; i++) {
 				this["ui_item" + i].changeItemState(false);
-				if(i == id){
+				if (i == id) {
 					this["ui_item" + i].changeItemState(true);
 				}
-				
+
 			}
 		}
 		public initUI(): void {
+			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
+			this.ui_base1.setData(data1);
+			this.lbl_name1.text = '基础武器';
+			this.lbl_lvl1.text = 'LV.' + data1.dwLevel;
+			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
+			this.ui_base2.setData(data2);
+			this.lbl_name2.text = '基础拳脚';
+			this.lbl_lvl2.text = 'LV.' + data2.dwLevel;
+			let data3 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_PENDANT);
+			this.ui_base3.setData(data3);
+			this.lbl_name3.text = '基础招架';
+			this.lbl_lvl3.text = 'LV.' + data3.dwLevel;
+			let data4 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_FACE);
+			this.ui_base4.setData(data4);
+			this.lbl_name4.text = '基础轻功';
+			this.lbl_lvl4.text = 'LV.' + data4.dwLevel;
 			for (let i = 1; i < 7; i++) {
 				this["ui_item" + i].removeItem();
 				// this["ui_item" + i].lbl_buWei.text = ""
@@ -211,7 +232,7 @@ module view.wuXue {
 		 * @param lv       该技能等级
 		 */
 		// public changeSkillInfo(config: string, lvl: number): void {
-			// 技能名称
+		// 技能名称
 		// 	this.lbl_skillName.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(config);
 		// 	// 技能描述
 		// 	this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(config);
@@ -252,8 +273,16 @@ module view.wuXue {
 			// this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(defaultConfigID);
 			let loc = defaultConfigID.indexOf("01")
 			let base = defaultConfigID.substring(0, loc);
-
 			this.updateSkilButton(1, base)
+		}
+		public init_sortTween(select): void {
+			if (select) {
+				this.btn_sort.skin='image/juese/icon_shouqi.png';
+				Laya.Tween.to(this.img_sort, { scaleX: 1, scaleY: 1 }, 200)
+			} else {
+				this.btn_sort.skin='image/juese/icon_paixu.png';
+				Laya.Tween.to(this.img_sort, { scaleX: 0, scaleY: 0 }, 200)
+			}
 		}
 	}
 }
