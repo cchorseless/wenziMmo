@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
 	export class SceneV2Item extends ui.scene.SceneV2ItemUI implements itf.SceneItem {
+		public ui_Content: BattleFuBenInfoV0Item;
 		constructor() {
 			super();
 		}
@@ -25,36 +26,51 @@ module view.scene {
 					}
 				}
 			}, null, false);
-			let ui_Content = new BattleFuBenInfoV0Item();
-			this.box_content.addChild(ui_Content);
+			this.ui_Content = new BattleFuBenInfoV0Item();
+
 			this.addEvent();
 
 		}
 
 
 		public addEvent(): void {
-			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
-				console.log(jsonData);
-				// GameApp.GameEngine.curFuBenMsg = jsonData;
-				GameApp.GameEngine.curFuBenMsg = null;
-				GameApp.GameEngine.curFuBenMsg = {
-					curNum: jsonData.KILLCNT,
-					maxNum: jsonData.MAXCNT,
-					fubenStr: "",
-					item: jsonData.JiangLi
-				}
-				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
-					new scene.BattleRewardInfoV0Item().popup();
-					return;
-				}
+			this.addLcpEvent();
+			GameApp.LListener.on(ProtoCmd.UPDATE_BOSSHP, this, (jsonData) => {
+				this.lab_hp.text = jsonData.now + '/' + jsonData.max;
+				this.img_xueTiao.width = this.img_xueTiao_BG.width * (jsonData.now / jsonData.max)
 			})
 		}
 
 		public addLcpEvent() {
+			GameApp.LListener.on(ProtoCmd.FB_ChuMoRightPlane, this, (jsonData: ProtoCmd.itf_FB_MainFBjindu) => {
+				console.log(jsonData);
+				// GameApp.GameEngine.curFuBenMsg = jsonData;
+				GameApp.GameEngine.curFuBenMsg = null;
+				GameApp.GameEngine.curFuBenMsg = {
+					curNum: jsonData.curcnt,
+					maxNum: jsonData.totalcnt,
+					fubenStr: jsonData.tiaojian,
+					item: jsonData.item
+				}
+				this.ui_Content.setData(jsonData)
+				if (this.box_content.numChildren > 0) {
+					this.box_content.removeChildren();
+				}
+				this.box_content.addChild(this.ui_Content);
+				if (jsonData.curcnt >= jsonData.totalcnt) {
+					new scene.BattleRewardInfoV0Item().popup();
+					let pkt = new ProtoCmd.QuestClientData();
+					pkt.setString(ProtoCmd.FB_ChuMoLeave);
+					lcp.send(pkt);
+					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
+					return;
+				}
 
+			})
 		}
 
 		public destroy(isBool = true) {
+			GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
 			this.destroy(true);
 		}
 		public addPlayer(obj): void {
@@ -114,6 +130,7 @@ module view.scene {
 		 * @param obj 
 		 */
 		public addMonster(obj): void {
+			this.box_bossInfo.visible = false;
 			let monster;
 			if (obj.ui_item) {
 				monster = obj.ui_item;
@@ -141,7 +158,16 @@ module view.scene {
 			let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
 			if (isBoss) {
 				// 切换成BOSS模式
+				this.box_bossInfo.visible = true;
+				let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + configID);
+				this.ui_Boss.img_icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
 				this.viw_0.selectedIndex = isBoss;
+				this.lbl_guiShu.text = GameApp.MainPlayer.objName;
+				this.lbl_xuetiaoCount.text = 'x1'
+				this.lab_hp.text = obj.ability.nowHP + '/' + obj.ability.nMaxHP
+				this.img_xueTiao.width = this.img_xueTiao_BG.width * (obj.ability.nowHP / obj.ability.nMaxHP)
+
+
 				// 添加BOSS
 				if (this.box_bossPos0.numChildren == 0) {
 					this.box_bossPos0.addChild(monster)

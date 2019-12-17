@@ -1,11 +1,11 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class SceneCityItem extends ui.scene.SceneCityItemUI implements itf.SceneItem {
+	export class SceneV5Item extends ui.scene.SceneV5ItemUI implements itf.SceneItem {
 		constructor() {
 			super();
-			this.top = this.bottom = this.right = 0;
+						this.top = this.bottom = this.right = 0;
 			this.addEvent();
-			this.name = 'SceneCityItem';
+			this.name = 'SceneV5Item';
 		}
 		public setData(): void {
 			this.panel_monster.hScrollBarSkin = '';
@@ -49,21 +49,21 @@ module view.scene {
 			this.addLcpEvent()
 		}
 		public addLcpEvent() {
-			// GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
-			// 	console.log(jsonData);
-			// 	// GameApp.GameEngine.curFuBenMsg = jsonData;
-			// 	GameApp.GameEngine.curFuBenMsg = null;
-			// 	GameApp.GameEngine.curFuBenMsg = {
-			// 		curNum: jsonData.KILLCNT,
-			// 		maxNum: jsonData.MAXCNT,
-			// 		fubenStr:"",
-			// 		item: jsonData.JiangLi
-			// 	}
-			// 	if (jsonData.KILLCNT>=jsonData.MAXCNT){
-			// 		new scene.BattleRewardInfoV0Item().popup();
-			// 		return;
-			// 	}
-			// })
+			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
+				console.log(jsonData);
+				// GameApp.GameEngine.curFuBenMsg = jsonData;
+				GameApp.GameEngine.curFuBenMsg = null;
+				GameApp.GameEngine.curFuBenMsg = {
+					curNum: jsonData.KILLCNT,
+					maxNum: jsonData.MAXCNT,
+					fubenStr:"",
+					item: jsonData.JiangLi
+				}
+				if (jsonData.KILLCNT>=jsonData.MAXCNT){
+					new scene.BattleRewardInfoV0Item().popup();
+					return;
+				}
+			})
 		}
 
 		/**

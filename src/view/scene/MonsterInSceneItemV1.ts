@@ -41,6 +41,7 @@ module view.scene {
 		 * 更新血条
 		 */
 		public updateHp(): void {
+			GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP,{now:this.item.ability.nowHP,max:this.item.ability.nMaxHP})
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
 		}
 	}

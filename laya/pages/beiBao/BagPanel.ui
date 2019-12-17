@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":491,
+    "selectedBox":491,
+    "selecteID":486,
     "props":{"width":640,"sceneColor":"#e5d4d4","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -18,12 +18,14 @@
             "props":{"x":0,"bottom":0},
             "nodeParent":1,
             "label":"Box",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":491,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1009,"skin":"image/main/img_common_02.png","right":0,"left":0},
                     "nodeParent":491,
@@ -38,8 +40,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/juese/img_title.png"},
+                    "props":{"y":0,"x":0,"width":184,"skin":"image/juese/img_title.png","height":67},
                     "nodeParent":491,
                     "label":"Image",
                     "isDirectory":false,
@@ -51,6 +54,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":5,"x":54,"skin":"image/bag/font_wupin.png"},
                     "nodeParent":491,
@@ -64,6 +68,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":105,"x":86,"width":555,"skin":"image/juese/bg_juese_01.png","height":943},
                     "nodeParent":491,
@@ -77,6 +82,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":121,"x":101,"skin":"image/bag/bottom_wupin_01.png"},
                     "nodeParent":491,
@@ -91,6 +97,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":72,"right":0,"left":0},
                     "nodeParent":491,
@@ -455,6 +462,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":1001,"x":1,"width":640,"height":93,"bottom":0},
                     "nodeParent":491,

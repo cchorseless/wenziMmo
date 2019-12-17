@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
 	export class SceneV3Item extends ui.scene.SceneV3ItemUI implements itf.SceneItem {
+		public ui_Content: BattleFuBenInfoV2Item;
 		constructor() {
 			super();
 		}
@@ -25,8 +26,8 @@ module view.scene {
 					}
 				}
 			}, null, false);
-			let ui_Content = new BattleFuBenInfoV2Item();
-			this.box_content.addChild(ui_Content);
+			this.ui_Content = new BattleFuBenInfoV2Item();
+			// this.box_content.addChild(ui_Content);
 			this.addEvent();
 
 		}
@@ -43,11 +44,23 @@ module view.scene {
 					fubenStr: "",
 					item: jsonData.JiangLi
 				}
+				this.ui_Content.setData(jsonData)
+				if (this.box_content.numChildren > 0) {
+					this.box_content.removeChildren();
+				}
+				this.box_content.addChild(this.ui_Content);
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
 					new scene.BattleRewardInfoV0Item().popup();
+					this.leaveFuBen();
 					return;
 				}
 			})
+		}
+		public leaveFuBen() {
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.FB_CaiLiaoFuBenLikai);
+			lcp.send(pkt);
+			GameApp.LListener.offCaller(ProtoCmd.map_CaiLiaoFubenPlane2, this);
 		}
 
 		public addLcpEvent() {
@@ -55,6 +68,7 @@ module view.scene {
 		}
 
 		public destroy(isBool = true) {
+			GameApp.LListener.offCaller(ProtoCmd.map_CaiLiaoFubenPlane2, this);
 			this.destroy(true);
 		}
 		public addPlayer(obj): void {

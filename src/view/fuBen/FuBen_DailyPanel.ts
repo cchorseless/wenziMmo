@@ -53,7 +53,7 @@ module view.fuBen {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
 				lcp.send(pkt);
-				PanelManage.Main.img_bottomPartInfoBg.visible = false;
+				// PanelManage.Main.img_bottomPartInfoBg.visible = false;
 			});
 		}
 		/**
