@@ -105,6 +105,14 @@ module view.hero {
 				this['btn_xingxing' + g].selected = true;
 			}
 			let curJob = GameApp.MainPlayer.curHero.feature.simpleFeature.job;
+			let sex;
+			if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+				sex = EnumData.SEX_TYPE.SEX_WOMEN;
+			} else {
+				sex = EnumData.SEX_TYPE.SEX_MAN;
+			}
+			//弟子半身像
+			this.img_self1.skin = this.img_self2.skin = LangConfig.getPlayerGangQiHalfSkin(sex,curJob);
 			//当前罡气名
 			let id = data.dwEffId + (curJob - 1) * 1000;
 			this.jobeffid = id;

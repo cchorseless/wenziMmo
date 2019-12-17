@@ -116,8 +116,8 @@ module view.juese {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
-			//半身像
-			this.img_self1.skin = this.img_self2.skin = LangConfig.getPlayerAvatarHalfSkinV3();
+			//角色罡气半身像
+			this.img_self1.skin = this.img_self2.skin = LangConfig.getPlayerGangQiHalfSkin();
 			//当前经验
 			this.exp = data.nValue;
 			this.lbl_have.text = '' + data.nValue;
