@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":383,
-    "selecteID":384,
+    "selectedBox":1,
+    "selecteID":216,
     "props":{"width":625,"sceneColor":"#d7b5b5","height":818},
     "nodeParent":-1,
     "label":"View",
@@ -167,20 +167,21 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"x":86,"width":164,"var":"img_now","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
+                            "props":{"y":2,"x":89,"width":159,"var":"img_now","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":213},
                             "nodeParent":349,
                             "label":"Image(img_now)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":350,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "props":{"y":-10,"x":-73,"width":263,"skin":"image/common/role_half2_102.png","height":223},
+                                    "props":{"y":5,"x":8,"var":"img_self1","skin":"image/juese/img_frame_nv03.png"},
                                     "nodeParent":350,
-                                    "label":"Image",
+                                    "label":"Image(img_self1)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -189,8 +190,9 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":213,"x":-11,"width":184,"var":"lbl_dangqian","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
+                                    "props":{"y":211,"x":-14,"width":184,"var":"lbl_dangqian","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
                                     "nodeParent":350,
                                     "label":"Label(lbl_dangqian)",
                                     "isDirectory":false,
@@ -206,7 +208,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"x":393,"width":164,"var":"img_next","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":215},
+                            "props":{"y":2,"x":393,"width":159,"var":"img_next","skin":"image/common/battle/img_juese_di.png","sizeGrid":"18,24,26,28","height":213},
                             "nodeParent":349,
                             "label":"Image(img_next)",
                             "isOpen":true,
@@ -218,9 +220,9 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-10,"x":-73,"width":263,"skin":"image/common/role_half2_102.png","height":223},
+                                    "props":{"y":5,"x":8,"var":"img_self2","skin":"image/juese/img_frame_nv03.png"},
                                     "nodeParent":353,
-                                    "label":"Image",
+                                    "label":"Image(img_self2)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -232,7 +234,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":213,"x":-12,"width":184,"var":"lbl_xiaji","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
+                                    "props":{"y":211,"x":-12,"width":184,"var":"lbl_xiaji","text":"罡气名称","strokeColor":"#b97a3c","stroke":4,"fontSize":30,"font":"fzxk","color":"#ffffff","align":"center"},
                                     "nodeParent":353,
                                     "label":"Label(lbl_xiaji)",
                                     "isDirectory":false,
@@ -275,7 +277,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":277,"x":582,"skin":"image/common/icon_001.png"},
+                            "props":{"y":277,"x":576,"skin":"image/common/icon_001.png"},
                             "nodeParent":349,
                             "label":"Image",
                             "isDirectory":false,
@@ -301,7 +303,7 @@
                         {
                             "x":45,
                             "type":"Panel",
-                            "props":{"y":271,"x":56,"width":520,"var":"panel_gangqi","height":70},
+                            "props":{"y":271,"x":54,"width":520,"var":"panel_gangqi","height":70},
                             "nodeParent":349,
                             "label":"Panel(panel_gangqi)",
                             "isOpen":true,

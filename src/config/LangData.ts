@@ -161,7 +161,21 @@ module LangConfig {
         return path + '0' + job + '_half.png';
     }
 
-
+    /**
+     * 获取角色罡气半身像路径
+     * @param sex 
+     * @param job 
+     */
+    export function getPlayerGangQiHalfSkin(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
+        let path;
+        if (sex == EnumData.SEX_TYPE.SEX_MAN) {
+            path = 'image/juese/img_frame_nan';
+        }
+        else {
+            path = 'image/juese/img_frame_nv';
+        }
+        return path + '0' + job + '.png';
+    }
     /**
      * 获取半身像路径
      * @param sex 
