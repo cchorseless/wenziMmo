@@ -216,6 +216,7 @@ module view.juese {
 					for (let i in jsonData.itemtab) {
 						this.iteminfo.push(jsonData.itemtab[i].index);
 					}
+					this.zhuangbeiInfo(this.getItemInfo());
 				})
 			}
 		}
@@ -230,6 +231,14 @@ module view.juese {
 			this.img_type.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
 			//天赋等级
 			let talentAllData = GameApp.MainPlayer.talentInfo;
+			//刷新等级
+			if (talentAllData) {
+				this.lbl_lvl0.text = 'LV.' + talentAllData[1];
+				this.lbl_lvl1.text = 'LV.' + talentAllData[3];
+				this.lbl_lvl2.text = 'LV.' + talentAllData[5];
+				this.lbl_lvl3.text = 'LV.' + talentAllData[4];
+				this.lbl_lvl4.text = 'LV.' + talentAllData[2];
+			}
 			this.lbl_level.text = 'LV.' + talentAllData[this.dangqianNum];
 			this.lbl_nextLevel.text = '' + (talentAllData[this.dangqianNum] + 1);
 			//当前属性

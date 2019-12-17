@@ -14,7 +14,7 @@ module view.juese {
 			//罡气
 			let j = i + 1;
 			this.index = j;
-			this.lbl_name.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
+			// this.lbl_name.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 			this.btn_gangqi.skin = 'image/common/img_gangQi_0' + j + '.png'
 			this.addEvent();
 			return this;
