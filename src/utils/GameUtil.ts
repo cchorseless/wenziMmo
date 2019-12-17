@@ -16,6 +16,7 @@ module GameUtil {
         }
         return count;
     }
+
     /**
     * 查找背包内道具信息
     * @param itemID 
@@ -30,6 +31,7 @@ module GameUtil {
             }
         }
     }
+
     /**
      * 根据等级查找背包内大于这个等级的所有装备
      * @param itemID 
@@ -47,6 +49,7 @@ module GameUtil {
         }
         return itemArray;
     }
+
     /**
      * 查找玩家身上的装备信息
      * @param index 
@@ -75,6 +78,7 @@ module GameUtil {
         }
         return result
     }
+
     /**
      * 把数字转换成汉字  同理可转换成繁体汉字
      * @param num  数字 
@@ -327,6 +331,8 @@ module GameUtil {
         }
         return false
     }
+
+
     /**
      * 设置云服务器的新手引导二进制数据
      * @param index 
@@ -454,6 +460,7 @@ module GameUtil {
 
     }
 
+
     // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
     export function parseTaskInfo(str: string, finishHander: Laya.Handler = null) {
         let handleList = str.split('|');
@@ -473,12 +480,12 @@ module GameUtil {
                             toDoList['TaskMain'] = ['btn_changeMode'];
                             toDoList['JuQingMode'] = ['btn_changeMode'];
                             break;
-                        // 天鉴界面
-                        case 'TianJian':
-                            toDoList['JuQingMode'] = ['btn_tianJian'];
-                            toDoList['Main'] = ['btn_changeMode'];
-                            toDoList['TaskMain'] = ['btn_back'];
-                            break;
+                        // // 天鉴界面
+                        // case 'TianJian':
+                        //     toDoList['JuQingMode'] = ['btn_tianJian'];
+                        //     toDoList['Main'] = ['btn_changeMode'];
+                        //     toDoList['TaskMain'] = ['btn_back'];
+                        //     break;
                         // 阅读小说界面
                         case 'JuQingMode':
                             toDoList['JuQingMode'] = [];
