@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":278,
+    "selectedBox":277,
+    "selecteID":172,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -554,18 +554,19 @@
                 {
                     "x":30,
                     "type":"ViewStack",
-                    "props":{"y":752,"width":575,"var":"viw_0","left":43,"height":260},
+                    "props":{"y":752,"x":27,"width":585,"var":"viw_0","height":260},
                     "nodeParent":277,
                     "label":"ViewStack(viw_0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":172,
                     "child":[
                         {
+                            "x":45,
                             "type":"List",
-                            "props":{"y":0,"x":0,"width":575,"var":"list_0","spaceY":10,"spaceX":10,"repeatY":2,"repeatX":5,"name":"item0","height":260},
+                            "props":{"y":0,"x":0,"width":585,"var":"list_0","spaceY":10,"spaceX":10,"repeatY":2,"repeatX":5,"name":"item0","height":260},
                             "nodeParent":172,
                             "label":"List(list_0)",
                             "isOpen":true,
@@ -577,8 +578,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"List",
-                            "props":{"y":0,"x":0,"width":575,"var":"list_1","spaceY":10,"spaceX":10,"repeatX":2,"name":"item1","height":260},
+                            "props":{"y":0,"x":0,"width":585,"var":"list_1","spaceY":10,"spaceX":10,"repeatX":2,"name":"item1","height":260},
                             "nodeParent":172,
                             "label":"List(list_1)",
                             "isOpen":true,
@@ -591,8 +593,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"List",
-                            "props":{"y":0,"x":0,"width":575,"var":"list_2","spaceY":10,"spaceX":15,"repeatX":2,"name":"item2","height":260},
+                            "props":{"y":0,"x":0,"width":585,"var":"list_2","spaceY":10,"spaceX":15,"repeatX":2,"name":"item2","height":260},
                             "nodeParent":172,
                             "label":"List(list_2)",
                             "isOpen":true,
