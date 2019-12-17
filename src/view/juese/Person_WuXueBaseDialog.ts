@@ -19,7 +19,7 @@ module view.juese {
 			})
 			this.box_add.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.cailiaoItem) {
-					new view.dialog.GetItemWayDialog().setData(this.cailiaoItem).popup()
+					new view.dialog.GetItemWayDialog().setData(this.cailiaoItem).popup();
 				}
 			})
 			//修炼

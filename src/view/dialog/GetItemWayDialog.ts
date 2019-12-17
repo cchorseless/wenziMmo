@@ -25,7 +25,13 @@ module view.dialog {
 					break;
 			}
 			this.lbl_des.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMBGDES('' + id);
+			this.addEvent();
 			return this;
+		}
+		public addEvent(): void {
+			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				this.close();
+			})
 		}
 	}
 }
