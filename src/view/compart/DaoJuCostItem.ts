@@ -40,6 +40,11 @@ module view.compart {
 		}
 
 		public addEvent(): void {
+			this.btn_add.on(Laya.UIEvent.CLICK, this, () => {
+				if (this.item) {
+					new view.dialog.GetItemWayDialog().setData(this.item.dwBaseID).popup();
+				}
+			})
 			EventManage.onWithEffect(this.btn_add, Laya.UIEvent.CLICK, this, () => {
 				// switch (this.addType) {
 				// 	case 1:
