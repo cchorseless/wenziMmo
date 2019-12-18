@@ -184,13 +184,13 @@ module view.common {
 			let mapName1 = this.mapNameList[index];
 			let mapName2 = this.mapNameList[index + 1];
 			this.btn_mapCenter.label = '' + mapName1;
-			this.btn_mapCenter.labelColors='#1a5062';
+			this.btn_mapCenter.labelColors = '#1a5062';
 			this.btn_mapCenter.skin = 'image/main/frame_didian_2.png';
 			// this.lbl_sceneName.text = '' + mapName1;
 			if (mapName0) {
 				this.btn_mapDown.visible = this.img_mapLineDown.visible = true;
 				this.btn_mapDown.label = '' + mapName0;
-				this.btn_mapDown.labelColors='#63491a';
+				this.btn_mapDown.labelColors = '#63491a';
 				this.btn_mapDown.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
@@ -200,7 +200,7 @@ module view.common {
 			if (mapName2) {
 				this.btn_mapUp.visible = this.img_mapLineUp.visible = true
 				this.btn_mapUp.label = '' + mapName2;
-				this.btn_mapUp.labelColors='#63491a';
+				this.btn_mapUp.labelColors = '#63491a';
 				this.btn_mapUp.skin = 'image/main/btn_didian_01.png';
 			}
 			else {
@@ -302,7 +302,15 @@ module view.common {
 				this.input_name.text = name;
 				this.input_name2.text = name;
 				this.playerName = name;
+				console.log(this.playerName);
 			});
+
+
+			this.input_name2.on(Laya.UIEvent.BLUR, this, () => {
+				this.playerName = this.input_name2.text;
+				console.log(this.playerName);
+			})
+
 			// 确定名字
 			this.btn_nameSure.on(Laya.UIEvent.CLICK, this, () => {
 				if (!this.input_name.text) {
@@ -316,6 +324,7 @@ module view.common {
 					this.showDialog(0);
 				}
 			});
+
 
 
 			// 确定形象
@@ -534,6 +543,7 @@ module view.common {
 		 * 创建角色
 		 */
 		private createAvatar(): void {
+			console.log(this.playerName);
 			if (!this.playerName) {
 				TipsManage.showTips('你还没有地府注册过')
 				return

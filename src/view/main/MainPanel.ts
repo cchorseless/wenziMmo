@@ -380,7 +380,7 @@ module view.main {
 			if (panel == this) {
 				if (this.view_scene.selectedIndex == 0) {
 					this.box_menu.visible = true;
-				}else{
+				} else {
 					this.box_menu.visible = false;
 				}
 				this.box_top.visible = false;
@@ -388,7 +388,7 @@ module view.main {
 			}
 			else {
 				//菜单界面隐藏（通过btn_setUp设置按钮判断是否是菜单界面）
-				if(panel.btn_setUp){
+				if (panel == PanelManage.Menu) {
 					this.box_menu.visible = false;
 				}
 				// 复制一张底图
@@ -398,6 +398,9 @@ module view.main {
 				panel.addChildAt(imgBg, 0);
 				this.box_top.visible = true;
 				this.box_mainTop.visible = false;
+				if (panel.box_view && !(panel as Laya.Sprite).displayedInStage) {
+					panel.box_view.y = panel.box_view.y + (PanelManage.euiLayer.displayHeight - 1136) / 2;
+				}
 			}
 		}
 
