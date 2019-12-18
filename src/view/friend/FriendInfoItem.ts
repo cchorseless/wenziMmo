@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main {
-	export class Main_FriendInfoItem extends ui.main.Main_FriendInfoItemUI {
+module view.friend {
+	export class FriendInfoItem extends ui.friend.FriendInfoItemUI {
 		constructor() {
 			super();
 			this.addEvent()
@@ -14,7 +14,7 @@ module view.main {
 		 * 
 		 * @param item 好友列表
 		 */
-		public init_friendList(item: ProtoCmd.stRelationInfoBase, key): Main_FriendInfoItem {
+		public init_friendList(item: ProtoCmd.stRelationInfoBase, key): FriendInfoItem {
 			this.type = 1;
 			this.item = item;
 			this.key = key;
@@ -43,7 +43,7 @@ module view.main {
 		 * 
 		 * @param item 附近d的人
 		 */
-		public init_nearbyPerson(item: GameObject.OtherPlayer): Main_FriendInfoItem {
+		public init_nearbyPerson(item: GameObject.OtherPlayer): FriendInfoItem {
 			this.type = 2;
 			this.item = item;
 			//姓名
@@ -53,7 +53,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[item.job];
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
 			//地点名称
@@ -70,7 +70,7 @@ module view.main {
 	  * 
 	  * @param item 搜索的人
 	  */
-		public init_Search(item: ProtoCmd.stFindResultBase): Main_FriendInfoItem {
+		public init_Search(item: ProtoCmd.stFindResultBase): FriendInfoItem {
 			this.type = 4;
 			this.item = item;
 			//姓名
@@ -80,7 +80,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + item.zslevel;
 			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[item.job];
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
 			//地点名称不可见
@@ -96,7 +96,7 @@ module view.main {
 		/**
 		 * 3好友申请类型
 		 */
-		public init_friendApply(data: ProtoCmd.friendApply): Main_FriendInfoItem {
+		public init_friendApply(data: ProtoCmd.friendApply): FriendInfoItem {
 			this.type = 3;
 			this.item = data;
 			//姓名
@@ -106,7 +106,7 @@ module view.main {
 			//转生等级
 			this.lbl_zslvl.text = '' + data.zslevel;
 			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[data.job];
+			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[data.job]];
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(data.sex, data.job)
 			//地点不可见

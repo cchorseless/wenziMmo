@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.main {
-	export class Main_FriendListDialog extends ui.main.Main_FriendListDialogUI {
+module view.friend {
+	export class FriendListDialog extends ui.friend.FriendListDialogUI {
 		constructor() {
 			super();
 			this.setData();
@@ -49,7 +49,7 @@ module view.main {
 					if (item.state == 1) {
 						online += 1;
 					}
-					let friend_UI = new view.main.Main_FriendInfoItem();
+					let friend_UI = new view.friend.FriendInfoItem();
 					let friendItem = new ProtoCmd.stRelationInfoBase();
 					friendItem.clone(item.data);
 					friend_UI.init_friendList(friendItem, parseInt(key));

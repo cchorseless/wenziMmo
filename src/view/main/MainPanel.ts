@@ -227,7 +227,7 @@ module view.main {
 				}
 			})
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, function () {
-				new view.main.Main_FriendListDialog().popup();
+				new view.friend.FriendListDialog().popup();
 			})
 			this.btn_email.on(Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.MailDialog().popup(true);
@@ -380,7 +380,7 @@ module view.main {
 			if (panel == this) {
 				if (this.view_scene.selectedIndex == 0) {
 					this.box_menu.visible = true;
-				}else{
+				} else {
 					this.box_menu.visible = false;
 				}
 				this.box_top.visible = false;
@@ -388,7 +388,7 @@ module view.main {
 			}
 			else {
 				//菜单界面隐藏（通过btn_setUp设置按钮判断是否是菜单界面）
-				if(panel.btn_setUp){
+				if (panel.btn_setUp) {
 					this.box_menu.visible = false;
 				}
 				// 复制一张底图
