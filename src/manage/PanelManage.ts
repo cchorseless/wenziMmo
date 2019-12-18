@@ -40,6 +40,13 @@ module PanelManage {
     }
 
 
+    /**
+     * 获取高宽比
+     */
+    export function getAspectRatio(): number {
+        return Laya.Browser.height / Laya.Browser.width
+    }
+
     /**********************************界面层************************************ */
     export let tipsLayer: Laya.Box;                                                      //文字气泡提示
     export let euiLayer: Laya.Box;                                                       //界面弹窗提示
