@@ -26,7 +26,7 @@ module view.friend {
 			if (keys.length > 0) {
 				for (let key of keys) {
 					let data = GameApp.MainPlayer.friendApplyInfo[key];
-					this.vbox_apply.addChild(new view.main.Main_FriendInfoItem().init_friendApply(data))
+					this.vbox_apply.addChild(new view.friend.FriendInfoItem().init_friendApply(data))
 				}
 			}
 		}

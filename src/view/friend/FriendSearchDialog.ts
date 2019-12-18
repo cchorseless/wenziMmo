@@ -25,7 +25,7 @@ module view.friend {
 			let allKeys = Object.keys(GameApp.MainPlayer.allPlayer);
 			this.vbox_nearby.removeChildren();
 			for (let _key of allKeys) {
-				this.vbox_nearby.addChild(new view.main.Main_FriendInfoItem().init_nearbyPerson(GameApp.MainPlayer.allPlayer[_key]));
+				this.vbox_nearby.addChild(new view.friend.FriendInfoItem().init_nearbyPerson(GameApp.MainPlayer.allPlayer[_key]));
 			}
 		}
 		/**
@@ -42,7 +42,7 @@ module view.friend {
 				this.vbox_nearby.removeChildren();
 				let cbpkt = new ProtoCmd.stRelationSearchFriendRet(data);
 				for (let _item of cbpkt.results) {
-					let ui_item = new view.main.Main_FriendInfoItem();
+					let ui_item = new view.friend.FriendInfoItem();
 					let itemInfo = new ProtoCmd.stFindResultBase();
 					itemInfo.clone(_item.data);
 					ui_item.init_Search(itemInfo);
