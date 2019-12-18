@@ -19,7 +19,8 @@ module view.fuBen {
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid).split("_");
 			this.btn_xinmo.label = '' + name[0];
 			//心魔副本图档
-			this.btn_xinmo.skin = 'image/common/npc/npc_half_' + data.monsterid + '.png'
+			let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + data.monsterid);
+			this.btn_xinmo.skin = 'image/common/npc/npc_half_' + iconID + '.png'
 			let mylvl = GameApp.MainPlayer.level;
 			let myzslvl = GameApp.MainPlayer.zslevel;
 			this.img_shuo.visible = false;
@@ -44,7 +45,7 @@ module view.fuBen {
 			this.type = 1;
 			this.item = data;
 			this.index = key;
-			this.img_shuo.visible=false;
+			this.img_shuo.visible = false;
 			//boss名称
 			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monid).split("_");
 			this.btn_xinmo.label = '' + name[0];
@@ -55,13 +56,13 @@ module view.fuBen {
 		}
 		public addEvent(): void {
 			this.on(Laya.UIEvent.CLICK, this, () => {
-					//数据类型0心魔，1悬赏
-					if (this.type == 0) {
-						PanelManage.FuBenDaily.update_XinMo(this.item);
-					}
-					if (this.type == 1) {
-						PanelManage.FuBenLiLian.update_yeWai(this.item, this.index);
-					}
+				//数据类型0心魔，1悬赏
+				if (this.type == 0) {
+					PanelManage.FuBenDaily.update_XinMo(this.item);
+				}
+				if (this.type == 1) {
+					PanelManage.FuBenDaily.update_yeWai(this.item, this.index);
+				}
 			})
 		}
 	}

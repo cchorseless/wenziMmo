@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":108,
+    "selectedBox":108,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#e0c8c8","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -18,40 +18,30 @@
             "props":{"x":0,"width":640,"top":0,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":108,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"width":640,"skin":"image/main/fram_common_02a.png","height":1136},
                     "nodeParent":108,
                     "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
+                    "isOpen":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":2,
                     "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":0,"x":0,"top":0,"skin":"image/main/img_common_03.png","right":0,"left":0},
-                            "nodeParent":2,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
+                        ],
                     "$LOCKED":false,
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":1096,"x":60,"var":"btn_return","stateNum":"1","skin":"image/common/btn_backdi.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":108,
@@ -63,6 +53,7 @@
                     "compId":4,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":15,"x":15,"width":80,"stateNum":2,"skin":"image/common/btn_fanhui_01_finish.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":64},
                             "nodeParent":4,
@@ -77,6 +68,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":49,"x":13,"text":"返回","strokeColor":"#010101","stroke":4,"fontSize":32,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":4,
@@ -91,6 +83,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":255,"x":619,"var":"img_right","skin":"image/common/img_sc_zs03.png","height":801},
                     "nodeParent":108,
@@ -104,6 +97,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":255,"x":10,"var":"img_left","skin":"image/common/img_sc_zs03.png","height":799},
                     "nodeParent":108,
@@ -118,6 +112,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":184,"x":0,"skin":"image/common/img_tongji01.png","sizeGrid":"0,35,-2,86"},
                     "nodeParent":108,
@@ -129,6 +124,7 @@
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":6,"x":57,"width":527,"var":"panel_tab","height":56},
                             "nodeParent":8,
@@ -140,6 +136,7 @@
                             "compId":107,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Tab",
                                     "props":{"y":2,"x":2,"var":"tab_fuli","stateNum":2,"space":30,"skin":"image/menu/btn_sc_common_01.png","selectedIndex":0,"scaleX":1.2,"labels":"邀请有礼,在线奖励,资源找回","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff"},
                                     "nodeParent":107,
@@ -157,6 +154,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"y":259,"x":9,"width":621,"var":"viw_fuli","selectedIndex":0,"height":797},
                     "nodeParent":108,
@@ -212,6 +210,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":114,"x":5},
                     "nodeParent":108,

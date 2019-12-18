@@ -26,7 +26,7 @@ module view.fuBen {
 					let _itemData = new ProtoCmd.ItemBase();
 					_itemData.dwBaseID = jsonData.jiangli[key].index;
 					_itemData.dwCount = jsonData.jiangli[key].num;
-					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let _itemUI = new view.compart.DaoJuItem();
 					_itemUI.setData(_itemData, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					this.hbox_ziyuan.addChild(_itemUI);
 				};

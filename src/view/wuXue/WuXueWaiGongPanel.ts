@@ -68,7 +68,6 @@ module view.wuXue {
 			// 	PanelManage.openWuXueHeDaoPanel();
 			// });
 			//技能更换
-
 			//刷新面板
 			GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
 				this.initUI();
@@ -93,19 +92,27 @@ module view.wuXue {
 		}
 		public initUI(): void {
 			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
-			this.ui_base1.setData(data1);
+			let itemInfo1 = new ProtoCmd.ItemBase();
+			itemInfo1.clone(data1.data);
+			this.ui_base1.setData(itemInfo1);
 			this.lbl_name1.text = '基础武器';
 			this.lbl_lvl1.text = 'LV.' + data1.dwLevel;
 			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
-			this.ui_base2.setData(data2);
+			let itemInfo2 = new ProtoCmd.ItemBase();
+			itemInfo2.clone(data2.data);
+			this.ui_base2.setData(itemInfo2);
 			this.lbl_name2.text = '基础拳脚';
 			this.lbl_lvl2.text = 'LV.' + data2.dwLevel;
 			let data3 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_PENDANT);
-			this.ui_base3.setData(data3);
+			let itemInfo3 = new ProtoCmd.ItemBase();
+			itemInfo3.clone(data3.data);
+			this.ui_base3.setData(itemInfo3);
 			this.lbl_name3.text = '基础招架';
 			this.lbl_lvl3.text = 'LV.' + data3.dwLevel;
 			let data4 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_FACE);
-			this.ui_base4.setData(data4);
+			let itemInfo4 = new ProtoCmd.ItemBase();
+			itemInfo4.clone(data4.data);
+			this.ui_base4.setData(itemInfo4);
 			this.lbl_name4.text = '基础轻功';
 			this.lbl_lvl4.text = 'LV.' + data4.dwLevel;
 			for (let i = 1; i < 7; i++) {
@@ -187,42 +194,39 @@ module view.wuXue {
 			// }
 
 		}
-
-
-
 		public updateSkilButton(btRow: number, skill_key: string): void {
-			// let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
-			// let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
-			// if (_skillBase) {
-			// 	let skill_ui = new view.wuXue.WuXue_logoItem();
-			// 	skill_ui.setData(_skillBase.configID);
-			// 	switch (btRow) {
-			// 		case EnumData.emSkillShotButtonType.WaiGong_1:
-			// 			this.ui_item1.addItem(skill_ui);
-			// 			this.ui_item1.lbl_buWei.text = nameStr;
-			// 			break;
-			// 		case EnumData.emSkillShotButtonType.WaiGong_2:
-			// 			this.ui_item2.addItem(skill_ui);
-			// 			this.ui_item2.lbl_buWei.text = nameStr;
-			// 			break;
-			// 		case EnumData.emSkillShotButtonType.WaiGong_3:
-			// 			this.ui_item3.addItem(skill_ui);
-			// 			this.ui_item3.lbl_buWei.text = nameStr;
-			// 			break;
-			// 		case EnumData.emSkillShotButtonType.WaiGong_4:
-			// 			this.ui_item4.addItem(skill_ui);
-			// 			this.ui_item4.lbl_buWei.text = nameStr;
-			// 			break;
-			// 		case EnumData.emSkillShotButtonType.ZhaoJia_1:
-			// 			this.ui_item5.addItem(skill_ui);
-			// 			this.ui_item5.lbl_buWei.text = nameStr;
-			// 			break;
-			// 		case EnumData.emSkillShotButtonType.ShenFa_1:
-			// 			this.ui_item6.addItem(skill_ui);
-			// 			this.ui_item6.lbl_buWei.text = nameStr;
-			// 			break;
-			// 	}
-			// }
+			let _skillBase = GameApp.MainPlayer.skillInfo[skill_key];
+			let nameStr = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(_skillBase.configID).split('_')[0];
+			if (_skillBase) {
+				let skill_ui = new view.wuXue.WuXue_logoItem();
+				skill_ui.setData(_skillBase.configID);
+				switch (btRow) {
+					case EnumData.emSkillShotButtonType.WaiGong_1:
+						this.ui_item1.addItem(skill_ui);
+						this.ui_item1.lbl_buWei.text = nameStr;
+						break;
+					case EnumData.emSkillShotButtonType.WaiGong_2:
+						this.ui_item2.addItem(skill_ui);
+						this.ui_item2.lbl_buWei.text = nameStr;
+						break;
+					case EnumData.emSkillShotButtonType.WaiGong_3:
+						this.ui_item3.addItem(skill_ui);
+						this.ui_item3.lbl_buWei.text = nameStr;
+						break;
+					case EnumData.emSkillShotButtonType.WaiGong_4:
+						this.ui_item4.addItem(skill_ui);
+						this.ui_item4.lbl_buWei.text = nameStr;
+						break;
+					case EnumData.emSkillShotButtonType.ZhaoJia_1:
+						this.ui_item5.addItem(skill_ui);
+						this.ui_item5.lbl_buWei.text = nameStr;
+						break;
+					case EnumData.emSkillShotButtonType.ShenFa_1:
+						this.ui_item6.addItem(skill_ui);
+						this.ui_item6.lbl_buWei.text = nameStr;
+						break;
+				}
+			}
 		}
 
 
@@ -277,10 +281,10 @@ module view.wuXue {
 		}
 		public init_sortTween(select): void {
 			if (select) {
-				this.btn_sort.skin='image/juese/icon_shouqi.png';
+				this.btn_sort.skin = 'image/juese/icon_shouqi.png';
 				Laya.Tween.to(this.img_sort, { scaleX: 1, scaleY: 1 }, 200)
 			} else {
-				this.btn_sort.skin='image/juese/icon_paixu.png';
+				this.btn_sort.skin = 'image/juese/icon_paixu.png';
 				Laya.Tween.to(this.img_sort, { scaleX: 0, scaleY: 0 }, 200)
 			}
 		}

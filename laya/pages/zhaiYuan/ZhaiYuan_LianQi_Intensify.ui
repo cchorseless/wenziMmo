@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":64,
-    "selecteID":88,
+    "selectedBox":70,
+    "selecteID":21,
     "props":{"width":565,"sceneColor":"#b5b5b5","height":741},
     "nodeParent":-1,
     "label":"View",
@@ -317,13 +317,14 @@
             "props":{"y":410,"x":0,"width":530,"height":332},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":66,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":293,"x":439,"width":105,"var":"btn_intensify","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"强化","height":45,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":66,
@@ -336,6 +337,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":-1,"width":567,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,12,18,22","height":243},
                     "nodeParent":66,
@@ -348,6 +350,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":3,"x":20,"width":522,"var":"box_item0","height":236},
                     "nodeParent":66,
@@ -359,9 +362,10 @@
                     "compId":70,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":0,"x":1,"var":"ui_equip0"},
+                            "props":{"y":121,"x":1,"var":"ui_equip0"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip0)",
                             "isDirectory":false,
@@ -372,6 +376,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
                             "props":{"y":0,"x":108,"var":"ui_equip1"},
@@ -385,9 +390,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":0,"x":214,"var":"ui_equip2"},
+                            "props":{"y":121,"x":108,"var":"ui_equip2"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip2)",
                             "isDirectory":false,
@@ -398,9 +404,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":0,"x":321,"var":"ui_equip3"},
+                            "props":{"y":0,"x":1,"var":"ui_equip3"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip3)",
                             "isDirectory":false,
@@ -411,9 +418,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":0,"x":427,"var":"ui_equip4"},
+                            "props":{"y":0,"x":321,"var":"ui_equip4"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip4)",
                             "isDirectory":false,
@@ -424,9 +432,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":121,"x":1,"var":"ui_equip5"},
+                            "props":{"y":0,"x":427,"var":"ui_equip5"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip5)",
                             "isDirectory":false,
@@ -437,9 +446,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":121,"x":108,"var":"ui_equip6"},
+                            "props":{"y":121,"x":427,"var":"ui_equip6"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip6)",
                             "isDirectory":false,
@@ -450,9 +460,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":121,"x":214,"var":"ui_equip7"},
+                            "props":{"y":121,"x":321,"var":"ui_equip7"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip7)",
                             "isDirectory":false,
@@ -463,9 +474,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":121,"x":321,"var":"ui_equip8"},
+                            "props":{"y":121,"x":214,"var":"ui_equip8"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip8)",
                             "isDirectory":false,
@@ -476,9 +488,10 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/EquipItem.ui",
-                            "props":{"y":121,"x":427,"var":"ui_equip9"},
+                            "props":{"y":0,"x":214,"var":"ui_equip9"},
                             "nodeParent":70,
                             "label":"UIView(ui_equip9)",
                             "isDirectory":false,
@@ -490,6 +503,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":249,"x":169,"width":75,"var":"box_cost","height":75},
                     "nodeParent":66,
@@ -503,6 +517,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":274,"x":63,"width":102,"var":"lab_cost_forge","text":"强化消耗","strokeColor":"#2d1c05","height":24,"fontSize":22,"font":"FZHL","color":"#000000","bold":true,"align":"left"},
                     "nodeParent":66,

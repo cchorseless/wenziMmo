@@ -116,6 +116,8 @@ module view.juese {
 				let g = i + 1
 				this['btn_xingxing' + g].selected = true;
 			}
+			//角色罡气半身像
+			this.img_self1.skin = this.img_self2.skin = LangConfig.getPlayerGangQiHalfSkin();
 			//当前经验
 			this.exp = data.nValue;
 			this.lbl_have.text = '' + data.nValue;
@@ -163,7 +165,7 @@ module view.juese {
 					let gangqiInfo = new view.juese.Person_GangQiBtnItem();
 					gangqiInfo.scaleX = 0.7;
 					gangqiInfo.scaleY = 0.7;
-					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid,0));
+					this.hbox_gangqi.addChild(gangqiInfo.setData(i, effid, 0));
 				}
 			}
 		}
@@ -193,11 +195,17 @@ module view.juese {
 				id = data.dwEffId + (Math.floor(data.dwLevel / 10) + 1) * 10 - data.dwLevel + 1;
 			}
 			//选中状态
+			let index;
 			for (let child of this.hbox_gangqi._childs) {
 				if (child.id == id) {
-					child.btn_select.selected = true;
+					index = child.index;
+					child.btn_select.visible = true;
 				} else {
-					child.btn_select.selected = false;
+					// child.btn_select.selected = false;
+					child.btn_select.visible = false;
+				}
+				if (child.id == data.dwEffId) {
+					this.img_now.skin = 'image/common/img_gangQi_0' + child.index + '.png';
 				}
 			}
 			if (data.dwLevel < 90) {
@@ -206,7 +214,7 @@ module view.juese {
 				//罡气名
 				this.lbl_xiaji.text = '' + SheetConfig.mydb_effect_base_tbl.getInstance(null).NAME('' + id);
 				//罡气皮肤
-				// this.img_next.skin = 'image/juese/img_gangQi_0' + j + '.png'
+				this.img_next.skin = 'image/common/img_gangQi_0' + index + '.png';
 			} else {
 				this.img_now.x = 230;
 				this.img_shengji.visible = this.img_next.visible = false;

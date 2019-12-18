@@ -30,6 +30,8 @@ module view.scene {
 			if (ch > 0) {
 				let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
 				this.img_chenghao.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+			}else{
+				this.img_chenghao.skin = '';
 			}
 
 
@@ -51,7 +53,15 @@ module view.scene {
 		}
 
 		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.UP_DATE_DRESS, this, function () {
+				let ch = GameApp.GameEngine.mainPlayer.feature.nTitleId;
 
+				if (ch > 0) {
+					let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
+					this.img_chenghao.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
+				}
+
+			});
 
 		}
 
