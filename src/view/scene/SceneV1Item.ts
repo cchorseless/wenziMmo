@@ -7,6 +7,7 @@ module view.scene {
 		}
 
 		public setData(): void {
+			this.ui_Content = new BattleFuBenInfoV1Item();
 			this.panel_0.vScrollBarSkin = '';
 			this.panel_2.hScrollBarSkin = '';
 			this.hbox_2['sortItem'] = (items) => { };
@@ -27,7 +28,7 @@ module view.scene {
 					}
 				}
 			}, null, false);
-			this.ui_Content = new BattleFuBenInfoV1Item();
+			
 			this.addEvent();
 
 		}
@@ -48,7 +49,7 @@ module view.scene {
 					fubenStr: "击杀怪物",
 					item: jsonData.item
 				}
-				if (jsonData.flag == 1) {
+				if (jsonData.flag == 0) {
 					new scene.BattleRewardInfoV0Item().popup();
 					this.leaveFuBen();
 					return;

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":34,
-    "selecteID":74,
+    "selectedBox":81,
+    "selecteID":82,
     "props":{"width":640,"sceneColor":"#000000","name":"singleNoStar100","height":1136},
     "nodeParent":-1,
     "label":"View(singleNoStar100)",
@@ -56,31 +56,17 @@
         },
         {
             "x":15,
-            "type":"Box",
-            "props":{"y":799,"x":5,"width":630,"var":"box_content","height":298},
-            "nodeParent":1,
-            "label":"Box(box_content)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":81,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"ViewStack",
             "props":{"width":640,"var":"viw_0","top":150,"selectedIndex":0,"right":0,"left":0,"height":474},
             "nodeParent":1,
             "label":"ViewStack(viw_0)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":56,
             "child":[
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"x":0,"width":640,"var":"panel_2","top":0,"right":0,"name":"item0","left":0,"height":353,"bottom":0},
                     "nodeParent":56,
@@ -108,7 +94,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"x":0,"var":"box_boss","right":0,"name":"item1","left":0,"height":480},
                     "nodeParent":56,
@@ -120,7 +105,6 @@
                     "compId":35,
                     "child":[
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":285,"width":640,"var":"panel_0","right":0,"left":0,"height":167},
                             "nodeParent":35,
@@ -132,7 +116,6 @@
                             "compId":66,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"HBox",
                                     "props":{"var":"hbox_0","top":0,"bottom":0},
                                     "nodeParent":66,
@@ -147,7 +130,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":212,"width":200,"var":"box_bossPos0","height":75,"centerX":0,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -161,7 +143,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":212,"width":200,"var":"box_bossPos1","height":75,"centerX":-215,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -175,7 +156,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":214,"x":542,"width":200,"var":"box_bossPos2","height":75,"centerX":222,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -189,7 +169,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":0,"width":318,"var":"box_bossInfo","height":90,"centerX":0},
                             "nodeParent":35,
@@ -201,7 +180,6 @@
                             "compId":34,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"UIView",
                                     "source":"compart/MonsterIcon_Bossitem.ui",
                                     "props":{"y":8,"x":-24,"var":"ui_Boss"},
@@ -216,7 +194,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":63,"x":41,"width":295,"var":"img_xueTiao_BG","skin":"image/main/progress bar_boss_01.png","height":17},
                                     "nodeParent":34,
@@ -228,7 +205,6 @@
                                     "compId":75,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":1,"x":0,"width":259,"var":"img_xueTiao","skin":"image/main/progress bar_boss_02.png"},
                                             "nodeParent":75,
@@ -243,7 +219,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":57,"x":334,"var":"lbl_xuetiaoCount","text":"X20","strokeColor":"#000000","stroke":3,"fontSize":22,"font":"fzhl","color":"#f02605"},
                                     "nodeParent":34,
@@ -257,7 +232,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":61,"x":84,"width":210,"var":"lab_hp","text":"20000102/200000000","height":18,"fontSize":18,"font":"fzhl","color":"#ffffff"},
                                     "nodeParent":34,
@@ -270,7 +244,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":32,"x":40,"skin":"image/main/frame_guishu.png"},
                                     "nodeParent":34,
@@ -282,7 +255,6 @@
                                     "compId":77,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":2,"x":19,"text":"归属:","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffffff"},
                                             "nodeParent":77,
@@ -296,7 +268,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":2,"x":82,"var":"lbl_guiShu","text":"归属:","strokeColor":"#3a3a3a","stroke":3,"fontSize":25,"font":"FZXK","color":"#ffed8f"},
                                             "nodeParent":77,
@@ -315,6 +286,20 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":797,"x":5,"width":630,"var":"box_content","height":298,"bottom":41},
+            "nodeParent":1,
+            "label":"Box(box_content)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":81,
+            "child":[
+                ]
         }],
     "animations":[
         {

@@ -11,7 +11,6 @@ module view.scene {
 		public setData(jsonData) {
 			this.hbox_prize.removeChildren();
 			for (let i in jsonData.JiangLi) {
-				// jsonData.item[i];
 				let itemBase = new ProtoCmd.ItemBase();
 				itemBase.dwBaseID = jsonData.JiangLi[i].index;
 				itemBase.dwCount = jsonData.JiangLi[i].num;

@@ -137,8 +137,14 @@ module view.wuXue {
 			this.ui_item5.lbl_buWei.text = '身法武学';
 			this.ui_item6.lbl_buWei.text = '招架武学';
 			for (let key in GameApp.MainPlayer.skillInfo) {
+
+
 				let _skillBase = GameApp.MainPlayer.skillInfo[key];
 				let configID = _skillBase.configID;
+				let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
+				if (deleteID == 1) {
+					return;
+				}
 				let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
 				switch (skillType) {
 					// 英雄

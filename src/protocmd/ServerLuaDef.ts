@@ -60,7 +60,7 @@ module ProtoCmd {
 
     /*******************************地图移动******************** */
     // 传送地图
-    export const MAP_MOVE = 'minMapSpaceMove';// 飞地图 (mapid:小地图ID)
+    export const MAP_MOVE = 'minMapSpaceMove';// 飞地图 (mapid:小地图ID)  TabID  默认发0
     // 传送地图到指定坐标
     export const MAP_MOVE_POINT = 'moveToPoint';// (mapid, x, y, str) ：地图ID，地图坐标，附属信息
     // 小地图信息

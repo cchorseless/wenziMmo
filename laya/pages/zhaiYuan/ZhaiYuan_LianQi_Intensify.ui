@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":70,
-    "selecteID":21,
+    "selectedBox":66,
+    "selecteID":89,
     "props":{"width":565,"sceneColor":"#b5b5b5","height":741},
     "nodeParent":-1,
     "label":"View",
@@ -339,7 +339,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":-1,"width":567,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"21,12,18,22","height":243},
+                    "props":{"y":0,"x":-1,"width":567,"skin":"image/juese/shadow_shuzhi.png","sizeGrid":"21,12,18,22","height":243,"alpha":1},
                     "nodeParent":66,
                     "label":"Image",
                     "isDirectory":false,
@@ -526,6 +526,19 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":6,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":242,"x":-1,"width":567,"skin":"image/juese/shadow_shuju.png","sizeGrid":"21,12,18,22","height":89,"alpha":1},
+                    "nodeParent":66,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":89,
                     "child":[
                         ]
                 }]

@@ -24,9 +24,7 @@ module view.scene {
 
 		public addEvent(): void {
 			this.btn_exit.on(Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_CaiLiaoFuBenLikai);
-				lcp.send(pkt);
+				this.leaveFuBen();
 			});
 			this.addLcpEvent();
 		}

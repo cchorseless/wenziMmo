@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.fuBen {
 	export class FuBen_DailyPanel extends ui.fuBen.FuBen_DailyPanelUI {
+		public bossRoomId;
 		constructor() {
 			super();
 		}
@@ -57,6 +58,10 @@ module view.fuBen {
 				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
 				lcp.send(pkt);
 				// PanelManage.Main.img_bottomPartInfoBg.visible = false;
+			});
+			EventManage.onWithEffect(this.btn_go, Laya.UIEvent.CLICK, this, () => {
+				let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.bossRoomId, 0]);
+				lcp.send(pk);
 			});
 		}
 		/**
@@ -157,8 +162,8 @@ module view.fuBen {
 			lcp.send(pkt);
 		}
 		/**
-*更新缉盗悬赏(野外BOSS)
-*/
+         *更新缉盗悬赏(野外BOSS)
+         */
 		public update_yeWai(data: ProtoCmd.itf_FB_JiDaoInfo, index) {
 			//点击发光效果
 			for (let single of this.hbox_boss._childs) {
@@ -185,6 +190,7 @@ module view.fuBen {
 			} else {
 				this.lab_status.text = '可击杀';
 			}
+			this.bossRoomId = SheetConfig.mydb_monster_tbl.getInstance(null).TRANSFER_ROOM('' + data.monid);
 			//BOSS介绍
 			let introduce = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + data.monid);
 			this.lab_detail.text = introduce;

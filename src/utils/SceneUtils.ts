@@ -117,6 +117,7 @@ class SceneManager extends SingletonClass {
                 uiscene.setData();
                 this.box_uiScene1.visible = true;
                 this.box_uiScene1.addChild(uiscene);
+                break;
             // 除魔副本
             case EnumData.emRoomType.chuMoFuBen:
                 this.box_uiScene0.visible = false;
