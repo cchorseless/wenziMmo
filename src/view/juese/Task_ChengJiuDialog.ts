@@ -6,9 +6,10 @@ module view.juese {
 		}
 		public stateData = [];
 		public taskdata;
-		public setData(data: ProtoCmd.itf_JS_ShengWangInfo): Task_ChengJiuDialog {
+		public setData(): Task_ChengJiuDialog {
 			this.panel_achieve.vScrollBarSkin = '';
 			this.vbox_achieve['sortItem'] = (items) => { };
+			let data: ProtoCmd.itf_JS_ShengWangInfo = GameApp.MainPlayer.fameInfo;
 			//声望名称
 			for (let i = 0; data.titletab[i]; i++) {
 				if (data.prestigeid == i) {

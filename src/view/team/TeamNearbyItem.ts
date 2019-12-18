@@ -16,7 +16,7 @@ module view.team {
 			//队伍队长等级
 			this.lbl_monsterlvl.text = '' + item.lvl;
 			//队伍人数
-			this.lbl_number.text = '' + count;
+			// this.lbl_number.text = '' + count;
 			this.addEvent();
 			return this;
 

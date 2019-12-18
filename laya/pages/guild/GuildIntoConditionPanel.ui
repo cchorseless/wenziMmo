@@ -330,13 +330,14 @@
             "props":{"y":668,"x":10},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":178,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":1,"x":2,"width":204,"skin":"image/common/bottom_kouhao.png","height":70},
                     "nodeParent":178,
@@ -348,6 +349,7 @@
                     "compId":176,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":16,"text":"玩家等级设定","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":176,
@@ -362,6 +364,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":100,"x":49},
                     "nodeParent":178,
@@ -373,6 +376,7 @@
                     "compId":144,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":-2,"x":0,"text":"入会等级:","padding":"2","fontSize":30,"font":"FZXK"},
                             "nodeParent":144,
@@ -385,6 +389,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-1,"x":239},
                             "nodeParent":144,
@@ -396,6 +401,7 @@
                             "compId":113,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":0,"x":214,"var":"btn_addLvl","stateNum":"2","skin":"image/guild/but_jiahao_selected_finish.png"},
                                     "nodeParent":113,
@@ -408,6 +414,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":1,"var":"btn_reduceLvl","stateNum":"2","skin":"image/guild/but_jianhao_selected_finish.png"},
                                     "nodeParent":113,
@@ -420,6 +427,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-5,"x":49,"skin":"image/guild/bottom_ruhuidengji.png"},
                                     "nodeParent":113,
@@ -432,6 +440,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":-1,"x":66,"width":117,"var":"lbl_needLv","text":"123","strokeColor":"#000000","stroke":3,"padding":"2","height":34,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":113,
@@ -445,6 +454,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":60,"x":-1,"text":"入会转生等级:","padding":"2","fontSize":30,"font":"FZXK"},
                             "nodeParent":144,
@@ -458,6 +468,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":64,"x":238},
                             "nodeParent":144,
@@ -469,6 +480,7 @@
                             "compId":114,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-1,"x":215,"var":"btn_addzsLvl","stateNum":"2","skin":"image/guild/but_jiahao_selected_finish.png"},
                                     "nodeParent":114,
@@ -481,6 +493,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":1,"var":"btn_reducezsLvl","stateNum":"2","skin":"image/guild/but_jianhao_selected_finish.png"},
                                     "nodeParent":114,
@@ -493,6 +506,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-7,"x":48,"skin":"image/guild/bottom_ruhuidengji.png"},
                                     "nodeParent":114,
@@ -505,6 +519,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":-2,"x":63,"width":127,"var":"lbl_needZsLvl","text":"3","strokeColor":"#000000","stroke":2,"padding":"2","height":34,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":114,
@@ -519,6 +534,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":101,"x":552,"width":55,"var":"btn_changeLvl","stateNum":"2","skin":"image/common/btn_caidan_01_finish.png","labelSize":24,"labelPadding":"-2","labelFont":"Microsoft YaHei","labelColors":"#ffffff,#000000","label":"修\\n改","height":97},
                     "nodeParent":178,
@@ -548,7 +564,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":126,"x":515,"width":102,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"保存","height":50},
+            "props":{"y":126,"x":515,"width":102,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"保存","height":50},
             "nodeParent":1,
             "label":"Button",
             "isDirectory":false,

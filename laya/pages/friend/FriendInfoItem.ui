@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":16,
+    "selectedBox":16,
+    "selecteID":5,
     "props":{"width":526,"sceneColor":"#ffffff","height":83},
     "nodeParent":-1,
     "label":"View",
@@ -55,7 +55,21 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":3,"x":3,"width":77,"var":"img_head","skin":"image/common/npc/npc_icon_1122.png","height":74},
+                    "props":{"y":2,"x":2,"skin":"image/common/frame_touxiang_04.png"},
+                    "nodeParent":16,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":4,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":4,"x":7,"width":70,"var":"img_head","skin":"image/common/icon_nan03.png","height":70},
                     "nodeParent":16,
                     "label":"Image(img_head)",
                     "isDirectory":false,
@@ -65,19 +79,6 @@
                     "child":[
                         ],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":2,"x":2,"skin":"image/common/frame_touxiang_04.png"},
-                    "nodeParent":16,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
                 },
                 {
                     "x":30,

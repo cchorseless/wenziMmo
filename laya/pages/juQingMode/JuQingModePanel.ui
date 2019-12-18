@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":229,
+    "selectedBox":185,
+    "selecteID":184,
     "props":{"width":640,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -18,12 +18,14 @@
             "props":{"x":0,"width":640,"height":1136,"bottom":0},
             "nodeParent":1,
             "label":"Box",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":229,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":640,"skin":"image/main/fram_common_02a.png","height":1136},
                     "nodeParent":229,
@@ -39,6 +41,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":80,"x":0,"width":640,"skin":"image/juQingMode/img_zhizhang.png","sizeGrid":"100,100,100,100","height":1050},
                     "nodeParent":229,
@@ -53,6 +56,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":117,"x":542,"var":"lab_juqingjindu","valign":"middle","text":"60%","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":30,"font":"fzhl","color":"#ffeeb1"},
                     "nodeParent":229,
@@ -66,6 +70,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":119,"x":104,"var":"lbl_charpterName","valign":"middle","text":"我与你的约定","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":24,"font":"fzhl","color":"#ffeeb1"},
                     "nodeParent":229,
@@ -79,6 +84,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":118,"x":26,"width":82,"var":"lbl_charpterTile","valign":"middle","text":"第一章","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":24,"font":"fzhl","color":"#ffeeb1"},
                     "nodeParent":229,
@@ -92,6 +98,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":1071,"x":313,"width":199,"var":"box_jiangLi","height":74,"bottom":22,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,
@@ -177,6 +184,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":1062,"x":319,"var":"btn_next","stateNum":"2","skin":"image/juQingMode/icon_jixu.png","labelStroke":4,"labelSize":25,"labelFont":"Microsoft YaHei","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,
@@ -191,6 +199,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":173,"x":8,"width":620,"var":"panel_0","height":810},
                     "nodeParent":229,
@@ -202,6 +211,7 @@
                     "compId":10,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"var":"vbox_0","space":20,"right":0,"left":0,"align":"center"},
                             "nodeParent":10,
@@ -218,6 +228,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":1071,"var":"btn_prize","stateNum":"2","skin":"image/common/icon_jiangli_finish.png","left":28,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelPadding":"24,0,0,0","labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"奖励","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,
@@ -232,6 +243,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":1070,"x":576,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing.png","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,
@@ -247,17 +259,19 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"width":640,"var":"box_selectQuestion","right":0,"left":0,"height":135,"bottom":0},
                     "nodeParent":229,
                     "label":"Box(box_selectQuestion)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":185,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":-93,"x":0,"skin":"image/common/bottom_tishi2.png","alpha":1},
                             "nodeParent":185,
@@ -272,6 +286,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":-61,"x":0,"width":641,"var":"lbl_selestQuestion","valign":"middle","underlineColor":"#000000","text":"现在向哪个方向走呢？","stroke":4,"height":80,"fontSize":36,"font":"FZHL","color":"#f9f6f6","align":"center"},
                             "nodeParent":185,
@@ -284,6 +299,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":97,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":185,
@@ -296,8 +312,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":95,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":95,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelSize":34,"labelFont":"fzhl","labelColors":"#761a1a,#761a1a","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":185,
                             "label":"Button(btn_selectB)",
                             "isDirectory":false,
@@ -308,9 +325,10 @@
                                 ]
                         }],
                     "$LOCKED":false,
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":77,"x":0,"width":233,"visible":false,"var":"img_panel","skin":"image/juQingMode/bottom_zhangjiemilu.png","height":970},
                     "nodeParent":229,
@@ -350,6 +368,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":46,"x":586,"visible":true,"var":"btn_menu","stateNum":"2","skin":"image/menu/icon_zhenbaoge.png","labelStrokeColor":"#4e2a2a","labelStroke":4,"labelSize":22,"labelPadding":"58","labelFont":"FZHL","labelColors":"#f2f2f2,#f2f2f2","label":"珍宝阁","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,
@@ -363,6 +382,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":44,"x":106,"width":198,"var":"box_pianZhang","height":67,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":229,

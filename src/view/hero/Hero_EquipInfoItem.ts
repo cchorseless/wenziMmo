@@ -224,12 +224,15 @@ module view.hero {
 			//弟子出战状态
 			if (GameApp.MainPlayer.curHero == undefined) {
 				this.img_chuzhan.gray = true;
+				this.lbl_chuzhan.text='休战中';
 			}
 			else {
 				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle) {
 					this.img_chuzhan.gray = false;
+					this.lbl_chuzhan.text='出战中';
 				} else {
 					this.img_chuzhan.gray = true;
+					this.lbl_chuzhan.text='休战中';
 				}
 			}
 		}

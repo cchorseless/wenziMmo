@@ -650,6 +650,8 @@ module view.main {
 		public getShengWangInfo(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
+				//我的声望信息
+				GameApp.MainPlayer.fameInfo=jsonData;
 				// 更新声望等级描述
 				LangConfig.Fametitletab = jsonData.titletab;
 			})

@@ -14,17 +14,16 @@ module view.juese {
 			this.tab_juese.selectHandler = Laya.Handler.create(this, (index) => {
 				this.view_juese.selectedIndex = index;
 			}, null, false);
-
 			this.addEvent();
 			this.init_personInfo();
 			this.init_personBase();
 			this.init_personMoney();
 		}
 		public addEvent(): void {
-			// //装扮
-			// this.btn_zhuangBan.on(Laya.UIEvent.CLICK, this, () => {
-			// 	PanelManage.openClothePanel();
-			// })
+			//任务成就
+			this.btn_taskAchieve.on(Laya.UIEvent.CLICK, this, () => {
+				new view.juese.Task_ChengJiuDialog().setData().popup(true);
+			})
 			//生辰八字
 			this.btn_birthEnter.on(Laya.UIEvent.CLICK, this, () => {
 				new view.juese.PersonBirthDialog().popup(true);

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":41,
+    "selecteID":76,
     "props":{"width":569,"height":643},
     "nodeParent":-1,
     "label":"Dialog",
@@ -49,26 +49,28 @@
             "props":{"x":52,"width":460,"var":"viw_model","selectedIndex":0,"height":73,"bottom":29},
             "nodeParent":1,
             "label":"ViewStack(viw_model)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":41,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":0,"right":0,"name":"item0","left":0,"height":60,"centerY":0},
                     "nodeParent":41,
                     "label":"Box(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":37,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":0,"width":150,"var":"btn_playerUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","left":40,"labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"主角穿戴","height":60},
+                            "props":{"y":0,"width":150,"var":"btn_playerUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","left":40,"labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"主角穿戴","height":60},
                             "nodeParent":37,
                             "label":"Button(btn_playerUse)",
                             "isDirectory":false,
@@ -79,8 +81,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":0,"width":150,"var":"btn_tuDiUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"Fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"徒弟穿戴","height":60},
+                            "props":{"y":0,"width":150,"var":"btn_tuDiUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"Fzxk","labelColors":"#761a1a,#761a1a","label":"徒弟穿戴","height":60},
                             "nodeParent":37,
                             "label":"Button(btn_tuDiUse)",
                             "isDirectory":false,
@@ -88,13 +91,15 @@
                             "hasChild":false,
                             "compId":21,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":true
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":155,"width":150,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item1","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":60},
+                    "props":{"y":6,"x":155,"width":150,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item1","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"存入仓库","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_putToCangKu)",
                     "isDirectory":false,
@@ -107,6 +112,7 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":0,"right":0,"name":"item2","left":0,"height":60,"centerY":0},
                     "nodeParent":41,
@@ -156,7 +162,7 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":10,"x":315,"width":105,"var":"btn_goSell","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"上架","height":45},
+                            "props":{"y":10,"x":315,"width":105,"var":"btn_goSell","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"上架","height":45},
                             "nodeParent":50,
                             "label":"Button(btn_goSell)",
                             "isOpen":true,
@@ -166,13 +172,14 @@
                             "compId":55,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":155,"width":150,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item3","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":60},
+                    "props":{"y":7,"x":155,"width":150,"var":"btn_putBackCangKu","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item3","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"取出","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_putBackCangKu)",
                     "isDirectory":false,
@@ -184,8 +191,9 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":7,"x":155,"width":150,"var":"btn_noLongerUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item4","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"卸下","height":60},
+                    "props":{"y":7,"x":155,"width":150,"var":"btn_noLongerUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item4","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"卸下","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_noLongerUse)",
                     "isDirectory":false,
@@ -197,8 +205,9 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":6,"x":155,"width":150,"var":"btn_putToHuiShou","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item5","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"放入熔炉","height":60},
+                    "props":{"y":6,"x":155,"width":150,"var":"btn_putToHuiShou","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item5","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"放入熔炉","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_putToHuiShou)",
                     "isDirectory":false,
@@ -210,8 +219,9 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":12,"x":154,"width":150,"var":"btn_juanXian","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item6","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"捐献","height":60},
+                    "props":{"y":12,"x":154,"width":150,"var":"btn_juanXian","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item6","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"捐献","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_juanXian)",
                     "isDirectory":false,
@@ -223,17 +233,19 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"right":0,"name":"item7","left":10,"height":60,"centerY":2},
                     "nodeParent":41,
                     "label":"Box(item7)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":65,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":12,"x":142,"width":108,"skin":"image/common/bottom_gouyu.png","height":35},
                             "nodeParent":65,
@@ -246,6 +258,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":122,"skin":"image/main/icon_common_yuanbao01.png"},
                             "nodeParent":65,
@@ -258,6 +271,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":17,"x":163,"width":85,"var":"lbl_duiHuanPrice","text":"0","strokeColor":"#000000","stroke":2,"height":21,"fontSize":22,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":65,
@@ -270,6 +284,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":14,"x":15,"width":107,"text":"消耗帮贡:","strokeColor":"#63491a","stroke":0.8,"height":28,"fontSize":24,"font":"fzxk","color":"#63491a","align":"center"},
                             "nodeParent":65,
@@ -283,8 +298,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":5,"x":315,"width":105,"var":"btn_duiHuan","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":28,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"兑换","height":45},
+                            "props":{"y":5,"x":315,"width":105,"var":"btn_duiHuan","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":40,"labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"兑换","height":45},
                             "nodeParent":65,
                             "label":"Button(btn_duiHuan)",
                             "isDirectory":false,
@@ -298,8 +314,9 @@
                     "$HIDDEN":true
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":11,"x":154,"width":150,"var":"btn_putBackHuiShou","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item8","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"取出","height":60},
+                    "props":{"y":11,"x":154,"width":150,"var":"btn_putBackHuiShou","stateNum":"2","skin":"image/common/button_qianwang_red.png","name":"item8","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"取出","height":60},
                     "nodeParent":41,
                     "label":"Button(btn_putBackHuiShou)",
                     "isOpen":true,
@@ -309,7 +326,7 @@
                     "compId":76,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
