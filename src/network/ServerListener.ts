@@ -593,23 +593,29 @@ class ServerListener extends SingletonClass {
         if (targeter) {
 
 
-            let e = new Laya.Image();
+            let e = new view.wuXue.WuXue_SkillEffect()
             let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
             let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;
-            e.skin = 'image/common/skillName/' + skillEff + '.png'
-            
-            let p = targeter.ui_item.localToGlobal(new Laya.Point());
-            e.anchorX = e.anchorY = 0.5;
-            e.y = p.y + (targeter.ui_item.height/2);
-            e.x = p.x+ (targeter.ui_item.width/2);
-            e.scaleX = e.scaleY = 1;
+            e.setData(0, skillEff)
+            e.y = Laya.stage.height / 3 - 50;
+            e.x = e.width * (-1);
+            e.scaleX = e.scaleY = 0.8;
+
+            // let p = targeter.ui_item.localToGlobal(new Laya.Point());
+            // e.anchorX = e.anchorY = 0.5;
+            // e.y = p.y + (targeter.ui_item.height/2);
+            // e.x = p.x+ (targeter.ui_item.width/2);
+            // e.scaleX = e.scaleY = 1;
             // e.alpha
-            
+
             PanelManage.Main.addChild(e)
-            Laya.Tween.to(e, { y: e.y - 100,alpha:0.3}, 800, null, Laya.Handler.create(this, () => {
-                PanelManage.Main.removeChild(e)
+            Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width*0.3)) }, 500, null, Laya.Handler.create(this, () => {
+                Laya.Tween.to(e, { alpha:0.3 }, 1000, null, Laya.Handler.create(this, () => {
+                    PanelManage.Main.removeChild(e)
+                }))
             }))
+            
 
 
 
