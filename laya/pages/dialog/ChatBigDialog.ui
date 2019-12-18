@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":38,
+    "selectedBox":23,
+    "selecteID":25,
     "props":{"width":618,"sceneColor":"#f4afae","height":932},
     "nodeParent":-1,
     "label":"View",
@@ -322,7 +322,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":11,"x":461,"width":85,"var":"btn_send","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"发送","height":43},
+                            "props":{"y":11,"x":461,"width":85,"var":"btn_send","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#c30e0e","labelSize":26,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"发送","height":43},
                             "nodeParent":23,
                             "label":"Button(btn_send)",
                             "isDirectory":false,
@@ -356,14 +356,13 @@
             "props":{"y":25,"x":51,"var":"btn_set","stateNum":"1","skin":"image/juese/box_common_01.png"},
             "nodeParent":1,
             "label":"Button(btn_set)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":38,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":11,"x":11,"width":42,"stateNum":"1","skin":"image/common/icon_common_shezhi.png","labelSize":22,"labelPadding":"40","labelFont":"fzhl","height":42},
                     "nodeParent":38,
@@ -375,7 +374,6 @@
                     "compId":36,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":40,"x":-1,"text":"设置","fontSize":22,"font":"fzhl","color":"#623e24"},
                             "nodeParent":36,

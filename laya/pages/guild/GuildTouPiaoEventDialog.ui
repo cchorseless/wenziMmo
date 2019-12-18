@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":32,
+    "selecteID":16,
     "referenceLines":null,
     "props":{"width":569,"sceneColor":"#e5c5c5","height":562},
     "nodeParent":-1,
@@ -253,26 +253,28 @@
                             "props":{"y":384,"width":495,"var":"viw_0","height":57},
                             "nodeParent":34,
                             "label":"ViewStack(viw_0)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":31,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":8,"x":76,"name":"item0"},
                                     "nodeParent":31,
                                     "label":"Box(item0)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":32,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
-                                            "props":{"width":143,"var":"btn_agree","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"同意","height":41},
+                                            "props":{"width":143,"var":"btn_agree","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"同意","height":41},
                                             "nodeParent":32,
                                             "label":"Button(btn_agree)",
                                             "isDirectory":false,
@@ -284,8 +286,9 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
-                                            "props":{"x":208,"width":143,"var":"btn_refuse","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"反对","height":41},
+                                            "props":{"x":208,"width":143,"var":"btn_refuse","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"反对","height":41},
                                             "nodeParent":32,
                                             "label":"Button(btn_refuse)",
                                             "isDirectory":false,
@@ -299,6 +302,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":8,"x":184,"width":143,"var":"btn_result","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","name":"item1","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#FFFFFF,#FFFFFF,#FFFFFF","label":"结果","height":41},
                                     "nodeParent":31,
@@ -311,12 +315,12 @@
                                         ],
                                     "$HIDDEN":true
                                 }],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":289,"x":167,"width":158,"var":"btn_info","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"查看详情","height":53},
+                            "props":{"y":289,"x":167,"width":158,"var":"btn_info","stateNum":2,"skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"查看详情","height":53},
                             "nodeParent":34,
                             "label":"Button(btn_info)",
                             "isDirectory":false,

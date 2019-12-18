@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":100,
-    "selecteID":98,
+    "selectedBox":115,
+    "selecteID":21,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -981,13 +981,14 @@
             "props":{"y":352,"x":43},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":115,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":27,"x":34,"width":109,"height":22},
                     "nodeParent":115,
@@ -999,6 +1000,7 @@
                     "compId":52,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":6,"skin":"image/common/Progressbar_gang_bottom.png","sizeGrid":"0,17,0,13","right":0,"left":0},
                             "nodeParent":52,
@@ -1013,6 +1015,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"skin":"image/common/Progressbar_gang_top.png","sizeGrid":"5,11,5,5","right":0,"left":0,"height":7},
                             "nodeParent":52,
@@ -1026,6 +1029,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":-13,"x":17,"width":79,"var":"lbl_exp","text":"150/200","strokeColor":"#000000","stroke":4,"height":22,"fontSize":18,"font":"FZHL","color":"#ffffff","align":"left"},
                             "nodeParent":52,
@@ -1040,6 +1044,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"skin":"image/main/icon_haogandu.png"},
                     "nodeParent":115,
@@ -1051,6 +1056,7 @@
                     "compId":14,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":9,"x":15,"width":20,"var":"lbl_haoGan","text":"6","strokeColor":"#000000","stroke":4,"height":29,"fontSize":26,"font":"Microsoft YaHei","color":"#ffffff","align":"left"},
                             "nodeParent":14,
@@ -1065,8 +1071,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":48,"x":37,"width":93,"var":"btn_songLi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":25,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"赠送","height":43},
+                    "props":{"y":48,"x":37,"width":93,"var":"btn_songLi","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":25,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"赠送","height":43},
                     "nodeParent":115,
                     "label":"Button(btn_songLi)",
                     "isOpen":true,

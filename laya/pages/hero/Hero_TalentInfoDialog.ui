@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":1,
-    "selecteID":2,
+    "selectedBox":15,
+    "selecteID":9,
     "props":{"width":500,"sceneColor":"#954e4d","height":400},
     "nodeParent":-1,
     "label":"Dialog",
@@ -79,7 +79,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":36,"x":78,"width":143,"var":"btn_cancel","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":6,"labelSize":34,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"遗忘","height":51},
+                            "props":{"y":36,"x":78,"width":143,"var":"btn_cancel","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelSize":34,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"遗忘","height":51},
                             "nodeParent":15,
                             "label":"Button(btn_cancel)",
                             "isDirectory":false,
@@ -147,7 +147,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":38,"x":45,"width":143,"var":"btn_save","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelStroke":6,"labelSize":34,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"点亮","height":51},
+                            "props":{"y":38,"x":45,"width":143,"var":"btn_save","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"0,31,0,33","labelStrokeColor":"#000000","labelSize":34,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"点亮","height":51},
                             "nodeParent":14,
                             "label":"Button(btn_save)",
                             "isDirectory":false,
@@ -158,7 +158,7 @@
                                 ]
                         }],
                     "$LOCKED":true,
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":true
         },

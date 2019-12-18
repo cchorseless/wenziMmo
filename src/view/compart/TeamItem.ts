@@ -39,7 +39,6 @@ module view.team {
 			this.btn_manage.on(Laya.UIEvent.CLICK, this, () => {
 				new view.team.TeamMemberDialog().setData(this.item).popup(true);
 			});
-
 		}
 	}
 }

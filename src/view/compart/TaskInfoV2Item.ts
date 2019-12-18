@@ -149,7 +149,7 @@ module view.compart {
 				case 9:
 					this.img_taskTypeBg.skin = 'image/main/img_task04.png';
 					this.lbl_taskType.text = '隐藏成就';
-					this.lbl_taskType.strokeColor = '#b65c41';
+					this.lbl_taskType.strokeColor = '#4595b1';
 					break;
 			}
 			//成就名
@@ -181,14 +181,17 @@ module view.compart {
 				//奖励领取状态0不可领1可领2已领
 				case 0:
 					this.btn_go.label = '未达成';
+					this.btn_go.labelSize=22;
 					this.btn_go.disabled = true;
 					break;
 				case 1:
 					this.btn_go.label = '领取';
+					this.btn_go.labelSize=28;
 					this.btn_go.disabled = false;
 					break;
 				case 2:
 					this.btn_go.label = '已领取';
+					this.btn_go.labelSize=22;
 					this.btn_go.disabled = true;
 					break;
 			}
