@@ -121,7 +121,7 @@ module view.scene {
 			}
 			if (keys.length > 0) {
 				for (let key of keys) {
-					if(parseInt(key) > 5){
+					if (parseInt(key) > 5) {
 						return;
 					}
 					let showDetailID = (selfSkill[key]).i64Id.int64ToNumber();
@@ -136,13 +136,13 @@ module view.scene {
 				// this.useSkillID[5] = id;
 			}
 			else {
-			let defaultConfigID: string = GameApp.MainPlayer.default_skill;
-			let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
-			// let id = ['20001', '20065', '20017'][GameApp.MainPlayer.job - 1];
-			this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
-			this.skillID = [defaultConfigID];
-			this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
-			// this.useSkillID[1] = defaulticon;
+				let defaultConfigID: string = GameApp.MainPlayer.default_skill;
+				let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
+				// let id = ['20001', '20065', '20017'][GameApp.MainPlayer.job - 1];
+				this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
+				this.skillID = [defaultConfigID];
+				this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
+				// this.useSkillID[1] = defaulticon;
 			}
 
 		}
@@ -154,8 +154,10 @@ module view.scene {
 			let skillInfo = GameApp.MainPlayer.skillInfo;
 			if (parseInt(job) > 0) {
 				let index = '500' + job;
-				let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
-				this.btn_kill5.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+				if (skillInfo[index]) {
+					let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
+					this.btn_kill5.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+				}
 			} else {
 				this.btn_kill5.skin = 'image/common/frame_ketianjia.png';
 			}

@@ -190,9 +190,11 @@ module view.hero {
 				//合击技能
 				let skillInfo = GameApp.MainPlayer.skillInfo;
 				let index = '500' + this.job;
-				let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
-				this.btn_wuxue.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
-				this.lbl_wuxue.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillInfo[index].configID)
+				if (skillInfo[index]) {
+					let heji_icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(skillInfo[index].configID)
+					this.btn_wuxue.skin = "image/common/skill/skill_icon_" + heji_icon + ".png";
+					this.lbl_wuxue.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(skillInfo[index].configID)
+				}
 				// 装备
 				for (let i = 0; i < 10; i++) {
 					(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
@@ -224,15 +226,15 @@ module view.hero {
 			//弟子出战状态
 			if (GameApp.MainPlayer.curHero == undefined) {
 				this.img_chuzhan.gray = true;
-				this.lbl_chuzhan.text='休战中';
+				this.lbl_chuzhan.text = '休战中';
 			}
 			else {
 				if (GameApp.MainPlayer.heroObj(this.job).isOnBattle) {
 					this.img_chuzhan.gray = false;
-					this.lbl_chuzhan.text='出战中';
+					this.lbl_chuzhan.text = '出战中';
 				} else {
 					this.img_chuzhan.gray = true;
-					this.lbl_chuzhan.text='休战中';
+					this.lbl_chuzhan.text = '休战中';
 				}
 			}
 		}
