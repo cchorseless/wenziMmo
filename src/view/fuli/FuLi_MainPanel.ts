@@ -14,7 +14,6 @@ module view.fuli {
 		public data = [];//实际上存在的动态福利
 		constructor() {
 			super();
-			this.panel_tab.hScrollBarSkin = '';
 		}
 		public setData(): void {
 			for (let i = 0; i < this.activityState.length; i++) {
@@ -56,11 +55,6 @@ module view.fuli {
 			PopUpManager.Dispose(this)
 		}
 		public init_view(id): void {
-			if (id == 0) {
-				this.img_left.visible = this.img_right.visible = false;
-			} else {
-				this.img_left.visible = this.img_right.visible = true;
-			}
 			this.viw_fuli.selectedIndex = id;
 			let box = this.viw_fuli.getChildAt(id);
 			if (box.numChildren == 0) {

@@ -14,14 +14,14 @@ module view.map {
 			this.lab_location.text = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
 			// 中间自己
 			// this.btn_mapCenter.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + roomId);
-			// this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 18 : 25;
+			this.btn_mapCenter.labelSize = (this.btn_mapCenter.label.length > 3) ? 20 : 25;
 			// this.btn_mapCenter.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + roomId) + '.png';
 			// 左侧
 			this.img_lineLeft.visible = Boolean(mapInfo.left);
 			if (mapInfo.left) {
 				this.btn_mapLeft.visible = true;
 				this.btn_mapLeft.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.left);
-				// this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 18 : 25;
+				this.btn_mapLeft.labelSize = (this.btn_mapLeft.label.length > 3) ? 20 : 25;
 				// this.btn_mapLeft.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.left) + '.png';
 			}
 			else {
@@ -32,7 +32,7 @@ module view.map {
 			if (mapInfo.down) {
 				this.btn_mapDown.visible = true;
 				this.btn_mapDown.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.down);
-				// this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 18 : 25;
+				this.btn_mapDown.labelSize = (this.btn_mapDown.label.length > 3) ? 20 : 25;
 				// this.btn_mapDown.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.down) + '.png';
 			}
 			else {
@@ -43,7 +43,7 @@ module view.map {
 			if (mapInfo.up) {
 				this.btn_mapUp.visible = true;
 				this.btn_mapUp.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.up);
-				// this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 18 : 25;
+				this.btn_mapUp.labelSize = (this.btn_mapUp.label.length > 3) ? 20 : 25;
 				// this.btn_mapUp.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.up) + '.png';
 			}
 			else {
@@ -54,7 +54,7 @@ module view.map {
 			if (mapInfo.right) {
 				this.btn_mapRight.visible = true;
 				this.btn_mapRight.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + mapInfo.right);
-				// this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 18 : 25;
+				this.btn_mapRight.labelSize = (this.btn_mapRight.label.length > 3) ? 20 : 25;
 				// this.btn_mapRight.skin = 'image/map/smallMap/smallmap_icon_' + SheetConfig.mapRoomSheet.getInstance(null).ICONPIC('' + mapInfo.right) + '.png';
 			}
 			else {

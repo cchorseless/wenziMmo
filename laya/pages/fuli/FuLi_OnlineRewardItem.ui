@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":41,
-    "props":{"width":621,"sceneColor":"#ffffff","height":799},
+    "selecteID":93,
+    "props":{"width":598,"sceneColor":"#ffffff","height":829},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,265 +14,108 @@
     "child":[
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","right":0,"left":0,"bottom":0,"alpha":0.7},
+            "type":"Box",
+            "props":{"y":0,"x":0,"width":598,"height":829},
             "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":82,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":566,"x":-2,"width":623,"skin":"image/common/img_sc_zs02.png","sizeGrid":"13,19,18,18","height":59},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":57,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":309,"x":-2,"width":623,"skin":"image/common/img_sc_zs02.png","sizeGrid":"13,19,18,18","height":59},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":56,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":564,"x":315,"width":260,"skin":"image/common/img_sc_zs04.png","height":46},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
+            "label":"Box",
+            "isOpen":null,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":61,
+            "compId":93,
             "child":[
                 {
-                    "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":17,"x":2,"width":256,"var":"div_time4","innerHTML":"htmlText","height":27},
-                    "nodeParent":61,
-                    "label":"HTMLDivElement(div_time4)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":83,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":563,"x":45,"width":260,"skin":"image/common/img_sc_zs04.png","height":46},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":60,
-            "child":[
-                {
-                    "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":17,"x":2,"width":256,"var":"div_time3","innerHTML":"htmlText","height":27},
-                    "nodeParent":60,
-                    "label":"HTMLDivElement(div_time3)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":84,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":308,"x":315,"width":260,"skin":"image/common/img_sc_zs04.png","height":46},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":59,
-            "child":[
-                {
-                    "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":17,"x":2,"width":256,"var":"div_time2","innerHTML":"htmlText","height":27},
-                    "nodeParent":59,
-                    "label":"HTMLDivElement(div_time2)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":85,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":308,"x":45,"width":260,"skin":"image/common/img_sc_zs04.png","height":46},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":58,
-            "child":[
-                {
-                    "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":17,"x":2,"width":256,"var":"div_time1","innerHTML":"htmlText","height":27},
-                    "nodeParent":58,
-                    "label":"HTMLDivElement(div_time1)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":86,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":3,"x":1,"width":618,"skin":"image/menu/bottom_list.png","height":114},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":50,
-            "child":[
-                {
-                    "x":30,
                     "type":"Image",
-                    "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
-                    "nodeParent":50,
+                    "props":{"width":598,"skin":"image/menu/bottom_list.png","height":129},
+                    "nodeParent":93,
                     "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":51,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
-                    "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":52,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"HTMLDivElement",
-                    "props":{"y":78,"x":438,"width":170,"var":"div_onLineTime","innerHTML":"htmlText","height":27},
-                    "nodeParent":50,
-                    "label":"HTMLDivElement(div_onLineTime)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":87,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":79,"x":341,"text":"今日在线：","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#404040"},
-                    "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":5,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":11,"x":130,"wordWrap":true,"width":401,"text":"记得每天都来领取每日在线奖励喵~~每日在想达到要求，即可领取奖励","strokeColor":"#000000","leading":8,"height":52,"fontSize":24,"font":"FZHL","color":"#404040"},
-                    "nodeParent":50,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
-            "$LOCKED":false,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":123,"x":76,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
-                    "nodeParent":8,
-                    "label":"Image",
-                    "isOpen":null,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":12,
+                    "compId":50,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
+                            "nodeParent":50,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":51,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
+                            "nodeParent":50,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":52,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"HTMLDivElement",
+                            "props":{"y":78,"x":438,"width":170,"var":"div_onLineTime","innerHTML":"htmlText","height":27},
+                            "nodeParent":50,
+                            "label":"HTMLDivElement(div_onLineTime)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":87,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":79,"x":341,"text":"今日在线：","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#404040"},
+                            "nodeParent":50,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":5,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":11,"x":130,"wordWrap":true,"width":401,"text":"记得每天都来领取每日在线奖励喵~~每日在想达到要求，即可领取奖励","strokeColor":"#000000","leading":8,"height":52,"fontSize":24,"font":"FZHL","color":"#404040"},
+                            "nodeParent":50,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":4,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$LOCKED":false,
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":135,"x":10,"width":270,"skin":"image/common/tab_rw_04.png","sizeGrid":"32,29,17,27","height":256},
+                    "nodeParent":93,
+                    "label":"Image",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":8,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":12,"x":13,"text":"礼包一","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":12,
+                            "props":{"y":8,"x":96,"text":"礼包一","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":8,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -280,67 +123,63 @@
                             "compId":13,
                             "child":[
                                 ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":103,"x":136,"width":171,"var":"img_treasureBox1","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":8,
+                            "label":"Image(img_treasureBox1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":10,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"HTMLDivElement",
+                            "props":{"y":208,"x":7,"width":256,"var":"div_time1","innerHTML":"htmlText","height":27},
+                            "nodeParent":8,
+                            "label":"HTMLDivElement(div_time1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":86,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":180,"x":44,"width":182,"var":"btn_get1","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"可领取","height":61},
+                            "nodeParent":8,
+                            "label":"Button(btn_get1)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":220,"x":174,"width":171,"var":"img_treasureBox1","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Image(img_treasureBox1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":10,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":303,"x":99,"width":153,"var":"btn_get1","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"可领取","height":55},
-            "nodeParent":1,
-            "label":"Button(btn_get1)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":123,"x":346,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":15,
-            "child":[
+                },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
-                    "nodeParent":15,
+                    "props":{"y":135,"x":313,"width":270,"skin":"image/common/tab_rw_04.png","sizeGrid":"32,29,17,27","height":256},
+                    "nodeParent":93,
                     "label":"Image",
-                    "isOpen":null,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":17,
+                    "compId":15,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":12,"x":13,"text":"礼包二","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":17,
+                            "props":{"y":8,"x":96,"text":"礼包二","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":15,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -348,65 +187,63 @@
                             "compId":18,
                             "child":[
                                 ]
-                        }]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":220,"x":444,"width":171,"var":"img_treasureBox2","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Image(img_treasureBox2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":16,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":303,"x":369,"width":153,"var":"btn_get2","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"可领取","height":55},
-            "nodeParent":1,
-            "label":"Button(btn_get2)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":376,"x":76,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":21,
-            "child":[
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":103,"x":136,"width":171,"var":"img_treasureBox2","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":15,
+                            "label":"Image(img_treasureBox2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"HTMLDivElement",
+                            "props":{"y":208,"x":7,"width":256,"var":"div_time2","innerHTML":"htmlText","height":27},
+                            "nodeParent":15,
+                            "label":"HTMLDivElement(div_time2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":85,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":180,"x":44,"width":182,"var":"btn_get2","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"可领取","height":61},
+                            "nodeParent":15,
+                            "label":"Button(btn_get2)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":20,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
-                    "nodeParent":21,
+                    "props":{"y":402,"x":10,"width":270,"skin":"image/common/tab_rw_04.png","sizeGrid":"32,29,17,27","height":256},
+                    "nodeParent":93,
                     "label":"Image",
-                    "isOpen":null,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":23,
+                    "compId":21,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":12,"x":13,"text":"礼包三","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":23,
+                            "props":{"y":8,"x":96,"text":"礼包三","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":21,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -414,65 +251,62 @@
                             "compId":24,
                             "child":[
                                 ]
-                        }]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":473,"x":174,"width":171,"var":"img_treasureBox3","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Image(img_treasureBox3)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":22,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":558,"x":99,"width":153,"var":"btn_get3","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"可领取","height":55},
-            "nodeParent":1,
-            "label":"Button(btn_get3)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":26,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":377,"x":347,"width":198,"skin":"image/common/fram_common_11.png","sizeGrid":"32,29,17,27","height":195},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":27,
-            "child":[
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":103,"x":136,"width":171,"var":"img_treasureBox3","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":21,
+                            "label":"Image(img_treasureBox3)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":22,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"HTMLDivElement",
+                            "props":{"y":208,"x":7,"width":256,"var":"div_time3","innerHTML":"htmlText","height":27},
+                            "nodeParent":21,
+                            "label":"HTMLDivElement(div_time3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":84,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":180,"x":44,"width":182,"var":"btn_get3","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"可领取","height":61},
+                            "nodeParent":21,
+                            "label":"Button(btn_get3)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":-8,"x":3,"width":135,"skin":"image/common/img_duizhang.png","height":43},
-                    "nodeParent":27,
+                    "props":{"y":402,"x":313,"width":270,"skin":"image/common/tab_rw_04.png","sizeGrid":"32,29,17,27","height":256},
+                    "nodeParent":93,
                     "label":"Image",
-                    "isOpen":null,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":29,
+                    "compId":27,
                     "child":[
                         {
                             "type":"Label",
-                            "props":{"y":12,"x":13,"text":"礼包四","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":29,
+                            "props":{"y":8,"x":96,"text":"礼包四","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":27,
                             "label":"Label",
                             "isDirectory":false,
                             "isAniNode":true,
@@ -480,357 +314,354 @@
                             "compId":30,
                             "child":[
                                 ]
-                        }]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":474,"x":445,"width":171,"var":"img_treasureBox4","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Image(img_treasureBox4)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":28,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":558,"x":369,"width":153,"var":"btn_get4","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"可领取","height":55},
-            "nodeParent":1,
-            "label":"Button(btn_get4)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":32,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":628,"x":0,"width":622,"skin":"image/menu/bottom_list.png","height":168},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":33,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":636,"x":153,"text":"每周在线时间兑换礼券","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZHL","color":"#ffffff"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":34,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":681,"x":29,"width":187.6171875,"text":"上周累计礼券:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":35,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":675,"x":217,"width":36,"skin":"image/main/icon_coin_2.png","height":36},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":62,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":680,"x":251,"width":58.0078125,"var":"lbl_lastweek","text":"100","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_lastweek)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":36,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":714,"x":29,"width":187.6171875,"text":"本周累计礼券:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":37,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":714,"x":217,"width":36,"skin":"image/main/icon_coin_2.png","height":36},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":63,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":715,"x":250,"width":58.0078125,"var":"lbl_thisweek","text":"100","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_thisweek)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":38,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":748,"x":30,"width":188,"text":"在线礼券效率:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":39,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":748,"x":217,"width":83.203125,"var":"lbl_xiaolu","text":"100/h","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
-            "nodeParent":1,
-            "label":"Label(lbl_xiaolu)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":64,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":683,"x":392,"width":153,"var":"btn_get5","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"领 取","height":55},
-            "nodeParent":1,
-            "label":"Button(btn_get5)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":41,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":735,"x":386,"wordWrap":true,"width":176,"text":"本周累计礼券下周一领取","strokeColor":"#000000","height":55,"fontSize":26,"font":"FZHL","color":"#000000","align":"center"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":40,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":629,"x":583,"var":"btn_detail","stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
-            "nodeParent":1,
-            "label":"Button(btn_detail)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":65,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":661,"x":583,"width":376,"var":"img_rule","skin":"image/common/box_common_03.png","scaleY":0,"scaleX":0,"height":338,"anchorY":1,"anchorX":1},
-            "nodeParent":1,
-            "label":"Image(img_rule)",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":66,
-            "child":[
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":103,"x":136,"width":171,"var":"img_treasureBox4","skin":"image/common/icon_bigbaoxiang_1close.png","height":171,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":27,
+                            "label":"Image(img_treasureBox4)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":28,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"HTMLDivElement",
+                            "props":{"y":208,"x":7,"width":256,"var":"div_time4","innerHTML":"htmlText","height":27},
+                            "nodeParent":27,
+                            "label":"HTMLDivElement(div_time4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":83,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Button",
+                            "props":{"y":180,"x":44,"width":182,"var":"btn_get4","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"可领取","height":61},
+                            "nodeParent":27,
+                            "label":"Button(btn_get4)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":32,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
                 {
                     "type":"Image",
-                    "props":{"y":4,"x":5,"width":366,"skin":"image/common/title_tanchuang3.png","height":37},
-                    "nodeParent":66,
+                    "props":{"y":667,"width":596,"skin":"image/menu/bottom_list.png","height":162},
+                    "nodeParent":93,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":67,
+                    "compId":33,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
                     "type":"Label",
-                    "props":{"y":6,"x":128,"text":"规则说明","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":66,
+                    "props":{"y":675,"x":137,"text":"每周在线时间兑换礼券","strokeColor":"#000000","stroke":4,"fontSize":32,"font":"FZHL","color":"#ffffff"},
+                    "nodeParent":93,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":68,
+                    "compId":34,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":718,"x":28,"width":187.6171875,"text":"上周累计礼券:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
+                    "nodeParent":93,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":35,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":716,"x":217,"width":36,"skin":"image/main/icon_coin_2.png","height":36},
+                    "nodeParent":93,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":62,
                     "child":[
                         ]
                 },
                 {
                     "type":"Label",
-                    "props":{"y":47,"x":21,"wordWrap":true,"width":354,"text":"开服第一周，每周一小时在线可增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":66,
-                    "label":"Label",
+                    "props":{"y":717,"x":248,"width":58.0078125,"var":"lbl_lastweek","text":"100","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":93,
+                    "label":"Label(lbl_lastweek)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":44,
+                    "compId":36,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
                     "type":"Label",
-                    "props":{"y":73,"x":94,"width":78.9375,"text":"60礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
-                    "nodeParent":66,
+                    "props":{"y":751,"x":28,"width":187.6171875,"text":"本周累计礼券:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
+                    "nodeParent":93,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":43,
+                    "compId":37,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Label",
-                    "props":{"y":104,"x":23,"wordWrap":true,"width":354,"text":"开服第二周，每周一小时在线可增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":66,
-                    "label":"Label",
+                    "type":"Image",
+                    "props":{"y":751,"x":217,"width":36,"skin":"image/main/icon_coin_2.png","height":36},
+                    "nodeParent":93,
+                    "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":78,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":130,"x":96,"width":78.9375,"text":"80礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
-                    "nodeParent":66,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":79,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":166,"x":22,"wordWrap":true,"width":354,"text":"开服第三周及以后，每周一小时在线可累计增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":66,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":80,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":192,"x":210,"width":94.40625,"text":"100礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
-                    "nodeParent":66,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":81,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":222,"x":170,"text":"70小时","strokeColor":"#000000","fontSize":26,"font":"FZHL","color":"#dc53cd"},
-                    "nodeParent":66,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":69,
+                    "compId":63,
                     "child":[
                         ]
                 },
                 {
                     "type":"Label",
-                    "props":{"y":224,"x":15,"width":355,"text":"每周最大累计                 在线时间","strokeColor":"#000000","leading":8,"height":20,"fontSize":24,"font":"FZHL","color":"#ffffff"},
-                    "nodeParent":66,
+                    "props":{"y":752,"x":250,"width":58.0078125,"var":"lbl_thisweek","text":"100","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":93,
+                    "label":"Label(lbl_thisweek)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":38,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":785,"x":29,"width":188,"text":"在线礼券效率:","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#000000"},
+                    "nodeParent":93,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":48,
+                    "compId":39,
                     "child":[
                         ],
                     "$HIDDEN":false
-                }],
-            "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":785,"x":217,"width":83.203125,"var":"lbl_xiaolu","text":"100/h","strokeColor":"#000000","leading":8,"height":38,"fontSize":30,"font":"FZHL","color":"#63491a"},
+                    "nodeParent":93,
+                    "label":"Label(lbl_xiaolu)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":64,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":710,"x":377,"var":"btn_get5","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"领 取"},
+                    "nodeParent":93,
+                    "label":"Button(btn_get5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":41,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":773,"x":385,"wordWrap":true,"width":176,"text":"本周累计礼券下周一领取","strokeColor":"#000000","height":55,"fontSize":26,"font":"FZHL","color":"#000000","align":"center"},
+                    "nodeParent":93,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":40,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":668,"x":556,"var":"btn_detail","stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
+                    "nodeParent":93,
+                    "label":"Button(btn_detail)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":65,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "props":{"y":698,"x":575,"width":376,"var":"img_rule","skin":"image/common/box_common_03.png","scaleY":0,"scaleX":0,"height":338,"anchorY":1,"anchorX":1},
+                    "nodeParent":93,
+                    "label":"Image(img_rule)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":66,
+                    "child":[
+                        {
+                            "type":"Image",
+                            "props":{"y":4,"x":5,"width":366,"skin":"image/common/title_tanchuang3.png","height":37},
+                            "nodeParent":66,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":67,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":6,"x":128,"text":"规则说明","strokeColor":"#000000","stroke":4,"fontSize":30,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":68,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":47,"x":21,"wordWrap":true,"width":354,"text":"开服第一周，每周一小时在线可增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":44,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":73,"x":94,"width":78.9375,"text":"60礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":43,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":104,"x":23,"wordWrap":true,"width":354,"text":"开服第二周，每周一小时在线可增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":78,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":130,"x":96,"width":78.9375,"text":"80礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":79,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":166,"x":22,"wordWrap":true,"width":354,"text":"开服第三周及以后，每周一小时在线可累计增加:","strokeColor":"#000000","height":54,"fontSize":24,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":80,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":192,"x":210,"width":94.40625,"text":"100礼券","strokeColor":"#000000","leading":8,"height":24,"fontSize":24,"font":"FZHL","color":"#fecd00"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":81,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":222,"x":170,"text":"70小时","strokeColor":"#000000","fontSize":26,"font":"FZHL","color":"#dc53cd"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Label",
+                            "props":{"y":224,"x":15,"width":355,"text":"每周最大累计                 在线时间","strokeColor":"#000000","leading":8,"height":20,"fontSize":24,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":66,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":48,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                }]
         }],
     "animations":[
         {

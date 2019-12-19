@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":13,
+    "selecteID":45,
     "props":{"width":640,"sceneColor":"#ffffff","height":797},
     "nodeParent":-1,
     "label":"View",
@@ -15,17 +15,16 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":3,"x":11,"width":618,"skin":"image/menu/bottom_list.png","height":114},
+            "props":{"y":3,"x":11,"width":598,"skin":"image/menu/bottom_list.png","height":129},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":27,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
                     "nodeParent":27,
@@ -38,7 +37,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":35,"x":16,"text":"规则","strokeColor":"#63491a","stroke":4,"fontSize":40,"font":"FZHL","color":"#ffeeb1"},
                     "nodeParent":27,
@@ -52,9 +50,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":18,"x":115,"wordWrap":true,"width":501,"text":"       接引新的凡夫俗子进入江湖，并让新人说出口令。新人即可瞬间获得                 ,而在新人修炼到一定程度后，接引者也会受到礼物作为接引回馈。","strokeColor":"#000000","leading":2,"height":96,"fontSize":22,"font":"FZHL","color":"#404040"},
+                    "props":{"y":15,"x":117,"wordWrap":true,"width":467,"text":"       接引新的凡夫俗子进入江湖，并让新人说出口令。新人即可瞬间获得                 ,而在新人修炼到一定程度后，接引者也会受到礼物作为接引回馈。","strokeColor":"#000000","leading":2,"height":96,"fontSize":22,"font":"FZHL","color":"#404040"},
                     "nodeParent":27,
                     "label":"Label",
                     "isDirectory":false,
@@ -66,9 +63,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
-                    "props":{"y":42,"x":345,"width":31,"skin":"image/main/icon_coin_1.png","height":26},
+                    "props":{"y":39,"x":364,"width":31,"skin":"image/main/icon_coin_1.png","height":26},
                     "nodeParent":27,
                     "label":"Image",
                     "isDirectory":false,
@@ -79,9 +75,8 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
-                    "props":{"y":45,"x":376,"width":53.625,"text":"X300","strokeColor":"#000000","leading":8,"height":24,"fontSize":22,"font":"FZHL","color":"#a53232"},
+                    "props":{"y":40,"x":400,"width":53.625,"text":"X300","strokeColor":"#000000","leading":8,"height":24,"fontSize":22,"font":"FZHL","color":"#a53232"},
                     "nodeParent":27,
                     "label":"Label",
                     "isDirectory":false,
@@ -97,49 +92,8 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":171,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","right":0,"left":0,"height":87,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":9,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":131,"x":3,"width":179,"skin":"image/common/bottom_smalltitle.png","height":39},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":10,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":3,"x":32,"text":"礼包口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":10,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":11,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"TextInput",
-            "props":{"y":193,"x":55,"width":352,"var":"input_jihuo","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的礼包口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
+            "props":{"y":201,"x":49,"width":352,"var":"input_jihuo","skin":"image/common/frame_chat.png","sizeGrid":"5,6,10,7","promptColor":"#63491a","prompt":"请输入拿到的礼包口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
             "nodeParent":1,
             "label":"TextInput(input_jihuo)",
             "isDirectory":false,
@@ -153,7 +107,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":194,"x":408,"width":102,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"确认","height":50},
+            "props":{"y":198,"x":405,"width":90,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":26,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"确认","height":50},
             "nodeParent":1,
             "label":"Button(btn_jihuo)",
             "isDirectory":false,
@@ -166,50 +120,8 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":317,"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","right":0,"left":0,"height":88,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":14,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":279,"x":6,"width":171,"skin":"image/common/bottom_smalltitle.png","height":39},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":15,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":1,"x":38,"text":"接引口令","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":15,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":18,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
             "type":"TextInput",
-            "props":{"y":340,"x":44,"width":352,"var":"input_jieyin","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入拿到的口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
+            "props":{"y":322,"x":49,"width":352,"var":"input_jieyin","skin":"image/common/frame_chat.png","sizeGrid":"5,6,10,7","promptColor":"#63491a","prompt":"请输入拿到的口令","padding":"-5,0,0,0","height":50,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
             "nodeParent":1,
             "label":"TextInput(input_jieyin)",
             "isDirectory":false,
@@ -223,7 +135,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":397,"width":102,"var":"btn_sure","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"确认","height":50},
+            "props":{"y":320,"x":406,"width":90,"var":"btn_sure","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":26,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"确认","height":50},
             "nodeParent":1,
             "label":"Button(btn_sure)",
             "isDirectory":false,
@@ -237,7 +149,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":505,"width":102,"var":"btn_jieyin","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":30,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"接引码","height":50},
+            "props":{"y":320,"x":500,"width":90,"var":"btn_jieyin","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":26,"labelFont":"FZHL","labelColors":"#5f4429,#5f4429","label":"接引码","height":50},
             "nodeParent":1,
             "label":"Button(btn_jieyin)",
             "isDirectory":false,
@@ -251,38 +163,24 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"skin":"image/main/fram_common_bg_02a.png","sizeGrid":"17,15,17,18","right":0,"left":0,"height":323,"bottom":0,"alpha":0.7},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":20,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":426,"x":1,"width":266,"skin":"image/common/bottom_smalltitle.png","height":39},
+            "props":{"y":147,"x":88,"width":444,"skin":"image/common/title_common_01.png","sizeGrid":"0,144,0,135","height":43},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":21,
+            "compId":34,
             "child":[
                 {
                     "type":"Label",
-                    "props":{"y":3,"x":43,"text":"已接引的大侠","strokeColor":"#52331e","stroke":4,"height":33,"fontSize":30,"font":"FZXK","color":"#fff4ce"},
-                    "nodeParent":21,
+                    "props":{"y":5,"x":159,"text":"礼包口令","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
+                    "nodeParent":34,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":22,
+                    "compId":35,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -292,39 +190,83 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":611,"x":137,"skin":"image/common/bottom_prompt_2.png"},
+            "props":{"y":267,"x":92,"width":444,"skin":"image/common/title_common_01.png","sizeGrid":"0,144,0,135","height":43},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":23,
+            "compId":37,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":17,"x":87,"text":"暂无接引的大侠","strokeColor":"#000000","stroke":4,"height":33,"fontSize":28,"font":"FZHL","color":"#fff4ce"},
-                    "nodeParent":23,
+                    "props":{"y":5,"x":159,"text":"接引口令","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
+                    "nodeParent":37,
                     "label":"Label",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":24,
+                    "compId":38,
                     "child":[
                         ],
                     "$HIDDEN":false
-                }]
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":385,"x":90,"width":443,"skin":"image/common/title_common_01.png","sizeGrid":"0,144,0,135","height":43},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":42,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":5,"x":137,"text":"已接引的大侠","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
+                    "nodeParent":42,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":43,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":467,"x":41,"skin":"image/menu/img_huodong_02.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":44,
+            "child":[
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":434,"x":561,"text":"共0人","strokeColor":"#000000","leading":8,"fontSize":22,"font":"FZHL","color":"#63491a","bold":true},
+            "props":{"y":549,"x":299,"text":"暂无接引的大侠","strokeColor":"#000000","height":33,"fontSize":32,"font":"FZHL","color":"#b47c19"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":25,
+            "compId":24,
             "child":[
                 ],
             "$HIDDEN":false

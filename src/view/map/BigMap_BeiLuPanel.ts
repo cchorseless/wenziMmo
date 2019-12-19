@@ -38,6 +38,16 @@ module view.map {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
 				lcp.send(pkt);
 			})
+			//玉壶
+			EventManage.onWithEffect(this.img_yuhu, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [12001, 0]);
+				lcp.send(pkt);
+			})
+			//药王庄
+			EventManage.onWithEffect(this.img_yaowang, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [13001, 0]);
+				lcp.send(pkt);
+			})
 		}
 	}
 }
