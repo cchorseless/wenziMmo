@@ -11,8 +11,8 @@ module view.zhaiYuan {
 			// 延时两帧滚动
 			Laya.timer.frameOnce(2, this, () => { this.panel_shiWai.scrollTo(640, 0) });
 			this.initSkeBone();
-
 			this.addEvent();
+
 		}
 
 
@@ -72,6 +72,21 @@ module view.zhaiYuan {
 				let o = new view.dialog.EquipMixUp();
 				o.setData(2)
 				o.popup(true);
+			});
+
+			//出门按钮
+			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
+			});
+			this.btn_build.on(Laya.UIEvent.CLICK, this, () => {
+				let o = new ZhaiYuan_Build_Dialog();
+				o.popup();
+			});
+			this.btn_servant.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
+			});
+			this.btn_jitui.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(this);
 			});
 
 		}

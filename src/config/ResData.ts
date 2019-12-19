@@ -250,7 +250,9 @@ module ResData {
             //外观列表
             { url: 'json/zhuanban_Dress.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuanban_Dress },
             //武学四法（角色武学基础）
-            { url: 'json/sifa_consume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.sifa_consume }
+            { url: 'json/sifa_consume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.sifa_consume },
+            //宅院
+            { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade }
         ];
     }
 

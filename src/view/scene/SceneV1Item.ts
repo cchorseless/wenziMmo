@@ -28,7 +28,7 @@ module view.scene {
 					}
 				}
 			}, null, false);
-			
+
 			this.addEvent();
 
 		}
@@ -43,22 +43,33 @@ module view.scene {
 				console.log(jsonData);
 				// flag 0未通关  1通关
 				GameApp.GameEngine.curFuBenMsg = null;
-				GameApp.GameEngine.curFuBenMsg = {
-					curNum: 1,
-					maxNum: 1,
-					fubenStr: "击杀怪物",
-					item: jsonData.item
-				}
 				if (jsonData.flag == 0) {
+					GameApp.GameEngine.curFuBenMsg = {
+						curNum: 1,
+						maxNum: 1,
+						fubenStr: "击杀怪物",
+						item: jsonData.item
+					}
+					this.ui_Content.setData(jsonData, 1)
+					if (this.box_content.numChildren > 0) {
+						this.box_content.removeChildren();
+					}
+					this.box_content.addChild(this.ui_Content);
 					new scene.BattleRewardInfoV0Item().popup();
-					this.leaveFuBen();
-					return;
+				} else {
+					GameApp.GameEngine.curFuBenMsg = {
+						curNum: 0,
+						maxNum: 1,
+						fubenStr: "击杀怪物",
+						item: jsonData.item
+					}
+					this.ui_Content.setData(jsonData, 0)
+					if (this.box_content.numChildren > 0) {
+						this.box_content.removeChildren();
+					}
+					this.box_content.addChild(this.ui_Content);
 				}
-				this.ui_Content.setData(jsonData)
-				if (this.box_content.numChildren > 0) {
-					this.box_content.removeChildren();
-				}
-				this.box_content.addChild(this.ui_Content);
+
 
 			})
 		}

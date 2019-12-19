@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
 	export class BattleFuBenInfoV1Item extends ui.scene.BattleFuBenInfoV1ItemUI {
+		public type = 0
 		constructor() {
 			super();
 			this.addEvent();
@@ -8,7 +9,7 @@ module view.scene {
 		}
 
 
-		public setData(jsonData) {
+		public setData(jsonData, type) {
 			this.hbox_prize.removeChildren();
 			for (let i in jsonData.item) {
 				let itemBase = new ProtoCmd.ItemBase();
@@ -19,6 +20,7 @@ module view.scene {
 				new_ui.setData(itemBase);
 				this.hbox_prize.addChild(new_ui);
 			}
+			this.type = type;
 			this.showNeed(jsonData);
 		}
 
@@ -42,7 +44,7 @@ module view.scene {
 			this.html_tongGuanTiaoJian.style.stroke = 1;
 			this.html_tongGuanTiaoJian.style.strokeColor = '#000000';
 			this.html_tongGuanTiaoJian.innerHTML = "<span style='color:#ffed8f'>击杀怪物</span>"
-				+ "<span style='color:#ffffff'>(1/1)</span>";
+				+ "<span style='color:#ffffff'>(" + this.type + "/1)</span>";
 		}
 
 

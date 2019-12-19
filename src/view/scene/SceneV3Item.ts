@@ -51,8 +51,6 @@ module view.scene {
 				this.box_content.addChild(this.ui_Content);
 				if (jsonData.KILLCNT >= jsonData.MAXCNT) {
 					new scene.BattleRewardInfoV0Item().popup();
-					this.leaveFuBen();
-					return;
 				}
 			})
 		}

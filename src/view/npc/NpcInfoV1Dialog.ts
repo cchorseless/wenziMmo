@@ -66,7 +66,10 @@ module view.npc {
 			// 对话
 			this.btn_talk.on(Laya.UIEvent.CLICK, this, () => {
 				// new view.npc.NpcInfoTalkDialog().popup();
-				this.btn_return.visible = true;
+				// this.btn_return.visible = true;
+				// this.item.ability.
+				this.close();
+
 			});
 
 		}
@@ -111,7 +114,7 @@ module view.npc {
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {
-				if (_itemId) {
+				if (_itemId > 0) {
 					let _itembase = new ProtoCmd.ItemBase();
 					_itembase.dwBaseID = _itemId;
 					let itemUI = new view.compart.DaoJuWithNameItem();
@@ -123,7 +126,7 @@ module view.npc {
 			// 装备
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let _itemId of equipItem) {
-				if (_itemId) {
+				if (_itemId > 0) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
 					_itembase.dwBaseID = _itemId;
@@ -134,7 +137,7 @@ module view.npc {
 			// 宝物
 			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
 			for (let _itemId of BAOWUItem) {
-				if (_itemId) {
+				if (_itemId > 0) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
 					_itembase.dwBaseID = _itemId;

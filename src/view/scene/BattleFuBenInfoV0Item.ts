@@ -51,7 +51,7 @@ module view.scene {
 			this.html_tongGuanTiaoJian.style.stroke = 1;
 			this.html_tongGuanTiaoJian.style.strokeColor = '#000000';
 			this.html_tongGuanTiaoJian.innerHTML = "<span style='color:#ffed8f'>" + data.tiaojian + "</span>"
-				+ "<span style='color:#ffffff'>(" + data.totalcnt + "/" + data.curcnt + ")</span>";
+				+ "<span style='color:#ffffff'>(" + data.curcnt + "/" + data.totalcnt + ")</span>";
 		}
 		public timeCount(ui: Laya.Label, second: number) {
 			let self = this;

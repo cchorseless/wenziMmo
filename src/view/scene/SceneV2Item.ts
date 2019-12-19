@@ -27,7 +27,6 @@ module view.scene {
 				}
 			}, null, false);
 			this.ui_Content = new BattleFuBenInfoV0Item();
-
 			this.addEvent();
 
 		}
@@ -52,19 +51,16 @@ module view.scene {
 					fubenStr: jsonData.tiaojian,
 					item: jsonData.item
 				}
+				if (jsonData.curcnt >= jsonData.totalcnt) {
+					new scene.BattleRewardInfoV0Item().popup();
+					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
+				}
+
 				this.ui_Content.setData(jsonData)
 				if (this.box_content.numChildren > 0) {
 					this.box_content.removeChildren();
 				}
 				this.box_content.addChild(this.ui_Content);
-				if (jsonData.curcnt >= jsonData.totalcnt) {
-					new scene.BattleRewardInfoV0Item().popup();
-					let pkt = new ProtoCmd.QuestClientData();
-					pkt.setString(ProtoCmd.FB_ChuMoLeave);
-					lcp.send(pkt);
-					GameApp.LListener.offCaller(ProtoCmd.FB_ChuMoRightPlane, this);
-					return;
-				}
 
 			})
 		}
