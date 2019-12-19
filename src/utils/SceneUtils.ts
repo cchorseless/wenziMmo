@@ -404,6 +404,18 @@ class SceneManager extends SingletonClass {
                 ui_map.y = 118;
                 ui_map.setData();
                 break;
+            // 玉壶
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_YU_HU:
+                ui_map = new view.map.SmallMap_YuHuItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            // 药王庄
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_YAO_WANG:
+                ui_map = new view.map.SmallMap_YaoWangItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
             //衡山派
             case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
                 ui_map = new view.map.SmallMap_HengShanItem();

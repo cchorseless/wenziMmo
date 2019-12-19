@@ -813,7 +813,7 @@ module EnumData {
     export enum ShopSubType {
         SHOP_SUBTYPE_NONE = 0,// 默认无类型
     }
-    
+
     /**
      * 货币类型枚举
      */
@@ -944,7 +944,9 @@ module EnumData {
         MAP_FENG_DU = 5001,// 酆都
         MAP_FU_ZHOU_CHENG = 5002,// 福州城
         MAP_HUA_SHAN_PAI = 5003,// 华山派
-        MAP_HENG_SHAN_PAI=5016,//衡山派
+        MAP_HENG_YU_HU = 5004,//玉壶
+        MAP_HENG_YAO_WANG = 5005,//药王庄
+        MAP_HENG_SHAN_PAI = 5016,//衡山派
 
     }
 
