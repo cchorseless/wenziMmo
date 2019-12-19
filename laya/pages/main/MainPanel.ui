@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":75,
+    "selectedBox":162,
+    "selecteID":167,
     "referenceLines":[
         {
             "value":1127,
@@ -65,7 +65,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":95,"x":8,"width":112,"visible":true,"var":"img_npc","top":95,"skin":"image/main/bottom_npc.png","right":520,"left":8,"height":691,"bottom":350},
+                            "props":{"y":95,"x":8,"width":112,"visible":true,"var":"img_npc","top":95,"skin":"image/common/bottom_npc.png","right":520,"left":8,"height":691,"bottom":350},
                             "nodeParent":162,
                             "label":"Image(img_npc)",
                             "isOpen":false,
@@ -109,13 +109,14 @@
                             "props":{"y":825,"x":0,"width":640,"var":"img_bottomPartInfoBg","right":0,"left":0,"height":311,"bottom":0},
                             "nodeParent":162,
                             "label":"Image(img_bottomPartInfoBg)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":75,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-26,"x":215,"width":423,"skin":"image/main/shandow_ditu.png","height":306},
                                     "nodeParent":75,
@@ -128,17 +129,19 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-6,"x":0,"var":"box_main_Show"},
                                     "nodeParent":75,
                                     "label":"Box(box_main_Show)",
-                                    "isOpen":null,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":255,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":187,"x":595,"width":51,"var":"btn_mapBig","stateNum":"2","skin":"image/main/icon_dangqian.png","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"40,0,3,1","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","height":59,"anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":255,
@@ -152,6 +155,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":115,"x":595,"var":"btn_flyPoint","stateNum":2,"skin":"image/main/icon_luyin.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":255,
@@ -166,6 +170,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":43,"x":595,"var":"btm_mapWorld","stateNum":2,"skin":"image/main/icon_ditu.png","sizeGrid":"0,0,62,0","labelStrokeColor":"#404040","labelStroke":4,"labelSize":24,"labelPadding":"20","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","anchorY":0.5,"anchorX":0.5},
                                             "nodeParent":255,
@@ -180,6 +185,7 @@
                                             "$HIDDEN":false
                                         },
                                         {
+                                            "x":75,
                                             "type":"Box",
                                             "props":{"width":225,"var":"box_taskInfo","height":260},
                                             "nodeParent":255,
@@ -254,6 +260,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-18,"x":220,"width":338,"var":"box_smallMap","height":231},
                                     "nodeParent":75,
@@ -378,7 +385,7 @@
                                             "props":{"y":-3,"x":104,"width":120,"height":37},
                                             "nodeParent":25,
                                             "label":"Box",
-                                            "isOpen":true,
+                                            "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -444,7 +451,7 @@
                                             "props":{"y":-2,"x":224,"width":120,"height":37},
                                             "nodeParent":25,
                                             "label":"Box",
-                                            "isOpen":true,
+                                            "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -509,7 +516,7 @@
                                             "props":{"y":-1,"x":344,"width":120,"height":37},
                                             "nodeParent":25,
                                             "label":"Box",
-                                            "isOpen":true,
+                                            "isOpen":false,
                                             "isDirectory":true,
                                             "isAniNode":true,
                                             "hasChild":true,
@@ -1042,14 +1049,13 @@
                             "props":{"y":34,"width":347,"var":"box_menu","right":0,"height":79},
                             "nodeParent":162,
                             "label":"Box(box_menu)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":253,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":37,"x":299,"var":"btn_menu","stateNum":"2","skin":"image/menu/icon_zhenbaoge.png","labelStrokeColor":"#4e2a2a","labelStroke":4,"labelSize":22,"labelPadding":"58","labelFont":"fzhl","labelColors":"#f2f2f2,#f2f2f2","label":"珍宝阁","anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":253,
@@ -1273,7 +1279,7 @@
                                     "props":{"y":0,"x":62,"width":62,"var":"vbox_tab","space":8,"height":227},
                                     "nodeParent":226,
                                     "label":"VBox(vbox_tab)",
-                                    "isOpen":true,
+                                    "isOpen":false,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -1315,7 +1321,24 @@
                                             "child":[
                                                 ]
                                         }]
-                                }]
+                                }],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"UIView",
+                            "source":"scene/BattleSkillContonlV0Item.ui",
+                            "props":{"y":541,"x":445,"var":"ui_battleSkill","runtime":"view.scene.BattleSkillContonlV0Item","right":5,"bottom":345},
+                            "nodeParent":162,
+                            "label":"UIView(ui_battleSkill)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":167,
+                            "child":[
+                                ],
+                            "$LOCKED":true,
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -1328,22 +1351,6 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":175,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":true
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"scene/BattleSkillContonlV0Item.ui",
-                            "props":{"var":"ui_battleSkill","runtime":"view.scene.BattleSkillContonlV0Item","right":5,"bottom":345},
-                            "nodeParent":162,
-                            "label":"UIView(ui_battleSkill)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":167,
                             "child":[
                                 ],
                             "$LOCKED":true,

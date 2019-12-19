@@ -23,7 +23,21 @@ module view.map {
 			EventManage.onWithEffect(this.btn_world, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWorldMapPanel();
 			})
-
+			//衡山
+			EventManage.onWithEffect(this.img_hengshan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [23001, 0]);
+				lcp.send(pkt);
+			})
+			//福州
+			EventManage.onWithEffect(this.img_fuzhou, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [10001, 0]);
+				lcp.send(pkt);
+			})
+			//华山
+			EventManage.onWithEffect(this.img_huashan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
+				lcp.send(pkt);
+			})
 		}
 	}
 }

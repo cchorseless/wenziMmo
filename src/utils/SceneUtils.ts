@@ -105,7 +105,7 @@ class SceneManager extends SingletonClass {
     /**
      * 更新主场景ui_scene
      */
-      public updateUiScene(mapType: EnumData.emRoomType): void {
+    public updateUiScene(mapType: EnumData.emRoomType): void {
         console.log('===updateUiScene===>', mapType);
         let uiscene;
         switch (mapType) {
@@ -400,7 +400,14 @@ class SceneManager extends SingletonClass {
                 break;
             // 华山派
             case EnumData.MAP_BIG_MAP_ID.MAP_HUA_SHAN_PAI:
-                ui_map = new view.map.SmallMap_fuzhouItem();
+                ui_map = new view.map.SmallMap_HuaShanItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            //衡山派
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
+                ui_map = new view.map.SmallMap_HengShanItem();
+                ui_map.y = 118;
                 ui_map.setData();
                 break;
         }
