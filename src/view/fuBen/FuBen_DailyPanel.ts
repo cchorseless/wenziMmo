@@ -60,7 +60,24 @@ module view.fuBen {
 				// PanelManage.Main.img_bottomPartInfoBg.visible = false;
 			});
 			EventManage.onWithEffect(this.btn_go, Laya.UIEvent.CLICK, this, () => {
-				let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.bossRoomId, 0]);
+				let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.bossRoomId, 0],0,this,function(jsonData){
+				if (jsonData.errorcode == 0) {
+					FuBen_MainPanel.backPanel()
+					// 清空视野
+					GameApp.MainPlayer.clearViewObj();
+					// 更新房间数据
+					GameApp.MainPlayer.roomId = jsonData.curmapid;
+					// 上下左右房间的信息
+					GameApp.GameEngine.smallMapData = jsonData.dstmap;
+					console.log('进入了' + jsonData.curmapid);
+					// 更新主场景
+					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
+					GameApp.SceneManager.updateUiScene(mapType);
+					// 更新场景信息
+					this.updateSceneView('进入了' + jsonData.curmapid);
+					
+				}
+				})
 				lcp.send(pk);
 			});
 		}

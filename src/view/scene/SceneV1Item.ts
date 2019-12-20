@@ -127,6 +127,7 @@ module view.scene {
 							let cbpkt = new ProtoCmd.MapItemEventPick(data);
 							if (cbpkt.getValue('btErrorCode') == 0) {
 								TipsManage.showTips('拾取道具成功');
+								itemUI.lbl_itemName.text = '';
 							}
 						})
 					});
@@ -175,7 +176,7 @@ module view.scene {
 				let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + configID);
 				this.ui_Boss.img_icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
 				this.viw_0.selectedIndex = isBoss;
-				this.lbl_guiShu.text = GameApp.MainPlayer.objName;
+				this.lbl_guiShu.text =obj.feature.dwMasterTmpID;
 				this.lbl_xuetiaoCount.text = 'x1'
 				this.lab_hp.text = obj.ability.nowHP + '/' + obj.ability.nMaxHP
 				this.img_xueTiao.width = this.img_xueTiao_BG.width * (obj.ability.nowHP / obj.ability.nMaxHP)

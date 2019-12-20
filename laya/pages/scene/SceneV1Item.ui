@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":81,
-    "selecteID":82,
+    "selectedBox":35,
+    "selecteID":34,
     "props":{"width":640,"sceneColor":"#000000","name":"singleNoStar100","height":1136},
     "nodeParent":-1,
     "label":"View(singleNoStar100)",
@@ -60,13 +60,14 @@
             "props":{"width":640,"var":"viw_0","top":150,"selectedIndex":0,"right":0,"left":0,"height":474},
             "nodeParent":1,
             "label":"ViewStack(viw_0)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":56,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"x":0,"width":640,"var":"panel_2","top":0,"right":0,"name":"item0","left":0,"height":353,"bottom":0},
                     "nodeParent":56,
@@ -94,6 +95,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"x":0,"var":"box_boss","right":0,"name":"item1","left":0,"height":480},
                     "nodeParent":56,
@@ -105,11 +107,12 @@
                     "compId":35,
                     "child":[
                         {
+                            "x":45,
                             "type":"Panel",
                             "props":{"y":285,"width":640,"var":"panel_0","right":0,"left":0,"height":167},
                             "nodeParent":35,
                             "label":"Panel(panel_0)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
@@ -130,6 +133,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":212,"width":200,"var":"box_bossPos0","height":75,"centerX":0,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -143,6 +147,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":212,"width":200,"var":"box_bossPos1","height":75,"centerX":-215,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -156,6 +161,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":214,"x":542,"width":200,"var":"box_bossPos2","height":75,"centerX":222,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":35,
@@ -169,11 +175,12 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
-                            "props":{"y":0,"width":318,"var":"box_bossInfo","height":90,"centerX":0},
+                            "props":{"y":0,"width":318,"var":"box_bossInfo","height":90,"centerX":6},
                             "nodeParent":35,
                             "label":"Box(box_bossInfo)",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,

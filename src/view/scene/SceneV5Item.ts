@@ -1,100 +1,98 @@
 /**Created by the LayaAirIDE*/
 module view.scene {
-	export class SceneV5Item extends ui.scene.SceneV5ItemUI implements itf.SceneItem {
+	export class SceneV5Item extends ui.scene.SceneV5ItemUI {
+		public ui_Content: BattleFuBenInfoV1Item
 		constructor() {
 			super();
-						this.top = this.bottom = this.right = 0;
-			this.addEvent();
-			this.name = 'SceneV5Item';
-		}
-		public setData(): void {
-			this.panel_monster.hScrollBarSkin = '';
-			this.panel_player.hScrollBarSkin = '';
-			this.hbox_monster['sortItem'] = (items) => { };
-			this.hbox_player['sortItem'] = (items) => { };
-			let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
-			this.hbox_monster.addChild(ui_monsterGroup);
 		}
 
-		public addEvent(): void {
-			// 场景信息界面
-			// EventManage.onWithEffect(this.box_sceneMore, Laya.UIEvent.CLICK, this, () => {
-			// 	new view.scene.SceneInfoDialog().setData().popup(true);
-			// });
-			//好友
-			// EventManage.onWithEffect(this.btn_friend, Laya.UIEvent.CLICK, this, () => {
-			// 	new view.main.Main_FriendListDialog().popup();
-			// });
-			// //活跃
-			// EventManage.onWithEffect(this.btn_brisk, Laya.UIEvent.CLICK, this, () => {
-			// 	new view.main.Main_BriskDialog().popup();
-			// });
-			// 当前地图界面
-			// EventManage.onWithEffect(this.btn_worldMap, Laya.UIEvent.CLICK, this, () => { PanelManage.openNorthMapPanel() });
-			// 自动战斗
-			// EventManage.onWithEffect(this.btn_autoAtk, Laya.UIEvent.CLICK, this, () => {
-			// 	this.btn_autoAtk.selected = !this.btn_autoAtk.selected;
-			// 	// 自动战斗
-			// 	if (this.btn_autoAtk) {
-			// 		GameApp.MainPlayer.startAutoAtk()
-			// 	}
-			// 	else {
-			// 		GameApp.MainPlayer.stopAutoAtk()
-			// 	}
-			// });
-			// GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, function (data) {
-			// 	let pb = data;
-			// 	pb
-			// })
-			this.addLcpEvent()
+		public setData(): void {
+			this.ui_Content = new BattleFuBenInfoV1Item();
+			this.panel_0.vScrollBarSkin = '';
+			this.panel_2.hScrollBarSkin = '';
+			this.panel_player.hScrollBarSkin = '';
+			this.hbox_2['sortItem'] = (items) => { };
+			this.hbox_0['sortItem'] = (items) => { };
+			let ui_monsterGroup2 = new view.scene.MonsterGroupInSceneV1Item();
+			this.hbox_2.addChild(ui_monsterGroup2);
+			this.viw_0.setIndexHandler = Laya.Handler.create(this, (index) => {
+				let keys = Object.keys(GameApp.MainPlayer.allMonster);
+				for (let key of keys) {
+					// 把所有小怪全部重新添加
+					let monsterObj = GameApp.MainPlayer.allMonster[key];
+					// 配置表ID
+					let configID = (monsterObj as GameObject.Monster).feature.dwCretTypeId;
+					// 判断是否是BOSS,最多两个BOSS
+					let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
+					if (!isBoss) {
+						this.addMonster(monsterObj);
+					}
+				}
+			}, null, false);
+
+			this.addEvent();
+
 		}
-		public addLcpEvent() {
-			GameApp.LListener.on(ProtoCmd.map_CaiLiaoFubenPlane2, this, (jsonData) => {
-				console.log(jsonData);
-				// GameApp.GameEngine.curFuBenMsg = jsonData;
-				GameApp.GameEngine.curFuBenMsg = null;
-				GameApp.GameEngine.curFuBenMsg = {
-					curNum: jsonData.KILLCNT,
-					maxNum: jsonData.MAXCNT,
-					fubenStr:"",
-					item: jsonData.JiangLi
-				}
-				if (jsonData.KILLCNT>=jsonData.MAXCNT){
-					new scene.BattleRewardInfoV0Item().popup();
-					return;
-				}
+
+
+		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.UPDATE_BOSSHP, this, (jsonData) => {
+				this.lab_hp.text = jsonData.now + '/' + jsonData.max;
+				this.img_xueTiao.width = this.img_xueTiao_BG.width * (jsonData.now / jsonData.max)
 			})
 		}
 
+		public destroy(isBool = true) {
+			super.destroy(true)
+		}
+
 		/**
-		 * 刷新界面
+		 * 初始化
 		 */
 		public updateUI(): void {
-			console.log('刷新了' + this.name)
-			// 清除怪物
 			this.clearMonster();
-			// 清除其他玩家
 			this.clearPlayer();
+			// 更新怪物
 			// 更新角色
 			GameApp.SceneManager.updateSelfPlayer(this);
 			// 更新地图
 			this.updateMapInfo();
 		}
 
-		/**
-		 * 展开
-		 */
-		public changeSelfSize(show): void {
-			if (show) {
-				Laya.Tween.to(this, { width: 640 }, 300, null, null, null, true);
-				Laya.Tween.to(this.hbox_player, { space: 50 }, 300, null, null, null, true);
+
+		public addDaoJu(obj: ProtoCmd.ItemBase): void {
+
+			let itemUI = new view.compart.DaoJuWithNameItem();
+			itemUI.setData(obj, EnumData.ItemInfoModel.SHOW_NONE);
+			this.viw_0.selectedIndex = 0;
+			for (let _ui of this.hbox_2._childs) {
+				// 添加成功
+				if ((_ui as view.scene.MonsterGroupInSceneV1Item).addItem(itemUI)) {
+					// 拾取物品
+					itemUI.on(Laya.UIEvent.CLICK, this, () => {
+						let pkt = new ProtoCmd.MapItemEventPick();
+						pkt.setValue('i64ItemID', obj.i64ItemID);
+						pkt.setValue('wX', obj.mapX);
+						pkt.setValue('wY', obj.mapY);
+						lcp.send(pkt, this, (data) => {
+							let cbpkt = new ProtoCmd.MapItemEventPick(data);
+							if (cbpkt.getValue('btErrorCode') == 0) {
+								TipsManage.showTips('拾取道具成功');
+								itemUI.lbl_itemName.text = '';
+							}
+						})
+					});
+					return
+				}
 			}
-			else {
-				Laya.Tween.to(this, { width: 545 }, 300, null, null, null, true);
-				Laya.Tween.to(this.hbox_player, { space: 5 }, 300, null, null, null, true);
-			}
-			for (let item of this.hbox_monster._childs) {
-				(item as view.scene.MonsterGroupInSceneItem).changeSelfSize(show);
+
+		}
+		public addPlayer(obj): void {
+			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
+			playerUI.setMaster(obj);
+			this.hbox_player.addChild(playerUI);
+			if (obj.curHero) {
+				GameApp.SceneManager.addHero(obj.curHero)
 			}
 		}
 
@@ -122,17 +120,54 @@ module view.scene {
 						monster = new view.scene.MonsterInSceneItemV0();
 						break;
 				}
+				// monster = new view.scene.MonsterInSceneItemV0();
 				monster.setData(obj);
-				for (let _ui of this.hbox_monster._childs) {
-					// 添加成功
-					if ((_ui as view.scene.MonsterGroupInSceneItem).addMonster(monster)) {
-						return
-					}
+			}
+			// 配置表ID
+			let configID = (obj as GameObject.Monster).feature.dwCretTypeId;
+			// 判断是否是BOSS,最多三个BOSS
+			let isBoss = SheetConfig.mydb_monster_tbl.getInstance(null).BOSS('' + configID);
+			if (isBoss) {
+				// 切换成BOSS模式
+				this.viw_0.selectedIndex = isBoss;
+				this.box_bossInfo.visible = true;
+				let iconID = SheetConfig.mydb_monster_tbl.getInstance(null).HEAD_IMAGE('' + configID);
+				this.ui_Boss.img_icon.skin = 'image/common/npc/npc_icon_' + iconID + '.png';
+				this.viw_0.selectedIndex = isBoss;
+				this.lbl_guiShu.text = obj.feature.dwMasterTmpID;
+				this.lbl_xuetiaoCount.text = 'x1'
+				this.lab_hp.text = obj.ability.nowHP + '/' + obj.ability.nMaxHP
+				this.img_xueTiao.width = this.img_xueTiao_BG.width * (obj.ability.nowHP / obj.ability.nMaxHP)
+				// 添加BOSS
+				if (this.box_bossPos0.numChildren == 0) {
+					this.box_bossPos0.addChild(monster)
 				}
-				// 添加不成功创建后添加
-				let ui_monsterGroup = new view.scene.MonsterGroupInSceneItem();
-				ui_monsterGroup.addMonster(monster);
-				this.hbox_monster.addChild(ui_monsterGroup);
+				else if (this.box_bossPos1.numChildren == 0) {
+					this.box_bossPos1.addChild(monster);
+				}
+				else {
+					this.box_bossPos2.addChild(monster);
+				}
+			}
+			// 小怪根据模式添加
+			else {
+				// BOSS模式
+				if (this.viw_0.selectedIndex) {
+					this.hbox_0.addChild(monster);
+				}
+				// 小怪模式
+				else {
+					for (let _ui of this.hbox_2._childs) {
+						// 添加成功
+						if ((_ui as view.scene.MonsterGroupInSceneV1Item).addMonster(monster)) {
+							return
+						}
+					}
+					// 添加不成功创建后添加
+					let ui_monsterGroup = new view.scene.MonsterGroupInSceneV1Item();
+					ui_monsterGroup.addMonster(monster);
+					this.hbox_2.addChild(ui_monsterGroup);
+				}
 			}
 		}
 
@@ -141,40 +176,21 @@ module view.scene {
 		 * 清除所有怪物
 		 */
 		public clearMonster(): void {
-			for (let i = 0; i < this.hbox_monster.numChildren; i++) {
+			this.hbox_0.removeChildren();
+			this.box_bossPos0.removeChildren();
+			this.box_bossPos1.removeChildren();
+			for (let i = 0; i < this.hbox_2.numChildren; i++) {
 				if (i == 0) {
-					(this.hbox_monster.getChildAt(i) as view.scene.MonsterGroupInSceneItem).clearAllMonster();
+					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneV1Item).clearAllMonster();
 				}
 				else {
-					(this.hbox_monster.getChildAt(i) as view.scene.MonsterGroupInSceneItem).removeSelf();
+					(this.hbox_2.getChildAt(i) as view.scene.MonsterGroupInSceneV1Item).removeSelf();
 				}
 			}
 		}
-
 		/**
-		 * 添加玩家
-		 * @param obj 
-		 */
-		public addPlayer(obj): void {
-			let playerUI: view.scene.PlayerAndHeroInSceneV0Item = new view.scene.PlayerAndHeroInSceneV0Item();
-			playerUI.setMaster(obj);
-			this.hbox_player.addChild(playerUI);
-			if (obj.curHero) {
-				GameApp.SceneManager.addHero(obj.curHero)
-			}
-		}
-
-
-		/**
-		 * 清除所有玩家
-		 */
-		public clearPlayer(): void {
-			this.hbox_player.removeChildren();
-		}
-
-		/**
-		 * 更新地图信息
-		 */
+         * 更新地图信息
+         */
 		public updateMapInfo(): void {
 			let roomId = GameApp.MainPlayer.roomId;
 			// 房间名称
@@ -183,9 +199,10 @@ module view.scene {
 			let bgRes = SheetConfig.mapRoomSheet.getInstance(null).SCENEPIC('' + roomId);
 			this.img_bg.skin = 'image/common/scene/zdmap_icon_' + bgRes + '.png';
 		}
-		public destroy() {
-			GameApp.LListener.offCaller(ProtoCmd.map_CaiLiaoFubenPlane2, this);
-			super.destroy(true)
+
+		public clearPlayer(): void {
+			this.hbox_player.removeChildren();
 		}
+
 	}
 }
