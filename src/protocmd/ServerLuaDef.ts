@@ -647,6 +647,18 @@ module ProtoCmd {
 module ProtoCmd {
     /**
      * 活动status返回data
+      */
+    export interface itf_ZHAIYUAN_INFO {
+        foodValue:number,
+        leftTime:number,
+        leisureServants:number,
+        levels:Object,
+        recruitServantRmb:number,
+        servants:number,
+        totalConsume:number
+    }
+    /**
+     * 活动status返回data
      */
     export interface itf_MENU_ActiveStatus {
 
@@ -669,7 +681,6 @@ module ProtoCmd {
         id: number;
         name: string;
         index?: number;
-
     }
     /**
      * 传世面板信息

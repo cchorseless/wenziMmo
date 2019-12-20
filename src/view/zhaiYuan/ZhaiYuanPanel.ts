@@ -1,8 +1,10 @@
 /**Created by the LayaAirIDE*/
 module view.zhaiYuan {
 	export class ZhaiYuanPanel extends ui.zhaiYuan.ZhaiYuanPanelUI {
+		public static self:ZhaiYuanPanel;
 		constructor() {
 			super();
+			ZhaiYuanPanel.self = this;
 			this.addEvent();
 		}
 		public setData(): void {
@@ -42,34 +44,38 @@ module view.zhaiYuan {
 			// });
 		}
 		public showZhaiYuanMsg(data) {
-			this.lab_servant.text = data.leisureServants + '/' + data.servants;
-			// this.html_cost.style.fontFamily = "STKaiti";
-			// this.html_cost.style.fontSize = 24;
-			// this.html_cost.style.align = 'center';
-			// this.html_cost.innerHTML = "<span style='color:#ffffff;'>粮食消耗时间：</span>"
-			// 	+ "<span style='color:#f06205'>" + data.leftTime + "</span>";
+
+			let span = data.servants - data.leisureServants
+			this.lab_servant.text = span + '/' + data.servants;
 			this.timeCutDown(data.leftTime)
+			GameApp.GameEngine.zhaiYuanLevels = data.levels;
 		}
 		public timeCutDown(second) {
+
 			this.html_cost.style.fontFamily = "STKaiti";
 			this.html_cost.style.fontSize = 24;
 			this.html_cost.style.align = 'center';
 
 			let self = this;
-			if (second >= 0) {
-				let aa = TimeUtils.getFormatBySecond(second, 5);
+			if (second > 0) {
+				second = second * 60
+				let aa = TimeUtils.getFormatBySecond(second, 6);
 				this.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
 					+ "<span style='color:#f06205'>" + aa + "</span>";
 
-			} else {
+			} else if (second == 0) {
 				this.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
 					+ "<span style='color:#f06205'>已耗尽</span>";
+			} else if (second == -1) {
+				this.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
+					+ "<span style='color:#f06205'>无限</span>";
+				return;
 			}
-			Laya.timer.loop(1000, ui, round);
+			Laya.timer.loop(60000, ui, round);
 			function round() {
 				second--;
 				if (second >= 0) {
-					let time = TimeUtils.getFormatBySecond(second, 5)
+					let time = TimeUtils.getFormatBySecond(second, 6)
 					self.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
 						+ "<span style='color:#f06205'>" + time + "</span>";
 				}
@@ -81,10 +87,15 @@ module view.zhaiYuan {
 			}
 
 		}
+		public Dispose(isbool = true) {
+			GameApp.LListener.offCaller(ProtoCmd.zhaiYuanInfo, this);
+			PopUpManager.Dispose(this);
+		}
 		public addEvent(): void {
+			let self = this;
 			//宅院面板信息监听
-			GameApp.LListener.on(ProtoCmd.zhaiYuanInfo, this, function (data) {
-				let aa = data;
+			GameApp.LListener.on(ProtoCmd.zhaiYuanInfo, self, function (data) {
+				GameApp.GameEngine.zhaiYuaninfo = data;
 				this.showZhaiYuanMsg(data);
 			})
 
@@ -123,17 +134,23 @@ module view.zhaiYuan {
 
 			//出门按钮
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
+				GameApp.LListener.offCaller(ProtoCmd.zhaiYuanInfo, self)
+				PopUpManager.checkPanel(self);
 			});
+			//建筑
 			this.btn_build.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new ZhaiYuan_Build_Dialog();
 				o.popup();
 			});
+			//仆役
 			this.btn_servant.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
+				let o = new ZhaiYuan_Servant_Dialog();
+				o.popup();
 			});
+			//粮食
 			this.btn_jitui.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
+				let o = new ZhaiYuan_Food_Dialog();
+				o.popup();
 			});
 
 		}

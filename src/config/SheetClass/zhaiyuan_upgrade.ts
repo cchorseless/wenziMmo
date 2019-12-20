@@ -1,47 +1,47 @@
-module SheetConfig{ export class  zhaiyuan_upgrade { private data;private _instance; public constructor(data){ this.data=data;}
+module SheetConfig{ export class  zhaiyuan_upgrade { public data;private _instance; public constructor(data){ this.data=data;}
 public static getInstance(data): zhaiyuan_upgrade { let Class:any=this;if(!Class._instance){Class._instance=new Class(data);}return Class._instance;}
 /**
- *  名称
+ *  建筑名称
  */
- public NAME(configID:string):string { return this.data[configID][0]}
+ public NAME(configID):string { return this.data[configID][0]}
 /**
- *  分类
+ *  建筑等级
  */
- public TYPE(configID:string):number { return this.data[configID][1]}
+ public LEVEL(configID):number { return this.data[configID][1]}
 /**
- *  等级
+ *  建筑分类
  */
- public LEVEL(configID:string):number { return this.data[configID][2]}
+ public TYPE(configID):number { return this.data[configID][2]}
 /**
- *  升级需要材料id
+ *  升级需要的材料
  */
- public LVL_MATERIAL(configID:string):string { return this.data[configID][3]}
+ public LVL_MATERIAL(configID):any { return this.data[configID][3]}
 /**
- *  对应物品id
+ *  升级所获得的物品
  */
- public ITEMTAB(configID:string):string { return this.data[configID][4]}
+ public ITEMTAB(configID):any { return this.data[configID][4]}
 /**
- *  产出消耗时间
+ *  生产物品需要时间
  */
- public NEED_TIME(configID:string):number { return this.data[configID][5]}
+ public NEED_TIME(configID):number { return this.data[configID][5]}
 /**
- *  产出需要消耗材料
+ *  生产物品需要材料
  */
- public PRODUCE_MATERIAL(configID:string):string { return this.data[configID][6]}
+ public PRODUCE_MATERIAL(configID):any { return this.data[configID][6]}
 /**
- *  消耗粮食（分钟/人）
+ *  仆役所需要食粮
  */
- public CONSUME_FOOD(configID:string):number { return this.data[configID][7]}
+ public CONSUME_FOOD(configID):number { return this.data[configID][7]}
 /**
- *  每级效率
+ *  每级的生产效率
  */
- public EFFICIENCY(configID:string):number { return this.data[configID][8]}
+ public EFFICIENCY(configID):number { return this.data[configID][8]}
 /**
- *  条件描述
+ *  升级条件描述
  */
- public DESCRIBE(configID:string):string { return this.data[configID][9]}
+ public DESCRIBE(configID):string { return this.data[configID][9]}
 /**
- *  对应Icon
+ *  对应建筑Icon
  */
- public ICON(configID:string):string { return this.data[configID][10]}
+ public ICON(configID):string { return this.data[configID][10]}
 }}

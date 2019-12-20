@@ -1,10 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.zhaiYuan {
 	export class ZhaiYuan_Build_Dialog extends ui.zhaiYuan.ZhaiYuan_Build_DialogUI {
-		//炼丹、荷花池、种地、炼器
-		// public iconSkin = ['icon_zy_liandan','icon_zy_hehuachi','icon_zy_zhongdi','icon_zy_lianqi']
+		public static self: ZhaiYuan_Build_Dialog
+		public arr;
 		constructor() {
 			super();
+			ZhaiYuan_Build_Dialog.self = this;
+			this.panel_build.vScrollBarSkin = '';
 			this.addEvent();
 			this.setData();
 		}
@@ -14,24 +16,32 @@ module view.zhaiYuan {
 			})
 		}
 		public setData() {
-			let arr = [1, 12, 21, 33]
-			for (let i = 0; i < arr.length; i++) {
-				this.upDataView(arr[i],i);
+			this.panel_build.removeChildren();
+			this.arr = GameApp.GameEngine.zhaiYuanLevels;
+			for (let i in this.arr) {
+				this.upDataView(this.arr[i], parseInt(i));
 			}
 		}
-		public upDataView(id: number, posID) {
+		public upDataView(buildLv: number, typeID) {
 			let o = new ZhaiYuan_Build_Info();
-			let skin = SheetConfig.zhaiyuan_upgrade.getInstance(null).ICON(id + '');
-			let name = SheetConfig.zhaiyuan_upgrade.getInstance(null).NAME(id + '');
-			let need = SheetConfig.zhaiyuan_upgrade.getInstance(null).DESCRIBE(id + '');
-			let lv = SheetConfig.zhaiyuan_upgrade.getInstance(null).LEVEL(id + '');
-			let increase = SheetConfig.zhaiyuan_upgrade.getInstance(null).EFFICIENCY(id + '');
-			o.setData(skin, name, need, lv, increase);
-			let item = this.panel_build.getChildAt(posID);
-			if (item) {
-				this.panel_build.removeChildAt(posID);
+			let configID = buildLv + typeID * 1000
+			let skin = SheetConfig.zhaiyuan_upgrade.getInstance(null).ICON(configID + '');
+			let name = SheetConfig.zhaiyuan_upgrade.getInstance(null).NAME(configID + '');
+			let need;
+			if (buildLv < 10) {
+				need = SheetConfig.zhaiyuan_upgrade.getInstance(null).DESCRIBE(configID + 1);
+			} else {
+				need = '已满级'
 			}
-			o.y = posID * (o.height + 15);
+			let lv = buildLv;
+			let increase = SheetConfig.zhaiyuan_upgrade.getInstance(null).EFFICIENCY(configID + '');
+			o.setData(skin, name, need, lv, increase, configID);
+			let itemPosID = typeID - 1
+			let item = this.panel_build.getChildAt(itemPosID);
+			if (item) {
+				this.panel_build.removeChildAt(itemPosID);
+			}
+			o.y = itemPosID * (o.height + 15);
 			this.panel_build.addChild(o);
 		}
 	}

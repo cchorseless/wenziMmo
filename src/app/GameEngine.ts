@@ -87,7 +87,10 @@ class GameEngine extends SingletonClass {
     //轮播页的活动推送
     public turnActivity;
 
-    public curFuBenMsg:ProtoCmd.itf_FUBEN_MESSAGE;
+    public curFuBenMsg: ProtoCmd.itf_FUBEN_MESSAGE;
+
+    public zhaiYuanLevels = null;
+    public zhaiYuaninfo:ProtoCmd.itf_ZHAIYUAN_INFO = null;
 
 
 
