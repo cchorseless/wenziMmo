@@ -946,7 +946,14 @@ module EnumData {
         MAP_HUA_SHAN_PAI = 5003,// 华山派
         MAP_HENG_YU_HU = 5004,//玉壶
         MAP_HENG_YAO_WANG = 5005,//药王庄
-        MAP_HENG_SHAN_PAI = 5016,//衡山派
+        MAP_HENG_LUO_YANG = 5006,//洛阳
+        MAP_HENG_LIANG_REN = 5007,//良人鎮
+        MAP_HENG_TA_LOU = 5008,//塔楼
+        MAP_HENG_YU_BI = 5009,//玉笔峰
+        MAP_HENG_SONG_SHAN = 5012,//嵩山
+        MAP_HENG_QUAN_ZHEN = 5013,//全真
+        MAP_HENG_SHAN_PAI = 5016,//衡山
+        MAP_HENG_TAI_SHAN = 5018,//泰山
 
     }
 

@@ -92,9 +92,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":471,"x":625,"width":118,"skin":"image/map/northland/img_northLiangRen.png","height":111},
+                            "props":{"y":471,"x":625,"width":118,"var":"img_liangren","skin":"image/map/northland/img_northLiangRen.png","height":111},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_liangren)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -105,9 +105,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":445,"x":391,"skin":"image/map/northland/img_northLuoYang.png"},
+                            "props":{"y":445,"x":391,"var":"img_luoyang","skin":"image/map/northland/img_northLuoYang.png"},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_luoyang)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -118,7 +118,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":211,"x":529,"var":"img_yuhu","skin":"image/map/northland/img_northYuHu.png"},
+                            "props":{"y":215,"x":557,"var":"img_yuhu","skin":"image/map/northland/img_northYuHu.png"},
                             "nodeParent":3,
                             "label":"Image(img_yuhu)",
                             "isDirectory":false,
@@ -131,9 +131,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":273,"x":1008,"skin":"image/map/northland/img_northSongShan.png"},
+                            "props":{"y":273,"x":992,"var":"img_songshan","skin":"image/map/northland/img_northSongShan.png"},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_songshan)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -183,7 +183,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":261,"x":271,"var":"img_yaowang","skin":"image/map/northland/img_northYaoWang.png"},
+                            "props":{"y":261,"x":241,"var":"img_yaowang","skin":"image/map/northland/img_northYaoWang.png"},
                             "nodeParent":3,
                             "label":"Image(img_yaowang)",
                             "isDirectory":false,
@@ -235,9 +235,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":357,"x":617,"skin":"image/map/northland/img_northTaLou.png"},
+                            "props":{"y":357,"x":617,"var":"img_talou","skin":"image/map/northland/img_northTaLou.png"},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_talou)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -248,9 +248,9 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":366,"x":1011,"skin":"image/map/northland/img_northTaiShan.png"},
+                            "props":{"y":366,"x":1011,"var":"img_taishan","skin":"image/map/northland/img_northTaiShan.png"},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_taishan)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -261,13 +261,26 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":399,"x":835,"skin":"image/map/northland/img_northYuBi.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":399,"x":835,"var":"img_yubi","skin":"image/map/northland/img_northYuBi.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":3,
-                            "label":"Image",
+                            "label":"Image(img_yubi)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":21,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":232,"x":418,"var":"img_quanzhen","skin":"image/map/northland/img_northAllTrue.png"},
+                            "nodeParent":3,
+                            "label":"Image(img_quanzhen)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":26,
                             "child":[
                                 ]
                         }],

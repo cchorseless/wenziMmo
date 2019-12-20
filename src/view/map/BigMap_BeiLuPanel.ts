@@ -23,11 +23,6 @@ module view.map {
 			EventManage.onWithEffect(this.btn_world, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWorldMapPanel();
 			})
-			//衡山
-			EventManage.onWithEffect(this.img_hengshan, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [23001, 0]);
-				lcp.send(pkt);
-			})
 			//福州
 			EventManage.onWithEffect(this.img_fuzhou, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [10001, 0]);
@@ -46,6 +41,46 @@ module view.map {
 			//药王庄
 			EventManage.onWithEffect(this.img_yaowang, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [13001, 0]);
+				lcp.send(pkt);
+			})
+			//洛阳
+			EventManage.onWithEffect(this.img_luoyang, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [14001, 0]);
+				lcp.send(pkt);
+			})
+			//良人鎮
+			EventManage.onWithEffect(this.img_liangren, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [15001, 0]);
+				lcp.send(pkt);
+			})
+			//塔楼
+			EventManage.onWithEffect(this.img_talou, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [16001, 0]);
+				lcp.send(pkt);
+			})
+			//玉笔峰
+			EventManage.onWithEffect(this.img_yubi, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [17001, 0]);
+				lcp.send(pkt);
+			})
+			//嵩山
+			EventManage.onWithEffect(this.img_songshan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [20001, 0]);
+				lcp.send(pkt);
+			})
+			//全真
+			EventManage.onWithEffect(this.img_quanzhen, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [21001, 0]);
+				lcp.send(pkt);
+			})
+			//衡山
+			EventManage.onWithEffect(this.img_hengshan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [23001, 0]);
+				lcp.send(pkt);
+			})
+			//泰山
+			EventManage.onWithEffect(this.img_taishan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [24001, 0]);
 				lcp.send(pkt);
 			})
 		}

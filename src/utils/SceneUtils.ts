@@ -352,9 +352,50 @@ class SceneManager extends SingletonClass {
                 ui_map.y = 118;
                 ui_map.setData();
                 break;
+            // 洛阳
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_LUO_YANG:
+                ui_map = new view.map.SmallMap_LuoYangItem();
+                ui_map.setData();
+                break;
+            // 良人鎮
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_LIANG_REN:
+                ui_map = new view.map.SmallMap_LiangRenItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            // 塔楼
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_TA_LOU:
+                ui_map = new view.map.SmallMap_TaLouItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            // 玉笔峰
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_YU_BI:
+                ui_map = new view.map.SmallMap_YuBiItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            // 嵩山
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SONG_SHAN:
+                ui_map = new view.map.SmallMap_SongShanItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            // 全真
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_QUAN_ZHEN:
+                ui_map = new view.map.SmallMap_QuanZhenItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
             //衡山派
             case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
                 ui_map = new view.map.SmallMap_HengShanItem();
+                ui_map.y = 118;
+                ui_map.setData();
+                break;
+            //泰山
+            case EnumData.MAP_BIG_MAP_ID.MAP_HENG_TAI_SHAN:
+                ui_map = new view.map.SmallMap_TaiShanItem();
                 ui_map.y = 118;
                 ui_map.setData();
                 break;
