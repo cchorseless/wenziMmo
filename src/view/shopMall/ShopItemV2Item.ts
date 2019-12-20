@@ -4,7 +4,7 @@ module view.shopMall {
 		constructor() {
 			super();
 		}
-		public item=[];
+		public item = [];
 		public setData(data, shoptype, i): ShopItemV2Item {
 			for (let part of data) {
 				this.item.push({
@@ -23,17 +23,13 @@ module view.shopMall {
 				this['img_zheKou' + single.index].visible = false;
 				if (single.item.discount > 0) {
 					this['img_zheKou' + single.index].visible = true;
-					this['img_zheKou' + single.index].skin = 'image/common/img_' + single.item.discount + 'zhe.png';
+					this['lbl_zhe' + single.index].text = single.item.discount;
 				}
 				//限购
 				this['lbl_xiangou' + single.index].visible = false;
-				this['img_item' + single.index].height = 152;
-				this['img_item' + single.index].y = 28;
 				if (single.item.limitcnt > 0) {
 					this['lbl_xiangou' + single.index].visible = true;
 					this['lbl_xiangou' + single.index].text = '限购' + single.item.limitcnt + '次';
-					this['img_item' + single.index].height = 176;
-					this['img_item' + single.index].y = 6;
 				}
 				//物品
 				let itemInfo = new ProtoCmd.ItemBase();
@@ -42,8 +38,14 @@ module view.shopMall {
 				itemInfo.dwBinding = single.item.binding;
 				this['ui_daoju' + single.index].setData(itemInfo)
 				//物品名称
-				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + single.item.itemid)
-				this['lbl_name' + single.index].text = '' + name;
+				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + single.item.itemid).split('-')
+				this['lbl_name' + single.index].text = '' + name[0];
+				if (name[1]) {
+					this['lbl_use' + single.index].visible=true;
+					this['lbl_use' + single.index].text = '' + name[1];
+				}else{
+					this['lbl_use' + single.index].visible=false;
+				}
 				//物品打折后价格
 				let nowPrice = Math.ceil(single.item.price * single.item.discount / 10)
 				this['lbl_price' + single.index].text = '' + nowPrice;

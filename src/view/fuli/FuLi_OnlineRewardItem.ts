@@ -62,7 +62,7 @@ module view.fuli {
 					//宝箱状态
 					switch (data.btnStatus) {
 						case 0:
-							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_1close.png'
+							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_'+key+'close.png'
 							this['btn_get' + key].visible = false;
 							this['div_time' + key].visible = true;
 							GameUtil.timeCountDown(data.times, this['div_time' + key])
@@ -70,12 +70,12 @@ module view.fuli {
 							this['div_time' + key].style.fontSize = 22;
 							break;
 						case 1:
-							this['img_treasureBox' + key].skin = 'image/common/icon_baoxiang1_light.png';
+							this['img_treasureBox' + key].skin = 'image/common/icon_baoxiang'+key+'_light.png';
 							this['btn_get' + key].visible = true;
 							this['btn_get' + key].disabled = false;
 							break;
 						case 2:
-							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_1open.png'
+							this['img_treasureBox' + key].skin = 'image/common/icon_bigbaoxiang_'+key+'open.png'
 							this['btn_get' + key].visible = true;
 							this['btn_get' + key].label = '已领取';
 							this['btn_get' + key].visible = true;
