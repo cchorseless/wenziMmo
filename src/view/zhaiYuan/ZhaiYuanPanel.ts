@@ -118,7 +118,10 @@ module view.zhaiYuan {
 
 			// 荷花池
 			EventManage.onWithEffect(this.box_heHuaChi, Laya.UIEvent.CLICK, this, () => {
-				new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
+				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
+				let o = new ZhaiYuan_HeHuaChiDialog()
+				o.setData(1);
+				o.popup();
 			});
 
 			// 炼器
