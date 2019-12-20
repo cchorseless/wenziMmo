@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":40,
-    "selecteID":95,
+    "selectedBox":1,
+    "selecteID":146,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -52,44 +52,6 @@
             "compId":141,
             "child":[
                 ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":987,"x":452,"width":171,"var":"img_rongyu","skin":"image/common/bottom_gouyu.png","height":41},
-            "nodeParent":1,
-            "label":"Image(img_rongyu)",
-            "isOpen":false,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":15,
-            "child":[
-                {
-                    "type":"Label",
-                    "props":{"y":0,"x":20,"width":139.86328125,"var":"lbl_rongyu","text":"4620000","strokeColor":"#000000","stroke":4,"height":31,"fontSize":31,"font":"FZHL","color":"#ffffff","align":"center"},
-                    "nodeParent":15,
-                    "label":"Label(lbl_rongyu)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":16,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":-5,"x":-29,"width":54,"skin":"image/main/icon_coin_4.png","height":45},
-                    "nodeParent":15,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":14,
-                    "child":[
-                        ]
-                }],
             "$HIDDEN":false
         },
         {
@@ -152,19 +114,18 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":213,"x":15,"width":610,"var":"viw_shop","height":760},
+            "props":{"y":237,"x":15,"width":610,"var":"viw_shop","height":735},
             "nodeParent":1,
             "label":"ViewStack(viw_shop)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":40,
             "child":[
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop1","name":"item0","height":760},
+                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop1","name":"item0","height":735},
                     "nodeParent":40,
                     "label":"Panel(panel_shop1)",
                     "isOpen":true,
@@ -174,7 +135,6 @@
                     "compId":88,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_shop1","right":0,"left":0},
                             "nodeParent":88,
@@ -190,9 +150,8 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop2","name":"item1","height":760},
+                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop2","name":"item1","height":735},
                     "nodeParent":40,
                     "label":"Panel(panel_shop2)",
                     "isOpen":true,
@@ -202,7 +161,6 @@
                     "compId":89,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_shop2","right":0,"left":0},
                             "nodeParent":89,
@@ -218,9 +176,8 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop3","name":"item2","height":760},
+                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop3","name":"item2","height":735},
                     "nodeParent":40,
                     "label":"Panel(panel_shop3)",
                     "isOpen":true,
@@ -230,7 +187,6 @@
                     "compId":91,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_shop3","right":0,"left":0},
                             "nodeParent":91,
@@ -245,9 +201,8 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop4","name":"item3","height":760},
+                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop4","name":"item3","height":735},
                     "nodeParent":40,
                     "label":"Panel(panel_shop4)",
                     "isOpen":true,
@@ -257,7 +212,6 @@
                     "compId":93,
                     "child":[
                         {
-                            "x":45,
                             "type":"VBox",
                             "props":{"y":0,"var":"vbox_shop4","right":0,"left":0},
                             "nodeParent":93,
@@ -272,9 +226,8 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop5","name":"item4","height":760},
+                    "props":{"y":0,"x":9,"width":592,"var":"panel_shop5","name":"item4","height":735},
                     "nodeParent":40,
                     "label":"Panel(panel_shop5)",
                     "isOpen":false,
@@ -299,7 +252,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"y":-7,"x":0,"width":620,"var":"shop6","name":"item5","height":795},
                     "nodeParent":40,
@@ -318,7 +270,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":979,"x":237,"var":"btn_Recharge","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"立即充值"},
+            "props":{"y":977,"x":240,"width":162,"var":"btn_Recharge","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZHL","labelColors":"#63491a,#63491a","label":"立即充值","height":65},
             "nodeParent":1,
             "label":"Button(btn_Recharge)",
             "isDirectory":false,
@@ -367,6 +319,47 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                }],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":207,"x":459,"width":152,"var":"img_rongyu","skin":"image/main/frame_shuzi_02.png","height":27,"alpha":0.5},
+            "nodeParent":1,
+            "label":"Image(img_rongyu)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":15,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":2,"x":24,"width":99.2578125,"var":"lbl_rongyu","text":"2640000","height":20,"fontSize":20,"font":"FZHL","color":"#000000","align":"center"},
+                    "nodeParent":15,
+                    "label":"Label(lbl_rongyu)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":16,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-2,"x":-16,"width":40,"skin":"image/main/icon_coin_4.png","height":34},
+                    "nodeParent":15,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],
