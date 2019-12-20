@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":108,
-    "selecteID":127,
+    "selecteID":114,
     "props":{"width":640,"sceneColor":"#e0c8c8","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -24,6 +24,19 @@
             "hasChild":true,
             "compId":108,
             "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"top":0,"skin":"image/main/shadow_top.png","right":0,"left":0},
+                    "nodeParent":108,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":128,
+                    "child":[
+                        ]
+                },
                 {
                     "x":30,
                     "type":"Image",
@@ -69,7 +82,7 @@
                         {
                             "x":45,
                             "type":"Tab",
-                            "props":{"y":0,"x":0,"var":"tab_fuli","strokeColors":"#63491a,#f88317","stateNum":2,"space":-10,"skin":"image/menu/btn_huodong_01.png","selectedIndex":0,"labels":"邀请有礼,在线奖励,资源找回","labelStrokeColor":"#f88317","labelStroke":4,"labelSize":26,"labelPadding":"-3","labelFont":"FZHL","labelColors":"#f1cc9d,#fffca3"},
+                            "props":{"y":0,"x":0,"var":"tab_fuli","strokeColors":"#7f3a2f,#eb4a3e","stateNum":2,"space":-10,"skin":"image/menu/btn_huodong_01.png","selectedIndex":0,"labels":"邀请有礼,在线奖励,资源找回","labelStrokeColor":"#f88317","labelStroke":4,"labelSize":26,"labelPadding":"-3","labelFont":"FZHL","labelColors":"#f1cc9d,#fffca3"},
                             "nodeParent":127,
                             "label":"Tab(tab_fuli)",
                             "isDirectory":false,
@@ -114,13 +127,14 @@
                     "props":{"y":209,"x":9,"var":"viw_fuli","selectedIndex":0},
                     "nodeParent":108,
                     "label":"ViewStack(viw_fuli)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":126,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_InvitItem.ui",
                             "props":{"y":9,"var":"ui_invit","runtime":"view.fuli.FuLi_InvitItem","name":"item0"},
@@ -132,9 +146,10 @@
                             "compId":103,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_OnlineRewardItem.ui",
                             "props":{"x":11,"var":"ui_onlineReward","runtime":"view.fuli.FuLi_OnlineRewardItem","name":"item1"},
@@ -146,9 +161,10 @@
                             "compId":124,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_FandRecoveryItem.ui",
                             "props":{"y":2,"x":10,"var":"ui_recovery","runtime":"view.fuli.FuLi_FandRecoveryItem","name":"item2"},
@@ -160,7 +176,7 @@
                             "compId":93,
                             "child":[
                                 ],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         }]
                 },
                 {

@@ -14,6 +14,7 @@ module view.fuli {
 		public data = [];//实际上存在的动态福利
 		constructor() {
 			super();
+			this.panel_tab.hScrollBarSkin = '';
 		}
 		public setData(): void {
 			for (let i = 0; i < this.activityState.length; i++) {
