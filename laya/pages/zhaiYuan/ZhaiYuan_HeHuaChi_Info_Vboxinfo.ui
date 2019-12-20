@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":11,
-    "props":{"width":567,"sceneColor":"#ffffff","height":173},
+    "selecteID":10,
+    "props":{"y":0,"x":0,"width":567,"sceneColor":"#ffffff","height":173},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":30,"width":75,"var":"box_item1","height":75},
+                    "props":{"y":56,"x":30,"width":75,"var":"box_item1","height":115},
                     "nodeParent":2,
                     "label":"Box(box_item1)",
                     "isDirectory":false,
@@ -54,7 +54,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":122,"width":75,"var":"box_item2","height":75},
+                    "props":{"y":56,"x":122,"width":75,"var":"box_item2","height":115},
                     "nodeParent":2,
                     "label":"Box(box_item2)",
                     "isDirectory":false,
@@ -70,12 +70,52 @@
                     "props":{"y":56,"x":213,"width":75,"var":"box_servant","height":75},
                     "nodeParent":2,
                     "label":"Box(box_servant)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":8,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":0,"x":0,"width":75,"skin":"image/common/daoju/quality_4.png","height":75},
+                            "nodeParent":8,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":13,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":2,"x":2,"width":70,"skin":"image/common/iconV1_nv01.png","height":70},
+                                    "nodeParent":13,
+                                    "label":"Image",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":14,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":82,"x":17,"text":"仆役","fontSize":20,"font":"fzhl","color":"#000000"},
+                                    "nodeParent":13,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":16,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
                 },
                 {
                     "x":30,
@@ -93,7 +133,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":365,"width":75,"var":"box_result","height":75},
+                    "props":{"y":56,"x":365,"width":75,"var":"box_result","height":115},
                     "nodeParent":2,
                     "label":"Box(box_result)",
                     "isDirectory":false,

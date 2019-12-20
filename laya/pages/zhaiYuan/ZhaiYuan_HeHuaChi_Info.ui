@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":3,
+    "selectedBox":2,
+    "selecteID":5,
     "props":{"width":572,"sceneColor":"#ffffff"},
     "nodeParent":-1,
     "label":"View",
@@ -41,9 +41,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":15,"x":148,"width":275,"text":"荷花池1级解锁","height":22,"fontSize":22,"font":"fzhl","color":"#000000","align":"center"},
+                    "props":{"y":15,"x":148,"width":275,"var":"lab_title","text":"荷花池1级解锁","height":22,"fontSize":22,"font":"fzhl","color":"#000000","align":"center"},
                     "nodeParent":2,
-                    "label":"Label",
+                    "label":"Label(lab_title)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
