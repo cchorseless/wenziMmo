@@ -36,6 +36,7 @@ module GameObject {
             pkt.dwTargetId = target.tempId;
             pkt.nX = target.location.ncurx;
             pkt.nY = target.location.ncury;
+            pkt.distance = 5;
             lcp.send(pkt);
         }
 

@@ -14,6 +14,7 @@ module view.compart {
 			let _item: ProtoCmd.ItemBase = this.ui_item.item;
 			if (_item) {
 				_item.clear();
+				this.lbl_itemName.text = '';
 			}
 			return super.removeSelf();
 		}

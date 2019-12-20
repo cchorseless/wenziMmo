@@ -1135,9 +1135,9 @@ module EnumData {
         singleFuBen = 100, // 心魔副本     日常  心魔
         chuMoFuBen = 101,// 除魔副本       剧情  
         resourceFuBen = 102,// 资源副本       日常
-        publicFuBen = 200, // 公共副本     
+        publicFuBen = 200, // 公共副本       历练    缉盗   公共Boss野外
         zuDuiFuBen = 201,// 组队副本        历练
-        publicYeWai = 300, // 普通公共野外
+        publicYeWai = 300, // 普通公共野外     只有小怪
         publicZhuCheng = 301,// 主城
 
     }

@@ -3,6 +3,7 @@ module view.zhaiYuan {
 	export class ZhaiYuanPanel extends ui.zhaiYuan.ZhaiYuanPanelUI {
 		constructor() {
 			super();
+			this.addEvent();
 		}
 		public setData(): void {
 			this.panel_shiWai.hScrollBarSkin = '';
@@ -11,7 +12,8 @@ module view.zhaiYuan {
 			// 延时两帧滚动
 			Laya.timer.frameOnce(2, this, () => { this.panel_shiWai.scrollTo(640, 0) });
 			this.initSkeBone();
-			this.addEvent();
+			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.zhaiYuanInfo, null);
+			lcp.send(pkt);
 
 		}
 
@@ -39,7 +41,52 @@ module view.zhaiYuan {
 			// 	guanJia.play(0, true);
 			// });
 		}
+		public showZhaiYuanMsg(data) {
+			this.lab_servant.text = data.leisureServants + '/' + data.servants;
+			// this.html_cost.style.fontFamily = "STKaiti";
+			// this.html_cost.style.fontSize = 24;
+			// this.html_cost.style.align = 'center';
+			// this.html_cost.innerHTML = "<span style='color:#ffffff;'>粮食消耗时间：</span>"
+			// 	+ "<span style='color:#f06205'>" + data.leftTime + "</span>";
+			this.timeCutDown(data.leftTime)
+		}
+		public timeCutDown(second) {
+			this.html_cost.style.fontFamily = "STKaiti";
+			this.html_cost.style.fontSize = 24;
+			this.html_cost.style.align = 'center';
+
+			let self = this;
+			if (second >= 0) {
+				let aa = TimeUtils.getFormatBySecond(second, 5);
+				this.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
+					+ "<span style='color:#f06205'>" + aa + "</span>";
+
+			} else {
+				this.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
+					+ "<span style='color:#f06205'>已耗尽</span>";
+			}
+			Laya.timer.loop(1000, ui, round);
+			function round() {
+				second--;
+				if (second >= 0) {
+					let time = TimeUtils.getFormatBySecond(second, 5)
+					self.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
+						+ "<span style='color:#f06205'>" + time + "</span>";
+				}
+				else {
+					self.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
+						+ "<span style='color:#f06205'>已耗尽</span>";
+					Laya.timer.clear(ui, round)
+				}
+			}
+
+		}
 		public addEvent(): void {
+			//宅院面板信息监听
+			GameApp.LListener.on(ProtoCmd.zhaiYuanInfo, this, function (data) {
+				let aa = data;
+				this.showZhaiYuanMsg(data);
+			})
 
 			EventManage.onWithEffect(this.box_shiNei, Laya.UIEvent.CLICK, this, () => {
 				this.viw_0.selectedIndex = 1;

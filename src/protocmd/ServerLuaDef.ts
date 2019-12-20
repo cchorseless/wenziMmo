@@ -160,7 +160,7 @@ module ProtoCmd {
 
     /********************************心魔副本*********************** */ //没星星  单人
     //打开心魔界面  panel
-     export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
+    export const FB_GeRenBoss_Open = 'GeRenBoss_Open';
     // 进入心魔界面
     export const FB_GeRenBoss_Enter = 'GeRenBoss_Enter';
     // 离开心魔界面
@@ -627,6 +627,16 @@ module ProtoCmd {
 
     export const tubiaofasong = "tubiaofasong";  //菜单界面的动态切图的刷新，实时推送
 
+    /********************************************************************************************************** */
+    /****************************************宅院信息******************************************************* */
+    export const zhaiYuanInfo = 'zhaiYuanInfo';     //宅院面板信息
+    export const recruitServant = 'recruitServant';  //招募协议
+    export const addOrRemoveServant = 'addOrRemoveServant'; //增加或删除粮食的仆役(_, state, count)--state:0 add, 1 remove
+    export const archGenerateInfo = 'archGenerateInfo';  //生产信息  type
+    export const startGenerate = 'startGenerate';//开始生产  type，level
+    export const getGenerateReward = 'getGenerateReward';//领取奖励
+    export const archLevelUp = 'archLevelUp';//建筑升级 type, level
+
 
 
 }
@@ -645,10 +655,10 @@ module ProtoCmd {
      * 活动status返回data
      */
     export interface itf_FUBEN_MESSAGE {
-        fubenStr:string,
-        curNum:number,
-        maxNum:number,
-        item:Object
+        fubenStr: string,
+        curNum: number,
+        maxNum: number,
+        item: Object
     }
 
 

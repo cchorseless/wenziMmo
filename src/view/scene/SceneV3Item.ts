@@ -111,6 +111,7 @@ module view.scene {
 							let cbpkt = new ProtoCmd.MapItemEventPick(data);
 							if (cbpkt.getValue('btErrorCode') == 0) {
 								TipsManage.showTips('拾取道具成功');
+								itemUI.lbl_itemName.text = '';
 							}
 						})
 					});
