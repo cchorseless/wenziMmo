@@ -52,6 +52,7 @@ module view.juese {
 						if (this.panel_show.getChildAt(o).itemID == i) {
 							this.setView_get(this.panel_show.getChildAt(o).itemStr)
 							this.setEffectShow(this.panel_show.getChildAt(o).effectID)
+							Person_DressInfoItem.self.changeMySelfDress(0,this.panel_show.getChildAt(o).iconID)
 							Person_DressInfoItem.self.setView_get(this.panel_show.getChildAt(o).isUnLock, this.panel_show.getChildAt(o).hasWear, this.panel_show.getChildAt(o).dressID)
 							this.panel_show.getChildAt(o).img_circle.visible = true;
 						} else {

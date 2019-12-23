@@ -39,6 +39,21 @@ module view.juese {
 				this.ui_show2.img_gangqi.skin = ''
 			}
 		}
+		/**
+		 * 
+		 * @param type   0称号  1罡气
+		 * @param id     skinID
+		 */
+		public changeMySelfDress(type, id) {
+			if (type == 0) {
+				this.ui_show2.img_ch.skin = 'image/juese/chenghao/' + id + '.png'
+			} else {
+				this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + id + '.png'
+			}
+
+
+
+		}
 		public addEvent() {
 
 			let self = this;
@@ -81,10 +96,12 @@ module view.juese {
 				this.btn_gangqi.selected = false;
 				this.btn_Designation.selected = true;
 			}
-			this.curBox = this.V_Show.getChildAt(type);
+			this.curBox = this.V_Show.getChildByName('item' + type);
+
 			if (this.curBox.numChildren <= 0) {
 				GameApp.LListener.on(ProtoCmd.dressPanel, self, (data) => {
 					this.curBox.removeChildren();
+					//   status--永久：-1，未激活：0,期限-到期时间截: > 0
 					console.log("{{{{{{{{{{{{{{{{{", this.touchID)
 					switch (this.touchID) {
 						case 0:
@@ -150,8 +167,43 @@ module view.juese {
 			// 		box.removeChildren();
 			// 	}
 			this.curBox.removeChildren();
-			this.showView_Stack(this.V_Show.selectedIndex)
+			// this.showView_Stack(this.V_Show.selectedIndex)
+			this.upDateiew(this.curBox,this.V_Show.selectedIndex)
 			// }
+		}
+		public upDateiew(box: Laya.Box,selectedID) {
+			if (box.numChildren <= 0) {
+				GameApp.LListener.on(ProtoCmd.dressPanel, self, (data) => {
+					//   status--永久：-1，未激活：0,期限-到期时间截: > 0
+					console.log("{{{{{{{{{{{{{{{{{", this.touchID)
+					switch (this.touchID) {
+						case 0:
+							let o = new Person_Dress_VS_FashionDressItem();
+							o.setData(data);
+							o.x = 22
+							this.curBox.addChild(o);
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							break;
+						case 1:
+							let p = new Person_Dress_VS_GangQiItem();
+							p.setData(data);
+							p.x = 22
+							this.curBox.addChild(p);
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							break;
+						case 2:
+							let q = new Person_Dress_VS_DesignationItem();
+							q.setData(data);
+							q.x = 22
+							this.curBox.addChild(q);
+							GameApp.LListener.offCaller(ProtoCmd.dressPanel, self)
+							break;
+					}
+				})
+				let pkt0 = new ProtoCmd.QuestClientData().setString(ProtoCmd.dressPanel, this.base[selectedID])
+				lcp.send(pkt0);
+			}
+			this.V_Show.selectedIndex = selectedID;
 		}
 	}
 }

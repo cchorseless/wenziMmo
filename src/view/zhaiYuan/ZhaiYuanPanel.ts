@@ -73,7 +73,7 @@ module view.zhaiYuan {
 			}
 			Laya.timer.loop(60000, ui, round);
 			function round() {
-				second-=60;
+				second -= 60;
 				if (second >= 0) {
 					let time = TimeUtils.getFormatBySecond(second, 6)
 					self.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
@@ -115,9 +115,66 @@ module view.zhaiYuan {
 			EventManage.onWithEffect(this.box_back, Laya.UIEvent.CLICK, this, () => {
 				PopUpManager.checkPanel(this);
 			});
+			//种地
+			this.box_moshi.on(Laya.UIEvent.CLICK, this, () => {
+				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
+				let o = new ZhaiYuan_HeHuaChiDialog()
+				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				let curlv = arr.levels[4];
+				if (curlv == 0) {
+					TipsManage.showTips('需要建造磨石!')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [4], 0, this, function
+					(data) {
+						let base = data
+						o.setData(4, data);
+						o.popup();
+					})
+					pkt.send()
+
+				}
+			});
+			//种地
+			this.box_zhongdi.on(Laya.UIEvent.CLICK, this, () => {
+				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
+				let o = new ZhaiYuan_HeHuaChiDialog()
+				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				let curlv = arr.levels[3];
+				if (curlv == 0) {
+					TipsManage.showTips('需要建造农田!')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [3], 0, this, function
+					(data) {
+						let base = data
+						o.setData(3, data);
+						o.popup();
+					})
+					pkt.send()
+
+				}
+			});
+			//丹炉
+			this.box_danlu.on(Laya.UIEvent.CLICK, this, () => {
+				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
+				let o = new ZhaiYuan_HeHuaChiDialog()
+				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				let curlv = arr.levels[2];
+				if (curlv == 0) {
+					TipsManage.showTips('需要建造丹炉!')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [2], 0, this, function
+					(data) {
+						let base = data
+						o.setData(2, data);
+						o.popup();
+					})
+					pkt.send()
+
+				}
+			});
 
 			// 荷花池
-			EventManage.onWithEffect(this.box_heHuaChi, Laya.UIEvent.CLICK, this, () => {
+			this.box_heHuaChi.on(Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 				let o = new ZhaiYuan_HeHuaChiDialog()
 				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
@@ -128,13 +185,12 @@ module view.zhaiYuan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [1], 0, this, function
 					(data) {
 						let base = data
-						o.setData(1,data);
+						o.setData(1, data);
 						o.popup();
 					})
 					pkt.send()
 
 				}
-
 			});
 
 			// 炼器
@@ -142,11 +198,11 @@ module view.zhaiYuan {
 				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
 			});
 			// 磨石  合成装备
-			EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
-				let o = new view.dialog.EquipMixUp();
-				o.setData(2)
-				o.popup(true);
-			});
+			// EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
+			// 	let o = new view.dialog.EquipMixUp();
+			// 	o.setData(2)
+			// 	o.popup(true);
+			// });
 
 			//出门按钮
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {

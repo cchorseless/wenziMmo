@@ -649,6 +649,7 @@ module ProtoCmd {
      * 活动status返回data
       */
     export interface itf_ZHAIYUAN_INFO {
+        foodServant:number,
         foodValue:number,
         leftTime:number,
         leisureServants:number,

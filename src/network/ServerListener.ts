@@ -571,7 +571,7 @@ class ServerListener extends SingletonClass {
             TipsManage.showTips('攻击失败' + '没有找到目标');
         }
         msgData.clear();
-        msgData = null;
+         msgData = null;
     }
 
 

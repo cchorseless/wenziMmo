@@ -7,11 +7,13 @@ module view.juese {
 		public isUnLock;  //是否解锁
 		public hasWear;  //是否穿戴
 		public dressID;   //物品ID
+		public iconID
 		constructor() {
 			super();
 		}
 		public setData(data, id, status, dressID) {
-			this.img_chenghao.skin ='image/juese/chenghao/'+ data[5] + '.png'
+			this.iconID = data[5];
+			this.img_chenghao.skin = 'image/juese/chenghao/' + data[5] + '.png'
 			this.dressID = dressID;
 			this.itemID = id;
 			if (this.itemID == 0) {
@@ -40,7 +42,7 @@ module view.juese {
 			if (id == 0) {
 				Person_Dress_VS_DesignationItem.self.setView_get(this.itemStr);
 				Person_Dress_VS_DesignationItem.self.setEffectShow(this.effectID);
-				
+
 				Person_DressInfoItem.self.setView_get(this.isUnLock, this.hasWear, dressID)
 			}
 

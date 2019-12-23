@@ -43,7 +43,12 @@ module view.zhaiYuan {
 					if (this.fromDialog == 0) {
 						ZhaiYuan_Build_Dialog.self.setData();
 					} else {
-						ZhaiYuan_HeHuaChiDialog.self.setView();
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [this.type], 0, this, function
+					(data) {
+							ZhaiYuan_HeHuaChiDialog.self.setData(this.type,data);
+						})
+						pkt.send()
+
 					}
 
 					GameApp.LListener.offCaller(ProtoCmd.archLevelUp, this)

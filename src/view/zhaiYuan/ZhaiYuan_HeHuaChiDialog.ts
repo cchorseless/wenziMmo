@@ -3,7 +3,7 @@ module view.zhaiYuan {
 	export class ZhaiYuan_HeHuaChiDialog extends ui.zhaiYuan.ZhaiYuan_HeHuaChiDialogUI {
 		public static self: ZhaiYuan_HeHuaChiDialog
 		public curConfigID;
-		public type;  //
+		public type;  //荷花池1    丹炉2  种地3   磨石4
 		public makeStatus;
 		constructor() {
 			super();
@@ -18,6 +18,7 @@ module view.zhaiYuan {
 			this.showPanel();
 		}
 		public setView() {
+			this.lab_name.text = ['','荷花池','丹炉','农田','磨石'][this.type];
 			let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
 			let curlv = arr.levels[this.type];
 			this.curConfigID = this.type * 1000 + curlv;

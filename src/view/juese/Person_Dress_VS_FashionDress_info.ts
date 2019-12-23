@@ -7,6 +7,7 @@ module view.juese {
 		public isUnLock;  //是否解锁
 		public hasWear;  //是否穿戴
 		public dressID;   //物品ID
+		public iconID;
 		constructor() {
 			super();
 		}
@@ -38,6 +39,7 @@ module view.juese {
 				this.lab_hasGet.text = '已拥有'
 				this.lab_hasGet.color = '#179a0d'
 			}
+			this.iconID = data[5];
 			if (this.itemType == 0) {
 				this.img_icon.skin ='';
 				curDressID = GameApp.GameEngine.mainPlayer.feature.simpleFeature.dress;
