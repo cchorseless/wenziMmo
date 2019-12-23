@@ -46,7 +46,7 @@ module GameObject {
          */
         public startAttack(): void {
             console.log(this.objName + '正在攻击');
-            this.ui_item.playAni();
+            // this.ui_item.playAni();
         }
 
 

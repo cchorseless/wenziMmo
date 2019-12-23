@@ -41,9 +41,9 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":30,"width":75,"var":"box_item1","height":115},
+                    "props":{"y":49,"x":24,"width":75,"var":"box_item0","height":115},
                     "nodeParent":2,
-                    "label":"Box(box_item1)",
+                    "label":"Box(box_item0)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -54,9 +54,9 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":122,"width":75,"var":"box_item2","height":115},
+                    "props":{"y":49,"x":112,"width":75,"var":"box_item1","height":115},
                     "nodeParent":2,
-                    "label":"Box(box_item2)",
+                    "label":"Box(box_item1)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -67,7 +67,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":213,"width":75,"var":"box_servant","height":75},
+                    "props":{"y":49,"x":213,"width":75,"var":"box_servant","height":75},
                     "nodeParent":2,
                     "label":"Box(box_servant)",
                     "isOpen":true,
@@ -82,14 +82,13 @@
                             "props":{"y":0,"x":0,"width":75,"skin":"image/common/daoju/quality_4.png","height":75},
                             "nodeParent":8,
                             "label":"Image",
-                            "isOpen":true,
+                            "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":13,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":2,"x":2,"width":70,"skin":"image/common/iconV1_nv01.png","height":70},
                                     "nodeParent":13,
@@ -103,7 +102,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":82,"x":17,"text":"仆役","fontSize":20,"font":"fzhl","color":"#000000"},
                                     "nodeParent":13,
@@ -115,12 +113,13 @@
                                     "child":[
                                         ]
                                 }]
-                        }]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":74,"x":300,"skin":"image/juese/arrow02_common.png"},
+                    "props":{"y":67,"x":300,"skin":"image/juese/arrow02_common.png"},
                     "nodeParent":2,
                     "label":"Image",
                     "isDirectory":false,
@@ -133,7 +132,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":56,"x":365,"width":75,"var":"box_result","height":115},
+                    "props":{"y":49,"x":357,"width":75,"var":"box_result","height":115},
                     "nodeParent":2,
                     "label":"Box(box_result)",
                     "isDirectory":false,
