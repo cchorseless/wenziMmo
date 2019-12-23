@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":110,"sceneColor":"#934746","height":120},
+    "selecteID":11,
+    "props":{"width":116,"sceneColor":"#934746","height":122},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,47 +14,34 @@
     "child":[
         {
             "x":15,
-            "type":"Box",
-            "props":{"y":59,"x":55,"width":80,"var":"box_view","height":80,"anchorY":0.5,"anchorX":0.5},
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":116,"skin":"image/common/frame_renwutouxiang.png","height":119},
             "nodeParent":1,
-            "label":"Box(box_view)",
-            "isOpen":true,
-            "isDirectory":true,
+            "label":"Image",
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
-            "compId":2,
+            "hasChild":false,
+            "compId":3,
             "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":0,"x":0,"width":80,"skin":"image/common/daoju/fram_common_npc.png","height":80},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":4,"x":16,"width":58,"skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
-                    "nodeParent":2,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ]
-                }]
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":11,"x":27,"width":76,"var":"img_player","skin":"image/common/img_NPC_Zhangjingchao.png","height":95},
+            "nodeParent":1,
+            "label":"Image(img_player)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":4,
+            "child":[
+                ]
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":97,"x":1,"width":108,"var":"lbl_name","text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+            "props":{"y":100,"x":8,"width":108,"var":"lbl_name","text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"FZHL","color":"#ffffff","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_name)",
             "isDirectory":false,
@@ -68,9 +55,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":0,"x":1,"width":108,"var":"lbl_chengHao","top":0,"text":"名字超多六字","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"Microsoft YaHei","color":"#ffffff","align":"center"},
+            "props":{"y":2,"x":8,"width":108,"var":"lbl_lvl","top":-3,"text":"10转120级","strokeColor":"#404040","stroke":4,"height":22,"fontSize":18,"font":"FZHL","color":"#ffffff","align":"center"},
             "nodeParent":1,
-            "label":"Label(lbl_chengHao)",
+            "label":"Label(lbl_lvl)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,

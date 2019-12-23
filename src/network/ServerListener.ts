@@ -610,12 +610,12 @@ class ServerListener extends SingletonClass {
             // e.alpha
 
             PanelManage.Main.addChild(e)
-            Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width*0.3)) }, 500, null, Laya.Handler.create(this, () => {
-                Laya.Tween.to(e, { alpha:0.3 }, 1000, null, Laya.Handler.create(this, () => {
+            Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
+                Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
                     PanelManage.Main.removeChild(e)
                 }))
             }))
-            
+
 
 
 
@@ -1318,8 +1318,10 @@ class ServerListener extends SingletonClass {
         itemInfo.btQuality = msg.getValue('btQuality');
         itemInfo.mapX = msg.getValue('wX');
         itemInfo.mapY = msg.getValue('wY');
+        itemInfo.i64OwnerId = msg.getValue('i64OwnerId');
         GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()] = itemInfo;
         GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
+
         msg.clear();
         msg = null;
     }

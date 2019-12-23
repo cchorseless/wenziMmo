@@ -449,7 +449,7 @@ module view.main {
 					}
 					else {
 						if (hour == i * 2 || hour == (i * 2 + 1)) {
-							if (i % 2 == 1) {
+							if (hour % 2 == 1) {
 								time = timeArray[i];
 							} else {
 								time = timeArray[(i - 1)];
@@ -651,7 +651,7 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_PrestigePanel, null, null, this, (jsonData: ProtoCmd.itf_JS_ShengWangInfo) => {
 				//我的声望信息
-				GameApp.MainPlayer.fameInfo=jsonData;
+				GameApp.MainPlayer.fameInfo = jsonData;
 				// 更新声望等级描述
 				LangConfig.Fametitletab = jsonData.titletab;
 			})

@@ -83,6 +83,11 @@ module view.map {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [24001, 0]);
 				lcp.send(pkt);
 			})
+			//恒山
+			// EventManage.onWithEffect(this.xxx, Laya.UIEvent.CLICK, this, () => {
+			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [25001, 0]);
+			// 	lcp.send(pkt);
+			// })
 		}
 	}
 }

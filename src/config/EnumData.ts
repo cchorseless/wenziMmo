@@ -944,16 +944,19 @@ module EnumData {
         MAP_FENG_DU = 5001,// 酆都
         MAP_FU_ZHOU_CHENG = 5002,// 福州城
         MAP_HUA_SHAN_PAI = 5003,// 华山派
-        MAP_HENG_YU_HU = 5004,//玉壶
-        MAP_HENG_YAO_WANG = 5005,//药王庄
-        MAP_HENG_LUO_YANG = 5006,//洛阳
-        MAP_HENG_LIANG_REN = 5007,//良人鎮
-        MAP_HENG_TA_LOU = 5008,//塔楼
-        MAP_HENG_YU_BI = 5009,//玉笔峰
-        MAP_HENG_SONG_SHAN = 5012,//嵩山
-        MAP_HENG_QUAN_ZHEN = 5013,//全真
+        MAP_YU_HU = 5004,//玉壶
+        MAP_YAO_WANG = 5005,//药王庄
+        MAP_LUO_YANG = 5006,//洛阳
+        MAP_LIANG_REN = 5007,//良人鎮
+        MAP_TA_LOU = 5008,//塔楼
+        MAP_YU_BI = 5009,//玉笔峰
+        MAP_SONG_SHAN = 5012,//嵩山
+        MAP_QUAN_ZHEN = 5013,//全真
+        MAP_QING_CHENG = 5015,//青城派
         MAP_HENG_SHAN_PAI = 5016,//衡山
-        MAP_HENG_TAI_SHAN = 5018,//泰山
+        MAP_TAI_SHAN = 5018,//泰山
+        MAP_HENG_SHANA = 5019,//恒山
+        MAP_FENG_DAO = 5020,//风刀门
 
     }
 
