@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.zhaiYuan {
 	export class ZhaiYuanPanel extends ui.zhaiYuan.ZhaiYuanPanelUI {
-		public static self:ZhaiYuanPanel;
+		public static self: ZhaiYuanPanel;
 		constructor() {
 			super();
 			ZhaiYuanPanel.self = this;
@@ -73,7 +73,7 @@ module view.zhaiYuan {
 			}
 			Laya.timer.loop(60000, ui, round);
 			function round() {
-				second--;
+				second-=60;
 				if (second >= 0) {
 					let time = TimeUtils.getFormatBySecond(second, 6)
 					self.html_cost.innerHTML = "<span style='color:#ffffff'>粮食消耗时间：</span>"
@@ -120,8 +120,21 @@ module view.zhaiYuan {
 			EventManage.onWithEffect(this.box_heHuaChi, Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 				let o = new ZhaiYuan_HeHuaChiDialog()
-				o.setData(1);
-				o.popup();
+				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				let curlv = arr.levels[1];
+				if (curlv == 0) {
+					TipsManage.showTips('需要建造荷花池!')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [1], 0, this, function
+					(data) {
+						let base = data
+						o.setData(1,data);
+						o.popup();
+					})
+					pkt.send()
+
+				}
+
 			});
 
 			// 炼器

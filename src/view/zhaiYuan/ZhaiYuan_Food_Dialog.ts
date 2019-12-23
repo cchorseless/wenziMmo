@@ -38,7 +38,7 @@ module view.zhaiYuan {
 			}
 			Laya.timer.loop(60000, ui, round);
 			function round() {
-				second--;
+				second-=60;
 				if (second >= 0) {
 					let time = TimeUtils.getFormatBySecond(second, 6)
 					self.lab_costTime.text = time;

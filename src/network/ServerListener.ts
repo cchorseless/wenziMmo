@@ -591,9 +591,10 @@ class ServerListener extends SingletonClass {
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
-
-
             let e = new view.wuXue.WuXue_SkillEffect()
+            if(skillID ==1000){
+                return;
+            }
             let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
             let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;

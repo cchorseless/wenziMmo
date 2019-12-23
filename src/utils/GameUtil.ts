@@ -125,6 +125,7 @@ module GameUtil {
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
             return;
         }
+        
 
         Laya.timer.loop(60000, ui, round);
         function round() {

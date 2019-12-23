@@ -1,259 +1,263 @@
 module SheetConfig {
     export class mydb_magic_tbl {
-        private data; private _instance; public constructor(data) { this.data = data; }
+        public data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): mydb_magic_tbl { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
         /**
-         *  技能编号
+         *  技能ID编号
          */
-        public SKILL_ID(configID: string): number { return this.data[configID][0] }
+        public SKILL_ID(configID): number { return this.data[configID][0] }
         /**
-         *  deleted
+         *  删除
          */
-        public DELETED(configID: string): number { return this.data[configID][1] }
+        public DELETED(configID): number { return this.data[configID][1] }
         /**
-         *  技能名称
+         *  技能名字
          */
-        public NAME(configID: string): string { return this.data[configID][2] }
+        public NAME(configID): string { return this.data[configID][2] }
         /**
          *  技能等级
          */
-        public LEVEL(configID: string): number { return this.data[configID][3] }
+        public LEVEL(configID): number { return this.data[configID][3] }
         /**
-         *  技能升级熟练度
+         *  技能升级所需经验
          */
-        public PROFICIENCY(configID: string): number { return this.data[configID][4] }
+        public PROFICIENCY(configID): number { return this.data[configID][4] }
         /**
-         *  技能升级所需等级
+         *  技能升级需要玩家等级
          */
-        public SKILLS_UPGRADING(configID: string): number { return this.data[configID][5] }
+        public SKILLS_UPGRADING(configID): number { return this.data[configID][5] }
         /**
-         *  升级后编号
+         *  技能升级后的ID编号
          */
-        public LEVEL_ID(configID: string): number { return this.data[configID][6] }
+        public LEVEL_ID(configID): number { return this.data[configID][6] }
         /**
-         *  升级所需物品ID
+         *  技能升级素材编号
          */
-        public ITEM_ID(configID: string): string { return this.data[configID][7] }
+        public ITEM_ID(configID): string { return this.data[configID][7] }
         /**
-         *  升级所需物品个数
+         *  技能升级素材数量
          */
-        public NUMBER(configID: string): number { return this.data[configID][8] }
+        public NUMBER(configID): number { return this.data[configID][8] }
         /**
-         *  是否公共CD
+         *  技能是否会使用一个全部进入CD
          */
-        public PUBLICCD(configID: string): number { return this.data[configID][9] }
+        public PUBLICCD(configID): number { return this.data[configID][9] }
         /**
-         *  技能职业
+         *  技能所能用的职业
          */
-        public SKILLED_OCCUPATION(configID: string): number { return this.data[configID][10] }
+        public SKILLED_OCCUPATION(configID): number { return this.data[configID][10] }
         /**
-         *  包括自身
+         *  技能是否会命中自身
          */
-        public INCLUDING_ONESELF(configID: string): number { return this.data[configID][11] }
+        public INCLUDING_ONESELF(configID): number { return this.data[configID][11] }
         /**
-         *  包括死亡
+         *  技能是否会命中尸体
          */
-        public INCLUDING_DEATH(configID: string): number { return this.data[configID][12] }
+        public INCLUDING_DEATH(configID): number { return this.data[configID][12] }
         /**
-         *  攻击伤害值
+         *  技能伤害
          */
-        public ATK_NUMBER(configID: string): number { return this.data[configID][13] }
+        public ATK_NUMBER(configID): number { return this.data[configID][13] }
         /**
-         *  攻击伤害系数
+         *  技能伤害倍率
          */
-        public ATTACK_DAMAGE(configID: string): number { return this.data[configID][14] }
+        public ATTACK_DAMAGE(configID): number { return this.data[configID][14] }
         /**
-         *  命中系数
+         *  技能命中总和
          */
-        public HIT_COEFFICIENT(configID: string): number { return this.data[configID][15] }
+        public HIT_COEFFICIENT(configID): number { return this.data[configID][15] }
         /**
-         *  伤害类型
+         *  技能攻击类型
          */
-        public ATK_TYPE(configID: string): number { return this.data[configID][16] }
+        public ATK_TYPE(configID): number { return this.data[configID][16] }
         /**
-         *  起手法力
+         *  技能起手消耗魔力
          */
-        public MANIPULATION(configID: string): number { return this.data[configID][17] }
+        public MANIPULATION(configID): number { return this.data[configID][17] }
         /**
-         *  消耗法力
+         *  技能总共消耗魔力
          */
-        public CONSUMPTION_MANA(configID: string): number { return this.data[configID][18] }
+        public CONSUMPTION_MANA(configID): number { return this.data[configID][18] }
         /**
-         *  消耗法力系数
+         *  技能法力消耗总和
          */
-        public CONSUMPTION_COEFFICIENT(configID: string): number { return this.data[configID][19] }
+        public CONSUMPTION_COEFFICIENT(configID): number { return this.data[configID][19] }
         /**
-         *  冷却时间
+         *  技能冷却时间
          */
-        public CD(configID: string): number { return this.data[configID][20] }
+        public CD(configID): number { return this.data[configID][20] }
         /**
-         *  攻击个数
+         *  技能最大攻击数量
          */
-        public NUMBER_ATTACKS(configID: string): number { return this.data[configID][21] }
+        public NUMBER_ATTACKS(configID): number { return this.data[configID][21] }
         /**
-         *  点面
+         *  攻击范围的标记
          */
-        public POINT_SURFACE(configID: string): number { return this.data[configID][22] }
+        public POINT_SURFACE(configID): number { return this.data[configID][22] }
         /**
-         *  最大攻击范围
+         *  技能最大攻击范围
          */
-        public MAXIMUM_RANGE(configID: string): number { return this.data[configID][23] }
+        public MAXIMUM_RANGE(configID): number { return this.data[configID][23] }
         /**
-         *  魔法方向
+         *  技能的攻击类型
          */
-        public MAGIC_DIRECTION(configID: string): number { return this.data[configID][24] }
+        public ATK_TYPE_Skill(configID): number { return this.data[configID][24] }
         /**
-         *  魔法类型
+         *  指向与非指向
          */
-        public MAGIC_TYPE(configID: string): number { return this.data[configID][25] }
+        public MAGIC_DIRECTION(configID): number { return this.data[configID][25] }
         /**
-         *  魔法元素
+         *  魔法技能的类型
          */
-        public ELEMIX(configID: string): number { return this.data[configID][26] }
+        public MAGIC_TYPE(configID): number { return this.data[configID][26] }
         /**
-         *  主动被动
+         *  ？？
          */
-        public ACTIVE_PASSIVE(configID: string): number { return this.data[configID][27] }
+        public ELEMIX(configID): number { return this.data[configID][27] }
         /**
-         *  技能成功率
+         *  技能为主动释放还是被动
          */
-        public SKILL_SUCCESS(configID: string): number { return this.data[configID][28] }
+        public ACTIVE_PASSIVE(configID): number { return this.data[configID][28] }
         /**
-         *  技能模式
+         *  技能释放成功概率
          */
-        public SKILLS_MODEL(configID: string): number { return this.data[configID][29] }
+        public SKILL_SUCCESS(configID): number { return this.data[configID][29] }
         /**
-         *  SELFBUFFID
+         *  技能的释放模式
          */
-        public SELFBUFFID(configID: string): number { return this.data[configID][30] }
+        public SKILLS_MODEL(configID): number { return this.data[configID][30] }
+        /**
+         *  自身释放BUFF技能的ID
+         */
+        public SELFBUFFID(configID): number { return this.data[configID][31] }
         /**
          *  BUFFID
          */
-        public BUFFID(configID: string): string { return this.data[configID][31] }
+        public BUFFID(configID): string { return this.data[configID][32] }
         /**
-         *  公式编号
+         *  技能公式的编号
          */
-        public FORMULA_NUMBER(configID: string): number { return this.data[configID][32] }
+        public FORMULA_NUMBER(configID): number { return this.data[configID][33] }
         /**
-         *  互斥技能
+         *  不能同时存在的技能
          */
-        public EXCLUSION_SKILLS(configID: string): number { return this.data[configID][33] }
+        public EXCLUSION_SKILLS(configID): number { return this.data[configID][34] }
         /**
-         *  使用所需物品ID
+         *  使用BUFF所需要物品ID
          */
-        public REQUIRED_ITEMSID(configID: string): number { return this.data[configID][34] }
+        public REQUIRED_ITEMSID(configID): number { return this.data[configID][35] }
         /**
-         *  需要寿命值
+         *  恢复性BUFF的物品血量
          */
-        public LIFE_VALUE(configID: string): number { return this.data[configID][35] }
+        public LIFE_VALUE(configID): number { return this.data[configID][36] }
         /**
-         *  无起手动作
+         *  技能是否有抬手动作
          */
-        public NOSTARTING(configID: string): number { return this.data[configID][36] }
+        public NOSTARTING(configID): number { return this.data[configID][37] }
         /**
-         *  起手动作后置
+         *  技能后摇
          */
-        public POSTPOSITION_ACTION(configID: string): number { return this.data[configID][37] }
+        public POSTPOSITION_ACTION(configID): number { return this.data[configID][38] }
         /**
-         *  自动锁定
+         *  技能自动锁定目标
          */
-        public AUTOMATIC_LOCKING(configID: string): number { return this.data[configID][38] }
+        public AUTOMATIC_LOCKING(configID): number { return this.data[configID][39] }
         /**
-         *  自动锁定修改
+         *  技能修改锁定目标
          */
-        public LOCKING_MODIFY(configID: string): number { return this.data[configID][39] }
+        public LOCKING_MODIFY(configID): number { return this.data[configID][40] }
         /**
-         *  连续施放
+         *  连续释放技能
          */
-        public CONTINUOUS_APPLICATION(configID: string): number { return this.data[configID][40] }
+        public CONTINUOUS_APPLICATION(configID): number { return this.data[configID][41] }
         /**
-         *  连续施放修改
+         *  修改连续释放的技能
          */
-        public CONTINUOUS_RELEASE(configID: string): number { return this.data[configID][41] }
+        public CONTINUOUS_RELEASE(configID): number { return this.data[configID][42] }
         /**
-         *  跑动中释放
+         *  跑动中释放技能
          */
-        public RELEASE_RUNNING(configID: string): number { return this.data[configID][42] }
+        public RELEASE_RUNNING(configID): number { return this.data[configID][43] }
         /**
-         *  翅膀技能
+         *  翅膀自带技能
          */
-        public WING_SKILLS(configID: string): number { return this.data[configID][43] }
+        public WING_SKILLS(configID): number { return this.data[configID][44] }
         /**
          *  技能描述
          */
-        public SKILL_DESCRIPTION(configID: string): string { return this.data[configID][44] }
-        /**
-         *  内功类型
-         */
-        public INTERNAL_TYPE(configID: string): number { return this.data[configID][45] }
-        /**
-         *  攻击间隔
-         */
-        public ATTACK_INTERVAL(configID: string): number { return this.data[configID][46] }
-        /**
-         *  转生等级
-         */
-        public REINCARNATION_LEVEL(configID: string): number { return this.data[configID][47] }
-        /**
-         *  激活条件
-         */
-        public ACTIVATION_CONDITIONS(configID: string): string { return this.data[configID][48] }
-        /**
-         *  对怪增伤系数
-         */
-        public INJURIES_STRANGERS(configID: string): number { return this.data[configID][49] }
-        /**
-         *  对怪增伤值
-         */
-        public INCREASED_INJURY(configID: string): number { return this.data[configID][50] }
-        /**
-         *  技能特效ID
-         */
-        public SKILL_EFFECTSID(configID: string): string { return this.data[configID][51] }
-        /**
-         *  熟练度获取方式
-         */
-        public PROFICIENCY_ACQUISITION(configID: string): string { return this.data[configID][52] }
-        /**
-         *  增加熟练度的物品ID
-         */
-        public INCREASE_PROFICIENCY(configID: string): number { return this.data[configID][53] }
-        /**
-         *  技能Icon
-         */
-        public ICONPATH(configID: string): number { return this.data[configID][54] }
+        public SKILL_DESCRIPTION(configID): string { return this.data[configID][45] }
         /**
          *  技能类型
          */
-        public SKILLTYPE(configID: string): number { return this.data[configID][55] }
+        public INTERNAL_TYPE(configID): number { return this.data[configID][46] }
         /**
-         *  技能五行属性
+         *  技能释放间隔
          */
-        public SKILLEXTRAPROP(configID: string): number { return this.data[configID][56] }
+        public ATTACK_INTERVAL(configID): number { return this.data[configID][47] }
         /**
-         *  技能使用性别
+         *  转生等级需求
          */
-        public SKILLUSESEX(configID: string): number { return this.data[configID][57] }
+        public REINCARNATION_LEVEL(configID): number { return this.data[configID][48] }
         /**
-         *  技能品质
+         *  使用条件
          */
-        public SKILLQUALITY(configID: string): number { return this.data[configID][58] }
+        public ACTIVATION_CONDITIONS(configID): string { return this.data[configID][49] }
+        /**
+         *  对怪物的增伤总和
+         */
+        public INJURIES_STRANGERS(configID): number { return this.data[configID][50] }
+        /**
+         *  对怪物的增伤值
+         */
+        public INCREASED_INJURY(configID): number { return this.data[configID][51] }
+        /**
+         *  技能特效ID
+         */
+        public SKILL_EFFECTSID(configID): string { return this.data[configID][52] }
+        /**
+         *  熟练度获取方式
+         */
+        public PROFICIENCY_ACQUISITION(configID): string { return this.data[configID][53] }
+        /**
+         *  增加熟练度的物品ID
+         */
+        public INCREASE_PROFICIENCY(configID): number { return this.data[configID][54] }
+        /**
+         *  技能IconID
+         */
+        public ICONPATH(configID): number { return this.data[configID][55] }
+        /**
+         *  技能类型：1外功2招架3身法4内功5合计技能6弟子技能
+         */
+        public SKILLTYPE(configID): number { return this.data[configID][56] }
+        /**
+         *  技能五行攻击,1金2木3水4火5土
+         */
+        public SKILLEXTRAPROP(configID): number { return this.data[configID][57] }
+        /**
+         *  技能使用的性别1：男2女0通用
+         */
+        public SKILLUSESEX(configID): number { return this.data[configID][58] }
+        /**
+         *  技能品质1：入门2中级3高级4绝技
+         */
+        public SKILLQUALITY(configID): number { return this.data[configID][59] }
         /**
          *  内功效率
          */
-        public INTERNALCOUNT(configID: string): number { return this.data[configID][59] }
+        public INTERNALCOUNT(configID): number { return this.data[configID][60] }
         /**
-         *  技能效果
+         *  技能效果描述
          */
-        public SKILLEFFECT(configID: string): string { return this.data[configID][60] }
+        public SKILLEFFECT(configID): string { return this.data[configID][61] }
         /**
-         *  技能学习门派职位
+         *  技能学习所需的帮派职位 0不限1入门  2内门 3核心 4首席 5副帮主 6帮主 
          */
-        public SKILLLEARNGUILDLVNEED(configID: string): number { return this.data[configID][61] }
+        public SKILLLEARNGUILDLVNEED(configID): number { return this.data[configID][62] }
         /**
-        * 获取技能数据
-        * @param skillID 技能编号
-        */
+         * 获取技能数据
+         * @param skillID 技能编号
+         */
         public getAllData(skillID: number): any {
             let skillDate = [];
             for (let i in this.data) {

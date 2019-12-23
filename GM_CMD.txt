@@ -52,7 +52,10 @@ NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
 @dolua call="gm_setBossFlag(bossid)"             击杀boss
 @dolua call="gm_addrunescore(100000)"            符文精華
 @dolua call="gm_setZsLvl()"                      轉生等級
-@dolua call="gm_addsoulstone(1000000000)"               增加魂石经验
+@dolua call="gm_addsoulstone(1000000000)"       增加魂石经验
 @herolevel lvl=100                             增加弟子等级
 @level lvl=150                                  增加自己等级
 @dolua call="gm_clearArch"                      清除宅院等级
+@makeitem baseid=9 count=999                    生成多个道具
+@dolua call="gm_addFoodValue(999000)"            宅院加粮食
+@dolua call="gm_finishArchGen"                   宅院生产任务全部完成

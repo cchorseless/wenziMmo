@@ -633,8 +633,8 @@ module ProtoCmd {
     export const recruitServant = 'recruitServant';  //招募协议
     export const addOrRemoveServant = 'addOrRemoveServant'; //增加或删除粮食的仆役(_, state, count)--state:0 add, 1 remove
     export const archGenerateInfo = 'archGenerateInfo';  //生产信息  type
-    export const startGenerate = 'startGenerate';//开始生产  type，level
-    export const getGenerateReward = 'getGenerateReward';//领取奖励
+    export const startGenerate = 'startGenerate';//开始生产  type，level  id 1、2
+    export const getGenerateReward = 'getGenerateReward';//领取奖励  type，level id 1、2
     export const archLevelUp = 'archLevelUp';//建筑升级 type, level
 
 

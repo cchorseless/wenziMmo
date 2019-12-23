@@ -33,7 +33,7 @@ module view.zhaiYuan {
 			this.btn_upLv.on(Laya.UIEvent.CLICK, this, function () {
 				//升级、建造  isBuild
 				let o = new ZhaiYuan_Build_ContentDialog();
-				o.setData(this.configID, this.isBuild);
+				o.setData(this.configID, this.isBuild,0);
 				o.show()
 			})
 

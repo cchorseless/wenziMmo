@@ -2,11 +2,13 @@
 module view.zhaiYuan {
 	export class ZhaiYuan_Build_ContentDialog extends ui.zhaiYuan.ZhaiYuan_Build_ContentDialogUI {
 		public type;
+		public fromDialog = 0  //0：从建筑进来 1：从地图上的对应iconDialog进来
 		constructor() {
 			super();
 			this.addEvent()
 		}
-		public setData(configID: number, isBuid) {
+		public setData(configID: number, isBuid, fromID) {
+			this.fromDialog = fromID;
 			if (isBuid) {
 				this.btn_lv_up.label = "建造";
 				this.btn_lv_up.skin = 'image/common/button_qianwang_yellow.png'
@@ -37,8 +39,13 @@ module view.zhaiYuan {
 		public addEvent() {
 			this.btn_lv_up.on(Laya.UIEvent.CLICK, this, function () {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archLevelUp, [this.type], 0, this, function (data) {
-					GameApp.GameEngine.zhaiYuanLevels[this.type] +=1; 
-					ZhaiYuan_Build_Dialog.self.setData();
+					GameApp.GameEngine.zhaiYuanLevels[this.type] += 1;
+					if (this.fromDialog == 0) {
+						ZhaiYuan_Build_Dialog.self.setData();
+					} else {
+						ZhaiYuan_HeHuaChiDialog.self.setView();
+					}
+
 					GameApp.LListener.offCaller(ProtoCmd.archLevelUp, this)
 					this.close();
 				});
