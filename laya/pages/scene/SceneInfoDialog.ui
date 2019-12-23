@@ -2,9 +2,9 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":19,
+    "selecteID":73,
     "referenceLines":null,
-    "props":{"width":629,"sceneColor":"#e3c8c8","height":786},
+    "props":{"width":580,"sceneColor":"#e3c8c8","height":650},
     "nodeParent":-1,
     "label":"Dialog",
     "isOpen":true,
@@ -16,7 +16,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":629,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","height":786},
+            "props":{"y":0,"x":0,"width":580,"skin":"image/common/bottom_Pop_ups_small.png","sizeGrid":"71,75,101,77","height":650},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -31,47 +31,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":20,"x":164,"skin":"image/common/bottom_title.png","sizeGrid":"24,26,24,23"},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":59,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":4,"x":52,"text":"地点信息","strokeColor":"#000000","stroke":4,"fontSize":45,"font":"FZXK","color":"#ffffff"},
-                    "nodeParent":59,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":60,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":72,"x":218,"width":180,"var":"lbl_roomName","text":"鬼门关","height":40,"fontSize":32,"font":"FZXK","color":"#000000","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lbl_roomName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":18,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":70,"x":46,"width":523,"skin":"image/common/img_zhuangshi_04.png","sizeGrid":"34,57,28,26","height":253},
+            "props":{"y":70,"x":9,"width":562,"skin":"image/common/bottom_touming.png","sizeGrid":"34,57,28,26","height":213,"alpha":0.8},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -84,35 +44,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":378,"x":43,"width":530,"skin":"image/common/login/line_yeqian.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":65,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Tab",
-            "props":{"y":327,"x":148,"width":332,"var":"tab_0","stateNum":2,"space":2,"skin":"image/common/btn_common_04_finish.png","selectedIndex":0,"labels":"战利品,怪物,玩家","labelSize":22,"labelPadding":"5","labelFont":"FZHL","labelColors":"#404040,#63491a","labelBold":true,"height":52,"direction":"horizontal"},
-            "nodeParent":1,
-            "label":"Tab(tab_0)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":38,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":380,"x":34,"width":551,"skin":"image/main/fram_common_bg_02a.png","height":345},
+            "props":{"y":337,"width":580,"skin":"image/common/tab_tc_fgd01.png","right":0,"left":0,"height":299},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -124,21 +56,36 @@
         },
         {
             "x":15,
-            "type":"ViewStack",
-            "props":{"y":381,"x":42,"width":533,"height":326},
+            "type":"Tab",
+            "props":{"y":294,"x":8,"width":352,"var":"tab_place","stateNum":2,"space":2,"skin":"image/common/btn_common_xiaoyeqian02.png","selectedIndex":0,"labels":"战利品,怪物,玩家","labelSize":22,"labelPadding":"-2","labelFont":"FZHL","labelColors":"#404040,#63491a","height":58.5,"direction":"horizontal"},
             "nodeParent":1,
-            "label":"ViewStack",
-            "isOpen":false,
+            "label":"Tab(tab_place)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":38,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"ViewStack",
+            "props":{"y":364,"x":55,"width":470,"var":"view_palce","selectedIndex":0,"height":250},
+            "nodeParent":1,
+            "label":"ViewStack(view_palce)",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":39,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"x":0,"width":533,"name":"item0","height":326},
+                    "props":{"y":0,"x":0,"width":470,"var":"panel_daoju","name":"item0","height":250},
                     "nodeParent":39,
-                    "label":"Panel(item0)",
+                    "label":"Panel(panel_daoju)",
                     "isOpen":false,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -148,10 +95,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"x":0,"width":533,"name":"item1","height":326},
+                    "props":{"x":0,"width":470,"var":"panel_boss","name":"item1","height":250},
                     "nodeParent":39,
-                    "label":"Panel(item1)",
+                    "label":"Panel(panel_boss)",
                     "isOpen":false,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -161,10 +109,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
-                    "props":{"width":533,"name":"item2","height":326},
+                    "props":{"width":470,"var":"panel_player","name":"item2","height":250},
                     "nodeParent":39,
-                    "label":"Panel(item2)",
+                    "label":"Panel(panel_player)",
                     "isOpen":false,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -172,77 +121,13 @@
                     "compId":67,
                     "child":[
                         ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuInSceneV0Item.ui",
-                    "props":{"y":18,"x":-3},
-                    "nodeParent":39,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":53,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuInSceneV0Item.ui",
-                    "props":{"y":18,"x":110},
-                    "nodeParent":39,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":54,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuInSceneV0Item.ui",
-                    "props":{"y":18,"x":219},
-                    "nodeParent":39,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":55,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuInSceneV0Item.ui",
-                    "props":{"y":18,"x":328},
-                    "nodeParent":39,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":56,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"UIView",
-                    "source":"compart/DaoJuInSceneV0Item.ui",
-                    "props":{"y":18,"x":439},
-                    "nodeParent":39,
-                    "label":"UIView",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":68,
-                    "child":[
-                        ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":108,"x":63,"wordWrap":true,"width":481,"var":"lbl_roomInfo","text":"        地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍","leading":2,"height":175,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
+            "props":{"y":90,"x":23,"wordWrap":true,"width":533,"var":"lbl_roomInfo","text":"        地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍地点介绍","leading":2,"height":175,"fontSize":24,"font":"FZHL","color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_roomInfo)",
             "isDirectory":false,
@@ -255,39 +140,66 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":83,"x":100,"skin":"image/common/login/img_zhuangshi_03.png"},
+            "props":{"top":-4,"skin":"image/common/title_tanchuang2.png","right":0,"left":1},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":61,
+            "hasChild":true,
+            "compId":70,
             "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":83,"x":517,"skin":"image/common/login/img_zhuangshi_03.png","scaleX":-1},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":62,
-            "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":0,"x":174,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"0,41,0,44"},
+                    "nodeParent":70,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":71,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":7,"x":21,"width":178,"var":"lbl_roomName","text":"地点信息","strokeColor":"#404040","stroke":4,"height":36,"fontSize":36,"font":"FZXK","color":"#fff4ce","align":"center"},
+                            "nodeParent":71,
+                            "label":"Label(lbl_roomName)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":72,
+                            "child":[
+                                ]
+                        }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"var":"btn_close","top":8,"stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png","right":14},
+            "props":{"var":"btn_close","top":-5,"stateNum":2,"skin":"image/common/btn_smallTanchuangClose.png","right":8},
             "nodeParent":1,
             "label":"Button(btn_close)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":440,"x":182,"var":"lbl_null","text":"暂无其他玩家","strokeColor":"#404040","stroke":4,"height":36,"fontSize":36,"font":"FZHL","color":"#fff4ce","align":"center"},
+            "nodeParent":1,
+            "label":"Label(lbl_null)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":73,
             "child":[
                 ]
         }],

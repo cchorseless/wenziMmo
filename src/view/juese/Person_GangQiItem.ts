@@ -52,7 +52,6 @@ module view.juese {
 		public getItemInfo(): ProtoCmd.ItemBase {
 			return GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_WING);
 		}
-
 		public addEvent(): void {
 			//激活
 			this.btn_jihuo.on(Laya.UIEvent.CLICK, this, () => {
@@ -100,6 +99,7 @@ module view.juese {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JS_activePlayerWing, null, null, this, (jsonData) => {
 				this.wingInfo();
+				this.init_GangQIInfo(this.getItemInfo());
 			})
 			lcp.send(pkt);
 		}
@@ -190,6 +190,7 @@ module view.juese {
 		 */
 		public init_update(id = null): void {
 			let data = this.getItemInfo();
+			let nowid = data.dwEffId - data.dwLevel + 1;
 			if (id == null) {
 				//当前的下一星罡气效果id
 				id = data.dwEffId + (Math.floor(data.dwLevel / 10) + 1) * 10 - data.dwLevel + 1;
@@ -201,13 +202,11 @@ module view.juese {
 					index = child.index;
 					child.btn_select.visible = true;
 				} else {
-					// child.btn_select.selected = false;
 					child.btn_select.visible = false;
 				}
-				if (child.id == data.dwEffId) {
-					this.img_now.skin = 'image/common/img_gangQi_0' + child.index + '.png';
-				}
 			}
+			let num = Math.ceil(data.dwLevel / 10)
+			this.img_now.skin = 'image/common/img_gangQi_0' + num + '.png';
 			if (data.dwLevel < 90) {
 				this.img_now.x = 86;
 				this.img_shengji.visible = this.img_next.visible = true;

@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":2,
-    "props":{"width":80,"sceneColor":"#000000","height":80},
+    "selectedBox":18,
+    "selecteID":19,
+    "props":{"width":108,"sceneColor":"#e3d6d6","height":117},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,39 +15,153 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":40,"x":40,"width":80,"height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":0,"x":0,"width":107,"var":"box_monster","height":117},
             "nodeParent":1,
-            "label":"Box",
-            "isOpen":null,
+            "label":"Box(box_monster)",
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":12,
             "child":[
                 {
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":80,"skin":"image/common/daoju/fram_common_npc.png","height":80},
-                    "nodeParent":2,
+                    "props":{"y":1,"x":5,"width":100,"skin":"image/main/frame_npc_01.png","height":100},
+                    "nodeParent":12,
                     "label":"Image",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":3,
+                    "hasChild":true,
+                    "compId":8,
                     "child":[
-                        ]
+                        {
+                            "type":"Image",
+                            "props":{"var":"img_player","top":5,"skin":"image/common/npc/npc_icon_1508.png","right":5,"left":5,"bottom":5},
+                            "nodeParent":8,
+                            "label":"Image(img_player)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":9,
+                            "child":[
+                                ],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":4,"x":16,"width":58,"skin":"image/common/img_NPC_Zhangjingchao.png","height":71},
-                    "nodeParent":2,
-                    "label":"Image",
+                    "type":"Label",
+                    "props":{"x":41,"width":58,"var":"lbl_lvl","top":79,"text":"LV.120","strokeColor":"#404040","stroke":2,"height":18,"fontSize":18,"font":"FZHL","color":"#149a0d","align":"right"},
+                    "nodeParent":12,
+                    "label":"Label(lbl_lvl)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":4,
+                    "compId":10,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":99,"x":-1,"width":108,"var":"lbl_name","text":"玩家名称六字","strokeColor":"#000000","stroke":4,"height":18,"fontSize":18,"font":"FZHL","color":"#ffffff","align":"center"},
+                    "nodeParent":12,
+                    "label":"Label(lbl_name)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":5,"x":0,"var":"box_daoju"},
+            "nodeParent":1,
+            "label":"Box(box_daoju)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":18,
+            "child":[
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"compart/DaoJuItem.ui",
+                    "props":{"y":1,"x":9,"width":75,"var":"ui_item","scaleY":1.2,"scaleX":1.2,"runtime":"view.compart.DaoJuItem","height":74},
+                    "nodeParent":18,
+                    "label":"UIView(ui_item)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":13,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":93,"x":1,"width":108,"var":"lbl_itemName","text":"玩家名称六字","strokeColor":"#000000","stroke":4,"height":18,"fontSize":18,"font":"FZHL","color":"#f9e596","align":"center"},
+                    "nodeParent":18,
+                    "label":"Label(lbl_itemName)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":2,"x":9,"var":"box_protect"},
+                    "nodeParent":18,
+                    "label":"Box(box_protect)",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":19,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"width":90,"skin":"image/common/default/img_blackBg.png","height":91,"alpha":0.6},
+                            "nodeParent":19,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":15,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":33,"x":28,"var":"lbl_time","text":"60","fontSize":25,"font":"FZHL","color":"#ffffff"},
+                            "nodeParent":19,
+                            "label":"Label(lbl_time)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":16,
+                            "child":[
+                                ]
+                        }]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {
