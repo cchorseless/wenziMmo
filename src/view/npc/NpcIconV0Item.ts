@@ -26,7 +26,7 @@ module view.npc {
 			this.ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 			//物品名称
 			this.lbl_itemName.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + itemData.dwBaseID);
-			if (itemData.i64OwnerId.id != GameApp.MainPlayer.onlyId&&itemData.dwExpireTime!=0) {
+			if (itemData.i64OwnerId.id != GameApp.MainPlayer.onlyId.id&&itemData.dwExpireTime!=0) {
 				this.box_protect.visible = true;
 				Laya.timer.loop(40, this, this.init_time);
 			} else {
@@ -41,7 +41,8 @@ module view.npc {
 			let itemData = GameApp.MainPlayer.allItem;
 			for (let _item in itemData) {
 				if (itemData[_item].i64ItemID == this.item.i64ItemID) {
-					this.lbl_time.text=''+itemData[_item].dwExpireTime;
+					let time= itemData[_item].dwExpireTime;
+					this.lbl_time.text=''+TimeUtils.timestampToTime(time,2);
 				}
 			}
 		}

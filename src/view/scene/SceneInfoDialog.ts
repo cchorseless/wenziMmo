@@ -44,7 +44,7 @@ module view.scene {
 				let _itemer = player.allItem[_itemkey];
 				let itemui = new view.npc.NpcIconV0Item();
 				itemui.init_item(_itemer);
-				this.panel_boss.addChild(itemui);
+				this.panel_daoju.addChild(itemui);
 				itemui.y = (floor0 - 1) * (itemui.height + 10);
 				switch (num0) {
 					case 0:

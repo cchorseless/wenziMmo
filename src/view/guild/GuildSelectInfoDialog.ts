@@ -13,7 +13,7 @@ module view.guild {
 			let skillArray = skill.split('/');
 			this.hbox_skill.removeChildren();
 			for (let single of skillArray) {     
-				// let skillData = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(single));
+				let skillData = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(single));
 				this.hbox_skill.addChild(new view.wuXue.WuXue_logoBgItem())
 			}
 			this.addEvent();

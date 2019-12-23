@@ -219,9 +219,9 @@ module view.juese {
 						this.level = parseInt(item0[0]);
 						if (parseInt(item0[0]) >= 1000) {
 							let zs = Math.ceil(parseInt(item0[0]) / 1000);
-							this.lbl_condition.text = '等级大于' + zs + '转'
+							this.lbl_condition.text = '等级等于' + zs + '转'
 						} else {
-							this.lbl_condition.text = '等级大于' + item0[0] + '级'
+							this.lbl_condition.text = '等级等于' + item0[0] + '级'
 						}
 						this.lbl_num.text = '0/' + item0[1];
 						this.maxNum = item0[1];
