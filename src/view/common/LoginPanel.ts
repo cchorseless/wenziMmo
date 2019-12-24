@@ -6,6 +6,7 @@ module view.common {
 		}
 
 		public setData(): void {
+			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			console.log(this.lbl_versionInfo.text);
 			// 判断是否SDK登录
