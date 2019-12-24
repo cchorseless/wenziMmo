@@ -559,8 +559,17 @@ class ServerListener extends SingletonClass {
                 // 检查攻击动作，释放攻击动作,检查CD
                 case EnumData.BattleResult.SUCCESS:
                     atker.startAttack();
+                    let dwTempId = msgData.getValue('dwTempId')
                     let skillid = msgData.getValue('nMagicId')
-                    PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
+                    GameApp.GameEngine.mainPlayer.tempId
+                    if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
+                        PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
+                    }
+
+                    // if(){
+
+                    // }
+
                     break;
                 default:
                     TipsManage.showTips('攻击失败' + msgData.btErrorCode);
@@ -598,24 +607,30 @@ class ServerListener extends SingletonClass {
             let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
             let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;
-            e.setData(0, skillEff)
-            e.y = Laya.stage.height / 3 - 50;
-            e.x = e.width * (-1);
-            e.scaleX = e.scaleY = 0.8;
 
-            // let p = targeter.ui_item.localToGlobal(new Laya.Point());
-            // e.anchorX = e.anchorY = 0.5;
-            // e.y = p.y + (targeter.ui_item.height/2);
-            // e.x = p.x+ (targeter.ui_item.width/2);
-            // e.scaleX = e.scaleY = 1;
-            // e.alpha
+                e.y = Laya.stage.height / 3 - 50;
+                e.scaleX = e.scaleY = 0.8;
+            if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
+                e.setData(0, skillEff)
+
+                e.x = e.width * (-1);
+                Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
+                    Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
+                        PanelManage.Main.removeChild(e)
+                    }))
+                }))
+            } else {
+                e.setData(1, skillEff)
+                e.x = e.width + Laya.stage.width;
+                Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
+                    Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
+                        PanelManage.Main.removeChild(e)
+                    }))
+                }))
+            }
+
 
             PanelManage.Main.addChild(e)
-            Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
-                Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
-                    PanelManage.Main.removeChild(e)
-                }))
-            }))
 
 
 

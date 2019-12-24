@@ -94,6 +94,10 @@ class GameEngine extends SingletonClass {
 
 
 
+    public fuBenResinfo:{[index:number]:ProtoCmd.itf_FB_ZiYuanOneInfo} = {};
+
+
+
     //服务器开服信息
     public openDay = null;
 

@@ -88,7 +88,7 @@ module view.fuBen {
 							// 更新章节信息
 							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
-						this.lbl_pianZhangLV.text = '第' + GameUtil.SectionToChinese(nowLv,0) + '章';
+						this.lbl_pianZhangLV.text = '第' + GameUtil.SectionToChinese(nowLv, 0) + '章';
 						// 更新单个章节的信息
 						this.updateMainFuBenInfo(GameApp.MainPlayer.charpterID);
 					}
