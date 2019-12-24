@@ -7,7 +7,7 @@ module view.juQingMode {
 		}
 
 		public setData(): void {
-			this.panel_0.vScrollBarSkin = '';
+			// this.panel_0.vScrollBarSkin = '';
 
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
@@ -36,48 +36,6 @@ module view.juQingMode {
 				pkt.setString(ProtoCmd.JQ_GET_JQ_readJuQing)
 				lcp.send(pkt);
 			});
-
-			// 剧情进度
-			// EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
-			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-			// 		(data: ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
-			// 			// console.log("从服务器获取的数据：", data)
-			// 			serverData = data;
-			// 			for (let i in data) {
-			// 				if (data[i] == 1) {
-			// 					hasRP = true;
-			// 				}
-			// 			}
-			// 			PanelManage.openZhiNanPanel()
-			// 		});
-			// 	lcp.send(pkt);
-
-			// });
-
-			// 副本
-			// EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
-			// 	PanelManage.openFuBenMainPanel('juqing')
-			// });
-
-			// 图谱
-			// EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
-			// 	PanelManage.openTuJianJuesePanel()
-			// });
-
-			// 任务
-			// EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTask_MainPanel(); });
-
-			// 天鉴
-			// EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
-
-			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
-			// 		(data: ProtoCmd.itf_TianJian_SpecialRingPanel) => {
-			// 			// console.log("从服务器获取的数据：", data)
-			// 			PanelManage.openTianJianPanel(data);
-			// 		});
-			// 	lcp.send(pkt);
-
-			// });
 
 			// 场景模式
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -347,17 +305,17 @@ module view.juQingMode {
 					// let startTalkId1 = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
 					let span0 = endTalkId1 - startTalkId;
 					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
-					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "100%"
-						this.panel_0.vScrollBar.min = this.vbox_0.height
-						this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
-						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					} else {
-						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
-						this.panel_0.vScrollBar.min = this.vbox_0.height
-						this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
-						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					}
+					// if (span1 >= span0) {
+					// 	this.lab_juqingjindu.text = "100%"
+					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
+					// 	this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
+					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
+					// } else {
+					// 	this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
+					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
+					// 	this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
+					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
+					// }
 				}
 			}
 			else {

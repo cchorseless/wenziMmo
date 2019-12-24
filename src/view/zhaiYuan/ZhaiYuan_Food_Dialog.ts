@@ -22,7 +22,7 @@ module view.zhaiYuan {
 		}
 		public showXiaoLv(num) {
 			this.lab_num.text = num + '';
-			this.lab_xiaolv.text = 1000 + 1000 * num + '';
+			this.lab_xiaolv.text = 1000 + 1000 * num + '/h';
 		}
 		public timeCutDown(second) {
 			let self = this;

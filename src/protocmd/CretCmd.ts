@@ -81,6 +81,7 @@ module ProtoCmd {
             this.read(data);
         }
     }
+    
 
 
     //0x0206

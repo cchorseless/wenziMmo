@@ -7,12 +7,14 @@ module view.zhaiYuan {
 		public getItem;
 		public id;
 		public configID;
+		public speed;
 		constructor() {
 			super();
 			this.addEvent();
 		}
-		public setData(costItem, costTime, getItem, makeStatus, id, configID) {
+		public setData(costItem, costTime, getItem, makeStatus, id, configID, speed) {
 			this.id = id;
+			this.speed = speed;
 			this.configID = configID;
 			this.makeStatus = makeStatus;
 			costItem = costItem.split('|')
@@ -44,13 +46,14 @@ module view.zhaiYuan {
 				case 0:  //未生产
 					this.btn_make.label = '生产';
 					this.btn_make.disabled = false;
-					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.costTime * 60, 7);
+					let curTime = this.costTime * (100 /this.speed);
+					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(curTime * 60, 7);
 					break;
 				case 1:  //正在生产
 					this.btn_make.label = '生产中';
 					this.btn_make.disabled = true;
 					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.makeStatus.f * 60, 7)
-					this.showTimeDown(this.makeStatus.f);
+					this.showTimeDown(this.makeStatus.f * 60);
 					break;
 				case 2:  //暂停生产
 					this.btn_make.label = '暂停中';
@@ -88,11 +91,12 @@ module view.zhaiYuan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.startGenerate,
 						[type, lv, this.id], 0, this, function (data) {
 							let base = data
-							GameApp.GameEngine.zhaiYuaninfo.leisureServants -= 1;
+							GameApp.GameEngine.zhaiYuaninfo.leisureServants = data.leisureServants;
 							ZhaiYuanPanel.self.showZhaiYuanMsg(GameApp.GameEngine.zhaiYuaninfo)
 							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].s = data.statetab.s;
 							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].f = data.statetab.f;
 							ZhaiYuan_HeHuaChiDialog.self.showPanel();
+							ZhaiYuan_HeHuaChiDialog.self.upDateServantNum()
 
 						})
 					pkt.send();
@@ -100,11 +104,12 @@ module view.zhaiYuan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getGenerateReward,
 						[type, lv, this.id], 0, this, function (data) {
 							let base = data
-							GameApp.GameEngine.zhaiYuaninfo.leisureServants += 1;
+							GameApp.GameEngine.zhaiYuaninfo.leisureServants = data.leisureServants;
 							ZhaiYuanPanel.self.showZhaiYuanMsg(GameApp.GameEngine.zhaiYuaninfo)
 							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].s = 0;
 							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].f = 120;
 							ZhaiYuan_HeHuaChiDialog.self.showPanel();
+							ZhaiYuan_HeHuaChiDialog.self.upDateServantNum()
 						})
 					pkt.send();
 				}
