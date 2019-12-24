@@ -44,6 +44,7 @@ module view.zhaiYuan {
 				+ "<span style='color:#000000'>粮食/分钟粮食不足时自动停止生产</span>";
 		}
 		public showPanel() {
+			this.panel_show.removeChildren();
 			let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
 			let curlv = arr.levels[this.type];
 			for (let i = 1; i < curlv + 1; i++) {

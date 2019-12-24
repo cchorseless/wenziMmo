@@ -31,7 +31,7 @@ module view.scene {
 		public addMonster(monster): boolean {
 			// 优先添加BOX_ONLY
 			if (this.box_only.visible && this.box_only.numChildren == 0) {
-				monster.scale(1.5, 1.5);
+				monster.scale(1, 1);
 				monster.centerY = 0;
 				monster.centerX = 0;
 				this.box_only.addChild(monster);
