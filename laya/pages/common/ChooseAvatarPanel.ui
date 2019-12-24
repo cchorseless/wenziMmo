@@ -18,13 +18,14 @@
             "props":{"top":0,"right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":37,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"skin":"image/common/img_login_bg.png"},
                     "nodeParent":37,
@@ -38,6 +39,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":45,"x":477,"width":168,"text":"版本:1.0.0","strokeColor":"#000000","stroke":4,"height":40,"fontSize":30,"font":"FZHL","color":"#ffffff"},
                     "nodeParent":37,
@@ -50,6 +52,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":22,"x":23,"var":"btn_notice","stateNum":"2","skin":"image/common/login/icon_gonggao.png"},
                     "nodeParent":37,
@@ -61,6 +64,7 @@
                     "compId":21,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":47,"x":-4,"text":"公告","strokeColor":"#000000","stroke":6,"fontSize":40,"font":"FZXK","color":"#ffffff"},
                             "nodeParent":21,
@@ -74,6 +78,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":249,"x":512,"width":384,"var":"img_heroPic","skin":"image/common/nan01.png","scaleX":-1,"height":657},
                     "nodeParent":37,
@@ -87,6 +92,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":865,"x":137,"skin":"image/common/login/img_xuanjue_01.png"},
                     "nodeParent":37,
@@ -100,6 +106,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":891,"x":176,"skin":"image/common/login/zi_v.png"},
                     "nodeParent":37,
@@ -112,6 +119,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"FontClip",
                     "props":{"y":890,"x":197,"width":42,"var":"vip_level","value":"12","spaceX":-10,"skin":"image/common/login/zi_vip.png","sheet":"0123456789","height":40},
                     "nodeParent":37,
@@ -124,6 +132,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":927,"x":205,"width":52,"var":"lbl_level1","text":"120","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"fzhl","color":"#eeebde","align":"center"},
                     "nodeParent":37,
@@ -137,6 +146,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":927,"x":152,"width":55,"var":"lbl_level0","text":"10转","strokeColor":"#000000","stroke":4,"height":24,"fontSize":24,"font":"FZHL","color":"#eeebde","align":"center"},
                     "nodeParent":37,
@@ -151,6 +161,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":906,"x":254,"width":220,"var":"lbl_playerName","text":"玩家姓名拉拉","strokeColor":"#000000","stroke":4,"height":31,"fontSize":36,"font":"FZXK","color":"#f9e596","align":"center"},
                     "nodeParent":37,
@@ -164,6 +175,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":983,"x":212,"var":"btn_startGame","stateNum":"2","skin":"image/common/login/img_tarujianghu.png"},
                     "nodeParent":37,

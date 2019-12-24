@@ -571,7 +571,7 @@ class ServerListener extends SingletonClass {
             TipsManage.showTips('攻击失败' + '没有找到目标');
         }
         msgData.clear();
-         msgData = null;
+        msgData = null;
     }
 
 
@@ -592,7 +592,7 @@ class ServerListener extends SingletonClass {
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
             let e = new view.wuXue.WuXue_SkillEffect()
-            if(skillID ==1000){
+            if (skillID == 1000) {
                 return;
             }
             let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
@@ -1320,9 +1320,19 @@ class ServerListener extends SingletonClass {
         itemInfo.mapX = msg.getValue('wX');
         itemInfo.mapY = msg.getValue('wY');
         itemInfo.i64OwnerId = msg.getValue('i64OwnerId');
+        itemInfo.protectTime = msg.getValue('coldTime');
         GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()] = itemInfo;
         GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
-
+        let num = 0;
+        //消失时间倒计时
+        Laya.timer.loop(1000, this, () => {
+            num += 1;
+            if (num > 1) {
+                if (GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime > 0) {
+                    GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime = itemInfo.protectTime - 1;
+                }
+            }
+        });
         msg.clear();
         msg = null;
     }

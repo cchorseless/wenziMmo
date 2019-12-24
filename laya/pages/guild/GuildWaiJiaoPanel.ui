@@ -321,6 +321,7 @@
                     "compId":143,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":5,"width":626,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":169},
                             "nodeParent":143,
@@ -335,6 +336,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":22,"x":55,"stateNum":"1","skin":"image/guild/frame_gang_Headportrait.png"},
                             "nodeParent":143,
@@ -346,6 +348,7 @@
                             "compId":130,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":7,"x":6,"skin":"image/guild/icon_bangpai_normal.png"},
                                     "nodeParent":130,
@@ -359,6 +362,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":75,"x":-31,"var":"lbl_guildName","text":"公会名称123","strokeColor":"#000000","stroke":3,"height":35,"fontSize":26,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":130,
@@ -374,6 +378,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":12,"x":21,"var":"btn_buff","stateNum":"1","skin":"image/guild/icon_buff.png"},
                             "nodeParent":143,
@@ -386,6 +391,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":138,"x":26,"skin":"image/common/Progressbar_gang_bottom.png"},
                             "nodeParent":143,
@@ -411,6 +417,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":130,"x":23,"var":"lbl_guildLv","text":"Lv.6","strokeColor":"#000000","stroke":3,"fontSize":20,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":143,
@@ -424,8 +431,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":111,"x":262,"width":121,"var":"btn_prize","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":24,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"奖励","height":53},
+                            "props":{"y":111,"x":262,"width":121,"var":"btn_prize","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"奖励","height":53},
                             "nodeParent":143,
                             "label":"Button(btn_prize)",
                             "isDirectory":false,
@@ -437,6 +445,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":115,"x":415,"width":121,"var":"btn_shaBakeInfo","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":24,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"查看详情","height":46},
                             "nodeParent":143,
@@ -450,6 +459,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":25,"x":152},
                             "nodeParent":143,
@@ -461,6 +471,7 @@
                             "compId":37,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":51,"x":83},
                                     "nodeParent":37,
@@ -472,6 +483,7 @@
                                     "compId":139,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-9,"x":98,"width":47,"var":"lbl_shaBaKeTime","text":"10","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#63491a"},
                                             "nodeParent":139,
@@ -484,6 +496,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-11,"x":-36,"text":"沙巴克次数：","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#000000"},
                                             "nodeParent":139,
@@ -496,6 +509,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-9,"x":226,"width":77,"var":"lbl_memberCount","text":"XX/XX","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#63491a"},
                                             "nodeParent":139,
@@ -508,6 +522,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":-11,"x":165,"width":69,"text":"成员：","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#000000"},
                                             "nodeParent":139,
@@ -522,6 +537,7 @@
                                         }]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":-3,"x":100},
                                     "nodeParent":37,
@@ -533,6 +549,7 @@
                                     "compId":148,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"y":3,"x":78,"width":124,"var":"lbl_bangZhuName","text":"XXXXXXXX","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#63491a"},
                                             "nodeParent":148,
@@ -546,6 +563,7 @@
                                                 ]
                                         },
                                         {
+                                            "x":75,
                                             "type":"Label",
                                             "props":{"width":70,"text":"帮主：","strokeColor":"#000000","height":32,"fontSize":24,"font":"FZHL","color":"#000000"},
                                             "nodeParent":148,
@@ -561,6 +579,7 @@
                                 }]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":241,"x":3,"width":624,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":587},
                             "nodeParent":143,
@@ -599,6 +618,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":182,"x":208,"skin":"image/common/bottom_smalltitle.png"},
                             "nodeParent":143,
@@ -610,6 +630,7 @@
                             "compId":141,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":6,"x":56,"width":97,"text":"留言板","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"FZXK","color":"#ffffff"},
                                     "nodeParent":141,
@@ -624,6 +645,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":207,"x":530,"width":86,"text":"共120条","strokeColor":"#000000","height":32,"fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":143,
@@ -651,7 +673,6 @@
                     "compId":80,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":-46,"x":3,"width":620,"skin":"image/main/fram_common_bg_02.png","sizeGrid":"25,6,27,6","height":745},
                             "nodeParent":80,
@@ -663,7 +684,6 @@
                             "compId":92,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":1,"x":-2,"width":626,"height":799},
                                     "nodeParent":92,
@@ -675,7 +695,6 @@
                                     "compId":99,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Panel",
                                             "props":{"y":58,"x":4,"width":617,"var":"panel_find","height":660},
                                             "nodeParent":99,
@@ -701,7 +720,6 @@
                                                 }]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Button",
                                             "props":{"y":4,"x":498,"width":102,"var":"btn_search","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#000000","labelSize":30,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"搜索","height":50},
                                             "nodeParent":99,
@@ -715,7 +733,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"TextInput",
                                             "props":{"y":8,"x":12,"width":481,"var":"input_find","skin":"image/common/Inputbox_1.png","sizeGrid":"5,6,10,7","promptColor":"#404040","prompt":"请输入帮派名称","padding":"2,140,8,4","height":52,"fontSize":24,"font":"FZHL","color":"#000000","align":"center"},
                                             "nodeParent":99,
@@ -729,7 +746,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Box",
                                             "props":{"y":754,"x":215,"width":198,"height":42},
                                             "nodeParent":99,

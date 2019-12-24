@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":10,
+    "selectedBox":185,
+    "selecteID":183,
     "props":{"width":640,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -252,13 +252,14 @@
             "props":{"y":0,"x":0,"width":640,"var":"box_selectQuestion","right":0,"left":0,"height":135,"bottom":0},
             "nodeParent":1,
             "label":"Box(box_selectQuestion)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":185,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-93,"x":0,"skin":"image/common/bottom_tishi2.png","alpha":1},
                     "nodeParent":185,
@@ -273,6 +274,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":-61,"x":0,"width":641,"var":"lbl_selestQuestion","valign":"middle","underlineColor":"#000000","text":"现在向哪个方向走呢？","stroke":4,"height":80,"fontSize":36,"font":"FZHL","color":"#f9f6f6","align":"center"},
                     "nodeParent":185,
@@ -285,8 +287,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":97,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":97,"x":145,"width":206,"var":"btn_selectA","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelSize":34,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
                     "label":"Button(btn_selectA)",
                     "isDirectory":false,
@@ -297,6 +300,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":95,"x":483,"width":206,"var":"btn_selectB","stateNum":"2","skin":"image/common/button_qianwang_red.png","sizeGrid":"16,25,16,22","labelStrokeColor":"#a9643b","labelStroke":4,"labelSize":34,"labelFont":"fzhl","labelColors":"#ffffff,#ffffff,#ffffff","label":"继  续","height":65,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":185,
@@ -309,7 +313,7 @@
                         ]
                 }],
             "$LOCKED":false,
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
