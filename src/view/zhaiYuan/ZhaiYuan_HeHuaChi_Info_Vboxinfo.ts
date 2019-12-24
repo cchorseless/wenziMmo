@@ -91,7 +91,7 @@ module view.zhaiYuan {
 							GameApp.GameEngine.zhaiYuaninfo.leisureServants -= 1;
 							ZhaiYuanPanel.self.showZhaiYuanMsg(GameApp.GameEngine.zhaiYuaninfo)
 							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].s = data.statetab.s;
-							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].f = data.statetab.f * 60;
+							ZhaiYuan_HeHuaChiDialog.self.makeStatus[data.level][data.idx].f = data.statetab.f;
 							ZhaiYuan_HeHuaChiDialog.self.showPanel();
 
 						})

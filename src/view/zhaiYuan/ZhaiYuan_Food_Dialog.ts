@@ -11,7 +11,7 @@ module view.zhaiYuan {
 		public setData() {
 			let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
 			this.lab_foodNum.text = arr.foodValue + '';
-			this.lab_cost.text = arr.totalConsume + '/H'
+			this.lab_cost.text = arr.totalConsume + '/Min'
 			let span = arr.foodServant
 			this.lab_PY_Use.text = span + '/' + arr.servants;
 			this.timeCutDown(arr.leftTime);
@@ -73,6 +73,7 @@ module view.zhaiYuan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addOrRemoveServant, [0, span]
 						, 0, this, function (data) {
 							GameApp.GameEngine.zhaiYuaninfo.leisureServants = data.leisureServants;
+							GameApp.GameEngine.zhaiYuaninfo.foodServant = data.foodServant;
 							ZhaiYuanPanel.self.showZhaiYuanMsg(GameApp.GameEngine.zhaiYuaninfo)
 							this.close();
 						});
@@ -85,6 +86,7 @@ module view.zhaiYuan {
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addOrRemoveServant, [1, span],
 						0, this, function (data) {
 							GameApp.GameEngine.zhaiYuaninfo.leisureServants = data.leisureServants;
+							GameApp.GameEngine.zhaiYuaninfo.foodServant = data.foodServant;
 							ZhaiYuanPanel.self.showZhaiYuanMsg(GameApp.GameEngine.zhaiYuaninfo)
 							this.close();
 						});
