@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":18,
-    "selecteID":25,
+    "selecteID":23,
     "referenceLines":null,
     "props":{"width":526,"sceneColor":"#ffffff","height":556,"alpha":1},
     "nodeParent":-1,
@@ -138,7 +138,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":16,"x":142.5,"width":150,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","name":"item1","labelStrokeColor":"#a9643b","labelStroke":2,"labelSize":30,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"存入仓库","height":60},
+                    "props":{"y":16,"x":142.5,"width":150,"var":"btn_putToCangKu","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","name":"item1","labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"存入仓库","height":60},
                     "nodeParent":18,
                     "label":"Button(btn_putToCangKu)",
                     "isDirectory":false,
@@ -147,7 +147,7 @@
                     "compId":23,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -162,7 +162,6 @@
                     "compId":43,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":15,"x":25,"width":107,"text":"出售总价:","strokeColor":"#63491a","stroke":0.8,"height":28,"fontSize":24,"font":"fzxk","color":"#63491a","align":"center"},
                             "nodeParent":43,
@@ -175,7 +174,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"TextInput",
                             "props":{"y":12,"x":151,"width":108,"var":"input_price","valign":"middle","type":"number","text":"12364","strokeColor":"#000000","stroke":2,"skin":"image/common/bottom_gouyu.png","restrict":"0123456789","promptColor":"#ffffff","maxChars":20,"height":35,"fontSize":22,"font":"fzhl","color":"#ffffff","align":"center"},
                             "nodeParent":43,
@@ -189,7 +187,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":8,"x":133,"skin":"image/main/icon_common_yuanbao01.png"},
                             "nodeParent":43,
@@ -202,7 +199,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":7,"width":105,"var":"btn_goSell","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":20,"labelStrokeColor":"#a9643b","labelSize":28,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a","label":"上架","height":45},
                             "nodeParent":43,
@@ -230,7 +226,7 @@
                     "compId":25,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$LOCKED":false,
             "$HIDDEN":false

@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":27,
-    "selecteID":34,
+    "selecteID":29,
     "props":{"width":618,"sceneColor":"#000000","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -70,13 +70,14 @@
                     "props":{"y":137,"x":51,"width":495,"skin":"image/common/fram_common_11.png","sizeGrid":"15,17,14,28","height":333},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":17,"x":116,"width":267,"var":"img_goldiBless","skin":"image/common/icon_bigbaoxiang_4close.png","height":267},
                             "nodeParent":8,
@@ -89,8 +90,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":255,"x":176,"width":143,"var":"btn_gold","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"祈福金币","height":59},
+                            "props":{"y":255,"x":176,"width":143,"var":"btn_gold","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"祈福金币","height":59},
                             "nodeParent":8,
                             "label":"Button(btn_gold)",
                             "isDirectory":false,
@@ -102,6 +104,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":9,"x":118,"text":"今日获得金币：","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":8,
@@ -114,6 +117,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":9,"x":276,"width":99.2578125,"var":"lbl_get1","text":"2000000","height":22,"fontSize":22,"font":"FZHL","color":"#63491a"},
                             "nodeParent":8,
@@ -126,6 +130,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":41,"x":143,"text":"此次必定","fontSize":24,"font":"FZXK","color":"#000000"},
                             "nodeParent":8,
@@ -138,6 +143,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":37,"x":252,"var":"lbl_crit1","text":"2倍暴击","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff"},
                             "nodeParent":8,
@@ -150,6 +156,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":282,"x":46,"width":36,"skin":"image/common/icon_common_jinbi01.png","height":30},
                             "nodeParent":8,
@@ -162,6 +169,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":255,"x":44,"width":38,"skin":"image/main/icon_common_yuanbao01.png","height":31},
                             "nodeParent":8,
@@ -174,6 +182,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":262,"x":11,"text":"消耗","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":8,
@@ -186,6 +195,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":290,"x":11,"text":"获得","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":8,
@@ -198,6 +208,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":263,"x":81,"width":92,"var":"lbl_yuanbao1","text":"：20","height":18,"fontSize":18,"font":"FZHL","color":"#63491a"},
                             "nodeParent":8,
@@ -210,6 +221,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":290,"x":81,"width":92,"var":"lbl_jinbi","text":"：200000","height":18,"fontSize":18,"font":"FZHL","color":"#63491a"},
                             "nodeParent":8,
@@ -222,6 +234,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":289,"x":327,"text":"祈福次数：","fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":8,
@@ -234,6 +247,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":291,"x":418,"width":12,"var":"lbl_currentGoldnum","text":"0","height":18,"fontSize":18,"font":"FZHL","color":"#a53232"},
                             "nodeParent":8,
@@ -246,6 +260,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":290,"x":437,"width":23,"var":"lbl_maxGoldnum","text":"/ 5","height":18,"fontSize":18,"font":"FZHL","color":"#000000"},
                             "nodeParent":8,
@@ -286,7 +301,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":255,"x":176,"width":143,"var":"btn_liquan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":28,"labelFont":"FZHL","labelColors":"#ffffff,#ffffff","label":"祈福礼券","height":59},
+                            "props":{"y":255,"x":176,"width":143,"var":"btn_liquan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#000000","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"祈福礼券","height":59},
                             "nodeParent":27,
                             "label":"Button(btn_liquan)",
                             "isDirectory":false,

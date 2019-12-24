@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":54,
-    "selecteID":58,
+    "selectedBox":65,
+    "selecteID":66,
     "props":{"width":640,"sceneColor":"#e3cece","height":886},
     "nodeParent":-1,
     "label":"View",
@@ -98,7 +98,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"width":102,"var":"btn_get1","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get1","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":39,
                     "label":"Button(btn_get1)",
                     "isDirectory":false,
@@ -168,7 +168,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"width":102,"var":"btn_get2","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get2","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":44,
                     "label":"Button(btn_get2)",
                     "isDirectory":false,
@@ -238,7 +238,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"width":102,"var":"btn_get3","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get3","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":49,
                     "label":"Button(btn_get3)",
                     "isDirectory":false,
@@ -308,7 +308,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":46,"x":455,"width":102,"var":"btn_get4","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelStroke":4,"labelSize":26,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
+                    "props":{"y":46,"x":455,"width":102,"var":"btn_get4","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#7f4608","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"未达成","height":50,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":54,
                     "label":"Button(btn_get4)",
                     "isDirectory":false,
@@ -383,15 +383,16 @@
             "props":{"y":406,"x":138,"width":432,"skin":"image/common/title_common_01.png","height":43},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":65,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":8,"x":150,"text":"全服排及奖励","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429"},
+                    "props":{"y":8,"x":138,"text":"全服排及奖励","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429"},
                     "nodeParent":65,
                     "label":"Label",
                     "isDirectory":false,

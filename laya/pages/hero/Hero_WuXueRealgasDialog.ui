@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":25,
-    "selecteID":38,
+    "selectedBox":3,
+    "selecteID":57,
     "props":{"width":483,"sceneColor":"#ffffff","height":631},
     "nodeParent":-1,
     "label":"Dialog",
@@ -85,13 +85,14 @@
                     "props":{"y":62,"x":7,"width":465,"skin":"image/common/fram_common_11.png","sizeGrid":"8,27,16,26","height":140},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":9,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":65,"width":130,"text":"每次可获得","strokeColor":"#63491a","stroke":4,"height":28,"fontSize":26,"font":"FZHL","color":"#ffeeb1","align":"center"},
                             "nodeParent":9,
@@ -105,6 +106,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":202,"width":52,"text":"真气","strokeColor":"#63491a","stroke":4,"height":28,"fontSize":26,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":9,
@@ -118,6 +120,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":8,"x":259,"width":40,"skin":"image/main/icon_coin_1.png","height":34},
                             "nodeParent":9,
@@ -130,6 +133,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":12,"x":297,"text":"100000","strokeColor":"#63491a","stroke":4,"height":28,"fontSize":26,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":9,
@@ -143,6 +147,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":59,"x":31,"text":"消耗金币","strokeColor":"#000000","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":9,
@@ -157,6 +162,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":61,"x":129,"width":154,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":23},
                             "nodeParent":9,
@@ -195,6 +201,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":100,"x":32,"text":"消耗情义","strokeColor":"#000000","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":9,
@@ -209,6 +216,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":102,"x":130,"width":154,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":23},
                             "nodeParent":9,
@@ -247,8 +255,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":55,"x":314,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"兑 换","height":54},
+                            "props":{"y":55,"x":314,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"兑 换","height":54},
                             "nodeParent":9,
                             "label":"Button",
                             "isDirectory":false,
@@ -260,6 +269,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":106,"x":352,"width":85,"text":"(3/3)","height":26,"fontSize":22,"font":"FZHL","color":"#179a0d"},
                             "nodeParent":9,
@@ -357,7 +367,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":46,"x":312,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#d96042","labelSize":28,"labelFont":"FZXK","labelColors":"#761a1a,#761a1a","label":"使 用","height":54},
+                            "props":{"y":46,"x":312,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#d96042","labelSize":28,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a","label":"使 用","height":54},
                             "nodeParent":25,
                             "label":"Button",
                             "isDirectory":false,
@@ -383,6 +393,7 @@
                     "compId":45,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":25,"x":25,"scaleY":1.2,"scaleX":1.2},
@@ -396,6 +407,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":33,"x":121,"width":144,"text":"道具名称六字","strokeColor":"#2d1c05","stroke":4,"fontSize":24,"font":"FZHL","color":"#f5dd7b"},
                             "nodeParent":45,
@@ -408,6 +420,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":81,"x":115,"width":52,"text":"元宝","height":28,"fontSize":22,"font":"FZHL","color":"#000000","align":"center"},
                             "nodeParent":45,
@@ -421,6 +434,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":75,"x":169,"width":40,"skin":"image/main/icon_coin_1.png","height":34},
                             "nodeParent":45,
@@ -433,6 +447,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":81,"x":209,"text":"8888","height":28,"fontSize":22,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":45,
@@ -446,8 +461,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":46,"x":312,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"购 买","height":54},
+                            "props":{"y":46,"x":312,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"购 买","height":54},
                             "nodeParent":45,
                             "label":"Button",
                             "isDirectory":false,
@@ -515,7 +531,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":560,"x":176,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelStroke":4,"labelSize":28,"labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"前往充值","height":54},
+                    "props":{"y":560,"x":176,"width":126,"stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#b07640","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"前往充值","height":54},
                     "nodeParent":3,
                     "label":"Button",
                     "isDirectory":false,

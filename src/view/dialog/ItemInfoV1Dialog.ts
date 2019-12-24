@@ -11,6 +11,7 @@ module view.dialog {
 			this.itemObj = obj;
 			this.model = model;
 			this.lab_Name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(obj.dwBaseID.toString());
+			this.lab_Name.fontSize = (this.lab_Name.text.length > 5) ? 26 : 36;
 			switch (this.model) {
 				// 背包-装备
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_EQUIP:
