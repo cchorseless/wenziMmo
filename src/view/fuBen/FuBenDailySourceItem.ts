@@ -22,6 +22,7 @@ module view.fuBen {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_OpenNpc_CLFuben, [index], 0, this, (jsonData: { [index: number]: ProtoCmd.itf_FB_ZiYuanOneInfo }) => {
 				//  jsonData[index].ntype    1元宝  2领取
+				this.lbl_detail.text = jsonData[index].introduce;
 				GameApp.GameEngine.fuBenResinfo = jsonData;
 				let keys = Object.keys(jsonData[index].jiangli);
 				for (let key of keys) {

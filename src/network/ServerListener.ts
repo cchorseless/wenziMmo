@@ -178,6 +178,9 @@ class ServerListener extends SingletonClass {
         //PKModel
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
 
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
+
+
 
         // 初始化标记
         this.hasInit = true;
@@ -442,6 +445,14 @@ class ServerListener extends SingletonClass {
         let npcState = cbpkt.getValue('npcState');
         PanelManage.Main && PanelManage.Main.updateNpcState(npcid, npcState);
     }
+    public updateCretChangeName(data): void {
+        let cbpkt = new ProtoCmd.stCretChangeName(data);
+        let dwTmpId = cbpkt.getValue('dwTmpId');
+        let szShowName = cbpkt.getValue('szShowName');// 角色名字
+        let szMasterName = cbpkt.getValue('szMasterName');// 主人名字
+        let btType = cbpkt.getValue('btType');// 0:正常，1: 英雄, 2:道士宠物, 3:英雄道士宠物, 4:怪物归属, 5:怪物队伍归属
+        GameApp.LListener.event(ProtoCmd.BossBelong, szMasterName)
+    }
 
 
 
@@ -572,7 +583,59 @@ class ServerListener extends SingletonClass {
 
                     break;
                 default:
-                    TipsManage.showTips('攻击失败' + msgData.btErrorCode);
+                    let errString;
+                    switch (msgData.btErrorCode) {
+                        case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
+                            errString = '释放不成功'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_CASTNOTSUCCESS:
+                            errString = '魔法不足'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_NOTINSCENE:
+                            errString = '不在场景中'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_BOUND:
+                            errString = '自己被束缚'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_PETRIFACTION:
+                            errString = '自己被石化'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_IMPRISONMENT:
+                            errString = '自己被禁锢'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_SLEEP:
+                            errString = '自己被昏睡'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_PARALYSIS:
+                            errString = '自己被麻痹'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_FROZEN:
+                            errString = '自己被冰冻'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_DEAD:
+                            errString = '自己死亡'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_TARGET:
+                            errString = '目标无效'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_LACKITEM:
+                            errString = '缺少物品'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_DELETEITEMFAIL:
+                            errString = '删除物品失败'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_NOCOOLING:
+                            errString = '技能冷却未完成'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_NORANGE:
+                            errString = '目标不在范围内'
+                            break;
+                        case EnumData.BattleResult.CRET_MAGICFAIL_NEEDLIFENUM:
+                            errString = '没有足够的寿命值'
+                            break;
+
+                    }
+                    TipsManage.showTips(errString);
                     break;
             }
         }
@@ -608,8 +671,8 @@ class ServerListener extends SingletonClass {
             let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;
 
-                e.y = Laya.stage.height / 3 - 50;
-                e.scaleX = e.scaleY = 0.8;
+            e.y = Laya.stage.height / 3 - 50;
+            e.scaleX = e.scaleY = 0.8;
             if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
                 e.setData(0, skillEff)
 

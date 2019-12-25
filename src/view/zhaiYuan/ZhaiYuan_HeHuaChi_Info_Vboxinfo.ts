@@ -8,6 +8,7 @@ module view.zhaiYuan {
 		public id;
 		public configID;
 		public speed;
+		public canMake = true;
 		constructor() {
 			super();
 			this.addEvent();
@@ -32,9 +33,17 @@ module view.zhaiYuan {
 				let itemBase = new ProtoCmd.ItemBase();
 				itemBase.dwBaseID = this.costItem[i][0];
 				itemBase.dwCount = this.costItem[i][1];
+				let curCount = GameUtil.findItemInBag(parseInt(this.costItem[i][0]), GameApp.GameEngine.bagItemDB);
+				if (curCount < this.costItem[i][1]) {
+					this.canMake = false;
+				}
 				o.setData(itemBase);
 				this["box_item" + i].addChild(o);
 			}
+			// if(this.curCount0 <this.needCount0 ||this.curCount1 <this.needCount1){
+			// 	this.canMake = false;
+			// }
+
 			let o = new compart.DaoJuWithNameItem();
 			let itemBase = new ProtoCmd.ItemBase();
 			itemBase.dwBaseID = this.getItem[0];
@@ -46,7 +55,7 @@ module view.zhaiYuan {
 				case 0:  //未生产
 					this.btn_make.label = '生产';
 					this.btn_make.disabled = false;
-					let curTime = this.costTime * (100 /this.speed);
+					let curTime = this.costTime * (100 / this.speed);
 					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(curTime * 60, 7);
 					break;
 				case 1:  //正在生产
@@ -58,7 +67,7 @@ module view.zhaiYuan {
 				case 2:  //暂停生产
 					this.btn_make.label = '暂停中';
 					this.btn_make.disabled = true;
-					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.costTime.f * 60, 7)
+					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.makeStatus.f * 60, 7)
 
 					break;
 				case 3:  //可领取
@@ -88,6 +97,10 @@ module view.zhaiYuan {
 				let type = Math.floor(this.configID / 1000)
 				let lv = this.configID % 1000
 				if (this.makeStatus.s == 0) {
+					if (!this.canMake) {
+						TipsManage.showTips('材料不足');
+						return;
+					}
 					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.startGenerate,
 						[type, lv, this.id], 0, this, function (data) {
 							let base = data

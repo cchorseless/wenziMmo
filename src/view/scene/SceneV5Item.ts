@@ -35,7 +35,13 @@ module view.scene {
 		}
 
 
+		public changeBelong(name) {
+			this.lbl_guiShu.text = name;
+		}
 		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.BossBelong, this, function (name) {
+				this.changeBelong(name)
+			})
 			GameApp.LListener.on(ProtoCmd.UPDATE_BOSSHP, this, (jsonData) => {
 				this.lab_hp.text = jsonData.now + '/' + jsonData.max;
 				this.img_xueTiao.width = this.img_xueTiao_BG.width * (jsonData.now / jsonData.max)
