@@ -21,8 +21,8 @@ module view.activity {
 				itemBase.dwCount = data.jichutab[i].num;
 				itemBase.dwBinding = data.jichutab[i].binding;
 				o.setData(itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				o.x = (o.width + 40) * ((parseInt(i) - 1) % 2)
-				o.y = (o.height + 40) * Math.floor((parseInt(i) - 1) / 2)
+				o.x = (o.width + 15) * ((parseInt(i) - 1) % 2)
+				o.y = (o.height + 15) * Math.floor((parseInt(i) - 1) / 2)
 				this.panel_item.addChild(o)
 			}
 
@@ -55,7 +55,7 @@ module view.activity {
 				}
 			}
 
-			this.lab_yuanbao.text = data.consume + ""
+			// this.lab_yuanbao.text = data.consume + ""
 			GameUtil.timeCountDown(data.lefttime, this.html_time);
 			this.lab_detail.text = "再消费" + data.needyuanbao + "元宝可领取一次奖励";
 			this.lab_progress.text = data.nowcnt + "/" + data.yuanbao;

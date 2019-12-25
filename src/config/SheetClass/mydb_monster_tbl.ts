@@ -1,6 +1,10 @@
 module SheetConfig{ export class  mydb_monster_tbl { public data;private _instance; public constructor(data){ this.data=data;}
 public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class._instance){Class._instance=new Class(data);}return Class._instance;}
 /**
+ *  怪物编号
+ */
+ public MONSTER_NUMBER(configID):string { return this.data[configID][-1]}
+/**
  *  地图读取
  */
  public REFRESH_MAP(configID):string { return this.data[configID][0]}

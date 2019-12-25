@@ -22,7 +22,7 @@ module view.activity {
 					for (let i in infoData) {
 						let o = new Active_equipMix();
 						o.setData(infoData[i], i);
-						o.y = (o.height + 10) * (parseInt(i) - 1)
+						o.y = (o.height + 20) * (parseInt(i) - 1)
 						this.panel_ui.addChild(o)
 					}
 					break;
@@ -31,7 +31,7 @@ module view.activity {
 					for (let i in infoData) {
 						let o = new Active_listInfoItem();
 						o.setData(infoData[i], i, id);
-						o.y = (o.height + 10) * (parseInt(i) - 1)
+						o.y = (o.height + 20) * (parseInt(i) - 1)
 						this.panel_ui.addChild(o)
 					}
 					break;
@@ -39,7 +39,7 @@ module view.activity {
 					for (let i in infoData) {
 						let o = new Active_timeBuy();
 						o.setData(infoData[i], i);
-						o.y = (o.height + 10) * (parseInt(i) - 1)
+						o.y = (o.height + 20) * (parseInt(i) - 1)
 						this.panel_ui.addChild(o)
 					}
 					break;

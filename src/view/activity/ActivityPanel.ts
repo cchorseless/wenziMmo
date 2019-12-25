@@ -87,7 +87,7 @@ module view.activity {
 						lcp.send(pkt4);
 						break;
 					/**
-					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换 30单笔充值
+					  * 12 装备箱合成  16 每日充值 18 消费豪礼 19 全民官印  32 积分兑换 30单笔充值
 					  * 5 限时抢购  14 兑换豪礼   36每周基金  17每日领取  13连续充值  1每日必买
 					  */
 					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18:
@@ -121,7 +121,7 @@ module view.activity {
 						let pkt39 = new ProtoCmd.QuestClientData().setString(pcmdString, null)
 						lcp.send(pkt39);
 						break;
-					case 37://消费有礼
+					case 37://消费返利
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()
 							let o = new Active_XFYL()

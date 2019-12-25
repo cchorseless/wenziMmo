@@ -153,6 +153,12 @@ module view.juese {
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
 					break;
 			}
+			this.img_talentcoin1.skin=this.img_talentcoin2.skin='image/juese/img_talent'+this.dangqianNum+'.png'
+			if(this.dangqianNum==4){
+				this.img_talentcoin1.y=this.img_talentcoin2.y=-18
+			}else{
+				this.img_talentcoin1.y=this.img_talentcoin2.y=-6
+			}
 			//拉取天赋协议
 			this.talent = this.eventList[i];
 			//升级天赋协议
