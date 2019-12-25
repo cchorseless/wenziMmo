@@ -30,9 +30,13 @@ module view.scene {
 			this.addEvent();
 
 		}
-
-
+		public changeBelong(name) {
+			this.lbl_guiShu.text = name;
+		}
 		public addEvent(): void {
+			GameApp.LListener.on(ProtoCmd.BossBelong, this, function (name) {
+				this.changeBelong(name)
+			})
 			this.addLcpEvent();
 			GameApp.LListener.on(ProtoCmd.UPDATE_BOSSHP, this, (jsonData) => {
 				this.lab_hp.text = jsonData.now + '/' + jsonData.max;

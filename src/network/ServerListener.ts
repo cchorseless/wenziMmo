@@ -178,6 +178,9 @@ class ServerListener extends SingletonClass {
         //PKModel
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
 
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
+
+        
 
         // 初始化标记
         this.hasInit = true;
@@ -442,6 +445,14 @@ class ServerListener extends SingletonClass {
         let npcState = cbpkt.getValue('npcState');
         PanelManage.Main && PanelManage.Main.updateNpcState(npcid, npcState);
     }
+    public updateCretChangeName(data): void {
+        let cbpkt = new ProtoCmd.stCretChangeName(data);
+        let dwTmpId = cbpkt.getValue('dwTmpId');
+        let szShowName = cbpkt.getValue('szShowName');// 角色名字
+        let szMasterName = cbpkt.getValue('szMasterName');// 主人名字
+        let btType = cbpkt.getValue('btType');// 0:正常，1: 英雄, 2:道士宠物, 3:英雄道士宠物, 4:怪物归属, 5:怪物队伍归属
+        GameApp.LListener.event(ProtoCmd.BossBelong,szMasterName)
+ }
 
 
 
@@ -608,8 +619,8 @@ class ServerListener extends SingletonClass {
             let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
             // targeter.ui_item.y;
 
-                e.y = Laya.stage.height / 3 - 50;
-                e.scaleX = e.scaleY = 0.8;
+            e.y = Laya.stage.height / 3 - 50;
+            e.scaleX = e.scaleY = 0.8;
             if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
                 e.setData(0, skillEff)
 

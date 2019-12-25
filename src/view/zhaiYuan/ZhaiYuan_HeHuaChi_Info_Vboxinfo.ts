@@ -58,7 +58,7 @@ module view.zhaiYuan {
 				case 2:  //暂停生产
 					this.btn_make.label = '暂停中';
 					this.btn_make.disabled = true;
-					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.costTime.f * 60, 7)
+					this.lab_costTime.text = '耗时：' + TimeUtils.getFormatBySecond(this.makeStatus.f * 60, 7)
 
 					break;
 				case 3:  //可领取

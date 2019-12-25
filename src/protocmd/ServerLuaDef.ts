@@ -638,6 +638,9 @@ module ProtoCmd {
     export const archLevelUp = 'archLevelUp';//建筑升级 type, level
 
 
+    export const BossBelong ='BossBelong';
+
+
 
 }
 
