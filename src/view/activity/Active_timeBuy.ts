@@ -29,8 +29,8 @@ module view.activity {
 			// 20/9
 			let o = new view.compart.DaoJuItem();
 			o.setData(b);
-			o.x = 20;
-			o.y = 9;
+			o.x = 31;
+			o.y = 15;
 			this.addChild(o);
 		}
 		public addEvent() {

@@ -5,7 +5,7 @@ module view.juese {
 			super();
 		}
 		public data;
-		//0罡气1资质天赋
+		//0罡气1资质2弟子转生3角色转生
 		public type;
 		public setData(data, type): Person_BuyAndUseDialog {
 			this.type = type;
@@ -20,6 +20,9 @@ module view.juese {
 					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1014)
 					break;
 				case 2:
+					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1056)
+					break;
+				case 3:
 					this.lbl_from.text = SheetConfig.Introduction_play.getInstance(null).GROWUPDES('' + 1021)
 					break;
 			}
@@ -29,7 +32,7 @@ module view.juese {
 				this.init_itemBuy();
 			}
 			//弟子转生
-			if (type == 2) {
+			if (type == 2 || type == 3) {
 				this.view_item.selectedIndex = 1;
 				this.vbox_02.removeChildren();
 				this.init_zhuansheng();
@@ -68,6 +71,8 @@ module view.juese {
 			this.lbl_jinbi.text = '' + data.gold;
 			//所需阅历经验
 			this.lbl_yueli.text = '' + data.exp;
+			//今天可兑换次数
+			this.lbl_count.text=data.count+'/3';
 			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.pill, this.type))
 			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.superpill, this.type));
 		}
@@ -75,8 +80,15 @@ module view.juese {
     * 兑换修为
     */
 		public init_UpXiuWei(): void {
+			let num;
+			if (this.type == 2) {
+				num = 1;
+			}
+			if (this.type == 3) {
+				num = 0;
+			}
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [num], null, this, (jsonData) => {
 			})
 			lcp.send(pkt);
 		}

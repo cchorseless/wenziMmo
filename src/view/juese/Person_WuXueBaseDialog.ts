@@ -33,16 +33,16 @@ module view.juese {
 		public init_EquipBase(): void {
 			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
 			this.ui_base1.setData(data1, this);
-			this.ui_base1.lbl_name.text = '基础武器';
+			this.ui_base1.lbl_name.text = '基础拳脚';
 			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
 			this.ui_base2.setData(data2, this);
-			this.ui_base2.lbl_name.text = '基础拳脚';
+			this.ui_base2.lbl_name.text = '基础刀剑';
 			let data3 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_PENDANT);
 			this.ui_base3.setData(data3, this);
-			this.ui_base3.lbl_name.text = '基础招架';
+			this.ui_base3.lbl_name.text = '基础长兵';
 			let data4 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_FACE);
 			this.ui_base4.setData(data4, this);
-			this.ui_base4.lbl_name.text = '基础轻功';
+			this.ui_base4.lbl_name.text = '基础奇门';
 			this.init_selectEvent(data1);
 		}
 		public init_selectEvent(BaseData: ProtoCmd.ItemBase): void {

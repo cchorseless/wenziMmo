@@ -113,8 +113,10 @@ module view.shopMall {
 			//荣誉货币只在index=3时显示
 			if (index == 3) {
 				this.img_rongyu.visible = true;
+				this.viw_shop.y=202;
 			} else {
 				this.img_rongyu.visible = false;
+				this.viw_shop.y=180;
 			}
 			if (index < 5) {
 				if (this['vbox_shop' + (index + 1)]._childs == [] || this['vbox_shop' + (index + 1)]._childs == 0) {

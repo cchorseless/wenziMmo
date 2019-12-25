@@ -25,7 +25,7 @@ module view.fuBen {
 				FuBen_MainPanel.backPanel()
 			});
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel();
+				PanelManage.openJuQingModePanel();
 			});
 			EventManage.onWithEffect(this.btn_daily, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenDailyPanel();

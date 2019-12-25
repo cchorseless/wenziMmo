@@ -16,9 +16,9 @@ module view.promotion {
 			let items = data.item;
 			this.setTimeShow(data)
 			this.html_title.style.align = "center"
-			this.html_title.innerHTML = "<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:3;strokeColor:#000000'>花费</span>"
-			 + "<span style='color:#f9e596;font-family:STLiti;fontSize:32;stroke:3;strokeColor:#000000'>"+ data.yuanbao + "元宝" + "</span>"
-			 +"<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:3;strokeColor:#000000'>获得神装礼包</span>"
+			this.html_title.innerHTML = "<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:4;strokeColor:#000000'>花费</span>"
+			 + "<span style='color:#f9e596;font-family:STLiti;fontSize:32;stroke:4;strokeColor:#000000'>"+ data.yuanbao + "元宝" + "</span>"
+			 +"<span style='color:#ffffff;font-family:STLiti;fontSize:30;stroke:4;strokeColor:#000000'>获得神装礼包</span>"
 
 			for (let i in items) {
 				let o = new Promotion_Special_VSinfo_Itembox();

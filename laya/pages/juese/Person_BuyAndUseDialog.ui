@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":47,
-    "selecteID":49,
+    "selectedBox":55,
+    "selecteID":56,
     "props":{"width":377,"sceneColor":"#ffffff","height":489},
     "nodeParent":-1,
     "label":"Dialog",
@@ -408,13 +408,28 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":57,"x":240,"width":104,"var":"btn_duihuan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"兑换","height":48},
+                            "props":{"y":57,"x":240,"width":104,"var":"btn_duihuan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":26,"labelPadding":"5","labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"兑换","height":48},
                             "nodeParent":55,
                             "label":"Button(btn_duihuan)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":54,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":55,"x":272,"width":43.828125,"var":"lbl_count","text":"(0/3)","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZHL","color":"#149a0d","align":"left"},
+                            "nodeParent":55,
+                            "label":"Label(lbl_count)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
                             "child":[
                                 ],
                             "$HIDDEN":false

@@ -264,9 +264,9 @@ module ProtoCmd {
     // 切换弟子出战状态
     export const Hero_ChangeHero = 'ChangeHero';
     // 转生面板
-    export const Hero_zhuanShengPanel = 'zhuanShengPanel';
+    export const Hero_zhuanShengPanel = 'zhuanShengPanel';//(1弟子0玩家)
     // 转生
-    export const Hero_zhuanSheng = 'zhuanSheng';
+    export const Hero_zhuanSheng = 'zhuanSheng';//(1弟子0玩家)
     // 获取修为面板
     export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';//(1弟子0玩家)
     // 兑换修为面板

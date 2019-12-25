@@ -352,7 +352,7 @@ module view.wuXue {
 		 */
 		public init_xiuWei(): void {
 			let bpkt = new ProtoCmd.QuestClientData();
-			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [1], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
+			bpkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [0], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
 				if (Object.keys(jsonData).length == 0) { return };
 				//所需经验
 				this.lbl_exp.text = '' + jsonData.exp;
@@ -381,7 +381,7 @@ module view.wuXue {
 		 */
 		public init_zhuangshengPanel(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [1])
+			pkt.setString(ProtoCmd.Hero_zhuanShengPanel, [0])
 			lcp.send(pkt);
 		}
 		/**
@@ -389,7 +389,7 @@ module view.wuXue {
 	  	 */
 		public init_UpXiuWei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [1], null, this, (jsonData) => {
+			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [0], null, this, (jsonData) => {
 
 			})
 			lcp.send(pkt);

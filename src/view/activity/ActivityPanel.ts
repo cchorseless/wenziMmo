@@ -65,7 +65,7 @@ module view.activity {
 			for (let i = 0; i < this.hbox_tab.numChildren; i++) {
 				let p: any = this.hbox_tab.getChildAt(i);
 				p.btn_icon.selected = (index == i);
-				p.img_isSelected.visible = (index == i);
+				// p.img_isSelected.visible = (index == i);
 				p.changeUSEfontColor(index == i);
 			}
 		}
@@ -87,7 +87,7 @@ module view.activity {
 						lcp.send(pkt4);
 						break;
 					/**
-					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换
+					  * 12 装备箱合成  16 每日领取 18 消费豪礼 19 全民官印  32 积分兑换 30单笔充值
 					  * 5 限时抢购  14 兑换豪礼   36每周基金  17每日领取  13连续充值  1每日必买
 					  */
 					case 1: case 5: case 12: case 13: case 14: case 16: case 17: case 18:

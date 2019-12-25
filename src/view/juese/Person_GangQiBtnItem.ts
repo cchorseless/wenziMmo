@@ -24,7 +24,7 @@ module view.juese {
 			this.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.type == 0) {
 					//角色罡气
-					PanelManage.JueSe.ui_gangQi.init_update(this.id);
+					// PanelManage.JueSe.ui_gangQi.init_update(this.id);
 				} else {
 					//弟子罡气
 					PanelManage.DiZi.ui_gangqi.init_update(this.id);
