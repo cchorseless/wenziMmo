@@ -56,6 +56,9 @@ module view.zhaiYuan {
 				});
 				lcp.send(pkt);
 			})
+			this.btn_close.on(Laya.UIEvent.CLICK,this,function(){
+				this.close();
+			})
 		}
 		public showCreate(configID: number) {
 			let lv = configID % 1000

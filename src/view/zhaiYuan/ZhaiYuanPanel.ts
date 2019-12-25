@@ -138,7 +138,7 @@ module view.zhaiYuan {
 				// }
 			});
 			//种地
-			this.box_zhongdi.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.box_zhongdi,Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 				let o = new ZhaiYuan_HeHuaChiDialog()
 				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
@@ -157,7 +157,7 @@ module view.zhaiYuan {
 				}
 			});
 			//丹炉
-			this.box_danlu.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.box_danlu,Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 				let o = new ZhaiYuan_HeHuaChiDialog()
 				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
@@ -177,7 +177,7 @@ module view.zhaiYuan {
 			});
 
 			// 荷花池
-			this.box_heHuaChi.on(Laya.UIEvent.CLICK, this, () => {
+			EventManage.onWithEffect(this.box_heHuaChi,Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
 				let o = new ZhaiYuan_HeHuaChiDialog()
 				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;

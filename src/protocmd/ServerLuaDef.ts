@@ -1098,6 +1098,7 @@ module ProtoCmd {
    */
     export interface itf_FB_ZiYuanOneInfo {
         FuBenIndex: number;//索引
+        introduce:string;
         activity: number;//特权
         caninto: number;//已进入次数
         jiangli: any;//奖励

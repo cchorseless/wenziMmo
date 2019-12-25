@@ -16,7 +16,7 @@ module EventManage {
             // console.log('MOUSE_DOWN');
             if (dispatch['lcp_onWithEffect']) { return };
             dispatch['lcp_onWithEffect'] = true;
-            Laya.Tween.to(dispatch, { scaleX: old_scaleX * 0.9, scaleY: old_scaleY * 0.9 }, time, Laya.Ease.sineIn);
+            Laya.Tween.to(dispatch, { scaleX: old_scaleX * 1.1, scaleY: old_scaleY * 1.1 }, time, Laya.Ease.sineIn);
         });
 
         // 移走事件
