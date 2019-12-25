@@ -3,6 +3,7 @@ module view.common {
 	export class LoginPanel extends ui.common.LoginPanelUI {
 		constructor() {
 			super();
+			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 		}
 
 		public setData(): void {

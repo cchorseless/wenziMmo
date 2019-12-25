@@ -6,6 +6,7 @@ module view.common {
 		}
 		public userLoginInfo: ProtoCmd.UserLoginRet;//角色信息
 		public setData(data: ProtoCmd.UserLoginRet): void {
+			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 			this.userLoginInfo = data;
 			let playerInfo = data.players[0];
 			let szName = playerInfo.getValue('szName');

@@ -7,7 +7,7 @@ module view.zhaiYuan {
 		constructor() {
 			super();
 		}
-		public setData(configID: number, makeStatus) {
+		public setData(configID: number, makeStatus,speed) {
 			this.makeStatus = makeStatus;
 			this.configID = configID
 			let lv = this.configID % 1000;
@@ -24,13 +24,13 @@ module view.zhaiYuan {
 				getItem = getItem.split('|')
 				for (let i = 0; i < infoNum; i++) {
 					let o = new ZhaiYuan_HeHuaChi_Info_Vboxinfo();
-					o.setData(costItem[i], costTime[i], getItem[i], this.makeStatus[i + 1], i + 1, this.configID)
+					o.setData(costItem[i], costTime[i], getItem[i], this.makeStatus[i + 1], i + 1, this.configID,speed)
 					o.y = i * (o.height + 15);
 					this.vbox_show.addChild(o);
 				}
 			} else {
 				let o = new ZhaiYuan_HeHuaChi_Info_Vboxinfo();
-				o.setData(costItem, costTime, getItem, this.makeStatus, 1, this.configID)
+				o.setData(costItem, costTime, getItem, this.makeStatus, 1, this.configID,speed)
 				this.vbox_show.addChild(o);
 			}
 

@@ -396,10 +396,9 @@ module view.main {
 				imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
 				imgBg.skin = GameApp.SceneManager.ui_scene.img_bg.skin;
 				panel.addChildAt(imgBg, 0);
-
 				if (panel.box_view) {
 					console.log(PanelManage.euiLayer.displayHeight);
-					panel.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2
+					panel.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 				}
 				this.box_top.visible = true;
 				this.box_mainTop.visible = false;

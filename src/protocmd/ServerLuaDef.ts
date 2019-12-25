@@ -156,7 +156,7 @@ module ProtoCmd {
     // 离开副本
     export const FB_CaiLiaoFuBenLikai = 'CaiLiaoFuBenLikai';
     // 扫荡
-    export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';
+    export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';  //index   bet  
 
     /********************************心魔副本*********************** */ //没星星  单人
     //打开心魔界面  panel

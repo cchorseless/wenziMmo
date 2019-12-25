@@ -100,39 +100,42 @@ module view.zhaiYuan {
 			})
 
 			EventManage.onWithEffect(this.box_shiNei, Laya.UIEvent.CLICK, this, () => {
-				this.viw_0.selectedIndex = 1;
+				// this.viw_0.selectedIndex = 1;
+				TipsManage.showTips('暂未开放')
 			});
 			EventManage.onWithEffect(this.box_geLou, Laya.UIEvent.CLICK, this, () => {
-				this.viw_0.selectedIndex = 2;
+				// this.viw_0.selectedIndex = 2;
+				TipsManage.showTips('暂未开放')
 			});
 			EventManage.onWithEffect(this.box_yuanZi, Laya.UIEvent.CLICK, this, () => {
 				this.viw_0.selectedIndex = 0;
 			});
 			EventManage.onWithEffect(this.box_yiLou, Laya.UIEvent.CLICK, this, () => {
-				this.viw_0.selectedIndex = 1;
+				// this.viw_0.selectedIndex = 1;
+				TipsManage.showTips('暂未开放')
 			});
 
 			EventManage.onWithEffect(this.box_back, Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(this);
+				// PopUpManager.checkPanel(this);
 			});
 			//种地
 			this.box_moshi.on(Laya.UIEvent.CLICK, this, () => {
 				// new view.zhaiYuan.ZhaiYuan_yangYuDialog().setData().popup(true);
-				let o = new ZhaiYuan_HeHuaChiDialog()
-				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
-				let curlv = arr.levels[4];
-				if (curlv == 0) {
-					TipsManage.showTips('需要建造磨石!')
-				} else {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [4], 0, this, function
-					(data) {
-						let base = data
-						o.setData(4, data);
-						o.popup();
-					})
-					pkt.send()
+				// let o = new ZhaiYuan_HeHuaChiDialog()
+				// let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				// let curlv = arr.levels[4];
+				// if (curlv == 0) {
+				// 	TipsManage.showTips('需要建造磨石!')
+				// } else {
+				// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [4], 0, this, function
+				// 	(data) {
+				// 		let base = data
+				// 		o.setData(4, data);
+				// 		o.popup();
+				// 	})
+				// 	pkt.send()
 
-				}
+				// }
 			});
 			//种地
 			this.box_zhongdi.on(Laya.UIEvent.CLICK, this, () => {
@@ -193,9 +196,24 @@ module view.zhaiYuan {
 				}
 			});
 
-			// 炼器
+			// 炼器    现在是磨石
 			EventManage.onWithEffect(this.box_lianQi, Laya.UIEvent.CLICK, this, () => {
-				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
+				// new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
+				let o = new ZhaiYuan_HeHuaChiDialog()
+				let arr: ProtoCmd.itf_ZHAIYUAN_INFO = GameApp.GameEngine.zhaiYuaninfo;
+				let curlv = arr.levels[4];
+				if (curlv == 0) {
+					TipsManage.showTips('需要建造磨石!')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.archGenerateInfo, [4], 0, this, function
+					(data) {
+						let base = data
+						o.setData(4, data);
+						o.popup();
+					})
+					pkt.send()
+
+				}
 			});
 			// 磨石  合成装备
 			// EventManage.onWithEffect(this.box_moshi, Laya.UIEvent.CLICK, this, () => {
@@ -213,6 +231,7 @@ module view.zhaiYuan {
 			this.btn_build.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new ZhaiYuan_Build_Dialog();
 				o.popup();
+				
 			});
 			//仆役
 			this.btn_servant.on(Laya.UIEvent.CLICK, this, () => {

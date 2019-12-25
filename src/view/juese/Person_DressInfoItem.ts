@@ -14,6 +14,7 @@ module view.juese {
 			Person_DressInfoItem.self = this;
 		}
 		public setData() {
+			this.V_Show.removeChildren();
 			this.upDataMyselfDress()
 			for (let i = 0; i < 3; i++) {
 				let box = new Laya.Box();

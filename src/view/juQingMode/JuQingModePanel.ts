@@ -7,7 +7,7 @@ module view.juQingMode {
 		}
 
 		public setData(): void {
-			this.panel_0.vScrollBarSkin = '';
+			// this.panel_0.vScrollBarSkin = '';
 
 			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
@@ -37,48 +37,6 @@ module view.juQingMode {
 				lcp.send(pkt);
 			});
 
-			// 剧情进度
-			// EventManage.onWithEffect(this.btn_shouCe, Laya.UIEvent.CLICK, this, () => {
-			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.getIntroductionInfo, [1], 0, this,
-			// 		(data: ProtoCmd.itf_ZhiNan_getIntroductionInfo) => {
-			// 			// console.log("从服务器获取的数据：", data)
-			// 			serverData = data;
-			// 			for (let i in data) {
-			// 				if (data[i] == 1) {
-			// 					hasRP = true;
-			// 				}
-			// 			}
-			// 			PanelManage.openZhiNanPanel()
-			// 		});
-			// 	lcp.send(pkt);
-
-			// });
-
-			// 副本
-			// EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, () => {
-			// 	PanelManage.openFuBenMainPanel('juqing')
-			// });
-
-			// 图谱
-			// EventManage.onWithEffect(this.btn_tuJian, Laya.UIEvent.CLICK, this, () => {
-			// 	PanelManage.openTuJianJuesePanel()
-			// });
-
-			// 任务
-			// EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, () => { PanelManage.openTask_MainPanel(); });
-
-			// 天鉴
-			// EventManage.onWithEffect(this.btn_tianJian, Laya.UIEvent.CLICK, this, () => {
-
-			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.SpecialRingPanel, null, 0, this,
-			// 		(data: ProtoCmd.itf_TianJian_SpecialRingPanel) => {
-			// 			// console.log("从服务器获取的数据：", data)
-			// 			PanelManage.openTianJianPanel(data);
-			// 		});
-			// 	lcp.send(pkt);
-
-			// });
-
 			// 场景模式
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
@@ -102,7 +60,9 @@ module view.juQingMode {
 			// 		TipsManage.showTips("VIP等级未达到")
 			// 		return;
 			// 	}
+
 			// })
+
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
@@ -154,7 +114,7 @@ module view.juQingMode {
 							// this.btn_next.label = 'new 剧情事件!!!!';
 							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
 							// 更新主线任务
-							// PanelManage.Main.updateTaskInfo();
+							PanelManage.Main.updateTaskInfo();
 						}
 						else {
 							this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
@@ -189,6 +149,7 @@ module view.juQingMode {
 					TipsManage.showTips('章节已经读完');
 					this.btn_next.label = '本章结束，切换下一章';
 					this.panel_0.scrollTo(0, this.vbox_0.height);
+					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 				}
 			});
 			// 拉取剧情对白数据
@@ -344,18 +305,17 @@ module view.juQingMode {
 					// let startTalkId1 = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
 					let span0 = endTalkId1 - startTalkId;
 					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
-					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "100%"
-						this.panel_0.vScrollBar.min = this.vbox_0.height
-						this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
-						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					} 
-					else {
-						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
-						this.panel_0.vScrollBar.min = this.vbox_0.height
-						this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
-						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					}
+					// if (span1 >= span0) {
+					// 	this.lab_juqingjindu.text = "100%"
+					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
+					// 	this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
+					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
+					// } else {
+					// 	this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
+					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
+					// 	this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
+					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
+					// }
 				}
 			}
 			else {
@@ -387,13 +347,13 @@ module view.juQingMode {
 		/**
 		 * 展示剧情事件
 		 */
-		// public showJuQingEvent(): void {
-		// 	let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
-		// 	if (taskInfo) {
-		// 		let _task = taskInfo[Object.keys(taskInfo)[0]];
-		// 		new view.juQingMode.JuQingEventDialog().setData(_task).popup();
-		// 	}
-		// }
+		public showJuQingEvent(): void {
+			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+			if (taskInfo) {
+				let _task = taskInfo[Object.keys(taskInfo)[0]];
+				new view.juQingMode.JuQingEventDialog().setData(_task).popup();
+			}
+		}
 
 		/**
 		 * 更改章节

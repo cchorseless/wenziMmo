@@ -1099,6 +1099,7 @@ module ProtoCmd {
         public mapX;//掉落地图的X坐标
         public mapY;//掉落地图的Y坐标
         public i64OwnerId;//归属权ID
+        public protectTime;//消失的时间
         // 绑定的UI组件
         public ui_item: view.compart.DaoJuItem;
         public constructor(data: Laya.Byte = null) {

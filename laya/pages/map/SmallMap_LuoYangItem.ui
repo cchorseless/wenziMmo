@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":33,
+    "selecteID":56,
     "props":{"width":800,"sceneColor":"#ffffff","height":800},
     "nodeParent":-1,
     "label":"View",
@@ -15,16 +15,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":-10,"top":0,"skin":"image/main/img_ditu.png","sizeGrid":"49,33,60,34","right":0,"left":0,"bottom":0},
+            "props":{"y":0,"x":-10,"top":0,"skin":"image/map/smallMap/img_ditu.png","sizeGrid":"49,33,60,34","right":0,"left":0,"bottom":0},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":2,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","left":-15,"bottom":-15},
                     "nodeParent":2,
@@ -34,9 +35,11 @@
                     "hasChild":false,
                     "compId":4,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","right":-15,"bottom":-15},
                     "nodeParent":2,
@@ -46,29 +49,30 @@
                     "hasChild":false,
                     "compId":5,
                     "child":[
-                        ]
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-32,"x":10,"width":806,"skin":"image/map/smallMap/smallMap_bg04.png","height":844},
+                    "nodeParent":2,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":55,
+                    "child":[
+                        ],
+                    "$LOCKED":true,
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":-20,"x":-20,"top":-20,"skin":"image/map/smallMap/smallMap_bg02.png","right":-20,"left":-10,"bottom":-20},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":3,
-            "child":[
-                ],
-            "$LOCKED":false,
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":587,"x":86,"width":680,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":587,"x":86,"width":680,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -83,7 +87,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":502,"x":151,"width":630,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":478,"x":84,"width":700,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -98,7 +102,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":420,"x":479,"width":120,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":404,"x":478,"width":120,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -113,7 +117,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":420,"x":260,"width":130,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":407,"x":258,"width":130,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -128,7 +132,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":288,"x":342,"width":130,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":281,"x":342,"width":130,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -143,7 +147,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":168,"x":579,"width":130,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":153,"x":579,"width":130,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -158,7 +162,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":165,"x":374,"width":110,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":157,"x":373,"width":110,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -173,7 +177,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":283,"x":26,"width":250,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":273,"x":28,"width":250,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -188,7 +192,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":313,"x":696,"width":190,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":295,"x":708,"width":190,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -203,7 +207,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":169,"x":595,"width":500,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":147,"x":612,"width":550,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -233,7 +237,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":95,"x":480,"width":500,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":79,"x":493,"width":550,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -248,7 +252,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":160,"x":265,"width":320,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":160,"x":276,"width":350,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -263,7 +267,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":102,"x":122,"width":540,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":102,"x":133,"width":540,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -733,6 +737,19 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":57,"x":75,"skin":"image/map/smallMap/img_luoyang.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":56,
+            "child":[
+                ]
         }],
     "animations":[
         {

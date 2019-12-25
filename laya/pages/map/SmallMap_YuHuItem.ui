@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":82,
+    "selecteID":76,
     "props":{"width":640,"sceneColor":"#eedbda","height":700},
     "nodeParent":-1,
     "label":"View",
@@ -18,18 +18,31 @@
             "props":{"y":-2,"x":-14,"width":668,"skin":"image/map/smallMap/smallMap_bg03.png","height":704},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":3,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":17,"x":-2,"skin":"image/map/smallMap/smallMap_bg05.png"},
+                    "nodeParent":3,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":87,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":104,"x":315,"width":430,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":71,"x":329,"width":500,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -44,7 +57,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":291,"x":220,"width":170,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":291,"x":229,"width":170,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -59,7 +72,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":301,"x":132,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":301,"x":144,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -74,7 +87,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":191,"x":434,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":195,"x":443,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -89,7 +102,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":180,"x":215,"width":100,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":177,"x":211,"width":100,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -103,7 +116,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":182,"x":427,"width":100,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":169,"x":430,"width":100,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -117,7 +130,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":287,"x":129,"width":100,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":283,"x":130,"width":100,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -131,7 +144,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":289,"x":320,"width":110,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":268,"x":310,"width":120,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -145,7 +158,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":372,"x":103,"width":220,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":365,"x":103,"width":220,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -160,7 +173,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":465,"x":143,"width":350,"skin":"image/common/fram_common_24.png","height":7},
+            "props":{"y":448,"x":146,"width":350,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -175,7 +188,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":297,"x":434,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":6},
+            "props":{"y":367,"x":445,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -422,6 +435,19 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":72,"x":35,"skin":"image/map/smallMap/img_yuhu.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":86,
+            "child":[
+                ]
         }],
     "animations":[
         {

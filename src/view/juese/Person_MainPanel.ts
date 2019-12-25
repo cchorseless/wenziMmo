@@ -18,8 +18,10 @@ module view.juese {
 			let ui_item;
 			switch (id) {
 				case 4:
-					ui_item = view.juese.Person_DressInfoItem;
-					this.box_item4.addChild(new ui_item())
+					if (this.box_item4.numChildren <= 0) {
+						ui_item = view.juese.Person_DressInfoItem;
+						this.box_item4.addChild(new ui_item())
+					}
 					break;
 			}
 		}
