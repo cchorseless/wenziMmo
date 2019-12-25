@@ -102,9 +102,7 @@ module view.juQingMode {
 			// 		TipsManage.showTips("VIP等级未达到")
 			// 		return;
 			// 	}
-
 			// })
-
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
@@ -156,7 +154,7 @@ module view.juQingMode {
 							// this.btn_next.label = 'new 剧情事件!!!!';
 							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
 							// 更新主线任务
-							PanelManage.Main.updateTaskInfo();
+							// PanelManage.Main.updateTaskInfo();
 						}
 						else {
 							this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
@@ -191,7 +189,6 @@ module view.juQingMode {
 					TipsManage.showTips('章节已经读完');
 					this.btn_next.label = '本章结束，切换下一章';
 					this.panel_0.scrollTo(0, this.vbox_0.height);
-					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 				}
 			});
 			// 拉取剧情对白数据
@@ -352,7 +349,8 @@ module view.juQingMode {
 						this.panel_0.vScrollBar.min = this.vbox_0.height
 						this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
 						this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					} else {
+					} 
+					else {
 						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
 						this.panel_0.vScrollBar.min = this.vbox_0.height
 						this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
@@ -389,13 +387,13 @@ module view.juQingMode {
 		/**
 		 * 展示剧情事件
 		 */
-		public showJuQingEvent(): void {
-			let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
-			if (taskInfo) {
-				let _task = taskInfo[Object.keys(taskInfo)[0]];
-				new view.juQingMode.JuQingEventDialog().setData(_task).popup();
-			}
-		}
+		// public showJuQingEvent(): void {
+		// 	let taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+		// 	if (taskInfo) {
+		// 		let _task = taskInfo[Object.keys(taskInfo)[0]];
+		// 		new view.juQingMode.JuQingEventDialog().setData(_task).popup();
+		// 	}
+		// }
 
 		/**
 		 * 更改章节

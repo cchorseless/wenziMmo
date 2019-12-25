@@ -52,8 +52,8 @@ class GameMain {
     private createPanel(): Laya.Box {
         let box = new Laya.Box();
         let offY = 0;
-        let aspectRatio = Laya.Browser.height / Laya.Browser.width;
-        if (aspectRatio > 1.9) {
+        let aspectRatio = PanelManage.getAspectRatio()
+        if (aspectRatio) {
             offY = 50;
         }
         box.top = offY;

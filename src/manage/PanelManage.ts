@@ -43,8 +43,8 @@ module PanelManage {
     /**
      * 获取高宽比
      */
-    export function getAspectRatio(): number {
-        return Laya.Browser.height / Laya.Browser.width
+    export function getAspectRatio(): boolean {
+        return Laya.Browser.height / Laya.Browser.width > 1.9
     }
 
     /**********************************界面层************************************ */
