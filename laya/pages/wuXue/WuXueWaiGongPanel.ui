@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":277,
-    "selecteID":268,
+    "selecteID":263,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -759,13 +759,14 @@
                     "props":{"y":678,"x":627,"var":"img_sort","skin":"image/juese/bottom_paixu.png","scaleY":0,"scaleX":0,"anchorX":1},
                     "nodeParent":277,
                     "label":"Image(img_sort)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":263,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":9,"x":7,"stateNum":"2","skin":"image/juese/icon_pinzhi..png"},
                             "nodeParent":263,
@@ -778,10 +779,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":68,"x":31,"stateNum":"2","skin":"image/juese/icon_dengjia.png"},
+                            "props":{"y":68,"x":31,"var":"btn_level","stateNum":"2","skin":"image/juese/icon_dengjia.png"},
                             "nodeParent":263,
-                            "label":"Button",
+                            "label":"Button(btn_level)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -790,6 +792,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":92,"x":91,"stateNum":"2","skin":"image/juese/icon_weili.png"},
                             "nodeParent":263,

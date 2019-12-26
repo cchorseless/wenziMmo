@@ -62,7 +62,7 @@ module view.juese {
 				let exp = jsonData.xw - jsonData.maxxw;
 				this.exp = exp;
 				//转生所需经验
-				this.lbl_need.text = '' +LangConfig.getBigNumberDes(jsonData.maxxw);
+				this.lbl_need.text = '' + LangConfig.getBigNumberDes(jsonData.maxxw);
 				this.lbl_have.text = '' + LangConfig.getBigNumberDes(jsonData.xw);
 				let result = jsonData.xw - jsonData.maxxw;
 				if (result < 0) {
@@ -77,17 +77,6 @@ module view.juese {
 					this.lbl_dangqian.text = GameApp.MainPlayer.zslevel + '转';
 					//下一转生等级
 					this.lbl_next.text = (GameApp.MainPlayer.zslevel + 1) + '转';
-					if (GameApp.MainPlayer.zslevel < 15) {
-						//当前转生等级不是最大转生等级
-						this.img_dangqian.x = 120;
-						this.img_change.visible = true;
-						this.img_next.visible = true;
-					} else {
-						//当前转生等级是最大转生等级
-						this.img_dangqian.x = 255;
-						this.img_change.visible = false;
-						this.img_next.visible = false;
-					}
 					if (GameApp.MainPlayer.zslevel == 0) {
 						this.lbl_null.visible = true;
 					} else {
@@ -101,15 +90,31 @@ module view.juese {
 					let attribute1 = shuxing1.des;
 					let battle1 = shuxing1.battle[job];
 					this.lbl_battle.text = '' + battle1;
-					//下级属性
-					let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jobid)
-					let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
-					let attribute2 = shuxing2.des;
-					let battle2 = shuxing2.battle[job];
-					this.lbl_battleup.text = '+' + (battle2 - battle1);
-					this.vbox_left.removeChildren();
-					for (let key in attribute1) {
-						this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], attribute2[key], 1))
+					if (GameApp.MainPlayer.zslevel < 15) {
+						//当前转生等级不是最大转生等级
+						this.img_dangqian.x = 120;
+						this.img_change.visible = true;
+						this.img_next.visible = true;
+						//下级属性
+						let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + jobid)
+						let shuxing2 = GameUtil.parseEffectidToObj(['' + id])
+						let attribute2 = shuxing2.des;
+						let battle2 = shuxing2.battle[job];
+						this.lbl_battleup.text = '+' + (battle2 - battle1);
+						this.vbox_left.removeChildren();
+						for (let key in attribute1) {
+							this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], attribute2[key], 1))
+						}
+					} else {
+						//当前转生等级是最大转生等级
+						this.img_dangqian.x = 255;
+						this.img_change.visible = false;
+						this.img_next.visible = false;
+						this.lbl_battleup.text = '';
+						this.vbox_left.removeChildren();
+						for (let key in attribute1) {
+							this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(attribute1[key], null, 1))
+						}
 					}
 				}
 			})

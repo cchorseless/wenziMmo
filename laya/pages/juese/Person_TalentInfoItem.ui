@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":369,
-    "selecteID":370,
+    "selectedBox":361,
+    "selecteID":360,
     "props":{"width":573,"sceneColor":"#e2a9a8","height":886},
     "nodeParent":-1,
     "label":"View",
@@ -391,98 +391,94 @@
                     "child":[
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"width":573,"skin":"image/juese/shadow_shuju.png","height":108},
+                            "type":"Box",
+                            "props":{"y":12,"x":21,"var":"box_talent"},
                             "nodeParent":354,
-                            "label":"Image",
-                            "isDirectory":false,
+                            "label":"Box(box_talent)",
+                            "isOpen":null,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":355,
+                            "hasChild":true,
+                            "compId":374,
                             "child":[
-                                ]
+                                {
+                                    "type":"Image",
+                                    "props":{"width":86,"skin":"image/juese/frame_tubiao.png","height":86},
+                                    "nodeParent":374,
+                                    "label":"Image",
+                                    "isOpen":false,
+                                    "isDirectory":true,
+                                    "isAniNode":true,
+                                    "hasChild":true,
+                                    "compId":356,
+                                    "child":[
+                                        {
+                                            "type":"Image",
+                                            "props":{"y":4,"x":4,"width":77,"var":"img_type","skin":"image/common/daoju/itemicon_122001.png","height":77},
+                                            "nodeParent":356,
+                                            "label":"Image(img_type)",
+                                            "isDirectory":false,
+                                            "isAniNode":true,
+                                            "hasChild":false,
+                                            "compId":357,
+                                            "child":[
+                                                ],
+                                            "$HIDDEN":false
+                                        }],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":2,"x":123,"width":144,"var":"lbl_name","text":"独行游侠","strokeColor":"#9d4d16","stroke":4,"fontSize":36,"font":"FZXK","color":"#ffffff","align":"center"},
+                                    "nodeParent":374,
+                                    "label":"Label(lbl_name)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":358,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":52,"x":122,"width":85,"var":"lbl_level","text":"LV.210","height":26,"fontSize":26,"font":"FZHL","color":"#63491a","align":"left"},
+                                    "nodeParent":374,
+                                    "label":"Label(lbl_level)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":359,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                }]
                         },
                         {
                             "x":45,
-                            "type":"Image",
-                            "props":{"y":12,"x":21,"width":86,"skin":"image/juese/frame_tubiao.png","height":86},
+                            "type":"Label",
+                            "props":{"y":64,"x":309,"width":71,"var":"lbl_nextLevel","text":"22","height":26,"fontSize":28,"font":"FZHL","color":"#179a0d","align":"left"},
                             "nodeParent":354,
-                            "label":"Image",
+                            "label":"Label(lbl_nextLevel)",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":356,
+                            "compId":361,
                             "child":[
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":4,"x":4,"width":77,"var":"img_type","skin":"image/common/daoju/itemicon_122001.png","height":77},
-                                    "nodeParent":356,
-                                    "label":"Image(img_type)",
+                                    "props":{"y":-6,"x":-75,"skin":"image/juese/arrow02_common.png"},
+                                    "nodeParent":361,
+                                    "label":"Image",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":357,
+                                    "compId":360,
                                     "child":[
-                                        ],
-                                    "$HIDDEN":false
+                                        ]
                                 }],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":14,"x":144,"width":144,"var":"lbl_name","text":"独行游侠","strokeColor":"#9d4d16","stroke":4,"fontSize":36,"font":"FZXK","color":"#ffffff","align":"center"},
-                            "nodeParent":354,
-                            "label":"Label(lbl_name)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":358,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":62,"x":143,"width":71,"var":"lbl_level","text":"LV.21","height":26,"fontSize":26,"font":"FZHL","color":"#63491a","align":"center"},
-                            "nodeParent":354,
-                            "label":"Label(lbl_level)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":359,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":58,"x":216,"skin":"image/juese/arrow02_common.png"},
-                            "nodeParent":354,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":360,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":59,"x":269,"width":71,"var":"lbl_nextLevel","text":"22","height":26,"fontSize":28,"font":"FZHL","color":"#179a0d","align":"center"},
-                            "nodeParent":354,
-                            "label":"Label(lbl_nextLevel)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":361,
-                            "child":[
-                                ],
                             "$HIDDEN":false
                         },
                         {
@@ -501,7 +497,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":135,"x":31,"width":510,"var":"vbox_left","space":10,"height":200},
+                            "props":{"y":135,"x":16,"width":540,"var":"vbox_left","space":10,"height":200},
                             "nodeParent":354,
                             "label":"VBox(vbox_left)",
                             "isOpen":true,
@@ -542,7 +538,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-6,"x":-13,"var":"img_talentcoin1","skin":"image/juese/img_talent1.png"},
+                                    "props":{"y":-6,"x":-13,"width":49,"var":"img_talentcoin1","skin":"image/juese/img_talent1.png","height":48},
                                     "nodeParent":365,
                                     "label":"Image(img_talentcoin1)",
                                     "isOpen":true,

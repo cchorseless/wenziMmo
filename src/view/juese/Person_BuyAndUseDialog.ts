@@ -68,11 +68,11 @@ module view.juese {
 			//可兑换修为
 			this.lbl_xiuwei.text = '' + data.xw;
 			//所需金币
-			this.lbl_jinbi.text = '' + data.gold;
+			this.lbl_jinbi.text = '' + LangConfig.getBigNumberDes(data.gold);
 			//所需阅历经验
-			this.lbl_yueli.text = '' + data.exp;
+			this.lbl_yueli.text = '' + LangConfig.getBigNumberDes(data.exp);
 			//今天可兑换次数
-			this.lbl_count.text=data.count+'/3';
+			this.lbl_count.text = '（' + data.count + '）';
 			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.pill, this.type))
 			this.vbox_02.addChild(new view.juese.Person_BuyAndUseItem().setData(data.superpill, this.type));
 		}

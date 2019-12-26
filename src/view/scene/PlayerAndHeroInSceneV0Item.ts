@@ -55,7 +55,7 @@ module view.scene {
 			else {
 				path = 'image/main/player_nv';
 			}
-			this.img_playerAva.skin = path + '0' + curJob + '_half.png';
+			this.img_playerAva.skin = path + '0' + curJob + '.png';
 			// skin
 			this.updateUI();
 		}

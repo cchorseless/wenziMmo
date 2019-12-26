@@ -90,17 +90,41 @@ module view.juese {
 				lcp.send(pkt);
 			} else {
 				//使用物品
-				let data = GameUtil.findItemInfoInBag(this.id, GameApp.GameEngine.bagItemDB);
+				let data: ProtoCmd.ItemBase = GameUtil.findItemInfoInBag(this.id, GameApp.GameEngine.bagItemDB);
 				if (data) {
-					let pkt = new ProtoCmd.CretGetUseItem();
-					pkt.setValue('i64id', data.i64ItemID);
-					pkt.setValue('dwCretOwnerTempId', GameApp.MainPlayer.tempId);
-					lcp.send(pkt, this, (data) => {
-						let pktCB = new ProtoCmd.CretGetUseItemRet(data);
-						let btErrorCode = pktCB.getValue('btErrorCode');
-						if (btErrorCode == 0) {
-							TipsManage.showTips('道具使用成功');
-							this.init_updata();
+					let canbatchuse = SheetConfig.mydb_item_base_tbl.getInstance(null).CANBATCHUSE('' + this.id);
+					if (canbatchuse == 0) {
+						let pkt = new ProtoCmd.CretGetUseItem();
+						pkt.setValue('i64id', data.i64ItemID);
+						pkt.setValue('dwCretOwnerTempId', GameApp.MainPlayer.tempId);
+						lcp.send(pkt, this, (data) => {
+							let pktCB = new ProtoCmd.CretGetUseItemRet(data);
+							let btErrorCode = pktCB.getValue('btErrorCode');
+							if (btErrorCode == 0) {
+								TipsManage.showTips('道具使用成功');
+								this.init_updata();
+								switch (this.type) {
+									//刷新角色天赋界面
+									case 1:
+										PanelManage.JueSe.ui_talent.init_laqu();
+										break;
+									case 2:
+										//刷新弟子转生界面
+										PanelManage.DiZi.ui_sangong.init_zhuangshengPanel();
+										break;
+									case 3:
+										//刷新角色转生界面
+										PanelManage.JueSe.ui_zhuansheng.init_zhuangshengPanel();
+										break;
+								}
+							}
+							else {
+								TipsManage.showTips('道具使用失败');
+							}
+						})
+					} else {
+						let itemData = [this.id, 1, data.i64ItemID.toString()];
+						let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.ITEM_LoopUseItem, itemData, null, this, (jsonData) => {
 							switch (this.type) {
 								//刷新角色天赋界面
 								case 1:
@@ -115,11 +139,9 @@ module view.juese {
 									PanelManage.JueSe.ui_zhuansheng.init_zhuangshengPanel();
 									break;
 							}
-						}
-						else {
-							TipsManage.showTips('道具使用失败');
-						}
-					})
+						});
+						lcp.send(pkt);
+					}
 				}
 			}
 		}

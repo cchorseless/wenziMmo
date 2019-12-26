@@ -22,6 +22,7 @@ module view.common {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 			// 	this.viw_talk.selectedIndex = index;
 			// }, null, false);
+			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 			this.tab_jobSelect.selectHandler = Laya.Handler.create(this, (index) => {
 				let configID = '' + (index + 101);
 				this.lbl_job.text = SheetConfig.HeroInfoSheet.getInstance(null).JOBDES(configID);

@@ -43,6 +43,9 @@ module view.newServer {
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.init_addBox();
 			}, null, false);
+			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
+				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
+			})
 		}
 		public init_addBox(): void {
 			this.box_time.visible = false

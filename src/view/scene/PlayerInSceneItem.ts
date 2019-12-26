@@ -45,7 +45,7 @@ module view.scene {
 			else {
 				path = 'image/main/player_nv';
 			}
-			this.img_playerAva.skin = path + '0' + curJob + '_half.png';
+			this.img_playerAva.skin = path + '0' + curJob + '.png';
 			// 刷新UI
 			this.updateUI();
 			this.img_job.skin = LangConfig.getPlayerJobIcon();

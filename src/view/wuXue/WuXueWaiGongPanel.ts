@@ -6,7 +6,9 @@ module view.wuXue {
 			// this.panel_skillDes.vScrollBarSkin = "";
 			// this.panel_skillEffDes.vScrollBarSkin = "";
 		}
-
+		public listData0;
+		public listData1;
+		public listData2;
 		public setData(): void {
 			this.btn_waiGong.selected = true;
 			this.initUI();
@@ -56,6 +58,12 @@ module view.wuXue {
 			});
 			// 排序
 			this.btn_sort.on(Laya.UIEvent.CLICK, this, () => {
+				this.btn_sort.selected = !this.btn_sort.selected;
+				this.init_sortTween(this.btn_sort.selected);
+			});
+			//按等级排序
+			this.btn_level.on(Laya.UIEvent.CLICK, this, () => {
+				this.init_sortEvent(1);
 				this.btn_sort.selected = !this.btn_sort.selected;
 				this.init_sortTween(this.btn_sort.selected);
 			});
@@ -164,7 +172,9 @@ module view.wuXue {
 						break;
 				}
 			}
-
+			this.listData0 = this.list_0.array;
+			this.listData1 = this.list_1.array;
+			this.listData2 = this.list_2.array;
 			for (let i = 0; i < 3; i++) {
 				(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
 					cell.setData(cell.dataSource)
@@ -295,6 +305,46 @@ module view.wuXue {
 			} else {
 				this.btn_sort.skin = 'image/juese/icon_paixu.png';
 				Laya.Tween.to(this.img_sort, { scaleX: 0, scaleY: 0 }, 200)
+			}
+		}
+		/**
+		 * 
+		 * @param type 排序类型0品质1等级2威力
+		 */
+		public init_sortEvent(type: number): void {
+			switch (type) {
+				case 0:
+					break;
+				case 1:
+					this.init_levelSort();
+					break;
+				case 2:
+					break;
+			}
+		}
+		/**
+		 * 按等级排序
+		 */
+		public init_levelSort(): void {
+			function compare(property) {
+				return function (a, b) {
+					var value1 = a[property];
+					var value2 = b[property];
+					return value1 - value2;
+				}
+			}
+			for (let i = 0; i <= 2; i++) {
+				if (this['listData' + i]) {
+					let skillArray = this['listData' + i];
+					let afterSort = [];
+					afterSort = skillArray.sort(compare('level'))
+					this['list_' + i].array = '';
+					this['list_' + i].array = afterSort;
+					this['list_' + i].itemRender = view.wuXue.WuXue_InfoItem;
+					(this['list_' + i] as Laya.List).renderHandler = Laya.Handler.create(this, (cell: view.wuXue.WuXue_InfoItem, index) => {
+						cell.setData(cell.dataSource)
+					}, null, false)
+				}
 			}
 		}
 	}

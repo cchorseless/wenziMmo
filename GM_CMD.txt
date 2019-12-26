@@ -52,10 +52,16 @@ NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
 @dolua call="gm_addrunescore(100000)"            符文精華
 @dolua call="gm_setZsLvl()"                      轉生等級
 @dolua call="gm_addsoulstone(1000000000)"       增加魂石经验
-@herolevel lvl=100                             增加弟子等级
+@herolevel lvl=100                             增加弟子等级si
 @level lvl=150                                  增加自己等级
 @dolua call="gm_clearArch"                      清除宅院等级
 @makeitem baseid=9 count=999                    生成多个道具
 @dolua call="gm_addFoodValue(9999000)"            宅院加粮食
 @dolua call="gm_finishArchGen"                   宅院生产任务全部完成
-@makemon id=300001               
+@dolua call="gm_addxiuwei(999999999)"                  增加转生修为
+
+@dolua call="gm_addOfficialSealScore(100000000)"    官印经验（善缘）
+@dolua call="gm_addDragonSoulScore(100000000)"   龙魂经验（悟性）
+@dolua call="gm_addShieldScore(2000000000)"     神盾经验（臂力）
+@dolua call="gm_addBloodJadeScore(100000000)"   血玉经验（身法）
+@dolua call="gm_addAchievementScore(100000000)" 勋章经验（根骨）

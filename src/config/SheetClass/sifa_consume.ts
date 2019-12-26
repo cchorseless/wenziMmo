@@ -1,36 +1,40 @@
 module SheetConfig {
     export class sifa_consume {
-        private data; private _instance; public constructor(data) { this.data = data; }
+        public data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): sifa_consume { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
         /**
-         *  等级
+         *  id顺序
          */
-        public LEVEL(configID: string): number { return this.data[configID][0] }
+        public ID(configID): string { return this.data[configID][0] }
         /**
-         *  分类
+         *  升级对应等级
          */
-        public TYPE(configID: string): number { return this.data[configID][1] }
+        public LEVEL(configID): number { return this.data[configID][1] }
         /**
-         *  所需材料
+         *  对应分类
          */
-        public NEED_MATERIAL(configID: string): string { return this.data[configID][2] }
+        public TYPE(configID): number { return this.data[configID][2] }
         /**
-         *  所需金币
+         *  升级所需材料与数量
          */
-        public NEED_GOLD(configID: string): number { return this.data[configID][3] }
+        public NEED_MATERIAL(configID): any { return this.data[configID][3] }
         /**
-         * 根据分类和等级找到对应材料数据
+         *  升级所需要的金币
          */
+        public NEED_GOLD(configID): number { return this.data[configID][4] }
+        /**
+          * 根据分类和等级找到对应材料数据
+          */
         public GETDATABYTYPEANDLVL(type: number, lvl: number) {
             let final;
             let lvlArray = [];
             for (let index in this.data) {
-                if (this.data[index][0] == lvl) {
+                if (this.data[index][1] == lvl) {
                     lvlArray.push(this.data[index]);
                 }
             }
             for (let part of lvlArray) {
-                if (part[1] == type) {
+                if (part[2] == type) {
                     final = part;
                 }
             }

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":5,
+    "selectedBox":1,
+    "selecteID":117,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -30,14 +30,13 @@
                     "props":{"y":0,"x":0,"var":"panel_shiWai","top":0,"right":0,"name":"item0","left":0,"bottom":0},
                     "nodeParent":88,
                     "label":"Panel(panel_shiWai)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":4,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"x":0,"width":1920,"visible":true,"top":0,"skin":"image/zhaiYuan/img_yangChengBJ.png","bottom":0},
                             "nodeParent":4,
@@ -49,7 +48,6 @@
                             "compId":5,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":305,"x":1532,"visible":false,"var":"box_back"},
                                     "nodeParent":5,
@@ -61,7 +59,6 @@
                                     "compId":100,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-2,"x":62,"skin":"image/zhaiYuan/img_door.png"},
                                             "nodeParent":100,
@@ -75,7 +72,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":3,"x":-5,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":100,
@@ -87,7 +83,6 @@
                                             "compId":97,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":29,"x":5,"text":"后\\n院","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":97,
@@ -103,7 +98,6 @@
                                     "$HIDDEN":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"skin":"image/zhaiYuan/img_qj.png","right":0,"left":0,"bottom":0},
                                     "nodeParent":5,
@@ -117,7 +111,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":774,"x":480,"visible":false},
                                     "nodeParent":5,
@@ -170,7 +163,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":457,"x":542,"visible":false},
                                     "nodeParent":5,
@@ -220,7 +212,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":640,"x":1110,"width":671,"var":"box_shiNei","pivotY":643,"pivotX":568,"height":571},
                                     "nodeParent":5,
@@ -232,7 +223,6 @@
                                     "compId":101,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"x":-218,"skin":"image/zhaiYuan/img_house.png","scaleX":1},
                                             "nodeParent":101,
@@ -246,7 +236,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":303,"x":669,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":101,
@@ -273,7 +262,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":613,"x":518,"var":"box_danlu"},
                                     "nodeParent":5,
@@ -285,7 +273,6 @@
                                     "compId":21,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-8,"x":3,"skin":"image/zhaiYuan/img_danLu.png"},
                                             "nodeParent":21,
@@ -299,7 +286,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":66,"x":282,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":21,
@@ -325,7 +311,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":792,"x":1350,"visible":false,"var":"box_moshi"},
                                     "nodeParent":5,
@@ -337,7 +322,6 @@
                                     "compId":41,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":18,"x":45,"skin":"image/zhaiYuan/img_shiMo.png"},
                                             "nodeParent":41,
@@ -350,7 +334,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-50,"x":65,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":41,
@@ -362,7 +345,6 @@
                                             "compId":27,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":29,"x":5,"text":"磨\\n石","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":27,
@@ -378,7 +360,6 @@
                                     "$HIDDEN":true
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"y":521,"x":1274,"var":"box_zhongdi"},
                                     "nodeParent":5,
@@ -390,7 +371,6 @@
                                     "compId":42,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":0,"x":-1,"skin":"image/zhaiYuan/img_farmland.png"},
                                             "nodeParent":42,
@@ -403,7 +383,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-3,"x":213,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":42,
@@ -415,7 +394,6 @@
                                             "compId":25,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":29,"x":5,"text":"种\\n地","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":25,
@@ -431,7 +409,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"x":1793,"width":371,"var":"box_lianQi","height":614,"bottom":0,"anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":5,
@@ -443,7 +420,6 @@
                                     "compId":40,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-3,"x":-174,"skin":"image/zhaiYuan/img_tieJiangPu.png"},
                                             "nodeParent":40,
@@ -456,7 +432,6 @@
                                                 ]
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":244,"x":-21,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":40,
@@ -468,7 +443,6 @@
                                             "compId":29,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":32,"x":5,"text":"磨\\n石","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":29,
@@ -483,7 +457,6 @@
                                         }]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Box",
                                     "props":{"x":242,"width":488,"var":"box_heHuaChi","height":421,"bottom":0,"anchorY":0.5,"anchorX":0.5},
                                     "nodeParent":5,
@@ -495,7 +468,6 @@
                                     "compId":38,
                                     "child":[
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"top":0,"skin":"image/zhaiYuan/img_pool.png","right":0,"left":0,"bottom":0},
                                             "nodeParent":38,
@@ -509,7 +481,6 @@
                                             "$HIDDEN":false
                                         },
                                         {
-                                            "x":75,
                                             "type":"Image",
                                             "props":{"y":-24,"x":219,"skin":"image/zhaiYuan/img_common_24.png"},
                                             "nodeParent":38,
@@ -521,7 +492,6 @@
                                             "compId":35,
                                             "child":[
                                                 {
-                                                    "x":90,
                                                     "type":"Label",
                                                     "props":{"y":29,"x":5,"text":"荷\\n花\\n池","fontSize":25,"font":"FZHL","color":"#fae6c4"},
                                                     "nodeParent":35,
@@ -537,7 +507,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":499,"x":1250,"skin":"image/zhaiYuan/img_chuTou.png"},
                                     "nodeParent":5,
@@ -551,7 +520,6 @@
                                     "$HIDDEN":false
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":588,"x":1149,"skin":"image/zhaiYuan/img_stool.png"},
                                     "nodeParent":5,
@@ -903,7 +871,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":855,"x":56},
+            "props":{"x":56,"bottom":0},
             "nodeParent":1,
             "label":"Box",
             "isOpen":false,

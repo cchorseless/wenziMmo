@@ -16,10 +16,6 @@ module view.newServer {
 			GameApp.LListener.on(ProtoCmd.leijidenglu_minbandakai, this, function (data) {
 				this.setData(data);
 			})
-			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
-				GameApp.LListener.offCaller(ProtoCmd.leijidenglu_minbandakai, this)
-				PopUpManager.checkPanel(PanelManage.NewServerActive, true);
-			})
 		}
 		public getData() {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.leijidenglu_minbandakai, [0])
@@ -38,7 +34,7 @@ module view.newServer {
 					let o = new view.newServer.NewServer_TotalLogin_Item()
 					o.setData(data[i]);
 					o.x = 4;
-					o.y = (parseInt(i) - 1) * (o.height + 15)
+					o.y = (parseInt(i) - 1) * (o.height + 5)
 					this.panel_item.addChild(o);
 					if (data[i].status == 2) {
 						this.totalDay++
@@ -60,6 +56,10 @@ module view.newServer {
 					p.img_circle.visible = true;
 				}
 			}
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(ProtoCmd.leijidenglu_minbandakai, this);
+			super.destroy(isbool);
 		}
 	}
 }
