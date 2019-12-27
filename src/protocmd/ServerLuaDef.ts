@@ -270,7 +270,7 @@ module ProtoCmd {
     // 获取修为面板
     export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';//(1弟子0玩家)
     // 兑换修为面板
-    export const Hero_exchangeXiuWei = 'exchangeXiuWei';
+    export const Hero_exchangeXiuWei = 'exchangeXiuWei';//(参数1弟子0玩家)回调Hero_zhuanShengPanel
     // 弟子罡气激活
     export const Hero_activeHeroWing = 'activeHeroWing';
     // 弟子罡气面板

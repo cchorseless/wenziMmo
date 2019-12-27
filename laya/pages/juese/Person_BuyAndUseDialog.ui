@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":51,
-    "selecteID":52,
+    "selectedBox":1,
+    "selecteID":6,
     "props":{"width":439,"sceneColor":"#ffffff","height":545},
     "nodeParent":-1,
     "label":"Dialog",
@@ -47,18 +47,19 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":132,"width":175,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"-5,31,-10,29","height":42},
+            "props":{"y":1,"x":119,"width":200,"skin":"image/common/img_smallDialog_title.png","sizeGrid":"-5,31,-10,29","height":51},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":6,"x":31,"width":112,"text":"加速修炼","strokeColor":"#404040","stroke":4,"height":28,"fontSize":28,"font":"FZXK","color":"#fff4ce","align":"center"},
+                    "props":{"y":9,"x":36,"width":128,"text":"加速修炼","strokeColor":"#404040","stroke":4,"height":32,"fontSize":32,"font":"FZXK","color":"#fff4ce","align":"center"},
                     "nodeParent":6,
                     "label":"Label",
                     "isDirectory":false,
@@ -73,7 +74,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":462,"x":50,"width":186,"var":"lbl_from","underline":true,"text":"玩法1名称","height":18,"fontSize":18,"font":"FZHL","color":"#c88d24","align":"center"},
+            "props":{"y":458,"x":30,"width":219,"var":"lbl_from","underline":true,"text":"玩法1名称","height":22,"fontSize":22,"font":"FZHL","color":"#c88d24","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_from)",
             "isDirectory":false,
@@ -142,7 +143,7 @@
                 {
                     "x":30,
                     "type":"VBox",
-                    "props":{"width":419,"var":"vbox_01","space":15,"name":"item0","height":365},
+                    "props":{"y":22,"x":0,"width":419,"var":"vbox_01","space":15,"name":"item0","height":365},
                     "nodeParent":33,
                     "label":"VBox(vbox_01)",
                     "isOpen":true,
@@ -169,7 +170,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"y":120,"x":0,"width":419,"var":"vbox_02","space":15,"height":240},
+                            "props":{"y":147,"x":0,"var":"vbox_02","space":10},
                             "nodeParent":55,
                             "label":"VBox(vbox_02)",
                             "isOpen":true,
@@ -184,7 +185,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"width":419,"skin":"image/common/fram_common_11.png","sizeGrid":"19,43,16,43","height":110},
+                            "props":{"y":0,"x":0,"width":419,"skin":"image/common/fram_common_11.png","sizeGrid":"19,43,16,43","height":138},
                             "nodeParent":55,
                             "label":"Image",
                             "isOpen":true,
@@ -199,7 +200,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":6,"x":7,"width":108,"text":"每次可获得","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"FZHL","color":"#e8d49f","align":"center"},
+                            "props":{"y":6,"x":7,"width":108,"text":"每次可获得","strokeColor":"#2d1c05","stroke":4,"fontSize":22,"font":"FZHL","color":"#e8d49f","align":"center"},
                             "nodeParent":55,
                             "label":"Label",
                             "isDirectory":false,
@@ -212,7 +213,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":6,"x":119,"width":80,"text":"转生经验","strokeColor":"#2d1c05","stroke":4,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                            "props":{"y":6,"x":122,"text":"转生经验","strokeColor":"#2d1c05","stroke":4,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":55,
                             "label":"Label",
                             "isDirectory":false,
@@ -225,7 +226,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":5,"x":243,"width":97,"var":"lbl_xiuwei","text":"100000","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"left"},
+                            "props":{"y":6,"x":251,"width":97,"var":"lbl_xiuwei","text":"100000","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"left"},
                             "nodeParent":55,
                             "label":"Label(lbl_xiuwei)",
                             "isOpen":true,
@@ -255,7 +256,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":33,"x":49,"text":"角色等级","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000","align":"left"},
+                            "props":{"y":37,"x":49,"text":"角色等级","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000","align":"left"},
                             "nodeParent":55,
                             "label":"Label",
                             "isOpen":true,
@@ -270,7 +271,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":34,"x":136,"width":98.671875,"text":"低于100级","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZHL","color":"#149a0d","align":"left"},
+                            "props":{"y":37,"x":136,"width":98.671875,"text":"低于100级","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZHL","color":"#149a0d","align":"left"},
                             "nodeParent":55,
                             "label":"Label",
                             "isOpen":true,
@@ -285,7 +286,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":33,"x":244,"width":80,"text":"无法兑换","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZHL","color":"#000000","align":"left"},
+                            "props":{"y":37,"x":244,"width":80,"text":"无法兑换","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZHL","color":"#000000","align":"left"},
                             "nodeParent":55,
                             "label":"Label",
                             "isOpen":true,
@@ -300,7 +301,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":58,"x":11,"text":"消耗金币","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000"},
+                            "props":{"y":66,"x":11,"text":"消耗金币","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":55,
                             "label":"Label",
                             "isOpen":true,
@@ -314,7 +315,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":60,"x":97,"width":123,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":18},
+                            "props":{"y":68,"x":97,"width":135,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":23},
                             "nodeParent":55,
                             "label":"Image",
                             "isOpen":true,
@@ -326,7 +327,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":0,"x":24,"width":95,"var":"lbl_jinbi","text":"666666","strokeColor":"#000000","stroke":4,"height":18,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "props":{"y":0,"x":24,"width":108,"var":"lbl_jinbi","text":"666666","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":47,
                                     "label":"Label(lbl_jinbi)",
                                     "isOpen":true,
@@ -340,7 +341,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-6,"x":-5,"width":33,"skin":"image/main/icon_coin_3.png","height":27},
+                                    "props":{"y":-4,"x":-5,"width":36,"skin":"image/main/icon_coin_3.png","height":29},
                                     "nodeParent":47,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -354,7 +355,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":81,"x":12,"text":"消耗阅历","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000"},
+                            "props":{"y":99,"x":12,"text":"消耗阅历","strokeColor":"#000000","fontSize":20,"font":"FZHL","color":"#000000"},
                             "nodeParent":55,
                             "label":"Label",
                             "isOpen":true,
@@ -368,7 +369,7 @@
                         {
                             "x":45,
                             "type":"Image",
-                            "props":{"y":83,"x":97,"width":123,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":18},
+                            "props":{"y":101,"x":97,"width":135,"skin":"image/main/frame_jinbiyuanbao.png","sizeGrid":"0,9,0,13","height":23},
                             "nodeParent":55,
                             "label":"Image",
                             "isOpen":true,
@@ -380,7 +381,7 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":0,"x":24,"width":95,"var":"lbl_yueli","text":"666666","strokeColor":"#000000","stroke":4,"height":18,"fontSize":20,"font":"FZHL","color":"#ffffff","align":"center"},
+                                    "props":{"y":0,"x":24,"width":108,"var":"lbl_yueli","text":"666666","strokeColor":"#000000","stroke":4,"height":22,"fontSize":22,"font":"FZHL","color":"#ffffff","align":"center"},
                                     "nodeParent":51,
                                     "label":"Label(lbl_yueli)",
                                     "isOpen":true,
@@ -394,7 +395,7 @@
                                 {
                                     "x":60,
                                     "type":"Image",
-                                    "props":{"y":-8,"x":-5,"width":31,"skin":"image/common/icon_yuelio.png","height":31},
+                                    "props":{"y":-11,"x":-8,"width":42,"skin":"image/common/icon_yuelio.png","height":42},
                                     "nodeParent":51,
                                     "label":"Image",
                                     "isDirectory":false,
@@ -408,7 +409,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":62,"x":264,"width":104,"var":"btn_duihuan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"兑换","height":45},
+                            "props":{"y":75,"x":267,"width":130,"var":"btn_duihuan","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":26,"labelPadding":"0,25","labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"兑换","height":51},
                             "nodeParent":55,
                             "label":"Button(btn_duihuan)",
                             "isDirectory":false,
@@ -422,7 +423,7 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":78,"x":363,"width":55,"var":"lbl_count","text":"（0）","strokeColor":"#000000","height":22,"fontSize":22,"font":"FZHL","color":"#149a0d","align":"center"},
+                            "props":{"y":88,"x":333,"width":55,"var":"lbl_count","text":"（0）","strokeColor":"#000000","height":22,"fontSize":22,"font":"FZHL","color":"#149a0d","align":"center"},
                             "nodeParent":55,
                             "label":"Label(lbl_count)",
                             "isOpen":true,
@@ -433,7 +434,8 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        }]
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

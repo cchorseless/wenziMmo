@@ -80,10 +80,22 @@ module view.beiBao {
 			}
 		}
 		public addLcpEvent(): void {
-			// GameApp.LListener.on( )
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				if (this.curCreater == 0) {
+					GameUtil.battleChange(0, 0, null, this.lbl_zhanLi);
+				}
+			})
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_POWER, this, (type) => {
+				if (this.curCreater == type) {
+					GameUtil.battleChange(0, type, null, this.lbl_zhanLi);
+				}
+			})
 		}
-
-
+		public destroy(isbool) {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_POWER, this);
+			super.destroy(isbool);
+		}
 		public updateUI(): void {
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
@@ -104,7 +116,7 @@ module view.beiBao {
 					break;
 			}
 			// this.curCreater
-			this.lbl_zhanLi.text = ''+power;
+			this.lbl_zhanLi.text = '' + power;
 			let small_index;
 			let big_index;
 			switch (GameApp.GameEngine.mainPlayer.playerORHero) {

@@ -48,6 +48,11 @@ module view.juese {
 			this.btn_duihuan.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
+			this.btn_recharge.on(Laya.UIEvent.CLICK, this, () => {
+				let o = new view.recharge_vip.Recharge_VipDialog();
+				o.setData(0);
+				o.popup(true);
+			})
 		}
 		/**
 		 * 相关功能所需购买物品
@@ -88,8 +93,7 @@ module view.juese {
 				num = 0;
 			}
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [num], null, this, (jsonData) => {
-			})
+			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [num]);
 			lcp.send(pkt);
 		}
 	}

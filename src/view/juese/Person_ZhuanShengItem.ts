@@ -9,7 +9,10 @@ module view.juese {
 		public exp;
 		//功能编号
 		public client_func_index = 21;
+		//修为相关数据
 		public xiuweidata;
+		//兑换修为弹窗
+		public buyDialog:Person_BuyAndUseDialog;
 		public hasint = false;
 		public setData(): void {
 			if (this.hasint) { return };
@@ -26,7 +29,8 @@ module view.juese {
 			//购买
 			this.btn_buy.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.xiuweidata) {
-					new view.juese.Person_BuyAndUseDialog().setData(this.xiuweidata, 3).popup();
+					this.buyDialog = new Person_BuyAndUseDialog;
+					this.buyDialog.setData(this.xiuweidata, 3).popup();
 				}
 			})
 		}
@@ -36,7 +40,6 @@ module view.juese {
 				this.viw_sangong.selectedIndex = 1;
 				this.addLcpEvent();
 				this.init_zhuangshengPanel();
-				this.init_xiuwei();
 			}
 			else {
 				this.viw_sangong.selectedIndex = 0;
@@ -117,6 +120,7 @@ module view.juese {
 						}
 					}
 				}
+				this.init_xiuwei();
 			})
 		}
 		public destroy(isbool): void {
@@ -125,11 +129,15 @@ module view.juese {
 		}
 		/**
 		 * 修为
+		 * 
 		 */
 		public init_xiuwei(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.Hero_getXiuWeiPanel, [0], null, this, (jsonData: ProtoCmd.itf_Hero_XiuWeiInfo) => {
 				if (jsonData.exp != undefined) {
+					if (this.buyDialog) {
+						this.buyDialog.setData(jsonData, 3);
+					}
 					this.xiuweidata = jsonData;
 				}
 			})

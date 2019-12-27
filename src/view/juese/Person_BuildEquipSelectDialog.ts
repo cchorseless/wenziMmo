@@ -73,7 +73,7 @@ module view.juese {
 			})
 		}
 		public onclose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this);
+			
 			this.close();
 		}
 		public init_selectEvent(jsonData = null, type = null, select: boolean = null, index: number = null): void {

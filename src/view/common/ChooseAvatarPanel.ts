@@ -19,7 +19,7 @@ module view.common {
 			console.log('-----viplvl----', viplvl);
 			GameApp.MainPlayer.sex = playerInfo.feature.getValue('sex');
 			GameApp.MainPlayer.job = playerInfo.feature.getValue('job');
-			PanelManage.Main.ui_battleSkill.init_skillView();
+			// PanelManage.Main.ui_battleSkill.init_skillView();
 			// 角色图片
 			this.img_heroPic.skin = LangConfig.getPlayerAvatarHalfSkin();
 			// 角色名称

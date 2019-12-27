@@ -5,7 +5,7 @@ module GameUtil {
      * @param itemID 
      * @param bag 
      */
-    export function findItemInBag(itemID:number, bag): number {
+    export function findItemInBag(itemID: number, bag): number {
         let count = 0;
         let keys = Object.keys(bag);
         for (let _key of keys) {
@@ -40,11 +40,11 @@ module GameUtil {
     export function findItemInfoInBagByLevel(level: number, bag = GameApp.GameEngine.bagItemDB): any {
         let itemArray = [];
         for (let i in bag) {
-            let zslevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(''+bag[i].dwBaseID);
-            let nowlevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(''+bag[i].dwBaseID);
-            let lvlnum=zslevel*1000+nowlevel;
-            if (bag[i].itemType==2&&lvlnum == level) {
-                    itemArray.push(bag[i]);
+            let zslevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL('' + bag[i].dwBaseID);
+            let nowlevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED('' + bag[i].dwBaseID);
+            let lvlnum = zslevel * 1000 + nowlevel;
+            if (bag[i].itemType == 2 && lvlnum == level) {
+                itemArray.push(bag[i]);
             }
         }
         return itemArray;
@@ -76,9 +76,77 @@ module GameUtil {
                 result.push(_itemBase);
             }
         }
-        return result
+        return result;
     }
-
+    /**
+     * 
+     * @param type 类型，0当前界面有战力1当前界面无战力
+     * @param dwType 
+     * @param panel 
+     * @param label 
+     */
+    export function battleChange(type: number, dwType: number = null, panel: Laya.Panel = null, label: Laya.Label = null): any {
+        // if (type == 0) {
+        //     let nowValue = parseInt(label.text);
+        //     let now = String(nowValue).split('');
+        //     let power;
+        //     switch (dwType) {
+        //         case 0:
+        //             power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
+        //             break;
+        //         case 1:
+        //             power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
+        //             break;
+        //         case 2:
+        //             power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
+        //             break;
+        //         case 3:
+        //             power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
+        //             break;
+        //     }
+        //     let after = String(power).split('');
+        //     power = parseInt(power);
+        //     let surplus = '';
+        //     if (after.length > now.length) {
+        //         let cha = after.length - now.length;
+        //         for (let j = 0; j < cha; j--) {
+        //             surplus = surplus + '' + after[j]
+        //         }
+        //     }
+        //     if (nowValue < power) {
+        //         let finishCnt = 0;
+        //         for (let i = 0; i <= label.text.length; i++) {
+        //             Laya.timer.loop(100, this, function battle() {
+        //                  let beishu = (label.text.length - i - 1);
+        //                     let a = Math.pow(10, beishu);
+        //                 if (parseInt(after[i]) > parseInt(now[i])) {
+        //                     now[i] = '' + (parseInt(now[i]) + 1);
+        //                     let sum = nowValue + a;
+        //                     label.text = '' + sum;
+        //                     //                 now[i] = '' + (parseInt(now[i]) + 1);
+        //                     //                 let battle = '';
+        //                     //                 for (let shu of now) {
+        //                     //                     battle = battle + shu;
+        //                     //                 }
+        //                     //                 label.text = surplus + battle;
+        //                 } else {
+        //                     now[i] = '' + (parseInt(now[i]) - 1);
+        //                     let sum = nowValue - a;
+        //                     label.text = '' + sum;
+        //                     // if (++finishCnt == label.text.length) {
+        //                     //     Laya.timer.clear(this, battle)
+        //                     // }
+        //                 }
+        //             })
+        //         }
+        //     } else {
+        //         if (nowValue > power) {
+        //             nowValue -= 1;
+        //             label.text = '' + nowValue;
+        //         }
+        //     }
+        // }
+    }
     /**
      * 把数字转换成汉字  同理可转换成繁体汉字
      * @param num  数字 
@@ -125,7 +193,7 @@ module GameUtil {
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
             return;
         }
-        
+
 
         Laya.timer.loop(60000, ui, round);
         function round() {

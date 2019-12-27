@@ -255,7 +255,7 @@ module view.juese {
 				this.lbl_add.text = '' + (nextBattle - battle);
 			} else {
 				this.lbl_nextLevel.visible = false;
-				this.lbl_add.visible = this.img_battle.visible = false;
+				this.img_add.visible=this.lbl_add.visible = this.img_battle.visible = false;
 				this.box_talent.x = 153;
 				this.vbox_left.removeChildren();
 				for (let i in des) {
