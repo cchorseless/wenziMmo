@@ -148,10 +148,20 @@ module view.hero {
 				this.vbox_exchange1.addChild(new view.hero.Hero_RuneItem());
 				this.vbox_exchange2.addChild(new view.hero.Hero_RuneItem());
 			}
-			if(this.tab_rune.selectedIndex==3){
-				this.img_bg.height=465;
-			}else{
-				this.img_bg.height=302;
+			if (this.tab_rune.selectedIndex == 3) {
+				this.img_bg.height = 465;
+			} else {
+				this.img_bg.height = 302;
+			}
+			if (this.tab_rune.selectedIndex == 0) {
+				this.lbl_have.visible = false;
+			} else {
+				this.lbl_have.visible = true;
+				if (this.tab_rune.selectedIndex == 2) {
+					this.lbl_have.text = '100/' + this.score;
+				} else {
+					this.lbl_have.text = '0/' + this.score;
+				}
 			}
 		}
 		public addLcpEvent(): void {
@@ -201,6 +211,7 @@ module view.hero {
 		 * 激活
 		 */
 		public init_ActiveEvent(runeData): void {
+			let pos;
 			//根據位置排序
 			let data = runeData.data;
 			let exchange = this.init_sort(data)
@@ -228,8 +239,10 @@ module view.hero {
 			}
 			for (let i = 1; singleArray[i]; i++) {
 				let index = i - 1;
+				pos = i + 1;
 				this.vbox_item._childs[index].setData(singleArray[i], labelArray[i].btdes)
 			}
+			this.init_runeAttribute(data.dwBaseID, pos)
 		}
 		/**
 	  * 符文激活
@@ -244,6 +257,17 @@ module view.hero {
 				pkt.setString(ProtoCmd.Hero_activeRuneExProperty, [this.ui_item0.item.i64ItemID, num])
 				lcp.send(pkt);
 			}
+		}
+		/**
+	  * 符文属性
+	  */
+		public init_runeAttribute(id: number, pos: number): void {
+			let jieshu = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU('' + id);
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.Hero_clickRunePreperty, [jieshu, pos], null, this, (jsonData) => {
+				this.lbl_have.text = jsonData.need + '/' + this.score;
+			})
+			lcp.send(pkt);
 		}
 		public init_sort(data): any {
 			let pros = data.stNpProperty;
@@ -374,7 +398,7 @@ module view.hero {
 				this['lbl_name' + i].color = '#149a0d';
 				this['lbl_name' + i].stroke = 0;
 				this['ui_item' + i].img_item.skin = '';
-				this['ui_item' + i].btn_isStronger.visible=false;
+				this['ui_item' + i].btn_isStronger.visible = false;
 				for (let child of this['vbox_exchange' + i]._childs) {
 					child.lbl_name.text = '';
 					child.view_single.selectedIndex = 0;

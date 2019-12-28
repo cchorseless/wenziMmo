@@ -79,13 +79,20 @@ module GameUtil {
         return result;
     }
     /**
-     * 
+     * 战力变化效果
      * @param type 类型，0当前界面有战力1当前界面无战力
-     * @param panel 当前界面
-     * @param label 
+     * @param panel 当前界面（当前界面无战力时用的）
+     * @param label 显示战力数值的label
+     * @param battleNum 变化前战力
+     * @param afterBattle 变化后战力
      */
-    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null, battleNum: number,afterBattle:number): any {
-        if (type == 0||label) {
+    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null, battleNum: number, afterBattle: number): any {
+        if (type == 0 || !label) {
+            if (battleNum == afterBattle) {
+                return;
+            }
+            //原战力和变化后数值拆分成数组
+            //战力不变
             let nowValue = battleNum;
             let now = String(nowValue).split('');
             let power = afterBattle;
@@ -93,14 +100,16 @@ module GameUtil {
             let surplus = '';
             if (after.length > now.length) {
                 let cha = after.length - now.length;
-                for (let j = 0; j < cha; j--) {
+                for (let j = 0; j < cha; j++) {
                     surplus = surplus + '' + after[j]
                 }
             }
-            let length;
             let i = 0;
-            Laya.timer.loop(100, this, function battle1(): void {
+            Laya.timer.clearAll(this);
+            Laya.timer.loop(100, this, () => {
+                //限制循环
                 if (i != now.length) {
+                    //战力增加
                     if (power > nowValue) {
                         if (parseInt(after[i]) > parseInt(now[i])) {
                             now[i] = '' + (parseInt(now[i]) + 1);
@@ -115,8 +124,11 @@ module GameUtil {
                         for (let single of now) {
                             battleData = battleData + single;
                         }
-                        label.text = (battleData);
+                        if (label.text) {
+                            label.text = (battleData);
+                        }
                     }
+                    //战力减少
                     if (power < nowValue) {
                         let cha = now.length - after.length;
                         if (after[(i - cha)]) {
@@ -147,15 +159,14 @@ module GameUtil {
                         }
                         label.text = '' + battleData;
                     }
-                    if (power == nowValue) {
-                        Laya.timer.clear(this, battle1);
-                    }
+
                 } else {
-                    Laya.timer.clear(this, battle1);
+                    Laya.timer.clearAll(this);
                 }
-            })
+            });
         }
     }
+
     /**
      * 把数字转换成汉字  同理可转换成繁体汉字
      * @param num  数字 
