@@ -84,9 +84,9 @@ module GameUtil {
      * @param panel 当前界面
      * @param label 
      */
-    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null): any {
+    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null,battleNum:number): any {
         if (type == 0) {
-            let nowValue = parseInt(label.text);
+            let nowValue = battleNum;
             let now = String(nowValue).split('');
             let power = GameApp.GameEngine.mainPlayer.ability.nFight;
             let after = String(power).split('');

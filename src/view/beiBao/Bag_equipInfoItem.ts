@@ -82,19 +82,20 @@ module view.beiBao {
 			}
 		}
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.FB_BossSuoYaoTa, this, (dwType, battle) => {
+			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
 				this.type = dwType;
 				this.battle = battle;
 			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
 				if (this.curCreater == 0) {
-					GameUtil.battleChange(0, null, this.lbl_zhanLi);
+					GameUtil.battleChange(0, null, this.lbl_zhanLi, this.battle);
 				}
 			})
 		}
 		public destroy(isbool) {
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_POWER, this);
+			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
 			super.destroy(isbool);
 		}
 		public updateUI(): void {

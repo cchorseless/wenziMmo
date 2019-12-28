@@ -1081,7 +1081,7 @@ class ServerListener extends SingletonClass {
             switch (dwType) {
                 // 玩家
                 case EnumData.PlayerAndHeroType.Player:
-                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.ability.nFight]);
+                    GameApp.LListener.event(ProtoCmd.playerBttle, [dwType, GameApp.MainPlayer.ability.nFight]);
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
                     player.changeFight(fightPower, dwType);
@@ -1089,7 +1089,6 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄战士
                 case EnumData.PlayerAndHeroType.Hero1:
-                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero1.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero1.changeFight(fightPower, dwType);
@@ -1097,7 +1096,6 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄法师
                 case EnumData.PlayerAndHeroType.Hero2:
-                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero2.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero2.changeFight(fightPower, dwType);
@@ -1105,7 +1103,6 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄道士
                 case EnumData.PlayerAndHeroType.Hero3:
-                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero3.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero3.changeFight(fightPower, dwType);
