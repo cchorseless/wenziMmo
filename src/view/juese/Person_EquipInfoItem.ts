@@ -64,8 +64,10 @@ module view.juese {
 				}
 			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
-				let after=GameApp.GameEngine.mainPlayer.ability.nFight;
-				GameUtil.battleChange(0, null, this.lbl_zhanli, this.battle,after);
+				let after = GameApp.GameEngine.mainPlayer.ability.nFight;
+				if (PanelManage.JueSe.tab_player.selectedIndex == 0) {
+					GameUtil.battleChange(0, null, this.lbl_zhanli, this.battle, after);
+				}
 			})
 		}
 		public destroy(isbool) {

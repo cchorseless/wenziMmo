@@ -384,7 +384,7 @@ module GameObject {
                 GameApp.MainPlayer.heroObj(dwType).ability.nFight = fight;
             } else {
                 //玩家战力
-                this.ability.nFight = fight;
+               GameApp.MainPlayer.ability.nFight = fight;
             }
         }
 
