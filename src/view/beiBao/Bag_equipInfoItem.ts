@@ -88,12 +88,7 @@ module view.beiBao {
 			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
 				if (this.curCreater == 0) {
-					GameUtil.battleChange(0, 0, null, this.lbl_zhanLi);
-				}
-			})
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_HERO_POWER, this, (type) => {
-				if (this.curCreater == type) {
-					GameUtil.battleChange(0, type, null, this.lbl_zhanLi);
+					GameUtil.battleChange(0, null, this.lbl_zhanLi);
 				}
 			})
 		}

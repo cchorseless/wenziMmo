@@ -81,31 +81,15 @@ module GameUtil {
     /**
      * 
      * @param type 类型，0当前界面有战力1当前界面无战力
-     * @param dwType 0玩家1大弟子2二弟子3三弟子（当前默认只有玩家）
      * @param panel 当前界面
      * @param label 
      */
-    export function battleChange(type: number, dwType: number = 0, panel: Laya.Panel = null, label: Laya.Label = null): any {
+    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null): any {
         if (type == 0) {
             let nowValue = parseInt(label.text);
             let now = String(nowValue).split('');
-            let power;
-            switch (dwType) {
-                case 0:
-                    power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
-                    break;
-                case 1:
-                    power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
-                    break;
-                case 2:
-                    power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
-                    break;
-                case 3:
-                    power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
-                    break;
-            }
+            let power = GameApp.GameEngine.mainPlayer.ability.nFight;
             let after = String(power).split('');
-            power = parseInt(power);
             let surplus = '';
             if (after.length > now.length) {
                 let cha = after.length - now.length;
@@ -120,7 +104,7 @@ module GameUtil {
                         now[i] = '' + (parseInt(now[i]) + 1);
                     }
                     if (parseInt(after[i]) < parseInt(now[i])) {
-                        now[i] = '' + ((parseInt(now[i]) + 1)%10);
+                        now[i] = '' + ((parseInt(now[i]) + 1) % 10);
                     }
                     if (parseInt(after[i]) == parseInt(now[i])) {
                         i += 1
