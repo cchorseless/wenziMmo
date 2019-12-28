@@ -9,6 +9,7 @@ module view.juQingMode {
 		public muluItem: JuQing_MuLu;
 
 		public onlyGet = false;
+		public isGetNew = false;
 
 		public maxInfoNum = 7;
 
@@ -158,31 +159,27 @@ module view.juQingMode {
 						GameApp.MainPlayer.talkID = GameApp.MainPlayer.allCharpterInfo[nextID.zjid].startdbid;
 						GameApp.MainPlayer.charpterID = nextID.zjid;
 						this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
+						this.isGetNew = true;
 						this.updateTalkInfo(nextID.zjid);
 					} else {
 						TipsManage.showTips('当前任务未完成');
 					}
 					PanelManage.Main.updateTaskInfo();
 				} else {
-
 					this.lastTalkID = jsonData.dbid
 					this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
 
-					// GameApp.MainPlayer.talkID = jsonData.dbid
-					// Laya.Tween.to(self.curReadInfo, { x: self.curReadInfo.x - self.curReadInfo.width }, 250);
-					// Laya.Tween.to(self.nextReadInfo, { x: self.nextReadInfo.x - self.nextReadInfo.width }, 250);
-					// Laya.Tween.to(self.lastReadInfo, { x: self.lastReadInfo.x - self.lastReadInfo.width }, 250);
-					// Laya.Tween.to(self.curReadInfo, { scaleX: 1 }, 300, null,
-					Laya.Tween.to(self.box2, { x: -640 }, 250, null,
-						Laya.Handler.create(this, () => {
-							if (this.hasLookBack < 0) {
-								this.showPageMsg(1);
-								this.hasLookBack++;
-							} else {
+					if (this.hasLookBack < 0) {
+						this.showPageMsg(1);
+						this.hasLookBack++;
+					} else {
+						Laya.Tween.to(self.box2, { x: -640 }, 250, null,
+							Laya.Handler.create(this, () => {
+								self.initBox();
 								this.showPageMsg(this.pageID + 1);
-							}
+							}))
 
-						}))
+					}
 					this.box_jiangLi.visible = true;
 					Laya.Tween.to(this.box_jiangLi, { x: Laya.stage.width / 2, y: Laya.stage.height * 0.8, scaleX: 0.3, scaleY: 0.3 }, 600, null,
 						Laya.Handler.create(this, () => {
@@ -358,7 +355,13 @@ module view.juQingMode {
 				// 剧情拉完了
 				if (jsonData.flag) {
 					if (!this.onlyGet) {
-						this.showPageMsg();
+						if (this.isGetNew) {
+							this.showPageMsg(1);
+							this.isGetNew = false;
+						} else {
+							this.showPageMsg();
+						}
+
 					} else {
 						this.onlyGet = false;
 					}
@@ -441,7 +444,7 @@ module view.juQingMode {
 				this.addJuQingTalkItem(lastTalkinfoArr, false, -1, page - 2, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
 				curTalkinfoArr = jsonArr[page - 2]
 				this.addJuQingTalkItem(curTalkinfoArr, false, 0, page - 1, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
-				nextTalkinfoArr = jsonArr[page-1]
+				nextTalkinfoArr = jsonArr[page - 1]
 				this.addJuQingTalkItem(nextTalkinfoArr, false, 1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
 			}
 			else if (this.pageID == totalPage + 1) {
@@ -652,19 +655,34 @@ module view.juQingMode {
 							Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
 								GameApp.MainPlayer.charpterID = next.zjid;
 								self.initBox();
+								this.hasLookBack++;
 								self.showPageMsg(1)
+								// let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+								// lcp.send(pkt);
 							}))
 						} else {
 							let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
 							lcp.send(pkt);
 						}
-
-
 					} else {
-						Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
-							self.initBox();
-							self.showPageMsg(self.pageID + 1)
-						}))
+						if (this.hasLookBack < 0) {
+							this.showPageMsg(this.pageID + 1);
+						} else if (this.hasLookBack == 0){
+							let startID = GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid
+							let nowPageTalkID = this.curReadInfo.pageID * this.maxInfoNum + startID - 1
+							if (nowPageTalkID < GameApp.MainPlayer.talkID) {
+								this.showPageMsg(this.pageID + 1);
+							} else {
+								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+								lcp.send(pkt);
+							}
+						}
+
+
+
+
+
+
 					}
 				} else if (Math.abs(span) < Laya.stage.width / 2) {
 					Laya.Tween.to(self.box2, { x: 0 }, 250);
