@@ -198,6 +198,8 @@ module ProtoCmd {
     export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
+    //战力
+    export const playerBttle = 'playerBttle';
     //更新时装穿戴情况
     export const UP_DATE_DRESS = 'up_date_dress';
     // 声望信息
@@ -638,7 +640,7 @@ module ProtoCmd {
     export const archLevelUp = 'archLevelUp';//建筑升级 type, level
 
 
-    export const BossBelong ='BossBelong';
+    export const BossBelong = 'BossBelong';
 
 
 
@@ -652,14 +654,14 @@ module ProtoCmd {
      * 活动status返回data
       */
     export interface itf_ZHAIYUAN_INFO {
-        foodServant:number,
-        foodValue:number,
-        leftTime:number,
-        leisureServants:number,
-        levels:Object,
-        recruitServantRmb:number,
-        servants:number,
-        totalConsume:number
+        foodServant: number,
+        foodValue: number,
+        leftTime: number,
+        leisureServants: number,
+        levels: Object,
+        recruitServantRmb: number,
+        servants: number,
+        totalConsume: number
     }
     /**
      * 活动status返回data
@@ -1098,7 +1100,7 @@ module ProtoCmd {
    */
     export interface itf_FB_ZiYuanOneInfo {
         FuBenIndex: number;//索引
-        introduce:string;
+        introduce: string;
         activity: number;//特权
         caninto: number;//已进入次数
         jiangli: any;//奖励

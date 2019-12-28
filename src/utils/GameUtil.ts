@@ -120,7 +120,7 @@ module GameUtil {
                         now[i] = '' + (parseInt(now[i]) + 1);
                     }
                     if (parseInt(after[i]) < parseInt(now[i])) {
-                        now[i] = '' + (parseInt(now[i]) - 1);
+                        now[i] = '' + ((parseInt(now[i]) + 1)%10);
                     }
                     if (parseInt(after[i]) == parseInt(now[i])) {
                         i += 1
@@ -129,7 +129,7 @@ module GameUtil {
                     for (let single of now) {
                         battleData = battleData + single;
                     }
-                    label.text = LangConfig.getBigNumberDes(parseInt(battleData));
+                    label.text = (battleData);
                 } else {
                     Laya.timer.clear(this, battle);
                 }

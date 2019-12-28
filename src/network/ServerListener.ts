@@ -1081,6 +1081,7 @@ class ServerListener extends SingletonClass {
             switch (dwType) {
                 // 玩家
                 case EnumData.PlayerAndHeroType.Player:
+                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.ability.nFight]);
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
                     player.changeFight(fightPower, dwType);
@@ -1088,6 +1089,7 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄战士
                 case EnumData.PlayerAndHeroType.Hero1:
+                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero1.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero1.changeFight(fightPower, dwType);
@@ -1095,6 +1097,7 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄法师
                 case EnumData.PlayerAndHeroType.Hero2:
+                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero2.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero2.changeFight(fightPower, dwType);
@@ -1102,6 +1105,7 @@ class ServerListener extends SingletonClass {
                     break;
                 // 英雄道士
                 case EnumData.PlayerAndHeroType.Hero3:
+                    GameApp.LListener.event(ProtoCmd.FB_BossSuoYaoTa, [dwType, GameApp.MainPlayer.hero1.ability.nFight]);
                     player.hero3.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_HERO_ABILITY, dwType);
                     player.hero3.changeFight(fightPower, dwType);
@@ -1109,7 +1113,7 @@ class ServerListener extends SingletonClass {
                     break;
             }
         }
-       
+
         msg.clear();
         msg = null;
     }
@@ -1404,13 +1408,13 @@ class ServerListener extends SingletonClass {
         GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
         let num = 0;
         //消失时间倒计时
-        Laya.timer.loop(1000, this, function time():void {
+        Laya.timer.loop(1000, this, function time(): void {
             num += 1;
             if (num > 1) {
                 if (GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime > 0) {
                     GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime = itemInfo.protectTime - 1;
-                }else{
-                     Laya.timer.clear(this,time)
+                } else {
+                    Laya.timer.clear(this, time)
                 }
             }
         });

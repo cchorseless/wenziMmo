@@ -6,6 +6,8 @@ module view.beiBao {
 			super();
 			this.setData();
 		}
+		public type;
+		public battle;
 		public setData(): void {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
 			for (let i = 0; i < 10; i++) {
@@ -80,6 +82,10 @@ module view.beiBao {
 			}
 		}
 		public addLcpEvent(): void {
+			GameApp.LListener.on(ProtoCmd.FB_BossSuoYaoTa, this, (dwType, battle) => {
+				this.type = dwType;
+				this.battle = battle;
+			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
 				if (this.curCreater == 0) {
 					GameUtil.battleChange(0, 0, null, this.lbl_zhanLi);
