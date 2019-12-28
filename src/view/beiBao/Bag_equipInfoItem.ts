@@ -6,7 +6,6 @@ module view.beiBao {
 			super();
 			this.setData();
 		}
-		public type;
 		public battle;
 		public setData(): void {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
@@ -83,18 +82,19 @@ module view.beiBao {
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
-				this.type = dwType;
-				this.battle = battle;
+				if (dwType == 0) {
+					this.battle = battle;
+				}
 			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				let after=GameApp.GameEngine.mainPlayer.ability.nFight;
 				if (this.curCreater == 0) {
-					GameUtil.battleChange(0, null, this.lbl_zhanLi, this.battle);
+					GameUtil.battleChange(0, null, this.lbl_zhanLi, this.battle,after);
 				}
 			})
 		}
 		public destroy(isbool) {
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_HERO_POWER, this);
 			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
 			super.destroy(isbool);
 		}

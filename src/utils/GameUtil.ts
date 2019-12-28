@@ -84,11 +84,11 @@ module GameUtil {
      * @param panel 当前界面
      * @param label 
      */
-    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null,battleNum:number): any {
-        if (type == 0) {
+    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null, battleNum: number,afterBattle:number): any {
+        if (type == 0||label) {
             let nowValue = battleNum;
             let now = String(nowValue).split('');
-            let power = GameApp.GameEngine.mainPlayer.ability.nFight;
+            let power = afterBattle;
             let after = String(power).split('');
             let surplus = '';
             if (after.length > now.length) {
@@ -97,25 +97,61 @@ module GameUtil {
                     surplus = surplus + '' + after[j]
                 }
             }
+            let length;
             let i = 0;
-            Laya.timer.loop(100, this, function battle(): void {
-                if (i != (now.length - 1)) {
-                    if (parseInt(after[i]) > parseInt(now[i])) {
-                        now[i] = '' + (parseInt(now[i]) + 1);
+            Laya.timer.loop(100, this, function battle1(): void {
+                if (i != now.length) {
+                    if (power > nowValue) {
+                        if (parseInt(after[i]) > parseInt(now[i])) {
+                            now[i] = '' + (parseInt(now[i]) + 1);
+                        }
+                        if (parseInt(after[i]) < parseInt(now[i])) {
+                            now[i] = '' + ((parseInt(now[i]) + 1) % 10);
+                        }
+                        if (parseInt(after[i]) == parseInt(now[i])) {
+                            i += 1
+                        }
+                        let battleData = surplus;
+                        for (let single of now) {
+                            battleData = battleData + single;
+                        }
+                        label.text = (battleData);
                     }
-                    if (parseInt(after[i]) < parseInt(now[i])) {
-                        now[i] = '' + ((parseInt(now[i]) + 1) % 10);
+                    if (power < nowValue) {
+                        let cha = now.length - after.length;
+                        if (after[(i - cha)]) {
+                            if (parseInt(after[i - cha]) > parseInt(now[i])) {
+                                if ((parseInt(now[i]) > 0)) {
+                                    now[i] = '' + (parseInt(now[i]) - 1);
+                                } else {
+                                    now[i] = '9';
+                                }
+                            }
+                            if (parseInt(after[i - cha]) < parseInt(now[i])) {
+                                now[i] = '' + (parseInt(now[i]) - 1);
+                            }
+                            if (parseInt(after[i - cha]) == parseInt(now[i])) {
+                                i += 1
+                            }
+                        } else {
+                            if ((parseInt(now[i]) > 0)) {
+                                now[i] = '' + (parseInt(now[i]) - 1);
+                            } else {
+                                i += 1;
+                            }
+                        }
+                        let battleData = 0;
+                        for (let index in now) {
+                            let beishu = Math.pow(10, (now.length - parseInt(index) - 1));
+                            battleData = battleData + parseInt(now[index]) * beishu;
+                        }
+                        label.text = '' + battleData;
                     }
-                    if (parseInt(after[i]) == parseInt(now[i])) {
-                        i += 1
+                    if (power == nowValue) {
+                        Laya.timer.clear(this, battle1);
                     }
-                    let battleData = surplus;
-                    for (let single of now) {
-                        battleData = battleData + single;
-                    }
-                    label.text = (battleData);
                 } else {
-                    Laya.timer.clear(this, battle);
+                    Laya.timer.clear(this, battle1);
                 }
             })
         }

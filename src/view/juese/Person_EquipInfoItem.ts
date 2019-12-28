@@ -5,6 +5,7 @@ module view.juese {
 			super();
 			this.setData();
 		}
+		public battle;
 		public hasInit = false;// 初始化自己
 		public setData(): void {
 			if (this.hasInit) { return };
@@ -54,12 +55,28 @@ module view.juese {
 				let o = new Person_shengwangMainDialog();
 				o.popup(true);
 			})
+			this.addLcpEvent();
 		}
-
+		public addLcpEvent(): void {
+			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
+				if (dwType == 0) {
+					this.battle = battle;
+				}
+			})
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				let after=GameApp.GameEngine.mainPlayer.ability.nFight;
+				GameUtil.battleChange(0, null, this.lbl_zhanli, this.battle,after);
+			})
+		}
+		public destroy(isbool) {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
+			super.destroy(isbool);
+		}
 		public initUI(): void {
 			let func = LangConfig.getBigNumberDes;
 			//战力
-			this.lbl_zhanli.text = '' + func(GameApp.MainPlayer.ability.nFight);
+			this.lbl_zhanli.text = '' + GameApp.MainPlayer.ability.nFight;
 			//玩家倒影全身像
 			this.img_avatarPic.skin = LangConfig.getPlayerAvatarSkinV1()
 			let allKey = Object.keys(GameApp.GameEngine.equipDB);
