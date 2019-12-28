@@ -45,6 +45,7 @@ module view.npc {
 						this.box_protect.visible = true;
 						this.lbl_time.text = '' + time;
 					} else {
+						Laya.timer.clear(this, this.init_time);
 						this.box_protect.visible = false;
 					}
 				}

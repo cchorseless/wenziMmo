@@ -81,71 +81,60 @@ module GameUtil {
     /**
      * 
      * @param type 类型，0当前界面有战力1当前界面无战力
-     * @param dwType 
-     * @param panel 
+     * @param dwType 0玩家1大弟子2二弟子3三弟子（当前默认只有玩家）
+     * @param panel 当前界面
      * @param label 
      */
-    export function battleChange(type: number, dwType: number = null, panel: Laya.Panel = null, label: Laya.Label = null): any {
-        // if (type == 0) {
-        //     let nowValue = parseInt(label.text);
-        //     let now = String(nowValue).split('');
-        //     let power;
-        //     switch (dwType) {
-        //         case 0:
-        //             power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
-        //             break;
-        //         case 1:
-        //             power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
-        //             break;
-        //         case 2:
-        //             power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
-        //             break;
-        //         case 3:
-        //             power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
-        //             break;
-        //     }
-        //     let after = String(power).split('');
-        //     power = parseInt(power);
-        //     let surplus = '';
-        //     if (after.length > now.length) {
-        //         let cha = after.length - now.length;
-        //         for (let j = 0; j < cha; j--) {
-        //             surplus = surplus + '' + after[j]
-        //         }
-        //     }
-        //     if (nowValue < power) {
-        //         let finishCnt = 0;
-        //         for (let i = 0; i <= label.text.length; i++) {
-        //             Laya.timer.loop(100, this, function battle() {
-        //                  let beishu = (label.text.length - i - 1);
-        //                     let a = Math.pow(10, beishu);
-        //                 if (parseInt(after[i]) > parseInt(now[i])) {
-        //                     now[i] = '' + (parseInt(now[i]) + 1);
-        //                     let sum = nowValue + a;
-        //                     label.text = '' + sum;
-        //                     //                 now[i] = '' + (parseInt(now[i]) + 1);
-        //                     //                 let battle = '';
-        //                     //                 for (let shu of now) {
-        //                     //                     battle = battle + shu;
-        //                     //                 }
-        //                     //                 label.text = surplus + battle;
-        //                 } else {
-        //                     now[i] = '' + (parseInt(now[i]) - 1);
-        //                     let sum = nowValue - a;
-        //                     label.text = '' + sum;
-        //                     // if (++finishCnt == label.text.length) {
-        //                     //     Laya.timer.clear(this, battle)
-        //                     // }
-        //                 }
-        //             })
-        //         }
-        //     } else {
-        //         if (nowValue > power) {
-        //             nowValue -= 1;
-        //             label.text = '' + nowValue;
-        //         }
-        //     }
-        // }
+    export function battleChange(type: number, dwType: number = 0, panel: Laya.Panel = null, label: Laya.Label = null): any {
+        if (type == 0) {
+            let nowValue = parseInt(label.text);
+            let now = String(nowValue).split('');
+            let power;
+            switch (dwType) {
+                case 0:
+                    power = GameApp.GameEngine.mainPlayer.ability.nFight.toString();
+                    break;
+                case 1:
+                    power = GameApp.GameEngine.mainPlayer.hero1.ability.nFight.toString();
+                    break;
+                case 2:
+                    power = GameApp.GameEngine.mainPlayer.hero2.ability.nFight.toString();
+                    break;
+                case 3:
+                    power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
+                    break;
+            }
+            let after = String(power).split('');
+            power = parseInt(power);
+            let surplus = '';
+            if (after.length > now.length) {
+                let cha = after.length - now.length;
+                for (let j = 0; j < cha; j--) {
+                    surplus = surplus + '' + after[j]
+                }
+            }
+            let i = 0;
+            Laya.timer.loop(100, this, function battle(): void {
+                if (i != (now.length - 1)) {
+                    if (parseInt(after[i]) > parseInt(now[i])) {
+                        now[i] = '' + (parseInt(now[i]) + 1);
+                    }
+                    if (parseInt(after[i]) < parseInt(now[i])) {
+                        now[i] = '' + (parseInt(now[i]) - 1);
+                    }
+                    if (parseInt(after[i]) == parseInt(now[i])) {
+                        i += 1
+                    }
+                    let battleData = surplus;
+                    for (let single of now) {
+                        battleData = battleData + single;
+                    }
+                    label.text = LangConfig.getBigNumberDes(parseInt(battleData));
+                } else {
+                    Laya.timer.clear(this, battle);
+                }
+            })
+        }
     }
     /**
      * 把数字转换成汉字  同理可转换成繁体汉字

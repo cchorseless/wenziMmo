@@ -1109,6 +1109,7 @@ class ServerListener extends SingletonClass {
                     break;
             }
         }
+       
         msg.clear();
         msg = null;
     }
@@ -1403,11 +1404,13 @@ class ServerListener extends SingletonClass {
         GameApp.SceneManager.addViewObjUI(itemInfo, EnumData.CRET_TYPE.CRET_ITEM);
         let num = 0;
         //消失时间倒计时
-        Laya.timer.loop(1000, this, () => {
+        Laya.timer.loop(1000, this, function time():void {
             num += 1;
             if (num > 1) {
                 if (GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime > 0) {
                     GameApp.MainPlayer.allItem[itemInfo.i64ItemID.int64ToStr()].protectTime = itemInfo.protectTime - 1;
+                }else{
+                     Laya.timer.clear(this,time)
                 }
             }
         });
