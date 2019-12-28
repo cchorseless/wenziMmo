@@ -76,7 +76,7 @@ module view.juese {
 			})
 			//选择必选材料
 			this.box_add.on(Laya.UIEvent.CLICK, this, () => {
-				if (this.level && this.maxNum) {
+				if (this.level >= 0 && this.maxNum) {
 					new view.juese.Person_BuildEquipSelectDialog().setData(this.level, this.maxNum).popup();
 				}
 			})
@@ -233,13 +233,13 @@ module view.juese {
 						let itemInfo1 = new ProtoCmd.ItemBase();
 						itemInfo1.dwBaseID = parseInt(item12[0]);
 						itemInfo1.dwCount = parseInt(item12[1]);
-						this.ui_item1.setData(itemInfo1);
+						this.ui_item1.setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						this.lbl_item1.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[0]);
 						//材料2
 						let itemInfo2 = new ProtoCmd.ItemBase();
 						itemInfo2.dwBaseID = parseInt(item12[2]);
 						itemInfo2.dwCount = parseInt(item12[3]);
-						this.ui_item2.setData(itemInfo2);
+						this.ui_item2.setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						this.lbl_item2.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[2]);
 						//可选材料
 						let itemInfo3 = new ProtoCmd.ItemBase();

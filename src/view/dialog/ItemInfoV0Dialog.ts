@@ -84,7 +84,7 @@ module view.dialog {
 				case EnumData.ItemInfoModel.SHOW_IN_BAG_HUISHOU:
 					// 物品使用
 					this.btn_use.on(Laya.UIEvent.CLICK, this, () => {
-							this.useItem();
+						this.useItem();
 					});
 					// 丢弃\销毁物品
 					this.btn_destroy.on(Laya.UIEvent.CLICK, this, () => {
@@ -136,8 +136,10 @@ module view.dialog {
 		public useItem(): void {
 			this.close();
 			let itemCount = this.hsbar_count.value;
+			//是否允许批量使用
+			let canbatchuse = SheetConfig.mydb_item_base_tbl.getInstance(null).CANBATCHUSE('' + this.itemObj.dwBaseID);
 			// 使用1个
-			if (itemCount === 1) {
+			if (canbatchuse) {
 				let pkt = new ProtoCmd.CretGetUseItem();
 				pkt.setValue('i64id', this.itemObj.i64ItemID);
 				pkt.setValue('dwCretOwnerTempId', GameApp.MainPlayer.tempId);

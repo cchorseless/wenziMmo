@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":488,
-    "selecteID":17,
+    "selectedBox":416,
+    "selecteID":350,
     "props":{"width":640,"sceneColor":"#e5d4d4","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -270,13 +270,14 @@
                             "props":{"y":537,"x":120,"width":520,"var":"viw_bagBottom","selectedIndex":0,"height":390},
                             "nodeParent":416,
                             "label":"ViewStack(viw_bagBottom)",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":350,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_equipInfoItem.ui",
                                     "props":{"var":"ui_equipInfo","top":-12,"runtime":"view.beiBao.Bag_equipInfoItem","name":"item0","left":-30},
@@ -291,6 +292,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_HuiShouItem.ui",
                                     "props":{"var":"ui_huiShou","top":0,"runtime":"view.beiBao.Bag_HuiShouItem","name":"item1","left":0},
@@ -305,6 +307,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_CangKuItem.ui",
                                     "props":{"x":-11,"var":"ui_cangKu","top":0,"runtime":"view.beiBao.Bag_CangKuItem","name":"item2"},
@@ -320,6 +323,7 @@
                                     "$HIDDEN":true
                                 },
                                 {
+                                    "x":60,
                                     "type":"UIView",
                                     "source":"beiBao/Bag_BaiTanItem.ui",
                                     "props":{"var":"ui_tanWei","top":0,"runtime":"view.beiBao.Bag_BaiTanItem","name":"item3","left":0},

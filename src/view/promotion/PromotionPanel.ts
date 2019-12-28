@@ -97,7 +97,7 @@ module view.promotion {
 						let pkt204 = new ProtoCmd.QuestClientData().setString(ProtoCmd.WorthGiftBagPanel, null)
 						lcp.send(pkt204);
 						break;
-					case 33:
+					case 33://每日特惠
 					let pcmdString = ProtoCmd["Active" + actID];
 						GameApp.LListener.on(pcmdString, this, (data) => {
 							box.removeChildren()

@@ -1,7 +1,7 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
+    "selectedBox":334,
     "selecteID":302,
     "referenceLines":[
         {
@@ -1150,13 +1150,14 @@
                     "props":{"x":25,"width":640,"height":90,"bottom":0},
                     "nodeParent":333,
                     "label":"Box",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":334,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":38,"width":640,"skin":"image/main/bottom_mainicon.png"},
                             "nodeParent":334,
@@ -1171,6 +1172,79 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
+                            "type":"Box",
+                            "props":{"y":25,"x":10,"var":"box_bottom"},
+                            "nodeParent":334,
+                            "label":"Box(box_bottom)",
+                            "isOpen":false,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":302,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":-10,"x":553,"width":62,"stateNum":"2","skin":"image/menu/icon_kefu_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"客服","height":65},
+                                    "nodeParent":302,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":155,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":-8,"x":483,"width":63,"var":"btn_setUp","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#ffffff","label":"设置","height":59},
+                                    "nodeParent":302,
+                                    "label":"Button(btn_setUp)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":154,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false,
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":28,"x":128,"width":343,"text":"点击左侧录制按钮，即可录制本局比赛.","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff"},
+                                    "nodeParent":302,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":151,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "props":{"y":20,"x":96,"skin":"image/common/icon_tishi.png"},
+                                    "nodeParent":302,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":152,
+                                    "child":[
+                                        ],
+                                    "$LOCKED":false
+                                }],
+                            "$LOCKED":false,
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":68,"var":"btn_return","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":334,
@@ -1184,74 +1258,6 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Box",
-                    "props":{"y":1056,"x":35,"var":"box_bottom"},
-                    "nodeParent":333,
-                    "label":"Box(box_bottom)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":302,
-                    "child":[
-                        {
-                            "type":"Button",
-                            "props":{"y":-10,"x":553,"width":62,"stateNum":"2","skin":"image/menu/icon_kefu_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff","label":"客服","height":65},
-                            "nodeParent":302,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":155,
-                            "child":[
-                                ],
-                            "$LOCKED":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":-8,"x":483,"width":63,"var":"btn_setUp","stateNum":"2","skin":"image/menu/icon_shezhi_01down_finish.png","labelStrokeColor":"#000000","labelStroke":2,"labelSize":28,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#ffffff","label":"设置","height":59},
-                            "nodeParent":302,
-                            "label":"Button(btn_setUp)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":154,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":28,"x":128,"width":343,"text":"点击左侧录制按钮，即可录制本局比赛.","strokeColor":"#000000","stroke":3,"height":20,"fontSize":20,"font":"FZHL","color":"#ffffff"},
-                            "nodeParent":302,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":151,
-                            "child":[
-                                ],
-                            "$LOCKED":false
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"y":20,"x":96,"skin":"image/common/icon_tishi.png"},
-                            "nodeParent":302,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":152,
-                            "child":[
-                                ],
-                            "$LOCKED":false
-                        }],
-                    "$LOCKED":false,
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false

@@ -1,7 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.juese {
 	export class Person_DressInfoItem extends ui.juese.Person_DressInfoItemUI {
-		public touchID = 0;
+		public touchID = 2;
 		public curItemId;
 		public curBox;
 		public isWear = 0;
@@ -35,7 +35,7 @@ module view.juese {
 			let gangqi = GameApp.GameEngine.mainPlayer.feature.dwWingId;
 			if (gangqi != 0) {
 				let gangqi_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(gangqi + '')
-				this.ui_show2.img_gangqi.skin = 'image/juese/gangqi/' + gangqi_Skin + '.png'
+				this.ui_show2.img_gangqi.skin = 'image/juese/' + gangqi_Skin + '.png'
 			} else {
 				this.ui_show2.img_gangqi.skin = ''
 			}

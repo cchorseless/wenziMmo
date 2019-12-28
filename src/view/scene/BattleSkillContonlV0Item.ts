@@ -125,11 +125,13 @@ module view.scene {
 						return;
 					}
 					let showDetailID = (selfSkill[key]).i64Id.int64ToNumber();
-					let configID = GameApp.MainPlayer.skillInfo[showDetailID.toString()].configID;
-					let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
-					this['btn_kill' + key].skin = "image/common/skill/skill_icon_" + icon + ".png";
-					this.skillID.push(showDetailID);
-					this.useSkillID[key] = showDetailID;
+					if (GameApp.MainPlayer.skillInfo[showDetailID.toString()]) {
+						let configID = GameApp.MainPlayer.skillInfo[showDetailID.toString()].configID;
+						let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
+						this['btn_kill' + key].skin = "image/common/skill/skill_icon_" + icon + ".png";
+						this.skillID.push(showDetailID);
+						this.useSkillID[key] = showDetailID;
+					}
 				}
 				// let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
 				// this.btn_kill5.skin = "image/common/skill/skill_icon_" + id + ".png";
@@ -137,11 +139,11 @@ module view.scene {
 			}
 			else {
 				let defaultConfigID: string = GameApp.MainPlayer.default_skill;
-				let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
+				// let defaulticon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(defaultConfigID);
 				// let id = ['20001', '20065', '20017'][GameApp.MainPlayer.job - 1];
-				this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
+				// this.btn_kill1.skin = "image/common/skill/skill_icon_" + defaulticon + ".png";
 				this.skillID = [defaultConfigID];
-				this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
+				// this.useSkillID[1] = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(defaultConfigID);
 				// this.useSkillID[1] = defaulticon;
 			}
 

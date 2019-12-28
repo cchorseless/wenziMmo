@@ -7,6 +7,10 @@ module view.juese {
 		}
 		public basePos;
 		public cailiaoItem;
+		//修炼时材料是否足够
+		public count = false;
+		//修炼时金币是否足够
+		public moneyEnough = false;
 		public setData(): void {
 			this.vbox_shuxing['sortItem'] = (items) => { };
 			this.addEvent();
@@ -33,16 +37,16 @@ module view.juese {
 		public init_EquipBase(): void {
 			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
 			this.ui_base1.setData(data1, this);
-			this.ui_base1.lbl_name.text = '基础武器';
+			this.ui_base1.lbl_name.text = '基础拳脚';
 			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
 			this.ui_base2.setData(data2, this);
-			this.ui_base2.lbl_name.text = '基础拳脚';
+			this.ui_base2.lbl_name.text = '基础刀剑';
 			let data3 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_PENDANT);
 			this.ui_base3.setData(data3, this);
-			this.ui_base3.lbl_name.text = '基础招架';
+			this.ui_base3.lbl_name.text = '基础长兵';
 			let data4 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_FACE);
 			this.ui_base4.setData(data4, this);
-			this.ui_base4.lbl_name.text = '基础轻功';
+			this.ui_base4.lbl_name.text = '基础奇门';
 			this.init_selectEvent(data1);
 		}
 		public init_selectEvent(BaseData: ProtoCmd.ItemBase): void {
@@ -92,7 +96,7 @@ module view.juese {
 				this.vbox_shuxing.addChild(new view.compart.SinglePropsItem().setData(attribute.des[part], nextDes[part]))
 			}
 			let info = SheetConfig.sifa_consume.getInstance(null).GETDATABYTYPEANDLVL(index, BaseData.dwLevel);
-			let cailiao = info[2].split('`');
+			let cailiao = info[3].split('`');
 			let cailiaoInfo = new ProtoCmd.ItemBase();
 			cailiaoInfo.dwBaseID = cailiao[0];
 			this.cailiaoItem = cailiao[0];
@@ -103,29 +107,40 @@ module view.juese {
 			this.lbl_num.text = num + '/' + cailiao[1];
 			if (num < cailiao[1]) {
 				this.img_enough.visible = true;
+				this.count = false;
 			} else {
 				this.img_enough.visible = false;
+				this.count = true;
 			}
-
 			//需要金币
-			this.lbl_need.text = '' + info[3];
+			this.lbl_need.text = '' + info[4];
 			this.lbl_have.text = '' + GameApp.MainPlayer.wealth.gold;
-			let cha = GameApp.MainPlayer.wealth.gold - info[3];
+			let cha = GameApp.MainPlayer.wealth.gold - info[4];
 			if (cha >= 0) {
 				this.lbl_have.color = '#ffffff';
+				this.moneyEnough = true;
 			} else {
 				this.lbl_have.color = '#a53232';
+				this.moneyEnough = false;
 			}
 		}
 		/**
 		 * 修炼
 		 */
 		public init_xiuLian(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JS_upgradeWuXueSiFa, [this.basePos], null, this, (jsonData) => {
-				this.init_EquipBase();
-			})
-			lcp.send(pkt);
+			if (this.count) {
+				if (this.moneyEnough) {
+					let pkt = new ProtoCmd.QuestClientData();
+					pkt.setString(ProtoCmd.JS_upgradeWuXueSiFa, [this.basePos], null, this, (jsonData) => {
+						this.init_EquipBase();
+					})
+					lcp.send(pkt);
+				} else {
+					TipsManage.showTips('金币不足，无法修炼')
+				}
+			} else {
+				TipsManage.showTips('材料不足，无法修炼')
+			}
 		}
 	}
 }

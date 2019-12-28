@@ -13,10 +13,10 @@ module view.hero {
 		//当前弟子职业
 		private job;
 		public xiuweidata;
-		public hasint=false;
+		public hasint = false;
 		public setData(): void {
-			if(this.hasint){return};
-			this.hasint=true;
+			if (this.hasint) { return };
+			this.hasint = true;
 			// this.job = job;
 			// let hasActive = GameApp.MainPlayer.heroObj(job).lockState == 2;
 			this.vbox_left['sortItem'] = (items) => { };
@@ -80,8 +80,8 @@ module view.hero {
 				let exp = jsonData.xw - jsonData.maxxw;
 				this.exp = exp;
 				//转生所需经验
-				this.lbl_need.text = '' + jsonData.maxxw;
-				this.lbl_have.text = '' + jsonData.xw;
+				this.lbl_need.text = '' + LangConfig.getBigNumberDes(jsonData.maxxw);
+				this.lbl_have.text = '' + LangConfig.getBigNumberDes(jsonData.xw);
 				let result = jsonData.xw - jsonData.maxxw;
 				if (result < 0) {
 					this.lbl_have.color = '#a53232';
@@ -89,14 +89,14 @@ module view.hero {
 					this.lbl_have.color = '#000000';
 				}
 				let sex;
-				if(GameApp.MainPlayer.sex==EnumData.SEX_TYPE.SEX_MAN){
-					sex=EnumData.SEX_TYPE.SEX_WOMEN;
+				if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_MAN) {
+					sex = EnumData.SEX_TYPE.SEX_WOMEN;
 				}
-				if(GameApp.MainPlayer.sex==EnumData.SEX_TYPE.SEX_WOMEN){
-					sex=EnumData.SEX_TYPE.SEX_MAN;
+				if (GameApp.MainPlayer.sex == EnumData.SEX_TYPE.SEX_WOMEN) {
+					sex = EnumData.SEX_TYPE.SEX_MAN;
 				}
 				//弟子头像
-				this.img_curhero1.skin=this.img_curhero2.skin=LangConfig.getPlayerIconSkinV1(sex,GameApp.MainPlayer.curHero.feature.simpleFeature.job)
+				this.img_curhero1.skin = this.img_curhero2.skin = LangConfig.getPlayerIconSkinV1(sex, GameApp.MainPlayer.curHero.feature.simpleFeature.job)
 				if (jsonData.effid != 0) {
 					//当前弟子转生等级
 					this.lbl_dangqian.text = GameObject.Hero.zslevel + '转';
@@ -113,7 +113,7 @@ module view.hero {
 						this.img_change.visible = false;
 						this.img_next.visible = false;
 					}
-					//根据当前弟子职业偏移当前弟子罡气效果id
+					//根据当前弟子职业偏移当前弟子效果id
 					let jobid = jsonData.effid + (GameApp.MainPlayer.curHero.feature.simpleFeature.job - 1) * 1000;
 					//当前属性
 					let shuxing1 = GameUtil.parseEffectidToObj(['' + jobid])

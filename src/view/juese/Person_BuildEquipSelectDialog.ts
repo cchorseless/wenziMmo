@@ -8,7 +8,7 @@ module view.juese {
 		public level;
 		//选择的装备数组
 		public selectData = [];
-		//最大选择数量
+		//所需材料装备数量
 		public maxNum;
 		//选择的装备索引
 		public index = [];
@@ -73,7 +73,7 @@ module view.juese {
 			})
 		}
 		public onclose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this);
+			
 			this.close();
 		}
 		public init_selectEvent(jsonData = null, type = null, select: boolean = null, index: number = null): void {
@@ -83,12 +83,12 @@ module view.juese {
 					child.btn_select.selected = false;
 				}
 				if (select) {
-					//若选中数量小于最大选中数量
+					//若选中数量小于所需材料装备数量
 					if (this.selectData.length < this.maxNum) {
 						this.selectData.push(jsonData);
 						this.index.push(index);
 					} else {
-						//若选中数量大于或最大选中数量
+						//若选中数量大于或等于所需材料装备数量
 						TipsManage.showTips('选择数量达到上限')
 					}
 				} else {

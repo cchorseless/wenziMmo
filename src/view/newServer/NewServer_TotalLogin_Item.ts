@@ -43,6 +43,7 @@ module view.newServer {
 				item.dwCount = data.items[i].num;
 				o.setData(item, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 				o.x = (parseInt(i) - 1) * (o.width + 10)
+				o.scaleX=o.scaleY=0.86;
 				this.hbox_item.addChild(o);
 			}
 		}

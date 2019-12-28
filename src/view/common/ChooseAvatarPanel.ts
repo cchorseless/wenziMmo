@@ -6,7 +6,6 @@ module view.common {
 		}
 		public userLoginInfo: ProtoCmd.UserLoginRet;//角色信息
 		public setData(data: ProtoCmd.UserLoginRet): void {
-			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 			this.userLoginInfo = data;
 			let playerInfo = data.players[0];
 			let szName = playerInfo.getValue('szName');
@@ -20,7 +19,7 @@ module view.common {
 			console.log('-----viplvl----', viplvl);
 			GameApp.MainPlayer.sex = playerInfo.feature.getValue('sex');
 			GameApp.MainPlayer.job = playerInfo.feature.getValue('job');
-			PanelManage.Main.ui_battleSkill.init_skillView();
+			// PanelManage.Main.ui_battleSkill.init_skillView();
 			// 角色图片
 			this.img_heroPic.skin = LangConfig.getPlayerAvatarHalfSkin();
 			// 角色名称

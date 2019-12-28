@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":9,
-    "selecteID":11,
+    "selecteID":13,
     "props":{"width":540,"sceneColor":"#ffffff","height":39},
     "nodeParent":-1,
     "label":"View",
@@ -105,57 +105,70 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":8,"width":194.2890625,"var":"lbl_name","text":"强化BOSS伤害：","height":24,"fontSize":26,"font":"FZHL","color":"#000000","align":"left"},
+                            "props":{"y":3,"x":396,"var":"lbl_nextdes","valign":"middle","text":"4309-6468","height":30,"fontSize":24,"font":"FZHL","color":"#179a0d","bold":true,"align":"center"},
                             "nodeParent":9,
-                            "label":"Label(lbl_name)",
-                            "isDirectory":false,
+                            "label":"Label(lbl_nextdes)",
+                            "isOpen":null,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
+                            "hasChild":true,
+                            "compId":13,
                             "child":[
-                                ],
+                                {
+                                    "type":"Image",
+                                    "props":{"y":-3,"x":-80,"skin":"image/juese/arrow02_common.png"},
+                                    "nodeParent":13,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":12,
+                                    "child":[
+                                        ]
+                                }],
                             "$HIDDEN":false
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":9,"x":172,"width":143.71875,"var":"lbl_talentdes","valign":"middle","text":"1100-1200","height":24,"fontSize":24,"font":"FZHL","color":"#63491a","bold":true,"align":"center"},
+                            "type":"Box",
+                            "props":{"y":8,"x":0,"var":"box_now"},
                             "nodeParent":9,
-                            "label":"Label(lbl_talentdes)",
-                            "isDirectory":false,
+                            "label":"Box(box_now)",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
+                            "hasChild":true,
+                            "compId":15,
                             "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":0,"x":319,"skin":"image/juese/arrow02_common.png"},
-                            "nodeParent":9,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":12,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":3,"x":399,"var":"lbl_nextdes","valign":"middle","text":"220-150","height":30,"fontSize":30,"font":"FZHL","color":"#179a0d","bold":true,"align":"center"},
-                            "nodeParent":9,
-                            "label":"Label(lbl_nextdes)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":13,
-                            "child":[
-                                ]
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"width":194.2890625,"var":"lbl_name","text":"强化BOSS伤害：","height":24,"fontSize":26,"font":"FZHL","color":"#000000","align":"left"},
+                                    "nodeParent":15,
+                                    "label":"Label(lbl_name)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":10,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "props":{"y":1,"x":172,"width":143.71875,"var":"lbl_talentdes","valign":"middle","text":"1100-1200","height":24,"fontSize":24,"font":"FZHL","color":"#63491a","bold":true,"align":"center"},
+                                    "nodeParent":15,
+                                    "label":"Label(lbl_talentdes)",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":11,
+                                    "child":[
+                                        ]
+                                }]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }]
         }],
     "animations":[

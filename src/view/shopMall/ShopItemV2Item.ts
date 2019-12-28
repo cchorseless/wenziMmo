@@ -27,9 +27,16 @@ module view.shopMall {
 				}
 				//限购
 				this['lbl_xiangou' + single.index].visible = false;
-				if (single.item.limitcnt > 0) {
+				if (shoptype == EnumData.ShopType.SHOP_TYPE_LIMITED) {
 					this['lbl_xiangou' + single.index].visible = true;
 					this['lbl_xiangou' + single.index].text = '限购' + single.item.limitcnt + '次';
+					this['img_bg' + single.index].height = 214;
+					this['lbl_price' + single.index].y = 183;
+					this['img_huobi' + single.index].y = 177;
+				} else {
+					this['img_bg' + single.index].height = 200;
+					this['lbl_price' + single.index].y = 169;
+					this['img_huobi' + single.index].y = 163;	
 				}
 				//物品
 				let itemInfo = new ProtoCmd.ItemBase();
@@ -41,10 +48,10 @@ module view.shopMall {
 				let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + single.item.itemid).split('-')
 				this['lbl_name' + single.index].text = '' + name[0];
 				if (name[1]) {
-					this['lbl_use' + single.index].visible=true;
+					this['lbl_use' + single.index].visible = true;
 					this['lbl_use' + single.index].text = '' + name[1];
-				}else{
-					this['lbl_use' + single.index].visible=false;
+				} else {
+					this['lbl_use' + single.index].visible = false;
 				}
 				//物品打折后价格
 				let nowPrice = Math.ceil(single.item.price * single.item.discount / 10)

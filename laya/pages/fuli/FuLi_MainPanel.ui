@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":128,
+    "selectedBox":108,
+    "selecteID":114,
     "props":{"width":640,"sceneColor":"#e0c8c8","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -31,15 +31,16 @@
             "props":{"y":0,"x":0,"width":640,"var":"box_view","height":1136},
             "nodeParent":1,
             "label":"Box(box_view)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":108,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":102,"x":0,"skin":"image/menu/img_huodong_01.png"},
+                    "props":{"y":102,"x":0,"width":640,"skin":"image/menu/img_huodong_01.png","height":87},
                     "nodeParent":108,
                     "label":"Image",
                     "isOpen":true,
@@ -52,8 +53,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"y":189,"x":0,"skin":"image/common/bg_juese_02.png"},
+                    "props":{"y":189,"x":0,"width":640,"skin":"image/common/bg_juese_02.png","height":930},
                     "nodeParent":108,
                     "label":"Image",
                     "isDirectory":false,
@@ -66,6 +68,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":102,"x":51,"width":538,"var":"panel_tab","height":98},
                     "nodeParent":108,
@@ -77,6 +80,7 @@
                     "compId":127,
                     "child":[
                         {
+                            "x":45,
                             "type":"Tab",
                             "props":{"y":0,"x":0,"var":"tab_fuli","strokeColors":"#7f3a2f,#eb4a3e","stateNum":2,"space":-10,"skin":"image/menu/btn_huodong_01.png","selectedIndex":0,"labels":"邀请有礼,在线奖励,资源找回","labelStroke":4,"labelSize":26,"labelPadding":"-3","labelFont":"FZHL","labelColors":"#f1cc9d,#fffca3","height":97.5},
                             "nodeParent":127,
@@ -91,6 +95,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":37,"x":0,"skin":"image/menu/title_huodong_01.png"},
                     "nodeParent":108,
@@ -104,6 +109,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":39,"x":54,"skin":"image/menu/zi_fuli.png"},
                     "nodeParent":108,
@@ -116,6 +122,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"ViewStack",
                     "props":{"y":209,"x":9,"var":"viw_fuli","selectedIndex":0},
                     "nodeParent":108,
@@ -127,6 +134,7 @@
                     "compId":126,
                     "child":[
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_InvitItem.ui",
                             "props":{"y":9,"var":"ui_invit","runtime":"view.fuli.FuLi_InvitItem","name":"item0"},
@@ -141,6 +149,7 @@
                             "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_OnlineRewardItem.ui",
                             "props":{"x":11,"var":"ui_onlineReward","runtime":"view.fuli.FuLi_OnlineRewardItem","name":"item1"},
@@ -155,6 +164,7 @@
                             "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"fuli/FuLi_FandRecoveryItem.ui",
                             "props":{"y":2,"x":10,"var":"ui_recovery","runtime":"view.fuli.FuLi_FandRecoveryItem","name":"item2"},
@@ -170,6 +180,33 @@
                         }]
                 },
                 {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":125,"x":595,"width":24,"skin":"image/common/icon_001.png","height":41},
+                    "nodeParent":108,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":129,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":124,"x":44,"width":24,"skin":"image/common/icon_001.png","scaleX":-1,"height":41},
+                    "nodeParent":108,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":130,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":1043,"x":0,"width":640,"height":93,"bottom":0},
                     "nodeParent":108,
@@ -208,30 +245,6 @@
                             "$HIDDEN":false
                         }],
                     "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":125,"x":595,"width":24,"skin":"image/common/icon_001.png","height":41},
-                    "nodeParent":108,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":129,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":124,"x":44,"width":24,"skin":"image/common/icon_001.png","scaleX":-1,"height":41},
-                    "nodeParent":108,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":130,
-                    "child":[
-                        ]
                 }],
             "$HIDDEN":false
         }],

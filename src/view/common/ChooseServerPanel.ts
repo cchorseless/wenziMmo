@@ -7,7 +7,6 @@ module view.common {
 		}
 		public index = null;
 		public setData(): ChooseServerPanel {
-			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			this.lbl_playerName.text = Laya.LocalStorage.getItem('account');
 			this.init_selectServer();

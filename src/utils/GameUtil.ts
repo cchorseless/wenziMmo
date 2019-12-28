@@ -5,7 +5,7 @@ module GameUtil {
      * @param itemID 
      * @param bag 
      */
-    export function findItemInBag(itemID:number, bag): number {
+    export function findItemInBag(itemID: number, bag): number {
         let count = 0;
         let keys = Object.keys(bag);
         for (let _key of keys) {
@@ -40,11 +40,11 @@ module GameUtil {
     export function findItemInfoInBagByLevel(level: number, bag = GameApp.GameEngine.bagItemDB): any {
         let itemArray = [];
         for (let i in bag) {
-            let zslevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(''+bag[i].dwBaseID);
-            let nowlevel=SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(''+bag[i].dwBaseID);
-            let lvlnum=zslevel*1000+nowlevel;
-            if (bag[i].itemType==2&&lvlnum == level) {
-                    itemArray.push(bag[i]);
+            let zslevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL('' + bag[i].dwBaseID);
+            let nowlevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED('' + bag[i].dwBaseID);
+            let lvlnum = zslevel * 1000 + nowlevel;
+            if (bag[i].itemType == 2 && lvlnum == level) {
+                itemArray.push(bag[i]);
             }
         }
         return itemArray;
@@ -76,9 +76,86 @@ module GameUtil {
                 result.push(_itemBase);
             }
         }
-        return result
+        return result;
     }
-
+    /**
+     * 
+     * @param type 类型，0当前界面有战力1当前界面无战力
+     * @param panel 当前界面
+     * @param label 
+     */
+    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null, battleNum: number,afterBattle:number): any {
+        if (type == 0||label) {
+            let nowValue = battleNum;
+            let now = String(nowValue).split('');
+            let power = afterBattle;
+            let after = String(power).split('');
+            let surplus = '';
+            if (after.length > now.length) {
+                let cha = after.length - now.length;
+                for (let j = 0; j < cha; j--) {
+                    surplus = surplus + '' + after[j]
+                }
+            }
+            let length;
+            let i = 0;
+            Laya.timer.loop(100, this, function battle1(): void {
+                if (i != now.length) {
+                    if (power > nowValue) {
+                        if (parseInt(after[i]) > parseInt(now[i])) {
+                            now[i] = '' + (parseInt(now[i]) + 1);
+                        }
+                        if (parseInt(after[i]) < parseInt(now[i])) {
+                            now[i] = '' + ((parseInt(now[i]) + 1) % 10);
+                        }
+                        if (parseInt(after[i]) == parseInt(now[i])) {
+                            i += 1
+                        }
+                        let battleData = surplus;
+                        for (let single of now) {
+                            battleData = battleData + single;
+                        }
+                        label.text = (battleData);
+                    }
+                    if (power < nowValue) {
+                        let cha = now.length - after.length;
+                        if (after[(i - cha)]) {
+                            if (parseInt(after[i - cha]) > parseInt(now[i])) {
+                                if ((parseInt(now[i]) > 0)) {
+                                    now[i] = '' + (parseInt(now[i]) - 1);
+                                } else {
+                                    now[i] = '9';
+                                }
+                            }
+                            if (parseInt(after[i - cha]) < parseInt(now[i])) {
+                                now[i] = '' + (parseInt(now[i]) - 1);
+                            }
+                            if (parseInt(after[i - cha]) == parseInt(now[i])) {
+                                i += 1
+                            }
+                        } else {
+                            if ((parseInt(now[i]) > 0)) {
+                                now[i] = '' + (parseInt(now[i]) - 1);
+                            } else {
+                                i += 1;
+                            }
+                        }
+                        let battleData = 0;
+                        for (let index in now) {
+                            let beishu = Math.pow(10, (now.length - parseInt(index) - 1));
+                            battleData = battleData + parseInt(now[index]) * beishu;
+                        }
+                        label.text = '' + battleData;
+                    }
+                    if (power == nowValue) {
+                        Laya.timer.clear(this, battle1);
+                    }
+                } else {
+                    Laya.timer.clear(this, battle1);
+                }
+            })
+        }
+    }
     /**
      * 把数字转换成汉字  同理可转换成繁体汉字
      * @param num  数字 
@@ -125,7 +202,7 @@ module GameUtil {
             ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
             return;
         }
-        
+
 
         Laya.timer.loop(60000, ui, round);
         function round() {

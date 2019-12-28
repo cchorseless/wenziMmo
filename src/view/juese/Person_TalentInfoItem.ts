@@ -33,27 +33,22 @@ module view.juese {
 		//激活天赋协议
 		public activeEventList = [ProtoCmd.JS_activeDragonSoul, ProtoCmd.JS_activeShield, ProtoCmd.JS_activeOfficialSeal,
 		ProtoCmd.JS_activeBloodJade, ProtoCmd.JS_activeMedal];
+		public posList = [EnumData.emEquipPosition.EQUIP_DRAGONSOUL, EnumData.emEquipPosition.EQUIP_SHIELD, EnumData.emEquipPosition.EQUIP_OFFICIALSEAL,
+		EnumData.emEquipPosition.EQUIP_BLOODJADE, EnumData.emEquipPosition.EQUIP_MEDAL]
 		public setData(): void {
 			if (this.hasInit) { return };
 			this.hasInit = true;
 			this.vbox_left['sortItem'] = (items) => { };
 			//初始化
 			//装备位置
-			this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
+			this.type = this.posList[0];
 			this.talent = this.eventList[0]
 			this.upLevelType = this.UpEventList[0];
-			this.dangqianNum = 2;
+			this.dangqianNum = 1;
 			this.img_type.skin = 'image/common/daoju/itemicon_123001.png';
 			this.btn_top0.selected = true;
 			this.img_xiaoguo0.visible = true;
-			let talentAllData = GameApp.MainPlayer.talentInfo;
-			if (talentAllData) {
-				this.lbl_lvl0.text = 'LV.' + talentAllData[1];
-				this.lbl_lvl1.text = 'LV.' + talentAllData[3];
-				this.lbl_lvl2.text = 'LV.' + talentAllData[5];
-				this.lbl_lvl3.text = 'LV.' + talentAllData[4];
-				this.lbl_lvl4.text = 'LV.' + talentAllData[2];
-			}
+			this.init_updataLevel();
 			this.addEvent();
 			this.TalentInfo();
 			this.init_changeIcon();
@@ -128,31 +123,47 @@ module view.juese {
 			switch (i) {
 				//悟性
 				case 0:
-					this.type = EnumData.emEquipPosition.EQUIP_DRAGONSOUL;
 					this.dangqianNum = EnumData.emTalentType.talent_wuXing;
+					this.img_talentcoin1.skin = this.img_talentcoin2.skin = 'image/juese/img_talent1.png';
+					this.img_talentcoin1.width = this.img_talentcoin2.width = 49;
+					this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
+					this.img_talentcoin1.y = this.img_talentcoin2.y = -6;
 					break;
 				//臂力
 				case 1:
-					this.type = EnumData.emEquipPosition.EQUIP_SHIELD;
 					this.dangqianNum = EnumData.emTalentType.talent_biLi;
+					this.img_talentcoin1.skin = this.img_talentcoin2.skin = 'image/juese/img_talent3.png';
+					this.img_talentcoin1.width = this.img_talentcoin2.width = 44;
+					this.img_talentcoin1.height = this.img_talentcoin2.height = 45;
+					this.img_talentcoin1.y = this.img_talentcoin2.y = -6;
 					break;
 				//善缘
 				case 2:
-					this.type = EnumData.emEquipPosition.EQUIP_OFFICIALSEAL;
 					this.dangqianNum = EnumData.emTalentType.talent_shanYuan;
+					this.img_talentcoin1.skin = this.img_talentcoin2.skin = 'image/juese/img_talent5.png';
+					this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
+					this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
+					this.img_talentcoin1.y = this.img_talentcoin2.y = -6;
 					break;
 				//身法
 				case 3:
-					this.type = EnumData.emEquipPosition.EQUIP_BLOODJADE;
 					this.dangqianNum = EnumData.emTalentType.talent_shenFa;
+					this.img_talentcoin1.skin = this.img_talentcoin2.skin = 'image/juese/img_talent4.png';
+					this.img_talentcoin1.width = this.img_talentcoin2.width = 37;
+					this.img_talentcoin1.height = this.img_talentcoin2.height = 48;
+					this.img_talentcoin1.y = this.img_talentcoin2.y = -6;
 					break;
 
 				//根骨
 				case 4:
-					this.type = EnumData.emEquipPosition.EQUIP_MEDAL;
 					this.dangqianNum = EnumData.emTalentType.talent_genGu;
+					this.img_talentcoin1.skin = this.img_talentcoin2.skin = 'image/juese/img_talent2.png';
+					this.img_talentcoin1.width = this.img_talentcoin2.width = 50;
+					this.img_talentcoin1.height = this.img_talentcoin2.height = 53;
+					this.img_talentcoin1.y = this.img_talentcoin2.y = -12;
 					break;
 			}
+			this.type = this.posList[i]
 			//拉取天赋协议
 			this.talent = this.eventList[i];
 			//升级天赋协议
@@ -219,34 +230,42 @@ module view.juese {
 			//天赋名称
 			this.lbl_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID);
 			this.img_type.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-			//天赋等级
-			let talentAllData = GameApp.MainPlayer.talentInfo;
-			//刷新等级
-			if (talentAllData) {
-				this.lbl_lvl0.text = 'LV.' + talentAllData[1];
-				this.lbl_lvl1.text = 'LV.' + talentAllData[3];
-				this.lbl_lvl2.text = 'LV.' + talentAllData[5];
-				this.lbl_lvl3.text = 'LV.' + talentAllData[4];
-				this.lbl_lvl4.text = 'LV.' + talentAllData[2];
-			}
-			this.lbl_level.text = 'LV.' + talentAllData[this.dangqianNum];
-			this.lbl_nextLevel.text = '' + (talentAllData[this.dangqianNum] + 1);
+			this.lbl_level.text = 'LV.' + data.dwLevel;
 			//当前属性
 			let attribute = GameUtil.parseEffectidToObj(['' + data.dwEffId]);
 			let des = attribute.des;
 			let battle = attribute.battle[this.job];
 			this.lbl_battle.text = '' + battle;
-			//下级属性
-			let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId)
-			let nextAttribute = GameUtil.parseEffectidToObj(['' + id]);
-			let nextdes = nextAttribute.des;
-			let nextBattle = nextAttribute.battle[this.job];
-			this.vbox_left.removeChildren();
-			for (let i in des) {
-				this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des[i], nextdes[i], 1))
+			//当前天赋未满级显示下级属性变化
+			if (data.dwLevel < 120) {
+				this.lbl_nextLevel.text = '' + (data.dwLevel + 1);
+				this.lbl_nextLevel.visible = true;
+				this.box_talent.x = 21;
+				this.lbl_add.visible = this.img_battle.visible = true;
+				//下级属性
+				let id = SheetConfig.mydb_effect_base_tbl.getInstance(null).NEXTID('' + data.dwEffId)
+				let nextAttribute = GameUtil.parseEffectidToObj(['' + id]);
+				let nextdes = nextAttribute.des;
+				let nextBattle = nextAttribute.battle[this.job];
+				this.vbox_left.removeChildren();
+				for (let i in des) {
+					this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des[i], nextdes[i], 1))
+				}
+				//升到下阶战力增加
+				this.lbl_add.text = '' + (nextBattle - battle);
+			} else {
+				this.lbl_nextLevel.visible = false;
+				this.img_add.visible=this.lbl_add.visible = this.img_battle.visible = false;
+				this.box_talent.x = 153;
+				this.vbox_left.removeChildren();
+				for (let i in des) {
+					this.vbox_left.addChild(new view.juese.Person_attributeItem().setData(des[i], null, 1))
+				}
 			}
-			//升到下阶战力增加
-			this.lbl_add.text = '' + (nextBattle - battle);
+
+
+			//刷新等级
+			this.init_updataLevel();
 		}
 		/**
 	  * 拉取界面信息
@@ -270,6 +289,15 @@ module view.juese {
 				GameApp.LListener.offCaller(event, this);
 			}
 			super.destroy(isbool);
+		}
+		public init_updataLevel(): void {
+			for (let index in this.posList) {
+				let pos = this.posList[index]
+				let data = GameUtil.findEquipInPlayer(pos);
+				if (data) {
+					this['lbl_lvl' + index].text = 'LV.' + data.dwLevel;
+				}
+			}
 		}
 	}
 }

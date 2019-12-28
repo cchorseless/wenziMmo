@@ -3,9 +3,7 @@ module view.common {
 	export class LoginPanel extends ui.common.LoginPanelUI {
 		constructor() {
 			super();
-			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 		}
-
 		public setData(): void {
 			this.lbl_versionInfo.text = '版本:' + GameApp.GameEngine.version;
 			console.log(this.lbl_versionInfo.text);

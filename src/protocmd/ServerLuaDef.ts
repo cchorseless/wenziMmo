@@ -198,6 +198,8 @@ module ProtoCmd {
     export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
+    //战力
+    export const playerBttle = 'playerBttle';
     //更新时装穿戴情况
     export const UP_DATE_DRESS = 'up_date_dress';
     // 声望信息
@@ -264,13 +266,13 @@ module ProtoCmd {
     // 切换弟子出战状态
     export const Hero_ChangeHero = 'ChangeHero';
     // 转生面板
-    export const Hero_zhuanShengPanel = 'zhuanShengPanel';
+    export const Hero_zhuanShengPanel = 'zhuanShengPanel';//(1弟子0玩家)
     // 转生
-    export const Hero_zhuanSheng = 'zhuanSheng';
+    export const Hero_zhuanSheng = 'zhuanSheng';//(1弟子0玩家)
     // 获取修为面板
     export const Hero_getXiuWeiPanel = 'getXiuWeiPanel';//(1弟子0玩家)
     // 兑换修为面板
-    export const Hero_exchangeXiuWei = 'exchangeXiuWei';
+    export const Hero_exchangeXiuWei = 'exchangeXiuWei';//(参数1弟子0玩家)回调Hero_zhuanShengPanel
     // 弟子罡气激活
     export const Hero_activeHeroWing = 'activeHeroWing';
     // 弟子罡气面板
@@ -638,7 +640,7 @@ module ProtoCmd {
     export const archLevelUp = 'archLevelUp';//建筑升级 type, level
 
 
-    export const BossBelong ='BossBelong';
+    export const BossBelong = 'BossBelong';
 
 
 
@@ -652,14 +654,14 @@ module ProtoCmd {
      * 活动status返回data
       */
     export interface itf_ZHAIYUAN_INFO {
-        foodServant:number,
-        foodValue:number,
-        leftTime:number,
-        leisureServants:number,
-        levels:Object,
-        recruitServantRmb:number,
-        servants:number,
-        totalConsume:number
+        foodServant: number,
+        foodValue: number,
+        leftTime: number,
+        leisureServants: number,
+        levels: Object,
+        recruitServantRmb: number,
+        servants: number,
+        totalConsume: number
     }
     /**
      * 活动status返回data
@@ -1098,7 +1100,7 @@ module ProtoCmd {
    */
     export interface itf_FB_ZiYuanOneInfo {
         FuBenIndex: number;//索引
-        introduce:string;
+        introduce: string;
         activity: number;//特权
         caninto: number;//已进入次数
         jiangli: any;//奖励

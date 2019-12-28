@@ -81,6 +81,7 @@ module view.promotion {
 				if (this.SpecialGiftType == 1) {
 					GameApp.LListener.on(ProtoCmd.TeHuiClientOpen, this, (data) => {
 						this.curbox.removeChildren();
+						//特惠礼包
 						let o = new Promotion_SpecialGift_VSinfo()
 						o.setData(data)
 						this.curbox.addChild(o);

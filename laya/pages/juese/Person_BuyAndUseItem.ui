@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
-    "props":{"width":362,"sceneColor":"#ffffff","height":110},
+    "selecteID":9,
+    "props":{"width":419,"sceneColor":"#ffffff","height":110},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":362,"skin":"image/common/fram_common_11.png","sizeGrid":"19,43,16,43","height":110},
+            "props":{"width":419,"skin":"image/common/fram_common_11.png","sizeGrid":"19,43,16,43","height":110},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -30,7 +30,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":59,"x":141,"width":54,"var":"lbl_value","text":"8888","strokeColor":"#000000","height":20,"fontSize":20,"font":"FZLB","color":"#63491a","bold":true,"align":"left"},
+            "props":{"y":67,"x":179,"width":54,"var":"lbl_value","text":"8888","strokeColor":"#000000","height":20,"fontSize":22,"font":"FZLB","color":"#63491a","bold":true,"align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_value)",
             "isOpen":true,
@@ -45,7 +45,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":56,"x":103,"width":30,"var":"img_money","skin":"image/main/icon_coin_1.png","height":25},
+            "props":{"y":65,"x":131,"width":33,"var":"img_money","skin":"image/main/icon_coin_1.png","height":28},
             "nodeParent":1,
             "label":"Image(img_money)",
             "isOpen":true,
@@ -60,7 +60,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":25,"x":94,"width":108,"var":"lbl_name","text":"道具名称六字","strokeColor":"#2d1c05","stroke":4,"fontSize":18,"font":"FZHL","color":"#f5dd7b","align":"center"},
+            "props":{"y":22,"x":121,"var":"lbl_name","text":"道具名称六字","strokeColor":"#2d1c05","stroke":4,"fontSize":22,"font":"FZHL","color":"#f5dd7b","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_name)",
             "isDirectory":false,
@@ -74,7 +74,7 @@
             "x":15,
             "type":"UIView",
             "source":"compart/DaoJuItem.ui",
-            "props":{"y":19,"x":19,"var":"ui_item","scaleY":0.95,"scaleX":0.95,"runtime":"view.compart.DaoJuItem"},
+            "props":{"y":19,"x":19,"var":"ui_item","runtime":"view.compart.DaoJuItem"},
             "nodeParent":1,
             "label":"UIView(ui_item)",
             "isOpen":false,
@@ -89,7 +89,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":32,"x":243,"width":104,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"使用","height":48},
+            "props":{"y":31,"x":298,"width":104,"var":"btn_use","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#c18a14","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"使用","height":48},
             "nodeParent":1,
             "label":"Button(btn_use)",
             "isDirectory":false,
@@ -103,7 +103,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":33,"x":244,"width":104,"var":"btn_buyAndUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#8b2d2b","labelSize":22,"labelFont":"FZHL","labelColors":"#761a1a,#461010","label":"购买使用","height":48},
+            "props":{"y":32,"x":299,"width":104,"var":"btn_buyAndUse","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#8b2d2b","labelSize":22,"labelFont":"FZHL","labelColors":"#761a1a,#461010","label":"购买使用","height":48},
             "nodeParent":1,
             "label":"Button(btn_buyAndUse)",
             "isDirectory":false,
@@ -112,7 +112,7 @@
             "compId":9,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         }],
     "animations":[
         {

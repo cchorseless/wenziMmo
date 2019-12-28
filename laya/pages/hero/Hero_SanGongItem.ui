@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":395,
-    "selecteID":396,
+    "selectedBox":367,
+    "selecteID":390,
     "props":{"width":609,"sceneColor":"#eed9d9","height":841},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"ViewStack",
-            "props":{"y":29,"x":-1,"var":"viw_sangong","selectedIndex":0},
+            "props":{"width":609,"var":"viw_sangong","selectedIndex":0,"height":841},
             "nodeParent":1,
             "label":"ViewStack(viw_sangong)",
             "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":132,"x":1,"name":"item0"},
+                    "props":{"y":97,"x":23,"name":"item0"},
                     "nodeParent":350,
                     "label":"Box(item0)",
                     "isOpen":false,
@@ -41,25 +41,13 @@
                             "props":{"y":8,"x":44,"stateNum":"1","skin":"image/juese/img_wuxing.png","selected":true,"labelStrokeColor":"#52331e","labelStroke":4,"labelSize":50,"labelPadding":"70,-8","labelFont":"FZXK","labelColors":"#fff4ce"},
                             "nodeParent":342,
                             "label":"Button",
-                            "isOpen":false,
-                            "isDirectory":true,
+                            "isOpen":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":343,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":275,"x":209,"text":"99","strokeColor":"#52331e","stroke":6,"italic":true,"fontSize":50,"font":"fzxk","color":"#fff4ce"},
-                                    "nodeParent":343,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":344,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                }],
+                                ],
                             "$HIDDEN":false
                         },
                         {
@@ -155,7 +143,7 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":-29,"x":1,"width":609,"name":"item1","height":841},
+                    "props":{"y":0,"x":0,"width":609,"name":"item1","height":841},
                     "nodeParent":350,
                     "label":"Box(item1)",
                     "isOpen":true,
@@ -423,13 +411,14 @@
                             "props":{"y":730,"x":123,"width":157,"skin":"image/main/frame_shuzi_02.png","sizeGrid":"0,26,0,13","height":24},
                             "nodeParent":367,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":382,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-2,"width":37,"skin":"image/main/icon_coin_1.png","height":30},
                                     "nodeParent":382,
@@ -444,6 +433,7 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":-1,"x":31,"width":94,"var":"lbl_need","text":"12","strokeColor":"#000000","height":22,"fontSize":22,"font":"FZLB","color":"#000000","bold":true,"align":"center"},
                                     "nodeParent":382,
@@ -480,13 +470,14 @@
                             "props":{"y":730,"x":386,"width":157,"skin":"image/main/frame_shuzi_02.png","sizeGrid":"0,9,0,13","height":24},
                             "nodeParent":367,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":386,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":-1,"x":-6,"width":37,"skin":"image/main/icon_coin_1.png","height":30},
                                     "nodeParent":386,
@@ -499,6 +490,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":1,"x":31,"width":100,"var":"lbl_have","text":"3750","strokeColor":"#000000","height":22,"fontSize":22,"font":"FZHL","color":"#a53232","align":"center"},
                                     "nodeParent":386,
@@ -512,6 +504,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":-5,"x":127,"var":"btn_buy","stateNum":"2","skin":"image/main/bnt_jia.png"},
                                     "nodeParent":386,

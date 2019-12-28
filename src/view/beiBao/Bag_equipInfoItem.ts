@@ -6,6 +6,7 @@ module view.beiBao {
 			super();
 			this.setData();
 		}
+		public battle;
 		public setData(): void {
 			// this.tab_0.selectHandler = Laya.Handler.create(this, this.updateUI, null, false);
 			for (let i = 0; i < 10; i++) {
@@ -80,10 +81,23 @@ module view.beiBao {
 			}
 		}
 		public addLcpEvent(): void {
-			// GameApp.LListener.on( )
+			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
+				if (dwType == 0) {
+					this.battle = battle;
+				}
+			})
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				let after=GameApp.GameEngine.mainPlayer.ability.nFight;
+				if (this.curCreater == 0) {
+					GameUtil.battleChange(0, null, this.lbl_zhanLi, this.battle,after);
+				}
+			})
 		}
-
-
+		public destroy(isbool) {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
+			super.destroy(isbool);
+		}
 		public updateUI(): void {
 			for (let i = 0; i < 10; i++) {
 				(this['ui_item' + i] as view.compart.EquipInBodybgItem).clearItem();
@@ -104,7 +118,7 @@ module view.beiBao {
 					break;
 			}
 			// this.curCreater
-			this.lbl_zhanLi.text = ''+power;
+			this.lbl_zhanLi.text = '' + power;
 			let small_index;
 			let big_index;
 			switch (GameApp.GameEngine.mainPlayer.playerORHero) {
