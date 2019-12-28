@@ -106,7 +106,7 @@ module ProtoCmd {
     export const JQ_GET_JQ_PIANZHANG = 'getJuQingPianZhang';
 
     // 剧情章节目录:篇章ID
-    export const JQ_GET_JQ_ZHANGJIE = 'getJuQingCharpter';
+    export const JQ_GET_JQ_ZHANGJIE = 'getJuQingCharpter';   //参数  篇章ID  获取一整篇
 
     // 剧情详情:章节ID
     export const JQ_GET_JQ_JuQingInfo = 'getJuQingInfo';

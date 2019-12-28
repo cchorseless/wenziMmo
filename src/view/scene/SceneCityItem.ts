@@ -171,6 +171,9 @@ module view.scene {
 		public clearPlayer(): void {
 			this.hbox_player.removeChildren();
 		}
+		public addDaoJu(obj){
+
+		}
 		// public addDaoJu(obj: ProtoCmd.ItemBase): void {
 		// 	let itemUI = new view.compart.DaoJuWithNameItem();
 		// 	itemUI.setData(obj, EnumData.ItemInfoModel.SHOW_NONE);

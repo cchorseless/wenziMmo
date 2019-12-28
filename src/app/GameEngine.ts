@@ -70,8 +70,7 @@ class GameEngine extends SingletonClass {
     /************************抽奖相关信息************ */
     public luckDrawType: boolean = false//幸运抽奖自动抽奖状态
     /************************对白信息************ */
-    public talkInfo = {};// 所有对白信息
-    public allCharpterInfo = {};//所有章节的掉落信息{{章节ID：章节info}}
+
     /***********************新手引导数据********* */
     public questBoolData: Uint8Array = null;
     // 客户端登录状态

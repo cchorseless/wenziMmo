@@ -9,6 +9,7 @@ module view.dialog {
 			return this;
 		}
 		public addEvent(): void {
+			
 			this.btn_close.on(Laya.UIEvent.CLICK, this, this.close);
 			this.btn_cancel.on(Laya.UIEvent.CLICK, this, this.close);
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function(){
