@@ -1,20 +1,48 @@
 /**Created by the LayaAirIDE*/
 module view.juQingMode {
 	export class JuQingModePanel extends ui.juQingMode.JuQingModePanelUI {
+		public curReadInfo: JuQing_ReadInfo;
+		public lastReadInfo: JuQing_ReadInfo;
+		public nextReadInfo: JuQing_ReadInfo;
+		public handler: Laya.Handler = null;
+
+		public muluItem: JuQing_MuLu;
+
+		public onlyGet = false;
+
+		public maxInfoNum = 7;
+
+
+
+		public touchBeginX = 0;
+		public touchEndX = 0;
+		public maxTurnNum = 0;
+		public isTouch = false;
+
+		public volumeArr;
+
+
+		public pageID;
+		public juQingPageID;
+		public lastTalkID;
+		public hasLookBack = 0;
 		constructor() {
 			super();
-
 		}
 
 		public setData(): void {
+			let boo = PanelManage.getAspectRatio()
+			if (boo) {
+				this.maxInfoNum = 8
+			} else {
+				this.maxInfoNum = 7
+			}
 			// this.panel_0.vScrollBarSkin = '';
-
-			this.vbox_0['sortItem'] = (items) => { };
 			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
 			// this.vbox_zhangJieRight['sortItem'] = (items) => { };
 			this.panel_zhangJie.scaleY = 0;
 			this.panel_zhangJie.vScrollBarSkin = '';
-			this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
+			// this.lbl_pianZhangName.text = '' + GameApp.MainPlayer.pianZhangName;
 			this.box_selectQuestion.scaleY = 0;
 			this.box_jiangLi.visible = false;
 			// if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
@@ -24,18 +52,45 @@ module view.juQingMode {
 			// 	this.btn_VIPskip.skin = "image/juQingMode/icon_tiaoguoduibai_03_0.png"
 			// 	this.btn_VIPskip.stateNum = 1;
 			// }
+			this.getAllData()
 			this.initUI();
 			this.addEvent();
+
+		}
+		public getAllData() {
+			let self = this;
+			let pkt = new ProtoCmd.QuestClientData();
+			pkt.setString(ProtoCmd.JQ_GET_JQ_PIANZHANG, null, null, this, (jsonData) => {
+				let keys = Object.keys(jsonData);
+				this.volumeArr = jsonData;
+				this.setMuLuMsg()
+			})
+			lcp.send(pkt);
+		}
+		public setMuLuMsg() {
+			this.muluItem = new JuQing_MuLu();
+			this.muluItem.setData(this.volumeArr)
+			this.muluItem.top = 0;
+			this.muluItem.bottom = 0;
+			this.addChild(this.muluItem);
+			this.muluItem.visible = false;
+		}
+		//奖励或事件显示
+		public nextPageEvent() {
+			if (this.btn_next.skin == 'image/juQingMode/icon_juqing1.png') {
+				this.showJuQingEvent();
+			} else {
+				new view.juQingMode.JuQingPrizeDialog().setData().popup();
+			}
 		}
 
 		public addEvent(): void {
 
-			// 添加剧情对白
+			// 事件或奖励
 			EventManage.onWithEffect(this.btn_next, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JQ_GET_JQ_readJuQing)
-				lcp.send(pkt);
+				this.nextPageEvent()
 			});
+			this.BoxEventListener();
 
 			// 场景模式
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
@@ -44,25 +99,9 @@ module view.juQingMode {
 
 			// 奖励
 			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
-				new view.juQingMode.JuQingPrizeDialog().setData().popup();
+				// new view.juQingMode.JuQingPrizeDialog().setData().popup();
+				this.muluItem.visible = !this.muluItem.visible;
 			});
-
-			// 珍宝阁
-			EventManage.onWithEffect(this.btn_menu, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMenuPanel()
-			});
-			//跳过对白
-			// this.box_vipTiaoGuo.on(Laya.UIEvent.CLICK, this, function () {
-			// 	if (GameApp.GameEngine.mainPlayer.viplvl >= 5) {
-			// 		let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
-			// 		lcp.send(pkt);
-			// 	} else {
-			// 		TipsManage.showTips("VIP等级未达到")
-			// 		return;
-			// 	}
-
-			// })
-
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
 				this.btn_charpter.selected = !this.btn_charpter.selected;
@@ -102,54 +141,57 @@ module view.juQingMode {
 			this.addLcpEvent()
 		}
 
+
+
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData: ProtoCmd.itf_JUQING_READBACK) => {
+			let self = this;
+			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_readJuQing, this, (jsonData) => {
 				console.log(jsonData);
-				let allKeys = Object.keys(jsonData);
-				if (allKeys.length > 0) {
-					let charpterData = GameApp.GameEngine.talkInfo[GameApp.MainPlayer.charpterID];
-					if (charpterData) {
-						// 激活了任务
-						if (jsonData.mainquestid) {
-							// this.btn_next.label = 'new 剧情事件!!!!';
-							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
-							// 更新主线任务
-							PanelManage.Main.updateTaskInfo();
+				if (this.lastTalkID >= jsonData.dbid) {
+					if (jsonData.dbid == GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid) {
+						TipsManage.showTips('已读完本章');
+						let nextID = this.getNextCharpterID(GameApp.MainPlayer.charpterID)
+						if (GameApp.MainPlayer.pianZhangID != nextID.pzid) {
+							GameApp.MainPlayer.pianZhangID = nextID.pzid;
+							self.getPZMsg(nextID.pzid)
 						}
-						else {
-							this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
-							// this.btn_next.label = '继 续';
-						}
-						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = charpterData.data[GameApp.MainPlayer.talkID];
-						// 处理选项对白
-						this.showSelectQuestion(_talkInfo);
-						this.addJuQingTalkItem(_talkInfo);
-						// 奖励
-						this.box_jiangLi.visible = true;
-						Laya.Tween.to(this.box_jiangLi, { x: this.btn_prize.x, y: this.btn_prize.y, scaleX: 0.3, scaleY: 0.3 }, 600, null,
-							Laya.Handler.create(this, () => {
-								this.box_jiangLi.visible = false;
-								this.box_jiangLi.pos(this.btn_next.x, this.btn_next.y);
-								this.box_jiangLi.scale(1, 1);
-							})
-						)
-						// 图鉴
-					}
-					let endTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid;
-					let startTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
-					let span0 = endTalkId - startTalkId;
-					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
-					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "100%"
+						GameApp.MainPlayer.talkID = GameApp.MainPlayer.allCharpterInfo[nextID.zjid].startdbid;
+						GameApp.MainPlayer.charpterID = nextID.zjid;
+						this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
+						this.updateTalkInfo(nextID.zjid);
 					} else {
-						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
+						TipsManage.showTips('当前任务未完成');
 					}
-				}
-				else {
-					TipsManage.showTips('章节已经读完');
-					this.btn_next.label = '本章结束，切换下一章';
-					this.panel_0.scrollTo(0, this.vbox_0.height);
-					this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
+					PanelManage.Main.updateTaskInfo();
+				} else {
+
+					this.lastTalkID = jsonData.dbid
+					this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
+
+					// GameApp.MainPlayer.talkID = jsonData.dbid
+					// Laya.Tween.to(self.curReadInfo, { x: self.curReadInfo.x - self.curReadInfo.width }, 250);
+					// Laya.Tween.to(self.nextReadInfo, { x: self.nextReadInfo.x - self.nextReadInfo.width }, 250);
+					// Laya.Tween.to(self.lastReadInfo, { x: self.lastReadInfo.x - self.lastReadInfo.width }, 250);
+					// Laya.Tween.to(self.curReadInfo, { scaleX: 1 }, 300, null,
+					Laya.Tween.to(self.box2, { x: -640 }, 250, null,
+						Laya.Handler.create(this, () => {
+							if (this.hasLookBack < 0) {
+								this.showPageMsg(1);
+								this.hasLookBack++;
+							} else {
+								this.showPageMsg(this.pageID + 1);
+							}
+
+						}))
+					this.box_jiangLi.visible = true;
+					Laya.Tween.to(this.box_jiangLi, { x: Laya.stage.width / 2, y: Laya.stage.height * 0.8, scaleX: 0.3, scaleY: 0.3 }, 600, null,
+						Laya.Handler.create(this, () => {
+							this.box_jiangLi.visible = false;
+							this.box_jiangLi.pos(this.panel_read.width / 2, this.panel_read.height / 2);
+							this.box_jiangLi.scale(1, 1);
+						})
+					)
+
 				}
 			});
 			// 拉取剧情对白数据
@@ -164,38 +206,85 @@ module view.juQingMode {
 
 		/**
 		 * 添加剧情对白条目
-		 * @param _talkInfo 
-		 * @param needScroll  是否需要滚动
+		 * @param _talkInfo 7条剧情
+		 * @param isFirst  是否是章节首页
+		 * @param index  -1前一页lastReadInfo     0当前页curReadInfo       1后一页nextReadInfo
+		 * @param page    当前页数
+		 * @param totalPage  总页数
+		 * @param volue     篇ID
+		 * @param chapter 章节ID
 		 */
-		public addJuQingTalkItem(_talkInfo: ProtoCmd.itf_JUQING_TALKINFO, needScroll: boolean = true): void {
-			console.log(_talkInfo.msg);
-			// 选项模式决定选哪个对白
-			if (_talkInfo.msg.eventBn.length == 0) {
-				this.SELECT_MODE = true;
-			}
-			let context = this.SELECT_MODE ? _talkInfo.msg.content : _talkInfo.msg.eventBn;
-			let ui_item = null;
-			let npc = _talkInfo.msg.npcid;
-			switch (npc) {
-				case 0:
-					ui_item = new view.juQingMode.JuQingContentV0Item();
-					ui_item.setData(context);
-					break;
-				case 1:
-					ui_item = new view.juQingMode.JuQingContentV1Item();
-					ui_item.setData(context);
-					break
-				default:
-					ui_item = new view.juQingMode.JuQingContentV2Item();
-					ui_item.setData(npc, context);
-					break;
-			}
-			this.vbox_0.addChild(ui_item);
-			if (needScroll) {
-				// 延时两帧滚动
-				Laya.timer.frameOnce(2, this, () => { this.panel_0.scrollTo(0, this.vbox_0.height) });
+		public addJuQingTalkItem(_talkInfo = [], isFirst: boolean, index: number, page: number, totalPage, volue, chapter): void {
+			let num = _talkInfo.length;
+			console.log('tallinfo数量' + num);
+			this.panel_read.numChildren
+			if (index == -1) {
+				this.lastReadInfo = null;
+				this.lastReadInfo = new JuQing_ReadInfo();
+				if (isFirst) {
+					this.lastReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+				} else {
+					this.lastReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+				}
+				this.lastReadInfo.x = 0;
+				this.box3.addChild(this.lastReadInfo)
+
+			} else if (index == 0) {
+				this.curReadInfo = null;
+				this.curReadInfo = new JuQing_ReadInfo();
+				if (isFirst) {
+					this.curReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+				} else {
+					this.curReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+					for (let i in _talkInfo) {
+						if (_talkInfo[i] && _talkInfo[i].mainquestid > 0) {
+							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
+						} else {
+							this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
+						}
+					}
+				}
+				this.curReadInfo.x = 0
+				this.box2.addChild(this.curReadInfo)
+			} else if (index == 1) {
+				this.nextReadInfo = null;
+				this.nextReadInfo = new JuQing_ReadInfo();
+				if (isFirst) {
+					this.nextReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+				} else {
+					this.nextReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+				}
+				this.nextReadInfo.x = 0;
+				this.box1.addChild(this.nextReadInfo)
 			}
 
+
+			// 选项模式决定选哪个对白
+			// if (_talkInfo.msg.eventBn.length == 0) {
+			// 	this.SELECT_MODE = true;
+			// }
+			// let context = this.SELECT_MODE ? _talkInfo.msg.content : _talkInfo.msg.eventBn;
+		}
+		public getPZMsg(pzid) {
+			let pkt1 = new ProtoCmd.QuestClientData();
+			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [pzid], null, this,
+				(jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
+					// 拉取对白
+					if (jsonData.pzid == GameApp.MainPlayer.pianZhangID) {
+						let keys = Object.keys(jsonData.charpterInfo);
+						for (let key of keys) {
+							let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
+							let charpterID = GameApp.MainPlayer.charpterID;
+							// 处理索引
+							charpterInfo.index = key;
+							// 处理挂机效率掉落
+							GameApp.MainPlayer.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+							// // 章节ui
+							// this.lastTalkID = GameApp.MainPlayer.talkID;
+						}
+					}
+				});
+			lcp.send(pkt1);
 		}
 
 
@@ -213,31 +302,22 @@ module view.juQingMode {
 							// 处理索引
 							charpterInfo.index = key;
 							// 处理挂机效率掉落
-							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+							GameApp.MainPlayer.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+
 							// 章节ui
+							this.lastTalkID = GameApp.MainPlayer.talkID;
 							let charpterInfo_ui = new view.juQingMode.JuQingCharpterItem();
 							charpterInfo_ui.setData(charpterInfo);
 							this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
-							// if (this.vbox_zhangJieLeft.numChildren > this.vbox_zhangJieRight.numChildren) {
-							// 	this.vbox_zhangJieRight.addChild(charpterInfo_ui);
-							// }
-							// else {
-							// 	this.vbox_zhangJieLeft.addChild(charpterInfo_ui);
-							// }
-							// 找到自己的章节ID，拿到开始对白ID和结束对白ID
-							if (charpterInfo.zjid == charpterID) {
+
+							if (charpterInfo.zjid < charpterID) {
+								this.updateTalkInfo(charpterID);
+							} else if (charpterInfo.zjid == charpterID) {
+								this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
 								this.updateTalkInfo(charpterID);
 							}
+
 						}
-					};
-					let endTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid;
-					let startTalkId = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
-					let span0 = endTalkId - startTalkId;
-					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
-					if (span1 >= span0) {
-						this.lab_juqingjindu.text = "100%"
-					} else {
-						this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
 					}
 				});
 			lcp.send(pkt1);
@@ -249,8 +329,8 @@ module view.juQingMode {
 				this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
 			}
 			else {
-				// this.btn_next.label = '继 续';
-				this.btn_next.skin = 'image/juQingMode/icon_jixu.png'
+				// this.btn_next.label = '奖励';
+				this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
 			}
 		}
 
@@ -259,24 +339,6 @@ module view.juQingMode {
 		 * @param charpterID 章节ID
 		 */
 		public updateTalkInfo(charpterID): void {
-			// 有对白ID
-			if (GameApp.GameEngine.talkInfo[charpterID]) {
-				let startTalkId = GameApp.GameEngine.allCharpterInfo[charpterID].startdbid;
-				let endTalkId = Math.min(GameApp.MainPlayer.talkID, GameApp.GameEngine.allCharpterInfo[charpterID].enddbid);
-				console.log(startTalkId, endTalkId);
-				for (let i = startTalkId; i <= endTalkId; i++) {
-					let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[charpterID].data[i];
-					this.addJuQingTalkItem(_talkInfo, false)
-				}
-				// return
-			};
-			// 清空数据
-			this.vbox_0.removeChildren();
-			let charpterInfo = GameApp.GameEngine.allCharpterInfo[charpterID];
-			// 章节编号
-			this.lbl_charpterTile.text = '第' +  GameUtil.SectionToChinese(parseInt(charpterInfo.index),0) + '章';
-			// 章节名字
-			this.lbl_charpterName.text = charpterInfo.name;
 			// 拉取章节所有剧情
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_JuQingInfo, [charpterID]);
@@ -288,41 +350,108 @@ module view.juQingMode {
 		 * @param data 
 		 */
 		public updateJuQingTalkInfo(jsonData: { zjid: number, data: any, statetab: any, flag: number }): void {
-			if (GameApp.GameEngine.talkInfo[jsonData.zjid]) {
-				GameApp.GameEngine.talkInfo[jsonData.zjid].statetab = jsonData.statetab;
+			console.log(jsonData);
+			if (GameApp.MainPlayer.talkInfo[jsonData.zjid]) {
+				GameApp.MainPlayer.talkInfo[jsonData.zjid].statetab = jsonData.statetab;
 				// 合并剧情对白
-				Object['assign'](GameApp.GameEngine.talkInfo[jsonData.zjid].data, jsonData.data);
+				Object['assign'](GameApp.MainPlayer.talkInfo[jsonData.zjid].data, jsonData.data);
 				// 剧情拉完了
 				if (jsonData.flag) {
-					// 开始的对白ID
-					let startTalkId = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].startdbid;
-					let endTalkId = Math.min(GameApp.MainPlayer.talkID, GameApp.GameEngine.allCharpterInfo[jsonData.zjid].enddbid)
-					for (let i = startTalkId; i <= endTalkId; i++) {
-						let _talkInfo: ProtoCmd.itf_JUQING_TALKINFO = GameApp.GameEngine.talkInfo[jsonData.zjid].data[i];
-						this.addJuQingTalkItem(_talkInfo, false)
+					if (!this.onlyGet) {
+						this.showPageMsg();
+					} else {
+						this.onlyGet = false;
 					}
-					let endTalkId1 = GameApp.GameEngine.allCharpterInfo[jsonData.zjid].enddbid;
-					// let startTalkId1 = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid;
-					let span0 = endTalkId1 - startTalkId;
-					let span1 = GameApp.GameEngine.mainPlayer.talkID - startTalkId;
-					// if (span1 >= span0) {
-					// 	this.lab_juqingjindu.text = "100%"
-					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
-					// 	this.panel_0.vScrollBar.max = span0 * this.vbox_0.height + 20 * (span0 - 1)
-					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					// } else {
-					// 	this.lab_juqingjindu.text = "" + Math.floor((span1 / span0) * 100) + "%"
-					// 	this.panel_0.vScrollBar.min = this.vbox_0.height
-					// 	this.panel_0.vScrollBar.max = span1 * this.vbox_0.height + 20 * (span1 - 1)
-					// 	this.panel_0.vScrollBar.value = this.panel_0.vScrollBar.max
-					// }
 				}
 			}
 			else {
-				GameApp.GameEngine.talkInfo[jsonData.zjid] = jsonData;
+				GameApp.MainPlayer.talkInfo[jsonData.zjid] = jsonData;
 			}
-
-
+		}
+		public showPageMsg(page = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum) + 1) {
+			this.box1.removeChildren();
+			this.box2.removeChildren();
+			this.box3.removeChildren();
+			let zjid = GameApp.MainPlayer.charpterID
+			let startTalkId = GameApp.MainPlayer.allCharpterInfo[zjid].startdbid;
+			let endTalkId = GameApp.MainPlayer.allCharpterInfo[zjid].enddbid;
+			let curTalkinfoArr = [];
+			let lastTalkinfoArr = [];
+			let nextTalkinfoArr = [];
+			//总页数
+			let totalPage = Math.ceil((GameApp.MainPlayer.allCharpterInfo[zjid].enddbid - startTalkId + 1) / this.maxInfoNum);
+			this.juQingPageID = totalPage;
+			let jsonArr = [];   //把该篇中所有的章节转换成 每页7、8个的 数组
+			this.pageID = page;
+			let curPageID = page; //当前页数对应jsonArr下标
+			for (let i = 0; i < totalPage; i++) {
+				let info = [];
+				for (let p = i * this.maxInfoNum; p < this.maxInfoNum * (i + 1); p++) {
+					info.push(GameApp.MainPlayer.talkInfo[zjid].data[startTalkId + p])
+				}
+				jsonArr.push(info);
+			}
+			let boo = this.isFirstCharpter()
+			this.lab_qingyi.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[1].num + '/ H';
+			this.lab_yueli.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[2].num + '/ H';
+			if (boo) {
+				if (this.pageID == 1) {
+					this.addJuQingTalkItem(lastTalkinfoArr, true, -1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+					this.addJuQingTalkItem(curTalkinfoArr, true, 0, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+					nextTalkinfoArr = jsonArr[page - 1]
+					this.addJuQingTalkItem(nextTalkinfoArr, false, 1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				}
+			} else {
+				let lastID0 = this.getLastCharpterID(zjid);
+				if (lastID0.zjid > 0) {
+					this.onlyGet = true;
+					this.updateTalkInfo(lastID0.zjid)
+				}
+				if (this.pageID == 1) {
+					let lastID = this.getLastCharpterID(zjid);
+					let startTalkId1 = GameApp.MainPlayer.allCharpterInfo[lastID.zjid].startdbid;
+					let endTalkId1 = GameApp.MainPlayer.allCharpterInfo[lastID.zjid].enddbid;
+					let totalPage1 = Math.ceil((endTalkId1 - startTalkId1 + 1) / this.maxInfoNum);
+					let json1 = [];
+					for (let i = 0; i < totalPage1; i++) {
+						let info = [];
+						for (let p = i * this.maxInfoNum; p < this.maxInfoNum * (i + 1); p++) {
+							info.push(GameApp.MainPlayer.talkInfo[lastID.zjid].data[startTalkId1 + p])
+						}
+						json1.push(info);
+						// }
+						// this.updateTalkInfo(lastID.zjid)
+					}
+					lastTalkinfoArr = json1[totalPage1 - 1]
+					// this.onlyGet = false;
+					this.addJuQingTalkItem(lastTalkinfoArr, false, -1, totalPage1, totalPage1, lastID.pzid, lastID.zjid)
+					this.addJuQingTalkItem(curTalkinfoArr, true, 0, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+					nextTalkinfoArr = jsonArr[page - 1]
+					this.addJuQingTalkItem(nextTalkinfoArr, false, 1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				}
+			}
+			if (this.pageID == 2) {
+				this.addJuQingTalkItem(lastTalkinfoArr, true, -1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				curTalkinfoArr = jsonArr[page - 2]
+				this.addJuQingTalkItem(curTalkinfoArr, false, 0, page - 1, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				nextTalkinfoArr = jsonArr[page - 1]
+				this.addJuQingTalkItem(nextTalkinfoArr, false, 1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+			} else if (this.pageID > 2 && this.pageID <= totalPage) {
+				lastTalkinfoArr = jsonArr[page - 3]
+				this.addJuQingTalkItem(lastTalkinfoArr, false, -1, page - 2, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				curTalkinfoArr = jsonArr[page - 2]
+				this.addJuQingTalkItem(curTalkinfoArr, false, 0, page - 1, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				nextTalkinfoArr = jsonArr[page-1]
+				this.addJuQingTalkItem(nextTalkinfoArr, false, 1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+			}
+			else if (this.pageID == totalPage + 1) {
+				lastTalkinfoArr = jsonArr[this.pageID - 3]
+				this.addJuQingTalkItem(lastTalkinfoArr, false, -1, this.pageID - 2, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				curTalkinfoArr = jsonArr[this.pageID - 2]
+				this.addJuQingTalkItem(curTalkinfoArr, false, 0, this.pageID - 1, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
+				let next = this.getNextCharpterID(zjid);
+				this.addJuQingTalkItem(nextTalkinfoArr, true, 1, page, totalPage, next.pzid, next.zjid)
+			}
 		}
 
 		// 选项类型
@@ -364,6 +493,198 @@ module view.juQingMode {
 			this.box_pianZhang.event(Laya.UIEvent.MOUSE_UP, [true]);
 			// 拉取剧情
 			this.updateTalkInfo(item.charpterInfo.zjid);
+		}
+
+
+
+		//是否是第一篇的第一章
+		public isFirstCharpter() {
+			let zjid = GameApp.MainPlayer.charpterID;
+			if (zjid > 10001) {
+				return false;
+			} else {
+				return true;
+			}
+
+		}
+		//获取下一个章节ID
+		public getNextCharpterID(curCharpterID) {
+			let pidArr = []
+			for (let i in this.volumeArr) {
+				pidArr.push(this.volumeArr[i].cnt)
+			}
+			let next = curCharpterID - 10001 + 10002;
+			let pid;
+			for (let i = 0; i < pidArr.length; i++) {
+				let span = next - 10001
+				if (span >= pidArr[0]) {
+					if (span < pidArr[i] + pid[i - 1]) {
+						pid = i + 1
+					}
+				} else {
+					pid = 1
+				}
+			}
+			let volumeID = this.volumeArr[pid].id;
+			return { pzid: volumeID, zjid: next }
+		}
+		//获取上一个章节ID
+		public getLastCharpterID(curCharpterID) {
+			let pidArr = []
+			for (let i in this.volumeArr) {
+				pidArr.push(this.volumeArr[i].cnt)
+			}
+			let next = curCharpterID - 10001
+			let pid;
+			if (next <= 0) {
+				return { pzid: 1001, zjid: -1 }
+			} else {
+				next += 10000
+			}
+			for (let i = 0; i < pidArr.length; i++) {
+				let span = next - 10001
+				if (span >= pidArr[0]) {
+					if (span < pidArr[i] + pid[i - 1]) {
+						pid = i + 1
+					}
+				} else {
+					pid = 1
+				}
+			}
+			let volumeID = this.volumeArr[pid].id;
+			return { pzid: volumeID, zjid: next }
+		}
+		public boxStartX;
+		public BoxEventListener() {
+			let self = this;
+			this.panel_read.on(Laya.Event.MOUSE_DOWN, this, function (ev) {
+				self.boxStartX = self.getPosX(ev);
+				self.touchBeginX = self.getPosX(ev)
+				self.isTouch = true;
+			})
+			this.panel_read.on(Laya.Event.MOUSE_MOVE, this, function (ev) {
+				// console.log('鼠标正在移动0')
+				if (self.isTouch) {
+					// console.log('鼠标正在移动1')
+					let curX = self.getPosX(ev);
+					let span = curX - self.boxStartX;
+					if (span > 0) {
+						self.box3.x += span;
+						self.boxStartX = curX;
+						// console.log('鼠标正在移动box3X' + self.box3.x)
+					}
+					else if (span == 0) {
+						self.initBox();
+					}
+					else if (span < 0) {
+						self.box2.x += span;
+						self.boxStartX = curX;
+					}
+				}
+
+			})
+			this.panel_read.on(Laya.Event.MOUSE_UP, this, function (ev) {
+				// console.log('鼠标抬起')
+				if (self.isTouch) {
+					self.isTouch = false;
+					self.dealEventMouse(ev)
+				}
+			})
+			this.panel_read.on(Laya.Event.MOUSE_OUT, this, function (ev) {
+				// console.log('鼠标失去')
+				if (self.isTouch) {
+					self.isTouch = false;
+					self.dealEventMouse(ev)
+				}
+
+			})
+		}
+		public dealEventMouse(ev) {
+			let self = this;
+			let curX = self.getPosX(ev);
+			let span = curX - self.touchBeginX;
+			if (span > 0) {
+				if (span >= Laya.stage.width / 3) {
+					let basePage = this.pageID;
+					basePage -= 1;
+					if (basePage <= 0) {
+						this.isTouch = false;
+						this.touchEndX = 0;
+						let lastID = this.getLastCharpterID(GameApp.MainPlayer.charpterID)
+						if (GameApp.MainPlayer.pianZhangID != lastID.pzid) {
+							GameApp.MainPlayer.pianZhangID = lastID.pzid;
+							self.getPZMsg(lastID.pzid)
+						}
+						GameApp.MainPlayer.talkID = GameApp.MainPlayer.allCharpterInfo[lastID.zjid].enddbid;
+						GameApp.MainPlayer.charpterID = lastID.zjid;
+						this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
+						if (lastID.zjid) {
+							Laya.Tween.to(self.box3, { x: 0 }, 250, null, Laya.Handler.create(self, () => {
+								self.initBox();
+								this.updateTalkInfo(lastID.zjid);
+								this.hasLookBack--;
+							}))
+						} else {
+							return;
+						}
+
+						return;
+					}
+					else {
+						Laya.Tween.to(self.box3, { x: 0 }, 250, null, Laya.Handler.create(self, () => {
+							self.initBox();
+							self.showPageMsg(self.pageID - 1)
+						}))
+					}
+				} else {
+					Laya.Tween.to(self.box3, { x: -640 }, 250);
+				}
+			} else if (span == 0) {
+				self.initBox();
+			}
+			else if (span < 0) {
+				console.log('该剧情最大页数' + this.juQingPageID)
+				if (Math.abs(span) >= Laya.stage.width / 3) {
+					if (this.pageID > this.juQingPageID) {
+						let next = this.getNextCharpterID(GameApp.MainPlayer.charpterID)
+						let zjidInTalkInfoArr = Object.keys(GameApp.MainPlayer.talkInfo);
+						if (next.zjid <= parseInt(zjidInTalkInfoArr[zjidInTalkInfoArr.length - 1])) {
+							Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
+								GameApp.MainPlayer.charpterID = next.zjid;
+								self.initBox();
+								self.showPageMsg(1)
+							}))
+						} else {
+							let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+							lcp.send(pkt);
+						}
+
+
+					} else {
+						Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
+							self.initBox();
+							self.showPageMsg(self.pageID + 1)
+						}))
+					}
+				} else if (Math.abs(span) < Laya.stage.width / 2) {
+					Laya.Tween.to(self.box2, { x: 0 }, 250);
+				}
+
+			}
+		}
+
+		//获得当前鼠标坐标
+		public getPosX(ev) {
+			let x = ev.stageX;
+			return x;
+		}
+		public moveBox(out_X: number) {
+			let span = out_X - this.touchBeginX;
+
+		}
+		public initBox() {
+			this.box2.x = this.box1.x = this.box2.y = this.box1.y = this.box3.y = 0;
+			this.box3.x = -640;
 		}
 	}
 }

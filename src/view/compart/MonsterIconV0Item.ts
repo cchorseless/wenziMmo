@@ -8,7 +8,7 @@ module view.compart {
 		public setData(charpterID, key: string, data: { lv: number, monsterid: number, need: number, star: number, type: number }) {
 			this.ceng = parseInt(key);
 			// 关卡名称
-			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.MainPlayer.allCharpterInfo[charpterID];
 			if (charpterInfo) {
 				this.lbl_name.text = charpterInfo.name;
 			}

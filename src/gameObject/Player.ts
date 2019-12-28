@@ -59,6 +59,12 @@ module GameObject {
         // ****************行会********************
         public guildInfo: ProtoCmd.stSingleGuildinfoBase;// 行会信息
         // *****************剧情*******************
+        public talkInfo = {};// 所有对白信息
+        public allCharpterInfo = {};//一篇里面所有章节的掉落信息{{章节ID：章节info}}
+        public volumeCharpterInfo = {}//章节信息
+
+        public pagesNum:{[index:number]:number} = {};  //当前已开启章节的总页数
+
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
         public talkID: number;// 对白ID

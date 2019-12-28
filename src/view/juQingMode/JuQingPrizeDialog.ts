@@ -46,7 +46,7 @@ module view.juQingMode {
 			})
 			lcp.send(pkt);
 			// 掉落信息
-			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[GameApp.MainPlayer.charpterID];
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID];
 			if (charpterInfo) {
 				// 章节名称
 				this.lbl_charpterName.text = '' + charpterInfo.name;

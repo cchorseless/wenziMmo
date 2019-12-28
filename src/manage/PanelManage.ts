@@ -83,6 +83,10 @@ module PanelManage {
     export let EastMap: view.map.BigMap_DongLuPanel;//东陆地图界面
     export let WorldMap: view.map.WorldMapPanel;//世界地图界面
     export let JuQingMode: view.juQingMode.JuQingModePanel;//剧情模式界面
+
+    export let NewJuQing: view.juQingMode.JuQing_NewMainPanel;//剧情模式界面
+
+
     export let RankMain: view.rank.Rank_MainPanel;//排行榜主界面
 
 

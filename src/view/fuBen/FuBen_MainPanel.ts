@@ -86,7 +86,7 @@ module view.fuBen {
 							charpterTitle_ui.setData(charpterInfo);
 							this.hbox_0.addChild(charpterTitle_ui);
 							// 更新章节信息
-							GameApp.GameEngine.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
+							GameApp.MainPlayer.allCharpterInfo[charpterInfo.zjid] = charpterInfo;
 						}
 						this.lbl_pianZhangLV.text = '第' + GameUtil.SectionToChinese(nowLv, 0) + '章';
 						// 更新单个章节的信息
@@ -103,7 +103,7 @@ module view.fuBen {
 		public updateMainFuBenInfo(charpterID: number): void {
 			this.hbox_1.removeChildren();
 			// 关卡名称
-			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.GameEngine.allCharpterInfo[charpterID];
+			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.MainPlayer.allCharpterInfo[charpterID];
 			if (charpterInfo) {
 				// 章节标题信息
 				// this.lbl_charpterName.text = '第' + charpterInfo.index + '章 ' + charpterInfo.name;

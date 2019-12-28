@@ -23,7 +23,8 @@ module view.juese {
 		public addEvent(): void {
 			this.btn_preview.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new Person_ShengWangPreviewDialog();
-				o.setData(this.data.titletab)
+				let data = GameApp.MainPlayer.fameInfo;
+				o.setData(data.titletab)
 				o.show();
 			})
 
