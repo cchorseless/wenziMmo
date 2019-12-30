@@ -213,6 +213,9 @@ module view.main {
 					new view.main.Main_BriskDialog().popup();
 				}
 			})
+			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
+				new view.dialog.TaskDialog().popup();
+			})
 			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, function () {
 				this.touchTaskNum++;
 				this.touchActNum = 0;
@@ -354,7 +357,7 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
 			//篇章信息
 			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_ZHANGJIE, this, (jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
-				this.init_novelPian(jsonData);
+				this.init_novelPian(jsonData, undefined);
 			});
 			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
@@ -380,7 +383,7 @@ module view.main {
 			panel.addChild(this.box_top);
 			panel.addChild(this.box_menu);
 			if (panel == this) {
-				if (this.view_scene.selectedIndex ==0) {
+				if (this.view_scene.selectedIndex == 0) {
 					this.box_menu.visible = true;
 				} else {
 					this.box_menu.visible = false;
@@ -1023,63 +1026,113 @@ module view.main {
 					btn_Pian.mouseEnabled = false;
 				}
 				btn_Pian.stateNum = 1;
-				btn_Pian.labelFont = 'FZXK';
 				btn_Pian.labelSize = 22;
-				btn_Pian.width = 162;
-				btn_Pian.height = 41;
 				btn_Pian.x = 0;
-				btn_Pian.name = '1';
-				btn_Pian.y = (btn_Pian.height + 10) * i;
-				this.panel_list.addChild(btn_Pian);
+				btn_Pian.y = 0;
+				let tab_juqing = new Laya.Tab;
+				tab_juqing.stateNum = 2;
+				tab_juqing.direction = 'vertical';
+				tab_juqing.skin = 'image/main/main_zonglan/btn_zhangjie.png';
+				tab_juqing.scaleY = 0;
+				tab_juqing.y = btn_Pian.height + 10;
+				tab_juqing.x = 25;
+				tab_juqing.space = 10;
+				tab_juqing.labelColors = '#8c6240,#18466b';
+				tab_juqing.labelSize = 20;
+				tab_juqing.labelFont = btn_Pian.labelFont = 'FZXK';
+				let box_juqing = new Laya.Box;
+				box_juqing.width = btn_Pian.width = 162;
+				box_juqing.height = btn_Pian.height = 41;
+				box_juqing.addChildren(btn_Pian, tab_juqing);
+				box_juqing.y = (box_juqing.height + 10) * i;
+				this.panel_list.addChild(box_juqing);
 				btn_Pian.on(Laya.UIEvent.CLICK, this, () => {
-					btn_Pian.selected = !btn_Pian.selected;
-					this.getPanelMsg(btn_Pian.selected, pianzhang[pian][0]);
+					if (btn_Pian.mouseEnabled) {
+						btn_Pian.selected = !btn_Pian.selected;
+						this.getPanelMsg(btn_Pian.selected, pianzhang[pian][0]);
+					}
 				})
 				i += 1;
 			}
+			this.getPanelMsg(true, GameApp.MainPlayer.pianZhangID.toString());
 		}
-		public getPanelMsg(isopen, i) {
+		public getPanelMsg(isopen, id) {
 			if (isopen) {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [i])
+				pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [id])
 				lcp.send(pkt);
 			} else {
-				this.init_novelPian(undefined);
+				this.init_novelPian(undefined, id);
 			}
 		}
-		public init_novelPian(jsonData): void {
+		public init_novelPian(jsonData, id): void {
 			if (jsonData) {
-				let num = jsonData.pzid - 1000 - 1;
-				let sign = 0;
-				let index;
-				for (let child in this.panel_list._childs[0]._childs) {
-					if (this.panel_list._childs[0]._childs[child].name == '1') {
-						if (num == sign) {
-							index = parseInt(child);
-							return
-						} else {
-							sign += 1;
-						}
-					}
-				}
-				let tab_chapter = new Laya.Tab;
-				tab_chapter.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-				tab_chapter.stateNum = 2;
-				tab_chapter.selectedIndex = 0;
-				let label = [];
-				for (let chapter of jsonData.charpterInfo) {
-					if (label == null) {
-						label.push(chapter.name);
+				let label;
+				for (let index in jsonData.charpterInfo) {
+					let part = jsonData.charpterInfo[index];
+					if (label == undefined) {
+						label = part.name;
 					} else {
-						label.push(',' + chapter.name);
+						label = label + ',' + part.name;
 					}
 				}
-				tab_chapter.y = this.panel_list._childs[0]._childs.height + this.panel_list._childs[0]._childs.y;
-				this.panel_list.addChild(tab_chapter);
+				let name0 = SheetConfig.juQingPianZhangSheet.getInstance(null).NAME('' + jsonData.pzid);
+				for (let child of this.panel_list._childs[0]._childs) {
+					if (child._childs[0].label == name0) {
+						child._childs[1].labels = label;
+						child._childs[1].scaleY = 1;
+						child.height = child._childs[0].height + child._childs[1].height;
+						child._childs[1].selectedIndex = 0;
+						this.init_chapter(jsonData, 1)
+						child._childs[1].selectHandler = Laya.Handler.create(this, (index) => {
+							let tabNum = index + 1;
+							this.init_chapter(jsonData, tabNum)
+						}, null, false);
+						break;
+					}
+				}
+
+			} else {
+				let name1 = SheetConfig.juQingPianZhangSheet.getInstance(null).NAME('' + id);
+				for (let box_juqing of this.panel_list._childs[0]._childs) {
+					if (box_juqing._childs[0].label == name1) {
+						box_juqing._childs[1].scaleY = 0;
+						box_juqing.width = 162;
+						box_juqing.height = 41;
+						break;
+					}
+				}
 			}
-			//卷名
-			this.lbl_juan.text = GameApp.MainPlayer.pianZhangName;
-			// tab_chapter.labels =
+			for (let key in this.panel_list._childs[0]._childs) {
+				let item = this.panel_list._childs[0]._childs[key];
+				let item1 = this.panel_list._childs[0]._childs[parseInt(key) - 1];
+				if (item1) {
+					item.y = (item1.y + item1.height + 10);
+				} else {
+					item.y = 0;
+				}
+			}
+		}
+		public init_chapter(data, index): void {
+			this.lbl_zhang.text = '第' + index + '章';
+			this.lbl_chapterName.text = data.charpterInfo[index].name;
+			this.lbl_des.text = data.charpterInfo[index].intro;
+			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+			this.div_zhuxiandes.style.color = '#63491a';
+			this.div_zhuxiandes.style.fontSize = 22;
+			this.div_zhuxiandes.style.font = 'STLiti';
+			for (let i in zhuxianTask) {
+				let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
+				this.lbl_zhuxianName.text = taskInfo.questname.split(':')[1];
+				this.div_zhuxiandes.innerHTML = taskInfo.des;
+				if (taskInfo.queststatus < 3) {
+					this.lbl_zhuxianState.text = '未完成';
+					this.lbl_zhuxianState.color = '#c43939';
+				} else {
+					this.lbl_zhuxianState.text = '已完成';
+					this.lbl_zhuxianState.color = '#39ad32';
+				}
+			}
 		}
 	}
 }
