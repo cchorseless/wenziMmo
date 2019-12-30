@@ -6,6 +6,8 @@ module view.juQingMode {
 		public nextReadInfo: JuQing_ReadInfo;
 		public handler: Laya.Handler = null;
 
+		public isJuQing = false;  //当前页是否有剧情
+
 		public muluItem: JuQing_MuLu;
 
 		public onlyGet = false;
@@ -97,6 +99,15 @@ module view.juQingMode {
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();
 			});
+			EventManage.onWithEffect(this.btn_tianjian, Laya.Event.CLICK, this, function () {
+				let pkt1 = new ProtoCmd.QuestClientData();
+				pkt1.setString(ProtoCmd.SpecialRingPanel, null, 0, this, function (data) {
+					let o = new tianJian.TianJianPanel();
+					o.setData(data);
+					o.popup();
+				})
+				pkt1.send();
+			})
 
 			// 奖励
 			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
@@ -233,12 +244,17 @@ module view.juQingMode {
 					this.curReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
 				} else {
 					this.curReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
+					this.isJuQing = false;
 					for (let i in _talkInfo) {
+						// this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
 						if (_talkInfo[i] && _talkInfo[i].mainquestid > 0) {
-							this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
-						} else {
-							this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
+							this.isJuQing = true;
 						}
+					}
+					if (this.isJuQing) {
+						this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
+					} else {
+						this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
 					}
 				}
 				this.curReadInfo.x = 0
@@ -611,6 +627,12 @@ module view.juQingMode {
 					let basePage = this.pageID;
 					basePage -= 1;
 					if (basePage <= 0) {
+						let boo = this.isFirstCharpter()
+						if(boo){
+							TipsManage.showTips('已经是第一章了')
+							this.initBox();
+							return;
+						}
 						this.isTouch = false;
 						this.touchEndX = 0;
 						let lastID = this.getLastCharpterID(GameApp.MainPlayer.charpterID)
@@ -667,14 +689,20 @@ module view.juQingMode {
 					} else {
 						if (this.hasLookBack < 0) {
 							this.showPageMsg(this.pageID + 1);
-						} else if (this.hasLookBack == 0){
+						} else if (this.hasLookBack == 0) {
 							let startID = GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid
 							let nowPageTalkID = this.curReadInfo.pageID * this.maxInfoNum + startID - 1
 							if (nowPageTalkID < GameApp.MainPlayer.talkID) {
 								this.showPageMsg(this.pageID + 1);
 							} else {
-								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
-								lcp.send(pkt);
+								if (this.isJuQing) {
+									TipsManage.showTips('剧情任务未完成')
+									this.initBox();
+								} else {
+									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+									lcp.send(pkt);
+								}
+
 							}
 						}
 

@@ -552,6 +552,7 @@ module GameUtil {
 
     // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
     export function parseTaskInfo(str: string, finishHander: Laya.Handler = null) {
+        console.log(str);
         let handleList = str.split('|');
         let toDoList = { endPanel: null };
         for (let singleHandle of handleList) {
@@ -570,11 +571,11 @@ module GameUtil {
                             toDoList['JuQingMode'] = ['btn_changeMode'];
                             break;
                         // // 天鉴界面
-                        // case 'TianJian':
-                        //     toDoList['JuQingMode'] = ['btn_tianJian'];
-                        //     toDoList['Main'] = ['btn_changeMode'];
-                        //     toDoList['TaskMain'] = ['btn_back'];
-                        //     break;
+                        case 'TianJian':
+                            toDoList['JuQingMode'] = ['btn_tianjian'];
+                            toDoList['Main'] = ['btn_changeMode'];
+                            toDoList['TaskMain'] = ['btn_back'];
+                            break;
                         // 阅读小说界面
                         case 'JuQingMode':
                             toDoList['JuQingMode'] = [];
@@ -616,9 +617,11 @@ module GameUtil {
                 // 按钮
                 case 'button':
                     toDoList[toDoList.endPanel].push(info);
+                    
                     break;
             }
         }
+        console.log('todoList',toDoList)
         // 循环函数
         Laya.timer.clear(this, GameUtil.loopFuncTask);
         Laya.timer.frameLoop(20, this, GameUtil.loopFuncTask, [toDoList, finishHander]);

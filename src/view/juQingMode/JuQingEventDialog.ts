@@ -1,6 +1,7 @@
 /**Created by the LayaAirIDE*/
 module view.juQingMode {
 	export class JuQingEventDialog extends ui.juQingMode.JuQingEventDialogUI {
+		
 		constructor() {
 			super();
 		}

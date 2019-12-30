@@ -257,7 +257,7 @@ module view.dialog {
 				this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
 			}
 			for (let i = 0; i < effData1.des.length; i++) {
-				this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(effData0.des[i]));
+				this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(effData1.des[i]));
 			}
 		}
 		//重置list中子项的点击状态
