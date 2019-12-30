@@ -17,11 +17,13 @@ module view.juese {
 				this.viw_equip.selectedIndex = 0;
 				this.lab_title.text = "等级大师";
 				this.equipView();
+				this.lab_txt.text = '可前往 福州城-武器铺 打造装备'
 			}
 			else if (type == 1) {
 				this.viw_equip.selectedIndex = 1;
 				this.lab_title.text = "精炼大师";//（魂石）
 				this.soulView()
+				this.lab_txt.text = '可前往 福州城-武器铺 精炼装备'
 			}
 			this.addEvent();
 		}

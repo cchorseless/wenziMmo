@@ -930,83 +930,67 @@ module view.main {
 			GameApp.MainPlayer.EquipmentNum[1] = curSoulStoneLv + "/" + (k + 1) * 60;
 			//强化大师达标装备数量
 			let lv = this.onLvIntensify();
-			GameApp.MainPlayer.EquipmentNum[2] = lv + '/10)';
+			GameApp.MainPlayer.EquipmentNum[2] = '(' + lv[0] + '/10)';
 		}
 		/**
 		 * 强化大师达标装备数量
 		 */
-		private onLvIntensify(): number {
-			let curLv = 3;
-			let allStrongerData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
+		private onLvIntensify() {
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
+			let curlv = 3
+			let nextlv = 5
 			//各强化等级的的装备个数
-			let lv3 = 0;
-			let lv5 = 0;
-			let lv7 = 0;
-			let lv9 = 0;
-			let lv11 = 0;
-			let lv13 = 0;
-			let lv15 = 0;
 			if (type == 1) {
-				aa = allStrongerData.herojson;
+				aa = GameApp.GameEngine.mainPlayer.playerEquipIntensify.herojson;
 			}
 			else {
-				aa = allStrongerData.playerjson;
+				aa = GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson;
 			}
+			let arrLV = []
 			for (let i in aa) {
-				if (aa[i] >= 3) {
-					lv3++;
-					if (aa[i] >= 5) {
-						lv5++;
-						if (aa[i] >= 7) {
-							lv7++;
-							if (aa[i] >= 9) {
-								lv9++;
-								if (aa[i] >= 11) {
-									lv11++;
-									if (aa[i] >= 13) {
-										lv13++;
-										if (aa[i] >= 15) {
-											lv15++;
-										}
-									}
-								}
-							}
-						}
+				arrLV.push(aa[i])
+			}
+			arrLV.sort(function (a, b) {
+				return (a - b);
+			})
+			let minLv = arrLV[0]
+			let arr = [];
+			for (let i in GameApp.GameEngine.mainPlayer.playerEquipIntensify.sooulchaintab) {
+				arr.push(GameApp.GameEngine.mainPlayer.playerEquipIntensify.sooulchaintab[i].minlvl)
+			}
+			for (let i = 0; i < arr.length; i++) {
+				if (i <= 0) {
+					if (minLv < arr[0]) {
+						curlv = arr[0];
+						nextlv = arr[1];
+						break;
 					}
-
-
+				}
+				else if (i > 0 && i < arr.length - 1) {
+					if (minLv < arr[i]) {
+						curlv = arr[i - 1];
+						nextlv = arr[i];
+						break;
+					}
+				} else {
+					curlv = arr[arr.length - 1];
+					nextlv = arr[arr.length - 1];
 				}
 			}
-			if (lv15 >= 10 && lv13 >= 10) {
-				curLv = 15;
-				return lv15;
+			let curNum = 0;
+			for (let i = 0; i < arrLV.length; i++) {
+				if (curlv <= arrLV[i]) {
+					curNum++;
+				}
 			}
-			else if (lv13 <= 10 && lv11 >= 10) {
-				curLv = 13;
-				return lv13;
+			let nextNum = 0;
+			for (let i = 0; i < arrLV.length; i++) {
+				if (nextlv <= arrLV[i]) {
+					nextNum++;
+				}
 			}
-			else if (lv11 <= 10 && lv9 >= 10) {
-				curLv = 11;
-				return lv11;
-			}
-			else if (lv9 <= 10 && lv7 >= 10) {
-				curLv = 9;
-				return lv9;
-			}
-			else if (lv7 <= 10 && lv5 >= 10) {
-				curLv = 7;
-				return lv7;
-			}
-			else if (lv5 <= 10 && lv3 >= 10) {
-				curLv = 5;
-				return lv5;
-			}
-			else if (lv3 <= 10) {
-				curLv = 3;
-				return lv3;
-			}
+			return [curNum, nextNum];
 		}
 		public get_novelPian(): void {
 			this.panel_list.vScrollBarSkin = '';
