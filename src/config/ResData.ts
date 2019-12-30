@@ -264,6 +264,7 @@ module ResData {
             { url: 'fonts/FZXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZXK' },
             { url: 'fonts/FZHL.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZHL' },
             { url: 'fonts/FZLB.ttf', type: Laya.Loader.TTF, TTFNAME: 'FZLB' },
+            { url: 'fonts/HWXK.ttf', type: Laya.Loader.TTF, TTFNAME: 'HWXK' },
         ]
     }
 
