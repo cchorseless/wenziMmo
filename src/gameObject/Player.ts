@@ -36,7 +36,8 @@ module GameObject {
         public xingGeInfo;
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
-
+        //等级精炼强化达标装备数量
+        public EquipmentNum=[];
         /**
          * 聊天设置
          */
@@ -63,7 +64,7 @@ module GameObject {
         public allCharpterInfo = {};//一篇里面所有章节的掉落信息{{章节ID：章节info}}
         public volumeCharpterInfo = {}//章节信息
 
-        public pagesNum:{[index:number]:number} = {};  //当前已开启章节的总页数
+        public pagesNum: { [index: number]: number } = {};  //当前已开启章节的总页数
 
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
