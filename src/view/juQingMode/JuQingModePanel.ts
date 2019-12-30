@@ -683,7 +683,7 @@ module view.juQingMode {
 								// lcp.send(pkt);
 							}))
 						} else {
-							let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+							let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum])
 							lcp.send(pkt);
 						}
 					} else {
@@ -699,7 +699,7 @@ module view.juQingMode {
 									TipsManage.showTips('剧情任务未完成')
 									this.initBox();
 								} else {
-									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [GameApp.MainPlayer.charpterID])
+									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum],)
 									lcp.send(pkt);
 								}
 

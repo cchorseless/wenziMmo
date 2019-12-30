@@ -6,6 +6,9 @@ module view.zhaiYuan {
 		private canIntensify: boolean = false; //能否强化
 		private allData;//下面的面板十个item数据
 		private msgData;//上面的面板的详细信息数 
+		public arrLV = []
+		public curLv = 3;
+		public nextLv = 5;
 
 		public isFullLv = false;
 		private equipNameArr = ['头盔', '项链', '衣服', '武器', '左手镯', '右手镯', '左戒指', '右戒指', '鞋子', '裤子']
@@ -131,7 +134,7 @@ module view.zhaiYuan {
 			let baseArr = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 			let useID = baseArr[this.TouchID]
 			let starSkin = ["image/common/fram_common_22_finish.png", "image/common/fram_common_38_finish.png", "", "", "", ""]
-			this.lab_equipText.text = "(" + this.onShowIntensifyNum() + "/10)";
+			this.lab_equipText.text = "(" + this.onLvIntensify()[0] + "/10)";
 			let effid0;
 			let effData0;
 			let effid1;
@@ -194,72 +197,61 @@ module view.zhaiYuan {
 		/**
 		 * 获取当前强化阶段3、5、7、9、11、13、15      用于左上角显示当前阶数
 		 */
-		private onShowIntensifyNum(): number {
+		private onLvIntensify() {
+			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
-			let lv3 = 0;
-			let lv5 = 0;
-			let lv7 = 0;
-			let lv9 = 0;
-			let lv11 = 0;
-			let lv13 = 0;
-			let lv15 = 0;
-			if (this.type == 1) {
+			//各强化等级的的装备个数
+			if (type == 1) {
 				aa = this.allData.herojson;
 			}
 			else {
 				aa = this.allData.playerjson;
 			}
+			this.arrLV = []
 			for (let i in aa) {
-				if (aa[i] >= 3) {
-					lv3++;
-					if (aa[i] >= 5) {
-						lv5++;
-						if (aa[i] >= 7) {
-							lv7++;
-							if (aa[i] >= 9) {
-								lv9++;
-								if (aa[i] >= 11) {
-									lv11++;
-									if (aa[i] >= 13) {
-										lv13++;
-										if (aa[i] >= 15) {
-											lv15++;
-										}
-									}
-								}
-							}
-						}
+				this.arrLV.push(aa[i])
+			}
+			this.arrLV.sort(function (a, b) {
+				return (a - b);
+			})
+			let minLv = this.arrLV[0]
+			let arr = [];
+			for (let i in this.allData.sooulchaintab) {
+				arr.push(this.allData.sooulchaintab[i].minlvl)
+			}
+			for (let i = 0; i < arr.length; i++) {
+				if (i <= 0) {
+					if (minLv < arr[0]) {
+						this.curLv = arr[0];
+						this.nextLv = arr[1];
+						break;
 					}
 				}
+				else if (i > 0 && i < arr.length - 1) {
+					if (minLv < arr[i]) {
+						this.curLv = arr[i - 1];
+						this.nextLv = arr[i];
+						break;
+					}
+				} else {
+					this.curLv = arr[arr.length - 1];
+					this.nextLv = arr[arr.length - 1];
+					break;
+				}
 			}
-			if (lv15 == 10) {
-				this.lvNum = 15;
-				return lv15;
+			let curNum = 0;
+			for (let i = 0; i < this.arrLV.length; i++) {
+				if (this.curLv <= this.arrLV[i]) {
+					curNum++;
+				}
 			}
-			else if (lv13 == 10) {
-				this.lvNum = 13;
-				return lv13;
+			let nextNum = 0;
+			for (let i = 0; i < this.arrLV.length; i++) {
+				if (this.nextLv <= this.arrLV[i]) {
+					nextNum++;
+				}
 			}
-			else if (lv11 == 10) {
-				this.lvNum = 11;
-				return lv11;
-			}
-			else if (lv9 == 10) {
-				this.lvNum = 9;
-				return lv9;
-			}
-			else if (lv7 == 7) {
-				this.lvNum = 7;
-				return lv7;
-			}
-			else if (lv5 == 10) {
-				this.lvNum = 5;
-				return lv5;
-			}
-			else if (lv3 <= 10) {
-				this.lvNum = 3;
-				return lv3;
-			}
+			return [curNum, nextNum];
 		}
 		//点击强化，发送强化事件
 		public sendIntensify() {

@@ -4,6 +4,8 @@ module view.juese {
 		// public curEquipLv: number = 3;
 		public allData = null;
 		public curLv = 3; //当前是强化到第几阶段
+		public nextLv = 5; //当前是强化到第几阶段
+		public arrLV = [];
 		constructor() {
 			super();
 		}
@@ -11,31 +13,53 @@ module view.juese {
 			this.vbox_intensify['sortItem'] = (items) => { };
 			let arr = ["头盔", "项链", "衣服", "武器", "手镯", "手镯", "戒指", "戒指", "鞋", "腰带"]
 			this.allData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
-			let lv = this.onLvIntensify();
+			let lvNum = this.onLvIntensify();
 			for (let i = 0; i < 10; i++) {
 				this['btn_equip' + i].label = arr[i];
 				this['btn_equip' + i].selected = false;
+				this['btn_equip1_' + i].label = arr[i];
+				this['btn_equip1_' + i].selected = false;
 			}
-			this.lab_result_intensify.text = "所有装备位强化:" + this.curLv + "(" + lv + "/10)";
-			let effid: number;
-			for (let i in this.allData.sooulchaintab) {
-				if (parseInt(i) == 1) {
-					if (this.curLv <= this.allData.sooulchaintab[i].maxlvl) {
-						effid = this.allData.sooulchaintab[i].effid
+			this.lab_result_intensify.text = "所有装备位强化:" + this.curLv + "(" + lvNum[0] + "/10)";
+			if (this.curLv < 30) {
+				this.lab_result_intensify1.text = "所有装备位强化:" + this.nextLv + "(" + lvNum[1] + "/10)";
+				let effid: number;
+				let effid1: number;
+				for (let i in this.allData.sooulchaintab) {
+					if (this.curLv == this.allData.sooulchaintab[i].minlvl) {
+						effid = this.allData.sooulchaintab[i].effid;
 					}
-				} else if (parseInt(i) > 1) {
-					if (this.curLv >= this.allData.sooulchaintab[i].minlvl && this.curLv <= this.allData.sooulchaintab[i].maxlvl) {
-						effid = this.allData.sooulchaintab[i].effid
-					} else if (this.curLv >= this.allData.sooulchaintab[i].minlvl && this.curLv >= this.allData.sooulchaintab[i].maxlvl) {
-						effid = this.allData.sooulchaintab[i].effid
+					if (this.nextLv == this.allData.sooulchaintab[i].minlvl) {
+						effid1 = this.allData.sooulchaintab[i].effid;
 					}
 				}
+				let effData = GameUtil.parseEffectidToObj([effid + ""])
+				let effData1 = GameUtil.parseEffectidToObj([effid1 + ""])
+				this.vbox_intensify.removeChildren();
+				for (let i = 0; i < effData.des.length; i++) {
+					this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]))
+				}
+				this.vbox_intensify1.removeChildren();
+				for (let i = 0; i < effData1.des.length; i++) {
+					this.vbox_intensify1.addChild(new view.compart.SinglePropsItem().setData(effData1.des[i]))
+				}
+			} else {
+				this.lab_result_intensify1.text = "所有装备位强化:已满级";
+				let effid: number;
+				for (let i in this.allData.sooulchaintab) {
+					if (this.curLv == this.allData.sooulchaintab[i].minlvl) {
+						effid = this.allData.sooulchaintab[i].effid;
+					}
+				}
+				let effData = GameUtil.parseEffectidToObj([effid + ""])
+				this.vbox_intensify.removeChildren();
+				for (let i = 0; i < effData.des.length; i++) {
+					this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]))
+				}
+				this.vbox_intensify1.removeChildren();
 			}
-			let effData = GameUtil.parseEffectidToObj([effid + ""])
-			this.vbox_intensify.removeChildren();
-			for (let i = 0; i < effData.des.length; i++) {
-				this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]))
-			}
+
+
 			//当前选择的是玩家或是弟子  0玩家  
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
@@ -62,76 +86,64 @@ module view.juese {
 				this.close();
 			})
 		}
-		private onLvIntensify(): number {
+		private onLvIntensify() {
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
 			//各强化等级的的装备个数
-			let lv3 = 0;
-			let lv5 = 0;
-			let lv7 = 0;
-			let lv9 = 0;
-			let lv11 = 0;
-			let lv13 = 0;
-			let lv15 = 0;
 			if (type == 1) {
 				aa = this.allData.herojson;
 			}
 			else {
 				aa = this.allData.playerjson;
 			}
+			this.arrLV = []
 			for (let i in aa) {
-				if (aa[i] >= 3) {
-					lv3++;
-					if (aa[i] >= 5) {
-						lv5++;
-						if (aa[i] >= 7) {
-							lv7++;
-							if (aa[i] >= 9) {
-								lv9++;
-								if (aa[i] >= 11) {
-									lv11++;
-									if (aa[i] >= 13) {
-										lv13++;
-										if (aa[i] >= 15) {
-											lv15++;
-										}
-									}
-								}
-							}
-						}
+				this.arrLV.push(aa[i])
+			}
+			this.arrLV.sort(function (a, b) {
+				return (a - b);
+			})
+			let minLv = this.arrLV[0]
+			let arr = [];
+			for (let i in this.allData.sooulchaintab) {
+				arr.push(this.allData.sooulchaintab[i].minlvl)
+			}
+			for (let i = 0; i < arr.length; i++) {
+				if (i <= 0) {
+					if (minLv < arr[0]) {
+						this.curLv = arr[0];
+						this.nextLv = arr[1];
+						break;
 					}
-
-
+				}
+				else if (i > 0 && i < arr.length - 1) {
+					if (minLv < arr[i]) {
+						this.curLv = arr[i - 1];
+						this.nextLv = arr[i];
+						break;
+					}
+				} else {
+					this.curLv = arr[arr.length - 1];
+					this.nextLv = arr[arr.length - 1];
+					break;
 				}
 			}
-			if (lv15 >= 10 && lv13 >= 10) {
-				this.curLv = 15;
-				return lv15;
+			let curNum = 0;
+			for (let i = 0; i < this.arrLV.length; i++) {
+				if (this.curLv <= this.arrLV[i]) {
+					curNum++;
+				}
 			}
-			else if (lv13 <= 10 && lv11 >= 10) {
-				this.curLv = 13;
-				return lv13;
+			let nextNum = 0;
+			for (let i = 0; i < this.arrLV.length; i++) {
+				if (this.nextLv <= this.arrLV[i]) {
+					nextNum++;
+				}
 			}
-			else if (lv11 <= 10 && lv9 >= 10) {
-				this.curLv = 11;
-				return lv11;
-			}
-			else if (lv9 <= 10 && lv7 >= 10) {
-				this.curLv = 9;
-				return lv9;
-			}
-			else if (lv7 <= 10 && lv5 >= 10) {
-				this.curLv = 7;
-				return lv7;
-			}
-			else if (lv5 <= 10 && lv3 >= 10) {
-				this.curLv = 5;
-				return lv5;
-			}
-			else if (lv3 <= 10) {
-				this.curLv = 3;
-				return lv3;
-			}
+			return [curNum, nextNum];
 		}
+
+
+
 	}
 }
