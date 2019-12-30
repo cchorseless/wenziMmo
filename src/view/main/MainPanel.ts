@@ -195,14 +195,14 @@ module view.main {
 			EventManage.onWithEffect(this.btn_wuXue, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueWaiGongPanel();
 			});
-			this.img_tabCM.on(Laya.UIEvent.CLICK, this, function () {
-				this.isTouchTab = !this.isTouchTab;
-				if (this.isTouchTab) {
-					Laya.Tween.to(this.vbox_tab, { x: 0 }, 250)
-				} else {
-					Laya.Tween.to(this.vbox_tab, { x: 1 * this.vbox_tab.width }, 250)
-				}
-			})
+			// this.img_tabCM.on(Laya.UIEvent.CLICK, this, function () {
+			// 	this.isTouchTab = !this.isTouchTab;
+			// 	if (this.isTouchTab) {
+			// 		Laya.Tween.to(this.vbox_tab, { x: 0 }, 250)
+			// 	} else {
+			// 		Laya.Tween.to(this.vbox_tab, { x: 1 * this.vbox_tab.width }, 250)
+			// 	}
+			// })
 			EventManage.onWithEffect(this.btn_Act, Laya.UIEvent.CLICK, this, function () {
 				this.touchActNum++;
 				this.touchTaskNum = 0;

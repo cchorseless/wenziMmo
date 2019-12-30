@@ -183,6 +183,17 @@ module PopUpManager {
                 break;
         }
     }
+    /**
+ * 当前界面，包括dialog
+ */
+    export function curPanelAndDialog() {
+        if (Laya.Dialog.manager.numChildren > 0) {
+            if (!Laya.Dialog.manager.getChildAt(0).destroyed) {
+                return Laya.Dialog.manager.getChildAt(0) as any
+            }
+        }
+        return PopUpManager.curPanel
+    }
 
 
     /**
