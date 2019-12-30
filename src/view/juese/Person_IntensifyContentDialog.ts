@@ -36,6 +36,7 @@ module view.juese {
 			for (let i = 0; i < effData.des.length; i++) {
 				this.vbox_intensify.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]))
 			}
+			//当前选择的是玩家或是弟子  0玩家  
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
 			if (type == 1) {
@@ -62,7 +63,6 @@ module view.juese {
 			})
 		}
 		private onLvIntensify(): number {
-
 			let type = GameApp.GameEngine.mainPlayer.playerORHero;
 			let aa;
 			//各强化等级的的装备个数

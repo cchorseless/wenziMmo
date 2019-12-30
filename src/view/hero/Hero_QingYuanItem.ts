@@ -9,8 +9,6 @@ module view.hero {
 		//符文类型（1身上；0背包）
 		public type;
 		public index;
-		//被选中的item
-		public selectItem;
 		//交换符文1
 		public runeid1: ProtoCmd.ItemBase;
 		//交换符文类型1（0背包1身上）；
@@ -80,8 +78,6 @@ module view.hero {
 		 * 符文背包
 		 */
 		public init_RuneBagEvent(): void {
-			// this.list_rune.array = [];
-			// this.list_rune.vScrollBarSkin = '';
 			//玩家身上的符文
 			let runeInSelf = [];
 			for (let i = EnumData.emEquipPosition.EQUIP_RUNE_UP; i < (EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT + 1); i++) {
@@ -163,6 +159,7 @@ module view.hero {
 					this.lbl_have.text = '0/' + this.score;
 				}
 			}
+			this.runeid1 = this.runeid2 = this.pos1 = this.pos2 = undefined;
 		}
 		public addLcpEvent(): void {
 			//score:符文精华
@@ -362,10 +359,10 @@ module view.hero {
 			}
 		}
 		/**
-* 符文交换位置
-* @param num 
-* @param boxNum 
-*/
+        * 符文交换位置
+        * @param num 
+        * @param boxNum 
+        */
 		public init_exchangeBtn(num, boxNum, type): void {
 			for (let i in this['vbox_exchange' + boxNum]._childs) {
 				let vboxArray = this['vbox_exchange' + boxNum]._childs;
@@ -383,14 +380,14 @@ module view.hero {
 				} else {
 					vboxArray[i].btn_choose.width = 255;
 					vboxArray[i].btn_choose.height = 35;
-					vboxArray[i].btn_choose.skin = 'image/juese/frame_list _suxing3.png';
+					vboxArray[i].btn_choose.skin = 'image/common/frame_list _suxing3.png';
 				}
 			}
 		}
 		/**
-  * 
-  * @param i 卸下交换框里的符文
-  */
+        * 
+        * @param i 卸下交换框里的符文
+        */
 		public init_takeOffEvent(i): void {
 			if (this['ui_item' + i].name == "1") {
 				this['ui_item' + i].name = "";
@@ -399,6 +396,7 @@ module view.hero {
 				this['lbl_name' + i].stroke = 0;
 				this['ui_item' + i].img_item.skin = '';
 				this['ui_item' + i].btn_isStronger.visible = false;
+				this['pos' + i] = this['runeid' + i] = undefined;
 				for (let child of this['vbox_exchange' + i]._childs) {
 					child.lbl_name.text = '';
 					child.view_single.selectedIndex = 0;

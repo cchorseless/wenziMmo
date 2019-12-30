@@ -134,7 +134,7 @@
                             "compId":123,
                             "child":[
                                 ],
-                            "$HIDDEN":true
+                            "$HIDDEN":false
                         },
                         {
                             "x":45,
@@ -178,7 +178,8 @@
                             "hasChild":false,
                             "compId":182,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":true
                         },
                         {
                             "x":45,
@@ -192,7 +193,8 @@
                             "hasChild":false,
                             "compId":174,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":true
                         }],
                     "$HIDDEN":true
                 },
@@ -225,7 +227,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":41,"x":155,"visible":false,"var":"btn_self","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":41,"x":155,"visible":true,"var":"btn_self","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":103,
                             "label":"Button(btn_self)",
                             "isOpen":false,

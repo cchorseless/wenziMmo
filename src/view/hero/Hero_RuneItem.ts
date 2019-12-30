@@ -4,9 +4,9 @@ module view.hero {
 		constructor() {
 			super();
 		}
-		public num;
-		public boxNum;
-		public type;
+		public num;//词条位置索引
+		public boxNum;//第一个还是第二个
+		public type;//符文类型（1身上；0背包）
 		public qingYuanItem;
 		public setData(data, labels, boxNum, type, qingYuanItem): Hero_RuneItem {
 			this.type=type;

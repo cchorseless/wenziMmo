@@ -30,13 +30,14 @@
                     "props":{"y":2,"x":10,"width":255,"visible":false,"skin":"image/common/frame_list _suxing3.png","name":"item0","height":35,"alpha":0.5},
                     "nodeParent":8,
                     "label":"Image(item0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":3,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":8,"x":56,"text":"该词条未激活","fontSize":22,"font":"FZHL","color":"#000000"},
                             "nodeParent":3,
@@ -46,9 +47,10 @@
                             "hasChild":false,
                             "compId":4,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,

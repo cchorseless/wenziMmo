@@ -25,6 +25,7 @@ module view.beiBao {
 			// 左边热卖商店
 			this.panel_sellHot.vScrollBarSkin = '';
 			this.vbox_sellHot['sortItem'] = (items) => { };
+			this.ui_equipInfo.lbl_dengji.text=GameApp.MainPlayer.EquipmentNum[0];
 			// 初始化背包
 			this.initUI();
 			// 拉取热销商店数据

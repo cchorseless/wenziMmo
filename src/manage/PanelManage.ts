@@ -849,7 +849,7 @@ module PanelManage {
     export function openJuQingModePanel(): void {
         PanelManage.openMainPanel();
         PanelManage.Main.box_menu.visible = false;
-        if (PanelManage.Main.view_scene.numChildren == 1) {
+        if (PanelManage.Main.view_scene.numChildren == 2) {
             ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
                 PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
                 PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
@@ -857,11 +857,11 @@ module PanelManage {
                 PanelManage.JuQingMode.mouseEnabled = true;
                 PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
                 PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
-                PanelManage.Main.view_scene.selectedIndex = 1;
+                PanelManage.Main.view_scene.selectedIndex = 2;
             })
         }
         else {
-            PanelManage.Main.view_scene.selectedIndex = 1;
+            PanelManage.Main.view_scene.selectedIndex = 2;
         }
     }
 

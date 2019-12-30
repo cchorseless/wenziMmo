@@ -15,12 +15,12 @@ module view.juese {
 			this.vbox_soul3['sortItem'] = (items) => { };
 			if (type == 0) {
 				this.viw_equip.selectedIndex = 0;
-				this.lab_title.text = "魂石大师";
+				this.lab_title.text = "等级大师";
 				this.equipView();
 			}
 			else if (type == 1) {
 				this.viw_equip.selectedIndex = 1;
-				this.lab_title.text = "精炼大师";
+				this.lab_title.text = "精炼大师";//（魂石）
 				this.soulView()
 			}
 			this.addEvent();

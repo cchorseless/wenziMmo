@@ -666,6 +666,8 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.soulStoneLevel, null, 0, this,
 				(data: ProtoCmd.itf_JS_soulStoneLevel) => {
 					GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
+					//等级精炼强化达标信息
+					this.equipView();
 				});
 			lcp.send(pkt);
 		}
@@ -845,6 +847,161 @@ module view.main {
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面
 			this.box_uiScene0.addChild(progerUI);
+		}
+		public equipView() {
+			//等级大师达标装备数量
+			let baseLv = 60;
+			let curNum0 = 0;
+			let equpLvNumArr = [];
+			let showLvNumArr = [];
+			let type = GameApp.GameEngine.mainPlayer.playerORHero;
+			let item;
+			let lvNum;
+			for (let i = 0; i < 8; i++) {
+				let equipID;
+				if (type == 0) {
+					equipID = i
+					if (equipID != 2 || equipID != 3) {
+						item = GameUtil.findEquipInPlayer(equipID);
+						lvNum
+						if (item) {
+							lvNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(item.dwBaseID.toString());
+						} else {
+							lvNum = 0;
+						}
+
+						equpLvNumArr.push(lvNum);
+						showLvNumArr.push(lvNum);
+					}
+				}
+				else {
+					equipID = i + 18 + type * 10
+					if (equipID != 20 + type * 10 || equipID != 21 + type * 10) {
+						item = GameUtil.findEquipInPlayer(equipID);
+						lvNum
+						if (item) {
+							lvNum = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(item.dwBaseID.toString());
+						} else {
+							lvNum = 0;
+						}
+						equpLvNumArr.push(lvNum);
+						showLvNumArr.push(lvNum);
+					}
+				}
+			}
+			let temp = equpLvNumArr.sort(function (a, b) {
+				return b - a;
+			});
+			let max = temp[0];
+			let min = temp[temp.length - 1]
+			if (min < 60) {
+				baseLv = 60;
+			} else {
+				let k = Math.floor((min - 60) / 10)
+				baseLv = 60 + 10 * (k + 1);
+			}
+			for (let i = 0; i < 8; i++) {
+				if (showLvNumArr[i] >= baseLv) {
+					curNum0++;
+				}
+			}
+			GameApp.MainPlayer.EquipmentNum[0] = curNum0 + '/8';
+			//精炼大师达标装备数量
+			let allData = GameApp.GameEngine.mainPlayer.playersoulStoneLevel
+			let baseLvData = {};    //魂石
+			let typeSoul = GameApp.GameEngine.mainPlayer.playerORHero;
+			if (typeSoul == 0) {
+				baseLvData = allData.playerlvl;
+			} else if (typeSoul > 0) {
+				baseLvData = allData.herolvl;
+			}
+			let curSoulStoneLv = 0;
+			for (let i in baseLvData) {
+				for (let o in baseLvData[i]) {
+					curSoulStoneLv += baseLvData[i][o];
+				}
+			}
+			let k = Math.floor(curSoulStoneLv / 60);
+			GameApp.MainPlayer.EquipmentNum[1] = curSoulStoneLv + "/" + (k + 1) * 60;
+			//强化大师达标装备数量
+			let lv = this.onLvIntensify();
+			GameApp.MainPlayer.EquipmentNum[2] = lv + '/10)';
+		}
+		/**
+		 * 强化大师达标装备数量
+		 */
+		private onLvIntensify(): number {
+			let curLv = 3;
+			let allStrongerData = GameApp.GameEngine.mainPlayer.playerEquipIntensify;
+			let type = GameApp.GameEngine.mainPlayer.playerORHero;
+			let aa;
+			//各强化等级的的装备个数
+			let lv3 = 0;
+			let lv5 = 0;
+			let lv7 = 0;
+			let lv9 = 0;
+			let lv11 = 0;
+			let lv13 = 0;
+			let lv15 = 0;
+			if (type == 1) {
+				aa = allStrongerData.herojson;
+			}
+			else {
+				aa = allStrongerData.playerjson;
+			}
+			for (let i in aa) {
+				if (aa[i] >= 3) {
+					lv3++;
+					if (aa[i] >= 5) {
+						lv5++;
+						if (aa[i] >= 7) {
+							lv7++;
+							if (aa[i] >= 9) {
+								lv9++;
+								if (aa[i] >= 11) {
+									lv11++;
+									if (aa[i] >= 13) {
+										lv13++;
+										if (aa[i] >= 15) {
+											lv15++;
+										}
+									}
+								}
+							}
+						}
+					}
+
+
+				}
+			}
+			if (lv15 >= 10 && lv13 >= 10) {
+				curLv = 15;
+				return lv15;
+			}
+			else if (lv13 <= 10 && lv11 >= 10) {
+				curLv = 13;
+				return lv13;
+			}
+			else if (lv11 <= 10 && lv9 >= 10) {
+				curLv = 11;
+				return lv11;
+			}
+			else if (lv9 <= 10 && lv7 >= 10) {
+				curLv = 9;
+				return lv9;
+			}
+			else if (lv7 <= 10 && lv5 >= 10) {
+				curLv = 7;
+				return lv7;
+			}
+			else if (lv5 <= 10 && lv3 >= 10) {
+				curLv = 5;
+				return lv5;
+			}
+			else if (lv3 <= 10) {
+				curLv = 3;
+				return lv3;
+			}
 		}
 	}
 }
