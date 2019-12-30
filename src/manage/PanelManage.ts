@@ -203,6 +203,7 @@ module PanelManage {
             PanelManage.Main.updateUI();
             PanelManage.Main.view_scene.selectedIndex = 1;
             PanelManage.Main.box_menu.visible = true;
+            PanelManage.Main.box_mainBottom.visible=true;
         }
         else {
             ResManage.loadResource(ResData.PanelRes.Main, () => {
@@ -210,6 +211,7 @@ module PanelManage {
                 PanelManage.Main['LCP_skin'] = ResData.PanelRes.Main;
                 PanelManage.Main.setData();
                 PanelManage.Main.mouseEnabled = true;
+                PanelManage.Main.box_mainBottom.visible=true;
                 PopUpManager.addPanel(PanelManage.Main, 0);
             });
         }
@@ -848,6 +850,7 @@ module PanelManage {
      */
     export function openJuQingModePanel(): void {
         PanelManage.openMainPanel();
+        PanelManage.Main.box_mainBottom.visible=false;
         PanelManage.Main.box_menu.visible = false;
         if (PanelManage.Main.view_scene.numChildren == 2) {
             ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {

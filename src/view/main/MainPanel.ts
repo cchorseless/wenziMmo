@@ -380,16 +380,16 @@ module view.main {
 			panel.addChild(this.box_top);
 			panel.addChild(this.box_menu);
 			if (panel == this) {
-				// if (this.view_scene.selectedIndex == 0) {
-				// 	this.box_menu.visible = true;
-				// } else {
-				// 	this.box_menu.visible = false;
-				// }
+				if (this.view_scene.selectedIndex ==0) {
+					this.box_menu.visible = true;
+				} else {
+					this.box_menu.visible = false;
+				}
 				this.box_top.visible = false;
 				this.box_mainTop.visible = true;
 			}
 			else {
-				//菜单界面隐藏（通过btn_setUp设置按钮判断是否是菜单界面）
+				//菜单界面隐藏
 				if (panel == PanelManage.Menu) {
 					this.box_menu.visible = false;
 				}
@@ -1074,8 +1074,8 @@ module view.main {
 						label.push(',' + chapter.name);
 					}
 				}
-				tab_chapter.y=this.panel_list._childs[0]._childs.height+this.panel_list._childs[0]._childs.y;
-				this.panel_list.addChild(tab_chapter);	
+				tab_chapter.y = this.panel_list._childs[0]._childs.height + this.panel_list._childs[0]._childs.y;
+				this.panel_list.addChild(tab_chapter);
 			}
 			//卷名
 			this.lbl_juan.text = GameApp.MainPlayer.pianZhangName;
