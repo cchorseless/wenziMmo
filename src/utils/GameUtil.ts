@@ -442,8 +442,8 @@ module GameUtil {
      * @param finishHander 
      */
     export function loopFuncTask(toDoList, finishHander = null) {
-        let curName = PopUpManager.curPanel.name;
-        let curPanel = PopUpManager.curPanel;
+        let curName = PopUpManager.curPanelAndDialog().name;
+        let curPanel = PopUpManager.curPanelAndDialog();
         if (curName == 'Main') {
             if (PanelManage.Main.view_scene.selectedIndex == 1) {
                 curName = 'JuQingMode';
