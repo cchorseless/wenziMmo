@@ -201,7 +201,7 @@ module PanelManage {
     export function openMainPanel(): void {
         if (PopUpManager.showPanel(PanelManage.Main)) {
             PanelManage.Main.updateUI();
-            PanelManage.Main.view_scene.selectedIndex = 0;
+            PanelManage.Main.view_scene.selectedIndex = 1;
             PanelManage.Main.box_menu.visible = true;
         }
         else {

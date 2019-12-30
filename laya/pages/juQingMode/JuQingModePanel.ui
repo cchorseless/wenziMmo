@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":240,
+    "selectedBox":229,
+    "selecteID":230,
     "props":{"width":640,"visible":true,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -137,7 +137,7 @@
                         ]
                 }],
             "$LOCKED":false,
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -145,13 +145,14 @@
             "props":{"y":77,"x":0,"width":233,"visible":false,"var":"img_panel","skin":"image/juQingMode/bottom_zhangjiemilu.png","height":970},
             "nodeParent":1,
             "label":"Image(img_panel)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":224,
             "child":[
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":0,"x":0,"width":233,"var":"panel_zhangJie","height":952},
                     "nodeParent":224,
@@ -163,6 +164,7 @@
                     "compId":186,
                     "child":[
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":10,"x":4,"width":215,"var":"vbox_zhangJieLeft","space":2,"align":"center"},
                             "nodeParent":186,
@@ -177,7 +179,7 @@
                         }],
                     "$HIDDEN":false
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -297,7 +299,8 @@
                     "compId":232,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,

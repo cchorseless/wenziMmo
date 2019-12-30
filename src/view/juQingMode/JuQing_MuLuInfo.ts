@@ -115,8 +115,6 @@ module view.juQingMode {
 					if (self.charpterArr.length >= self.cntArr[self.volumeIndex] - 1) {
 						self.setPanelView();
 					}
-
-
 				})
 		}
 	}

@@ -498,6 +498,7 @@ module GameObject {
             this.pianZhangID = data.pzid;// 篇章ID
             this.pianZhangName = data.pzname;// 篇章名字
             this.charpterName = data.zjname;// 章节名字
+            PanelManage.Main.get_novelPian();
         }
 
 
