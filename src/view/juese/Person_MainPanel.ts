@@ -35,6 +35,7 @@ module view.juese {
 			EventManage.onWithEffect(this.btn_hero, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openDiZiPanel();
 			})
+			
 		}
 		//弟子基本信息发协议
 		public init_Dizi(): void {
