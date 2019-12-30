@@ -38,6 +38,7 @@ module ResData {
         { url: "res/atlas/image/map/smallMap.atlas", type: Laya.Loader.ATLAS },
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/main/main_zonglan.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },
@@ -252,7 +253,9 @@ module ResData {
             //武学四法（角色武学基础）
             { url: 'json/sifa_consume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.sifa_consume },
             //宅院
-            { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade }
+            { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade },
+            //剧情篇章表
+            { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet }
         ];
     }
 

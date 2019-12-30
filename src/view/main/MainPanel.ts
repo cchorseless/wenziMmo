@@ -170,7 +170,6 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				GameApp.SceneManager.showBigMap(true);
 			});
@@ -213,7 +212,6 @@ module view.main {
 				} else if (this.touchActNum >= 2) {
 					new view.main.Main_BriskDialog().popup();
 				}
-
 			})
 			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, function () {
 				this.touchTaskNum++;
@@ -354,6 +352,10 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_vipLv() });
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
+			//篇章信息
+			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_ZHANGJIE, this, (jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
+				this.init_novelPian(jsonData);
+			});
 			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
@@ -378,11 +380,11 @@ module view.main {
 			panel.addChild(this.box_top);
 			panel.addChild(this.box_menu);
 			if (panel == this) {
-				if (this.view_scene.selectedIndex == 0) {
-					this.box_menu.visible = true;
-				} else {
-					this.box_menu.visible = false;
-				}
+				// if (this.view_scene.selectedIndex == 0) {
+				// 	this.box_menu.visible = true;
+				// } else {
+				// 	this.box_menu.visible = false;
+				// }
 				this.box_top.visible = false;
 				this.box_mainTop.visible = true;
 			}
@@ -620,7 +622,7 @@ module view.main {
 			// 声望信息
 			this.getShengWangInfo();
 			//活动状态
-			this.getHuoDongStatus()
+			this.getHuoDongStatus();
 			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
 				console.log(data);
 				GameApp.GameEngine.turnActivity = data;
@@ -1002,6 +1004,82 @@ module view.main {
 				curLv = 3;
 				return lv3;
 			}
+		}
+		public get_novelPian(): void {
+			this.panel_list.vScrollBarSkin = '';
+			let pianzhang = SheetConfig.juQingPianZhangSheet.getInstance(null).data;
+			let i = 0;
+			this.panel_list.removeChildren();
+			for (let pian in pianzhang) {
+				let btn_Pian = new Laya.Button;
+				btn_Pian.label = pianzhang[pian][1];
+				if (GameApp.MainPlayer.pianZhangID == parseInt(pianzhang[pian][0])) {
+					btn_Pian.skin = 'image/main/main_zonglan/img_juanzhou.png';
+					btn_Pian.labelColors = '#0f0225';
+					btn_Pian.mouseEnabled = true;
+				} else {
+					btn_Pian.skin = 'image/main/main_zonglan/img_juanzhou_lock.png';
+					btn_Pian.labelColors = '#ffffff';
+					btn_Pian.mouseEnabled = false;
+				}
+				btn_Pian.stateNum = 1;
+				btn_Pian.labelFont = 'FZXK';
+				btn_Pian.labelSize = 22;
+				btn_Pian.width = 162;
+				btn_Pian.height = 41;
+				btn_Pian.x = 0;
+				btn_Pian.name = '1';
+				btn_Pian.y = (btn_Pian.height + 10) * i;
+				this.panel_list.addChild(btn_Pian);
+				btn_Pian.on(Laya.UIEvent.CLICK, this, () => {
+					btn_Pian.selected = !btn_Pian.selected;
+					this.getPanelMsg(btn_Pian.selected, pianzhang[pian][0]);
+				})
+				i += 1;
+			}
+		}
+		public getPanelMsg(isopen, i) {
+			if (isopen) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [i])
+				lcp.send(pkt);
+			} else {
+				this.init_novelPian(undefined);
+			}
+		}
+		public init_novelPian(jsonData): void {
+			if (jsonData) {
+				let num = jsonData.pzid - 1000 - 1;
+				let sign = 0;
+				let index;
+				for (let child in this.panel_list._childs[0]._childs) {
+					if (this.panel_list._childs[0]._childs[child].name == '1') {
+						if (num == sign) {
+							index = parseInt(child);
+							return
+						} else {
+							sign += 1;
+						}
+					}
+				}
+				let tab_chapter = new Laya.Tab;
+				tab_chapter.skin = 'image/main/main_zonglan/btn_zhangjie.png';
+				tab_chapter.stateNum = 2;
+				tab_chapter.selectedIndex = 0;
+				let label = [];
+				for (let chapter of jsonData.charpterInfo) {
+					if (label == null) {
+						label.push(chapter.name);
+					} else {
+						label.push(',' + chapter.name);
+					}
+				}
+				tab_chapter.y=this.panel_list._childs[0]._childs.height+this.panel_list._childs[0]._childs.y;
+				this.panel_list.addChild(tab_chapter);	
+			}
+			//卷名
+			this.lbl_juan.text = GameApp.MainPlayer.pianZhangName;
+			// tab_chapter.labels =
 		}
 	}
 }
