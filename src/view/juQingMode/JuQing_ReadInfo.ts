@@ -9,6 +9,7 @@ module view.juQingMode {
 		public volumeID;
 		public chapterID;
 		public pageID = 0;
+		public baseData;
 		constructor() {
 			super();
 		}
@@ -20,6 +21,7 @@ module view.juQingMode {
 		 * @param jsonData  章节详情数据
 		 */
 		public setData(isFirst: boolean, curPage: number, totalPage: number, volumeID: number, chapterID: number, jsonData: any = null,width,height) {
+			this.baseData = jsonData;
 			this.volumeID = volumeID;
 			this.chapterID = chapterID;
 			this.resize(width,height)
