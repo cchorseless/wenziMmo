@@ -178,8 +178,7 @@ module view.fuBen {
 			//稀有boss存活数量
 			this.lbl_num.text = '' + lifenum;
 			//层数
-			let arr = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
-			this.lbl_ceng.text = '第' + arr[i] + '层';
+			this.lbl_ceng.text = '第' + GameUtil.SectionToChinese(i,0) + '层';
 			return this;
 		}
 		/**

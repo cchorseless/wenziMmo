@@ -75,8 +75,7 @@ module view.menu {
 				}
 				this.lbl_introduce.text = '' + array;
 				//当前倍数
-				let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
-				this.btn_beishu.label = numArray[jsonData.multiple] + '倍';
+				this.btn_beishu.label = GameUtil.SectionToChinese(jsonData.multiple,0) + '倍';
 				//今日膜拜次数
 				this.lbl_cout.text = '' + jsonData.worshipcnt;
 				//今日最大膜拜次数

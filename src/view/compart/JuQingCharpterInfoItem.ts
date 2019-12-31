@@ -6,8 +6,7 @@ module view.compart {
 		}
 		public item: ProtoCmd.itf_JUQING_PIANZHANG;
 		public setData(item: ProtoCmd.itf_JUQING_PIANZHANG, key: number): void {
-			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
-			this.lbl_id.text = '第' + numArray[key] + '卷';
+			this.lbl_id.text = '第' +GameUtil.SectionToChinese(key,0) + '卷';
 			this.item = item;
 			this.lbl_charpterName.text = '' + item.name;
 			let nowChapter = GameApp.MainPlayer.pianZhangID;

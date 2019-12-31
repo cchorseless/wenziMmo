@@ -183,8 +183,7 @@ module view.main {
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index = index;
 			}
-			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
-			this.lbl_zhang.text = '第' + numArray[index] + '章';
+			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index,0) + '章';
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];

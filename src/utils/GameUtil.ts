@@ -107,13 +107,14 @@ module GameUtil {
                 if (i != now.length) {
                     //战力增加
                     if (power > nowValue) {
-                        if (parseInt(after[i]) > parseInt(now[i])) {
+                        let cha1 = after.length - now.length;
+                        if (parseInt(after[i + cha1]) > parseInt(now[i])) {
                             now[i] = '' + (parseInt(now[i]) + 1);
                         }
-                        if (parseInt(after[i]) < parseInt(now[i])) {
+                        if (parseInt(after[i + cha1]) < parseInt(now[i])) {
                             now[i] = '' + ((parseInt(now[i]) + 1) % 10);
                         }
-                        if (parseInt(after[i]) == parseInt(now[i])) {
+                        if (parseInt(after[i + cha1]) == parseInt(now[i])) {
                             i += 1
                         }
                         let battleData = surplus;
@@ -126,19 +127,19 @@ module GameUtil {
                     }
                     //战力减少
                     if (power < nowValue) {
-                        let cha = now.length - after.length;
-                        if (after[(i - cha)]) {
-                            if (parseInt(after[i - cha]) > parseInt(now[i])) {
+                        let cha2 = now.length - after.length;
+                        if (after[(i - cha2)]) {
+                            if (parseInt(after[i - cha2]) > parseInt(now[i])) {
                                 if ((parseInt(now[i]) > 0)) {
                                     now[i] = '' + (parseInt(now[i]) - 1);
                                 } else {
                                     now[i] = '9';
                                 }
                             }
-                            if (parseInt(after[i - cha]) < parseInt(now[i])) {
+                            if (parseInt(after[i - cha2]) < parseInt(now[i])) {
                                 now[i] = '' + (parseInt(now[i]) - 1);
                             }
-                            if (parseInt(after[i - cha]) == parseInt(now[i])) {
+                            if (parseInt(after[i - cha2]) == parseInt(now[i])) {
                                 i += 1
                             }
                         } else {
