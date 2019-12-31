@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":3,
-    "selecteID":4,
+    "selectedBox":4,
+    "selecteID":5,
     "props":{"y":0,"x":0,"width":640,"sceneColor":"#ffffff","height":1004},
     "nodeParent":-1,
     "label":"View",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"width":520,"var":"img_showbg","top":0,"skin":"image/common/bg_juese_02.png","sizeGrid":"62,47,130,43","right":120,"mouseThrough":false,"left":0,"height":1004,"bottom":0},
+            "props":{"var":"img_showbg","top":0,"skin":"image/juQingMode/bg_xs_ml01.png","right":0,"mouseThrough":true,"mouseEnabled":true,"left":0,"height":1004,"bottom":0},
             "nodeParent":1,
             "label":"Image(img_showbg)",
             "isOpen":true,
@@ -40,30 +40,166 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Panel",
-                    "props":{"y":258,"x":15,"width":483,"var":"panel_mulu","top":258,"bottom":30},
+                    "type":"Image",
+                    "props":{"y":53,"x":24,"width":471,"skin":"image/main/main_zonglan/bottom_guaji.png","sizeGrid":"40,41,39,62","height":206},
                     "nodeParent":3,
-                    "label":"Panel(panel_mulu)",
-                    "isOpen":true,
+                    "label":"Image",
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":4,
+                    "compId":8,
                     "child":[
                         {
-                            "x":45,
-                            "type":"VBox",
-                            "props":{"var":"vBox_mulu","top":0,"right":0,"left":0},
-                            "nodeParent":4,
-                            "label":"VBox(vBox_mulu)",
-                            "isDirectory":false,
+                            "type":"Image",
+                            "props":{"y":7,"x":16,"skin":"image/juQingMode/img_zs_01.png"},
+                            "nodeParent":8,
+                            "label":"Image",
+                            "isOpen":true,
+                            "isDirectory":true,
                             "isAniNode":true,
-                            "hasChild":false,
-                            "compId":5,
+                            "hasChild":true,
+                            "compId":9,
                             "child":[
-                                ]
-                        }]
+                                {
+                                    "type":"Image",
+                                    "props":{"y":33,"x":65,"width":392,"skin":"image/common/tab_cd_01.png","height":36},
+                                    "nodeParent":9,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":12,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":22,"x":30,"skin":"image/juQingMode/box_common_daojudi.png"},
+                                    "nodeParent":9,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":7,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Button",
+                                    "props":{"y":33,"x":39,"stateNum":"2","skin":"image/main/icon_wuxue_02down_finish.png"},
+                                    "nodeParent":9,
+                                    "label":"Button",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":11,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":35,"x":153,"text":"文字江湖","fontSize":30,"font":"fzxk","color":"#000000"},
+                                    "nodeParent":9,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":13,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":74,"x":152,"width":264,"text":"文字江湖项目组","height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
+                                    "nodeParent":9,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":14,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Image",
+                                    "props":{"y":142,"x":-15,"width":469,"skin":"image/main/main_zonglan/shadow_zhuxian.png","height":53},
+                                    "nodeParent":9,
+                                    "label":"Image",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":15,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "type":"Label",
+                                    "props":{"y":143,"x":20,"width":399,"text":"推动剧情可大幅度提升离线挂机效率","height":24,"fontSize":24,"font":"fzxk","color":"#63491a","align":"center"},
+                                    "nodeParent":9,
+                                    "label":"Label",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":16,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$LOCKED":true
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":266,"x":20,"width":483,"skin":"image/juese/shadow_shuzhi.png","height":46},
+                    "nodeParent":3,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Panel",
+            "props":{"x":23,"width":474,"var":"panel_mulu","top":280,"bottom":30},
+            "nodeParent":1,
+            "label":"Panel(panel_mulu)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":4,
+            "child":[
+                {
+                    "x":30,
+                    "type":"VBox",
+                    "props":{"var":"vBox_mulu","top":0,"space":8,"right":0,"left":0},
+                    "nodeParent":4,
+                    "label":"VBox(vBox_mulu)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":44,"width":133,"var":"img_touch","right":0,"height":950},
+            "nodeParent":1,
+            "label":"Image(img_touch)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":19,
+            "child":[
+                ]
         }],
     "animations":[
         {
