@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":322,
-    "selecteID":235,
+    "selecteID":326,
     "referenceLines":[
         {
             "value":1127,
@@ -14,7 +14,7 @@
             "type":1,
             "id":2
         }],
-    "props":{"width":640,"sceneColor":"#f4b6b5","name":"Main","height":1136},
+    "props":{"width":640,"skin":"image/main/main_zonglan/img_juanzhou_lock.png","sceneColor":"#f4b6b5","name":"Main","height":1136},
     "nodeParent":-1,
     "label":"View(Main)",
     "isOpen":true,
@@ -301,6 +301,19 @@
                         },
                         {
                             "x":45,
+                            "type":"Box",
+                            "props":{"y":180,"x":0,"width":640,"var":"box_fly","height":200},
+                            "nodeParent":162,
+                            "label":"Box(box_fly)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":235,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"UIView",
                             "source":"scene/BattleSkillContonlV0Item.ui",
                             "props":{"y":541,"x":445,"var":"ui_battleSkill","runtime":"view.scene.BattleSkillContonlV0Item","right":5,"bottom":345},
@@ -330,22 +343,6 @@
                                 ],
                             "$LOCKED":true,
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"dialog/ChatSendDialog.ui",
-                            "props":{"y":470,"x":109,"visible":false,"var":"ui_chatSendDialog","runtime":"view.dialog.ChatSendDialog"},
-                            "nodeParent":162,
-                            "label":"UIView(ui_chatSendDialog)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":128,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":true
                         }],
                     "$HIDDEN":true
                 },
@@ -760,16 +757,30 @@
                         {
                             "x":45,
                             "type":"Image",
+                            "props":{"y":792,"x":143,"skin":"image/main/main_zonglan/img_ditu.png"},
+                            "nodeParent":322,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":329,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
                             "props":{"y":593,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
                             "nodeParent":322,
                             "label":"Image",
-                            "isOpen":false,
+                            "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
                             "compId":288,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":4,"x":21,"width":48,"text":"主线","height":21,"fontSize":24,"font":"FZXK"},
                                     "nodeParent":288,
@@ -783,10 +794,11 @@
                                     "$HIDDEN":false
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":114,"width":120,"text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                                    "props":{"y":4,"x":114,"width":120,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                                     "nodeParent":288,
-                                    "label":"Label",
+                                    "label":"Label(lbl_zhuxianName)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -795,21 +807,23 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":5,"x":237,"width":96,"text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
                                     "nodeParent":288,
                                     "label":"Label",
-                                    "isOpen":null,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
                                     "compId":291,
                                     "child":[
                                         {
+                                            "x":75,
                                             "type":"Label",
-                                            "props":{"y":-1,"x":12,"width":72,"text":"未完成","height":24,"fontSize":24,"font":"FZXK","color":"#c43939"},
+                                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhuxianState","text":"未完成","height":24,"fontSize":24,"font":"FZXK","color":"#c43939"},
                                             "nodeParent":291,
-                                            "label":"Label",
+                                            "label":"Label(lbl_zhuxianState)",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -823,17 +837,16 @@
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":634,"x":164,"wordWrap":true,"width":321,"var":"lbl_zhuxian","text":"获取经验升级78级","height":47,"fontSize":22,"font":"FZXK","color":"#63491a"},
+                            "type":"HTMLDivElement",
+                            "props":{"y":634,"x":164,"width":455,"var":"div_zhuxiandes","innerHTML":"htmlText","height":47},
                             "nodeParent":322,
-                            "label":"Label(lbl_zhuxian)",
+                            "label":"HTMLDivElement(div_zhuxiandes)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":287,
+                            "compId":327,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         },
                         {
                             "x":45,
@@ -864,9 +877,9 @@
                                 {
                                     "x":60,
                                     "type":"Label",
-                                    "props":{"y":4,"x":114,"width":120,"text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                                    "props":{"y":4,"x":114,"width":120,"var":"lbl_zhixianTask","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                                     "nodeParent":293,
-                                    "label":"Label",
+                                    "label":"Label(lbl_zhixianTask)",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
@@ -889,9 +902,9 @@
                                         {
                                             "x":75,
                                             "type":"Label",
-                                            "props":{"y":-1,"x":12,"width":72,"text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
+                                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhixianState","text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
                                             "nodeParent":296,
-                                            "label":"Label",
+                                            "label":"Label(lbl_zhixianState)",
                                             "isDirectory":false,
                                             "isAniNode":true,
                                             "hasChild":false,
@@ -905,24 +918,23 @@
                         },
                         {
                             "x":45,
-                            "type":"Label",
-                            "props":{"y":729,"x":164,"wordWrap":true,"width":321,"var":"lbl_zhixian","text":"获取经验升级78级","height":47,"fontSize":22,"font":"FZXK","color":"#63491a"},
+                            "type":"HTMLDivElement",
+                            "props":{"y":729,"x":167,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":47},
                             "nodeParent":322,
-                            "label":"Label(lbl_zhixian)",
+                            "label":"HTMLDivElement(div_zhixiandes)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":298,
+                            "compId":328,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":753,"x":572,"width":90,"var":"brn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":753,"x":572,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":322,
-                            "label":"Button(brn_task)",
+                            "label":"Button(btn_task)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -975,22 +987,8 @@
                         },
                         {
                             "x":45,
-                            "type":"Button",
-                            "props":{"y":161,"x":0,"width":162,"stateNum":"1","skin":"image/main/main_zonglan/img_juanzhou_lock.png","labelSize":22,"labelPadding":"-1,5","labelFont":"FZXK","labelColors":"#0f0225","label":"华山篇"},
-                            "nodeParent":322,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":321,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
                             "type":"Panel",
-                            "props":{"y":160,"x":0,"width":162,"var":"panel_list","height":899},
+                            "props":{"y":160,"x":0,"width":162,"var":"panel_list","height":870},
                             "nodeParent":322,
                             "label":"Panel(panel_list)",
                             "isOpen":true,
@@ -1000,35 +998,6 @@
                             "compId":326,
                             "child":[
                                 ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Box",
-                            "props":{"y":180,"x":0,"width":640,"var":"box_fly","height":200},
-                            "nodeParent":322,
-                            "label":"Box(box_fly)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":235,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"dialog/ChatBigDialog.ui",
-                            "props":{"y":102,"x":11,"var":"ui_chatBigDialog","runtime":"view.dialog.ChatBigDialog","centerY":0,"centerX":0},
-                            "nodeParent":322,
-                            "label":"UIView(ui_chatBigDialog)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":127,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":true
                         }]
                 }],
             "$HIDDEN":false
@@ -1940,6 +1909,38 @@
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"dialog/ChatSendDialog.ui",
+            "props":{"y":470,"x":109,"visible":false,"var":"ui_chatSendDialog","runtime":"view.dialog.ChatSendDialog"},
+            "nodeParent":1,
+            "label":"UIView(ui_chatSendDialog)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":128,
+            "child":[
+                ],
+            "$LOCKED":true,
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"dialog/ChatBigDialog.ui",
+            "props":{"y":102,"x":11,"var":"ui_chatBigDialog","runtime":"view.dialog.ChatBigDialog","centerY":0,"centerX":0},
+            "nodeParent":1,
+            "label":"UIView(ui_chatBigDialog)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":127,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":true
         }],
     "animations":[
         {
