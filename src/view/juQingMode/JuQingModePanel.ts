@@ -1,10 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.juQingMode {
 	export class JuQingModePanel extends ui.juQingMode.JuQingModePanelUI {
+		public static self: JuQingModePanel
 		public curReadInfo: JuQing_ReadInfo;
 		public lastReadInfo: JuQing_ReadInfo;
 		public nextReadInfo: JuQing_ReadInfo;
 		public handler: Laya.Handler = null;
+		public muluShow = false;
 
 		public isJuQing = false;  //当前页是否有剧情
 
@@ -31,6 +33,7 @@ module view.juQingMode {
 		public hasLookBack = 0;
 		constructor() {
 			super();
+			JuQingModePanel.self = this;
 		}
 
 		public setData(): void {
@@ -40,6 +43,7 @@ module view.juQingMode {
 			} else {
 				this.maxInfoNum = 7
 			}
+			// PanelManage.Main.
 			// this.panel_0.vScrollBarSkin = '';
 			this.vbox_zhangJieLeft['sortItem'] = (items) => { };
 			// this.vbox_zhangJieRight['sortItem'] = (items) => { };
@@ -75,6 +79,8 @@ module view.juQingMode {
 			this.muluItem.setData(this.volumeArr)
 			this.muluItem.top = 0;
 			this.muluItem.bottom = 0;
+			this.muluItem.width = Laya.stage.width;
+			this.muluItem.x = -1 * this.muluItem.width;
 			this.addChild(this.muluItem);
 			this.muluItem.visible = false;
 		}
@@ -112,7 +118,16 @@ module view.juQingMode {
 			// 奖励
 			EventManage.onWithEffect(this.btn_prize, Laya.UIEvent.CLICK, this, () => {
 				// new view.juQingMode.JuQingPrizeDialog().setData().popup();
-				this.muluItem.visible = !this.muluItem.visible;
+				this.muluShow = !this.muluShow;
+				// this.muluItem.visible = !this.muluItem.visible;
+				if (this.muluShow) {
+					this.muluItem.visible = this.muluShow;
+					Laya.Tween.to(this.muluItem, { x: 0 }, 300)
+				} else {
+					Laya.Tween.to(this.muluItem, { x: -1 * this.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+						this.muluItem.visible = this.muluShow;
+					}))
+				}
 			});
 			// 章节信息
 			EventManage.onWithEffect(this.box_pianZhang, Laya.UIEvent.CLICK, this, () => {
@@ -398,6 +413,7 @@ module view.juQingMode {
 			let lastTalkinfoArr = [];
 			let nextTalkinfoArr = [];
 			//总页数
+			// let totalPage1 = Math.ceil((GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid - GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid  + 1) / this.maxInfoNum);
 			let totalPage = Math.ceil((GameApp.MainPlayer.allCharpterInfo[zjid].enddbid - startTalkId + 1) / this.maxInfoNum);
 			this.juQingPageID = totalPage;
 			let jsonArr = [];   //把该篇中所有的章节转换成 每页7、8个的 数组
@@ -628,7 +644,7 @@ module view.juQingMode {
 					basePage -= 1;
 					if (basePage <= 0) {
 						let boo = this.isFirstCharpter()
-						if(boo){
+						if (boo) {
 							TipsManage.showTips('已经是第一章了')
 							this.initBox();
 							return;
@@ -699,7 +715,7 @@ module view.juQingMode {
 									TipsManage.showTips('剧情任务未完成')
 									this.initBox();
 								} else {
-									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum],)
+									let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum], )
 									lcp.send(pkt);
 								}
 

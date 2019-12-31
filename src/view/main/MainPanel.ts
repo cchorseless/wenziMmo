@@ -377,7 +377,7 @@ module view.main {
 			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
-					this.view_scene.selectedIndex=0;
+					this.view_scene.selectedIndex = 0;
 					// 清空视野
 					GameApp.MainPlayer.clearViewObj();
 					// 更新房间数据
@@ -399,7 +399,7 @@ module view.main {
 			panel.addChild(this.box_top);
 			panel.addChild(this.box_menu);
 			if (panel == this) {
-				if (this.view_scene.selectedIndex == 0) {
+				if (this.view_scene.selectedIndex < 2) {
 					this.box_menu.visible = true;
 				} else {
 					this.box_menu.visible = false;

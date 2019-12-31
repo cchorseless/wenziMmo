@@ -24,8 +24,11 @@ module view.juQingMode {
 			this.img_bg.left = this.img_showbg.width;
 		}
 		public addEvent() {
-			this.img_bg.on(Laya.UIEvent.CLICK, this, function () {
-				this.visible = false;
+			this.img_touch.on(Laya.UIEvent.CLICK, this, function () {
+				JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
+				Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+					JuQingModePanel.self.muluItem.visible = this.muluShow;
+				}))
 			})
 		}
 	}

@@ -18,6 +18,7 @@ module view.juQingMode {
 			} else {
 				this.maxInfoNum = 7
 			}
+			// this.panel_info.vScrollBarSkin = ''
 		}
 		public item: ProtoCmd.itf_JUQING_PIANZHANG;
 		public setData(item: ProtoCmd.itf_JUQING_PIANZHANG, key: number) {
@@ -31,27 +32,27 @@ module view.juQingMode {
 			this.lab_volumeName.text = '' + item.name;
 			let nowChapter = GameApp.MainPlayer.pianZhangID;
 			if (item.id > nowChapter) {
-				this.img_bg.skin = 'image/juQingMode/list_mulu_weiwanchng.png'
+				this.img_bg.skin = 'image/juQingMode/box_ml_01down.png'
 				this.lab_total_VolumeNum.visible = false;
 				this.img_lock.visible = true;
 				this.isLock = true;
-				this.img_mask.visible = true;
+				// this.img_mask.visible = true;
 			}
 			else if (item.id == nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
-				this.img_bg.skin = 'image/juQingMode/list_mulu_yijiesuo.png'
+				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
 				this.lab_total_VolumeNum.text = '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'
 				this.img_lock.visible = false;
 				this.isLock = false;
-				this.img_mask.visible = false;
+				// this.img_mask.visible = false;
 			}
 			else if (item.id < nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
-				this.img_bg.skin = 'image/juQingMode/list_mulu_yijiesuo.png'
+				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
 				this.lab_total_VolumeNum.text = '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'
 				this.img_lock.visible = true;
 				this.isLock = false;
-				this.img_mask.visible = false;
+				// this.img_mask.visible = false;
 			}
 			this.getPanelMsg(this.item.id, this.isLock)
 
@@ -69,10 +70,10 @@ module view.juQingMode {
 					let base = this.charpterArr[i]
 					let span = base.enddbid - base.startdbid + 1;
 					let totalPages = Math.ceil(span / this.maxInfoNum);
-					let pid:number = this.item.id;
-					let index:number = base.index;
-					GameApp.MainPlayer.pagesNum[pid*100 + index] = totalPages;
-					o.setData(base.index, base.name, this.isLock, pid)
+					let pid: number = this.item.id;
+					let index: number = base.index;
+					GameApp.MainPlayer.pagesNum[pid * 100 + index] = totalPages;
+					o.setData(base.index, base.name, this.isLock, pid, base.zjid)
 					o.y = i * o.height;
 					this.vbox_show.addChild(o)
 				}
@@ -80,8 +81,20 @@ module view.juQingMode {
 			this.reSize()
 		}
 		public reSize() {
-			this.panel_info.height = this.img_mask.height = this.vbox_show.displayHeight
-			this.height = this.panel_info.y + this.panel_info.height;
+			if (this.vbox_show.numChildren > 0) {
+				this.img_panel_Bg.visible =true
+				this.panel_info.height = this.vbox_show.numChildren * 60 + (this.vbox_show.numChildren - 1) * 5
+				this.img_panel_Bg.height = this.panel_info.height + 25
+				this.height = this.img_panel_Bg.y + this.img_panel_Bg.height;
+				
+			} else {
+				this.panel_info.height = 0;
+				this.img_panel_Bg.visible =false ;
+				this.height =55;
+
+			}
+
+
 		}
 		public addEvent() {
 			let self = this;
