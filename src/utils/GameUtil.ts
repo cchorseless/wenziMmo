@@ -80,17 +80,13 @@ module GameUtil {
     }
     /**
      * 战力变化效果
-     * @param type 类型，0当前界面有战力1当前界面无战力
-     * @param panel 当前界面（当前界面无战力时用的）
      * @param label 显示战力数值的label
      * @param battleNum 变化前战力
      * @param afterBattle 变化后战力
      */
-    export function battleChange(type: number, panel: Laya.Panel = null, label: Laya.Label = null, battleNum: number, afterBattle: number): any {
-        if (type == 0 || !label) {
-            if (battleNum == afterBattle) {
-                return;
-            }
+    export function battleChange(label: Laya.Label = undefined, battleNum: number, afterBattle: number, dialog): any {
+        if (label) {
+            let isClose = false;
             //原战力和变化后数值拆分成数组
             //战力不变
             let nowValue = battleNum;
@@ -162,6 +158,10 @@ module GameUtil {
 
                 } else {
                     Laya.timer.clearAll(this);
+                    isClose = true;
+                }
+                if (isClose) {
+                    dialog.close();
                 }
             });
         }
@@ -617,11 +617,11 @@ module GameUtil {
                 // 按钮
                 case 'button':
                     toDoList[toDoList.endPanel].push(info);
-                    
+
                     break;
             }
         }
-        console.log('todoList',toDoList)
+        console.log('todoList', toDoList)
         // 循环函数
         Laya.timer.clear(this, GameUtil.loopFuncTask);
         Laya.timer.frameLoop(20, this, GameUtil.loopFuncTask, [toDoList, finishHander]);
