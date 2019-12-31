@@ -170,6 +170,21 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
+			//福州
+			EventManage.onWithEffect(this.btn_fuzhou, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [10001, 0]);
+				lcp.send(pkt);
+			})
+			//洛阳
+			EventManage.onWithEffect(this.btn_luoyang, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [14001, 0]);
+				lcp.send(pkt);
+			})
+			//华山
+			EventManage.onWithEffect(this.btn_huashan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
+				lcp.send(pkt);
+			})
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
 				new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
@@ -362,6 +377,7 @@ module view.main {
 			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
+					this.view_scene.selectedIndex=0;
 					// 清空视野
 					GameApp.MainPlayer.clearViewObj();
 					// 更新房间数据
@@ -1135,8 +1151,8 @@ module view.main {
 		 */
 		public init_chapter(data, index): void {
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
-				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID]=data.charpterInfo[index];
-				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index=index;
+				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
+				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index = index;
 			}
 			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
 			this.lbl_zhang.text = '第' + numArray[index] + '章';
