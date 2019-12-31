@@ -879,10 +879,10 @@ module ProtoCmd {
      * 单条章节信息
      */
     export interface itf_JUQING_CHARPTERINFO {
-        drops: any;// 章节随机掉落池
+        drops: any;// 章节随机掉落池(掉落预览)
         enddbid: number;// 章节结束ID
         intro: number;// 章节介绍
-        items: any;// 章节奖励ID
+        items: any;// 章节奖励ID（挂机效率）
         lvl: number;// 章节解锁等级
         name: string;// 章节名称
         startdbid: number;// 开始对话ID
