@@ -1063,14 +1063,16 @@ class ServerListener extends SingletonClass {
         let dwType = msg.getValue('dwType');
         let fightPower = msg.getValue('fightPower');
         let player = GameApp.MainPlayer;
+        let beforeBattle = GameApp.MainPlayer.ability.nFight;
+        let afterBattle;
         if (dwTempId == player.tempId) {
             switch (dwType) {
                 // 玩家
                 case EnumData.PlayerAndHeroType.Player:
-                    GameApp.LListener.event(ProtoCmd.playerBttle, [dwType, GameApp.MainPlayer.ability.nFight]);
                     player.changeAbility(ability);
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_ABILITY);
                     player.changeFight(fightPower, dwType);
+                    afterBattle = fightPower;
                     GameApp.LListener.event(LcpEvent.UPDATE_UI_PLAYER_POWER);
                     break;
                 // 英雄战士
@@ -1096,7 +1098,11 @@ class ServerListener extends SingletonClass {
                     break;
             }
         }
-
+        if (afterBattle && GameApp.MainPlayer.fameInfo) {
+            if (afterBattle != beforeBattle) {
+                new view.dialog.Battle_IncreaseDialog().setData(beforeBattle, afterBattle).show();
+            }
+        }
         msg.clear();
         msg = null;
     }

@@ -55,25 +55,6 @@ module view.juese {
 				let o = new Person_shengwangMainDialog();
 				o.popup(true);
 			})
-			this.addLcpEvent();
-		}
-		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
-				if (dwType == 0) {
-					this.battle = battle;
-				}
-			})
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
-				let after = GameApp.GameEngine.mainPlayer.ability.nFight;
-				if (PanelManage.JueSe.tab_player.selectedIndex == 0) {
-					GameUtil.battleChange(0, null, this.lbl_zhanli, this.battle, after);
-				}
-			})
-		}
-		public destroy(isbool) {
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
-			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
-			super.destroy(isbool);
 		}
 		public initUI(): void {
 			this.lbl_dengji.text=GameApp.MainPlayer.EquipmentNum[0];

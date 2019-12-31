@@ -92,10 +92,6 @@ module view.juese {
 					let shuxing1 = GameUtil.parseEffectidToObj(['' + jobid])
 					let attribute1 = shuxing1.des;
 					let battle1 = shuxing1.battle[job];
-					if (parseInt(this.lbl_battle.text)) {
-						let num = parseInt(this.lbl_battle.text);
-						GameUtil.battleChange(0, null, this.lbl_battle, num, battle1);
-					}
 					this.lbl_battle.text = '' + battle1;
 					if (GameApp.MainPlayer.zslevel < 15) {
 						//当前转生等级不是最大转生等级
