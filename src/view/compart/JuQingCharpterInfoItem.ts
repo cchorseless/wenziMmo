@@ -20,7 +20,7 @@ module view.compart {
 			if (item.id == nowChapter) {
 				this.lbl_charpterCount.fontSize = 26;
 				this.lbl_charpterCount.color = '#623e24';
-				this.lbl_charpterCount.text = '合计' + numArray[item.cnt] + '章';
+				this.lbl_charpterCount.text = '合计' + GameUtil.SectionToChinese(item.cnt,0) + '章';
 				this.img_charpter.skin = 'image/juQingMode/list_mulu_yijiesuo.png';
 				this.img_shuo.visible = false;
 			}
