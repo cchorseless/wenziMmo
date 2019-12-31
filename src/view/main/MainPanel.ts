@@ -170,6 +170,10 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
+			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
+				new view.juQingMode.JuQingPrizeDialog().setData().popup();
+			});
+
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				GameApp.SceneManager.showBigMap(true);
 			});
@@ -1130,7 +1134,12 @@ module view.main {
 		 * @param index 所选章节
 		 */
 		public init_chapter(data, index): void {
-			this.lbl_zhang.text = '第' + index + '章';
+			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
+				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID]=data.charpterInfo[index];
+				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index=index;
+			}
+			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
+			this.lbl_zhang.text = '第' + numArray[index] + '章';
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
@@ -1155,6 +1164,42 @@ module view.main {
 				} else {
 					this.lbl_zhuxianState.text = '已完成';
 					this.lbl_zhuxianState.color = '#39ad32';
+				}
+			}
+			//页数
+			let maxInfoNum;
+			let boo = PanelManage.getAspectRatio()
+			if (boo) {
+				maxInfoNum = 8
+			} else {
+				maxInfoNum = 7
+			}
+			let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+			let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+			if (now > 0) {
+				this.lbl_dangqian.visible = true;
+				this.lbl_dangqian.text = '' + now;
+				this.lbl_all.text = '/' + total + '页';
+				this.lbl_all.x = 519;
+			} else {
+				this.lbl_dangqian.visible = false;
+				this.lbl_all.text = '未解锁';
+				this.lbl_all.x = 496;
+			}
+			//挂机效率
+			for (let item of data.charpterInfo[index].items) {
+				switch (item.index) {
+					// 金币
+					case EnumData.CoinType.COIN_TYPE_GOLD:
+						this.lbl_jinbi.text = item.num + '/h';
+						break;
+					// 玩家经验
+					case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
+						this.lbl_exp.text = item.num + '/h';
+						break;
+					// 英雄经验
+					case EnumData.CoinType.COIN_TYPE_HERO_EXP:
+						break;
 				}
 			}
 		}
