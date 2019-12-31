@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":17,
-    "props":{"width":640,"sceneColor":"#ffffff","height":1004},
+    "selectedBox":5,
+    "selecteID":6,
+    "props":{"width":650,"sceneColor":"#ffffff","height":988},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":640,"var":"img_bg","skin":"image/juQingMode/img_zhizhang.png","sizeGrid":"100,100,100,100","height":1004},
+            "props":{"y":0,"x":0,"width":650,"var":"img_bg","skin":"image/juQingMode/bg_xs_03.png","sizeGrid":"30,37,50,43","height":988},
             "nodeParent":1,
             "label":"Image(img_bg)",
             "isOpen":true,
@@ -30,7 +30,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":0,"x":0,"width":640,"var":"box_normal","height":1004},
+            "props":{"y":0,"width":624,"var":"box_normal","left":13,"height":988},
             "nodeParent":1,
             "label":"Box(box_normal)",
             "isOpen":true,
@@ -41,22 +41,8 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":30,"x":519,"width":97,"var":"lab_pages","valign":"middle","text":"1/250","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":30,"font":"fzhl","color":"#ffeeb1","align":"center"},
-                    "nodeParent":2,
-                    "label":"Label(lab_pages)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":4,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Panel",
-                    "props":{"var":"panel_content","top":87,"right":10,"left":13,"bottom":20},
+                    "props":{"width":600,"var":"panel_content","top":70,"right":12,"left":12,"height":868,"bottom":50},
                     "nodeParent":2,
                     "label":"Panel(panel_content)",
                     "isOpen":true,
@@ -68,7 +54,7 @@
                         {
                             "x":45,
                             "type":"VBox",
-                            "props":{"var":"vbox_content","space":10,"right":0,"left":0,"align":"center"},
+                            "props":{"var":"vbox_content","space":10,"right":8,"left":8,"align":"center"},
                             "nodeParent":5,
                             "label":"VBox(vbox_content)",
                             "isOpen":true,
@@ -85,46 +71,57 @@
                 },
                 {
                     "x":30,
-                    "type":"Label",
-                    "props":{"y":32,"x":311,"var":"lab_chapterName","valign":"middle","text":"我与你的","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":24,"font":"fzhl","color":"#ffeeb1"},
+                    "type":"Image",
+                    "props":{"y":9,"x":2,"width":619,"skin":"image/juQingMode/title_commom_01.png","sizeGrid":"8,14,9,6","height":45},
                     "nodeParent":2,
-                    "label":"Label(lab_chapterName)",
-                    "isDirectory":false,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
+                    "hasChild":true,
+                    "compId":17,
                     "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":31,"x":233,"width":82,"var":"lab_chapterIndex","valign":"middle","text":"第一章","strokeColor":"#4e2a2a","stroke":4,"height":36,"fontSize":24,"font":"fzhl","color":"#ffeeb1"},
-                    "nodeParent":2,
-                    "label":"Label(lab_chapterIndex)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":9,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Label",
-                    "props":{"y":32,"x":38,"var":"lab_volumeName","text":"横断山","strokeColor":"#000000","stroke":4,"height":30,"fontSize":30,"font":"fzxk","color":"#ffeeb1","align":"left"},
-                    "nodeParent":2,
-                    "label":"Label(lab_volumeName)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":10,
-                    "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":8,"x":5,"var":"lab_volumeName","text":"【华山篇】","strokeColor":"#000000","height":30,"fontSize":30,"font":"fzxk","color":"#000000","align":"left"},
+                            "nodeParent":17,
+                            "label":"Label(lab_volumeName)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":10,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HTMLDivElement",
+                            "props":{"y":11,"x":499,"width":106,"var":"html_page","height":26},
+                            "nodeParent":17,
+                            "label":"HTMLDivElement(html_page)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":18,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"HTMLDivElement",
+                            "props":{"y":9,"x":175,"width":269,"var":"html_Name","height":26},
+                            "nodeParent":17,
+                            "label":"HTMLDivElement(html_Name)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ]
+                        }]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -132,14 +129,13 @@
             "props":{"y":0,"x":0,"var":"box_firstPage"},
             "nodeParent":1,
             "label":"Box(box_firstPage)",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":12,
             "child":[
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":210,"x":194,"width":252,"var":"lab_volume","text":"华山篇","height":61,"fontSize":55,"font":"fzhl","color":"#000000","align":"center"},
                     "nodeParent":12,
@@ -152,7 +148,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":335,"x":116,"width":407,"var":"lab_chapter","text":"第一章：初入江湖","height":61,"fontSize":42,"font":"fzhl","color":"#000000","align":"center"},
                     "nodeParent":12,
@@ -165,7 +160,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":452,"x":232,"var":"btn_openNewChapter","stateNum":"1","skin":"image/common/bottom_jineng_02.png","scaleY":2,"scaleX":2,"labelSize":55,"labelFont":"fzxk","labelColors":"#a58a61","label":"開"},
                     "nodeParent":12,

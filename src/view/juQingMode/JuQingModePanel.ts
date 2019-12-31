@@ -86,7 +86,7 @@ module view.juQingMode {
 		}
 		//奖励或事件显示
 		public nextPageEvent() {
-			if (this.btn_next.skin == 'image/juQingMode/icon_juqing1.png') {
+			if (this.btn_next.skin ==  'image/juQingMode/icon_shijian.png') {
 				this.showJuQingEvent();
 			} else {
 				new view.juQingMode.JuQingPrizeDialog().setData().popup();
@@ -261,15 +261,16 @@ module view.juQingMode {
 					this.curReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
 					this.isJuQing = false;
 					for (let i in _talkInfo) {
-						// this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
 						if (_talkInfo[i] && _talkInfo[i].mainquestid > 0) {
 							this.isJuQing = true;
 						}
 					}
 					if (this.isJuQing) {
-						this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
+						this.btn_next.skin = 'image/juQingMode/icon_shijian.png'
+						this.btn_next.label = '事件'
 					} else {
-						this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
+						this.btn_next.skin = 'image/common/icon_baoxiang3_close.png'
+						this.btn_next.label = '挂机'
 					}
 				}
 				this.curReadInfo.x = 0
@@ -354,11 +355,13 @@ module view.juQingMode {
 
 			if (taskInfo) {
 				// this.btn_next.label = 'new 剧情事件!!!!';
-				this.btn_next.skin = 'image/juQingMode/icon_juqing1.png'
+				this.btn_next.skin =  'image/juQingMode/icon_shijian.png'
+				this.btn_next.label = '事件'
 			}
 			else {
 				// this.btn_next.label = '奖励';
-				this.btn_next.skin = 'image/common/icon_jiangli_finish.png'
+				this.btn_next.skin =  'image/common/icon_baoxiang3_close.png'
+				this.btn_next.label = '挂机'
 			}
 		}
 
@@ -427,8 +430,8 @@ module view.juQingMode {
 				jsonArr.push(info);
 			}
 			let boo = this.isFirstCharpter()
-			this.lab_qingyi.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[1].num + '/ H';
-			this.lab_yueli.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[2].num + '/ H';
+			this.lab_qingyi.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[1].num + '/时';
+			this.lab_yueli.text = " " + GameApp.MainPlayer.allCharpterInfo[zjid].items[2].num + '/时';
 			if (boo) {
 				if (this.pageID == 1) {
 					this.addJuQingTalkItem(lastTalkinfoArr, true, -1, page, totalPage, GameApp.MainPlayer.pianZhangID, zjid)
