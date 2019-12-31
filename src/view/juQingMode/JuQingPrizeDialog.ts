@@ -71,6 +71,7 @@ module view.juQingMode {
 					}
 				}
 				// 随机掉落池
+				this.hbox_0.removeChildren();
 				let keys = Object.keys(charpterInfo.drops);
 				for (let key of keys) {
 					let _itemData = charpterInfo.drops[key];

@@ -663,46 +663,32 @@ class ServerListener extends SingletonClass {
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
-            let e = new view.wuXue.WuXue_SkillEffect()
-            if (skillID == 1000) {
-                return;
-            }
-            let configID = GameApp.MainPlayer.skillInfo[skillID.toString()].configID;
-            let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(configID);
-            // targeter.ui_item.y;
-
-            e.y = Laya.stage.height / 3 - 50;
-            e.scaleX = e.scaleY = 0.8;
-            if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
-                e.setData(0, skillEff)
-
-                e.x = e.width * (-1);
-                Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
-                    Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
-                        PanelManage.Main.removeChild(e)
-                    }))
-                }))
-            } else {
-                e.setData(1, skillEff)
-                e.x = e.width + Laya.stage.width;
-                Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
-                    Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
-                        PanelManage.Main.removeChild(e)
-                    }))
-                }))
-            }
-
-
-            PanelManage.Main.addChild(e)
-
-
-
-
-
+            // let e = new view.wuXue.WuXue_SkillEffect()
+            // let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(skillID);
+            // // targeter.ui_item.y;
+            // e.y = Laya.stage.height / 3 - 50;
+            // e.scaleX = e.scaleY = 0.8;
+            // if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
+            //     e.setData(0, skillEff)
+            //     e.x = e.width * (-1);
+            //     Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
+            //         Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
+            //             PanelManage.Main.removeChild(e)
+            //         }))
+            //     }))
+            // } 
+            // else {
+            //     e.setData(1, skillEff)
+            //     e.x = e.width + Laya.stage.width;
+            //     Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
+            //         Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
+            //             PanelManage.Main.removeChild(e)
+            //         }))
+            //     }))
+            // }
+            // PanelManage.Main.addChild(e)
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
-
-
             TipsManage.showTxt('HP--' + npower);
         }
         else {
