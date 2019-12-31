@@ -355,10 +355,6 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_vipLv() });
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
-			//篇章信息
-			GameApp.LListener.on(ProtoCmd.JQ_GET_JQ_ZHANGJIE, this, (jsonData: { pzid: number, pzname: string, charpterInfo: number }) => {
-				this.init_novelPian(jsonData, undefined);
-			});
 			// 地图移动
 			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
 				if (jsonData.errorcode == 0) {
@@ -992,6 +988,9 @@ module view.main {
 			}
 			return [curNum, nextNum];
 		}
+		/**
+		 * 剧情信息
+		 */
 		public get_novelPian(): void {
 			this.panel_list.vScrollBarSkin = '';
 			let pianzhang = SheetConfig.juQingPianZhangSheet.getInstance(null).data;
@@ -1030,6 +1029,10 @@ module view.main {
 				box_juqing.addChildren(btn_Pian, tab_juqing);
 				box_juqing.y = (box_juqing.height + 10) * i;
 				this.panel_list.addChild(box_juqing);
+				if (parseInt(pianzhang[pian][0]) == GameApp.MainPlayer.pianZhangID) {
+					btn_Pian.selected = !btn_Pian.selected;
+					this.getPanelMsg(btn_Pian.selected, GameApp.MainPlayer.pianZhangID.toString());
+				}
 				btn_Pian.on(Laya.UIEvent.CLICK, this, () => {
 					if (btn_Pian.mouseEnabled) {
 						btn_Pian.selected = !btn_Pian.selected;
@@ -1038,36 +1041,57 @@ module view.main {
 				})
 				i += 1;
 			}
-			this.getPanelMsg(true, GameApp.MainPlayer.pianZhangID.toString());
 		}
+		/**
+		 * 篇章信息发包
+		 * @param isopen 打开或关闭
+		 * @param id 
+		 */
 		public getPanelMsg(isopen, id) {
 			if (isopen) {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [id])
+				pkt.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [id], null, this, (jsonData) => {
+					this.init_novelPian(jsonData, id);
+				})
 				lcp.send(pkt);
 			} else {
 				this.init_novelPian(undefined, id);
 			}
 		}
+		/**
+		 * 打开或关闭篇章信息
+		 * @param jsonData 
+		 * @param id 篇章id
+		 */
 		public init_novelPian(jsonData, id): void {
+			//打开篇章
 			if (jsonData) {
+				let data: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo;
 				let label;
-				for (let index in jsonData.charpterInfo) {
+				let dangqian;
+				for (let index in data) {
 					let part = jsonData.charpterInfo[index];
 					if (label == undefined) {
 						label = part.name;
 					} else {
 						label = label + ',' + part.name;
 					}
+					if (GameApp.MainPlayer.charpterID == data[index].zjid) {
+						dangqian = parseInt(index) - 1;
+					}
 				}
 				let name0 = SheetConfig.juQingPianZhangSheet.getInstance(null).NAME('' + jsonData.pzid);
 				for (let child of this.panel_list._childs[0]._childs) {
 					if (child._childs[0].label == name0) {
-						child._childs[1].labels = label;
 						child._childs[1].scaleY = 1;
+						child._childs[1].labels = label;
 						child.height = child._childs[0].height + child._childs[1].height;
-						child._childs[1].selectedIndex = 0;
-						this.init_chapter(jsonData, 1)
+						//当前章
+						if (parseInt(id) == GameApp.MainPlayer.pianZhangID) {
+							child._childs[1].selectedIndex = dangqian;
+							this.init_chapter(jsonData, (dangqian + 1))
+						}
+						//切换章节
 						child._childs[1].selectHandler = Laya.Handler.create(this, (index) => {
 							let tabNum = index + 1;
 							this.init_chapter(jsonData, tabNum)
@@ -1076,7 +1100,9 @@ module view.main {
 					}
 				}
 
-			} else {
+			}
+			//关闭篇章 
+			else {
 				let name1 = SheetConfig.juQingPianZhangSheet.getInstance(null).NAME('' + id);
 				for (let box_juqing of this.panel_list._childs[0]._childs) {
 					if (box_juqing._childs[0].label == name1) {
@@ -1087,6 +1113,7 @@ module view.main {
 					}
 				}
 			}
+			//目录位置重排
 			for (let key in this.panel_list._childs[0]._childs) {
 				let item = this.panel_list._childs[0]._childs[key];
 				let item1 = this.panel_list._childs[0]._childs[parseInt(key) - 1];
@@ -1097,6 +1124,11 @@ module view.main {
 				}
 			}
 		}
+		/**
+		 * 当前剧情信息
+		 * @param data 
+		 * @param index 所选章节
+		 */
 		public init_chapter(data, index): void {
 			this.lbl_zhang.text = '第' + index + '章';
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
@@ -1105,6 +1137,14 @@ module view.main {
 			this.div_zhuxiandes.style.color = '#63491a';
 			this.div_zhuxiandes.style.fontSize = 22;
 			this.div_zhuxiandes.style.font = 'STLiti';
+			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
+			if (juqing) {
+				for (let juqingTask of juqing) {
+					this.lbl_target.text = '' + juqingTask.target;
+				}
+			} else {
+				this.lbl_target.text = '暂无剧情任务内容';
+			}
 			for (let i in zhuxianTask) {
 				let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
 				this.lbl_zhuxianName.text = taskInfo.questname.split(':')[1];
