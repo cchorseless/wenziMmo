@@ -36,15 +36,11 @@ module view.beiBao {
 					this["ui_tab" + i].disabled = false;
 				}
 			}
-
-
-
 			this.updateUI();
 			this.addEvent();
 		}
 
 		public addEvent(): void {
-			this.addLcpEvent();
 			for (let i = 0; i < 4; i++) {
 				this["ui_tab" + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.curCreater = i;
@@ -54,6 +50,16 @@ module view.beiBao {
 
 				})
 			}
+			this.addLcpEvent();
+		}
+		public addLcpEvent(): void {
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				this.updateUI();
+			})
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			super.destroy(isbool);
 		}
 		public setPlayerHalfSkin(id) {
 			let heroSex = GameApp.MainPlayer.heroSex;
@@ -79,24 +85,6 @@ module view.beiBao {
 					this["ui_tab" + i].img_circle.visible = true
 				}
 			}
-		}
-		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
-				if (dwType == 0) {
-					this.battle = battle;
-				}
-			})
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
-				let after=GameApp.GameEngine.mainPlayer.ability.nFight;
-				if (this.curCreater == 0) {
-					GameUtil.battleChange(0, null, this.lbl_zhanLi, this.battle,after);
-				}
-			})
-		}
-		public destroy(isbool) {
-			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
-			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
-			super.destroy(isbool);
 		}
 		public updateUI(): void {
 			for (let i = 0; i < 10; i++) {

@@ -58,27 +58,18 @@ module view.juese {
 			this.addLcpEvent();
 		}
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.playerBttle, this, (dwType, battle) => {
-				if (dwType == 0) {
-					this.battle = battle;
-				}
-			})
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
-				let after = GameApp.GameEngine.mainPlayer.ability.nFight;
-				if (PanelManage.JueSe.tab_player.selectedIndex == 0) {
-					GameUtil.battleChange(0, null, this.lbl_zhanli, this.battle, after);
-				}
+				this.initUI();
 			})
 		}
-		public destroy(isbool) {
+		public destroy(isbool): void {
 			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
-			GameApp.LListener.offCaller(ProtoCmd.playerBttle, this);
 			super.destroy(isbool);
 		}
 		public initUI(): void {
-			this.lbl_dengji.text=GameApp.MainPlayer.EquipmentNum[0];
-			this.lbl_jinglian.text=GameApp.MainPlayer.EquipmentNum[1];
-			this.lbl_stronger.text=GameApp.MainPlayer.EquipmentNum[2];
+			this.lbl_dengji.text = GameApp.MainPlayer.EquipmentNum[0];
+			this.lbl_jinglian.text = GameApp.MainPlayer.EquipmentNum[1];
+			this.lbl_stronger.text = GameApp.MainPlayer.EquipmentNum[2];
 			let func = LangConfig.getBigNumberDes;
 			//战力
 			this.lbl_zhanli.text = '' + GameApp.MainPlayer.ability.nFight;

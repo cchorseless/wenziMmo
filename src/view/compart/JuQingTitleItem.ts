@@ -10,10 +10,9 @@ module view.compart {
 		 * @param data 章节数据
 		 */
 		public setData(data: ProtoCmd.itf_JUQING_CHARPTERINFO): void {
-			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
 			this.dataItem = data;
 			this.lbl_charpterName.text = data.name;
-			this.lbl_charpterNo.text = '第' + numArray[parseInt(data.index)] + '章';
+			this.lbl_charpterNo.text = '第' +  GameUtil.SectionToChinese(parseInt(data.index),0) + '章';
 			// 解锁条件
 			let player = GameApp.MainPlayer;
 			// 未解锁

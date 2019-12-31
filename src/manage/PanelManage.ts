@@ -201,10 +201,8 @@ module PanelManage {
     export function openMainPanel(): void {
         if (PopUpManager.showPanel(PanelManage.Main)) {
             PanelManage.Main.updateUI();
-            PanelManage.Main.view_scene.selectedIndex = 1;
-            PanelManage.Main.box_menu.visible = true;
-            PanelManage.Main.box_mainBottom.visible = true;
-            PanelManage.Main.box_mainTop.visible = true;
+            PanelManage.Main.view_scene.selectedIndex = 0;
+            PanelManage.Main.view_scene.setIndexHandler.runWith(0);
         }
         else {
             ResManage.loadResource(ResData.PanelRes.Main, () => {
@@ -212,9 +210,9 @@ module PanelManage {
                 PanelManage.Main['LCP_skin'] = ResData.PanelRes.Main;
                 PanelManage.Main.setData();
                 PanelManage.Main.mouseEnabled = true;
-                PanelManage.Main.box_mainBottom.visible = true;
+                PanelManage.Main.view_scene.selectedIndex = 0;
                 PopUpManager.addPanel(PanelManage.Main, 0);
-                PanelManage.Main.box_mainTop.visible = true;
+
             });
         }
     }
@@ -851,10 +849,7 @@ module PanelManage {
      * 剧情模式界面(特殊处理了)
      */
     export function openJuQingModePanel(): void {
-        PanelManage.openMainPanel();
-        PanelManage.Main.box_mainTop.visible = false;
-        PanelManage.Main.box_mainBottom.visible = false;
-        PanelManage.Main.box_menu.visible = false;
+        PopUpManager.showPanel(PanelManage.Main);
         if (PanelManage.Main.view_scene.numChildren == 2) {
             ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
                 PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
@@ -864,17 +859,28 @@ module PanelManage {
                 PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
                 PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
                 PanelManage.Main.view_scene.selectedIndex = 2;
+                PanelManage.Main.view_scene.setIndexHandler.runWith(2);
             })
         }
         else {
             PanelManage.Main.view_scene.selectedIndex = 2;
+            PanelManage.Main.view_scene.setIndexHandler.runWith(2);
         }
+    }
+
+    /**
+     * 探索界面（特殊处理）
+     */
+    export function openTanSuoPanel(): void {
+        PopUpManager.showPanel(PanelManage.Main);
+        PanelManage.Main.view_scene.selectedIndex = 1;
+        PanelManage.Main.view_scene.setIndexHandler.runWith(1);
     }
 
 
     /**
-  * 图鉴道具界面
-  */
+     * 图鉴道具界面
+     */
     export function openTuJianDaojuPanel(): void {
         if (PopUpManager.showPanel(PanelManage.TuJianDaoju)) return;
         ResManage.loadResource(ResData.PanelRes.TuJianDaoju, () => {

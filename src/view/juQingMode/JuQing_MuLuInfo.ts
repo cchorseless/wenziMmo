@@ -26,8 +26,7 @@ module view.juQingMode {
 				this.cnt = item.cnt;
 			}
 			this.volumeIndex = key;
-			let numArray = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三']
-			this.lab_volumeIndex.text = '第' + numArray[key] + '卷';
+			this.lab_volumeIndex.text = '第' +GameUtil.SectionToChinese(key,0) + '卷';
 			this.item = item;
 			this.lab_volumeName.text = '' + item.name;
 			let nowChapter = GameApp.MainPlayer.pianZhangID;

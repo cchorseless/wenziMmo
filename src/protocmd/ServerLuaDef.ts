@@ -198,8 +198,6 @@ module ProtoCmd {
     export const dressWearAndTakeoff = 'dressWearAndTakeoff';
 
     /********************************角色信息界面***************** */
-    //战力
-    export const playerBttle = 'playerBttle';
     //更新时装穿戴情况
     export const UP_DATE_DRESS = 'up_date_dress';
     // 声望信息
