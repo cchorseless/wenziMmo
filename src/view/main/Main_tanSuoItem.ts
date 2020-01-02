@@ -5,11 +5,19 @@ module view.main {
 		constructor() {
 			super();
 			Main_tanSuoItem.self = this;
-			
+			this.addEvent();
 		}
 
 		public addEvent() {
-
+			this.btn_xiangXia.on(Laya.UIEvent.CLICK, this, () => {
+				console.log(1111111111)
+				if (this.img_sceneTxt.height > 300) {
+					Laya.Tween.to(this.img_sceneTxt, { height: 620 }, 500)
+				}
+				else {
+					Laya.Tween.to(this.img_sceneTxt, { height: 210 }, 500)
+				}
+			})
 		}
 
 		/**
@@ -21,17 +29,13 @@ module view.main {
 		}
 
 
-
+		/**
+		 * 更新界面信息
+		 */
 		public updateUI() {
-			// let map: any = this.panel_0.getChildAt(0);
-			// let img_selfOn: Laya.Image = map.img_selfOn;
-			// let targgetBtn: Laya.Button = map['btn_' + GameApp.MainPlayer.roomId];
-			// if (img_selfOn && targgetBtn) {
-			//     img_selfOn.anchorX = img_selfOn.anchorY = 0.5;
-			//     img_selfOn.width = targgetBtn.width;
-			//     img_selfOn.height = targgetBtn.height;
-			//     img_selfOn.pos(targgetBtn.x, targgetBtn.y)
-			// }
+			this.lbl_roomName.text = GameApp.MainPlayer.mapName;
+			// 更新主界面的UI信息
+			GameApp.LListener.event(LcpEvent.UPDATE_UI_PLACE_DES)
 		}
 
 		public addPlayer(obj): void {
@@ -61,7 +65,7 @@ module view.main {
 					case EnumData.emMonsterType._MON_TYPE_CITYGUARD_:
 						monster = new view.scene.MonsterInSceneItemV15();
 						break;
-						// 
+					// 
 					case EnumData.emMonsterType._MON_TYPE_LITTLEBOSS_:
 						monster = new view.scene.MonsterInSceneItemV1();
 						break;

@@ -16,8 +16,7 @@ module view.map {
 		public addEvent(): void {
 			for (let i = 16001; i <= 16015; i++) {
 				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
-					// 隐藏自己
-					GameApp.SceneManager.showBigMap(false);
+
 					// 设置导航
 					let findMap = new GameUtil.findMapPath(16001, 16015).minPath(GameApp.MainPlayer.roomId, i);
 					console.log(findMap);

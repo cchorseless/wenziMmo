@@ -4,23 +4,14 @@ module view.main {
 		public isTouchTab = false;
 		public touchActNum = 0;
 		public touchTaskNum = 1;
-		public flyPanel: Main_FlyChatPanel;
+
 		constructor() {
 			super();
 			// this.panel_task.vScrollBarSkin = '';
 		}
 		public setData(): void {
-			// this.flyPanel = new Main_FlyChatPanel();
-			// this.box_fly.addChild(this.flyPanel)
-			// this.addChild(this.flyPanel);
-			// this.btn_taskAll.selected = true;
-			// this.ui_chatBigDialog.visible = false;
-			// NPC列表
-			// this.panel_npc.vScrollBarSkin = '';
-			// this.vbox_npc['sortItem'] = (items) => { };
-			// 大地图
-			// this.panel_bigMap.hScrollBarSkin = '';
-			// this.panel_bigMap.visible = false;
+			this.ui_chatBigDialog.visible = false;
+
 			this.initUI();
 			this.addEvent();
 			this.visible = false;
@@ -552,7 +543,6 @@ module view.main {
 				str = 'icon_nv0' + job
 			}
 			// this.showFlyChatMsg(btChatType, _chatMsg, senderName)
-			// this.flyPanel.showFlyChatMsg(btChatType, _chatMsg, senderName)
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg, senderName, sender_VIPLv, level, zslv, str);
 		}
 
