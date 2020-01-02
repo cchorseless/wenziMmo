@@ -170,7 +170,7 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-	
+
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
 				GameApp.SceneManager.showBigMap(true);
 			});
@@ -209,7 +209,7 @@ module view.main {
 					new view.main.Main_BriskDialog().popup();
 				}
 			})
-		
+
 			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, function () {
 				this.touchTaskNum++;
 				this.touchActNum = 0;
@@ -625,9 +625,11 @@ module view.main {
 				GameApp.GameEngine.activeInfo = jsonData
 			})
 			this.getActiveInfoData();
+			// this.getFuBenMainMsg();
 
 
 		}
+
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;
 			pkt.setString(ProtoCmd.TASK_HuoYueDuClientOpen)
@@ -983,6 +985,6 @@ module view.main {
 			}
 			return [curNum, nextNum];
 		}
-	
+
 	}
 }

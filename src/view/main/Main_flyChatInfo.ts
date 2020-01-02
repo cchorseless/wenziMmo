@@ -19,6 +19,7 @@ module view.main {
 					this.chat_type.strokeColor = "#b65c41";
 					this.chat_type.text = "系统";
 					this.showInfo('[系统]', msgStr, true);
+					console.error('系统' + msgStr)
 					break;
 
 				// 世界聊天

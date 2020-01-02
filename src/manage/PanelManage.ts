@@ -850,22 +850,23 @@ module PanelManage {
      */
     export function openJuQingModePanel(): void {
         PopUpManager.showPanel(PanelManage.Main);
-        if (PanelManage.Main.view_scene.numChildren == 2) {
+        // if (PanelManage.Main.view_scene.numChildren == 1) {
             ResManage.loadResource(ResData.PanelRes.JuQingMode, () => {
                 PanelManage.JuQingMode = new view.juQingMode.JuQingModePanel();
                 PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
                 PanelManage.JuQingMode.setData();
                 PanelManage.JuQingMode.mouseEnabled = true;
-                PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
-                PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
-                PanelManage.Main.view_scene.selectedIndex = 2;
-                PanelManage.Main.view_scene.setIndexHandler.runWith(2);
+                PopUpManager.addPanel(PanelManage.JuQingMode, 1);
+                // PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
+                // PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
+                // PanelManage.Main.view_scene.selectedIndex = 1;
+                // PanelManage.Main.view_scene.setIndexHandler.runWith(1);
             })
-        }
-        else {
-            PanelManage.Main.view_scene.selectedIndex = 2;
-            PanelManage.Main.view_scene.setIndexHandler.runWith(2);
-        }
+        // }
+        // else {
+        //     PanelManage.Main.view_scene.selectedIndex = 2;
+        //     PanelManage.Main.view_scene.setIndexHandler.runWith(2);
+        // }
     }
 
     /**
