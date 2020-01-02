@@ -42,13 +42,6 @@ class SceneManager extends SingletonClass {
     }
 
 
-    // /**
-    //  * 大地图场景容器
-    //  */
-    // public get panelBigMap(): Laya.Panel {
-    //     return PanelManage.Main.panel_bigMap;
-    // }
-
 
     /**
      * 玩家切换地图后刷新界面
@@ -91,11 +84,10 @@ class SceneManager extends SingletonClass {
                 PanelManage.Main.initData();
                 this.updateSelfPlayer(this.ui_scene);
             }
-            else{
+            else {
                 PanelManage.openTanSuoPanel();
             }
             console.log('客户端准备完成');
-            GameApp.LListener.event(LcpEvent.UPDATE_UI_PLACE_DES)
             GameApp.GameEngine.isReady = true;
         });
     }
@@ -113,7 +105,7 @@ class SceneManager extends SingletonClass {
             case EnumData.emRoomType.chuMoFuBen:
             // 资源副本
             case EnumData.emRoomType.resourceFuBen:
-            // 多人副本    只有boss的野外地图
+            // 多人副本   只有boss的野外地图
             case EnumData.emRoomType.publicFuBen:
                 this.ui_scene.changeMode(1);
                 break;
@@ -245,161 +237,11 @@ class SceneManager extends SingletonClass {
     }
 
 
-
-    /**
-     * 加载大地图
-     */
-    public loadBigMap(): void {
-        // let ui_map;
-        // switch (GameApp.MainPlayer.location.mapid) {
-        //     // 酆都
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DU:
-        //         ui_map = new view.map.SmallMap_fengduItem();
-        //         ui_map.setData();
-        //         break;
-        //     // 福州城
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_FU_ZHOU_CHENG:
-        //         ui_map = new view.map.SmallMap_fuzhouItem();
-        //         ui_map.setData();
-        //         break;
-        //     // 华山派
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_HUA_SHAN_PAI:
-        //         ui_map = new view.map.SmallMap_HuaShanItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 玉壶
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_YU_HU:
-        //         ui_map = new view.map.SmallMap_YuHuItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 药王庄
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_YAO_WANG:
-        //         ui_map = new view.map.SmallMap_YaoWangItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 洛阳
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_LUO_YANG:
-        //         ui_map = new view.map.SmallMap_LuoYangItem();
-        //         ui_map.setData();
-        //         break;
-        //     // 良人鎮
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_LIANG_REN:
-        //         ui_map = new view.map.SmallMap_LiangRenItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 塔楼
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_TA_LOU:
-        //         ui_map = new view.map.SmallMap_TaLouItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 玉笔峰
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_YU_BI:
-        //         ui_map = new view.map.SmallMap_YuBiItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 嵩山
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_SONG_SHAN:
-        //         ui_map = new view.map.SmallMap_SongShanItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 全真
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_QUAN_ZHEN:
-        //         ui_map = new view.map.SmallMap_QuanZhenItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     // 青城派
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_QING_CHENG:
-        //         ui_map = new view.map.SmallMap_QingChengItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     //衡山派
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
-        //         ui_map = new view.map.SmallMap_HengShanItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     //泰山
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_TAI_SHAN:
-        //         ui_map = new view.map.SmallMap_TaiShanItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     //恒山
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHANA:
-        //         ui_map = new view.map.SmallMap_HengShanAItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        //     //风刀门
-        //     case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DAO:
-        //         ui_map = new view.map.SmallMap_FengDaoItem();
-        //         ui_map.y = 118;
-        //         ui_map.setData();
-        //         break;
-        // }
-        // PanelManage.Main.panel_bigMap.removeChildren();
-        // if (ui_map) {
-        //     this.panelBigMap.addChild(ui_map);
-        // }
-
-    }
-
-
-    /**
-     * 显示
-     * @param isShow 
-     */
-    public showBigMap(isShow) {
-        // 更新小地图中自己的位置
-        if (isShow) {
-            // this.panelBigMap.visible = true;
-            Laya.Tween.to(this, { scaleX: 1, scaleY: 1 }, 300);
-            this.updateUI();
-        }
-        else {
-            Laya.Tween.to(this, { scaleX: 0, scaleY: 0 }, 300, null, Laya.Handler.create(this, () => {
-                // this.panelBigMap.visible = false;
-            }))
-        }
-    }
-
     /**
      * 小地图寻找房间Button
      */
     public smallMapFindButton(btnName): Laya.Button {
-        return
-        // return (this.box_smallScene.getChildByName('SmallMapItem') as view.map.SmallMapItem)[btnName]
-    }
-
-    /**
-     * 大地图寻找房间button
-     * @param roomID 
-     */
-    // public bigMapfindButton(roomID): Laya.Button {
-    //     return this.panelBigMap.getChildAt(0)['btn_' + roomID]
-    // }
-
-
-
-    public updateUI() {
-        // let map: any = this.panel_0.getChildAt(0);
-        // let img_selfOn: Laya.Image = map.img_selfOn;
-        // let targgetBtn: Laya.Button = map['btn_' + GameApp.MainPlayer.roomId];
-        // if (img_selfOn && targgetBtn) {
-        //     img_selfOn.anchorX = img_selfOn.anchorY = 0.5;
-        //     img_selfOn.width = targgetBtn.width;
-        //     img_selfOn.height = targgetBtn.height;
-        //     img_selfOn.pos(targgetBtn.x, targgetBtn.y)
-        // }
+        return (this.ui_smallMap as view.map.SmallMapItem)[btnName]
     }
 
 }

@@ -11,6 +11,7 @@ module view.main {
 			this.panel_list.vScrollBarSkin = '';
 			this.addEvent();
 			this.get_novelPian();
+			this.updateNowPlaceDes();
 		}
 		public addEvent(): void {
 			//福州
@@ -49,13 +50,13 @@ module view.main {
 			})
 			this.addLcpEvent();
 		}
-
+		public updateNowPlaceDes(): void {
+			this.lbl_nowPlace.text = '当前位置:' + '地图ID' + GameApp.MainPlayer.location.mapid + '房间ID' + GameApp.MainPlayer.roomId;
+		}
 
 		public addLcpEvent(): void {
 			// 监听位置改变刷新界面
-			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, () => {
-				this.lbl_nowPlace.text = '当前位置:' + '地图ID' + GameApp.MainPlayer.location.mapid + '房间ID' + GameApp.MainPlayer.roomId;
-			})
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, this.updateNowPlaceDes)
 		}
 		/**
 	  * 剧情信息
@@ -204,7 +205,7 @@ module view.main {
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index = index;
 			}
-			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index,0) + '章';
+			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
