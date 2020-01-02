@@ -134,6 +134,7 @@ module view.main {
 				for (let child of this.panel_list._childs[0]._childs) {
 					if (child._childs[0].label == name0) {
 						child._childs[1].scaleY = 1;
+						child._childs[1].removeChildren();
 						for (let key in jsonData.charpterInfo) {
 							let data: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
 							let btn_juqingDown = new Laya.Button;
