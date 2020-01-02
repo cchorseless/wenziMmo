@@ -5,6 +5,7 @@ module view.main {
 		constructor() {
 			super();
 			Main_tanSuoItem.self = this;
+			
 		}
 
 		public addEvent() {

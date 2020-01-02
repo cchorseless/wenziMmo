@@ -88,12 +88,15 @@ module view.map {
 			// 路引
 			EventManage.onWithEffect(this.btn_flyPoint, Laya.UIEvent.CLICK, this, function () {
 				new view.main.Main_LuYinDialog().setData().popup(true);
-			})
+			});
 			// 返回主界面
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, function () {
 				PanelManage.Main.changeMode(0);
-			})
-
+			});
+			// 当前地图界面
+			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, function () {
+				PanelManage.Main.changeMode(0);
+			});
 		}
 		/**
  		  * 进入房间

@@ -34,10 +34,7 @@ module view.main {
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.TaskDialog().popup();
 			})
-			// 主线副本界面
-			EventManage.onWithEffect(this.btn_fuben, Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenMainPanel('main')
-			})
+
 			// 宅院界面
 			EventManage.onWithEffect(this.btn_zhaiYuan, Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openZhaiYuanPanel()
