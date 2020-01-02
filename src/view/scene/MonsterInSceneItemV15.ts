@@ -4,7 +4,7 @@ module view.scene {
 		constructor() {
 			super();
 		}
-		public item: GameObject.Monster; 7
+		public item: GameObject.Monster; 
 		public setData(item: GameObject.Monster): void {
 			this.centerX = this.centerY = 0;
 			// 相互绑定

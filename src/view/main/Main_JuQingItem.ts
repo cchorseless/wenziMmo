@@ -1,9 +1,12 @@
 /**Created by the LayaAirIDE*/
 module view.main {
 	export class Main_JuQingItem extends ui.main.Main_JuQingItemUI {
+		public static self: Main_JuQingItem;
 		constructor() {
 			super();
+			Main_JuQingItem.self = this;
 		}
+
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.addEvent();
@@ -31,9 +34,30 @@ module view.main {
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.TaskDialog().popup();
 			})
-			// 模式切换
+			// 主线副本界面
+			EventManage.onWithEffect(this.btn_fuben, Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenMainPanel('main')
+			})
+			// 宅院界面
+			EventManage.onWithEffect(this.btn_zhaiYuan, Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openZhaiYuanPanel()
+			})
+			// 阅读小说
 			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
+			})
+			// 探索
+			EventManage.onWithEffect(this.btn_gotoTanSuo, Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openTanSuoPanel();
+			})
+			this.addLcpEvent();
+		}
+
+
+		public addLcpEvent(): void {
+			// 监听位置改变刷新界面
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, () => {
+				this.lbl_nowPlace.text = '当前位置:' + '地图ID' + GameApp.MainPlayer.location.mapid + '房间ID' + GameApp.MainPlayer.roomId;
 			})
 		}
 		/**
@@ -248,5 +272,8 @@ module view.main {
 				}
 			}
 		}
+
+
+
 	}
 }

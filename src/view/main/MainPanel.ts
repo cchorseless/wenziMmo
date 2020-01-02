@@ -7,20 +7,20 @@ module view.main {
 		public flyPanel: Main_FlyChatPanel;
 		constructor() {
 			super();
-			this.panel_task.vScrollBarSkin = '';
+			// this.panel_task.vScrollBarSkin = '';
 		}
 		public setData(): void {
-			this.flyPanel = new Main_FlyChatPanel();
-			this.box_fly.addChild(this.flyPanel)
+			// this.flyPanel = new Main_FlyChatPanel();
+			// this.box_fly.addChild(this.flyPanel)
 			// this.addChild(this.flyPanel);
-			this.btn_taskAll.selected = true;
-			this.ui_chatBigDialog.visible = false;
+			// this.btn_taskAll.selected = true;
+			// this.ui_chatBigDialog.visible = false;
 			// NPC列表
-			this.panel_npc.vScrollBarSkin = '';
-			this.vbox_npc['sortItem'] = (items) => { };
+			// this.panel_npc.vScrollBarSkin = '';
+			// this.vbox_npc['sortItem'] = (items) => { };
 			// 大地图
-			this.panel_bigMap.hScrollBarSkin = '';
-			this.panel_bigMap.visible = false;
+			// this.panel_bigMap.hScrollBarSkin = '';
+			// this.panel_bigMap.visible = false;
 			this.initUI();
 			this.addEvent();
 			this.visible = false;
@@ -31,12 +31,42 @@ module view.main {
 		 */
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
-			this.img_bottomPartInfoBg.scaleY = getScaleY;
-			this.img_npc.scaleY = getScaleY;
-			this.box_uiScene0.scaleY = getScaleY;
-			this.box_uiScene1.scaleY = getScaleY;
-			this.ui_battleSkill.bottom = this.ui_battleSkill.bottom * getScaleY;
+
 		}
+
+		/**
+		 * 切换界面模式
+		 * @param index 
+		 */
+		public changeMode(index): void {
+			this.view_scene.selectedIndex = index;
+			switch (index) {
+				// 主界面
+				case 0:
+					this.box_mainTop.visible = true;
+					this.box_right.visible = true;
+					this.box_top.visible = false;
+					this.box_mainBottom.visible = true;
+					break;
+				// 探索界面
+				case 1:
+					this.box_mainTop.visible = false;
+					this.box_right.visible = true;
+					this.box_top.visible = true;
+					this.box_mainBottom.visible = true;
+					break;
+				// 小说界面
+				case 2:
+					this.box_mainTop.visible = false;
+					this.box_right.visible = false;
+					this.box_top.visible = false;
+					this.box_mainBottom.visible = false;
+					break;
+
+			}
+		}
+
+
 
 		/**
 		 * 切换界面时刷新数据
@@ -56,6 +86,7 @@ module view.main {
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 		}
+
 
 
 		/**
@@ -170,14 +201,8 @@ module view.main {
 			this.font_vipLevel.value = '' + _player.viplvl;
 		}
 		public addEvent(): void {
-	
-			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, () => {
-				GameApp.SceneManager.showBigMap(true);
-			});
 
-			EventManage.onWithEffect(this.btn_fuben, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel('main');
-			})
+
 			// 物品
 			EventManage.onWithEffect(this.btn_wuPin, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openBeiBaoPanel();
@@ -198,29 +223,29 @@ module view.main {
 			// 		Laya.Tween.to(this.vbox_tab, { x: 1 * this.vbox_tab.width }, 250)
 			// 	}
 			// })
-			EventManage.onWithEffect(this.btn_Act, Laya.UIEvent.CLICK, this, function () {
-				this.touchActNum++;
-				this.touchTaskNum = 0;
-				this.btn_taskAll.selected = false;
-				this.btn_Act.selected = true;
-				if (this.touchActNum == 1) {
-					this.updateActiveInfo()
-				} else if (this.touchActNum >= 2) {
-					new view.main.Main_BriskDialog().popup();
-				}
-			})
-		
-			EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, function () {
-				this.touchTaskNum++;
-				this.touchActNum = 0;
-				this.btn_taskAll.selected = true;
-				this.btn_Act.selected = false;
-				if (this.touchTaskNum == 1) {
-					this.updateTaskInfo()
-				} else if (this.touchTaskNum >= 2) {
-					new view.dialog.TaskDialog().popup();
-				}
-			})
+			// EventManage.onWithEffect(this.btn_Act, Laya.UIEvent.CLICK, this, function () {
+			// 	this.touchActNum++;
+			// 	this.touchTaskNum = 0;
+			// 	this.btn_taskAll.selected = false;
+			// 	this.btn_Act.selected = true;
+			// 	if (this.touchActNum == 1) {
+			// 		this.updateActiveInfo()
+			// 	} else if (this.touchActNum >= 2) {
+			// 		new view.main.Main_BriskDialog().popup();
+			// 	}
+			// })
+
+			// EventManage.onWithEffect(this.btn_taskAll, Laya.UIEvent.CLICK, this, function () {
+			// 	this.touchTaskNum++;
+			// 	this.touchActNum = 0;
+			// 	this.btn_taskAll.selected = true;
+			// 	this.btn_Act.selected = false;
+			// 	if (this.touchTaskNum == 1) {
+			// 		this.updateTaskInfo()
+			// 	} else if (this.touchTaskNum >= 2) {
+			// 		new view.dialog.TaskDialog().popup();
+			// 	}
+			// })
 			this.btn_friend.on(Laya.UIEvent.CLICK, this, function () {
 				new view.friend.FriendListDialog().popup();
 			})
@@ -244,28 +269,9 @@ module view.main {
 					PanelManage.openGuildSelectPanel();
 				}
 			});
-			EventManage.onWithEffect(this.btn_flyPoint, Laya.UIEvent.CLICK, this, function () {
-				new view.main.Main_LuYinDialog().setData().popup(true);
-			})
-			EventManage.onWithEffect(this.btm_mapWorld, Laya.UIEvent.CLICK, this, function () {
-				// this.btn_mapBig.selected = !this.btn_mapBig.selected;
-				// if (this.btn_mapBig.selected) {
-				// 	this.ui_mainDownMapItem.showSelf(true);
-				// }
-				// else {
-				// 	this.ui_mainDownMapItem.showSelf(false);
-				// }
-				// this.panel_bigMap.visible = true;
-				PanelManage.openNorthMapPanel()
-			})
 
-			EventManage.onWithEffect(this.btn_flyPoint, Laya.UIEvent.CLICK, this, function () {
-				new view.main.Main_LuYinDialog().setData().popup(true);
-			})
-			// 宅院
-			EventManage.onWithEffect(this.btn_zhaiYuan, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openZhaiYuanPanel();
-			});
+
+
 
 			// 聊天大窗
 			// this.vstack_task.on(Laya.UIEvent.CLICK, this, () => {
@@ -349,24 +355,14 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_vipLv() });
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
-			// 地图移动
-			GameApp.LListener.on(ProtoCmd.MAP_MOVE, this, (jsonData: ProtoCmd.itf_MAP_MOVE) => {
-				if (jsonData.errorcode == 0) {
-					this.view_scene.selectedIndex = 0;
-					// 清空视野
-					GameApp.MainPlayer.clearViewObj();
-					// 更新房间数据
-					GameApp.MainPlayer.roomId = jsonData.curmapid;
-					// 上下左右房间的信息
-					GameApp.GameEngine.smallMapData = jsonData.dstmap;
-					console.log('进入了' + jsonData.curmapid);
-					// 更新主场景
-					let mapType = SheetConfig.mapRoomSheet.getInstance(null).ROOMTYPE('' + jsonData.curmapid);
-					GameApp.SceneManager.updateUiScene(mapType);
-					// 更新场景信息
-					this.updateSceneView('进入了' + jsonData.curmapid);
-				}
-			});
+
+			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
+				console.log(data);
+				GameApp.GameEngine.turnActivity = data;
+			})
+			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
+				GameApp.GameEngine.activeInfo = jsonData
+			})
 		}
 
 		//界面切换时控制那些部分不变
@@ -388,10 +384,10 @@ module view.main {
 					this.box_menu.visible = false;
 				}
 				// 复制一张底图
-				let imgBg = new Laya.Image();
-				imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
-				imgBg.skin = GameApp.SceneManager.ui_scene.img_bg.skin;
-				panel.addChildAt(imgBg, 0);
+				// let imgBg = new Laya.Image();
+				// imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
+				// imgBg.skin = GameApp.SceneManager.ui_scene.img_bg.skin;
+				// panel.addChildAt(imgBg, 0);
 				if (panel.box_view) {
 					console.log(PanelManage.euiLayer.displayHeight);
 					panel.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
@@ -405,25 +401,14 @@ module view.main {
 		public showGroupBottom(panel: Laya.View): void {
 			this.box_mainBottom.visible = true;
 			if (panel == this) {
-				this.box_main.addChildAt(this.box_mainBottom, 5);
+				this.addChildAt(this.box_mainBottom, 5);
 			}
 			else {
 				panel.addChild(this.box_mainBottom);
 			}
 		}
 
-		// 界面展示NPC列表
-		public showGroupNpcList(show: boolean): void {
-			if (show) {
-				Laya.Tween.to(this.img_npc, { width: 0 }, 300, null);
-				Laya.Tween.to(this.box_uiScene0, { left: 0 }, 300);
-			}
-			else {
-				Laya.Tween.to(this.img_npc, { width: 95 }, 300);
-				Laya.Tween.to(this.box_uiScene0, { left: 95 }, 300);
-			}
-			(this.box_uiScene0.getChildAt(0) as view.scene.SceneCityItem).changeSelfSize(show)
-		}
+
 
 		/**
 		 * 获取时辰
@@ -559,7 +544,7 @@ module view.main {
 				str = 'icon_nv0' + job
 			}
 			// this.showFlyChatMsg(btChatType, _chatMsg, senderName)
-			this.flyPanel.showFlyChatMsg(btChatType, _chatMsg, senderName)
+			// this.flyPanel.showFlyChatMsg(btChatType, _chatMsg, senderName)
 			this.ui_chatBigDialog.addLabel(btChatType, _chatMsg, senderName, sender_VIPLv, level, zslv, str);
 		}
 
@@ -583,20 +568,7 @@ module view.main {
 			// this.vbox_sceneMsg.addChild(small_txt);
 			// Laya.timer.frameOnce(2, this, () => { this.panel_sceneMsg.scrollTo(null, this.panel_sceneMsg.contentHeight); })
 		}
-		/**
-		 * 更新NPC的任务状态
-		 * @param npcID 
-		 * @param state 
-		 */
-		public updateNpcState(npcID, state: EnumData.NPCSTATUS): void {
-			for (let npcUI of this.vbox_npc._childs) {
-				let npcObject: GameObject.Npc = npcUI.item;
-				if (npcObject.feature.dwCretTypeId == npcID) {
-					npcObject.taskState = state;
-					break;
-				}
-			}
-		}
+
 
 		/**
 		 * 客户端创建完成角色后初始化数据
@@ -617,16 +589,9 @@ module view.main {
 			this.getShengWangInfo();
 			//活动状态
 			this.getHuoDongStatus();
-			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
-				console.log(data);
-				GameApp.GameEngine.turnActivity = data;
-			})
-			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
-				GameApp.GameEngine.activeInfo = jsonData
-			})
+
 			this.getActiveInfoData();
-
-
+			
 		}
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;
@@ -708,7 +673,11 @@ module view.main {
 		 */
 		public loadJuQingData(): void {
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO);
+			pkt.setString(ProtoCmd.JQ_GET_JQ_SELF_INFO, null, null, this, () => {
+				console.log('劇情信息獲取成功');
+				// 初始化劇情信息
+				Main_JuQingItem.self.setData();
+			});
 			lcp.send(pkt);
 		}
 
@@ -726,89 +695,77 @@ module view.main {
 			});
 			lcp.send(pkt1);
 		}
-		/**
-		 * 更新主界面活跃信息
-		 */
-		public updateActiveInfo(): void {
-			this.vbox_task.removeChildren();
-			let actInfo: any = GameApp.GameEngine.activeInfo;
-			let keys = Object.keys(actInfo.tab)
-			for (let i = 0; i < keys.length; i++) {
-				let o = new main.Main_taskInfo();
-				o.setData(actInfo.tab[keys[i]], 1)
-				this.vbox_task.addChild(o)
-			}
-		}
+
 
 		/**
 		 * 更新主界面任务信息
 		 * @param data 
 		 */
 		public updateTaskInfo(): void {
-			this.vbox_task.removeChildren();
-			let taskInfo: ProtoCmd.stQuestInfoBase;
-			// 优先显示事件任务
-			let eventInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
-			for (let i in eventInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(eventInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			// 主线任务
-			let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
-			for (let i in zhuXianInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(zhuXianInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let everyDayInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.EVERYDAY];
-			for (let i in everyDayInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(everyDayInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let lifeExpInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
-			for (let i in lifeExpInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(lifeExpInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let clanInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.CLAN];
-			for (let i in clanInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(clanInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let runRingInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.RUNRING];
-			for (let i in runRingInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(runRingInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let wantedInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.WANTED];
-			for (let i in wantedInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(wantedInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let jinYinInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JINYIN];
-			for (let i in jinYinInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(jinYinInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let achievementInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ACHIEVEMENT];
-			for (let i in achievementInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(achievementInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
-			let onlineRewardInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ONLINEREWARD];
-			for (let i in onlineRewardInfo) {
-				let o = new main.Main_taskInfo();
-				o.setData(onlineRewardInfo[i], 0)
-				this.vbox_task.addChild(o)
-			}
+			// // this.vbox_task.removeChildren();
+			// let taskInfo: ProtoCmd.stQuestInfoBase;
+			// // 优先显示事件任务
+			// let eventInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
+			// for (let i in eventInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(eventInfo[i], 0)
+			// 	// this.vbox_task.addChild(o)
+			// }
+			// // 主线任务
+			// let zhuXianInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+			// for (let i in zhuXianInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(zhuXianInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let everyDayInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.EVERYDAY];
+			// for (let i in everyDayInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(everyDayInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let lifeExpInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
+			// for (let i in lifeExpInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(lifeExpInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let clanInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.CLAN];
+			// for (let i in clanInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(clanInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let runRingInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.RUNRING];
+			// for (let i in runRingInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(runRingInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let wantedInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.WANTED];
+			// for (let i in wantedInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(wantedInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let jinYinInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JINYIN];
+			// for (let i in jinYinInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(jinYinInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let achievementInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ACHIEVEMENT];
+			// for (let i in achievementInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(achievementInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
+			// let onlineRewardInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.ONLINEREWARD];
+			// for (let i in onlineRewardInfo) {
+			// 	let o = new main.Main_taskInfo();
+			// 	o.setData(onlineRewardInfo[i], 0)
+			// 	this.vbox_task.addChild(o)
+			// }
 
 
 
@@ -842,7 +799,7 @@ module view.main {
 			}
 			progerUI.closeHandler = closerHander;
 			// 添加读条界面
-			this.box_uiScene0.addChild(progerUI);
+			// this.box_uiScene0.addChild(progerUI);
 		}
 		public equipView() {
 			//等级大师达标装备数量
@@ -983,6 +940,6 @@ module view.main {
 			}
 			return [curNum, nextNum];
 		}
-	
+
 	}
 }

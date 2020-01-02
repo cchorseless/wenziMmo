@@ -495,14 +495,14 @@ module GameUtil {
                                 // 非相邻房间，需要展开地图导航
                                 else {
                                     GameUtil.addEffectButton(GameApp.SceneManager.smallMapFindButton('btn_mapBig'));
-                                    GameUtil.addEffectButton(GameApp.SceneManager.bigMapfindButton(roomid));
+                                    // GameUtil.addEffectButton(GameApp.SceneManager.bigMapfindButton(roomid));
                                 }
                             }
                             GameUtil.findNPC(roomid, npcid);
                         }
                         // 其他地图
                         else {
-                            GameUtil.addEffectButton(PanelManage.Main.box_uiScene0.getChildAt(0)['btn_worldMap']);
+                            // GameUtil.addEffectButton(PanelManage.Main.box_uiScene0.getChildAt(0)['btn_worldMap']);
                         }
                     }
 
