@@ -4,10 +4,11 @@ module view.main {
 		constructor() {
 			super();
 		}
-		public setData(): void {
+		public setData(): Main_JuQingItem {
 			this.panel_list.vScrollBarSkin = '';
 			this.addEvent();
 			this.get_novelPian();
+			return this;
 		}
 		public addEvent(): void {
 			//福州
@@ -25,9 +26,11 @@ module view.main {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
 				lcp.send(pkt);
 			})
+			//奖励
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
-				new view.juQingMode.JuQingPrizeDialog().setData().popup();
+					new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
+			//任务
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.TaskDialog().popup();
 			})
@@ -54,27 +57,22 @@ module view.main {
 					} else {
 						btn_Pian.skin = 'image/main/main_zonglan/img_juanzhou_lock.png';
 						btn_Pian.labelColors = '#ffffff';
-						btn_Pian.mouseEnabled = false;
+						// btn_Pian.mouseEnabled = false;
 					}
+					btn_Pian.labelFont = 'FZXK'
 					btn_Pian.stateNum = 1;
 					btn_Pian.labelSize = 22;
 					btn_Pian.x = 0;
 					btn_Pian.y = 0;
-					let tab_juqing = new Laya.Tab;
-					tab_juqing.stateNum = 2;
-					tab_juqing.direction = 'vertical';
-					tab_juqing.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-					tab_juqing.scaleY = 0;
-					tab_juqing.y = btn_Pian.height + 10;
-					tab_juqing.x = 25;
-					tab_juqing.space = 10;
-					tab_juqing.labelColors = '#8c6240,#18466b';
-					tab_juqing.labelSize = 20;
-					tab_juqing.labelFont = btn_Pian.labelFont = 'FZXK';
+					let box_juqingdown = new Laya.Box;
+					box_juqingdown['sortItem'] = (items) => { };
+					box_juqingdown.scaleY = 0;
+					box_juqingdown.y = btn_Pian.height + 10;
+					box_juqingdown.x = 25;
 					let box_juqing = new Laya.Box;
 					box_juqing.width = btn_Pian.width = 162;
 					box_juqing.height = btn_Pian.height = 41;
-					box_juqing.addChildren(btn_Pian, tab_juqing);
+					box_juqing.addChildren(btn_Pian, box_juqingdown);
 					box_juqing.y = (box_juqing.height + 10) * i;
 					this.panel_list.addChild(box_juqing);
 					if (parseInt(pianzhang[pian][0]) == GameApp.MainPlayer.pianZhangID) {
@@ -115,40 +113,58 @@ module view.main {
 		public init_novelPian(jsonData, id): void {
 			//打开篇章
 			if (jsonData) {
-				let data: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo;
-				let label;
-				let dangqian;
-				for (let index in data) {
-					let part = jsonData.charpterInfo[index];
-					if (label == undefined) {
-						label = part.name;
-					} else {
-						label = label + ',' + part.name;
-					}
-					if (GameApp.MainPlayer.charpterID == data[index].zjid) {
-						dangqian = parseInt(index) - 1;
-					}
-				}
 				let name0 = SheetConfig.juQingPianZhangSheet.getInstance(null).NAME('' + jsonData.pzid);
+				let btnNum;
 				for (let child of this.panel_list._childs[0]._childs) {
 					if (child._childs[0].label == name0) {
 						child._childs[1].scaleY = 1;
-						child._childs[1].labels = label;
+						let num = 0;
+						child._childs[1].removeChildren();
+						for (let charpter in jsonData.charpterInfo) {
+							let data: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[charpter];
+							let btn_juqing = new Laya.Button;
+							btn_juqing.stateNum = 2;
+							if (data.zjid == GameApp.MainPlayer.charpterID) {
+								btn_juqing.selected = true;
+								btnNum = (num + 1);
+							} else {
+								btn_juqing.selected = false;
+							}
+							if (data.zjid <= GameApp.MainPlayer.charpterID) {
+								btn_juqing.skin = 'image/main/main_zonglan/btn_zhangjie.png';
+								btn_juqing.mouseEnabled = true;
+							} else {
+								btn_juqing.skin = 'image/main/main_zonglan/btn_zhangjie.png';
+								// btn_juqing.mouseEnabled = false;
+							}
+							btn_juqing.labelColors = '#8c6240,#18466b';
+							btn_juqing.labelSize = 20;
+							btn_juqing.labelFont = 'FZXK';
+							btn_juqing.label = data.name;
+							btn_juqing.y = (btn_juqing.height + 10) * num;
+							child._childs[1].addChild(btn_juqing);
+							num += 1;
+						}
 						child.height = child._childs[0].height + child._childs[1].height;
 						//当前章
 						if (parseInt(id) == GameApp.MainPlayer.pianZhangID) {
-							child._childs[1].selectedIndex = dangqian;
-							this.init_chapter(jsonData, (dangqian + 1))
+							this.init_chapter(jsonData, btnNum);
 						}
 						//切换章节
-						child._childs[1].selectHandler = Laya.Handler.create(this, (index) => {
-							let tabNum = index + 1;
-							this.init_chapter(jsonData, tabNum)
-						}, null, false);
+						for (let index in child._childs[1]._childs) {
+							child._childs[1]._childs[index].on(Laya.UIEvent.CLICK, this, () => {
+								let btn = child._childs[1]._childs[index];
+								for (let btns of child._childs[1]._childs) {
+									btns.selected = false;
+								}
+								btn.selected = true;
+								this.init_chapter(jsonData, (parseInt(index) + 1));
+							})
+						}
+
 						break;
 					}
 				}
-
 			}
 			//关闭篇章 
 			else {
@@ -182,33 +198,92 @@ module view.main {
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index = index;
+
 			}
-			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index,0) + '章';
+			//章序
+			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
+			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
+			//章节描述
 			this.lbl_des.text = data.charpterInfo[index].intro;
+			if (this.lbl_des.height > 116) {
+				this.lbl_mubiao.y = this.lbl_des.y + this.lbl_des.height + 10;
+			} else {
+				this.lbl_mubiao.y = 324;
+			}
+			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
+			this.div_target.style.color = '#63491a';
+			this.div_target.style.fontSize = 22;
+			this.div_target.style.font = 'STLiti';
+			//剧情目标
+			if (juqing) {
+				for (let part in juqing) {
+					let juqingItem = juqing[part];
+					this.div_target.innerHTML = '' + juqing[part].target;
+				}
+			} else {
+				this.div_target.innerHTML = '暂无剧情任务内容';
+			}
+			//主线任务
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			this.div_zhuxiandes.style.color = '#63491a';
 			this.div_zhuxiandes.style.fontSize = 22;
 			this.div_zhuxiandes.style.font = 'STLiti';
-			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
-			if (juqing) {
-				for (let juqingTask of juqing) {
-					this.lbl_target.text = '' + juqingTask.target;
+			if (zhuxianTask) {
+				for (let i in zhuxianTask) {
+					let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
+					this.lbl_zhuxianName.text = taskInfo.questname;
+					this.div_zhuxiandes.innerHTML = taskInfo.des;
+					this.lbl_state1.visible = true;
+					this.lbl_state1.x = this.lbl_zhuxianName.x + this.lbl_zhuxianName.width;
+					if (taskInfo.queststatus < 3) {
+						this.lbl_zhuxianState.text = '未完成';
+						this.lbl_zhuxianState.color = '#c43939';
+					} else {
+						this.lbl_zhuxianState.text = '已完成';
+						this.lbl_zhuxianState.color = '#39ad32';
+					}
 				}
 			} else {
-				this.lbl_target.text = '暂无剧情任务内容';
+				this.lbl_zhuxianName.text = '暂无主线任务';
+				this.lbl_state1.visible = false;
+				this.div_zhuxiandes.innerHTML = '';
 			}
-			for (let i in zhuxianTask) {
-				let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
-				this.lbl_zhuxianName.text = taskInfo.questname.split(':')[1];
-				this.div_zhuxiandes.innerHTML = taskInfo.des;
-				if (taskInfo.queststatus < 3) {
-					this.lbl_zhuxianState.text = '未完成';
-					this.lbl_zhuxianState.color = '#c43939';
-				} else {
-					this.lbl_zhuxianState.text = '已完成';
-					this.lbl_zhuxianState.color = '#39ad32';
+			//支线任务
+			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
+			this.div_zhixiandes.style.color = '#63491a';
+			this.div_zhixiandes.style.fontSize = 22;
+			this.div_zhixiandes.style.font = 'STLiti';
+			function compare(property) {
+				return function (a, b) {
+					var value1 = a[property];
+					var value2 = b[property];
+					return value2 - value1;
 				}
+			}
+			let zhixian = [];
+			for (let j in zhixianTask) {
+				zhixian.push(zhixianTask[j]);
+			}
+			zhixian = zhixian.sort(compare('queststatus'));
+			if (zhixian[0]) {
+				let zhiTaskInfo: ProtoCmd.stQuestInfoBase = zhixian[0]
+				this.lbl_zhixianName.text = zhiTaskInfo.questname;
+				this.div_zhixiandes.innerHTML = zhiTaskInfo.des;
+				this.lbl_state2.visible = true;
+				this.lbl_state2.x = this.lbl_zhixianName.x + this.lbl_zhixianName.width;
+				if (zhiTaskInfo.queststatus < 3) {
+					this.lbl_zhixianState.text = '未完成';
+					this.lbl_zhixianState.color = '#c43939';
+				} else {
+					this.lbl_zhixianState.text = '已完成';
+					this.lbl_zhixianState.color = '#39ad32';
+				}
+
+			} else {
+				this.lbl_zhixianName.text = '暂无支线任务';
+				this.lbl_state2.visible = false;
+				this.div_zhixiandes.innerHTML = '';
 			}
 			//页数
 			let maxInfoNum;
@@ -231,15 +306,16 @@ module view.main {
 				this.lbl_all.x = 496;
 			}
 			//挂机效率
-			for (let item of data.charpterInfo[index].items) {
-				switch (item.index) {
+			for (let item in data.charpterInfo[index].items) {
+				let single = data.charpterInfo[index].items[item]
+				switch (single.index) {
 					// 金币
-					case EnumData.CoinType.COIN_TYPE_GOLD:
-						this.lbl_jinbi.text = item.num + '/h';
+					case 20015:
+						this.lbl_jinbi.text = single.num + '/h';
 						break;
 					// 玩家经验
 					case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
-						this.lbl_exp.text = item.num + '/h';
+						this.lbl_exp.text = single.num + '/h';
 						break;
 					// 英雄经验
 					case EnumData.CoinType.COIN_TYPE_HERO_EXP:

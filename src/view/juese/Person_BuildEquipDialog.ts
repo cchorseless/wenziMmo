@@ -42,20 +42,28 @@ module view.juese {
 			this.equipInfo = SheetConfig.zhuangbei_make.getInstance(null).data;
 			let keys = Object.keys(this.equipInfo);
 			for (let key of keys) {
-				let daojuData = SheetConfig.mydb_item_base_tbl.getInstance(null).data[key];
+				let job = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJOB(key);
+				let eff1 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB1_EFFICTID(key);
+				let eff2 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB2_EFFICTID(key);
+				let eff3 = SheetConfig.mydb_item_base_tbl.getInstance(null).JOB3_EFFICTID(key);
+				let zs = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(key);
+				let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMLVNEED(key);
+				let quality = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMQUALITY(key);
+				let pos = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMPOSITION(key);
+				let daojuData = { id: key, job: job, eff1: eff1, eff2: eff2, eff3: eff3, zsLevel: zs, lvl: lvl, quality: quality, pos: pos };
 				//职业
-				switch (daojuData[11]) {
+				switch (daojuData.job) {
 					case 1:
 						//隐门传人所有装备
-						this.jobEquip1.push({ data: daojuData, key: key });
+						this.jobEquip1.push(daojuData);
 						break;
 					case 2:
 						//奇侠怪盗所有装备
-						this.jobEquip2.push({ data: daojuData, key: key });
+						this.jobEquip2.push(daojuData);
 						break;
 					case 3:
 						//神秘孤儿所有装备
-						this.jobEquip3.push({ data: daojuData, key: key });
+						this.jobEquip3.push(daojuData);
 						break;
 				}
 			}
@@ -72,6 +80,7 @@ module view.juese {
 			})
 			//关闭弹窗
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
+				GameApp.GameEngine.buildEquip = [];
 				this.close();
 			})
 			//选择必选材料
@@ -161,19 +170,19 @@ module view.juese {
 				for (let item of equipInfo) {
 					if (num < 2) {
 						//转生等级为0&&等级需求
-						if (item.data[67] == 0 && item.data[3] == lvl) {
+						if (item.zsLevel == 0 && item.lvl == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}
 					if (num >= 2 && num < 8) {
 						//转生等级为lvl
-						if (item.data[67] == lvl) {
+						if (item.lvl == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}
 					if (num >= 8) {
 						//装备品质为lvl
-						if (item.data[6] == lvl) {
+						if (item.quality == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}
@@ -193,7 +202,7 @@ module view.juese {
 				}
 			} else {
 				for (let item of this.hbox_equip._childs) {
-					if (item.data.key == equipInfo.key) {
+					if (item.data.id == equipInfo.id) {
 						item.img_light.visible = true;
 					}
 				}
@@ -202,15 +211,15 @@ module view.juese {
 			if (this.hbox_equip._childs.length > 0) {
 				let keys = Object.keys(this.equipInfo);
 				for (let key of keys) {
-					if (equipInfo.key == key) {
+					if (equipInfo.id == key) {
 						//可合成装备
 						let itemInfo = new ProtoCmd.ItemBase();
 						itemInfo.dwBaseID = parseInt(key);
 						this.result = parseInt(key)
 						this.ui_build.setData(itemInfo);
-						this.lbl_name.text = equipInfo.data[1];
+						this.lbl_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(key);
 						//基础属性显示
-						this.init_baseAttribute(equipInfo.data);
+						this.init_baseAttribute(equipInfo);
 						//所需材料
 						let equipData = this.equipInfo[key];
 						//初始化必选材料信息
@@ -223,8 +232,8 @@ module view.juese {
 						} else {
 							this.lbl_condition.text = '等级等于' + item0[0] + '级'
 						}
-						this.lbl_num.text = '0/' + item0[1];
 						this.maxNum = item0[1];
+						this.lbl_num.text = '0/' + this.maxNum;
 						this.ui_item0.img_item.visible = false;
 						this.ui_item0.lbl_count.visible = false;
 						//固定材料
@@ -233,13 +242,13 @@ module view.juese {
 						let itemInfo1 = new ProtoCmd.ItemBase();
 						itemInfo1.dwBaseID = parseInt(item12[0]);
 						itemInfo1.dwCount = parseInt(item12[1]);
-						this.ui_item1.setData(itemInfo1,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						this.ui_item1.setData(itemInfo1, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						this.lbl_item1.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[0]);
 						//材料2
 						let itemInfo2 = new ProtoCmd.ItemBase();
 						itemInfo2.dwBaseID = parseInt(item12[2]);
 						itemInfo2.dwCount = parseInt(item12[3]);
-						this.ui_item2.setData(itemInfo2,EnumData.ItemInfoModel.SHOW_IN_MAIL);
+						this.ui_item2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						this.lbl_item2.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[2]);
 						//可选材料
 						let itemInfo3 = new ProtoCmd.ItemBase();
@@ -269,19 +278,19 @@ module view.juese {
 		 */
 		public init_baseAttribute(data): void {
 			let effid;
-			switch (data[11]) {
+			switch (data.job) {
 				case 1:
-					effid = data[17];
+					effid = data.eff1;
 					break;
 				case 2:
-					effid = data[18];
+					effid = data.eff2;
 					break;
 				case 3:
-					effid = data[19];
+					effid = data.eff3;
 					break;
 			}
 			let attribute = GameUtil.parseEffectidToObj(['' + effid]).des;
-			let battle = GameUtil.parseEffectidToObj(['' + effid]).battle[data[11]];
+			let battle = GameUtil.parseEffectidToObj(['' + effid]).battle[data.job];
 			//战力
 			this.fclip_battle.value = '' + battle;
 			//属性
@@ -324,6 +333,8 @@ module view.juese {
 					}
 					if (GameApp.GameEngine.buildEquip.length == parseInt(num[1])) {
 						this.btn_add.visible = false;
+					} else {
+						this.btn_add.visible = true;
 					}
 				}
 			})
@@ -347,8 +358,9 @@ module view.juese {
 				}
 				//打造装备
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData, type) => {
-
+				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
+					GameApp.GameEngine.buildEquip = [];
+					this.lbl_num.text = '0/' + this.maxNum;
 				})
 				lcp.send(pkt)
 			} else {

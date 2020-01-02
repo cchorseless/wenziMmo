@@ -5,11 +5,11 @@ module view.juese {
 			super();
 		}
 		public data;
-		public setData(item: { data: any, key: number }): Person_BuildEquipItem {
+		public setData(item): Person_BuildEquipItem {
 			this.data = item;
 			//穿戴位置
 			let name;
-			switch (item.data[9]) {
+			switch (item.pos) {
 				case EnumData.emEquipPosition.EQUIP_HEADDRESS:
 				case EnumData.emEquipPosition.EQUIP_LEGEND_HEADDRESS:
 					name = '帽子';
@@ -49,15 +49,15 @@ module view.juese {
 			}
 			this.lbl_pos.text = name;
 			//道具名
-			this.lbl_name.text = item.data[1];
+			this.lbl_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME(item.id);
 			//使用等级
-			if (item.data[67] == 0) {
-				this.lbl_lvl.text = item.data[3] + '级';
+			if (item.zsLevel == 0) {
+				this.lbl_lvl.text = item.lvl + '级';
 			} else {
-				this.lbl_lvl.text = item.data[67] + '转' + item.data[3] + '级';
+				this.lbl_lvl.text = item.zsLevel + '转' + item.lvl + '级';
 			}
 			let itemInfo = new ProtoCmd.ItemBase();
-			itemInfo.dwBaseID = item.key;
+			itemInfo.dwBaseID = item.id;
 			this.ui_item.setData(itemInfo);
 			this.addEvent();
 			return this;

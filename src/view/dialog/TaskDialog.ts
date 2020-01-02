@@ -25,8 +25,11 @@ module view.dialog {
 			for (let taskSingle in taskList) {
 				let keys = Object.keys(taskList[taskSingle])
 				for (let key of keys) {
-					let data=taskList[taskSingle][key];
-					this.vbox_task.addChild(new view.compart.TaskInfoV2Item().init_taskList(data,parseInt(taskSingle)));
+					let data = taskList[taskSingle][key];
+					//威望任务不加进去
+					if (parseInt(taskSingle) < 5) {
+						this.vbox_task.addChild(new view.compart.TaskInfoV2Item().init_taskList(data, parseInt(taskSingle)));
+					}
 				}
 			}
 		}
