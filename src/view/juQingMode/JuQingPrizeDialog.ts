@@ -28,7 +28,7 @@ module view.juQingMode {
 			})
 		}
 		public initUI(): void {
-			// 奖励信息
+			// 累计奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
 				let keys = Object.keys(jsonData);
@@ -85,5 +85,6 @@ module view.juQingMode {
 
 			}
 		}
+
 	}
 }

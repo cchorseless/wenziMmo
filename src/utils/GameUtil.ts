@@ -180,6 +180,7 @@ module GameUtil {
         var strIns = '', chnStr = '';
         var unitPos = 0;
         var zero = true;
+        var shang = Math.floor(num / 10);
         while (num > 0) {
             var v = num % 10;
             if (v === 0) {
@@ -195,6 +196,17 @@ module GameUtil {
             }
             unitPos++;
             num = Math.floor(num / 10);
+
+        }
+        if (shang == 1) {
+            let zu = chnStr.split('')
+            let shu = '';
+            for (let i in zu) {
+                if (parseInt(i) > 0) {
+                    shu = shu + zu[i];
+                }
+            }
+            chnStr = shu;
         }
         return chnStr;
     }

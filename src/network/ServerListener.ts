@@ -1150,6 +1150,7 @@ class ServerListener extends SingletonClass {
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         player.changeHeroExp(0, msg.getValue('i64MaxHeroExp').int64ToNumber());// 英雄最大经验
+        player.changeBossCoin(msg.getValue('bossScore'));
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();
