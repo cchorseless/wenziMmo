@@ -92,10 +92,9 @@ module view.juese {
 			this.lbl_value.text = jsonData.minexp + '/' + jsonData.maxexp;
 			//声望排名
 			let ranks = Object.keys(jsonData.rank);
-			let numArray = ['零', '一', '二', '三']
 			for (let i = 1; i < 4; i++) {
 				if (jsonData.rank[i]) {
-					this['lbl_shengwang' + i].text = jsonData.rank[i];
+					this['lbl_shengwang' + i].text = GameUtil.SectionToChinese(i,0);
 				} else {
 					this['lbl_shengwang' + i].text = '虚位以待';
 				}

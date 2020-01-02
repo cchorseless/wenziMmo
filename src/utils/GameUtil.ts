@@ -74,6 +74,7 @@ module GameUtil {
             let type = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMTYPE('' + _itemBase.dwBaseID);
             if (type == EnumData.ItemTypeDef.ITEM_TYPE_EQUIP && position >= EnumData.emEquipPosition.EQUIP_RUNE_UP && position <= EnumData.emEquipPosition.EQUIP_RUNE_UPLEFT) {
                 result.push(_itemBase);
+
             }
         }
         return result;
@@ -86,7 +87,7 @@ module GameUtil {
      */
     export function battleChange(label: Laya.Label = undefined, battleNum: number, afterBattle: number, dialog): any {
         if (label) {
-            let isClose = false;
+            GameApp.GameEngine.BattleDialog.push(dialog);
             //原战力和变化后数值拆分成数组
             //战力不变
             let nowValue = battleNum;
@@ -107,13 +108,14 @@ module GameUtil {
                 if (i != now.length) {
                     //战力增加
                     if (power > nowValue) {
-                        if (parseInt(after[i]) > parseInt(now[i])) {
+                        let cha1 = after.length - now.length;
+                        if (parseInt(after[i + cha1]) > parseInt(now[i])) {
                             now[i] = '' + (parseInt(now[i]) + 1);
                         }
-                        if (parseInt(after[i]) < parseInt(now[i])) {
+                        if (parseInt(after[i + cha1]) < parseInt(now[i])) {
                             now[i] = '' + ((parseInt(now[i]) + 1) % 10);
                         }
-                        if (parseInt(after[i]) == parseInt(now[i])) {
+                        if (parseInt(after[i + cha1]) == parseInt(now[i])) {
                             i += 1
                         }
                         let battleData = surplus;
@@ -126,19 +128,19 @@ module GameUtil {
                     }
                     //战力减少
                     if (power < nowValue) {
-                        let cha = now.length - after.length;
-                        if (after[(i - cha)]) {
-                            if (parseInt(after[i - cha]) > parseInt(now[i])) {
+                        let cha2 = now.length - after.length;
+                        if (after[(i - cha2)]) {
+                            if (parseInt(after[i - cha2]) > parseInt(now[i])) {
                                 if ((parseInt(now[i]) > 0)) {
                                     now[i] = '' + (parseInt(now[i]) - 1);
                                 } else {
                                     now[i] = '9';
                                 }
                             }
-                            if (parseInt(after[i - cha]) < parseInt(now[i])) {
+                            if (parseInt(after[i - cha2]) < parseInt(now[i])) {
                                 now[i] = '' + (parseInt(now[i]) - 1);
                             }
-                            if (parseInt(after[i - cha]) == parseInt(now[i])) {
+                            if (parseInt(after[i - cha2]) == parseInt(now[i])) {
                                 i += 1
                             }
                         } else {
@@ -158,10 +160,10 @@ module GameUtil {
 
                 } else {
                     Laya.timer.clearAll(this);
-                    isClose = true;
-                }
-                if (isClose) {
-                    dialog.close();
+                    for (let dialogItem of GameApp.GameEngine.BattleDialog) {
+                        dialogItem.close();
+                    }
+                    GameApp.GameEngine.BattleDialog = [];
                 }
             });
         }

@@ -20,8 +20,7 @@ module view.fuBen {
 			}
 			//地图名称
 			this.lbl_map.text = '' + SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + key);
-			let arr = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
-			this.lbl_ceng.text = '第' + arr[i] + '层';
+			this.lbl_ceng.text = '第' + GameUtil.SectionToChinese(i,0) + '层';
 			this.addEvent();
 			// this.getBossInfo(key);
 			return this;

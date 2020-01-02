@@ -20,11 +20,11 @@ module view.juQingMode {
 		 * @param chapterID 章节ID
 		 * @param jsonData  章节详情数据
 		 */
-		public setData(isFirst: boolean, curPage: number, totalPage: number, volumeID: number, chapterID: number, jsonData: any = null,width,height) {
+		public setData(isFirst: boolean, curPage: number, totalPage: number, volumeID: number, chapterID: number, jsonData: any = null, width, height) {
 			this.baseData = jsonData;
 			this.volumeID = volumeID;
 			this.chapterID = chapterID;
-			this.resize(width,height)
+			this.resize(width, height)
 			if (isFirst) {
 				this.box_firstPage.visible = true;
 				this.box_normal.visible = false;
@@ -34,12 +34,12 @@ module view.juQingMode {
 				this.box_normal.visible = true;
 				this.initNormalPage(curPage, totalPage, volumeID, chapterID, jsonData);
 			}
-			
+
 		}
-		public resize(width,height){
-			this.width=this.box_normal.width=this.img_bg.width = width;
-			this.height=this.box_normal.height=this.img_bg.height = height;
-			
+		public resize(width, height) {
+			this.width = this.box_normal.width = this.img_bg.width = width;
+			this.height = this.box_normal.height = this.img_bg.height = height;
+
 		}
 		public initFirstPage(volumeID: number, chapterID: number) {
 			this.lab_volume.text = this.volumeNameArr[volumeID];
@@ -56,11 +56,25 @@ module view.juQingMode {
 			}
 			let keys = Object.keys(GameApp.MainPlayer.allCharpterInfo)
 			let index = GameApp.MainPlayer.allCharpterInfo[chapterID].index
-			this.lab_chapterName.text = GameApp.MainPlayer.allCharpterInfo[chapterID].name;
-			this.lab_chapterIndex.text = '第' + index + '章';
-			this.lab_volumeName.text = this.volumeNameArr[volumeID];
+			// this.lab_chapterName.text = GameApp.MainPlayer.allCharpterInfo[chapterID].name;
+			// this.lab_chapterName.text = '';
+			// this.lab_chapterIndex.text = '第' + index + '章';
+			this.lab_volumeName.text = '【' + this.volumeNameArr[volumeID] + '】';
 			this.pageID = curPage;
-			this.lab_pages.text = curPage + '/ ' + totalPage;
+			// this.lab_pages.text = curPage + '/ ' + totalPage;
+			this.html_Name.style.fontFamily = 'STXingkai';
+			this.html_Name.style.fontSize = 26;
+			this.html_Name.style.align = 'center';
+			// this.html_Name.style.color = '#793b36';
+			this.html_Name.innerHTML = "<span style='color:#000000'>" + '第' + GameUtil.SectionToChinese(index, 0) + '章' + "</span>"
+				+ "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+				+ "<span style='color:#793b36'>" + GameApp.MainPlayer.allCharpterInfo[chapterID].name + "</span>";
+			this.html_page.style.fontFamily = 'STKaiti';
+			this.html_page.style.align = 'center';
+			this.html_page.style.fontSize = 26;
+			this.html_page.innerHTML = "<span style='color:#a00000'>" + curPage + "</span>"
+				+ "<span style='color:#000000'>" + '/ ' + totalPage + '页'+"</span>";
+
 
 		}
 		public SELECT_MODE = true;

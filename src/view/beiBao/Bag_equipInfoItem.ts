@@ -36,9 +36,6 @@ module view.beiBao {
 					this["ui_tab" + i].disabled = false;
 				}
 			}
-
-
-
 			this.updateUI();
 			this.addEvent();
 		}
@@ -53,6 +50,16 @@ module view.beiBao {
 
 				})
 			}
+			this.addLcpEvent();
+		}
+		public addLcpEvent(): void {
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				this.updateUI();
+			})
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			super.destroy(isbool);
 		}
 		public setPlayerHalfSkin(id) {
 			let heroSex = GameApp.MainPlayer.heroSex;

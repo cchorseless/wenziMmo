@@ -230,15 +230,21 @@ module view.juese {
 			//天赋名称
 			this.lbl_name.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID);
 			this.img_type.skin = 'image/common/daoju/itemicon_' + data.dwBaseID + '.png';
-			this.lbl_level.text = 'LV.' + data.dwLevel;
+			let lvl;
+			if (this.dangqianNum == EnumData.emTalentType.talent_genGu) {
+				lvl = (data.dwBaseID - 160001) * 10 + data.dwLevel;
+			} else {
+				lvl = data.dwLevel;
+			}
+			this.lbl_level.text = 'LV.' + lvl;
 			//当前属性
 			let attribute = GameUtil.parseEffectidToObj(['' + data.dwEffId]);
 			let des = attribute.des;
 			let battle = attribute.battle[this.job];
 			this.lbl_battle.text = '' + battle;
 			//当前天赋未满级显示下级属性变化
-			if (data.dwLevel < 120) {
-				this.lbl_nextLevel.text = '' + (data.dwLevel + 1);
+			if (lvl < 120) {
+				this.lbl_nextLevel.text = '' + (lvl + 1);
 				this.lbl_nextLevel.visible = true;
 				this.box_talent.x = 21;
 				this.lbl_add.visible = this.img_battle.visible = true;
@@ -255,7 +261,7 @@ module view.juese {
 				this.lbl_add.text = '' + (nextBattle - battle);
 			} else {
 				this.lbl_nextLevel.visible = false;
-				this.img_add.visible=this.lbl_add.visible = this.img_battle.visible = false;
+				this.img_add.visible = this.lbl_add.visible = this.img_battle.visible = false;
 				this.box_talent.x = 153;
 				this.vbox_left.removeChildren();
 				for (let i in des) {
@@ -295,7 +301,11 @@ module view.juese {
 				let pos = this.posList[index]
 				let data = GameUtil.findEquipInPlayer(pos);
 				if (data) {
-					this['lbl_lvl' + index].text = 'LV.' + data.dwLevel;
+					if (pos == EnumData.emEquipPosition.EQUIP_MEDAL) {
+						this['lbl_lvl' + index].text = 'LV.' +((data.dwBaseID-160001)*10+data.dwLevel);
+					} else {
+						this['lbl_lvl' + index].text = 'LV.' + data.dwLevel;
+					}
 				}
 			}
 		}

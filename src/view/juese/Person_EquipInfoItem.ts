@@ -55,11 +55,21 @@ module view.juese {
 				let o = new Person_shengwangMainDialog();
 				o.popup(true);
 			})
+			this.addLcpEvent();
+		}
+		public addLcpEvent(): void {
+			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_POWER, this, () => {
+				this.initUI();
+			})
+		}
+		public destroy(isbool): void {
+			GameApp.LListener.offCaller(LcpEvent.UPDATE_UI_PLAYER_POWER, this);
+			super.destroy(isbool);
 		}
 		public initUI(): void {
-			this.lbl_dengji.text=GameApp.MainPlayer.EquipmentNum[0];
-			this.lbl_jinglian.text=GameApp.MainPlayer.EquipmentNum[1];
-			this.lbl_stronger.text=GameApp.MainPlayer.EquipmentNum[2];
+			this.lbl_dengji.text = GameApp.MainPlayer.EquipmentNum[0];
+			this.lbl_jinglian.text = GameApp.MainPlayer.EquipmentNum[1];
+			this.lbl_stronger.text = GameApp.MainPlayer.EquipmentNum[2];
 			let func = LangConfig.getBigNumberDes;
 			//战力
 			this.lbl_zhanli.text = '' + GameApp.MainPlayer.ability.nFight;
