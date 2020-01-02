@@ -58,7 +58,13 @@ module LcpEvent {
     export const UPDATE_UI_HERO_EXP: string = 'UPDATE_UI_HERO_EXP';//更新英雄经验
     export const UPDATE_UI_HERO_POWER: string = 'UPDATE_UI_HERO_POWER';//更新英雄战力
     export const UPDATE_UI_HERO_ABILITY: string = 'UPDATE_UI_HERO_ABILITY';//更新玩家战斗属性
-    export const UPDATE_UI_LIANQI_CHUANSHI_UI:string = 'UPDATE_UI_LIANQI_CHUANSHI_UI';//更新装备界面
+    export const UPDATE_UI_LIANQI_CHUANSHI_UI: string = 'UPDATE_UI_LIANQI_CHUANSHI_UI';//更新装备界面
+
+    // ----------------------场景内------------------------
+    // 更新NPC属性
+    // export const 
+    // 更新所在位置信息
+    export const UPDATE_UI_PLACE_DES: string = 'UPDATE_UI_PLACE_DES';
 
 
 }

@@ -54,11 +54,11 @@ module view.juese {
 					}
 				}
 			}
-			let num = -1;
+			let num = 0;
 			this.list_item.itemRender = view.juese.Person_BuildEquipSelectItem;
 			this.list_item.renderHandler = Laya.Handler.create(this, (cell: view.juese.Person_BuildEquipSelectItem, index) => {
-				num += 1;
 				cell.setData(cell.dataSource, num);
+				num += 1;
 			}, null, false)
 
 		}
@@ -73,7 +73,7 @@ module view.juese {
 			})
 		}
 		public onclose(): void {
-			
+			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem,this);
 			this.close();
 		}
 		public init_selectEvent(jsonData = null, type = null, select: boolean = null, index: number = null): void {
@@ -112,13 +112,15 @@ module view.juese {
 			}
 			if (GameApp.GameEngine.buildEquip) {
 				this.index = GameApp.GameEngine.buildEquip;
-				//根据装备索引在list中查找病显示选中||非选择状态
+				//根据装备索引在list中查找显示选中||非选择状态
 				for (let num of GameApp.GameEngine.buildEquip) {
 					for (let child in this.list_item.cells) {
 						let allData = this.list_item.cells
 						if (child == num) {
 							allData[child].btn_select.selected = true;
-							break;
+							if (jsonData == null) {
+								this.selectData.push(this.list_item.array[num]);
+							}
 						}
 					}
 				}

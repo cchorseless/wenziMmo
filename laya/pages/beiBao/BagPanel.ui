@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":416,
-    "selecteID":350,
+    "selecteID":22,
     "props":{"width":640,"sceneColor":"#e5d4d4","name":"BeiBao","height":1136},
     "nodeParent":-1,
     "label":"View(BeiBao)",
@@ -484,13 +484,14 @@
                     "props":{"y":959,"x":1,"width":640,"height":93,"bottom":0},
                     "nodeParent":488,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":474,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"skin":"image/main/bottom_deep.png"},
                             "nodeParent":474,
@@ -504,6 +505,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":155,"var":"btn_bag","stateNum":"2","skin":"image/bag/icon_beibao.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":474,
@@ -515,6 +517,7 @@
                             "compId":476,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"背包","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
                                     "nodeParent":476,
@@ -529,6 +532,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":267,"var":"btn_huiShou","stateNum":"2","skin":"image/bag/icon_huishou.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":474,
@@ -540,6 +544,7 @@
                             "compId":478,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"回收","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
                                     "nodeParent":478,
@@ -554,6 +559,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":378,"var":"btn_cangKu","stateNum":"2","skin":"image/bag/icon_cangku.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":474,
@@ -565,6 +571,7 @@
                             "compId":482,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"仓库","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
                                     "nodeParent":482,
@@ -579,6 +586,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":489,"var":"btn_baiTan","stateNum":"2","skin":"image/common/icon_baitan.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":474,
@@ -590,6 +598,7 @@
                             "compId":484,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"摆摊","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
                                     "nodeParent":484,
@@ -604,8 +613,9 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":41,"x":60,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
+                            "props":{"y":41,"x":573,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
                             "nodeParent":474,
                             "label":"Button(btn_back)",
                             "isOpen":true,
@@ -613,20 +623,6 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":480,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":41,"x":573,"var":"btn_modeChange","stateNum":"2","skin":"image/main/icon_xiaoshuo.png","anchorY":0.5,"anchorX":0.42},
-                            "nodeParent":474,
-                            "label":"Button(btn_modeChange)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":481,
                             "child":[
                                 ],
                             "$HIDDEN":false

@@ -44,10 +44,6 @@ module view.wuXue {
 					// this.changeSkillInfo()
 				})
 			}
-			// 模式切换
-			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel();
-			});
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel();

@@ -180,6 +180,7 @@ module GameUtil {
         var strIns = '', chnStr = '';
         var unitPos = 0;
         var zero = true;
+        var shang = Math.floor(num / 10);
         while (num > 0) {
             var v = num % 10;
             if (v === 0) {
@@ -195,6 +196,17 @@ module GameUtil {
             }
             unitPos++;
             num = Math.floor(num / 10);
+
+        }
+        if (shang == 1) {
+            let zu = chnStr.split('')
+            let shu = '';
+            for (let i in zu) {
+                if (parseInt(i) > 0) {
+                    shu = shu + zu[i];
+                }
+            }
+            chnStr = shu;
         }
         return chnStr;
     }
@@ -497,14 +509,14 @@ module GameUtil {
                                 // 非相邻房间，需要展开地图导航
                                 else {
                                     GameUtil.addEffectButton(GameApp.SceneManager.smallMapFindButton('btn_mapBig'));
-                                    GameUtil.addEffectButton(GameApp.SceneManager.bigMapfindButton(roomid));
+                                    // GameUtil.addEffectButton(GameApp.SceneManager.bigMapfindButton(roomid));
                                 }
                             }
                             GameUtil.findNPC(roomid, npcid);
                         }
                         // 其他地图
                         else {
-                            GameUtil.addEffectButton(PanelManage.Main.box_uiScene0.getChildAt(0)['btn_worldMap']);
+                            // GameUtil.addEffectButton(PanelManage.Main.box_uiScene0.getChildAt(0)['btn_worldMap']);
                         }
                     }
 

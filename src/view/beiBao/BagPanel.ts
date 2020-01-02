@@ -25,7 +25,7 @@ module view.beiBao {
 			// 左边热卖商店
 			this.panel_sellHot.vScrollBarSkin = '';
 			this.vbox_sellHot['sortItem'] = (items) => { };
-			this.ui_equipInfo.lbl_dengji.text=GameApp.MainPlayer.EquipmentNum[0];
+			this.ui_equipInfo.lbl_dengji.text='('+GameApp.MainPlayer.EquipmentNum[0]+')';
 			// 初始化背包
 			this.initUI();
 			// 拉取热销商店数据
@@ -57,10 +57,6 @@ module view.beiBao {
 			this.btn_cangKu.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_cangKu']);
 			// 回收
 			this.btn_huiShou.on(Laya.UIEvent.CLICK, this, this.openPanel, ['btn_huiShou']);
-			// 小说模式
-			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel();
-			});
 			// 刷新商店
 			this.btn_refreshItem.on(Laya.UIEvent.CLICK, this, this.refreshHotShop);
 			// 切换装备显示

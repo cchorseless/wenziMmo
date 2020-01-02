@@ -150,6 +150,8 @@ module view.juese {
 			this.lbl_coin4.text = '' + wealth.honorNum;
 			//帮贡
 			this.lbl_coin5.text = '' + wealth.guildDedication;
+			//boss积分
+			this.lbl_boss.text = '' + GameApp.MainPlayer.bossCoin;
 		}
 	}
 }

@@ -39,6 +39,7 @@ module ResData {
         { url: "music/bg.mp3", type: Laya.Loader.SOUND },
         { url: "res/atlas/image/main.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/main/main_zonglan.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/main/main_tansuo.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/recharge_vip.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/menu.atlas", type: Laya.Loader.ATLAS },

@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":38,
+    "selecteID":24,
     "props":{"width":569,"sceneColor":"#9c9797","height":779},
     "nodeParent":-1,
     "label":"Dialog",
@@ -193,39 +193,38 @@
             "props":{"y":486,"x":10,"width":551,"skin":"image/common/bottom_touming.png","height":197,"alpha":0.8},
             "nodeParent":1,
             "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":93,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Panel",
-            "props":{"y":547,"x":30,"width":511,"var":"panel_1","height":133},
-            "nodeParent":1,
-            "label":"Panel(panel_1)",
-            "isOpen":false,
+            "isOpen":null,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":40,
+            "compId":93,
             "child":[
                 {
-                    "type":"HBox",
-                    "props":{"y":0,"x":5,"var":"hbox_1","height":132},
-                    "nodeParent":40,
-                    "label":"HBox(hbox_1)",
+                    "type":"Panel",
+                    "props":{"y":61,"x":20,"width":511,"var":"panel_1","height":133},
+                    "nodeParent":93,
+                    "label":"Panel(panel_1)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":63,
+                    "hasChild":true,
+                    "compId":40,
                     "child":[
-                        ]
-                }]
+                        {
+                            "type":"HBox",
+                            "props":{"y":0,"x":5,"var":"hbox_1","height":132},
+                            "nodeParent":40,
+                            "label":"HBox(hbox_1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":63,
+                            "child":[
+                                ]
+                        }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,

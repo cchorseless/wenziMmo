@@ -29,9 +29,6 @@ module view.juese {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openMainPanel()
 			})
-			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openJuQingModePanel()
-			})
 			EventManage.onWithEffect(this.btn_hero, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openDiZiPanel();
 			})

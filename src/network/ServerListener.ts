@@ -177,7 +177,7 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.RecvTypeKeyValue), this, this.recvTypeKeyValue);
         //PKModel
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretPkModel), this, this.changePkModel);
-
+        // 更新BOSS归属
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretChangeName), this, this.updateCretChangeName);
 
 
@@ -443,8 +443,13 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.NpcStatsQuestRet(data);
         let npcid = cbpkt.getValue('npcid');
         let npcState = cbpkt.getValue('npcState');
-        PanelManage.Main && PanelManage.Main.updateNpcState(npcid, npcState);
+        // gamea.updateNpcState(npcid, npcState);
     }
+
+    /**
+     * 更新BOSS归属
+     * @param data 
+     */
     public updateCretChangeName(data): void {
         let cbpkt = new ProtoCmd.stCretChangeName(data);
         let dwTmpId = cbpkt.getValue('dwTmpId');
@@ -574,7 +579,7 @@ class ServerListener extends SingletonClass {
                     let skillid = msgData.getValue('nMagicId')
                     GameApp.GameEngine.mainPlayer.tempId
                     if (GameApp.GameEngine.mainPlayer.tempId == dwTempId) {
-                        PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
+                        // PanelManage.Main.ui_battleSkill.upDateSkillView(skillid);
                     }
 
                     // if(){
@@ -818,7 +823,7 @@ class ServerListener extends SingletonClass {
                 case "biguan":
                     break;
             }
-            PanelManage.Main.ui_battleSkill.init_skillView();
+            // PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
             TipsManage.showTips('技能快捷键失败');
@@ -847,7 +852,7 @@ class ServerListener extends SingletonClass {
                 case "biguan":
                     break;
             }
-            PanelManage.Main.ui_battleSkill.init_skillView();
+            // PanelManage.Main.ui_battleSkill.init_skillView();
         }
         else {
             TipsManage.showTips('删除失败')
@@ -1145,6 +1150,7 @@ class ServerListener extends SingletonClass {
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         player.changeHeroExp(0, msg.getValue('i64MaxHeroExp').int64ToNumber());// 英雄最大经验
+        player.changeBossCoin(msg.getValue('bossScore'));
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();
@@ -1185,7 +1191,7 @@ class ServerListener extends SingletonClass {
             GameApp.MainPlayer.curHero.rebornLeftTime = msg.getValue("dwReliveTime");
         }
         //玩家合击技
-        PanelManage.Main.ui_battleSkill.init_hejiskillView(job);
+        // PanelManage.Main.ui_battleSkill.init_hejiskillView(job);
         //角色转生等级
         GameApp.MainPlayer.zslevel = msg.getValue("btMainRlvl");
     }

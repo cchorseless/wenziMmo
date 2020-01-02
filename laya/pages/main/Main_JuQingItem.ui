@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":38,
+    "selectedBox":39,
+    "selecteID":41,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -126,7 +126,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":171,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"height":115,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":208,"x":171,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_des)",
             "isDirectory":false,
@@ -140,29 +140,28 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":324,"x":162,"wordWrap":true,"width":336,"text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
             "props":{"y":356,"x":169,"wordWrap":true,"width":390,"var":"lbl_target","text":"   剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标","leading":5,"height":107,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_target)",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":13,
             "child":[
-                ],
+                {
+                    "type":"Label",
+                    "props":{"y":-32,"x":-7,"wordWrap":true,"width":336,"text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
+                    "nodeParent":13,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":12,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
             "$HIDDEN":false
         },
         {
@@ -319,7 +318,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"width":120,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":114,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
                     "label":"Label(lbl_zhuxianName)",
                     "isDirectory":false,
@@ -332,9 +331,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state1","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
-                    "label":"Label",
+                    "label":"Label(lbl_state1)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -400,9 +399,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"width":120,"text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":114,"var":"lbl_zhixianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
-                    "label":"Label",
+                    "label":"Label(lbl_zhixianName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -413,9 +412,9 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state2","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
-                    "label":"Label",
+                    "label":"Label(lbl_state2)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -425,9 +424,9 @@
                         {
                             "x":45,
                             "type":"Label",
-                            "props":{"y":-1,"x":12,"width":72,"text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
+                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhixianState","text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
                             "nodeParent":42,
-                            "label":"Label",
+                            "label":"Label(lbl_zhixianState)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -442,9 +441,9 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":729,"x":167,"width":337,"innerHTML":"htmlText","height":47},
+            "props":{"y":729,"x":167,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":47},
             "nodeParent":1,
-            "label":"HTMLDivElement",
+            "label":"HTMLDivElement(div_zhixiandes)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -455,7 +454,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":753,"x":572,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":622,"x":577,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_task)",
             "isDirectory":false,
@@ -525,7 +524,7 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":20,"x":20,"right":0,"left":0,"bottom":0},
+            "props":{"y":20,"x":20,"width":640,"left":0,"height":92,"bottom":0},
             "nodeParent":1,
             "label":"Box",
             "isOpen":true,
@@ -551,9 +550,9 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"x":534,"visible":true,"var":"btn_fuben","stateNum":"2","skin":"image/main/main_zonglan/icon_fuben.png"},
+                    "props":{"x":534,"visible":true,"var":"btn_gotoTanSuo","stateNum":"2","skin":"image/main/icon_changjing.png"},
                     "nodeParent":50,
-                    "label":"Button(btn_fuben)",
+                    "label":"Button(btn_gotoTanSuo)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -566,18 +565,32 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"x":17,"var":"btn_zhaiyuan ","stateNum":"2","skin":"image/main/main_zonglan/icon_zhaiyuan.png"},
+                    "props":{"y":0,"x":20,"visible":true,"var":"btn_zhaiYuan","stateNum":"2","skin":"image/main/main_zonglan/icon_zhaiyuan.png"},
                     "nodeParent":50,
-                    "label":"Button(btn_zhaiyuan )",
+                    "label":"Button(btn_zhaiYuan)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":53,
+                    "compId":54,
                     "child":[
                         ],
                     "$HIDDEN":false
                 }]
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":755,"x":145,"width":343,"var":"lbl_nowPlace","text":"10000/h","height":32,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "nodeParent":1,
+            "label":"Label(lbl_nowPlace)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":55,
+            "child":[
+                ],
+            "$HIDDEN":false
         }],
     "animations":[
         {
@@ -587,5 +600,6 @@
             "id":1,
             "frameRate":24,
             "action":0
-        }]
+        }],
+    "$HIDDEN":false
 }
