@@ -47,6 +47,8 @@ module view.main {
 					this.box_right.visible = true;
 					this.box_top.visible = false;
 					this.box_mainBottom.visible = true;
+					this.box_menu.visible = true;
+
 					break;
 				// 探索界面
 				case 1:
@@ -54,6 +56,7 @@ module view.main {
 					this.box_right.visible = true;
 					this.box_top.visible = true;
 					this.box_mainBottom.visible = true;
+					this.box_menu.visible = true;
 					break;
 				// 小说界面
 				case 2:
@@ -61,6 +64,7 @@ module view.main {
 					this.box_right.visible = false;
 					this.box_top.visible = false;
 					this.box_mainBottom.visible = false;
+					this.box_menu.visible = false;
 					break;
 
 			}
@@ -215,6 +219,10 @@ module view.main {
 			EventManage.onWithEffect(this.btn_wuXue, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openWuXueWaiGongPanel();
 			});
+			// 主线副本界面
+			EventManage.onWithEffect(this.btn_fuBen, Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenMainPanel('main')
+			})
 			// this.img_tabCM.on(Laya.UIEvent.CLICK, this, function () {
 			// 	this.isTouchTab = !this.isTouchTab;
 			// 	if (this.isTouchTab) {
@@ -591,7 +599,7 @@ module view.main {
 			this.getHuoDongStatus();
 
 			this.getActiveInfoData();
-			
+
 		}
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;

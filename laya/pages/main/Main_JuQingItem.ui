@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":55,
+    "selectedBox":50,
+    "selecteID":52,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -543,9 +543,9 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"x":534,"visible":true,"var":"btn_fuben","stateNum":"2","skin":"image/main/main_zonglan/icon_fuben.png"},
+                    "props":{"x":534,"visible":true,"var":"btn_gotoTanSuo","stateNum":"2","skin":"image/main/icon_changjing.png"},
                     "nodeParent":50,
-                    "label":"Button(btn_fuben)",
+                    "label":"Button(btn_gotoTanSuo)",
                     "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
@@ -581,20 +581,6 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":55,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":753,"x":581,"width":90,"var":"btn_gotoTanSuo","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"前往","height":49,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Button(btn_gotoTanSuo)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":56,
             "child":[
                 ],
             "$HIDDEN":false
