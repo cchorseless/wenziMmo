@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":55,
+    "selecteID":13,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":169,"x":275,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":22,"font":"HWXK","color":"#2c2d27","align":"center"},
+            "props":{"y":169,"x":277,"var":"lbl_zhang","text":"第二章","height":22,"fontSize":22,"font":"HWXK","color":"#2c2d27","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_zhang)",
             "isDirectory":false,
@@ -126,7 +126,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":171,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"height":115,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":208,"x":171,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_des)",
             "isDirectory":false,
@@ -140,29 +140,29 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":324,"x":162,"wordWrap":true,"width":336,"text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
-            "nodeParent":1,
-            "label":"Label",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":12,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Label",
             "props":{"y":356,"x":169,"wordWrap":true,"width":390,"var":"lbl_target","text":"   剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标","leading":5,"height":107,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_target)",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":13,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":-32,"x":-7,"wordWrap":true,"width":336,"text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
+                    "nodeParent":13,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":12,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                }],
             "$HIDDEN":false
         },
         {
@@ -296,13 +296,14 @@
             "props":{"y":593,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":21,"width":48,"text":"主线","height":21,"fontSize":24,"font":"FZXK"},
                     "nodeParent":33,
@@ -316,8 +317,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"width":120,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":114,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
                     "label":"Label(lbl_zhuxianName)",
                     "isDirectory":false,
@@ -328,10 +330,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state1","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
-                    "label":"Label",
+                    "label":"Label(lbl_state1)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -339,6 +342,7 @@
                     "compId":36,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhuxianState","text":"未完成","height":24,"fontSize":24,"font":"FZXK","color":"#c43939"},
                             "nodeParent":36,
@@ -357,7 +361,7 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":634,"x":164,"width":455,"var":"div_zhuxiandes","innerHTML":"htmlText","height":47},
+            "props":{"y":634,"x":164,"width":337,"var":"div_zhuxiandes","innerHTML":"htmlText","height":47},
             "nodeParent":1,
             "label":"HTMLDivElement(div_zhuxiandes)",
             "isDirectory":false,
@@ -373,13 +377,14 @@
             "props":{"y":690,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":39,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":21,"width":48,"text":"支线","height":21,"fontSize":24,"font":"FZXK"},
                     "nodeParent":39,
@@ -393,10 +398,11 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"width":120,"text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":114,"var":"lbl_zhixianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
-                    "label":"Label",
+                    "label":"Label(lbl_zhixianName)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -405,10 +411,11 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state2","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
-                    "label":"Label",
+                    "label":"Label(lbl_state2)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -416,10 +423,11 @@
                     "compId":42,
                     "child":[
                         {
+                            "x":45,
                             "type":"Label",
-                            "props":{"y":-1,"x":12,"width":72,"text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
+                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhixianState","text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
                             "nodeParent":42,
-                            "label":"Label",
+                            "label":"Label(lbl_zhixianState)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -434,15 +442,16 @@
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":729,"x":167,"width":337,"innerHTML":"htmlText","height":47},
+            "props":{"y":729,"x":167,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":47},
             "nodeParent":1,
-            "label":"HTMLDivElement",
+            "label":"HTMLDivElement(div_zhixiandes)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":44,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -583,7 +592,7 @@
             "compId":55,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

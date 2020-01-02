@@ -31,12 +31,12 @@ module view.juQingMode {
 			// 累计奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
-				let keys = Object.keys(jsonData);
+				let keys = Object.keys(jsonData.tab);
 				for (let key of keys) {
 					let _itemData = new ProtoCmd.ItemBase();
-					_itemData.dwBaseID = jsonData[key].index;
-					_itemData.dwBinding = jsonData[key].binding;
-					_itemData.dwCount = jsonData[key].num;
+					_itemData.dwBaseID = jsonData.tab[key].index;
+					_itemData.dwBinding = jsonData.tab[key].binding;
+					_itemData.dwCount = jsonData.tab[key].num;
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					_itemUI.setData(_itemData);
 					this.hbox_1.addChild(_itemUI);
