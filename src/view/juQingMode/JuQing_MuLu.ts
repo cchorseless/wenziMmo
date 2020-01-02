@@ -9,6 +9,11 @@ module view.juQingMode {
 			this.panel_mulu.vScrollBarSkin = '';
 		}
 		public async setData(volumeIDArr) {
+			this.html_BookName.style.fontFamily = 'STXingkai';
+			this.html_BookName.style.fontSize = 30;
+			this.html_BookName.style.align = 'center';
+			this.html_BookName.style.color = '#3a302d';
+			this.html_BookName.innerHTML = "<span>文字江湖</span>";
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.JQ_GET_JQ_PIANZHANG, null, null, this, (jsonData) => {
 				this.vBox_mulu.removeChildren();

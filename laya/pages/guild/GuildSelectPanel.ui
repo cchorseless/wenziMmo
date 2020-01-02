@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":258,
+    "selectedBox":208,
+    "selecteID":285,
     "referenceLines":[
         {
             "value":149,
@@ -253,9 +253,9 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-5,"x":525,"skin":"image/common/icon_beijing_teshu.png"},
+                    "props":{"y":-5,"x":525,"var":"img_novel","skin":"image/common/icon_beijing_teshu.png"},
                     "nodeParent":208,
-                    "label":"Image",
+                    "label":"Image(img_novel)",
                     "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
@@ -339,14 +339,13 @@
             "props":{"y":114,"x":5},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":288,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":19,"skin":"image/common/img_common_title.png"},
                     "nodeParent":288,
@@ -358,7 +357,6 @@
                     "compId":289,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":9,"x":30,"text":"江湖小帮","strokeColor":"#765f42","stroke":4,"fontSize":28,"font":"FZHL","color":"#ffffff","align":"center"},
                             "nodeParent":289,
@@ -373,7 +371,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":18,"x":168,"stateNum":"2","skin":"image/common/btn_common_shuoming.png"},
                     "nodeParent":288,
@@ -386,7 +383,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":3,"stateNum":"1","skin":"image/guild/icon_bangpai_normal.png"},
                     "nodeParent":288,
@@ -421,14 +417,13 @@
             "props":{"y":189,"x":12},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":244,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"width":616,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"21,81,23,26","height":124},
                     "nodeParent":244,
@@ -442,7 +437,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":14,"width":65,"skin":"image/common/title_ConfederationDeclaration.png","height":115},
                     "nodeParent":244,
@@ -456,7 +450,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":6,"x":14,"wordWrap":true,"width":30,"text":"门派","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -469,7 +462,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":37,"x":42,"wordWrap":true,"width":30,"text":"收徒","strokeColor":"#000000","stroke":4,"height":55,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":244,
@@ -482,7 +474,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Panel",
                     "props":{"y":3,"x":81,"width":517,"var":"panel_Apprentice","height":112},
                     "nodeParent":244,
@@ -494,7 +485,6 @@
                     "compId":245,
                     "child":[
                         {
-                            "x":45,
                             "type":"HBox",
                             "props":{"var":"hbox_Apprentice","top":0,"bottom":0},
                             "nodeParent":245,
@@ -515,14 +505,13 @@
             "props":{"y":315,"x":12},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":247,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"width":616,"skin":"image/common/bottom_ConfederationDeclaration.png","sizeGrid":"21,81,23,26","height":265},
                     "nodeParent":247,
@@ -536,7 +525,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":2,"x":14,"width":65,"skin":"image/common/title_ConfederationDeclaration.png","height":244},
                     "nodeParent":247,
@@ -550,7 +538,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":40,"x":24,"wordWrap":true,"width":30,"text":"本周闭关","strokeColor":"#000000","stroke":4,"fontSize":28,"font":"FZXK","color":"#ffffff","bold":false},
                     "nodeParent":247,
@@ -563,7 +550,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "props":{"y":25,"x":76,"width":530,"var":"list_biguan","spaceX":10,"repeatY":2,"repeatX":4,"height":220},
                     "nodeParent":247,

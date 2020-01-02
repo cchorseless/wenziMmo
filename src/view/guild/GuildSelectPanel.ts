@@ -25,7 +25,8 @@ module view.guild {
 				new view.guild.GuildSelectListDialog().popup()
 			})
 			// 返回
-			this.btn_back.on(Laya.UIEvent.CLICK, this, () => { PanelManage.openMainPanel() });
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				 PanelManage.openMainPanel() });
 			// 队伍
 			this.btn_team.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openTeamPanel();
@@ -54,12 +55,12 @@ module view.guild {
 				this.list_biguan.array = [];
 				this.list_biguan.hScrollBarSkin = '';
 				for (let key of keys) {
-					this.hbox_Apprentice.addChild(new view.guild.GuildSelectItem().setData(cbpkt.stZeroArray[key],0));
+					this.hbox_Apprentice.addChild(new view.guild.GuildSelectItem().setData(cbpkt.stZeroArray[key], 0));
 					this.list_biguan.array.push(cbpkt.stZeroArray[key]);
 				}
 				this.list_biguan.itemRender = view.guild.GuildSelectItem;
 				this.list_biguan.renderHandler = Laya.Handler.create(this, (cell: view.guild.GuildSelectItem, index) => {
-					cell.setData(cell.dataSource,1)
+					cell.setData(cell.dataSource, 1)
 				}, null, false)
 			})
 		}
