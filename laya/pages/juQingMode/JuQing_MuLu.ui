@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":5,
+    "selectedBox":9,
+    "selecteID":13,
     "props":{"y":0,"x":0,"width":640,"sceneColor":"#ffffff","height":1004},
     "nodeParent":-1,
     "label":"View",
@@ -44,13 +44,14 @@
                     "props":{"y":53,"x":24,"width":471,"skin":"image/main/main_zonglan/bottom_guaji.png","sizeGrid":"40,41,39,62","height":206},
                     "nodeParent":3,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":8,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":7,"x":16,"skin":"image/juQingMode/img_zs_01.png"},
                             "nodeParent":8,
@@ -62,6 +63,7 @@
                             "compId":9,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":33,"x":65,"width":392,"skin":"image/common/tab_cd_01.png","height":36},
                                     "nodeParent":9,
@@ -74,6 +76,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":22,"x":30,"skin":"image/juQingMode/box_common_daojudi.png"},
                                     "nodeParent":9,
@@ -86,6 +89,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Button",
                                     "props":{"y":33,"x":39,"stateNum":"2","skin":"image/main/icon_wuxue_02down_finish.png"},
                                     "nodeParent":9,
@@ -98,18 +102,7 @@
                                         ]
                                 },
                                 {
-                                    "type":"Label",
-                                    "props":{"y":35,"x":153,"text":"文字江湖","fontSize":30,"font":"fzxk","color":"#000000"},
-                                    "nodeParent":9,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":13,
-                                    "child":[
-                                        ]
-                                },
-                                {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":74,"x":152,"width":264,"text":"文字江湖项目组","height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
                                     "nodeParent":9,
@@ -122,6 +115,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":142,"x":-15,"width":469,"skin":"image/main/main_zonglan/shadow_zhuxian.png","height":53},
                                     "nodeParent":9,
@@ -134,6 +128,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":143,"x":20,"width":399,"text":"推动剧情可大幅度提升离线挂机效率","height":24,"fontSize":24,"font":"fzxk","color":"#63491a","align":"center"},
                                     "nodeParent":9,
@@ -198,6 +193,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":19,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"HTMLDivElement",
+            "props":{"y":96,"x":172,"width":161,"var":"html_BookName","innerHTML":"文字江湖","height":30},
+            "nodeParent":1,
+            "label":"HTMLDivElement(html_BookName)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":20,
             "child":[
                 ]
         }],

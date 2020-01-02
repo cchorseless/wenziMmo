@@ -51,13 +51,16 @@ class GameApp {
         return DomUtil.getInstance();
     }
 
+
     public static get SDKManager(): SDKManager {
         return SDKManager.getInstance();
     }
 
-    public static get SceneManager(): SceneManager {
-        return SceneManager.getInstance()
+
+    public static get SceneManager():  SceneManager{
+        return SceneManager.getInstance();
     }
+
     // /**
     //  * 服务器返回的消息处理中心
     //  * @type {MessageCenter}

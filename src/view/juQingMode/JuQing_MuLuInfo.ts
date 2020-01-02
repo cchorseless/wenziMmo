@@ -22,13 +22,33 @@ module view.juQingMode {
 		}
 		public item: ProtoCmd.itf_JUQING_PIANZHANG;
 		public setData(item: ProtoCmd.itf_JUQING_PIANZHANG, key: number) {
+			this.lab_noLock.style.fontFamily = 'STXingkai';
+			this.lab_noLock.style.fontSize = 24;
+			this.lab_noLock.style.align = 'center';
+			this.lab_noLock.style.color = '#a00000';
+			this.lab_noLock.innerHTML = "<span>未解锁</span>";
+
+			this.lab_volumeIndex.style.fontFamily = 'STXingkai';
+			this.lab_volumeIndex.style.fontSize = 30;
+			this.lab_volumeIndex.style.align = 'center';
+			this.lab_volumeIndex.style.color = '#fefefe';
+
+			this.lab_total_VolumeNum.style.fontFamily = 'STXingkai';
+			this.lab_total_VolumeNum.style.fontSize = 24;
+			this.lab_total_VolumeNum.style.align = 'center';
+			this.lab_total_VolumeNum.style.color = '#5e438d';
+
+			this.lab_volumeName.style.fontFamily = 'STXingkai';
+			this.lab_volumeName.style.fontSize = 28;
+			this.lab_volumeName.style.align = 'center';
+			this.lab_volumeName.style.color = '#1a0938';
 			if (item.id == this.maxPZID) {
 				this.cnt = item.cnt;
 			}
 			this.volumeIndex = key;
-			this.lab_volumeIndex.text = '第' +GameUtil.SectionToChinese(key,0) + '卷';
+			this.lab_volumeIndex.innerHTML = "<span>" + '第' + GameUtil.SectionToChinese(key, 0) + '卷' + "</span>";
 			this.item = item;
-			this.lab_volumeName.text = '' + item.name;
+			this.lab_volumeName.innerHTML = "<span>" + item.name + "</span>";
 			let nowChapter = GameApp.MainPlayer.pianZhangID;
 			if (item.id > nowChapter) {
 				this.img_bg.skin = 'image/juQingMode/box_ml_01down.png'
@@ -40,7 +60,7 @@ module view.juQingMode {
 			else if (item.id == nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
 				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
-				this.lab_total_VolumeNum.text = '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'
+				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'+ "</span>"
 				this.img_lock.visible = false;
 				this.isLock = false;
 				// this.img_mask.visible = false;
@@ -48,7 +68,7 @@ module view.juQingMode {
 			else if (item.id < nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
 				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
-				this.lab_total_VolumeNum.text = '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'
+				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'+ "</span>"
 				this.img_lock.visible = true;
 				this.isLock = false;
 				// this.img_mask.visible = false;
@@ -81,15 +101,15 @@ module view.juQingMode {
 		}
 		public reSize() {
 			if (this.vbox_show.numChildren > 0) {
-				this.img_panel_Bg.visible =true
+				this.img_panel_Bg.visible = true
 				this.panel_info.height = this.vbox_show.numChildren * 60 + (this.vbox_show.numChildren - 1) * 5
 				this.img_panel_Bg.height = this.panel_info.height + 25
 				this.height = this.img_panel_Bg.y + this.img_panel_Bg.height;
-				
+
 			} else {
 				this.panel_info.height = 0;
-				this.img_panel_Bg.visible =false ;
-				this.height =55;
+				this.img_panel_Bg.visible = false;
+				this.height = 55;
 
 			}
 

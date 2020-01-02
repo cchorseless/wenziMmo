@@ -93,6 +93,7 @@ module view.guild {
 			this.btn_modeChange.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
 			});
+
 		}
 
 		public addLcpEvent(): void {

@@ -9,6 +9,7 @@ module view.npc {
 		public setData(obj: GameObject.Npc): NpcIconItem {
 			this.item = obj;
 			this.item.ui_item = this;
+			this.centerX = this.centerY = 0
 			this.initUI();
 			this.addEvent();
 			return this;
@@ -17,7 +18,7 @@ module view.npc {
 		public addEvent(): void {
 			EventManage.onWithEffect(this.box_view, Laya.UIEvent.CLICK, this, () => {
 				let pkID = this.item.feature.dwCretTypeId
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0,this, function (data) {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.clickNpc, [pkID], 0, this, function (data) {
 					let aa = data;
 					new view.npc.NpcInfoV1Dialog().setData(this.item).popup(true);
 				})

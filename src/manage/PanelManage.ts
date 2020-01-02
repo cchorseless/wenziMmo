@@ -201,8 +201,7 @@ module PanelManage {
     export function openMainPanel(): void {
         if (PopUpManager.showPanel(PanelManage.Main)) {
             PanelManage.Main.updateUI();
-            PanelManage.Main.view_scene.selectedIndex = 0;
-            PanelManage.Main.view_scene.setIndexHandler.runWith(0);
+            PanelManage.Main.changeMode(0);
         }
         else {
             ResManage.loadResource(ResData.PanelRes.Main, () => {
@@ -210,8 +209,8 @@ module PanelManage {
                 PanelManage.Main['LCP_skin'] = ResData.PanelRes.Main;
                 PanelManage.Main.setData();
                 PanelManage.Main.mouseEnabled = true;
-                PanelManage.Main.view_scene.selectedIndex = 0;
                 PopUpManager.addPanel(PanelManage.Main, 0);
+                PanelManage.Main.changeMode(0);
 
             });
         }
@@ -858,13 +857,11 @@ module PanelManage {
                 PanelManage.JuQingMode.mouseEnabled = true;
                 PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
                 PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
-                PanelManage.Main.view_scene.selectedIndex = 2;
-                PanelManage.Main.view_scene.setIndexHandler.runWith(2);
+                PanelManage.Main.changeMode(2);
             })
         }
         else {
-            PanelManage.Main.view_scene.selectedIndex = 2;
-            PanelManage.Main.view_scene.setIndexHandler.runWith(2);
+            PanelManage.Main.changeMode(2);
         }
     }
 
@@ -873,8 +870,7 @@ module PanelManage {
      */
     export function openTanSuoPanel(): void {
         PopUpManager.showPanel(PanelManage.Main);
-        PanelManage.Main.view_scene.selectedIndex = 1;
-        PanelManage.Main.view_scene.setIndexHandler.runWith(1);
+        PanelManage.Main.changeMode(1);
     }
 
 
