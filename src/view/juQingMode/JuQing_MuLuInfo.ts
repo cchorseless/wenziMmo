@@ -144,7 +144,7 @@ module view.juQingMode {
 						}
 					}
 					self.charpterArr = hash;
-					if (self.charpterArr.length >= self.cntArr[self.volumeIndex] - 1) {
+					if (self.charpterArr.length == self.cntArr[self.volumeIndex]) {
 						self.setPanelView();
 					}
 				})

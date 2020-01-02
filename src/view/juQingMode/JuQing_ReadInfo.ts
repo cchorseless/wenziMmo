@@ -37,14 +37,32 @@ module view.juQingMode {
 
 		}
 		public resize(width, height) {
-			this.width = this.box_normal.width = this.img_bg.width = width;
-			this.height = this.box_normal.height = this.img_bg.height = height;
+			this.width = this.box_normal.width = this.img_bg.width = this.img_firstPage.width = width;
+			this.height = this.box_normal.height = this.img_bg.height = this.img_firstPage.height = height;
 
 		}
 		public initFirstPage(volumeID: number, chapterID: number) {
-			this.lab_volume.text = this.volumeNameArr[volumeID];
+			for (let i = 0; i < 6; i++) {
+				this['lab_content' + i].text = '';
+			}
+			// this.lab_volume.text = this.volumeNameArr[volumeID];
+			this.img_volume.skin = 'image/juQingMode/juqing' + volumeID + '.png'
 			let index = GameApp.MainPlayer.allCharpterInfo[chapterID].index
-			this.lab_chapter.text = '第' + index + '章' + GameApp.MainPlayer.allCharpterInfo[chapterID].name;
+			this.lab_chapter.text = '第' + index + '章';
+			this.lab_charpterName.text = GameApp.MainPlayer.allCharpterInfo[chapterID].name;
+			let intro = GameApp.MainPlayer.allCharpterInfo[chapterID].intro;
+			intro = intro.split('_');
+			let length = intro.length;
+			if (length > 4) {
+				for (let i = 0; i < length; i++) {
+					this['lab_content' + i].text = intro[i];
+				}
+			} else {
+				for (let i = 0; i < length; i++) {
+					this['lab_content' + (i+1)].text = intro[i];
+				}
+			}
+
 		}
 		public initNormalPage(curPage, totalPage, volumeID: number, chapterID: number, jsonData: any) {
 			for (let i = 0; i < jsonData.length; i++) {
@@ -73,9 +91,7 @@ module view.juQingMode {
 			this.html_page.style.align = 'center';
 			this.html_page.style.fontSize = 26;
 			this.html_page.innerHTML = "<span style='color:#a00000'>" + curPage + "</span>"
-				+ "<span style='color:#000000'>" + '/ ' + totalPage + '页'+"</span>";
-
-
+				+ "<span style='color:#000000'>" + '/ ' + totalPage + '页' + "</span>";
 		}
 		public SELECT_MODE = true;
 		public addChapterInfoItem(_talkInfo) {

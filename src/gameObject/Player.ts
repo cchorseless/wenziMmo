@@ -37,7 +37,7 @@ module GameObject {
         public createTime;// 角色创建时间
         public zslevel: number = 0;//转生等级
         //等级精炼强化达标装备数量
-        public EquipmentNum=[];
+        public EquipmentNum = [];
         /**
          * 聊天设置
          */
@@ -66,6 +66,8 @@ module GameObject {
 
         public pagesNum: { [index: number]: number } = {};  //当前已开启章节的总页数
 
+        public curCharpterHasPass = true;   //是否通关当前章节的所有主线副本
+        
         public pianZhangID: number;// 篇章ID
         public charpterID: number;// 章节ID
         public talkID: number;// 对白ID
@@ -498,6 +500,21 @@ module GameObject {
             this.pianZhangID = data.pzid;// 篇章ID
             this.pianZhangName = data.pzname;// 篇章名字
             this.charpterName = data.zjname;// 章节名字
+            this.getFuBenMainMsg()
+
+        }
+        public getFuBenMainMsg() {
+            let self = this;
+            let pkt = new ProtoCmd.QuestClientData();
+            pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [this.charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
+                console.log(jsonData)
+                for (let i in jsonData.state) {
+                    if (jsonData.ceng <= jsonData.state[i].ceng) {
+                        self.curCharpterHasPass = false
+                    }
+                }
+            })
+            lcp.send(pkt);
         }
 
 
