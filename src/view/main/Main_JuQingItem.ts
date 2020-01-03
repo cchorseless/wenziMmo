@@ -9,6 +9,7 @@ module view.main {
 
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
+			this.panel_map.hScrollBarSkin = '';
 			this.addEvent();
 			this.get_novelPian();
 		}
@@ -26,6 +27,26 @@ module view.main {
 			//华山
 			EventManage.onWithEffect(this.btn_huashan, Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
+				lcp.send(pkt);
+			})
+			//嵩山
+			EventManage.onWithEffect(this.btn_songshan, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [20001, 0]);
+				lcp.send(pkt);
+			})
+				//良人鎮
+			EventManage.onWithEffect(this.btn_liangren, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [15001, 0]);
+				lcp.send(pkt);
+			})
+			//玉壶瀑布
+			EventManage.onWithEffect(this.btn_yuhu, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [12001, 0]);
+				lcp.send(pkt);
+			})
+			//药王庄
+			EventManage.onWithEffect(this.btn_yaowang, Laya.UIEvent.CLICK, this, () => {
+				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [13001, 0]);
 				lcp.send(pkt);
 			})
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
@@ -75,7 +96,7 @@ module view.main {
 					} else {
 						btn_Pian.skin = 'image/main/main_zonglan/img_juanzhou_lock.png';
 						btn_Pian.labelColors = '#ffffff';
-						// btn_Pian.mouseEnabled = false;
+						btn_Pian.mouseEnabled = false;
 					}
 					btn_Pian.stateNum = 1;
 					btn_Pian.labelSize = 22;
@@ -148,7 +169,7 @@ module view.main {
 							} else {
 								btn_juqingDown.selected = false;
 								btn_juqingDown.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-								btn_juqingDown.mouseEnabled = true;
+								btn_juqingDown.mouseEnabled = false;
 							}
 							btn_juqingDown.labelColors = '#8c6240,#18466b';
 							btn_juqingDown.labelSize = 20;
@@ -227,10 +248,10 @@ module view.main {
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 5;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
-			if(this.lbl_des.height>115){
-				this.lbl_target.y=this.lbl_des.y+this.lbl_des.height+35;
-			}else{
-				this.lbl_target.y=356;
+			if (this.lbl_des.height > 115) {
+				this.lbl_target.y = this.lbl_des.y + this.lbl_des.height + 35;
+			} else {
+				this.lbl_target.y = 356;
 			}
 			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
 			if (juqing) {

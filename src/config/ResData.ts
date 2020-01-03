@@ -46,7 +46,9 @@ module ResData {
         { url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juese/chenghao.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS }
+        { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
         ];
         // 主界面 主界面资源通过同步加载
         public static Main = null;
