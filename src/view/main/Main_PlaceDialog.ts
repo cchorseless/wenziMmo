@@ -20,8 +20,12 @@ module view.main {
 			});
 			//传送
 			EventManage.onWithEffect(this.btn_chuansong, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.placeid, 0]);
-				lcp.send(pkt);
+				if (this.placeid == GameApp.MainPlayer.roomId) {
+					TipsManage.showTips('已在该地点')
+				} else {
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.placeid, 0]);
+					lcp.send(pkt);
+				}
 				this.close();
 			});
 		}
@@ -69,7 +73,7 @@ module view.main {
 					} else {
 						ui_item.y = ui_item.height;
 					}
-					ui_item.x = Math.floor(num/2) * (ui_item.width + 10);
+					ui_item.x = Math.floor(num / 2) * (ui_item.width + 10);
 					this.panel_item.addChild(ui_item);
 					num += 1;
 				}

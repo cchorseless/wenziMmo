@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":57,
-    "selecteID":69,
+    "selecteID":83,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":169,"x":194,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":26,"font":"HWXK","color":"#2c2d27","align":"center"},
+            "props":{"y":170,"x":171,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":22,"font":"HWXK","color":"#2c2d27","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_zhang)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":169,"x":294,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":26,"font":"HWXK","color":"#79393a","align":"left"},
+            "props":{"y":170,"x":254,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":22,"font":"HWXK","color":"#79393a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_chapterName)",
             "isDirectory":false,
@@ -85,7 +85,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":208,"x":171,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":220,"x":167,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_des)",
             "isDirectory":false,
@@ -130,13 +130,14 @@
             "props":{"y":474,"x":153,"width":263,"skin":"image/main/main_zonglan/bottom_guaji.png","height":95},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":-1,"width":86,"var":"btn_guaji","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffd08d","label":"挂机","height":86},
                     "nodeParent":24,
@@ -150,6 +151,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":98,"width":37,"skin":"image/common/img_exp_2.png","height":40},
                     "nodeParent":24,
@@ -162,6 +164,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":19,"x":144,"var":"lbl_exp","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,
@@ -175,6 +178,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":54,"x":92,"width":40,"skin":"image/main/icon_tongqian.png","height":33},
                     "nodeParent":24,
@@ -188,6 +192,7 @@
                     "$LOCKED":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":57,"x":144,"var":"lbl_jinbi","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,
@@ -220,7 +225,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":589,"x":143,"width":489,"skin":"image/common/bottom_touming.png","height":196},
+            "props":{"y":573,"x":143,"width":489,"skin":"image/common/bottom_touming.png","height":154,"alpha":0.5},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -234,16 +239,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":593,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
+            "props":{"y":581,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":33,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":21,"width":48,"text":"主线","height":21,"fontSize":24,"font":"FZXK"},
                     "nodeParent":33,
@@ -257,6 +263,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":114,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
@@ -269,36 +276,24 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state1","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":249,"width":24,"var":"lbl_zhuxianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
                     "nodeParent":33,
-                    "label":"Label(lbl_state1)",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"Label(lbl_zhuxianState)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":36,
+                    "hasChild":false,
+                    "compId":37,
                     "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhuxianState","text":"未完成","height":24,"fontSize":24,"font":"FZXK","color":"#c43939"},
-                            "nodeParent":36,
-                            "label":"Label(lbl_zhuxianState)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":37,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                        ]
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":634,"x":164,"width":455,"var":"div_zhuxiandes","innerHTML":"htmlText","height":47},
+            "props":{"y":621,"x":156,"width":367,"var":"div_zhuxiandes","innerHTML":"htmlText","height":32},
             "nodeParent":1,
             "label":"HTMLDivElement(div_zhuxiandes)",
             "isDirectory":false,
@@ -311,16 +306,17 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":690,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
+            "props":{"y":655,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":39,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":21,"width":48,"text":"支线","height":21,"fontSize":24,"font":"FZXK"},
                     "nodeParent":39,
@@ -334,6 +330,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":114,"var":"lbl_zhixianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
@@ -346,36 +343,24 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
-                    "props":{"y":5,"x":237,"width":96,"var":"lbl_state2","text":"(      )","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":249,"width":30,"var":"lbl_zhixianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
                     "nodeParent":39,
-                    "label":"Label(lbl_state2)",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"Label(lbl_zhixianState)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":42,
+                    "hasChild":false,
+                    "compId":43,
                     "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":-1,"x":12,"width":72,"var":"lbl_zhixianState","text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
-                            "nodeParent":42,
-                            "label":"Label(lbl_zhixianState)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":43,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
+                        ]
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":729,"x":167,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":47},
+            "props":{"y":696,"x":156,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":32},
             "nodeParent":1,
             "label":"HTMLDivElement(div_zhixiandes)",
             "isDirectory":false,
@@ -383,12 +368,13 @@
             "hasChild":false,
             "compId":44,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Button",
-            "props":{"y":622,"x":577,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":601,"x":572,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_task)",
             "isDirectory":false,
@@ -415,8 +401,36 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":735,"x":140,"skin":"image/main/main_zonglan/bottom_ditu.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":80,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":1003,"x":143,"skin":"image/main/main_zonglan/frame_dangqiandidian.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":79,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Panel",
-            "props":{"y":792,"x":144,"width":488,"var":"panel_map","height":250},
+            "props":{"y":744,"x":144,"width":488,"var":"panel_map","height":250},
             "nodeParent":1,
             "label":"Panel(panel_map)",
             "isOpen":true,
@@ -554,6 +568,21 @@
                             "compId":76,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":115,"x":281,"var":"img_pos","skin":"image/main/main_zonglan/icon_dingwei.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Image(img_pos)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":83,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$LOCKED":false,
                     "$HIDDEN":false
@@ -567,13 +596,14 @@
             "props":{"y":20,"x":20,"width":640,"left":0,"height":92,"bottom":0},
             "nodeParent":1,
             "label":"Box",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":50,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":28,"skin":"image/main/main_zonglan/bottom_mainicon.png","bottom":0},
                     "nodeParent":50,
@@ -587,8 +617,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"x":534,"visible":true,"var":"btn_gotoTanSuo","stateNum":"2","skin":"image/main/icon_changjing.png"},
+                    "props":{"y":6,"x":521,"visible":true,"var":"btn_gotoTanSuo","stateNum":"2","skin":"image/main/icon_changjing.png"},
                     "nodeParent":50,
                     "label":"Button(btn_gotoTanSuo)",
                     "isOpen":true,
@@ -601,8 +632,9 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
-                    "props":{"y":0,"x":20,"visible":true,"var":"btn_zhaiYuan","stateNum":"2","skin":"image/main/main_zonglan/icon_zhaiyuan.png"},
+                    "props":{"y":6,"x":10,"visible":true,"var":"btn_zhaiYuan","stateNum":"2","skin":"image/main/main_zonglan/icon_zhaiyuan.png"},
                     "nodeParent":50,
                     "label":"Button(btn_zhaiYuan)",
                     "isOpen":true,
@@ -617,10 +649,26 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":1008,"x":396,"width":27,"skin":"image/main/main_zonglan/icon_dingwei.png","height":30},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":81,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Label",
-            "props":{"y":755,"x":145,"width":343,"var":"lbl_nowPlace","text":"10000/h","height":32,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":1011,"x":430,"width":192,"var":"lbl_nowPlace","text":"福州城中央广场","height":22,"fontSize":22,"font":"FZXK","color":"#c43939","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_nowPlace)",
+            "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
@@ -628,6 +676,19 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":378,"x":215,"var":"img_juqing","skin":"image/main/main_zonglan/font_yiwancheng.png"},
+            "nodeParent":1,
+            "label":"Image(img_juqing)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":82,
+            "child":[
+                ]
         }],
     "animations":[
         {

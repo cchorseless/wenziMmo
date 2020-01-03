@@ -59,6 +59,7 @@ module view.map {
 			else {
 				this.btn_mapRight.visible = false;
 			}
+			this.init_task();
 		}
 
 
@@ -97,6 +98,11 @@ module view.map {
 			EventManage.onWithEffect(this.btn_mapBig, Laya.UIEvent.CLICK, this, function () {
 				this.openBigMap()
 			});
+			//任务
+			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
+				new view.dialog.TaskDialog().popup();
+			})
+
 		}
 		/**
  		  * 进入房间
@@ -182,6 +188,28 @@ module view.map {
 				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DAO:
 					new view.map.SmallMap_FengDaoDialog().popup();
 					break;
+			}
+		}
+		public init_task(): void {
+			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
+			if (zhuxianTask) {
+				for (let i in zhuxianTask) {
+					let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
+					this.lbl_task.text = taskInfo.questname;
+					this.div_des.style.fontSize = 20;
+					this.div_des.innerHTML = taskInfo.target;
+					switch (taskInfo.queststatus) {
+						case 0: case 1:
+							this.lbl_state.text = '进行中';
+							this.lbl_state.color = '#c43939';
+							break;
+						case 2: case 3:
+							this.lbl_state.text = '已完成';
+							this.lbl_state.color = '#39ad32';
+							break;
+					}
+					this.lbl_state.x = this.lbl_task.x + this.lbl_task.width + 5;
+				}
 			}
 		}
 	}

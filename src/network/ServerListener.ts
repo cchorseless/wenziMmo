@@ -1884,6 +1884,7 @@ class ServerListener extends SingletonClass {
                 break;
             }
         }
+        PanelManage.Main.view_scene._childs[0].init_noChange();
         cbpket.clear();
         cbpket = null;
     }

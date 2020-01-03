@@ -1,79 +1,98 @@
-module SheetConfig{ export class  mapRoomSheet { private data;private _instance; public constructor(data){ this.data=data;}
-public static getInstance(data): mapRoomSheet { let Class:any=this;if(!Class._instance){Class._instance=new Class(data);}return Class._instance;}
-/**
- *  房间名称
- */
- public ROOMNAME(configID:string):string { return this.data[configID][0]}
-/**
- *  所属地图ID
- */
- public MAPID(configID:string):number { return this.data[configID][1]}
-/**
- *  所属地图名称
- */
- public MAPNAME(configID:string):string { return this.data[configID][2]}
-/**
- *  房间类型
- */
- public ROOMTYPE(configID:string):number { return this.data[configID][3]}
-/**
- *  上连接ID
- */
- public UPID(configID:string):number { return this.data[configID][4]}
-/**
- *  下连接ID
- */
- public DOWNID(configID:string):number { return this.data[configID][5]}
-/**
- *  左连接ID
- */
- public LEFTID(configID:string):number { return this.data[configID][6]}
-/**
- *  右连接ID
- */
- public RIGHTID(configID:string):number { return this.data[configID][7]}
-/**
- *  X坐标最小
- */
- public XMIN(configID:string):number { return this.data[configID][8]}
-/**
- *  X坐标最大
- */
- public XMAX(configID:string):number { return this.data[configID][9]}
-/**
- *  Y坐标最小
- */
- public YMIN(configID:string):number { return this.data[configID][10]}
-/**
- *  Y坐标最大
- */
- public YMAX(configID:string):number { return this.data[configID][11]}
-/**
- *  ICON资源
- */
- public ICONPIC(configID:string):string { return this.data[configID][12]}
-/**
- *  场景图片资源
- */
- public SCENEPIC(configID:string):string { return this.data[configID][13]}
-/**
- *  进入等级条件
- */
- public LVNEED(configID:string):number { return this.data[configID][14]}
-/**
- *  进入VIP等级限制
- */
- public VIPNEED(configID:string):number { return this.data[configID][15]}
-/**
- *  进入任务条件
- */
- public TASKIDNEED(configID:string):number { return this.data[configID][16]}
-/**
- *  无视进入条件限制
- */
- public ISNEEDLIMIT(configID:string):number { return this.data[configID][17]}
-/**
- *  房间描述
- */
- public ROOMDES(configID:string):string { return this.data[configID][18]}
-}}
+module SheetConfig {
+    export class mapRoomSheet {
+        private data; private _instance; public constructor(data) { this.data = data; }
+        public static getInstance(data): mapRoomSheet { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
+        /**
+         *  房间名称
+         */
+        public ROOMNAME(configID: string): string { return this.data[configID][0] }
+        /**
+         *  所属地图ID
+         */
+        public MAPID(configID: string): number { return this.data[configID][1] }
+        /**
+         *  所属地图名称
+         */
+        public MAPNAME(configID: string): string { return this.data[configID][2] }
+        /**
+         *  房间类型
+         */
+        public ROOMTYPE(configID: string): number { return this.data[configID][3] }
+        /**
+         *  上连接ID
+         */
+        public UPID(configID: string): number { return this.data[configID][4] }
+        /**
+         *  下连接ID
+         */
+        public DOWNID(configID: string): number { return this.data[configID][5] }
+        /**
+         *  左连接ID
+         */
+        public LEFTID(configID: string): number { return this.data[configID][6] }
+        /**
+         *  右连接ID
+         */
+        public RIGHTID(configID: string): number { return this.data[configID][7] }
+        /**
+         *  X坐标最小
+         */
+        public XMIN(configID: string): number { return this.data[configID][8] }
+        /**
+         *  X坐标最大
+         */
+        public XMAX(configID: string): number { return this.data[configID][9] }
+        /**
+         *  Y坐标最小
+         */
+        public YMIN(configID: string): number { return this.data[configID][10] }
+        /**
+         *  Y坐标最大
+         */
+        public YMAX(configID: string): number { return this.data[configID][11] }
+        /**
+         *  ICON资源
+         */
+        public ICONPIC(configID: string): string { return this.data[configID][12] }
+        /**
+         *  场景图片资源
+         */
+        public SCENEPIC(configID: string): string { return this.data[configID][13] }
+        /**
+         *  进入等级条件
+         */
+        public LVNEED(configID: string): number { return this.data[configID][14] }
+        /**
+         *  进入VIP等级限制
+         */
+        public VIPNEED(configID: string): number { return this.data[configID][15] }
+        /**
+         *  进入任务条件
+         */
+        public TASKIDNEED(configID: string): number { return this.data[configID][16] }
+        /**
+         *  无视进入条件限制
+         */
+        public ISNEEDLIMIT(configID: string): number { return this.data[configID][17] }
+        /**
+         *  房间描述
+         */
+        public ROOMDES(configID: string): string { return this.data[configID][18] }
+        /**
+        *  通过地图id得到该地图的开始房间id
+        */
+        public GETBEGINROOMIDBYMAPID(mapid = GameApp.MainPlayer.location.mapid): number {
+            let roomid;
+            for (let room in this.data) {
+                if (this.data[room][1] == mapid) {
+                    if (!roomid) {
+                        roomid = room;
+                    } else if (room < roomid) {
+                        roomid = room;
+                    }
+                }
+            }
+            return roomid;
+        }
+    }
+}

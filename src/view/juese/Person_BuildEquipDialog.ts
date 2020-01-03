@@ -308,12 +308,6 @@ module view.juese {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
 				if (type == 1) {
 					this.ui_item0.lbl_count.visible = false;
-					//会配一个通用icon显示，此处只需要显示材料数量
-					// let itemInfo = new ProtoCmd.ItemBase();
-					// itemInfo.dwBaseID = jsonData.dwBaseID;
-					// itemInfo.dwBinding = jsonData.dwBinding;
-					// itemInfo.dwCount = jsonData.dwCount;
-					// this.ui_item0.setData(itemInfo);
 					//所需必选装备数量
 					let num = this.lbl_num.text.split('/');
 					for (let item of jsonData) {

@@ -10,18 +10,27 @@ module view.main {
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
+			//当前所在地名称
+			let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+			this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+			//当前所在地位置
+			let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
+			this.img_pos.x = this['btn_' + beginRoomid].x;
+			this.img_pos.y = this['btn_' + beginRoomid].y;
 			this.addEvent();
 			this.get_novelPian();
+			this.init_noChange();
 		}
 		public addEvent(): void {
 			for (let placeid of this.placeArray) {
-				EventManage.onWithEffect(this['btn_'+placeid], Laya.UIEvent.CLICK, this, () => {
+				EventManage.onWithEffect(this['btn_' + placeid], Laya.UIEvent.CLICK, this, () => {
 					new view.main.Main_PlaceDialog().setData(placeid).popup()
 				})
 			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
 				new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
+			//任务
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
 				new view.dialog.TaskDialog().popup();
 			})
@@ -45,7 +54,13 @@ module view.main {
 		public addLcpEvent(): void {
 			// 监听位置改变刷新界面
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, () => {
-				this.lbl_nowPlace.text = '当前位置:' + '地图ID' + GameApp.MainPlayer.location.mapid + '房间ID' + GameApp.MainPlayer.roomId;
+				//当前所在地名称
+				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+				//当前所在地位置
+				let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
+				this.img_pos.x = this['btn_' + beginRoomid].x;
+				this.img_pos.y = this['btn_' + beginRoomid].y;
 			})
 		}
 		/**
@@ -130,16 +145,21 @@ module view.main {
 							let data: ProtoCmd.itf_JUQING_CHARPTERINFO = jsonData.charpterInfo[key];
 							let btn_juqingDown = new Laya.Button;
 							btn_juqingDown.stateNum = 2;
+							btn_juqingDown.selected = false;
 							//当前章
-							if (data.zjid == GameApp.MainPlayer.charpterID) {
-								btn_juqingDown.selected = true;
+							if (data.zjid <= GameApp.MainPlayer.charpterID) {
 								btn_juqingDown.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-								this.init_chapter(jsonData, parseInt(key))
+								btn_juqingDown.labelColors = '#8c6240,#18466b';
+								btn_juqingDown.x = 0;
+								if (data.zjid == GameApp.MainPlayer.charpterID) {
+									btn_juqingDown.selected = true;
+									this.init_chapter(jsonData, parseInt(key));
+								}
 							} else {
-								btn_juqingDown.selected = false;
-								btn_juqingDown.skin = 'image/main/main_zonglan/btn_zhangjie.png';
+								btn_juqingDown.x = 5;
+								btn_juqingDown.skin = 'image/main/main_zonglan/btn_suoding.png';
+								btn_juqingDown.labelColors = '#8a7e74,#5a7285';
 							}
-							btn_juqingDown.labelColors = '#8c6240,#18466b';
 							btn_juqingDown.labelSize = 20;
 							btn_juqingDown.labelFont = 'FZXK';
 							btn_juqingDown.label = data.name;
@@ -203,39 +223,80 @@ module view.main {
 					let item = data.charpterInfo[index].items
 					switch (item[part].index) {
 						// 金币
-						case 200015:
-							this.lbl_jinbi.text = item[part].num + '/h';
+						case 20015:
+							this.lbl_jinbi.text = item[part].num + '/时';
 							break;
 						// 玩家经验
 						case EnumData.CoinType.COIN_TYPE_PLAYER_EXP:
-							this.lbl_exp.text = item[part].num + '/h';
+							this.lbl_exp.text = item[part].num + '/时';
 							break;
 						// 英雄经验
 						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
 							break;
 					}
 				}
+				this.div_target.style.fontSize = 22;
+				if (this.lbl_des.height > 115) {
+					this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
+				} else {
+					this.lbl_juqing.y = 324;
+				}
+				let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
+				if (juqing) {
+					for (let part in juqing) {
+						this.img_juqing.visible = false;
+						this.div_target.visible = true;
+						this.div_target.innerHTML = '' + juqing[part].target;
+					}
+				} else {
+					this.div_target.visible = false;
+					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu .png'
+				}
+				this.div_target.style.fontFamily = 'STLiti';
+			}
+			if (data.charpterInfo[index].zjid > GameApp.MainPlayer.charpterID) {
+				this.lbl_dangqian.visible = false;
+				this.lbl_all.text = '未解锁';
+				this.lbl_all.color = '#c43939'
+				this.lbl_all.x = 496;
+				this.div_target.visible = false;
+				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
+			}
+			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
+				this.lbl_dangqian.visible = false;
+				this.lbl_all.text = '已读完';
+				this.lbl_all.color = '#38ad32'
+				this.lbl_all.x = 496;
+				this.div_target.visible = false;
+				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
 			}
 			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
 			//章节名
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
-			this.div_target.style.fontSize = 22;
-			if (this.lbl_des.height > 115) {
-				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
+			//页数
+			let maxInfoNum;
+			let boo = PanelManage.getAspectRatio()
+			if (boo) {
+				maxInfoNum = 8
 			} else {
-				this.lbl_juqing.y = 324;
+				maxInfoNum = 7
 			}
-			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
-			if (juqing) {
-				for (let part in juqing) {
-					this.div_target.innerHTML = '' + juqing[part].target;
-				}
-			} else {
-				this.div_target.innerHTML = '暂无剧情任务内容';
+			let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+			let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+			if (now > 0) {
+				this.lbl_dangqian.visible = true;
+				this.lbl_dangqian.text = '' + now;
+				this.lbl_all.text = '/' + total + '页';
+				this.lbl_all.color = '#2c2d27'
+				this.lbl_all.x = 519;
 			}
-			this.div_target.style.fontFamily = 'STLiti';
+		}
+		/**
+		 * 不改變的任務信息
+		 */
+		public init_noChange(): void {
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			this.div_zhuxiandes.style.color = this.div_zhixiandes.style.color = '#63491a';
@@ -247,19 +308,16 @@ module view.main {
 					let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
 					this.lbl_zhuxianName.text = taskInfo.questname;
 					this.div_zhuxiandes.innerHTML = taskInfo.des;
-					if (taskInfo.queststatus < 3) {
-						this.lbl_zhuxianState.text = '未完成';
-						this.lbl_zhuxianState.color = '#c43939';
+					if (taskInfo.queststatus >= 2) {
+						this.lbl_zhuxianState.visible = true;
+						this.lbl_zhuxianState.text = '√';
 					} else {
-						this.lbl_zhuxianState.text = '已完成';
-						this.lbl_zhuxianState.color = '#39ad32';
+						this.lbl_zhuxianState.visible = false;
 					}
-					this.lbl_state1.visible = true;
-					this.lbl_state1.x = this.lbl_zhuxianName.x + this.lbl_zhuxianName.width;
+					this.lbl_zhuxianState.x = this.lbl_zhuxianName.x + this.lbl_zhuxianName.width;
 				}
 			} else {
 				this.lbl_zhuxianName.text = '暂无';
-				this.lbl_state1.visible = false;
 				this.div_zhuxiandes.innerHTML = '';
 			}
 			//支线任务
@@ -279,41 +337,19 @@ module view.main {
 			if (zhixian[0]) {
 				this.lbl_zhixianName.text = zhixian[0].questname;
 				this.div_zhixiandes.innerHTML = zhixian[0].des;
-				if (zhixian[0].queststatus < 3) {
-					this.lbl_zhixianState.text = '未完成';
-					this.lbl_zhixianState.color = '#c43939';
+				if (zhixian[0].queststatus >= 2) {
+					this.lbl_zhixianState.visible = true;
+					this.lbl_zhixianState.text = '√';
+
 				} else {
-					this.lbl_zhixianState.text = '已完成';
-					this.lbl_zhixianState.color = '#39ad32';
+					this.lbl_zhixianState.visible = false;
 				}
-				this.lbl_state2.visible = true;
-				this.lbl_state2.x = this.lbl_zhixianName.x + this.lbl_zhixianName.width;
+				this.lbl_zhixianState.x = this.lbl_zhixianName.x + this.lbl_zhixianName.width;
 			} else {
+				this.lbl_zhixianState.visible = false;
 				this.lbl_zhixianName.text = '暂无';
-				this.lbl_state2.visible = false;
 				this.div_zhixiandes.innerHTML = '';
 			}
-			//页数
-			let maxInfoNum;
-			let boo = PanelManage.getAspectRatio()
-			if (boo) {
-				maxInfoNum = 8
-			} else {
-				maxInfoNum = 7
-			}
-			let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-			let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-			if (now > 0) {
-				this.lbl_dangqian.visible = true;
-				this.lbl_dangqian.text = '' + now;
-				this.lbl_all.text = '/' + total + '页';
-				this.lbl_all.x = 519;
-			} else {
-				this.lbl_dangqian.visible = false;
-				this.lbl_all.text = '未解锁';
-				this.lbl_all.x = 496;
-			}
-
 		}
 	}
 }
