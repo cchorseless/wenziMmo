@@ -77,6 +77,7 @@ module view.main {
 			this.updateUI_yuanBaolock()
 			this.updateUI_power()
 			this.updateUI_vipLv();
+			this.init_friendApply();
 			// 时辰
 			this.lbl_shiChen.text = '' + this.getShiChen();
 		}
@@ -353,11 +354,13 @@ module view.main {
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_GOLD, this, () => { this.updateUI_vipLv() });
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
-
+			//好友申请提示
+			GameApp.LListener.on(ProtoCmd.FD_APPLY_UPDATA, this, () => {this.init_friendApply();})
 			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
 				console.log(data);
 				GameApp.GameEngine.turnActivity = data;
 			})
+			//任务日常活跃
 			GameApp.LListener.on(ProtoCmd.TASK_HuoYueDuClientOpen, this, (jsonData) => {
 				GameApp.GameEngine.activeInfo = jsonData
 			})
@@ -937,6 +940,16 @@ module view.main {
 			}
 			return [curNum, nextNum];
 		}
+		/**
+		 * 好友申请提示
+		 */
+		public init_friendApply(): void {
+			if (GameApp.MainPlayer.friendApplyInfo.length > 0) {
+				this.img_friendTips.visible = true;
 
+			} else {
+				this.img_friendTips.visible = false;
+			}
+		}
 	}
 }

@@ -11,7 +11,8 @@ module view.friend {
 			this.vbox_friend2['sortItem'] = (items) => { };
 			this.vbox_friend3['sortItem'] = (items) => { };
 			this.init_friendList();
-			this.updateFriendList();
+			this.addLcpEvent();
+			this.init_Tips();
 			this.addEvent();
 		}
 		public addEvent(): void {
@@ -23,9 +24,7 @@ module view.friend {
 					this.init_selected(this['btn_arrow' + i].selected, i)
 				})
 			}
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_close.on(Laya.UIEvent.CLICK, this, this.onclose)
 			this.btn_search.on(Laya.UIEvent.CLICK, this, () => {
 				new view.friend.FriendSearchDialog().popup()
 			})
@@ -62,10 +61,18 @@ module view.friend {
 		/**
        * 更新关系列表
        */
-		public updateFriendList(): void {
+		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.FD_UPDATA, this, (data) => {
 				this.init_friendList();
 			})
+			GameApp.LListener.on(ProtoCmd.FD_APPLY_UPDATA, this, () => {
+				this.init_Tips();
+			})
+		}
+		public onclose(): void {
+			GameApp.LListener.offCaller(ProtoCmd.FD_UPDATA, this);
+			GameApp.LListener.offCaller(ProtoCmd.FD_APPLY_UPDATA, this);
+			this.close();
 		}
 		/**
 		 * 初始化位置
@@ -135,6 +142,14 @@ module view.friend {
 		public init_vbox(): void {
 			for (let i = 1; i < 4; i++) {
 				this['vbox_friend' + i].y = this['btn_friend' + i].y + this['btn_friend' + i].height;
+			}
+		}
+		public init_Tips(): void {
+			if (GameApp.MainPlayer.friendApplyInfo.length > 0) {
+				PanelManage.Main.img_friendTips.visible = this.img_tips.visible = true;
+
+			} else {
+				PanelManage.Main.img_friendTips.visible = this.img_tips.visible = false;
 			}
 		}
 	}

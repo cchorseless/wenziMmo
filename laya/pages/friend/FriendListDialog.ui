@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":9,
+    "selecteID":10,
     "props":{"width":618,"sceneColor":"#ffffff","height":932},
     "nodeParent":-1,
     "label":"Dialog",
@@ -292,12 +292,25 @@
             "props":{"y":846,"x":112,"width":156,"var":"btn_myApply","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#ab6936","labelSize":28,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"我的申请","height":53},
             "nodeParent":1,
             "label":"Button(btn_myApply)",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":10,
             "child":[
-                ],
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":-19,"x":114,"var":"img_tips","skin":"image/common/img_tipsPoint.png"},
+                    "nodeParent":10,
+                    "label":"Image(img_tips)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":83,
+                    "child":[
+                        ]
+                }],
             "$HIDDEN":false
         }],
     "animations":[
