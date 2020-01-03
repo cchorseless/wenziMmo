@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":100,
+    "selectedBox":161,
+    "selecteID":334,
     "referenceLines":[
         {
             "value":1127,
@@ -927,7 +927,7 @@
                     "props":{"y":62,"x":1,"width":53,"var":"btn_friend","stateNum":"2","skin":"image/main/main_zonglan/btn_denglong.png","height":74},
                     "nodeParent":279,
                     "label":"Button(btn_friend)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -942,6 +942,18 @@
                             "isAniNode":true,
                             "hasChild":false,
                             "compId":272,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "type":"Image",
+                            "props":{"y":-11,"x":14,"width":42,"var":"img_friendTips","skin":"image/common/img_tipsPoint.png","height":42},
+                            "nodeParent":271,
+                            "label":"Image(img_friendTips)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":339,
                             "child":[
                                 ]
                         }]
@@ -959,7 +971,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,

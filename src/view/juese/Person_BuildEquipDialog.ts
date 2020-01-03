@@ -191,6 +191,7 @@ module view.juese {
 			this.init_dangqian();
 		}
 		public init_dangqian(equipInfo = null): void {
+			GameApp.GameEngine.buildEquip = undefined;
 			//当前装备选中状态发光显示
 			for (let item of this.hbox_equip._childs) {
 				item.img_light.visible = false;
@@ -307,12 +308,6 @@ module view.juese {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
 				if (type == 1) {
 					this.ui_item0.lbl_count.visible = false;
-					//会配一个通用icon显示，此处只需要显示材料数量
-					// let itemInfo = new ProtoCmd.ItemBase();
-					// itemInfo.dwBaseID = jsonData.dwBaseID;
-					// itemInfo.dwBinding = jsonData.dwBinding;
-					// itemInfo.dwCount = jsonData.dwCount;
-					// this.ui_item0.setData(itemInfo);
 					//所需必选装备数量
 					let num = this.lbl_num.text.split('/');
 					for (let item of jsonData) {
@@ -359,7 +354,7 @@ module view.juese {
 				//打造装备
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
-					GameApp.GameEngine.buildEquip = [];
+					GameApp.GameEngine.buildEquip = undefined;
 					this.lbl_num.text = '0/' + this.maxNum;
 				})
 				lcp.send(pkt)

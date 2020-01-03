@@ -22,6 +22,7 @@ module view.juQingMode {
 			this.btn_lingQu.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_getJuQingBaseReward, null, null, this, (jsonData) => {
+					GameUtil.timeCountDown(jsonData.time, this.div_time);
 					this.close();
 				});
 				lcp.send(pkt);
@@ -30,7 +31,7 @@ module view.juQingMode {
 		public initUI(): void {
 			// 累计奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
+			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData: { tab: any, time: number }) => {
 				let keys = Object.keys(jsonData.tab);
 				for (let key of keys) {
 					let _itemData = new ProtoCmd.ItemBase();
@@ -39,8 +40,11 @@ module view.juQingMode {
 					_itemData.dwCount = jsonData.tab[key].num;
 					let _itemUI = new view.compart.DaoJuWithNameItem();
 					_itemUI.setData(_itemData);
+					_itemUI.ui_item.img_lock.visible=false;
 					this.hbox_1.addChild(_itemUI);
 				};
+				//挂机时间
+				GameUtil.timeCountDown(jsonData.time, this.div_time,1);
 				// 无奖励提示
 				this.lbl_NoPrizeTips.visible = (this.hbox_1.numChildren == 0);
 			})
@@ -57,7 +61,7 @@ module view.juQingMode {
 					let itemInfo = charpterInfo.items[key];
 					switch (itemInfo.index) {
 						// 金币
-						case EnumData.CoinType.COIN_TYPE_GOLD:
+						case 20015:
 							this.lbl_coinXl.text = itemInfo.num + '/H';
 							break;
 						// 玩家经验
@@ -80,6 +84,7 @@ module view.juQingMode {
 					itemInfo.dwBaseID = _itemData.index;
 					itemInfo.dwBinding = _itemData.binding;
 					_itemUI.setData(itemInfo);
+					_itemUI.ui_item.img_lock.visible=false;
 					this.hbox_0.addChild(_itemUI);
 				}
 

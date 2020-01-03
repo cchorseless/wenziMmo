@@ -10,12 +10,10 @@ module view.friend {
 			this.vbox_apply['sortItem'] = (items) => { };
 			this.addEvent();
 			this.init_applyData();
-			this.init_updataApplyData();
+			this.addLcpEvent();
 		}
 		public addEvent(): void {
-			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				this.close();
-			})
+			this.btn_close.on(Laya.UIEvent.CLICK, this, this.onClosed)
 		}
 		/**
 		 * 好友申请列表
@@ -30,10 +28,14 @@ module view.friend {
 				}
 			}
 		}
-		public init_updataApplyData(): void {
+		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.FD_APPLY_UPDATA, this, () => {
 				this.init_applyData();
 			})
+		}
+		public onClosed(): void {
+			GameApp.LListener.offCaller(ProtoCmd.FD_APPLY_UPDATA, this);
+			this.close();
 		}
 	}
 }

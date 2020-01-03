@@ -3,6 +3,7 @@ module view.map {
 	export class SmallMap_YuHuDialog extends ui.map.SmallMap_YuHuDialogUI {
 		constructor() {
 			super();
+			this.setData();
 		}
 		public setData(): void {
 			for (let i = 12001; i <= 12017; i++) {
@@ -20,6 +21,7 @@ module view.map {
 					let findMap = new GameUtil.findMapPath(12001, 12017).minPath(GameApp.MainPlayer.roomId, i);
 					console.log(findMap);
 					GameUtil.parseMapPath(findMap);
+					this.close();
 				})
 			}
 		}

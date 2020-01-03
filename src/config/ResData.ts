@@ -46,7 +46,9 @@ module ResData {
         { url: "res/atlas/image/juQingMode.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/juese/chenghao.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/bag.atlas", type: Laya.Loader.ATLAS },
-        { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS }
+        { url: "res/atlas/image/juese/gangqi.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
         ];
         // 主界面 主界面资源通过同步加载
         public static Main = null;
@@ -258,7 +260,9 @@ module ResData {
             //宅院
             { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade },
             //剧情篇章表
-            { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet }
+            { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet },
+            //怪物更新表
+            { url: 'json/mydb_mongen_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mongen_tbl }
         ];
     }
 
