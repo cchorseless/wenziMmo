@@ -60,7 +60,7 @@ module view.juQingMode {
 			else if (item.id == nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
 				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
-				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'+ "</span>"
+				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章' + "</span>"
 				this.img_lock.visible = false;
 				this.isLock = false;
 				// this.img_mask.visible = false;
@@ -68,7 +68,7 @@ module view.juQingMode {
 			else if (item.id < nowChapter) {
 				this.lab_total_VolumeNum.visible = true;
 				this.img_bg.skin = 'image/juQingMode/box_ml_01.png'
-				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章'+ "</span>"
+				this.lab_total_VolumeNum.innerHTML = "<span>" + '合计' + GameUtil.SectionToChinese(item.cnt, 0) + '章' + "</span>"
 				this.img_lock.visible = true;
 				this.isLock = false;
 				// this.img_mask.visible = false;
@@ -82,6 +82,7 @@ module view.juQingMode {
 			lcp.send(pkt1);
 		}
 		public setPanelView() {
+
 			if (this.item.id <= this.maxPZID) {
 				this.vbox_show.removeChildren();
 				for (let i = 0; i < this.charpterArr.length; i++) {
@@ -148,6 +149,10 @@ module view.juQingMode {
 						self.setPanelView();
 					}
 				})
+		}
+		public destroy(e = true) {
+			GameApp.LListener.offCaller(ProtoCmd.JQ_GET_JQ_ZHANGJIE, this)
+			super.destroy(e)
 		}
 	}
 }
