@@ -144,6 +144,13 @@ module ProtoCmd {
     export const FB_ChuMoLeave = 'ChuMoLeave';
     // 主线副本进入成功,更新副本进度
     export const FB_ChuMoRightPlane = 'ChuMoRightPlane';
+    //主线副本掉落监听
+    export const chuMoDropItems = 'chuMoDropItems';
+    //主线副本掉一键扫荡
+    export const oneKeyFinishChuMo = 'oneKeyFinishChuMo';    //参数：层数ID
+    //主线副本打开扫荡界面获取星级
+    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID
+    
     /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
     export const FB_CLFubenStatus = 'CLFubenStatus';

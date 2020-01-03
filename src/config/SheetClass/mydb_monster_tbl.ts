@@ -408,4 +408,8 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
  *  怪物的五行属性 0：金；1：木；2：水；3：火；4：土
  */
  public WUXINGPROPS(configID):number { return this.data[configID][101]}
+/**
+ *  怪物战斗力
+ */
+ public MONSTER_COMBAT(configID):number { return this.data[configID][102]}
 }}

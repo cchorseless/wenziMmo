@@ -253,6 +253,8 @@ module ResData {
             { url: 'json/zhuanban_Dress.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhuanban_Dress },
             //武学四法（角色武学基础）
             { url: 'json/sifa_consume.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.sifa_consume },
+            //主线扫荡
+            { url: 'json/Thread_sweep_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Thread_sweep_tbl },
             //宅院
             { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade },
             //剧情篇章表
