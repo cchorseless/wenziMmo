@@ -191,6 +191,7 @@ module view.juese {
 			this.init_dangqian();
 		}
 		public init_dangqian(equipInfo = null): void {
+			GameApp.GameEngine.buildEquip = undefined;
 			//当前装备选中状态发光显示
 			for (let item of this.hbox_equip._childs) {
 				item.img_light.visible = false;
@@ -359,7 +360,7 @@ module view.juese {
 				//打造装备
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
-					GameApp.GameEngine.buildEquip = [];
+					GameApp.GameEngine.buildEquip = undefined;
 					this.lbl_num.text = '0/' + this.maxNum;
 				})
 				lcp.send(pkt)

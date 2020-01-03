@@ -6,7 +6,7 @@ module view.main {
 			super();
 			Main_JuQingItem.self = this;
 		}
-
+		public placeArray = [10001, 11001, 12001, 13001, 14001, 15001, 20001]
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
@@ -14,41 +14,11 @@ module view.main {
 			this.get_novelPian();
 		}
 		public addEvent(): void {
-			//福州
-			EventManage.onWithEffect(this.btn_fuzhou, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [10001, 0]);
-				lcp.send(pkt);
-			})
-			//洛阳
-			EventManage.onWithEffect(this.btn_luoyang, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [14001, 0]);
-				lcp.send(pkt);
-			})
-			//华山
-			EventManage.onWithEffect(this.btn_huashan, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [11001, 0]);
-				lcp.send(pkt);
-			})
-			//嵩山
-			EventManage.onWithEffect(this.btn_songshan, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [20001, 0]);
-				lcp.send(pkt);
-			})
-				//良人鎮
-			EventManage.onWithEffect(this.btn_liangren, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [15001, 0]);
-				lcp.send(pkt);
-			})
-			//玉壶瀑布
-			EventManage.onWithEffect(this.btn_yuhu, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [12001, 0]);
-				lcp.send(pkt);
-			})
-			//药王庄
-			EventManage.onWithEffect(this.btn_yaowang, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [13001, 0]);
-				lcp.send(pkt);
-			})
+			for (let placeid of this.placeArray) {
+				EventManage.onWithEffect(this['btn_'+placeid], Laya.UIEvent.CLICK, this, () => {
+					new view.main.Main_PlaceDialog().setData(placeid).popup()
+				})
+			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
 				new view.juQingMode.JuQingPrizeDialog().setData().popup();
 			});
@@ -89,7 +59,7 @@ module view.main {
 				for (let pian in pianzhang) {
 					let btn_Pian = new Laya.Button;
 					btn_Pian.label = pianzhang[pian][1];
-					if (GameApp.MainPlayer.pianZhangID == parseInt(pianzhang[pian][0])) {
+					if (GameApp.MainPlayer.pianZhangID >= parseInt(pianzhang[pian][0])) {
 						btn_Pian.skin = 'image/main/main_zonglan/img_juanzhou.png';
 						btn_Pian.labelColors = '#0f0225';
 						btn_Pian.mouseEnabled = true;
@@ -164,12 +134,10 @@ module view.main {
 							if (data.zjid == GameApp.MainPlayer.charpterID) {
 								btn_juqingDown.selected = true;
 								btn_juqingDown.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-								btn_juqingDown.mouseEnabled = true;
 								this.init_chapter(jsonData, parseInt(key))
 							} else {
 								btn_juqingDown.selected = false;
 								btn_juqingDown.skin = 'image/main/main_zonglan/btn_zhangjie.png';
-								btn_juqingDown.mouseEnabled = false;
 							}
 							btn_juqingDown.labelColors = '#8c6240,#18466b';
 							btn_juqingDown.labelSize = 20;
@@ -189,6 +157,11 @@ module view.main {
 								this.init_chapter(jsonData, parseInt(i) + 1);
 							})
 						}
+					}
+					else {
+						child._childs[0].selected = false;
+						child.height = child._childs[0].height;
+						child._childs[1].scaleY = 0;
 					}
 				}
 
@@ -248,19 +221,21 @@ module view.main {
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
+			this.div_target.style.fontSize = 22;
 			if (this.lbl_des.height > 115) {
-				this.lbl_target.y = this.lbl_des.y + this.lbl_des.height + 35;
+				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
 			} else {
-				this.lbl_target.y = 356;
+				this.lbl_juqing.y = 324;
 			}
 			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
 			if (juqing) {
-				for (let juqingTask of juqing) {
-					this.lbl_target.text = '' + juqingTask.target;
+				for (let part in juqing) {
+					this.div_target.innerHTML = '' + juqing[part].target;
 				}
 			} else {
-				this.lbl_target.text = '暂无剧情任务内容';
+				this.div_target.innerHTML = '暂无剧情任务内容';
 			}
+			this.div_target.style.fontFamily = 'STLiti';
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			this.div_zhuxiandes.style.color = this.div_zhixiandes.style.color = '#63491a';

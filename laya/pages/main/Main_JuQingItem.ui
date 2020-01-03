@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":8,
+    "selectedBox":57,
+    "selecteID":69,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -99,24 +99,25 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":356,"x":169,"wordWrap":true,"width":390,"var":"lbl_target","text":"   剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标剧情目标","leading":5,"height":107,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":324,"x":162,"wordWrap":true,"width":336,"var":"lbl_juqing","text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
             "nodeParent":1,
-            "label":"Label(lbl_target)",
-            "isOpen":null,
+            "label":"Label(lbl_juqing)",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":13,
+            "compId":12,
             "child":[
                 {
-                    "type":"Label",
-                    "props":{"y":-32,"x":-7,"wordWrap":true,"width":336,"text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
-                    "nodeParent":13,
-                    "label":"Label",
+                    "x":30,
+                    "type":"HTMLDivElement",
+                    "props":{"y":32,"x":7,"width":390,"var":"div_target","innerHTML":"htmlText","height":107},
+                    "nodeParent":12,
+                    "label":"HTMLDivElement(div_target)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":12,
+                    "compId":77,
                     "child":[
                         ],
                     "$HIDDEN":false
@@ -418,28 +419,30 @@
             "props":{"y":792,"x":144,"width":488,"var":"panel_map","height":250},
             "nodeParent":1,
             "label":"Panel(panel_map)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":67,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":0,"width":974,"skin":"image/map/northland/map_ditu_01.png","height":250},
                     "nodeParent":67,
                     "label":"Image",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":57,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":48,"x":73,"var":"btn_fuzhou","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":48,"x":73,"var":"btn_10001","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_fuzhou)",
+                            "label":"Button(btn_10001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -449,10 +452,11 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":48,"x":358,"var":"btn_songshan","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":48,"x":358,"var":"btn_20001","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_songshan)",
+                            "label":"Button(btn_20001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -461,10 +465,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":120,"x":132,"var":"btn_huashan","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":120,"x":132,"var":"btn_11001","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_huashan)",
+                            "label":"Button(btn_11001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -473,6 +478,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":194,"x":194,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
@@ -485,10 +491,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":113,"x":454,"var":"btn_liangren","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":113,"x":454,"var":"btn_15001","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_liangren)",
+                            "label":"Button(btn_15001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -497,10 +504,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":115,"x":281,"var":"btn_luoyang","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":115,"x":281,"var":"btn_14001","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_luoyang)",
+                            "label":"Button(btn_14001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -509,6 +517,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":202,"x":351,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
@@ -521,10 +530,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":50,"x":233,"var":"btn_yaowang","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":50,"x":233,"var":"btn_13001","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_yaowang)",
+                            "label":"Button(btn_13001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -533,10 +543,11 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":204,"x":61,"var":"btn_yuhu","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":204,"x":61,"var":"btn_12001","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_yuhu)",
+                            "label":"Button(btn_12001)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,

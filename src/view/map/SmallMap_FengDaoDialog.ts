@@ -3,6 +3,7 @@ module view.map {
 	export class SmallMap_FengDaoDialog extends ui.map.SmallMap_FengDaoDialogUI {
 		constructor() {
 			super();
+			this.setData();
 		}
 		public setData(): void {
 			for (let i = 26001; i <= 26012; i++) {
@@ -22,6 +23,7 @@ module view.map {
 					let findMap = new GameUtil.findMapPath(26001, 26012).minPath(GameApp.MainPlayer.roomId, i);
 					console.log(findMap);
 					GameUtil.parseMapPath(findMap);
+					this.close();
 				})
 			}
 		}

@@ -3,6 +3,7 @@ module view.map{
 	export class SmallMap_fengduDialog extends ui.map.SmallMap_fengduDialogUI{
 		constructor(){
 			super();
+			this.setData();
 		}
 			public setData(): void {
 			for (let i = 9001; i < 9006; i++) {
