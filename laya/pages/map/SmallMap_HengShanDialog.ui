@@ -1,15 +1,11 @@
 {
     "x":0,
-    "type":"Dialog",
+    "type":"View",
     "selectedBox":1,
-<<<<<<< HEAD:laya/pages/map/SmallMap_HengShanDialog.ui
-    "selecteID":2,
-=======
-    "selecteID":27,
->>>>>>> 8fb1e7ea92b6dc1644f3f2068e1d539dce5c1353:laya/pages/map/SmallMap_HengShanItem.ui
-    "props":{"width":640,"sceneColor":"#ffffff","height":700},
+    "selecteID":21,
+    "props":{"width":640,"height":700},
     "nodeParent":-1,
-    "label":"Dialog",
+    "label":"View",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -19,47 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/map/smallMap/img_ditu.png","sizeGrid":"49,33,60,34","right":0,"left":0,"bottom":0},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":27,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","left":-15,"bottom":-15},
-                    "nodeParent":27,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":28,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","right":-15,"bottom":-15},
-                    "nodeParent":27,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":29,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":-14,"width":668,"skin":"image/map/smallMap/smallMap_bg03.png","height":704},
+            "props":{"y":-2,"x":-14,"width":668,"skin":"image/map/smallMap/smallMap_bg03.png","height":704},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -84,7 +40,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":236,"x":129,"width":410,"skin":"image/common/fram_common_24.png"},
+            "props":{"y":234,"x":129,"width":410,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -98,7 +54,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":327,"x":48,"width":500,"skin":"image/common/fram_common_24.png"},
+            "props":{"y":325,"x":48,"width":500,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -112,7 +68,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":152,"x":301,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
+            "props":{"y":150,"x":301,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -126,7 +82,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":255,"x":411,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":7},
+            "props":{"y":253,"x":411,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":7},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -140,7 +96,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":262,"x":533,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":7},
+            "props":{"y":260,"x":533,"width":80,"skin":"image/common/fram_common_24.png","rotation":90,"height":7},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -154,7 +110,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":359,"x":196,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
+            "props":{"y":357,"x":196,"width":80,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -168,7 +124,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":430,"x":183,"width":100,"skin":"image/common/fram_common_24.png"},
+            "props":{"y":428,"x":183,"width":100,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
@@ -182,7 +138,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":148,"x":288,"width":80,"var":"btn_23012","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_013.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"紫气宫","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":146,"x":288,"width":80,"var":"btn_23012","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_013.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"紫气宫","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23012)",
             "isDirectory":false,
@@ -195,7 +151,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":246,"x":180,"width":80,"var":"btn_23011","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_015.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"华严殿","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":244,"x":180,"width":80,"var":"btn_23011","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_015.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"华严殿","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23011)",
             "isDirectory":false,
@@ -208,7 +164,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":246,"x":288,"width":80,"var":"btn_23010","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_020.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"寒露台","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":244,"x":288,"width":80,"var":"btn_23010","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_020.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"寒露台","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23010)",
             "isDirectory":false,
@@ -221,7 +177,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":245,"x":407,"width":80,"var":"btn_23009","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_009.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"半山阁","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":243,"x":407,"width":80,"var":"btn_23009","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_009.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"半山阁","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23009)",
             "isDirectory":false,
@@ -234,7 +190,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":244,"x":529,"width":80,"var":"btn_23008","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_029.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"药田","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":242,"x":529,"width":80,"var":"btn_23008","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_029.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"药田","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23008)",
             "isDirectory":false,
@@ -248,7 +204,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":74,"width":80,"var":"btn_23004","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_017.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"一线沟","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":336,"x":74,"width":80,"var":"btn_23004","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_017.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"一线沟","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23004)",
             "isDirectory":false,
@@ -262,7 +218,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":180,"width":80,"var":"btn_23003","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_024.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"虎趴岗","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":336,"x":180,"width":80,"var":"btn_23003","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_024.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"虎趴岗","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23003)",
             "isDirectory":false,
@@ -275,7 +231,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":288,"width":80,"var":"btn_23005","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_008.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"翠烟亭","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":336,"x":288,"width":80,"var":"btn_23005","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_008.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"翠烟亭","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23005)",
             "isDirectory":false,
@@ -289,7 +245,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":407,"width":80,"var":"btn_23006","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_004.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"古秀院","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":336,"x":407,"width":80,"var":"btn_23006","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_004.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"古秀院","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23006)",
             "isDirectory":false,
@@ -303,7 +259,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":338,"x":529,"width":80,"var":"btn_23007","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_017.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"五丈池","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":336,"x":529,"width":80,"var":"btn_23007","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_017.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"五丈池","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23007)",
             "isDirectory":false,
@@ -316,7 +272,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":445,"x":180,"width":80,"var":"btn_23002","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_011.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"小阳关","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":443,"x":180,"width":80,"var":"btn_23002","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_011.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"小阳关","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23002)",
             "isDirectory":false,
@@ -329,7 +285,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":445,"x":288,"width":80,"var":"btn_23001","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_026.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"山门","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":443,"x":288,"width":80,"var":"btn_23001","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_026.png","labelStroke":4,"labelSize":25,"labelPadding":"40","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"山门","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_23001)",
             "isDirectory":false,
@@ -342,7 +298,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":80,"x":50,"skin":"image/map/smallMap/img_hengshan.png"},
+            "props":{"y":78,"x":50,"skin":"image/map/smallMap/img_hengshan.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,

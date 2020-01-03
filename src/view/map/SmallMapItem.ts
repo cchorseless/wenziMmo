@@ -121,88 +121,88 @@ module view.map {
 			switch (GameApp.MainPlayer.location.mapid) {
 				// 酆都
 				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DU:
-					ui_map = new view.map.SmallMap_fengduItem();
+					// ui_map = new view.map.SmallMap_fengduItem();
 					ui_map.setData();
 					break;
 				// 福州城
 				case EnumData.MAP_BIG_MAP_ID.MAP_FU_ZHOU_CHENG:
-					ui_map = new view.map.SmallMap_fuzhouItem();
+					// ui_map = new view.map.SmallMap_fuzhouItem();
 					ui_map.setData();
 					break;
 				// 华山派
 				case EnumData.MAP_BIG_MAP_ID.MAP_HUA_SHAN_PAI:
-					ui_map = new view.map.SmallMap_HuaShanItem();
+					// ui_map = new view.map.SmallMap_HuaShanItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 玉壶
 				case EnumData.MAP_BIG_MAP_ID.MAP_YU_HU:
-					ui_map = new view.map.SmallMap_YuHuItem();
+					// ui_map = new view.map.SmallMap_YuHuItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 药王庄
 				case EnumData.MAP_BIG_MAP_ID.MAP_YAO_WANG:
-					ui_map = new view.map.SmallMap_YaoWangItem();
+					// ui_map = new view.map.SmallMap_YaoWangItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 洛阳
 				case EnumData.MAP_BIG_MAP_ID.MAP_LUO_YANG:
-					ui_map = new view.map.SmallMap_LuoYangItem();
+					// ui_map = new view.map.SmallMap_LuoYangItem();
 					ui_map.setData();
 					break;
 				// 良人鎮
 				case EnumData.MAP_BIG_MAP_ID.MAP_LIANG_REN:
-					ui_map = new view.map.SmallMap_LiangRenItem();
+					// ui_map = new view.map.SmallMap_LiangRenItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 塔楼
 				case EnumData.MAP_BIG_MAP_ID.MAP_TA_LOU:
-					ui_map = new view.map.SmallMap_TaLouItem();
+					// ui_map = new view.map.SmallMap_TaLouItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 玉笔峰
 				case EnumData.MAP_BIG_MAP_ID.MAP_YU_BI:
-					ui_map = new view.map.SmallMap_YuBiItem();
+					// ui_map = new view.map.SmallMap_YuBiItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 嵩山
 				case EnumData.MAP_BIG_MAP_ID.MAP_SONG_SHAN:
-					ui_map = new view.map.SmallMap_SongShanItem();
+					// ui_map = new view.map.SmallMap_SongShanItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 全真
 				case EnumData.MAP_BIG_MAP_ID.MAP_QUAN_ZHEN:
-					ui_map = new view.map.SmallMap_QuanZhenItem();
+					// ui_map = new view.map.SmallMap_QuanZhenItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				// 青城派
 				case EnumData.MAP_BIG_MAP_ID.MAP_QING_CHENG:
-					ui_map = new view.map.SmallMap_QingChengItem();
+					// ui_map = new view.map.SmallMap_QingChengItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				//衡山派
 				case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
-					ui_map = new view.map.SmallMap_HengShanItem();
+					// ui_map = new view.map.SmallMap_HengShanItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				//泰山
 				case EnumData.MAP_BIG_MAP_ID.MAP_TAI_SHAN:
-					ui_map = new view.map.SmallMap_TaiShanItem();
+					// ui_map = new view.map.SmallMap_TaiShanItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;
 				//恒山
 				case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHANA:
-					ui_map = new view.map.SmallMap_HengShanAItem();
+					// ui_map = new view.map.SmallMap_HengShanAItem();
 					ui_map.y = 118;
 					ui_map.setData();
 					break;

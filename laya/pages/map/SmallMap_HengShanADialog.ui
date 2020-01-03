@@ -1,62 +1,17 @@
 {
     "x":0,
-    "type":"Dialog",
+    "type":"View",
     "selectedBox":1,
-<<<<<<< HEAD:laya/pages/map/SmallMap_HengShanADialog.ui
-    "selecteID":21,
-    "props":{"width":640,"sceneColor":"#f1e3e2","height":700},
-=======
-    "selecteID":22,
-    "props":{"width":640,"sceneColor":"#ffffff","height":700},
->>>>>>> 8fb1e7ea92b6dc1644f3f2068e1d539dce5c1353:laya/pages/map/SmallMap_HengShanAItem.ui
+    "selecteID":1,
+    "props":{"width":640,"height":700},
     "nodeParent":-1,
-    "label":"Dialog",
+    "label":"View",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
     "hasChild":true,
     "compId":1,
     "child":[
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":0,"x":0,"top":0,"skin":"image/map/smallMap/img_ditu.png","sizeGrid":"49,33,60,34","right":0,"left":0,"bottom":0},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":22,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","left":-15,"bottom":-15},
-                    "nodeParent":22,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":23,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"width":38,"top":-15,"skin":"image/main/img_juanzhou.png","right":-15,"bottom":-15},
-                    "nodeParent":22,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":24,
-                    "child":[
-                        ]
-                }],
-            "$HIDDEN":false
-        },
         {
             "x":15,
             "type":"Image",

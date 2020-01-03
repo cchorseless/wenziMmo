@@ -1,10 +1,10 @@
 /**Created by the LayaAirIDE*/
-module view.map{
-	export class SmallMap_HengShanDialog extends ui.map.SmallMap_HengShanDialogUI{
-		constructor(){
+module view.map {
+	export class SmallMap_HengShanDialog extends ui.map.SmallMap_HengShanDialogUI {
+		constructor() {
 			super();
 		}
-				public setData(): void {
+		public setData(): void {
 			for (let i = 23001; i <= 23012; i++) {
 				let btn: Laya.Button = this['btn_' + i];
 				btn.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + i);
