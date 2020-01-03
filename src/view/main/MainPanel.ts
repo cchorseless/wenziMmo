@@ -11,7 +11,6 @@ module view.main {
 		}
 		public setData(): void {
 			this.ui_chatBigDialog.visible = false;
-
 			this.initUI();
 			this.addEvent();
 			this.visible = false;
