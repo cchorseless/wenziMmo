@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":100,
+    "selectedBox":271,
+    "selecteID":339,
     "referenceLines":[
         {
             "value":1127,
@@ -842,13 +842,14 @@
             "props":{"y":120,"x":582,"var":"box_right"},
             "nodeParent":1,
             "label":"Box(box_right)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":279,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":-11,"x":15,"skin":"image/main/main_zonglan/img_denglonggan.png"},
                     "nodeParent":279,
@@ -862,6 +863,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":0,"x":25,"width":4,"skin":"image/main/main_zonglan/img_shengzi.png","height":38},
                     "nodeParent":279,
@@ -875,6 +877,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"width":53,"var":"btn_chat","stateNum":"2","skin":"image/main/main_zonglan/btn_denglong.png","height":74},
                     "nodeParent":279,
@@ -899,6 +902,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":128,"x":1,"width":53,"var":"btn_email","stateNum":"2","skin":"image/main/main_zonglan/btn_denglong.png","height":74},
                     "nodeParent":279,
@@ -923,17 +927,19 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":62,"x":1,"width":53,"var":"btn_friend","stateNum":"2","skin":"image/main/main_zonglan/btn_denglong.png","height":74},
                     "nodeParent":279,
                     "label":"Button(btn_friend)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":271,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":15,"x":16,"skin":"image/main/main_zonglan/font_haoyou.png"},
                             "nodeParent":271,
@@ -944,9 +950,23 @@
                             "compId":272,
                             "child":[
                                 ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":-11,"x":14,"width":42,"var":"img_friendTips","skin":"image/common/img_tipsPoint.png","height":42},
+                            "nodeParent":271,
+                            "label":"Image(img_friendTips)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":339,
+                            "child":[
+                                ]
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":197,"x":23,"skin":"image/main/main_zonglan/img_liusu.png"},
                     "nodeParent":279,
@@ -959,7 +979,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
