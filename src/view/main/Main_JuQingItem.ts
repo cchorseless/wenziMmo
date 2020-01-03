@@ -245,7 +245,7 @@ module view.main {
 			}
 			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
 			//章节名
-			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 5;
+			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			if (this.lbl_des.height > 115) {

@@ -22,6 +22,7 @@ module view.juQingMode {
 			this.btn_lingQu.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_getJuQingBaseReward, null, null, this, (jsonData) => {
+					GameUtil.timeCountDown(jsonData.time, this.div_time);
 					this.close();
 				});
 				lcp.send(pkt);
@@ -30,7 +31,7 @@ module view.juQingMode {
 		public initUI(): void {
 			// 累计奖励信息
 			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData) => {
+			pkt.setString(ProtoCmd.JQ_GET_JQ_openJuQingBaseReward, null, null, this, (jsonData: { tab: any, time: number }) => {
 				let keys = Object.keys(jsonData.tab);
 				for (let key of keys) {
 					let _itemData = new ProtoCmd.ItemBase();
@@ -41,6 +42,8 @@ module view.juQingMode {
 					_itemUI.setData(_itemData);
 					this.hbox_1.addChild(_itemUI);
 				};
+				//挂机时间
+				GameUtil.timeCountDown(jsonData.time, this.div_time,1);
 				// 无奖励提示
 				this.lbl_NoPrizeTips.visible = (this.hbox_1.numChildren == 0);
 			})
