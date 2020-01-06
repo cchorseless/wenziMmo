@@ -4,11 +4,11 @@ module view.main {
 		constructor() {
 			super();
 		}
-		//房间id
-		public placeid: number;
-		public setData(roomid: number): Main_PlaceDialog {
+		//地图id
+		public mapid: number;
+		public setData(mapid: number): Main_PlaceDialog {
 			this.panel_item.hScrollBarSkin = '';
-			this.placeid = roomid;
+			this.mapid = mapid;
 			this.addEvent();
 			this.init_mapInfo();
 			return this;
@@ -20,10 +20,11 @@ module view.main {
 			});
 			//传送
 			EventManage.onWithEffect(this.btn_chuansong, Laya.UIEvent.CLICK, this, () => {
-				if (this.placeid == GameApp.MainPlayer.roomId) {
+				 let roomid=SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID(this.mapid);
+				if (this.mapid == GameApp.MainPlayer.location.mapid) {
 					TipsManage.showTips('已在该地点')
 				} else {
-					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.placeid, 0]);
+					let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [roomid, 0]);
 					lcp.send(pkt);
 				}
 				this.close();
@@ -31,13 +32,11 @@ module view.main {
 		}
 		public init_mapInfo(): void {
 			//地图名称
-			this.img_name.skin = 'image/main/main_zonglan/diming_'+this.placeid+'.png';
-			//地图id
-			let mapid = SheetConfig.mapRoomSheet.getInstance(null).MAPID('' + this.placeid);
+			this.img_name.skin = 'image/main/main_zonglan/diming_'+this.mapid+'.png';
 			//地图描述
-			this.lbl_des.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + mapid);
+			this.lbl_des.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + this.mapid);
 			//怪物掉落一览
-			let monarray = SheetConfig.mydb_mongen_tbl.getInstance(null).GETALLMONSTERBYMAPID(mapid);
+			let monarray = SheetConfig.mydb_mongen_tbl.getInstance(null).GETALLMONSTERBYMAPID(this.mapid);
 			let itemArray = [];
 			for (let mon of monarray) {
 				let items = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES(mon);

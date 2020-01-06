@@ -7,8 +7,8 @@ module view.main {
 			Main_JuQingItem.self = this;
 		}
 		public nowZJid;
-		//1001福州11001华山12001玉壶瀑布13001药王庄14001洛阳城15001良人镇20001嵩山派
-		public placeArray = [10001, 11001, 12001, 13001, 14001, 15001, 20001]
+		//5002福州5003华山50041玉壶瀑布5005药王庄5006洛阳城5007良人镇5012嵩山派
+		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012]
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
@@ -19,19 +19,19 @@ module view.main {
 				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
 				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
 			}
-			//当前所在地位置
-			let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
-			this.img_pos.x = this['btn_' + beginRoomid].x;
-			this.img_pos.y = this['btn_' + beginRoomid].y;
-			this['btn_' + beginRoomid].filters = [new Laya.GlowFilter('#ffc871', 50)];
+			//当前所在地图位置
+			let mapid = GameApp.MainPlayer.location.mapid;
+			this.img_pos.x = this['btn_' + mapid].x;
+			this.img_pos.y = this['btn_' + mapid].y;
+			this['btn_' + mapid].filters = [new Laya.GlowFilter('#ffc871', 50)];
 			this.addEvent();
 			this.get_novelPian();
 			this.init_noChange();
 		}
 		public addEvent(): void {
-			for (let placeid of this.placeArray) {
-				EventManage.onWithEffect(this['btn_' + placeid], Laya.UIEvent.CLICK, this, () => {
-					new view.main.Main_PlaceDialog().setData(placeid).popup()
+			for (let mapid of this.mapArray) {
+				EventManage.onWithEffect(this['btn_' + mapid], Laya.UIEvent.CLICK, this, () => {
+					new view.main.Main_PlaceDialog().setData(mapid).popup()
 				})
 			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
@@ -59,8 +59,8 @@ module view.main {
 		public addLcpEvent(): void {
 			// 监听位置改变刷新界面
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, () => {
-				for (let placeid of this.placeArray) {
-					this['btn_' + placeid].filters = null;
+				for (let mapid of this.mapArray) {
+					this['btn_' + mapid].filters = null;
 				}
 				//当前所在地名称
 				if (GameApp.SceneManager.chenkPlayerInFuBen()) {
@@ -70,10 +70,10 @@ module view.main {
 					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
 				}
 				//当前所在地位置
-				let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
-				this.img_pos.x = this['btn_' + beginRoomid].x;
-				this.img_pos.y = this['btn_' + beginRoomid].y;
-				this['btn_' + beginRoomid].filters = [new Laya.GlowFilter('#ffc871', 50)];
+				let mapid = GameApp.MainPlayer.location.mapid;
+				this.img_pos.x = this['btn_' + mapid].x;
+				this.img_pos.y = this['btn_' + mapid].y;
+				this['btn_' + mapid].filters = [new Laya.GlowFilter('#ffc871', 50)];
 
 			})
 		}
