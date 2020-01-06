@@ -304,9 +304,8 @@ module view.juese {
 		 * 选择的必选材料显示
 		 */
 		public init_selectPart(): void {
-			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type: number) => {
+			GameApp.LListener.on(ProtoCmd.JS_buildEquip, this, (jsonData) => {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
-				if (type == 1) {
 					this.ui_item0.lbl_count.visible = false;
 					//所需必选装备数量
 					let num = this.lbl_num.text.split('/');
@@ -331,11 +330,10 @@ module view.juese {
 					} else {
 						this.btn_add.visible = true;
 					}
-				}
 			})
 		}
 		public onClosed(TYPE?) {
-			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this)
+			GameApp.LListener.offCaller(ProtoCmd.JS_buildEquip, this)
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquip, this)
 			GameApp.GameEngine.buildEquip = undefined;
 		}
@@ -356,6 +354,7 @@ module view.juese {
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
 					GameApp.GameEngine.buildEquip = undefined;
 					this.lbl_num.text = '0/' + this.maxNum;
+					this.stuff=undefined;
 				})
 				lcp.send(pkt)
 			} else {

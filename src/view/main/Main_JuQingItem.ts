@@ -6,25 +6,35 @@ module view.main {
 			super();
 			Main_JuQingItem.self = this;
 		}
-		public placeArray = [10001, 11001, 12001, 13001, 14001, 15001, 20001]
+		public nowZJid;
+		//5002福州5003华山50041玉壶瀑布5005药王庄5006洛阳城5007良人镇5012嵩山派
+		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012]
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
 			//当前所在地名称
-			let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
-			this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
-			//当前所在地位置
-			let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
-			this.img_pos.x = this['btn_' + beginRoomid].x;
-			this.img_pos.y = this['btn_' + beginRoomid].y;
+			if (GameApp.SceneManager.chenkPlayerInFuBen()) {
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
+			} else {
+				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+			}
+			//当前所在地图位置
+			let locationmapid = GameApp.MainPlayer.location.mapid;
+			let mapBtn: Laya.Button = this['btn_' + locationmapid];
+			if (mapBtn) {
+				this.img_pos.x = mapBtn.x;
+				this.img_pos.y = mapBtn.y;
+				mapBtn.filters = [new Laya.GlowFilter('#ffc871', 50)];
+			}
 			this.addEvent();
 			this.get_novelPian();
 			this.init_noChange();
 		}
 		public addEvent(): void {
-			for (let placeid of this.placeArray) {
-				EventManage.onWithEffect(this['btn_' + placeid], Laya.UIEvent.CLICK, this, () => {
-					new view.main.Main_PlaceDialog().setData(placeid).popup()
+			for (let mapid of this.mapArray) {
+				EventManage.onWithEffect(this['btn_' + mapid], Laya.UIEvent.CLICK, this, () => {
+					new view.main.Main_PlaceDialog().setData(mapid).popup()
 				})
 			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
@@ -49,18 +59,27 @@ module view.main {
 			})
 			this.addLcpEvent();
 		}
-
-
 		public addLcpEvent(): void {
 			// 监听位置改变刷新界面
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLACE_DES, this, () => {
+				for (let mapid of this.mapArray) {
+					this['btn_' + mapid].filters = null;
+				}
 				//当前所在地名称
-				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
-				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
-				//当前所在地位置
-				let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
-				this.img_pos.x = this['btn_' + beginRoomid].x;
-				this.img_pos.y = this['btn_' + beginRoomid].y;
+				if (GameApp.SceneManager.chenkPlayerInFuBen()) {
+					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
+				} else {
+					let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+				}
+				//当前所在地图位置
+				let locationmapid = GameApp.MainPlayer.location.mapid;
+				let mapBtn: Laya.Button = this['btn_' + locationmapid];
+				if (mapBtn) {
+					this.img_pos.x = mapBtn.x;
+					this.img_pos.y = mapBtn.y;
+					mapBtn.filters = [new Laya.GlowFilter('#ffc871', 50)];
+				}
 			})
 		}
 		/**
@@ -215,6 +234,7 @@ module view.main {
 		 * @param index 所选章节
 		 */
 		public init_chapter(data, index): void {
+			this.nowZJid = data.charpterInfo[index].zjid
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].index = index;
@@ -235,6 +255,7 @@ module view.main {
 							break;
 					}
 				}
+				//剧情任务
 				this.div_target.style.fontSize = 22;
 				if (this.lbl_des.height > 115) {
 					this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
@@ -249,12 +270,13 @@ module view.main {
 						this.div_target.innerHTML = '' + juqing[part].target;
 					}
 				} else {
+					this.img_juqing.visible = true;
 					this.div_target.visible = false;
-					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu .png'
+					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
 				}
-				this.div_target.style.fontFamily = 'STLiti';
 			}
 			if (data.charpterInfo[index].zjid > GameApp.MainPlayer.charpterID) {
+				this.img_juqing.visible = true;
 				this.lbl_dangqian.visible = false;
 				this.lbl_all.text = '未解锁';
 				this.lbl_all.color = '#c43939'
@@ -263,6 +285,7 @@ module view.main {
 				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
 			}
 			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
+				this.img_juqing.visible = true;
 				this.lbl_dangqian.visible = false;
 				this.lbl_all.text = '已读完';
 				this.lbl_all.color = '#38ad32'
@@ -276,27 +299,56 @@ module view.main {
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			//页数
-			let maxInfoNum;
-			let boo = PanelManage.getAspectRatio()
-			if (boo) {
-				maxInfoNum = 8
-			} else {
-				maxInfoNum = 7
-			}
-			let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-			let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-			if (now > 0) {
-				this.lbl_dangqian.visible = true;
-				this.lbl_dangqian.text = '' + now;
-				this.lbl_all.text = '/' + total + '页';
-				this.lbl_all.color = '#2c2d27'
-				this.lbl_all.x = 519;
+			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
+				let maxInfoNum;
+				let boo = PanelManage.getAspectRatio()
+				if (boo) {
+					maxInfoNum = 8
+				} else {
+					maxInfoNum = 7
+				}
+				let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+				let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
+				if (now > 0) {
+					this.lbl_dangqian.visible = true;
+					this.lbl_dangqian.text = '' + now;
+					this.lbl_all.text = '/' + total + '页';
+					this.lbl_all.color = '#2c2d27'
+					this.lbl_all.x = 519;
+				}
 			}
 		}
 		/**
-		 * 不改變的任務信息
+		 * 刷新任務信息
 		 */
 		public init_noChange(): void {
+			//剧情任务
+			this.img_juqing.visible = true;
+			if (this.nowZJid > GameApp.MainPlayer.charpterID) {
+				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
+			}
+			if (this.nowZJid < GameApp.MainPlayer.charpterID) {
+				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
+			}
+			this.div_target.style.fontSize = 22;
+			if (this.lbl_des.height > 115) {
+				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
+			} else {
+				this.lbl_juqing.y = 324;
+			}
+			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
+			if (juqing) {
+				for (let part in juqing) {
+					this.img_juqing.visible = false;
+					this.div_target.visible = true;
+					this.div_target.innerHTML = '' + juqing[part].target;
+				}
+			} else {
+				this.img_juqing.visible = true;
+				this.div_target.visible = false;
+				this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
+			}
+			this.div_target.style.fontFamily = 'STLiti';
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			this.div_zhuxiandes.style.color = this.div_zhixiandes.style.color = '#63491a';

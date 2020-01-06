@@ -22,7 +22,7 @@ module view.juQingMode {
 			this.btn_lingQu.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JQ_GET_JQ_getJuQingBaseReward, null, null, this, (jsonData) => {
-					GameUtil.timeCountDown(jsonData.time, this.div_time);
+					GameUtil.timeCountDown(jsonData.time, this.div_time,1);
 					this.close();
 				});
 				lcp.send(pkt);
@@ -46,7 +46,7 @@ module view.juQingMode {
 				//挂机时间
 				GameUtil.timeCountDown(jsonData.time, this.div_time,1);
 				// 无奖励提示
-				this.lbl_NoPrizeTips.visible = (this.hbox_1.numChildren == 0);
+				this.img_NoPrizeTips.visible = (this.hbox_1.numChildren == 0);
 			})
 			lcp.send(pkt);
 			// 掉落信息
@@ -70,7 +70,7 @@ module view.juQingMode {
 							break;
 						// 英雄经验
 						case EnumData.CoinType.COIN_TYPE_HERO_EXP:
-							this.lbl_heroExp.text = itemInfo.num + '/H';
+							// this.lbl_heroExp.text = itemInfo.num + '/H';
 							break;
 					}
 				}

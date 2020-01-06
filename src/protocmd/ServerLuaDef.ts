@@ -135,7 +135,7 @@ module ProtoCmd {
     //副本监听返回
     export const map_CaiLiaoFubenPlane2 = 'map_CaiLiaoFubenPlane2';
     // 打开主线面板
-    export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)  
+    export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)
     // 获取单层信息
     export const FB_ChuMoCengOpen = 'ChuMoCengOpen';//{层数ID}
     // 进入主线副本
@@ -149,9 +149,7 @@ module ProtoCmd {
     //主线副本掉一键扫荡
     export const oneKeyFinishChuMo = 'oneKeyFinishChuMo';    //参数：层数ID
     //主线副本打开扫荡界面获取星级
-    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID  获得数据：starbox:bj:0未\1可\2已   startab:星星数量
-    //星级宝箱领奖
-    export const ChuMoGetStarBox = 'ChuMoGetStarBox';//参数：篇章ID、章节ID、档位：1/2
+    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID
 
     /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
@@ -229,6 +227,8 @@ module ProtoCmd {
     export const JS_updateBuildEquip = 'updateBuildEquip';
     // 角色更新装备选择的材料
     export const JS_updateBuildEquipItem = 'updateBuildEquipItem';
+    // 角色打造装备选择的材料
+    export const JS_buildEquip = 'buildEquip';
     // 角色装备打造
     export const JS_equipFabricate = 'equipFabricate';//参数(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID（111`11利用·符号连接两个64id）, 状态0不附加材料,1附加材料
 

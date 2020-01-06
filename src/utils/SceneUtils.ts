@@ -41,6 +41,13 @@ class SceneManager extends SingletonClass {
         return this.ui_scene.ui_smallMap
     }
 
+    /**
+     * 判断是否在副本内
+     */
+    public chenkPlayerInFuBen():boolean{
+         let bigMapType = SheetConfig.mydb_mapinfo_tbl.getInstance(null).MAPTYPE('' + GameApp.MainPlayer.location.mapid);
+         return bigMapType > 0
+    }
 
 
     /**
