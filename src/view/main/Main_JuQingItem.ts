@@ -258,7 +258,7 @@ module view.main {
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
 			this.lbl_des.text = data.charpterInfo[index].intro;
 			//页数
-			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
+			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				let maxInfoNum;
 				let boo = PanelManage.getAspectRatio()
 				if (boo) {
