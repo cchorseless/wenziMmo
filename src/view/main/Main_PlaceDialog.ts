@@ -31,7 +31,7 @@ module view.main {
 		}
 		public init_mapInfo(): void {
 			//地图名称
-			this.lbl_placeName.text = SheetConfig.mapRoomSheet.getInstance(null).MAPNAME('' + this.placeid);
+			this.img_name.skin = 'image/main/main_zonglan/diming_'+this.placeid+'.png';
 			//地图id
 			let mapid = SheetConfig.mapRoomSheet.getInstance(null).MAPID('' + this.placeid);
 			//地图描述

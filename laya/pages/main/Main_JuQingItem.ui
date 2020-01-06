@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":57,
-    "selecteID":83,
+    "selectedBox":1,
+    "selecteID":82,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":170,"x":171,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":22,"font":"HWXK","color":"#2c2d27","align":"center"},
+            "props":{"y":168,"x":171,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":26,"font":"HWXK","color":"#2c2d27","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_zhang)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":170,"x":254,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":22,"font":"HWXK","color":"#79393a","align":"left"},
+            "props":{"y":168,"x":254,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":26,"font":"HWXK","color":"#79393a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_chapterName)",
             "isDirectory":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":171,"x":501,"width":20,"var":"lbl_dangqian","text":"11","fontSize":20,"font":"FZXK","color":"#a00000"},
+            "props":{"y":171,"x":501,"width":20,"var":"lbl_dangqian","text":"11","fontSize":22,"font":"FZXK","color":"#a00000"},
             "nodeParent":1,
             "label":"Label(lbl_dangqian)",
             "isDirectory":false,
@@ -71,7 +71,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":171,"x":519,"width":50,"var":"lbl_all","text":"/55页","fontSize":20,"font":"FZXK","color":"#2c2d27"},
+            "props":{"y":171,"x":521,"var":"lbl_all","text":"/55页","fontSize":22,"font":"FZXK","color":"#2c2d27"},
             "nodeParent":1,
             "label":"Label(lbl_all)",
             "isDirectory":false,
@@ -278,7 +278,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":249,"width":24,"var":"lbl_zhuxianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
+                    "props":{"y":4,"x":249,"width":24,"var":"lbl_zhuxianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32","bold":true},
                     "nodeParent":33,
                     "label":"Label(lbl_zhuxianState)",
                     "isDirectory":false,
@@ -345,7 +345,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":249,"width":30,"var":"lbl_zhixianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32"},
+                    "props":{"y":4,"x":249,"width":30,"var":"lbl_zhixianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32","bold":true},
                     "nodeParent":39,
                     "label":"Label(lbl_zhixianState)",
                     "isDirectory":false,
@@ -680,7 +680,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":378,"x":215,"var":"img_juqing","skin":"image/main/main_zonglan/font_yiwancheng.png"},
+            "props":{"y":378,"x":215,"var":"img_juqing","skin":"image/main/main_zonglan/font_shanyu.png"},
             "nodeParent":1,
             "label":"Image(img_juqing)",
             "isDirectory":false,
