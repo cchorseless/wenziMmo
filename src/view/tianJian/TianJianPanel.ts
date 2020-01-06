@@ -18,7 +18,7 @@ module view.tianJian {
 					this.upDataView(i)
 					this.activateID = i;
 					break;
-				}else{
+				} else {
 					this.upDataView(1)
 					this.activateID = 1;
 				}
@@ -44,7 +44,7 @@ module view.tianJian {
 				this.close();
 			})
 			for (let i = 1; i < 10; i++) {
-				EventManage.onWithEffect(this["box_" + i], Laya.UIEvent.CLICK, this, () => {
+				this["box_" + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.activateID = i;
 					this.upDataView(i)
 				})
@@ -99,17 +99,14 @@ module view.tianJian {
 			this.lab_shuxingName.text = nameStr;
 			// this.lab_shuxingdetail.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(skillKey);
 			let effData = GameUtil.parseEffectidToObj([this.tempData.cfgtab[index].effid + ""])
-			this.lab_fight.text = effData.battle[GameApp.GameEngine.mainPlayer.job].toString();
+			// this.lab_fight.text = effData.battle[GameApp.GameEngine.mainPlayer.job].toString();
 
 			this.vbox_equip0.removeChildren();
-			this.vbox_equip1.removeChildren();
 			for (let i = 0; i < effData.des.length; i++) {
-				if(this.vbox_equip0.numChildren >this.vbox_equip1.numChildren ){
-					this.vbox_equip1.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
-				}else{
-					this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
-				}
-				
+
+				this.vbox_equip0.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
+
+
 			}
 
 			// this.list_down.array = [];
@@ -127,40 +124,37 @@ module view.tianJian {
 			let arr = this.tempData.status
 			for (let i = 1; i < 10; i++) {
 				if (i == index) {
-					this["btn_tianjian" + i].selected = true;
-					if (arr[i] == 0 || arr[i] == 1) {
-						this.lab_centerName.text = '奇怪的玉玦';
-						this.unlock.visible = true;
+					this.img_center.skin = this['img_tianjian' + i].skin;
+					if (arr[i] == 1) {
+						this['img_circle' + i].visible = true;
 						this.hasUnlock.visible = false;
+						this.unlock.visible = true;
 					}
 					if (arr[i] == 2) {
-						this.lab_centerName.text = this.tempData.cfgtab[i].name;
-						this.unlock.visible = false;
+						this['img_circle' + i].visible = true;
 						this.hasUnlock.visible = true;
+						this.unlock.visible = false;
 					}
-
 				} else {
-					this["btn_tianjian" + i].selected = false;
+					this['img_circle' + i].visible = false;
 				}
 				if (arr[i] == 0) {
 					this['box_' + i].disabled = true;
-					this["btn_tianjian" + i].disabled = true;
-					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "0.png"
-					this["lab_canActive" + i].visible = false;
+					// this["lab_canActive" + i].visible = false;
+					this['img_canUnLock' + i].visible = false
+					this['img_Lock' + i].visible = true
 
 				}
 				else if (arr[i] == 1) {
 					this['box_' + i].disabled = false;
-					this["btn_tianjian" + i].disabled = false;
-					this["btn_tianjian" + i].gray = true;
-					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "0.png"
-					this["lab_canActive" + i].visible = true;
+					// this["lab_canActive" + i].visible = true;
+					this['img_canUnLock' + i].visible = true
+					this['img_Lock' + i].visible = false
 				} else if (arr[i] == 2) {
 					this['box_' + i].disabled = false;
-					this["btn_tianjian" + i].disabled = false;
-					this["btn_tianjian" + i].gray = false;
-					this["img_tianjian" + i].skin = "image/juQingMode/icon_" + this.imgSkin[i] + "2.png"
-					this["lab_canActive" + i].visible = false;
+					// this["lab_canActive" + i].visible = false;
+					this['img_canUnLock' + i].visible = false
+					this['img_Lock' + i].visible = false
 				}
 			}
 		}
