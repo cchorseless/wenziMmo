@@ -32,7 +32,7 @@ module view.juese {
 			//选中状态
 			this.btn_select.on(Laya.UIEvent.CLICK, this, () => {
 				this.btn_select.selected = !this.btn_select.selected;
-				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquipItem, [this.data, 0, this.btn_select.selected, this.num]);
+				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquipItem, [this.data, this.btn_select.selected, this.num]);
 			})
 		}
 		public destroy(isbool): void {

@@ -18,18 +18,18 @@ module view.juese {
 			this.level = level;
 			this.addEvent();
 			this.itemInfo();
-			// this.init_selectEvent();
+			this.init_selectEvent();
 			return this;
 		}
 		public addEvent(): void {
 			this.btn_ok.on(Laya.UIEvent.CLICK, this, () => {
-				// this.onclose();
-				GameApp.LListener.event(ProtoCmd.JS_updateBuildEquipItem, [this.selectData, 1]);
+				this.onclose();
+				GameApp.LListener.event(ProtoCmd.JS_buildEquip, [this.selectData]);
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				// this.onclose();
+				this.onclose();
 			})
-			// this.addLcpEvent();
+			this.addLcpEvent();
 		}
 		public itemInfo(): void {
 			if (this.level) {
@@ -56,56 +56,70 @@ module view.juese {
 					if (finalArray[index].dwBaseID) {
 						ui_item.ui_item.lbl_count.visible = true;
 						ui_item.ui_item.img_item.visible = true;
-						ui_item.btn_select.visible=true;
+						ui_item.btn_select.visible = true;
 						ui_item.setData(finalArray[index], parseInt(index));
 					} else {
 						ui_item.ui_item.lbl_count.visible = false;
 						ui_item.ui_item.img_item.visible = false;
-						ui_item.btn_select.visible=false;;
+						ui_item.btn_select.visible = false;;
 					}
 					this.panel_item.addChild(ui_item);
 				}
 			}
 		}
 		public addLcpEvent(): void {
-			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, type, select: boolean, index: number) => {
+			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, select: boolean, index: number) => {
 				//type为选择材料弹窗响应1为打造装备弹窗响应
 				//select为装备选中状态
 				//index为装备索引
-				if (type == 0) {
-					this.init_selectEvent(jsonData, type, select, index);
-				}
+				this.init_selectEvent(jsonData, select, index);
 			})
 		}
 		public onclose(): void {
 			GameApp.LListener.offCaller(ProtoCmd.JS_updateBuildEquipItem, this);
+			GameApp.LListener.offCaller(ProtoCmd.JS_buildEquip, this);
 			this.close();
 		}
-		public init_selectEvent(jsonData = null, type = null, select: boolean = null, index: number = null): void {
-			// if (jsonData != null) {
-			// 	//初始化全部为不选中状态
-			// 	for (let child of this.list_item.cells) {
-			// 		child.btn_select.selected = false;
-			// 	}
-			// 	if (select) {
-			// 		//若选中数量小于所需材料装备数量
-			// 		if (this.selectData.length < this.maxNum) {
-			// 			this.selectData.push(jsonData);
-			// 			this.index.push(index);
-			// 		} else {
-			// 			//若选中数量大于或等于所需材料装备数量
-			// 			TipsManage.showTips('选择数量达到上限')
-			// 		}
+		public init_selectEvent(jsonData = null, select: boolean = null, index: number = null): void {
+			if (jsonData != null) {
+				if (select) {
+					//若选中数量小于所需材料装备数量
+					if (this.selectData.length < this.maxNum) {
+						this.selectData.push(jsonData);
+						this.index.push(index);
+					} else {
+						//若选中数量大于或等于所需材料装备数量
+						TipsManage.showTips('选择数量达到上限')
+					}
+				} else {
+					//取消选中，删除装备数组中相应信息
+					for (let key in this.selectData) {
+						if (this.selectData[key].dwBaseID == jsonData.dwBaseID) {
+							//取消选中
+							this.selectData.splice(parseInt(key), 1);
+							this.index.splice(parseInt(key), 1);
+							break;
+						}
+					}
+				}
+				let itemArray = this.panel_item._childs[0]._childs
+				for (let num in itemArray) {
+					let isBuild = false;
+					itemArray[num].btn_select.selected = false;
+					for (let i of this.index) {
+						if (num == i) { isBuild = true; }
+					}
+					if (isBuild) {
+						itemArray[num].btn_select.selected = true;
+					}else{
+						itemArray[num].btn_select.selected = false;
+					}
+				}
+			} else {
+
+			}
 			// 	} else {
-			// 		//取消选中，删除装备数组中相应信息
-			// 		let keys = Object.keys(this.selectData);
-			// 		for (let key of keys) {
-			// 			if (this.selectData[key].dwBaseID == jsonData.dwBaseID) {
-			// 				//取消选中
-			// 				this.selectData.splice(parseInt(key), 1);
-			// 				break;
-			// 			}
-			// 		}
+
 			// 		//删除装备索引数组中相应信息
 			// 		for (let shu in this.index) {
 			// 			if (this.index[shu] == index) {

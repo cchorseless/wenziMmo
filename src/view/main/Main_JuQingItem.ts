@@ -20,10 +20,13 @@ module view.main {
 				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
 			}
 			//当前所在地图位置
-			let mapid = GameApp.MainPlayer.location.mapid;
-			this.img_pos.x = this['btn_' + mapid].x;
-			this.img_pos.y = this['btn_' + mapid].y;
-			this['btn_' + mapid].filters = [new Laya.GlowFilter('#ffc871', 50)];
+			let locationmapid = GameApp.MainPlayer.location.mapid;
+			let mapBtn: Laya.Button = this['btn_' + locationmapid];
+			if (mapBtn) {
+				this.img_pos.x = mapBtn.x;
+				this.img_pos.y = mapBtn.y;
+				mapBtn.filters = [new Laya.GlowFilter('#ffc871', 50)];
+			}
 			this.addEvent();
 			this.get_novelPian();
 			this.init_noChange();
@@ -69,11 +72,15 @@ module view.main {
 					let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
 					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
 				}
-				//当前所在地位置
-				let mapid = GameApp.MainPlayer.location.mapid;
-				this.img_pos.x = this['btn_' + mapid].x;
-				this.img_pos.y = this['btn_' + mapid].y;
-				this['btn_' + mapid].filters = [new Laya.GlowFilter('#ffc871', 50)];
+				//当前所在地图位置
+				let locationmapid = GameApp.MainPlayer.location.mapid;
+				for (let mapid of this.mapArray) {
+					if (mapid == locationmapid) {
+						this.img_pos.x = this['btn_' + mapid].x;
+						this.img_pos.y = this['btn_' + mapid].y;
+						this['btn_' + mapid].filters = [new Laya.GlowFilter('#ffc871', 50)];
+					}
+				}
 
 			})
 		}

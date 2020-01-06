@@ -150,7 +150,7 @@ module ProtoCmd {
     export const oneKeyFinishChuMo = 'oneKeyFinishChuMo';    //参数：层数ID
     //主线副本打开扫荡界面获取星级
     export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID
-    
+
     /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
     export const FB_CLFubenStatus = 'CLFubenStatus';
@@ -227,6 +227,8 @@ module ProtoCmd {
     export const JS_updateBuildEquip = 'updateBuildEquip';
     // 角色更新装备选择的材料
     export const JS_updateBuildEquipItem = 'updateBuildEquipItem';
+    // 角色打造装备选择的材料
+    export const JS_buildEquip = 'buildEquip';
     // 角色装备打造
     export const JS_equipFabricate = 'equipFabricate';//参数(baseid, i64Ids, status) 要打造的装备ID, 要消耗的物品64ID（111`11利用·符号连接两个64id）, 状态0不附加材料,1附加材料
 
