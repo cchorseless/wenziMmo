@@ -149,7 +149,9 @@ module ProtoCmd {
     //主线副本掉一键扫荡
     export const oneKeyFinishChuMo = 'oneKeyFinishChuMo';    //参数：层数ID
     //主线副本打开扫荡界面获取星级
-    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID
+    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel'; //参数：篇章ID 获得数据：starbox:bj:0未\1可\2已 startab:星星数量
+    //星级宝箱领奖
+    export const ChuMoGetStarBox = 'ChuMoGetStarBox';//参数：篇章ID、章节ID、档位：1/2
 
     /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
