@@ -24,6 +24,7 @@ module view.juese {
 		public addEvent(): void {
 			this.btn_ok.on(Laya.UIEvent.CLICK, this, () => {
 				this.onclose();
+				GameApp.GameEngine.buildEquip = this.index;
 				GameApp.LListener.event(ProtoCmd.JS_buildEquip, [this.selectData]);
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
@@ -81,6 +82,7 @@ module view.juese {
 			this.close();
 		}
 		public init_selectEvent(jsonData = null, select: boolean = null, index: number = null): void {
+			let itemArray = this.panel_item._childs[0]._childs;
 			if (jsonData != null) {
 				if (select) {
 					//若选中数量小于所需材料装备数量
@@ -97,53 +99,47 @@ module view.juese {
 						if (this.selectData[key].dwBaseID == jsonData.dwBaseID) {
 							//取消选中
 							this.selectData.splice(parseInt(key), 1);
-							this.index.splice(parseInt(key), 1);
 							break;
 						}
 					}
+					for (let shu in this.index) {
+						if (this.index[shu] == index) {
+							this.index.splice(parseInt(shu), 1);
+						}
+					}
 				}
-				let itemArray = this.panel_item._childs[0]._childs
 				for (let num in itemArray) {
 					let isBuild = false;
 					itemArray[num].btn_select.selected = false;
-					for (let i of this.index) {
-						if (num == i) { isBuild = true; }
+					for (let i in this.index) {
+						if (num == this.index[i]) { isBuild = true; }
 					}
 					if (isBuild) {
 						itemArray[num].btn_select.selected = true;
-					}else{
+					} else {
 						itemArray[num].btn_select.selected = false;
 					}
 				}
 			} else {
-
+				if (GameApp.GameEngine.buildEquip) {
+					this.index = GameApp.GameEngine.buildEquip;
+					for (let num in itemArray) {
+						let isBuild = false;
+						itemArray[num].btn_select.selected = false;
+						for (let i of this.index) {
+							if (num == i) {
+								isBuild = true;
+								this.selectData.push(itemArray[num].data);
+							}
+						}
+						if (isBuild) {
+							itemArray[num].btn_select.selected = true;
+						} else {
+							itemArray[num].btn_select.selected = false;
+						}
+					}
+				}
 			}
-			// 	} else {
-
-			// 		//删除装备索引数组中相应信息
-			// 		for (let shu in this.index) {
-			// 			if (this.index[shu] == index) {
-			// 				this.index.splice(parseInt(shu), 1);
-			// 			}
-			// 		}
-			// 	}
-			// 	GameApp.GameEngine.buildEquip = this.index;
-			// }
-			// if (GameApp.GameEngine.buildEquip) {
-			// 	this.index = GameApp.GameEngine.buildEquip;
-			// 	//根据装备索引在list中查找显示选中||非选择状态
-			// 	for (let num of GameApp.GameEngine.buildEquip) {
-			// 		for (let child in this.list_item.cells) {
-			// 			let allData = this.list_item.cells
-			// 			if (child == num) {
-			// 				allData[child].btn_select.selected = true;
-			// 				if (jsonData == null) {
-			// 					this.selectData.push(this.list_item.array[num]);
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
 		}
 	}
 }

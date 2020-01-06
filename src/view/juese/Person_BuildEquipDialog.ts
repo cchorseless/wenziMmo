@@ -354,6 +354,7 @@ module view.juese {
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
 					GameApp.GameEngine.buildEquip = undefined;
 					this.lbl_num.text = '0/' + this.maxNum;
+					this.stuff=undefined;
 				})
 				lcp.send(pkt)
 			} else {

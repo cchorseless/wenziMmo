@@ -73,7 +73,6 @@ module view.main {
 					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
 				}
 				//当前所在地图位置
-				//当前所在地图位置
 				let locationmapid = GameApp.MainPlayer.location.mapid;
 				let mapBtn: Laya.Button = this['btn_' + locationmapid];
 				if (mapBtn) {
