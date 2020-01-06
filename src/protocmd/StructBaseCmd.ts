@@ -2808,7 +2808,7 @@ module ProtoCmd {
             this.addProperty("dwChargeTime", PacketBase.TYPE_INT);
             this.addProperty("btSex", PacketBase.TYPE_BYTE);//性别
             this.addProperty("dwChuMoEndTime", PacketBase.TYPE_DWORD);//
-            this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//
+            this.addProperty("dwChuMoEndJiFen", PacketBase.TYPE_DWORD);//除魔星级
             this.addProperty("dwMedalRank", PacketBase.TYPE_DWORD);//勋章等级
             this.addProperty("dwMedalTime", PacketBase.TYPE_DWORD);
             this.addProperty("dwStrenTotalLvl", PacketBase.TYPE_DWORD);//强化等级

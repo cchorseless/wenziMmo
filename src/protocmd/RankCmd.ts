@@ -11,10 +11,10 @@ module ProtoCmd {
             super();
             this.addProperty('btErrorCode', PacketBase.TYPE_BYTE);  //0成功 1 未找到
             this.addProperty('btType', PacketBase.TYPE_DWORD);//emRankType
-            this.addProperty('nPage', PacketBase.TYPE_BYTE);//页数
+            this.addProperty('nPage', PacketBase.TYPE_BYTE);//条目数
             this.addProperty('nNowPage', PacketBase.TYPE_BYTE);//当前页 从1开始
             this.addProperty('szName', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
-            this.addProperty('nCount', PacketBase.TYPE_DWORD);
+            this.addProperty('nCount', PacketBase.TYPE_DWORD);//当前页数量
             this.read(data);
             this.cmd = 0x2016;
         }
@@ -76,8 +76,8 @@ module ProtoCmd {
         public myInfo: stRankInfo = new stRankInfo(null);
         public constructor(data: Laya.Byte = null) {
             super();
-            this.addProperty('rankType', PacketBase.TYPE_BYTE);
-            this.addProperty("nowRank", PacketBase.TYPE_WORD);
+            this.addProperty('rankType', PacketBase.TYPE_BYTE);//排行榜类型
+            this.addProperty("nowRank", PacketBase.TYPE_WORD); // -1未上榜  
             this.addProperty('topInfo', PacketBase.TYPE_BYTES, this.myInfo.size(), this.myInfo);
             this.read(data);
         }

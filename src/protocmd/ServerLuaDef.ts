@@ -135,7 +135,7 @@ module ProtoCmd {
     //副本监听返回
     export const map_CaiLiaoFubenPlane2 = 'map_CaiLiaoFubenPlane2';
     // 打开主线面板
-    export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)
+    export const FB_ChuMoClientOpen = 'ChuMoClientOpen';//(章节ID)  
     // 获取单层信息
     export const FB_ChuMoCengOpen = 'ChuMoCengOpen';//{层数ID}
     // 进入主线副本
@@ -149,8 +149,10 @@ module ProtoCmd {
     //主线副本掉一键扫荡
     export const oneKeyFinishChuMo = 'oneKeyFinishChuMo';    //参数：层数ID
     //主线副本打开扫荡界面获取星级
-    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID
-    
+    export const oneKeyChuMoPanel = 'oneKeyChuMoPanel';    //参数：篇章ID  获得数据：starbox:bj:0未\1可\2已   startab:星星数量
+    //星级宝箱领奖
+    export const ChuMoGetStarBox = 'ChuMoGetStarBox';//参数：篇章ID、章节ID、档位：1/2
+
     /********************************资源副本*********************** */  //单人   没星星
     // 资源状态
     export const FB_CLFubenStatus = 'CLFubenStatus';

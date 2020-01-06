@@ -49,6 +49,12 @@ module view.fuBen {
 				this.touchBeginX = this.getPosX(ex);
 
 			})
+			this.btn_rank.on(Laya.Event.MOUSE_DOWN, this, function (ex) {
+				let o = new FuBen_ZhuXian_Rank_Dialog();
+				o.popup();
+
+			})
+
 			this.panel_fubenInfo.on(Laya.Event.MOUSE_UP, this, function (ex) {
 				if (this.isTouch) {
 					this.isTouch = false;
@@ -77,7 +83,7 @@ module view.fuBen {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.oneKeyChuMoPanel, [this.showPZID], null, this, function (data) {
 					let o = new FuBen_ZhuXian_SaoDang_Dialog();
-					o.setData(this.showPZID,data)
+					o.setData(this.showPZID, data)
 					o.popup();
 				})
 				pkt.send();
@@ -220,13 +226,16 @@ module view.fuBen {
 					+ '</span>' + "<span style='color:#000000'>/" + jsonData.totalcnt + '</span>'
 				// 关卡信息
 				let keys = Object.keys(jsonData.state);
-				for (let key of keys) {
+				keys = keys.sort(function (a, b) {
+					return jsonData.state[a].ceng - jsonData.state[b].ceng
+				});
+				for (let i =0;i <keys.length;i++) {
 					// 设置怪物头像数据
 					// (this['ui_item' + (parseInt(key) % 5)] as view.compart.MonsterIconV0Item).setData(charpterID, key, jsonData.state[key]);
-					this['ui_info' + key].removeChildren();
+					this['ui_info' + (i+1)].removeChildren();
 					let o = new FuBen_ZhuXIan_Panel_info();
-					o.setData(jsonData.ceng, jsonData.state[key], GameApp.MainPlayer.allCharpterInfo[charpterID].index);
-					this['ui_info' + key].addChild(o);
+					o.setData(jsonData.ceng, jsonData.state[keys[i]], GameApp.MainPlayer.allCharpterInfo[charpterID].index);
+					this['ui_info' + (i+1)].addChild(o);
 				}
 				// 显示单个BOSS信息
 				// this.updateMainFuBenBossInfo(jsonData.ceng)
