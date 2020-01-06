@@ -13,8 +13,12 @@ module view.main {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
 			//当前所在地名称
-			let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
-			this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+			if (GameApp.SceneManager.chenkPlayerInFuBen()) {
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
+			} else {
+				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+			}
 			//当前所在地位置
 			let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
 			this.img_pos.x = this['btn_' + beginRoomid].x;
@@ -59,8 +63,12 @@ module view.main {
 					this['btn_' + placeid].filters = null;
 				}
 				//当前所在地名称
-				let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
-				this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+				if (GameApp.SceneManager.chenkPlayerInFuBen()) {
+					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
+				} else {
+					let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
+					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;
+				}
 				//当前所在地位置
 				let beginRoomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID();
 				this.img_pos.x = this['btn_' + beginRoomid].x;
