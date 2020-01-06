@@ -176,7 +176,7 @@ module view.juese {
 					}
 					if (num >= 2 && num < 8) {
 						//转生等级为lvl
-						if (item.lvl == lvl) {
+						if (item.zsLevel == lvl) {
 							this.hbox_equip.addChild(new view.juese.Person_BuildEquipItem().setData(item))
 						}
 					}
@@ -305,7 +305,6 @@ module view.juese {
 		 */
 		public init_selectPart(): void {
 			GameApp.LListener.on(ProtoCmd.JS_buildEquip, this, (jsonData) => {
-				//type为选择材料弹窗响应1为打造装备弹窗响应
 					this.ui_item0.lbl_count.visible = false;
 					//所需必选装备数量
 					let num = this.lbl_num.text.split('/');

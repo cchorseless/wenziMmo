@@ -3,13 +3,14 @@ module view.dialog {
 	export class TaskDialog extends ui.dialog.TaskDialogUI {
 		constructor() {
 			super();
-			this.setData();
+			this.group = 'TaskDialog';
 		}
-		public setData(): void {
+		public setData(): TaskDialog {
 			this.panel_task.vScrollBarSkin = '';
 			this.vbox_task['sortItem'] = (items) => { };
 			this.addEvent();
 			this.init_taskList();
+			return this;
 		}
 		public addEvent(): void {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {

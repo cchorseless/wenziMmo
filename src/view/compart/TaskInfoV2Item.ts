@@ -10,7 +10,7 @@ module view.compart {
 		public setData(): void {
 		}
 		/**
-		 * 已接任务列表
+		 * 任务列表
 		 * @param taskInfo 
 		 * @param type 
 		 */
@@ -28,6 +28,9 @@ module view.compart {
 			this.btn_go.on(Laya.UIEvent.CLICK, this, () => {
 				if (type == 1) {
 					this.init_getReward();
+				}
+				if (type == 0) {
+					this.init_taskListReward();
 				}
 			})
 		}
@@ -82,12 +85,40 @@ module view.compart {
 					this.hbox_reward.addChild(ui_jiangli);
 				}
 			}
+			switch (this.taskInfo.queststatus) {
+				case -1:
+					this.btn_go.label = '接受'
+					break;
+				case 0: case 1:
+					this.btn_go.label = '前往'
+					break;
+				case 2:
+					this.btn_go.skin = 'image/common/button_qianwang_red.png'
+					this.btn_go.label = '领取'
+					break;
+				case 3:
+					this.btn_go.label = '已完成'
+					break;
+			}
 			//任务名
 			this.lbl_taskName.x = 87;
 			this.lbl_taskName.text = this.taskInfo.questname;
 			//任务介绍
 			this.lbl_introduce.text = this.taskInfo.des;
 		}
+		/**
+		 * 领取奖励（交付任务）
+		 */
+		public init_taskListReward(): void {
+			if (this.taskInfo.queststatus == 2) {
+				let pkt = new ProtoCmd.SelectTalkOptionEncoder();
+				pkt.questType = this.taskInfo.questtype;
+				pkt.showone = true;
+				pkt.funcname = 'questfinish~' + this.taskInfo.taskid;
+				lcp.send(pkt)
+			}
+		}
+
 		/**
 		 * 
 		 * @param data 成就任务(l:任务当前进度，s:任务奖励状态，r:任务最大进度)

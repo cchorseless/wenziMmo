@@ -84,6 +84,8 @@ module ProtoCmd {
         }
     }
 
+    
+
     // 0x0904
     // 服务器返回任务完成
     export class stQuestFinishRet extends Packet {
