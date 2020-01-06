@@ -70,7 +70,6 @@ module view.juese {
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.JS_updateBuildEquipItem, this, (jsonData, select: boolean, index: number) => {
-				//type为选择材料弹窗响应1为打造装备弹窗响应
 				//select为装备选中状态
 				//index为装备索引
 				this.init_selectEvent(jsonData, select, index);

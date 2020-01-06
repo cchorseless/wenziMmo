@@ -29,7 +29,7 @@ module view.main {
 			}
 			this.addEvent();
 			this.get_novelPian();
-			this.init_noChange();
+
 		}
 		public addEvent(): void {
 			for (let mapid of this.mapArray) {
@@ -42,7 +42,7 @@ module view.main {
 			});
 			//任务
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
-				new view.dialog.TaskDialog().popup();
+				new view.dialog.TaskDialog().setData().popup();
 			})
 
 			// 宅院界面
@@ -255,25 +255,6 @@ module view.main {
 							break;
 					}
 				}
-				//剧情任务
-				this.div_target.style.fontSize = 22;
-				if (this.lbl_des.height > 115) {
-					this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
-				} else {
-					this.lbl_juqing.y = 324;
-				}
-				let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
-				if (juqing) {
-					for (let part in juqing) {
-						this.img_juqing.visible = false;
-						this.div_target.visible = true;
-						this.div_target.innerHTML = '' + juqing[part].target;
-					}
-				} else {
-					this.img_juqing.visible = true;
-					this.div_target.visible = false;
-					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
-				}
 			}
 			if (data.charpterInfo[index].zjid > GameApp.MainPlayer.charpterID) {
 				this.img_juqing.visible = true;
@@ -281,8 +262,6 @@ module view.main {
 				this.lbl_all.text = '未解锁';
 				this.lbl_all.color = '#c43939'
 				this.lbl_all.x = 496;
-				this.div_target.visible = false;
-				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
 			}
 			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
 				this.img_juqing.visible = true;
@@ -290,8 +269,6 @@ module view.main {
 				this.lbl_all.text = '已读完';
 				this.lbl_all.color = '#38ad32'
 				this.lbl_all.x = 496;
-				this.div_target.visible = false;
-				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
 			}
 			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
 			//章节名
@@ -317,38 +294,43 @@ module view.main {
 					this.lbl_all.x = 519;
 				}
 			}
+			this.init_noChange();
 		}
 		/**
 		 * 刷新任務信息
 		 */
 		public init_noChange(): void {
 			//剧情任务
+			this.div_target.style.fontFamily = 'STLiti';
 			this.img_juqing.visible = true;
 			if (this.nowZJid > GameApp.MainPlayer.charpterID) {
 				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
+				this.div_target.visible = false;
 			}
 			if (this.nowZJid < GameApp.MainPlayer.charpterID) {
 				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
+				this.div_target.visible = false;
 			}
 			this.div_target.style.fontSize = 22;
-			if (this.lbl_des.height > 115) {
-				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height + 35;
+			if (this.lbl_des.height > 102) {
+				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height;
 			} else {
 				this.lbl_juqing.y = 324;
 			}
-			let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
-			if (juqing) {
-				for (let part in juqing) {
-					this.img_juqing.visible = false;
-					this.div_target.visible = true;
-					this.div_target.innerHTML = '' + juqing[part].target;
+			if (this.nowZJid == GameApp.MainPlayer.charpterID) {
+				let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
+				if (juqing) {
+					for (let part in juqing) {
+						this.img_juqing.visible = false;
+						this.div_target.visible = true;
+						this.div_target.innerHTML = '' + juqing[part].target;
+					}
+				} else {
+					this.img_juqing.visible = true;
+					this.div_target.visible = false;
+					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
 				}
-			} else {
-				this.img_juqing.visible = true;
-				this.div_target.visible = false;
-				this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
 			}
-			this.div_target.style.fontFamily = 'STLiti';
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			this.div_zhuxiandes.style.color = this.div_zhixiandes.style.color = '#63491a';
@@ -371,6 +353,7 @@ module view.main {
 			} else {
 				this.lbl_zhuxianName.text = '暂无';
 				this.div_zhuxiandes.innerHTML = '';
+				this.lbl_zhuxianState.text = '';
 			}
 			//支线任务
 			let zhixian = [];
@@ -392,7 +375,6 @@ module view.main {
 				if (zhixian[0].queststatus >= 2) {
 					this.lbl_zhixianState.visible = true;
 					this.lbl_zhixianState.text = '√';
-
 				} else {
 					this.lbl_zhixianState.visible = false;
 				}
@@ -401,6 +383,7 @@ module view.main {
 				this.lbl_zhixianState.visible = false;
 				this.lbl_zhixianName.text = '暂无';
 				this.div_zhixiandes.innerHTML = '';
+				this.lbl_zhixianState.text = '';
 			}
 		}
 	}

@@ -355,7 +355,7 @@ module view.main {
 			// 经验
 			GameApp.LListener.on(LcpEvent.UPDATE_UI_PLAYER_EXP, this, () => { this.updateUI_exp() });
 			//好友申请提示
-			GameApp.LListener.on(ProtoCmd.FD_APPLY_UPDATA, this, () => {this.init_friendApply();})
+			GameApp.LListener.on(ProtoCmd.FD_APPLY_UPDATA, this, () => { this.init_friendApply(); })
 			GameApp.LListener.on(ProtoCmd.tubiaofasong, this, (data) => {
 				console.log(data);
 				GameApp.GameEngine.turnActivity = data;
@@ -628,7 +628,7 @@ module view.main {
 				(data: ProtoCmd.itf_JS_soulStoneLevel) => {
 					GameApp.GameEngine.mainPlayer.playersoulStoneLevel = data;
 					//等级精炼强化达标信息
-					this.equipView();
+
 				});
 			lcp.send(pkt);
 		}
@@ -637,8 +637,7 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
 				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
 					GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
-					this.getEquipPanelMsg()
-
+					this.getEquipPanelMsg()	
 				});
 			lcp.send(pkt);
 		}
@@ -646,6 +645,8 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.IntensifyPanel, [0, 0], 0, this,
 				(data: ProtoCmd.itf_JS_equipPanelMsg) => {
 					GameApp.GameEngine.equipPanelMsg = data;
+					//等级精炼强化大师
+					this.equipView();
 				});
 			lcp.send(pkt);
 
@@ -766,9 +767,6 @@ module view.main {
 			// 	o.setData(onlineRewardInfo[i], 0)
 			// 	this.vbox_task.addChild(o)
 			// }
-
-
-
 			// taskInfo = zhuXianInfo[Object.keys(zhuXianInfo)[0]];
 
 		}
@@ -878,7 +876,7 @@ module view.main {
 			GameApp.MainPlayer.EquipmentNum[1] = curSoulStoneLv + "/" + (k + 1) * 60;
 			//强化大师达标装备数量
 			let lv = this.onLvIntensify();
-			GameApp.MainPlayer.EquipmentNum[2] = '(' + lv[0] + '/10)';
+			GameApp.MainPlayer.EquipmentNum[2] =lv[0] + '/10';
 		}
 		/**
 		 * 强化大师达标装备数量

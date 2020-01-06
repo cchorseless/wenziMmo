@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":256,
+    "selectedBox":229,
+    "selecteID":230,
     "props":{"width":640,"visible":true,"sceneColor":"#cdb0af","name":"JuQingMode","height":1136},
     "nodeParent":-1,
     "label":"View(JuQingMode)",
@@ -193,13 +193,14 @@
             "props":{"width":650,"var":"panel_read","top":28,"left":-5,"bottom":45},
             "nodeParent":1,
             "label":"Panel(panel_read)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":229,
             "child":[
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"var":"box1","top":0,"right":0,"mouseEnabled":false,"left":0,"bottom":0},
                     "nodeParent":229,
@@ -212,6 +213,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"var":"box2","top":0,"right":0,"left":0,"bottom":0},
                     "nodeParent":229,
@@ -224,6 +226,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":0,"x":-640,"width":640,"var":"box3","mouseEnabled":false,"height":1004},
                     "nodeParent":229,
@@ -235,7 +238,8 @@
                     "child":[
                         ]
                 }],
-            "$LOCKED":false
+            "$LOCKED":false,
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -364,7 +368,6 @@
             "compId":256,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":6,"x":7,"skin":"image/juQingMode/box_common_01.png"},
                     "nodeParent":256,
@@ -377,7 +380,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"x":44,"width":80,"var":"btn_next","stateNum":"1","skin":"image/juQingMode/icon_shijian.png","selected":true,"labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","label":"事件","height":80,"bottom":1,"anchorY":0.5,"anchorX":0.5},
                     "nodeParent":256,
@@ -392,7 +394,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Box",
                     "props":{"x":59,"bottom":2},
                     "nodeParent":256,
@@ -404,7 +405,6 @@
                     "compId":240,
                     "child":[
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":6,"x":35,"skin":"image/common/img_exp_2.png","scaleY":0.3,"scaleX":0.3},
                             "nodeParent":240,
@@ -417,7 +417,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":48,"x":30,"width":40,"skin":"image/main/icon_tongqian.png","height":33},
                             "nodeParent":240,
@@ -430,7 +429,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":13,"x":65,"width":100,"var":"lab_yueli","text":"1000/H","height":24,"fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":240,
@@ -444,7 +442,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":53,"x":65,"width":100,"var":"lab_qingyi","text":"1000/H","height":24,"fontSize":24,"font":"FZHL","color":"#63491a"},
                             "nodeParent":240,
