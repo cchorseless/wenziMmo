@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
-    "props":{"y":0,"x":0,"width":489,"sceneColor":"#ffffff","height":60},
+    "selecteID":11,
+    "props":{"y":0,"x":0,"width":543,"sceneColor":"#ffffff","height":45},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,20 +15,21 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":489,"skin":"image/common/fram_common_11.png","height":60},
+            "props":{"y":0,"x":0,"width":543,"var":"img_mask","skin":"image/fuben/shaow_liebiao.png","height":45},
             "nodeParent":1,
-            "label":"Image",
+            "label":"Image(img_mask)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":7,
             "child":[
-                ]
+                ],
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":14,"x":9,"width":39,"var":"lab_rank","text":"100","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
+            "props":{"y":10,"x":17,"width":40,"var":"lab_rank","text":"100","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_rank)",
             "isDirectory":false,
@@ -41,7 +42,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":14,"x":67,"width":162,"var":"lab_name","text":"好名字六个字","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
+            "props":{"y":9,"x":105,"width":162,"var":"lab_name","text":"好名字六个字","height":26,"fontSize":24,"font":"fzxk","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_name)",
             "isDirectory":false,
@@ -54,7 +55,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":14,"x":236,"width":162,"var":"lab_menpai","text":"无门无派","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
+            "props":{"y":8,"x":300,"width":110,"var":"lab_menpai","text":"无门无我","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"left"},
             "nodeParent":1,
             "label":"Label(lab_menpai)",
             "isDirectory":false,
@@ -67,13 +68,65 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":14,"x":402,"width":54,"var":"lab_star","text":"1000","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
+            "props":{"y":9,"x":425,"width":101,"var":"lab_star","text":"5转150级","height":26,"fontSize":24,"font":"fzxk","color":"#000000","align":"center"},
             "nodeParent":1,
             "label":"Label(lab_star)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
             "compId":6,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":8,"x":23,"var":"img_rank","skin":"image/fuben/img_1.png"},
+            "nodeParent":1,
+            "label":"Image(img_rank)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":8,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":7,"x":83,"skin":"image/main/frame_zhandou_logo.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":9,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":1,"x":3,"var":"img_job","skin":"image/common/img_job01.png"},
+                    "nodeParent":9,
+                    "label":"Image(img_job)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":10,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":9,"x":275,"width":25,"var":"img_menpai","skin":"image/fuben/icon_1001.png","height":25},
+            "nodeParent":1,
+            "label":"Image(img_menpai)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":11,
             "child":[
                 ]
         }],

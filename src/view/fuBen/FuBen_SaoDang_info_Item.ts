@@ -4,7 +4,7 @@ module view.fuBen {
 		public cengID;
 		constructor() {
 			super();
-			this.panel_first.hScrollBarSkin = this.panel_drop.hScrollBarSkin = '';
+			// this.panel_first.hScrollBarSkin = this.panel_drop.hScrollBarSkin = '';
 			this.addEvent();
 		}
 		public addEvent() {
@@ -25,7 +25,7 @@ module view.fuBen {
 			this.cengID = data[0];
 			if (star == 0) {
 				this.box_star.visible = false;
-				this.panel_first.visible = true;
+				this.box_first.visible = true;
 				this.box_challenge.visible = false;
 				this.btn_saodang.visible = false;
 				let firstReward = data[7]
@@ -38,22 +38,28 @@ module view.fuBen {
 					itembase.dwBaseID = base[0];
 					itembase.dwCount = base[1];
 					o.setData(itembase, false)
-					o.x = i * o.width + 20;
+					o.scaleX = o.scaleY = 0.8;
+					o.x = i * o.width * 0.8;
 					this.panel_first.addChild(o)
 				}
 			} else if (star > 0 && star < 3) {
 				this.box_star.visible = false;
 				this.box_challenge.visible = true;
-				this.panel_first.visible = false;
+				this.box_first.visible = false;
 				this.btn_saodang.visible = false;
 			} else if (star == 3) {
 				this.box_star.visible = true;
 				this.box_challenge.visible = false;
-				this.panel_first.visible = false;
+				this.box_first.visible = false;
 				this.btn_saodang.visible = true;
 			}
-			this.lab_stageID.text = data[9];
-			this.lab_stageName.text = data[3];
+			this.html_stageID.style.fontFamily = 'STXingkai';
+			this.html_stageID.style.fontSize = 26;
+			this.html_stageID.style.align = 'center';
+			this.html_stageID.style.color = '#000000';
+			this.html_stageID.innerHTML = "<span>" + data[9] + "</span>"
+			+"<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+				+ "<span>" + data[3] + "</span>";
 			let coin;
 			let exp;
 			let dropReward = data[4];
@@ -68,7 +74,8 @@ module view.fuBen {
 					itembase.dwBaseID = parseInt(base[0]);
 					itembase.dwCount = parseInt(base[1]);
 					o.setData(itembase)
-					o.x = this.panel_drop.numChildren * o.width + 20;
+					o.scaleX = o.scaleY = 0.8;
+					o.x = this.panel_drop.numChildren * o.width * 0.8;
 					this.panel_drop.addChild(o);
 				} else if (parseInt(base[0]) == 20015) {
 					this.lab_jinbi.text = base[1];

@@ -51,6 +51,7 @@ module view.fuBen {
 			})
 			this.btn_rank.on(Laya.Event.MOUSE_DOWN, this, function (ex) {
 				let o = new FuBen_ZhuXian_Rank_Dialog();
+				o.setData(3);
 				o.popup();
 
 			})
@@ -220,22 +221,22 @@ module view.fuBen {
 				this.html_FubenTimes.style.fontFamily = 'STKaiti';
 				this.html_FubenTimes.style.fontSize = 30;
 				this.html_FubenTimes.style.align = 'center';
-				this.curTimes = jsonData.curcnt;
+				this.curTimes = jsonData.totalcnt - jsonData.curcnt;
 				this.maxTimes = jsonData.totalcnt;
-				this.html_FubenTimes.innerHTML = "<span style='color:#a00000'>" + jsonData.curcnt
+				this.html_FubenTimes.innerHTML = "<span style='color:#a00000'>" + (jsonData.totalcnt - jsonData.curcnt)
 					+ '</span>' + "<span style='color:#000000'>/" + jsonData.totalcnt + '</span>'
 				// 关卡信息
 				let keys = Object.keys(jsonData.state);
 				keys = keys.sort(function (a, b) {
 					return jsonData.state[a].ceng - jsonData.state[b].ceng
 				});
-				for (let i =0;i <keys.length;i++) {
+				for (let i = 0; i < keys.length; i++) {
 					// 设置怪物头像数据
 					// (this['ui_item' + (parseInt(key) % 5)] as view.compart.MonsterIconV0Item).setData(charpterID, key, jsonData.state[key]);
-					this['ui_info' + (i+1)].removeChildren();
+					this['ui_info' + (i + 1)].removeChildren();
 					let o = new FuBen_ZhuXIan_Panel_info();
 					o.setData(jsonData.ceng, jsonData.state[keys[i]], GameApp.MainPlayer.allCharpterInfo[charpterID].index);
-					this['ui_info' + (i+1)].addChild(o);
+					this['ui_info' + (i + 1)].addChild(o);
 				}
 				// 显示单个BOSS信息
 				// this.updateMainFuBenBossInfo(jsonData.ceng)
