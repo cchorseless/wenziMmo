@@ -259,6 +259,8 @@ module ResData {
             { url: 'json/Thread_sweep_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Thread_sweep_tbl },
             //宅院
             { url: 'json/zhaiyuan_upgrade.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.zhaiyuan_upgrade },
+            //基础门派表
+            { url: 'json/BaseMenPaiSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.BaseMenPaiSheet },
             //剧情篇章表
             { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet },
             //怪物更新表

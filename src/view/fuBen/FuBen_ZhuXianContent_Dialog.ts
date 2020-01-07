@@ -96,7 +96,9 @@ module view.fuBen {
 		public addEvent() {
 			this.btn_fight.on(Laya.UIEvent.CLICK, this, function () {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.cengID]);
+				pkt.setString(ProtoCmd.FB_ChuMoEnter, [this.cengID],0,this,function(res){
+					console.log('CHUMO' + res)
+				});
 				lcp.send(pkt);
 				this.close();
 			})

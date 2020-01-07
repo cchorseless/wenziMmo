@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":25,
-    "props":{"y":10,"x":-66,"width":480,"sceneColor":"#ffffff","height":180},
+    "selecteID":2,
+    "props":{"y":0,"x":0,"width":531,"sceneColor":"#ffffff","height":173},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -14,21 +14,21 @@
     "child":[
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":-5,"x":97,"width":59,"var":"lab_stageID","text":"3-1","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
+            "type":"Image",
+            "props":{"y":0,"x":0,"width":531,"skin":"image/fuben/frame_guaka_liebiao.png","height":173},
             "nodeParent":1,
-            "label":"Label(lab_stageID)",
+            "label":"Image",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":2,
+            "compId":27,
             "child":[
                 ]
         },
         {
             "x":15,
             "type":"Box",
-            "props":{"y":-9,"x":404,"var":"box_star"},
+            "props":{"y":11,"x":378,"var":"box_star"},
             "nodeParent":1,
             "label":"Box(box_star)",
             "isOpen":true,
@@ -75,25 +75,13 @@
                     "compId":9,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":true
         },
         {
             "x":15,
             "type":"Label",
-            "props":{"y":-3,"x":182,"width":157,"var":"lab_stageName","text":"好关卡六个字","height":26,"fontSize":26,"font":"fzxk","color":"#000000","align":"center"},
-            "nodeParent":1,
-            "label":"Label(lab_stageName)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":11,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Label",
-            "props":{"y":58,"x":112,"width":105,"var":"lab_exp","text":"12345","height":26,"fontSize":26,"font":"fzxk","color":"#4e3429"},
+            "props":{"y":76,"x":57,"width":90,"var":"lab_exp","text":"123456","height":26,"fontSize":26,"font":"fzxk","color":"#4e3429"},
             "nodeParent":1,
             "label":"Label(lab_exp)",
             "isDirectory":false,
@@ -106,7 +94,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":52,"x":72,"skin":"image/common/img_exp_2.png","scaleY":0.3,"scaleX":0.3},
+            "props":{"y":70,"x":17,"skin":"image/common/img_exp_2.png","scaleY":0.3,"scaleX":0.3},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -119,7 +107,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":97,"x":112,"width":100,"var":"lab_jinbi","text":"12345","height":26,"fontSize":26,"font":"fzxk","color":"#4e3429"},
+            "props":{"y":115,"x":57,"width":90,"var":"lab_jinbi","text":"12345","height":26,"fontSize":26,"font":"fzxk","color":"#4e3429"},
             "nodeParent":1,
             "label":"Label(lab_jinbi)",
             "isDirectory":false,
@@ -132,7 +120,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":96,"x":75,"skin":"image/juQingMode/icon_tongqian.png","scaleY":0.3,"scaleX":0.3},
+            "props":{"y":114,"x":20,"skin":"image/juQingMode/icon_tongqian.png","scaleY":0.3,"scaleX":0.3},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -144,21 +132,8 @@
         },
         {
             "x":15,
-            "type":"Image",
-            "props":{"y":39,"x":83,"width":450,"skin":"image/fuben/line_06.png","height":2},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":17,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Panel",
-            "props":{"y":48,"x":182,"width":170,"var":"panel_drop","height":115},
+            "props":{"y":67,"x":157,"width":170,"var":"panel_drop","height":100},
             "nodeParent":1,
             "label":"Panel(panel_drop)",
             "isDirectory":false,
@@ -170,59 +145,19 @@
         },
         {
             "x":15,
-            "type":"Panel",
-            "props":{"y":48,"x":367,"width":170,"visible":false,"var":"panel_first","height":115},
-            "nodeParent":1,
-            "label":"Panel(panel_first)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":19,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
-            "type":"Button",
-            "props":{"y":106,"x":453,"width":150,"visible":false,"var":"btn_saodang","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"FZHL","labelColors":"#a9643b,#a9643b,#a9643b","label":"扫荡一次","height":60,"anchorY":0.5,"anchorX":0.5},
-            "nodeParent":1,
-            "label":"Button(btn_saodang)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":21,
-            "child":[
-                ],
-            "$HIDDEN":true
-        },
-        {
-            "x":15,
             "type":"Box",
-            "props":{"y":76,"x":371,"width":170,"visible":false,"var":"box_challenge","height":90},
+            "props":{"y":76,"x":349,"width":170,"visible":false,"var":"box_challenge","height":90},
             "nodeParent":1,
             "label":"Box(box_challenge)",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":25,
             "child":[
                 {
-                    "type":"Button",
-                    "props":{"y":30,"x":82,"width":150,"var":"btn_challenge","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":30,"labelFont":"FZHL","labelColors":"#a9643b,#a9643b,#a9643b","label":"挑 战","height":60,"anchorY":0.5,"anchorX":0.5},
-                    "nodeParent":25,
-                    "label":"Button(btn_challenge)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":23,
-                    "child":[
-                        ]
-                },
-                {
                     "type":"Label",
-                    "props":{"y":63,"width":161,"text":"三星评价解锁扫荡","height":20,"fontSize":20,"font":"fzxk","color":"#000000","align":"center"},
+                    "props":{"y":-55,"x":-9,"width":161,"text":"三星评价解锁扫荡","height":20,"fontSize":20,"font":"fzxk","color":"#63491a","align":"center"},
                     "nodeParent":25,
                     "label":"Label",
                     "isDirectory":false,
@@ -231,8 +166,101 @@
                     "compId":24,
                     "child":[
                         ]
+                },
+                {
+                    "type":"Button",
+                    "props":{"y":27,"x":109,"width":100,"var":"btn_challenge","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a,#761a1a","label":"挑战","height":45,"anchorY":0.5,"anchorX":0.5},
+                    "nodeParent":25,
+                    "label":"Button(btn_challenge)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":104,"x":456,"width":100,"var":"btn_saodang","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"fzxk","labelColors":"#761a1a,#761a1a,#761a1a","label":"扫荡","height":45,"anchorY":0.5,"anchorX":0.5},
+            "nodeParent":1,
+            "label":"Button(btn_saodang)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":30,
+            "child":[
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "props":{"y":7,"x":330,"var":"box_first"},
+            "nodeParent":1,
+            "label":"Box(box_first)",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":32,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":44,"var":"img_first","skin":"image/fuben/frame_jiangli.png"},
+                    "nodeParent":32,
+                    "label":"Image(img_first)",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":28,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Panel",
+                            "props":{"y":16,"x":4,"width":170,"visible":true,"var":"panel_first","height":100},
+                            "nodeParent":28,
+                            "label":"Panel(panel_first)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":19,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"x":24,"skin":"image/fuben/img_tongguanjiangli.png"},
+                    "nodeParent":32,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":31,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"HTMLDivElement",
+            "props":{"y":15,"x":28,"width":236,"var":"html_stageID","innerHTML":"htmlText","height":26},
+            "nodeParent":1,
+            "label":"HTMLDivElement(html_stageID)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":33,
+            "child":[
+                ]
         }],
     "animations":[
         {

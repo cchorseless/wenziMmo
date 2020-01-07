@@ -16,7 +16,7 @@ module view.compart {
 			else {
 				this.lbl_dataDes.text = '' + effectIDStruct.min + '-' + effectIDStruct.max;
 			}
-			this.width = this.lbl_dataDes.x + this.lbl_dataDes.width + 5;
+			
 			if (nexteffectIDStruct != null) {
 				let addValue;
 				if (effectIDStruct.onlyValue) {
@@ -25,8 +25,10 @@ module view.compart {
 				else {
 					addValue = nexteffectIDStruct.max - effectIDStruct.max;
 				}
+				this.lbl_add.x =  this.lbl_dataDes.width + this.lbl_dataDes.x + 5;
 				this.lbl_add.text = '+' + addValue;
 			}
+			this.width = this.lbl_dataDes.x + this.lbl_dataDes.width +this.lbl_add.width +  5;
 			return this;
 		}
 	}

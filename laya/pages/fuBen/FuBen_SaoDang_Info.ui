@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":10,
-    "props":{"width":509,"sceneColor":"#ffffff","height":611},
+    "selecteID":12,
+    "props":{"width":543,"sceneColor":"#ffffff","height":611},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1,"x":21,"skin":"image/common/bottom_list.png"},
+            "props":{"y":0,"x":0,"skin":"image/fuben/frame_zhangjie_liebiao.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -27,7 +27,7 @@
                 {
                     "x":30,
                     "type":"HTMLDivElement",
-                    "props":{"y":7,"x":29,"width":222,"var":"html_charpterName","innerHTML":"htmlText","height":26},
+                    "props":{"y":15,"x":21,"width":222,"var":"html_charpterName","innerHTML":"htmlText","height":26},
                     "nodeParent":3,
                     "label":"HTMLDivElement(html_charpterName)",
                     "isDirectory":false,
@@ -40,7 +40,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":36,"x":75,"width":129,"var":"lab_curStar","text":"(达成8星)","height":24,"fontSize":24,"font":"fzxk","color":"#000000"},
+                    "props":{"y":53,"x":68,"width":129,"var":"lab_curStar","text":"(达成8星)","height":24,"fontSize":20,"font":"fzxk","color":"#c43939","align":"center"},
                     "nodeParent":3,
                     "label":"Label(lab_curStar)",
                     "isDirectory":false,
@@ -53,60 +53,62 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":283,"var":"img_Box1","skin":"image/common/icon_baoxiang1_light.png"},
+                    "props":{"y":2,"x":328,"var":"img_Box1","skin":"image/common/icon_baoxiang1_light.png","scaleY":0.8,"scaleX":0.8},
                     "nodeParent":3,
                     "label":"Image(img_Box1)",
                     "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":8,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":64,"x":-2,"width":84,"text":"6星奖励","height":19,"fontSize":24,"font":"fzxk","align":"center"},
-                            "nodeParent":8,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":9,
-                            "child":[
-                                ]
-                        }]
+                        ]
                 },
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":-1,"x":377,"var":"img_Box2","skin":"image/common/icon_baoxiang1_light.png"},
+                    "props":{"y":2,"x":437,"var":"img_Box2","skin":"image/common/icon_baoxiang1_light.png","scaleY":0.8,"scaleX":0.8},
                     "nodeParent":3,
                     "label":"Image(img_Box2)",
                     "isOpen":true,
-                    "isDirectory":true,
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
+                    "hasChild":false,
                     "compId":10,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"Label",
-                            "props":{"y":64,"x":-2,"width":84,"text":"9星奖励","height":19,"fontSize":24,"font":"fzxk","align":"center"},
-                            "nodeParent":10,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":11,
-                            "child":[
-                                ]
-                        }]
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":56,"x":318,"width":84,"text":"6星奖励","height":19,"fontSize":20,"font":"fzxk","color":"#4e3429","align":"center"},
+                    "nodeParent":3,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":56,"x":427,"width":84,"text":"9星奖励","height":19,"fontSize":20,"font":"fzxk","color":"#4e3429","align":"center"},
+                    "nodeParent":3,
+                    "label":"Label",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":11,
+                    "child":[
+                        ]
                 }]
         },
         {
             "x":15,
             "type":"Panel",
-            "props":{"y":97,"x":0,"width":509,"var":"panel_info","height":515},
+            "props":{"y":90,"x":6,"width":531,"var":"panel_info","height":515},
             "nodeParent":1,
             "label":"Panel(panel_info)",
             "isOpen":true,
