@@ -107,7 +107,7 @@ module GameObject {
         public playerBirthData: ProtoCmd.itf_JS_birthdateAndCompellation = null;
         //玩家强化信息
         public playerEquipIntensify: ProtoCmd.itf_JS_equipIntensifyMessage = null;
-        //玩家强化信息
+        //玩家魂石信息
         public playersoulStoneLevel: ProtoCmd.itf_JS_soulStoneLevel = null;
         /*******************弟子**************** */
         public curHero: GameObject.Hero;// 当前的弟子

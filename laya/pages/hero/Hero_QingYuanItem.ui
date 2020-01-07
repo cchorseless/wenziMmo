@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":150,
+    "selectedBox":72,
+    "selecteID":43,
     "props":{"width":617,"sceneColor":"#ffffff","height":898},
     "nodeParent":-1,
     "label":"View",
@@ -185,9 +185,9 @@
                         },
                         {
                             "type":"Button",
-                            "props":{"y":62,"x":511,"stateNum":"2","skin":"image/juese/btn_yulan.png"},
+                            "props":{"y":62,"x":511,"var":"btn_yulan","stateNum":"2","skin":"image/juese/btn_yulan.png"},
                             "nodeParent":73,
-                            "label":"Button",
+                            "label":"Button(btn_yulan)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -280,13 +280,14 @@
                     "props":{"y":4,"name":"item1"},
                     "nodeParent":74,
                     "label":"Box(item1)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":72,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"x":4,"width":580,"skin":"image/juese/shadow_shuju.png","height":121},
                             "nodeParent":72,
@@ -299,6 +300,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":17,"x":34,"var":"ui_item0","scaleY":1.15,"scaleX":1.15,"runtime":"view.compart.DaoJuItem"},
@@ -312,6 +314,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":48,"x":144,"width":144,"var":"lbl_name0","text":"道具名称六字","strokeColor":"#2d1c05","stroke":4,"fontSize":22,"font":"FZHL","color":"#f5dd7b","align":"center"},
                             "nodeParent":72,
@@ -324,6 +327,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":81,"x":150,"var":"lbl_shanghai","text":"对战士伤害增长5.2%","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#a53232","align":"left"},
                             "nodeParent":72,
@@ -336,6 +340,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":126,"width":586,"var":"vbox_item","space":5,"height":265},
                             "nodeParent":72,
@@ -349,6 +354,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":392,"x":-15,"var":"btn_jihuo","stateNum":"2","skin":"image/common/button_qianwang_red.png","right":58,"labelStrokeColor":"#8b2d2b","labelSize":30,"labelFont":"FZHL","labelColors":"#8b2d2b,#8b2d2b","label":"冶 炼"},
                             "nodeParent":72,
@@ -362,7 +368,7 @@
                             "$LOCKED":true,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -377,6 +383,7 @@
                     "compId":95,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"width":580,"skin":"image/juese/shadow_shuju.png","height":121},
                             "nodeParent":95,
@@ -389,6 +396,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":7,"x":34,"var":"ui_item1","scaleY":1.15,"scaleX":1.15,"runtime":"view.compart.DaoJuItem"},
@@ -403,6 +411,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":96,"x":5,"width":144,"var":"lbl_name1","text":"道具名称六字","strokeColor":"#2d1c05","stroke":4,"fontSize":22,"font":"FZHL","color":"#f5dd7b","align":"center"},
                             "nodeParent":95,
@@ -415,6 +424,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":34,"x":205,"wordWrap":true,"width":165,"text":"选择要交换的属性每次只能交换一条","strokeColor":"#2d1c05","leading":5,"height":46,"fontSize":20,"font":"FZHL","color":"#63491a","align":"center"},
                             "nodeParent":95,
@@ -427,6 +437,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"UIView",
                             "source":"compart/DaoJuItem.ui",
                             "props":{"y":7,"x":458,"var":"ui_item2","scaleY":1.15,"scaleX":1.15,"runtime":"view.compart.DaoJuItem"},
@@ -441,6 +452,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Label",
                             "props":{"y":96,"x":427,"width":144,"var":"lbl_name2","text":"点击装备添加","strokeColor":"#2d1c05","fontSize":20,"font":"FZHL","color":"#149a0d","align":"center"},
                             "nodeParent":95,
@@ -453,6 +465,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":127,"width":275,"var":"vbox_exchange1","height":265},
                             "nodeParent":95,
@@ -466,6 +479,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"VBox",
                             "props":{"y":127,"x":303,"width":275,"var":"vbox_exchange2","height":265},
                             "nodeParent":95,
@@ -479,6 +493,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":396,"x":357,"var":"btn_exchange","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#8b2d2b","labelSize":30,"labelFont":"FZHL","labelColors":"#8b2d2b,#8b2d2b","label":"替 换"},
                             "nodeParent":95,
@@ -492,7 +507,7 @@
                             "$LOCKED":false,
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
@@ -947,7 +962,7 @@
                 {
                     "x":30,
                     "type":"Panel",
-                    "props":{"width":596,"var":"panel_rune","height":306,"bottom":9},
+                    "props":{"y":-2,"x":0,"width":596,"var":"panel_rune","height":302,"bottom":9},
                     "nodeParent":7,
                     "label":"Panel(panel_rune)",
                     "isDirectory":false,
@@ -965,13 +980,14 @@
             "props":{"y":721,"x":30,"var":"box_score"},
             "nodeParent":1,
             "label":"Box(box_score)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":148,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":6,"var":"lbl_label","text":"消耗:","strokeColor":"#000000","fontSize":26,"font":"FZHL","color":"#000000"},
                     "nodeParent":148,
@@ -986,6 +1002,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":3,"x":89,"width":211,"skin":"image/main/frame_shuzi_02.png","sizeGrid":"0,26,0,13","height":32},
                     "nodeParent":148,
@@ -1000,6 +1017,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"x":67,"width":48,"skin":"image/main/icon_coin_1.png","height":39},
                     "nodeParent":148,
@@ -1014,6 +1032,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":4,"x":140,"var":"lbl_have","text":"666/20000","strokeColor":"#000000","fontSize":26,"font":"FZHL","color":"#000000","align":"center"},
                     "nodeParent":148,

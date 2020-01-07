@@ -34,7 +34,7 @@ module view.juese {
 		}
 		public itemInfo(): void {
 			if (this.level) {
-				//根据等级查找背包内大于这个等级的所有装备
+				//根据等级查找背包内大于等于这个等级的所有装备
 				let itemArray = GameUtil.findItemInfoInBagByLevel(this.level);
 				let finalArray = itemArray;
 				//初始化道具框个数

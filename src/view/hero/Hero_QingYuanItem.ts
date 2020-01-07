@@ -6,8 +6,8 @@ module view.hero {
 		}
 		//我的符文精华
 		public score;
-		//符文类型（1身上；0背包）
-		public type;
+		//激活符文数据
+		public activeRunedData;
 		public index;
 		//交换符文1
 		public runeid1: ProtoCmd.ItemBase;
@@ -21,7 +21,6 @@ module view.hero {
 		public pos1;
 		//符文交换位置2
 		public pos2;
-		public eventIndex;
 		public hasint = false;
 		public setData(): void {
 			if (this.hasint) { return };
@@ -37,7 +36,7 @@ module view.hero {
 			this.init_selectItem();
 		}
 		public addEvent(): void {
-			this.btn_shuxing.on(Laya.UIEvent.CLICK, this, () => {
+			this.btn_yulan.on(Laya.UIEvent.CLICK, this, () => {
 				new view.hero.Hero_RuneDialog().setData().popup(true);
 			})
 			//符文激活
@@ -120,6 +119,9 @@ module view.hero {
 				}
 				this.panel_rune.addChild(ui_runeItem);
 			}
+			if (this.tab_rune.selectedIndex > 0) {
+				this.init_updatarune();
+			}
 		}
 		/**
 		 * 重置
@@ -146,36 +148,54 @@ module view.hero {
 			}
 			if (this.tab_rune.selectedIndex == 3) {
 				this.img_bg.height = 465;
+				this.panel_rune.height = 465;
 			} else {
 				this.img_bg.height = 302;
+				this.panel_rune.height = 306;
 			}
 			if (this.tab_rune.selectedIndex == 0) {
-				this.lbl_have.visible = false;
+				this.box_score.visible = false;
 			} else {
-				this.lbl_have.visible = true;
+				this.box_score.visible = true;
 				if (this.tab_rune.selectedIndex == 2) {
 					this.lbl_have.text = '100/' + this.score;
 				} else {
 					this.lbl_have.text = '0/' + this.score;
 				}
 			}
-			this.runeid1 = this.runeid2 = this.pos1 = this.pos2 = undefined;
+			this.ui_item1.name = this.ui_item2.name = "";
+			this.activeRunedData = this.runeid1 = this.runeid2 = this.pos1 = this.pos2 = undefined;
 		}
 		public addLcpEvent(): void {
 			//score:符文精华
 			GameApp.LListener.on(ProtoCmd.Hero_openActiveRunePanel, this, (jsonData: { score: number, viewtab: any }) => {
 				this.score = jsonData.score;
+				if (this.tab_rune.selectedIndex == 0) {
+					this.box_score.visible = false;
+				} else {
+					this.box_score.visible = true;
+					if (this.tab_rune.selectedIndex == 2) {
+						this.lbl_have.text = '100/' + this.score;
+					} 
+				}
 				this.init_RuneBagEvent();
 			})
 			//type符文类型0背包1身上,index点击符文索引
 			GameApp.LListener.on(ProtoCmd.Hero_runeSelect, this, (type: number, index: number) => {
-				this.type = type;
 				this.index = index;
 				let data = this.panel_rune._childs[0]._childs[index].item;
 				for (let child in this.panel_rune._childs[0]._childs) {
 					let single = this.panel_rune._childs[0]._childs[child]
 					if (parseInt(child) == index) {
-						single.img_light.visible = true;
+						if (this.tab_rune.selectedIndex != 3) {
+							single.img_light.visible = true;
+							if (this.tab_rune.selectedIndex == 0 && type == 1) {
+								TipsManage.showTips('该符文已在身上');
+								single.img_light.visible = false;
+							}
+						} else {
+							new view.dialog.ItemInfoV1Dialog().setData(data.data, EnumData.ItemInfoModel.SHOW_IN_MAIL).popup();
+						}
 					} else {
 						single.img_light.visible = false;
 					}
@@ -208,7 +228,11 @@ module view.hero {
 		 * 激活
 		 */
 		public init_ActiveEvent(runeData): void {
+			for (let one of this.vbox_item._childs) {
+				one.view_activeRune.selectedIndex = 0;
+			}
 			let pos;
+			this.activeRunedData = runeData;
 			//根據位置排序
 			let data = runeData.data;
 			let exchange = this.init_sort(data)
@@ -219,6 +243,7 @@ module view.hero {
 			itemInfo.clone(data.data);
 			this.ui_item0.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 			this.ui_item0.img_item.visible = this.ui_item0.btn_isStronger.visible = true;
+			this.lbl_name0.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID)
 			//符文类型1在身上0在背包
 			if (runeData.type == 1) {
 				this.ui_item0.img_onself.visible = true;
@@ -323,6 +348,7 @@ module view.hero {
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.clone(data.data);
 				this.ui_item2.setData(itemInfo, EnumData.ItemInfoModel.SHOW_NONE);
+				this.lbl_name2.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID);
 				this.ui_item2.img_item.visible = this.ui_item2.btn_isStronger.visible = true;
 				//符文极品属性
 				let label = labelArray[0].btdes.split('上');
@@ -330,7 +356,7 @@ module view.hero {
 					let index = i - 1;
 					pos = i + 1;
 					boxNum = 2;
-					this.vbox_exchange2._childs[index].setData(singleArray[i], labelArray[i].btdes, boxNum, this.type, this)
+					this.vbox_exchange2._childs[index].setData(singleArray[i], labelArray[i].btdes, boxNum, this.type2, this)
 				}
 			}
 			//ui_item1为空时，加入符文
@@ -348,13 +374,14 @@ module view.hero {
 				//符文信息
 				let itemInfo = new ProtoCmd.ItemBase();
 				itemInfo.clone(data.data);
+				this.lbl_name1.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + data.dwBaseID);
 				this.ui_item1.setData(itemInfo, EnumData.ItemInfoModel.SHOW_NONE);
 				this.ui_item1.img_item.visible = this.ui_item1.btn_isStronger.visible = true;
 				for (let i = 1; singleArray[i]; i++) {
 					let index = i - 1;
 					pos = i + 1;
 					boxNum = 1;
-					this.vbox_exchange1._childs[index].setData(singleArray[i], labelArray[i].btdes, boxNum, this.type, this)
+					this.vbox_exchange1._childs[index].setData(singleArray[i], labelArray[i].btdes, boxNum, this.type1, this)
 				}
 			}
 		}
@@ -394,9 +421,12 @@ module view.hero {
 				this['lbl_name' + i].fontSize = 20;
 				this['lbl_name' + i].color = '#149a0d';
 				this['lbl_name' + i].stroke = 0;
+				this['lbl_name' + i].text = '点击装备添加'
 				this['ui_item' + i].img_item.skin = '';
 				this['ui_item' + i].btn_isStronger.visible = false;
 				this['pos' + i] = this['runeid' + i] = undefined;
+				this['runeid' + i] = undefined;
+				this['type' + i] = undefined;
 				for (let child of this['vbox_exchange' + i]._childs) {
 					child.lbl_name.text = '';
 					child.view_single.selectedIndex = 0;
@@ -416,46 +446,47 @@ module view.hero {
 			else {
 				TipsManage.showTips('交换条件不足')
 			}
-			this.eventIndex = 2;
 		}
 		/**
-		 * 更新界面
+		 * 刷新界面
 		 */
 		public init_updatarune(): void {
-			this.eventIndex = undefined;
-			// for (let index in this.list_rune.cells) {
-			// 	let listData = this.list_rune.cells;
-			// 	if (listData[index].item != undefined) {
-			// 		if (this.runeid1.dwBaseID == listData[index].item.data.dwBaseID) {
-			// 			let itemInfo1 = new ProtoCmd.ItemBase();
-			// 			itemInfo1.clone(listData[index].item.data.data);
-			// 			this.runeid1 = itemInfo1;
-			// 		}
-			// 		if (this.runeid2.dwBaseID == listData[index].item.data.dwBaseID) {
-			// 			let itemInfo2 = new ProtoCmd.ItemBase();
-			// 			itemInfo2.clone(listData[index].item.data.data);
-			// 			this.runeid2 = itemInfo2;
-			// 		}
-			// 	};
-			// }
-			for (let change = 1; change < 3; change++) {
-				let data = this['runeid' + change];
-				let type = this['type' + change];
-				let pos;
-				//符文极品属性
-				let exchangeData = this.init_sort(data)
-				let singleArray = exchangeData[1];
-				let labelArray = exchangeData[0];
-				this['vbox_exchange' + change].removeChildren();
-				for (let i1 = 0; i1 < 6; i1++) {
-					this['vbox_exchange' + change].addChild(new view.hero.Hero_RuneItem());
+			//激活后刷新符文属性
+			if (this.activeRunedData) {
+				for (let daoju of this.panel_rune._childs[0]._childs) {
+					if (daoju.item) {
+						if (daoju.item.data.i64ItemID.id == this.activeRunedData.data.i64ItemID.id) {
+							let exchange = this.init_sort(daoju.item.data);
+							let singleArray = exchange[1];
+							let labelArray = exchange[0];
+							let pos;
+							for (let i = 1; singleArray[i]; i++) {
+								let index = i - 1;
+								pos = i + 1;
+								this.vbox_item._childs[index].setData(singleArray[i], labelArray[i].btdes)
+							}
+						}
+					}
 				}
-				//符文极品属性
-				let label = labelArray[0].btdes.split('上');
-				for (let i = 1; singleArray[i]; i++) {
-					let index = i - 1;
-					pos = i + 1;
-					this['vbox_exchange' + change]._childs[index].setData(singleArray[i], labelArray[i].btdes, i, type, this)
+			}
+			//交换后刷新符文属性
+			if (this.runeid1 && this.runeid2) {
+				for (let daoju of this.panel_rune._childs[0]._childs) {
+					for (let j = 1; j <= 2; j++) {
+						if (daoju.item) {
+							if (daoju.item.data.i64ItemID.id == this['runeid' + j].i64ItemID.id) {
+								let exchange = this.init_sort(daoju.item.data)
+								let singleArray = exchange[1];
+								let labelArray = exchange[0];
+								let pos;
+								for (let i = 1; singleArray[i]; i++) {
+									let index = i - 1;
+									pos = i + 1;
+									this['vbox_exchange' + j]._childs[index].setData(singleArray[i], labelArray[i].btdes, j, this['type' + j], this)
+								}
+							}
+						}
+					}
 				}
 			}
 		}

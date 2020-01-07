@@ -12,6 +12,34 @@ module view.beiBao {
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
 				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
+				if (GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson[i] == 0) {
+					this['ui_item' + i].lbl_stronger.text = '';
+				} else {
+					this['ui_item' + i].lbl_stronger.text = '+' + GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson[i]
+				}
+				let sum = 0;
+				let soulArray = GameApp.GameEngine.mainPlayer.playersoulStoneLevel.playerlvl[i]
+				for (let shu in soulArray) {
+					sum = parseInt(soulArray[shu]) + sum;
+				}
+				if (sum == 0) {
+					this['ui_item' + i].lbl_soul.text = ''
+				} else {
+					this['ui_item' + i].lbl_soul.text = '精炼：' + sum;
+				}
+				let pos = i + 10;
+				let data = GameUtil.findEquipInPlayer(pos);
+				let shuziArray = ['', 'Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ']
+				if (data) {
+					let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU(data.dwBaseID + '');
+					if (lvl == 0) {
+						this['ui_item' + i].lbl_chuanshi.text = '';
+					} else {
+						this['ui_item' + i].lbl_chuanshi.text = '' + shuziArray[lvl];
+					}
+				} else {
+					this['ui_item' + i].lbl_chuanshi.text = '';
+				}
 			}
 			let heroSex = GameApp.MainPlayer.heroSex;
 			this.ui_tab0.img_icon.skin = LangConfig.getPlayerIconSkinV1();

@@ -27,6 +27,8 @@ module view.juese {
 		}
 		public addEvent(): void {
 			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
+				Laya.timer.clearAll(this);
+				PopUpManager.checkPanel(this);
 				PanelManage.openMainPanel()
 			})
 			EventManage.onWithEffect(this.btn_hero, Laya.UIEvent.CLICK, this, () => {

@@ -39,10 +39,10 @@ module view.juese {
 			EventManage.onWithEffect(this.btn_equipBuild, Laya.UIEvent.CLICK, this, () => {
 				new view.juese.Person_BuildEquipDialog().popup();
 			})
-			//武学基础
-			EventManage.onWithEffect(this.btn_wuXueBase, Laya.UIEvent.CLICK, this, () => {
-				new view.juese.Person_WuXueBaseDialog().popup();
-			})
+			// //武学基础
+			// EventManage.onWithEffect(this.btn_wuXueBase, Laya.UIEvent.CLICK, this, () => {
+			// 	new view.juese.Person_WuXueBaseDialog().popup();
+			// })
 			//装备强化
 			EventManage.onWithEffect(this.btn_equipStrong, Laya.UIEvent.CLICK, this, () => {
 				new view.zhaiYuan.ZhaiYuan_lianQiDialog().popup(true);
@@ -89,6 +89,7 @@ module view.juese {
 			}
 			//出身
 			let player = GameApp.MainPlayer;
+			this.img_job.skin='image/common/img_job0'+player.job+'.png'
 			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
 			//等级
 			this.lbl_level.text = player.zslevel + '转' + player.level + '级';
@@ -96,8 +97,17 @@ module view.juese {
 			this.lbl_name.text = player.objName;
 			// 声望信息
 			this.lbl_shengWang.text = '[' + LangConfig.getFameDes(player.wealth.nowFame) + ']';
-			//攻击类型
-			this.lbl_killType.text = LangConfig.getWuXueAttackType();
+			//门派
+			if (SheetConfig.BaseMenPaiSheet.getInstance(null).data[player.guildInfo.dwID]) {
+				let menpai = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME('' + player.guildInfo.dwID);
+				if (menpai) {
+					this.lbl_menpai.text = menpai;
+				} else {
+					this.lbl_menpai.text = '无门无派';
+				}
+			} else {
+				this.lbl_menpai.text = '无门无派';
+			}
 		}
 
 		/**
@@ -117,6 +127,34 @@ module view.juese {
 			for (let i = 0; i < 10; i++) {
 				this['ui_item' + i].img_bg.visible = true;
 				this['ui_item' + i].img_bg.skin = 'image/common/daoju/itemicon_bg_' + (i + 10) + '.png';
+				if (GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson[i] == 0) {
+					this['ui_item' + i].lbl_stronger.text = '';
+				} else {
+					this['ui_item' + i].lbl_stronger.text = '+' + GameApp.GameEngine.mainPlayer.playerEquipIntensify.playerjson[i]
+				}
+				let sum = 0;
+				let soulArray = GameApp.GameEngine.mainPlayer.playersoulStoneLevel.playerlvl[i]
+				for (let shu in soulArray) {
+					sum = parseInt(soulArray[shu]) + sum;
+				}
+				if (sum == 0) {
+					this['ui_item' + i].lbl_soul.text = ''
+				} else {
+					this['ui_item' + i].lbl_soul.text = '精炼：' + sum;
+				}
+				let pos = i + 10;
+				let data = GameUtil.findEquipInPlayer(pos);
+				let shuziArray = ['','Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ']
+				if (data) {
+					let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU(data.dwBaseID + '');
+					if (lvl == 0) {
+						this['ui_item' + i].lbl_chuanshi.text = '';
+					} else {
+						this['ui_item' + i].lbl_chuanshi.text = '' + shuziArray[lvl];
+					}
+				} else {
+					this['ui_item' + i].lbl_chuanshi.text = '';
+				}
 			}
 		}
 	}

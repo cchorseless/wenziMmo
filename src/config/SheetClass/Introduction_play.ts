@@ -1,54 +1,58 @@
 module SheetConfig {
     export class Introduction_play {
-        private data; private _instance; public constructor(data) { this.data = data; }
+        public data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): Introduction_play { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
         /**
-         *  名字
+         *  介绍对应ID
          */
-        public NAME(configID: string): string { return this.data[configID][0] }
+        public ID(configID): string { return this.data[configID][0] }
         /**
-         *  页签分类
+         *  介绍名称
          */
-        public TYPE(configID: string): number { return this.data[configID][1] }
+        public NAME(configID): string { return this.data[configID][1] }
         /**
-         *  解锁等级
+         *  介绍页签分类
          */
-        public LEVEL(configID: string): number { return this.data[configID][2] }
+        public TYPE(configID): number { return this.data[configID][2] }
         /**
-         *  文本1
+         *  介绍解锁等级
          */
-        public TEXT1(configID: string): string { return this.data[configID][3] }
+        public LEVEL(configID): number { return this.data[configID][3] }
         /**
-         *  文本2
+         *  描述文本1
          */
-        public TEXT2(configID: string): string { return this.data[configID][4] }
+        public TEXT1(configID): string { return this.data[configID][4] }
         /**
-         *  文本3
+         *  描述文本2
          */
-        public TEXT3(configID: string): string { return this.data[configID][5] }
+        public TEXT2(configID): string { return this.data[configID][5] }
+        /**
+         *  描述文本3
+         */
+        public TEXT3(configID): string { return this.data[configID][6] }
         /**
          *  奖励
          */
-        public REWARD(configID: string): number { return this.data[configID][6] }
+        public REWARD(configID): number { return this.data[configID][7] }
         /**
-         *  奖励数量
+         *  奖励物品数量
          */
-        public REWARDNUMBER(configID: string): number { return this.data[configID][7] }
+        public REWARDNUMBER(configID): number { return this.data[configID][8] }
         /**
-         *  具体内容
+         *  具体介绍
          */
-        public CONTENT(configID: string): string { return this.data[configID][8] }
+        public CONTENT(configID): string { return this.data[configID][9] }
         /**
-         *  介绍图标
+         *  介绍Icon图标
          */
-        public ICON(configID: string): string { return this.data[configID][9] }
+        public ICON(configID): string { return this.data[configID][10] }
         /**
          *  养成途径
          */
-        public GROWUPDES(configID: string): string { return this.data[configID][10] }
+        public GROWUPDES(configID): string { return this.data[configID][11] }
         /**
-          * 全部数据
-          */
+               * 全部数据
+               */
         public GETDATALIST(typeKey): any {
             this.data;
             let tempDate = [];
@@ -60,6 +64,5 @@ module SheetConfig {
             }
             return tempDate;
         }
-
     }
 }

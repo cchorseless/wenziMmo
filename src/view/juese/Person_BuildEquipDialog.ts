@@ -22,6 +22,10 @@ module view.juese {
 		public result;
 		//必选装备所有材料的int64id（用'`'号连接）
 		public stuff;
+		//可选材料
+		public cailiaoid;
+		//可选材料所需数量
+		public cailiaoNum;
 		public setData(): void {
 			this.panel_equip.hScrollBarSkin = '';
 			this.hbox_equip['sortItem'] = (items) => { };
@@ -252,10 +256,12 @@ module view.juese {
 						this.ui_item2.setData(itemInfo2, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 						this.lbl_item2.text = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + item12[2]);
 						//可选材料
+						this.cailiaoid=equipData[2];
 						let itemInfo3 = new ProtoCmd.ItemBase();
 						itemInfo3.dwBaseID = equipData[2];
 						let kexuan = GameUtil.findItemInBag(equipData[2], GameApp.GameEngine.bagItemDB);
 						//可选道具数量
+						this.cailiaoNum=equipData[3];
 						this.lbl_kexuan.text = kexuan + '/' + equipData[3];
 						this.ui_item3.ui_item.lbl_count.visible = false;
 						this.ui_item3.ui_item.setData(itemInfo3, EnumData.ItemInfoModel.SHOW_IN_MAIL);
@@ -351,9 +357,14 @@ module view.juese {
 				//打造装备
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.JS_equipFabricate, [this.result, this.stuff, type], null, this, (jsonData) => {
+					//刷新必选装备及其数量
 					GameApp.GameEngine.buildEquip = undefined;
 					this.lbl_num.text = '0/' + this.maxNum;
 					this.stuff=undefined;
+					//刷新可选材料数量
+					let kexuan = GameUtil.findItemInBag(this.cailiaoid, GameApp.GameEngine.bagItemDB);
+					this.lbl_kexuan.text = kexuan + '/' + this.cailiaoNum;
+					this.btn_putAnother.selected=false;
 				})
 				lcp.send(pkt)
 			} else {
