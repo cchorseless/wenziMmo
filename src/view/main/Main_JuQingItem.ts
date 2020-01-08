@@ -257,16 +257,14 @@ module view.main {
 				}
 			}
 			if (data.charpterInfo[index].zjid > GameApp.MainPlayer.charpterID) {
-				this.img_juqing.visible = true;
 				this.lbl_dangqian.visible = false;
 				this.lbl_all.text = '未解锁';
 				this.lbl_all.color = '#c43939'
 				this.lbl_all.x = 496;
 			}
 			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
-				this.img_juqing.visible = true;
 				this.lbl_dangqian.visible = false;
-				this.lbl_all.text = '已读完';
+				this.lbl_all.text = '已完成';
 				this.lbl_all.color = '#38ad32'
 				this.lbl_all.x = 496;
 			}
@@ -274,9 +272,9 @@ module view.main {
 			//章节名
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
-			let str=data.charpterInfo[index].intro;
-			let des=str.replace(/_/g,"");
-			this.lbl_des.text = ''+des;
+			let str = data.charpterInfo[index].intro;
+			let des = str.replace(/_/g, "");
+			this.lbl_des.text = '' + des;
 			//页数
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				let maxInfoNum;
@@ -293,7 +291,7 @@ module view.main {
 					this.lbl_dangqian.text = '' + now;
 					this.lbl_all.text = '/' + total + '页';
 					this.lbl_all.color = '#2c2d27'
-					this.lbl_all.x = 519;
+					this.lbl_all.x = this.lbl_dangqian.x + this.lbl_dangqian.width;
 				}
 			}
 			this.init_noChange();
@@ -303,60 +301,54 @@ module view.main {
 		 */
 		public init_noChange(): void {
 			//剧情任务
-			this.div_target.style.fontFamily = 'STLiti';
 			this.img_juqing.visible = true;
+			this.box_juqing.visible = false;
+			this.div_target.style.fontFamily = 'STLiti';
 			if (this.nowZJid > GameApp.MainPlayer.charpterID) {
-				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
-				this.div_target.visible = false;
-				this.lbl_juqing.text='';
+				this.lbl_juqing.text = '';
+				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png';
 			}
 			if (this.nowZJid < GameApp.MainPlayer.charpterID) {
-				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
-				this.div_target.visible = false;
-				this.lbl_juqing.text='';
+				this.lbl_juqing.text = '';
+				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png';
 			}
 			this.div_target.style.fontSize = 22;
-			if (this.lbl_des.height > 102) {
-				this.lbl_juqing.y = this.lbl_des.y + this.lbl_des.height;
-			} else {
-				this.lbl_juqing.y = 324;
-			}
 			if (this.nowZJid == GameApp.MainPlayer.charpterID) {
 				let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
 				if (juqing) {
 					for (let part in juqing) {
+						this.box_juqing.visible = true;
 						this.img_juqing.visible = false;
-						this.div_target.visible = true;
 						this.div_target.innerHTML = '' + juqing[part].target;
-						this.lbl_juqing.text='';
+						this.lbl_juqing.text = '欲知后事如何，请完成剧情目标';
 					}
 				} else {
-					this.img_juqing.visible = true;
-					this.div_target.visible = false;
+					this.lbl_juqing.text = '';
 					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
-					this.lbl_juqing.text='欲知后事如何，请完成剧情目标';
 				}
 			}
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];
 			let zhixianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.LIFEEXP];
 			this.div_zhuxiandes.style.color = this.div_zhixiandes.style.color = '#63491a';
 			this.div_zhuxiandes.style.fontSize = this.div_zhixiandes.style.fontSize = 22;
-			this.div_zhuxiandes.style.font = this.div_zhixiandes.style.font = 'STLiti';
 			//主线任务
 			if (zhuxianTask) {
+				this.lbl_zhuxianState.visible = true;
 				for (let i in zhuxianTask) {
 					let taskInfo: ProtoCmd.stQuestInfoBase = zhuxianTask[i]
 					this.lbl_zhuxianName.text = taskInfo.questname;
 					this.div_zhuxiandes.innerHTML = taskInfo.des;
 					if (taskInfo.queststatus >= 2) {
-						this.lbl_zhuxianState.visible = true;
-						this.lbl_zhuxianState.text = '√';
+						this.lbl_zhuxianState.color = '#39ad32';
+						this.lbl_zhuxianState.text = '已完成';
 					} else {
-						this.lbl_zhuxianState.visible = false;
+						this.lbl_zhuxianState.color = '#ca3939';
+						this.lbl_zhuxianState.text = '未完成';
 					}
-					this.lbl_zhuxianState.x = this.lbl_zhuxianName.x + this.lbl_zhuxianName.width;
+					this.lbl_zhuxianState.x = this.lbl_zhuxianName.x + this.lbl_zhuxianName.width + 10;
 				}
 			} else {
+				this.lbl_zhuxianState.visible = false;
 				this.lbl_zhuxianName.text = '暂无';
 				this.div_zhuxiandes.innerHTML = '';
 				this.lbl_zhuxianState.text = '';
@@ -376,21 +368,25 @@ module view.main {
 			}
 			zhixian = zhixian.sort(compare('queststatus'))
 			if (zhixian[0]) {
+				this.lbl_zhixianState.visible = true;
 				this.lbl_zhixianName.text = zhixian[0].questname;
+				this.lbl_zhixianState.x = this.lbl_zhixianName.x + this.lbl_zhixianName.width + 10;
 				this.div_zhixiandes.innerHTML = zhixian[0].des;
 				if (zhixian[0].queststatus >= 2) {
-					this.lbl_zhixianState.visible = true;
-					this.lbl_zhixianState.text = '√';
+					this.lbl_zhixianState.color = '#39ad32';
+					this.lbl_zhixianState.text = '已完成';
 				} else {
-					this.lbl_zhixianState.visible = false;
+					this.lbl_zhixianState.color = '#ca3939';
+					this.lbl_zhixianState.text = '未完成';
 				}
-				this.lbl_zhixianState.x = this.lbl_zhixianName.x + this.lbl_zhixianName.width;
 			} else {
+				this.lbl_zhixianState.visible = false;
 				this.lbl_zhixianState.visible = false;
 				this.lbl_zhixianName.text = '暂无';
 				this.div_zhixiandes.innerHTML = '';
 				this.lbl_zhixianState.text = '';
 			}
+			this.div_zhuxiandes.style.font = this.div_zhixiandes.style.font = 'STLiti';
 		}
 	}
 }

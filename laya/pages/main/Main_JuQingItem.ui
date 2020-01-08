@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":168,"x":171,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":26,"font":"HWXK","color":"#2c2d27","align":"center"},
+            "props":{"y":168,"x":167,"width":88,"var":"lbl_zhang","text":"第二章","fontSize":26,"font":"HWXK","color":"#2c2d27","align":"center"},
             "nodeParent":1,
             "label":"Label(lbl_zhang)",
             "isDirectory":false,
@@ -43,7 +43,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":168,"x":254,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":26,"font":"HWXK","color":"#79393a","align":"left"},
+            "props":{"y":168,"x":247,"width":129,"var":"lbl_chapterName","text":"章节名","height":22,"fontSize":26,"font":"HWXK","color":"#79393a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_chapterName)",
             "isDirectory":false,
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":171,"x":501,"width":20,"var":"lbl_dangqian","text":"11","fontSize":22,"font":"FZXK","color":"#a00000"},
+            "props":{"y":171,"x":501,"var":"lbl_dangqian","text":"11","fontSize":22,"font":"FZXK","color":"#ca3939"},
             "nodeParent":1,
             "label":"Label(lbl_dangqian)",
             "isDirectory":false,
@@ -85,7 +85,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":220,"x":167,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":220,"x":167,"wordWrap":true,"width":416,"var":"lbl_des","text":"   君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。不见，黄河之水天上来不见，黄河之水天上来","leading":5,"fontSize":22,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
             "label":"Label(lbl_des)",
             "isDirectory":false,
@@ -94,25 +94,51 @@
             "compId":11,
             "child":[
                 ],
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
             "x":15,
-            "type":"Label",
-            "props":{"y":324,"x":162,"wordWrap":true,"width":336,"var":"lbl_juqing","text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#a00000"},
+            "type":"Box",
+            "props":{"y":335,"x":142,"var":"box_juqing"},
             "nodeParent":1,
-            "label":"Label(lbl_juqing)",
-            "isOpen":true,
+            "label":"Box(box_juqing)",
+            "isOpen":null,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":12,
+            "compId":89,
             "child":[
                 {
-                    "x":30,
+                    "type":"Image",
+                    "props":{"skin":"image/main/main_zonglan/shadow_yuzhihoushi.png"},
+                    "nodeParent":89,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":85,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Label",
+                    "props":{"y":5,"x":18,"wordWrap":true,"width":336,"var":"lbl_juqing","text":"欲知后事如何，请完成剧情目标","height":24,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "nodeParent":89,
+                    "label":"Label(lbl_juqing)",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":12,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
                     "type":"HTMLDivElement",
-                    "props":{"y":32,"x":7,"width":390,"var":"div_target","innerHTML":"htmlText","height":107},
-                    "nodeParent":12,
+                    "props":{"y":35,"x":20,"width":390,"var":"div_target","innerHTML":"htmlText","height":34},
+                    "nodeParent":89,
                     "label":"HTMLDivElement(div_target)",
                     "isDirectory":false,
                     "isAniNode":true,
@@ -127,17 +153,29 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":474,"x":153,"width":263,"skin":"image/main/main_zonglan/bottom_guaji.png","height":95},
+            "props":{"y":332,"x":234,"var":"img_juqing","skin":"image/main/main_zonglan/font_shanyu.png"},
+            "nodeParent":1,
+            "label":"Image(img_juqing)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":88,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":415,"x":153,"width":263,"skin":"image/main/main_zonglan/bottom_guaji.png","height":95},
             "nodeParent":1,
             "label":"Image",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":24,
             "child":[
                 {
-                    "x":30,
                     "type":"Button",
                     "props":{"y":0,"x":-1,"width":86,"var":"btn_guaji","stateNum":"1","skin":"image/common/icon_baoxiang3_close.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":26,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffd08d","label":"挂机","height":86},
                     "nodeParent":24,
@@ -151,7 +189,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":12,"x":98,"width":37,"skin":"image/common/img_exp_2.png","height":40},
                     "nodeParent":24,
@@ -164,7 +201,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":19,"x":144,"var":"lbl_exp","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,
@@ -178,7 +214,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":54,"x":92,"width":40,"skin":"image/main/icon_tongqian.png","height":33},
                     "nodeParent":24,
@@ -192,7 +227,6 @@
                     "$LOCKED":false
                 },
                 {
-                    "x":30,
                     "type":"Label",
                     "props":{"y":57,"x":144,"var":"lbl_jinbi","text":"10000/h","fontSize":22,"font":"FZXK","color":"#63491a"},
                     "nodeParent":24,
@@ -211,7 +245,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":459,"x":464,"var":"btn_changeMode","stateNum":"2","skin":"image/main/main_zonglan/btn_yudu.png"},
+            "props":{"y":404,"x":461,"var":"btn_changeMode","stateNum":"2","skin":"image/main/main_zonglan/btn_yudu.png"},
             "nodeParent":1,
             "label":"Button(btn_changeMode)",
             "isDirectory":false,
@@ -225,7 +259,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":573,"x":143,"width":489,"skin":"image/common/bottom_touming.png","height":154,"alpha":0.5},
+            "props":{"y":522,"x":143,"width":489,"skin":"image/common/bottom_touming.png","height":154,"alpha":0.5},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -239,7 +273,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":581,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
+            "props":{"y":530,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -265,7 +299,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":102,"var":"lbl_zhuxianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":33,
                     "label":"Label(lbl_zhuxianName)",
                     "isDirectory":false,
@@ -278,22 +312,36 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":249,"width":24,"var":"lbl_zhuxianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32","bold":true},
+                    "props":{"y":4,"x":306,"width":72,"var":"lbl_zhuxianState","text":"已完成","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32","bold":true},
                     "nodeParent":33,
                     "label":"Label(lbl_zhuxianState)",
-                    "isDirectory":false,
+                    "isOpen":true,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":37,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":-1,"x":-10,"width":89.33203125,"text":"(           )","height":24,"fontSize":24,"color":"#000000"},
+                            "nodeParent":37,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":87,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":621,"x":156,"width":367,"var":"div_zhuxiandes","innerHTML":"htmlText","height":32},
+            "props":{"y":569,"x":156,"width":367,"var":"div_zhuxiandes","innerHTML":"htmlText","height":32},
             "nodeParent":1,
             "label":"HTMLDivElement(div_zhuxiandes)",
             "isDirectory":false,
@@ -306,7 +354,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":655,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
+            "props":{"y":602,"x":144,"width":414,"skin":"image/main/main_zonglan/frame_zhuxian.png","height":34},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -332,7 +380,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":114,"var":"lbl_zhixianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
+                    "props":{"y":4,"x":102,"var":"lbl_zhixianName","text":"升级到78级","height":21,"fontSize":24,"font":"FZXK","color":"#000000"},
                     "nodeParent":39,
                     "label":"Label(lbl_zhixianName)",
                     "isDirectory":false,
@@ -345,22 +393,34 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":4,"x":249,"width":30,"var":"lbl_zhixianState","text":"√","height":24,"fontSize":24,"font":"FZXK","color":"#39ad32","bold":true},
+                    "props":{"y":4,"x":306,"width":67,"var":"lbl_zhixianState","text":"未完成","height":24,"fontSize":24,"font":"FZXK","color":"#a53232","bold":true},
                     "nodeParent":39,
                     "label":"Label(lbl_zhixianState)",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":43,
                     "child":[
-                        ]
+                        {
+                            "type":"Label",
+                            "props":{"y":-1,"x":-10,"width":89.33203125,"text":"(           )","height":24,"fontSize":24,"color":"#000000"},
+                            "nodeParent":43,
+                            "label":"Label",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":86,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         },
         {
             "x":15,
             "type":"HTMLDivElement",
-            "props":{"y":696,"x":156,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":32},
+            "props":{"y":641,"x":156,"width":337,"var":"div_zhixiandes","innerHTML":"htmlText","height":32},
             "nodeParent":1,
             "label":"HTMLDivElement(div_zhixiandes)",
             "isDirectory":false,
@@ -374,7 +434,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":601,"x":572,"width":90,"var":"btn_task","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":49,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":634,"x":576,"width":98,"var":"btn_task","stateNum":2,"skin":"image/main/main_zonglan/icon_renwu.png","labelSize":24,"labelPadding":"0","labelFont":"FZXK","labelColors":"#764a1a,#55310b","label":"任务","height":69,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_task)",
             "isDirectory":false,
@@ -402,21 +462,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":735,"x":140,"skin":"image/main/main_zonglan/bottom_ditu.png"},
-            "nodeParent":1,
-            "label":"Image",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":80,
-            "child":[
-                ],
-            "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":1003,"x":143,"skin":"image/main/main_zonglan/frame_dangqiandidian.png"},
+            "props":{"y":1000,"x":143,"skin":"image/main/main_zonglan/frame_dangqiandidian.png"},
             "nodeParent":1,
             "label":"Image",
             "isDirectory":false,
@@ -429,8 +475,22 @@
         },
         {
             "x":15,
+            "type":"Image",
+            "props":{"y":685,"x":142,"width":491,"skin":"image/main/main_zonglan/frame_ditu.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":90,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
             "type":"Panel",
-            "props":{"y":744,"x":144,"width":488,"var":"panel_map","height":250},
+            "props":{"y":692,"x":144,"width":488,"var":"panel_map","height":302},
             "nodeParent":1,
             "label":"Panel(panel_map)",
             "isOpen":true,
@@ -442,7 +502,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":974,"skin":"image/map/northland/map_ditu_01.png","height":250},
+                    "props":{"y":0,"x":0,"width":974,"skin":"image/map/northland/map_ditu_01.png","height":302},
                     "nodeParent":67,
                     "label":"Image",
                     "isOpen":true,
@@ -454,99 +514,20 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":48,"x":73,"var":"btn_5002","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":243,"x":72,"width":126,"var":"btn_5004","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","height":114,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_5002)",
+                            "label":"Button(btn_5004)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":68,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":48,"x":358,"var":"btn_5012","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5012)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":69,
+                            "compId":76,
                             "child":[
                                 ]
                         },
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":120,"x":132,"var":"btn_5003","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5003)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":70,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":194,"x":194,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":71,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":113,"x":454,"var":"btn_5007","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5007)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":72,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":115,"x":281,"var":"btn_5006","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5006)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":73,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":202,"x":351,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":74,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":50,"x":233,"var":"btn_5005","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":60,"x":280,"width":145,"var":"btn_5005","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","height":111,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
                             "label":"Button(btn_5005)",
                             "isDirectory":false,
@@ -559,20 +540,99 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":204,"x":61,"var":"btn_5004","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":240,"x":421,"width":94,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","height":111,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button(btn_5004)",
+                            "label":"Button",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":76,
+                            "compId":74,
                             "child":[
                                 ]
                         },
                         {
                             "x":45,
+                            "type":"Button",
+                            "props":{"y":136,"x":336,"width":177,"var":"btn_5006","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","height":105,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5006)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":73,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":154,"x":509,"width":132,"var":"btn_5007","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5007)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":72,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":230,"x":231,"width":106,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","height":108,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":71,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":142,"x":159,"width":106,"var":"btn_5003","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5003)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":70,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":57,"x":427,"width":122,"var":"btn_5012","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","height":111,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5012)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":58,"x":87,"width":156,"var":"btn_5002","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","height":111,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5002)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":68,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":115,"x":281,"var":"img_pos","skin":"image/main/main_zonglan/icon_dingwei.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":138,"x":342,"var":"img_pos","skin":"image/main/main_zonglan/icon_dingwei.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
                             "label":"Image(img_pos)",
                             "isOpen":true,
@@ -676,19 +736,6 @@
             "child":[
                 ],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":378,"x":215,"var":"img_juqing","skin":"image/main/main_zonglan/font_shanyu.png"},
-            "nodeParent":1,
-            "label":"Image(img_juqing)",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":82,
-            "child":[
-                ]
         }],
     "animations":[
         {
