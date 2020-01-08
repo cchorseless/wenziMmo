@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":9,
+    "selecteID":91,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -485,7 +485,7 @@
             "compId":90,
             "child":[
                 ],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -502,7 +502,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":0,"x":0,"width":974,"skin":"image/map/northland/map_ditu_01.png","height":302},
+                    "props":{"y":0,"x":0,"width":1280,"skin":"image/map/northland/map_ditu_01.png","height":300},
                     "nodeParent":67,
                     "label":"Image",
                     "isOpen":true,
@@ -514,111 +514,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":243,"x":72,"width":126,"var":"btn_5004","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","height":114,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5004)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":76,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":60,"x":280,"width":145,"var":"btn_5005","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","height":111,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5005)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":75,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":240,"x":421,"width":94,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","height":111,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":74,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":136,"x":336,"width":177,"var":"btn_5006","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","height":105,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5006)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":73,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":154,"x":509,"width":132,"var":"btn_5007","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","height":112,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5007)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":72,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":230,"x":231,"width":106,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","height":108,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":71,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":142,"x":159,"width":106,"var":"btn_5003","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","height":112,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5003)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":70,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":57,"x":427,"width":122,"var":"btn_5012","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","height":111,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":57,
-                            "label":"Button(btn_5012)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":69,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":58,"x":87,"width":156,"var":"btn_5002","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","height":111,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":58,"x":84,"width":153,"var":"btn_5002","stateNum":"1","skin":"image/map/northland/map_cs_fuzhoucheng.png","height":112,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
                             "label":"Button(btn_5002)",
                             "isDirectory":false,
@@ -631,8 +527,112 @@
                         },
                         {
                             "x":45,
+                            "type":"Button",
+                            "props":{"y":57,"x":436,"width":121,"var":"btn_5012","stateNum":"1","skin":"image/map/northland/map_cs_haoshanpai.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5012)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":69,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":144,"x":158,"width":104,"var":"btn_5003","stateNum":"1","skin":"image/map/northland/map_cs_huashanpai.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5003)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":70,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":232,"x":240,"width":113,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":71,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":153,"x":521,"width":138,"var":"btn_5007","stateNum":"1","skin":"image/map/northland/map_cs_liangrenzhen.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5007)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":72,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":140,"x":335,"width":171,"var":"btn_5006","stateNum":"1","skin":"image/map/northland/map_cs_luoyangcheng.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5006)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":73,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":240,"x":421,"width":99,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":74,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":60,"x":280,"width":139,"var":"btn_5005","stateNum":"1","skin":"image/map/northland/map_cs_yaowangzhuang.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5005)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":75,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":245,"x":78,"width":122,"var":"btn_5004","stateNum":"1","skin":"image/map/northland/map_cs_yuhupubu.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":57,
+                            "label":"Button(btn_5004)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":76,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":138,"x":342,"var":"img_pos","skin":"image/main/main_zonglan/icon_dingwei.png","anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":129,"x":337,"var":"img_pos","skin":"image/main/main_zonglan/icon_dingwei.png","anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
                             "label":"Image(img_pos)",
                             "isOpen":true,
@@ -645,7 +645,7 @@
                             "$HIDDEN":false
                         }],
                     "$LOCKED":false,
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 }],
             "$LOCKED":false,
             "$HIDDEN":false

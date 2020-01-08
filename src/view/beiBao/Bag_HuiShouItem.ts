@@ -12,8 +12,9 @@ module view.beiBao {
 		public setData(): void {
 			this.panel_a.vScrollBarSkin = '';
 			if (this.hasInit) return;
-			this.curSelect = 1;
 			this.hasInit = true;
+			this.lbl_shaixuan.x=55;
+			this.lbl_shaixuan.text='选择筛选条件';
 			this.lbl_expHuiShou1.text = '0'
 			if (GameApp.MainPlayer.monthCard > 0) {
 				this.btn_goVip.label = '已激活';
@@ -24,7 +25,6 @@ module view.beiBao {
 			}
 			this.initUI();
 			this.addEvent();
-			this.onPutIn(1);
 		}
 
 		public initUI(): void {
@@ -51,6 +51,8 @@ module view.beiBao {
 			})
 			for (let i = 1; i <= 6; i++) {
 				this['btn_0' + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.lbl_shaixuan.x=1;
+					this.lbl_shaixuan.text='当前筛选：';
 					this.btn_center.label = this['btn_0' + i].label;
 					this.curSelect = i;
 					Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
@@ -275,7 +277,7 @@ module view.beiBao {
 
 		}
 		public onShowExp() {
-			if (GameApp.MainPlayer.monthCard > 0 || this.exp1 > 0) {
+			if (GameApp.MainPlayer.monthCard > 0 && this.exp1 > 0) {
 				this.lbl_expHuiShou1.text = "" + LangConfig.getBigNumberDes(this.exp1) + '(+' + LangConfig.getBigNumberDes(Math.floor(this.exp1 * 0.05)) + ')';
 			} else {
 				this.lbl_expHuiShou1.text = "" + LangConfig.getBigNumberDes(this.exp1);

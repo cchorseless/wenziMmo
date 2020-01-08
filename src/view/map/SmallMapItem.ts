@@ -100,7 +100,7 @@ module view.map {
 			});
 			//任务
 			EventManage.onWithEffect(this.btn_task, Laya.UIEvent.CLICK, this, function () {
-				new view.dialog.TaskDialog().popup();
+				new view.dialog.TaskDialog().setData().popup();
 			})
 
 		}
@@ -210,6 +210,10 @@ module view.map {
 					}
 					this.lbl_state.x = this.lbl_task.x + this.lbl_task.width + 5;
 				}
+			} else {
+				this.lbl_task.text = '暂无主线';
+				this.div_des.innerHTML = '';
+				this.lbl_state.text = '';
 			}
 		}
 	}

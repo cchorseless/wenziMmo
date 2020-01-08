@@ -9,6 +9,12 @@ module view.main {
 		public setData(mapid: number): Main_PlaceDialog {
 			this.panel_item.hScrollBarSkin = '';
 			this.mapid = mapid;
+			this.img_bg.height = 622;
+			this.btn_chuansong.visible = true;
+			if (GameApp.MainPlayer.location.mapid == mapid) {
+				this.btn_chuansong.visible = false;
+				this.img_bg.height = 565;
+			}
 			this.addEvent();
 			this.init_mapInfo();
 			return this;
@@ -20,7 +26,7 @@ module view.main {
 			});
 			//传送
 			EventManage.onWithEffect(this.btn_chuansong, Laya.UIEvent.CLICK, this, () => {
-				 let roomid=SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID(this.mapid);
+				let roomid = SheetConfig.mapRoomSheet.getInstance(null).GETBEGINROOMIDBYMAPID(this.mapid);
 				if (this.mapid == GameApp.MainPlayer.location.mapid) {
 					TipsManage.showTips('已在该地点')
 				} else {
@@ -32,7 +38,7 @@ module view.main {
 		}
 		public init_mapInfo(): void {
 			//地图名称
-			this.img_name.skin = 'image/main/main_zonglan/diming_'+this.mapid+'.png';
+			this.img_name.skin = 'image/main/main_zonglan/diming_' + this.mapid + '.png';
 			//地图描述
 			this.lbl_des.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + this.mapid);
 			//怪物掉落一览
@@ -45,11 +51,11 @@ module view.main {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = itemArray[index];
 					ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					ui_item.x =parseInt(index) % 4*(ui_item.width+10);
-					if(itemArray.length>4){
-						ui_item.y=Math.floor(parseInt(index) / 4)*(ui_item.height+5);
-					}else{
-						ui_item.y=(this.panel_item.height-ui_item.height)/2;
+					ui_item.x = parseInt(index) % 4 * (ui_item.width + 10);
+					if (itemArray.length > 4) {
+						ui_item.y = Math.floor(parseInt(index) / 4) * (ui_item.height + 5);
+					} else {
+						ui_item.y = (this.panel_item.height - ui_item.height) / 2;
 					}
 					this.panel_item.addChild(ui_item);
 					num += 1;

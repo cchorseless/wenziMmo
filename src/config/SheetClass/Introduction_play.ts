@@ -51,8 +51,8 @@ module SheetConfig {
          */
         public GROWUPDES(configID): string { return this.data[configID][11] }
         /**
-               * 全部数据
-               */
+             * 全部数据
+             */
         public GETDATALIST(typeKey): any {
             this.data;
             let tempDate = [];

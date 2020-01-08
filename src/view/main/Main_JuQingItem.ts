@@ -7,6 +7,8 @@ module view.main {
 			Main_JuQingItem.self = this;
 		}
 		public nowZJid;
+		public data;
+		public index;
 		//5002福州5003华山50041玉壶瀑布5005药王庄5006洛阳城5007良人镇5012嵩山派
 		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012]
 		public setData(): void {
@@ -34,7 +36,7 @@ module view.main {
 		public addEvent(): void {
 			for (let mapid of this.mapArray) {
 				EventManage.onWithEffect(this['btn_' + mapid], Laya.UIEvent.CLICK, this, () => {
-					new view.main.Main_PlaceDialog().setData(mapid).popup()
+						new view.main.Main_PlaceDialog().setData(mapid).popup();
 				})
 			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {
@@ -234,6 +236,8 @@ module view.main {
 		 * @param index 所选章节
 		 */
 		public init_chapter(data, index): void {
+			this.index = index;
+			this.data = data;
 			this.nowZJid = data.charpterInfo[index].zjid
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID] = data.charpterInfo[index];
@@ -256,18 +260,6 @@ module view.main {
 					}
 				}
 			}
-			if (data.charpterInfo[index].zjid > GameApp.MainPlayer.charpterID) {
-				this.lbl_dangqian.visible = false;
-				this.lbl_all.text = '未解锁';
-				this.lbl_all.color = '#c43939'
-				this.lbl_all.x = 496;
-			}
-			if (data.charpterInfo[index].zjid < GameApp.MainPlayer.charpterID) {
-				this.lbl_dangqian.visible = false;
-				this.lbl_all.text = '已完成';
-				this.lbl_all.color = '#38ad32'
-				this.lbl_all.x = 496;
-			}
 			this.lbl_zhang.text = '第' + GameUtil.SectionToChinese(index, 0) + '章';
 			//章节名
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
@@ -275,25 +267,6 @@ module view.main {
 			let str = data.charpterInfo[index].intro;
 			let des = str.replace(/_/g, "");
 			this.lbl_des.text = '' + des;
-			//页数
-			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
-				let maxInfoNum;
-				let boo = PanelManage.getAspectRatio()
-				if (boo) {
-					maxInfoNum = 8
-				} else {
-					maxInfoNum = 7
-				}
-				let total = Math.ceil((data.charpterInfo[index].enddbid - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-				let now = Math.ceil((GameApp.MainPlayer.talkID - data.charpterInfo[index].startdbid + 1) / maxInfoNum);
-				if (now > 0) {
-					this.lbl_dangqian.visible = true;
-					this.lbl_dangqian.text = '' + now;
-					this.lbl_all.text = '/' + total + '页';
-					this.lbl_all.color = '#2c2d27'
-					this.lbl_all.x = this.lbl_dangqian.x + this.lbl_dangqian.width;
-				}
-			}
 			this.init_noChange();
 		}
 		/**
@@ -305,15 +278,42 @@ module view.main {
 			this.box_juqing.visible = false;
 			this.div_target.style.fontFamily = 'STLiti';
 			if (this.nowZJid > GameApp.MainPlayer.charpterID) {
+				this.lbl_dangqian.visible = false;
+				this.lbl_all.text = '未解锁';
+				this.lbl_all.color = '#c43939'
+				this.lbl_all.x = 496;
 				this.lbl_juqing.text = '';
 				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png';
 			}
 			if (this.nowZJid < GameApp.MainPlayer.charpterID) {
+				this.lbl_dangqian.visible = false;
+				this.lbl_all.text = '已完成';
+				this.lbl_all.color = '#38ad32'
+				this.lbl_all.x = 496;
 				this.lbl_juqing.text = '';
 				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png';
 			}
+
 			this.div_target.style.fontSize = 22;
 			if (this.nowZJid == GameApp.MainPlayer.charpterID) {
+				//页数
+				let maxInfoNum;
+				let boo = PanelManage.getAspectRatio()
+				if (boo) {
+					maxInfoNum = 8
+				} else {
+					maxInfoNum = 7
+				}
+				let total = Math.ceil((this.data.charpterInfo[this.index].enddbid - this.data.charpterInfo[this.index].startdbid + 1) / maxInfoNum);
+				let now = Math.ceil((GameApp.MainPlayer.talkID - this.data.charpterInfo[this.index].startdbid + 1) / maxInfoNum);
+				if (now > 0) {
+					this.lbl_dangqian.visible = true;
+					this.lbl_dangqian.text = '' + now;
+					this.lbl_all.text = '/' + total + '页';
+					this.lbl_all.color = '#2c2d27'
+					this.lbl_all.x = this.lbl_dangqian.x + this.lbl_dangqian.width;
+				}
+				//剧情事件
 				let juqing = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT]
 				if (juqing) {
 					for (let part in juqing) {
