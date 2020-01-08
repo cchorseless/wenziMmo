@@ -10,17 +10,22 @@ module view.menu {
 			let box = new Laya.Box();
 			box.top = box.bottom = box.right = box.left = 0;
 			this.ViewS_show.addItem(box);
-			GameApp.LListener.on(ProtoCmd.ZGTQ_Open, this, (data) => {
+			GameApp.LListener.on(ProtoCmd.ZGTQ_Open, this, (data: ProtoCmd.itf_Menu_MoonCardInfo) => {
 				box.removeChildren();
 				let o = new recharge_vip.Recharge_VIPMonthCard()
+				GameApp.MainPlayer.monthCard = data.sec;
+				if (PanelManage.BeiBao) {
+					PanelManage.BeiBao.ui_huiShou.hasInit = false;
+					PanelManage.BeiBao.ui_huiShou.setData();
+				}
 				o.setData(data)
 				box.addChild(o);
 			})
 			let pkt1 = new ProtoCmd.QuestClientData().setString(ProtoCmd.ZGTQ_Open, null)
 			lcp.send(pkt1)
 		}
-		public addEvent(){
-			this.btn_close.on(Laya.UIEvent.CLICK,this,function(){
+		public addEvent() {
+			this.btn_close.on(Laya.UIEvent.CLICK, this, function () {
 				GameApp.LListener.offCaller(ProtoCmd.ZGTQ_Open, this)
 				this.close();
 			})

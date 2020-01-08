@@ -591,11 +591,24 @@ module view.main {
 			this.getHuoDongStatus();
 
 			this.getActiveInfoData();
+			//月卡剩余时间
+			this.getMoonCardData();
 
 		}
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;
 			pkt.setString(ProtoCmd.TASK_HuoYueDuClientOpen)
+			lcp.send(pkt);
+		}
+		/**
+		 * 月卡剩余时间
+		 */
+		public getMoonCardData() {
+			let pkt = new ProtoCmd.QuestClientData;
+			pkt.setString(ProtoCmd.GetZGTQ, null, null, this, (jsonData: { leftime: number }) => {
+				//jsonData.leftime月卡剩余时间
+				GameApp.MainPlayer.monthCard = jsonData.leftime;
+			})
 			lcp.send(pkt);
 		}
 		/**
@@ -637,7 +650,7 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
 				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
 					GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
-					this.getEquipPanelMsg()	
+					this.getEquipPanelMsg()
 				});
 			lcp.send(pkt);
 		}
@@ -876,7 +889,7 @@ module view.main {
 			GameApp.MainPlayer.EquipmentNum[1] = curSoulStoneLv + "/" + (k + 1) * 60;
 			//强化大师达标装备数量
 			let lv = this.onLvIntensify();
-			GameApp.MainPlayer.EquipmentNum[2] =lv[0] + '/10';
+			GameApp.MainPlayer.EquipmentNum[2] = lv[0] + '/10';
 		}
 		/**
 		 * 强化大师达标装备数量

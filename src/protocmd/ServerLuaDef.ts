@@ -616,6 +616,8 @@ module ProtoCmd {
     export const ZGTQ_Open = "ZGTQ_Open";    //月卡界面
     export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
     export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
+    export const GetZGTQ = "GetZGTQ";    //月卡时间（收到数据：leftime月卡剩余时间）
+
 
     export const chaozhiopen = "chaozhiopen";         //超值礼包(促销)      面板
     export const ChaoZhiBuy = "ChaoZhiBuy"        //超值礼包(促销)      领取
@@ -1283,6 +1285,15 @@ module ProtoCmd {
         qiandao: number//今天是否已签到0没签到1已签到
         qiandaonum: 7//已签到总天数
         qiaodaoday: 31//本月总天数
+    }
+    /**
+     * 月卡
+     */
+    export interface itf_Menu_MoonCardInfo {
+        flag: number//0激活1领取2已领取
+        itemtab: any//月卡可获得的奖励
+        sec: number//倒计时
+        state: number//1就是不是首次激活
     }
     /***********************************抽奖接口**************************** */
     /**

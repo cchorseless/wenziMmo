@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":99,
+    "selecteID":123,
     "props":{"width":520,"sceneColor":"#ffffff","height":390},
     "nodeParent":-1,
     "label":"View",
@@ -57,7 +57,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":9,"x":270,"text":"    特权回收\\n格外+5%经验","strokeColor":"#603d22","padding":"-1","fontSize":20,"font":"FZHL","color":"#63491a","bold":true},
+            "props":{"y":9,"x":270,"text":"  月卡用户\\n回收+5%","strokeColor":"#603d22","padding":"-1","fontSize":20,"font":"FZHL","color":"#63491a","bold":true},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -67,6 +67,20 @@
             "child":[
                 ],
             "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":16,"x":357,"width":40,"skin":"image/common/icon_yuelio.png","height":40},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":129,
+            "child":[
+                ]
         },
         {
             "x":15,
@@ -296,26 +310,12 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
             "type":"Image",
-            "props":{"y":241,"x":5,"width":40,"skin":"image/common/icon_qingyi.png","height":40},
-            "nodeParent":1,
-            "label":"Image",
-            "isOpen":true,
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":110,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "props":{"y":284,"x":5,"width":40,"skin":"image/common/icon_yuelio.png","height":40},
+            "props":{"y":283,"x":78,"width":40,"skin":"image/common/icon_yuelio.png","height":40},
             "nodeParent":1,
             "label":"Image",
             "isOpen":true,
@@ -329,9 +329,9 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":253,"x":100,"width":140,"var":"lbl_expHuiShou0","text":"0","strokeColor":"#603d22","stroke":1,"height":22,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":256,"x":93,"width":77,"var":"lbl_condition","text":"1转-2转","strokeColor":"#603d22","stroke":1,"height":22,"fontSize":20,"font":"FZXK","color":"#63491a"},
             "nodeParent":1,
-            "label":"Label(lbl_expHuiShou0)",
+            "label":"Label(lbl_condition)",
             "isOpen":true,
             "isDirectory":false,
             "isAniNode":true,
@@ -344,7 +344,22 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":296,"x":100,"width":140,"var":"lbl_expHuiShou1","text":"0","strokeColor":"#603d22","stroke":1,"height":22,"fontSize":22,"font":"FZXK","color":"#63491a"},
+            "props":{"y":256,"x":165,"width":80,"var":"lbl_num","text":"（10件）","strokeColor":"#603d22","stroke":1,"height":22,"fontSize":20,"font":"FZXK","color":"#63491a"},
+            "nodeParent":1,
+            "label":"Label(lbl_num)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":128,
+            "child":[
+                ],
+            "$HIDDEN":false
+        },
+        {
+            "x":15,
+            "type":"Label",
+            "props":{"y":295,"x":126,"var":"lbl_expHuiShou1","text":"1710万(+66)","strokeColor":"#603d22","stroke":1,"height":22,"fontSize":20,"font":"FZXK","color":"#63491a","align":"left"},
             "nodeParent":1,
             "label":"Label(lbl_expHuiShou1)",
             "isOpen":true,
@@ -359,7 +374,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":253,"x":42,"text":"情义：","fontSize":22,"font":"FZHL","color":"#000000"},
+            "props":{"y":256,"x":1,"text":"当前筛选：","fontSize":20,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
@@ -372,7 +387,7 @@
         {
             "x":15,
             "type":"Label",
-            "props":{"y":296,"x":42,"text":"阅历：","fontSize":22,"font":"FZHL","color":"#000000"},
+            "props":{"y":296,"x":1,"width":92,"text":"回收获得     ：","height":20,"fontSize":20,"font":"FZHL","color":"#000000"},
             "nodeParent":1,
             "label":"Label",
             "isDirectory":false,
