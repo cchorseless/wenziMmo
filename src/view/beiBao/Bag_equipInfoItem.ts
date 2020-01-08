@@ -171,6 +171,7 @@ module view.beiBao {
 				// 筛选合适的装备
 				if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= big_index && btIndex >= small_index) {
 					let itemUI = new view.compart.DaoJuItem();
+					itemUI.scaleX=itemUI.scaleY=1.1;
 					itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_PLAYER);
 					(this['ui_item' + (btIndex - small_index)] as view.compart.EquipInBodybgItem).addItem(itemUI);
 				}
