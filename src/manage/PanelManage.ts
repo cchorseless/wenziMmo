@@ -855,7 +855,7 @@ module PanelManage {
                 PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
                 PanelManage.JuQingMode.setData();
                 PanelManage.JuQingMode.mouseEnabled = true;
-                PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
+                // PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
                 PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
                 PanelManage.Main.changeMode(2);
             })
