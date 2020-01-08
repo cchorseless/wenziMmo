@@ -99,7 +99,7 @@ module view.beiBao {
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (o.itemType == 2 && o.dwLevel <= 89 && zsLevel == 0 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
@@ -111,7 +111,7 @@ module view.beiBao {
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 1 && zsLevel < 3 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
@@ -123,7 +123,7 @@ module view.beiBao {
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 3 && zsLevel < 5 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
@@ -135,7 +135,7 @@ module view.beiBao {
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 5 && zsLevel < 7 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
@@ -147,7 +147,7 @@ module view.beiBao {
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 7 && zsLevel < 9 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
@@ -158,7 +158,7 @@ module view.beiBao {
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (o.itemType == 2 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
 							num += 1;
 						}
 					}
