@@ -182,7 +182,7 @@ module view.main {
 							btn_juqingDown.labelSize = 20;
 							btn_juqingDown.labelFont = 'FZXK';
 							btn_juqingDown.label = data.name;
-							btn_juqingDown.y = (btn_juqingDown.height + 10) * (parseInt(key) - 1)
+							btn_juqingDown.y = (btn_juqingDown.height + 8) * (parseInt(key) - 1)
 							child._childs[1].addChild(btn_juqingDown);
 						}
 						child.height = child._childs[0].height + child._childs[1].height;
@@ -274,7 +274,9 @@ module view.main {
 			//章节名
 			this.lbl_chapterName.x = this.lbl_zhang.x + this.lbl_zhang.width + 15;
 			this.lbl_chapterName.text = data.charpterInfo[index].name;
-			this.lbl_des.text = data.charpterInfo[index].intro;
+			let str=data.charpterInfo[index].intro;
+			let des=str.replace(/_/g,"");
+			this.lbl_des.text = ''+des;
 			//页数
 			if (data.charpterInfo[index].zjid == GameApp.MainPlayer.charpterID) {
 				let maxInfoNum;
@@ -306,10 +308,12 @@ module view.main {
 			if (this.nowZJid > GameApp.MainPlayer.charpterID) {
 				this.img_juqing.skin = 'image/main/main_zonglan/font_shanyu.png'
 				this.div_target.visible = false;
+				this.lbl_juqing.text='';
 			}
 			if (this.nowZJid < GameApp.MainPlayer.charpterID) {
 				this.img_juqing.skin = 'image/main/main_zonglan/font_yiwancheng.png'
 				this.div_target.visible = false;
+				this.lbl_juqing.text='';
 			}
 			this.div_target.style.fontSize = 22;
 			if (this.lbl_des.height > 102) {
@@ -324,11 +328,13 @@ module view.main {
 						this.img_juqing.visible = false;
 						this.div_target.visible = true;
 						this.div_target.innerHTML = '' + juqing[part].target;
+						this.lbl_juqing.text='';
 					}
 				} else {
 					this.img_juqing.visible = true;
 					this.div_target.visible = false;
 					this.img_juqing.skin = 'image/main/main_zonglan/font_qingyudu.png'
+					this.lbl_juqing.text='欲知后事如何，请完成剧情目标';
 				}
 			}
 			let zhuxianTask = GameApp.GameEngine.taskInfo[EnumData.TaskType.SYSTEM];

@@ -220,7 +220,7 @@ module GameUtil {
     export function timeCountDown(second: number, ui: laya.html.dom.HTMLDivElement, type: number = 0): void {
         let stringWord = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#63491a'>剩余时间：</span>";
         if (type == 1) {
-            stringWord ="<span style='color:#63491a;font-family:STLiti;fontSize:24;stroke:0;strokeColor:#63491a'>累计：</span>"
+            stringWord = "<span style='color:#63491a;font-family:STLiti;fontSize:24;stroke:0;strokeColor:#63491a'>累计：</span>"
         }
         if (second >= 60) {
             let aa = TimeUtils.getFormatBySecond(second, 6)
@@ -241,7 +241,11 @@ module GameUtil {
                 ui.innerHTML = stringWord + "<span style='color:#63491a;font-family:STLiti;fontSize:20;stroke:0;strokeColor:#63491a'>" + time + "</span>";
             }
             else {
-                ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+                if (type == 0) {
+                    ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+                } else {
+                    ui.innerHTML = "";
+                }
                 Laya.timer.clear(ui, round)
             }
         }

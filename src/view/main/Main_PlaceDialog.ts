@@ -36,29 +36,7 @@ module view.main {
 			//地图描述
 			this.lbl_des.text = SheetConfig.Introduction_play.getInstance(null).CONTENT('' + this.mapid);
 			//怪物掉落一览
-			let monarray = SheetConfig.mydb_mongen_tbl.getInstance(null).GETALLMONSTERBYMAPID(this.mapid);
-			let itemArray = [];
-			for (let mon of monarray) {
-				let items = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES(mon);
-				for (let item of items) {
-					if (itemArray.length > 1) {
-						let num = 0;
-						let haveSame = true;
-						for (let nowItem of itemArray) {
-							num += 1;
-							//怪物掉落去掉相同物品
-							if (parseInt(nowItem) == item) {
-								haveSame = false;
-							}
-							if (num == itemArray.length && haveSame) {
-								itemArray.push(item);
-							}
-						}
-					} else {
-						itemArray.push(item);
-					}
-				}
-			}
+			let itemArray = SheetConfig.mydb_mapinfo_tbl.getInstance(null).DROP_PROPS(this.mapid).split('`');
 			this.panel_item.removeChildren();
 			let num = 0;
 			for (let index in itemArray) {
@@ -67,12 +45,12 @@ module view.main {
 					let itemInfo = new ProtoCmd.ItemBase();
 					itemInfo.dwBaseID = itemArray[index];
 					ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-					if (parseInt(index) % 2 == 0) {
-						ui_item.y = 0;
-					} else {
-						ui_item.y = ui_item.height;
+					ui_item.x =parseInt(index) % 4*(ui_item.width+10);
+					if(itemArray.length>4){
+						ui_item.y=Math.floor(parseInt(index) / 4)*(ui_item.height+5);
+					}else{
+						ui_item.y=(this.panel_item.height-ui_item.height)/2;
 					}
-					ui_item.x = Math.floor(num / 2) * (ui_item.width + 10);
 					this.panel_item.addChild(ui_item);
 					num += 1;
 				}

@@ -164,17 +164,17 @@ module view.juese {
 			// 闪避
 			this.lbl_sb.text = '' + ability.nJuck;
 			// 命中率
-			this.lbl_mzl.text = ability.nHitRatio / 10000 + '%';
+			this.lbl_mzl.text = (ability.nHitRatio / 10000 + ability.nHit / 1000) + '%';
 			// 闪避率
-			this.lbl_sbl.text = ability.nJuckRatio / 10000 + '%';
+			this.lbl_sbl.text = (ability.nJuckRatio / 10000 + ability.nJuck / 1000) + '%';
 			// 暴击
 			this.lbl_bj.text = '' + ability.nCrit;
 			// 抗暴
 			this.lbl_kb.text = '' + ability.nCritResi;
 			// 暴击率
-			this.lbl_bjl.text = ability.nCritRatio / 10000 + '%';
+			this.lbl_bjl.text = (ability.nCritRatio / 10000+ ability.nCrit/1000) + '%';
 			// 抗暴率
-			this.lbl_kbl.text = ability.nCritResiRatio / 10000 + '%';
+			this.lbl_kbl.text = (ability.nCritResiRatio / 10000+ability.nCritResi/1000) + '%';
 			// 爆伤
 			this.lbl_bs.text = '' + ability.nAtkCrit;
 			// 幸运

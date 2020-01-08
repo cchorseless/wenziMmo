@@ -103,11 +103,7 @@ module view.juese {
 				let menpai = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME('' + player.guildInfo.dwID);
 				this.img_menpai.visible = true;
 				this.img_menpai.skin = 'image/fuben/icon_' + player.guildInfo.dwID + '.png';
-				if (menpai) {
-					this.lbl_menpai.text = menpai;
-				} else {
-					this.lbl_menpai.text = '无门无派';
-				}
+				this.lbl_menpai.text = menpai;
 			} else {
 				this.img_menpai.visible = false;
 				this.lbl_menpai.text = '无门无派';
