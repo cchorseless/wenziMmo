@@ -608,6 +608,10 @@ module view.main {
 			pkt.setString(ProtoCmd.GetZGTQ, null, null, this, (jsonData: { leftime: number }) => {
 				//jsonData.leftime月卡剩余时间
 				GameApp.MainPlayer.monthCard = jsonData.leftime;
+				if (PanelManage.BeiBao) {
+					PanelManage.BeiBao.ui_huiShou.hasInit = false;
+					PanelManage.BeiBao.ui_huiShou.setData();
+				}
 			})
 			lcp.send(pkt);
 		}

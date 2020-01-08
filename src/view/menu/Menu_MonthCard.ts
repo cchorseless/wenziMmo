@@ -13,11 +13,7 @@ module view.menu {
 			GameApp.LListener.on(ProtoCmd.ZGTQ_Open, this, (data: ProtoCmd.itf_Menu_MoonCardInfo) => {
 				box.removeChildren();
 				let o = new recharge_vip.Recharge_VIPMonthCard()
-				GameApp.MainPlayer.monthCard = data.sec;
-				if (PanelManage.BeiBao) {
-					PanelManage.BeiBao.ui_huiShou.hasInit = false;
-					PanelManage.BeiBao.ui_huiShou.setData();
-				}
+				PanelManage.Main.getMoonCardData();
 				o.setData(data)
 				box.addChild(o);
 			})
