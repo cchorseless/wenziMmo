@@ -83,14 +83,14 @@ module view.juese {
 				// 筛选合适的装备
 				if (btLocation == EnumData.PACKAGE_TYPE.ITEMCELLTYPE_EQUIP && btIndex <= EnumData.emEquipPosition.EQUIP_BELT && btIndex >= EnumData.emEquipPosition.EQUIP_HEADDRESS) {
 					let itemUI = new view.compart.DaoJuItem();
-					itemUI.scaleX=itemUI.scaleY=1.1;
+					itemUI.scaleX = itemUI.scaleY = 1.1;
 					itemUI.setData(_itemBase, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 					(this['ui_item' + btIndex] as view.compart.EquipInBodybgItem).addItem(itemUI);
 				}
 			}
 			//出身
 			let player = GameApp.MainPlayer;
-			this.img_job.skin='image/common/img_job0'+player.job+'.png'
+			this.img_job.skin = 'image/common/img_job0' + player.job + '.png'
 			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[player.job]];
 			//等级
 			this.lbl_level.text = player.zslevel + '转' + player.level + '级';
@@ -101,12 +101,15 @@ module view.juese {
 			//门派
 			if (SheetConfig.BaseMenPaiSheet.getInstance(null).data[player.guildInfo.dwID]) {
 				let menpai = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME('' + player.guildInfo.dwID);
+				this.img_menpai.visible = true;
+				this.img_menpai.skin = 'image/fuben/icon_' + player.guildInfo.dwID + '.png';
 				if (menpai) {
 					this.lbl_menpai.text = menpai;
 				} else {
 					this.lbl_menpai.text = '无门无派';
 				}
 			} else {
+				this.img_menpai.visible = false;
 				this.lbl_menpai.text = '无门无派';
 			}
 		}
@@ -145,7 +148,7 @@ module view.juese {
 				}
 				let pos = i + 10;
 				let data = GameUtil.findEquipInPlayer(pos);
-				let shuziArray = ['','Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ']
+				let shuziArray = ['', 'Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ']
 				if (data) {
 					let lvl = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMJIESHU(data.dwBaseID + '');
 					if (lvl == 0) {

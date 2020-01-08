@@ -133,7 +133,6 @@ module view.beiBao {
 					power = GameApp.GameEngine.mainPlayer.hero3.ability.nFight.toString();
 					break;
 			}
-			// this.curCreater
 			this.lbl_zhanLi.text = '' + power;
 			let small_index;
 			let big_index;
