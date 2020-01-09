@@ -45,6 +45,9 @@ class ServerListener extends SingletonClass {
         /*************************************战斗相关***************************************** */
         // 攻击 0x0232
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretAttackRet), this, this.cretAttackRet);
+
+        //怪物Buff
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.stCretBuffState), this, this.cretMonsterBuff);
         // 怪物掉血 0x0297
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.CretStruck), this, this.cretStruck);
         // 生物复活死亡通知 246
@@ -668,30 +671,6 @@ class ServerListener extends SingletonClass {
         // 受伤者
         let targeter = player.findViewObj(tartmpid);
         if (targeter) {
-            // let e = new view.wuXue.WuXue_SkillEffect()
-            // let skillEff = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_EFFECTSID(skillID);
-            // // targeter.ui_item.y;
-            // e.y = Laya.stage.height / 3 - 50;
-            // e.scaleX = e.scaleY = 0.8;
-            // if (actmpid == GameApp.GameEngine.mainPlayer.tempId) {
-            //     e.setData(0, skillEff)
-            //     e.x = e.width * (-1);
-            //     Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
-            //         Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
-            //             PanelManage.Main.removeChild(e)
-            //         }))
-            //     }))
-            // } 
-            // else {
-            //     e.setData(1, skillEff)
-            //     e.x = e.width + Laya.stage.width;
-            //     Laya.Tween.to(e, { x: ((Laya.stage.width / 2) - (e.width * 0.3)) }, 500, null, Laya.Handler.create(this, () => {
-            //         Laya.Tween.to(e, { alpha: 0.3 }, 1000, null, Laya.Handler.create(this, () => {
-            //             PanelManage.Main.removeChild(e)
-            //         }))
-            //     }))
-            // }
-            // PanelManage.Main.addChild(e)
             targeter.onAttack();
             targeter.changeHp(nowhp, maxhp);
             TipsManage.showTxt('HP--' + npower);
@@ -699,6 +678,12 @@ class ServerListener extends SingletonClass {
         else {
             TipsManage.showTips('没有找到受击对象')
         };
+        msg.clear();
+        msg = null;
+    }
+    public cretMonsterBuff(data:any){
+        let msg = new ProtoCmd.stCretBuffState(data);
+
         msg.clear();
         msg = null;
     }
@@ -809,7 +794,9 @@ class ServerListener extends SingletonClass {
             let shot = new ProtoCmd.stShortCuts();
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
-            GameApp.MainPlayer.skillShotButton[shot.btRow] = shot;
+            //key  行数*100 + 列数
+            let key = shot.btRow*100 + shot.btCol
+            GameApp.MainPlayer.skillShotButton[key] = shot;
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
                 case "waigong":

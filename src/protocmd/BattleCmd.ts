@@ -76,6 +76,24 @@ module ProtoCmd {
             return this.getValue('btErrorCode');
         }
     }
+    /**
+     * 怪物Buff
+     */
+    export class stCretBuffState extends Packet {
+        public static msgID: number = 0x0298;
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwMagicID', PacketBase.TYPE_DWORD);	// BuffID
+            this.addProperty('btBuffOrAction', PacketBase.TYPE_BYTE);//0动作(不处理)1无就增加，有就更新2取消3不显示
+            this.addProperty('dwTick', PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);	//剩余时间
+            this.addProperty('btLevel', PacketBase.TYPE_DWORD);	//buff等级
+            this.addProperty('nValue', PacketBase.TYPE_DWORD);	//剩余量   
+            this.read(data);
+        }
+        public get buffID(): number {
+            return this.getValue('dwMagicID');
+        }
+    }
 
     //0x0246
     //生命状态改变通知
@@ -130,8 +148,8 @@ module ProtoCmd {
     //0x02A7
     //PK模式
     export class CretPkModel extends Packet {
-        public static msgID:number = 0x02A7;
-        public constructor(data:Laya.Byte = null) {
+        public static msgID: number = 0x02A7;
+        public constructor(data: Laya.Byte = null) {
             super();
             this.cmd = CretPkModel.msgID;
             this.addProperty('pkModel', PacketBase.TYPE_BYTE);

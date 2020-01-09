@@ -25,6 +25,40 @@ module view.fuBen {
 			FuBen_MainPanel.fromStr = fromStr;
 			this.initUI();
 			this.addEvent();
+			this.html_juqing.style.fontFamily = 'STXingkai';
+			this.html_juqing.style.fontSize = 35;
+			this.html_juqing.style.align = 'center';
+			this.html_juqing.style.color = '#000000';
+			this.html_juqing.style.strokeColor = '#ffffff';
+			this.html_juqing.style.stroke = 4;
+			this.html_juqing.innerHTML = "<span>" + '剧情' + '</span>';
+
+			this.html_richang.style.fontFamily = 'STXingkai';
+			this.html_richang.style.fontSize = 35;
+			this.html_richang.style.align = 'center';
+			this.html_richang.style.color = '#000000';
+			this.html_richang.style.strokeColor = '#ffffff';
+			this.html_richang.style.stroke = 4;
+			this.html_richang.innerHTML = "<span>" + '日常' + '</span>';
+			this.changeButtonLabel(1)
+		}
+		public changeButtonLabel(id: number) {
+			if (id == 1) {
+				this.html_juqing.style.color = '#ffffff';
+				this.html_juqing.style.strokeColor = '#783818';
+				this.html_richang.style.color = '#000000';
+				this.html_richang.style.strokeColor = '#ffffff';
+				this.btn_juqing.selected = true;
+				this.btn_daily.selected = false;
+			} else {
+				this.html_richang.style.color = '#ffffff';
+				this.html_richang.style.strokeColor = '#783818';
+				this.html_juqing.style.color = '#000000';
+				this.html_juqing.style.strokeColor = '#ffffff';
+				this.btn_juqing.selected = false;
+				this.btn_daily.selected = true;
+			}
+
 		}
 		public static backPanel() {
 			if (FuBen_MainPanel.fromStr == 'main') {
@@ -70,25 +104,16 @@ module view.fuBen {
 					this.dealWithPosX()
 				}
 			})
-			//返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
 				PopUpManager.checkPanel(this);
 			})
-			//剧情
 			this.btn_juqing.on(Laya.UIEvent.CLICK, this, function () {
+				// PanelManage.openFuBenDailyPanel()
+				this.changeButtonLabel(1)
 				return;
 			})
-			//资源副本
-			this.btn_res.on(Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenResPanel()
-				return;
-			})
-			//心魔
-			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenXinMoPanel()
-			})
-			//缉拿
-			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
+			this.btn_daily.on(Laya.UIEvent.CLICK, this, function () {
+				this.changeButtonLabel(2)
 				PanelManage.openFuBenDailyPanel()
 			})
 			this.btn_saodang.on(Laya.UIEvent.CLICK, this, function () {

@@ -43,7 +43,6 @@ module view.fuBen {
 			this.tab_rank.on(Laya.UIEvent.CLICK, this, () => {
 				this.VS_show.selectedIndex = this.tab_rank.selectedIndex;
 				this.showRankList();
-
 			})
 		}
 	}

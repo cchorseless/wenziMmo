@@ -80,9 +80,9 @@ module view.juQingMode {
 			let pkt1 = new ProtoCmd.QuestClientData();
 			pkt1.setString(ProtoCmd.JQ_GET_JQ_ZHANGJIE, [pzid])
 			lcp.send(pkt1);
+			this.reSize()
 		}
 		public setPanelView() {
-
 			if (this.item.id <= this.maxPZID) {
 				this.vbox_show.removeChildren();
 				for (let i = 0; i < this.charpterArr.length; i++) {

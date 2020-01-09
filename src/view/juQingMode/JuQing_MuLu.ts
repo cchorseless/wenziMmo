@@ -3,6 +3,9 @@
 */
 module view.juQingMode {
 	export class JuQing_MuLu extends ui.juQingMode.JuQing_MuLuUI {
+		public isTouch = false;
+		public touchBeginX = 0;
+		public touchEndX = 0;
 		constructor() {
 			super();
 			this.addEvent();
@@ -34,6 +37,44 @@ module view.juQingMode {
 				Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
 					JuQingModePanel.self.muluItem.visible = this.muluShow;
 				}))
+			})
+			this.on(Laya.Event.MOUSE_DOWN, this, function (e) {
+				this.isTouch = true;
+				this.touchBeginX = e.stageX;
+			})
+			this.on(Laya.UIEvent.MOUSE_UP, this, function (e) {
+				if (this.isTouch) {
+					this.touchEndX = e.stageX;
+					let span = this.touchEndX - this.touchBeginX;
+					if (span < -100) {
+						JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
+						Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+							JuQingModePanel.self.muluItem.visible = this.muluShow;
+						}))
+					} else {
+						this.isTouch = false;
+						return;
+					}
+				} else {
+					return;
+				}
+			})
+			this.on(Laya.UIEvent.MOUSE_UP, this, function (e) {
+				if (this.isTouch) {
+					this.touchEndX = e.stageX;
+					let span = this.touchEndX - this.touchBeginX;
+					if (span > 100) {
+						JuQingModePanel.self.muluShow = !JuQingModePanel.self.muluShow
+						Laya.Tween.to(JuQingModePanel.self.muluItem, { x: -1 * JuQingModePanel.self.muluItem.width }, 300, null, Laya.Handler.create(this, () => {
+							JuQingModePanel.self.muluItem.visible = this.muluShow;
+						}))
+					} else {
+						this.isTouch = false;
+						return;
+					}
+				} else {
+					return;
+				}
 			})
 		}
 	}

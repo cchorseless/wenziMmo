@@ -10,7 +10,14 @@ module view.scene {
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
-			this.lbl_name.text = this.item.objName;
+			let name: string = this.item.objName
+
+			if (name.length > 4) {
+				this.lbl_name.fontSize = 15
+			} else {
+				this.lbl_name.fontSize = 20
+			}
+			this.lbl_name.text = name;
 			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;
@@ -41,8 +48,16 @@ module view.scene {
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP,{now:this.item.ability.nowHP,max:this.item.ability.nMaxHP})
+			// GameApp.LListener.event(ProtoCmd.UPDATE_BOSSHP, { now: this.item.ability.nowHP, max: this.item.ability.nMaxHP })
 			// this.img_hp_cur.width = Math.ceil((this.item.ability.nowHP / this.item.ability.nMaxHP) * this.img_hp_bg.width)
+		}
+		public upDateBuff() {
+			let o;
+			this.hbox_buff.addChild(o);
+		}
+		public upDateDeBuff() {
+			this.hbox_debuff.x= this.hbox_buff.x + this.hbox_buff.numChildren * 30 + 10
+
 		}
 	}
 }

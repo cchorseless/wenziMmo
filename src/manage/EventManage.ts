@@ -36,4 +36,28 @@ module EventManage {
         });
         // console.log(dispatch);
     }
+    /**
+     * 
+     * @param dispatch   ui组件
+     * @param second     时间  毫秒 ms
+     * @param caller     回调对象
+     * @param func       回调方法
+     * @param args       回调方法参数
+     */
+    export function onlongTimeTouch(dispatch: Laya.Sprite, second: number, caller, func: Function, args?: Array<any>): void {
+        let isTouch = false;
+        dispatch.on(Laya.UIEvent.MOUSE_DOWN, caller, () => {
+            isTouch = true;
+            Laya.timer.once(second, this, function () {
+                if (!isTouch) {
+                    return;
+                }
+                func.call(caller);
+            })
+        })
+        dispatch.on(Laya.UIEvent.MOUSE_UP, caller, () => {
+            isTouch = false;
+        })
+    }
+
 }

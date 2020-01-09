@@ -11,6 +11,8 @@ module view.wuXue {
 			let wuXing = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(configID);
 			let icon = SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(configID);
 			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
+			let lv = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
+			this.lab_lv.text = lv + '';
 			this.img_skill_bg.skin = "image/common/skill/icon_jnzd_xiao" + quality + ".png"
 			this.img_skill_Icon.skin = "image/common/skill/skill_icon_" + icon + ".png"
 			if(wuXing >0){

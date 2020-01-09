@@ -17,8 +17,14 @@ module view.juQingMode {
 					this.lab_charpterIndex.color = '#4a6b88'
 					this.lab_charpterName.color = '#4a6b88'
 					this.lab_pageNum.color = '#4a6b88'
-				} else {
+				} else if (zjid < GameApp.MainPlayer.charpterID) {
 					this.img_bg.skin = 'image/juQingMode/box_ml_02.png'
+					this.lab_charpterIndex.color = '#8c6240'
+					this.lab_charpterName.color = '#8c6240'
+					this.lab_pageNum.color = '#8c6240'
+				}
+				else if (zjid > GameApp.MainPlayer.charpterID) {
+					this.img_bg.skin = 'image/juQingMode/box_ml_02down.png'
 					this.lab_charpterIndex.color = '#8c6240'
 					this.lab_charpterName.color = '#8c6240'
 					this.lab_pageNum.color = '#8c6240'

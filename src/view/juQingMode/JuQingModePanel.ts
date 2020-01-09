@@ -279,7 +279,7 @@ module view.juQingMode {
 						if (_talkInfo[i] && _talkInfo[i].mainquestid > 0) {
 							let taskInfo = {};
 							taskInfo = GameApp.GameEngine.taskInfo[EnumData.TaskType.JUQINGEVENT];
-							if (taskInfo != {}){
+							if (taskInfo != {}) {
 								for (let o in taskInfo) {
 									if (_talkInfo[i].mainquestid == parseInt(o)) {
 										this.isJuQing = true;
@@ -752,12 +752,16 @@ module view.juQingMode {
 						}
 					} else {
 						if (this.hasLookBack < 0) {
-							this.showPageMsg(this.pageID + 1);
+							Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
+								this.showPageMsg(this.pageID + 1);
+							}))
 						} else if (this.hasLookBack == 0) {
 							let startID = GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].startdbid
 							let nowPageTalkID = this.curReadInfo.pageID * this.maxInfoNum + startID - 1
 							if (nowPageTalkID < GameApp.MainPlayer.talkID) {
-								this.showPageMsg(this.pageID + 1);
+								Laya.Tween.to(self.box2, { x: -640 }, 250, null, Laya.Handler.create(self, () => {
+									this.showPageMsg(this.pageID + 1);
+								}))
 							} else {
 								if (this.isJuQing) {
 									TipsManage.showTips('剧情任务未完成')

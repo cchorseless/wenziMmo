@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":281,
+    "selectedBox":285,
+    "selecteID":313,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -29,853 +29,207 @@
         {
             "x":15,
             "type":"Box",
-            "props":{"y":42,"x":0,"width":640,"var":"box_view","height":1094},
+            "props":{"y":42,"x":0,"width":640,"height":1094},
             "nodeParent":1,
-            "label":"Box(box_view)",
-            "isOpen":false,
+            "label":"Box",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":277,
+            "compId":285,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/juese/img_title.png"},
-                    "nodeParent":277,
+                    "props":{"y":0,"x":0,"skin":"image/juese/img_title.png"},
+                    "nodeParent":285,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":223,
+                    "compId":281,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":5,"x":54,"skin":"image/juese/font_gongfa.png"},
-                    "nodeParent":277,
+                    "nodeParent":285,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":224,
+                    "compId":282,
                     "child":[
                         ],
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":65,"x":2,"skin":"image/common/bg_juese_01.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":222,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":80,"x":0,"width":640,"skin":"image/common/bg_juese_02.png","height":972},
-                    "nodeParent":277,
+                    "nodeParent":285,
                     "label":"Image",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":225,
+                    "compId":284,
                     "child":[
                         ],
                     "$LOCKED":false,
                     "$HIDDEN":false
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":107,"x":123,"skin":"image/common/title_common_01.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":229,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":5,"x":133,"text":"基础功法","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
-                            "nodeParent":229,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":230,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Box",
-                    "props":{"y":170,"x":50},
-                    "nodeParent":277,
-                    "label":"Box",
-                    "isOpen":null,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":249,
-                    "child":[
-                        {
-                            "type":"UIView",
-                            "source":"compart/DaoJuItem.ui",
-                            "props":{"x":4,"var":"ui_base1","scaleY":1.25,"scaleX":1.25,"runtime":"view.compart.DaoJuItem"},
-                            "nodeParent":249,
-                            "label":"UIView(ui_base1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":231,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":99,"var":"lbl_name1","text":"基础武器","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_name1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":232,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":127,"x":18,"var":"lbl_lvl1","text":"LV.88","height":26,"fontSize":26,"font":"FZHL","color":"#a53232","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_lvl1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":235,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"compart/DaoJuItem.ui",
-                            "props":{"x":149,"var":"ui_base2","scaleY":1.25,"scaleX":1.25,"runtime":"view.compart.DaoJuItem"},
-                            "nodeParent":249,
-                            "label":"UIView(ui_base2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":238,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":99,"x":145,"var":"lbl_name2","text":"基础武器","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_name2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":239,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":127,"x":163,"var":"lbl_lvl2","text":"LV.88","height":26,"fontSize":26,"font":"FZHL","color":"#a53232","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_lvl2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":240,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"compart/DaoJuItem.ui",
-                            "props":{"x":297,"var":"ui_base3","scaleY":1.25,"scaleX":1.25,"runtime":"view.compart.DaoJuItem"},
-                            "nodeParent":249,
-                            "label":"UIView(ui_base3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":242,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":99,"x":293,"var":"lbl_name3","text":"基础武器","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_name3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":243,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":127,"x":311,"var":"lbl_lvl3","text":"LV.88","height":26,"fontSize":26,"font":"FZHL","color":"#a53232","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_lvl3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":244,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"compart/DaoJuItem.ui",
-                            "props":{"x":444,"var":"ui_base4","scaleY":1.25,"scaleX":1.25,"runtime":"view.compart.DaoJuItem"},
-                            "nodeParent":249,
-                            "label":"UIView(ui_base4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":246,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":99,"x":440,"var":"lbl_name4","text":"基础武器","height":26,"fontSize":26,"font":"FZHL","color":"#5f4429","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_name4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":247,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Label",
-                            "props":{"y":127,"x":458,"var":"lbl_lvl4","text":"LV.88","height":26,"fontSize":26,"font":"FZHL","color":"#a53232","align":"center"},
-                            "nodeParent":249,
-                            "label":"Label(lbl_lvl4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":248,
-                            "child":[
-                                ],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        }]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":342,"x":123,"skin":"image/common/title_common_01.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":226,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":5,"x":133,"text":"武学套路1","height":33,"fontSize":28,"font":"FZHL","color":"#5f4429"},
-                            "nodeParent":226,
-                            "label":"Label",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":227,
-                            "child":[
-                                ],
-                            "$LOCKED":true,
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Label",
-                    "props":{"y":350,"x":535,"text":"使用中","height":24,"fontSize":24,"font":"FZHL","color":"#761a1a"},
-                    "nodeParent":277,
-                    "label":"Label",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":228,
-                    "child":[
-                        ],
-                    "$LOCKED":true,
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":396,"x":15,"width":607,"skin":"image/common/bottom_list.png","sizeGrid":"20,100,20,100","height":105},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":136,
-                    "child":[
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":3,"x":123,"var":"ui_item1","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":136,
-                            "label":"UIView(ui_item1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":178,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":3,"x":248,"var":"ui_item2","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":136,
-                            "label":"UIView(ui_item2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":179,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":3,"x":372,"var":"ui_item3","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":136,
-                            "label":"UIView(ui_item3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":180,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":3,"x":497,"var":"ui_item4","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":136,
-                            "label":"UIView(ui_item4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":181,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
-                            "nodeParent":136,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":214,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":37,"x":16,"text":"招式","strokeColor":"#4e2a2a","stroke":4,"fontSize":40,"font":"fzhl","color":"#ffeeb1"},
-                                    "nodeParent":214,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":215,
-                                    "child":[
-                                        ]
-                                }]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":506,"x":15,"width":299,"skin":"image/common/bottom_list.png","sizeGrid":"20,100,20,100","height":109},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":116,
-                    "child":[
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":5,"x":156,"var":"ui_item5","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":116,
-                            "label":"UIView(ui_item5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":176,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":0,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
-                            "nodeParent":116,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":211,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":37,"x":16,"text":"招架","strokeColor":"#4e2a2a","stroke":4,"fontSize":40,"font":"fzhl","color":"#ffeeb1"},
-                                    "nodeParent":211,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":212,
-                                    "child":[
-                                        ]
-                                }]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":506,"x":324,"width":299,"skin":"image/common/bottom_list.png","sizeGrid":"20,100,20,100","height":109},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":207,
-                    "child":[
-                        {
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_logoBgItem.ui",
-                            "props":{"y":5,"x":156,"var":"ui_item6","runtime":"view.wuXue.WuXue_logoBgItem"},
-                            "nodeParent":207,
-                            "label":"UIView(ui_item6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":208,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Image",
-                            "props":{"x":0,"width":113,"top":0,"skin":"image/common/frame_list_zhaojia.png","bottom":0},
-                            "nodeParent":207,
-                            "label":"Image",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":209,
-                            "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":37,"x":16,"text":"身法","strokeColor":"#4e2a2a","stroke":4,"fontSize":40,"font":"fzhl","color":"#ffeeb1"},
-                                    "nodeParent":209,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":210,
-                                    "child":[
-                                        ]
-                                }]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":734,"x":11,"width":616,"skin":"image/common/bottom_touming.png","height":287,"alpha":0.5},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":251,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
+                    "x":30,
                     "type":"Tab",
-                    "props":{"y":691,"x":23,"var":"tab_0","strokeColors":"#ffffff,#fffff,#765f42","stateNum":2,"space":2,"skin":"image/common/btn_common_xiaoyeqian02.png","selectedIndex":0,"labels":"招式,身法,招架","labelSize":26,"labelPadding":"-2","labelFont":"FZHL","labelColors":"#623e24,#623e24","direction":"horizontal"},
-                    "nodeParent":277,
-                    "label":"Tab(tab_0)",
+                    "props":{"y":110,"x":57,"var":"tab_wuxue","stateNum":2,"space":0,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"scaleY":0.9,"scaleX":0.9,"labels":"拳脚套路\\nlv.130,刀剑套路\\nlv.130,长兵套路\\nlv.130,奇门套路\\nlv.130","labelSize":24,"labelPadding":"-5","labelFont":"fzxk","labelColors":"#52473d,#903f14,#903f14"},
+                    "nodeParent":285,
+                    "label":"Tab(tab_wuxue)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":157,
-                    "child":[
-                        ],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"ViewStack",
-                    "props":{"y":752,"x":27,"width":585,"var":"viw_0","height":260},
-                    "nodeParent":277,
-                    "label":"ViewStack(viw_0)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":172,
-                    "child":[
-                        {
-                            "type":"List",
-                            "props":{"y":0,"x":0,"width":585,"var":"list_0","spaceY":10,"spaceX":10,"repeatY":2,"repeatX":5,"name":"item0","height":260},
-                            "nodeParent":172,
-                            "label":"List(list_0)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":165,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"List",
-                            "props":{"y":0,"x":0,"width":585,"var":"list_1","spaceY":10,"spaceX":10,"repeatX":2,"name":"item1","height":260},
-                            "nodeParent":172,
-                            "label":"List(list_1)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":169,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"List",
-                            "props":{"y":0,"x":0,"width":585,"var":"list_2","spaceY":10,"spaceX":15,"repeatX":2,"name":"item2","height":260},
-                            "nodeParent":172,
-                            "label":"List(list_2)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":170,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":621,"x":19,"width":602,"skin":"image/common/bottom_touming.png","height":58,"alpha":0.6},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":250,
+                    "compId":280,
                     "child":[
                         ]
                 },
                 {
-                    "type":"Image",
-                    "props":{"y":617,"x":547,"skin":"image/common/icon_001.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":252,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":618,"x":94,"skin":"image/common/icon_001.png","scaleX":-1},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":253,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":647,"x":510,"skin":"image/juese/line_fanye.png","scaleX":-1},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":254,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":231,"skin":"image/juese/point_fanye_01.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":255,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":262,"skin":"image/juese/point_fanye_02.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":256,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":293,"skin":"image/juese/point_fanye_02.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":257,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":325,"skin":"image/juese/point_fanye_02.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":258,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":357,"skin":"image/juese/point_fanye_02.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":259,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":642,"x":389,"skin":"image/juese/point_fanye_02.png"},
-                    "nodeParent":277,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":260,
-                    "child":[
-                        ]
-                },
-                {
-                    "type":"Image",
-                    "props":{"y":678,"x":627,"var":"img_sort","skin":"image/juese/bottom_paixu.png","scaleY":0,"scaleX":0,"anchorX":1},
-                    "nodeParent":277,
-                    "label":"Image(img_sort)",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":263,
-                    "child":[
-                        {
-                            "type":"Button",
-                            "props":{"y":9,"x":7,"stateNum":"2","skin":"image/juese/icon_pinzhi..png"},
-                            "nodeParent":263,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":264,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":68,"x":31,"var":"btn_level","stateNum":"2","skin":"image/juese/icon_dengjia.png"},
-                            "nodeParent":263,
-                            "label":"Button(btn_level)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":265,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":92,"x":91,"stateNum":"2","skin":"image/juese/icon_weili.png"},
-                            "nodeParent":263,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":266,
-                            "child":[
-                                ]
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "type":"Button",
-                    "props":{"y":688,"x":574,"var":"btn_sort","stateNum":"2","skin":"image/juese/icon_paixu.png"},
-                    "nodeParent":277,
-                    "label":"Button(btn_sort)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":262,
-                    "child":[
-                        ]
-                },
-                {
+                    "x":30,
                     "type":"Box",
-                    "props":{"width":640,"height":93,"bottom":0},
-                    "nodeParent":277,
-                    "label":"Box",
+                    "props":{"y":1043,"x":0,"width":640,"var":"box_bottom","height":93,"bottom":0},
+                    "nodeParent":285,
+                    "label":"Box(box_bottom)",
                     "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":268,
+                    "compId":286,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":41,"skin":"image/main/bottom_deep.png"},
-                            "nodeParent":268,
+                            "nodeParent":286,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":269,
+                            "compId":287,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":41,"x":160,"visible":false,"var":"btn_waiGong","stateNum":"2","skin":"image/juese/icon_weigong.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":268,
-                            "label":"Button(btn_waiGong)",
+                            "props":{"y":41,"x":160,"visible":false,"stateNum":"2","skin":"image/juese/icon_weigong.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":286,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":270,
+                            "compId":288,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"功法","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
-                                    "nodeParent":270,
+                                    "nodeParent":288,
                                     "label":"Label",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":271,
+                                    "compId":289,
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":39,"x":256,"visible":false,"var":"btn_neiGong","stateNum":"2","skin":"image/common/icon_neigong.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":268,
-                            "label":"Button(btn_neiGong)",
+                            "props":{"y":39,"x":256,"visible":false,"stateNum":"2","skin":"image/common/icon_neigong.png","anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":286,
+                            "label":"Button",
                             "isOpen":true,
                             "isDirectory":true,
                             "isAniNode":true,
                             "hasChild":true,
-                            "compId":272,
+                            "compId":290,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":54,"x":15,"text":"心法","strokeColor":"#010101","stroke":4,"fontSize":26,"font":"fzhl","color":"#ffd08d"},
-                                    "nodeParent":272,
+                                    "nodeParent":290,
                                     "label":"Label",
                                     "isDirectory":false,
                                     "isAniNode":true,
                                     "hasChild":false,
-                                    "compId":273,
+                                    "compId":291,
                                     "child":[
                                         ]
                                 }],
-                            "$HIDDEN":false
+                            "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":41,"x":573,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
-                            "nodeParent":268,
+                            "nodeParent":286,
                             "label":"Button(btn_back)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":274,
+                            "compId":292,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         }],
+                    "$LOCKED":true,
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":1019,"x":194,"width":140,"var":"btn_develop","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":20,"labelFont":"fzxk","labelColors":"#764a1a,#55310b","label":"套路等级培养","height":55},
+                    "nodeParent":285,
+                    "label":"Button(btn_develop)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":316,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "props":{"y":1019,"x":450,"width":140,"var":"btn_set","stateNum":2,"skin":"image/common/button_qianwang_yellow.png","pivotY":29.5,"pivotX":73,"labelStrokeColor":"#a9643b","labelSize":20,"labelFont":"fzxk","labelColors":"#764a1a,#55310b","label":"默认出战套路","height":55},
+                    "nodeParent":285,
+                    "label":"Button(btn_set)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":318,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"ViewStack",
+                    "props":{"y":184,"x":27,"width":585,"var":"VS_show","height":805},
+                    "nodeParent":285,
+                    "label":"ViewStack(VS_show)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":320,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],

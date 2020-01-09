@@ -2,7 +2,6 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":8,
     "props":{"width":452,"sceneColor":"#ffffff","height":60},
     "nodeParent":-1,
     "label":"View",
@@ -18,13 +17,14 @@
             "props":{"y":0,"x":0,"var":"img_bg","skin":"image/juQingMode/box_ml_02.png","height":58},
             "nodeParent":1,
             "label":"Image(img_bg)",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":10,
             "child":[
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":14,"x":16,"width":107,"var":"lab_charpterIndex","text":"第一章","height":34,"fontSize":26,"font":"fzxk","color":"#8c6240","align":"center"},
                     "nodeParent":10,
@@ -37,6 +37,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":14,"x":128,"width":196,"var":"lab_charpterName","text":"人类的新篇章","height":34,"fontSize":26,"font":"fzxk","color":"#8c6240","align":"left"},
                     "nodeParent":10,
@@ -49,6 +50,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":19,"x":360,"width":34,"var":"lab_pageNum","text":"33","height":22,"fontSize":22,"font":"fzxk","color":"#8c6240","align":"center"},
                     "nodeParent":10,
@@ -61,6 +63,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":15,"x":365,"var":"img_islock","skin":"image/juQingMode/icon_shuo_01down.png"},
                     "nodeParent":10,
