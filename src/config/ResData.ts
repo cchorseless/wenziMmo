@@ -132,11 +132,13 @@ module ResData {
         // 副本-剧情界面
         public static FuBenMain = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
         // 副本-日常界面
-        public static FuBenDaily = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
+        public static FuBenDaily = null;
+        // 副本-资源界面
+        public static FuBenRes = null;
         // 副本-历练界面
-        public static FuBenLiLian = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
+        public static FuBenLiLian = null;
         // 副本-限时界面
-        public static FuBenXianShi = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
+        public static FuBenXianShi = null;
         // 北陆地图
         public static NorthMap = [{ url: "res/atlas/image/map.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/map/northland.atlas", type: Laya.Loader.ATLAS },
@@ -265,7 +267,7 @@ module ResData {
             { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet },
             //怪物更新表
             { url: 'json/mydb_mongen_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mongen_tbl },
-             //基础门派表
+            //基础门派表
             { url: 'json/BaseMenPaiSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.BaseMenPaiSheet }
         ];
     }

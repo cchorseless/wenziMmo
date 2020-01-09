@@ -70,14 +70,21 @@ module view.fuBen {
 					this.dealWithPosX()
 				}
 			})
+			//返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
 				PopUpManager.checkPanel(this);
 			})
+			//剧情
 			this.btn_juqing.on(Laya.UIEvent.CLICK, this, function () {
-				// PanelManage.openFuBenDailyPanel()
 				return;
 			})
-			this.btn_daily.on(Laya.UIEvent.CLICK, this, function () {
+			//资源副本
+			this.btn_res.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenResPanel()
+				return;
+			})
+			//日常
+			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openFuBenDailyPanel()
 			})
 			this.btn_saodang.on(Laya.UIEvent.CLICK, this, function () {

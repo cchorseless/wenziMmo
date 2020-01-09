@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":421,
-    "selecteID":381,
+    "selectedBox":422,
+    "selecteID":428,
     "props":{"width":640,"sceneColor":"#e8d0d0","name":"FuBen","height":1136},
     "nodeParent":-1,
     "label":"View(FuBen)",
@@ -318,67 +318,102 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"width":640,"height":64,"bottom":0},
+                    "props":{"y":1072,"width":640,"height":64},
                     "nodeParent":421,
                     "label":"Box",
-                    "isOpen":null,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":418,
+                    "compId":422,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
-                            "nodeParent":418,
+                            "nodeParent":422,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":411,
+                            "compId":423,
                             "child":[
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":418,
+                            "nodeParent":422,
                             "label":"Button(btn_back)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":412,
+                            "compId":424,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":15,"x":116,"width":80,"var":"btn_juqing","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"30","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","label":"剧情","height":80,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":418,
+                            "props":{"y":20,"x":78,"width":111,"var":"btn_juqing","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":422,
                             "label":"Button(btn_juqing)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":413,
+                            "compId":425,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":19,"x":230,"width":80,"var":"btn_daily","stateNum":"2","skin":"image/juQingMode/icon_shouce.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","label":"日常","height":80,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":418,
-                            "label":"Button(btn_daily)",
+                            "props":{"y":20,"x":203,"width":111,"var":"btn_res","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":422,
+                            "label":"Button(btn_res)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":414,
+                            "compId":426,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":20,"x":326,"width":111,"var":"btn_xinmo","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":422,
+                            "label":"Button(btn_xinmo)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":427,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":20,"x":453,"width":111,"var":"btn_jina","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":422,
+                            "label":"Button(btn_jina)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":428,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 }]

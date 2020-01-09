@@ -152,9 +152,9 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 战斗力
 			let fight = _player.ability.nFight;
-			if (GameApp.MainPlayer.curHero) {
-				fight += GameApp.MainPlayer.curHero.ability.nFight;
-			}
+			// if (GameApp.MainPlayer.curHero) {
+			// 	fight += GameApp.MainPlayer.curHero.ability.nFight;
+			// }
 			this.clip_power.value = '' + LangConfig.getBigNumberDes(fight);
 		}
 		public upDataFlyChatSetting() {
