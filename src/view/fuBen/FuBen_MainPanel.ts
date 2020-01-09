@@ -83,7 +83,11 @@ module view.fuBen {
 				PanelManage.openFuBenResPanel()
 				return;
 			})
-			//日常
+			//心魔
+			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenXinMoPanel()
+			})
+			//缉拿
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openFuBenDailyPanel()
 			})

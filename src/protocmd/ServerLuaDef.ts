@@ -1081,13 +1081,12 @@ module ProtoCmd {
      * 心魔副本信息
      */
     export interface itf_FB_XinMoInfo {
-        index?: number;//索引
         flag: number;//已刷副本次数
         maxcnt: number;//最大刷副本次数
         maxlv: number;//最大等级
         minlv: number;//最小等级
-        maxzslv: number;//最大转生等级
-        minzslv: number;//最小转生等级
+        maxzslv: number;//最大转生等级(有可能没有)
+        minzslv: number;//最小转生等级（有可能没有）
         monsterid: number;//bossID
         sec: number;//剩余刷新时间
         show: number;//是否展示
