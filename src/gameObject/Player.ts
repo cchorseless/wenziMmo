@@ -25,7 +25,8 @@ module GameObject {
         }
         //我的声望信息
         public fameInfo: ProtoCmd.itf_JS_ShengWangInfo;
-        // public mapid
+        //月卡剩余时间
+        public monthCard:number
         // 好友列表
         public friendInfo = [];
         //好友申请列表

@@ -69,6 +69,7 @@ module PanelManage {
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
+    export let FuBenRes: view.fuBen.Fuben_ResourcePanel;//资源副本界面
     export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
     export let FuBenXianShi: view.fuBen.FuBen_XianShiPanel;//限时副本界面
 
@@ -661,7 +662,19 @@ module PanelManage {
             PopUpManager.addPanel(PanelManage.FuBenDaily, 2, 0, 2);
         })
     }
-
+    /**
+       * 资源副本界面
+       */
+    export function openFuBenResPanel(): void {
+        if (PopUpManager.showPanel(PanelManage.FuBenRes)) return;
+        ResManage.loadResource(ResData.PanelRes.FuBenRes, () => {
+            PanelManage.FuBenRes = new view.fuBen.Fuben_ResourcePanel();
+            PanelManage.FuBenRes['LCP_skin'] = ResData.PanelRes.FuBenRes;
+            PanelManage.FuBenRes.setData();
+            PanelManage.FuBenRes.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenRes, 2, 0, 2);
+        })
+    }
     /**
      * 历练副本界面
      */
@@ -855,7 +868,7 @@ module PanelManage {
                 PanelManage.JuQingMode['LCP_skin'] = ResData.PanelRes.JuQingMode;
                 PanelManage.JuQingMode.setData();
                 PanelManage.JuQingMode.mouseEnabled = true;
-                PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
+                // PanelManage.JuQingMode.top = PanelManage.JuQingMode.bottom = PanelManage.JuQingMode.left = PanelManage.JuQingMode.right = 0;
                 PanelManage.Main.view_scene.addItem(PanelManage.JuQingMode);
                 PanelManage.Main.changeMode(2);
             })

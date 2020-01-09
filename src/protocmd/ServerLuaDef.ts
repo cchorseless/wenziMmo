@@ -165,7 +165,7 @@ module ProtoCmd {
     // 离开副本
     export const FB_CaiLiaoFuBenLikai = 'CaiLiaoFuBenLikai';
     // 扫荡
-    export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';  //index   bet  
+    export const FB_CaiLiaoFuBen_OneKey = 'CaiLiaoFuBen_OneKey';  //nIndex副本id,grade难度,itemid扫荡券id
 
     /********************************心魔副本*********************** */ //没星星  单人
     //打开心魔界面  panel
@@ -616,6 +616,8 @@ module ProtoCmd {
     export const ZGTQ_Open = "ZGTQ_Open";    //月卡界面
     export const ZGTQ_Buy = "ZGTQ_Buy";    //月卡  购买
     export const ZGTQ_LingQu = "ZGTQ_LingQu";    //月卡  领取奖励
+    export const GetZGTQ = "GetZGTQ";    //月卡时间（收到数据：leftime月卡剩余时间）
+
 
     export const chaozhiopen = "chaozhiopen";         //超值礼包(促销)      面板
     export const ChaoZhiBuy = "ChaoZhiBuy"        //超值礼包(促销)      领取
@@ -1114,23 +1116,21 @@ module ProtoCmd {
         caninto: number;//已进入次数
         jiangli: any;//奖励
         leftcnt: number;//最大进入次数
-        linquneed: any;//多倍领取需要的货币
         name1: string;//副本地图名称
-        need: any;//需要的物品
-        ntype: number;//领取的多倍奖励的货币类型
+        need: any;//需要的扫荡券([物品id]:倍数)
         openlv: number;//开放等级
     }
     /**
-   * 天山血狱
-   */
+    * 天山血狱
+    */
     export interface itf_FB_XueYuInfo {
         //,montab怪物列表，openlvl开放等级
         montab: any;
         openlvl: number;
     }
     /**
- * 阴葵门
- */
+    * 阴葵门
+    */
     export interface itf_FB_YinKuiMenInfo {
         bossid: number;//bossID
         mapid: number;//地图ID
@@ -1138,16 +1138,16 @@ module ProtoCmd {
         zslvl: number;//进入需求等级
     }
     /**
-* 缉盗悬赏
-*/
+    * 缉盗悬赏
+    */
     export interface itf_FB_JiDaoInfo {
         monid: number;//bossID
         mapid: number;//地图ID
         time: number;//Boss刷新时间
     }
     /**
-* 诛杀邪帝
-*/
+    * 诛杀邪帝
+    */
     export interface itf_FB_KillXieDiInfo {
         desc: string;//描述
         endtime: number;//活动结束时间
@@ -1159,15 +1159,15 @@ module ProtoCmd {
         starttime: number;//活动开始时间
     }
     /**
-* 限时副本
-*/
+    * 限时副本
+    */
     export interface itf_FB_XianshiInfo {
         now: number;//当前时间
         id: number;//限时活动ID
     }
     /**
-* 限时活动副本详细信息
-*/
+    * 限时活动副本详细信息
+    */
     export interface itf_FB_XianshiDetailInfo {
         award: any;//奖励id 
         id: number;//限时活动ID
@@ -1271,8 +1271,8 @@ module ProtoCmd {
         tab: any// 1: {name: "无玩家", num: 0 }     
     }
     /**
-  * 签到
-  */
+    * 签到
+    */
     export interface itf_Menu_SignInInfo {
         buQianNum: number//可补签次数
         curtimetab: { 1: number, 2: number, 3: number }//当前1年2月3日
@@ -1283,6 +1283,15 @@ module ProtoCmd {
         qiandao: number//今天是否已签到0没签到1已签到
         qiandaonum: 7//已签到总天数
         qiaodaoday: 31//本月总天数
+    }
+    /**
+     * 月卡
+     */
+    export interface itf_Menu_MoonCardInfo {
+        flag: number//0激活1领取2已领取
+        itemtab: any//月卡可获得的奖励
+        sec: number//倒计时
+        state: number//1就是不是首次激活
     }
     /***********************************抽奖接口**************************** */
     /**

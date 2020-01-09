@@ -355,6 +355,7 @@ module view.menu {
 			this.btn_active.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openActivePanel();
 			})
+			//充值
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, function () {
 				let o = new view.recharge_vip.Recharge_VipDialog();
 				o.setData(0);
@@ -364,7 +365,7 @@ module view.menu {
 			this.btn_menuGonglve.on(Laya.UIEvent.CLICK, this, function () {
 				new view.menu.Menu_PlayWayDialog().popup();
 			})
-
+			//促销
 			this.btn_cuxiao.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openPromotionPanel();
 			})
@@ -386,12 +387,15 @@ module view.menu {
 			this.btn_setUp.on(Laya.UIEvent.CLICK, this, () => {
 				new view.dialog.SetUpDialog().popup(true);
 			})
+			//运营排行
 			this.btn_operatorRank.on(Laya.UIEvent.CLICK, this, function () {
 				new view.menu.Menu_OperatorRankDialog().popup(true);
 			})
+			//月卡
 			this.btn_monthCard.on(Laya.UIEvent.CLICK, this, function () {
 				new view.menu.Menu_MonthCard().popup(true);
 			})
+			//新服活动
 			this.img_xinfuActive.on(Laya.Event.MOUSE_DOWN, this, function (ev) {
 				this.touchBeginX = this.getPosX(ev)
 				this.isTouch = true;

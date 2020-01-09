@@ -21,7 +21,7 @@ module view.main {
 		 */
 		public initUI(): void {
 			let getScaleY = PanelManage.getScaleY();
-
+			this.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
 		}
 
 		/**
@@ -152,9 +152,9 @@ module view.main {
 			let _player = GameApp.MainPlayer;
 			// 战斗力
 			let fight = _player.ability.nFight;
-			if (GameApp.MainPlayer.curHero) {
-				fight += GameApp.MainPlayer.curHero.ability.nFight;
-			}
+			// if (GameApp.MainPlayer.curHero) {
+			// 	fight += GameApp.MainPlayer.curHero.ability.nFight;
+			// }
 			this.clip_power.value = '' + LangConfig.getBigNumberDes(fight);
 		}
 		public upDataFlyChatSetting() {
@@ -385,10 +385,10 @@ module view.main {
 					this.box_menu.visible = false;
 				}
 				// 复制一张底图
-				// let imgBg = new Laya.Image();
-				// imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
-				// imgBg.skin = GameApp.SceneManager.ui_scene.img_bg.skin;
-				// panel.addChildAt(imgBg, 0);
+				let imgBg = new Laya.Image();
+				imgBg.top = imgBg.bottom = imgBg.left = imgBg.right = 0;
+				imgBg.skin = PanelManage.Main.img_bg.skin;
+				panel.addChildAt(imgBg, 0);
 				if (panel.box_view) {
 					console.log(PanelManage.euiLayer.displayHeight);
 					panel.box_view.bottom = (PanelManage.euiLayer.displayHeight - 1136) / 2;
@@ -591,11 +591,28 @@ module view.main {
 			this.getHuoDongStatus();
 
 			this.getActiveInfoData();
+			//月卡剩余时间
+			this.getMoonCardData();
 
 		}
 		public getActiveInfoData() {
 			let pkt = new ProtoCmd.QuestClientData;
 			pkt.setString(ProtoCmd.TASK_HuoYueDuClientOpen)
+			lcp.send(pkt);
+		}
+		/**
+		 * 月卡剩余时间
+		 */
+		public getMoonCardData() {
+			let pkt = new ProtoCmd.QuestClientData;
+			pkt.setString(ProtoCmd.GetZGTQ, null, null, this, (jsonData: { leftime: number }) => {
+				//jsonData.leftime月卡剩余时间
+				GameApp.MainPlayer.monthCard = jsonData.leftime;
+				if (PanelManage.BeiBao) {
+					PanelManage.BeiBao.ui_huiShou.hasInit = false;
+					PanelManage.BeiBao.ui_huiShou.setData();
+				}
+			})
 			lcp.send(pkt);
 		}
 		/**
@@ -637,7 +654,7 @@ module view.main {
 			let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.sendEquipIntensify, null, 0, this,
 				(data: ProtoCmd.itf_JS_equipIntensifyMessage) => {
 					GameApp.GameEngine.mainPlayer.playerEquipIntensify = data;
-					this.getEquipPanelMsg()	
+					this.getEquipPanelMsg()
 				});
 			lcp.send(pkt);
 		}
@@ -876,7 +893,7 @@ module view.main {
 			GameApp.MainPlayer.EquipmentNum[1] = curSoulStoneLv + "/" + (k + 1) * 60;
 			//强化大师达标装备数量
 			let lv = this.onLvIntensify();
-			GameApp.MainPlayer.EquipmentNum[2] =lv[0] + '/10';
+			GameApp.MainPlayer.EquipmentNum[2] = lv[0] + '/10';
 		}
 		/**
 		 * 强化大师达标装备数量

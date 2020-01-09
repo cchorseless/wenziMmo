@@ -11,11 +11,18 @@ module view.beiBao {
 		public hasInit = false;
 		public setData(): void {
 			this.panel_a.vScrollBarSkin = '';
-			// this.vbox_huishou0['sortItem'] = (items) => { };
-			// this.vbox_huishou1['sortItem'] = (items) => { };
-			// this.vbox_huishou2['sortItem'] = (items) => { };
 			if (this.hasInit) return;
 			this.hasInit = true;
+			this.lbl_shaixuan.x=55;
+			this.lbl_shaixuan.text='选择筛选条件';
+			this.lbl_expHuiShou1.text = '0'
+			if (GameApp.MainPlayer.monthCard > 0) {
+				this.btn_goVip.label = '已激活';
+				this.btn_goVip.disabled = true;
+			} else {
+				this.btn_goVip.label = '激活';
+				this.btn_goVip.disabled = false;
+			}
 			this.initUI();
 			this.addEvent();
 		}
@@ -40,16 +47,18 @@ module view.beiBao {
 					return
 				}
 				this.img_showSelect.visible = true;
-				Laya.Tween.to(this.img_showSelect, { scaleX: 1, scaleY: 1 }, 200);
+				Laya.Tween.to(this.img_showSelect, { scaleX: 0.73, scaleY: 0.73 }, 200);
 			})
 			for (let i = 1; i <= 6; i++) {
 				this['btn_0' + i].on(Laya.UIEvent.CLICK, this, () => {
+					this.lbl_shaixuan.x=1;
+					this.lbl_shaixuan.text='当前筛选：';
 					this.btn_center.label = this['btn_0' + i].label;
 					this.curSelect = i;
 					Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
 						this.img_showSelect.visible = false;
 					}));
-
+					this.onPutIn(1);
 				})
 			}
 
@@ -72,81 +81,97 @@ module view.beiBao {
 				this.onRecycle();
 			});
 			this.btn_goVip.on(Laya.UIEvent.CLICK, this, function () {
-				// let o = new recharge_vip.Recharge_VipDialog()
-				// o.setData(0);
-				// o.popup()
-				//待转移  月卡
+				new view.menu.Menu_MonthCard().popup(true);
 			})
-
-
 		}
 		public putInMap: { [index: string]: ProtoCmd.ItemBase } = {};
 		public takeOutMap = {};
 		public recycleMap = {};
-		public onPutIn() {
-			this.onTakeOut();
+		public onPutIn(isput = 0) {
+			let lable = '89级以下';
+			let num = 0
+			if (isput == 0) {
+				this.onTakeOut();
+			}
 			switch (this.curSelect) {
 				case 1:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '89级以下'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (o.itemType == 2 && o.dwLevel <= 89 && zsLevel == 0 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 				case 2:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '1转-2转'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 1 && zsLevel < 3 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 				case 3:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '3转-4转'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 3 && zsLevel < 5 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 				case 4:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '5转-6转'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 5 && zsLevel < 7 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 				case 5:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '7转-8转'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let zsLevel = SheetConfig.mydb_item_base_tbl.getInstance(null).ZS_LEVEL(o.dwBaseID)
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (zsLevel >= 7 && zsLevel < 9 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 				case 6:
 					for (let i in GameApp.GameEngine.bagItemDB) {
+						lable = '全部装备'
 						let o = GameApp.GameEngine.bagItemDB[i];
 						let exp = SheetConfig.mydb_item_base_tbl.getInstance(null).RECOVEREXP(o.dwBaseID.toString())
 						if (o.itemType == 2 && exp > 0) {
-							this.putInMap[i] = o;
+							if (isput == 0) { this.putInMap[i] = o; }
+							num += 1;
 						}
 					}
 					break;
 			}
-			this.showRecyclePanel(1);
+			if (isput == 0) {
+				this.showRecyclePanel(1);
+			} else {
+				this.lbl_condition.text = lable;
+				this.lbl_num.text = '（' + num + '件）'
+			}
 		}
 		public onTakeOut() {
 			if (this.putInMap) {
@@ -206,10 +231,10 @@ module view.beiBao {
 			for (let i in this.putInMap) {
 				if (this.putInMap[i]) {
 					if (this.putInMap[i]) {
-						if(num < this.maxCircleNum){
+						if (num < this.maxCircleNum) {
 							this.baseItemmap.push(this.putInMap[i])
 							num++;
-						}else{
+						} else {
 							break;
 						}
 					}
@@ -252,8 +277,11 @@ module view.beiBao {
 
 		}
 		public onShowExp() {
-			this.lbl_expHuiShou0.text = "" + this.exp0;
-			this.lbl_expHuiShou1.text = "" + this.exp1;
+			if (GameApp.MainPlayer.monthCard > 0 && this.exp1 > 0) {
+				this.lbl_expHuiShou1.text = "" + LangConfig.getBigNumberDes(this.exp1) + '(+' + LangConfig.getBigNumberDes(Math.floor(this.exp1 * 0.05)) + ')';
+			} else {
+				this.lbl_expHuiShou1.text = "" + LangConfig.getBigNumberDes(this.exp1);
+			}
 		}
 		public putInOneItem(i64ItemID) {
 			let item: ProtoCmd.ItemBase;

@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":406,
-    "selecteID":20,
+    "selectedBox":21,
+    "selecteID":376,
     "props":{"width":640,"sceneColor":"#d4d0d0","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -97,7 +97,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":74,"x":0,"var":"tab_0","stateNum":2,"space":0,"skin":"image/fuben/bookmark_biggest.png","selectedIndex":0,"scaleX":1,"labels":"资源副本,心魔试炼,缉盗悬赏","labelSize":22,"labelFont":"FZHL","labelColors":"#72613e,#645124,#645124","labelBold":true,"direction":"horizontal"},
+                    "props":{"y":74,"x":0,"var":"tab_0","stateNum":2,"space":0,"skin":"image/fuben/bookmark_biggest.png","selectedIndex":0,"scaleX":1,"labels":"心魔试炼,缉盗悬赏","labelSize":22,"labelFont":"FZHL","labelColors":"#72613e,#645124,#645124","labelBold":true,"direction":"horizontal"},
                     "nodeParent":406,
                     "label":"Tab(tab_0)",
                     "isDirectory":false,
@@ -113,44 +113,18 @@
                     "props":{"y":168,"x":0,"width":640,"var":"viw_0","selectedIndex":0,"height":875},
                     "nodeParent":406,
                     "label":"ViewStack(viw_0)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":21,
                     "child":[
                         {
-                            "type":"Panel",
-                            "props":{"y":0,"x":15,"width":608,"var":"panel_res","name":"item0","height":857},
-                            "nodeParent":21,
-                            "label":"Panel(panel_res)",
-                            "isOpen":false,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":243,
-                            "child":[
-                                {
-                                    "type":"VBox",
-                                    "props":{"y":0,"var":"vbox_res","space":10,"right":0,"left":0,"align":"center"},
-                                    "nodeParent":243,
-                                    "label":"VBox(vbox_res)",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":127,
-                                    "child":[
-                                        ]
-                                }],
-                            "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
+                            "x":45,
                             "type":"Box",
-                            "props":{"y":0,"x":12,"width":620,"name":"item1","height":918},
+                            "props":{"y":0,"x":12,"width":620,"name":"item0","height":918},
                             "nodeParent":21,
-                            "label":"Box(item1)",
+                            "label":"Box(item0)",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,
@@ -472,10 +446,11 @@
                             "$HIDDEN":true
                         },
                         {
+                            "x":45,
                             "type":"Box",
-                            "props":{"y":0,"x":12,"width":620,"name":"item2","height":918},
+                            "props":{"y":0,"x":12,"width":620,"name":"item1","height":918},
                             "nodeParent":21,
-                            "label":"Box(item2)",
+                            "label":"Box(item1)",
                             "isOpen":false,
                             "isDirectory":true,
                             "isAniNode":true,

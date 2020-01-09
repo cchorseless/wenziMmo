@@ -14,18 +14,14 @@ module view.fuBen {
 			this.hbox_xinMo['sortItem'] = (items) => { };
 			this.panel_xinMo1.hScrollBarSkin = '';
 			this.hbox_xinMo1['sortItem'] = (items) => { };
-			this.panel_res.vScrollBarSkin = '';
-			this.vbox_res['sortItem'] = (items) => { };
 			this.panel_boss.hScrollBarSkin = '';
 			this.hbox_boss['sortItem'] = (items) => { };
-			this.init_res()
 			this.init_XinMo();
 			this.init_JiDao();
 			this.addEvent();
 		}
 		public Dispose(){
 			GameApp.LListener.offCaller(ProtoCmd.FB_CaiLiaoFuBen_OneKey,this);
-			GameApp.LListener.offCaller(ProtoCmd.FB_CLFubenStatus,this);
 			PopUpManager.Dispose(this)
 		}
 
@@ -82,13 +78,7 @@ module view.fuBen {
 				})
 				lcp.send(pk);
 			});
-			GameApp.LListener.on(ProtoCmd.FB_CLFubenStatus, this, function (jsonData) {
-				this.vbox_res.removeChildren();
-				for (let i = 1; jsonData[i]; ++i) {
-					let data = jsonData[i];
-					this.vbox_res.addChild(new view.fuBen.FuBenDailySourceItem().setData(data))
-				}
-			})
+		
 			GameApp.LListener.on(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this, function (data) {
 				let o = new FuBen_SaoDang_Reward_Dialog();
 				o.setData(data.index, data.beishu);
@@ -96,15 +86,7 @@ module view.fuBen {
 				
 			})
 		}
-		/**
-		 * 资源界面
-		 */
-		public init_res(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			//拉取副本索引
-			pkt.setString(ProtoCmd.FB_CLFubenStatus, null)
-			lcp.send(pkt);
-		}
+	
 		/**
 		 * 心魔界面
 		 */

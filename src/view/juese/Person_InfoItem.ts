@@ -9,6 +9,9 @@ module view.juese {
 		}
 		public hasInit = false;
 		public dialog;
+		public downTime;
+		public mouseDown = false;
+		public index;
 		public setData(): void {
 			if (this.hasInit) { return }
 			this.panel_shuxing.vScrollBarSkin = '';
@@ -30,16 +33,27 @@ module view.juese {
 		}
 		public addEvent(): void {
 			for (let i = 6001; i <= 6032; i++) {
-				this.panel_shuxing.on(Laya.UIEvent.CLICK, this, () => {
-					this.init_touchView(false, i);
-				})
 				this['lbl_' + i].on(Laya.UIEvent.MOUSE_DOWN, this, () => {
-					if (!this.dialog) {
-						this.init_touchView(true, i);
+					this.index = i;
+					this.downTime = new Date().getTime();
+					this.mouseDown = true;
+					if (this.mouseDown) {
+						Laya.timer.once(500, this, this.init_touchView)
 					}
 				})
 				this['lbl_' + i].on(Laya.UIEvent.MOUSE_UP, this, () => {
-					this.init_touchView(false, i);
+					if (this.mouseDown) {
+						Laya.timer.clear(this, this.init_touchView);
+						PopUpManager.checkPanel(this.dialog);
+						this.mouseDown = false;
+					}
+				})
+				this['lbl_' + i].on(Laya.UIEvent.MOUSE_MOVE, this, () => {
+					if (this.mouseDown) {
+						Laya.timer.clear(this, this.init_touchView);
+						PopUpManager.checkPanel(this.dialog);
+						this.mouseDown = false;
+					}
 				})
 			}
 
@@ -74,13 +88,13 @@ module view.juese {
 
 			})
 		}
-		public init_touchView(v: boolean, i): void {
-			if (v) {
-				this.dialog = new view.dialog.InfoV1Dialog();
-				this.addChild(this.dialog.setData(this['lbl_' + i], i))
-			} else {
-				PopUpManager.checkPanel(this.dialog);
-				this.dialog = undefined
+		public init_touchView(): void {
+			let nowTime = new Date().getTime();
+			if (this.downTime || this.index) {
+				if (nowTime - this.downTime >= 500) {
+					this.dialog = new view.dialog.InfoV1Dialog();
+					this.addChild(this.dialog.setData(this['lbl_' + this.index], this.index))
+				}
 			}
 		}
 		/**
@@ -150,17 +164,17 @@ module view.juese {
 			// 闪避
 			this.lbl_sb.text = '' + ability.nJuck;
 			// 命中率
-			this.lbl_mzl.text = ability.nHitRatio / 10000 + '%';
+			this.lbl_mzl.text = (ability.nHitRatio / 10000 + ability.nHit / 1000) + '%';
 			// 闪避率
-			this.lbl_sbl.text = ability.nJuckRatio / 10000 + '%';
+			this.lbl_sbl.text = (ability.nJuckRatio / 10000 + ability.nJuck / 1000) + '%';
 			// 暴击
 			this.lbl_bj.text = '' + ability.nCrit;
 			// 抗暴
 			this.lbl_kb.text = '' + ability.nCritResi;
 			// 暴击率
-			this.lbl_bjl.text = ability.nCritRatio / 10000 + '%';
+			this.lbl_bjl.text = (ability.nCritRatio / 10000+ ability.nCrit/1000) + '%';
 			// 抗暴率
-			this.lbl_kbl.text = ability.nCritResiRatio / 10000 + '%';
+			this.lbl_kbl.text = (ability.nCritResiRatio / 10000+ability.nCritResi/1000) + '%';
 			// 爆伤
 			this.lbl_bs.text = '' + ability.nAtkCrit;
 			// 幸运

@@ -47,6 +47,7 @@ module view.beiBao {
 			this.addLcpEvent();
 			// 返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.BeiBao=undefined;
 				PanelManage.openMainPanel()
 			});
 			// 背包

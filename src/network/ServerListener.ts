@@ -1902,6 +1902,11 @@ class ServerListener extends SingletonClass {
                 break;
             }
         }
+        //刷新主界面任务
+        PanelManage.Main.view_scene._childs[0].init_noChange();
+        //刷新任务列表
+        let TaskDialog: view.dialog.TaskDialog = Laya.Dialog.getDialogsByGroup('TaskDialog')[0];
+        TaskDialog && TaskDialog.setData();
         cbpket.clear();
         cbpket = null;
     }

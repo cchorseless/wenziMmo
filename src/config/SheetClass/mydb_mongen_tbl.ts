@@ -110,17 +110,5 @@ module SheetConfig {
          *  怪物刷新间隔
          */
         public REFRESH_TYPE(configID): number { return this.data[configID][26] }
-        /**
-         * 通过地图id得到当前地图中所有的怪物id
-         */
-        public GETALLMONSTERBYMAPID(mapId: number): any {
-            let monArray = [];
-            for (let id in this.data) {
-                if (this.data[id][1] == mapId) {
-                    monArray.push(this.data[id][4])
-                }
-            }
-            return monArray;
-        }
     }
 }
