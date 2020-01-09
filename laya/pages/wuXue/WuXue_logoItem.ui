@@ -1,9 +1,9 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":9,
-    "props":{"width":80,"sceneColor":"#f8eeee","height":80},
+    "selectedBox":6,
+    "selecteID":8,
+    "props":{"width":80,"sceneColor":"#f8eeee","height":85},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -29,7 +29,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":0,"x":0,"width":77,"var":"img_skill_bg","skin":"image/common/skill/icon_jnzd_xiao1.png","height":77},
+            "props":{"y":0,"x":0,"width":77,"var":"img_skill_bg","height":77},
             "nodeParent":1,
             "label":"Image(img_skill_bg)",
             "isOpen":true,
@@ -41,7 +41,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":8,"x":8,"width":60,"var":"img_skill_Icon","skin":"image/common/skill/skill_icon_20001.png","height":60},
+                    "props":{"y":8,"x":8,"width":60,"var":"img_skill_Icon","height":60},
                     "nodeParent":6,
                     "label":"Image(img_skill_Icon)",
                     "isDirectory":false,
@@ -55,7 +55,7 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"var":"img_shuxing","skin":"image/common/skill/icon_wx_1.png","right":0,"bottom":0},
+                    "props":{"width":29,"var":"img_shuxing","right":50,"height":30,"bottom":-6},
                     "nodeParent":6,
                     "label":"Image(img_shuxing)",
                     "isDirectory":false,
@@ -65,6 +65,32 @@
                     "child":[
                         ],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":58,"x":39,"width":41,"skin":"image/common/frame_chat.png","height":22},
+                    "nodeParent":6,
+                    "label":"Image",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":12,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Label",
+                            "props":{"y":1,"x":7,"width":32,"var":"lab_lv","height":20,"fontSize":20,"font":"fzxk","color":"#a53232","align":"right"},
+                            "nodeParent":12,
+                            "label":"Label(lab_lv)",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":11,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         }],

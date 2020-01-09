@@ -57,13 +57,14 @@ module view.fuBen {
 			let starText = '';
 			switch (rankTypeIndex) {
 				case 0:
-					starText = data.level + '';
+				
+					starText = LangConfig.getBigNumberDes(data.level)
 					break;
 				case 1:
-					starText = data.fightPower + '';
+					starText =  LangConfig.getBigNumberDes(data.fightPower)
 					break;
 				case 2:
-					starText = data.fameScore + '';
+					starText =  LangConfig.getBigNumberDes(data.fameScore)
 					break;
 				case 3:
 					starText = data.getValue("dwChuMoEndJiFen") + '';

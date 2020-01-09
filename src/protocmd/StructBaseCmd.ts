@@ -3493,7 +3493,7 @@ module ProtoCmd {
             this.addProperty('i64Id', PacketBase.TYPE_INT64);//物品I64ID或者技能表ID
             this.addProperty('emShortCuts', PacketBase.TYPE_INT);//快捷键类型0物品1技能
             this.addProperty('btShortCuts', PacketBase.TYPE_BYTE);//快捷键值
-            this.addProperty('btRow', PacketBase.TYPE_BYTE);//快捷键行	-1为取消
+            this.addProperty('btRow', PacketBase.TYPE_BYTE);//快捷键行	-1为取消     值域0-9
             this.addProperty('btCol', PacketBase.TYPE_BYTE);//快捷键列	-1为取消
             this.addProperty('btPlan', PacketBase.TYPE_BYTE);//方案
             this.read(data);

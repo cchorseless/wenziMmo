@@ -10,7 +10,14 @@ module view.scene {
 			// 相互绑定
 			this.item = item;
 			item.ui_item = this;
-			this.lbl_name.text = this.item.objName;
+			let name:string = this.item.objName
+			
+			if(name.length >4){
+				this.lbl_name.fontSize = 15
+			}else{
+				this.lbl_name.fontSize = 20
+			}
+			this.lbl_name.text = name;
 			// this.lbl_zuoBiao.text = '(' + this.item.location.ncurx + ',' + this.item.location.ncury + ')';
 			// 龙骨
 			let configID = '' + this.item.feature.dwCretTypeId;

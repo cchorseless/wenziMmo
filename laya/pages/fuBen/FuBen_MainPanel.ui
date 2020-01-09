@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":413,
+    "selecteID":416,
     "props":{"width":640,"sceneColor":"#e8d0d0","name":"FuBen","height":1136},
     "nodeParent":-1,
     "label":"View(FuBen)",
@@ -333,7 +333,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1087,"x":116,"width":80,"var":"btn_juqing","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"30","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","label":"剧情","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":1087,"x":116,"width":80,"var":"btn_juqing","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"30","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_juqing)",
             "isOpen":true,
@@ -348,7 +348,7 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":1091,"x":230,"width":80,"var":"btn_daily","stateNum":"2","skin":"image/juQingMode/icon_shouce.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","label":"日常","height":80,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":1091,"x":230,"width":80,"var":"btn_daily","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffd08d,#ffd08d,#ffd08d，","height":80,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
             "label":"Button(btn_daily)",
             "isOpen":true,
@@ -356,6 +356,32 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":414,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"HTMLDivElement",
+            "props":{"y":1083,"x":79,"width":80,"var":"html_juqing","innerHTML":"htmlText","height":35},
+            "nodeParent":1,
+            "label":"HTMLDivElement(html_juqing)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":415,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"HTMLDivElement",
+            "props":{"y":1083,"x":193,"width":80,"var":"html_richang","innerHTML":"htmlText","height":35},
+            "nodeParent":1,
+            "label":"HTMLDivElement(html_richang)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":416,
             "child":[
                 ]
         }],
