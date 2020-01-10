@@ -44,15 +44,18 @@ module view.fuBen {
 			this.lbl_des.text = '' + detail;
 			//击败心魔可获得经验
 			this.lbl_exp.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).EMPIRICAL_VALUE('' + this.data.monsterid);
+			this.lbl_des.text = '' + detail;
+			//击败心魔可获得金币
+			this.lbl_jinbi.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).GOLD_NUMBER('' + this.data.monsterid);
 			//掉落奖励
 			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + this.data.monsterid);
 			this.hbox_item.removeChildren();
 			for (let i = 0; jiangli[i]; i++) {
-				let _itemUI = new view.compart.DaoJuWithNameItem();
-				let itemInfo = new ProtoCmd.ItemBase();
-				itemInfo.dwBaseID = jiangli[i];
-				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.hbox_item.addChild(_itemUI)
+					let _itemUI = new view.compart.DaoJuWithNameItem();
+					let itemInfo = new ProtoCmd.ItemBase();
+					itemInfo.dwBaseID = jiangli[i];
+					_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
+					this.hbox_item.addChild(_itemUI)
 			}
 			//挑战等级限制
 			let mylvl = GameApp.MainPlayer.level;

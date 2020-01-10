@@ -46,7 +46,7 @@ module view.fuBen {
 				})
 			}
 			EventManage.onWithEffect(this.btn_see, Laya.UIEvent.CLICK, this, () => {
-				new view.fuBen.FuBen_XinMoInfoDialog().setData(this.bossData,this.curSelectIndex).popup();
+				new view.fuBen.FuBen_XinMoInfoDialog().setData(this.bossData, this.curSelectIndex).popup();
 			})
 			//战斗
 			EventManage.onWithEffect(this.btn_battle, Laya.UIEvent.CLICK, this, () => {
@@ -99,6 +99,8 @@ module view.fuBen {
 			this.lbl_num.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + data.monsterid);
 			//击败心魔可获得经验
 			this.lbl_coin1.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).EMPIRICAL_VALUE('' + data.monsterid);
+			//击败心魔可获得金币
+			this.lbl_coin2.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).GOLD_NUMBER('' + data.monsterid);
 		}
 
 	}
