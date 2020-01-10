@@ -132,8 +132,8 @@ module ResData {
         public static GuildWaiJiao = null;
         // 副本-剧情界面
         public static FuBenMain = [{ url: "res/atlas/image/fuben.atlas", type: Laya.Loader.ATLAS }];;
-        // 副本-日常界面
-        public static FuBenDaily = null;
+        // 副本-缉拿界面
+        public static FuBenJiNa = null;
         // 副本-资源界面
         public static FuBenRes = null;
         // 副本-心魔界面

@@ -30,9 +30,9 @@ module view.fuBen {
 			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
 				return;
 			})
-			//日常
+			//缉拿
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenDailyPanel();
+				PanelManage.openFuBenJiNaPanel();
 			})
 			for (let i = 1; i <= 6; i++) {
 				this['img_light' + i].visible = false;

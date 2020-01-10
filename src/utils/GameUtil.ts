@@ -210,7 +210,30 @@ module GameUtil {
         }
         return chnStr;
     }
-
+    /**
+     * 秒数倒计时
+     */
+    export function timeCountDownByS(second: number, ui: Laya.Label): void {
+        if (second > 0) {
+            ui.color = '#c43939';
+            ui.text = '' + TimeUtils.getFormatBySecond(second, 1);
+            Laya.timer.loop(1000, ui, time);
+            function time() {
+                second -= 1;
+                if (second > 0) {
+                    ui.color = '#c43939';
+                    ui.text = '' + TimeUtils.getFormatBySecond(second, 1);
+                } else {
+                    ui.color = '#39ad32';
+                    ui.text = "可击杀";
+                    Laya.timer.clear(ui, time)
+                }
+            }
+        } else {
+            ui.color = '#39ad32';
+            ui.text = "可击杀";
+        }
+    }
     /**
      * 显示0倒计时||1正计时
      * @param second 时间戳
@@ -228,7 +251,12 @@ module GameUtil {
             ui.innerHTML = stringWord + "<span style='color:#63491a;font-family:STLiti;fontSize:24;stroke:0;strokeColor:#63491a'>" + aa + "</span>";
         }
         else {
-            ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+            if (type == 0) {
+                ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
+            }
+            if (type == 1) {
+                ui.innerHTML = "";
+            }
             return;
         }
         Laya.timer.loop(60000, ui, round);
@@ -243,7 +271,8 @@ module GameUtil {
             else {
                 if (type == 0) {
                     ui.innerHTML = "<span style='color:#554536;font-family:STLiti;fontSize:24;stroke:0.5;strokeColor:#000000'>已过期</span>"
-                } else {
+                }
+                if (type == 1) {
                     ui.innerHTML = "";
                 }
                 Laya.timer.clear(ui, round)

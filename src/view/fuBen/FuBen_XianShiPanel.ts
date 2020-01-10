@@ -21,7 +21,7 @@ module view.fuBen {
 				PanelManage.openMainPanel();
 			});
 			EventManage.onWithEffect(this.btn_daily, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenDailyPanel();
+				// PanelManage.openFuBenDailyPanel();
 			});
 			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openFuBenMainPanel(FuBen_MainPanel.fromStr);
