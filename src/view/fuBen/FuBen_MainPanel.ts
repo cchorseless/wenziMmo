@@ -11,8 +11,6 @@ module view.fuBen {
 		public showZJID;//当前章节的ID；
 		public minzjID; //当前篇章中最小章节ID
 		public maxzjID; //当前篇章中最大章节ID
-		// public 
-
 		public isTouch = false;
 		public touchBeginX;
 		public touchEndX;
@@ -23,43 +21,10 @@ module view.fuBen {
 		//篇章id
 		public setData(fromStr: string): void {
 			FuBen_MainPanel.fromStr = fromStr;
+			this.btn_juqing.selected = true;
 			this.initUI();
 			this.addEvent();
-			// this.html_juqing.style.fontFamily = 'STXingkai';
-			// this.html_juqing.style.fontSize = 35;
-			// this.html_juqing.style.align = 'center';
-			// this.html_juqing.style.color = '#000000';
-			// this.html_juqing.style.strokeColor = '#ffffff';
-			// this.html_juqing.style.stroke = 4;
-			// this.html_juqing.innerHTML = "<span>" + '剧情' + '</span>';
-
-			// this.html_richang.style.fontFamily = 'STXingkai';
-			// this.html_richang.style.fontSize = 35;
-			// this.html_richang.style.align = 'center';
-			// this.html_richang.style.color = '#000000';
-			// this.html_richang.style.strokeColor = '#ffffff';
-			// this.html_richang.style.stroke = 4;
-			// this.html_richang.innerHTML = "<span>" + '日常' + '</span>';
-			// this.changeButtonLabel(1)
 		}
-		// public changeButtonLabel(id: number) {
-		// 	if (id == 1) {
-		// 		this.html_juqing.style.color = '#ffffff';
-		// 		this.html_juqing.style.strokeColor = '#783818';
-		// 		this.html_richang.style.color = '#000000';
-		// 		this.html_richang.style.strokeColor = '#ffffff';
-		// 		this.btn_juqing.selected = true;
-		// 		this.btn_daily.selected = false;
-		// 	} else {
-		// 		this.html_richang.style.color = '#ffffff';
-		// 		this.html_richang.style.strokeColor = '#783818';
-		// 		this.html_juqing.style.color = '#000000';
-		// 		this.html_juqing.style.strokeColor = '#ffffff';
-		// 		this.btn_juqing.selected = false;
-		// 		this.btn_daily.selected = true;
-		// 	}
-
-		// }
 		public static backPanel() {
 			if (FuBen_MainPanel.fromStr == 'main') {
 				PanelManage.openMainPanel()
@@ -104,7 +69,7 @@ module view.fuBen {
 					this.dealWithPosX()
 				}
 			})
-				//返回
+			//返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
 				PopUpManager.checkPanel(this);
 			})

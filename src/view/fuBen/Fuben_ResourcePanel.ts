@@ -10,6 +10,7 @@ module view.fuBen {
 			this.tab_resource.selectHandler = Laya.Handler.create(this, (index) => {
 				this.init_changefubenType(index);
 			}, null, false);
+			this.btn_res.selected = true;
 			this.init_res();
 			this.init_isOpenRes();
 			this.addEvent();
@@ -31,7 +32,7 @@ module view.fuBen {
 			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openFuBenXinMoPanel()
 			})
-			//日常
+			//缉拿
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openFuBenDailyPanel()
 			})

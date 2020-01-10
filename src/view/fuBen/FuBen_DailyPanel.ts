@@ -6,51 +6,41 @@ module view.fuBen {
 			super();
 		}
 		public setData(): void {
-			this.btn_daily.selected = true;
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
-			// this.panel_xinMo.hScrollBarSkin = '';
-			// this.hbox_xinMo['sortItem'] = (items) => { };
-			// this.panel_xinMo1.hScrollBarSkin = '';
-			// this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_boss.hScrollBarSkin = '';
 			this.hbox_boss['sortItem'] = (items) => { };
-			
+			this.btn_jina.selected = true;
 			this.init_JiDao();
 			this.addEvent();
 		}
-		public Dispose(){
-			GameApp.LListener.offCaller(ProtoCmd.FB_CaiLiaoFuBen_OneKey,this);
+		public Dispose() {
+			GameApp.LListener.offCaller(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this);
 			PopUpManager.Dispose(this)
 		}
 
 		public addEvent(): void {
-			EventManage.onWithEffect(this.btn_back, Laya.UIEvent.CLICK, this, () => {
-				FuBen_MainPanel.backPanel()
-			});
-
-			EventManage.onWithEffect(this.btn_changeMode, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openMainPanel();
-			});
-
-			EventManage.onWithEffect(this.btn_daily, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenDailyPanel();
-			});
-
-			EventManage.onWithEffect(this.btn_juQing, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenMainPanel(FuBen_MainPanel.fromStr);
-			});
-
-			EventManage.onWithEffect(this.btn_liLian, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenLiLianPanel();
-			});
-
-			EventManage.onWithEffect(this.btn_xianShi, Laya.UIEvent.CLICK, this, () => {
-				PanelManage.openFuBenXianShiPanel();
-			});
-
-		
+			//返回
+			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
+				PopUpManager.checkPanel(this);
+			})
+			//剧情
+			this.btn_juqing.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenMainPanel('main')
+			})
+			//资源副本
+			this.btn_res.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenResPanel()
+			})
+			//心魔
+			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
+				PanelManage.openFuBenXinMoPanel()
+			})
+			//缉拿
+			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
+				return;
+			})
 			EventManage.onWithEffect(this.btn_go, Laya.UIEvent.CLICK, this, () => {
 				let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.bossRoomId, 0], 0, this, function (jsonData) {
 					if (jsonData.errorcode == 0) {
@@ -72,16 +62,16 @@ module view.fuBen {
 				})
 				lcp.send(pk);
 			});
-		
+
 			GameApp.LListener.on(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this, function (data) {
 				let o = new FuBen_SaoDang_Reward_Dialog();
 				o.setData(data.index, data.beishu);
 				o.popup()
-				
+
 			})
 		}
-	
-	
+
+
 		public init_JiDao(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
