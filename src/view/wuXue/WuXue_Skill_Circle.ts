@@ -3,15 +3,22 @@ module view.wuXue {
 	export class WuXue_Skill_Circle extends ui.wuXue.WuXue_Skill_CircleUI {
 		public isTouch = false;
 		public skillID = null;
-		public unLock  = false;
+		public unLock = false;
+		public skillItemBase;
 		constructor() {
 			super();
 			this.addEvent();
 		}
-		public setData(unlock: boolean, index: number, skillID = null) {
+		public setData(unlock: boolean, index: number, skill = null) {
+			let skillID = null
+			if (skill) {
+				skillID  = skill.configID
+			}
+
 			this.unLock = unlock;
 			if (unlock) {
 				if (skillID != null) {
+					this.skillItemBase = skill;
 					this.skillID = skillID;
 					this.img_lock.visible = false;
 					this.img_unlock.visible = false;
