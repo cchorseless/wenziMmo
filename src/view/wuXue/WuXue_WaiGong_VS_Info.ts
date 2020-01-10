@@ -9,6 +9,8 @@ module view.wuXue {
 		public wuXueTaolu2 = [];
 		public wuXueTaolu3 = [];
 
+		public unlockNeed = 10;
+
 		public pageID = 1;
 		public maxPage = 0;
 		public isTouch = false;
@@ -53,26 +55,10 @@ module view.wuXue {
 			// this.hitTestPoint(60.5, 203)
 			// console.log(this.skillCircleArr)
 		}
-		public upDateSkillButton() {
-			let myLv = GameApp.MainPlayer.level;
-			let unlockNum = Math.floor(myLv / 10);
-			for (let i = 1; i <= 6; i++) {
-				if (i <= unlockNum) {
-					let key = this.taoLuID * 100 + i - 1
-					if (GameApp.MainPlayer.skillShotButton[key]) {
-						let skill = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
-						let skillBase = GameApp.MainPlayer.skillInfo[(skill + '')];
-						this['ui_SkillCircle' + i].setData(true, i, skillBase)
-					} else {
-						this['ui_SkillCircle' + i].setData(true, i)
-					}
-				}
-			}
-		}
 		public setData(id) {
 			this.taoLuID = id;
 			let myLv = GameApp.MainPlayer.level;
-			let unlockNum = Math.floor(myLv / 10);
+			let unlockNum = Math.floor(myLv / this.unlockNeed);
 			for (let i = 1; i < 7; i++) {
 				if (i <= unlockNum) {
 					let key = id * 100 + i - 1
