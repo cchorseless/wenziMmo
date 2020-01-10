@@ -9,9 +9,15 @@ module view.wuXue {
 		public listData0;
 		public listData1;
 		public listData2;
-		public setData(tab = 0): void {
-			+
-				this.initTab();
+		public setData(): void {
+			let tab;
+			let key = 400
+			if (GameApp.MainPlayer.skillShotButton[key]) {
+				tab = GameApp.MainPlayer.skillShotButton[key].i64Id.int64ToNumber();
+			} else {
+				tab = 0;
+			}
+			this.initTab();
 			// this.initUI();
 			this.addEvent();
 			for (let i = 0; i < 4; i++) {
@@ -20,7 +26,7 @@ module view.wuXue {
 				this.VS_show.addItem(box);
 			}
 			this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex = tab;
-
+			GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 			this.setInitView(tab)
 		}
 		public initTab() {
@@ -44,6 +50,7 @@ module view.wuXue {
 				o.setData(id)
 				box.addChild(o);
 			}
+			this.VS_show.selectedIndex = id;
 		}
 
 
@@ -56,12 +63,33 @@ module view.wuXue {
 		}
 		public addEvent(): void {
 			this.tab_wuxue.on(Laya.UIEvent.CLICK, this, () => {
-				this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
+				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
+				GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 				this.setInitView(this.tab_wuxue.selectedIndex);
+			})
+			this.btn_set.on(Laya.UIEvent.CLICK, this, () => {
+				// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
+				let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
+				pkt1.setValue('oldcol', 0);
+				pkt1.setValue('oldrow', 4);
+				pkt1.shortcuts.emShortCuts = 1;
+				let skill = 100 + GameApp.MainPlayer.taoluPageID;
+				pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(GameApp.MainPlayer.taoluPageID)
+				pkt1.shortcuts.btCol = 0;
+				pkt1.shortcuts.btRow = 4;
+				lcp.send(pkt1);
 			})
 			//武学界面刷新  快捷键
 			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_waigong, this, function () {
-				this.initUI();
+				let id = GameApp.MainPlayer.taoluPageID
+				let box = this.VS_show.getChildAt(id);
+				if (box.numChildren > 0) {
+					box.removeChildren()
+				}
+				let o = new WuXue_WaiGong_VS_Info()
+				o.setData(id)
+				box.addChild(o);
+				this.VS_show.selectedIndex = id;
 			})
 			// for (let i = 1; i < 7; i++) {
 			// 	this["ui_item" + i].on(Laya.UIEvent.CLICK, this, function () {
@@ -89,14 +117,14 @@ module view.wuXue {
 			// });
 
 			GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
-				this.initUI();
-				for (let key in GameApp.MainPlayer.skillInfo) {
-					//ProtoCmd.stSkillLvlBase
-					let configid = GameApp.MainPlayer.skillInfo[key].configID
-					if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
-						GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
-					}
-				}
+				// this.initUI();
+				// for (let key in GameApp.MainPlayer.skillInfo) {
+				// 	//ProtoCmd.stSkillLvlBase
+				// 	let configid = GameApp.MainPlayer.skillInfo[key].configID
+				// 	if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
+				// 		GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
+				// 	}
+				// }
 			})
 
 		}

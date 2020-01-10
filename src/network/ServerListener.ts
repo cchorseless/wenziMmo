@@ -795,7 +795,7 @@ class ServerListener extends SingletonClass {
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
             //key  行数*100 + 列数
-            let key = shot.btRow*100 + shot.btCol
+            let key = shot.btRow*100 + shot.btCol;
             GameApp.MainPlayer.skillShotButton[key] = shot;
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
@@ -825,7 +825,8 @@ class ServerListener extends SingletonClass {
     public delSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode') == 0) {
-            delete GameApp.MainPlayer.skillShotButton[cbpkt.shortcuts.btRow];
+            let key = cbpkt.shortcuts.btRow*100 + cbpkt.shortcuts.btCol
+            delete GameApp.MainPlayer.skillShotButton[key];
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
                 case "waigong":

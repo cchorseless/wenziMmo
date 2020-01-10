@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":33,
-    "selecteID":35,
+    "selectedBox":1,
+    "selecteID":37,
     "props":{"width":585,"sceneColor":"#ffffff","height":805},
     "nodeParent":-1,
     "label":"View",
@@ -65,113 +65,87 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":7,"x":52,"width":482,"height":263},
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":72,"x":112,"var":"ui_SkillCircle1","runtime":"view.wuXue.WuXue_Skill_Circle"},
                     "nodeParent":2,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
+                    "label":"UIView(ui_SkillCircle1)",
+                    "isDirectory":false,
                     "isAniNode":true,
-                    "hasChild":true,
-                    "compId":33,
+                    "hasChild":false,
+                    "compId":4,
                     "child":[
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":65,"x":60.5,"var":"ui_SkillCircle1","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle1)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":4,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":65,"x":242.5,"var":"ui_SkillCircle2","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle2)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":5,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":65,"x":423.5,"var":"ui_SkillCircle3","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle3)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":6,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":203,"x":60.5,"var":"ui_SkillCircle4","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle4)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":7,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":203,"x":242.5,"var":"ui_SkillCircle5","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle5)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":8,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"UIView",
-                            "source":"wuXue/WuXue_Skill_Circle.ui",
-                            "props":{"y":203,"x":423.5,"var":"ui_SkillCircle6","runtime":"view.wuXue.WuXue_Skill_Circle"},
-                            "nodeParent":33,
-                            "label":"UIView(ui_SkillCircle6)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":9,
-                            "child":[
-                                ]
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":192,"x":97,"label":"label"},
-                            "nodeParent":33,
-                            "label":"Button",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":35,
-                            "child":[
-                                ]
-                        }]
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":72,"x":294,"var":"ui_SkillCircle2","runtime":"view.wuXue.WuXue_Skill_Circle"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_SkillCircle2)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":5,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":72,"x":475,"var":"ui_SkillCircle3","runtime":"view.wuXue.WuXue_Skill_Circle"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_SkillCircle3)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":6,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":210,"x":112,"var":"ui_SkillCircle4","runtime":"view.wuXue.WuXue_Skill_Circle"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_SkillCircle4)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":7,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":210,"x":294,"var":"ui_SkillCircle5","runtime":"view.wuXue.WuXue_Skill_Circle"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_SkillCircle5)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":8,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"UIView",
+                    "source":"wuXue/WuXue_Skill_Circle.ui",
+                    "props":{"y":210,"x":475,"var":"ui_SkillCircle6","runtime":"view.wuXue.WuXue_Skill_Circle"},
+                    "nodeParent":2,
+                    "label":"UIView(ui_SkillCircle6)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":9,
+                    "child":[
+                        ]
                 },
                 {
                     "x":30,
@@ -354,6 +328,32 @@
                                 ]
                         }]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":705,"x":120,"width":80,"var":"btn_last","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelSize":20,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"上一页","height":45},
+            "nodeParent":1,
+            "label":"Button(btn_last)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":36,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "props":{"y":705,"x":386,"width":80,"var":"btn_next","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelSize":20,"labelFont":"fzxk","labelColors":"#ffffff,#ffffff,#ffffff","label":"下一页","height":45},
+            "nodeParent":1,
+            "label":"Button(btn_next)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":37,
+            "child":[
+                ]
         }],
     "animations":[
         {
