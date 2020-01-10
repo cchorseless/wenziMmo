@@ -5,10 +5,14 @@ module view.fuBen {
 			super();
 		}
 		public data;
+		public max;
+		public now;
+		public index = 0;
 		public setData(): void {
 			this.vbox_resource['sortItem'] = (items) => { };
 			this.tab_resource.selectHandler = Laya.Handler.create(this, (index) => {
 				this.init_changefubenType(index);
+				this.index = index;
 			}, null, false);
 			this.btn_res.selected = true;
 			this.init_res();
@@ -34,14 +38,19 @@ module view.fuBen {
 			})
 			//缉拿
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenDailyPanel()
+				PanelManage.openFuBenJiNaPanel()
 			})
 			this.addLcpEvent();
 		}
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.FB_CLFubenStatus, this, function (jsonData) {
-				this.data = jsonData
-
+				this.data = jsonData;
+			})
+			GameApp.LListener.on(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this, (jsonData) => {
+				this.init_res();
+				this.tab_resource.selectedIndex = this.index - 1;
+				this.init_changefubenType(this.index - 1);
+				new view.fuBen.FuBen_SaoDang_Reward_Dialog().setData(jsonData).popup(true);
 			})
 		}
 		/**
@@ -80,8 +89,10 @@ module view.fuBen {
 						break;
 				}
 				//剩余副本次数
-				let cout = resData.leftcnt - resData.caninto
-				this.lbl_fuben.text = name + cout;
+				let cout = resData.leftcnt + resData.caninto;
+				this.max = resData.leftcnt;
+				this.now = cout;
+				this.lbl_fuben.text = ''+resData.leftcnt;
 			}
 		}
 		public init_isOpenRes(): void {
@@ -94,7 +105,9 @@ module view.fuBen {
 		}
 		public Dispose() {
 			GameApp.LListener.offCaller(ProtoCmd.FB_CLFubenStatus, this);
+			GameApp.LListener.offCaller(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this)
 			PopUpManager.Dispose(this)
 		}
+
 	}
 }

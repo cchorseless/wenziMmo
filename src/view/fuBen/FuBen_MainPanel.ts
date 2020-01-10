@@ -85,22 +85,10 @@ module view.fuBen {
 			this.btn_xinmo.on(Laya.UIEvent.CLICK, this, function () {
 				PanelManage.openFuBenXinMoPanel();
 			})
-			//日常
+			//缉拿
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
-				PanelManage.openFuBenDailyPanel();
+				PanelManage.openFuBenJiNaPanel();
 			})
-			// this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
-			// 	PopUpManager.checkPanel(this);
-			// })
-			// this.btn_juqing.on(Laya.UIEvent.CLICK, this, function () {
-			// 	// PanelManage.openFuBenDailyPanel()
-			// 	this.changeButtonLabel(1)
-			// 	return;
-			// })
-			// this.btn_daily.on(Laya.UIEvent.CLICK, this, function () {
-			// 	this.changeButtonLabel(2)
-			// 	PanelManage.openFuBenDailyPanel()
-			// })
 			this.btn_saodang.on(Laya.UIEvent.CLICK, this, function () {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.oneKeyChuMoPanel, [this.showPZID], null, this, function (data) {

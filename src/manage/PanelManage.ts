@@ -68,7 +68,7 @@ module PanelManage {
     export let CloseDoor: view.wuXue.WuXueCloseDoorPanel;//武学闭关界面
     export let BeiBao: view.beiBao.BagPanel;//背包界面
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
-    export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
+    export let FuBenJiNa: view.fuBen.FuBen_JiNaPanel;//缉拿副本界面
     export let FuBenRes: view.fuBen.Fuben_ResourcePanel;//资源副本界面
     export let FuBenXinMo: view.fuBen.FuBen_XinMoPanel;//心魔副本界面
     export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
@@ -651,16 +651,16 @@ module PanelManage {
     }
 
     /**
-     * 每日副本界面
+     * 缉拿副本界面
      */
-    export function openFuBenDailyPanel(): void {
-        if (PopUpManager.showPanel(PanelManage.FuBenDaily)) return;
-        ResManage.loadResource(ResData.PanelRes.FuBenDaily, () => {
-            PanelManage.FuBenDaily = new view.fuBen.FuBen_DailyPanel();
-            PanelManage.FuBenDaily['LCP_skin'] = ResData.PanelRes.FuBenDaily;
-            PanelManage.FuBenDaily.setData();
-            PanelManage.FuBenDaily.mouseEnabled = true;
-            PopUpManager.addPanel(PanelManage.FuBenDaily, 2, 0, 2);
+    export function openFuBenJiNaPanel(): void {
+        if (PopUpManager.showPanel(PanelManage.FuBenJiNa)) return;
+        ResManage.loadResource(ResData.PanelRes.FuBenJiNa, () => {
+            PanelManage.FuBenJiNa = new view.fuBen.FuBen_JiNaPanel();
+            PanelManage.FuBenJiNa['LCP_skin'] = ResData.PanelRes.FuBenJiNa;
+            PanelManage.FuBenJiNa.setData();
+            PanelManage.FuBenJiNa.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenJiNa, 2, 0, 2);
         })
     }
     /**

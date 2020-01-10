@@ -36,18 +36,12 @@ module view.fuBen {
 				}
 				if (id) {
 					let pkt = new ProtoCmd.QuestClientData();
-					pkt.setString(ProtoCmd.FB_CaiLiaoFuBen_OneKey, [this.index, this.difficult, id], null, this, (jsonData) => {
-						PanelManage.FuBenRes.init_res();
-						PanelManage.FuBenRes.tab_resource.selectedIndex = this.index - 1;
-						PanelManage.FuBenRes.init_changefubenType(this.index - 1);
-						new view.dialog.FuBen_SuccessOrFailDialog().setData(jsonData).popup(true);
-						this.close();
-					})
+					pkt.setString(ProtoCmd.FB_CaiLiaoFuBen_OneKey, [this.index, this.difficult, id])
 					pkt.send();
+					this.close();
 				} else {
 					TipsManage.showTips('请选择扫荡券')
 				}
-				this.close();
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();

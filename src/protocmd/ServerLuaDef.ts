@@ -1100,7 +1100,7 @@ module ProtoCmd {
     export interface itf_FB_ZiYuanInfo {
         caninto: number;//已进入副本次数
         index: number;//索引
-        leftcnt: number;//最大可进入次数
+        leftcnt: number;//剩余可进入次数
         name: string;//副本类型
         name1: string;//副本地图名称
         openlv: number;//开放等级

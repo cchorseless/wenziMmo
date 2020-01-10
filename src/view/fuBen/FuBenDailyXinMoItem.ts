@@ -61,7 +61,7 @@ module view.fuBen {
 					// PanelManage.FuBenDaily.update_XinMo(this.item);
 				}
 				if (this.type == 1) {
-					PanelManage.FuBenDaily.update_yeWai(this.item, this.index);
+					// PanelManage.FuBenDaily.update_yeWai(this.item, this.index);
 				}
 			})
 		}
