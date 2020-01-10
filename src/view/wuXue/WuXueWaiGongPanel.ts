@@ -32,13 +32,31 @@ module view.wuXue {
 		public initTab() {
 			let tabStr = [];
 			let data1 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_SHOULDER);
-			tabStr.push('拳脚套路\nlv.' + data1.dwLevel)
+			if (data1) {
+				tabStr.push('拳脚套路\nlv.' + data1.dwLevel)
+			}else {
+				tabStr.push('拳脚套路\nlv.0')
+			}
 			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
-			tabStr.push('刀剑套路\nlv.' + data2.dwLevel)
+			if (data2) {
+				tabStr.push('刀剑套路\nlv.' + data2.dwLevel)
+			} else {
+				tabStr.push('刀剑套路\nlv.0')
+			}
 			let data3 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_PENDANT);
-			tabStr.push('长兵套路\nlv.' + data3.dwLevel)
+			if (data3) {
+				tabStr.push('长兵套路\nlv.' + data3.dwLevel)
+			} else {
+				tabStr.push('长兵套路\nlv.0')
+			}
 			let data4 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_FACE);
-			tabStr.push('奇门套路\nlv.' + data4.dwLevel)
+			if (data4) {
+				tabStr.push('奇门套路\nlv.' + data4.dwLevel)
+			} else {
+				tabStr.push('奇门套路\nlv.0')
+			}
+
+
 			// tabStr += '拳脚套路\nlv.' + data1.dwLevel + ',' + '刀剑套路\nlv.' + data2.dwLevel + ',' + '长兵套路\nlv.' + data3.dwLevel + '奇门套路\nlv.' + data4.dwLevel;
 			let str = tabStr.join(",");
 			this.tab_wuxue.labels = str;
@@ -62,6 +80,9 @@ module view.wuXue {
 			PopUpManager.Dispose(this);
 		}
 		public addEvent(): void {
+			this.btn_develop.on(Laya.UIEvent.CLICK,this,function(){
+				new view.juese.Person_WuXueBaseDialog().popup();
+			})
 			this.tab_wuxue.on(Laya.UIEvent.CLICK, this, () => {
 				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
 				GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;

@@ -3,73 +3,118 @@ module view.wuXue {
 	export class WuXue_InfoDialog extends ui.wuXue.WuXue_InfoDialogUI {
 		public canLvUp: boolean = false;
 		public skillID;
+		public shuxingNameArr = ['', '金', '木', '水', '火', '土'];
+		public configID;
+		// public 
 		constructor() {
 			super();
-			this.panel_skillDes.vScrollBarSkin = '';
-			this.panel_skillEffDes.vScrollBarSkin = "";
+			// this.panel_skillDes.vScrollBarSkin = '';
+			// this.panel_skillEffDes.vScrollBarSkin = "";
 		}
 		public item: ProtoCmd.stSkillLvlBase;
-		public setData(s: ProtoCmd.stSkillLvlBase): WuXue_InfoDialog {
+		public setData(s: ProtoCmd.stSkillLvlBase) {
+			this.hbox_eff['sortItem'] = (items) => { };
+			for (let i = 0; i < 5; i++) {
+				let box = new Laya.Box();
+				box.top = box.bottom = box.right = box.left = 0;
+				this.VS_view.addChild(box);
+			}
 			this.item = s;
 			let configID = s.configID;
+			this.configID = configID;
+			let wuxueType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID)
+			if (wuxueType == 1) {
+				this.lab_type.text = '外功型'
+			} else if (wuxueType == 4) {
+				this.lab_type.text = '内功型'
+			}
 			this.skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID);
 			// 技能类型
 			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
-			let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(configID);
-			let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(configID);
 
-			let o = new view.compart.DaoJuWithNameItem();
-			let itemBase = new ProtoCmd.ItemBase()
-			//needItemID
-			itemBase.dwBaseID = 20101;
-			itemBase.dwCount = needItemNum
-			o.setData(itemBase)
-			o.lbl_itemName.visible =false;
-			this.ui_needItem.addChild(o)
+			let effID = SheetConfig.mydb_magic_tbl.getInstance(null).ATTRIBUTE_EFFECT(configID);
+			let effID1 = effID + '';
+			let effData = GameUtil.parseEffectidToObj([effID1]);
+			for (let i = 0; i < effData.des.length; i++) {
+				this.hbox_eff.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
+			}
+			let shuxing = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(configID);
+			if (shuxing > 0) {
+				this.img_shuxing.visible = true;
+				this.img_shuxing.skin = "image/common/skill/icon_wx_" + shuxing + ".png"
+			} else {
+				this.img_shuxing.visible = false;
+			}
+			this.lab_shuxing_Name.text = this.shuxingNameArr[shuxing]
+			this.html_lv.style.font = 'STkaiti';
+			this.html_lv.style.fontSize = 26;
+			this.html_lv.style.align = 'center';
+			this.html_lv.innerHTML = "<span style='color:#ff8b8b'>LV." + 1
+				+ '</span>' + "<span style='color:#000000'>/" + 10 + '</span>';
+			// let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(configID);
+			// let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(configID);
+
+			// let o = new view.compart.DaoJuWithNameItem();
+			// let itemBase = new ProtoCmd.ItemBase()
+			// //needItemID
+			// itemBase.dwBaseID = 20101;
+			// itemBase.dwCount = needItemNum
+			// o.setData(itemBase)
+			// o.lbl_itemName.visible =false;
+			// this.ui_needItem.addChild(o)
 			// this.lbl_skillType.text = '' + LangConfig.enSkillTypeDes[EnumData.enSkillType[skillType]];
 			// 技能名称
 
-			this.lab_NeedName1.text =  SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
-			this.lbl_useDes1.text =  SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY_ACQUISITION(configID);
+			this.lab_NeedName1.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+			this.lbl_useDes1.text = SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY_ACQUISITION(configID);
 			let str_Act = SheetConfig.mydb_magic_tbl.getInstance(null).ACTIVATION_CONDITIONS(configID);
-			if(str_Act == "0"){
+			if (str_Act == "0") {
 				str_Act = "无条件"
 			}
 			this.lab_LvUpDetail.text = str_Act;
 			this.lbl_skillName.text = '' + SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID).split('_')[0];
-			// 技能描述
-			this.lbl_skillDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_DESCRIPTION(configID);
-			this.lbl_skillEffectDes.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(configID);
-			this.btn_1.visible = this.btn_2.visible = this.btn_3.visible = this.btn_4.visible = this.btn_5.visible = true;
-			for (let i = 1; i < 6; i++) {
-				this['btn_' + i].selected = i < s.level;
-				if (this['btn_' + i].selected == true) {
-					this['btn_' + i].disabled = false;
-				} else {
-					this['btn_' + i].disabled = true;
-				}
-			}
 			// 经验
-			let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
-			this.lbl_expDes.text = s.dwexp + '/' + expMax;
-			this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
-			if (s.dwexp >= expMax) {
-				this.canLvUp = true;
-			}
+			// let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
+			// this.lbl_expDes.text = s.dwexp + '/' + expMax;
+			// this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
+			// if (s.dwexp >= expMax) {
+			// 	this.canLvUp = true;
+			// }
 			// logo
-			this.ui_item.setData(configID);
-
-			// 穿戴还是卸下
-			let btow = GameApp.MainPlayer.checkSkillHadDress(s.skillid);
-			if (btow) {
-				this.btn_dress.label = '卸下';
-			}
-			else {
-				this.btn_dress.label = '装备';
-			}
-
+			this.ui_skill.setData(configID);
+			this.showVS_Show(0, false)
 			this.addEvent();
-			return this
+		}
+		/**
+		 * 
+		 * @param id   界面ID
+		 * @param boo  是否刷新
+		 */
+		public showVS_Show(id, boo) {
+			let box = this.VS_view.getChildAt(id);
+			if (boo) {
+				box.removeChildren();
+			}
+			if (box.numChildren <= 0) {
+				let panel = new Laya.Panel();
+				panel.vScrollBarSkin = '';
+				panel.top = panel.bottom = panel.right = panel.left = 0;
+				let o;
+				box.addChild(panel);
+				switch (id) {
+					case 0:
+						o = new WuXue_infoDiao_VS_info();
+						o.setData(this.configID)
+						break;
+					case 1:
+						o = new WuXue_infoDiao_VS_info();
+						o.setData(this.configID)
+						break;
+				}
+
+				panel.addChild(o);
+			}
+			this.VS_view.selectedIndex = id;
 		}
 
 		public addEvent(): void {
@@ -77,17 +122,17 @@ module view.wuXue {
 				this.setData(data)
 			})
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
-				GameApp.GameEngine.wuxueDataID = -1;
-				GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog,this);
+				// GameApp.GameEngine.wuxueDataID = -1;
+				// GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog, this);
 				this.close();
 			});
 			// 升级
-			this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
-				// if (this.canLvUp) {
-				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSkill, [this.skillID]);
-				lcp.send(pkt);
-				// }
-			});
+			// this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
+			// 	// if (this.canLvUp) {
+			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.upgradeSkill, [this.skillID]);
+			// 	lcp.send(pkt);
+			// 	// }
+			// });
 			/**
 			 * 测试技能经验值增加
 			 */
@@ -96,65 +141,6 @@ module view.wuXue {
 			// 	lcp.send(pkt);
 			// })
 			// 穿戴或者卸下
-			this.btn_dress.on(Laya.UIEvent.CLICK, this, () => {
-				this.close()
-				// 卸下
-				let btow = GameApp.MainPlayer.checkSkillHadDress(this.item.skillid)
-				if (btow) {
-					let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
-					pkt.shortcuts.btRow = btow;
-					pkt.shortcuts.btCol = 1;
-					lcp.send(pkt);
-				}
-				// 穿上
-				else {
-					let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(this.item.configID);
-					let btow = null;
-					switch (skillType) {
-						// 招式(1-4) 先卸下再穿上
-						case EnumData.enSkillType.ZhaoShi:
-							for (let i = 1; i < 5; i++) {
-								if (!GameApp.MainPlayer.skillShotButton[i]) {
-									btow = i;
-									break
-								}
-							}
-							break;
-						// 招架5
-						case EnumData.enSkillType.ZhaoJia:
-							btow = 5
-							break;
-						// 身法6
-						case EnumData.enSkillType.ShenFa:
-							btow = 6
-							break;
-						// 内功(7-10)
-						case EnumData.enSkillType.NeiGong:
-							for (let i = 7; i < 11; i++) {
-								if (!GameApp.MainPlayer.skillShotButton[i]) {
-									btow = i;
-									break;
-								}
-							}
-							break;
-					}
-					if (btow == null) {
-						TipsManage.showTips('先卸下,再穿戴')
-						return
-					}
-					let pkt = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
-					pkt.setValue('oldcol', 1);
-					pkt.setValue('oldrow', btow);
-					pkt.shortcuts.emShortCuts = 1;
-					pkt.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(this.item.skillid)
-					pkt.shortcuts.btCol = 1;
-					pkt.shortcuts.btRow = btow;
-					lcp.send(pkt);
-
-				}
-
-
-			});
 
 		}
 

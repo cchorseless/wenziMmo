@@ -3414,8 +3414,9 @@ module ProtoCmd {
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('skillid', PacketBase.TYPE_INT);					//技能ID
-            this.addProperty('level', PacketBase.TYPE_INT);						//技能等级
+            this.addProperty('level', PacketBase.TYPE_INT);						//技能等级  阶数
             this.addProperty('dwexp', PacketBase.TYPE_INT);						//技能经验
+            this.addProperty('sublevel', PacketBase.TYPE_INT);                  //技能等级  等级
             this.addProperty('boLocked', PacketBase.TYPE_BOOL);                 //自动锁定的值
             this.addProperty('boLockChange', PacketBase.TYPE_BOOL);             //自动锁定修改
             this.addProperty('boContinuousCasting', PacketBase.TYPE_BOOL);      //连续施放的值

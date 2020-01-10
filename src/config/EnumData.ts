@@ -380,6 +380,7 @@ module EnumData {
         EXP_VALUE_TYPE_TILI,//体力
         EXP_VALUE_TYPE_PRETTY,//颜值
         EXP_VALUE_TYPE_MOOD,//心情
+        EXP_VALUE_TYPE_SKILL,// 技能经验
     };
 
     /**

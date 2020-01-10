@@ -124,9 +124,45 @@ module view.wuXue {
 					this.tempData = this.wuXueTaolu3.concat(this.wuXueTaolu0);
 					break;
 			}
+
+			this.getSkillComBo();
 			this.lab_totalNum.text = '武学数量:' + this.tempData.length;
 			this.maxPage = Math.ceil(this.tempData.length / 12)
 			this.showPage();
+		}
+		public getSkillComBo() {
+			let arr = [];
+			for (let i = 0; i < this.tempData.length; i++) {
+				let baseID = this.tempData[i].configID;
+				let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(baseID);
+				let comboIdArr = comboID.split('`')
+				for (let o = 0; o < comboIdArr.length; o++){
+					if (parseInt(comboIdArr[o]) > 0) {
+						arr.push(parseInt(comboIdArr[o]));
+					}
+				}
+
+
+			}
+			if (arr.length <= 0) {
+				return;
+			}
+			arr = arr.sort(function (a, b) {
+				return (a - b);
+			});
+			let data = {};
+			for (let i = 0; i < arr.length;) {
+				let count = 0;
+				for (let j = i; j < arr.length; j++) {
+					if (arr[i] == arr[j]) {
+						count++;
+					}
+				}
+				data[arr[i]] = count
+				i += count;
+			}
+			GameApp.MainPlayer.comboTypeByPage[GameApp.MainPlayer.taoluPageID] = data
+
 		}
 		public showPage() {
 			//this.tempData.sort     ToDo...
@@ -244,10 +280,13 @@ module view.wuXue {
 					if (self.isTouchSkillShow && self.touchSkillShowID >= 0) {
 						// self.compareHit(e);
 						if (!self.skillItem) {
-							let o = new WuXue_InfoDialog();
-							let id = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this['ui_' + self.touchSkillShowID].configID)
-							o.setData(GameApp.MainPlayer.skillInfo[id])
-							o.popup();
+							let skill_USEid = this['ui_' + self.touchSkillShowID].configID
+							if (skill_USEid > 0) {
+								let id = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this['ui_' + self.touchSkillShowID].configID)
+								let o = new WuXue_InfoDialog();
+								o.setData(GameApp.MainPlayer.skillInfo[id])
+								o.popup();
+							}
 							self.isTouchSkillShow = false;
 							self.touchSkillShowID = -1;
 							return;
@@ -274,44 +313,63 @@ module view.wuXue {
 					break
 				}
 			}
-			if (isChange) {
-				//移动的目标框是否解锁了
-				if (this['ui_SkillCircle' + changeIndex].unLock) {
-					//移动的目标框的技能ID是否存在
-					if (this['ui_SkillCircle' + changeIndex].skillID) {
-						// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
-						//脱技能
-						let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
-						pkt.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
-						pkt.shortcuts.btCol = changeIndex - 1;
-						lcp.send(pkt);
-						//穿技能
-						let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
-						let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
-						pkt1.setValue('oldcol', changeIndex - 1);
-						pkt1.setValue('oldrow', GameApp.MainPlayer.taoluPageID);
-						pkt1.shortcuts.emShortCuts = 1;
-						pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(skillID)
-						pkt1.shortcuts.btCol = changeIndex - 1;
-						pkt1.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
-						lcp.send(pkt1);
-						// this['ui_SkillCircle' + this.touchTaoLuID].setData(true, this.touchTaoLuID, this['ui_SkillCircle' + changeIndex].skillID)
-					} else {
-						//穿
-						// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
-						//穿技能
-						let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
-						let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
-						pkt1.setValue('oldcol', changeIndex - 1);
-						pkt1.setValue('oldrow', GameApp.MainPlayer.taoluPageID);
-						pkt1.shortcuts.emShortCuts = 1;
-						pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(skillID)
-						pkt1.shortcuts.btCol = changeIndex - 1;
-						pkt1.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
-						lcp.send(pkt1);
-					}
+			let skillArray = [
+				this['ui_SkillCircle' + 1].skillID,
+				this['ui_SkillCircle' + 2].skillID,
+				this['ui_SkillCircle' + 3].skillID,
+				this['ui_SkillCircle' + 4].skillID,
+				this['ui_SkillCircle' + 5].skillID,
+				this['ui_SkillCircle' + 6].skillID,
+			];
+			let isrRepeatSkill = false;;
+			for (let i = 0; i < skillArray.length; i++) {
+				if (this.skillItem.configID == skillArray[i]) {
+					isrRepeatSkill = true;
 				}
 			}
+			if (!isrRepeatSkill) {
+				if (isChange) {
+					//移动的目标框是否解锁了
+					if (this['ui_SkillCircle' + changeIndex].unLock) {
+						//移动的目标框的技能ID是否存在
+						if (this['ui_SkillCircle' + changeIndex].skillID) {
+							// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
+							//脱技能
+							let pkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
+							pkt.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
+							pkt.shortcuts.btCol = changeIndex - 1;
+							lcp.send(pkt);
+							//穿技能
+							let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
+							let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
+							pkt1.setValue('oldcol', changeIndex - 1);
+							pkt1.setValue('oldrow', GameApp.MainPlayer.taoluPageID);
+							pkt1.shortcuts.emShortCuts = 1;
+							pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(skillID)
+							pkt1.shortcuts.btCol = changeIndex - 1;
+							pkt1.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
+							lcp.send(pkt1);
+							// this['ui_SkillCircle' + this.touchTaoLuID].setData(true, this.touchTaoLuID, this['ui_SkillCircle' + changeIndex].skillID)
+						} else {
+							//穿
+							// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)
+							//穿技能
+							let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
+							let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
+							pkt1.setValue('oldcol', changeIndex - 1);
+							pkt1.setValue('oldrow', GameApp.MainPlayer.taoluPageID);
+							pkt1.shortcuts.emShortCuts = 1;
+							pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(skillID)
+							pkt1.shortcuts.btCol = changeIndex - 1;
+							pkt1.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
+							lcp.send(pkt1);
+						}
+					}
+				}
+			} else {
+				TipsManage.showTips('该技能快捷键已存在')
+			}
+
 			this.removeChild(this.skillItem);
 			this.skillItem = null;
 			this.isTouchSkillShow = false
@@ -356,16 +414,16 @@ module view.wuXue {
 
 						let pkt2 = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder();
 						pkt2.shortcuts.btRow = this.taoLuID;
-						pkt2.shortcuts.btCol = this.touchTaoLuID-1;
+						pkt2.shortcuts.btCol = this.touchTaoLuID - 1;
 						lcp.send(pkt2);
 						//穿技能
 						let skillID1 = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this['ui_SkillCircle' + changeIndex].skillID)
 						let pkt3 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
-						pkt3.setValue('oldcol', this.touchTaoLuID-1);
+						pkt3.setValue('oldcol', this.touchTaoLuID - 1);
 						pkt3.setValue('oldrow', GameApp.MainPlayer.taoluPageID);
 						pkt3.shortcuts.emShortCuts = 1;
 						pkt3.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(skillID1)
-						pkt3.shortcuts.btCol = this.touchTaoLuID-1;
+						pkt3.shortcuts.btCol = this.touchTaoLuID - 1;
 						pkt3.shortcuts.btRow = GameApp.MainPlayer.taoluPageID;
 						lcp.send(pkt3);
 						// this['ui_SkillCircle' + changeIndex].setData(this['ui_SkillCircle' + changeIndex].unLock, changeIndex, tempUI.configID)

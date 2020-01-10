@@ -39,7 +39,7 @@ module view.wuXue {
 		public addEvent(): void {
 			this.btn_info.on(Laya.UIEvent.CLICK, this, () => {
 				GameApp.GameEngine.wuxueDataID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.item.configID)
-				new view.wuXue.WuXue_InfoDialog().setData(this.item).show(true);
+				// new view.wuXue.WuXue_InfoDialog().setData(this.item).show(true);
 			})
 		}
 	}

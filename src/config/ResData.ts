@@ -31,6 +31,7 @@ module ResData {
         { url: "res/atlas/image/common/npc.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/buff.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/battle.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/skill.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/skillName.atlas", type: Laya.Loader.ATLAS },
@@ -270,6 +271,14 @@ module ResData {
             { url: 'json/juQingPianZhangSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.juQingPianZhangSheet },
             //怪物更新表
             { url: 'json/mydb_mongen_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_mongen_tbl },
+            //技能Buff表
+            { url: 'json/mydb_magicbuff_tbl.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.mydb_magicbuff_tbl },
+            //技能组合表
+            { url: 'json/Skill_combination.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Skill_combination },
+            //技能升级消耗表
+            { url: 'json/Upgrade_consumption.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Upgrade_consumption },
+            //装备天赋
+            { url: 'json/Martial_arts.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.Martial_arts },
             //基础门派表
             { url: 'json/BaseMenPaiSheet.json', type: Laya.Loader.JSON, CLASSTYPE: SheetConfig.BaseMenPaiSheet }
         ];

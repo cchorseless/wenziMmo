@@ -459,6 +459,8 @@ module ProtoCmd {
             this.addProperty('nYanZhi', PacketBase.TYPE_DWORD); //颜值
             this.addProperty('nXinQing', PacketBase.TYPE_DWORD); //心情
             this.addProperty('bossScore', PacketBase.TYPE_DWORD); //Boss积分
+            this.addProperty('skillPoint', PacketBase.TYPE_INT64); //技能点
+
 
             this.read(data);
         }
