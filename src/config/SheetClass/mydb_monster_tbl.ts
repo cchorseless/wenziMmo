@@ -412,4 +412,8 @@ public static getInstance(data): mydb_monster_tbl { let Class:any=this;if(!Class
  *  怪物战斗力
  */
  public MONSTER_COMBAT(configID):number { return this.data[configID][102]}
+/**
+ *  怪物的金币数量
+ */
+ public GOLD_NUMBER(configID):number { return this.data[configID][103]}
 }}

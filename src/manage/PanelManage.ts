@@ -70,6 +70,7 @@ module PanelManage {
     export let FuBenMain: view.fuBen.FuBen_MainPanel;//主线副本界面
     export let FuBenDaily: view.fuBen.FuBen_DailyPanel;//日常副本界面
     export let FuBenRes: view.fuBen.Fuben_ResourcePanel;//资源副本界面
+    export let FuBenXinMo: view.fuBen.FuBen_XinMoPanel;//心魔副本界面
     export let FuBenLiLian: view.fuBen.FuBen_LiLianPanel;//历练副本界面
     export let FuBenXianShi: view.fuBen.FuBen_XianShiPanel;//限时副本界面
 
@@ -673,6 +674,19 @@ module PanelManage {
             PanelManage.FuBenRes.setData();
             PanelManage.FuBenRes.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.FuBenRes, 2, 0, 2);
+        })
+    }
+    /**
+     * 心魔副本界面
+     */
+    export function openFuBenXinMoPanel(): void {
+        if (PopUpManager.showPanel(PanelManage.FuBenXinMo)) return;
+        ResManage.loadResource(ResData.PanelRes.FuBenXinMo, () => {
+            PanelManage.FuBenXinMo = new view.fuBen.FuBen_XinMoPanel();
+            PanelManage.FuBenXinMo['LCP_skin'] = ResData.PanelRes.FuBenXinMo;
+            PanelManage.FuBenXinMo.setData();
+            PanelManage.FuBenXinMo.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.FuBenXinMo, 2, 0, 2);
         })
     }
     /**

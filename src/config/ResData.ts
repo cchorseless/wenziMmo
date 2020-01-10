@@ -136,6 +136,8 @@ module ResData {
         public static FuBenDaily = null;
         // 副本-资源界面
         public static FuBenRes = null;
+        // 副本-心魔界面
+        public static FuBenXinMo = null;
         // 副本-历练界面
         public static FuBenLiLian = null;
         // 副本-限时界面

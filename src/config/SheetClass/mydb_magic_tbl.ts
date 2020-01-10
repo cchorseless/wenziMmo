@@ -259,14 +259,14 @@ module SheetConfig {
          * @param skillID 技能编号
          */
         public getAllData(skillID: number): any {
-            let skillDate = [];
+            let base;
             for (let i in this.data) {
-                if (this.data[i][1] == skillID) {
-                    let base = this.data[i]
-                    skillDate.push(base)
+                if (this.data[i][0] == skillID) {
+                    base = this.data[i]
+                    break;
                 }
             }
-            return skillDate;
+            return base;
         }
     }
 }

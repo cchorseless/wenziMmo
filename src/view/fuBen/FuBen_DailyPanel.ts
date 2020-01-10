@@ -10,13 +10,13 @@ module view.fuBen {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
-			this.panel_xinMo.hScrollBarSkin = '';
-			this.hbox_xinMo['sortItem'] = (items) => { };
-			this.panel_xinMo1.hScrollBarSkin = '';
-			this.hbox_xinMo1['sortItem'] = (items) => { };
+			// this.panel_xinMo.hScrollBarSkin = '';
+			// this.hbox_xinMo['sortItem'] = (items) => { };
+			// this.panel_xinMo1.hScrollBarSkin = '';
+			// this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_boss.hScrollBarSkin = '';
 			this.hbox_boss['sortItem'] = (items) => { };
-			this.init_XinMo();
+			
 			this.init_JiDao();
 			this.addEvent();
 		}
@@ -50,13 +50,7 @@ module view.fuBen {
 				PanelManage.openFuBenXianShiPanel();
 			});
 
-			// 挑战副本
-			EventManage.onWithEffect(this.btn_challenge, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
-				lcp.send(pkt);
-				// PanelManage.Main.img_bottomPartInfoBg.visible = false;
-			});
+		
 			EventManage.onWithEffect(this.btn_go, Laya.UIEvent.CLICK, this, () => {
 				let pk = new ProtoCmd.QuestClientData().setString(ProtoCmd.MAP_MOVE, [this.bossRoomId, 0], 0, this, function (jsonData) {
 					if (jsonData.errorcode == 0) {
@@ -87,75 +81,7 @@ module view.fuBen {
 			})
 		}
 	
-		/**
-		 * 心魔界面
-		 */
-		public json;
-		public init_XinMo(): void {
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_GeRenBoss_Open, null, null, this, (jsonData) => {
-				console.log(jsonData);
-				let keys = Object.keys(jsonData);
-				for (let key of keys) {
-					let data: ProtoCmd.itf_FB_XinMoInfo = jsonData[key];
-					// 索引
-					data.index = parseInt(key);
-					//是否展示为1时
-					if (data.show == 1) {
-						this.hbox_xinMo.addChild(new view.fuBen.FuBenDailyXinMoItem().setData(data));
-					}
-				}
-				this.json = jsonData[1]
-				this.update_XinMo(this.json);
-			});
-			lcp.send(pkt);
-		}
-		public curSelectIndex = 1;
-		public update_XinMo(data: ProtoCmd.itf_FB_XinMoInfo): FuBen_DailyPanel {
-			//点击发光效果
-			for (let single of this.hbox_xinMo._childs) {
-				single.img_light.visible = false;
-			}
-			let i = data.index - 1;
-			this.hbox_xinMo._childs[i].img_light.visible = true;
-			this.curSelectIndex = data.index;
-			//boss[1]名称
-			let name = SheetConfig.mydb_monster_tbl.getInstance(null).NAME('' + data.monsterid).split("_");
-			this.lbl_bossName.text = '' + name[0];
-			//BOSS在造型图上名称
-			this.lbl_bossTitle.text = '' + name[0];
-			//boss等级
-			let lvl = SheetConfig.mydb_monster_tbl.getInstance(null).LEVEL('' + data.monsterid);
-			this.lbl_bossLvl.text = '' + lvl;
-			//boss造型
-			let imgItem = SheetConfig.mydb_monster_tbl.getInstance(null).STYLE_DRAWING('' + data.monsterid);
-			this.img_boss.skin = 'image/common/npc/npc_half_' + imgItem + '.png';
-			//BOSS描述
-			let detail = SheetConfig.mydb_monster_tbl.getInstance(null).MONSTERDES('' + data.monsterid);
-			this.lbl_introduce.text = '' + detail;
-			//boss挑战等级
-			this.lbl_challengeLvl.text = '' + data.minlv;
-			//boss挑战次数
-			this.html_challengeNum.style.fontFamily = 'STKaiti';
-			this.html_challengeNum.style.fontSize = 23;
-			this.html_challengeNum.innerHTML = "<span style='color:#63491a'>挑战次数：</span>"
-				+ "<span style='color:#a33330'>" + data.flag + "</span>"
-				+ "<span style='color:#63491a'>" + "/" + data.maxcnt + "</span>";
-			//boss坐标
-			this.lbl_position.text = '(' + data.x + ',' + data.y + ')';
-			// boss掉落奖励
-			let jiangli = SheetConfig.mydb_monster_tbl.getInstance(null).DROPPED_ARTICLES('' + data.monsterid);
-			this.hbox_xinMo1.removeChildren();
-			for (let i = 0; jiangli[i]; i++) {
-				let _itemUI = new view.compart.DaoJuWithNameItem();
-				let itemInfo = new ProtoCmd.ItemBase();
-				itemInfo.dwBaseID = jiangli[i];
-				_itemUI.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL);
-				this.hbox_xinMo1.addChild(_itemUI)
-			}
-
-			return this;
-		}
+	
 		public init_JiDao(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_YeWaiBoss_Open, null, null, this, (jsonData: { any }) => {
