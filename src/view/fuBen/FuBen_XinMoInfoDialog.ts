@@ -26,6 +26,7 @@ module view.fuBen {
 				let pkt = new ProtoCmd.QuestClientData();
 				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.index])
 				lcp.send(pkt);
+				this.close();
 			});
 		}
 		public init_bossInfo(): void {
