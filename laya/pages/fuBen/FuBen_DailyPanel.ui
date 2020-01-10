@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":21,
-    "selecteID":376,
+    "selectedBox":406,
+    "selecteID":408,
     "props":{"width":640,"sceneColor":"#d4d0d0","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -416,161 +416,102 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"width":643,"height":96,"bottom":0},
+                    "props":{"y":977,"x":0,"width":640,"height":64,"bottom":0},
                     "nodeParent":406,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":245,
+                    "compId":408,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":44,"x":0,"width":640,"skin":"image/main/bottom_mainicon.png","height":52},
-                            "nodeParent":245,
+                            "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
+                            "nodeParent":408,
                             "label":"Image",
-                            "isOpen":false,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":371,
+                            "compId":409,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":44,"x":73,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":245,
+                            "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":408,
                             "label":"Button(btn_back)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":247,
+                            "compId":410,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":51,"x":384,"visible":false,"var":"btn_liLian","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                            "nodeParent":245,
-                            "label":"Button(btn_liLian)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":255,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":2,"x":5,"stateNum":2,"skin":"image/juQingMode/icon_lilian.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
-                                    "nodeParent":255,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":256,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":49,"x":13,"text":"历练","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff"},
-                                    "nodeParent":255,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":257,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":true
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":51,"x":500,"visible":false,"var":"btn_xianShi","stateNum":"2","skin":"image/common/img_common_07bg.png","anchorY":0.5,"anchorX":0.6},
-                            "nodeParent":245,
-                            "label":"Button(btn_xianShi)",
-                            "isOpen":true,
-                            "isDirectory":true,
-                            "isAniNode":true,
-                            "hasChild":true,
-                            "compId":258,
-                            "child":[
-                                {
-                                    "type":"Button",
-                                    "props":{"y":2,"x":5,"stateNum":2,"skin":"image/juQingMode/icon_xianashi.png","labelSize":30,"labelPadding":"25,-10,0,-10","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true},
-                                    "nodeParent":258,
-                                    "label":"Button",
-                                    "isOpen":true,
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":259,
-                                    "child":[
-                                        ],
-                                    "$HIDDEN":false
-                                },
-                                {
-                                    "type":"Label",
-                                    "props":{"y":49,"x":13,"text":"限时","strokeColor":"#010101","stroke":6,"fontSize":32,"font":"FZXK","color":"#ffffff","align":"center"},
-                                    "nodeParent":258,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":260,
-                                    "child":[
-                                        ]
-                                }],
-                            "$HIDDEN":true
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":44,"x":584,"var":"btn_changeMode","stateNum":"2","skin":"image/main/icon_changjing.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":245,
-                            "label":"Button(btn_changeMode)",
+                            "props":{"y":20,"x":78,"width":111,"var":"btn_juqing","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":408,
+                            "label":"Button(btn_juqing)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":359,
+                            "compId":411,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":45,"x":165,"width":80,"var":"btn_juQing","stateNum":"2","skin":"image/juQingMode/icon_juqing.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#f6de77,#f6de77","label":"剧情","height":80,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":245,
-                            "label":"Button(btn_juQing)",
+                            "props":{"y":20,"x":203,"width":111,"var":"btn_res","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":408,
+                            "label":"Button(btn_res)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":372,
+                            "compId":412,
                             "child":[
                                 ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":45,"x":274,"width":80,"var":"btn_daily","stateNum":"2","skin":"image/juQingMode/icon_richang.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":32,"labelPadding":"25","labelFont":"fzxk","labelColors":"#ffffff,#f6de77,#f6de77","label":"日常","height":80,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":245,
-                            "label":"Button(btn_daily)",
+                            "props":{"y":20,"x":326,"width":111,"var":"btn_xinmo","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":408,
+                            "label":"Button(btn_xinmo)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":373,
+                            "compId":413,
                             "child":[
-                                ]
+                                ],
+                            "$HIDDEN":false
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":20,"x":453,"width":111,"var":"btn_jina","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":408,
+                            "label":"Button(btn_jina)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":414,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
                 }]

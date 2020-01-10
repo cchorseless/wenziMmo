@@ -9,6 +9,7 @@ module view.fuBen {
 		public setData(): void {
 			this.panel_item.hScrollBarSkin = '';
 			this.hbox_drop['sortItem'] = (items) => { };
+			this.btn_xinmo.selected = true;
 			this.addEvent();
 			this.init_XinMo();
 		}

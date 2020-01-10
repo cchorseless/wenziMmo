@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":82,
+    "selectedBox":74,
+    "selecteID":75,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -333,13 +333,13 @@
                     "compId":76,
                     "child":[
                         ],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,
                     "type":"UIView",
                     "source":"scene/BattleFuBenInfoV3Item.ui",
-                    "props":{"var":"ui_skill","name":"item1","bottom":0},
+                    "props":{"var":"ui_skill","runtime":"view.scene.BattleFuBenInfoV3Item","name":"item1","bottom":0},
                     "nodeParent":74,
                     "label":"UIView(ui_skill)",
                     "isDirectory":false,
@@ -348,7 +348,7 @@
                     "compId":75,
                     "child":[
                         ],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[
