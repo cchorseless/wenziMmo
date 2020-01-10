@@ -75,7 +75,7 @@ module view.fuBen {
 			//怪物职业
 			let job = SheetConfig.mydb_monster_tbl.getInstance(null).OCCUPATION('' + this.data.monsterid);
 			this.img_job.skin = 'image/common/img_job0' + job + '.png'
-			this.lbl_job.text = EnumData.JOB_TYPE[job];
+			this.lbl_job.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[job]];
 			//战力
 			this.lbl_battle.text = '' + SheetConfig.mydb_monster_tbl.getInstance(null).MONSTER_COMBAT('' + this.data.monsterid);
 			//技能

@@ -10,10 +10,10 @@ module view.fuBen {
 			this.tab_0.selectHandler = Laya.Handler.create(this, (index) => {
 				this.viw_0.selectedIndex = index;
 			}, null, false);
-			this.panel_xinMo.hScrollBarSkin = '';
-			this.hbox_xinMo['sortItem'] = (items) => { };
-			this.panel_xinMo1.hScrollBarSkin = '';
-			this.hbox_xinMo1['sortItem'] = (items) => { };
+			// this.panel_xinMo.hScrollBarSkin = '';
+			// this.hbox_xinMo['sortItem'] = (items) => { };
+			// this.panel_xinMo1.hScrollBarSkin = '';
+			// this.hbox_xinMo1['sortItem'] = (items) => { };
 			this.panel_boss.hScrollBarSkin = '';
 			this.hbox_boss['sortItem'] = (items) => { };
 			

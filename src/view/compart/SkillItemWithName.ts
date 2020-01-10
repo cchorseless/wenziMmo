@@ -1,16 +1,15 @@
 /**Created by the LayaAirIDE*/
 module view.compart {
-	export class SkillItemWithName extends ui.common.SkillItemWithNameUI {
+	export class SkillItemWithName extends ui.compart.SkillItemWithNameUI {
 		constructor() {
 			super();
 		}
-		public setData(id,lvl): SkillItemWithName {
+		public setData(id, lvl): SkillItemWithName {
+			let data = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(id));
 			//技能icon
-			// let icon=SheetConfig.mydb_magic_tbl.getInstance(null).ICONPATH(''+id);
-			// this.img_skill.skin='image/common/skill/skill_icon_'+icon+'.png';
+			this.img_skill.skin = 'image/common/skill/skill_icon_' + data[55] + '.png';
 			//技能名称
-			// let name=SheetConfig.mydb_magic_tbl.getInstance(null).NAME(''+id);
-			// this.lbl_name.text=''+name;
+			this.lbl_name.text=''+data[2];
 			return this;
 		}
 	}
