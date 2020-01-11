@@ -330,10 +330,12 @@ module view.juese {
 						this.lbl_num.text = '0/' + num[1];
 						this.ui_item0.img_item.visible = false;
 					}
+					//选择装备数量足够
 					if (GameApp.GameEngine.buildEquip.length == parseInt(num[1])) {
 						this.btn_add.visible = false;
 					} else {
 						this.btn_add.visible = true;
+						this.stuff=undefined;
 					}
 			})
 		}
