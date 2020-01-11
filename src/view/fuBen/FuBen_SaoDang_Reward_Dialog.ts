@@ -35,7 +35,7 @@ module view.fuBen {
 			}
 			this.img_jinbi.visible = haveJinBi;
 			this.lbl_now.text = '' + PanelManage.FuBenRes.now;
-			this.lbl_max.text = '' + PanelManage.FuBenRes.max;
+			this.lbl_max.text = '/' + PanelManage.FuBenRes.max;
 			this.addEvent();
 			return this;
 		}

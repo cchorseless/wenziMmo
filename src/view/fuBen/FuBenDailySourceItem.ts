@@ -20,9 +20,10 @@ module view.fuBen {
 		public setData(data: ProtoCmd.itf_FB_ZiYuanInfo, resFubenInfo, index, i): FuBenDailySourceItem {
 			this.difficult = i;
 			this.item = data;
-			this.resData=resFubenInfo.infotab[index];
+			this.resData = resFubenInfo.infotab[index];
 			this.img_bg1.skin = 'image/fuben/img_ziyuan' + i + '.png';
 			this.img_bg2.skin = 'image/fuben/img_ziyuanbg' + i + '.png'
+			//副本难度
 			switch (i) {
 				case 1:
 					this.lbl_difficult.text = '普通';
@@ -45,13 +46,18 @@ module view.fuBen {
 					this.lbl_difficult.color = '#b2462d'
 					break;
 			}
-			if (GameApp.MainPlayer.ability.nFight >= resFubenInfo.zhanlitab[i].Combat) {
+			//判断是否能进入副本
+			if (GameApp.MainPlayer.ability.nFight >= resFubenInfo.zhanlitab[i].Combat && data.leftcnt > 0) {
 				this.box_open.visible = true;
 				this.lbl_condition.visible = false;
 			} else {
 				this.box_open.visible = false;
 				this.lbl_condition.visible = true;
-				this.lbl_condition.text = '战力' + resFubenInfo.zhanlitab[i].Combat + '开启'
+				if (GameApp.MainPlayer.ability.nFight < resFubenInfo.zhanlitab[i].Combat) {
+					this.lbl_condition.text = '战力' + resFubenInfo.zhanlitab[i].Combat + '开启'
+				} else if (data.leftcnt <= 0) {
+					this.lbl_condition.text = '剩余次数不足';
+				}
 			}
 			this.openFuBen(resFubenInfo, index);
 			this.addEvent();
@@ -59,6 +65,7 @@ module view.fuBen {
 		}
 		public openFuBen(resFubenInfo, i): void {
 			let keys = Object.keys(this.resData.jiangli);
+			//副本奖励
 			this.hbox_ziyuan.removeChildren();
 			for (let key of keys) {
 				let _itemData = new ProtoCmd.ItemBase();
@@ -75,18 +82,16 @@ module view.fuBen {
 			// 进入副本
 			this.btn_into.on(Laya.UIEvent.CLICK, this, () => {
 				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_Into_CLFuben, [this.item.index,this.difficult]);
+				pkt.setString(ProtoCmd.FB_Into_CLFuben, [this.item.index, this.difficult]);
 				lcp.send(pkt);
 			})
+			//扫荡
 			this.btn_saodang.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new FuBen_SaoDang_Dialog();
-				o.setData(this.resData,this.difficult,this.item.index);
+				o.setData(this.resData, this.difficult, this.item.index);
 				o.popup();
 			})
 
-		}
-		public destroy(e = true) {
-			super.destroy(e);
 		}
 	}
 }
