@@ -3576,7 +3576,7 @@ module ProtoCmd {
             this.addProperty("dwLevel", PacketBase.TYPE_DWORD);//等级
             this.addProperty("btJob", PacketBase.TYPE_BYTE);
             this.addProperty("btSex", PacketBase.TYPE_BYTE);
-            this.addProperty("guildId", PacketBase.TYPE_DWORD);
+            this.addProperty("guildId", PacketBase.TYPE_DWORD);//门派id
             this.read(data);
         }
         public get playerName(): String {

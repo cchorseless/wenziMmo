@@ -55,7 +55,7 @@ module view.fuBen {
 				this.hbox_boss.removeChildren();
 				for (let key of keys) {
 					let data = jsonData[key];
-					this.hbox_boss.addChild(new view.fuBen.FuBenDailyXinMoItem().init_liLian(data, key));
+					// this.hbox_boss.addChild(new view.fuBen.FuBenDailyXinMoItem().init_liLian(data, key));
 				}
 				let json = jsonData[1]
 				this.update_yeWai(json, 1);
