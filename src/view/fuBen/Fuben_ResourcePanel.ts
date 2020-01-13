@@ -7,12 +7,12 @@ module view.fuBen {
 		public data;
 		public max;
 		public now;
-		public index = 0;
+		public isSuccess = false;
+		public saodangData;
 		public setData(): void {
 			this.vbox_resource['sortItem'] = (items) => { };
 			this.tab_resource.selectHandler = Laya.Handler.create(this, (index) => {
 				this.init_changefubenType(index);
-				this.index = index;
 			}, null, false);
 			this.btn_res.selected = true;
 			this.init_res();
@@ -45,12 +45,14 @@ module view.fuBen {
 		public addLcpEvent(): void {
 			GameApp.LListener.on(ProtoCmd.FB_CLFubenStatus, this, function (jsonData) {
 				this.data = jsonData;
+				if (this.isSuccess) {
+					this.init_isOpenRes();
+				}
 			})
 			GameApp.LListener.on(ProtoCmd.FB_CaiLiaoFuBen_OneKey, this, (jsonData) => {
+				this.saodangData = jsonData;
+				this.isSuccess = true;
 				this.init_res();
-				this.tab_resource.selectedIndex = this.index - 1;
-				this.init_changefubenType(this.index - 1);
-				new view.fuBen.FuBen_SaoDang_Reward_Dialog().setData(jsonData).popup(true);
 			})
 		}
 		/**
@@ -76,30 +78,34 @@ module view.fuBen {
 				let name;
 				switch (num) {
 					case 1:
-						name = '金钱庄副本挑战次数：'
+						name = '金钱庄副本挑战次数:'
 						break;
 					case 2:
-						name = '矿坑副本挑战次数：'
+						name = '矿坑副本挑战次数:'
 						break;
 					case 3:
-						name = '龙魂副本挑战次数：'
+						name = '龙魂副本挑战次数:'
 						break;
 					case 4:
-						name = '魂石副本挑战次数：'
+						name = '魂石副本挑战次数:'
 						break;
 				}
 				//剩余副本次数
-				let cout = resData.leftcnt + resData.caninto;
-				this.max = resData.leftcnt;
-				this.now = cout;
-				this.lbl_fuben.text = ''+resData.leftcnt;
+				this.max = resData.maxcnt;
+				this.now = resData.leftcnt;
+				this.lbl_fuben.text = name + resData.leftcnt;
+				if (this.isSuccess) {
+					new view.fuBen.FuBen_SaoDang_Reward_Dialog().setData(this.saodangData).popup(true);
+					this.isSuccess = false;
+					this.saodangData = undefined;
+				}
 			}
 		}
 		public init_isOpenRes(): void {
 			let pkt = new ProtoCmd.QuestClientData();
 			pkt.setString(ProtoCmd.FB_OpenNpc_CLFuben, null, null, this, (jsonData: { [index: number]: ProtoCmd.itf_FB_ZiYuanOneInfo }) => {
 				GameApp.GameEngine.fuBenResinfo = jsonData;
-				this.init_changefubenType(0);
+				this.init_changefubenType(this.tab_resource.selectedIndex);
 			})
 			lcp.send(pkt);
 		}

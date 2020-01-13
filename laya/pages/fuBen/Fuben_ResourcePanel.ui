@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":37,
-    "selecteID":14,
+    "selectedBox":26,
+    "selecteID":28,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -137,7 +137,7 @@
                 {
                     "x":30,
                     "type":"Label",
-                    "props":{"y":325,"x":38,"width":215,"var":"lbl_fuben","text":"金钱庄副本挑战次数：","height":20,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
+                    "props":{"y":325,"x":38,"var":"lbl_fuben","text":"金钱庄副本挑战次数:100","height":20,"fontSize":20,"font":"FZXK","color":"#ffffff","align":"center"},
                     "nodeParent":37,
                     "label":"Label(lbl_fuben)",
                     "isDirectory":false,
@@ -150,7 +150,7 @@
                 {
                     "x":30,
                     "type":"Button",
-                    "props":{"y":320,"x":251,"var":"btn_jia","stateNum":"2","skin":"image/main/bnt_jia.png"},
+                    "props":{"y":319,"x":257,"var":"btn_jia","stateNum":"2","skin":"image/main/bnt_jia.png"},
                     "nodeParent":37,
                     "label":"Button(btn_jia)",
                     "isDirectory":false,
@@ -180,13 +180,14 @@
                     "props":{"y":967,"width":640,"height":64,"bottom":0},
                     "nodeParent":37,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":26,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
                             "nodeParent":26,
@@ -199,8 +200,9 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":20,"x":590,"width":113,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":26,
                             "label":"Button(btn_back)",
                             "isOpen":true,
@@ -213,6 +215,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":78,"width":111,"var":"btn_juqing","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":26,
@@ -227,6 +230,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":203,"width":111,"var":"btn_res","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":26,
@@ -241,6 +245,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":326,"width":111,"var":"btn_xinmo","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":26,
@@ -255,6 +260,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":453,"width":111,"var":"btn_jina","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":26,

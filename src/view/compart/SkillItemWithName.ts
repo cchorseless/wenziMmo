@@ -7,9 +7,9 @@ module view.compart {
 		public setData(id, lvl): SkillItemWithName {
 			let data = SheetConfig.mydb_magic_tbl.getInstance(null).getAllData(parseInt(id));
 			//技能icon
-			this.img_skill.skin = 'image/common/skill/skill_icon_' + data[55] + '.png';
+			this.img_skill.skin = 'image/common/skill/skill_icon_' + data[56] + '.png';
 			//技能名称
-			this.lbl_name.text=''+data[2];
+			this.lbl_name.text=''+data[3];
 			return this;
 		}
 	}

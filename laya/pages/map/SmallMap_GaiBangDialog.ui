@@ -2,7 +2,7 @@
     "x":0,
     "type":"Dialog",
     "selectedBox":1,
-    "selecteID":62,
+    "selecteID":2,
     "props":{"width":640,"sceneColor":"#ffffff","height":700},
     "nodeParent":-1,
     "label":"Dialog",
@@ -21,7 +21,7 @@
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":42,
+            "compId":2,
             "child":[
                 ],
             "$HIDDEN":false
@@ -29,14 +29,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":25,"x":280,"width":500,"skin":"image/common/fram_common_24.png","rotation":90},
+            "props":{"y":65,"x":280,"width":350,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":43,
+            "compId":3,
             "child":[
                 ],
             "$HIDDEN":false
@@ -44,14 +44,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":175,"x":159,"width":250,"skin":"image/common/fram_common_24.png","rotation":90},
+            "props":{"y":266,"x":159,"width":250,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":44,
+            "compId":4,
             "child":[
                 ],
             "$HIDDEN":false
@@ -59,14 +59,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":126,"x":409,"width":300,"skin":"image/common/fram_common_24.png","rotation":90},
+            "props":{"y":161,"x":433,"width":100,"skin":"image/common/fram_common_24.png","rotation":90},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":45,
+            "compId":5,
             "child":[
                 ],
             "$HIDDEN":false
@@ -74,14 +74,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":158,"x":123,"width":350,"skin":"image/common/fram_common_24.png"},
+            "props":{"y":158,"x":121,"width":500,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":46,
+            "compId":6,
             "child":[
                 ],
             "$HIDDEN":false
@@ -89,14 +89,14 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":369,"x":56,"width":400,"skin":"image/common/fram_common_24.png"},
+            "props":{"y":252,"x":145,"width":280,"skin":"image/common/fram_common_24.png"},
             "nodeParent":1,
             "label":"Image",
             "isOpen":false,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":48,
+            "compId":7,
             "child":[
                 ],
             "$HIDDEN":false
@@ -104,13 +104,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":377,"x":144,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_010.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"往生涧","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":257,"x":261,"width":62,"var":"btn_23005","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_010.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"镜月湖","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23005)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":49,
+            "compId":9,
             "child":[
                 ],
             "$HIDDEN":false
@@ -118,13 +118,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":477,"x":265,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_006.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"九门寨","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":160,"x":265,"width":62,"var":"btn_23009","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_009.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"聚贤庄","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23009)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":50,
+            "compId":10,
             "child":[
                 ],
             "$HIDDEN":false
@@ -132,13 +132,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":375,"x":403,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_010.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"霜寒潭","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":161,"x":143,"width":62,"var":"btn_23011","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_001.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"杏子林","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23011)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":51,
+            "compId":12,
             "child":[
                 ],
             "$HIDDEN":false
@@ -146,13 +146,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":95,"x":264,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_015.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"魔师宫","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":161,"x":411,"width":62,"var":"btn_23007","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_029.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"青草原","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23007)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":52,
+            "compId":13,
             "child":[
                 ],
             "$HIDDEN":false
@@ -160,13 +160,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":269,"x":144,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_027.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"伏龙岭","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":373,"x":266,"width":62,"var":"btn_23004","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_010.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"落雁泽","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23004)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":53,
+            "compId":14,
             "child":[
                 ],
             "$HIDDEN":false
@@ -174,13 +174,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":373,"x":266,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_029.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"霜暮原","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":369,"x":149,"width":62,"var":"btn_23002","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_010.png","labelStroke":4,"labelSize":18,"labelPadding":"35","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"龙首滩","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23002)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":54,
+            "compId":15,
             "child":[
                 ],
             "$HIDDEN":false
@@ -188,13 +188,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":255,"x":399,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_024.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"大雪山","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":259,"x":413,"width":62,"var":"btn_23006","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_024.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"洞庭山","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23006)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":56,
+            "compId":16,
             "child":[
                 ],
             "$HIDDEN":false
@@ -202,13 +202,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":174,"x":265,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_026.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"鬼门关","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":482,"x":147,"width":78,"var":"btn_23001","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_031.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"龙首码头","height":78,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23001)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":58,
+            "compId":18,
             "child":[
                 ],
             "$HIDDEN":false
@@ -216,13 +216,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":166,"x":401,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_006.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"玲珑顶","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":260,"x":146,"width":62,"var":"btn_23003","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_028.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"永平村","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23003)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":59,
+            "compId":19,
             "child":[
                 ],
             "$HIDDEN":false
@@ -230,13 +230,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":177,"x":138,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_004.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"长老院","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":82,"x":265,"width":62,"var":"btn_23010","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_009.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZHL","labelColors":"#ffffff,#ffffff,#ffffff","label":"结义厅","height":62,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23010)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":61,
+            "compId":20,
             "child":[
                 ],
             "$HIDDEN":false
@@ -244,13 +244,13 @@
         {
             "x":15,
             "type":"Button",
-            "props":{"y":269,"x":264,"width":62,"stateNum":"1","skin":"image/map/smallMap/smallmap_icon_004.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"护法堂","height":62,"anchorY":0.5,"anchorX":0.5},
+            "props":{"y":165,"x":554,"width":77,"var":"btn_23008","stateNum":"1","skin":"image/map/smallMap/smallmap_icon_006.png","labelStroke":4,"labelSize":18,"labelPadding":"30","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","label":"青竹阁","height":77,"anchorY":0.5,"anchorX":0.5},
             "nodeParent":1,
-            "label":"Button",
+            "label":"Button(btn_23008)",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
-            "compId":62,
+            "compId":21,
             "child":[
                 ],
             "$HIDDEN":false

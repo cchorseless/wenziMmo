@@ -148,13 +148,6 @@ module view.fuBen {
 			return x;
 		}
 		public initUI(): void {
-			this.html_title.style.fontFamily = 'STXingkai';
-			this.html_title.style.fontSize = 35;
-			this.html_title.style.align = 'center';
-			this.html_title.style.stroke = 3;
-			this.html_title.style.strokeColor = '#000000';
-			this.html_title.style.color = '#ffffff';
-			this.html_title.innerHTML = "<span>主线</span>";
 			this.showPZID = GameApp.MainPlayer.pianZhangID;
 			this.updatePianZhangInfo(this.showPZID, this.isOpen);
 		}

@@ -306,7 +306,7 @@ module SheetConfig {
         public getAllData(skillID: number): any {
             let base;
             for (let i in this.data) {
-                if (this.data[i][0] == skillID) {
+                if (this.data[i][1] == skillID) {
                     base = this.data[i]
                     break;
                 }

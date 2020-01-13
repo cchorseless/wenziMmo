@@ -22,10 +22,6 @@ module view.luckDraw {
 			this.init_Record(0);
 		}
 		public addEvent(): void {
-			//返回菜单界面
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(PanelManage.LuckDraw, true);
-			})
 			//积分兑换
 			this.btn_exchange.on(Laya.UIEvent.CLICK, this, () => {
 				new view.luckDraw.LuckDraw_IntegralDialog().setData(this.lbl_score.text).show()

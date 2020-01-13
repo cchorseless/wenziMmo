@@ -1,90 +1,94 @@
 module SheetConfig {
     export class mapRoomSheet {
-        private data; private _instance; public constructor(data) { this.data = data; }
+        public data; private _instance; public constructor(data) { this.data = data; }
         public static getInstance(data): mapRoomSheet { let Class: any = this; if (!Class._instance) { Class._instance = new Class(data); } return Class._instance; }
+        /**
+         *  房间ID
+         */
+        public ID(configID): string { return this.data[configID][0] }
         /**
          *  房间名称
          */
-        public ROOMNAME(configID: string): string { return this.data[configID][0] }
+        public ROOMNAME(configID): string { return this.data[configID][1] }
         /**
          *  所属地图ID
          */
-        public MAPID(configID: string): number { return this.data[configID][1] }
+        public MAPID(configID): number { return this.data[configID][2] }
         /**
          *  所属地图名称
          */
-        public MAPNAME(configID: string): string { return this.data[configID][2] }
+        public MAPNAME(configID): string { return this.data[configID][3] }
         /**
-         *  房间类型
+         *  所属地图类型
          */
-        public ROOMTYPE(configID: string): number { return this.data[configID][3] }
+        public ROOMTYPE(configID): number { return this.data[configID][4] }
         /**
-         *  上连接ID
+         *  上连接房间ID
          */
-        public UPID(configID: string): number { return this.data[configID][4] }
+        public UPID(configID): number { return this.data[configID][5] }
         /**
-         *  下连接ID
+         *  下连接房间ID
          */
-        public DOWNID(configID: string): number { return this.data[configID][5] }
+        public DOWNID(configID): number { return this.data[configID][6] }
         /**
-         *  左连接ID
+         *  左连接房间ID
          */
-        public LEFTID(configID: string): number { return this.data[configID][6] }
+        public LEFTID(configID): number { return this.data[configID][7] }
         /**
-         *  右连接ID
+         *  右连接房间ID
          */
-        public RIGHTID(configID: string): number { return this.data[configID][7] }
+        public RIGHTID(configID): number { return this.data[configID][8] }
         /**
-         *  X坐标最小
+         *  X坐标最小（包含）
          */
-        public XMIN(configID: string): number { return this.data[configID][8] }
+        public XMIN(configID): number { return this.data[configID][9] }
         /**
-         *  X坐标最大
+         *  X坐标最大（包含）
          */
-        public XMAX(configID: string): number { return this.data[configID][9] }
+        public XMAX(configID): number { return this.data[configID][10] }
         /**
-         *  Y坐标最小
+         *  Y坐标最小（包含）
          */
-        public YMIN(configID: string): number { return this.data[configID][10] }
+        public YMIN(configID): number { return this.data[configID][11] }
         /**
-         *  Y坐标最大
+         *  Y坐标最大（包含）
          */
-        public YMAX(configID: string): number { return this.data[configID][11] }
+        public YMAX(configID): number { return this.data[configID][12] }
         /**
-         *  ICON资源
+         *  ICON图片资源
          */
-        public ICONPIC(configID: string): string { return this.data[configID][12] }
+        public ICONPIC(configID): string { return this.data[configID][13] }
         /**
-         *  场景图片资源
+         *  场景背景图资源
          */
-        public SCENEPIC(configID: string): string { return this.data[configID][13] }
+        public SCENEPIC(configID): string { return this.data[configID][14] }
         /**
-         *  进入等级条件
+         *  进入的等级限制条件
          */
-        public LVNEED(configID: string): number { return this.data[configID][14] }
+        public LVNEED(configID): number { return this.data[configID][15] }
         /**
-         *  进入VIP等级限制
+         *  进入的VIP等级限制
          */
-        public VIPNEED(configID: string): number { return this.data[configID][15] }
+        public VIPNEED(configID): number { return this.data[configID][16] }
         /**
-         *  进入任务条件
+         *  进入需要完成的任务ID
          */
-        public TASKIDNEED(configID: string): number { return this.data[configID][16] }
+        public TASKIDNEED(configID): number { return this.data[configID][17] }
         /**
-         *  无视进入条件限制
+         *  是否限制进入条件
          */
-        public ISNEEDLIMIT(configID: string): number { return this.data[configID][17] }
+        public ISNEEDLIMIT(configID): number { return this.data[configID][18] }
         /**
-         *  房间描述
+         *  进入房间的描述
          */
-        public ROOMDES(configID: string): string { return this.data[configID][18] }
+        public ROOMDES(configID): string { return this.data[configID][19] }
         /**
-        *  通过地图id得到该地图的开始房间id
-        */
+               *  通过地图id得到该地图的开始房间id
+               */
         public GETBEGINROOMIDBYMAPID(mapid = GameApp.MainPlayer.location.mapid): number {
             let roomid;
             for (let room in this.data) {
-                if (this.data[room][1] == mapid) {
+                if (this.data[room][2] == mapid) {
                     if (!roomid) {
                         roomid = room;
                     } else if (room < roomid) {

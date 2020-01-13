@@ -376,8 +376,13 @@ module view.main {
 				} else {
 					this.box_menu.visible = false;
 				}
-				this.box_top.visible = false;
-				this.box_mainTop.visible = true;
+				if (this.view_scene.selectedIndex == 0) {
+					this.box_mainTop.visible = true;
+					this.box_top.visible = false;
+				} else {
+					this.box_mainTop.visible = false;
+					this.box_top.visible = true;
+				}
 			}
 			else {
 				//菜单界面隐藏

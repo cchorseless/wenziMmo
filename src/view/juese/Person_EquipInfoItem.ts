@@ -102,7 +102,7 @@ module view.juese {
 			if (SheetConfig.BaseMenPaiSheet.getInstance(null).data[player.guildInfo.dwID]) {
 				let menpai = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME('' + player.guildInfo.dwID);
 				this.img_menpai.visible = true;
-				this.img_menpai.skin = 'image/fuben/icon_' + player.guildInfo.dwID + '.png';
+				this.img_menpai.skin = 'image/main/icon_' + player.guildInfo.dwID + '.png';
 				this.lbl_menpai.text = menpai;
 			} else {
 				this.img_menpai.visible = false;

@@ -10,7 +10,7 @@ module view.main {
 		public data;
 		public index;
 		//5002福州5003华山50041玉壶瀑布5005药王庄5006洛阳城5007良人镇5012嵩山派
-		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012]
+		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012,5013,5015]
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
@@ -69,7 +69,7 @@ module view.main {
 				}
 				//当前所在地名称
 				if (GameApp.SceneManager.chenkPlayerInFuBen()) {
-					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName
+					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName;
 				} else {
 					let roomName = SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + GameApp.MainPlayer.roomId);
 					this.lbl_nowPlace.text = GameApp.MainPlayer.mapName + roomName;

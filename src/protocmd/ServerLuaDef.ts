@@ -1100,7 +1100,7 @@ module ProtoCmd {
    * 资源副本信息
    */
     export interface itf_FB_ZiYuanInfo {
-        caninto: number;//已进入副本次数
+        maxcnt:number;//最大次数
         index: number;//索引
         leftcnt: number;//剩余可进入次数
         name: string;//副本类型

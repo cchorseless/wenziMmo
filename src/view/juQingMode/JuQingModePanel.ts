@@ -198,6 +198,7 @@ module view.juQingMode {
 							self.getPZMsg(nextID.pzid)
 						}
 						GameApp.MainPlayer.talkID = GameApp.MainPlayer.allCharpterInfo[nextID.zjid].startdbid;
+						PanelManage.Main.view_scene._childs[0].init_noChange;
 						GameApp.MainPlayer.charpterID = nextID.zjid;
 						this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
 						this.isGetNew = true;
@@ -259,6 +260,7 @@ module view.juQingMode {
 			if (index == -1) {
 				this.lastReadInfo = null;
 				this.lastReadInfo = new JuQing_ReadInfo();
+				PanelManage.Main.view_scene._childs[0].init_noChange();
 				if (isFirst) {
 					this.lastReadInfo.setData(isFirst, page, totalPage, volue, chapter, _talkInfo, this.panel_read.width, this.panel_read.height)
 				} else {
@@ -429,6 +431,8 @@ module view.juQingMode {
 			}
 		}
 		public showPageMsg(page = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum) + 1) {
+			//刷新剧情界面读小说页数进度
+			PanelManage.Main.view_scene._childs[0].lbl_dangqian.text = '' + page;
 			this.box1.removeChildren();
 			this.box2.removeChildren();
 			this.box3.removeChildren();
@@ -698,6 +702,7 @@ module view.juQingMode {
 							self.getPZMsg(lastID.pzid)
 						}
 						GameApp.MainPlayer.talkID = GameApp.MainPlayer.allCharpterInfo[lastID.zjid].enddbid;
+						PanelManage.Main.view_scene._childs[0].init_noChange();
 						GameApp.MainPlayer.charpterID = lastID.zjid;
 						this.juQingPageID = Math.ceil((GameApp.MainPlayer.talkID - GameApp.MainPlayer.allCharpterInfo[GameApp.GameEngine.mainPlayer.charpterID].startdbid + 1) / this.maxInfoNum)
 						if (lastID.zjid) {

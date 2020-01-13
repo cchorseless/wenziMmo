@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":148,
-    "selecteID":40,
+    "selectedBox":150,
+    "selecteID":152,
     "props":{"width":640,"sceneColor":"#000000","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -152,7 +152,6 @@
                     "compId":40,
                     "child":[
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":9,"width":592,"var":"panel_shop1","name":"item0","height":735},
                             "nodeParent":40,
@@ -164,7 +163,6 @@
                             "compId":88,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_shop1","space":10,"right":0,"left":0},
                                     "nodeParent":88,
@@ -180,7 +178,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":9,"width":592,"var":"panel_shop2","name":"item1","height":735},
                             "nodeParent":40,
@@ -192,7 +189,6 @@
                             "compId":89,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_shop2","space":10,"right":0,"left":0},
                                     "nodeParent":89,
@@ -208,7 +204,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":9,"width":592,"var":"panel_shop3","name":"item2","height":735},
                             "nodeParent":40,
@@ -220,7 +215,6 @@
                             "compId":91,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_shop3","space":10,"right":0,"left":0},
                                     "nodeParent":91,
@@ -235,7 +229,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":9,"width":592,"var":"panel_shop4","name":"item3","height":735},
                             "nodeParent":40,
@@ -247,7 +240,6 @@
                             "compId":93,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_shop4","space":10,"right":0,"left":0},
                                     "nodeParent":93,
@@ -262,7 +254,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Panel",
                             "props":{"y":0,"x":9,"width":592,"var":"panel_shop5","name":"item4","height":735},
                             "nodeParent":40,
@@ -274,7 +265,6 @@
                             "compId":95,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"VBox",
                                     "props":{"y":0,"var":"vbox_shop5","space":10,"right":0,"left":0},
                                     "nodeParent":95,
@@ -290,7 +280,6 @@
                                 }]
                         },
                         {
-                            "x":45,
                             "type":"Box",
                             "props":{"y":-7,"x":0,"width":620,"var":"shop6","name":"item5","height":795},
                             "nodeParent":40,
@@ -390,38 +379,39 @@
                 {
                     "x":30,
                     "type":"Box",
-                    "props":{"y":1016,"x":0,"width":640,"height":93,"bottom":0},
+                    "props":{"y":983,"width":640,"height":64,"bottom":0},
                     "nodeParent":148,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
-                    "compId":143,
+                    "compId":150,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
-                            "props":{"y":41,"skin":"image/main/bottom_deep.png"},
-                            "nodeParent":143,
+                            "props":{"skin":"image/main/bottom_deep.png","bottom":0},
+                            "nodeParent":150,
                             "label":"Image",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":144,
+                            "compId":151,
                             "child":[
-                                ],
-                            "$HIDDEN":false
+                                ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":41,"x":60,"var":"btn_return","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
-                            "nodeParent":143,
+                            "props":{"y":20,"x":590,"width":113,"var":"btn_return","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":84,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":150,
                             "label":"Button(btn_return)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
-                            "compId":145,
+                            "compId":152,
                             "child":[
                                 ],
                             "$HIDDEN":false

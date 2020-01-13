@@ -10,13 +10,15 @@ module view.fuBen {
 			this.difficult = difficult;
 			this.index = index;
 			let keys = Object.keys(data.jiangli);
-			this.lbl_fuben.text = PanelManage.FuBenRes.lbl_fuben.text;
+			this.lbl_now.text = PanelManage.FuBenRes.now;
+			this.lbl_max.text = '/'+PanelManage.FuBenRes.max;
+			this.lbl_max.x=this.lbl_now.x+this.lbl_now.width;
 			this.hbox_jiangli.removeChildren();
 			for (let key of keys) {
 				let _itemData = new ProtoCmd.ItemBase();
 				_itemData.dwBaseID = data.jiangli[key].index;
 				_itemData.dwCount = Math.ceil(data.jiangli[key].num * ((difficult - 1) * 0.2 + 1));
-				let _itemUI = new view.compart.DaoJuItem();
+				let _itemUI = new view.compart.DaoJuWithNameItem();
 				_itemUI.setData(_itemData, EnumData.ItemInfoModel.SHOW_IN_MAIL);
 				this.hbox_jiangli.addChild(_itemUI);
 			};

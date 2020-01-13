@@ -18,10 +18,6 @@ module view.luckDraw {
 			this.ui_item0.lbl_itemName.visible = false;
 		}
 		public addEvent(): void {
-			//返回菜单界面
-			this.btn_return.on(Laya.UIEvent.CLICK, this, () => {
-				PopUpManager.checkPanel(PanelManage.LuckDraw, true);
-			})
 			this.ui_item0.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.drawItem > 0) {
 					this.init_getItem();

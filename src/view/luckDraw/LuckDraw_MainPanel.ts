@@ -26,6 +26,10 @@ module view.luckDraw {
 			this.init_getData();
 		}
 		public addEvent(): void {
+			//返回菜单界面
+			this.btn_back.on(Laya.UIEvent.CLICK, this, () => {
+				PopUpManager.checkPanel(PanelManage.LuckDraw, true);
+			})
 			this.tab_top.selectHandler = Laya.Handler.create(this, (index) => {
 				this.init_luckDrawPanel(index);
 			}, null, false);

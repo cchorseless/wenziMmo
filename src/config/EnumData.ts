@@ -952,9 +952,8 @@ module EnumData {
         MAP_TA_LOU = 5008,//塔楼
         MAP_YU_BI = 5009,//玉笔峰
         MAP_SONG_SHAN = 5012,//嵩山
-        MAP_QUAN_ZHEN = 5013,//全真
-        MAP_QING_CHENG = 5015,//青城派
-        MAP_HENG_SHAN_PAI = 5016,//衡山
+        MAP_FENG_YUN_LOU = 5013,//风云楼
+        MAP_GAI_BANG = 5015,//丐帮
         MAP_TAI_SHAN = 5018,//泰山
         MAP_HENG_SHANA = 5019,//恒山
         MAP_FENG_DAO = 5020,//风刀门

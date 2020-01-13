@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":302,
-    "selecteID":155,
+    "selecteID":306,
     "referenceLines":[
         {
             "value":595,
@@ -516,13 +516,14 @@
                     "props":{"y":574,"x":28},
                     "nodeParent":333,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":328,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":0,"x":-3,"width":640,"skin":"image/menu/tab_zhenbaoge_02.png","height":21},
                             "nodeParent":328,
@@ -536,6 +537,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":30,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
@@ -738,6 +740,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":175,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
@@ -940,6 +943,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"y":319,"x":16,"width":602,"skin":"image/menu/fram_caidan_02.png","sizeGrid":"0,34,0,38","height":138},
                             "nodeParent":328,
@@ -1174,7 +1178,7 @@
                         {
                             "x":45,
                             "type":"Box",
-                            "props":{"y":25,"x":10,"var":"box_bottom"},
+                            "props":{"y":25,"x":10,"width":630,"var":"box_bottom","height":64},
                             "nodeParent":334,
                             "label":"Box(box_bottom)",
                             "isOpen":true,
@@ -1239,23 +1243,23 @@
                                     "child":[
                                         ],
                                     "$LOCKED":false
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Button",
+                                    "props":{"y":20,"x":580,"var":"btn_return","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.5},
+                                    "nodeParent":302,
+                                    "label":"Button(btn_return)",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":306,
+                                    "child":[
+                                        ],
+                                    "$HIDDEN":false
                                 }],
                             "$LOCKED":false,
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":41,"x":573,"var":"btn_return","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":334,
-                            "label":"Button(btn_return)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":306,
-                            "child":[
-                                ],
                             "$HIDDEN":false
                         }],
                     "$HIDDEN":false

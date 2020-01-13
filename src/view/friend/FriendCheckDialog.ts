@@ -10,6 +10,16 @@ module view.friend {
 			this.data = data;
 			this.lbl_name.text = '' + data.playerName;
 			this.lbl_level.text = data.zslevel + '转' + data.level + '级';
+			this.img_head.skin = LangConfig.getPlayerIconSkin(data.sex, data.job);
+			if (data.guildId == 0) {
+				this.img_SectsIcon.visible = false;
+				this.lbl_Sects.text = '无门无派';
+			} else {
+				this.img_SectsIcon.visible = true;
+				let icon = SheetConfig.BaseMenPaiSheet.getInstance(null).ICON('' + data.guildId);
+				this.img_SectsIcon.skin = 'image/main/icon_' + icon + '.png'
+				this.lbl_Sects.text = SheetConfig.BaseMenPaiSheet.getInstance(null).NAME('' + data.guildId);
+			}
 			return this;
 		}
 		public addEvent(): void {

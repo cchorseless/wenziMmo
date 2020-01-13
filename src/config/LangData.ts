@@ -70,7 +70,7 @@ module LangConfig {
      * @param sex 
      * @param job 
      */
-    export function getPlayerIconSkin(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job, state = 1): string {
+    export function getPlayerIconSkin(sex = GameApp.MainPlayer.sex, job = GameApp.MainPlayer.job): string {
         let path;
         if (sex == EnumData.SEX_TYPE.SEX_MAN) {
             path = 'image/common/icon_nan';

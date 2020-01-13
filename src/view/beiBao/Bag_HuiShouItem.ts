@@ -53,7 +53,6 @@ module view.beiBao {
 				this['btn_0' + i].on(Laya.UIEvent.CLICK, this, () => {
 					this.lbl_shaixuan.x=1;
 					this.lbl_shaixuan.text='当前筛选：';
-					this.btn_center.label = this['btn_0' + i].label;
 					this.curSelect = i;
 					Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
 						this.img_showSelect.visible = false;
