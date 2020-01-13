@@ -17,6 +17,7 @@ module view.fuBen {
 			//返回
 			this.btn_back.on(Laya.UIEvent.CLICK, this, function () {
 				PopUpManager.checkPanel(this);
+				PanelManage.FuBenXinMo = undefined;
 			})
 			//剧情
 			this.btn_juqing.on(Laya.UIEvent.CLICK, this, function () {
