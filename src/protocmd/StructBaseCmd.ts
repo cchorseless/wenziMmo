@@ -1631,7 +1631,7 @@ module ProtoCmd {
      * 摆摊日志
      */
     export class stConsignLogBase extends PacketBase {
-        public constructor(data: Laya.Byte) {
+        public constructor(data=null) {
             super();
             this.addProperty("szItemName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("opTime", PacketBase.TYPE_DWORD);//

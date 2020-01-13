@@ -90,21 +90,16 @@ module view.beiBao {
 					// let logItem = new view.beiBao.Bag_BaITanLogItem();
 					let logItem = new Laya.Label();
 					logItem.color = "#63491a";
-					logItem.font = "fzhl";
+					logItem.font = "FZXK";
 					logItem.fontSize = 22;
 					logItem.align = "left";
 					logItem.wordWrap = true;
 					logItem.bold = true;
 					logItem.width = 120;
 					let box = new Laya.Box();
-					let line = new Laya.Label();
-					line.color = "#000000";
-					line.font = "fzhl";
-					line.fontSize = 22;
-					line.bold = true;
-					line.stroke = 2;
-					line.strokeColor = "#000000";
-					line.text = "-------"
+					let line = new Laya.Image();
+					line.sizeGrid = '0,9,0,9';
+					line.skin = 'image/common/line_common_02.png';
 					box.width = line.width = 120;
 					// logItem.text = '' + TimeUtils.getFormatBySecond(_log.optime * 1000, 2) + '  ' + _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
 					logItem.text = _log.buyerName + '购买了' + _log.itemName + ',您获得了' + _log.money + '元宝';
@@ -113,7 +108,6 @@ module view.beiBao {
 					line.x = 0;
 					line.y = logItem.height + 3;
 					box.addChild(line)
-
 					console.log(_log.optime);
 
 					this.vbox_sellRecord.addChild(box);

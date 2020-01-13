@@ -164,17 +164,13 @@ module view.map {
 				case EnumData.MAP_BIG_MAP_ID.MAP_SONG_SHAN:
 					new view.map.SmallMap_SongShanDialog().popup();
 					break;
-				// 全真
-				case EnumData.MAP_BIG_MAP_ID.MAP_QUAN_ZHEN:
-					new view.map.SmallMap_QuanZhenDialog().popup();
+				// 风云楼
+				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_YUN_LOU:
+					new view.map.SmallMap_FengYunLouDialog().popup();
 					break;
-				// 青城派
-				case EnumData.MAP_BIG_MAP_ID.MAP_QING_CHENG:
-					new view.map.SmallMap_QingChengDialog().popup();
-					break;
-				//衡山派
-				case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHAN_PAI:
-					new view.map.SmallMap_HengShanDialog().popup();
+				// 丐帮
+				case EnumData.MAP_BIG_MAP_ID.MAP_GAI_BANG:
+					new view.map.SmallMap_GaiBangDialog().popup();
 					break;
 				//泰山
 				case EnumData.MAP_BIG_MAP_ID.MAP_TAI_SHAN:

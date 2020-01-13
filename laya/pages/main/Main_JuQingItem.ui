@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":52,
+    "selectedBox":57,
+    "selecteID":71,
     "props":{"width":640,"sceneColor":"#ffffff","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -485,7 +485,7 @@
             "compId":90,
             "child":[
                 ],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -554,9 +554,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":232,"x":240,"width":113,"stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":232,"x":240,"width":113,"var":"btn_5013","stateNum":"1","skin":"image/map/northland/map_cs_fengyunlou.png","height":112,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button",
+                            "label":"Button(btn_5013)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -593,9 +593,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":240,"x":421,"width":99,"stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","height":112,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":240,"x":421,"width":99,"var":"btn_5015","stateNum":"1","skin":"image/map/northland/map_cs_qibang.png","height":112,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":57,
-                            "label":"Button",
+                            "label":"Button(btn_5015)",
                             "isDirectory":false,
                             "isAniNode":true,
                             "hasChild":false,
@@ -645,7 +645,7 @@
                             "$HIDDEN":false
                         }],
                     "$LOCKED":false,
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 }],
             "$LOCKED":false,
             "$HIDDEN":false
