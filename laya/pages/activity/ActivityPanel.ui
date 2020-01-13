@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":77,
-    "selecteID":51,
+    "selecteID":78,
     "props":{"width":640,"sceneColor":"#c0a6a6","height":1136},
     "nodeParent":-1,
     "label":"View",
@@ -139,47 +139,6 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"y":1043,"x":0,"right":0,"left":0,"height":93,"bottom":0},
-                    "nodeParent":77,
-                    "label":"Box",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":78,
-                    "child":[
-                        {
-                            "type":"Image",
-                            "props":{"y":41,"skin":"image/main/bottom_deep.png"},
-                            "nodeParent":78,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":79,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "type":"Button",
-                            "props":{"y":41,"x":60,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
-                            "nodeParent":78,
-                            "label":"Button(btn_back)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":80,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":37,"skin":"image/menu/title_huodong_01.png"},
                     "nodeParent":77,
@@ -205,6 +164,48 @@
                     "child":[
                         ],
                     "$LOCKED":true,
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":993,"width":640,"height":64,"bottom":0},
+                    "nodeParent":77,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":87,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"image/main/bottom_deep.png","bottom":0},
+                            "nodeParent":87,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":88,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":87,
+                            "label":"Button(btn_back)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":89,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
                     "$HIDDEN":false
                 }]
         }],

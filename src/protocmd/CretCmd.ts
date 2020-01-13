@@ -725,6 +725,9 @@ module ProtoCmd {
                         }
                     case 11://vip类型
                         {
+                            if (GameApp.MainPlayer.isMainPlayer) {
+                              GameApp.MainPlayer.viplvl=data.getUint32();
+                            }
                             cret.feature.dwVip = data.getUint32();
                             break;
                         }

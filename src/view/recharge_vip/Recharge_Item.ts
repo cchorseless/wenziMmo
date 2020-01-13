@@ -27,6 +27,7 @@ module view.recharge_vip {
 				GameApp.LListener.on(ProtoCmd.VIP_OpenPlane, this, (data) => {
 					this.giftData = data;
 					this.upDataView()
+                    this.upDataOtherPanel();
 				})
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.VIP_OpenPlane, null)
 				lcp.send(pkt);
@@ -97,6 +98,12 @@ module view.recharge_vip {
 			function updataPetItem(cell: view.compart.RechargeListInfo, index: number) {
 				var baseData = tempData[index];
 				cell.setData(baseData, index)
+			}
+		}
+		public upDataOtherPanel():void{
+			if(PanelManage.FuBenXinMo){
+				let index=PanelManage.FuBenXinMo.curSelectIndex;
+				PanelManage.FuBenXinMo.init_changeXinMo(index);
 			}
 		}
 	}

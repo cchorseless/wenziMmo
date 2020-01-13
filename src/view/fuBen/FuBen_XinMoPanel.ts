@@ -51,9 +51,30 @@ module view.fuBen {
 			})
 			//战斗
 			EventManage.onWithEffect(this.btn_battle, Laya.UIEvent.CLICK, this, () => {
-				let pkt = new ProtoCmd.QuestClientData();
-				pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
-				lcp.send(pkt);
+				let vipLvl = GameApp.MainPlayer.viplvl;
+				if (vipLvl > 0) {
+					if (this.btn_battle.gray) {
+						TipsManage.showTips('玩家等级不足');
+					} else {
+						let pkt = new ProtoCmd.QuestClientData();
+						pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
+						lcp.send(pkt);
+					}
+				} else {
+					if (this.curSelectIndex != 4 && this.btn_battle.gray == false) {
+						let pkt = new ProtoCmd.QuestClientData();
+						pkt.setString(ProtoCmd.FB_GeRenBoss_Enter, [this.curSelectIndex])
+						lcp.send(pkt);
+					}
+					if (this.curSelectIndex != 4 && this.btn_battle.gray) {
+						TipsManage.showTips('玩家等级不足');
+					}
+					if (this.curSelectIndex == 4) {
+						let o = new view.recharge_vip.Recharge_VipDialog();
+						o.setData(0);
+						o.popup(true);
+					}
+				}
 			});
 		}
 		/**
@@ -83,13 +104,17 @@ module view.fuBen {
 			//挑战等级限制
 			let mylvl = GameApp.MainPlayer.level;
 			let myzslvl = GameApp.MainPlayer.zslevel;
-			this.btn_battle.disabled = false;
-			let lvl = ''
+			this.btn_battle.gray = false;
+			let vipLvl = GameApp.MainPlayer.viplvl;
+			if (index == 4 && vipLvl == 0) {
+				this.btn_battle.gray = true;
+			}
+			let lvl = '';
 			if (data.minzslv && myzslvl < data.minzslv || data.maxzslv && mylvl > data.maxzslv) {
-				this.btn_battle.disabled = true;
+				this.btn_battle.gray = true;
 			}
 			if (data.minlv && mylvl < data.minlv || data.maxlv && mylvl > data.maxlv) {
-				this.btn_battle.disabled = true;
+				this.btn_battle.gray = true;
 			}
 			if (data.minzslv) { lvl = data.minzslv + '转'; }
 			if (data.minlv) { lvl = data.minlv + '级'; }

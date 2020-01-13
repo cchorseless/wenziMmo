@@ -136,49 +136,6 @@
                 },
                 {
                     "x":30,
-                    "type":"Box",
-                    "props":{"right":0,"left":0,"height":93,"bottom":0},
-                    "nodeParent":111,
-                    "label":"Box",
-                    "isOpen":true,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":114,
-                    "child":[
-                        {
-                            "x":45,
-                            "type":"Image",
-                            "props":{"y":41,"skin":"image/main/bottom_deep.png"},
-                            "nodeParent":114,
-                            "label":"Image",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":115,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":41,"x":60,"var":"btn_back","stateNum":"2","skin":"image/main/icon_fanhui.png","anchorY":0.5,"anchorX":0.42},
-                            "nodeParent":114,
-                            "label":"Button(btn_back)",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":116,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
                     "type":"Image",
                     "props":{"y":37,"x":0,"width":258,"skin":"image/menu/title_huodong_01.png","sizeGrid":"0,53,0,58","height":62},
                     "nodeParent":111,
@@ -203,6 +160,48 @@
                     "compId":118,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Box",
+                    "props":{"y":963,"width":640,"height":64,"bottom":0},
+                    "nodeParent":111,
+                    "label":"Box",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":119,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"skin":"image/main/bottom_deep.png","bottom":0},
+                            "nodeParent":119,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":120,
+                            "child":[
+                                ]
+                        },
+                        {
+                            "x":45,
+                            "type":"Button",
+                            "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
+                            "nodeParent":119,
+                            "label":"Button(btn_back)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":121,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        }],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

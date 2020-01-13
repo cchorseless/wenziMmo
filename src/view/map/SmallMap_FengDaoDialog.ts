@@ -6,7 +6,7 @@ module view.map {
 			this.setData();
 		}
 		public setData(): void {
-			for (let i = 26001; i <= 26012; i++) {
+			for (let i = 26001; i <= 26011; i++) {
 				let btn: Laya.Button = this['btn_' + i];
 				btn.label = '' + SheetConfig.mapRoomSheet.getInstance(null).ROOMNAME('' + i);
 				btn.labelSize = (btn.label.length > 4) ? 16 : 18;
@@ -15,12 +15,12 @@ module view.map {
 			this.addEvent();
 		}
 		public addEvent(): void {
-			for (let i = 26001; i <= 26012; i++) {
+			for (let i = 26001; i <= 26011; i++) {
 				EventManage.onWithEffect(this['btn_' + i], Laya.UIEvent.CLICK, this, () => {
 					// 隐藏自己
 					// GameApp.SceneManager.showBigMap(false);
 					// 设置导航
-					let findMap = new GameUtil.findMapPath(26001, 26012).minPath(GameApp.MainPlayer.roomId, i);
+					let findMap = new GameUtil.findMapPath(26001, 26011).minPath(GameApp.MainPlayer.roomId, i);
 					console.log(findMap);
 					GameUtil.parseMapPath(findMap);
 					this.close();

@@ -40,10 +40,10 @@ module view.fuBen {
 			this.btn_jina.on(Laya.UIEvent.CLICK, this, function () {
 				return;
 			})
-			this.panel_boss.on(Laya.Event.MOUSE_DOWN, this, function (ev) {
+			this.panel_boss.on(Laya.Event.MOUSE_DOWN, this,(ev)=>{
 				this.beginPos = ev.stageX;
 			})
-			this.panel_boss.on(Laya.Event.MOUSE_MOVE, this, function (ev) {
+			this.panel_boss.on(Laya.Event.MOUSE_MOVE, this,(ev)=>{
 				if (Math.abs(ev.stageX - this.beginPos) > 50) {
 					this.finalPos = ev.stageX;
 					this.init_slideEvent();
@@ -130,7 +130,7 @@ module view.fuBen {
 			} else {
 				this.img_left.disabled = false;
 			}
-			this.box_boss.x = -this.index * this.panel_boss.width;
+			Laya.Tween.to(this.box_boss,{x:(-this.index * this.panel_boss.width)},500)
 			this.beginPos = this.finalPos = undefined;
 			let dangqian = this.index * 8;
 			this.update_yeWai(dangqian)
