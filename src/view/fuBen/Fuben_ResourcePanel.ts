@@ -78,23 +78,22 @@ module view.fuBen {
 				let name;
 				switch (num) {
 					case 1:
-						name = '金钱庄副本挑战次数：'
+						name = '金钱庄副本挑战次数:'
 						break;
 					case 2:
-						name = '矿坑副本挑战次数：'
+						name = '矿坑副本挑战次数:'
 						break;
 					case 3:
-						name = '龙魂副本挑战次数：'
+						name = '龙魂副本挑战次数:'
 						break;
 					case 4:
-						name = '魂石副本挑战次数：'
+						name = '魂石副本挑战次数:'
 						break;
 				}
 				//剩余副本次数
 				this.max = resData.maxcnt;
 				this.now = resData.leftcnt;
 				this.lbl_fuben.text = name + resData.leftcnt;
-				this.btn_jia.x=this.lbl_fuben.x+this.lbl_fuben.width;
 				if (this.isSuccess) {
 					new view.fuBen.FuBen_SaoDang_Reward_Dialog().setData(this.saodangData).popup(true);
 					this.isSuccess = false;
