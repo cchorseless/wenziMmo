@@ -1,13 +1,16 @@
 /**Created by the LayaAirIDE*/
 module view.wuXue {
 	export class WuXue_InfoDialog extends ui.wuXue.WuXue_InfoDialogUI {
+		public static self: WuXue_InfoDialog;
 		public canLvUp: boolean = false;
 		public skillID;
 		public shuxingNameArr = ['', '金', '木', '水', '火', '土'];
 		public configID;
+		public curBox;
 		// public 
 		constructor() {
 			super();
+			WuXue_InfoDialog.self = this;
 			// this.panel_skillDes.vScrollBarSkin = '';
 			// this.panel_skillEffDes.vScrollBarSkin = "";
 		}
@@ -22,12 +25,6 @@ module view.wuXue {
 			this.item = s;
 			let configID = s.configID;
 			this.configID = configID;
-			let wuxueType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID)
-			if (wuxueType == 1) {
-				this.lab_type.text = '外功型'
-			} else if (wuxueType == 4) {
-				this.lab_type.text = '内功型'
-			}
 			this.skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configID);
 			// 技能类型
 			let skillType = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLTYPE(configID);
@@ -36,51 +33,57 @@ module view.wuXue {
 			let effID1 = effID + '';
 			let effData = GameUtil.parseEffectidToObj([effID1]);
 			for (let i = 0; i < effData.des.length; i++) {
-				this.hbox_eff.addChild(new view.compart.SinglePropsItem().setData(effData.des[i]));
+				this.hbox_eff.addChild(new WuXue_Skill_Effect_item().setData(effData.des[i], false));
 			}
 			let shuxing = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEXTRAPROP(configID);
-			if (shuxing > 0) {
-				this.img_shuxing.visible = true;
-				this.img_shuxing.skin = "image/common/skill/icon_wx_" + shuxing + ".png"
-			} else {
-				this.img_shuxing.visible = false;
-			}
-			this.lab_shuxing_Name.text = this.shuxingNameArr[shuxing]
-			this.html_lv.style.font = 'STkaiti';
-			this.html_lv.style.fontSize = 26;
-			this.html_lv.style.align = 'center';
-			this.html_lv.innerHTML = "<span style='color:#ff8b8b'>LV." + 1
-				+ '</span>' + "<span style='color:#000000'>/" + 10 + '</span>';
-			// let needItemID = SheetConfig.mydb_magic_tbl.getInstance(null).ITEM_ID(configID);
-			// let needItemNum = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER(configID);
 
-			// let o = new view.compart.DaoJuWithNameItem();
-			// let itemBase = new ProtoCmd.ItemBase()
-			// //needItemID
-			// itemBase.dwBaseID = 20101;
-			// itemBase.dwCount = needItemNum
-			// o.setData(itemBase)
-			// o.lbl_itemName.visible =false;
-			// this.ui_needItem.addChild(o)
-			// this.lbl_skillType.text = '' + LangConfig.enSkillTypeDes[EnumData.enSkillType[skillType]];
-			// 技能名称
+			this.html_lv.style.font = 'STKaiti';
+			this.html_lv.style.fontSize = 24;
+			// this.html_lv.style.align = 'center';
+			let maxLv = GameApp.MainPlayer.skill_stage[GameApp.MainPlayer.taoluPageID] * 15;
+			let curLv = s.getValue('sublevel')
+			this.html_lv.innerHTML = "<span style='color:#63491a'>LV." + curLv
+				+ '</span>' + "<span style='color:#63491a'>/" + maxLv + '</span>';
 
-			this.lab_NeedName1.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
-			this.lbl_useDes1.text = SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY_ACQUISITION(configID);
 			let str_Act = SheetConfig.mydb_magic_tbl.getInstance(null).ACTIVATION_CONDITIONS(configID);
 			if (str_Act == "0") {
 				str_Act = "无条件"
 			}
-			this.lab_LvUpDetail.text = str_Act;
-			this.lbl_skillName.text = '' + SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID).split('_')[0];
-			// 经验
-			// let expMax = Math.max(SheetConfig.mydb_magic_tbl.getInstance(null).PROFICIENCY(configID), 1);
-			// this.lbl_expDes.text = s.dwexp + '/' + expMax;
-			// this.img_exp.width = this.img_expBg.width * Math.min(s.dwexp / expMax, 1);
-			// if (s.dwexp >= expMax) {
-			// 	this.canLvUp = true;
-			// }
-			// logo
+			let stage = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
+			let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
+			let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+			// this.html_skillName.style.align = 'center';
+			this.html_skillName.style.fontFamily = 'STKaiti';
+			this.html_skillName.style.fontSize = 24;
+			name = name.split('_')[0];
+			switch (quality) {
+				case 1:
+					this.html_skillName.innerHTML = "<span style='color:#4b674b;'>" + name + "</span>"
+						+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#4b674b'>+" + stage + "</span>"
+					break;
+				case 2:
+					this.html_skillName.innerHTML = "<span style='color:#4f5575;'>" + name + "</span>"
+						+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#4f5575'>+" + stage + "</span>"
+					break;
+				case 3:
+					this.html_skillName.innerHTML = "<span style='color:#6e4b70;'>" + name + "</span>"
+						+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#6e4b70'>+" + stage + "</span>"
+					break;
+				case 4:
+					this.html_skillName.innerHTML = "<span style='color:#9f6b39;'>" + name + "</span>"
+						+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#9f6b39'>+" + stage + "</span>"
+					break;
+				case 5:
+					this.html_skillName.innerHTML = "<span style='color:#8f3535;'>" + name + "</span>"
+						+ "<span style='color:#ffffff;stroke:2.5;strokeColor:#8f3535'>+" + stage + "</span>"
+					break;
+			}
+			let power = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_CAPABILITY(configID);
+			this.html_power.style.fontFamily = 'STXingkai';
+			this.html_power.style.fontSize = 24;
+			this.html_power.innerHTML = "<span style='color:#000000;'>战力：</span>"
+				+ "<span style='color:#bf4747;'>+" + power + "</span>"
+
 			this.ui_skill.setData(configID);
 			this.showVS_Show(0, false)
 			this.addEvent();
@@ -91,30 +94,41 @@ module view.wuXue {
 		 * @param boo  是否刷新
 		 */
 		public showVS_Show(id, boo) {
-			let box = this.VS_view.getChildAt(id);
-			if (boo) {
-				box.removeChildren();
-			}
-			if (box.numChildren <= 0) {
-				let panel = new Laya.Panel();
-				panel.vScrollBarSkin = '';
-				panel.top = panel.bottom = panel.right = panel.left = 0;
-				let o;
-				box.addChild(panel);
-				switch (id) {
-					case 0:
-						o = new WuXue_infoDiao_VS_info();
-						o.setData(this.configID)
-						break;
-					case 1:
-						o = new WuXue_infoDiao_VS_info();
-						o.setData(this.configID)
-						break;
-				}
-
-				panel.addChild(o);
+			// this.curBox.removeChildren();
+			if (this.curBox) {
+				this.curBox.removeChildren();
 			}
 			this.VS_view.selectedIndex = id;
+			switch (id) {
+				case 0:
+					this.curBox = this.VS_view.getChildAt(id);
+					if (this.curBox.numChildren <= 0) {
+						let panel = new Laya.Panel();
+						panel.vScrollBarSkin = '';
+						panel.top = panel.bottom = panel.right = panel.left = 0;
+						let o = new WuXue_infoDiao_VS_info();
+						o.setData(this.configID)
+						panel.addChild(o);
+						this.curBox.addChild(panel);
+					}
+					break;
+				case 1:
+					this.curBox = this.VS_view.getChildAt(id);
+					if (this.curBox.numChildren <= 0) {
+						let panel = new Laya.Panel();
+						panel.vScrollBarSkin = '';
+						panel.top = panel.bottom = panel.right = panel.left = 0;
+						let o = new WuXue_LevelUp_Item();
+						o.setData(this.configID)
+						panel.addChild(o);
+						this.curBox.addChild(panel);
+					}
+					break;
+			}
+
+
+
+
 		}
 
 		public addEvent(): void {
@@ -126,6 +140,11 @@ module view.wuXue {
 				// GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog, this);
 				this.close();
 			});
+			this.tab_info.on(Laya.UIEvent.CLICK, this, () => {
+				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
+				this.VS_view.selectedIndex = this.tab_info.selectedIndex;
+				this.showVS_Show(this.tab_info.selectedIndex, false);
+			})
 			// 升级
 			// this.btn_lvUp.on(Laya.UIEvent.CLICK, this, () => {
 			// 	// if (this.canLvUp) {
@@ -134,8 +153,8 @@ module view.wuXue {
 			// 	// }
 			// });
 			/**
-			 * 测试技能经验值增加
-			 */
+			  * 测试技能经验值增加
+			  */
 			// this.img_test.on(Laya.UIEvent.CLICK, this, function () {
 			// 	let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.addSkillExp, [this.skillID, 20101, 10]);
 			// 	lcp.send(pkt);

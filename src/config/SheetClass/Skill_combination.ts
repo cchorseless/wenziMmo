@@ -15,7 +15,7 @@ public static getInstance(data): Skill_combination { let Class:any=this;if(!Clas
 /**
  *  对应技能id
  */
- public SKILLID(configID):any { return this.data[configID][3]}
+ public SKILLID(configID):number { return this.data[configID][3]}
 /**
  *  文本描述
  */

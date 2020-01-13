@@ -56,6 +56,14 @@ module view.wuXue {
 			// console.log(this.skillCircleArr)
 		}
 		public setData(id) {
+			let textArr = ['拳脚','刀剑','长兵','奇门']
+			let str = '';
+			if(id == 0){
+				str = '拳脚类武学可装配此套路';
+			}else{
+				str = '拳脚类和'+textArr[id]+'类武学可装配此套路'
+			}
+			this.lab_taoluText.text = str
 			this.taoLuID = id;
 			let myLv = GameApp.MainPlayer.level;
 			let unlockNum = Math.floor(myLv / this.unlockNeed);
@@ -69,6 +77,8 @@ module view.wuXue {
 					} else {
 						this['ui_SkillCircle' + i].setData(true, i)
 					}
+				}else{
+					this['ui_SkillCircle' + i].setData(false, i)
 				}
 			}
 			this.setPanelData()
@@ -126,8 +136,10 @@ module view.wuXue {
 			}
 
 			this.getSkillComBo();
-			this.lab_totalNum.text = '武学数量:' + this.tempData.length;
+			this.lab_num.text = '武学数量:' + this.tempData.length;
+
 			this.maxPage = Math.ceil(this.tempData.length / 12)
+			// this.lab_num.text = this.pageID+ '/' + this.maxPage;
 			this.showPage();
 		}
 		public getSkillComBo() {
@@ -135,10 +147,14 @@ module view.wuXue {
 			for (let i = 0; i < this.tempData.length; i++) {
 				let baseID = this.tempData[i].configID;
 				let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(baseID);
+				if(!comboID){
+					return;
+				}
 				let comboIdArr = comboID.split('`')
-				for (let o = 0; o < comboIdArr.length; o++){
+				for (let o = 0; o < comboIdArr.length; o++) {
 					if (parseInt(comboIdArr[o]) > 0) {
-						arr.push(parseInt(comboIdArr[o]));
+						let tempID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(parseInt(comboIdArr[o]));
+						arr.push(tempID);
 					}
 				}
 
@@ -166,6 +182,7 @@ module view.wuXue {
 		}
 		public showPage() {
 			//this.tempData.sort     ToDo...
+			this.lab_totalNum.text = this.pageID + '/' + this.maxPage;
 			for (let i = 0; i < 12; i++) {
 				if (this.tempData[i + (this.pageID - 1) * 12]) {
 					let configID = this.tempData[i + (this.pageID - 1) * 12].configID;
@@ -177,6 +194,21 @@ module view.wuXue {
 		}
 		public addEvent() {
 			let self = this;
+			this.btn_develop.on(Laya.UIEvent.CLICK, this, function () {
+				new view.juese.Person_WuXueBaseDialog().popup();
+			})
+			this.btn_setTaolu.on(Laya.UIEvent.CLICK, this, () => {
+				// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
+				let pkt1 = new ProtoCmd.AvatarSetSkillShortCutsEnDeCoder();
+				pkt1.setValue('oldcol', 0);
+				pkt1.setValue('oldrow', 4);
+				pkt1.shortcuts.emShortCuts = 1;
+				let skill = 100 + GameApp.MainPlayer.taoluPageID;
+				pkt1.shortcuts.i64Id = ProtoCmd.Int64.numberToInt64(GameApp.MainPlayer.taoluPageID)
+				pkt1.shortcuts.btCol = 0;
+				pkt1.shortcuts.btRow = 4;
+				lcp.send(pkt1);
+			})
 			// GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_waigong, this, function () {
 			// 	// self.setData(GameApp.MainPlayer.taoluPageID)
 			// })

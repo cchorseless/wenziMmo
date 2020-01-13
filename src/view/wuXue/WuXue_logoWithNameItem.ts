@@ -1,7 +1,8 @@
 /**Created by the LayaAirIDE*/
 module view.wuXue {
     export class WuXue_logoWithNameItem extends ui.wuXue.WuXue_logoWithNameItemUI {
-        public configID
+        public configID;
+        public ColorArr = ['', '#4b674b', '#4f5575', '#6e4b70', '#9f6b39', '#8f3535']
         constructor() {
             super();
         }
@@ -9,13 +10,52 @@ module view.wuXue {
         public setData(configID): void {
             this.configID = configID;
             if (configID == -1) {
-                this.lbl_name.visible = false;
+                this.html_name.visible = false;
                 this.ui_item.visible = false;
+                this.img_quality.visible = false;
                 return;
             }
-            this.lbl_name.visible = true;
+            this.html_name.visible = true;
             this.ui_item.visible = true;
-            this.lbl_name.text = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+            this.img_quality.visible = true;
+
+            
+            let stage = SheetConfig.mydb_magic_tbl.getInstance(null).LEVEL(configID);
+            this.html_name.style.align = 'center';
+            this.html_name.style.fontFamily = 'STKaiti';
+            this.html_name.style.fontSize = 20;
+
+            let quality = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLQUALITY(configID);
+            if(!quality){
+                quality = 1;
+            }
+            let name = SheetConfig.mydb_magic_tbl.getInstance(null).NAME(configID);
+            name = name.split('_')[0];
+            switch (quality) {
+                case 1:
+                    this.html_name.innerHTML = "<span style='color:#4b674b;'>" + name + "</span>"
+                        + "<span style='color:#ffffff;stroke:2.5;strokeColor:#4b674b'>+" + stage + "</span>"
+                    break;
+                case 2:
+                    this.html_name.innerHTML = "<span style='color:#4f5575;'>" + name + "</span>"
+                        + "<span style='color:#ffffff;stroke:2.5;strokeColor:#4f5575'>+" + stage + "</span>"
+                    break;
+                case 3:
+                    this.html_name.innerHTML = "<span style='color:#6e4b70;'>" + name + "</span>"
+                        + "<span style='color:#ffffff;stroke:2.5;strokeColor:#6e4b70'>+" + stage + "</span>"
+                    break;
+                case 4:
+                    this.html_name.innerHTML = "<span style='color:#9f6b39;'>" + name + "</span>"
+                        + "<span style='color:#ffffff;stroke:2.5;strokeColor:#9f6b39'>+" + stage + "</span>"
+                    break;
+                case 5:
+                    this.html_name.innerHTML = "<span style='color:#8f3535;'>" + name + "</span>"
+                        + "<span style='color:#ffffff;stroke:2.5;strokeColor:#8f3535'>+" + stage + "</span>"
+                    break;
+            }
+            // this.lbl_name.color = ''
+
+            this.img_quality.skin = 'image/common/wuxue/wuxue_quality_' + quality + '.png'
             this.ui_item.setData(configID);
         }
 

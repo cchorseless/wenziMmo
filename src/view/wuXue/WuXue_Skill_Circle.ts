@@ -14,7 +14,6 @@ module view.wuXue {
 			if (skill) {
 				skillID  = skill.configID
 			}
-
 			this.unLock = unlock;
 			if (unlock) {
 				if (skillID != null) {
@@ -28,7 +27,8 @@ module view.wuXue {
 					this.img_lock.visible = false;
 					this.img_unlock.visible = true;
 					this.ui_show.visible = false;
-					this.lab_Index.text = GameUtil.SectionToChinese(index, 0)
+					// this.lab_Index.text = GameUtil.SectionToChinese(index, 0)
+					this.img_num.skin = 'image/common/wuxue/font_'+index+'.png'
 				}
 			} else {
 				this.img_lock.visible = true;

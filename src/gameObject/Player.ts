@@ -65,7 +65,7 @@ module GameObject {
         public allCharpterInfo = {};//一篇里面所有章节的掉落信息{{章节ID：章节info}}
         public volumeCharpterInfo = {}//章节信息
 
-        public comboTypeByPage = {}  //根据页数的技能组合ID以及其对应数量
+
 
         public pagesNum: { [index: number]: number } = {};  //当前已开启章节的总页数
 
@@ -77,8 +77,9 @@ module GameObject {
         public charpterName: string;// 章节名字
         public pianZhangName: string;// 篇章名字
         /******************技能******************** */
-
-        public taoluPageID;
+        public skill_stage: { [index: number]: number } = {};
+        public comboTypeByPage = {}  //根据页数的技能组合ID以及其对应数量
+        public taoluPageID;    //当前是哪一页套路  0123
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
 

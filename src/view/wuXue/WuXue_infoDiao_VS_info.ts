@@ -7,6 +7,8 @@ module view.wuXue {
 			//  this.panel_inborn.vScrollBarSkin = '';
 		}
 		public setData(configID) {
+			let cost = SheetConfig.mydb_magic_tbl.getInstance(null).CONSUMPTION_MANA(configID);
+			this.lab_cost.text = cost + '';
 			this.configID = configID;
 			this.lab_effText.text = SheetConfig.mydb_magic_tbl.getInstance(null).SKILLEFFECT(configID);
 			// GameApp.MainPlayer.comboTypeByPage;
@@ -47,24 +49,35 @@ module view.wuXue {
 			let newBaseConfigID = skill * 100 + num;
 
 			let talentID = SheetConfig.mydb_magic_tbl.getInstance(null).TALENTID(newBaseConfigID);
-			if (talentID != '0') {
+			if (talentID != '0' && talentID) {
 				let talentIDArr = talentID.split('`');
 				for (let i = 0; i < talentIDArr.length; i++) {
-					let talentName = SheetConfig.Martial_arts.getInstance(null).NAME(talentIDArr[i]);
-					let talentContent = SheetConfig.Martial_arts.getInstance(null).DESCRIBE(talentIDArr[i]);
-					let p = new Laya.Label();
-					p.width = this.panel_inborn.width - 30
-					p.height = 22;
-					p.wordWrap = true;
+					let talentName = SheetConfig.Martial_arts.getInstance(null).NAME(parseInt(talentIDArr[i]));
+					let talentContent = SheetConfig.Martial_arts.getInstance(null).DESCRIBE(parseInt(talentIDArr[i]));
+					let talentContentArr = talentContent.split('`');
+					// let p = new laya.html.dom.HTMLDivElement()
+					let p = new Laya.HTMLDivElement()
+					p.width = this.panel_inborn.width - 30;
+					p.style.fontSize = 22;
+					p.style.bold = true;
+					p.style.fontFamily = 'STKaiti';
 					if (i < Lv) {
-						p.color = '#e78782';
+						p.innerHTML = "<span style='color:#000000'>【" + talentName + '】</span>'
+							+ "<span style='color:#63491a'>" + talentContentArr[0] + '</span>'
+							+ "<span style='color:#38ad32'>" + talentContentArr[1] + '</span>'
+							+ "<span style='color:#63491a'>，突破</span>"
+							+ "<span style='color:#38ad32'>+" + (i + 1) + '</span>'
+							+ "<span style='color:#63491a'>激活</span>";
 					} else {
-						p.color = '#000000';
+						p.innerHTML = "<span style='color:#777777'>【" + talentName + '】</span>'
+							+ "<span style='color:#777777'>" + talentContentArr[0] + '</span>'
+							+ "<span style='color:#777777'>" + talentContentArr[1] + '</span>'
+							+ "<span style='color:#777777'>，突破</span>"
+							+ "<span style='color:#777777'>+" + (i + 1) + '</span>'
+							+ "<span style='color:#777777'>激活</span>";
 					}
-					p.fontSize = 20;
-					p.font = 'fzxk';
-					p.text = '[' + talentName + ']' + talentContent;
-					p.y = i * (p.height + 5);
+					
+					p.y = i * (p.contextHeight + 5);
 					this.panel_inborn.addChild(p);
 				}
 			}
@@ -83,7 +96,7 @@ module view.wuXue {
 		public showCombo(configID) {
 			let curPageComboType = GameApp.MainPlayer.comboTypeByPage[GameApp.MainPlayer.taoluPageID];
 			let comboID = SheetConfig.mydb_magic_tbl.getInstance(null).COMBINATION_SKILLSID(configID);
-			if (comboID != '0') {
+			if (comboID != '0' && comboID) {
 				let comboIdArr = comboID.split('`')
 				for (let i = 0; i < comboIdArr.length; i++) {
 					let key = parseInt(comboIdArr[i])
@@ -92,6 +105,7 @@ module view.wuXue {
 						let comboSkillID = SheetConfig.Skill_combination.getInstance(null).EFFECTID(key);
 						let comboSkillIDNum = SheetConfig.Skill_combination.getInstance(null).SKILLID(key);
 						let comboEff = SheetConfig.Skill_combination.getInstance(null).DESCRIBE(key);
+						let comboEffArr = comboEff.split('`');
 						let isActive = false;
 						for (let o in curPageComboType) {
 							if (parseInt(o) == comboSkillID) {
@@ -100,19 +114,25 @@ module view.wuXue {
 								}
 							}
 						}
-						let p = new Laya.Label();
+						// let p = new laya.html.dom.HTMLDivElement()
+						let p = new Laya.HTMLDivElement()
 						p.width = this.panel_combo.width - 30;
-						p.height = 22;
-						p.wordWrap = true;
+						p.style.fontSize = 22;
+						p.style.bold = true;
+						p.style.fontFamily = 'STKaiti';
 						if (isActive) {
-							p.color = '#e78782';
+							p.innerHTML = "<span style='color:#000000'>【" + comboName + '】</span>'
+								+ "<span style='color:#63491a'>" + comboEffArr[0] + '</span>'
+								+ "<span style='color:#38ad32'>" + comboEffArr[1] + '</span>'
+								+ "<span style='color:#63491a'>" + comboEffArr[2] + '</span>';
 						} else {
-							p.color = '#000000';
+							p.innerHTML = "<span style='color:#777777'>【" + comboName + '】</span>'
+								+ "<span style='color:#777777'>" + comboEffArr[0] + '</span>'
+								+ "<span style='color:#777777'>" + comboEffArr[1] + '</span>'
+								+ "<span style='color:#777777'>" + comboEffArr[2] + '</span>';
+							// + "<span style='color:#777777'>" + comboEff + '</span>';
 						}
-						p.fontSize = 20;
-						p.font = 'fzxk';
-						p.text = '[' + comboName + ']' + comboEff;
-						p.y = i * (p.height + 5);
+						p.y = i * (p.contextHeight + 5);
 						this.panel_combo.addChild(p);
 					}
 				}
@@ -122,7 +142,7 @@ module view.wuXue {
 				this.panel_combo.height = num;
 			} else {
 				this.panel_combo.height = -8;
-				this.img_combo.height =-10
+				this.img_combo.height = -10
 				this.panel_combo.visible = false;
 				this.img_combo.visible = false;
 			}

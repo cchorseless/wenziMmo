@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":426,
+    "selectedBox":426,
+    "selecteID":384,
     "props":{"width":640,"sceneColor":"#e8d0d0","name":"FuBen","height":1136},
     "nodeParent":-1,
     "label":"View(FuBen)",
@@ -32,13 +32,14 @@
             "props":{"y":24,"x":0,"width":640,"var":"box_view","height":1112},
             "nodeParent":1,
             "label":"Box(box_view)",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":426,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":77,"width":640,"skin":"image/fuben/bottom_zhuxianfuben.png"},
                     "nodeParent":426,
@@ -53,6 +54,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":80,"x":288,"width":64,"var":"lab_volumeID","text":"第五篇","height":26,"fontSize":22,"font":"fzxk","color":"#ffffff"},
                     "nodeParent":426,
@@ -65,8 +67,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
-                    "props":{"skin":"image/main/main_tansuo/img_title.png"},
+                    "props":{"y":0,"x":0,"width":212,"skin":"image/main/main_tansuo/img_title.png","height":91},
                     "nodeParent":426,
                     "label":"Image",
                     "isDirectory":false,
@@ -77,6 +80,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":86,"x":47,"var":"btn_last","stateNum":"1","skin":"image/fuben/img_jiantou_bianzhang.png"},
                     "nodeParent":426,
@@ -89,6 +93,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":143,"x":597,"var":"btn_next","stateNum":"1","skin":"image/fuben/img_jiantou_bianzhang.png","skewY":180,"skewX":180},
                     "nodeParent":426,
@@ -101,6 +106,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":117,"x":262,"var":"img_volume","skin":"image/fuben/fuben_1001.png"},
                     "nodeParent":426,
@@ -113,6 +119,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":182,"x":174,"width":290,"var":"html_charpterName","height":30},
                     "nodeParent":426,
@@ -125,6 +132,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Panel",
                     "props":{"y":231,"x":6,"width":627,"var":"panel_fubenInfo","height":631},
                     "nodeParent":426,
@@ -136,6 +144,7 @@
                     "compId":389,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-8,"x":24,"width":192,"var":"ui_info1","height":639},
                             "nodeParent":389,
@@ -148,6 +157,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-8,"x":218,"width":192,"var":"ui_info2","height":639},
                             "nodeParent":389,
@@ -160,6 +170,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Box",
                             "props":{"y":-8,"x":411,"width":192,"var":"ui_info3","height":639},
                             "nodeParent":389,
@@ -173,6 +184,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":872,"x":181,"width":134,"text":"副本次数：","height":30,"fontSize":30,"font":"fzxk","color":"#000000"},
                     "nodeParent":426,
@@ -185,6 +197,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":873,"x":322,"skin":"image/fuben/frame-CISHU.png"},
                     "nodeParent":426,
@@ -197,6 +210,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":871,"x":422,"var":"btn_addFubenTimes","stateNum":"2","skin":"image/main/bnt_jia.png"},
                     "nodeParent":426,
@@ -209,6 +223,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":873,"x":326,"width":100,"var":"html_FubenTimes","height":30},
                     "nodeParent":426,
@@ -221,6 +236,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":916,"x":59,"skin":"image/fuben/img_fenge.png"},
                     "nodeParent":426,
@@ -233,6 +249,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":911,"x":184,"width":270,"var":"lab_unLockTips","text":"通关本章节解锁小说第3章","height":22,"fontSize":22,"font":"fzxk","color":"#ffffff","align":"center"},
                     "nodeParent":426,
@@ -245,6 +262,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":929,"x":579,"skin":"image/fuben/img_fenge.png","skewY":180,"skewX":180},
                     "nodeParent":426,
@@ -257,6 +275,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":986,"x":205,"var":"btn_saodang","stateNum":"2","skin":"image/common/button_qianwang_yellow.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#764a1a,#55310b","label":"星级扫荡","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":426,
@@ -269,6 +288,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":986,"x":433,"var":"btn_rank","stateNum":"2","skin":"image/common/button_qianwang_red.png","labelStrokeColor":"#a9643b","labelSize":26,"labelFont":"FZHL","labelColors":"#761a1a,#761a1a,#761a1a","label":"星级排行","anchorY":0.5,"anchorX":0.5},
                     "nodeParent":426,
@@ -281,6 +301,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"HTMLDivElement",
                     "props":{"y":42,"x":84,"width":70,"var":"html_title","innerHTML":"htmlText","height":35},
                     "nodeParent":426,
@@ -294,17 +315,19 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Box",
                     "props":{"y":953,"width":640,"height":64,"bottom":0},
                     "nodeParent":426,
                     "label":"Box",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":417,
                     "child":[
                         {
+                            "x":45,
                             "type":"Image",
                             "props":{"skin":"image/main/main_zonglan/bottom_mainicon.png"},
                             "nodeParent":417,
@@ -317,6 +340,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":417,
@@ -331,6 +355,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":78,"width":111,"var":"btn_juqing","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":417,
@@ -345,6 +370,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":203,"width":111,"var":"btn_res","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":417,
@@ -359,6 +385,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":326,"width":111,"var":"btn_xinmo","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":417,
@@ -373,6 +400,7 @@
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
                             "props":{"y":20,"x":453,"width":111,"var":"btn_jina","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":417,

@@ -29,6 +29,8 @@ module ResData {
         public static Common = [{ url: "res/atlas/image/common/default.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/number.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/npc.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/wuxue.atlas", type: Laya.Loader.ATLAS },
+        { url: "res/atlas/image/common/fight.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/scene.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/daoju.atlas", type: Laya.Loader.ATLAS },
         { url: "res/atlas/image/common/buff.atlas", type: Laya.Loader.ATLAS },

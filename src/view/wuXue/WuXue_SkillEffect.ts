@@ -4,7 +4,7 @@ module view.wuXue{
 		constructor(){
 			super();
 		}
-		/**
+		/**s
 		 * 
 		 * @param type   0:player  1:monster
 		 */

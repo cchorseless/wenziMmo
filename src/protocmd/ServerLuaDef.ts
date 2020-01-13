@@ -650,8 +650,10 @@ module ProtoCmd {
     export const getGenerateReward = 'getGenerateReward';//领取奖励  type，level id 1、2
     export const archLevelUp = 'archLevelUp';//建筑升级 type, level
 
-
+    //Boss归属
     export const BossBelong = 'BossBelong';
+    //技能升级
+    export const skillLevelUp = 'skillLevelUp';  //技能ID, 升级次数
 
 
 

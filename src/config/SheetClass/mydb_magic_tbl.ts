@@ -231,11 +231,11 @@ module SheetConfig {
          */
         public ICONPATH(configID): number { return this.data[configID][56] }
         /**
-         *  技能类型：1外功2招架3身法4内功5合计技能6弟子技能
+         *  暂时不用
          */
         public SKILLTYPE(configID): number { return this.data[configID][57] }
         /**
-         *  技能五行攻击,1金2木3水4火5土
+         *  技能属性,1拳脚2刀剑3长枪4奇门
          */
         public SKILLEXTRAPROP(configID): number { return this.data[configID][58] }
         /**
@@ -245,7 +245,8 @@ module SheetConfig {
         /**
          *  技能品质1：入门2中级3高级4绝技
          */
-        public SKILLQUALITY(configID): number { return this.data[configID][60] }
+        public SKILLQUALITY(configID): number {
+             return this.data[configID][60] }
         /**
          *  内功效率
          */
@@ -283,6 +284,22 @@ module SheetConfig {
          */
         public NUMBER2(configID): number { return this.data[configID][69] }
         /**
+         *  技能设计品质后所需道具ID
+         */
+        public SKILLS_QUALITY_UP_ITEM(configID): number { return this.data[configID][70] }
+        /**
+         *  升级所需要的物品数量
+         */
+        public SKILLS_QUALITY_NUMBER(configID): number { return this.data[configID][71] }
+        /**
+         *  学习技能好感度
+         */
+        public NEEDNPCHAOGAN(configID): number { return this.data[configID][72] }
+        /**
+         *  技能的战力
+         */
+        public SKILL_CAPABILITY(configID): number { return this.data[configID][73] }
+        /**
        * 获取技能数据
        * @param skillID 技能编号
        */
@@ -297,14 +314,14 @@ module SheetConfig {
             return base;
         }
         /**
-         * 
-         * @param skillID 技能编号
-         */
+        * 同阶中技能等级数
+        * @param skillID 技能编号
+        */
         public getNumOfSkillID(skillID) {
             let num = 0;
             for (let i in this.data) {
                 if (this.data[i][1] == skillID) {
-                    num ++ 
+                    num++
                 }
             }
             return num;

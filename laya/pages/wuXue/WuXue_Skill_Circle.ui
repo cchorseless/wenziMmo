@@ -2,8 +2,8 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":1,
-    "props":{"y":65,"x":60,"width":121,"sceneColor":"#ffffff","height":130,"anchorY":0.5,"anchorX":0.5},
+    "selecteID":6,
+    "props":{"y":65,"x":60,"width":135,"sceneColor":"#ffffff","height":125,"anchorY":0.5,"anchorX":0.5},
     "nodeParent":-1,
     "label":"View",
     "isOpen":true,
@@ -15,71 +15,61 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":4,"x":20,"var":"img_bg","skin":"image/common/frame_normal_touxiang.png"},
+            "props":{"y":12,"x":39,"var":"img_lock","skin":"image/common/wuxue/frame_jineng_suoding.png"},
             "nodeParent":1,
-            "label":"Image(img_bg)",
+            "label":"Image(img_lock)",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":6,
+            "child":[
+                ],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":12,"x":39,"var":"img_unlock","skin":"image/common/wuxue/frame_jineng_kong.png"},
+            "nodeParent":1,
+            "label":"Image(img_unlock)",
             "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":2,
+            "compId":9,
             "child":[
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":31,"x":33,"var":"img_lock","skin":"image/juQingMode/lock_suoding.png"},
-                    "nodeParent":2,
-                    "label":"Image(img_lock)",
-                    "isOpen":true,
+                    "props":{"y":24,"x":18,"var":"img_num","skin":"image/common/wuxue/font_1.png"},
+                    "nodeParent":9,
+                    "label":"Image(img_num)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":6,
+                    "compId":14,
                     "child":[
                         ],
-                    "$HIDDEN":true
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":11,"x":11,"var":"img_unlock","skin":"image/juese/box_common_01.png"},
-                    "nodeParent":2,
-                    "label":"Image(img_unlock)",
-                    "isOpen":false,
-                    "isDirectory":true,
-                    "isAniNode":true,
-                    "hasChild":true,
-                    "compId":9,
-                    "child":[
-                        {
-                            "type":"Label",
-                            "props":{"y":22,"x":17,"width":30,"var":"lab_Index","text":"一","height":20,"fontSize":20,"font":"fzxk","align":"center"},
-                            "nodeParent":9,
-                            "label":"Label(lab_Index)",
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":10,
-                            "child":[
-                                ]
-                        }],
                     "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"UIView",
-                    "source":"wuXue/WuXue_logoWithNameItem.ui",
-                    "props":{"y":67,"x":41,"var":"ui_show","runtime":"view.wuXue.WuXue_logoWithNameItem"},
-                    "nodeParent":2,
-                    "label":"UIView(ui_show)",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":13,
-                    "child":[
-                        ],
-                    "$HIDDEN":true
-                }]
+                }],
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"UIView",
+            "source":"wuXue/WuXue_logoWithNameItem.ui",
+            "props":{"y":66,"x":75,"var":"ui_show","runtime":"view.wuXue.WuXue_logoWithNameItem"},
+            "nodeParent":1,
+            "label":"UIView(ui_show)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":13,
+            "child":[
+                ],
+            "$LOCKED":false,
+            "$HIDDEN":false
         }],
     "animations":[
         {
