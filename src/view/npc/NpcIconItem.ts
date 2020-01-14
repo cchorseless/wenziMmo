@@ -6,7 +6,7 @@ module view.npc {
 		}
 
 		public item: GameObject.Npc;
-		public setData(obj: GameObject.Npc): NpcIconItem {
+		public setData(obj): NpcIconItem {
 			this.item = obj;
 			this.item.ui_item = this;
 			this.centerX = this.centerY = 0

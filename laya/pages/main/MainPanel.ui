@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":341,
-    "selecteID":253,
+    "selectedBox":1,
+    "selecteID":257,
     "referenceLines":[
         {
             "value":1127,
@@ -991,133 +991,83 @@
                     "props":{"y":1063,"x":122,"width":395,"var":"box_mainBottom","height":73,"bottom":0},
                     "nodeParent":341,
                     "label":"Box(box_mainBottom)",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":100,
                     "child":[
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":30,"x":30,"width":60,"var":"btn_jueSe","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","height":60,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":30,"x":30,"width":93,"var":"btn_jueSe","stateNum":"2","skin":"image/main/icon_juese_02down_finish.png","height":88,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":100,
                             "label":"Button(btn_jueSe)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":101,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":0,"text":"角色","strokeColor":"#010101","stroke":6,"fontSize":30,"font":"HWXK","color":"#ffd08d"},
-                                    "nodeParent":101,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":130,
-                                    "child":[
-                                        ]
-                                }],
+                                ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":30,"x":114,"width":60,"var":"btn_wuXue","stateNum":"2","skin":"image/main/icon_wuxue_02down_finish.png","height":60,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":30,"x":114,"width":93,"var":"btn_wuXue","stateNum":"2","skin":"image/main/icon_wuxue_02down_finish.png","height":88,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":100,
                             "label":"Button(btn_wuXue)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":104,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":0,"text":"武学","strokeColor":"#010101","stroke":6,"fontSize":30,"font":"HWXK","color":"#ffd08d"},
-                                    "nodeParent":104,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":217,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":30,"x":281,"width":60,"visible":true,"var":"btn_jiangHu","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","height":60,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":30,"x":284,"width":93,"visible":true,"var":"btn_jiangHu","stateNum":"2","skin":"image/main/icon_jianghu_02down_finish.png","height":88,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":100,
                             "label":"Button(btn_jiangHu)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":107,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":0,"text":"江湖","strokeColor":"#010101","stroke":6,"fontSize":30,"font":"HWXK","color":"#ffd08d"},
-                                    "nodeParent":107,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":133,
-                                    "child":[
-                                        ]
-                                }],
+                                ],
                             "$HIDDEN":false
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":30,"x":198,"width":60,"var":"btn_wuPin","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png","height":60,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":30,"x":198,"width":93,"var":"btn_wuPin","stateNum":"2","skin":"image/main/icon_wuping_02down_finish.png","height":88,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":100,
                             "label":"Button(btn_wuPin)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":113,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":0,"text":"物品","strokeColor":"#010101","stroke":6,"fontSize":30,"font":"HWXK","color":"#ffd08d"},
-                                    "nodeParent":113,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":135,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         },
                         {
+                            "x":45,
                             "type":"Button",
-                            "props":{"y":30,"x":365,"width":60,"var":"btn_fuBen","stateNum":"2","skin":"image/main/icon_zhaiyuan_02down_finish.png","height":60,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":30,"x":379,"width":93,"var":"btn_fuBen","stateNum":"2","skin":"image/main/icon_zhaiyuan_02down_finish.png","height":88,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":100,
                             "label":"Button(btn_fuBen)",
                             "isOpen":true,
-                            "isDirectory":true,
+                            "isDirectory":false,
                             "isAniNode":true,
-                            "hasChild":true,
+                            "hasChild":false,
                             "compId":337,
                             "child":[
-                                {
-                                    "type":"Label",
-                                    "props":{"y":40,"x":0,"text":"副本","strokeColor":"#010101","stroke":6,"fontSize":30,"font":"HWXK","color":"#ffd08d"},
-                                    "nodeParent":337,
-                                    "label":"Label",
-                                    "isDirectory":false,
-                                    "isAniNode":true,
-                                    "hasChild":false,
-                                    "compId":338,
-                                    "child":[
-                                        ]
-                                }]
+                                ]
                         }],
                     "$LOCKED":false,
                     "$HIDDEN":false
