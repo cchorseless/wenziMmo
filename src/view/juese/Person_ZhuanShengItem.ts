@@ -80,11 +80,6 @@ module view.juese {
 					this.lbl_dangqian.text = GameApp.MainPlayer.zslevel + '转';
 					//下一转生等级
 					this.lbl_next.text = (GameApp.MainPlayer.zslevel + 1) + '转';
-					if (GameApp.MainPlayer.zslevel == 0) {
-						this.lbl_null.visible = true;
-					} else {
-						this.lbl_null.visible = false;
-					}
 					//根据当前职业偏移当前效果id
 					let job = GameApp.MainPlayer.job;
 					let jobid = jsonData.effid + (job - 1) * 1000;

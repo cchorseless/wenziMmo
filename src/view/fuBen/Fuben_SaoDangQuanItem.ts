@@ -34,7 +34,11 @@ module view.fuBen {
 				this.ui_item.setData(itemInfo, EnumData.ItemInfoModel.SHOW_IN_MAIL)
 			};
 			//扫荡券倍数
-			this.lbl_name.text = GameUtil.SectionToChinese(beishu, 0) + '倍扫荡券';
+			if (beishu == 1) {
+				this.lbl_name.text = '单倍扫荡券';
+			} else {
+				this.lbl_name.text = GameUtil.SectionToChinese(beishu, 0) + '倍扫荡券';
+			}
 			this.addEvent();
 			return this;
 		}

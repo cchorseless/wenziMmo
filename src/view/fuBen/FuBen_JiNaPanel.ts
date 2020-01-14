@@ -101,7 +101,7 @@ module view.fuBen {
 					if (index < 4) {
 						ui_boss.y = 0
 					} else {
-						ui_boss.y = ui_boss.height - 10;
+						ui_boss.y = ui_boss.height - 20;
 					}
 					this.box_boss.addChild(ui_boss);
 				}
