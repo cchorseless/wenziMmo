@@ -13,8 +13,8 @@ module view.beiBao {
 			this.panel_a.vScrollBarSkin = '';
 			if (this.hasInit) return;
 			this.hasInit = true;
-			this.lbl_shaixuan.x=55;
-			this.lbl_shaixuan.text='选择筛选条件';
+			this.lbl_shaixuan.x = 55;
+			this.lbl_shaixuan.text = '选择筛选条件';
 			this.lbl_expHuiShou1.text = '0'
 			if (GameApp.MainPlayer.monthCard > 0) {
 				this.btn_goVip.label = '已激活';
@@ -32,7 +32,7 @@ module view.beiBao {
 			this.img_showSelect.visible = false;
 		}
 		//回收规则  1：89级一下   2：1-2转   3：3-4转    4：5-6转    5：7-8转    6：全部装备
-		public curSelect: number = 1;
+		public curSelect: number;
 
 		public addEvent(): void {
 			// this.on(Laya.UIEvent.CLICK, this, function () {
@@ -51,8 +51,8 @@ module view.beiBao {
 			})
 			for (let i = 1; i <= 6; i++) {
 				this['btn_0' + i].on(Laya.UIEvent.CLICK, this, () => {
-					this.lbl_shaixuan.x=1;
-					this.lbl_shaixuan.text='当前筛选：';
+					this.lbl_shaixuan.x = 1;
+					this.lbl_shaixuan.text = '当前筛选：';
 					this.curSelect = i;
 					Laya.Tween.to(this.img_showSelect, { scaleX: 0, scaleY: 0 }, 200, null, Laya.Handler.create(this, () => {
 						this.img_showSelect.visible = false;
@@ -86,8 +86,8 @@ module view.beiBao {
 		public putInMap: { [index: string]: ProtoCmd.ItemBase } = {};
 		public takeOutMap = {};
 		public recycleMap = {};
-		public onPutIn(isput = 0) {
-			let lable = '89级以下';
+		public onPutIn(isput=0) {
+			let lable ;
 			let num = 0
 			if (isput == 0) {
 				this.onTakeOut();
