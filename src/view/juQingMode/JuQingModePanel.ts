@@ -191,7 +191,7 @@ module view.juQingMode {
 				console.log(jsonData);
 				if (this.lastTalkID >= jsonData.dbid) {
 					if (jsonData.dbid == GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid) {
-						TipsManage.showTips('已读完本章');
+						// TipsManage.showTips('已读完本章');
 						let nextID = this.getNextCharpterID(GameApp.MainPlayer.charpterID)
 						if (GameApp.MainPlayer.pianZhangID != nextID.pzid) {
 							GameApp.MainPlayer.pianZhangID = nextID.pzid;

@@ -397,4 +397,8 @@ public static getInstance(data): mydb_item_base_tbl { let Class:any=this;if(!Cla
  *  是否记录图鉴
  */
  public TUJIAN(configID):number { return this.data[configID][85]}
+/**
+ *  获得物品途径
+ */
+ public ACCESS_WAY(configID):string { return this.data[configID][86]}
 }}

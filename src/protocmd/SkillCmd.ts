@@ -58,6 +58,22 @@ module ProtoCmd {
             this.skilllvl = null;
         }
     }
+    // 0x02b2
+    // 服务器推送删除技能
+    export class SkillDeleteCmd extends Packet {
+        public static msgID: number = 0x02b2;
+        public dwMagicId: stSkillLvlBase = new stSkillLvlBase();
+        public constructor(data: Laya.Byte) {
+            super();
+            this.addProperty('dwMagicId', PacketBase.TYPE_INT);
+            this.read(data);
+        }
+        public clear(): void {
+            super.clear();
+            this.dwMagicId.clear();
+            this.dwMagicId = null;
+        }
+    }
 
     // 0x029a
     // 添加技能快捷键

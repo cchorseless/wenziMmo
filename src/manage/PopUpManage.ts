@@ -187,9 +187,10 @@ module PopUpManager {
  * 当前界面，包括dialog
  */
     export function curPanelAndDialog() {
-        if (Laya.Dialog.manager.numChildren > 0) {
-            if (!Laya.Dialog.manager.getChildAt(0).destroyed) {
-                return Laya.Dialog.manager.getChildAt(0) as any
+        let numChildren = Laya.Dialog.manager.numChildren
+        if (numChildren > 0) {
+            if (!Laya.Dialog.manager.getChildAt(numChildren - 1).destroyed) {
+                return Laya.Dialog.manager.getChildAt(numChildren - 1) as any
             }
         }
         return PopUpManager.curPanel

@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":78,
+    "selecteID":3,
     "props":{"width":510,"sceneColor":"#ffffff","height":600},
     "nodeParent":-1,
     "label":"View",
@@ -96,7 +96,7 @@
                     "child":[
                         ]
                 }],
-            "$LOCKED":true,
+            "$LOCKED":false,
             "$HIDDEN":false
         },
         {
@@ -473,7 +473,7 @@
                                     "props":{"y":37,"x":34,"var":"box_NotmaxLv"},
                                     "nodeParent":42,
                                     "label":"Box(box_NotmaxLv)",
-                                    "isOpen":false,
+                                    "isOpen":true,
                                     "isDirectory":true,
                                     "isAniNode":true,
                                     "hasChild":true,
@@ -528,30 +528,29 @@
                                                 ]
                                         },
                                         {
-                                            "type":"UIView",
-                                            "source":"wuXue/WuXue_Skill_Effect_item.ui",
-                                            "props":{"y":44,"x":27,"var":"ui_eff0","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
+                                            "type":"HBox",
+                                            "props":{"y":44,"x":-21,"width":200,"height":30},
                                             "nodeParent":82,
-                                            "label":"UIView(ui_eff0)",
-                                            "isDirectory":false,
+                                            "label":"HBox",
+                                            "isOpen":true,
+                                            "isDirectory":true,
                                             "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":53,
+                                            "hasChild":true,
+                                            "compId":89,
                                             "child":[
-                                                ]
-                                        },
-                                        {
-                                            "type":"UIView",
-                                            "source":"wuXue/WuXue_Skill_Effect_item.ui",
-                                            "props":{"y":84,"x":27,"var":"ui_eff1","runtime":"view.wuXue.WuXue_Skill_Effect_item"},
-                                            "nodeParent":82,
-                                            "label":"UIView(ui_eff1)",
-                                            "isDirectory":false,
-                                            "isAniNode":true,
-                                            "hasChild":false,
-                                            "compId":55,
-                                            "child":[
-                                                ]
+                                                {
+                                                    "type":"UIView",
+                                                    "source":"wuXue/WuXue_Skill_Effect_item.ui",
+                                                    "props":{"y":0,"var":"ui_eff0","runtime":"view.wuXue.WuXue_Skill_Effect_item","right":0},
+                                                    "nodeParent":89,
+                                                    "label":"UIView(ui_eff0)",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":53,
+                                                    "child":[
+                                                        ]
+                                                }]
                                         },
                                         {
                                             "type":"UIView",
@@ -578,8 +577,33 @@
                                             "compId":57,
                                             "child":[
                                                 ]
+                                        },
+                                        {
+                                            "type":"HBox",
+                                            "props":{"y":84,"x":-21,"width":200,"height":30},
+                                            "nodeParent":82,
+                                            "label":"HBox",
+                                            "isOpen":true,
+                                            "isDirectory":true,
+                                            "isAniNode":true,
+                                            "hasChild":true,
+                                            "compId":90,
+                                            "child":[
+                                                {
+                                                    "type":"UIView",
+                                                    "source":"wuXue/WuXue_Skill_Effect_item.ui",
+                                                    "props":{"y":0,"var":"ui_eff1","runtime":"view.wuXue.WuXue_Skill_Effect_item","right":0},
+                                                    "nodeParent":90,
+                                                    "label":"UIView(ui_eff1)",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":55,
+                                                    "child":[
+                                                        ]
+                                                }]
                                         }],
-                                    "$HIDDEN":true
+                                    "$HIDDEN":false
                                 },
                                 {
                                     "type":"Label",
@@ -643,7 +667,7 @@
                                             "child":[
                                                 ]
                                         }],
-                                    "$HIDDEN":false
+                                    "$HIDDEN":true
                                 },
                                 {
                                     "type":"Label",

@@ -145,7 +145,7 @@ module SheetConfig {
         /**
          *  不能同时存在的技能
          */
-        public EXCLUSION_SKILLS(configID): number { return this.data[configID][35] }
+        public EXCLUSION_SKILLS(configID): string { return this.data[configID][35] }
         /**
          *  使用BUFF所需要物品ID
          */
@@ -245,8 +245,7 @@ module SheetConfig {
         /**
          *  技能品质1：入门2中级3高级4绝技
          */
-        public SKILLQUALITY(configID): number {
-             return this.data[configID][60] }
+        public SKILLQUALITY(configID): number { return this.data[configID][60] }
         /**
          *  内功效率
          */
@@ -292,13 +291,9 @@ module SheetConfig {
          */
         public SKILLS_QUALITY_NUMBER(configID): number { return this.data[configID][71] }
         /**
-         *  学习技能好感度
-         */
-        public NEEDNPCHAOGAN(configID): number { return this.data[configID][72] }
-        /**
          *  技能的战力
          */
-        public SKILL_CAPABILITY(configID): number { return this.data[configID][73] }
+        public SKILL_CAPABILITY(configID): number { return this.data[configID][72] }
         /**
        * 获取技能数据
        * @param skillID 技能编号

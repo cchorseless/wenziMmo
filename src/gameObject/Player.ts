@@ -107,6 +107,8 @@ module GameObject {
         public nTili: number = 0;// 体力
         public nYanZhi: number = 0;// 颜值
         public nXinQing: number = 0;// 心情
+
+        public skillLvUpPoint:number = 0;//技能升级所需
         /******************BOSS积分************ */
         public bossCoin: number = 0;
         //玩家出生信息、八字、4格、9宫
@@ -304,6 +306,10 @@ module GameObject {
         // BOSS积分
         public changeBossCoin(srcID: number) {
             this.bossCoin = srcID;
+        }
+        // 技能升级所需
+        public changeSkillPoint(srcID: number) {
+            this.skillLvUpPoint = srcID;
         }
         /*******************************************************************get************************************* */
 
