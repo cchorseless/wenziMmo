@@ -345,6 +345,19 @@ module GameObject {
                         obj.curHero = this._tmpHeroList[obj.tempId]
                         delete this._tmpHeroList[obj.tempId];
                     }
+                    let label = new Laya.Label;
+                    label.width = 590;
+                    label.font = 'FZXK';
+                    label.fontSize = 22;
+                    label.wordWrap = true;
+                    label.color = '#63491a';
+                    if (obj.feature.simpleFeature.weaponId == 0) {
+                        label.text = obj.objName + ' 进来了';
+                    } else {
+                        let name = SheetConfig.mydb_item_base_tbl.getInstance(null).ITEMNAME('' + obj.feature.simpleFeature.weaponId);
+                        label.text = obj.objName + '拿着' + name + '进来了';
+                    }
+                    PanelManage.Main.view_scene._childs[1].init_updataHieght(label);
                     break;
                 case EnumData.CRET_TYPE.CRET_MONSTER:
                     this.allMonster[obj.tempId] = obj;
@@ -373,7 +386,9 @@ module GameObject {
                 default:
                     break;
             }
+
             PanelManage.Main && GameApp.SceneManager.addViewObjUI(obj, type);
+
         }
         /**
          * 将游戏对象移除视野
@@ -384,7 +399,15 @@ module GameObject {
             console.log(tempId + '从视野被移除');
             switch (type) {
                 case EnumData.CRET_TYPE.CRET_PLAYER:
+                    let label = new Laya.Label;
+                    label.width = 590;
+                    label.wordWrap = true;
+                    label.font = 'FZXK';
+                    label.color = '#63491a';
+                    label.fontSize = 22;
                     if (this.allPlayer[tempId]) {
+                        label.text = this.allPlayer[tempId].objName + '离开了';
+                        PanelManage.Main.view_scene._childs[1].init_updataHieght(label);
                         this.allPlayer[tempId].clear();
                         delete this.allPlayer[tempId]
                     }

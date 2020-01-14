@@ -255,7 +255,7 @@ module view.fuBen {
 				})
 				lcp.send(pkt);
 			}
-			Laya.Tween.to(this.box_info, { x: -num * this.panel_fubenInfo.width }, 500);
+			Laya.Tween.to(this.box_info, { x: -num * this.panel_fubenInfo.width }, 350);
 		}
 
 		public selectedCeng: number;
