@@ -5,18 +5,16 @@ module view.main {
 		constructor() {
 			super();
 			Main_tanSuoItem.self = this;
+			this.panel_sceneDes.vScrollBarSkin = '';
+			this.vbox_sceneDes['sortItem'] = (items) => { };
 			this.addEvent();
 		}
-
+		public times = 1;
+		public intoInfo = [];
 		public addEvent() {
 			this.btn_xiangXia.on(Laya.UIEvent.CLICK, this, () => {
-				console.log(1111111111)
-				if (this.img_sceneTxt.height > 300) {
-					Laya.Tween.to(this.img_sceneTxt, { height: 620 }, 500)
-				}
-				else {
-					Laya.Tween.to(this.img_sceneTxt, { height: 210 }, 500)
-				}
+				this.btn_xiangXia.selected = !this.btn_xiangXia.selected;
+				this.init_shenSuo(this.btn_xiangXia.selected);
 			})
 		}
 
@@ -34,6 +32,15 @@ module view.main {
 		 */
 		public updateUI() {
 			this.lbl_roomName.text = GameApp.MainPlayer.mapName;
+			//房间信息简介
+			let label1 = new Laya.Label;
+			label1.width = 590;
+			label1.color = '#63491a';
+			label1.font = 'FZXK';
+			label1.fontSize = 22;
+			label1.wordWrap = true;
+			label1.text = SheetConfig.mapRoomSheet.getInstance(null).ROOMDES('' + GameApp.MainPlayer.roomId);
+			this.init_updataHieght(label1);
 			// 更新主界面的UI信息
 			GameApp.LListener.event(LcpEvent.UPDATE_UI_PLACE_DES)
 		}
@@ -113,11 +120,43 @@ module view.main {
 				}
 			}
 		}
-
-
 		public clearView() {
 			for (let i = 0; i < 8; i++) {
 				this['box_' + i].removeChildren()
+			}
+		}
+		public init_shenSuo(v: boolean): void {
+			if (v) {
+				Laya.Tween.to(this.img_sceneTxt, { height: 620 }, 200)
+			}
+			else {
+				Laya.Tween.to(this.img_sceneTxt, { height: 210 }, 200)
+			}
+		}
+		public init_updataHieght(label: Laya.Label): void {
+			let allPlayer = GameApp.MainPlayer.allPlayer;
+			let num = 0;
+			for (let i in allPlayer) {
+				num += 1;
+			}
+			if (num <= 50) {
+				this.vbox_sceneDes.addChild(label);
+			} else {
+				this.intoInfo.push(label);
+				Laya.timer.loop(10000, this, this.upDataIntoInfo);
+			}
+			this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
+		}
+		/**
+		 * 房间人数大于50，则每10秒刷新20条玩家进出信息
+		 */
+		public upDataIntoInfo(): void {
+			for (let i = this.times * 20; i < (this.times + 1) * 20; i++) {
+				if (this.intoInfo[i]) {
+					this.vbox_sceneDes.addChild(this.intoInfo[i]);
+				} else {
+					Laya.timer.clear(this, this.upDataIntoInfo);
+				}
 			}
 		}
 	}

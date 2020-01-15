@@ -70,6 +70,10 @@ class ServerListener extends SingletonClass {
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarMagicColdRet), this, this.updateSkillCold);
         // 推送技能更改状态
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSkillAddDecoderRet), this, this.updateSkillState);
+
+        GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SkillDeleteCmd), this, this.deleteSkill);
+
+        
         // 拉取设置技能快捷键信息 0295
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSetSkillShortCutsEnDeCoder), this, this.addSkillShortButton);
         // 删除技能快捷键信息 0296
@@ -681,7 +685,7 @@ class ServerListener extends SingletonClass {
         msg.clear();
         msg = null;
     }
-    public cretMonsterBuff(data:any){
+    public cretMonsterBuff(data: any) {
         let msg = new ProtoCmd.stCretBuffState(data);
 
         msg.clear();
@@ -746,7 +750,6 @@ class ServerListener extends SingletonClass {
             skill.clone(skillInfo.data);
             GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
         }
-
         cbpkt.clear();
         cbpkt = null;
     }
@@ -766,19 +769,24 @@ class ServerListener extends SingletonClass {
         let skill = new ProtoCmd.stSkillLvlBase();
         skill.clone(cbpkt.skilllvl.data);
         GameApp.MainPlayer.skillInfo[skill.skillid] = skill;
-        let panelName = PopUpManager.curPanel.name;
+        // let panelName = PopUpManager.curPanel.name;
+        let panelName = PopUpManager.curPanelAndDialog().name;
         switch (panelName) {
-            case "waigong":
-                GameApp.LListener.event(ProtoCmd.WX_upData_panel_waigong); //外功
-                break;
-            case "neigong":
-                GameApp.LListener.event(ProtoCmd.WX_upData_panel_neigong); //内功
-                break;
-            case "hedao":
-                break;
-            case "biguan":
+            case "skillinfoDialog":
+                GameApp.LListener.event(ProtoCmd.WX_upData_panel_waigong); //更新技能等级
                 break;
         }
+        cbpkt.clear();
+        cbpkt = null;
+    }
+    /**
+     * 删除技能
+     * @param data 
+     */
+    public deleteSkill(data): void {
+        let cbpkt = new ProtoCmd.SkillDeleteCmd(data);
+        let skill = new ProtoCmd.stSkillLvlBase();
+        delete GameApp.MainPlayer.skillInfo[cbpkt.getValue('dwMagicId')];
         cbpkt.clear();
         cbpkt = null;
     }
@@ -795,7 +803,7 @@ class ServerListener extends SingletonClass {
             shot.clone(cbpkt.shortcuts.data);
             // 存储技能快捷键
             //key  行数*100 + 列数
-            let key = shot.btRow*100 + shot.btCol;
+            let key = shot.btRow * 100 + shot.btCol;
             GameApp.MainPlayer.skillShotButton[key] = shot;
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
@@ -825,7 +833,7 @@ class ServerListener extends SingletonClass {
     public delSkillShortButton(data): void {
         let cbpkt = new ProtoCmd.AvatarDelSkillShortCutsEnDeCoder(data);
         if (cbpkt.getValue('ErrorCode') == 0) {
-            let key = cbpkt.shortcuts.btRow*100 + cbpkt.shortcuts.btCol
+            let key = cbpkt.shortcuts.btRow * 100 + cbpkt.shortcuts.btCol
             delete GameApp.MainPlayer.skillShotButton[key];
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
@@ -1138,7 +1146,8 @@ class ServerListener extends SingletonClass {
         player.changenTili(msg.getValue('nTili'));// 体力
         player.changenYanZhi(msg.getValue('nYanZhi'));// 颜值
         player.changeHeroExp(0, msg.getValue('i64MaxHeroExp').int64ToNumber());// 英雄最大经验
-        player.changeBossCoin(msg.getValue('bossScore'));
+        player.changeBossCoin(msg.getValue('bossScore')); //boss积分
+        player.changeSkillPoint(msg.getValue('skillPoint').int64ToNumber());//技能升级所需
         msg.clear();
         msg = null;
         GameApp.SDKManager.loginRole();

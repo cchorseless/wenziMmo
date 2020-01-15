@@ -3418,7 +3418,7 @@ module ProtoCmd {
         public constructor(data: Laya.Byte = null) {
             super();
             this.addProperty('skillid', PacketBase.TYPE_INT);					//技能ID
-            this.addProperty('level', PacketBase.TYPE_INT);						//技能等级  阶数
+            this.addProperty('level', PacketBase.TYPE_INT);						//技能  阶数
             this.addProperty('dwexp', PacketBase.TYPE_INT);						//技能经验
             this.addProperty('sublevel', PacketBase.TYPE_INT);                  //技能等级  等级
             this.addProperty('boLocked', PacketBase.TYPE_BOOL);                 //自动锁定的值
@@ -3434,6 +3434,9 @@ module ProtoCmd {
          * 技能配置表ID
          */
         public get configID(): string {
+            // if(this.subLevel == 0){
+            //     this.subLevel = 1;
+            // }
             return '' + (this.skillid * 100 + this.level)
         }
 
@@ -3444,10 +3447,22 @@ module ProtoCmd {
             return this.getValue("skillid");
         }
         /**
-         * 技能等级
+         * 技能阶数
          */
         public get level(): number {
             return this.getValue("level");
+        }
+        /**
+         * 技能等级
+         */
+        public set subLevel(value:number) {
+            this.setValue('sublevel', value);
+        }
+        /**
+         * 技能等级
+         */
+        public get subLevel(): number {
+            return this.getValue("sublevel");
         }
         /**
          * 技能经验

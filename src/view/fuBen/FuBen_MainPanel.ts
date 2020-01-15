@@ -14,6 +14,7 @@ module view.fuBen {
 		public isTouch = false;
 		public touchBeginX;
 		public touchEndX;
+		public charpterArray = [];
 		constructor() {
 			super();
 			FuBen_MainPanel.self = this;
@@ -22,6 +23,7 @@ module view.fuBen {
 		public setData(fromStr: string): void {
 			FuBen_MainPanel.fromStr = fromStr;
 			this.btn_juqing.selected = true;
+			this.panel_fubenInfo.vScrollBarSkin = '';
 			this.initUI();
 			this.addEvent();
 		}
@@ -37,32 +39,32 @@ module view.fuBen {
 			this.btn_addFubenTimes.on(Laya.UIEvent.CLICK, this, function () {
 				// TODO
 			})
-			this.btn_last.on(Laya.UIEvent.CLICK, this, function () {
+			this.btn_last.on(Laya.UIEvent.CLICK, this, () => {
 				this.changePZ(false);
 			})
-			this.btn_next.on(Laya.UIEvent.CLICK, this, function () {
+			this.btn_next.on(Laya.UIEvent.CLICK, this, () => {
 				this.changePZ(true);
 			})
-			this.panel_fubenInfo.on(Laya.Event.MOUSE_DOWN, this, function (ex) {
+			this.panel_fubenInfo.on(Laya.Event.MOUSE_DOWN, this, (ex) => {
 				this.isTouch = true;
 				this.touchBeginX = this.getPosX(ex);
 
 			})
-			this.btn_rank.on(Laya.Event.MOUSE_DOWN, this, function (ex) {
+			this.btn_rank.on(Laya.Event.MOUSE_DOWN, this, (ex) => {
 				let o = new FuBen_ZhuXian_Rank_Dialog();
 				o.setData(3);
 				o.popup();
 
 			})
 
-			this.panel_fubenInfo.on(Laya.Event.MOUSE_UP, this, function (ex) {
+			this.panel_fubenInfo.on(Laya.Event.MOUSE_UP, this, (ex) => {
 				if (this.isTouch) {
 					this.isTouch = false;
 					this.touchEndX = this.getPosX(ex);
 					this.dealWithPosX()
 				}
 			})
-			this.panel_fubenInfo.on(Laya.Event.MOUSE_OUT, this, function (ex) {
+			this.panel_fubenInfo.on(Laya.Event.MOUSE_OUT, this, (ex) => {
 				if (this.isTouch) {
 					this.isTouch = false;
 					this.touchEndX = this.getPosX(ex);
@@ -102,8 +104,8 @@ module view.fuBen {
 		public changePZ(boo: boolean) {
 			if (boo) {
 				this.showPZID += 1;
-				if (this.showPZID > 1005) {
-					this.showPZID = 1005;
+				if (this.showPZID > GameApp.MainPlayer.pianZhangID) {
+					this.showPZID = GameApp.MainPlayer.pianZhangID;
 					TipsManage.showTips('已经是最后一篇');
 				} else {
 					this.updatePianZhangInfo(this.showPZID, this.isOpen);
@@ -134,8 +136,8 @@ module view.fuBen {
 				}
 			} else if (span < -200) {
 				this.showZJID += 1;
-				if (this.showZJID > this.maxzjID) {
-					this.showZJID = this.maxzjID;
+				if (this.showZJID > GameApp.MainPlayer.charpterID) {
+					this.showZJID = GameApp.MainPlayer.charpterID;
 					TipsManage.showTips('已经是最后一章');
 					return;
 				} else {
@@ -198,7 +200,6 @@ module view.fuBen {
 		public updateMainFuBenInfo(charpterID: number): void {
 			// this.hbox_1.removeChildren();
 			// 关卡名称
-
 			let charpterInfo: ProtoCmd.itf_JUQING_CHARPTERINFO = GameApp.MainPlayer.allCharpterInfo[charpterID];
 			if (charpterInfo) {
 				this.html_charpterName.style.fontFamily = 'STXingkai';
@@ -214,36 +215,47 @@ module view.fuBen {
 				} else {
 					this.lab_unLockTips.text = '通关本章节解锁小说下一篇'
 				}
-
-
 			}
-			// 除魔相关信息
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
-				this.html_FubenTimes.style.fontFamily = 'STKaiti';
-				this.html_FubenTimes.style.fontSize = 30;
-				this.html_FubenTimes.style.align = 'center';
-				this.curTimes = jsonData.totalcnt - jsonData.curcnt;
-				this.maxTimes = jsonData.totalcnt;
-				this.html_FubenTimes.innerHTML = "<span style='color:#a00000'>" + (jsonData.totalcnt - jsonData.curcnt)
-					+ '</span>' + "<span style='color:#000000'>/" + jsonData.totalcnt + '</span>'
-				// 关卡信息
-				let keys = Object.keys(jsonData.state);
-				keys = keys.sort(function (a, b) {
-					return jsonData.state[a].ceng - jsonData.state[b].ceng
-				});
-				for (let i = 0; i < keys.length; i++) {
-					// 设置怪物头像数据
-					// (this['ui_item' + (parseInt(key) % 5)] as view.compart.MonsterIconV0Item).setData(charpterID, key, jsonData.state[key]);
-					this['ui_info' + (i + 1)].removeChildren();
-					let o = new FuBen_ZhuXIan_Panel_info();
-					o.setData(jsonData.ceng, jsonData.state[keys[i]], GameApp.MainPlayer.allCharpterInfo[charpterID].index);
-					this['ui_info' + (i + 1)].addChild(o);
+			let ispush = true;
+			for (let item of this.charpterArray) {
+				if (item == charpterID) {
+					ispush = false;
 				}
-				// 显示单个BOSS信息
-				// this.updateMainFuBenBossInfo(jsonData.ceng)
-			})
-			lcp.send(pkt);
+			}
+			let num = charpterID - 10001;
+			if (ispush) {
+				// 除魔相关信息
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.FB_ChuMoClientOpen, [charpterID], null, this, (jsonData: ProtoCmd.itf_FB_MainFbInfo) => {
+					this.charpterArray.push(charpterID);
+					this.html_FubenTimes.style.fontFamily = 'STKaiti';
+					this.html_FubenTimes.style.fontSize = 30;
+					this.html_FubenTimes.style.align = 'center';
+					this.curTimes = jsonData.totalcnt - jsonData.curcnt;
+					this.maxTimes = jsonData.totalcnt;
+					this.html_FubenTimes.innerHTML = "<span style='color:#a00000'>" + (jsonData.totalcnt - jsonData.curcnt)
+						+ '</span>' + "<span style='color:#000000'>/" + jsonData.totalcnt + '</span>'
+					// 关卡信息
+					let keys = Object.keys(jsonData.state);
+					keys = keys.sort(function (a, b) {
+						return jsonData.state[a].ceng - jsonData.state[b].ceng
+					});
+					for (let i = 0; i < keys.length; i++) {
+						// 设置怪物头像数据
+						// (this['ui_item' + (parseInt(key) % 5)] as view.compart.MonsterIconV0Item).setData(charpterID, key, jsonData.state[key]);
+						// this['ui_info' + (i + 1)].removeChildren();
+						let o = new FuBen_ZhuXIan_Panel_info();
+						o.x = num * this.panel_fubenInfo.width + i * o.width;
+						o.setData(jsonData.ceng, jsonData.state[keys[i]], GameApp.MainPlayer.allCharpterInfo[charpterID].index);
+						// this['ui_info' + (i + 1)].addChild(o);
+						this.box_info.addChild(o);
+					}
+					// 显示单个BOSS信息
+					// this.updateMainFuBenBossInfo(jsonData.ceng)	
+				})
+				lcp.send(pkt);
+			}
+			Laya.Tween.to(this.box_info, { x: -num * this.panel_fubenInfo.width }, 350);
 		}
 
 		public selectedCeng: number;

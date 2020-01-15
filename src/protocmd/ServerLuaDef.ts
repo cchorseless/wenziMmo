@@ -654,6 +654,11 @@ module ProtoCmd {
     export const BossBelong = 'BossBelong';
     //技能升级
     export const skillLevelUp = 'skillLevelUp';  //技能ID, 升级次数
+    //技能升阶
+    export const skillUpgrade = 'skillUpgrade';  //技能ID
+     //技能升品
+    export const skillRareUp = 'skillRareUp';  //技能ID
+    
 
 
 
@@ -1100,7 +1105,7 @@ module ProtoCmd {
    * 资源副本信息
    */
     export interface itf_FB_ZiYuanInfo {
-        maxcnt:number;//最大次数
+        maxcnt: number;//最大次数
         index: number;//索引
         leftcnt: number;//剩余可进入次数
         name: string;//副本类型

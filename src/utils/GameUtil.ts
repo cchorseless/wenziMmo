@@ -321,7 +321,7 @@ module GameUtil {
                 for (let i = 0; i < length; i++) {
                     let dataIndex = i + startIndex;
                     // 类型枚举
-                    let desIndex = i + 1;
+                    let desIndex = i;
                     // 数据
                     let data = sheetInfo[dataIndex];
                     if (data != 0) {
@@ -337,7 +337,7 @@ module GameUtil {
                                 obj = old_obj;
                             }
                             else {
-                                obj.finish = false;
+                                obj.finish = true;
                                 obj.value = data;
                                 obj.label = keyMap[desIndex].label;
                             }

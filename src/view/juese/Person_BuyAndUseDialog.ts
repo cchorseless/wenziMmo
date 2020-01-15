@@ -7,6 +7,8 @@ module view.juese {
 		public data;
 		//0罡气1资质2弟子转生3角色转生
 		public type;
+		//兑换修为所需金币
+		public gold;
 		public setData(data, type): Person_BuyAndUseDialog {
 			this.type = type;
 			this.vbox_01['sortItem'] = (items) => { };
@@ -44,10 +46,11 @@ module view.juese {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				this.close();
 			});
-			//返璞归真
+			//兑换修为
 			this.btn_duihuan.on(Laya.UIEvent.CLICK, this, () => {
 				this.init_UpXiuWei();
 			})
+			//充值
 			this.btn_recharge.on(Laya.UIEvent.CLICK, this, () => {
 				let o = new view.recharge_vip.Recharge_VipDialog();
 				o.setData(0);
@@ -66,15 +69,15 @@ module view.juese {
 			}
 		}
 		/**
-		 * 弟子转生
+		 * 转生
 		 */
 		public init_zhuansheng(): void {
 			let data: ProtoCmd.itf_Hero_XiuWeiInfo = this.data;
 			//可兑换修为
 			this.lbl_xiuwei.text = '' + data.xw;
 			//所需金币
+			this.gold = data.gold;
 			this.lbl_jinbi.text = '' + LangConfig.getBigNumberDes(data.gold);
-			//所需阅历经验
 			this.lbl_yueli.text = '' + LangConfig.getBigNumberDes(data.exp);
 			//今天可兑换次数
 			this.lbl_count.text = '（' + data.count + '）';
@@ -92,9 +95,14 @@ module view.juese {
 			if (this.type == 3) {
 				num = 0;
 			}
-			let pkt = new ProtoCmd.QuestClientData();
-			pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [num]);
-			lcp.send(pkt);
+			let gold = GameApp.MainPlayer.wealth.gold;
+			//阅历不够会扣等级
+			if (gold >= this.gold) {
+				let pkt = new ProtoCmd.QuestClientData();
+				pkt.setString(ProtoCmd.Hero_exchangeXiuWei, [num]);
+				lcp.send(pkt);
+			}
+			if (gold < this.gold) { TipsManage.showTips('金币不足') };
 		}
 	}
 }

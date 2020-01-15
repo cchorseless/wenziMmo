@@ -92,6 +92,7 @@ module view.wuXue {
 
 			for (let key in GameApp.MainPlayer.skillInfo) {
 				let _skillBase = GameApp.MainPlayer.skillInfo[key];
+				// _skillBase.getValue('sublevel')
 				let configID = _skillBase.configID;
 				let deleteID = SheetConfig.mydb_magic_tbl.getInstance(null).DELETED(configID);
 				if (deleteID == 1) {
@@ -326,9 +327,6 @@ module view.wuXue {
 						self.skillItem.stopDrag()
 						self['ui_' + self.touchSkillShowID].disable = false;
 						self.compareSkill(e);
-						// self.removeChild(self.skillItem);
-
-						// self.isTouchSkillShow = false;
 					}
 				})
 			}

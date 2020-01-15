@@ -191,7 +191,7 @@ module view.juQingMode {
 				console.log(jsonData);
 				if (this.lastTalkID >= jsonData.dbid) {
 					if (jsonData.dbid == GameApp.MainPlayer.allCharpterInfo[GameApp.MainPlayer.charpterID].enddbid) {
-						TipsManage.showTips('已读完本章');
+						// TipsManage.showTips('已读完本章');
 						let nextID = this.getNextCharpterID(GameApp.MainPlayer.charpterID)
 						if (GameApp.MainPlayer.pianZhangID != nextID.pzid) {
 							GameApp.MainPlayer.pianZhangID = nextID.pzid;
@@ -406,6 +406,7 @@ module view.juQingMode {
 		 * @param data 
 		 */
 		public updateJuQingTalkInfo(jsonData: { zjid: number, data: any, statetab: any, flag: number }): void {
+			PanelManage.Main.view_scene._childs[0].setData();
 			console.log(jsonData);
 			if (GameApp.MainPlayer.talkInfo[jsonData.zjid]) {
 				GameApp.MainPlayer.talkInfo[jsonData.zjid].statetab = jsonData.statetab;
@@ -745,14 +746,14 @@ module view.juQingMode {
 								// lcp.send(pkt);
 							}))
 						} else {
-							if (GameApp.MainPlayer.curCharpterHasPass) {
+							// if (GameApp.MainPlayer.curCharpterHasPass) {
 								let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.JQ_GET_JQ_vipSkipJuQing, [this.maxInfoNum])
 								lcp.send(pkt);
-							} else {
-								TipsManage.showTips('尚未通关当前章节所有主线副本')
-								self.initBox();
-								return;
-							}
+							// } else {
+							// 	TipsManage.showTips('尚未通关当前章节所有主线副本')
+							// 	self.initBox();
+							// 	return;
+							// }
 
 						}
 					} else {
