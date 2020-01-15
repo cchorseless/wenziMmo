@@ -1004,7 +1004,11 @@ module ProtoCmd {
             this.addProperty("nCoAtt2Monster", PacketBase.TYPE_INT);//合击对怪物增伤率
             this.addProperty("nCoAtt2Player", PacketBase.TYPE_INT);//合击对怪物增伤害
             this.addProperty("nCoAttLvl", PacketBase.TYPE_INT);//合击技能等级
+
             this.addProperty("nHpPer", PacketBase.TYPE_INT);//生命万分比
+            this.addProperty("nAtkPer", PacketBase.TYPE_INT);//攻击万分比
+            this.addProperty("nPhyDefPer", PacketBase.TYPE_INT);//物理防御万分比
+            this.addProperty("nMagDefPer", PacketBase.TYPE_INT);//魔法防御万分比
         }
     }
 
@@ -1631,7 +1635,7 @@ module ProtoCmd {
      * 摆摊日志
      */
     export class stConsignLogBase extends PacketBase {
-        public constructor(data=null) {
+        public constructor(data = null) {
             super();
             this.addProperty("szItemName", PacketBase.TYPE_STRING, Packet._MAX_NAME_LEN);
             this.addProperty("opTime", PacketBase.TYPE_DWORD);//
