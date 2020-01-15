@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":115,
-    "selecteID":21,
+    "selectedBox":1,
+    "selecteID":28,
     "referenceLines":null,
     "props":{"width":627,"sceneColor":"#e7a9a8","height":700},
     "nodeParent":-1,
@@ -324,7 +324,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":true
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -675,14 +675,13 @@
                     "props":{"y":22,"x":42,"name":"item4"},
                     "nodeParent":28,
                     "label":"Box(item4)",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":100,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":-12,"x":99,"text":"确认要和司马德切磋吗？","fontSize":26,"font":"FZHL"},
                             "nodeParent":100,
@@ -695,7 +694,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":42,"x":17,"skin":"image/main/frame_zhanli.png"},
                             "nodeParent":100,
@@ -707,7 +705,6 @@
                             "compId":91,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":46,"x":6,"text":"199999999","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":91,
@@ -720,7 +717,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":9,"x":23,"skin":"image/main/font_yifangzhanli.png"},
                                     "nodeParent":91,
@@ -737,7 +733,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Image",
                             "props":{"y":42,"x":304,"skin":"image/main/frame_zhanli.png"},
                             "nodeParent":100,
@@ -749,7 +744,6 @@
                             "compId":94,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "props":{"y":46,"x":6,"text":"199999999","strokeColor":"#000000","stroke":4,"fontSize":26,"font":"FZHL","color":"#ffffff"},
                                     "nodeParent":94,
@@ -762,7 +756,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "props":{"y":9,"x":23,"skin":"image/main/font_duifangzhanli.png"},
                                     "nodeParent":94,
@@ -779,7 +772,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Button",
                             "props":{"y":40,"x":201,"var":"btn_fight","stateNum":"2","skin":"image/common/button_shenqingjiaru_finish.png"},
                             "nodeParent":100,
@@ -805,7 +797,6 @@
                             "$HIDDEN":false
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "props":{"y":141,"x":46,"wordWrap":true,"width":412,"text":"若偷袭成功，可能获得对方身上的宝物。失败则会被直接杀死","height":52,"fontSize":22,"font":"FZHL","color":"#9b2f2f"},
                             "nodeParent":100,
@@ -817,7 +808,7 @@
                             "child":[
                                 ]
                         }],
-                    "$HIDDEN":false
+                    "$HIDDEN":true
                 },
                 {
                     "x":30,

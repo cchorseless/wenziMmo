@@ -30,7 +30,7 @@ module view.scene {
 			if (ch > 0) {
 				let ch_Skin = SheetConfig.zhuanban_Dress.getInstance(null).RESOURCES(ch + '')
 				this.img_chenghao.skin = 'image/juese/chenghao/' + ch_Skin + '.png'
-			}else{
+			} else {
 				this.img_chenghao.skin = '';
 			}
 
@@ -78,7 +78,12 @@ module view.scene {
 		 * 更新血条
 		 */
 		public updateHp(): void {
-			this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
+			if (this.item.ability.nowHP >= this.item.ability.nMaxHP) {
+				this.img_hp.width = this.img_hpBg.width;
+			} else {
+				this.img_hp.width = this.img_hpBg.width * this.item.ability.nowHP / this.item.ability.nMaxHP;
+			}
+
 		}
 		/**
 		 * 更新内功条

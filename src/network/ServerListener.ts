@@ -73,7 +73,7 @@ class ServerListener extends SingletonClass {
 
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SkillDeleteCmd), this, this.deleteSkill);
 
-        
+
         // 拉取设置技能快捷键信息 0295
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSetSkillShortCutsEnDeCoder), this, this.addSkillShortButton);
         // 删除技能快捷键信息 0296
@@ -450,6 +450,7 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.NpcStatsQuestRet(data);
         let npcid = cbpkt.getValue('npcid');
         let npcState = cbpkt.getValue('npcState');
+        PanelManage.Main.view_scene._childs[1].upDataNPCStateByTask(npcid,npcState);
         // gamea.updateNpcState(npcid, npcState);
     }
 
@@ -1881,8 +1882,10 @@ class ServerListener extends SingletonClass {
                 break;
             }
         }
-        //刷新主界面任务
+        //刷新主界面剧情界面任务
         PanelManage.Main.view_scene._childs[0].init_noChange();
+        //刷新主界面场景界面任务
+        PanelManage.Main.view_scene._childs[1].updataMonsterByTask();
         //刷新任务列表
         let TaskDialog: view.dialog.TaskDialog = Laya.Dialog.getDialogsByGroup('TaskDialog')[0];
         TaskDialog && TaskDialog.setData();

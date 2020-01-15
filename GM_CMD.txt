@@ -60,7 +60,7 @@ NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
 @dolua call="gm_finishArchGen"                   宅院生产任务全部完成
 @makemon id=99987                              加怪
 @dolua call="gm_clearJuQing"                   清档剧情
-@dolua call="__a__zengjia_quest2(1,701)"      加任务
+@dolua call="__a__zengjia_quest2(1,2002)"      加任务
 @dolua call="gm_addxiuwei(999999999)"          增加转生修为
 @dolua call="gm_addOfficialSealScore(100000000)"    官印经验（善缘）
 @dolua call="gm_addDragonSoulScore(100000000)"   龙魂经验（悟性）
@@ -69,7 +69,7 @@ NKJFK-GPHP7-G8C3J-P6JXR-HQRJR
 @dolua call="gm_addAchievementScore(100000000)" 勋章经验（根骨）
 @dolua call="gm_setCurJuQingZJID(1001)"         更改章节ID
 @dolua call="gm_setCurJuQingDuiBaiID(1001)"     更改对白ID  即TalkID
-@dolua call="__a__finishQuest(1,2001)"           完成任務
-@dolua call="__a__deleteQuest(1,739)"           刪除任務
+@dolua call="__a__finishQuest(1,2002)"           完成任務
+@dolua call="__a__deleteQuest(1,2002)"           刪除任務
 @dolua call="gm_studySkill(401101)"            学习技能  id：技能ID
 @dolua call="gm_addSkillValue(100000000)"             加技能升级所需

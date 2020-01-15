@@ -10,7 +10,7 @@ module view.main {
 		public data;
 		public index;
 		//5002福州5003华山50041玉壶瀑布5005药王庄5006洛阳城5007良人镇5012嵩山派
-		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5012,5013,5015]
+		public mapArray = [5002, 5003, 5004, 5005, 5006, 5007, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5018, 5020]
 		public setData(): void {
 			this.panel_list.vScrollBarSkin = '';
 			this.panel_map.hScrollBarSkin = '';
@@ -36,7 +36,7 @@ module view.main {
 		public addEvent(): void {
 			for (let mapid of this.mapArray) {
 				EventManage.onWithEffect(this['btn_' + mapid], Laya.UIEvent.CLICK, this, () => {
-						new view.main.Main_PlaceDialog().setData(mapid).popup();
+					new view.main.Main_PlaceDialog().setData(mapid).popup();
 				})
 			}
 			EventManage.onWithEffect(this.btn_guaji, Laya.UIEvent.CLICK, this, () => {

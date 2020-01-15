@@ -1,91 +1,111 @@
-module SheetConfig{ export class  mydb_npcgen_tbl { private data;private _instance; public constructor(data){ this.data=data;}
+module SheetConfig{ export class  mydb_npcgen_tbl { public data;private _instance; public constructor(data){ this.data=data;}
 public static getInstance(data): mydb_npcgen_tbl { let Class:any=this;if(!Class._instance){Class._instance=new Class(data);}return Class._instance;}
+/**
+ *  NPC编号
+ */
+ public NPC_NUMBER(configID):string { return this.data[configID][0]}
 /**
  *  NPC名字
  */
- public NAME(configID:string):string { return this.data[configID][0]}
+ public NAME(configID):string { return this.data[configID][1]}
 /**
- *  deleted
+ *  删除
  */
- public DELETED(configID:string):number { return this.data[configID][1]}
+ public DELETED(configID):number { return this.data[configID][2]}
 /**
  *  NPC类型
  */
- public TYPE(configID:string):number { return this.data[configID][2]}
+ public TYPE(configID):number { return this.data[configID][3]}
 /**
- *  刷新地图
+ *  加载地图
  */
- public REFRESH_MAP(configID:string):string { return this.data[configID][3]}
+ public REFRESH_MAP(configID):string { return this.data[configID][4]}
 /**
- *  刷新地图编号
+ *  加载地图的编号
  */
- public REFRESH_NUMBER(configID:string):number { return this.data[configID][4]}
+ public REFRESH_NUMBER(configID):number { return this.data[configID][5]}
 /**
- *  图片模型编号
+ *  NPC图片模型编号
  */
- public ICON_NUMBER(configID:string):number { return this.data[configID][5]}
+ public ICON_NUMBER(configID):number { return this.data[configID][6]}
 /**
- *  坐标X
+ *  NPC的X坐标
  */
- public COORDINATEX(configID:string):number { return this.data[configID][6]}
+ public COORDINATEX(configID):number { return this.data[configID][7]}
 /**
- *  坐标Y
+ *  NPC的Y坐标
  */
- public COORDINATEY(configID:string):number { return this.data[configID][7]}
+ public COORDINATEY(configID):number { return this.data[configID][8]}
 /**
- *  朝向
+ *  NPC面朝方向
  */
- public ORIENTATION(configID:string):number { return this.data[configID][8]}
+ public ORIENTATION(configID):number { return this.data[configID][9]}
 /**
- *  是否走路
+ *  NPC是否走路
  */
- public WALK(configID:string):number { return this.data[configID][9]}
+ public WALK(configID):number { return this.data[configID][10]}
 /**
- *  是否隐身
+ *  NPC是否隐身
  */
- public INVISIBLE(configID:string):number { return this.data[configID][10]}
+ public INVISIBLE(configID):number { return this.data[configID][11]}
 /**
- *  走路路径
+ *  NPC走路路径
  */
- public WALKING_PATH(configID:string):number { return this.data[configID][11]}
+ public WALKING_PATH(configID):number { return this.data[configID][12]}
 /**
- *  复活时间
+ *  NPC复活时间
  */
- public RESURRECTION_TIME(configID:string):number { return this.data[configID][12]}
+ public RESURRECTION_TIME(configID):number { return this.data[configID][13]}
 /**
  *  怪物名称
  */
- public MONSTER_NAME(configID:string):string { return this.data[configID][13]}
+ public MONSTER_NAME(configID):string { return this.data[configID][14]}
 /**
  *  所在房间ID
  */
- public ROOMID(configID:string):number { return this.data[configID][14]}
+ public ROOMID(configID):number { return this.data[configID][15]}
 /**
  *  所在房间名称
  */
- public ROOMNAME(configID:string):string { return this.data[configID][15]}
+ public ROOMNAME(configID):string { return this.data[configID][16]}
 /**
- *  NPC别称
+ *  NPC别号
  */
- public NPC_NICKNAME(configID:string):string { return this.data[configID][16]}
+ public NPC_NICKNAME(configID):string { return this.data[configID][17]}
 /**
- *  NPC人设描述
+ *  NPC人物设定描写
  */
- public NPC_DES1(configID:string):string { return this.data[configID][17]}
+ public NPC_DES1(configID):string { return this.data[configID][18]}
 /**
  *  NPC外貌描写
  */
- public NPC_DES2(configID:string):string { return this.data[configID][18]}
+ public NPC_DES2(configID):string { return this.data[configID][19]}
 /**
- *  喜好
+ *  NPC喜好的道具ID
  */
- public NPC_LOVE(configID:string):Array<number> { return this.data[configID][19]}
+ public NPC_LOVE(configID):string { return this.data[configID][20]}
 /**
- *  装备信息
+ *  NPC身上的装备信息，击杀NPC可能获得
  */
- public NPC_EQUIP(configID:string):Array<number> { return this.data[configID][20]}
+ public NPC_EQUIP(configID):string { return this.data[configID][21]}
 /**
- *  宝物信息
+ *  NPC身上的宝物信息，偷窃可能获得
  */
- public NPC_BAOWU(configID:string):Array<number> { return this.data[configID][21]}
+ public NPC_BAOWU(configID):string { return this.data[configID][22]}
+/**
+ *  NPC门派
+ */
+ public SECTS(configID):number { return this.data[configID][23]}
+/**
+ *  npc品质
+ */
+ public QUALITY(configID):number { return this.data[configID][24]}
+/**
+ *  npc名誉值
+ */
+ public REPUTATION(configID):number { return this.data[configID][25]}
+/**
+ *  npc好感增加系数
+ */
+ public FAVORABLE_COEFFICIENT(configID):number { return this.data[configID][26]}
 }}

@@ -859,7 +859,7 @@ module EnumData {
     export enum NPCSTATUS {     // NPC状态	相差10级以上这些状态全显示NOTASKALL
         ONETASKNORECEIV = 0,	//（1）	NPC身上有可领取的只能完成一次的任务但该玩家未领取该任务时：显示１
         ONETASKCOMPLETE,	    //（2）	NPC身上有可交的一次性任务且该玩家达成任务未交任务时：显示２
-        ONETASKNOT,			    //（3）	NPC身上有可交的任务且该玩家未达成任务时：显示３
+        ONETASKNOT,			    //（3）	NPC身上有已领取的任务且该玩家未达成任务时：显示３
         REPEATTASKNORECEIV,	    //（4）	NPC身上有可领取的可重复完成的任务但该玩家未领取该任务时：显示4
         REPEATTASKCOMPLETE,	    //（5）	NPC身上有可交的重复性任务且该玩家达成任务未交任务时：显示5
         NOTASKALL,			    //（6）	NPC身上没有任务或玩家不具备领取该任务的条件时：不显示
@@ -951,13 +951,14 @@ module EnumData {
         MAP_LIANG_REN = 5007,//良人鎮
         MAP_TA_LOU = 5008,//塔楼
         MAP_YU_BI = 5009,//玉笔峰
+        MAP_MO_JIAO = 5010,//魔教
+        MAP_MO_NI_JIAO = 5011,//摩尼教
         MAP_SONG_SHAN = 5012,//嵩山
         MAP_FENG_YUN_LOU = 5013,//风云楼
+        MAP_TANG_MEN = 5014,//唐门
         MAP_GAI_BANG = 5015,//丐帮
-        MAP_TAI_SHAN = 5018,//泰山
-        MAP_HENG_SHANA = 5019,//恒山
+        MAP_SHAO_LIN = 5018,//少林
         MAP_FENG_DAO = 5020,//风刀门
-
     }
 
 

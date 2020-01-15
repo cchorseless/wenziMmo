@@ -5,7 +5,7 @@ module GameUtil {
      * @param itemID 
      * @param bag 
      */
-    export function findItemInBag(itemID: number, bag= GameApp.GameEngine.bagItemDB): number {
+    export function findItemInBag(itemID: number, bag = GameApp.GameEngine.bagItemDB): number {
         let count = 0;
         let keys = Object.keys(bag);
         for (let _key of keys) {
@@ -597,8 +597,18 @@ module GameUtil {
         }
 
     }
-
-
+    //查找任务中的任务目标
+    export function taskTargetByString(str: string): number {
+        let id = 0;
+        let str1 = str.split('find:')[1];
+        if (str1) {
+            let str2 = str1.split('"')[0];
+            let idArray = str2.split('=');
+            let i = idArray.length - 1;
+            id = parseInt(idArray[i]);
+        };
+        return id;
+    }
     // opendialog:Main|button:tab_player=3|find:5001=1000=10001|button:btn_renWu|
     export function parseTaskInfo(str: string, finishHander: Laya.Handler = null) {
         console.log(str);
