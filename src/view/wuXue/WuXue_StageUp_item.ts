@@ -155,7 +155,6 @@ module view.wuXue {
 				let pkt = new ProtoCmd.QuestClientData().setString(ProtoCmd.skillUpgrade, [this.skillID], 0, this,
 					function (res) {
 						console.log(res);
-						// this.lab_curLv.text = '7'
 					})
 				lcp.send(pkt);
 			})

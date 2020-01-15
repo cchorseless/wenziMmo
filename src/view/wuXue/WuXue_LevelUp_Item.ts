@@ -37,25 +37,25 @@ module view.wuXue {
 			let spanLv = stage * 15 - curLv;
 
 			//升级1次消耗
-			let needCost = SheetConfig.mydb_magic_tbl.getInstance(null).NUMBER2(configID);
+			let needCost =(curLv -1)*135 + 80;
 			//升级5次消耗
-			let needCost5Bet = needCost * 5;
+			let needCost5Bet = (curLv + 3 + curLv) * 2 * 135 + 5 * 80 ;
 			//我拥有的升级消耗
 			let curHasItem = GameApp.MainPlayer.skillLvUpPoint;
 			this.lab_lvup_cost.text = needCost + '';
 			this.lab_lvup_five_times.text = needCost5Bet + '';
 			this.lab_haveNum.text = LangConfig.getBigNumberDes(GameApp.MainPlayer.skillLvUpPoint);
-			// if (curHasItem < needCost5Bet) {
-			// 	this.btn_five.disabled = true;
-			// } else {
-			// 	this.btn_five.disabled = false;
-			// }
-			// if (spanLv >= 5) {
-			// 	this.btn_five.disabled = false;
-			// }
-			// else {
-			// 	this.btn_five.disabled = true;
-			// }
+			if (curHasItem < needCost5Bet) {
+				this.btn_five.disabled = true;
+			} else {
+				this.btn_five.disabled = false;
+			}
+			if (spanLv >= 5) {
+				this.btn_five.disabled = false;
+			}
+			else {
+				this.btn_five.disabled = true;
+			}
 			if (curHasItem < needCost) {
 				this.btn_one.disabled = true;
 			} else {

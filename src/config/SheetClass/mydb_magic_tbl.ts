@@ -295,6 +295,10 @@ module SheetConfig {
          */
         public SKILL_CAPABILITY(configID): number { return this.data[configID][72] }
         /**
+         *  返还碎片数量
+         */
+        public RETURN_DEBRIS(configID): number { return this.data[configID][73] }
+        /**
        * 获取技能数据
        * @param skillID 技能编号
        */
@@ -309,7 +313,7 @@ module SheetConfig {
             return base;
         }
         /**
-        * 同阶中技能等级数
+        * 同品级中阶数数
         * @param skillID 技能编号
         */
         public getNumOfSkillID(skillID) {

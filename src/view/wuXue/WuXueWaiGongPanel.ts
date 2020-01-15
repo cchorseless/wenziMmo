@@ -10,6 +10,7 @@ module view.wuXue {
 		public listData1;
 		public listData2;
 		public setData(): void {
+			this.btn_waigong.selected = true;
 			let tab;
 			let key = 400
 			if (GameApp.MainPlayer.skillShotButton[key]) {
@@ -35,7 +36,7 @@ module view.wuXue {
 			if (data1) {
 				GameApp.MainPlayer.skill_stage[0] = data1.dwLevel;
 				tabStr.push('拳脚套路\nlv.' + data1.dwLevel)
-			}else {
+			} else {
 				tabStr.push('拳脚套路\nlv.0')
 			}
 			let data2 = GameUtil.findEquipInPlayer(EnumData.emEquipPosition.EQUIP_KNEE);
@@ -70,7 +71,7 @@ module view.wuXue {
 			if (box.numChildren <= 0) {
 				let o = new WuXue_WaiGong_VS_Info()
 				o.setData(id)
-				o.x= 28;
+				o.x = 28;
 				box.addChild(o);
 			}
 			this.VS_show.selectedIndex = id;
@@ -90,6 +91,12 @@ module view.wuXue {
 				// this.VS_show.selectedIndex = this.tab_wuxue.selectedIndex;
 				GameApp.MainPlayer.taoluPageID = this.tab_wuxue.selectedIndex;
 				this.setInitView(this.tab_wuxue.selectedIndex);
+			})
+			this.btn_miji.on(Laya.UIEvent.CLICK, this, () => {
+				PanelManage.openWuXueMiJiPanel();
+			})
+			this.btn_waigong.on(Laya.UIEvent.CLICK, this, () => {
+				return;
 			})
 			// this.btn_set.on(Laya.UIEvent.CLICK, this, () => {
 			// 	// let skillID = SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(this.skillItem.configID)
@@ -113,7 +120,7 @@ module view.wuXue {
 				let o = new WuXue_WaiGong_VS_Info()
 				o.setData(id)
 				box.addChild(o);
-				o.x= 28;
+				o.x = 28;
 				this.VS_show.selectedIndex = id;
 			})
 			// for (let i = 1; i < 7; i++) {
@@ -141,16 +148,16 @@ module view.wuXue {
 
 			// });
 
-			GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
-				// this.initUI();
-				// for (let key in GameApp.MainPlayer.skillInfo) {
-				// 	//ProtoCmd.stSkillLvlBase
-				// 	let configid = GameApp.MainPlayer.skillInfo[key].configID
-				// 	if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
-				// 		GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
-				// 	}
-				// }
-			})
+			// GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
+			// 	// this.initUI();
+			// 	// for (let key in GameApp.MainPlayer.skillInfo) {
+			// 	// 	//ProtoCmd.stSkillLvlBase
+			// 	// 	let configid = GameApp.MainPlayer.skillInfo[key].configID
+			// 	// 	if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
+			// 	// 		GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
+			// 	// 	}
+			// 	// }
+			// })
 
 		}
 

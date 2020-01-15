@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":84,
-    "selecteID":92,
+    "selectedBox":1,
+    "selecteID":96,
     "props":{"width":510,"sceneColor":"#ffffff","height":520},
     "nodeParent":-1,
     "label":"View",
@@ -505,12 +505,24 @@
                                             "props":{"y":5,"x":4,"width":68,"var":"img_icon","height":68},
                                             "nodeParent":90,
                                             "label":"Image(img_icon)",
-                                            "isDirectory":false,
+                                            "isOpen":null,
+                                            "isDirectory":true,
                                             "isAniNode":true,
-                                            "hasChild":false,
+                                            "hasChild":true,
                                             "compId":91,
                                             "child":[
-                                                ]
+                                                {
+                                                    "type":"Image",
+                                                    "props":{"y":48,"x":2,"skin":"image/common/wuxue/img_suipian.png"},
+                                                    "nodeParent":91,
+                                                    "label":"Image",
+                                                    "isDirectory":false,
+                                                    "isAniNode":true,
+                                                    "hasChild":false,
+                                                    "compId":96,
+                                                    "child":[
+                                                        ]
+                                                }]
                                         }]
                                 },
                                 {

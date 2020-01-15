@@ -63,6 +63,8 @@ module PanelManage {
     export let JueSe: view.juese.Person_MainPanel;//角色界面
     export let Clothe: view.juese.ClothePanel;//时装界面
     export let WaiGong: view.wuXue.WuXueWaiGongPanel;//武学外功界面
+    export let MiJi: view.wuXue.WuXue_MiJi_Panel;//武学外功界面
+
     export let NeiGong: view.wuXue.WuXueNeiGongPanel;//武学内功界面
     export let HeDao: view.wuXue.WuXueHeDaoPanel;//武学合道界面
     export let CloseDoor: view.wuXue.WuXueCloseDoorPanel;//武学闭关界面
@@ -273,6 +275,20 @@ module PanelManage {
             PanelManage.WaiGong.name = "waigong"
             PanelManage.WaiGong.mouseEnabled = true;
             PopUpManager.addPanel(PanelManage.WaiGong, 1, 0, 2);
+        })
+    }
+    /**
+    * 武学秘籍界面
+    */
+    export function openWuXueMiJiPanel(): void {
+        if (PopUpManager.showPanel(PanelManage.MiJi)) return;
+        ResManage.loadResource(ResData.PanelRes.MiJi, () => {
+            PanelManage.MiJi = new view.wuXue.WuXue_MiJi_Panel();
+            PanelManage.MiJi['LCP_skin'] = ResData.PanelRes.MiJi;
+            PanelManage.MiJi.setData();
+            PanelManage.MiJi.name = "miji"
+            PanelManage.MiJi.mouseEnabled = true;
+            PopUpManager.addPanel(PanelManage.MiJi, 1, 0, 2);
         })
     }
     /**

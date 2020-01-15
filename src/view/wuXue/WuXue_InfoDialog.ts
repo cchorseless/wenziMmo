@@ -117,6 +117,7 @@ module view.wuXue {
 				+ "<span style='color:#bf4747;'>+" + curPower + "</span>"
 
 			this.ui_skill.setData(configID);
+			this.tab_info.selectedIndex = tabid;
 			this.showVS_Show(tabid, !isRefrash)
 			this.addEvent();
 		}
@@ -164,13 +165,15 @@ module view.wuXue {
 						panel.addChild(o);
 						this.curBox.addChild(panel);
 						break;
-						
+					case 4:
+						o = new WuXue_Foreget_Item();
+						o.setData(this.configID)
+						panel.addChild(o);
+						this.curBox.addChild(panel);
+						break;
+
 				}
 			}
-
-
-
-
 		}
 		public upDateView() {
 			this.needUpDate = true;
@@ -185,14 +188,16 @@ module view.wuXue {
 					this.setData(GameApp.MainPlayer.skillInfo[this.skillID], 2, false)
 					break;
 				case 3:
-					this.setData(GameApp.MainPlayer.skillInfo[this.skillID+1], 3, false)
+					if (GameApp.MainPlayer.upGraspSkillID) {
+						this.setData(GameApp.MainPlayer.skillInfo[GameApp.MainPlayer.upGraspSkillID + 1], 3, false)
+					}
+
 					break;
 				case 4:
 					this.setData(GameApp.MainPlayer.skillInfo[this.skillID], 4, false)
 					break;
 			}
 		}
-
 		public addEvent(): void {
 			GameApp.LListener.on(ProtoCmd.WX_upData_panel_waigong, this, function () {
 				this.upDateView()
@@ -204,6 +209,8 @@ module view.wuXue {
 			this.btn_close.on(Laya.UIEvent.CLICK, this, () => {
 				// GameApp.GameEngine.wuxueDataID = -1;
 				// GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog, this);
+				GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_waigong, this);
+				GameApp.LListener.offCaller(ProtoCmd.WX_upData_Dialog, this);
 				this.close();
 			});
 			this.tab_info.on(Laya.UIEvent.CLICK, this, () => {

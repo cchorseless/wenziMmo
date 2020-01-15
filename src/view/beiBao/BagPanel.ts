@@ -185,6 +185,7 @@ module view.beiBao {
 						case EnumData.ItemTypeDef.ITEM_TYPE_SKILL:
 						case EnumData.ItemTypeDef.ITEM_TYPE_MAZE:
 						case EnumData.ItemTypeDef.ITEM_TYPE_SCROLL:
+						case EnumData.ItemTypeDef.ITEM_TYPE_GOLD:
 							vbox_bag = this.vbox_bag2;
 							this.tab_bag.selectedIndex = this.viw_bag.selectedIndex = 2;
 							break;

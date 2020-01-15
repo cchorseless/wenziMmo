@@ -66,7 +66,9 @@ module ResData {
         // 时装界面
         public static Clothe = [{ url: "res/atlas/image/juese/clothe.atlas", type: Laya.Loader.ATLAS }];
         // 武学 外功
-        public static WaiGong = [{ url: "res/atlas/image/juese.atlas", type: Laya.Loader.ATLAS }];;
+        public static WaiGong = [{ url: "res/atlas/image/common/wuxue.atlas", type: Laya.Loader.ATLAS },];
+        // 武学 秘籍
+        public static MiJi = [{ url: "res/atlas/image/common/wuxue.atlas", type: Laya.Loader.ATLAS }];
         // 武学 内功
         public static NeiGong = null;
         // 武学 合道

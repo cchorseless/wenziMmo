@@ -83,6 +83,8 @@ module GameObject {
         public skillShotButton: { [btRow: string]: ProtoCmd.stShortCuts } = {};// 所有技能快捷键信息
         public skillInfo: { [x: string]: ProtoCmd.stSkillLvlBase } = {};// 所有技能信息
 
+        public upGraspSkillID:number;
+
         // public TitleID = null;
         // public wingID = null;
         // public dressID = null;

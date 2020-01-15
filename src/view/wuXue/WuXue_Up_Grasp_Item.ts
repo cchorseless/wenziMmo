@@ -88,6 +88,7 @@ module view.wuXue {
 						// this.lab_curLv.text = '7'
 					})
 				lcp.send(pkt);
+				GameApp.MainPlayer.upGraspSkillID = this.skillID
 			})
 		}
 	}
