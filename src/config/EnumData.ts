@@ -516,7 +516,11 @@ module EnumData {
         NONPAREIL_TYPE_UATOMONSTER,	             //合击对怪增伤率
         NONPAREIL_TYPE_UATOPLAYER,	              //合击对人增伤率
         NONPAREIL_TYPE_UPCOMBOSKILLLEVEL,	// 合计技能提升等级
-        NONPAREIL_TYPE_MAXCOUNT,	                //最大
+        NONPAREIL_TYPE_MAXCOUNT,	                //气血百分比
+        ATK_PROPS,// 基础攻击百分比
+        PHYDEF_PROS,// 物理防御百分比
+        MAGDEF_PROS,// 魔法防御百分比
+
 
     };
 
