@@ -27,7 +27,7 @@ module view.npc {
 			for (let _itemId of xiHaoItem) {
 				if (_itemId) {
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId);
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					itemUI.setData(_itembase);
 					this.hbox_0.addChild(itemUI);
@@ -39,7 +39,7 @@ module view.npc {
 				if (_itemId) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId) ;
 					itemUI.setData(_itembase);
 					this.hbox_1.addChild(itemUI);
 				}
@@ -50,7 +50,7 @@ module view.npc {
 				if (_itemId) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId);
 					itemUI.setData(_itembase);
 					this.hbox_2.addChild(itemUI);
 				}

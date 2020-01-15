@@ -160,6 +160,14 @@ module view.map {
 				case EnumData.MAP_BIG_MAP_ID.MAP_YU_BI:
 					new view.map.SmallMap_YuBiDialog().popup();
 					break;
+				// 魔教
+				case EnumData.MAP_BIG_MAP_ID.MAP_MO_JIAO:
+					new view.map.SmallMap_MoJiaoDialog().popup();
+					break;
+				// 摩尼教
+				case EnumData.MAP_BIG_MAP_ID.MAP_MO_NI_JIAO:
+					new view.map.SmallMap_MoNiJiaoDialog().popup();
+					break;
 				// 嵩山
 				case EnumData.MAP_BIG_MAP_ID.MAP_SONG_SHAN:
 					new view.map.SmallMap_SongShanDialog().popup();
@@ -172,13 +180,9 @@ module view.map {
 				case EnumData.MAP_BIG_MAP_ID.MAP_GAI_BANG:
 					new view.map.SmallMap_GaiBangDialog().popup();
 					break;
-				//泰山
-				case EnumData.MAP_BIG_MAP_ID.MAP_TAI_SHAN:
-					new view.map.SmallMap_TaiShanDialog().popup();
-					break;
-				//恒山
-				case EnumData.MAP_BIG_MAP_ID.MAP_HENG_SHANA:
-					new view.map.SmallMap_HengShanADialog().popup();
+				//少林寺
+				case EnumData.MAP_BIG_MAP_ID.MAP_SHAO_LIN:
+					new view.map.SmallMap_ShaoLinShiDialog().popup();
 					break;
 				//风刀门
 				case EnumData.MAP_BIG_MAP_ID.MAP_FENG_DAO:

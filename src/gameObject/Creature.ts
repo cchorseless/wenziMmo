@@ -85,7 +85,9 @@ module GameObject {
         public nCoAtt2Player = 0;//合击对怪物增伤害
         public nCoAttLvl = 0;//合击技能等级
         public nHpPer = 0;//生命万分比
-
+        public nAtkPer;//攻击万分比
+        public nPhyDefPer;//物理防御万分比
+        public nMagDefPer;//魔法防御万分比
     }
 
     /**
@@ -280,6 +282,9 @@ module GameObject {
             ability.nCoAtt2Player = ArpgAbility.getValue('nCoAtt2Player');//合击对怪物增伤害
             ability.nCoAttLvl = ArpgAbility.getValue('nCoAttLvl');//合击技能等级
             ability.nHpPer = ArpgAbility.getValue('nHpPer');//生命万分比
+            ability.nAtkPer = ArpgAbility.getValue('nAtkPer');//攻击万分比
+            ability.nPhyDefPer = ArpgAbility.getValue('nPhyDefPer');//物理防御万分比
+            ability.nMagDefPer = ArpgAbility.getValue('nMagDefPer');//魔法防御万分比
         }
 
         /**
@@ -384,7 +389,7 @@ module GameObject {
                 GameApp.MainPlayer.heroObj(dwType).ability.nFight = fight;
             } else {
                 //玩家战力
-               GameApp.MainPlayer.ability.nFight = fight;
+                GameApp.MainPlayer.ability.nFight = fight;
             }
         }
 
