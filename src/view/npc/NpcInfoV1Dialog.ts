@@ -114,9 +114,9 @@ module view.npc {
 			// 喜好
 			let xiHaoItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_LOVE(configId);
 			for (let _itemId of xiHaoItem) {
-				if (_itemId > 0) {
+				if (parseInt(_itemId) > 0) {
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId);
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					itemUI.setData(_itembase);
 					this.hbox_xiHao.addChild(itemUI);
@@ -126,10 +126,10 @@ module view.npc {
 			// 装备
 			let equipItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_EQUIP(configId);
 			for (let _itemId of equipItem) {
-				if (_itemId > 0) {
+				if (parseInt(_itemId) > 0) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId);
 					itemUI.setData(_itembase);
 					this.hbox_equip.addChild(itemUI);
 				}
@@ -137,10 +137,10 @@ module view.npc {
 			// 宝物
 			let BAOWUItem = SheetConfig.mydb_npcgen_tbl.getInstance(null).NPC_BAOWU(configId);
 			for (let _itemId of BAOWUItem) {
-				if (_itemId > 0) {
+				if (parseInt(_itemId) > 0) {
 					let itemUI = new view.compart.DaoJuWithNameItem();
 					let _itembase = new ProtoCmd.ItemBase();
-					_itembase.dwBaseID = _itemId;
+					_itembase.dwBaseID = parseInt(_itemId);
 					itemUI.setData(_itembase);
 					this.hbox_baoWu.addChild(itemUI);
 				}

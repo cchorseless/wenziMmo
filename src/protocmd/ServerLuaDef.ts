@@ -239,10 +239,10 @@ module ProtoCmd {
     export const WX_upData_Hotkeys_waigong = "WX_upData_Hotkeys_waigong"
     //武学界面刷新    面板     外功
     export const WX_upData_panel_waigong = "WX_upData_panel_waigong"
-    //武学界面刷新    快捷键   内功
-    export const WX_upData_Hotkeys_neigong = "WX_upData_Hotkeys_neigong"
-    //武学界面刷新    面板     内功
-    export const WX_upData_panel_neigong = "WX_upData_panel_neigong"
+    //武学界面刷新    快捷键   秘籍
+    export const WX_upData_Hotkeys_MiJi = "WX_upData_Hotkeys_MiJi"
+    //武学界面刷新    面板     秘籍
+    export const WX_upData_panel_MiJi = "WX_upData_panel_MiJi"
     //武学界面刷新    Dialog  
     export const WX_upData_Dialog = "WX_upData_Dialog"
     //武学戾气面板
@@ -658,6 +658,13 @@ module ProtoCmd {
     export const skillUpgrade = 'skillUpgrade';  //技能ID
      //技能升品
     export const skillRareUp = 'skillRareUp';  //技能ID
+     //技能遗忘
+    export const deleteSkill = 'deleteSkill';  //技能ID
+      //技能学习
+    export const useSkillItem = 'useSkillItem';  //道具ID
+
+    
+    
     
 
 

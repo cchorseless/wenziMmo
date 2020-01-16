@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":19,
-    "selecteID":13,
+    "selecteID":21,
     "props":{"y":0,"x":0,"width":75,"sceneColor":"#827171","height":95},
     "nodeParent":-1,
     "label":"View",
@@ -122,6 +122,20 @@
                     "compId":20,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Label",
+                    "props":{"y":2,"x":53,"width":21,"var":"lbl_state","valign":"bottom","text":"？","strokeColor":"#404040","height":30,"fontSize":30,"font":"SimHei","color":"#000000","align":"center"},
+                    "nodeParent":19,
+                    "label":"Label(lbl_state)",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":21,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
                 }]
         }],
     "animations":[

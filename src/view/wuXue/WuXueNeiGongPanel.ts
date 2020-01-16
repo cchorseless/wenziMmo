@@ -29,20 +29,20 @@ module view.wuXue {
 		}
 		public addEvent(): void {
 			//刷新面板
-			GameApp.LListener.on(ProtoCmd.WX_upData_panel_neigong, this, function () {
-				this.initUI();
-				for (let key in GameApp.MainPlayer.skillInfo) {
-					//ProtoCmd.stSkillLvlBase
-					let configid = GameApp.MainPlayer.skillInfo[key].configID
-					if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
-						GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
-					}
-				}
-			})
-			GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_neigong, this, function () {
-				this.initUI()
-				this.getMyData()
-			})
+			// GameApp.LListener.on(ProtoCmd.WX_upData_panel_neigong, this, function () {
+			// 	this.initUI();
+			// 	for (let key in GameApp.MainPlayer.skillInfo) {
+			// 		//ProtoCmd.stSkillLvlBase
+			// 		let configid = GameApp.MainPlayer.skillInfo[key].configID
+			// 		if (SheetConfig.mydb_magic_tbl.getInstance(null).SKILL_ID(configid) == GameApp.GameEngine.wuxueDataID) {
+			// 			GameApp.LListener.event(ProtoCmd.WX_upData_Dialog, GameApp.MainPlayer.skillInfo[key]);
+			// 		}
+			// 	}
+			// })
+			// GameApp.LListener.on(ProtoCmd.WX_upData_Hotkeys_neigong, this, function () {
+			// 	this.initUI()
+			// 	this.getMyData()
+			// })
 			// 模式切换
 			this.btn_changeMode.on(Laya.UIEvent.CLICK, this, () => {
 				PanelManage.openJuQingModePanel();
@@ -195,8 +195,8 @@ module view.wuXue {
 		}
 
 		public Dispose(): void {
-			GameApp.LListener.offCaller(ProtoCmd.WX_upData_Hotkeys_neigong, this);
-			GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_neigong, this);
+			// GameApp.LListener.offCaller(ProtoCmd.WX_upData_Hotkeys_neigong, this);
+			// GameApp.LListener.offCaller(ProtoCmd.WX_upData_panel_neigong, this);
 			GameApp.LListener.offCaller(ProtoCmd.WX_shuxingxitong_minabandakai, this);
 			PopUpManager.Dispose(this);
 		}

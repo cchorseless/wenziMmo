@@ -73,7 +73,7 @@ class ServerListener extends SingletonClass {
 
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.SkillDeleteCmd), this, this.deleteSkill);
 
-        
+
         // 拉取设置技能快捷键信息 0295
         GameApp.LListener.on(ProtoCmd.Packet.eventName(ProtoCmd.AvatarSetSkillShortCutsEnDeCoder), this, this.addSkillShortButton);
         // 删除技能快捷键信息 0296
@@ -450,6 +450,7 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.NpcStatsQuestRet(data);
         let npcid = cbpkt.getValue('npcid');
         let npcState = cbpkt.getValue('npcState');
+        PanelManage.Main.view_scene._childs[1].upDataNPCStateByTask(npcid,npcState);
         // gamea.updateNpcState(npcid, npcState);
     }
 
@@ -774,6 +775,10 @@ class ServerListener extends SingletonClass {
         switch (panelName) {
             case "skillinfoDialog":
                 GameApp.LListener.event(ProtoCmd.WX_upData_panel_waigong); //更新技能等级
+                GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
+                break;
+            case "miji":
+                GameApp.LListener.event(ProtoCmd.WX_upData_panel_MiJi); //更新技能等级
                 break;
         }
         cbpkt.clear();
@@ -787,6 +792,13 @@ class ServerListener extends SingletonClass {
         let cbpkt = new ProtoCmd.SkillDeleteCmd(data);
         let skill = new ProtoCmd.stSkillLvlBase();
         delete GameApp.MainPlayer.skillInfo[cbpkt.getValue('dwMagicId')];
+        let panelName = PopUpManager.curPanel.name;
+        switch (panelName) {
+            case "waigong":
+                // GameApp.LListener.event(ProtoCmd.WX_upData_panel_waigong); //更新技能等级
+                GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
+                break;
+        }
         cbpkt.clear();
         cbpkt = null;
     }
@@ -811,7 +823,7 @@ class ServerListener extends SingletonClass {
                     GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
                     break;
                 case "neigong":
-                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //内功
+                    // GameApp.LListener.event(ProtoCmd.WX_upData_panel_MiJi); //内功
                     break;
                 case "hedao":
                     break;
@@ -838,10 +850,10 @@ class ServerListener extends SingletonClass {
             let panelName = PopUpManager.curPanel.name;
             switch (panelName) {
                 case "waigong":
-                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //内功
+                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_waigong); //外功
                     break;
                 case "neigong":
-                    GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //外功
+                    // GameApp.LListener.event(ProtoCmd.WX_upData_Hotkeys_neigong); //内功
                     break;
                 case "hedao":
                     break;
@@ -1881,8 +1893,10 @@ class ServerListener extends SingletonClass {
                 break;
             }
         }
-        //刷新主界面任务
+        //刷新主界面剧情界面任务
         PanelManage.Main.view_scene._childs[0].init_noChange();
+        //刷新主界面场景界面任务
+        PanelManage.Main.view_scene._childs[1].updataMonsterByTask();
         //刷新任务列表
         let TaskDialog: view.dialog.TaskDialog = Laya.Dialog.getDialogsByGroup('TaskDialog')[0];
         TaskDialog && TaskDialog.setData();

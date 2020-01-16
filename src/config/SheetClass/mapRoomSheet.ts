@@ -83,8 +83,8 @@ module SheetConfig {
          */
         public ROOMDES(configID): string { return this.data[configID][19] }
         /**
-               *  通过地图id得到该地图的开始房间id
-               */
+                    *  通过地图id得到该地图的开始房间id
+                    */
         public GETBEGINROOMIDBYMAPID(mapid = GameApp.MainPlayer.location.mapid): number {
             let roomid;
             for (let room in this.data) {
@@ -98,5 +98,6 @@ module SheetConfig {
             }
             return roomid;
         }
+
     }
 }

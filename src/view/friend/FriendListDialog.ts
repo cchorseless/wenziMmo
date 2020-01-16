@@ -99,7 +99,7 @@ module view.friend {
 		public init_selected(select: boolean, index): void {
 			let height1 = this['btn_friend' + index].y + this['btn_friend' + index].height;
 			if (select) {
-				Laya.Tween.to(this['btn_arrow' + index], { rotation: 90, x: 43, y: 16 }, 300);
+				Laya.Tween.to(this['btn_arrow' + index], { rotation: 90, x: 42, y: 22 }, 300);
 				Laya.Tween.to(this['vbox_friend' + index], { scaleY: 1 }, 200);
 				switch (index) {
 					case 1:
@@ -118,7 +118,7 @@ module view.friend {
 				}
 			}
 			else {
-				Laya.Tween.to(this['btn_arrow' + index], { rotation: 0, x: 17, y: 6 }, 300);
+				Laya.Tween.to(this['btn_arrow' + index], { rotation: 0, x: 17, y: 15 }, 300);
 				Laya.Tween.to(this['vbox_friend' + index], { scaleY: 0 }, 200);
 				switch (index) {
 					case 1:

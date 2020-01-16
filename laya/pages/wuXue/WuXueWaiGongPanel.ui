@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":321,
-    "selecteID":327,
+    "selecteID":325,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -70,7 +70,7 @@
                 {
                     "x":30,
                     "type":"Tab",
-                    "props":{"y":121,"x":15,"width":610,"var":"tab_wuxue","stateNum":2,"space":3,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"scaleY":1,"scaleX":1,"labels":"拳脚套路\\nlv.130,刀剑套路\\nlv.130,长兵套路\\nlv.130,奇门套路\\nlv.130","labelSize":22,"labelPadding":"0","labelFont":"fzxk","labelColors":"#52473d,#903f14,#903f14","height":73},
+                    "props":{"y":121,"x":15,"width":610,"var":"tab_wuxue","stateNum":2,"space":3,"skin":"image/fuben/img_yeqian.png","selectedIndex":0,"scaleY":1,"scaleX":1,"labelSize":22,"labelPadding":"0","labelFont":"fzxk","labelColors":"#52473d,#903f14,#903f14","height":73},
                     "nodeParent":285,
                     "label":"Tab(tab_wuxue)",
                     "isDirectory":false,
@@ -122,7 +122,7 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":23,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":16,"x":582,"width":102,"var":"btn_back","stateNum":2,"skin":"image/main/icon_fanhui.png","labelSize":30,"labelPadding":"25","labelFont":"FZXK","labelColors":"#ffffff,#ffffff,#ffffff","labelBold":true,"height":82,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,
                             "label":"Button(btn_back)",
                             "isOpen":true,
@@ -137,9 +137,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":20,"x":78,"width":111,"visible":false,"strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"剧情","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":13,"x":78,"width":111,"visible":true,"var":"btn_waigong","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"功法","height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,
-                            "label":"Button",
+                            "label":"Button(btn_waigong)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -152,9 +152,9 @@
                         {
                             "x":45,
                             "type":"Button",
-                            "props":{"y":20,"x":203,"width":111,"visible":false,"strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"资源","height":86,"anchorY":0.5,"anchorX":0.5},
+                            "props":{"y":13,"x":203,"width":111,"visible":true,"var":"btn_miji","strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"秘籍","hitTestPrior":true,"height":86,"anchorY":0.5,"anchorX":0.5},
                             "nodeParent":321,
-                            "label":"Button",
+                            "label":"Button(btn_miji)",
                             "isOpen":true,
                             "isDirectory":false,
                             "isAniNode":true,
@@ -163,38 +163,35 @@
                             "child":[
                                 ],
                             "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":20,"x":326,"width":111,"visible":false,"strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"心魔","height":86,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":321,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":326,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
-                        },
-                        {
-                            "x":45,
-                            "type":"Button",
-                            "props":{"y":20,"x":453,"width":111,"visible":false,"strokeColors":"#783818,#ffffff","stateNum":"2","skin":"image/fuben/btn_common_01.png","labelStrokeColor":"#000000","labelStroke":4,"labelSize":35,"labelPadding":"30,-3","labelFont":"HWXK","labelColors":"#ffffff,#000000","label":"缉拿","height":86,"anchorY":0.5,"anchorX":0.5},
-                            "nodeParent":321,
-                            "label":"Button",
-                            "isOpen":true,
-                            "isDirectory":false,
-                            "isAniNode":true,
-                            "hasChild":false,
-                            "compId":327,
-                            "child":[
-                                ],
-                            "$HIDDEN":false
                         }],
                     "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":23,"x":80,"skin":"image/common/wuxue/img_title_02.png"},
+                    "nodeParent":285,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":329,
+                    "child":[
+                        ],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "props":{"y":39,"x":91,"skin":"image/common/wuxue/font_gongfa.png"},
+                    "nodeParent":285,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":328,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],
