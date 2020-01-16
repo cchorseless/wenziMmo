@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":281,
-    "selecteID":330,
+    "selectedBox":285,
+    "selecteID":284,
     "props":{"width":640,"sceneColor":"#e8e4e4","name":"waigong","height":1136},
     "nodeParent":-1,
     "label":"View(waigong)",
@@ -50,6 +50,20 @@
                     "hasChild":true,
                     "compId":281,
                     "child":[
+                        {
+                            "x":45,
+                            "type":"Image",
+                            "props":{"y":22,"x":80,"skin":"image/common/wuxue/img_title_02.png"},
+                            "nodeParent":281,
+                            "label":"Image",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":329,
+                            "child":[
+                                ],
+                            "$HIDDEN":false
+                        },
                         {
                             "x":45,
                             "type":"Label",
@@ -177,20 +191,6 @@
                                 ],
                             "$HIDDEN":false
                         }],
-                    "$HIDDEN":false
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "props":{"y":23,"x":80,"skin":"image/common/wuxue/img_title_02.png"},
-                    "nodeParent":285,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":329,
-                    "child":[
-                        ],
                     "$HIDDEN":false
                 }],
             "$HIDDEN":false
