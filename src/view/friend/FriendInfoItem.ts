@@ -21,15 +21,9 @@ module view.friend {
 			//姓名
 			this.lbl_name.text = '' + item.szName;
 			//等级
-			this.lbl_lvl.text = '' + item.level;
-			//转生等级
-			this.lbl_zslvl.text = '' + item.zslevel;
-			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
+			this.lbl_lvl.text = item.zslevel + '转' + item.level;
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job);
-			//地点名称
-			this.lbl_place.text = '' + item.mapname;
 			//门派名称
 			this.lbl_Sects.text = item.guildName;
 			if (item.state == 0) {
@@ -49,18 +43,12 @@ module view.friend {
 			//姓名
 			this.lbl_name.text = '' + item.objName;
 			//等级
-			this.lbl_lvl.text = '' + item.level;
-			//转生等级
-			this.lbl_zslvl.text = '' + item.zslevel;
-			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
+			this.lbl_lvl.text = item.zslevel + '转' + item.level;
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
-			//地点名称
-			this.lbl_place.text = SheetConfig.mydb_mapinfo_tbl.getInstance(null).NAME('' + item.location.mapid);
 			//门派名称
 			if (item.feature.dwClanId == 0) {
-				this.lbl_Sects.text = '暂未加入门派';
+				this.lbl_Sects.text = '无门无派';
 			} else {
 				// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.feature.dwClanId);
 			}
@@ -76,18 +64,12 @@ module view.friend {
 			//姓名
 			this.lbl_name.text = '' + item.szName;
 			//等级
-			this.lbl_lvl.text = '' + item.level;
-			//转生等级
-			this.lbl_zslvl.text = '' + item.zslevel;
-			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[item.job]];
+			this.lbl_lvl.text = item.zslevel + '转' + item.level;
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(item.sex, item.job)
-			//地点名称不可见
-			this.lbl_place.visible = false;
 			//门派名称
 			if (item.guileId == 0) {
-				this.lbl_Sects.text = '暂未加入门派';
+				this.lbl_Sects.text = '无门无派';
 			} else {
 				// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.guileId);
 			}
@@ -102,18 +84,12 @@ module view.friend {
 			//姓名
 			this.lbl_name.text = '' + data.playerName;
 			//等级
-			this.lbl_lvl.text = '' + data.level;
-			//转生等级
-			this.lbl_zslvl.text = '' + data.zslevel;
-			//职业名称
-			this.lbl_jobNmae.text = LangConfig.JOB_TYPEDES[EnumData.JOB_TYPE[data.job]];
+			this.lbl_lvl.text = data.zslevel + '转' + data.level;
 			//头像
 			this.img_head.skin = LangConfig.getPlayerIconSkin(data.sex, data.job)
-			//地点不可见
-			this.lbl_place.visible = false;
 			//门派名称
 			if (data.guildId == 0) {
-				this.lbl_Sects.text = '暂未加入门派';
+				this.lbl_Sects.text = '无门无派';
 			} else {
 				// this.lbl_Sects.text=SheetConfig.BaseMenPaiSheet.getInstance(null).NAME(''+item.feature.dwClanId);
 			}
@@ -124,7 +100,7 @@ module view.friend {
 			this.btn_operation.on(Laya.UIEvent.CLICK, this, () => {
 				if (this.item) {
 					switch (this.type) {
-						case 1: case 2:case 4:
+						case 1: case 2: case 4:
 							new view.friend.Friend_OperationDialog().setData(this.item, this.type, this.key).popup();
 							break;
 						case 3:

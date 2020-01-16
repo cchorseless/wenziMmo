@@ -24,10 +24,12 @@ module view.friend {
 					switch (key) {
 						case 0:
 							this.btn_friend.label = '删除好友';
+							this.btn_intoBlackList.visible=false;
 							break;
 						case 1:
 							this.btn_friend.label = '移出黑名单';
 							this.btn_intoBlackList.visible = false;
+			
 							break;
 						case 2:
 							this.btn_friend.label = '删除仇人';

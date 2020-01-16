@@ -10,11 +10,12 @@ module view.main {
 			this.addEvent();
 		}
 		public times = 1;
+		public isClick: boolean = false;
 		public intoInfo = [];
 		public addEvent() {
-			this.btn_xiangXia.on(Laya.UIEvent.CLICK, this, () => {
-				this.btn_xiangXia.selected = !this.btn_xiangXia.selected;
-				this.init_shenSuo(this.btn_xiangXia.selected);
+			this.box_button.on(Laya.UIEvent.CLICK, this, () => {
+				this.isClick = !this.isClick;
+				this.init_shenSuo(this.isClick);
 			})
 		}
 
@@ -161,16 +162,17 @@ module view.main {
 		}
 		public init_shenSuo(v: boolean): void {
 			if (v) {
-				this.btn_xiangXia.skin='image/common/img_jiantou_bianzhang0.png';
+
+				this.btn_xiangXia.skin = 'image/common/img_tansuojiantou.png';
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
-				this.img_sceneTxt.skin='image/main/main_tansuo/img_zhandou-juanzhou_03.png'
-				this.img_sceneTxt.height=680;
+				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou-juanzhou_03.png'
+				this.img_sceneTxt.height = 690;
 			}
 			else {
-				this.btn_xiangXia.skin='image/common/img_jiantou_bianzhang.png';
-				this.img_sceneTxt.skin='image/main/main_tansuo/img_zhandou_juanzhou.png'
+				this.btn_xiangXia.skin = 'image/common/img_jiantou_bianzhang_01.png';
+				this.img_sceneTxt.skin = 'image/main/main_tansuo/img_zhandou_juanzhou.png'
 				this.panel_sceneDes.scrollTo(0, this.panel_sceneDes.contentHeight);
-				this.img_sceneTxt.height=210;
+				this.img_sceneTxt.height = 210;
 			}
 		}
 		public init_updataHieght(label: Laya.Label): void {

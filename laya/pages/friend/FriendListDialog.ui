@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":54,
-    "selecteID":29,
+    "selectedBox":88,
+    "selecteID":58,
     "props":{"width":633,"sceneColor":"#ffffff","height":981},
     "nodeParent":-1,
     "label":"Dialog",
@@ -134,17 +134,31 @@
                 },
                 {
                     "x":30,
-                    "type":"VBox",
-                    "props":{"y":48,"x":4,"width":526,"var":"vbox_friend1","space":5,"scaleY":0,"left":0},
+                    "type":"Image",
+                    "props":{"y":48,"x":0,"width":537,"var":"img_bg1","skin":"image/juQingMode/box_ml_03.png","sizeGrid":"4,7,8,7","scaleY":0,"height":497},
                     "nodeParent":60,
-                    "label":"VBox(vbox_friend1)",
+                    "label":"Image(img_bg1)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":8,
+                    "hasChild":true,
+                    "compId":86,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend1","space":5,"scaleY":1},
+                            "nodeParent":86,
+                            "label":"VBox(vbox_friend1)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":8,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -201,17 +215,31 @@
                 },
                 {
                     "x":30,
-                    "type":"VBox",
-                    "props":{"y":60,"width":526,"var":"vbox_friend2","space":5,"scaleY":0,"left":0},
+                    "type":"Image",
+                    "props":{"y":60,"x":0,"width":537,"var":"img_bg2","skin":"image/juQingMode/box_ml_03.png","sizeGrid":"4,7,8,7","scaleY":0,"height":497},
                     "nodeParent":60,
-                    "label":"VBox(vbox_friend2)",
+                    "label":"Image(img_bg2)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":56,
+                    "hasChild":true,
+                    "compId":87,
                     "child":[
-                        ]
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend2","space":5,"scaleY":1},
+                            "nodeParent":87,
+                            "label":"VBox(vbox_friend2)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":56,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
                 },
                 {
                     "x":30,
@@ -268,18 +296,33 @@
                 },
                 {
                     "x":30,
-                    "type":"VBox",
-                    "props":{"y":144,"x":4,"width":526,"var":"vbox_friend3","space":5,"scaleY":0,"left":0},
+                    "type":"Image",
+                    "props":{"y":144,"x":0,"width":537,"var":"img_bg3","skin":"image/juQingMode/box_ml_03.png","sizeGrid":"4,7,8,7","scaleY":0,"height":497},
                     "nodeParent":60,
-                    "label":"VBox(vbox_friend3)",
+                    "label":"Image(img_bg3)",
                     "isOpen":true,
-                    "isDirectory":false,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
-                    "compId":58,
+                    "hasChild":true,
+                    "compId":88,
                     "child":[
-                        ]
-                }]
+                        {
+                            "x":45,
+                            "type":"VBox",
+                            "props":{"y":0,"x":13,"width":511,"var":"vbox_friend3","space":5,"scaleY":1},
+                            "nodeParent":88,
+                            "label":"VBox(vbox_friend3)",
+                            "isOpen":true,
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":58,
+                            "child":[
+                                ]
+                        }],
+                    "$HIDDEN":false
+                }],
+            "$HIDDEN":true
         },
         {
             "x":15,
